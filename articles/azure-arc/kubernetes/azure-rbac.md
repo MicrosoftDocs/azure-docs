@@ -6,7 +6,7 @@ ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kubernetes clusters"
+description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kubernetes clusters."
 ---
 
 # Integrate Azure Active Directory with Azure Arc enabled Kubernetes clusters
@@ -33,37 +33,37 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     az extension update --name connectedk8s
     ```
 
-- Connect an existing Azure Arc enabled Kubernetes connected cluster.
+- Connect an existing Azure Arc enabled Kubernetes cluster:
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
 
 > [!NOTE]
-> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to `apiserver` of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
+> You can't set up this feature for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
 
 ## Set up Azure AD applications
 
 ### Create a server application
 
-1. Create a new Azure AD application and get its `appId` value, which is used in later steps as `serverApplicationId`:
+1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `serverApplicationId`.
 
     ```azurecli
     az ad app create --display-name "<clusterName>Server" --identifier-uris "https://<clusterName>Server" --query appId -o tsv
     ```
 
-1. Update the application group membership claims:
+1. Update the application's group membership claims:
 
     ```azurecli
     az ad app update --id <serverApplicationId> --set groupMembershipClaims=All
     ```
 
-1. Create a service principal and get its `password` field value, which is required later as `serverApplicationSecret` when you're enabling this feature on the cluster:
+1. Create a service principal and get its `password` field value. This value is required later as `serverApplicationSecret` when you're enabling this feature on the cluster.
 
     ```azurecli
     az ad sp create --id <serverApplicationId>
     az ad sp credential reset --name <serverApplicationId> --credential-description "ArcSecret" --query password -o tsv
     ```
 
-1. Grant the application API permissions:
+1. Grant the application's API permissions:
 
     ```azurecli
     az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
@@ -77,7 +77,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 
 ### Create a client application
 
-1. Create a new Azure AD application and get its 'appId' value, which is used in later steps as `clientApplicationId`:
+1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
 
     ```azurecli
     az ad app create --display-name "<clusterName>Client" --native-app --reply-urls "https://<clusterName>Client" --query appId -o tsv
@@ -131,9 +131,9 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
     az role definition create --role-definition ./accessCheck.json
     ```
 
-3. From the output of the preceding command, store the value of the `id` field, which is used in later steps as `roleId`.
+3. From the output of the preceding command, store the value of the `id` field. This field is used in later steps as `roleId`.
 
-4. Create a role assignment on the server application as assignee by using the role that you created:
+4. Create a role assignment on the server application as `assignee` by using the role that you created:
 
     ```azurecli
     az role assignment create --role <roleId> --assignee <serverApplicationId> --scope /subscriptions/<subscription-id>
@@ -141,16 +141,16 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
 
 ## Enable Azure RBAC on the cluster
 
-1. Enable Azure role-based access control (RBAC) on your Arc enabled Kubernetes cluster by running the following command:
+Enable Azure role-based access control (RBAC) on your Arc enabled Kubernetes cluster by running the following command:
 
-    ```console
-    az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id <serverApplicationId> --app-secret <serverApplicationSecret>
-    ```
+```console
+az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features azure-rbac --app-id <serverApplicationId> --app-secret <serverApplicationSecret>
+```
     
-    > [!NOTE]
-    > Before you run the preceding command, ensure that the `kubeconfig` file on the machine is pointing to the cluster on which you'll enable the Azure RBAC feature.
-    >
-    > Use `--skip-azure-rbac-list` with the preceding command for a comma-separated list of usernames, emails, and OpenID connections undergoing authorization checks by using Kubernetes native `ClusterRoleBinding` and `RoleBinding` objects instead of Azure RBAC.
+> [!NOTE]
+> Before you run the preceding command, ensure that the `kubeconfig` file on the machine is pointing to the cluster on which you'll enable the Azure RBAC feature.
+>
+> Use `--skip-azure-rbac-list` with the preceding command for a comma-separated list of usernames, emails, and OpenID connections undergoing authorization checks by using Kubernetes native `ClusterRoleBinding` and `RoleBinding` objects instead of Azure RBAC.
 
 ### Generic cluster where no reconciler is running on the apiserver specification
 
@@ -195,7 +195,7 @@ The server application needs the `Microsoft.Authorization/*/read` permissions to
         - --authentication-token-webhook-version=v1
         ```
 
-    1. Save and exit the editor to update the `apiserver` pod.
+    1. Save and close the editor to update the `apiserver` pod.
 
 
 ### Cluster created through the Cluster API
@@ -271,12 +271,12 @@ Owners of the Azure Arc enabled Kubernetes resource can use either built-in role
 
 | Role | Description |
 |---|---|
-| [Azure Arc Kubernetes Viewer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Allows read-only access to see most objects in a namespace. This role doesn't allow viewing secrets. This is because `read` permission on secrets would enable access to `ServiceAccount` credentials in the namespace, which would in turn allow API access through that `ServiceAccount` value (a form of privilege escalation). |
+| [Azure Arc Kubernetes Viewer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-viewer) | Allows read-only access to see most objects in a namespace. This role doesn't allow viewing secrets. This is because `read` permission on secrets would enable access to `ServiceAccount` credentials in the namespace. These credentials would in turn allow API access through that `ServiceAccount` value (a form of privilege escalation). |
 | [Azure Arc Kubernetes Writer](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-writer) | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing secrets and running pods as any `ServiceAccount` value in the namespace. So it can be used to gain the API access levels of any `ServiceAccount` value in the namespace. |
-| [Azure Arc Kubernetes Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Allows admin access. It's intended to be granted within a namespace though `RoleBinding`. If you use it in `RoleBinding`, it allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
+| [Azure Arc Kubernetes Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-admin) | Allows admin access. It's intended to be granted within a namespace through `RoleBinding`. If you use it in `RoleBinding`, it allows read/write access to most resources in a namespace, including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | [Azure Arc Kubernetes Cluster Admin](../../role-based-access-control/built-in-roles.md#azure-arc-kubernetes-cluster-admin) | Allows superuser access to execute any action on any resource. When you use it in `ClusterRoleBinding`, it gives full control over every resource in the cluster and in all namespaces. When you use it in `RoleBinding`, it gives full control over every resource in the role binding's namespace, including the namespace itself.|
 
-You can create role assignments scoped to the Arc enabled Kubernetes cluster on the **Access Control (IAM)** pane of the cluster resource on Azure portal. You can also use the following Azure CLI commands:
+You can create role assignments scoped to the Arc enabled Kubernetes cluster in the Azure portal, on the **Access Control (IAM)** pane of the cluster resource. You can also use the following Azure CLI commands:
 
 ```azurecli
 az role assignment create --role "Azure Arc Kubernetes Cluster Admin" --assignee <AZURE-AD-ENTITY-ID> --scope $ARM_ID
@@ -291,7 +291,7 @@ az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee <AZURE
 ```
 
 > [!NOTE]
-> You can create role assignments scoped to the cluster by using either the Azure portal or CLI, but you can create role assignments scoped to namespaces only by using the CLI.
+> You can create role assignments scoped to the cluster by using either the Azure portal or the Azure CLI, but you can create role assignments scoped to namespaces only by using the CLI.
 
 ### Custom roles
 
@@ -379,8 +379,8 @@ After the proxy process is running, you can open another tab in your console to 
 ## Send requests to the cluster
 
 1. Run any `kubectl` command. For example:
-  * `kubectl get nodes` 
-  * `kubectl get pods`
+   * `kubectl get nodes` 
+   * `kubectl get pods`
 
 1. After you're prompted for a browser-based authentication, copy the device login URL (`https://microsoft.com/devicelogin`) and open on your web browser.
 
@@ -409,26 +409,25 @@ To create an example Conditional Access policy to use with the cluster, complete
 1. On the menu for Azure Active Directory on the left side, select **Enterprise applications**.
 1. On the menu for enterprise applications on the left side, select **Conditional Access**.
 1. On the menu for Conditional Access on the left side, select **Policies** > **New policy**.
-1. On the menu for Conditional Access on the left side, select **Policies** > **New policy**.
     
-    [ ![Adding conditional access policy](./media/azure-rbac/conditional-access-new-policy.png) ](./media/azure-rbac/conditional-access-new-policy.png#lightbox)
+    [ ![Screenshot that shows the button for adding a conditional access policy.](./media/azure-rbac/conditional-access-new-policy.png) ](./media/azure-rbac/conditional-access-new-policy.png#lightbox)
 
-1. Enter a name for the policy such as **arc-k8s-policy**.
-1. Select **Users and groups**. Under **Include**, choose **Select users and groups**. Then choose the users and groups where you want to apply the policy. For this example, choose the same Azure AD group that has administration access to your cluster.
+1. Enter a name for the policy, such as **arc-k8s-policy**.
+1. Select **Users and groups**. Under **Include**, choose **Select users and groups**. Then choose the users and groups where you want to apply the policy. For this example, choose the same Azure AD group that has administrative access to your cluster.
 
-    [ ![Selecting users or groups to apply the Conditional Access policy](./media/azure-rbac/conditional-access-users-groups.png) ](./media/azure-rbac/conditional-access-users-groups.png#lightbox)
+    [ ![Screenshot that shows selecting users or groups to apply the Conditional Access policy.](./media/azure-rbac/conditional-access-users-groups.png) ](./media/azure-rbac/conditional-access-users-groups.png#lightbox)
 
 1. Select **Cloud apps or actions**. Under **Include**, choose **Select apps**. Then search for and select the server application that you created earlier.
 
-    [ ![Select server application for applying the Conditional Access policy](./media/azure-rbac/conditional-access-apps.png) ](./media/azure-rbac/conditional-access-apps.png#lightbox)
+    [ ![Screenshot that shows selecting a server application for applying the Conditional Access policy.](./media/azure-rbac/conditional-access-apps.png) ](./media/azure-rbac/conditional-access-apps.png#lightbox)
 
 1. Under **Access controls**, select **Grant**. Select **Grant access** > **Require device to be marked as compliant**.
 
-    [ ![Selecting to only allow compliant devices for the Conditional Access policy](./media/azure-rbac/conditional-access-grant-compliant.png) ](./media/azure-rbac/conditional-access-grant-compliant.png#lightbox)
+    [ ![Screenshot that shows selecting to only allow compliant devices for the Conditional Access policy.](./media/azure-rbac/conditional-access-grant-compliant.png) ](./media/azure-rbac/conditional-access-grant-compliant.png#lightbox)
     
 1. Under **Enable policy**, select **On** > **Create**.
 
-    [ ![Enabling the Conditional Access policy](./media/azure-rbac/conditional-access-enable-policies.png) ](./media/azure-rbac/conditional-access-enable-policies.png#lightbox)
+    [ ![Screenshot that shows enabling the Conditional Access policy.](./media/azure-rbac/conditional-access-enable-policies.png) ](./media/azure-rbac/conditional-access-enable-policies.png#lightbox)
 
 Access the cluster again. For example, run the `kubectl get nodes` command to view nodes in the cluster:
 
@@ -442,7 +441,7 @@ Follow the instructions to sign in again. An error message states that you're su
 1. Select **Enterprise applications**. Then under **Activity**, select **Sign-ins**. 
 1. An entry at the top shows **Failed** for **Status** and **Success** for **Conditional Access**. Select the entry, and then select **Conditional Access** in **Details**. Notice that your Conditional Access policy is listed.
 
-[ ![Failed sign-in entry due to Conditional Access policy](./media/azure-rbac/conditional-access-sign-in-activity.png) ](./media/azure-rbac/conditional-access-sign-in-activity.png#lightbox)
+   [ ![Screenshot that shows a failed sign-in entry due to the Conditional Access policy.](./media/azure-rbac/conditional-access-sign-in-activity.png) ](./media/azure-rbac/conditional-access-sign-in-activity.png#lightbox)
 
 ## Configure just-in-time cluster access with Azure AD
 
@@ -454,45 +453,45 @@ Another option for cluster access control is to use Privileged Identity Manageme
 To configure just-in-time access requests for your cluster, complete the following steps:
 
 1. At the top of the Azure portal, search for and select **Azure Active Directory**.
-1. Take note of the tenant ID. For the rest of these instructions, we'll refer to that ID as `<tenant-id>.
+1. Take note of the tenant ID. For the rest of these instructions, we'll refer to that ID as `<tenant-id>`.
 
-    [ ![AAD tenant details](./media/azure-rbac/jit-get-tenant-id.png) ](./media/azure-rbac/jit-get-tenant-id.png#lightbox)
+    [ ![Screenshot that shows Azure Active Directory tenant details.](./media/azure-rbac/jit-get-tenant-id.png) ](./media/azure-rbac/jit-get-tenant-id.png#lightbox)
 
-1. On the menu for Azure Active Directory on the left side, under **Manage**, select **Groups** > **New Group**.
+1. On the menu for Azure Active Directory on the left side, under **Manage**, select **Groups** > **New group**.
 
-    [ ![Select new group](./media/azure-rbac/jit-create-new-group.png) ](./media/azure-rbac/jit-create-new-group.png#lightbox)
+    [ ![Screenshot that shows selections for creating a new group.](./media/azure-rbac/jit-create-new-group.png) ](./media/azure-rbac/jit-create-new-group.png#lightbox)
 
-1. Make sure that **Security** is selected for **Group Type**.  Enter a group name, such as **myJITGroup**. Under **Azure AD Roles can be assigned to this group (Preview)**, select **Yes**. Finally, select **Create**.
+1. Make sure that **Security** is selected for **Group type**.  Enter a group name, such as **myJITGroup**. Under **Azure AD Roles can be assigned to this group (Preview)**, select **Yes**. Finally, select **Create**.
 
-    [ ![New group creation](./media/azure-rbac/jit-new-group-created.png) ](./media/azure-rbac/jit-new-group-created.png#lightbox)
+    [ ![Screenshot that shows details for the new group.](./media/azure-rbac/jit-new-group-created.png) ](./media/azure-rbac/jit-new-group-created.png#lightbox)
 
 1. You're brought back to the **Groups** page. Select your newly created group and take note of the object ID. For the rest of these instructions, we'll refer to this ID as `<object-id>`.
 
-    [ ![Created group](./media/azure-rbac/jit-get-object-id.png) ](./media/azure-rbac/jit-get-object-id.png#lightbox)
+    [ ![Screenshot that shows the object identifier for the created group.](./media/azure-rbac/jit-get-object-id.png) ](./media/azure-rbac/jit-get-object-id.png#lightbox)
 
 1. Back in the Azure portal, on the menu for **Activity** on the left side, select **Privileged Access (Preview)**. Then select **Enable Privileged Access**.
 
-    [ ![Enable privileged access](./media/azure-rbac/jit-enabling-priv-access.png) ](./media/azure-rbac/jit-enabling-priv-access.png#lightbox)
+    [ ![Screenshot that shows selections for enabling privileged access.](./media/azure-rbac/jit-enabling-priv-access.png) ](./media/azure-rbac/jit-enabling-priv-access.png#lightbox)
 
-1. Select **Add Assignments** to begin granting access.
+1. Select **Add assignments** to begin granting access.
 
-    [ ![Add active assignment](./media/azure-rbac/jit-add-active-assignment.png) ](./media/azure-rbac/jit-add-active-assignment.png#lightbox)
+    [ ![Screenshot that shows the button for adding active assignments.](./media/azure-rbac/jit-add-active-assignment.png) ](./media/azure-rbac/jit-add-active-assignment.png#lightbox)
 
-1. Select a role of **member**, and select the users and groups to whom you wish to grant cluster access. A group admin can modify these assignments at any time. When you're ready to move on, select **Next**.
+1. Select a role of **Member**, and select the users and groups to whom you want to grant cluster access. A group admin can modify these assignments at any time. When you're ready to move on, select **Next**.
 
-    [ ![Adding assignment](./media/azure-rbac/jit-adding-assignment.png) ](./media/azure-rbac/jit-adding-assignment.png#lightbox)
+    [ ![Screenshot that shows adding assignments.](./media/azure-rbac/jit-adding-assignment.png) ](./media/azure-rbac/jit-adding-assignment.png#lightbox)
 
 1. Choose an assignment type of **Active**, choose the desired duration, and provide a justification. When you're ready to proceed, select **Assign**. For more on assignment types, see [Assign eligibility for a privileged access group (preview) in Privileged Identity Management](../../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group).
 
-    [ ![Choosing properties for assignment](./media/azure-rbac/jit-set-active-assignment.png) ](./media/azure-rbac/jit-set-active-assignment.png#lightbox)
+    [ ![Screenshot that shows choosing properties for an assignment.](./media/azure-rbac/jit-set-active-assignment.png) ](./media/azure-rbac/jit-set-active-assignment.png#lightbox)
 
-After you've made the assignments have been made, verify that just-in-time access is working by accessing the cluster. For example, use the `kubectl get nodes` command to view nodes in the cluster:
+After you've made the assignments, verify that just-in-time access is working by accessing the cluster. For example, use the `kubectl get nodes` command to view nodes in the cluster:
 
 ```console
 kubectl get nodes
 ```
 
-Note the authentication requirement and follow the steps to authenticate. If successful, you should see output similar to the following:
+Note the authentication requirement and follow the steps to authenticate. If authentication is successful, you should see output similar to the following:
 
 ```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
