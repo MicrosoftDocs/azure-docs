@@ -298,7 +298,7 @@ The OSM extension has [Jaeger](https://www.jaegertracing.io/docs/getting-started
 
 Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
-Arc enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics.
+Arc enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
 
 1. Ensure that prometheus_scraping is set to true in the OSM configmap.
 2. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
@@ -324,6 +324,7 @@ InsightsMetrics
 | extend t=parse_json(Tags)
 | where t.app == "namespace1"
 ```
+Read more about integration with Azure Monitor [here](https://github.com/microsoft/Docker-Provider/blob/ci_dev/Documentation/OSMPrivatePreview/ReadMe.md).
 
 ### Navigating the OSM dashboard
 1. Access your Arc connected Kubernetes cluster using this [link](https://aka.ms/azmon/osmux).
