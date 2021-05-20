@@ -225,8 +225,6 @@ api-key: [admin key]
 }
 ```
 
-<a name="how-azure-search-indexes-blobs"></a>
-
 ## Indexing blob content
 
 By default, blobs with structured content, such as JSON or CSV, are indexed as a single chunk of text. But if the JSON or CSV documents have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element. For more information, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md).
