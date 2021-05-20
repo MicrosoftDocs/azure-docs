@@ -34,7 +34,7 @@ Follow these steps to perform a post-migration
 - [Tune for optimal performance](#tune-for-optimal-performance)
 
 > [!NOTE]
-> The only mandatory post-migration step on your application level is changing the connection string in your application to point to your new Azure Cosmos DB account. All other post-migration steps are recommended optimizations. *However*, if you perform application cutover immediately without the other steps, then your application will immediately see the impact of having non-optimal indexing and consistency. Specifcally, if you cutover before configuring your indexes, the application may see an immediate price/performance drop. Be aware that this is can be remedied - [once the index is optimized](#optimize-the-indexing-policy), we expect that Azure Cosmos DB will often outperform the status quo solution on price/performance.
+> The only mandatory post-migration step is to change the connection string in your application to point to your new Azure Cosmos DB account. All other post-migration steps are recommended optimizations to improve data-layer performance. *However*, if you perform application cutover immediately without the other steps, then your application will immediately see the impact of having non-optimal indexing and consistency. Specifically, if you cutover before configuring your indexes, the application may see an immediate price/performance drop. Be aware that this is can be remedied - [once the index is optimized](#optimize-the-indexing-policy), we expect that Azure Cosmos DB will often outperform the status quo solution on price/performance.
 >
 
 ## Pre-requisites
