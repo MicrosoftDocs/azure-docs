@@ -1,5 +1,5 @@
 ---
-title: Template functions
+title: Bicep functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
 ms.date: 10/12/2020
@@ -30,27 +30,27 @@ Most functions work the same when deployed to a resource group, subscription, ma
 
 ## Any function
 
-The [any function](template-functions-any.md) is available in Bicep to help resolve issues around data type warnings.
+The [any function](./bicep-functions-any.md) is available in Bicep to help resolve issues around data type warnings.
 
 ## Array functions
 
 Resource Manager provides several functions for working with arrays.
 
-* [array](template-functions-array.md#array)
-* [concat](template-functions-array.md#concat)
-* [contains](template-functions-array.md#contains)
-* [createArray](template-functions-array.md#createarray)
-* [empty](template-functions-array.md#empty)
-* [first](template-functions-array.md#first)
-* [intersection](template-functions-array.md#intersection)
-* [last](template-functions-array.md#last)
-* [length](template-functions-array.md#length)
-* [min](template-functions-array.md#min)
-* [max](template-functions-array.md#max)
-* [range](template-functions-array.md#range)
-* [skip](template-functions-array.md#skip)
-* [take](template-functions-array.md#take)
-* [union](template-functions-array.md#union)
+* [array](./bicep-functions-array.md#array)
+* [concat](./bicep-functions-array.md#concat)
+* [contains](./bicep-functions-array.md#contains)
+* [createArray](./bicep-functions-array.md#createarray)
+* [empty](./bicep-functions-array.md#empty)
+* [first](./bicep-functions-array.md#first)
+* [intersection](./bicep-functions-array.md#intersection)
+* [last](./bicep-functions-array.md#last)
+* [length](./bicep-functions-array.md#length)
+* [min](./bicep-functions-array.md#min)
+* [max](./bicep-functions-array.md#max)
+* [range](./bicep-functions-array.md#range)
+* [skip](./bicep-functions-array.md#skip)
+* [take](./bicep-functions-array.md#take)
+* [union](./bicep-functions-array.md#union)
 
 <a id="coalesce" aria-hidden="true"></a>
 <a id="equals" aria-hidden="true"></a>
@@ -63,12 +63,12 @@ Resource Manager provides several functions for working with arrays.
 
 Resource Manager provides several functions for making comparisons in your templates.
 
-* [coalesce](template-functions-comparison.md#coalesce)
-* [equals](template-functions-comparison.md#equals)
-* [less](template-functions-comparison.md#less)
-* [lessOrEquals](template-functions-comparison.md#lessorequals)
-* [greater](template-functions-comparison.md#greater)
-* [greaterOrEquals](template-functions-comparison.md#greaterorequals)
+* [coalesce](./bicep-functions-comparison.md#coalesce)
+* [equals](./bicep-functions-comparison.md#equals)
+* [less](./bicep-functions-comparison.md#less)
+* [lessOrEquals](./bicep-functions-comparison.md#lessorequals)
+* [greater](./bicep-functions-comparison.md#greater)
+* [greaterOrEquals](./bicep-functions-comparison.md#greaterorequals)
 
 <a id="deployment" aria-hidden="true"></a>
 <a id="parameters" aria-hidden="true"></a>
@@ -78,17 +78,17 @@ Resource Manager provides several functions for making comparisons in your templ
 
 Resource Manager provides the following functions for working with dates.
 
-* [dateTimeAdd](template-functions-date.md#datetimeadd)
-* [utcNow](template-functions-date.md#utcnow)
+* [dateTimeAdd](./bicep-functions-date.md#datetimeadd)
+* [utcNow](./bicep-functions-date.md#utcnow)
 
 ## Deployment value functions
 
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
-* [deployment](template-functions-deployment.md#deployment)
-* [environment](template-functions-deployment.md#environment)
-* [parameters](template-functions-deployment.md#parameters)
-* [variables](template-functions-deployment.md#variables)
+* [deployment](./bicep-functions-deployment.md#deployment)
+* [environment](./bicep-functions-deployment.md#environment)
+* [parameters](./bicep-functions-deployment.md#parameters)
+* [variables](./bicep-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true"></a>
 <a id="bool" aria-hidden="true"></a>
@@ -100,13 +100,13 @@ Resource Manager provides the following functions for getting values from sectio
 
 Resource Manager provides the following functions for working with logical conditions:
 
-* [and](template-functions-logical.md#and)
-* [bool](template-functions-logical.md#bool)
-* [false](template-functions-logical.md#false)
-* [if](template-functions-logical.md#if)
-* [not](template-functions-logical.md#not)
-* [or](template-functions-logical.md#or)
-* [true](template-functions-logical.md#true)
+* [and](./bicep-functions-logical.md#and)
+* [bool](./bicep-functions-logical.md#bool)
+* [false](./bicep-functions-logical.md#false)
+* [if](./bicep-functions-logical.md#if)
+* [not](./bicep-functions-logical.md#not)
+* [or](./bicep-functions-logical.md#or)
+* [true](./bicep-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -123,16 +123,16 @@ Resource Manager provides the following functions for working with logical condi
 
 Resource Manager provides the following functions for working with integers:
 
-* [add](template-functions-numeric.md#add)
-* [copyIndex](template-functions-numeric.md#copyindex)
-* [div](template-functions-numeric.md#div)
-* [float](template-functions-numeric.md#float)
-* [int](template-functions-numeric.md#int)
-* [min](template-functions-numeric.md#min)
-* [max](template-functions-numeric.md#max)
-* [mod](template-functions-numeric.md#mod)
-* [mul](template-functions-numeric.md#mul)
-* [sub](template-functions-numeric.md#sub)
+* [add](./bicep-functions-numeric.md#add)
+* [copyIndex](./bicep-functions-numeric.md#copyindex)
+* [div](./bicep-functions-numeric.md#div)
+* [float](./bicep-functions-numeric.md#float)
+* [int](./bicep-functions-numeric.md#int)
+* [min](./bicep-functions-numeric.md#min)
+* [max](./bicep-functions-numeric.md#max)
+* [mod](./bicep-functions-numeric.md#mod)
+* [mul](./bicep-functions-numeric.md#mul)
+* [sub](./bicep-functions-numeric.md#sub)
 
 <a id="json" aria-hidden="true"></a>
 
@@ -140,14 +140,14 @@ Resource Manager provides the following functions for working with integers:
 
 Resource Manager provides several functions for working with objects.
 
-* [contains](template-functions-object.md#contains)
-* [createObject](template-functions-object.md#createobject)
-* [empty](template-functions-object.md#empty)
-* [intersection](template-functions-object.md#intersection)
-* [json](template-functions-object.md#json)
-* [length](template-functions-object.md#length)
-* [null](template-functions-object.md#null)
-* [union](template-functions-object.md#union)
+* [contains](./bicep-functions-object.md#contains)
+* [createObject](./bicep-functions-object.md#createobject)
+* [empty](./bicep-functions-object.md#empty)
+* [intersection](./bicep-functions-object.md#intersection)
+* [json](./bicep-functions-object.md#json)
+* [length](./bicep-functions-object.md#length)
+* [null](./bicep-functions-object.md#null)
+* [union](./bicep-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
 <a id="listkeys" aria-hidden="true"></a>
@@ -164,18 +164,18 @@ Resource Manager provides several functions for working with objects.
 
 Resource Manager provides the following functions for getting resource values:
 
-* [extensionResourceId](template-functions-resource.md#extensionresourceid)
-* [listAccountSas](template-functions-resource.md#list)
-* [listKeys](template-functions-resource.md#listkeys)
-* [listSecrets](template-functions-resource.md#list)
-* [list*](template-functions-resource.md#list)
-* [pickZones](template-functions-resource.md#pickzones)
-* [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
-* [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
-* [subscription](template-functions-resource.md#subscription) - can only be used in deployments to a resource group or subscription.
-* [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
-* [tenantResourceId](template-functions-resource.md#tenantresourceid)
+* [extensionResourceId](./bicep-functions-resource.md#extensionresourceid)
+* [listAccountSas](./bicep-functions-resource.md#list)
+* [listKeys](./bicep-functions-resource.md#listkeys)
+* [listSecrets](./bicep-functions-resource.md#list)
+* [list*](./bicep-functions-resource.md#list)
+* [pickZones](./bicep-functions-resource.md#pickzones)
+* [reference](./bicep-functions-resource.md#reference)
+* [resourceGroup](./bicep-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
+* [resourceId](./bicep-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
+* [subscription](./bicep-functions-resource.md#subscription) - can only be used in deployments to a resource group or subscription.
+* [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](./bicep-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true"></a>
 <a id="base64tojson" aria-hidden="true"></a>
@@ -212,38 +212,38 @@ Resource Manager provides the following functions for getting resource values:
 
 Resource Manager provides the following functions for working with strings:
 
-* [base64](template-functions-string.md#base64)
-* [base64ToJson](template-functions-string.md#base64tojson)
-* [base64ToString](template-functions-string.md#base64tostring)
-* [concat](template-functions-string.md#concat)
-* [contains](template-functions-string.md#contains)
-* [dataUri](template-functions-string.md#datauri)
-* [dataUriToString](template-functions-string.md#datauritostring)
-* [empty](template-functions-string.md#empty)
-* [endsWith](template-functions-string.md#endswith)
-* [first](template-functions-string.md#first)
-* [format](template-functions-string.md#format)
-* [guid](template-functions-string.md#guid)
-* [indexOf](template-functions-string.md#indexof)
-* [last](template-functions-string.md#last)
-* [lastIndexOf](template-functions-string.md#lastindexof)
-* [length](template-functions-string.md#length)
-* [newGuid](template-functions-string.md#newguid)
-* [padLeft](template-functions-string.md#padleft)
-* [replace](template-functions-string.md#replace)
-* [skip](template-functions-string.md#skip)
-* [split](template-functions-string.md#split)
-* [startsWith](template-functions-string.md#startswith)
-* [string](template-functions-string.md#string)
-* [substring](template-functions-string.md#substring)
-* [take](template-functions-string.md#take)
-* [toLower](template-functions-string.md#tolower)
-* [toUpper](template-functions-string.md#toupper)
-* [trim](template-functions-string.md#trim)
-* [uniqueString](template-functions-string.md#uniquestring)
-* [uri](template-functions-string.md#uri)
-* [uriComponent](template-functions-string.md#uricomponent)
-* [uriComponentToString](template-functions-string.md#uricomponenttostring)
+* [base64](./bicep-functions-string.md#base64)
+* [base64ToJson](./bicep-functions-string.md#base64tojson)
+* [base64ToString](./bicep-functions-string.md#base64tostring)
+* [concat](./bicep-functions-string.md#concat)
+* [contains](./bicep-functions-string.md#contains)
+* [dataUri](./bicep-functions-string.md#datauri)
+* [dataUriToString](./bicep-functions-string.md#datauritostring)
+* [empty](./bicep-functions-string.md#empty)
+* [endsWith](./bicep-functions-string.md#endswith)
+* [first](./bicep-functions-string.md#first)
+* [format](./bicep-functions-string.md#format)
+* [guid](./bicep-functions-string.md#guid)
+* [indexOf](./bicep-functions-string.md#indexof)
+* [last](./bicep-functions-string.md#last)
+* [lastIndexOf](./bicep-functions-string.md#lastindexof)
+* [length](./bicep-functions-string.md#length)
+* [newGuid](./bicep-functions-string.md#newguid)
+* [padLeft](./bicep-functions-string.md#padleft)
+* [replace](./bicep-functions-string.md#replace)
+* [skip](./bicep-functions-string.md#skip)
+* [split](./bicep-functions-string.md#split)
+* [startsWith](./bicep-functions-string.md#startswith)
+* [string](./bicep-functions-string.md#string)
+* [substring](./bicep-functions-string.md#substring)
+* [take](./bicep-functions-string.md#take)
+* [toLower](./bicep-functions-string.md#tolower)
+* [toUpper](./bicep-functions-string.md#toupper)
+* [trim](./bicep-functions-string.md#trim)
+* [uniqueString](./bicep-functions-string.md#uniquestring)
+* [uri](./bicep-functions-string.md#uri)
+* [uriComponent](./bicep-functions-string.md#uricomponent)
+* [uriComponentToString](./bicep-functions-string.md#uricomponenttostring)
 
 ## Next steps
 

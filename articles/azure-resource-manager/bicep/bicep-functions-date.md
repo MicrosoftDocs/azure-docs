@@ -1,5 +1,5 @@
 ---
-title: Template functions - date
+title: Bicep functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
 ms.topic: conceptual
 ms.date: 11/18/2020
@@ -10,8 +10,6 @@ Resource Manager provides the following functions for working with dates in your
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## dateTimeAdd
 

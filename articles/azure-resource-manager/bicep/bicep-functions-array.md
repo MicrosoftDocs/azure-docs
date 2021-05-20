@@ -1,12 +1,12 @@
 ---
-title: Template functions - arrays
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
+title: Bicep functions - arrays
+description: Describes the functions to use in a Bicep file for working with arrays.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Array functions for ARM templates
+# Array functions for Bicep
 
-Resource Manager provides several functions for working with arrays in your Azure Resource Manager template (ARM template):
+Resource Manager provides several functions for working with arrays in Bicep:
 
 * [array](#array)
 * [concat](#concat)
@@ -24,9 +24,7 @@ Resource Manager provides several functions for working with arrays in your Azur
 * [take](#take)
 * [union](#union)
 
-To get an array of string values delimited by a value, see [split](template-functions-string.md#split).
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+To get an array of string values delimited by a value, see [split](./bicep-functions-string.md#split).
 
 ## array
 

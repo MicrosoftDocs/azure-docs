@@ -1,5 +1,5 @@
 ---
-title: Template functions - objects
+title: Bicep functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
 ms.date: 11/18/2020
@@ -16,8 +16,6 @@ Resource Manager provides several functions for working with objects in your Azu
 * [length](#length)
 * [null](#null)
 * [union](#union)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## contains
 
@@ -411,7 +409,7 @@ The JSON data type from the specified string, or an empty value when **null** is
 
 ### Remarks
 
-If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
+If you need to include a parameter value or variable in the JSON object, use the [concat](./bicep-functions-string.md#concat) function to create the string that you pass to the function.
 
 You can also use [null()](#null) to get a null value.
 

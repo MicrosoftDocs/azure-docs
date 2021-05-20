@@ -1,5 +1,5 @@
 ---
-title: Template functions - deployment
+title: Bicep functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
 ms.date: 03/02/2021
@@ -13,9 +13,7 @@ Resource Manager provides the following functions for getting values related to 
 * [parameters](#parameters)
 * [variables](#variables)
 
-To get values from resources, resource groups, or subscriptions, see [Resource functions](template-functions-resource.md).
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+To get values from resources, resource groups, or subscriptions, see [Resource functions](./bicep-functions-resource.md).
 
 ## deployment
 

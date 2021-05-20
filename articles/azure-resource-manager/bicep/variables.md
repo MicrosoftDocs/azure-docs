@@ -39,7 +39,7 @@ The following example creates a string value for a storage account name. It uses
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 ```
 
-In JSON templates, you can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the variable declaration. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
+In JSON templates, you can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the variable declaration. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
 
 In Bicep files, the reference and list functions are valid when declaring a variable.
 

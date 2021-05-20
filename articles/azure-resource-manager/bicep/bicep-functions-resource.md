@@ -1,5 +1,5 @@
 ---
-title: Template functions - resources
+title: Bicep functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
 ms.date: 05/13/2021
@@ -18,9 +18,7 @@ Resource Manager provides the following functions for getting resource values in
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
-To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+To get values from parameters, variables, or the current deployment, see [Deployment value functions](./bicep-functions-deployment.md).
 
 ## extensionResourceId
 
@@ -360,7 +358,7 @@ Other list functions have different return formats. To see the format of a funct
 
 Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
 
-If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
+If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](./bicep-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
 
 ### List example
 
@@ -656,7 +654,7 @@ You can't use the reference function to set the value of the `count` property in
 
 To use the reference function or any list* function in the outputs section of a nested template, you must set the  ```expressionEvaluationOptions``` to use [inner scope](linked-templates.md#expression-evaluation-scope-in-nested-templates) evaluation or use a linked instead of a nested template.
 
-If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
+If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](./bicep-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
 ### Implicit dependency
 

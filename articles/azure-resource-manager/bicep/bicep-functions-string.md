@@ -1,5 +1,5 @@
 ---
-title: Template functions - string
+title: Bicep functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
 ms.date: 03/02/2021
@@ -41,8 +41,6 @@ Resource Manager provides the following functions for working with strings in yo
 * [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## base64
 
@@ -1173,7 +1171,7 @@ The output from the preceding example with the default values is:
 
 `json(arg1)`
 
-Converts a valid JSON string into a JSON data type. For more information, see [json function](template-functions-object.md#json).
+Converts a valid JSON string into a JSON data type. For more information, see [json function](./bicep-functions-object.md#json).
 
 ## last
 
@@ -2479,7 +2477,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 
 ---
 
-If you need to create a new unique name each time you deploy a template, and don't intend to update the resource, you can use the [utcNow](template-functions-date.md#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](template-functions-date.md#utcnow).
+If you need to create a new unique name each time you deploy a template, and don't intend to update the resource, you can use the [utcNow](./bicep-functions-date.md#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](./bicep-functions-date.md#utcnow).
 
 ### Return value
 

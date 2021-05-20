@@ -1,5 +1,5 @@
 ---
-title: Template functions - comparison
+title: Bicep functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
 ms.topic: conceptual
 ms.date: 11/18/2020
@@ -14,8 +14,6 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [greaterOrEquals](#greaterorequals)
 * [less](#less)
 * [lessOrEquals](#lessorequals)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## coalesce
 
@@ -270,7 +268,7 @@ The output from the preceding example with the default values is:
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses [not](template-functions-logical.md#not) with **equals**.
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses [not](./bicep-functions-logical.md#not) with **equals**.
 
 # [JSON](#tab/json)
 

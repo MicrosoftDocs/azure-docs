@@ -164,7 +164,7 @@ param demoParam string = 'Contoso'
 
 ---
 
-You can use expressions with the default value. You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
+You can use expressions with the default value. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
 
 Expressions aren't allowed with other parameter properties.
 
@@ -305,7 +305,7 @@ param virtualMachineSize string = 'Standard_DS1_v2'
 
 ## Use parameter
 
-In a JSON template, you reference the value for the parameter by using the [parameters](template-functions-deployment.md#parameters) function. In Bicep, you use the parameter name. The following example uses a parameter value for a Key Vault name.
+In a JSON template, you reference the value for the parameter by using the [parameters](bicep-functions-deployment.md#parameters) function. In Bicep, you use the parameter name. The following example uses a parameter value for a Key Vault name.
 
 # [JSON](#tab/json)
 

@@ -1,5 +1,5 @@
 ---
-title: Template functions - logical
+title: Bicep functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
 ms.date: 05/05/2021
@@ -15,8 +15,6 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [not](#not)
 * [or](#or)
 * [true](#true)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## and
 
@@ -411,7 +409,7 @@ The output from the preceding example is:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses **not** with [equals](template-functions-comparison.md#equals).
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses **not** with [equals](./bicep-functions-comparison.md#equals).
 
 # [JSON](#tab/json)
 

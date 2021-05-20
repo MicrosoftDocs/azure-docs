@@ -41,7 +41,7 @@ For configuring the portal, use:
 
 * [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
-Built-in policy definitions are tenant-level resources, but you can't deploy custom policy definitions at the tenant. For an example of assigning a built-in policy definition to a resource, see [tenantResourceId example](./template-functions-resource.md#tenantresourceid-example).
+Built-in policy definitions are tenant-level resources, but you can't deploy custom policy definitions at the tenant. For an example of assigning a built-in policy definition to a resource, see [tenantResourceId example](./bicep-functions-resource.md#tenantresourceid-example).
 
 ## Schema
 

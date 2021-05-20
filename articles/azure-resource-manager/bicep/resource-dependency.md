@@ -76,7 +76,7 @@ For the full template, see [quickstart template for Azure SQL Database](https://
 
 ## reference and list functions
 
-The [reference function](template-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. The [list* functions](template-functions-resource.md#list) return values for a resource from a list operation.
+The [reference function](bicep-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. The [list* functions](bicep-functions-resource.md#list) return values for a resource from a list operation.
 
 Reference and list expressions implicitly declare that one resource depends on another. Whenever possible, use an implicit reference to avoid adding an unnecessary dependency.
 
@@ -111,7 +111,7 @@ In the following example, a CDN endpoint explicitly depends on the CDN profile, 
     }
 ```
 
-To learn more, see [reference function](template-functions-resource.md#reference).
+To learn more, see [reference function](bicep-functions-resource.md#reference).
 
 ## Depend on resources in a loop
 

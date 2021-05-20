@@ -1,5 +1,5 @@
 ---
-title: Template functions - numeric
+title: Bicep functions - numeric
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
 ms.date: 11/18/2020
@@ -18,8 +18,6 @@ Resource Manager provides the following functions for working with integers in y
 * [mod](#mod)
 * [mul](#mul)
 * [sub](#sub)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## add
 
