@@ -5,7 +5,7 @@ author: ekpgh
 ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 05/20/2021
 ---
 
 # Required network ports
@@ -75,6 +75,6 @@ Some outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traf
 
 Your core filers might require access on additional ports. This requirement varies depending on the type of storage used.
 
-You can use the `rcpinfo` command to learn which ports are used by a particular server. Issue this command from a client system that is not firewalled:
+You can use the `rpcinfo` command to learn which ports are used by a particular server. Issue this command from a client system that is not firewalled:
 
 `rpcinfo -p <server_IP_address>`

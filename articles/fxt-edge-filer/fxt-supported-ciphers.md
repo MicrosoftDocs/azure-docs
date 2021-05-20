@@ -5,12 +5,12 @@ author: ekpgh
 ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 05/20/2021
 ---
 
 # Supported encryption standards for Azure FXT Edge Filer
 
-This document describes encryption standards needed for Azure FXT Edge Filer. These standards are current as of the operating system version 5.1.1.2.
+This document describes encryption standards needed for Azure FXT Edge Filer. These standards are implemented as of the operating system version 5.1.1.2.
 
 These standards apply to [Avere vFXT for Azure](../avere-vfxt/index.yml) as well as to Azure FXT Edge Filer.
 
