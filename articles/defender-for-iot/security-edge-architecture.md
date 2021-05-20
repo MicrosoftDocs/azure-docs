@@ -2,7 +2,7 @@
 title: Defender for IoT Defender-IoT-micro-agent for IoT Edge
 description: Understand the architecture and capabilities of Azure Defender for IoT Defender-IoT-micro-agent for IoT Edge.
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 05/20/2021
 ---
 
 # Azure Defender for IoT Edge Defender-IoT-micro-agent
@@ -31,7 +31,7 @@ Defender for IoT Defender-IoT-micro-agent for IoT Edge offers the following feat
   See [Configure a Defender for IoT agent](how-to-agent-configuration.md) to learn more.
 
 Defender for IoT Defender-IoT-micro-agent for IoT Edge runs in a privileged mode under IoT Edge.
-Privileged mode is required to allow the module to monitor the Operating System, and other IoT Edge modules.
+Privileged mode is required to allow the module to monitor the Operating System.
 
 ## Module supported platforms
 
