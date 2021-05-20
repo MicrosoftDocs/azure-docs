@@ -637,7 +637,7 @@ To configure the BIOS:
 
 1. Select your language.
 
-1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8GB RAM, 100GB STORAGE**.
+1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8 GB RAM, 100 GB STORAGE**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-select-screen.png" alt-text="Select the sensor version as shown.":::
 
@@ -853,7 +853,7 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 ### Add a secondary NIC
 
-You can enhance security to your on-premises management console by adding a secondary NIC. This could be used for high availability. By adding a secondary NIC you may also have one dedicated for your users while using the other to support the configuration of a gateway for routed networks. The second NIC is then dedicated to all attached sensors within an IP address range.
+You can enhance security to your on-premises management console by adding a secondary NIC. This could be used for high availability. By adding a secondary NIC, you may also have one dedicated for your users while using the other to support the configuration of a gateway for routed networks. The second NIC is then dedicated to all attached sensors within an IP address range.
 
 Both NICs will support the user interface (UI). 
 
