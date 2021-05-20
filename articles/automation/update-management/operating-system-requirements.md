@@ -42,7 +42,7 @@ The following table lists operating systems not supported by Update Management:
 
 ## System requirements
 
-The following information describes operating system-specific requirements. For additional guidance, see [Network planning](#ports). To understand requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+The following information describes operating system-specific requirements. For additional guidance, see [Network planning](plan-deployment.md#ports). To understand requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ### Windows
 
@@ -77,3 +77,4 @@ VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are a
 
 ## Next steps
 
+Before you enable and use Update Management, review [Plan your Update Management deployment](plan-deployment.md).
