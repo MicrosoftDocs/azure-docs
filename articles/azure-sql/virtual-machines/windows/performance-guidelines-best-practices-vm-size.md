@@ -7,6 +7,7 @@ author: dplessMSFT
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -186,6 +187,8 @@ For example, the [M64-32ms](../../../virtual-machines/constrained-vcpu.md) requi
 To learn more, see the other articles in this series:
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [Storage](performance-guidelines-best-practices-storage.md)
+- [Security](security-considerations-best-practices.md)
+- [HADR settings](hadr-cluster-best-practices.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).

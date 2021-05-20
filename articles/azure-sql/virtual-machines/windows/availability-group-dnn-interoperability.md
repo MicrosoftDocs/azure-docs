@@ -128,8 +128,10 @@ Configure the linked server using the AG DNN listener name and port. If the port
 
 ## Next steps
 
-For more information, see: 
+To learn more, see:
 
-- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [Always on availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)
 

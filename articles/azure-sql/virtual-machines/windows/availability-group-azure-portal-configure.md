@@ -274,19 +274,11 @@ This is an indication that the resource provider could not access the SQL Server
 
 ## Next steps
 
-Once the availability group is deployed, consider optimizing the [cluster settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md). 
+Once the availability group is deployed, consider optimizing the [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md). 
 
 
-For more information about availability groups, see:
+To learn more, see:
 
-- [Overview of availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-* [Administration of an availability group](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
-* [Monitoring of availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
-* [Availability group Transact-SQL statements ](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [Availability groups PowerShell commands](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
-
-For more information about SQL Server VMs, see: 
-
-* [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
-* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

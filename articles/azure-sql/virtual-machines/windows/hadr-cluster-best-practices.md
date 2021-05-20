@@ -27,55 +27,37 @@ To learn more, see the other articles in this series: [Checklist](performance-gu
 
 ## Checklist
 
-Review the following checklist for a brief overview of the HADR best practices that the rest of the article covers in greater detail: 
+Review the following checklist for a brief overview of the HADR best practices that the rest of the article covers in greater detail. 
 
-* Change the cluster [heartbeat and threshold settings](#heartbeat-and-threshold) to less aggressive parameters to avoid the possibility of transient network failures, or Azure platform maintenance leading to unexpected outages, or consuming higher computing resources. Choose values based on how much down time is tolerable and how long a corrective action will take depending on your application, business needs, and environment. 
-    - Do not set any values lower than their default values. 
-    - SameSubnetThreshold <= CrossSubnetThreshold
-    - SameSubnetDelay <= CrossSubnetDelay
-    - These changes take effect immediately, no restart required. 
-* To reduce the impact of downtime, choose the [VM availability settings](#vm-availability-settings) that best suit your business needs and environment, such as availability sets, proximity placement groups and/or availability zones. 
+For your Windows cluster, consider these best practices: 
+
+* Change the cluster to less aggressive parameters to avoid unexpected outages from transient network failures or Azure platform maintenance. To learn more, see [heartbeat and threshold settings](hadr-cluster-best-practices.md#heartbeat-and-threshold). For Windows Server 2012 and later, use the following recommended values: 
+ - **SameSubnetDelay**:  1 second
+ - **SameSubnetThreshold**: 40 heartbeats
+ - **CrossSubnetDelay**: 1 second
+ - **CrossSubnetThreshold**:  40 heartbeats
+* Place your VMs in an availability set or different availability zones.  To learn more, see [VM availability settings](hadr-cluster-best-practices.md#vm-availability-settings). 
 * Use a single NIC per cluster node and a single subnet. 
-* Configure cluster [quorum voting](#quorum-voting) to use 3 or more odd number of votes, and do not assign votes to DR regions. 
-* Validate the sector size of your VHDs before deploying your high availability solution to avoid having misaligned I/Os. See [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c) to learn more. 
-* Carefully monitor [resource limits](#resource-limits) to avoid unexpected restarts or failovers due to resource constraints.
+* Configure cluster [quorum voting](hadr-cluster-best-practices.md#quorum-voting) to use 3 or more odd number of votes. Do not assign votes to DR regions. 
+* Carefully monitor [resource limits](hadr-cluster-best-practices.md#resource-limits) to avoid unexpected restarts or failovers due to resource constraints.
    - Ensure your OS, drivers, and SQL Server are at the latest builds. 
-   - Optimize performance for SQL Server on Azure VMs. See the [quick checklist](performance-guidelines-best-practices-checklist.md) to learn more. 
+   - Optimize performance for SQL Server on Azure VMs. Review the other sections in this article to learn more. 
    - Reduce or spread out workload to avoid resource limits. 
    - Move to a VM or disk that his higher limits to avoid constraints. 
-* If you're still experiencing unexpected failures, consider [relaxing the monitoring](#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so simply reduces the likelihood of failure but is unlikely to eliminate the underlying source of the issue. You may still need to investigate and address the underlying root cause. 
-   - Do not set any values lower than their default values. 
-   - The lease interval for an availability group ((1/2)*Lease timeout) must be shorter than SameSubnetThreshold * SameSubnetDelay.
-   - Consider relaxing your monitoring during certain high-load activities, such as index maintenance, or DBCC CHECKDB. 
+
+For your SQL Server availability group or failover cluster instance, consider these best practices: 
+
+* If you're experiencing frequent unexpected failures, follow  the performance best practices outlined in the rest of this article. 
+* If optimizing SQL Server VM performance does not resolve your unexpected failovers, consider [relaxing the monitoring](hadr-cluster-best-practices.md#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so will not address the underlying source of the issue and could mask symptoms by reducing the liklihood of failure. You may still need to investigate and address the underlying root cause. For Windows Server 2012 or higher, use the following recommended values: 
+   - **Lease timeout**: Use this equation to calculate the maximum lease time out value: `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
+   - **Max failures in a specified period**: Set this value to 6. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
    - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
 - To connect to your HADR solution using the distributed network name (DNN), consider the following:
    - You must use a client driver that supports `MultiSubnetFailover = True`, and this parameter must be in the connection string. 
    - Use a unique DNN port in the connection string when connecting to the DNN listener for an availability group. 
 - Use a database mirroring connection string for a basic availability group to bypass the need for a load balancer or DNN. 
-
-### Recommended HADR parameters
-
-To ensure recovery during legitimate outages while providing greater tolerance for transient issues, relax your delay and threshold settings to the recommended values detailed in the following table: 
-
-| Setting | Windows Server 2012 or later | Windows Server 2008R2 |
-|:---------------------|:----------------------------|:-----------------------|
-| **SameSubnetDelay**      | 1 second                    | 2 second               |
-| **SameSubnetThreshold**  | 40 heartbeats               | 10 heartbeats (max)         |
-| **CrossSubnetDelay**     | 1 second                    | 2 second               |  
-| **CrossSubnetThreshold** | 40 heartbeats               | 20 heartbeats (max)         |
-
-If you're experiencing unexpected failures, consider also relaxing the availability group or FCI settings. However, note that doing so may mask an underlying issue rather than resolve it. 
-
-For both the AG, and FCI: 
-- **HealthCheckTimeout**: Start with 60000. You can learn more about the HealthCheckTimeout setting in [Failover Policy for Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/failover-policy-for-failover-cluster-instances.md#instance).
--  **FailureConditionLevel**: Consider making less restrictive by lowering the value less than the default of 3. You can learn about the different FailureConditionLevel settings in [Failover Policy for Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/failover-policy-for-failover-cluster-instances.md#determine). 
-
-For the AG:
-- **Lease timeout**: For Window Server 2012 or later, start with 40 seconds, do not exceed 120 seconds. For Windows Server 2008 & 2008 R2, start with 30 seconds, do not exceed 40 seconds. 
-- **Session timeout** Increase to 15 from the default of 10, though this can increase HADR_SYNC_COMMIT waits. 
-- **Max failures in a specified period**: Increase this value above 3 if your availability group is frequently in a failed state. 
-
+- Validate the sector size of your VHDs before deploying your high availability solution to avoid having misaligned I/Os. See [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c) to learn more. 
 
 
 ## VM availability settings
@@ -332,16 +314,15 @@ For more information, review [Troubleshooting cluster issue with Event ID 1135.]
 If **monitoring** is too aggressive for your environment, you may see frequent AG or FCI restarts, failures, or failovers. Additionally for availability groups, you may see the following messages in the SQL Server error log: 
 
 ```
-Error 19407
-The lease between availability group 'PRODAG' and the Windows Server Failover Cluster has expired. 
+Error 19407: The lease between availability group 'PRODAG' and the Windows Server Failover Cluster has expired. 
 A connectivity issue occurred between the instance of SQL Server and the Windows Server Failover Cluster. 
 To determine whether the availability group is failing over correctly, check the corresponding availability group 
 resource in the Windows Server Failover Cluster
 ```
 
 ```
-Error 19419
-The renewal of the lease between availability group '%.*ls' and the Windows Server Failover Cluster failed because the existing lease is no longer valid. 
+Error 19419: The renewal of the lease between availability group '%.*ls' and the Windows Server Failover Cluster 
+failed because the existing lease is no longer valid. 
 ``` 
 
 **Connection timeout**
@@ -349,9 +330,9 @@ The renewal of the lease between availability group '%.*ls' and the Windows Serv
 If the **session timeout** is too aggressive for your availability group environment, you may see following messages frequently:
 
 ```
-Error 35201: 
-A connection timeout has occurred while attempting to establish a connection to availability replica 'replicaname' with ID [availability_group_id]. 
-Either a networking or firewall issue exists, or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance.
+Error 35201: A connection timeout has occurred while attempting to establish a connection to availability 
+replica 'replicaname' with ID [availability_group_id]. Either a networking or firewall issue exists, 
+or the endpoint address provided for the replica is not the database mirroring endpoint of the host server instance.
 ```
 
 ```
@@ -373,4 +354,11 @@ Not failing over group <Resource name>, failoverCount 3, failoverThresholdSettin
 
 ## Next steps
 
-After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md) or by creating your availability group by using the [Azure portal](availability-group-azure-portal-configure.md), the [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md).
+To learn more, see:
+
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster.md)
+- [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md)
+- [Failover cluster instance overview](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
