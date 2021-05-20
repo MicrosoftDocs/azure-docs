@@ -411,7 +411,7 @@ A *sentinel key* is a special key that you update after you complete the change 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Configuration Explorer**, and update the values of the following keys:
+1. Select **Configuration Explorer**, and update the values of the following keys. Remember to update the sentinel key at last.
 
     | Key | Value |
     |---|---|
