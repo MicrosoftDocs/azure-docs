@@ -211,7 +211,7 @@ The Administrator can change the password for the Security Analyst, and Read Onl
 1. Enter the new password in the **New Password**, and **Confirm New Password** fields.
 
     > [!NOTE]
-    > Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
+    > Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the following symbols: #%*+,-./:=?@[]^_{}~
 
 1. Select **Update**.
 

@@ -2,7 +2,7 @@
 title: Defender for IoT frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT features and service.
 ms.topic: conceptual
-ms.date: 05/16/2021
+ms.date: 05/20/2021
 ---
 
 # Azure Defender for IoT frequently asked questions
@@ -58,12 +58,9 @@ Yes, you can create custom alerts based on multiple parameters including IP/MAC 
 
 The sensors and agents continue to run and store data as long as the device is running. Data is stored in the security message cache according to size configuration. When the device regains connectivity, security messages resume sending.
 
-## How can I change passwords
+## How can I change a user's passwords
 
-Learn how to [Change a users password](how-to-create-and-manage-users.md#change-a-users-password)[change the default password](how-to-create-and-manage-users., for either the sensor or the on-premises management console.
-
-> [!NOTE]
-> Passwords must be at least 16 characters, contain lowercase and uppercase alphabetic characters, numbers and one of the symbols: #%*+,-./:=?@[]^_{}~
+Learn how to [Change a user's password](how-to-create-and-manage-users.md#change-a-users-password)[change the default password](how-to-create-and-manage-users., for either the sensor or the on-premises management console.
 
 You can also [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
@@ -79,13 +76,11 @@ You can see how to [update your sensor network configuration before activation](
 
 You can also [update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration) after activation.
 
-If you are working with the CLI commands, you can view a table of the [available commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration), or you can learn how to [Filter network configurations](references-work-with-defender-for-iot-cli-commands.md#filter-network-configurations).
+You can work with CLI [commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration) to [change network configurations](references-work-with-defender-for-iot-cli-commands.md#filter-network-configurations).
 
 ## How do I check the sanity of my deployment
 
-After installing the software for your sensor, or on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System](how-to-install-software.md#system) statistics.
-
-You can also [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli). Here you will test the systems sanity, version, network and management access.
+After installing the software for your sensor, or on-premises management console, you will want to perform the [Post-installation validation](how-to-install-software.md#post-installation-validation). There you will learn how to [Check system health by using the CLI](how-to-install-software.md#check-system-health-by-using-the-cli), perform a [Sanity](how-to-install-software.md#sanity) check, and review your overall [System statistics](how-to-install-software.md#system).
 
 You can follow these links, if [The appliance isn't responding](how-to-install-software.md#the-appliance-isnt-responding) or [You can't connect by using a web interface](how-to-install-software.md#you-cant-connect-by-using-a-web-interface).
 
