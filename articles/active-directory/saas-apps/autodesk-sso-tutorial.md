@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/04/2021
+ms.date: 05/20/2021
 ms.author: jeedes
 
 ---
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://autodesk-prod.okta.com/sso/saml2/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Autodesk SSO Client support team](mailto:apps.email@autodesk.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Autodesk SSO Client support team](https://knowledge.autodesk.com/contact-support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Autodesk SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Autodesk SSO SSO
 
-To configure single sign-on on **Autodesk SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Autodesk SSO support team](mailto:apps.email@autodesk.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Autodesk SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Autodesk SSO support team](https://knowledge.autodesk.com/contact-support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Autodesk SSO test user
 
@@ -146,6 +146,6 @@ To test the Autodesk SSO, open the Autodesk console and click **Test Connection*
 
 ## Next steps
 
-Once you configure Autodesk SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Autodesk SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 
