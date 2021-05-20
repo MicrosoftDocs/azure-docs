@@ -33,7 +33,7 @@ This will bring up the **Azure Digital Twins URL modal**, where you can enter th
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an editable box containing https:// and a host name." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png":::
 
 >[!NOTE]
->This ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the correct instance in the Azure portal, or may connect to a certain instance through a [direct link](#share-your-environment).
+>This ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the correct instance in the Azure portal, or may connect to a certain instance through a [direct link](#link-to-your-environment).
 
 
 ## Query your digital twin graph
@@ -471,7 +471,7 @@ This action enables a **Download** link in the TWIN GRAPH box. Select it to down
 >[!TIP]
 >This file can be edited and/or re-uploaded to Azure Digital Twins through the [import](#import-graph) feature.
 
-## Share your environment
+## Link to your environment
 
 You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
 
@@ -488,7 +488,7 @@ Here is an example of a URL with the placeholder values filled in:
 
 For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Concepts: Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-### Share with a query
+### Link with a query
 
 You may want to share an environment and specify a query to execute upon landing, to highlight a subgraph or custom view for a teammate. To do this, start with the URL for the environment and add the query text to the URL as a querystring parameter:
 
