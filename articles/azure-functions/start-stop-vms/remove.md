@@ -2,7 +2,7 @@
 title: Remove Start/Stop VMs v2 (preview) overview
 description: This article describes how to remove the Start/Stop VMs v2 (preview) feature.
 services: azure-functions
-ms.subservice: 
+ms.subservice: start-stop-vms
 ms.date: 03/30/2021
 ms.topic: conceptual
 ---

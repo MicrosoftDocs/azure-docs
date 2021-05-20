@@ -84,6 +84,8 @@ For example, if I specify a single key column of `column1` in a cache sink calle
 > [!NOTE]
 > A cache sink must be in a completely independent data stream from any transformation referencing it via a cache lookup. A cache sink also must the first sink written. 
 
+**Write to activity output** The cached sink can optionally write your output data to the input of the next pipeline activity. This will allow you to quickly and easily pass data out of your data flow activity without needing to persist the data in a data store.
+
 ## Field mapping
 
 Similar to a select transformation, on the **Mapping** tab of the sink, you can decide which incoming columns will get written. By default, all input columns, including drifted columns, are mapped. This behavior is known as *automapping*.
