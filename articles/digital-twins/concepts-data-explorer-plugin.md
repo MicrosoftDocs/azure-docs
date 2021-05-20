@@ -48,17 +48,13 @@ The plugin works by calling the [Azure Digital Twins query API](/rest/api/digita
 
 ## Using ADX IoT data with Azure Digital Twins
 
-There are two main pathways for ingesting IoT data into ADX to be used with Azure Digital Twins.
+To prepare IoT data in ADX for use with Azure Digital Twins, start by directly ingesting telemetry data into your ADX cluster. It's not necessary to route the telemetry through twins in Azure Digital Twins first—instead, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/ADX queries. 
 
-* **Ingest telemetry data directly (path 1)**: In this scenario, telemetry data is fed directly into an ADX cluster, without being used to update the state of digital twins in Azure Digital Twins. In this case, the twin graph is used to contextualize time series data using joint Azure Digital Twins/ADX queries. With this path, you can use whatever data schema you want to in ADX, but you'll need to define the mapping between time series IDs and the twin IDs. For more detail on this process, see [Mapping data across ADX and Azure Digital Twins (path 1)](#mapping-data-across-adx-and-azure-digital-twins-path-1) below. 
+You can use whatever data schema you want to in ADX, but you'll need to define the mapping between time series IDs and the twin IDs in order to make the joint Azure Digital Twins/ADX queries. For more information on this process, continue to the next section.
 
-* **Receive telemetry and property updates from Azure Digital Twins (path 2)**: Azure Digital Twins can automatically historize digital twin state changes by recording the twin property updates to ADX. This path is a good choice if you currently use telemetry data to bring your digital twins to life, and rely on twin change events to drive notifications and reactive-computing within the twin graph.
+### Mapping data across ADX and Azure Digital Twins
 
-In either of these scenarios, you'll be able to run joint Azure Digital Twins/ADX queries using the plugin to contextualize time series data. The next sections describe data schema considerations for making these joint queries.
-
-### Mapping data across ADX and Azure Digital Twins (path 1)
-
-If you're following path 1, ingesting time series data directly into ADX, you'll need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/ADX queries.
+After ingesting time series data directly into ADX, you'll need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/ADX queries.
 
 An [update policy](/azure/data-explorer/kusto/management/updatepolicy.md) in ADX allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
@@ -102,9 +98,9 @@ Lastly, create an update policy to call the function and update the target table
 
 Once the target table is created, you can use the Azure Digital Twins plugin to select twins of interest and then join them against time series data in the target table. 
 
-### Automated historization schema (path 2)
+### Example schema
 
-When twin data is automatically historized from Azure Digital Twins to ADX (path 2), it uses the following schema (shown with example values below).
+Here is an example of a schema that might be used to represent shared data.
 
 | timestamp | twinId | modelId | name | value | relationshipTarget | relationshipID |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -116,11 +112,9 @@ The schema also supports storing properties for relationships, per the `relation
 
 ### Representing properties with multiple fields 
 
-You may want to store a property in your schema with multiple fields. These properties are represented by storing a JSON object as `value`.
+You may want to store a property in your schema with multiple fields. These properties are represented by storing a JSON object as `value` in your schema.
 
-For instance, if you want to represent a property with three fields for roll, pitch, and yaw, the object would look like this:`{"roll": 20, "pitch": 15, "yaw": 45}`.
-
-If you are storing samples directly to ADX yourself (path 1), you'll create and store this JSON object yourself. If you're taking advantage of automatic historization (path 2), DTDL properties of type Object will be written to ADX in this fashion. 
+For instance, if you want to represent a property with three fields for roll, pitch, and yaw, the value object would look like this: `{"roll": 20, "pitch": 15, "yaw": 45}`.
 
 ## Next steps
 
