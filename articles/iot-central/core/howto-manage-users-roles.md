@@ -28,7 +28,7 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
   :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Manage users":::
 
-1. To add a user, on the **Users** page, choose **+ Add user**.
+1. To add a user, on the **Users** page, choose **+ Assign user**.
 
 1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
 

@@ -31,15 +31,14 @@ To complete this self-service process, follow these steps:
 
 1. Go to the **Pricing** page in the **Administration** section.
 
-    :::image type="content" source="media/howto-view-bill/freetrialbilling.png" alt-text="Trial state":::
+1. Select the **Plan**
 
-1. Select **Convert to a paid plan**.
+    :::image type="content" source="media/howto-view-bill/free-trial-billing.png" alt-text="Trial state":::
 
-    :::image type="content" source="media/howto-view-bill/convert.png" alt-text="Convert trial":::
 
 1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your application that uses a paid plan.
 
-1. After you select **Convert**, your application now uses a paid plan and you start getting billed.
+1. After you select **Save**, your application now uses a paid plan and you start getting billed.
 
 > [!Note]
 > By default, you are converted to a *Standard 2* pricing plan.
