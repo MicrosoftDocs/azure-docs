@@ -165,7 +165,7 @@ To convert a drawing package:
 
 5. Select the **POST** HTTP method.
 
-6. Enter the following URL to the [Conversion Service](/en-us/rest/api/maps/conversion/convertpreview) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `udid` with the `udid` of the the uploaded package):
+6. Enter the following URL to the [Conversion Service](/en-us/rest/api/maps/v2/conversion/convertpreview) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `udid` with the `udid` of the the uploaded package):
 
     ```http
     https://us.atlas.microsoft.com/conversions?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0
@@ -236,7 +236,7 @@ The following JSON displays a sample conversion warning:
 
 ## Create a dataset
 
-A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset.
+A dataset is a collection of map features, such as buildings, levels, and rooms. To create a dataset, use the [Dataset Create API](/rest/api/maps/v2/dataset/createpreview). The dataset Create API takes the `conversionId` for the converted Drawing package and returns a `datasetId` of the created dataset.
 
 To create a dataset:
 
@@ -250,7 +250,7 @@ To create a dataset:
 
 5. Select the **POST** HTTP method.
 
-6. Enter the following URL to the [Dataset API](/rest/api/maps/dataset/createpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{conversionId`} with the `conversionId` obtained in [Check Drawing package conversion status](#check-drawing-package-conversion-status):
+6. Enter the following URL to the [Dataset API](/rest/api/maps/v2/dataset/createpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{conversionId`} with the `conversionId` obtained in [Check Drawing package conversion status](#check-drawing-package-conversion-status):
 
     ```http
     https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -304,7 +304,7 @@ To create a tileset:
 
 5. Select the **POST** HTTP method.
 
-6. Enter the following URL to the [Tileset API](/rest/api/maps/tileset/createpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
+6. Enter the following URL to the [Tileset API](/rest/api/maps/v2/tileset/createpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
 
     ```http
     https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -344,7 +344,7 @@ To check the status of the dataset creation process and retrieve the `tilesetId`
 
 ## Query datasets with WFS API
 
- Datasets can be queried using [WFS API](/rest/api/maps/wfs). With the WFS API you can query for all feature collections or a specific collection. In this section of the tutorial, we'll do both. First we'll query all collections, and then we will query for the `unit` collection.
+ Datasets can be queried using [WFS API](/rest/api/maps/v2/wfs). With the WFS API you can query for all feature collections or a specific collection. In this section of the tutorial, we'll do both. First we'll query all collections, and then we will query for the `unit` collection.
 
 ### Query for feature collections
 
@@ -360,15 +360,15 @@ To query the all collections in your dataset:
 
 5. Select the **GET** HTTP method.
 
-6. Enter the following URL to [WFS API](/rest/api/maps/wfs). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
+6. Enter the following URL to [WFS API](/rest/api/maps/v2/wfs). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
 
     ```http
-    https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0
     ```
 
 7. Select **Send**.
 
-8. The response body is returned in GeoJSON format and contains all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
+8. The response body is returned in GeoJSON format and contains all collections in the dataset. For simplicity, the example here only shows the `unit` collection. To see an example that contains all collections, see [WFS Describe Collections API](/rest/api/maps/v2/wfs/collectiondescriptionpreview). To learn more about any collection, you can click on any of the URLs inside the `link` element.
 
     ```json
     {
@@ -398,7 +398,7 @@ To query the all collections in your dataset:
 
 ### Query for unit feature collection
 
-In this section, we'll query [WFS API](/rest/api/maps/wfs) for the `unit` feature collection.
+In this section, we'll query [WFS API](/rest/api/maps/v2/wfs) for the `unit` feature collection.
 
 To query the unit collection in your dataset:
 
@@ -415,7 +415,7 @@ To query the unit collection in your dataset:
 6. Enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
 
     ```http
-    https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0
     ```
 
 7. Select **Send**.
@@ -466,7 +466,7 @@ Feature statesets define dynamic properties and values on specific features that
 
 5. Select the **POST** HTTP method.
 
-6. Enter the following URL to the [Stateset API](/rest/api/maps/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
+6. Enter the following URL to the [Stateset API](/rest/api/maps/v2/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{datasetId`} with the `datasetId` obtained in [Check dataset creation status](#check-dataset-creation-status):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -521,7 +521,7 @@ In this section, we'll update the `occupied` state of the unit with feature `id`
 
 5. Select the **PUT** HTTP method.
 
-6. Enter the following URL to the [Feature Statesets API](/rest/api/maps/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#create-a-feature-stateset):
+6. Enter the following URL to the [Feature Statesets API](/rest/api/maps/v2/featurestate/createstatesetpreview). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key), and `{statesetId`} with the `statesetId` obtained in [Create a feature stateset](#create-a-feature-stateset):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -558,7 +558,7 @@ In this section, we'll update the `occupied` state of the unit with feature `id`
 
 13. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you have  [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, the update will display in your rendered map at the specified time stamp.
 
-The [Feature Get Stateset API](/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `id`. You can also delete the stateset and its resources by using the [Feature State Delete State API](/rest/api/maps/featurestate/deletestatesetpreview).
+The [Feature Get Stateset API](/rest/api/maps/v2/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `id`. You can also delete the stateset and its resources by using the [Feature State Delete State API](/rest/api/maps/v2/featurestate/deletestatesetpreview).
 
 To learn more about the different Azure Maps Creator services discussed in this article see, [Creator Indoor Maps](creator-indoor-maps.md).
 

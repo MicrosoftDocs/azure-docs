@@ -181,15 +181,15 @@ Maps Creator service is a suite of web services that developers can use to creat
 
 Maps Creator provides three core services:
 
-* [Dataset service](/rest/api/maps/dataset). Use the Dataset service to create a dataset from a converted Drawing package data. For information on Drawing package requirements, see Drawing package requirements.
+* [Dataset service](/rest/api/maps/v2/dataset). Use the Dataset service to create a dataset from a converted Drawing package data. For information on Drawing package requirements, see Drawing package requirements.
 
-* [Conversion service](/rest/api/maps/dataset). Use the Conversion service to convert a DWG design file into Drawing package data for indoor maps.
+* [Conversion service](/rest/api/maps/v2/dataset). Use the Conversion service to convert a DWG design file into Drawing package data for indoor maps.
 
-* [Tileset service](/rest/api/maps/tileset). Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
+* [Tileset service](/rest/api/maps/v2/tileset). Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
 
-* [Feature State service](/rest/api/maps/featurestate). Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
+* [Feature State service](/rest/api/maps/v2/featurestate). Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
 
-* [WFS service](/rest/api/maps/featurestate). Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
+* [WFS service](/rest/api/maps/v2/featurestate). Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
 
 ### Elevation service (Preview)
 

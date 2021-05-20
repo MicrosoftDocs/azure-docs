@@ -313,7 +313,7 @@
   - name: REST
     items:
     - name: Data service
-      href: /rest/api/maps/data
+      href: /rest/api/maps/data v2
     - name: Elevation service
       href: /rest/api/maps/elevation
     - name: Geolocation service
@@ -339,17 +339,17 @@
     - name: Maps Creator service
       items:
       - name: Alias service
-        href: /rest/api/maps/alias
+        href: /rest/api/maps/v2/alias
       - name: Conversion service
-        href: /rest/api/maps/conversion
+        href: /rest/api/maps/v2/conversion
       - name: Dataset service
-        href: /rest/api/maps/dataset
+        href: /rest/api/maps/v2/dataset
       - name: Feature State service
-        href: /rest/api/maps/featurestate
+        href: /rest/api/maps/v2/featurestate
       - name: Tileset service
-        href: /rest/api/maps/tileset
+        href: /rest/api/maps/v2/tileset
       - name: WFS service
-        href: /rest/api/maps/wfs
+        href: /rest/api/maps/v2/wfs
     - name: Maps account management
       href: /rest/api/maps-management
   - name: JavaScript
