@@ -68,16 +68,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
+1. On the **Set up single sign-on with SAML** page, enter the values for the following fields, please note case sensitivity:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `< YOUR CISCO ANYCONNECT VPN VALUE >`
+    `https://*.YourCiscoServer.com/saml/sp/metadata/TGTGroup`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `< YOUR CISCO ANYCONNECT VPN VALUE >`
+    `https://YOUR_CISCO_ANYCONNECT_FQDN/+CSCOE+/saml/sp/acs?tgname=TGTGroup`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> For clarification on these values contact Cisco TAC support. Update these values with the actual Identifier and Reply URL provided by Cisco TAC. Contact [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate file and save it on your computer.
 
