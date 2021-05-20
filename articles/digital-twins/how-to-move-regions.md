@@ -97,13 +97,13 @@ First, navigate to **Azure Digital Twins Explorer** for the new instance in the 
 
 Import the JSON file that you downloaded [earlier in this article](#download-models-twins-and-graph-with-azure-digital-twins-explorer) to your new instance by following the steps in the Azure Digital Twins Explorer instructions to [Import file to Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#import-file-to-azure-digital-twins-explorer). This will upload all of the models, twins, and relationships from your original instance into the new instance.
 
-To verify everything was uploaded successfully, switch back to the **TWIN GRAPH** tab and select the **Run Query** button in the **QUERY EXPLORER** panel to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **MODELS** panel.
+To verify everything was uploaded successfully, switch back to the **Twin Graph** tab and select the **Run Query** button in the **Query Explorer** panel to run the default query that displays all twins and relationships in the graph. This action also refreshes the list of models in the **Models** panel.
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Highlight around the Run Query button in the upper-right corner of the window." lightbox="media/how-to-move-regions/run-query.png":::
 
-You should see your graph with all its twins and relationships displayed in the **TWIN GRAPH** panel. You should also see your models listed in the **MODELS** panel.
+You should see your graph with all its twins and relationships displayed in the **Twin Graph** panel. You should also see your models listed in the **Models** panel.
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the MODELS panel and a graph highlighted in the TWIN GRAPH panel." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="A view of Azure Digital Twins Explorer showing two models highlighted in the Models panel and a graph highlighted in the Twin Graph panel." lightbox="media/how-to-move-regions/post-upload.png":::
 
 These views confirm that your models, twins, and graph were re-uploaded to the new instance in the target region.
 
