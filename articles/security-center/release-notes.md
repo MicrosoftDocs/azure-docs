@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 05/18/2021
+ms.date: 05/22/2021
 ms.author: memildin
 
 ---
@@ -27,6 +27,7 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 Updates in May include:
 
 - [Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
+- [Vulnerability findings query link added to the relevant recommendations](#vulnerability-findings-query-link-added-to-the-relevant-recommendations)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
 - [Assessments API expanded with two new fields](#assessments-api-expanded-with-two-new-fields)
 
@@ -54,6 +55,28 @@ To simplify the process of enabling these plans, use the recommendations:
 
 > [!NOTE]
 > Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
+
+
+### Vulnerability findings query link added to the relevant recommendations
+
+All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](security-center-recommendations.md#review-recommendation-data-in-azure-resource-graph-explorer-arg).
+
+Security Center includes built-in vulnerability scanners to scan your VMs, SQL servers and their hosts, and container registries for security vulnerabilities. The findings are returned as recommendations with all the individual findings for each resource type gathered into a single view. The recommendations are:
+
+- Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
+- Vulnerabilities in your virtual machines should be remediated
+- SQL databases should have vulnerability findings resolved
+- SQL servers on machines should have vulnerability findings resolved
+
+With this change, you can use the **Open query** button to also open the query showing  the security findings.
+
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings fof vulnerability scanner related recommendations":::
+
+Learn more about Security Center's vulnerability scanners:
+
+- [Azure Defender's integrated vulnerability assessment scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
+- [Azure Defender's integrated vulnerability assessment scanner for SQL servers](defender-for-sql-on-machines-vulnerability-assessment.md)
+- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-container-registries-usage.md)
 
 ### SQL data classification recommendation severity changed
 
