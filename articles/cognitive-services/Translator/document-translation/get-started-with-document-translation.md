@@ -8,7 +8,7 @@ author: laujan
 ms.date: 03/05/2021
 ---
 
-# Get started with Document Translation (Preview)
+# Get started with Document Translation
 
  In this article, you'll learn to use Document Translation with HTTP REST API methods. Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service.  The Document Translation API enables the translation of whole documents while preserving source document structure and text formatting.
 
