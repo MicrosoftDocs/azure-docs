@@ -476,7 +476,7 @@ async function dumpQueryCsv(blob, query, headers)
 You can scope your results to a subset of columns. That way you retrieve only the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
 
 > [!NOTE]
-> The maximum number of columns that you can scope your results to is 50. If you need your results to contain more than 49 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`). 
+> The maximum number of columns that you can scope your results to is 49. If you need your results to contain more than 49 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`). 
 
 This code retrieves only the `BibNum` column for all books in the data set. It also uses the information from the header row in the source file to reference columns in the query.
 
