@@ -157,7 +157,7 @@ az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" 
 
 **Example:** 
 ```azurecli
-az mysql flexible-server execute -n mysqldemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -q "./test.sql"
+az mysql flexible-server execute -n mysqldemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
 ```
 
 You will see an output as shown below:
