@@ -44,8 +44,6 @@ Events that indicate deviations of the learned network might reflect valid netwo
 
     :::image type="content" source="media/how-to-work-with-alerts-sensor/learn.png" alt-text="The Address Detected Scan window.":::
 
-1. Select **Acknowledge**.
-
 Activity reflected in alerts is calculated when you generate Data Mining, Risk Assessment, and Attack Vector reports. When you manage these events, the sensor updates the reports accordingly.
 
 When you select **Learn**, the sensor considers traffic, configurations, or activity valid. The alert will no longer be triggered for the event. It also means the event won't be calculated when the sensor generates risk assessment, attack vector, and other reports.
@@ -58,7 +56,7 @@ Learned events can be unlearned. When the sensor unlearns events, it will retrig
 
     :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-tab.png" alt-text="Select the Alerts tab from the navigation bar on the left side of the screen.":::
 
-1. From the view drop-down menu, select **Acknowledged**.
+1. From the Main View drop-down menu, select **Acknowledged**.
 
     :::image type="content" source="media/how-to-work-with-alerts-sensor/view-acknowledged.png" alt-text="Select acknowledged from the view section drop-down menu." lightbox="media/how-to-work-with-alerts-sensor/view-acknowledged-expanded.png":::
 
