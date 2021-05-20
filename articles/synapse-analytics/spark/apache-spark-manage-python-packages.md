@@ -151,7 +151,8 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 ```
 
 >[!WARNING]
-> In some cases, you may need to create the file path based on the structure above if it does not already exist. For example, you may need to add the ```python``` folder within the ```libraries``` folder if it does not already exist.
+> - In some cases, you may need to create the file path based on the structure above if it does not already exist. For example, you may need to add the ```python``` folder within the ```libraries``` folder if it does not already exist.
+> - This method of managing custom wheel files will not be supported on the Azure Synapse Runtime for Apache Spark 3.0. Please refer to the Workspace packages feature to manage custom wheel files.
 
 > [!IMPORTANT]
 > To install custom libraries using the Azure DataLake Storage method, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
