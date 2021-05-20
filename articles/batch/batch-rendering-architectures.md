@@ -50,6 +50,5 @@ The following diagram shows a fully connected hybrid scenario for both compute a
 
 ## Next steps
 
-* Learn more about using [Render managers](batch-rendering-render-managers.md) with Azure Batch.
-
-* Learn more about options for [Rendering in Azure](batch-rendering-service.md).
+- Learn more about options for [rendering in Azure](batch-rendering-service.md).
+- Learn about [using rendering applications with Batch](batch-rendering-applications.md).
