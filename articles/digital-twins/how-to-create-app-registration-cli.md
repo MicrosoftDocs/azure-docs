@@ -21,7 +21,7 @@ ms.service: digital-twins
 
 When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as a custom client app or a sample like [Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
-This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up using the [Azure CLI](/cli/azure/what-is-azure-cli).
+This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up using the [Azure CLI](/cli/azure/what-is-azure-cli). It also covers how to [collect important values](#collect-important-values) that you'll need in order to use the app registration to authenticate.
 
 ## Using Azure AD app registrations
 
@@ -92,7 +92,19 @@ You can confirm that the Azure Digital Twins permissions were granted by looking
 
 You can also verify the app registration was successfully created using the Azure portal. For portal instructions, see [Verify success (portal)](how-to-create-app-registration-portal.md#verify-success).
 
-## Collect client and tenant ID
+## Collect important values
+
+Next, collect some important values about the app registration that you'll need in order to use the app registration to authenticate a client application. These values include:
+* resource name
+* client ID
+* tenant ID
+* client secret
+
+To work with Azure Digital Twins, the **resource name** is `http://digitaltwins.azure.net`.
+
+The following sections describe how to find the other values.
+
+### Collect client ID and tenant ID
 
 To use the app registration for authentication, you may need to provide its **Application (client) ID** and **Directory (tenant) ID**. In this section, you'll collect these values so you can save them and use them whenever they're needed.
 
@@ -105,6 +117,20 @@ Application (client) ID:
 Directory (tenant) ID:
 
 :::image type="content" source="media/how-to-create-app-registration/cli-tenant-id.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The GUID value in the odata.metadata is highlighted.":::
+
+### Collect client secret
+
+To create a client secret for your app registration, you'll need your app registration's **client ID** value. Use the value in the following CLI command to create a new secret:
+
+```azurecli-interactive
+az ad app credential reset --id <client-ID> --append
+```
+
+You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its additional parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset).
+
+The output of this command is information about the client secret that you've created. Copy the value for `password` to use when you need the client secret for authentication.
+
+:::image type="content" source="media/how-to-create-app-registration/cli-client-secret.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The password value is highlighted.":::
 
 ## Other possible steps for your organization
 
