@@ -11,11 +11,11 @@ ms.subservice: disks
 
 # Disk pools planning guide
 
-Before you deploy a disk pool, it is important to identify the performance requirements of your workload. Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets for individual disks contained in the disk pool, and the networking configuration that connects the clients to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool. It is important to characterize the performance requirements of your workload based on latency and throughput.
+Before you deploy a disk pool, it is important to identify the performance requirements of your workload. Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets for individual disks contained in the disk pool, and the networking configuration that connects the clients to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool.
 
 ## Optimize for low latency
 
-If you're prioritizing low latency, use ultra disks inside your disk pool. Ultra disks will allow for sub-ms latency disk IO. You must also evaluate your network configuration and ensure it's using the most optimal path. Your clients should be in the same virtual network as the disk pool, and if you're using ExpressRoute, consider using ExpressRoute FastPath to minimize network latency.
+If you're prioritizing low latency, use ultra disks inside your disk pool. Ultra disks allow for sub-ms latency disk IO. You must also evaluate your network configuration and ensure it's using the most optimal path. Your clients should be in the same virtual network as the disk pool, and if you're using ExpressRoute, consider using ExpressRoute FastPath to minimize network latency.
 
 ## Optimize for high throughput
 
@@ -30,6 +30,12 @@ If you're prioritizing throughput, begin by evaluating the number of disk pools 
 |Maximum number of disks per disk pool|32|
 |Maximum IOPS per disk pool|25,600|
 |Maximum number of iSCSI initiators|16|
+
+### Scale targets example
+
+The following example should give you an idea how all the different performance factors work together:
+
+As an example, if we provisioned two 1 TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a disk pool, we could achieve 2 x 5000 IOPS but our throughput would be capped at 384 MBps by the disk pool itself. To exceed this 384 MBps limit, we would have to use four 1 TiB P30 premium SSDs and two different disk pools. Two different disk pools would allow us to achieve 384 MBps per each disk pool.    
 
 ## Next steps
 
