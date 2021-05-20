@@ -74,7 +74,19 @@ With the discovery and assessment steps complete, you are done with the MongoDB 
 * Data model
 * Dedicated vs shared throughput
 
-More detail is provided in the following questions.
+More detail is provided in the following sections.
+
+### Considerations when using Azure Cosmos DB's API for MongoDB
+
+Before you plan your Azure Cosmos DB data estate, make sure you understand the following Azure Cosmos DB concepts:
+
+- **Capacity model**: Database capacity on Azure Cosmos DB is based on a throughput-based model. This model is based on [Request Units per second](request-units.md), which is a unit that represents the number of database operations that can be executed against a collection on a per-second basis. This capacity can be allocated at [a database or collection level](set-throughput.md), and it can be provisioned on an allocation model, or using the [autoscale provisioned throughput](provision-throughput-autoscale.md).
+
+- **Request Units**: Every database operation has an associated Request Units (RUs) cost in Azure Cosmos DB. When executed, this is subtracted from the available request units level on a given second. If a request requires more RUs than the currently allocated RU/s there are two options to solve the issue - increase the amount of RUs, or wait until the next second starts and then retry the operation.
+
+- **Elastic capacity**: The capacity for a given collection or database can change at any time. This allows for the database to elastically adapt to the throughput requirements of your workload.
+
+- **Automatic sharding**: Azure Cosmos DB provides an automatic partitioning system that only requires a shard (or a partition key). The [automatic partitioning mechanism](partitioning-overview.md) is shared across all the Azure Cosmos DB APIs and it allows for seamless data and throughout scaling through horizontal distribution.
 
 ### Plan the Azure Cosmos DB data estate
 
@@ -91,7 +103,8 @@ Figure out what Azure Cosmos DB resources you will create. This means stepping t
 ### Immutable decisions
 
 The following Azure Cosmos DB configuration choices cannot be modified or undone once you have created an Azure Cosmos DB resource; therefore it is important to get these right during pre-migration planning, before you kick off any migrations:
-* Follow [this guide](partitioning-overview.md) to choose the best shard key
+* Follow [this guide](partitioning-overview.md) to choose the best shard key. Partitioning, also known as Sharding, is a key point of consideration before migrating data. Azure Cosmos DB uses fully-managed partitioning to increase the capacity in a database to meet the storage and throughput requirements. This feature doesn't need the hosting or configuration of routing servers.   
+   * In a similar way, the partitioning capability automatically adds capacity and re-balances the data accordingly. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key article](partitioning-overview.md#choose-partitionkey). 
 * Follow [this guide](modeling-data.md) to choose a data model
 * Follow [this guide](optimize-cost-throughput.md#optimize-by-provisioning-throughput-at-different-levels) to choose between dedicated and shared throughput for each resource that you will migrate
 * [Here](how-to-model-partition-example.md) is a real-world example of sharding and data modeling to aid you in your decisionmaking process
@@ -100,6 +113,29 @@ The following Azure Cosmos DB configuration choices cannot be modified or undone
 
 * Estimate cost of ownership of your new Azure Cosmos DB resources using the [Azure Cosmos DB capacity calculator](https://cosmos.azure.com/capacitycalculator/).
 
+### Estimating throughput
+
+* In Azure Cosmos DB, the throughput is provisioned in advance and is measured in Request Units (RU's) per second. Unlike VMs or on-premises servers, RUs are easy to scale up and down at any time. You can change the number of provisioned RUs instantly. For more information, see [Request units in Azure Cosmos DB](request-units.md).
+
+* You can use the [Azure Cosmos DB Capacity Calculator](https://cosmos.azure.com/capacitycalculator/) to determine the amount of Request Units based on your database account configuration, amount of data, document size, and required reads and writes per second.
+
+* The following are key factors that affect the number of required RUs:
+   * **Document size**: As the size of an item/document increases, the number of RUs consumed to read or write the item/document also increases.
+
+   * **Document property count**:The number of RUs consumed to create or update a document is related to the number, complexity and length of its properties. You can reduce the request unit consumption for write operations by [limiting the number of indexed properties](mongodb-indexing.md).
+
+   * **Query patterns**: The complexity of a query affects how many request units are consumed by the query. 
+
+* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-mongodb-account.md) using the `getLastRequestStastistics` command to get the request charge, which will output the number of RUs consumed:
+
+    `db.runCommand({getLastRequestStatistics: 1})`
+
+    This command will output a JSON document similar to the following:
+
+    ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
+
+* You can also use [the diagnostic settings](cosmosdb-monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).  
+
 ## Pre-migration logistics planning
 
 Finally, now that you have a view of your existing data estate and a design for your new Azure Cosmos DB data estate, you are ready to plan how to execute your migration process end-to-end. Once again, do your planning at a *per-resource* level, adding columns to your spreadsheet to capture the logistic dimensions below.
@@ -107,6 +143,15 @@ Finally, now that you have a view of your existing data estate and a design for 
 ### Execution logistics
 * Assign responsibility for migrating each existing resource from MongoDB to Azure Cosmos DB. How you leverage your team resources in order to shepherd your migration to completion is up to you. For small migrations, you can have one team kick off the entire migration and monitor its progress. For larger migrations, you could assign responsibility to team-members on a per-resource basis for migrating and monitoring that resource.
 * Once you have assigned responsibility for migrating your resources, now you should choose the right migration tool(s) for migration. For small migrations, you might be able to use one migration tool such as a MongoDB native tool or Azure DMS to migrate all of your resources in one shot. For larger migrations or migrations with special requirements, you may want to choose migration tooling at a per-resource granularity.
+   * Before you plan which migration tools to use, we recommend acquainting yourself with the options that are available. The [Azure Database Migration Service for Azure Cosmos DB's API for MongoDB](../dms/tutorial-mongodb-cosmos-db.md) provides a mechanism that simplifies data migration by providing a fully managed hosting platform, migration monitoring options and automatic throttling handling. The full list of options are the following:
+
+   |**Migration type**|**Solution**|**Considerations**|
+   |---------|---------|---------|
+   |Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets and takes care of replicating live changes <br/>&bull; Works only with other MongoDB sources|
+   |Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets and takes care of replicating live changes <br/>&bull; Works only with other MongoDB sources|
+   |Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)|&bull; Easy to set up and supports multiple sources <br/>&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets <br/>&bull; Lack of checkpointing means that any issue during the course of migration would require a restart of the whole migration process<br/>&bull; Lack of a dead letter queue would mean that a few erroneous files could stop the entire migration process <br/>&bull; Needs custom code to increase read throughput for certain data sources|
+   |Offline|[Existing Mongo Tools (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Easy to set up and integration <br/>&bull; Needs custom handling for throttles|
+
    * If your resource can tolerate an offline migration, use the diagram below to choose the appropriate migration tool:
 
    ![Offline migration tools.](./media/mongodb-pre-migration/offline_tools.png)
@@ -115,7 +160,7 @@ Finally, now that you have a view of your existing data estate and a design for 
 
    ![Online migration tools.](./media/mongodb-pre-migration/online_tools.png)
 
-* Prioritize. Good prioritization can help keep your migration on schedule. A good practice is to prioritize migrating those resources which need the most time to be moved; migrating these resources first will bring the greatest progress toward completion. Furthermore, since these time-consuming migrations typically involve more data, they are usually more resource-intensive for the migration tool and therefore are more likely to expose any problems with your migration pipeline early on. This minimizes the chance that your schedule will slip due to any difficulties with your migration pipeline.
+* Once you have chosen migration tools for each resource, the next step is to prioritize the resources you will migrate. Good prioritization can help keep your migration on schedule. A good practice is to prioritize migrating those resources which need the most time to be moved; migrating these resources first will bring the greatest progress toward completion. Furthermore, since these time-consuming migrations typically involve more data, they are usually more resource-intensive for the migration tool and therefore are more likely to expose any problems with your migration pipeline early on. This minimizes the chance that your schedule will slip due to any difficulties with your migration pipeline.
 * Plan how you will monitor the progress of migration once it has started. If you are coordinating your data migration effort among a team, plan a regular cadence of team syncs to so that you have a comprehensive view of how the high-priority migrations are going.
 
 ### Supported migration scenarios
