@@ -164,7 +164,7 @@ To create a pipeline with a step to deploy a template:
 1. Select **ARM template deployment**.
 1. Enter the following values:
 
-    * **deploymentScope**: Select **Resource Group**. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
+    * **deploymentScope**: Select **Resource Group**. 
     * **Azure Resource Manager connection**: Select the service connection name that you created earlier.
     * **Subscription**:  Specify the target subscription ID.
     * **Action**: Select the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.

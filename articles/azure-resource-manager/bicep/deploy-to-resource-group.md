@@ -69,8 +69,6 @@ For more detailed information about deployment commands and options for deployin
 
 * [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
 * [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
-* [Deploy resources with ARM templates and Azure Resource Manager REST API](deploy-rest.md)
-* [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
 * [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
 ## Deployment scopes

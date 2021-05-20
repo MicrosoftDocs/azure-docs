@@ -87,10 +87,6 @@
         href: deploy-cli.md
       - name: Deploy - PowerShell
         href: deploy-powershell.md
-      - name: Deploy - REST API
-        href: deploy-rest.md
-      - name: Deploy - GitHub
-        href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
     - name: Parameters
