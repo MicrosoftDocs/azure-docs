@@ -1,9 +1,9 @@
 ---
-title: Investigate incidents with UEBA data | Microsoft Docs
-description:  Learn how to use UEBA data while investigating to gain greater context to potentially malicious activity occurring in your organization.
+title: Connect and authenticate playbooks to Azure Sentinel | Microsoft Docs
+description:  Learn how to give your playbooks access to Azure Sentinel and authorization to take remedial actions.
 services: sentinel
 documentationcenter: na
-author: batamig
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -16,7 +16,7 @@ ms.workload: na
 ms.date: 05/20/2021
 ms.author: yelevin
 ---
-# Azure Sentinel Connector
+# Connect and authenticate playbooks to Azure Sentinel
 
 ## Authentication
 
@@ -40,7 +40,7 @@ Triggers and actions in the Azure Sentinel connector can operate on behalf of an
 
 ### Authenticate with managed identity
 
-This authentication method allows you to give permissions directly to the playbook (a Logic App workflow resource), so that Azure Sentinel connector actions taken by the playbook will operate on the playbook's behalf, as if it were an independent object with its own permissions on Azure Sentinel. This lowers the number of identities you have to manage and ***gives you the power to give access (??? -YL)*** directly to the resource that operates. 
+This authentication method allows you to give permissions directly to the playbook (a Logic App workflow resource), so that Azure Sentinel connector actions taken by the playbook will operate on the playbook's behalf, as if it were an independent object with its own permissions on Azure Sentinel. Using this method lowers the number of identities you have to manage. 
 
 To authenticate with managed identity:
 
@@ -76,7 +76,7 @@ To make a connection, select **Sign in**. You will be prompted to provide your a
 
 ### Authenticate as a service principal (Azure AD application)
 
-Service principals can be created by registering an Azure AD application. It is **preferable** to use a registered application as the connector's identity, instead of using a user account, as you will be better able to control permissions, manage credentials, and enable certain limitations on the use of the connector. ***(Is managed identity preferable to service principal, and why? -YL)***
+Service principals can be created by registering an Azure AD application. It is **preferable** to use a registered application as the connector's identity, instead of using a user account, as you will be better able to control permissions, manage credentials, and enable certain limitations on the use of the connector.
 
 To use your own application with the Azure Sentinel connector, perform the following steps:
 
