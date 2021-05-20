@@ -56,7 +56,10 @@ If you believe your metric alert shouldn't have fired but it did, the following 
     - The selected **Aggregation** in the metric chart is the same as **Aggregation type** in your alert rule
     - The selected **Time granularity** is the same as the **Aggregation granularity (period)** in your alert rule (and not set to 'Automatic')
 
-5. If the alert fired while there are already fired alerts that monitor the same criteria (that aren’t resolved), check if the alert rule has been configured with the *autoMitigate* property set to **false** (this property can only be configured via REST/PowerShell/CLI, so check the script used to deploy the alert rule). In such case, the alert rule does not autoresolve fired alerts, and does not require a fired alert to be resolved before firing again.
+5. If the alert fired while there are already fired alerts that monitor the same criteria (that aren’t resolved), check if the alert rule has been configured not to automatically resolve alerts. Such configuration causes the alert rule to become stateless, meaning that the alert rule does not auto-resolve fired alerts, and does not require a fired alert to be resolved before firing again on the same time-series.
+    You can check if the alert rule is configured not to auto-resolve in one of the following ways:
+    - By editing the alert rule in the Azure portal, and reviewing if the 'Automatically resolve alerts' checkbox is unchecked (available under the 'Alert rule details' section).
+    - By reviewing the script used to deploy the alert rule, or by retrieving the alert rule definition, and checking if the *autoMitigate* property is set to **false**.
 
 
 ## Can't find the metric to alert on - virtual machines guest metrics
