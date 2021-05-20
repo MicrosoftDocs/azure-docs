@@ -449,14 +449,14 @@ CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 ## Delta Lake issues
 
 Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
-- Make sure that you are referencing root Delta Lake forlder in the [OPENROWSET](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-openrowset) function or external table location.
+- Make sure that you are referencing root Delta Lake folder in the [OPENROWSET](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-openrowset) function or external table location.
   - Root folder must have a sub-folder named `\_delta\_log`. The query will fail if there is no `\_delta\_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be converted to Delta Lake using apache Spark pools.
-  - Do not specify wildcards to descibe the partition schema. Delta Lake query will automatically identify partitions. 
+  - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify partitions. 
 - You cannot use schema inference in the [OPENROWSET](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-openrowset) function if you have nested/complex types in the files. Make sure that you explicitly specify the schema in `WITH` clause.
-- Delta Lake tables created in the Apache Spark pools are not sunchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
-- External tables do not support partitioning. Use [partitioned views](create-use-views.md#partitioned-views) on Delta Lake folder to leverage partition elimination.
+- Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
+- External tables do not support partitioning. Use [partitioned views](create-use-views.md#partitioned-views) on Delta Lake folder to leverage the partition elimination.
 - Serverless SQL pools do not support time travel queries or updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake.
-- Delta Lake support is not avaialble in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake.
+- Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake.
 
 You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
 
