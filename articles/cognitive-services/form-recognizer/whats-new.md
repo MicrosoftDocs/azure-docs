@@ -19,28 +19,124 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ## May 2021
 
-### SDK generally available (GA) updates for API version 2.1
+### Form Recognizer **API v2.1** is now generally available (GA).
+
+* This General Availability (GA) release marks the stability of the changes introduced in prior 2.1 preview package versions   
+
+* We now support multiple service API versions—Form Recognizer v2.1 and v2.0.
+
+#### SDK updates
 
 ### [**C#**](#tab/csharp)
 
-[NuGet package version 3.0.1](https://www.nuget.org/packages/Azure.AI.FormRecognizer)
+| [Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet) | [NuGet package version 3.0.1](https://www.nuget.org/packages/Azure.AI.FormRecognizer) |
 
-* **Update**
+#### **Non-breaking changes**
 
-  Updated **[FormRecognizerModelFactory](https://docs.microsoft.com/en-us/dotnet/api/azure.ai.formrecognizer.models.formrecognizermodelfactory?view=azure-dotnet)** to support new properties added to the TextAppearance model.
+* **FormRecognizerModelFactory** class now supports updates to **TextAppearance** and **ReadingOrder** and removal of **TextStyle** models. See [Breaking changes](#breaking-changes-may)
 
-* **Breaking changes**
+#### **Breaking changes (May)**
 
-  * By default the SDK targets latest supported service version, currently v2.1. You can specify version 2.0  in the **[FormRecognizerClientOptions](https://docs.microsoft.com/en-us/dotnet/api/azure.ai.formrecognizer.formrecognizerclientoptions?view=azure-dotnet)** object's **Version** property.
-  * Updated Id to Identity in all Start
+* Client defaults to the latest supported service version, currently v2.1. You can specify version 2.0  in the **FormRecognizerClientOptions** object's **Version** property.
+
+* **StartRecognizeIdentityDocuments**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+
+* **FormReadingOrder**. *ReadingOrder* renamed to **FormReadingOrder**.
+
+* **AsCountryRegion**. *AsCountryCode* renamed to **AsCountryRegion**.
+
+* **TextAppearance** now includes **StyleName** and **StyleConfidence** properties (formerly part of the **TextStyle** object).
+
+* **FieldValueType**.  Value **Gender** removed from the model.
+
+* **TextStyle** model removed.
+
+* **FieldValueGender** type removed.
 
 ### [**Java**](#tab/java)
 
+  | [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable)| [Maven artifact package dependency version 3.1.0](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) |
+
+#### **Non-breaking changes**
+
+* **FormRecognizerClientBuilder**  and **FormTrainingClientBuilder** . Added **clientOptions** and **getDefaultLogOptions** methods.
+
+* **FormRecognizerLanguage**.  Added more language fields.
+
+#### **Breaking changes (May)**
+
+* Client defaults to the latest supported service version, currently v2.1. You can specify version 2.0  in the **FormRecognizerClientBuilder**   object's **serviceVersion** method.
+
+* Removed v2.1-preview.1 and v2.1-preview.2 support.
+
+* **beginRecognizeIdentityDocuments**.  Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+
+* **FormReadingOrder**. *ReadingOrder* renamed to **FormReadingOrder**, and refactor the class to be expandable string class.
+
+* **asCountryRegion**. *asCountry* renamed to **asCountryRegion** method.
+
+* **FieldValueType**. Field value *COUNTRY* renamed to **COUNTRY_REGION**.
+
+* **TextAppearance** class now includes **styleName** and **styleConfidence** properties (formerly part of the **TextStyle** object).
+
+* **FieldValueType**. Value *Gender* removed from the model.
+
+* **TextStyle** model removed.
+
+* **FieldValueGender** class type removed.
+
+* **pollInterval**. Removed the pollInterval methods from **RecognizeBusinessCardsOptions**, **RecognizeContentOptions**, **RecognizeCustomFormsOptions**, **RecognizeIdentityDocumentOptions**, **RecognizeInvoicesOptions**, and  **RecognizeReceiptsOptions** classes. Polling interval can be updated using the Azure Core [**SyncPoller setPollInterval**](/java/api/com.azure.core.util.polling.syncpoller.setpollinterval?view=azure-java-stable) or [**PollerFlux setPollInterval**](/java/api/com.azure.core.util.polling.pollerflux.setpollinterval?view=azure-java-stable) methods synchronously or asynchronously, respectively.
+
+* **FormLine**, **FormPage**, **FormTable**, **FormSelectionMark**, **TextAppearance**, **CustomFormModel**, **CustomFormModelInfo**, **CustomFormModelProperties**, **CustomFormSubmodel**, and **TrainingDocumentInfo** are now immutable model classes.
+
 ### [**JavaScript**](#tab/javascript)
+
+| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
+
+#### **Non-breaking changes**
+
+* All REST API calls are migrated to the  v2.1 endpoint.
+
+* **KnownFormLocale** enum added to access possible values of form locales.
+
+* **beginRecognizeIdDocuments...**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword for all related identity documents recognition API functionalities.
+
+* **FormReadingOrder** and **FormLanguage**. *ReadingOrder* renamed to *FormReadingOrder*. *Language* renamed to **FormLanguage**.
+
+* **FormCountryRegionField** and  **countryRegion**. *FormCountryField* type renamed to **FormCountryRegionField**, and renamed the valueType *country* to **countryRegion**:.
+
+* **TextAppearance** interface now includes **styleName** and **styleConfidence** properties (formerly name and confidence properties in the **TextStyle**  interface).
+
+* **KnownStyleName**, **KnownSelectionMarkState**, and **KnownKeyValueType** enums removed.
+
+* **FormGenderField** type removed. Any recognized value that was previously produced as a _FormGenderField_ will now be returned as a FormStringField type and the value will remain the same.
+
+* **TextStyle** type removed.
+
+#### **Breaking changes (May)**
+
+**No breaking changes**
 
 ### [**Python**](#tab/python)
 
+| [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable)| [PyPi azure-ai-formrecognizer 3.1.0](https://pypi.org/project/azure-ai-formrecognizer/) |
+
+#### **Non-breaking changes**
+
+* **to_dict** and **from_dict** methods added to all of the models.
+
+#### **Breaking changes (May)**
+
+* **begin_recognize_identity_documents** and **begin_recognize_identity_documents_from_url**. Renamed methods and method parameters using **Identity** to replace _Id_ keyword.
+
+* **FieldValueType**. Renamed value type *country* to **countryRegion**.  Removed value type *gender*.
+
+* **TextAppearance**model now includes **style_name** and **style_confidence** properties (formerly name and confidence properties in the **TextStyle**  object).
+
+* **TextStyle** model removed.
+
 ---
+
 ## April 2021
 <!-- markdownlint-disable MD029 -->
 
@@ -75,7 +171,7 @@ NuGet package version 3.1.0-beta.4
 
   The `ReadingOrder` property is an optional parameter that allows you to specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-#### Breaking changes
+#### Breaking changes (April)
 
 * The client defaults to the latest supported service version, which is currently **2.1-preview.3**.
 
