@@ -519,6 +519,14 @@ Use one of the methods in this section to convert and resize your virtual disk t
 
    1. Disks in Azure must have a virtual size aligned to 1 MiB. If your VHD is a fraction of 1 MiB, you'll need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD. To verify the size you can use the PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) cmdlet to show "Size", which must be a multiple of 1 MiB in Azure, and "FileSize", which will be equal to "Size" plus 512 bytes for the VHD footer.
    
+      ```powershell
+      $vhd = Get-VHD -Path C:\test\MyNewVM.vhd
+      $vhd.Size % 1MB
+      0
+      $vhd.FileSize - $vhd.Size
+      512
+      ```
+   
    1. The maximum size allowed for the OS VHD with a generation 1 VM is 2,048 GiB (2 TiB), 
    1. The maximum size for a data disk is 32,767 GiB (32 TiB).
 
