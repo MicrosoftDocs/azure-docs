@@ -3,7 +3,7 @@ title: Azure Arc-enabled Open Service Mesh (Preview)
 description: Open Service Mesh (OSM) extension on Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/12/2021
+ms.date: 05/20/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
@@ -17,7 +17,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 
 ### Support limitations for Arc enabled Open Service Mesh
 - Only one instance of Open Service Mesh can be deployed on an Arc connected Kubernetes cluster
-- Public preview is available for Open Service Mesh version v0.8.3 and above
+- Public preview is available for Open Service Mesh version v0.8.3 and above. Find the latest version of the release [here](https://github.com/Azure/osm-azure/releases).
 - Following Kubernetes distributions are currently supported
     - AKS Engine
     - Cluster API Azure
@@ -30,8 +30,9 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
-### Prerequisite
-Ensure you have met all the common prerequisites for cluster extensions listed [here](extensions.md#prerequisites).
+### Prerequisites
+1. Ensure you have met all the common prerequisites for cluster extensions listed [here](extensions.md#prerequisites).
+2. Use az k8s-extension CLI version >= v0.4.0
 
 ## Install Arc enabled Open Service Mesh (OSM) on an Arc enabled Kubernetes cluster
 
