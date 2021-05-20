@@ -76,7 +76,7 @@ To install the tools:
 
 ## Prepare the device
 
-To connect the NXP EVK to Azure, you'll modify a configuration file for Wi-Fi and Azure IoT settings, rebuild the image, and flash the image to the device.
+To connect the NXP EVK to Azure, you'll modify a configuration file for Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Add configuration
 
@@ -206,11 +206,11 @@ You can also use IoT Central to call a direct method that you've implemented on 
 To call a method in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. Select **State** and select **Run**. There will be no change to the devkit as there isn't an available LED to toggle. You can view the output in Termite to monitor the status of the methods.
+1. In the **State** dropdown, select **True**, and then select **Run**. There will be no change on the device as there isn't an available LED to toggle; however, you can view the output in Termite to monitor the status of the methods.
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
-1. Unselect **State** and select **Run**.
+1. In the **State** dropdown, select **True**, and then select **Run**.
 
 ## View device information
 
