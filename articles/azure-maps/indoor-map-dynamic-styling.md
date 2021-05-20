@@ -3,7 +3,7 @@ title: Implement dynamic styling for Azure Maps Creator indoor maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/20/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-Azure Maps Creator [Feature State service](/rest/api/maps/v2/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. In this article, we'll show you how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
+Azure Maps Creator [Feature State service](/rest/api/maps/v2/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Once you complete the prerequisites, you should have a simple web application co
 
 To implement dynamic styling, a feature, such as a meeting or conference room, must be referenced by its feature `id`. You'll use the feature `id` to update the dynamic property or *state* of that feature. To view the features defined in a dataset, you can use one of the following methods:
 
-* WFS API (Web Feature Service). Datasets can be queried using the WFS API. WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
+* WFS API (Web Feature Service). Datasets can be queried using the [WFS API](/rest/api/maps/v2/wfs). WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
 
 * Implement customized code that allows a user to select features on a map using your web application. In this article, we'll make use of this option.  
 
@@ -61,15 +61,35 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
  We'll now update the state of the two offices, `UNIT26` and `UNIT27`:
 
-1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
+1. In the Postman app, select **New**.
 
-2. Use the [Feature Update States API](/rest/api/maps/v2/featurestate/updatestatespreview) to update the state. Pass the stateset ID, and `UNIT26` for one of the two units. Append your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
+2. In the **Create New** window, select **Collection**.
+
+3. Select **New** again.
+
+4. In the **Create New** window, select **Request**.
+
+5. Enter a **Request name** for the request, such as *POST Data Upload*.
+
+6. Select the collection you previously created, and then select **Save**.
+
+7. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/featurestate/updatestatespreview) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
 
     ```http
-    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, write the following raw JSON with the feature updates. The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`. Pass the "occupied" `keyName` to update its value.
+8. Select the **Headers** tab.
+
+9. In the **KEY** field, select `Content-Type`. In the **VALUE** field select `application/json`.
+
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Header tab information for stateset creation.":::
+
+10. Select the **Body** tab.
+
+11. Select **raw** and **JSON** in the dropdown lists.
+
+12. Copy-paste the following JSON style into the **Body** window:
 
     ```json
     {
@@ -77,13 +97,22 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
             {
                 "keyName": "occupied",
                 "value": true,
-                "eventTimestamp": "2019-11-14T17:10:20"
+                "eventTimestamp": "2020-11-14T17:10:20"
             }
         ]
     }
     ```
 
-4. Redo step 2 and 3 using `UNIT27`, with the following JSON.
+    >[!IMPORTANT]
+    >The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`.
+
+13. Change the URL you used in step 7 by replacing `UNIT26` with `UNIT27`:
+
+    ```http
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+14. Copy-paste the following JSON style into the **Body** window:
 
     ``` json
     {
@@ -91,7 +120,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
             {
                 "keyName": "occupied",
                 "value": false,
-                "eventTimestamp": "2019-11-14T17:10:20"
+                "eventTimestamp": "2020-11-14T17:10:20"
             }
         ]
     }

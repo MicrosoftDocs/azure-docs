@@ -165,7 +165,7 @@ To convert a drawing package:
 
 5. Select the **POST** HTTP method.
 
-6. Enter the following URL to the [Conversion Service](/en-us/rest/api/maps/v2/conversion/convertpreview) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `udid` with the `udid` of the the uploaded package):
+6. Enter the following URL to the [Conversion Service](/en-us/rest/api/maps/v2/conversion/convertpreview) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `udid` with the `udid` of the uploaded package):
 
     ```http
     https://us.atlas.microsoft.com/conversions?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0
@@ -537,7 +537,7 @@ In this section, we'll update the `occupied` state of the unit with feature `id`
 
 10. Select **raw** and **JSON** in the dropdown lists.
 
-11. Copy-paste the following JSON styles into the **Body** window:
+11. Copy-paste the following JSON style into the **Body** window:
 
     ```json
     {
