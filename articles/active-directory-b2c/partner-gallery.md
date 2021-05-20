@@ -77,6 +77,14 @@ Microsoft partners with the following ISVs for fraud detection and prevention.
 | ![Screenshot of a BioCatch logo](./media/partner-gallery/biocatch-logo.png) | [BioCatch](./partner-biocatch.md) is a fraud prevention solution provider that analyzes a user's physical and cognitive digital behaviors to generate insights that distinguish between legitimate customers and cyber-criminals. |
 | ![Screenshot of a Microsoft Dynamics 365 logo](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraud Protection](./partner-dynamics-365-fraud-protection.md) is a solution that helps organizations protect against fraudulent account openings through device fingerprinting. |
 
+## Web Application Firewall 
+
+Microsoft partners with the following ISVs for Web Application Firewall (WAF). 
+
+| ISV partner | Description and integration walkthroughs |
+|:-------------------------|:--------------|
+| ![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
+
 
 ## Additional information
 

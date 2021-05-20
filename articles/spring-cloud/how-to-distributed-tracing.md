@@ -100,7 +100,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](./quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
 
 ## Add dependencies
 
@@ -209,4 +209,4 @@ Application Insights provides monitoring capabilities in addition to the applica
 
 ## Next steps
 
-In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](spring-cloud-howto-bind-cosmos.md).
+In this article, you learned how to enable and understand distributed tracing in Azure Spring Cloud. To learn about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](./how-to-bind-cosmos.md).

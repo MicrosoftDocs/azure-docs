@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -213,11 +213,11 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `-EnableHierarchicalNamespace $True` parameter on the call to the **New-AzStorageAccount** command.
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `EnableHierarchicalNamespace' parameter to `$True` on the call to the **New-AzStorageAccount** command.
 
-The following table shows which values to use for the `-SkuName` and `-Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
+The following table shows which values to use for the `SkuName` and `Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| Type of storage account | Supported redundancy configurations | Value for the -Kind parameter | Possible values for the -SkuName parameter | Supports hierarchical namespace |
+| Type of storage account | Supported redundancy configurations | Supported values for the Kind parameter | Supported values for the SkuName parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
 | Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
@@ -255,11 +255,11 @@ az storage account create \
   --kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `--enable-hierarchical-namespace true` parameter on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `enable-hierarchical-namespace` parameter to `true` on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
 
-The following table shows which values to use for the `-sku` and `-kind` parameters to create a particular type of storage account with the desired redundancy configuration.
+The following table shows which values to use for the `sku` and `kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| Type of storage account | Supported redundancy configurations | Value for the -kind parameter | Possible values for the -sku parameter | Supports hierarchical namespace |
+| Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
 | Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
@@ -277,7 +277,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 ```
 
 ```azurecli-interactive
@@ -286,7 +286,7 @@ read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
 az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 ```
 
 > [!NOTE]
@@ -302,7 +302,11 @@ To learn how to modify this template or create new ones, see:
 
 ## Delete a storage account
 
-Deleting a storage account deletes the entire account, including all data in the account, and cannot be undone.
+Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
+
+Under certain circumstances, a deleted storage account may be recovered, but recovery is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
+
+If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 # [Portal](#tab/azure-portal)
 
@@ -346,11 +350,6 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 ---
 
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
-
-> [!WARNING]
-> It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
->
-> If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 
 ## Next steps
 

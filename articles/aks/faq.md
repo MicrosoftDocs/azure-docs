@@ -273,6 +273,9 @@ spec:
 
 The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granular Control of Volume Permission Changes](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) for more details.
 
+## Can I use FIPS cryptographic libraries with deployments on AKS?
+
+FIPS-enabled nodes are currently available in preview on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool (preview)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
 
 <!-- LINKS - internal -->
 
@@ -281,7 +284,7 @@ The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granula
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
-[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[aks-preview-cli]: /cli/azure/aks
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md

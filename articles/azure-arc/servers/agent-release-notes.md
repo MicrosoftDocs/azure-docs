@@ -2,7 +2,7 @@
 title: What's new with Azure Arc enabled servers agent
 description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 04/27/2021
 ---
 
 # What's new with Azure Arc enabled servers agent
@@ -13,17 +13,28 @@ The Azure Arc enabled servers Connected Machine agent receives improvements on a
 - Known issues
 - Bug fixes
 
+## April 2021
+
+Version 1.5
+
+### New feature
+
+- Added support for Red Hat Enterprise Linux 8 and CentOS Linux 8.
+- New `-useStderr` parameter to direct error and verbose output to stderr.
+- New `-json` parameter to direct output results in JSON format (when used with -useStderr).
+- Collect other instance metadata - Manufacturer, model, if SQL Server is installed (Boolean), and cluster resource ID (for Azure Stack HCI nodes).
+ 
 ## March 2021
 
 Version 1.4
 
-## New feature
+### New feature
 
 - Added support for private endpoints, which is currently in limited preview.
 - Expanded list of exit codes for azcmagent.
 - Agent configuration parameters can now be read from a file with the `--config` parameter.
 
-## Fixed
+### Fixed
 
 Network endpoint checks are now faster.
 

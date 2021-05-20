@@ -77,7 +77,7 @@
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
-      href: ./concepts/azure-security-benchmark-baseline.md
+      href: /security/benchmark/azure/baselines/resource-graph-security-baseline?toc=/azure/governance/resource-graph/toc.json&bc=/azure/governance/resource-graph/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Get resource changes

@@ -16,10 +16,14 @@
       href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
-  - name: Integrate with Power Virtual Agent
-    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Create FAQ Bot with Azure Bot Service
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
+  - name: Customize your bot
+    items:
+    - name: Add multiple domains to FAQ Bot
+      href: Tutorials/create-faq-bot-for-multiple-domains.md
+  - name: Integrate with Power Virtual Agent
+    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
 - name: Concepts
   items:
   - name: Plan your knowledge base
@@ -102,6 +106,18 @@
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
       href: ../authentication.md?context=/azure/cognitive-services/qnamaker/context/context
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+    items:
+    - name: Use cases for QnA Maker
+      href: /legal/cognitive-services/qnamaker/transparency-note-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/qnamaker/characteristics-and-limitations-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
+  - name: Data, privacy and security
+    href: /legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context
 - name: Reference
   items:
   - name: Language support

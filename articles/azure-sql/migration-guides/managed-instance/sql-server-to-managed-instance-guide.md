@@ -24,18 +24,19 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information, see the [migration overview](sql-server-to-managed-instance-overview.md). For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration). 
+For more migration information, see the [migration overview](sql-server-to-managed-instance-overview.md). For other migration guides, see [Database Migration](/data-migration). 
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
 ## Prerequisites 
 
-To migrate your SQL Server to Azure SQL Managed Instance, make sure to go through the following pre-requisites: 
+To migrate your SQL Server to Azure SQL Managed Instance, make sure you have: 
 
-- Choose a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding tools that are required for the chosen method
-- Install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server
-- Connectivity and proper permissions to access both source and target. 
-
+- Chosen a [migration method](sql-server-to-managed-instance-overview.md#compare-migration-options) and the corresponding tools for your method.
+- Installed the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server.
+- Created a target [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md)
+- Configured connectivity and proper permissions to access both source and target. 
+- Reviewed the SQL Server database engine features [available in Azure SQL Managed Instance](../../database/features-comparison.md). 
 
 
 ## Pre-migration

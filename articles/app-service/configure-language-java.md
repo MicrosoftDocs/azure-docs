@@ -19,6 +19,40 @@ Azure App Service lets Java developers to quickly build, deploy, and scale their
 
 This guide provides key concepts and instructions for Java developers using App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.md).
 
+## Show Java version
+
+::: zone pivot="platform-windows"  
+
+To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --name <app-name> --resource-group <resource-group-name> --query "[javaVersion, javaContainer, javaContainerVersion]"
+```
+
+To show all supported Java versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes | grep java
+```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+To show all supported Java versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
+```
+
+::: zone-end
+
 ## Deploying your app
 
 You can use [Azure Web App Plugin for Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy your .war or .jar files. Deployment with popular IDEs is also supported with the [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
@@ -150,7 +184,7 @@ Azure Blob Storage logging for Linux based App Services can only be configured u
 
 ::: zone-end
 
-If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/java-trace-logs.md).
+If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/java-2x-trace-logs.md).
 
 ## Customization and tuning
 

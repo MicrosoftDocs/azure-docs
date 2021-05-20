@@ -7,9 +7,8 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 05/18/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
 ---
@@ -58,10 +57,10 @@ Changing how your storage account is replicated does not result in down time for
 To change the redundancy option for your storage account in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
-1. Select the **Configuration** setting.
+1. Under **Settings** select **Configuration**.
 1. Update the **Replication** setting.
 
-![Screenshot showing how to change replication option in portal](media/redundancy-migration/change-replication-option.png)
+    :::image type="content" source="media/redundancy-migration/change-replication-option.png" alt-text="Screenshot showing how to change replication option in portal." lightbox="media/redundancy-migration/change-replication-option.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -144,7 +143,7 @@ Follow these steps to request a live migration:
 1. Fill out the additional required information on the **Details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
 > [!NOTE]
-> Premium file shares (FileStorage accounts) are only available for LRS and ZRS.
+> Premium file shares are available only for LRS and ZRS.
 >
 > GZRS storage accounts do not currently support the archive tier. See [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) for more details.
 >
@@ -193,7 +192,7 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 The costs associated with changing how data is replicated depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS.
 
-For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge at the time of migration because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
 

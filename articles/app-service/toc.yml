@@ -86,6 +86,10 @@
     href: tutorial-send-email.md
   - name: Troubleshoot errors
     href: tutorial-troubleshoot-monitor.md
+  - name: GitHub Actions
+    items:
+    - name: ASP.NET Core with a container
+      href: app-service-sql-github-actions.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -115,7 +119,7 @@
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

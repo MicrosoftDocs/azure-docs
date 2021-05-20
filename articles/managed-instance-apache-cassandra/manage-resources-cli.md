@@ -128,8 +128,10 @@ The following sections demonstrate how to manage Azure Managed Instance for Apac
 * [Create a datacenter](#create-datacenter)
 * [Delete a datacenter](#delete-datacenter)
 * [Get datacenter details](#get-datacenter-details)
-* [Update or scale a datacenter](#update-datacenter)
 * [Get datacenters in a cluster](#get-datacenters-cluster)
+* [Update or scale a datacenter](#update-datacenter)
+* [Update Cassandra configuration](#update-yaml)
+
 
 ### <a id="create-datacenter"></a>Create a datacenter
 
@@ -190,13 +192,51 @@ resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 dataCenterLocation='eastus'
-delegatedSubnetId= '/subscriptions/<Subscription_ID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
 
 az managed-cassandra datacenter update \
     --resource-group $resourceGroupName \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName \
     --node-count 13 
+```
+
+### <a id="update-yaml"></a>Update Cassandra configuration
+
+Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an [online tool](https://www.base64encode.org/). The following YAML settings are supported:
+
+- column_index_size_in_kb
+- compaction_throughput_mb_per_sec
+- read_request_timeout_in_ms
+- range_request_timeout_in_ms
+- aggregated_request_timeout_in_ms
+- write_request_timeout_in_ms
+- internode_compression
+- batchlog_replay_throttle_in_kb
+
+For example, the following YAML fragment:
+
+```yaml
+column_index_size_in_kb: 16
+read_request_timeout_in_ms: 10000
+```
+
+When encoded, the YAML is converted to: 
+`Y29sdW1uX2luZGV4X3NpemVfaW5fa2I6IDE2CnJlYWRfcmVxdWVzdF90aW1lb3V0X2luX21zOiAxMDAwMA==`. 
+
+See below:
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+clusterName='cassandra-hybrid-cluster'
+dataCenterName='dc1'
+dataCenterLocation='eastus'
+yamlFragment='Y29sdW1uX2luZGV4X3NpemVfaW5fa2I6IDE2CnJlYWRfcmVxdWVzdF90aW1lb3V0X2luX21zOiAxMDAwMA=='
+
+az managed-cassandra datacenter update \
+    --resource-group $resourceGroupName \
+    --cluster-name $clusterName \
+    --data-center-name $dataCenterName \
+    --base64-encoded-cassandra-yaml-fragment $yamlFragment
 ```
 
 ### <a id="get-datacenters-cluster"></a>Get the datacenters in a cluster

@@ -5,13 +5,13 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 05/13/2021
 ms.author: scottnap
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ---
 # About Network Virtual Appliance in an Azure Virtual WAN hub (Preview)
 
-Azure Virtual WAN has worked with networking partners to build automation that makes it easy to connect their Customer Premise Equipment (CPE) to an Azure VPN gateway in the virtual hub. Azure is working with select networking partners to enable customers to deploy a third-party Network Virtual Appliance (NVA) directly into the virtual hub. This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities.
+Azure Virtual WAN has worked with networking partners to build automation that makes it easy to connect their Customer Premises Equipment (CPE) to an Azure VPN gateway in the virtual hub. Azure is working with select networking partners to enable customers to deploy a third-party Network Virtual Appliance (NVA) directly into the virtual hub. This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities.
 
 Barracuda Networks and Cisco Systems are the first partners to provide the NVAs that can be deployed directly to the Virtual WAN hub.  See [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan), [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) and [VMware SD-WAN](https://kb.vmware.com/s/article/82746) for their respective product documentation. Azure is working with more partners so expect to see other offerings follow.
 
@@ -72,7 +72,7 @@ NVA in the virtual hub is available for Preview in the following regions:
 
 |Geopolitical region | Azure regions|
 |---|---|
-| North America| Canada Central, Canada East, Central US, East US, East US 2, North Central US, West Central US, West US, West US 2 |
+| North America| Canada Central, Canada East, Central US, East US, East US 2, South Central US, North Central US, West Central US, West US, West US 2 |
 | South America | Brazil South, Brazil Southeast |
 | Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe|
 |  Middle East | UAE North |
