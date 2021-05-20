@@ -20,7 +20,7 @@ ms.custom: "devx-track-csharp, mvc"
 ---
 # Tutorial: Use dynamic configuration in an ASP.NET Core app
 
-ASP.NET Core has a pluggable configuration system that can read configuration data from a variety of sources. It can handle changes dynamically without causing an application to restart. ASP.NET Core supports the binding of configuration settings to strongly typed .NET classes. It injects them into your code by using the various `IOptions<T>` patterns, which automatically reloads the application's configuration when the underlying data changes.
+ASP.NET Core has a pluggable configuration system that can read configuration data from a variety of sources. It can handle changes dynamically without causing an application to restart. ASP.NET Core supports the binding of configuration settings to strongly typed .NET classes. It injects them into your code by using `IOptionsSnapshot<T>`, which automatically reloads the application's configuration when the underlying data changes.
 
 This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
@@ -126,7 +126,7 @@ A *sentinel key* is a special key used to signal when all configuration changes 
     ```
     ---
 
-    In the `ConfigureRefresh` method, you register keys that you want to monitor for changes from your App Configuration store. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds specifying a time of 5 minutes instead. This reduces the potential number of requests made to your App Configuration store.
+    In the `ConfigureRefresh` method, you register keys within your App Configuration store that you want to monitor for changes. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds specifying a time of 5 minutes instead. This reduces the potential number of requests made to your App Configuration store.
 
     > [!NOTE]
     > For testing purposes, you may want to lower the cache refresh expiration time.
