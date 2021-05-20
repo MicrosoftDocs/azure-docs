@@ -145,3 +145,5 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 ```
 
 ## Next steps
+
+- See [Using queries in Azure Monitor Log Analytics](queries.md) to see how users interact with query packs in Log Analytics.
