@@ -112,7 +112,7 @@ Define marketplace details such as offer name, description, and images for each 
 
 Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 <!-- update screen? -->
-:::image type="content" source="../media/dynamics-365/example-azure-marketplace-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="../media/dynamics-365/example-azure-marketplace-365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 #### Call-out descriptions
 
