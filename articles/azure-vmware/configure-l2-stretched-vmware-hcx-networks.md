@@ -3,6 +3,9 @@ title: Configure DHCP on L2 stretched VMware HCX networks
 description: Learn how to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server.
 ms.topic: how-to
 ms.date: 05/17/2021
+
+# Customer intent: As an Azure service administrator, I want to <what?> so <why?>.
+
 ---
 
 # Configure DHCP on L2 stretched VMware HCX networks

@@ -2,7 +2,10 @@
 title: Configure NSX network components in Azure VMware Solution 
 description: Learn how to use the Azure VMware Solution console to configure NSX-T network segments.
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 05/28/2021
+
+# Customer intent: As an Azure service administrator, I want to create a DHCP server or DHCP relay using a simplified view of NSX-T operations a VMware administrator needs daily. The simplified view is targeted at users unfamiliar with NSX-T Manager.
+
 ---
 
 # Configure NSX network components in Azure VMware Solution
@@ -25,7 +28,7 @@ You'll have four options to configure NSX-T components in the Azure VMware Solut
 >You'll still have access to the NSX-T Manager console, where you can use the advanced settings mentioned and other NSX-T features. 
 
 ## Prerequisites
-Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a segment. 
+Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment. 
 
 ## Create an NSX-T segment in the Azure portal
 You can create and configure an NSX-T segment from the Azure VMware Solution console in the Azure portal.  These segments are connected to the default Tier-1 gateway, and the workloads on these segments get East-West and North-South connectivity. Once you create the segment, it displays in NSX-T Manager and vCenter.
