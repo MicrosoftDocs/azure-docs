@@ -1,10 +1,12 @@
 ---
 title: Bicep functions - string
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
+description: Describes the functions to use in a Bicep file to work with strings.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---
-# String functions for ARM templates
+# String functions for Bicep
 
 Resource Manager provides the following functions for working with strings in your Azure Resource Manager template (ARM template):
 
@@ -2770,7 +2772,7 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
 * To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
 * To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

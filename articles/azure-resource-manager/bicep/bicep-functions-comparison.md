@@ -1,10 +1,12 @@
 ---
 title: Bicep functions - comparison
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
+description: Describes the functions to use in a Bicep file to compare values.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Comparison functions for ARM templates
+# Comparison functions for Bicep
 
 Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
 
@@ -627,4 +629,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).

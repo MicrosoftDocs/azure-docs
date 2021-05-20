@@ -1,10 +1,12 @@
 ---
 title: Bicep functions - date
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
+description: Describes the functions to use in a Bicep file to work with dates.
+author: mumian
+ms.author: jgao
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Date functions for ARM templates
+# Date functions for Bicep
 
 Resource Manager provides the following functions for working with dates in your Azure Resource Manager template (ARM template):
 
@@ -318,4 +320,4 @@ output utcShortOutput string = utcShort
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
