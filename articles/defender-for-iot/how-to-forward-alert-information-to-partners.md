@@ -1,12 +1,8 @@
 ---
 title: Forward alert information
 description: You can send alert information to partner systems by working with forwarding rules.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Forward alert information
@@ -139,6 +135,20 @@ Enter the following parameters:
 | Message |	Sensor name: The name of the Azure Defender for IoT appliance. <br />LEEF:1.0 <br />Azure Defender for IoT <br />Sensor  <br />Sensor version <br />Azure Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. Note that it might be different from the time of the syslog server machine. (This depends on the time-zone configuration.) <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
 
 After you enter all the information, select **Submit**.
+
+#### Webhook server action
+
+Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered,the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
+
+**To define to a webhook action:**
+
+1. Select the Webhook action.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/webhook.png" alt-text="Define a webhook forwarding rule.":::
+
+1. Enter the server address in the **URL**field.
+1. In the **Key** and **Value**fields, customize the HTTP header with a key and value definition. Keys can only contain letters, numbers, dashes, and underscores. Values can only contain one leading and/or one trailing space.
+1. Select **Save**.
 
 #### NetWitness action
 

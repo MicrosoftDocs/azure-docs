@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 02/16/2021
+  ms.date: 04/02/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -95,6 +95,7 @@ sections:
           
           Set-AzFirewall -AzureFirewall $azfw
           ```
+          When you allocate and deallocate, [firewall billing](https://azure.microsoft.com/pricing/details/azure-firewall) stops and starts accordingly.
           
           > [!NOTE]
           > You must reallocate a firewall and public IP to the original resource group and subscription.
@@ -113,6 +114,7 @@ sections:
         answer: |
           Azure Firewall doesn't SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
           
+          In addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.
       - question: Is forced tunneling/chaining to a Network Virtual Appliance supported?
         answer: |
           Forced tunneling is supported when you create a new firewall. You can't configure an existing firewall for forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
@@ -220,7 +222,7 @@ sections:
 
       - question: What is the TCP Idle Timeout for Azure Firewall?
         answer: |
-          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't configurable. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't configurable. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
           
       - question: Can I deploy Azure Firewall without a public IP address?
         answer: No, currently you must deploy Azure Firewall with a public IP address.

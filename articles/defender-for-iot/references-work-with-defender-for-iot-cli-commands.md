@@ -1,12 +1,8 @@
 ---
 title: Work with Defender for IoT CLI commands
 description: This article describes Defender for IoT CLI commands for sensors and on-premises management consoles.  
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
-ms.service: azure
 ---
 
 # Work with Defender for IoT CLI commands
@@ -282,7 +278,7 @@ The command supports the following input flags:
 | --key | The \*.key file. Key length should be a minimum of 2,048 bits. |
 | --chain | Path to the certificate chain file (optional). |
 | --pass | Passphrase used to encrypt the certificate (optional). |
-| --passphrase-set | The default is **False**, **unused**. <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). |  |
+| --passphrase-set | The default is **False**, **unused**. <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). | 
 
 When you're using the tool:
 

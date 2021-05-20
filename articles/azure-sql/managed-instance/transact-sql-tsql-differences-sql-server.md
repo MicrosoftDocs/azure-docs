@@ -6,10 +6,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: 
 ms.topic: reference
-author: jovanpop-msft
-ms.author: jovanpop
+author: danimir
+ms.author: danil
 ms.reviewer: sstein, bonova, danil
-ms.date: 3/5/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -134,7 +134,7 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
 ### Logins and users
 
 - SQL logins created by using `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
-- Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported. These logins are created at the server level.
+- Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax are supported. These logins are created at the server level.
 
     SQL Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
@@ -349,9 +349,9 @@ Undocumented DBCC statements that are enabled in SQL Server aren't supported in 
 
 ### Distributed transactions
 
-Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Supported scenarios are:
-* Transactions where participants are only Azure SQL Managed Instances that are part of [Server trust group](./server-trust-group-overview.md).
-* Transactions initiated from .NET (TransactionScope class) and Transact-SQL.
+Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Distributed transactions are supported under following conditions (all of them must be met):
+* all transaction participants are Azure SQL Managed Instances that are part of the [Server trust group](./server-trust-group-overview.md).
+* transactions are initiated either from .NET (TransactionScope class) or Transact-SQL.
 
 Azure SQL Managed Instance currently does not support other scenarios which are regularly supported by MSDTC on-premises or in Azure Virtual Machines.
 
@@ -403,9 +403,8 @@ Operations:
 
 ### PolyBase
 
-The only available type of external source is RDBMS (in public preview) to Azure SQL database, Azure SQL managed instance, and Azure Synapse pool. You can use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) as a workaround for Polybase external tables that directly reads from the Azure storage. 
-In Azure SQL managed instance you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to read Azure storage data.
-For information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
+Work on enabling Polybase support in SQL Managed Instance is [in progress](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35698078-enable-polybase-on-sql-managed-instance). In the meantime, as a workaroiund you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to query data from files stored in Azure Data Lake or Azure Storage.   
+For general information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication
 
@@ -462,11 +461,13 @@ For information about restore statements, see [RESTORE statements](/sql/t-sql/st
 
 ### Service broker
 
-Cross-instance service broker isn't supported:
+Cross-instance service broker message exchange is supported only between Azure SQL Managed Instances:
 
-- `sys.routes`: As a prerequisite, you must select the address from sys.routes. The address must be LOCAL on every route. See [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL`. See [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL`. See [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
+- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
+
+Transport security is supported, dialog security is not:
+- `CREATE REMOTE SERVICE BINDING`is not supported.
 
 Service broker is enabled by default and cannot be disabled. The following ALTER DATABSE options are not supported:
 - `ENABLE_BROKER`
@@ -519,7 +520,7 @@ System databases are not replicated to the secondary instance in a failover grou
 ### TEMPDB
 - The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the SQL Managed Instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 - `Tempdb` is always split into 12 data files: 1 primary, also called master, data file and 11 non-primary data files. The file structure cannot be changed and new files cannot be added to `tempdb`. 
-- [Memory-optimized `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), a new SQL Server 2019 in-memory database feature, is not supported.
+- [Memory-optimized `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), a new SQL Server 2019 in-memory database feature, is not supported.
 - Objects created in the model database cannot be auto-created in `tempdb` after a restart or a failover because `tempdb` does not get its initial object list from the model database. You must create objects in `tempdb` manually after each restart or a failover.
 
 ### MSDB
@@ -528,13 +529,13 @@ The following MSDB schemas in SQL Managed Instance must be owned by their respec
 
 - General roles
   - TargetServersRole
-- [Fixed database roles](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Fixed database roles](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [DatabaseMail roles](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [DatabaseMail roles](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Integration services roles](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Integration services roles](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

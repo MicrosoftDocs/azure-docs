@@ -2,7 +2,7 @@
 title: 'Monitoring Time Series Insights | Microsoft Docs'
 description: Monitor Time Series Insights for availability, performance, and operation.
 author: deepakpalled
-ms.author: lyhughes
+ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
@@ -39,7 +39,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data from Azure Time Series Insights
 
-Azure Time Series Insights collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
+Azure Time Series Insights collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 See [Azure Time Series Insights monitoring data reference](how-to-monitor-tsi-reference.md) for a detailed reference of the logs and metrics that you can collect.
 

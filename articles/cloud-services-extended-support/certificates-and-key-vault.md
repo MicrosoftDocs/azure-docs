@@ -22,9 +22,8 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Image shows selecting access policies from the key vault blade.":::
 
-3. Ensure the access policies include the following properties:
+3. Ensure the access policies include the following property:
     - **Enable access to Azure Virtual Machines for deployment**
-    - **Enable access to Azure Resource Manager for template deployment** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Image shows access policies window in the Azure portal.":::
  
@@ -36,7 +35,7 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Image shows selecting the generate/ import option":::
 
-4.	Complete the required information to finish uploading the certificate. 
+4.	Complete the required information to finish uploading the certificate. The certificate needs to be in **.PFX** format.
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Image shows importing window in the Azure portal.":::
 
@@ -45,6 +44,9 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  For deployment via ARM Template, certificateUrl can be found by navigating to the certificate in the key vault labeled as Secret Identifier
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="Image shows the secret identifier field in the key vault.":::
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).

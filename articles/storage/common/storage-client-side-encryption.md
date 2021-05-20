@@ -128,7 +128,7 @@ There are two necessary packages for Key Vault integration:
 * Azure.Core contains the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The storage client library for .NET already defines it as a dependency.
 * Azure.Security.KeyVault.Keys (v4.x) contains the Key Vault REST client, as well as cryptographic clients used with client-side encryption.
 
-Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. As of Azure.Security.KeyVault.Keys 4.1.0, there is not an `IKeyEncryptionKeyResolver` implementation that supports key caching. Should caching be necessary due to throttling, [this sample](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) can be followed to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
+Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. As of Azure.Security.KeyVault.Keys 4.1.0, there is not an `IKeyEncryptionKeyResolver` implementation that supports key caching. Should caching be necessary due to throttling, [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) can be followed to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
 
 # [.NET v11](#tab/dotnet11)
 

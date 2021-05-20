@@ -43,7 +43,7 @@ Alcide kAudit can export logs directly to Azure Sentinel.
 
 1. Select **Alcide kAudit** from the gallery, and then click the **Open connector page** button.
 
-1. Follow the step-by-step instructions provided in the [Alcide kAudit Installation Guide](https://get.alcide.io/hubfs/Azure%20Sentinel%20Integration%20with%20kAudit.pdf).
+1. Follow the step-by-step instructions provided in the [Alcide kAudit Installation Guide](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit).
 
 1. When asked for the Workspace ID and the Primary Key, you can copy them from the Alcide kAudit data connector page.
 

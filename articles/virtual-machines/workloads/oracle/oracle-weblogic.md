@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 02/24/2021
+ms.date: 03/23/2021
 ms.author: rezar
 
 ---

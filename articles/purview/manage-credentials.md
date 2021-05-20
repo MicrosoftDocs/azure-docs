@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 02/11/2021
+ms.date: 05/08/2021
 ---
 
 # Credentials for source authentication in Azure Purview
@@ -36,7 +36,7 @@ If you are using the Purview managed identity to set up scans, you will not have
 
 Before you can create a Credential, first associate one or more of your existing Azure Key Vault instances with your Azure Purview account.
 
-1. From the [Azure portal](https://portal.azure.com), select your Azure Purview account. Navigate to the **Management Center** and then navigate to **credentials**.
+1. From the [Azure portal](https://portal.azure.com), select your Azure Purview account and Open Azure Purview Studio. Navigate to the **Management Center** on Azure Purview Studio and then navigate to **credentials**.
 
 2. From the **Credentials** page, select **Manage Key Vault connections**.
 
@@ -51,6 +51,19 @@ Before you can create a Credential, first associate one or more of your existing
    :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="View Azure Key Vault connections to confirm.":::
 
 ## Grant the Purview managed identity access to your Azure Key Vault
+
+Currently Azure Key Vault supports two permission models:
+
+- Option 1 - Access Policies 
+- Option 2 - Role-based Access Control 
+
+Before assigning access to Purview managed identity, first identify your Azure Key Vault permission model from Key Vault resource **Access Policies** in the menu. Follow steps below based on relevant the permission model.  
+
+:::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Azure Key Vault Permission Model"::: 
+
+### Option 1 - Assign access using using Key Vault Access Policy  
+
+Follow these steps only if permission model in your Azure Key Vault resource is set to **Vault Access Policy**:
 
 1. Navigate to your Azure Key Vault.
 
@@ -71,6 +84,21 @@ Before you can create a Credential, first associate one or more of your existing
 7. Select **Save** to save the Access policy.
 
    :::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Save access policy":::
+
+### Option 2 - Assign access using Key Vault Azure role-based access control 
+
+Follow these steps only if permission model in your Azure Key Vault resource is set to **Azure role-based access control**:
+
+1. Navigate to your Azure Key Vault.
+
+2. Select **Access Control (IAM)** from the left navigation menu.
+
+3. Select **+ Add**.
+
+4. Set the **Role** to **Key Vault Secrets User** and enter your enter your Azure Purview account name under **Select** input box. Then, select Save to give this role assignment to your Purview account.
+
+   :::image type="content" source="media/manage-credentials/akv-add-rbac.png" alt-text="Azure Key Vault RBAC":::
+
 
 ## Create a new credential
 

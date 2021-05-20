@@ -1,19 +1,8 @@
 ---
 title: Custom security alerts for IoT Hub
 description: Learn about customizable security alerts and recommended remediation using Defender for IoT Hub's features and service.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
 ---
 
 # Defender for IoT Hub custom security alerts

@@ -11,6 +11,8 @@ services: iot-edge
 ---
 # Tutorial: Set up an environment for machine learning on IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 This article helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 
 In this section of the tutorial, you learn how to:
@@ -28,7 +30,7 @@ This article is part of a series for a tutorial about using Azure Machine Learni
 
 This step is typically performed by a cloud developer. Some of the software may also be helpful for a data scientist.
 
-We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](../virtual-machines/windows/nested-virtualization.md), which is why we chose a [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) machine size.
+We created a PowerShell script that creates an Azure virtual machine with many of the prerequisites already configured. The VM that we create needs to be able to handle [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization), which is why we chose a [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) machine size.
 
 The development VM will be set up with:
 

@@ -1,13 +1,8 @@
 ---
 title: Security posture - CIS benchmark
-titleSuffix: Azure Defender for IoT
 description: Improve your security compliance and posture by using Defender for IoT micro agent.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
 ---
 
 # Security posture – CIS benchmark 

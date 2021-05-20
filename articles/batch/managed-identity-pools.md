@@ -2,7 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/23/2021
 ms.custom: references_regions
 
 ---
@@ -13,7 +13,7 @@ ms.custom: references_regions
 This topic explains how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 
 > [!IMPORTANT]
-> Support for Azure Batch pools with user-assigned managed identities is currently in public preview for the following regions: West US 2, South Central US, East US, US Gov Arizona and US Gov Virginia.
+> Support for Azure Batch pools with user-assigned managed identities is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -48,7 +48,7 @@ var poolParameters = new Pool(name: "yourPoolName")
                     "18.04-LTS",
                     "latest"),
                 "batch.node.ubuntu 18.04")
-        };
+        },
         Identity = new BatchPoolIdentity
         {
             Type = PoolIdentityType.UserAssigned,
@@ -95,3 +95,4 @@ For more information, see [How to use managed identities for Azure resources on 
 
 - Learn more about [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 - Learn how to use [customer-managed keys with user-managed identities](batch-customer-managed-key.md).
+- Learn how to [enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).

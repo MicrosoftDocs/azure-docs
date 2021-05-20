@@ -80,6 +80,9 @@ To complete this tutorial, you need to:
 * Create an Azure Active Directory Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure Database Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
   > [!NOTE]
+  > The Application ID used by the Azure Database Migration Service supports secret (password-based) authentication for service principals. It does not support certificate-based authentication.
+
+  > [!NOTE]
   > Azure Database Migration Service requires the Contributor permission on the subscription for the specified Application ID. Alternatively, you can create custom roles that grant the specific permissions that Azure Database Migration Service requires. For step-by-step guidance about using custom roles, see the article [Custom roles for SQL Server to SQL Managed Instance online migrations](./resource-custom-roles-sql-db-managed-instance.md).
 
 * Create or make a note of **Standard Performance tier**, Azure Storage Account, that allows DMS service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
@@ -204,7 +207,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Configure migration settings** screen, provide the following detail:
 
-    | | |
+    | Parameter | Description |
     |--------|---------|
     |**SMB Network location share** | The local SMB network share or Azure file share that contains the Full database backup files and transaction log backup files that Azure Database Migration Service can use for migration. The service account running the source SQL Server instance must have read\write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'. For improved performance, it's recommended to use separate folder for each database to be migrated. You can provide the database level file share path by using the **Advanced Settings** option. If you are running into issues connecting to the SMB share, see [SMB share](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
     |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure Storage container for restore operation. If using Azure File share, use the storage account name pre-pended with AZURE\ as the username. |

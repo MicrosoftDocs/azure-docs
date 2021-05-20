@@ -5,7 +5,6 @@ description: Learn how to restrict access to your apps registered in Azure AD to
 services: active-directory
 author: kalyankrishna1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity

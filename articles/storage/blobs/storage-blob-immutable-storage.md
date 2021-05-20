@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 05/17/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Store business-critical blob data with immutable storage
 
-Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v1, general-purpose v2, BlobStorage, and BlockBlobStorage accounts in all Azure regions.
+Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v1, general-purpose v2, premium block blob, and legacy blob accounts in all Azure regions.
 
 For information about how to set and clear legal holds or create a time-based retention policy using the Azure portal, PowerShell, or Azure CLI, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
@@ -59,13 +59,15 @@ For more information on how to set and lock time-based retention policies, see [
 ## Time-based retention policies
 
 > [!IMPORTANT]
-> A time-based retention policy must be *locked* for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. We recommend that you lock the policy in a reasonable amount of time, typically less than 24 hours. The initial state of an applied time-based retention policy is *unlocked*, allowing you to test the feature and make changes to the policy before you lock it. While the *unlocked* state provides immutability protection, we don't recommend using the *unlocked* state for any purpose other than short-term feature trials. 
+> A time-based retention policy must be *locked* for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. Microsoft recommends that you lock the policy in a reasonable amount of time, typically less than 24 hours. The initial state of an applied time-based retention policy is *unlocked*, allowing you to test the feature and make changes to the policy before you lock it. While the *unlocked* state provides immutability protection, using the *unlocked* state for any purpose other than short-term feature trials is not recommended.
+>
+> Once a time-based retention policy is locked, the policy cannot be removed and a maximum of five increases to the effective retention period is allowed. The retention period cannot be decreased.
 
 When a time-based retention policy is applied on a container, all blobs in the container will stay in the immutable state for the duration of the *effective* retention period. The effective retention period for blobs is equal to the difference between the blob's **creation time** and the user-specified retention interval. Because users can extend the retention interval, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
 For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, _testblob1_, was created one year ago; so, the effective retention period for _testblob1_ is four years. When a new blob, _testblob2_, is uploaded to the container, the effective retention period for the _testblob2_ is five years from the time of its creation.
 
-An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance. Once a time-based retention policy is locked, the policy cannot be removed and a maximum of five increases to the effective retention period is allowed.
+An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance.
 
 The following limits apply to retention policies:
 
@@ -135,7 +137,7 @@ Immutable storage can be used with any blob type as it is set at the container l
 
 **Do I need to create a new storage account to use this feature?**
 
-No, you can use immutable storage with any existing or newly created general-purpose v1, general-purpose v2, BlobStorage, or BlockBlobStorage accounts. General-purpose v1 storage accounts are supported but we recommend upgrading to general-purpose v2 such that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
+No, you can use immutable storage with any existing or newly created general-purpose v1, general-purpose v2, premium block blob, and legacy blob accounts. General-purpose v1 storage accounts are supported but we recommend upgrading to general-purpose v2 such that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
 
 **Can I apply both a legal hold and time-based retention policy?**
 

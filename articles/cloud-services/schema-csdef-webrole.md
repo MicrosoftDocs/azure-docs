@@ -3,6 +3,7 @@ title: Azure Cloud Services (classic) Def. WebRole Schema | Microsoft Docs
 description: Azure web role is customized for web application programming supporting ASP.NET, PHP, WCF, and FastCGI. Learn about service definition elements of a web role.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore

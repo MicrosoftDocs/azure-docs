@@ -30,7 +30,7 @@ This article explains how to connect your Broadcom Symantec DLP appliance to Azu
 
 - You must have read and write permissions on your Azure Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## Send Broadcom Symantec DLP logs to Azure Sentinel
 

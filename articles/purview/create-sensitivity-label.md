@@ -91,7 +91,7 @@ To apply MIP sensitivity labels to Azure assets in Azure Purview, you must expli
 By extending MIP’s sensitivity labels with Azure Purview, organizations can now discover, classify, and get insight into sensitivity across a broader range of data sources, minimizing compliance risk.
 
 > [!NOTE]
-> Since Microsoft 365 and Azure Purview are separate services, there is a possibility that they will be deployed in different regions. Label names and custom sensitive information type names are considered to be customer data, and are kept within the same GEO location by default to protect the sensitivity of your data and to avoid GDPR laws.
+> Since Microsoft 365 and Azure Purview are separate services, there is a possibility that they will be deployed in different regions. Label names and custom sensitive information type names are considered to be customer data, and are kept within the same GEO location by default to protect the sensitivity of your data and to comply with privacy regulations.
 >
 > For this reason, labels and custom sensitive information types are not shared to Azure Purview by default, and require your consent to use them in Azure Purview.
 

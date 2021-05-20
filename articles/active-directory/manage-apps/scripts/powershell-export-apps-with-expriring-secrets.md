@@ -2,20 +2,20 @@
 title: PowerShell sample - Export apps with expiring secrets and certificates in Azure Active Directory tenant.
 description: PowerShell example that exports all apps with expiring secrets and certificates for the specified apps in your Azure Active Directory tenant.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 03/09/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: mifarca
 ---
 
 # Export apps with expiring secrets and certificates
 
-This PowerShell script example exports all apps with expiring secrets and certificates for the specified apps from your directory in a CSV file.
+This PowerShell script example exports all app registrations with expiring secrets, certificates and their owners for the specified apps from your directory in a CSV file.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +27,10 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Script explanation
 
+The script can be used directly without any modifications. The admin will be asked about the expiration date and whether they would like to see already expired secrets or certificates or not.
+
 The "Add-Member" command is responsible for creating the columns in the CSV file.
+The "New-Object" command creates an object to be used for the columns in the CSV file export.
 You can modify the "$Path" variable directly in PowerShell, with a CSV file path, in case you'd prefer the export to be non-interactive.
 
 | Command | Notes |

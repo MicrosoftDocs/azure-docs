@@ -70,27 +70,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Onshape** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
-
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
-
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.onshape.com`
-
-    > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [Onshape Client support team](mailto:support@onshape.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-1. Click **Save**.
-
-1. Onshape application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. If prompted to save your single sign-on setting, select **Yes**. 
+1. The Onshape application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Onshape application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, the Onshape application expects few more attributes shown below to be passed to it in the SAML response. These attributes are also pre-populated but you can review them as per your requirements.
 	
 	| Name |  Source Attribute|
 	| --------------- | --------- |
@@ -99,9 +84,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| companyName | <COMPANY_NAME> |
 
     > [!NOTE]
-    > Edit the value of the “companyName” claim with the “domain prefix”. E.g., if the customer accesses the Onshape application using a URL like https://acme.onshape.com, then their domain prefix is “acme”. The attribute value must be only the prefix, not the entire DNS name.
+    > You _must_ change the value of the **companyName** attribute to the *domain prefix* of your Onshape enterprise. For example, if you access the Onshape application by using a URL like `https://acme.onshape.com`, your domain prefix is *acme*. The attribute value must be only the prefix, not the entire DNS name.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -134,7 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Onshape SSO
 
-To configure single sign-on on **Onshape** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Onshape support team](mailto:support@onshape.com). They set this setting to have the SAML SSO connection set properly on both sides.
+For information about how to configure single sign-on on the **Onshape** side, see [Integrating with Microsoft Azure AD](https://cad.onshape.com/help/Content/MS_AzureAD.htm).
 
 ### Create Onshape test user
 
@@ -154,11 +139,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Onshape for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Onshape tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Onshape for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Onshape tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Onshape for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Onshape you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Onshape you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

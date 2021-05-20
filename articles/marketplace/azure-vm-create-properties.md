@@ -9,9 +9,9 @@ ms.author: mingshen
 ms.date: 10/19/2020
 ---
 
-# How to configure virtual machine offer properties
+# Configure virtual machine offer properties
 
-On the **Properties** page (select from the left-nav menu in Partner Center), you define the categories used to group your virtual machine (VM) offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
+On the **Properties** page (select from the left-nav menu), you define the categories used to group your virtual machine (VM) offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
 
 ## Select a category
 
@@ -70,7 +70,7 @@ In the **Universal amendment terms to the standard contract for Microsoft's comm
 
 ### Use your own terms and conditions
 
-You can choose to provide your own terms and conditions, instead of the standard contract. Customers must accept these terms before they can try your offer.
+You may provide your own terms and conditions instead of using the standard contract. Customers must accept these terms before they can try your offer.
 
 1. Under **Legal**, clear the **Use the Standard Contract for Microsoft's commercial marketplace** check box.
 1. In the **Terms and conditions** box, enter up to 10,000 characters of text.

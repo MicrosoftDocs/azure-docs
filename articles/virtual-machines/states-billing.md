@@ -77,6 +77,6 @@ OS Provisioning states only apply to virtual machines created with an OS image. 
 
 
 ## Next steps
-- Review the [Azure Cost Management and Billing documentation](https://docs.microsoft.com/azure/cost-management-billing/)
+- Review the [Azure Cost Management and Billing documentation](../cost-management-billing/index.yml)
 - Use the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) to plan your deployments.
-- Learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md).
+- Learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/vm/monitor-vm-azure.md).

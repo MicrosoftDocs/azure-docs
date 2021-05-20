@@ -25,7 +25,7 @@ Learn how to configure Apache Ranger policies for Apache Hive. In this article, 
 
 2. Log in using the cluster administrator domain user name and password:
 
-    ![HDInsight ESP Ranger home page](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png" alt-text="HDInsight ESP Ranger home page" border="true":::
 
     Currently, Ranger only works with Yarn and Hive.
 
@@ -52,7 +52,7 @@ In this section, you create two Ranger policies for accessing hivesampletable. Y
     |Select User|hiveuser1|
     |Permissions|select|
 
-    ![HDInsight ESP Ranger Hive policies configure](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png" alt-text="HDInsight ESP Ranger Hive policies configure" border="true":::.
 
     > [!NOTE]  
     > If a domain user is not populated in Select User, wait a few moments for Ranger to sync with AAD.
@@ -96,7 +96,7 @@ In the last section, you've configured two policies.  hiveuser1 has the select p
 
 1. From the **Data** tab, navigate to **Get Data** > **From Other Sources** > **From ODBC** to launch the **From ODBC** window.
 
-    ![Open data connection wizard](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png" alt-text="Open data connection wizard" border="true":::
 
 1. From the drop-down list, select the data source name that you created in the last section and then select **OK**.
 

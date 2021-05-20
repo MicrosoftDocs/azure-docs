@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/13/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SolarWinds Service Desk (previously Samanage)
@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
  
     a. Click **Enable Single Sign-On with SAML**.  
  
-    b. In the **Identity Provider URL** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.    
+    b. In the **Identity Provider URL** textbox, enter the value like `https://YourAccountName.samanage.com`.
  
     c. Confirm the **Login URL** matches the **Sign On URL** of **Basic SAML Configuration** section in Azure portal.
  
@@ -180,8 +180,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to SolarWinds Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the SolarWinds tile in the My Apps, this will redirect to SolarWinds Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the SolarWinds tile in the My Apps, this will redirect to SolarWinds Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure SolarWinds you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure SolarWinds you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

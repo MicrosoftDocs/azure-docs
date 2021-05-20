@@ -3,9 +3,9 @@ title: Parameterize linked services in Azure Data Factory
 description: Learn how to parameterize linked services in Azure Data Factory and pass dynamic values at run time.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/15/2021
-author: dcstwh
-ms.author: weetok
+ms.date: 03/18/2021
+author: chez-charlie
+ms.author: chez
 ---
 
 # Parameterize linked services in Azure Data Factory
@@ -33,18 +33,23 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 
 - Amazon Redshift
 - Amazon S3
+- Amazon S3 Compatible Storage
+- Azure Blob Storage
 - Azure Cosmos DB (SQL API)
+- Azure Data Lake Storage Gen2
 - Azure Database for MySQL
 - Azure Databricks
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
-- MySQL
-- Oracle
-- SQL Server
+- Azure Table Storage
 - Generic HTTP
 - Generic REST
+- MySQL
+- Oracle
+- Oracle Cloud Storage
+- SQL Server
 
 For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
 

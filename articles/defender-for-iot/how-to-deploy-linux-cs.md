@@ -1,20 +1,8 @@
 ---
 title: Install & deploy Linux C# agent
 description: Learn how to install and deploy the Defender for IoT C#-based security agent on Linux
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
-ms.custom: devx-track-csharp 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Deploy Defender for IoT C# based security agent for Linux
@@ -34,7 +22,7 @@ For other platforms and agent flavors, see [Choose the right security agent](how
 
 1. To deploy the security agent, local admin rights are required on the machine you wish to install on.
 
-1. [Create a security module](quickstart-create-security-twin.md) for the device.
+1. [Create a Defender-IoT-micro-agent](quickstart-create-security-twin.md) for the device.
 
 ## Installation
 

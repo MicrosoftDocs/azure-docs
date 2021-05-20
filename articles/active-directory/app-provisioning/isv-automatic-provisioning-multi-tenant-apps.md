@@ -1,19 +1,19 @@
 ---
-title: Enable automatic user provisioning for multi-tenant applications - Azure AD
-description: A guide for independent software vendors for enabling automated provisioning
+title: Enable automatic user provisioning for multi-tenant applications in Azure Active Directory
+description: A guide for independent software vendors for enabling automated provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/23/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: zhchia
+ms.reviewer: zhchia, arvinh
 ---
 
-# Enable automatic user provisioning for your multi-tenant application
+# Enable automatic user provisioning for your multi-tenant application in Azure Active Directory
 
 Automatic user provisioning is the process of automating the creation, maintenance, and removal of user identities in target systems like your software-as-a-service applications.
 

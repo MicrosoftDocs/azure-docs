@@ -3,15 +3,17 @@ title: 'Quickstart: Create a profile for HA of applications - Azure portal - Azu
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application using the Azure portal.
 services: traffic-manager
 author: duongau
-manager: twooley
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
-ms.service: traffic-manager
-ms.devlang: na
-ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2020
 ms.author: duau
+manager: twooley
+ms.date: 04/19/2021
+ms.topic: quickstart
+ms.service: traffic-manager
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.custom:
+  - mode-portal
+# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Traffic Manager profile using the Azure portal
@@ -19,6 +21,8 @@ ms.author: duau
 This quickstart describes how to create a Traffic Manager profile that delivers high availability for your web application.
 
 In this quickstart, you'll read about two instances of a web application. Each of them is running in a different Azure region. You'll create a Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority-traffic-routing-method). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
+
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagram of Traffic Manager deployment environment." border="false":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -77,7 +81,7 @@ Add the website in the *East US* as primary endpoint to route all the user traff
 1. Select the profile from the search results.
 1. In **Traffic Manager profile**, in the **Settings** section, select **Endpoints**, and then select **Add**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Endpoint settings in Traffic Manager profile":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Screenshot of endpoint settings in Traffic Manager profile.":::
 
 1. Enter, or select, these settings:
 
@@ -89,7 +93,7 @@ Add the website in the *East US* as primary endpoint to route all the user traff
     | Target resource | Select **Choose an app service** > **East US**. |
     | Priority | Select **1**. All traffic goes to this endpoint when it's healthy. |
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Screenshot of where you add an endpoint to your Traffic Manager profile":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Screenshot of where you add an endpoint to your Traffic Manager profile.":::
     
 1. Select **OK**.
 1. To create a failover endpoint for your second Azure region, repeat steps 3 and 4 with these settings:
@@ -116,7 +120,7 @@ In this section, you'll check the domain name of your Traffic Manager profile. Y
 1. Select the traffic manager profile. The **Overview** appears.
 1. The **Traffic Manager profile** displays the DNS name of your newly created Traffic Manager profile.
   
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Screenshot of the location of your Traffic Manager DNS name":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Screenshot of the location of your Traffic Manager DNS name.":::
 
 ### View Traffic Manager in action
 
@@ -125,7 +129,7 @@ In this section, you'll check the domain name of your Traffic Manager profile. Y
     > [!NOTE]
     > In this quickstart scenario, all requests route to the primary endpoint. It is set to **Priority 1**.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Screenshot of the webpage to confirm availability of Traffic Manager profile":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Screenshot of the webpage to confirm availability of Traffic Manager profile.":::
 
 1. To view Traffic Manager failover in action, disable your primary site:
     1. In the Traffic Manager Profile page, from the **Overview** section, select **myPrimaryEndpoint**.

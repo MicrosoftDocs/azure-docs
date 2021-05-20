@@ -13,6 +13,8 @@ services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Retrieve logs from your IoT Edge deployments without needing physical or SSH access to the device by using the direct methods included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely. The direct methods discussed in this article are generally available with the 1.0.10 release.
 
 For more information about direct methods, how to use them, and how to implement them in your own modules, see [Understand and invoke direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
@@ -202,7 +204,7 @@ For example:
 The following invocation uploads the last 100 log lines from all modules, in compressed JSON format:
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",
@@ -224,7 +226,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 The following invocation uploads the last 100 log lines from edgeAgent and edgeHub with the last 1000 log lines from tempSensor module in uncompressed text format:
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",

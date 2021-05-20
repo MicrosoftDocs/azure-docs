@@ -1,16 +1,11 @@
 ---
 title: Onboard a management group to Azure Security Center
 description: Learn how to use a supplied Azure Policy definition to enable Azure Security Center for all the subscriptions in a management group.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/10/2020
+ms.topic: how-to
+ms.date: 03/11/2021
 ms.author: memildin
 
 ---

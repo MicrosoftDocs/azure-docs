@@ -376,7 +376,7 @@ Key aspects:
 | Graph Validation Errors | 400 | GraphValidationError |
 | Module Validation Errors | 400 | ModuleValidationError |
 | Resource validation errors | 409 | ResourceValidationError |
-| General server errors | 500 range |  |  |
+| General server errors | 500 range |  | 
 
 ### GraphInstanceDelete
 

@@ -46,7 +46,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications using C#. For more information, see <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac </a>.
+        Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications using C#. For more information, see <a href="/xamarin/mac/" target="_blank">Xamarin.Mac </a>.
     :::column-end:::
     :::column:::
         <br>

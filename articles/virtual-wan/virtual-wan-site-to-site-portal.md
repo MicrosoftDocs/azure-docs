@@ -7,7 +7,7 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
+# Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
 # Tutorial: Create a Site-to-Site connection using Azure Virtual WAN
 

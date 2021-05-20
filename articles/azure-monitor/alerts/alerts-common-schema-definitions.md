@@ -3,8 +3,7 @@ title: Alert schema definitions in Azure Monitor
 description: Understanding the common alert schema definitions for Azure Monitor
 author: ofirmanor
 ms.topic: conceptual
-ms.date: 09/22/2020
-
+ms.date: 04/12/2021
 ---
 
 # Common alert schema definitions
@@ -12,7 +11,7 @@ ms.date: 09/22/2020
 This article describes the [common alert schema definitions](./alerts-common-schema.md) for Azure Monitor, including those for webhooks, Azure Logic Apps, Azure Functions, and Azure Automation runbooks. 
 
 Any alert instance describes the resource that was affected and the cause of the alert. These instances are described in the common schema in the following sections:
-* **Essentials**: A set of standardized fields, common across all alert types, which describe what resource the alert is on, along with additional common alert metadata (for example, severity or description). 
+* **Essentials**: A set of standardized fields, common across all alert types, which describe what resource the alert is on, along with additional common alert metadata (for example, severity or description). Definitions of severity can be found in the [alerts overview](alerts-overview.md#overview). 
 * **Alert context**: A set of fields that describes the cause of the alert, with fields that vary based on the alert type. For example, a metric alert includes fields like the metric name and metric value in the alert context, whereas an activity log alert has information about the event that generated the alert. 
 
 **Sample alert payload**
@@ -68,7 +67,7 @@ Any alert instance describes the resource that was affected and the cause of the
 
 | Field | Description|
 |:---|:---|
-| alertId | The GUID uniquely identifying the alert instance. |
+| alertId | The unique resource ID identifying the alert instance. |
 | alertRule | The name of the alert rule that generated the alert instance. |
 | Severity | The severity of the alert. Possible values: Sev0, Sev1, Sev2, Sev3, or Sev4. |
 | signalType | Identifies the signal on which the alert rule was defined. Possible values: Metric, Log, or Activity Log. |
@@ -106,7 +105,7 @@ Any alert instance describes the resource that was affected and the cause of the
 
 ## Alert context
 
-### Metric alerts
+### Metric alerts (excluding availability tests)
 
 #### `monitoringService` = `Platform`
 
@@ -141,10 +140,41 @@ Any alert instance describes the resource that was affected and the cause of the
 }
 ```
 
+### Metric alerts (availability tests)
+
+#### `monitoringService` = `Platform`
+
+**Sample values**
+```json
+{
+  "alertContext": {
+      "properties": null,
+      "conditionType": "WebtestLocationAvailabilityCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "Failed Location",
+            "metricNamespace": null,
+            "operator": "GreaterThan",
+            "threshold": "2",
+            "timeAggregation": "Sum",
+            "dimensions": [],
+            "metricValue": 5,
+            "webTestName": "myAvailabilityTest-myApplication"
+          }
+        ],
+        "windowStartTime": "2019-03-22T13:40:03.064Z",
+        "windowEndTime": "2019-03-22T13:45:03.064Z"
+      }
+    }
+}
+```
+
 ### Log alerts
 
 > [!NOTE]
-> For log alerts that have a custom email subject and/or JSON payload defined, enabling the common schema reverts email subject and/or payload schema to the one described as follows. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludeSearchResults`. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get).
+> For log alerts that have a custom email subject and/or JSON payload defined, enabling the common schema reverts email subject and/or payload schema to the one described as follows. This means that if you want to have a custom JSON payload defined, the webhook cannot use the common alert schema. Alerts with the common schema enabled have an upper size limit of 256 KB per alert. Search results aren't embedded in the log alerts payload if they cause the alert size to cross this threshold. You can determine this by checking the flag `IncludeSearchResults`. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results with the [Log Analytics API](/rest/api/loganalytics/dataaccess/query/get).
 
 #### `monitoringService` = `Log Analytics`
 

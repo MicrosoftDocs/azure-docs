@@ -55,11 +55,11 @@ You can use Event Grid for both input and output of events in the CloudEvents sc
 
  Event Grid resource | Input schema       | Delivery schema
 |---------------------|-------------------|---------------------
-| System Topics       | Event Grid schema | Event Grid schema or CloudEvents schema
-| User Topics/Domains | Event Grid schema | Event Grid schema or CloudEvents schema
-| User Topics/Domains | CloudEvents schema | CloudEvents schema
-| User Topics/Domains | Custom schema     | Custom schema, Event Grid schema, or CloudEvents schema
-| PartnerTopics       | CloudEvents schema | CloudEvents schema
+| System topics       | Event Grid schema | Event Grid schema or CloudEvents schema
+| Custom topics/domains | Event Grid schema | Event Grid schema or CloudEvents schema
+| Custom topics/domains | CloudEvents schema | CloudEvents schema
+| Custom topics/domains | Custom schema     | Custom schema, Event Grid schema, or CloudEvents schema
+| Partner topics       | CloudEvents schema | CloudEvents schema
 
 For all event schemas, Event Grid requires validation when you're publishing to an Event Grid topic and when you're creating an event subscription.
 

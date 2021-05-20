@@ -1,5 +1,5 @@
 ---
-title: "Assessment rules for SQL Server to SQL Database migration"
+title: "Assessment rules for SQL Server to Azure SQL Database migration"
 description: Assessment rules to identify issues with the source SQL Server instance that must be addressed before migrating to Azure SQL Database. 
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -11,7 +11,7 @@ ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
 ---
-# Assessment rules for SQL Server to SQL Database migration
+# Assessment rules for SQL Server to Azure SQL Database migration
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Migration tools validate your source SQL Server instance by running a number of assessment rules to identify issues that must be addressed before migrating your SQL Server database to Azure SQL Database. 

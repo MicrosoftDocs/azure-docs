@@ -43,7 +43,7 @@ To find the Java Database Connectivity (JDBC) connection string:
 1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, where `CLUSTERNAME` is the name of your cluster.
 1. To copy the URL, select the clipboard icon:
 
-   ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
+   :::image type="content" source="./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png" alt-text="HDInsight Hadoop Interactive Query LLAP JDBC" border="true":::
 
 ## Next steps
 

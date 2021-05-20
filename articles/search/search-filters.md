@@ -125,7 +125,6 @@ The following examples illustrate several usage patterns for filter scenarios. F
 Follow up with these articles for comprehensive guidance on specific use cases:
 
 + [Facet filters](search-filters-facets.md)
-+ [Language filters](search-filters-language.md)
 + [Security trimming](search-security-trimming-for-azure-search.md) 
 
 ## Field requirements for filtering

@@ -11,14 +11,14 @@ ms.author: cynthn
 ms.custom: devx-track-azurecli
 #PMcontact: akjosh
 ---
-# Create a VM from a generalized image version using the CLI
+# Create a VM from a generalized image version using the Azure CLI
 
 Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version-powershell.md). 
 
 
 ## Get the image ID
 
-List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list) to see the name and ID of the definitions.
+List the image definitions in a gallery using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list) to see the name and ID of the definitions.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -28,7 +28,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 ## Create the VM
 
-Create a VM using [az vm create](/cli/azure/vm#az-vm-create). To use the latest version of the image, set `--image` to the ID of the image definition. 
+Create a VM using [az vm create](/cli/azure/vm#az_vm_create). To use the latest version of the image, set `--image` to the ID of the image definition. 
 
 Replace resource names as needed in this example. 
 

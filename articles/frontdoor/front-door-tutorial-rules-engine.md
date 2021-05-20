@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau 
 ms.custom: devx-track-azurecli
-# customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI. 
+# Customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI. 
 ---
 
 # Tutorial: Configure your Rules Engine
@@ -92,7 +92,7 @@ In this tutorial, you learn how to:
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-For more information, a full list of AFD Rules Engine commands can be found [here](/cli/azure/ext/front-door/network/front-door/rules-engine).   
+For more information, a full list of AFD Rules Engine commands can be found [here](/cli/azure/network/front-door/rules-engine).   
 
 ## Clean up resources
 

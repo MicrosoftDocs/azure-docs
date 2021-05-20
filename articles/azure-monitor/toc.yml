@@ -47,8 +47,6 @@
     href: logs/get-started-queries.md
   - name: Create a dashboard from log query
     href: visualize/tutorial-logs-dashboards.md
-  - name: Create alert from log query
-    href: alerts/tutorial-response.md
   - name: Autoscale on performance and schedule
     href: autoscale/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
@@ -87,6 +85,8 @@
           href: app/resource-manager-web-app.md
         - name: Azure Functions
           href: app/resource-manager-function-app.md
+    - name: Container insights
+      href: containers/resource-manager-container-insights.md
     - name: Data collection rules
       href: agents/resource-manager-data-collection-rules.md
     - name: Diagnostic settings
@@ -95,10 +95,10 @@
       href: logs/resource-manager-workspace.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
+    - name: SQL insights
+      href: insights/resource-manager-sql-insights.md
     - name: Workbooks
       href: visualize/resource-manager-workbooks.md
-    - name: Container insights
-      href: containers/resource-manager-container-insights.md
     - name: VM insights
       href: vm/resource-manager-vminsights.md
   - name: Azure CLI
@@ -146,7 +146,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/monitor-security-baseline?toc=/azure/azure-monitor/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
@@ -370,6 +370,9 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: FAQ
+        displayname: Azure Monitor agent FAQ
+        href: faq.md#azure-monitor-agent-preview
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -475,8 +478,6 @@
       items:
       - name: Manage metric alerts
         href: alerts/alerts-metric.md
-      - name: Availability
-        href: app/monitor-web-app-availability.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -642,22 +643,22 @@
       - name: Non-HTTP/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
-      - name: ASP.NET Console
+      - name: .NET Console
         displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
         href: app/console.md
       - name: Java
         items:
           - name: Web apps
             displayname: java
-            href: app/java-get-started.md
+            href: app/java-2x-get-started.md
           - name: Log traces
-            href: app/java-trace-logs.md
+            href: app/java-2x-trace-logs.md
           - name: Dependencies
-            href: app/java-agent.md
+            href: app/java-2x-agent.md
           - name: Filter telemetry
-            href: app/java-filter-telemetry.md
+            href: app/java-2x-filter-telemetry.md
           - name: Troubleshoot
-            href: app/java-troubleshoot.md
+            href: app/java-2x-troubleshoot.md
       - name: Node.js 
         href: app/nodejs.md
       - name: Python
@@ -720,12 +721,18 @@
               href: app/java-in-process-agent.md
             - name: Configuration options
               href: app/java-standalone-config.md
-            - name: Telemetry processors
+            - name: Advanced configurations
               items:
-              - name: Overview
-                href: app/java-standalone-telemetry-processors.md
-              - name: Examples
-                href: app/java-standalone-telemetry-processors-examples.md
+              - name: JMX metrics
+                href: app/java-jmx-metrics-configuration.md
+              - name: Sampling overrides
+                href: app/java-standalone-sampling-overrides.md
+              - name: Telemetry processors
+                items:
+                - name: Overview
+                  href: app/java-standalone-telemetry-processors.md
+                - name: Examples
+                  href: app/java-standalone-telemetry-processors-examples.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
             - name: Upgrade from 2.x SDK
@@ -773,12 +780,16 @@
       displayname: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Availability
       items:
+      - name: Overview
+        href: app/availability-overview.md
       - name: URL tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
       - name: Multi-step tests
         displayname: availability, GSM, visual studio web test, web test
         href: app/availability-multistep.md
+      - name: Private testing
+        href: app/availability-private-test.md
       - name: Availability + Azure Functions
         href: app/availability-azure-functions.md
         displayname: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
@@ -968,8 +979,6 @@
       items:
       - name: F5 insights
         href: app/visual-studio.md
-      - name: Trends
-        href: app/visual-studio-trends.md
       - name: CodeLens
         href: app/visual-studio-codelens.md
     - name: Other platforms
@@ -1040,6 +1049,8 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
+    - name: Troubleshoot
+      href: vm/vminsights-troubleshoot.md
   - name: Container insights 
     items:
     - name: Overview
@@ -1128,6 +1139,18 @@
       href: insights/network-insights-overview.md
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
+    - name: SQL insights (preview)
+      items:
+      - name: Overview
+        href: insights/sql-insights-overview.md
+      - name: FAQ
+        href: faq.md#sql-insights-preview
+      - name: Enable
+        href: insights/sql-insights-enable.md
+      - name: Alerts
+        href: insights/sql-insights-alerts.md
+      - name: Troubleshoot
+        href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
       href: insights/storage-insights-overview.md
@@ -1375,7 +1398,7 @@
       href: /cli/azure/azure-cli-reference-for-monitor
       displayName: Action Groups, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
     - name: Application Insights
-      href: /cli/azure/ext/application-insights/monitor/app-insights
+      href: /cli/azure/monitor/app-insights
     - name: Activity Logs
       href: /cli/azure/monitor/activity-log
     - name: Log Analytics
@@ -1422,10 +1445,10 @@
     - name: Key Vault Analytics (deprecated)
       href: insights/azure-key-vault-deprecated.md
     - name: Unix metrics
-      href: app/java-collectd.md
+      href: app/java-2x-collectd.md
     - name: Micrometer Metrics
       displayname: java
-      href: app/micrometer-java.md
+      href: app/java-2x-micrometer.md
     - name: Views
       items:
       - name: View Designer

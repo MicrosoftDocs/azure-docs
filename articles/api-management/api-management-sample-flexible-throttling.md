@@ -87,7 +87,7 @@ When the throttling key is defined using a [policy expression](./api-management-
 This enables the developer's client application to choose how they want to create the rate limiting key. The client developers could create their own rate tiers by allocating sets of keys to users and rotating the key usage.
 
 ## Summary
-Azure API Management provides rate and quote throttling to both protect and add value to your API service. The new throttling policies with custom scoping rules allow you finer grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these new policies by manufacturing rate limiting keys with client IP addresses, user identity, and client generated values. However, there are many other parts of the message that could be used such as user agent, URL path fragments, message size.
+Azure API Management provides rate and quota throttling to both protect and add value to your API service. The new throttling policies with custom scoping rules allow you finer grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these new policies by manufacturing rate limiting keys with client IP addresses, user identity, and client generated values. However, there are many other parts of the message that could be used such as user agent, URL path fragments, message size.
 
 ## Next steps
 Please give us your feedback as a GitHub issue for this topic. It would be great to hear about other potential key values that have been a logical choice in your scenarios.

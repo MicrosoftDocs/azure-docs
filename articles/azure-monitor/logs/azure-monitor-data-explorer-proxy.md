@@ -32,6 +32,7 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 > [!NOTE]
 >* Database names are case sensitive.
 >* Cross-resource query as an alert is not supported.
+>* Identifying the Timestamp column in the cluster is not supported, Log Analytics query API will not pass along the time filter
 
 ## Combine Azure Data Explorer cluster tables with a Log Analytics workspace
 

@@ -32,8 +32,7 @@ This Java application tutorial shows you how to create a web-based task-manageme
 :::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="My ToDo List Java application":::
 
 > [!TIP]
-> This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo]https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) project from GitHub and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
->
+> This application development tutorial assumes that you have prior experience using Java. If you are new to Java or the [prerequisite tools](#Prerequisites), we recommend downloading the complete [todo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) project from GitHub and building it using [the instructions at the end of this article](#GetProject). Once you have it built, you can review the article to gain insight on the code in the context of the project.  
 
 ## <a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
 
@@ -47,7 +46,7 @@ Before you begin this application development tutorial, you must have the follow
 * [Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service/quickstart-java.md)
 
-If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the quickstart section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article.
+If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the quickstart section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](https://www.youtube.com/watch?v=jOdCfW7-ybI&t=2s) article.
 
 ## <a id="CreateDB"></a>Create an Azure Cosmos DB account
 

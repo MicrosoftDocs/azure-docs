@@ -23,7 +23,7 @@ zone_pivot_groups: programming-languages-set-ten
 #   - id: programming-language-python
 #     title: Python
 
-# As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
+#Customer intent: As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
 
 # Quickstart: Interact with an IoT Plug and Play device that's connected to your solution

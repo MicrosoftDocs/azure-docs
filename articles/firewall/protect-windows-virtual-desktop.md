@@ -49,7 +49,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 - Create a network rule collection add the following rules:
 
    - Allow DNS – allow traffic from your ADDS private IP address to * for TCP and UDP ports 53.
-   - Allow KMS – allow traffic from your Windows Virtual Desktop virtual machines to Windows Activation Service TCP port 1688. For more information about the destination IP addresses, see [Windows activation fails in forced tunneling scenario](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
+   - Allow KMS – allow traffic from your Windows Virtual Desktop virtual machines to Windows Activation Service TCP port 1688. For more information about the destination IP addresses, see [Windows activation fails in forced tunneling scenario](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution).
 
 > [!NOTE]
 > Some deployments may not need DNS rules, for example Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.

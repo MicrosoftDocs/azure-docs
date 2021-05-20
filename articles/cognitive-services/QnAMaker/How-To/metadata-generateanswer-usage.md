@@ -11,21 +11,9 @@ ms.date: 11/09/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# Get an answer with the GenerateAnswer API and metadata
+# Get an answer with the GenerateAnswer API
 
 To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
-
-QnA Maker lets you add metadata, in the form of key and value pairs, to your pairs of questions and answers. You can then use this information to filter results to user queries, and to store additional information that can be used in follow-up conversations. For more information, see [Knowledge base](../index.yml).
-
-<a name="qna-entity"></a>
-
-## Store questions and answers with a QnA entity
-
-It's important to understand how QnA Maker stores the question and answer data. The following illustration shows a QnA entity:
-
-![Illustration of a QnA entity](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
-
-Each QnA entity has a unique and persistent ID. You can use the ID to make updates to a particular QnA entity.
 
 <a name="generateanswer-api"></a>
 
@@ -129,6 +117,21 @@ The [response](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswe
 
 The previous JSON responded with an answer with a score of 38.5%.
 
+## Match questions only, by text
+
+By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
+
+You can search through the published kb, using `isTest=false`, or in the test kb using `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
+}
+
+```
 ## Use QnA Maker with a bot in C#
 
 The bot framework provides access to the QnA Maker's properties with the [getAnswer API](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
@@ -166,111 +169,13 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 The previous JSON requested only answers that are at 30% or above the threshold score.
 
-<a name="metadata-example"></a>
+## Get precise answers with GenerateAnswer API
 
-## Use metadata to filter answers by custom metadata tags
+# [QnA Maker GA (stable release)](#tab/v1)
 
-Adding metadata allows you to filter the answers by these metadata tags. Add the metadata column from the **View Options** menu. Add metadata to your knowledge base by selecting the metadata **+** icon to add a metadata pair. This pair consists of one key and one value.
+We offer precise answer feature only with the QnA Maker managed version.
 
-![Screenshot of adding metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
-
-<a name="filter-results-with-strictfilters-for-metadata-tags"></a>
-
-## Filter results with strictFilters for metadata tags
-
-Consider the user question "When does this hotel close?", where the intent is implied for the restaurant "Paradise."
-
-Because results are required only for the restaurant "Paradise", you can set a filter in the GenerateAnswer call on the metadata "Restaurant Name". The following example shows this:
-
-```json
-{
-    "question": "When does this hotel close?",
-    "top": 1,
-    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
-}
-```
-
-### Logical AND by default
-
-To combine several metadata filters in the query, add the additional metadata filters to the array of the `strictFilters` property. By default, the values are logically combined (AND). A logical combination requires all filters to matches the QnA pairs in order for the pair to be returned in the answer.
-
-This is equivalent to using the `strictFiltersCompoundOperationType` property with the value of `AND`.
-
-### Logical OR using strictFiltersCompoundOperationType property
-
-When combining several metadata filters, if you are only concerned with one or some of the filters matching, use the `strictFiltersCompoundOperationType` property with the value of `OR`.
-
-This allows your knowledge base to return answers when any filter matches but won't return answers that have no metadata.
-
-```json
-{
-    "question": "When do facilities in this hotel close?",
-    "top": 1,
-    "strictFilters": [
-      { "name": "type","value": "restaurant"},
-      { "name": "type", "value": "bar"},
-      { "name": "type", "value": "poolbar"}
-    ],
-    "strictFiltersCompoundOperationType": "OR"
-}
-```
-
-### Metadata examples in quickstarts
-
-Learn more about metadata in the QnA Maker portal quickstart for metadata:
-* [Authoring - add metadata to QnA pair](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
-* [Query prediction - filter answers by metadata](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
-
-<a name="keep-context"></a>
-
-## Use question and answer results to keep conversation context
-
-The response to the GenerateAnswer contains the corresponding metadata information of the matched question and answer pair. You can use this information in your client application to store the context of the previous conversation for use in later conversations.
-
-```json
-{
-    "answers": [
-        {
-            "questions": [
-                "What is the closing time?"
-            ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
-            "metadata": [
-                {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
-                }
-            ]
-        }
-    ]
-}
-```
-
-## Match questions only, by text
-
-By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
-
-You can search through the published kb, using `isTest=false`, or in the test kb using `isTest=true`.
-
-```json
-{
-  "question": "Hi",
-  "top": 30,
-  "isTest": true,
-  "RankerType":"QuestionOnly"
-}
-```
-
-## Return Precise Answers
-
-### Generate Answer API 
+# [QnA Maker managed (preview release)](#tab/v2)
 
 The user can enable [precise answers](../reference-precise-answering.md) when using the QnA Maker managed resource. The answerSpanRequest parameter has to be updated for the same.
 
@@ -305,6 +210,8 @@ If you want to configure precise answer settings for your bot service, navigate 
 |Precise Answers Only|true|true|
 |Long Answers Only|false|false|
 |Both Long and Precise Answers|true|false|
+
+---
 
 ## Common HTTP errors
 

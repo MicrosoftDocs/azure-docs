@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
 
-# As a device developer, I want to understand why data from my devices isn't showing up in IoT Central, and the steps I can take to rectify the issue.
+#Customer intent: As a device developer, I want to understand why data from my devices isn't showing up in IoT Central, and the steps I can take to rectify the issue.
 ---
 
 # Troubleshoot why data from your devices isn't showing up in Azure IoT Central
 
-This document helps device developers find out why the data their devices are sending to IoT Central may not be showing up in the application.
+This document helps you find out why the data your devices are sending to IoT Central may not be showing up in the application.
 
 There are two main areas to investigate:
 
@@ -155,6 +155,14 @@ If you are seeing issues related to your authentication flow:
 | 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
 | 500 | An internal error occurred. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
+
+### File upload error codes
+
+Here is a list of common error codes you might see when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file uploads](howto-configure-file-uploads.md) in your application.
+
+| Error code | Description | Possible Mitigation |
+| - | - | - |
+| 403006  | You've exceeded the number of concurrent file upload operations. Each device client is limited to 10 concurrent file uploads. | Ensure the device promptly notifies IoT Central that the file upload operation has completed. If that doesn't work, try reducing the request timeout. |
 
 ## Payload shape issues
 

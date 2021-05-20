@@ -103,7 +103,7 @@ Client side logging experience is exactly the same as when using self-hosted Sig
 
 ##### Enable server-side logging for `ASP.NET Core SignalR`
 
-Server-side logging for `ASP.NET Core SignalR` integrates with the `ILogger` based [logging](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) provided in the `ASP.NET Core` framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
+Server-side logging for `ASP.NET Core SignalR` integrates with the `ILogger` based [logging](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&preserve-view=true&view=aspnetcore-2.1) provided in the `ASP.NET Core` framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>

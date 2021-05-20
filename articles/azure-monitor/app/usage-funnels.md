@@ -43,6 +43,5 @@ The preceding screenshot includes five highlighted areas. These are features of 
   * [Users, Sessions, and Events](usage-segmentation.md)
   * [Retention](usage-retention.md)
   * [Workbooks](../visualize/workbooks-overview.md)
-  * [Add user context](usage-send-user-context.md)
+  * [Add user context](./usage-overview.md)
   * [Export to Power BI](./export-power-bi.md)
-

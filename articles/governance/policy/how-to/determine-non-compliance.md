@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # Determine causes of non-compliance
@@ -38,9 +38,9 @@ To view the compliance details, follow these steps:
 1. On the **Overview** or **Compliance** page, select a policy in a **compliance state** that is
    _Non-compliant_.
 
-1. Under the **Resource compliance** tab of the **Policy compliance** page, right-click or select
-   the ellipsis of a resource in a **compliance state** that is _Non-compliant_. Then select **View
-   compliance details**.
+1. Under the **Resource compliance** tab of the **Policy compliance** page, select and hold (or
+   right-click) or select the ellipsis of a resource in a **compliance state** that is
+   _Non-compliant_. Then select **View compliance details**.
 
    :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot of the 'View compliance details' link on the Resource compliance tab." border="false":::
 

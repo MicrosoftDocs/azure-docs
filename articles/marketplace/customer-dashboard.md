@@ -158,6 +158,7 @@ _**Table 1: Dictionary of data terms**_
 | CommerceRootCustomer | Commerce Root Customer | One Billing Account ID can be associated with multiple Customer IDs.<br>One combination of a Billing Account ID and a Customer ID can be associated with multiple commercial marketplace subscriptions.<br>The Commerce Root Customer signifies the name of the subscription’s customer. | CommerceRootCustomer |
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
+| Customer Type | Customer Type | The value of this field signifies the type of the customer. The possible values are:<ul><li>individual</li> <li>organization</li></ul> | CustomerType |
 |||||
 
 ### Customers page filters

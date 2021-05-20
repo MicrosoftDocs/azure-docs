@@ -1,8 +1,8 @@
 ---
 title: Create a voice assistant with Azure Percept DK and Azure Percept Audio
 description: Learn how to create and deploy a no-code speech solution to your Azure Percept DK
-author: elqu20
-ms.author: v-elqu
+author: philmea
+ms.author: philmea
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
@@ -13,7 +13,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 In this tutorial, you will create a voice assistant from a template to use with your Azure Percept DK and Azure Percept Audio. The voice assistant demo runs within [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) and contains a selection of voice-controlled virtual objects. To control an object, say your keyword, which is a word or short phrase that wakes your device, followed by a command. Each template responds to a set of specific commands.
 
-This guide will walk you through the process of setting up your devices, creating a voice assistant and the necessary [Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview) resources, testing your voice assistant, configuring your keyword, and creating custom keywords.
+This guide will walk you through the process of setting up your devices, creating a voice assistant and the necessary [Speech Services](../cognitive-services/speech-service/overview.md) resources, testing your voice assistant, configuring your keyword, and creating custom keywords.
 
 ## Prerequisites
 
@@ -167,7 +167,7 @@ Once you create a custom command, you must go to [Speech Studio](https://speech.
 
     :::image type="content" source="./media/tutorial-no-code-speech/speech-studio.png" alt-text="Screenshot of speech studio home screen.":::
 
-For more information on developing custom commands, please see the [Speech Service documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands).
+For more information on developing custom commands, please see the [Speech Service documentation](../cognitive-services/speech-service/custom-commands.md).
 
 ## Troubleshooting
 

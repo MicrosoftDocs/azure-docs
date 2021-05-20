@@ -384,7 +384,7 @@ You can examine the Media Services asset that was created by the media graph by 
 1. In the wizard that opens, accept the default options and select **Add**. For more information, see [Video playback](video-playback-concept.md).
 
     > [!TIP]
-    > Make sure your [streaming endpoint is running](../latest/streaming-endpoint-concept.md).
+    > Make sure your [streaming endpoint is running](../latest/stream-streaming-endpoint-concept.md).
 1. The player should load the video. Select **Play** to view it.
 
 > [!NOTE]

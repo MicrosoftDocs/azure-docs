@@ -32,6 +32,8 @@ By default, your data are stored in Microsoft's storage and your subscription us
 
 For more information about Managed Identity, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
+In the meantime, when you use Custom Command, you can manage your subscription with your own encryption keys. Customer-managed keys (CMK), also known as bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. For more information about Custom Command and CMK, see [Custom Commands encryption of data at rest](custom-commands-encryption-of-data-at-rest.md).
+
 ## Bring your own storage (BYOS) for customization and logging
 
 To request access to bring your own storage, fill out and submit the [Speech service - bring your own storage (BYOS) request form](https://aka.ms/cogsvc-cmk). Once approved, you'll need to create your own storage account to store the data required for customization and logging. When adding a storage account, the Speech service resource will enable a system assigned managed identity. After the system assigned managed identity is enabled, this resource will be registered with Azure Active Directory (AAD). After being registered, the managed identity will be given access to the storage account. You can learn more about Managed Identities here. For more information about Managed Identity, see [What are managed identities](../../active-directory/managed-identities-azure-resources/overview.md).

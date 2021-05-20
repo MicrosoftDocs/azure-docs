@@ -21,7 +21,7 @@ There are three types of service accounts native to Azure Active Directory: Mana
 
 ## Types of Azure Active Directory service accounts
 
-For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can’t be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service principal. See the following table for a summary.
+For services hosted in Azure, we recommend using a managed identity if possible, and a service principal if not. Managed identities can’t be used for services hosted outside of Azure. In that case, we recommend a service principal. If you can use a managed identity or a service principal, do so. We recommend that you not use an Azure Active Directory user account as a service account. See the following table for a summary.
  
 
 | Service hosting| Managed identity| Service principal| Azure user account |
@@ -33,13 +33,13 @@ For services hosted in Azure, we recommend using a managed identity if possible,
 
 ## Managed identities
 
-Managed identities are secure Azure Active Directory (Azure AD) identities created to provide identities for Azure resources. There are [two types of managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types): 
+Managed identities are secure Azure Active Directory (Azure AD) identities created to provide identities for Azure resources. There are [two types of managed identities](../managed-identities-azure-resources/overview.md#managed-identity-types): 
  
 * System-assigned managed identities can be assigned directly to an instance of a service. 
 
 * User-assigned managed identities can be created as a standalone resource. 
 
-For more information, see [Securing managed identities](service-accounts-managed-identities.md). For general information about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+For more information, see [Securing managed identities](service-accounts-managed-identities.md). For general information about managed identities, see [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md)
 
 ## Service principals
 
@@ -49,7 +49,7 @@ A service principal is the local representation of an application object in a si
 
 There are two mechanisms for authentication using service principals—client certificates and client secrets. Certificates are more secure: use client certificates if possible. Unlike client secrets, client certificates cannot accidentally be embedded in code.
 
-For information on securing service principals, see Securing service principals.
+For information on securing service principals, see [Securing service principals](service-accounts-principal.md).
 
  
 ## Next steps
@@ -62,6 +62,3 @@ For more information on securing Azure service accounts, see:
 [Securing service principals](service-accounts-principal.md)
 
 [Governing Azure service accounts](service-accounts-governing-azure.md)
-
-
-

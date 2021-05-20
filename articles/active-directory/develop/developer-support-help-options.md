@@ -1,23 +1,22 @@
 ---
-title: Support and help options for Azure AD app developers
-description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft identities (Azure Active Directory and Microsoft account)
+title: Support and help options for Microsoft identity platform developers | Azure
+description: Learn where to get help and find answers to your questions as you build identity and access management (IAM) solutions that integrate with Azure Active Directory (Azure AD) and other components of the Microsoft identity platform.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/23/2019
-ms.author: ryanwi
+ms.date: 03/09/2021
+ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
 ---
 
 # Support and help options for developers
 
-If you're just starting to integrate with Azure Active Directory (Azure AD), Microsoft identities, or Microsoft Graph API, or when you're implementing a new feature to your application, there are times when you need to obtain help from the community or understand the support options that you have as a developer. Here are suggestions for where you can get help when developing your Microsoft identity platform solutions.
+If you need an answer to a question or help in solving a problem not covered in our documentation, it might be time to reach out to experts for help. Here are several suggestions for getting answers to your questions as you develop applications that integrate with the Microsoft identity platform.
 
 ## Create an Azure support request
 
@@ -29,9 +28,10 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.serviceshub.microsoft.com/supportforbusiness).
+- If you're not an Azure customer, you can open a support request with [Microsoft Support for business](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 ## Post a question to Microsoft Q&A
+
 <div class='icon is-large'>
     <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
 </div>             
@@ -40,17 +40,17 @@ Get answers to your identity app development questions directly from Microsoft e
 
 [Microsoft Q&A](/answers/products/) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html):
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](/answers/articles/24951/how-to-write-a-quality-question.html):
 
 | Component/area| Tags  |
 |------------|---------------------------|
-| Active Directory Authentication Library (ADAL)                              | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
-| Microsoft Authentication Library (MSAL)                                     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
-| Open Web Interface for .NET (OWIN) middleware                               | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
-| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
-| All other authentication and authorization areas                            | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Active Directory Authentication Library (ADAL)                              | [[adal]](/answers/topics/azure-ad-adal-deprecation.html)                |
+| Microsoft Authentication Library (MSAL)                                     | [[msal]](/answers/topics/azure-ad-msal.html)                            |
+| Open Web Interface for .NET (OWIN) middleware                               | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html)                 |
+| All other authentication and authorization areas                            | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 
 ## Create a GitHub issue
 
@@ -94,10 +94,8 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
 
-- [What's new in docs](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs): Get to know what's new in the Microsoft identity platform documentation.
+- [What's new in docs](./whats-new-docs.md): Get to know what's new in the Microsoft identity platform documentation.
 
 - [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Azure AD.
 
 - [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): Share your experiences, engage and learn from experts.
-
-

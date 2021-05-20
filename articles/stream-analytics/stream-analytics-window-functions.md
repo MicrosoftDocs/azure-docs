@@ -6,7 +6,7 @@ ms.author: jeanb
 
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 03/16/2021
 ---
 # Introduction to Stream Analytics windowing functions
 

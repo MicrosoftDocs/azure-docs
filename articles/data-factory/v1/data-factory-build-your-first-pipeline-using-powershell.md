@@ -3,7 +3,7 @@ title: Build your first data factory (PowerShell)
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Azure PowerShell.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/22/2018

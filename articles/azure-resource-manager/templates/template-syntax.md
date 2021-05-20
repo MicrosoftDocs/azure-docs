@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 05/17/2021
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -188,6 +188,7 @@ You define resources with the following structure:
           "capacity": <sku-capacity>
       },
       "kind": "<type-of-resource>",
+      "scope": "<target-scope-for-extension-resources>",
       "copy": {
           "name": "<name-of-copy-loop>",
           "count": <number-of-iterations>,
@@ -230,6 +231,7 @@ You define resources with the following structure:
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
+| scope | No | The scope property is only available for [extension resource types](../management/extension-resource-types.md). Use it when specifying a scope that is different than the deployment scope. See [Setting scope for extension resources in ARM templates](scope-extension-resources.md). |
 | copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](copy-resources.md). |
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
@@ -273,10 +275,13 @@ You have a few options for adding comments and metadata to your template.
 
 ### Comments
 
-For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. If you add this style of comment, be sure the tools you use support inline JSON comments.
+For inline comments, you can use either `//` or `/* ... */`.
 
 > [!NOTE]
-> To deploy templates with comments by using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.
+>
+> To deploy templates with comments, use Azure PowerShell or Azure CLI. For CLI, use version 2.3.0 or later, and specify the `--handle-extended-json-format` switch.
+>
+> Comments aren't supported when you deploy the template through the Azure portal, a DevOps pipeline, or the REST API.
 
 ```json
 {
@@ -369,6 +374,13 @@ You can't add a `metadata` object to user-defined functions.
 
 You can break a string into multiple lines. For example, see the `location` property and one of the comments in the following JSON example.
 
+> [!NOTE]
+>
+> To deploy templates with multi-line strings, use Azure PowerShell or Azure CLI. For CLI, use version 2.3.0 or later, and specify the `--handle-extended-json-format` switch.
+>
+> Multi-line strings aren't supported when you deploy the template through the Azure portal, a DevOps pipeline, or the REST API.
+
+
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
@@ -386,9 +398,6 @@ You can break a string into multiple lines. For example, see the `location` prop
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
-
-> [!NOTE]
-> To deploy templates with multi-line strings by using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.
 
 ## Next steps
 

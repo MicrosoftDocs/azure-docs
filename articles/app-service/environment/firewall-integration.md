@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 03/25/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions
 
@@ -142,6 +142,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 |login.windows.com:443 |
 |login.windows.net:443 |
 |login.microsoftonline.com:443 |
+|\*.login.microsoftonline.com:443|
+|\*.login.microsoft.com:443|
 |client.wns.windows.com:443 |
 |definitionupdates.microsoft.com:443 |
 |go.microsoft.com:80 |

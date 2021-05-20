@@ -185,7 +185,7 @@ For a PowerShell script that shows how to perform geo-restore for a managed inst
 
 ### Geo-restore considerations
 
-You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](../../key-vault/general/disaster-recovery-guidance.md).
+You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](disaster-recovery-guidance.md#recover-using-geo-restore).
 
 > [!IMPORTANT]
 > Geo-restore is the most basic disaster-recovery solution available in SQL Database and SQL Managed Instance. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) up to 1 hour and an estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster-recovery solution. 
@@ -241,11 +241,11 @@ To restore a database by using the REST API:
 
 #### SQL Database
 
-To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az_sql_db_restore).
 
 #### SQL Managed Instance
 
-To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
+To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore).
 
 ## Summary
 

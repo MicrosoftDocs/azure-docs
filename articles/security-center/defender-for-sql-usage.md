@@ -42,7 +42,7 @@ To enable this plan:
 
 ### Step 1. Provision the Log Analytics agent on your SQL server's host:
 
-- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack VMs](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
+- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
 - **SQL Server on Azure Arc** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the installation methods described in the [Azure Arc documentation](../azure-arc/servers/manage-vm-extensions.md).
 
 - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
@@ -91,6 +91,20 @@ Azure Defender for SQL alerts are available in Security Center's alerts page, th
     * To improve your security posture, use Security Center's recommendations for the host machine indicated in each alert. This will reduce the risks of future attacks. 
 
     [Learn more about managing and responding to alerts](security-center-managing-and-responding-alerts.md).
+
+
+## FAQ - Azure Defender for SQL servers on machines
+
+### If I enable this Azure Defender plan on my subscription, are all SQL servers on the subscription protected? 
+
+No. To defend a SQL Server deployment on an Azure Virtual Machine, or a SQL Server running on an Azure Arc enabled machine, Azure Defender requires both of the following:
+
+- a Log Analytics agent on the machine 
+- the relevant Log Analytics workspace to have the Azure Defender for SQL solution enabled 
+
+The subscription *status*, shown in the SQL server page in the Azure portal, reflects the default workspace status and applies to all connected machines. Only the SQL servers on hosts with a Log Analytics agent reporting to that workspace are protected by Azure Defender. 
+
+
 
 
 ## Next steps

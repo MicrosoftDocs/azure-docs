@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
 > [!IMPORTANT]
->**Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+> **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## Create an API connector
 
@@ -49,16 +49,27 @@ HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/r
 > [!IMPORTANT]
 > This functionality is in preview and is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Client certificate authentication is a mutual certificate-based authentication, where the client provides a client certificate to the server to prove its identity. In this case, Azure Active Directory will use the certificate that you upload as part of the API connector configuration. This happens as a part of the SSL handshake. Only services that have proper certificates can access your API service. The client certificate is an X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
+Client certificate authentication is a mutual certificate-based authentication method where the client provides a client certificate to the server to prove its identity. In this case, Azure Active Directory will use the certificate that you upload as part of the API connector configuration. This happens as a part of the SSL handshake. Your API service can then limit access to only services that have proper certificates. The client certificate is an PKCS12 (PFX) X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
 
-To create a certificate, you can use [Azure Key Vault](../../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. You can then [export the certificate](../../key-vault/certificates/how-to-export-certificate.md) and upload it for use in the API connectors configuration. Note that password is only required for certificate files protected by a password. You can also use PowerShell's [New-SelfSignedCertificate cmdlet](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) to generate a self-signed certificate.
+To create a certificate, you can use [Azure Key Vault](../../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
+- **Subject**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Content Type**: `PKCS #12`
+- **Lifetime Acton Type**: `Email all contacts at a given percentage lifetime` or `Email all contacts a given number of days before expiry`
+- **Key Type**: `RSA`
+- **Key Size**: `2048`
+- **Exportable Private Key**: `Yes` (in order to be able to export pfx file)
 
-For Azure App Service and Azure Functions, see [configure TLS mutual authentication](../../app-service/app-service-web-configure-tls-mutual-auth.md) to learn how to enable and validate the certificate from your API endpoint.
+You can then [export the certificate](../../key-vault/certificates/how-to-export-certificate.md). You can alternatively use PowerShell's [New-SelfSignedCertificate cmdlet](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) to generate a self-signed certificate.
 
-It's recommended you set reminder alerts for when your certificate will expire. To upload a new certificate to an existing API connector, select the API connector under **All API connectors** and click on **Upload new connector**. The most recently uploaded certificate which is not expired and is past the start date will be used automatically by Azure Active Directory.
+After you have a certificate, you can then upload it as part of the API connector configuration. Note that password is only required for certificate files protected by a password.
+
+Your API must implement the authorization based on sent client certificates in order to protect the API endpoints. For Azure App Service and Azure Functions, see [configure TLS mutual authentication](../../app-service/app-service-web-configure-tls-mutual-auth.md) to learn how to enable and *validate the certificate from your API code*.  You can also use  Azure API Management to protect your API and [check client certificate properties](
+../../api-management/api-management-howto-mutual-certificates-for-clients.md) against desired values using policy expressions.
+ 
+It's recommended you set reminder alerts for when your certificate will expire. You will need to generate a new certificate and repeat the steps above. Your API service can temporarily continue to accept old and new certificates while the new certificate is deployed. To upload a new certificate to an existing API connector, select the API connector under **All API connectors** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and is past the start date will automatically be used  by Azure Active Directory.
 
 ### API Key
-Some services use an "API key" mechanism to make it harder to access your HTTP endpoints during development. For [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL**. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
+Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development. For [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL**. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
 
 This is not a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do not wish to implement any authentication method (not recommended) for development purposes, you can choose basic authentication and use temporary values for `username` and `password` that your API can disregard while you implement the authorization in your API.
 
@@ -72,7 +83,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -134,7 +145,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -185,7 +196,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",

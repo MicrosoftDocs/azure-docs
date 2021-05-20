@@ -1,19 +1,8 @@
 ---
 title: Investigate a suspicious device
 description: This how to guide explains how to use Defender for IoT to investigate a suspicious IoT device using Log Analytics.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/04/2020
-ms.author: mlottner
 ---
 
 # Investigate a suspicious IoT device

@@ -242,4 +242,4 @@ Customer-managed key user log JSON includes elements listed in the following tab
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)

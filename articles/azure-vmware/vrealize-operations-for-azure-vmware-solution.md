@@ -1,11 +1,11 @@
 ---
-title: Set up vRealize Operations for Azure VMware Solution
+title: Configure vRealize Operations for Azure VMware Solution
 description: Learn how to set up vRealize Operations for your Azure VMware Solution private cloud. 
 ms.topic: how-to
 ms.date: 01/26/2021
 ---
 
-# Set up vRealize Operations for Azure VMware Solution
+# Configure vRealize Operations for Azure VMware Solution
 
 
 vRealize Operations Manager is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual) objects. Most VMware administrators have used vRealize Operations to monitor and manage the VMware private cloud components – vCenter, ESXi, NSX-T, vSAN, and VMware HCX.  Each provisioned Azure VMware Solution private cloud includes a dedicated vCenter, NSX-T, vSAN, and HCX deployment. 
@@ -56,7 +56,7 @@ Once the instance has been deployed, you can configure vRealize Operations to co
 
 ## Known limitations
 
-- The **cloudadmin\@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-role-based-access-control.md).  Virtual machines (VMs) on Azure VMware Solution doesn't support in-guest memory collection using VMware tools.  Active and consumed memory utilization continues to work in this case.
+- The **cloudadmin\@vsphere.local** user in Azure VMware Solution has [limited privileges](concepts-identity.md).  Virtual machines (VMs) on Azure VMware Solution doesn't support in-guest memory collection using VMware tools.  Active and consumed memory utilization continues to work in this case.
 - Workload optimization for host-based business intent doesn't work because Azure VMware Solutions manage cluster configurations, including DRS settings.
 - Workload optimization for the cross-cluster placement within the SDDC using the cluster-based business intent is fully supported with vRealize Operations Manager 8.0  and onwards. However, workload optimization isn't aware of resource pools and places the VMs at the cluster level. A user can manually correct it in the Azure VMware Solution vCenter Server interface.
 - You can't sign in to vRealize Operations Manager using your Azure VMware Solution vCenter Server credentials. 

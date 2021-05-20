@@ -191,6 +191,8 @@ If clean installing a hybrid Azure AD joined machine, after the domain join and 
 
 Make sure enough domain controllers are patched to respond in time to service your resource request. To check if you can see a domain controller that is running the feature, review the output of `nltest /dsgetdc:contoso /keylist /kdc`.
 
+Note: This /Keylist switch in nltest command can be found from client windows 10 v2004 and above
+
 ## Next steps
 
 [Learn more about passwordless](concept-authentication-passwordless.md)

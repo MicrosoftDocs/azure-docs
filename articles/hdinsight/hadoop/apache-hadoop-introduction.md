@@ -26,7 +26,7 @@ To see available Hadoop technology stack components on HDInsight, see [Component
 
 A basic word count MapReduce job example is illustrated in the following diagram:
 
- ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
+ :::image type="content" source="./media/apache-hadoop-introduction/hdi-word-count-diagram.gif" alt-text="HDI.WordCountDiagram" border="true":::
 
 The output of this job is a count of how many times each word occurred in the text.
 

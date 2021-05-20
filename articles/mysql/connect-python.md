@@ -88,8 +88,8 @@ config = {
   'user':'<myadmin>@<mydemoserver>',
   'password':'<mypassword>',
   'database':'<mydatabase>',
-  'client_flags': [ClientFlag.SSL],
-  'ssl_cert': '/var/wwww/html/DigiCertGlobalRootG2.crt.pem'
+  'client_flags': [mysql.connector.ClientFlag.SSL],
+  'ssl_ca': '/var/wwww/html/DigiCertGlobalRootG2.crt.pem'
 }
 
 # Construct connection string

@@ -4,7 +4,7 @@ description: Describes the concept of a hierarchical namespace for Azure Data La
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
@@ -39,6 +39,10 @@ In general, we recommend that you turn on a hierarchical namespace for storage w
 The reasons for enabling a hierarchical namespace are determined by a TCO analysis. Generally speaking, improvements in workload latency due to storage acceleration will require compute resources for less time. Latency for many workloads may be improved due to atomic directory manipulation that is enabled by a hierarchical namespace. In many workloads, the compute resource represents > 85% of the total cost and so even a modest reduction in workload latency equates to a significant amount of TCO savings. Even in cases where enabling a hierarchical namespace increases storage costs, the TCO is still lowered due to reduced compute costs.
 
 To analyze differences in data storage prices, transaction prices, and storage capacity reservation pricing between accounts that have a flat hierarchical namespace versus a hierarchical namespace, see [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+
+## Enabling a hierarchical namespace
+
+You can't enable a hierarchical namespace on an existing storage account. You can enable a hierarchical namespace only when you create a storage account. For guidance, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 ## Next steps
 

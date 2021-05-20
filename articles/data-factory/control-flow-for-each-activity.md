@@ -1,9 +1,9 @@
 ---
 title: ForEach activity in Azure Data Factory 
 description: The For Each Activity defines a repeating control flow in your pipeline. It is used for iterating over a collection and execute specified activities.
-author: dcstwh
-ms.author: weetok
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
@@ -74,7 +74,7 @@ Activities | The activities to be executed. | List of Activities | Yes
 If **isSequential** is set to false, the activity iterates in parallel with a maximum of 20 concurrent iterations. This setting should be used with caution. If the concurrent iterations are writing to the same folder but to different files, this approach is fine. If the concurrent iterations are writing concurrently to the exact same file, this approach most likely causes an error. 
 
 ## Iteration expression language
-In the ForEach activity, provide an array to be iterated over for the property **items**." Use `@item()` to iterate over a single enumeration in ForEach activity. For example, if **items** is an array: [1, 2, 3], `@item()` returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration.
+In the ForEach activity, provide an array to be iterated over for the property **items**." Use `@item()` to iterate over a single enumeration in ForEach activity. For example, if **items** is an array: [1, 2, 3], `@item()` returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration. You can also use `@range(0,10)` like expression to iterate ten times starting with 0 ending with 9.
 
 ## Iterating over a single activity
 **Scenario:** Copy from the same source file in Azure Blob to multiple destination files in Azure Blob.

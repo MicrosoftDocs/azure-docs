@@ -4,7 +4,7 @@ description: Access a summary of marketplace web analytics in Partner Center, wh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
 ---
@@ -110,7 +110,9 @@ This table provides a list view of the page visits and the calls to action of yo
 | Contact Me | Contact Me | The number of clicks to the “Contact Me” CTA on the offer’s page for a particular date. | ContactMe |
 | Test Drive | Test Drive | The number of clicks to the “Test Drive” CTA on the offer’s page for a particular date. | TestDrive |
 | Free Trial | Free Trial | The number of clicks to the “Free Trial” CTA on the offer’s page for a particular date. | FreeTrial |
-|||||
+| Campaign | Name of the Campaign | Ability to understand web telemetry (page visit and CTA clicks) against the campaign name. | Campaign |
+| n/a | Site | The name of the storefront from which the page visit or CTA click occurred. The possible values are:<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
+|
 
 ## Next steps
 

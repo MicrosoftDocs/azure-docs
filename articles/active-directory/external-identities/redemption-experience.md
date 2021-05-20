@@ -23,7 +23,7 @@ This article describes the ways guest users can access your resources and the co
 When you add a guest user to your directory, the guest user account has a consent status (viewable in PowerShell) that’s initially set to **PendingAcceptance**. This setting remains until the guest accepts your invitation and agrees to your privacy policy and terms of use. After that, the consent status changes to **Accepted**, and the consent pages are no longer presented to the guest.
 
    > [!IMPORTANT]
-   > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+   > - **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
 
 ## Redemption and sign-in through a common endpoint
@@ -64,11 +64,11 @@ When a user clicks the **Accept invitation** link in an [invitation email](invit
 
 ![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation-redemption-flow.png)
 
-**If the user’s User principle name (UPN) matches with both an existing Azure AD and personal MSA account, the user will be prompted to choose which account they want to redeem with.*
+**If the user’s User Principal Name (UPN) matches with both an existing Azure AD and personal MSA account, the user will be prompted to choose which account they want to redeem with.*
 
 1. Azure AD performs user-based discovery to determine if the user exists in an [existing Azure AD tenant](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 
-2. If an admin has enabled [direct federation](./direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
+2. If an admin has enabled [SAML/WS-Fed IdP federation](./direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
 
 3. If an admin has enabled [Google federation](./google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com or googlemail.com and redirects the user to Google.
 

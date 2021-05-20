@@ -307,7 +307,7 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
    In this case, in the Azure portal, go to the IoT hub and select **Metrics** in the left pane. You should see the metrics there.
 
 ### Log Analytics metrics collection
-Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along with [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), you can generate and [monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) such as used CPUPercent, MemoryUsedPercent, etc.   
+Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along with [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), you can generate and [monitor metrics](../../azure-monitor/essentials/metrics-supported.md) such as used CPUPercent, MemoryUsedPercent, etc.   
 
 > [!NOTE]
 > The configuration below does not collect logs, **only metrics**. It is feasible to extend the collector module to also collect and upload logs.

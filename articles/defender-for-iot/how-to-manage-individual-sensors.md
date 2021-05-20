@@ -1,12 +1,8 @@
 ---
 title: Manage individual sensors
 description: Learn how to manage individual sensors, including managing activation files, performing backups, and updating a standalone sensor. 
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/02/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Manage individual sensors
@@ -519,9 +515,9 @@ The following procedure describes how to update a standalone sensor by using the
 
 5. In the sensor console's sidebar, select **System Settings**.
 
-6. On the **Version Upgrade** pane, select **Upgrade**.
+6. On the **Version Update** pane, select **Update**.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the upgrade pane.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the update pane.":::
 
 7. Select the file that you downloaded from the Defender for IoT **Updates** page.
 

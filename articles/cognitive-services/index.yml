@@ -39,7 +39,7 @@ highlightedContent:
     - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Support & help options
+    - title: Support and help options
       itemType: reference
       url: ./cognitive-services-support-options.md
 

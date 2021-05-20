@@ -7,7 +7,7 @@ manager: nmurav
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -16,7 +16,7 @@ ms.author: tchladek
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 
 ## Setting Up
@@ -74,7 +74,7 @@ namespace AccessTokensQuickstart
 ```
 ## Authenticate the client
 
-Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../create-communication-resource.md#store-your-connection-string).
+Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `Main` method:
 
@@ -129,7 +129,7 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 Use the `CreateUserAndTokenAsync` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
 
-```csharp  
+```csharp
 // Issue an identity and an access token with the "voip" scope for the new identity
 var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
 var identity = identityAndTokenResponse.Value.User;
@@ -146,8 +146,7 @@ Console.WriteLine(token);
 To refresh an access token, pass an instance of the `CommunicationUserIdentifier` object into `GetTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUserIdentifier`, you can do so by passing your stored `Id` into the `CommunicationUserIdentifier` constructor as follows:
 
 ```csharp
-// In this example, userId is a string containing the Id property of a previously-created CommunicationUser
-var identityToRefresh = new CommunicationUserIdentifier(userId);
+var identityToRefresh = new CommunicationUserIdentifier(identity.Id);
 var tokenResponse = await client.GetTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 

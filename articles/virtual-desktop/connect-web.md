@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Connect to Windows Virtual Desktop with the web client
 
@@ -42,25 +42,6 @@ In a browser, navigate to the Azure Resource Manager-integrated version of the W
 >If you've already signed in with a different Azure Active Directory account than the one you want to use for Windows Virtual Desktop, you should either sign out or use a private browser window.
 
 After signing in, you should now see a list of resources. You can launch resources by selecting them like you would a normal app in the **All Resources** tab.
-
-## Using an Input Method Editor
-
-The web client supports using an Input Method Editor (IME) in the remote session in version **1.0.21.16 or later**. The language pack for the keyboard you want to use in the remote session must be installed on the host virtual machine. To learn more about setting up language packs in the remote session, check out [Add language packs to a Windows 10 multi-session image](language-packs.md).
-
-To enable IME input using the web client:
-
-1. Before connecting to the remote session, go to the web client **Settings** panel.
-
-2. Toggle the **Enable Input Method Editor** setting to **On**.
-
-3. In the dropdown menu, select the keyboard you will use in the remote session.
-
-4. Connect to the remote session.
-
-The web client will suppress the local IME window when you are focused on the remote session. Changing IME settings once you have already connected to the remote session will not have any effect.
-
->[!NOTE]
->If the language pack is not installed on the host virtual machine, the remote session will default to English (United States) keyboard.
 
 ## Next steps
 

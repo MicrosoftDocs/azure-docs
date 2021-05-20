@@ -166,7 +166,7 @@ This article provides answers to some of the most common questions about running
    Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). Customers using [Software Assurance through the Azure Hybrid Benefit](licensing-model-azure-hybrid-benefit-ahb-change.md) or the **pay-as-you-go** licensing model can install multiple instances of SQL Server on the virtual machine without incurring extra licensing costs. Additional SQL Server instances may strain system resources unless configured correctly. 
 
 1. **What is the maximum number of instances on a VM?**
-   SQL Server 2012 to SQL Server 2019 can support [50 instances](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) on a stand-alone server. This is the same limit regardless of in Azure on-premises. See [best practices](performance-guidelines-best-practices.md#multiple-instances) to learn how to better prepare your environment. 
+   SQL Server 2012 to SQL Server 2019 can support [50 instances](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) on a stand-alone server. This is the same limit regardless of in Azure on-premises. See [best practices](./performance-guidelines-best-practices-checklist.md) to learn how to better prepare your environment. 
 
 1. **Can I uninstall the default instance of SQL Server?**
 
@@ -188,6 +188,7 @@ This article provides answers to some of the most common questions about running
    1. Uninstall SQL Server completely, including the SQL IaaS extension (if present).
    1. Install the free [SQL Express edition](https://www.microsoft.com/sql-server/sql-server-downloads).
    1. Register with the SQL IaaS Agent extension in [lightweight mode](sql-agent-extension-manually-register-single-vm.md).
+   1. [Change the edition of SQL Server](change-sql-server-edition.md#change-edition-in-portal) in the [Azure portal](https://portal.azure.com) to Express to stop billing.  
    1. (optional) Disable the Express SQL Server service by disabling service startup. 
 
 1. **Can I use the Azure portal to manage multiple instances on the same VM?**
@@ -239,6 +240,10 @@ This article provides answers to some of the most common questions about running
 1. **Are distributed transactions with MSDTC supported on SQL Server VMs?**
    
     Yes. Local DTC is supported for SQL Server 2016 SP2 and greater. However, applications must be tested when utilizing Always On availability groups, as transactions in-flight during a failover will fail and must be retried. Clustered DTC is available starting with Windows Server 2019. 
+    
+1. **Does Azure SQL virtual machine move or store customer data out of region?**
+
+   No. In fact, Azure SQL virtual machine and the SQL IaaS Agent Extension do not store any customer data.
 
 ## SQL Server IaaS Agent extension
 
@@ -278,6 +283,10 @@ This article provides answers to some of the most common questions about running
 1. **Can I register with the SQL IaaS Agent extension without specifying the SQL Server license type?**
 
    No. The SQL Server license type is not an optional property when you're registering with the SQL IaaS Agent extension. You have to set the SQL Server license type as pay-as-you-go or Azure Hybrid Benefit when registering with the SQL IaaS Agent extension in all manageability modes (NoAgent, lightweight, and full). If you have any of the free versions of SQL Server installed, such as Developer or Evaluation edition, you must register with pay-as-you-go licensing. Azure Hybrid Benefit is only available for paid versions of SQL Server such as Enterprise and Standard editions.
+
+1. **What is the default license type when using the automatic registration feature?**
+   
+   The license type automatically defaults to that of the VM image. If you use a pay-as-you-go image for your VM, then your license type will be `PAYG`, otherwise your license type will be `AHUB` by default. 
 
 1. **Can I upgrade the SQL Server IaaS extension from NoAgent mode to full mode?**
 
@@ -337,7 +346,7 @@ This article provides answers to some of the most common questions about running
 * [Provision SQL Server on a Windows VM](create-sql-vm-portal.md)
 * [Migrating a Database to SQL Server on an Azure VM](migrate-to-vm-from-sql-server.md)
 * [High Availability and Disaster Recovery for SQL Server on Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md)
-* [Performance best practices for SQL Server on Azure Virtual Machines](performance-guidelines-best-practices.md)
+* [Performance best practices for SQL Server on Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md)
 * [Application Patterns and Development Strategies for SQL Server on Azure Virtual Machines](application-patterns-development-strategies.md)
 
 **Linux VMs**:

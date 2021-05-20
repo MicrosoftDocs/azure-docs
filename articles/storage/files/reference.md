@@ -1,9 +1,9 @@
 ---
 title: Azure Files reference
 description: Find Azure Files API reference, readme files, and client library packages.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/14/2020
 ms.service: storage
 ms.topic: conceptual

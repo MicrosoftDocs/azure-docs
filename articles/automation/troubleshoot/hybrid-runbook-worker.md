@@ -6,7 +6,8 @@ ms.subservice:
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
-ms.topic: troubleshooting
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Hybrid Runbook Worker issues
@@ -123,7 +124,7 @@ The following issues are possible causes:
 #### Resolution
 
 ##### Mistyped workspace ID or key
-To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace – Windows agent](../../azure-monitor/agents/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace – Linux agent](../../azure-monitor/agents/agent-manage.md#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
+To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace - Windows agent](../../azure-monitor/agents/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace - Linux agent](../../azure-monitor/agents/agent-manage.md#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
 
 ##### Configuration not downloaded
 

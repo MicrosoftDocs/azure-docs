@@ -101,7 +101,7 @@ map.layers.add(layer, "labels")
 
 ::: zone-end
 
-The following screenshot shows the above code rending a polygon stretched vertically using a polygon extrusion layer.
+The following screenshot shows the above code rendering a polygon stretched vertically using a polygon extrusion layer.
 
 ![Map with polygon stretched vertically using a polygon extrusion layer](media/map-extruded-polygon-android/polygon-extrusion-layer.jpg)
 

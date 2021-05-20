@@ -13,12 +13,12 @@ The precise answering feature introduced in QnA Maker managed (Preview), allows 
 detects the precise short answer from the answer passage, if there is a short answer present as a fact in the answer passage. 
 
 This feature is on by-default in the test pane, so that you can test the functionality specific to your scenario. This feature is extremely beneficial for both content developers as well as 
-end users. Now, content developers don't need to manually curate specific QnA pairs for every fact present in the knowledge-base, and the end user doesn't need to look through the whole answer passage returned from the service to find the actual fact that answers the user's query. 
+end users. Now, content developers don't need to manually curate specific QnA pairs for every fact present in the knowledge-base, and the end user doesn't need to look through the whole answer passage returned from the service to find the actual fact that answers the user's query. You can fetch [precise answers via the Generate Answer API](How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api).
 
 ## Precise answering on QnA Maker portal
 
 In the QnA Maker portal, when you open the test-pane, you will see an option to **Display short answer** on the top. This option will be selected by-default. 
-When you enter a query in the test pane, you will see a short-answer along with the answer passage, if there is a short answer present in the answer passage. 
+When you enter a query in the test pane, you will see a short-answer along with the answer passage, if there is a short answer present in the answer passage.
  
 ![Managed enabled test pane](../QnAMaker/media/conversational-context/test-pane-with-managed.png)
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -42,7 +42,7 @@ To enable sign-in for users with a Microsoft account in Azure Active Directory B
 1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 
    For more information on the different account type selections, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
-1. Under **Redirect URI (optional)**, select **Web** and enter `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` in the text box. Replace `<tenant-name>` with your Azure AD B2C tenant name.
+1. Under **Redirect URI (optional)**, select **Web** and enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
 1. Select **Register**
 1. Record the **Application (client) ID** shown on the application Overview page. You need the client ID when you configure the identity provider in the next section.
 1. Select **Certificates & secrets**
@@ -64,6 +64,8 @@ To enable sign-in for users with a Microsoft account in Azure Active Directory B
 1. Select **Save**.
 
 ## Add Microsoft identity provider to a user flow 
+
+At this point, the Microsoft identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Microsoft identity provider to a user flow:
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Microsoft identity provider.
@@ -190,7 +192,7 @@ You've now configured your policy so that Azure AD B2C knows how to communicate 
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Microsoft** to sign in with Microsoft account.
 
