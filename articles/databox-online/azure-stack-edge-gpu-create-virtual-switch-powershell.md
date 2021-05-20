@@ -192,6 +192,7 @@ VlanId           : 3011
 
 After you've created the virtual LAN, a virtual network and a corresponding subnet are automatically created. You can use this virtual network when creating VMs.
 
+To identify the virtual network and the subnet associated with the new switch that you created, use the `Get-HcsVirtualNetwork` cmdlet.
 
 
 ## Next steps

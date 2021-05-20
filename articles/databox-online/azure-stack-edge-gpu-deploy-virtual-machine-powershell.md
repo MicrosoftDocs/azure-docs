@@ -820,7 +820,7 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 Depending on whether you created a Windows VM or a Linux VM, the connection instructions can be different.
 
-### Connect to a Linux VM
+## Connect to a Linux VM
 
 To connect to a Linux VM, do the following:
 
@@ -843,7 +843,7 @@ $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Res
 In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
 ---
 
-### Connect to a Windows VM
+## Connect to a Windows VM
 
 To connect to a Windows VM, do the following:
 
