@@ -13,9 +13,9 @@ ms.author: esarroyo
 
 In this article, we'll cover how to write simple queries to help troubleshoot issues with your Azure Cosmos DB account using diagnostics logs sent to **AzureDiagnostics (legacy)** and **Resource specific (preview)** tables.
 
-For Azure Diagnostics tables, all data is written to one single table and users will need to specify which category they'd like to query.
+For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query.
 
-For resource specific tables (currently in preview for SQL API), data is written to individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
+For resource specific tables (currently in preview for SQL API), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
 ## <a id="azure-diagnostics-queries"></a> AzureDiagnostics Queries
 
@@ -328,6 +328,6 @@ For resource specific tables (currently in preview for SQL API), data is written
        | summarize by OperationName 
       ```
 ## Next steps
-* For more information on how to create diagnostic settings for Cosmos db see [Creating Diagnostics settings](cosmosdb-monitor-logs-basic-queries.md) article.
+* For more information on how to create diagnostic settings for Cosmos DB see [Creating Diagnostics settings](cosmosdb-monitor-resource-logs.md) article.
 
 * For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article. 
