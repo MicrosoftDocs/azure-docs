@@ -40,7 +40,7 @@ To access Log Analytics Workspace Insights:
 
 2. Select a workspace to drill into
 
-Or - 
+Or 
 
 1. In the Azure portal, select **Log Analytics Workspaces**
 
@@ -89,17 +89,13 @@ The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 m
     - Ingestion volume - how much data was ingested to the table from each resource, and how it spreads over time. Resources ingesting over 30% of the total volume sent to this table are marked with a warning sign, for you to take note of.
     - Ingestion latency - how much time ingestion took, analyzed for the 50th, 90th or 95th percentiles of requests sent to this table. The top chart in this area depicts the total ingestion time of the requests (for the selected percentile) from end to end - from the time the event occurred, and until it was ingested to the workspace.
     The chart below it shows separately the latency of the agent (the time it took the agent to send the log to the workspace) and that of the pipeline (the time it took the service to process the data and push it to the workspace).
-    [![Screenshot of the workspace usage ingestion latency sub-tab](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png)](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png#lightbox)
-
-:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage.png" alt-text="Screenshot of the workspace usage tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage.png":::
+    :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png)" alt-text="Screenshot of the workspace usage ingestion latency sub-tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png)":::
 
 #### Additional usage queries
 
 The Additional queries sub-tab exposes queries that run across all workspace tables (instead of relying on the usage metadata, refreshed hourly). Since there queries are much more extensive and less efficient, they are not run automatically. However, they can surface interesting information about which resources send most logs to the workspace, and perhaps affect billing.
 
-[![Screenshot of the workspace usage additional queries tab](./media/log-analytics-workspace-insights-overview/workspace-usage-additional-queries.png)](./media/log-analytics-workspace-insights-overview/workspace-usage-additional-queries.png#lightbox)
-
-:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage.png" alt-text="Screenshot of the workspace usage tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage.png":::
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage-additional-queries.png" alt-text="Screenshot of the workspace usage additional queries tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage-additional-queries.png":::
 
 One such query is 'What Azure resources send most logs to this workspace' (showing top 50).
 In our demo workspace, you can clearly see that 3 Kuberbetes clusters send far more data than all other resources combined, and a particular one of them loads the workspace most.
