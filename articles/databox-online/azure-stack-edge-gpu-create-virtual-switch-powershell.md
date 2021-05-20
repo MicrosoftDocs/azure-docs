@@ -48,7 +48,7 @@ Before you begin, make sure that:
     ```
     Here is an example output:
     
-    ```powershell
+    ```output
         [10.100.10.10]: PS>Get-NetAdapter -Physical
         
         Name                      InterfaceDescription                    ifIndex Status       MacAddress       LinkSpeed
@@ -72,7 +72,7 @@ Before you begin, make sure that:
  
     Here is an example output.
 
-    ```powershell
+    ```output
     [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
     Name                          : vSwitch1
@@ -102,7 +102,7 @@ Use the `Get-HcsExternalVirtualSwitch` command to identify the newly created swi
 
 Here is an example output:
 
-```powershell
+```output
 [10.100.10.10]: PS> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
 [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
@@ -162,9 +162,9 @@ The following parameters can be used with the `Add-HcsVirtualNetwork-VirtualSwit
 Here is an example output.
 
 ```output
-[10.100.10.10]: P> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -VnetName vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50","5.5.50.100" -DnsSuffix "name.domain.com"
+[10.100.10.10]: PS> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -VnetName vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50","5.5.50.100" -DnsSuffix "name.domain.com"
 
-PS C:\Users\Administrator> Get-HcsVirtualNetwork
+[10.100.10.10]: PS> Get-HcsVirtualNetwork
  
 Name             : vnet2015
 AddressSpace     : 10.128.48.0/22
