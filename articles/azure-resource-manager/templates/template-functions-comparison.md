@@ -22,6 +22,8 @@ Resource Manager provides several functions for making comparisons in your Azure
 
 Returns first non-null value from the parameters. Empty strings, empty arrays, and empty objects are not null.
 
+In Bicep, use the `??` operator instead. See [Coalesce ??](../bicep/operators-logical.md#coalesce-).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
