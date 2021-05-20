@@ -64,10 +64,10 @@ To authenticate with managed identity:
 
     1. Create a new connection by selecting **Connect with managed identity (preview)**.
 
-        ![Authentication Options](media/sentinel-connectors/auth-methods-msi-choice.png)
+        ![Managed identity option](media/sentinel-connectors/auth-methods-msi-choice.png)
 
     1. Fill in a name for this connection, select **System-assigned managed identity** and select **Create**.
-    
+
         ![Connect with managed identity](media/sentinel-connectors/auth-methods-msi.png)
 
 ### Authenticate as an Azure AD user
@@ -107,14 +107,14 @@ To use your own application with the Azure Sentinel connector, perform the follo
 
     - Select **Connect with Service Principal**.
 
-        ![Authentication Options](media/sentinel-connectors/auth-methods-spn-choice.png)
+        ![Service principal option](media/sentinel-connectors/auth-methods-spn-choice.png)
 
     - Fill in the required parameters (can be found in the registered application blade)
         - **Tenant**: under **Overview**
         - **Client ID**: under **Overview**
         - **Client Secret**: under **Certificates & secrets**
         
-        ![Authentication Options](media/sentinel-connectors/auth-methods-spn.png)
+        ![Connect with service principal](media/sentinel-connectors/auth-methods-spn.png)
 
 ### Manage your API connections
 
