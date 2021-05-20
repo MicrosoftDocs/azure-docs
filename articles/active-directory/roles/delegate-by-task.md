@@ -148,8 +148,8 @@ Update single sign-on properties | Enterprise application owner ([see documentat
 ## Entitlement management
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
-Add SharePoint Online sites to catalog | Global administrator
+Add resources to a catalog | Identity Governance administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
+Add SharePoint Online sites to catalog | SharePoint administrator
 
 
 ## Groups
