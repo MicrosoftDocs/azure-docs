@@ -142,33 +142,38 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing DHCP
-    	IP address: 10.0.0.123
-    	Mask: 255.255.255.0
-    	Gateway: 10.0.0.1
+	    IP address: 192.168.0.19
+	    Mask: 255.255.255.0
+	    Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-    	DNS address: 10.0.0.1
+	    DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-    	SNTP IP address: 185.242.56.3
-    	SNTP time update: Nov 16, 2020 23:47:35.385 UTC 
+	    SNTP server 0.pool.ntp.org
+	    SNTP IP address: 108.62.122.57
+	    SNTP time update: May 20, 2021 19:41:20.319 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-    	DPS endpoint: global.azure-devices-provisioning.net
-    	DPS ID scope: ***
-    	Registration ID: ***
+	    DPS endpoint: global.azure-devices-provisioning.net
+	    DPS ID scope: ***
+	    Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-    	Hub hostname: ***
-    	Device id: ***
-    	Model id: dtmi:azurertos:devkit:gsg;1
-    Connected to IoTHub
+	    Hub hostname: ***.azure-devices.net
+	    Device id: mydevice
+	    Model id: dtmi:azurertos:devkit:gsg;1
+    Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
+
+    Receive twin properties: {"desired":{"$version":1},"reported":{"telemetryInterval":{"value":10,"ac":200,"av":1},"ledState":false,"deviceInformation":{"__t":"c","manufacturer":"NXP","model":"MIMXRT1060-EVK","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M7","processorManufacturer":"NXP","totalStorage":8192,"totalMemory":768},"$version":4}}
+    Device twin writeable property sent: {"telemetryInterval":{"value":10,"ac":200,"av":1}}
+    Device twin property sent: {"ledState":false}
+    Device twin property sent: {"deviceInformation":{"__t":"c","manufacturer":"NXP","model":"MIMXRT1060-EVK","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M7","processorManufacturer":"NXP","totalStorage":8192,"totalMemory":768}}.
 
     Starting Main loop
     ```
