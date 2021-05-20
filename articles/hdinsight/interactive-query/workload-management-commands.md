@@ -187,7 +187,3 @@ SHOW RESOURCE PLANS;
 ```
 SHOW RESOURCE PLANS;
 ```
-
-## References
-- [Cloudera Hive LLAP Workload Management Commands Summary](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_management_command_summary.html)
-- [Cloudera Hive LLAP Workload Management Trigger Counters](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_trigger_counters.html)
