@@ -62,6 +62,8 @@ landingContent:
           text: Text Analytics for health
         - url: ../luis/luis-container-howto.md
           text: LUIS container
+        - url: ../Translator/containers/translator-how-to-install-container.md
+          text: Translator container
 - title: Speech containers
   linkLists:
       - linkListType: how-to-guide
