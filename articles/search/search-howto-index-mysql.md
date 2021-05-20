@@ -94,6 +94,7 @@ Once the index and data source have been created, you're ready to create the ind
     api-key: [admin key]
     
     {
+        "name" : "[Indexer name]"
         "description" : "[Description of MySQL indexer]",
         "dataSourceName" : "[Data source name]",
         "targetIndexName" : "[Index name]"
