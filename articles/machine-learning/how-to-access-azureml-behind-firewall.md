@@ -102,6 +102,18 @@ For more information, see [Create an Azure Batch pool in a virtual network](../b
 
 1. To restrict access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
+### Diagnostics for support
+
+If you need to gather diagnostics information when working with Microsoft support, use the following steps:
+
+1. Add a __Network rule__ to allow traffic to and from the `AzureMonitor` tag.
+1. Add __Application rules__ for the following hosts. Select __http, https__ for the __Protocol:Port__ for these hosts:
+
+    + **dc.applicationinsights.azure.com**
+    + **dc.applicationinsights.microsoft.com**
+    + **dc.services.visualstudio.com**
+
+    For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ## Other firewalls
 
 The guidance in this section is generic, as each firewall has its own terminology and specific configurations. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
@@ -162,6 +174,8 @@ Also, use the information in [forced tunneling](how-to-secure-training-vnet.md#f
 
 For information on restricting access to models deployed to Azure Kubernetes Service (AKS), see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
+> [!TIP]
+> If you are working with Microsoft Support to gather diagnostics information, you must allow outbound traffic to the IP addresses used by Azure Monitor hosts. For a list of IP addresses for the Azure Monitor hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 ### Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 

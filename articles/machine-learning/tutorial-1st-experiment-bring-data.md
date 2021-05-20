@@ -171,7 +171,7 @@ To run this script in Azure Machine Learning, you need to make your training dat
 >[!NOTE] 
 > Azure Machine Learning allows you to connect other cloud-based datastores that store your data. For more details, see the [datastores documentation](./concept-data.md).  
 
-1. Create a new Python control script called *upload-data.py* in the **get-started** folder:
+1. Create a new Python control script in the **get-started** folder (make sure it is in **get-started**, *not* in the **/src** folder).  Name the script *upload-data.py* and copy this code into the file:
     
     ```python
     # upload-data.py
@@ -245,6 +245,9 @@ if __name__ == "__main__":
     print("")
     print(aml_url)
 ```
+
+> [!TIP]
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
 
 ### Understand the code changes
 
