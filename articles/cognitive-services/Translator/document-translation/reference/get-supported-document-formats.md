@@ -21,7 +21,7 @@ The Get supported document formats method returns a list of document formats sup
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/documents/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/documents/formats
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
