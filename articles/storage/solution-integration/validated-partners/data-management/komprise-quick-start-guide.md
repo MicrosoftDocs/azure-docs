@@ -4,21 +4,21 @@ titleSuffix: Azure Storage
 description: Getting started guide to implement Komprise Intelligent Data Manager. Guide shows how to analyze your file infrastructure, and migrate your data to Azure Files, Azure NetApp Files, Azure Blob Storage, or any available ISV NAS solution 
 author: dukicn
 ms.author: nikoduki
-ms.date: 05/25/2021
+ms.date: 05/20/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
 ---
 
-# Analyze and migrate data to Azure with Komprise Intelligent Data Manager
+# Analyze and migrate to Azure with Komprise
 
 This article helps you integrate the Komprise Intelligent Data Manager infrastructure with Azure storage services. It includes considerations and implementation guidance on how to analyze, and migrate your data.
 
 File migrations are risky, time-consuming, and labor intensive. With Komprise, customers can quickly identify and move the right data to their Azure Storage services.
 
-Komprise Intelligent Data Manager provides analytics and insights into NFS and SMB storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
+Komprise provides analytics and insights into NFS and SMB storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
 
-Within 15 minutes of deploying Komprise Intelligent Data Manager, customers can: 
+Within 15 minutes of deploying Komprise, customers can: 
 
 - Understand data growth and usage across their storage infrastructure,
 - Find the right data across multi-vendor NAS solutions to migrate to Azure,
@@ -28,7 +28,7 @@ Komprise is simple to deploy, operate, and scale.
 
 ## Potential use cases
 
-Komprise Intelligent Data Manager will help in many different use cases, like:
+Komprise will help in many different use cases, like:
 
 - Analysis of on-premises unstructured data to gain insights for data management, movement, positioning, archiving, protection, and confinement.
 - Migration of on-premises unstructured data to Azure Files, Azure NetApp Files, or ISV NAS solution,
@@ -41,7 +41,7 @@ The following diagram provides a reference architecture for on-premises to Azure
 
 :::image type="content" source="./media/komprise-quick-start-guide/komprise-architecture.png" alt-text="Reference architecture describes basic setup for Komprise Intelligent Data Manager":::
 
-Komprise Intelligent Data Manager is a software solution that is easily deployed in a virtual environment, and can be installed within 15 to 30 minutes. The solutions consist of:
+Komprise is a software solution that is easily deployed in a virtual environment, and can be installed within 15 to 30 minutes. The solutions consist of:
 - **Director** - The administration console for the Komprise Grid. It is used to configure the environment, monitor activities, view reports and graphs, and set policies.
 - **Observers** - Manage and analyze shares, summarize reports, communicates with the Director and handle NFS data traffic.
 - **Proxies** - Simplify and accelerate SMB/CIFS data flow, easily scale to meet performance requirements of a growing environment.
@@ -90,7 +90,7 @@ Use the following methods to identify the bandwidth headroom to Azure that is fr
 
 ## Deployment guide
 
-Before deploying Komprise Intelligent Data Manager, target service has to be deployed. This example is using Azure NetApp Files, but any supported Azure Storage service or ISV NAS solution can be used. You can learn more here:
+Before deploying Komprise, target service has to be deployed. This example is using Azure NetApp Files, but any supported Azure Storage service or ISV NAS solution can be used. You can learn more here:
 
 - How to create [Azure File Share](/azure/storage/files/storage-how-to-create-file-share)
 - How to create an [SMB volume](/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) or [NFS export](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in Azure NetApp Files
@@ -135,10 +135,11 @@ Setting up Komprise solution is simple:
 
 ## Migration guide
 
-Komprise Intelligent Data Manager provides live migration, where end users and applications are not disrupted and can continue to access data during the migration. The migration process automates migrating directories, files, and links from a source to a destination. At each step data integrity is checked. All attributes, permissions, and access controls from the source are applied.
+Komprise provides live migration, where end users and applications are not disrupted and can continue to access data during the migration. The migration process automates migrating directories, files, and links from a source to a destination. At each step data integrity is checked. All attributes, permissions, and access controls from the source are applied.
+
 To configure and run a migration, follow these steps:
 
-1. Log into your Komprise Intelligent Data Manager console. Information needed to access is sent with the welcome email once you purchase the solution.
+1. Log into your Komprise console. Information needed to access is sent with the welcome email once you purchase the solution.
 1. Navigate to **Migrate** and click on **Add Migration**.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-new-migrate.png" alt-text="Add new migration job":::
@@ -163,7 +164,7 @@ To configure and run a migration, follow these steps:
 
 ## Pricing
 
-Komprise Intelligent Data Manager is suited in various scenarios and implements its hybrid Software as a Service (SaaS) system. SaaS is a method of software delivery and licensing in which software is accessed online via a subscription.
+Komprise is suited in various scenarios and implements its hybrid Software as a Service (SaaS) system. SaaS is a method of software delivery and licensing in which software is accessed online via a subscription.
 Visit Komprise listing on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview).
 
 ## Next steps
@@ -173,5 +174,3 @@ Various resources are available to learn more:
 - [Storage migration overview](/azure/storage/common/storage-migration-overview)
 - Features supported by Komprise Intelligent Data Management in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
 - [Komprise compatibility matrix](https://www.komprise.com/partners/microsoft-azure/)
-
-
