@@ -22,25 +22,36 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 A _viseme_ is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.
 Each viseme depicts the key facial poses for a specific set of phonemes.
-There is no one-to-one correspondence between visemes and phonemes.
-Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s` and `z`.
-See the [mapping table between visemes and phonemes](#map-phonemes-to-visemes).
+Viseme can be used to control the movement of 2D and 3D avatar models, perfectly matching mouth movements to synthetic speech.
 
-Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and cartoon characters, and more intuitive language teaching videos. People with hearing impairment can also pick up sounds visually and "lip-read" speech content that shows visemes on an animated face.
+Viseme greatly expands the number of scenarios by making the avatar easier to use and control. Using visemes, you can create an animated virtual voice assistant for intelligent kiosks, building the multi-mode integrative services for your customers; build immersive news broadcasts and make content consumption much easier with natural face and mouth movements; generate more interactive gaming avatars and cartoon characters that can speak with dynamic content; make more intuitive language teaching videos that help language learners to understand the mouth behavior of each word and phoneme. People with hearing impairment can also pick up sounds visually and "lip-read" speech content that shows visemes on an animated face.
 
-## Get viseme events with the Speech SDK
+See the [video](https://www.youtube.com/watch?v=ui9XT47uwxs) for the introduction of Viseme.
 
-To make viseme events, TTS service converts input text into a set of phoneme sequences and their corresponding viseme sequences.
-Then the start time of each viseme in the speech audio is estimated.
-Viseme events contain a sequence of viseme IDs, each with an offset into the audio where that viseme appears.
-These events can drive mouth animations that simulate a person speaking the input text.
+## How viseme works with Azure neural TTS
+
+The viseme turns the input text or SSML (Speech Synthesis Markup Language) into Viseme ID and Audio offset which are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme. With the help of a 2D or 3D rendering engine, you can use the viseme output to control the animation of your avatar.
 
 | Parameter | Description |
 |-----------|-------------|
-| Viseme ID | Integer number that specifies a viseme. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. See the [mapping table between Viseme ID and phonemes](#map-phonemes-to-visemes).  |
+| Viseme ID | Integer number that specifies a viseme. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. There is no one-to-one correspondence between visemes and phonemes. Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s` and `z`. See the [mapping table between Viseme ID and phonemes](#map-phonemes-to-visemes).  |
 | Audio offset | The start time of each viseme, in ticks (100 nanoseconds). |
 
-To get viseme events, subscribe to the `VisemeReceived` event in Speech SDK.
+Here is an example of the viseme output.
+
+(Viseme), Viseme ID: 1, Audio offset: 200ms.
+
+(Viseme), Viseme ID: 5, Audio offset: 850ms.          
+
+……
+
+(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+
+ 
+## Get viseme events with the Speech SDK
+
+This feature is built into the Speech SDK. With just a few lines of code, you can easily enable facial and mouth animation using the viseme events together with your TTS output. 
+To get viseme events, please subscribe to the `VisemeReceived` event in Speech SDK.
 The following snippets show how to subscribe the viseme event.
 
 ::: zone pivot="programming-language-csharp"
