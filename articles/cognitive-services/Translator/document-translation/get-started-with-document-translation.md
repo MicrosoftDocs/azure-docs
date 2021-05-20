@@ -17,7 +17,7 @@ ms.date: 03/05/2021
 > [!NOTE]
 >
 > 1. Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single-service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
-> 2. Document Translation is currently available in the **S1 Standard Service Plan**. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> 2. Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) and in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 To get started, you'll need:
