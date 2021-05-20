@@ -1,6 +1,6 @@
 ---
-title: Hive Workload Management Feature
-description: Hive Workload Management Feature
+title: Hive LLAP Workload Management Feature
+description: Hive LLAP Workload Management Feature
 ms.service: hdinsight
 ms.topic: how-to
 author: guptanikhil007
@@ -9,13 +9,14 @@ ms.reviewer: jasonh
 ms.date: 04/07/2021
 ---
 
-# Hive Workload Management (WLM) Feature
-In an Interactive Query Cluster, resource management is imperative, especially in a multi-tenant environment. Hive LLAP (low-latency analytical processing) uses workload management to enable users to allocate resources to match availability needs and prevent contention for those resources. <br> 
-Workload Management implements resource pools to provide an interface to control resource usage and access. The WLM resource pools try to improve parallel query execution and provide guaranteed resources. Workload management also provides sufficient help in reducing resource starvation issue often seen in large clusters.
+# Hive LLAP Workload Management (WLM) Feature
+In an Interactive Query Cluster, resource management is imperative, especially in a multi-tenant environment. Hive LLAP (low-latency analytical processing) uses workload management to enable users to match specific workload needs and prevent contention for those resources. <br> 
+Workload Management implements resource pools (also known as query pools) which lets you divide resources available for Hive/LLAP into pools to be used for specific workloads.
+It also allows you to configure percentage of resources and query parallelism for each individual resource pool.
 
 ![`LLAP Architecture/Components`](./media/hive-workload-management/llap-architecture.png "LLAP Architecture/Components")
 
-## Enable Hive Workload Management feature for HDInsight clusters
+## Enable Hive LLAP Workload Management feature for HDInsight clusters
 
 Enable workload management feature in HDInsight Interactive Query clusters by following the steps listed below:
 1. Create a new yarn queue, which can be used to bring up the workload management Tez AMs.
@@ -91,41 +92,34 @@ Most of the workloads rarely require more than three pools.
 - sys, for system administrators
 
 ### Total QUERY_PARALLELISM
+Total QUERY_PARALLELISM or Number of total concurrent queries can be obtained with following formula:
 
-Let's assume `wm` queue is defined with capacity as **x%** and cluster's total capacity is **y GBs**
-Then number of max queries that can be supported is obtained with following formula
 ```
-Assuming tez container size as 4 GB and
-number of total concurrent queries(Tez AMs) = N
-N = Math.floor(x/100 * y/4)
+Number of total concurrent queries(Tez AMs) = Math.floor( (total cluster memory capacity / size of Tez AM container) x percentage of wm queue capacity)
 ```
-A D14v2 node comes with 112 GB out of which 100 GB can be used for yarn applications. For a cluster with 4 D14v2 worker nodes, **y = 400**. 
-If `wm` queue size is set to 10%, **x = 10**.
-Based on above values, we can have `Total QUERY_PARALLELISM` as 10.
+
+For example: <br/>
+Let's assume Tez AM container size is 4 GB and total memory capacity of yarn cluster is 400 GB, out of which 10% is allocated for wm queue then, <br/>
+Number of total concurrent queries = floor((400/4) x 0.10) = 10
 
 > [!IMPORTANT]
 > Note: Have a slightly more capacity in wm queue than required to avoid tez AMs getting stuck in accepted state that is, `wm` queue capacity can be made to 10.01% and `default` queue capacity can be reduced to 4.99%.
 
 ### Mappings
 Mappings provide a mechanism to direct queries to certain pools. As number of mappings increase, multiple rules may apply for a given query. To establish which rule should take precedence:
-1. If ordering is not specified (or is equal), `user` rules > `application` rules > `group` rules. The order of group rules with the same priority is undefined.
-2. If ordering is specified with the optional `WITH ORDER` clause, lower-order rule takes priority.
+If ordering is specified with the optional `WITH ORDER` clause, lower-order rule takes priority. Else, `user` rules take precedence over `application` rules and `application` rules take precedence over `group` rules. <br/>
+The order of group rules with the same priority is undefined.
 
 
 ## Important Notes
-1. Tez AMs from `wm` queue will be used for scheduling queries when a resource plan is active. Tez AMs will remain available in `llap` queue to support smooth transitions between active and disabled state.
+1. Tez AMs in `llap` queue will remain unused when WLM plan is active. These Tez AMs in `llap` queue will be readily available in case the WLM resource plan is disabled.
 2. Enabling WLM resource plan launches number of Tez AMs equal to total `QUERY_PARALLELISM` configured for the given resource plan. `wm` queue size should be tuned to avoid these Tez AM getting stuck in ACCEPTED state.
 3. We only support the use of following two counters for use in resource plans:
     1. EXECUTION_TIME
     2. ELAPSED_TIME
 
-## Related Topics
-* [Hive Workload Management Commands Summary](workload-management-commands.md)
-* [Troubleshoot Hive Workload Management Issues](troubleshoot-workload-management-issues.md)
+## Related Articles
+* [Hive LLAP Workload Management Commands Summary](workload-management-commands.md)
+* [Troubleshoot Hive LLAP Workload Management Issues](troubleshoot-workload-management-issues.md)
 
-
-## References
-* [Cloudera Hive Workload Management Overview](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload/content/hive_workload_management.html)
-* [Cloudera Hive Workload Management Commands Summary](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_management_command_summary.html)
-* [Cloudera Hive Workload Management Trigger Counters](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_trigger_counters.html)
 

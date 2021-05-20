@@ -1,6 +1,6 @@
 ---
-title: Hive Workload Management Commands
-description: Hive Workload Management Commands
+title: Hive LLAP Workload Management Commands
+description: Hive LLAP Workload Management Commands
 ms.service: hdinsight
 ms.topic: reference
 author: guptanikhil007
@@ -8,7 +8,7 @@ ms.author: guptan
 ms.reviewer: jasonh
 ms.date: 04/07/2021
 ---
-# Hive Workload Management Commands
+# Hive LLAP Workload Management Commands
 
 ## ALTER MAPPING 
 Changes the routing of queries to a resource pool. 
@@ -189,5 +189,5 @@ SHOW RESOURCE PLANS;
 ```
 
 ## References
-- [Cloudera Hive Workload Management Commands Summary](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_management_command_summary.html)
-- [Cloudera Hive Workload Management Trigger Counters](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_trigger_counters.html)
+- [Cloudera Hive LLAP Workload Management Commands Summary](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_management_command_summary.html)
+- [Cloudera Hive LLAP Workload Management Trigger Counters](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.1.5/hive-workload-commands/content/hive_workload_trigger_counters.html)

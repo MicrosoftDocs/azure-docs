@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Hive Workload Management Issues
-description: Troubleshoot Hive Workload Management Issues
+title: Troubleshoot Hive LLAP Workload Management Issues
+description: Troubleshoot Hive LLAP Workload Management Issues
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: guptanikhil007
@@ -9,7 +9,7 @@ ms.reviewer: jasonh
 ms.date: 04/07/2021
 ---
 
-# Troubleshoot Hive Workload Management Issues
+# Troubleshoot Hive LLAP Workload Management Issues
 
 Workload Management (WLM) is available to the customers starting HDInsight 4.0 clusters. 
 Use the resources below to help debug issues related to WLM feature.
@@ -137,3 +137,8 @@ Check if an active resource plan is available before running `DISABLE WORKLOAD M
 
 3. Some of Tez AM can keep on running and doesn't go away with `DISABLE WORKLOAD MANAGEMENT` command or HS2 restart. <br>
 Kill these Tez AMs via `yarn UI` or `yarn console application` after disabling workload management.
+
+## Related Articles
+* [Hive LLAP Workload Management](hive-workload-management.md)
+* [Hive LLAP Workload Management Commands Summary](workload-management-commands.md)
+
