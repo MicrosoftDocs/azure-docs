@@ -32,6 +32,8 @@
     href: quickstart-custom-container.md
   - name: Multi-container app
     href: quickstart-multi-container.md
+  - name: App on Azure Arc (preview)
+    href: quickstart-arc.md
 - name: Tutorials
   items:
   - name: Secure app accesses storage and Microsoft Graph
@@ -110,6 +112,8 @@
     href: operating-system-functionality.md
   - name: Deployment best practices
     href: deploy-best-practices.md
+  - name: Azure Arc hosting (preview)
+    href: overview-arc-integration.md
   - name: Security
     items:
     - name: Recommendations
@@ -279,6 +283,8 @@
       href: app-service-undelete.md
     - name: Restore from downed region
       href: manage-disaster-recovery.md
+    - name: Enable on Azure Arc
+      href: manage-create-arc-environment.md
   - name: Move app
     items:
     - name: Move between regions
