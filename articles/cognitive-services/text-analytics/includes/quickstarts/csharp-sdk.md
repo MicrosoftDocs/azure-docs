@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 05/20/2021
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -811,7 +811,7 @@ Recognized Entities
     SubCategory: 
 ```
 
-You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) on GitHub.
+You can also use the Analyze operation to perform NER, key phrase extraction, sentiment analysis, and detect PII. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 
