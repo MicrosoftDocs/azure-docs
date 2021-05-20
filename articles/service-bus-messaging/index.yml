@@ -107,7 +107,7 @@ landingContent:
           - text: Use PowerShell to provision entities
             url: service-bus-manage-with-ps.md        
           - text: Monitor Service Bus using Azure Monitor
-            url: service-bus-metrics-azure-monitor.md
+            url: monitor-service-bus-reference.md
           - text: Set up diagnostic logs
             url: service-bus-diagnostic-logs.md
           - text: Suspend and reactivate messaging entities
