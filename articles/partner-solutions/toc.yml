@@ -24,6 +24,16 @@
       href: ./datadog/manage.md
     - name: Troubleshoot
       href: ./datadog/troubleshoot.md
+  - name: Elastic
+    items:
+    - name: Overview
+      items:
+      - name: What is Elastic?
+        href: overview.md
+    - name: Quickstarts
+      items:
+      - name: Create Elastic resource
+        href: create.md
 - name: Reference
   items:
   - name: Azure CLI
