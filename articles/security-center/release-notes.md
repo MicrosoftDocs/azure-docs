@@ -30,6 +30,7 @@ Updates in May include:
 - [Vulnerability findings query link added to the relevant recommendations](#vulnerability-findings-query-link-added-to-the-relevant-recommendations)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
 - [Assessments API expanded with two new fields](#assessments-api-expanded-with-two-new-fields)
+- [Asset inventory gets a cloud environment filter](#asset-inventory-gets-a-cloud-environment-filter)
 
 
 ### Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)
@@ -106,6 +107,20 @@ To access this information, you can use any of the methods in the table below.
 
 
 Learn more about the [Assessments REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments).
+
+
+### Asset inventory gets a cloud environment filter
+
+Security Center's asset inventory page has offers a number of filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
+
+A new filter offers the option to refine the list according to the cloud accounts you've connected with Security Center's multi-cloud features:
+
+:::image type="content" source="media/asset-inventory/filter-environment.png" alt-text="Inventory's environment filter":::
+
+Learn more about the multi-cloud capabilities:
+
+- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
 
 
 ## April 2021
