@@ -4,7 +4,7 @@ description: Describes how to set the name and type for child resources in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/19/2021
 ---
 
 # Set name and type for child resources in Bicep
@@ -60,25 +60,27 @@ The full resource type is still `Microsoft.Network/virtualNetworks/subnets`. You
 
 The child resource name is set to **Subnet1** but the full name includes the parent name. You don't provide VNet1 because it's assumed from the parent resource.
 
-To access the child resource symbolic name, you need to use the `::` operator. For example, to output a property from a child resource:
+A nested resource can access properties of its parent resource. Other resources declared inside the body of the same parent resource can reference each other by using the symbolic names. A parent resource may not access properties of the resources it contains, this would cause a cyclic-dependency.
+
+To reference a nested resource outside the parent resource, it must be qualified with the containing resource name and the :: operator. For example, to output a property from a child resource:
 
 ```bicep
 output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
 ```
 
-A nested resource can access properties of its parent resource. Other resources declared inside the body of the same parent resource can reference each other and the typical rules about cyclic-dependencies apply. A parent resource may not access properties of the resources it contains, this would cause a cyclic-dependency.
-
-
 ## Outside parent resource
 
-The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](copy-resources.md) to create more than one child resource.
+The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](copy-resources.md) to create more than one child resource. To do this, specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
 
 ```bicep
 resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {
+  name: 'myParent'
   <parent-resource-properties>
 }
 
 resource <child-resource-symbolic-name> '<child-resource-type>@<api-version>' = {
+  parent: 'myParent'
+  name: 'myChild'
   <child-resource-properties>
 }
 ```
@@ -103,12 +105,15 @@ resource VNet1 'Microsoft.Network/virtualNetworks@2018-10-01' = {
 }
 
 resource VNet1_Subnet1 'Microsoft.Network/virtualNetworks/subnets@2018-10-01' = {
-  name: '${VNet1.name}/Subnet1'
+  parent: 'VNet1'
+  name: 'Subnet1'
   properties: {
     addressPrefix: '10.0.0.0/24'
   }
 }
 ```
+
+Referencing the child resource symbolic name works the same as referencing the parent.
 
 ## Next steps
 
