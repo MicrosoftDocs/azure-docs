@@ -11,7 +11,7 @@ ms.date: 05/06/2021
 
 # Log Analytics Workspace Insights (preview)
 
-Log Analytics Workspace Insights (preview) provides comprehensive monitoring of your workspaces through a unified view of your workspace usage, performance, health, agent, queries and change log. This article will help you understand how to onboard and use Log Analytics Workspace Insights (preview).
+Log Analytics Workspace Insights (preview) provides comprehensive monitoring of your workspaces through a unified view of your workspace usage, performance, health, agent, queries, and change log. This article will help you understand how to onboard and use Log Analytics Workspace Insights (preview).
 
 ## Overview your Log Analytics workspaces
 
@@ -93,7 +93,7 @@ The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 m
 
 #### Additional usage queries
 
-The Additional queries sub-tab exposes queries that run across all workspace tables (instead of relying on the usage metadata, refreshed hourly). Since there queries are much more extensive and less efficient, they are not run automatically. However, they can surface interesting information about which resources send most logs to the workspace, and perhaps affect billing.
+The Additional queries sub-tab exposes queries that run across all workspace tables (instead of relying on the usage metadata, refreshed hourly). Since their queries are much more extensive and less efficient, they are not run automatically. However, they can surface interesting information about which resources send most logs to the workspace, and perhaps affect billing.
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage-additional-queries.png" alt-text="Screenshot of the workspace usage additional queries tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage-additional-queries.png":::
 
@@ -115,7 +115,7 @@ This tab provides information on the agents sending logs to this workspace.
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-agents.png" alt-text="Screenshot of the workspae agents tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-agents.png":::
 
 * Operation errors and warnings - these are errors and warning related specifically to agents. They are grouped by the error/warning title to help you get a clearer view of different issues that may occur, but can be expanded to show the exact times and resources they refer to. Also note you can click 'Run query in Logs' to query the _LogOperation table through the Logs experience, see the raw data and analyze if further.
-* Workspace agents - these are the agents that sent logs to the workspace during the selected time range. You can see the agents' types (Direct, Gateway, SCOM or SCOM management servers) and health state. Agents are marked healthy aren't necessarily working well - it only indicated they sent a heartbeat during the last hour. A more detailed health state is detailed in the below grid.
+* Workspace agents - these are the agents that sent logs to the workspace during the selected time range. You can see the agents' types (Direct, Gateway, SCOM or SCOM management servers) and health state. Agents marked healthy aren't necessarily working well - it only indicated they sent a heartbeat during the last hour. A more detailed health state is detailed in the below grid.
 * Agents activity - this grid shows information on either all agents, healthy or unhealthy agents. Here too "Healthy" only indicated the agent send a heartbeat during the last hour. To understand its state better, review the trend shown in the grid - it shows how many heartbeats this agent sent over time. The true health state can only be inferred if you know how the monitored resource operates, for example - If a computer is intentionally shut down at particular times, you can expect the agent's heartbeats to appear intermittenly, in a matching pattern.
 
 
@@ -134,7 +134,7 @@ This tab shows:
 
 #### Slow and inefficient queries 
 This tab shows two grids to help you identify slow and inefficient queries you may want to re-think. These queries should not be used in dashboards or alerts, since they will create unneeded chronic load on your workspace.
-* Most resource intensive queries - the 10 most CPU-demanding queries, along with the volume of data processed (KB), the time range and text of each query.
+* Most resource-intensive queries - the 10 most CPU-demanding queries, along with the volume of data processed (KB), the time range and text of each query.
 * Slowest queries - the 10 slowest queries, along with the time range and text of each query.
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-query-audit-slow-queries.png" alt-text="Screenshot of the query audit tab, slow queries sub-tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-query-audit-slow-queries.png":::
