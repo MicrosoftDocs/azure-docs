@@ -9,8 +9,8 @@ ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 ---
 
-# Windows Requirements #
-## Device Requirements ##
+# Windows Requirements
+## Device Requirements
 
 ---
 |Name|SecuredCore.Built-in.Security|
