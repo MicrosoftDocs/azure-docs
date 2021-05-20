@@ -870,7 +870,7 @@ Get-AzVM -ResourceGroupName <String> -Name <String>
 ```powershell
 Get-AzureRmVM -ResourceGroupName <String> -Name <String>
 ```
---- 
+---
 
 ### Turn on the VM
 
