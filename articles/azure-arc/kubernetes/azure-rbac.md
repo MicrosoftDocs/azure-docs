@@ -344,7 +344,7 @@ Run the following command to start the proxy process:
 az connectedk8s proxy -n <clusterName> -g <resourceGroupName>
 ```
 
-After the proxy process is running, you can open another tab in your console to [start sending your requests to the cluster](#sending-requests-to-cluster).
+After the proxy process is running, you can open another tab in your console to [start sending your requests to the cluster](#send-requests-to-the-cluster).
 
 ### If the cluster admin shared the kubeconfig file with you 
 
