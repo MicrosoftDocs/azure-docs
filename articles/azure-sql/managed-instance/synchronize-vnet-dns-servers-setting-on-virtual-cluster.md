@@ -29,8 +29,7 @@ If this change is implemented after [virtual cluster](connectivity-architecture-
 
 User synchronizing DNS server configuration will need to have one of the following Azure roles:
 
-- Subscription Owner role, or
-- Managed Instance Contributor role, or
+- Subscription contributor role, or
 - Custom role with the following permission:
   - `Microsoft.Sql/virtualClusters/updateManagedInstanceDnsServers/action`
 

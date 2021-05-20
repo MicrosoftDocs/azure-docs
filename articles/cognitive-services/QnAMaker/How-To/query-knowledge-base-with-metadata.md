@@ -47,6 +47,35 @@ Because results are required only for the restaurant "Paradise", you can set a f
 }
 ```
 
+## Filter by source
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+In the QnA Maker GA version you cannot filter results by a content source.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+In case you have multiple content sources in your knowledge base and you would like to limit the results to a particular set of sources, you can do that using the reserved keyword `source_name_metadata` as shown below.
+
+```json
+"strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    },
+   {
+        "name": "source_name_metadata",
+        "value": "boby_brown_docx"
+    },
+   {
+        "name": "source_name_metadata",
+        "value": "chitchat.tsv"
+   }
+]
+```
+
+---
+
 ### Logical AND by default
 
 To combine several metadata filters in the query, add the additional metadata filters to the array of the `strictFilters` property. By default, the values are logically combined (AND). A logical combination requires all filters to matches the QnA pairs in order for the pair to be returned in the answer.

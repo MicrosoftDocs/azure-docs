@@ -5029,11 +5029,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
-      "redirect_url": "/azure/logic-apps/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
       "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
       "redirect_document_id": false
@@ -6436,6 +6431,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-bindings-external-table.md",
       "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-api-definition.md",
+      "redirect_url": "/azure/azure-functions/functions-openapi-definition",
       "redirect_document_id": false
     },
     {
@@ -19667,6 +19667,11 @@
       "source_path_from_root": "/articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-twin-level-role-based-access-control.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-tags",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-use-cli.md",
@@ -33718,6 +33723,11 @@
       "redirect_url": "/azure/service-bus-messaging/security-baseline",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-metrics-azure-monitor.md",
+      "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
@@ -61070,13 +61080,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#train-a-custom-model",
+       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#analyze-receipts",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-business-cards.md",
@@ -66294,18 +66304,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/create-your-own-components.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/form-recognizer-tool.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/label-tool",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-components.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "source_path_from_root": "/articles/machine-learning/tutorial-setup-vscode-extension.md",
+      "redirect_url": "/azure/machine-learning/how-to-setup-vs-code",
       "redirect_document_id": false
     },
     {

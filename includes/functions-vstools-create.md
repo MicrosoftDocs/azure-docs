@@ -1,16 +1,12 @@
 ---
-title: include file
-description: include file
-services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/04/2020
+ms.date: 05/18/2021
 ms.author: glenga
-ms.custom: include file
 ---
 
-The Azure Functions project template in Visual Studio creates a project that you can publish to a function app in Azure. You can use a function app to group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
+The Azure Functions project template in Visual Studio creates a C# class library project that you can publish to a function app in Azure. You can use a function app to group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
 1. From the Visual Studio menu, select **File** > **New** > **Project**.
 
@@ -22,9 +18,9 @@ The Azure Functions project template in Visual Studio creates a project that you
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Functions runtime** | **Azure Functions v3 <br />(.NET Core)** | This value creates a function project that uses the version 3.x runtime of Azure Functions, which supports .NET Core 3.x. Azure Functions 1.x supports the .NET Framework. For more information, see [Azure Functions runtime versions overview](../articles/azure-functions/functions-versions.md).   |
+    | **.NET version** | **.NET Core 3 (LTS)** | This value creates a function project that uses the version 3.x runtime of Azure Functions, which supports .NET Core 3.x. Azure Functions 1.x supports the .NET Framework. For more information, see [Azure Functions runtime versions overview](../articles/azure-functions/functions-versions.md).   |
     | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
-    | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because an Azure Function requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
+    | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string.  |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
     

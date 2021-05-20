@@ -72,6 +72,18 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+for ($num = 0 ; $num -le 9 ; $num++){    
+    $expiryTime =  New-TimeSpan -Days 1
+    $timerTask = Start-DurableTimer -Duration $expiryTime
+    Invoke-DurableActivity -FunctionName 'SendBillingEvent'
+}
+```
 ---
 
 > [!WARNING]
@@ -161,6 +173,26 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
         return False
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [PowerShell](#tab/powershell)
+```powershell
+param($Context)
+
+$expiryTime =  New-TimeSpan -Seconds 30
+
+$activityTask = Invoke-DurableActivity -FunctionName 'GetQuote'-NoWait
+$timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
+
+$winner = Wait-DurableTask -Task @($activityTask, $timerTask) -Any
+
+if ($winner -eq $activityTask) {
+    Stop-DurableTaskTimer -Task $timerTask
+    return $True
+}
+else {
+    return $False
+}
 ```
 
 ---

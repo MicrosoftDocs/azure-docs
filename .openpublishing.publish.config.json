@@ -232,6 +232,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-openapi-turbine-repair",
+      "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-templates-v3",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "v3.x",
