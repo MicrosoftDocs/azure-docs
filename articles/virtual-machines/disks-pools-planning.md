@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Disk pools planning guide
 
-Disk pools serve as a persistent block storage for your workload. The performance of a disk pool is determined by its scalability target, the individual disks exposed through the disk pool, and the networking configuration that connects the clients to the disk pool. It is important to characterize the performance requirements of your workload based on latency and throughput.
+Before you deploy a disk pool, it is important to identify the performance requirements of your workload. Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets for individual disks contained in the disk pool, and the networking configuration that connects the clients to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool. It is important to characterize the performance requirements of your workload based on latency and throughput.
 
 ## Optimize for low latency
 
