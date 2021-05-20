@@ -108,26 +108,35 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 7. Select **Send**.
 
-8. When the request completes successfully, it returns a `resourceLocation`. The `resourceLocation` URL contains the unique identifier (`udid`) of the drawing package resource. You'll need the `udid` in order to convert the drawing package in the next section.
+8. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.  The `resource location URL` contains the unique identifier (`udid`) of the drawing package resource. 
 
-    ```json
-    {
-        "operationId": "e1981f40-d753-4c05-a2a0-1356ea25ee01",
-        "created": "2021-05-18T20:10:32.0709788+00:00",
-        "status": "Succeeded",
-        "resourceLocation": "https://us.atlas.microsoft.com/mapData/metadata/{uuid}?api-version=1.0"
-    }
-    ```
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/resource-location-url.png" alt-text="Copy the resource location URL.":::
 
-9. (Optional) To retrieve content metadata, create a new **GET** HTTP request on the `resourceLocation` URL. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+### (Optional) Retrieve Drawing package metadata
+
+You can retrieve metadata from the Drawing package resource. The metadata contains information such as the resource location URL, creation date, updated date, size, and upload status.
+
+To retrieve content metadata:
+
+1. Select **New**.
+
+2. In the **Create New** window, select **Request**.
+
+3. Enter a **Request name** for the request, such as *GET Data Upload Status*.
+
+4. Select the collection you previously created, and then select **Save**.
+
+5. Select the **GET** HTTP method.
+
+6. Enter the `resource Location URL` you copied in [Check Drawing package upload status](#check-drawing-package-upload-status). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-10. Select **Send**
+7. Select **Send**
 
-11. When the **GET** HTTP request completes successfully, the response body contains the `udid` specified in the `resourceLocation`, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, and so on.
+8. When the request completes successfully, select the **Headers** tab in the response window. The metadata should like the following JSON fragment:
 
     ```json
     {
@@ -192,17 +201,9 @@ To check the status of the conversion process and retrieve the `conversionId`:
 
 7. Select **Send**.
 
-8. Once the request completes successfully, you'll see a success status message in the response body.  Copy the `conversionId` from the `resourceLocation` URL for the converted package. The `conversionId` can now be used by other API to access the converted map data.
+8. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.   The `resource location URL` contains the unique identifier (`conversionId`), which can be used by other APIs to access the converted map data.
 
-    ```json
-   {
-        "operationId": "<operationId>",
-        "created": "2020-04-22T19:39:54.9518496+00:00",
-        "status": "Succeeded",
-        "resourceLocation": "https://us.atlas.microsoft.com/conversions/<conversionId>?api-version=2.0",
-        "properties": {}
-    }
-    ```
+      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="Copy the conversion id.":::
 
 >[!NOTE]
 >The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
@@ -216,7 +217,6 @@ The following JSON displays a sample conversion warning:
     "operationId": "<operationId>",
     "created": "2021-05-19T18:24:28.7922905+00:00",
     "status": "Succeeded",
-    "resourceLocation": "https://us.atlas.microsoft.com/conversions/{conversionId}?api-version=2.0",
      "warning": {
         "code": "dwgConversionProblem",
         "details": [
@@ -287,16 +287,9 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 
 7. Select **Send**.
 
-8. Once the request completes successfully, you'll see a success status message in the response body.  Copy the `datasetId` from the `resourceLocation` URL for the dataset. The `datasetId` can now be used by other API to access the dataset.
+8. When the request completes successfully, select the **Headers** tab in the response window. The the value of the **Resource-Location** key is the `resource location URL`.  The `resource location URL` contains the unique identifier (`datasetId`) of the dataset. Copy the `datasetId`, as you'll need it in the next sections of this tutorial.
 
-    ```json
-    {
-        "operationId": "<operationId>",
-        "created": "2020-04-22T19:52:38.9352189+00:00",
-        "status": "Succeeded",
-        "resourceLocation": "https://azure.microsoft.com/datasets/<datasetiId>?api-version=1.0"
-     }
-    ```
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/dataset-id.png" alt-text="Copy the dataset id":::
 
 ## Create a tileset
 
@@ -319,6 +312,7 @@ To create a tileset:
     ```http
     https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
+
 7. Select **Send**.
 
 8. Select the **Headers** tab in the response window. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the tileset.
@@ -347,16 +341,9 @@ To check the status of the dataset creation process and retrieve the `tilesetId`
 
 7. Select **Send**.
 
-8. Once the request completes successfully, you'll see a success status message in the response body.  The `tilesetId` can now be used by other API to access the tileset.
+8. When the request completes successfully, select the **Headers** tab in the response window. The the value of the **Resource-Location** key is the `resource location URL`.  The `resource location URL` contains the unique identifier (`tilesetId`) of the dataset.
 
-    ```json
-    {
-        "operationId": "<operationId>",
-        "createdDateTime": "2021-05-19T19:29:35.8228274+00:00",
-        "status": "Succeeded",
-        "resourceLocation": "https://us.atlas.microsoft.com/tilesets/{tilesetId}?api-version=2.0"
-    }
-    ```
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="Copy the tileset id":::
 
 ## Query datasets with WFS API
 
