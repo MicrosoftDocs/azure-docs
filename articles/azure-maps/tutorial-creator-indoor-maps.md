@@ -205,9 +205,6 @@ To check the status of the conversion process and retrieve the `conversionId`:
 
       :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="Copy the conversion id.":::
 
->[!NOTE]
->The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
-
 The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response gives you a link to the [Drawing error visualizer](drawing-error-visualizer.md). The Drawing Error visualizer allows you to inspect the details of errors and warnings. To receive recommendations on how to resolve conversion errors and warnings, see [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
 The following JSON displays a sample conversion warning:
