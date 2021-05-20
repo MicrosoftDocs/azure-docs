@@ -20,7 +20,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Windows, Linux Ubuntu 18.04, Linux Ubuntu 20.04|
-|HW/SW/SVC Requirements|Azure Defender for IoT|
+|HW,SW,SVC Requirements|Azure Defender for IoT|
 |Validation Type|Manual/Tools|
 |Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Download and deploy security agent from GitHub</li><li>Validate alert message from Azure Defender for IoT.</li></ol>|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
@@ -33,7 +33,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|??|
+|HW,SW,SVC Requirements|??|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
 |Resources||
@@ -46,7 +46,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|??|
+|HW,SW,SVC Requirements|??|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure the Azure Security Agent can communicate with the secure enclave|
 |Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
