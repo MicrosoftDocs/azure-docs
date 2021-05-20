@@ -66,7 +66,7 @@ Microsoft offers a framework to follow to get you started with Azure. The [Cloud
 
 Several aspects are important when considering migrations of file data to Azure. Before proceeding learn more:
 
-- [storage migration overview](/azure/storage/common/storage-migration-overview)
+- [Storage migration overview](/azure/storage/common/storage-migration-overview)
 - latest supported features by Komprise Intelligent Data Management in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison).
 
 Remember, you'll require enough network capacity to support migrations without impacting production applications. This section outlines the tools and techniques that are available to assess your network needs.
@@ -143,6 +143,33 @@ To configure and run a migration, follow these steps:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-new-migrate.png" alt-text="Add new migration job":::
 
-1. Add migration task by selecting desired source and destination share. Provide a migration name. Once configured, click on **Start Migration**
+1. Add migration task by selecting desired source and destination share. Provide a migration name. Once configured, click on **Start Migration**. You have the option to define if you want to preserve access time and SMB ACLs on the destination (this option depends on the selected source and destination file service and protocol).
    
    :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-migration.png" alt-text="Specify details for the migration job":::
+
+1. Once the migration started, you can use **Migrations** to monitor the progress.
+
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-monitor-migrations.png" alt-text="Monitor all migration jobs":::
+
+1. Once all changes have been migrated, perform one final migration by clicking on **Actions** and selecting **Start final iteration**. Before final migration, we recommend either stopping access to source file shares or moving them to read-only mode to make sure no changes happen that will not get migrated.
+
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-final-migration.png" alt-text="Perform one last migration before switching over":::
+
+    Once the final migration job finishes, transition all users and applications to the destination share. This usually requires changing the configuration of DNS servers, DFS servers or changing the mount points to the new destination. 
+
+1. As a last step, mark the migration completed.
+
+## Pricing
+
+Komprise Intelligent Data Manager is suited for various customers data and implements its hybrid Software as a Service (SaaS) system. SaaS is a method of software delivery and licensing in which software is accessed online via a subscription.
+Visit Komprise listing on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview).
+
+## Next steps
+
+Various resources are available to learn more:
+
+- [Storage migration overview](/azure/storage/common/storage-migration-overview)
+- Features supported by Komprise Intelligent Data Management in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
+- [Komprise compatibility matrix](https://www.komprise.com/partners/microsoft-azure/)
+
+
