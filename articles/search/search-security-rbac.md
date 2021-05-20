@@ -25,7 +25,7 @@ Cognitive Search does not support:
 > [!Note]
 > For identity-based access over search results (sometimes referred to as row-level security), you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md).
 
-## Roles and allowed tasks
+## Roles used in Cognitive Search
 
 For Azure Cognitive Search, roles are associated with permission levels that support the following management tasks:
 
