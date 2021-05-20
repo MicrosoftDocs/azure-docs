@@ -19669,6 +19669,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-twin-level-role-based-access-control.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-tags",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-use-cli.md",
       "redirect_url": "/azure/digital-twins/concepts-cli",
       "redirect_document_id": true
@@ -61075,13 +61080,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#train-a-custom-model",
+       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#analyze-receipts",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-business-cards.md",
@@ -66113,18 +66118,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/create-your-own-components.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-components.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/form-recognizer-tool.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/label-tool",
       "redirect_document_id": false
     },
     {

@@ -13,20 +13,20 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Get started with client library or REST API
+  - name: Client libraries and REST API
     href: quickstarts/client-library.md
-  - name: Use the sample labeling tool
-    href: quickstarts/label-tool.md
+  - name: Get started with Form Recognizer
+    href: quickstarts/get-started-with-form-recognizer.md
 - name: Samples
   items:
-  - name: "C#/.NET: Form Recognizer client library SDK"
+  - name: "C#/.NET"
     href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
-  - name: "Java: Form Recognizer client library SDK"
+  - name: "Java"
     href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
-  - name: "Python: Form Recognizer client library SDK"
+  - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
-  - name: "JavaScript Form Recognizer client library SDK"
-    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
+  - name: "JavaScript"
+    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/ 
 - name: Responsible use of AI
   items:
   - name: Transparency notes
@@ -41,12 +41,8 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: How-to guides
   items:
-  - name: Build a training data set
-    href: build-training-data-set.md
-  - name: Use table tags to train your custom model
-    href: supervised-table-tags.md
-  - name: Deploy the sample labeling tool
-    href: deploy-label-tool.md
+  - name: Train a custom model with the sample labeling tool
+    href: label-tool.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -73,11 +69,8 @@
       href: ../authentication.md?context=/azure/cognitive-services/form-recognizer/context/context
 - name: Concepts
   items:
-  - name: Layout API
-    expanded: true
-    items:
-    - name: Extract form data
-      href: concept-layout.md
+  - name: Layout
+    href: concept-layout.md
   - name: Custom models
     href: concept-custom.md
   - name: Receipts
@@ -100,8 +93,8 @@
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Form Recognizer API v2.1 preview.3
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
+  - name: Form Recognizer API v2.1.3
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
   - name: Form Recognizer API v2.0
     href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
   - name: SDKs
@@ -116,6 +109,10 @@
       href: /javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Resources
   items:
+  - name:  Customer spotlight
+    href: resource-customer-stories.md
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Enterprise readiness
     items:
     - name: Region support
@@ -124,7 +121,5 @@
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Privacy and cookies
     href: https://privacy.microsoft.com/en-US/privacystatement
