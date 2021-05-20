@@ -420,7 +420,7 @@ A *sentinel key* is a special key that you update after you complete the change 
     | TestApp:Settings:Message | Data from Azure App Configuration - now with live updates! |
     | TestApp:Settings:Sentinel | 2 |
 
-1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected, or change your automatic refresh rate to less than 5 minutes. 
+1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected, or change your cache expiration time to less than 5 minutes. 
 
     ![Launching updated quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
