@@ -81,7 +81,7 @@ additionalContent:
         - title: Get coding with quickstarts
           links:
           - text: Azure Form Recognizer
-            url: ../cognitive-services/form-recognizer/label-tool.md
+            url: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
           - text: Azure Metrics Advisor
             url: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
           - text: Azure Immersive Reader
