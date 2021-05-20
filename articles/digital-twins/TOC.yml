@@ -125,6 +125,10 @@
       items:
       - name: 403 (Forbidden)
         href: troubleshoot-error-403.md
+  - name: Other
+    items:
+    - name: OPC UA  data to Azure Digital Twins
+      href: how-to-opcua-to-azure-digital-twins.md
 - name: Reference
   items:
   - name: Digital Twins service limits
