@@ -122,7 +122,7 @@ In the Security step, select *Edit* and configure this information:
 * **OAuth 2.0**:
     - Identity provider: Azure Active Directory
     - Client ID: The *Application (client) ID* for your Azure AD app registration
-    - Client secret: The *Client secret* you created in [Prerequisites](#prerequisites) for your Azure AD app registration
+    - Client secret: The *Client secret* you created [earlier](#get-app-registration-client-secret) for your Azure AD app registration
     - Login URL: https://login.windows.net (leave default)
     - Tenant ID: The *Directory (tenant) ID* for your Azure AD app registration
     - Resource URL: 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
