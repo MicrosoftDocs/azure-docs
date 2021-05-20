@@ -29,9 +29,10 @@ The following table summarizes the various endpoints exposed on your device, the
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | https | 443 | To connect to Azure Resource Manager for automation |
 | 2. | Security token service | https | 443 | To authenticate via access and refresh tokens |
-| 3. | Blob | https | 443 | To connect to Blob storage via REST |
+| 3. | Blob* | https | 443 | To connect to Blob storage via REST |
 
-
+\* Connection to blob storage endpoint is not required to connect to Azure Resource Manager.
+ 
 ## Connecting to Azure Resource Manager workflow
 
 The process of connecting to local APIs of the device using Azure Resource Manager requires the following steps:
@@ -86,15 +87,17 @@ For test and development use only, you can use Windows PowerShell to create cert
 
 1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-gpu-manage-certificates.md#create-signing-chain-certificate).
 
-2. You can next create the endpoint certificates for the blob and Azure Resource Manager. You can get these endpoints from the **Device** page in the local web UI. See the steps to [Create endpoint certificates](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates).
+2. You can next create the endpoint certificates for Azure Resource Manager and blob (optional). You can get these endpoints from the **Device** page in the local web UI. See the steps to [Create endpoint certificates](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates).
 
 3. For all these certificates, make sure that the subject name and subject alternate name conform to the following guidelines:
 
     |Type |Subject name (SN)  |Subject alternative name (SAN)  |Subject name example |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Blob storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Blob storage*|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Multi-SAN single certificate for both endpoints|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
+
+\* Blob storage is not required to connect to Azure Resource Manager. It is listed here in case you are creating local storage accounts on your device.
 
 For more information on certificates, go to how to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).
 
