@@ -16,7 +16,7 @@ Diagnostic settings in Azure are used to collect resource logs. Azure resource L
 
 Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic setting for Azure Cosmos DB accounts and send resource logs to the following sources:
 - Log Analytics workspaces
-  - Data sent to Log Analytics can be written into **Azure Diagnostics (legacy)** or **Resource-specific (preview)** tables
+  - Data sent to Log Analytics can be written into **Azure Diagnostics (legacy)** or **Resource-specific (preview)** tables 
 - Event hub
 - Storage Account
   
@@ -148,7 +148,7 @@ az monitor diagnostic-settings create --resource /subscriptions/{SUBSCRIPTION_ID
 ```
 
 ## Next steps
-* For more information on how to query resource-specific tables see [troubleshooting using resource specific tables](cosmsodb-monitor-logs-basic-queries.md#resource-specific-queries).
+* For more information on how to query resource-specific tables see [troubleshooting using resource specific tables](cosmosdb-monitor-logs-basic-queries.md#resource-specific-queries).
 
 * For more information on how to query AzureDiagnostics tables see [troubleshooting using AzureDiagnostics tables](cosmosdb-monitor-logs-basic-queries.md#azure-diagnostics-queries).
 

@@ -328,6 +328,6 @@ For resource specific tables (currently in preview for SQL API), data is written
        | summarize by OperationName 
       ```
 ## Next steps
-* For more information on how to create diagnostic settings for Cosmos db see [Creating Diagnostics settings](cosmsodb-monitor-logs-basic-queries.md) article.
+* For more information on how to create diagnostic settings for Cosmos db see [Creating Diagnostics settings](cosmosdb-monitor-logs-basic-queries.md) article.
 
-* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article.
+* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article. 
