@@ -2,7 +2,7 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 05/18/2021
 ---
 
 # Outputs in ARM templates
@@ -147,7 +147,11 @@ In JSON, add the `copy` element to iterate an output.
 
 # [Bicep](#tab/bicep)
 
-Iterative output isn't currently available for Bicep.
+In Bicep, add a `for` expression that defines the conditions for the dynamic output. The following example iterates over a range of integers. You can also iterate over an array.
+
+```bicep
+output storageEndpoints array = [for i in range(0, storageCount): reference(${i}${baseName_var}).primaryEndpoints.blob]
+```
 
 ---
 
