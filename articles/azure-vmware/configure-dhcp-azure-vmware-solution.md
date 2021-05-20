@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: contperf-fy21q2
 ms.date: 05/28/2021
 
-# Customer intent: As an Azure service administrator, I want to <what?> so <why?>.
+# Customer intent: As an Azure service administrator, I want to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 
 ---
 
