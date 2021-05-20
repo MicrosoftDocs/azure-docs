@@ -4,8 +4,9 @@ description: Learn how to scan the container images using Container Scan action
 author: v-abiss 
 ms.author: v-abiss
 ms.topic: quickstart
+ms.reviewer: jukullam
 ms.service: azure 
-ms.date: 04/21/2021
+ms.date: 05/20/2021
 ms.custom: github-actions-azure
 ---
 
@@ -13,9 +14,9 @@ ms.custom: github-actions-azure
 
 Get started with the [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) by creating a workflow to build and scan a container image.
 
-With GitHub Actions, you can speed up your CI/CD process by building, scanning and pushing images to a public or private [Container Registry](https://azure.microsoft.com/en-in/services/container-registry/) from your workflows.
+With GitHub Actions, you can speed up your CI/CD process by building, scanning, and pushing images to a public or private [Container Registry](https://azure.microsoft.com/en-in/services/container-registry/) from your workflows.
 
-In this article, we'll make use of the [Container image scan](https://github.com/marketplace/actions/container-image-scan) from the [Github Marketplace](https://github.com/marketplace).
+In this article, we'll make use of the [Container image scan](https://github.com/marketplace/actions/container-image-scan) from the [GitHub Marketplace](https://github.com/marketplace).
 
 ## Prerequisites
 
@@ -32,7 +33,7 @@ The file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Create a Container Registry on Azure. <br /> 2. Create a GitHub secret. <br /> 3. Login to the registry using GH actions. |
+|**Authentication** | 1. Create a Container Registry on Azure. <br /> 2. Create a GitHub secret. <br /> 3. Log in to the registry using GH actions. |
 |**Build** | 1. Set up the environment. <br /> 2. Build the app. |
 |**Build, Scan & Push the Image to the container registry** | 1. Build the image. <br /> 2. Scan the image. <br /> 3. Push the image.|
 
@@ -50,14 +51,14 @@ In this example, you'll create a three secrets that you can use to authenticate 
 
     :::image type="content" source="media/container-instances-container-scan/azure-secret-add.png" alt-text="Choose to add a secret.":::
 
-1. Paste the following values for each secret created with the following values from the Azure Portal by navigating to the **Access Keys** in the Container Registry. 
+1. Paste the following values for each secret created with the following values from the Azure portal by navigating to the **Access Keys** in the Container Registry. 
 
-| GitHub Secret Name | Azure Container Registry values |
-|---------|---------|
-|`ACR_LOGIN_SERVER` | **Login server** |
-|`REGISTRY_USERNAME` | **Username** |
-|`REGISTRY_PASSWORD` | **password** |
-
+    | GitHub Secret Name | Azure Container Registry values |
+    |---------|---------|
+    |`ACR_LOGIN_SERVER` | **Login server** |
+    |`REGISTRY_USERNAME` | **Username** |
+    |`REGISTRY_PASSWORD` | **password** |
+    
 1. Save by selecting **Add secret**.
 
 ## Add a Dockerfile
@@ -65,12 +66,10 @@ In this example, you'll create a three secrets that you can use to authenticate 
 Use the following snippet to create a `Dockerfile` and commit it to the repository.
 
 ```
-
 FROM openjdk:11-jre-stretch
 ADD target/spring-petclinic-2.4.2.jar spring-petclinic-2.4.2.jar
 EXPOSE 8080
 ENTRYPOINT [ "java", "-jar", "spring-petclinic-2.4.2.jar" ]
-
 ```
 
 
@@ -78,7 +77,7 @@ ENTRYPOINT [ "java", "-jar", "spring-petclinic-2.4.2.jar" ]
 
 Use your secret with the [Azure Container Registry Login action](https://github.com/marketplace/actions/azure-container-registry-login) to authenticate to Azure.
 
-In this workflow, you authenticate using the Azure Container Registry Login with the **login server**, **username** and **password** details of the registry stored in `secrets.ACR_LOGIN_SERVER`, `secrets.REGISTRY_USERNAME` and `secrets.REGISTRY_PASSWORD` respectively in the [docker-login action](https://github.com/Azure/docker-login). For more information about referencing GitHub secrets in a workflow file, see [Using encrypted secrets in a workflow](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) in GitHub Docs.
+In this workflow, you authenticate using the Azure Container Registry Login with the **login server**, **username, and **password** details of the registry stored in `secrets.ACR_LOGIN_SERVER`, `secrets.REGISTRY_USERNAME` and `secrets.REGISTRY_PASSWORD` respectively in the [docker-login action](https://github.com/Azure/docker-login). For more information about referencing GitHub secrets in a workflow file, see [Using encrypted secrets in a workflow](https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow) in GitHub Docs.
 
 
 ```yaml
@@ -147,9 +146,9 @@ Build and tag the image using the following snippet in the workflow. The followi
 
 Before pushing the built image into the container registry, make sure you scan and check the image for any vulnerabilities by using the [Container image scan action](https://github.com/marketplace/actions/container-image-scan).
 
-Add the following code snippet into the workflow which will scan the image for any ***critical vulnerabilities*** such that the image that will be pushed is secure and complies with the standards.
+Add the following code snippet into the workflow, which will scan the image for any ***critical vulnerabilities*** such that the image that will be pushed is secure and complies with the standards.
 
-You can also add other inputs with this action or add an allowedlist to ignore any vulnerabilities and best practice checks.
+You can also add other inputs with this action or add an `allowedlist.yaml` file to your repository to ignore any vulnerabilities and best practice checks. 
 
 ```yaml
     - name: Scan image
@@ -160,6 +159,16 @@ You can also add other inputs with this action or add an allowedlist to ignore a
         run-quality-checks: true        
 ```
 
+Example `allowedlist.yaml`.
+
+```yaml
+general:
+  vulnerabilities:
+    - CVE-2003-1307
+    - CVE-2011-3374
+  bestPracticeViolations:
+    - CIS-DI-0005
+```
 ## Push the image to a private registry
 
 Once the image is scanned and there are no vulnerabilities found, it's safe to push the built image to private registry. The following code snippet uses the Docker CLI in a shell terminal to push the image.
