@@ -5,11 +5,11 @@ ms.subservice: logs
 ms.topic: article
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2021
+ms.date: 05/20/2021
 ---
 
 # Using queries in Azure Monitor Log Analytics
-Instead of writing new queries in Log Analytics, you can access a library of existing queries that you can run or modify. This includes example queries provided by Azure Monitor, which are a great way to get started with Log Analytics if you aren't familiar with the KQL query language. It may also include log queries written by you or your organization to reuse logic specific to your organization.
+When you open Log Analytics, you have access to existing log queries. You can either run these queries without modification or use them as a starting point for your own queries. The available queries include examples provided by Azure Monitor and queries saved by your organization. This article describes the queries that are available and how you can discover and use them.
 
 
 ## Queries interface
@@ -41,7 +41,7 @@ The options in this section are available in both the dialog and sidebar query e
 
 ### Group by
 
-Change the grouping of the queries by clicking the *group by* drop-down list. The grouping values also act as an active table of contents. Clicking one of the values on the left-hand side of the screen scrolls the queries view right to the item clicked.
+Change the grouping of the queries by clicking the *group by* drop-down list. The grouping values also act as an active table of contents. Clicking one of the values on the left-hand side of the screen scrolls the queries view right to the item clicked. If your organization has created query packs with tags, the custom tags will be included in this list.
 
 [![Example queries screen groupby](media/queries/example-query-groupby.png)](media/queries/example-query-groupby.png#lightbox)
 

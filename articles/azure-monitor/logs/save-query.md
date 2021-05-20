@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: article
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2021
+ms.date: 05/20/2021
 ---
 
 # Save a query in Azure Monitor Log Analytics (preview)
 [Log queries](log-query-overview.md) are requests in Azure Monitor that allow you to process and retrieve data in a Log Analytics workspace. Saving a log queries allows you to:
 
-- use the query in the same or another workspace.
+- use the query in all Log Analytics context, including workspace and resource centric.
 - allow other users to run same query.
 - create a library of common queries for your organization.
 
