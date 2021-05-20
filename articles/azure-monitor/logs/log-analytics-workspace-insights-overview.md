@@ -17,7 +17,9 @@ Log Analytics Workspace Insights (preview) provides comprehensive monitoring of 
 
 When accessing Log Analytics Workspace Insights through the Azure Monitor Insights, the 'At scale' perspective is shown. Here you can see how your workspaces are spread across the globe, review their retention, capping and license details (color coded), and choose a workspace to see its insights.
 
-[![Screenshot that shows Log Analytics Workspace Insights list of workspaces](media/log-analytics-workspace-insights-overview/at-scale.png)](media/log-analytics-workspace-insights-overview/at-scale-expanded.png#lightbox)
+
+:::image type="content" source="media/log-analytics-workspace-insights-overview/at-scale.png" alt-text="Screenshot that shows Log Analytics Workspace Insights list of workspaces" lightbox="media/log-analytics-workspace-insights-overview/at-scale-expanded.png":::
+
 
 To launch Log Analytics Workspace Insights at scale, perform the following steps:
 
@@ -29,7 +31,8 @@ To launch Log Analytics Workspace Insights at scale, perform the following steps
 
 Launching Insights in the context of a specific workspace displays rich data and analytics of the workspace performance, usage, health, agents, queries, and change log.
 
-[![Screenshot that shows Log Analytics Workspace Insights Overview](media/log-analytics-workspace-insights-overview/at-resource.png)](media/log-analytics-workspace-insights-overview/at-resource.png#lightbox)
+
+:::image type="content" source="media/log-analytics-workspace-insights-overview/at-resource.png" alt-text="Screenshot that shows Log Analytics Workspace Insights Overview" lightbox="media/log-analytics-workspace-insights-overview/at-resource.png":::
 
 To access Log Analytics Workspace Insights:
 
@@ -72,7 +75,7 @@ On the **Overview** tab you can see:
 This tab provides information on the workspace's usage. 
 The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 most ingested tables in the selected time range (same tables displayed in the Overview page). You can choose which tables to display through the Workspace Tables dropdown. 
 
-[![Screenshot of the workspace usage tab](./media/log-analytics-workspace-insights-overview/workspace-usage.png)](./media/log-analytics-workspace-insights-overview/workspace-usage.png#lightbox)
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage.png" alt-text="Screenshot of the workspace usage tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage.png":::
 
 * Main grid - here you can see tables grouped by solutions, and information about each table"
     - How much data was ingested to it (during the selected time range)
@@ -88,29 +91,32 @@ The dashboard sub-tab shows ingestion data of by tables, and defaults to the 5 m
     The chart below it shows separately the latency of the agent (the time it took the agent to send the log to the workspace) and that of the pipeline (the time it took the service to process the data and push it to the workspace).
     [![Screenshot of the workspace usage ingestion latency sub-tab](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png)](./media/log-analytics-workspace-insights-overview/workspace-usage-ingestion-latency.png#lightbox)
 
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage.png" alt-text="Screenshot of the workspace usage tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage.png":::
+
 #### Additional usage queries
 
 The Additional queries sub-tab exposes queries that run across all workspace tables (instead of relying on the usage metadata, refreshed hourly). Since there queries are much more extensive and less efficient, they are not run automatically. However, they can surface interesting information about which resources send most logs to the workspace, and perhaps affect billing.
 
 [![Screenshot of the workspace usage additional queries tab](./media/log-analytics-workspace-insights-overview/workspace-usage-additional-queries.png)](./media/log-analytics-workspace-insights-overview/workspace-usage-additional-queries.png#lightbox)
 
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage.png" alt-text="Screenshot of the workspace usage tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage.png":::
+
 One such query is 'What Azure resources send most logs to this workspace' (showing top 50).
 In our demo workspace, you can clearly see that 3 Kuberbetes clusters send far more data than all other resources combined, and a particular one of them loads the workspace most.
 
-[![Screenshot of the workspace usage additional queries tab with results of an additiona query](./media/log-analytics-workspace-insights-overview/workspace-usage-additional-query-run.png)](./media/log-analytics-workspace-insights-overview/workspace-usage-additional-query-run.png#lightbox)
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-usage-additional-query-run.png" alt-text="Screenshot of the workspace usage additional queries tab with results of an additional query" lightbox="media/log-analytics-workspace-insights-overview/workspace-usage-additional-query-run.png":::
 
 
 ### Health tab
 
 This tab shows the workspace health state and when it was last reported, as well as operational errors and warnings (retrieved from the _LogOperation table).
 
-[![Screenshot of the workspae health tab](./media/log-analytics-workspace-insights-overview/workspace-health.png)](./media/log-analytics-workspace-insights-overview/workspace-health.png#lightbox)
-
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-health.png" alt-text="Screenshot of the workspace health tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-health.png":::
 
 ### Agents tab
 
 This tab provides information on the agents sending logs to this workspace.
-[![Screenshot of the workspae agents tab](./media/log-analytics-workspace-insights-overview/workspace-agents.png)](./media/log-analytics-workspace-insights-overview/workspace-agents.png#lightbox)
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-agents.png" alt-text="Screenshot of the workspae agents tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-agents.png":::
 
 * Operation errors and warnings - these are errors and warning related specifically to agents. They are grouped by the error/warning title to help you get a clearer view of different issues that may occur, but can be expanded to show the exact times and resources they refer to. Also note you can click 'Run query in Logs' to query the _LogOperation table through the Logs experience, see the raw data and analyze if further.
 * Workspace agents - these are the agents that sent logs to the workspace during the selected time range. You can see the agents' types (Direct, Gateway, SCOM or SCOM management servers) and health state. Agents are marked healthy aren't necessarily working well - it only indicated they sent a heartbeat during the last hour. A more detailed health state is detailed in the below grid.
@@ -128,14 +134,14 @@ This tab shows:
 * The volume of data processed - 95th percentile, 50th percentile, and the total of processed data in all requests, over time.
 * Response codes - the distribution of response codes to all queries in the selected time range.
 
-[![Screenshot of the query audit tab, performance sub-tab](./media/log-analytics-workspace-insights-overview/workspace-query-audit-performance.png)](./media/log-analytics-workspace-insights-overview/workspace-query-audit-performance.png#lightbox)
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-query-audit-performance.png" alt-text="Screenshot of the query audit tab, performance sub-tab]" lightbox="media/log-analytics-workspace-insights-overview/workspace-query-audit-performance.png":::
 
 #### Slow and inefficient queries 
 This tab shows two grids to help you identify slow and inefficient queries you may want to re-think. These queries should not be used in dashboards or alerts, since they will create unneeded chronic load on your workspace.
 * Most resource intensive queries - the 10 most CPU-demanding queries, along with the volume of data processed (KB), the time range and text of each query.
 * Slowest queries - the 10 slowest queries, along with the time range and text of each query.
 
-[![Screenshot of the query audit tab, slow queries sub-tab](./media/log-analytics-workspace-insights-overview/workspace-query-audit-slow-queries.png)](./media/log-analytics-workspace-insights-overview/workspace-query-audit-slow-queries.png#lightbox)
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-query-audit-slow-queries.png" alt-text="Screenshot of the query audit tab, slow queries sub-tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-query-audit-slow-queries.png":::
 
 #### Query users 
 This tab shows users activity against this workspace:
@@ -147,7 +153,7 @@ This tab shows users activity against this workspace:
 This tab shows configuration changes made on the workspace during the last 90 days (regardless of the time range selected), and who performed them.
 It is intended to help you monitor who changes important workspace settings, such as data capping or workspace license.
 
-[![Screenshot of the workspace change log tab](./media/log-analytics-workspace-insights-overview/workspace-change-log.png)](./media/log-analytics-workspace-insights-overview/workspace-change-log.png#lightbox)
+:::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-change-log.png" alt-text="Screenshot of the workspace change log tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-change-log.png":::
 
 
 ## Next steps

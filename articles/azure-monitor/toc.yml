@@ -1135,6 +1135,8 @@
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer (preview)
       href: insights/data-explorer.md
+    - name: Log Analytics workspace
+      href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
       href: insights/network-insights-overview.md
     - name: Key Vault
