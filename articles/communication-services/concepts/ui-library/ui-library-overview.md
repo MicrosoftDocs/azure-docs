@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!NOTE]
-> For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-sdk). There you will find additional conceptual documentation, quickstarts and examples.
+> For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
 
 Azure Communication Services - UI Library makes it easy for you to build modern communications user experiences using Azure Communication Services. 
 It gives you a library of production-ready UI components that you can drop into your applications:
@@ -33,7 +33,7 @@ These UI client libraries all use [Microsoft's Fluent design language](https://d
 
 In conjunction to the UI components, the UI Library exposes a stateful client library for calling and chat.
 This client is agnostic to any specific state management framework and can be integrated with common state managers like Redux or React Context.
-This stateful client library can be used with the UI Components to pass props and methods for the UI Components to render data. See [Stateful Client Overview](https://azure.github.io/communication-ui-sdk/?path=/story/stateful-client-what-is-stateful--page) for more information.
+This stateful client library can be used with the UI Components to pass props and methods for the UI Components to render data. See [Stateful Client Overview](https://azure.github.io/communication-ui-library/?path=/story/stateful-client-what-is-stateful--page) for more information.
 
 ## Installing UI Library
 
@@ -50,8 +50,8 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 
 | Composite    | Use Cases  | 
 | ------------ | ---------- |
-| [Group Calling](https://azure.github.io/communication-ui-sdk/?path=/docs/composites-groupcall--group-call-composite) | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video and see other participants, including those with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
-| [Group Chat](https://azure.github.io/communication-ui-sdk/?path=/docs/composites-groupchat--group-chat-composite)    | Chat experience where user can send and receive messages. Thread events like typing, reads, participants entering and leaving are displayed to the user as part of the chat thread.                                                                                                                          |
+| [Call](https://azure.github.io/communication-ui-library/?path=/docs/composites-groupcall--group-call-composite) | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video and see other participants, including those with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
+| [Chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-groupchat--group-chat-composite)    | Chat experience where user can send and receive messages. Thread events like typing, reads, participants entering and leaving are displayed to the user as part of the chat thread.                                                                                                                          |
 
 ## UI Component overview
 
@@ -60,15 +60,15 @@ UI Components support customization to give the components the right feel and lo
 
 | Area    | Component    | Description       |
 | ------- | ------------ | ----------------- |
-| Calling | [Grid Layout](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-gridlayout--grid-layout-component)                | Grid component to organize Video Tiles into an NxN grid                                            |
-|         | [Video Tile](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-videotile--video-tile-component)                   | Component that displays video stream when available and a default static component when not        |
-|         | [Control Bar](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-controlbar--control-bar-component)                | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
-| Chat    | [Message Thread](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-messagethread--message-thread-component)       | Container that renders chat messages, system messages and custom messages                          |
-|         | [Send Box](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-sendbox--send-box-component)                         | Text input component with a discrete send button                                                   |
-|         | [Read Receipt](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-readreceipt--read-reciept-icon-component)        | Multi-state read receipt component to show state of sent message                                   |
-|         | [Typing indicator](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-typingindicator--typing-indicator-component) | Text component to render the participants who are actively typing on a thread                      |
-| Common  | [Participant Item](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-participantitem--participant-item-component) | Common component to render a call or chat participant including avatar and display name            |
-|         | [Error Bar](https://azure.github.io/communication-ui-sdk/?path=/story/ui-components-errorbar--error-bar-component)                      | Common error bar with multiple built-in states to show user events                                 |
+| Calling | [Grid Layout](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout-component)                | Grid component to organize Video Tiles into an NxN grid                                            |
+|         | [Video Tile](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile-component)                   | Component that displays video stream when available and a default static component when not        |
+|         | [Control Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar-component)                | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
+| Chat    | [Message Thread](https://azure.github.io/communication-ui-library/?path=/story/ui-components-messagethread--message-thread-component)       | Container that renders chat messages, system messages and custom messages                          |
+|         | [Send Box](https://azure.github.io/communication-ui-library/?path=/story/ui-components-sendbox--send-box-component)                         | Text input component with a discrete send button                                                   |
+|         | [Read Receipt](https://azure.github.io/communication-ui-library/?path=/story/ui-components-readreceipt--read-reciept-icon-component)        | Multi-state read receipt component to show state of sent message                                   |
+|         | [Typing indicator](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator-component) | Text component to render the participants who are actively typing on a thread                      |
+| Common  | [Participant Item](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item-component) | Common component to render a call or chat participant including avatar and display name            |
+|         | [Error Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-errorbar--error-bar-component)                      | Common error bar with multiple built-in states to show user events                                 |
 
 ## What UI artifact is best for my project?
 
@@ -77,7 +77,7 @@ Understanding these requirements will help you choose the right client library:
 - **How much customization do you desire?** Azure Communication core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
-Details about feature availability in the [UI Library is available here](https://azure.github.io/communication-ui-sdkhttps://azure.github.io/communication-ui-sdk/?path=/story/use-cases--page), but key trade-offs are summarized below.
+Details about feature availability in the [UI Library is available here](https://azure.github.io/communication-ui-libraryhttps://azure.github.io/communication-ui-library/?path=/story/use-cases--page), but key trade-offs are summarized below.
 
 | Client library / SDK  | Implementation Complexity | Customization Ability | Calling | Chat | [Teams Interop](../teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- | ------- | ---- | ----------------------------------------------------------------------------------------------------- |
@@ -86,4 +86,4 @@ Details about feature availability in the [UI Library is available here](https:/
 | Core client libraries | High                      | High                  | ✔       | ✔    | ✔                                                                                                     |
 
 > [!div class="nextstepaction"]
-> [Visit UI Library Storybook](https://azure.github.io/communication-ui-sdk)
+> [Visit UI Library Storybook](https://azure.github.io/communication-ui-library)

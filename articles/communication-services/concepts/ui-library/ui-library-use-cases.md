@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!NOTE]
-> For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-sdk). There you will find additional conceptual documentation, quickstarts and examples.
+> For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
 
 
 UI Library supports a number of use cases across calling and chat experiences.
@@ -34,7 +34,7 @@ To take full advantage of these capabilities we recommend using the UI Component
 | ------------------- | ------------------------------------------------------ |
 | Call Types          | Join Teams Meeting                                     |
 |                     | Join Azure Communication Services call with Group Id   |
-| Teams Interop       | Call Lobby                                             |
+| [Teams Interop](../teams-interop.md)      | Call Lobby                                             |
 |                     | Transcription and recording alert banner               |
 | Call Controls       | Mute/unmute call                                       |
 |                     | Video on/off on call                                   |
@@ -68,6 +68,22 @@ To take full advantage of these capabilities we recommend using the UI Component
 
 An Azure Communication Services identity is required to initialize the stateful client libraries and authenticate to the service.
 For more information on authentication, see [Authentication](../authentication.md) and [Access Tokens](../../quickstarts/access-tokens.md?pivots=programming-language-javascript)
+
+## Teams Interop Use Case
+
+For [Teams Interop](../teams-interop.md) scenarios, developers can leverage UI Library Components to join Teams meetings through Azure Communication Services.
+To enable this, developers can either leverage calling and chat composites directly or use UI Components to build a custom experience.
+When enabling applications with both calling and chat, its important to remember that the chat client can't be initialized until the participant has been admitted to the call.
+Once admitted, the chat client can be initialized to join the meeting chat thread.
+See the diagram below for guidance:
+
+:::image type="content" source="../media/teams-interop-pattern.png" alt-text="Teams Interop pattern for calling and chat":::
+
+When using UI Components to deliver Teams Interop experiences, UI Library provides examples for key pieces of the experience.
+For example:
+- [Lobby Example](https://azure.github.io/communication-ui-library/?path=/docs/examples-teams-interop--lobby): Sample lobby for participant to wait to be admitted to the call.
+- [Compliance banner](https://azure.github.io/communication-ui-library/?path=/docs/examples-teams-interop--compliance-banner): Sample banner to show the user whether the call is being recorded or not.
+
 
 ## Customization
 
@@ -140,4 +156,4 @@ Developers can provide their own localization files to be used for the UI Librar
 These localization capabilities will be added ahead of General Availability.
 
 > [!div class="nextstepaction"]
-> [Visit UI Library Storybook](https://azure.github.io/communication-ui-sdk)
+> [Visit UI Library Storybook](https://azure.github.io/communication-ui-library)
