@@ -46,7 +46,7 @@ landingContent:
             url: authenticate-ledger-nodes.md
 
   # Card
-  - title: how-to-guide
+  - title: How-to-guides
     linkLists:
       - linkListType: tutorial
         links:
