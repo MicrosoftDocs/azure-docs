@@ -6,7 +6,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/21/2021
+ms.date: 05/20/2021
 ---
 
 # Overview of Azure Stream Analytics Cluster
