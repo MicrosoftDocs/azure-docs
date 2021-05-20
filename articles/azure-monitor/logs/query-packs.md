@@ -73,7 +73,7 @@ Each query in the query pack has the following properties.
 | description | Description of the query displayed in Log Analytics for each query. |
 | body        | Query written in KQL. |
 | related     | Related categories, resource types, and solutions for the query. Used for grouping and filtering in Log Analytics by the user to help locate their query. Each query can have up to ten of each type. Retrieve allowed values from  https://api.loganalytics.io/v1/metadata?select=resourceTypes,solutions,categories. |
-| tags        | Additional tags used by the user for sorting and filtering in Log Analytics. Each tag will be added to Category, Resource Type, and Solution when [grouping and filtering queries](queries.md#finding-and-filtering-queries). 
+| tags        | Additional tags used by the user for sorting and filtering in Log Analytics. Each tag will be added to Category, Resource Type, and Solution when [grouping and filtering queries](queries.md#finding-and-filtering-queries). |
 
 
 
