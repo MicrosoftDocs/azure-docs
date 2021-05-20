@@ -64,7 +64,7 @@ We'll create a `KeyCardEvents` table with the following schema.
    VALUES ('43869', 'Building42', '2020-05-02T19:58:47.1234567')
    ```
 
-1. View the contents of your KeyCardEvents table, specifying the [GENERATE ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns that are added to your [append-only ledger table](ledger-append-only-ledger-tables.md).
+1. View the contents of your KeyCardEvents table, specifying the [GENERATED ALWAYS](/sql/t-sql/statements/create-table-transact-sql#generate-always-columns) columns that are added to your [append-only ledger table](ledger-append-only-ledger-tables.md).
 
    ```sql
    SELECT *

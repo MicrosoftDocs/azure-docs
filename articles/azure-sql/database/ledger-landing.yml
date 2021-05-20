@@ -80,12 +80,14 @@ landingContent:
 
 
   # Card
-  - title: Ledger limitations
+  - title: Ledger references
     linkLists:
       - linkListType: reference
         links:
           - text: Current ledger limitations
             url: ledger-limits.md
+          - text: Azure SQL Database ledger whitepaper
+            url: https://aka.ms/sql-ledger-whitepaper
 
 
   # Card
