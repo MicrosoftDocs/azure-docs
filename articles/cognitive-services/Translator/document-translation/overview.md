@@ -40,12 +40,17 @@ The following document file types are supported by Document Translation:
 | File type| File extension|Description|
 |---|---|--|
 |Adobe PDF|.pdf|Adobe Acrobat portable document format|
-|HTML|.html|Hyper Text Markup Language.|
+|Comma Separated Values |.csv| A comma-delimited raw-data file used by spreadsheet programs.|
+|HTML|.html, .htm|Hyper Text Markup Language.|
 |Localization Interchange File Format|.xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
-|Microsoft Excel|.xlsx|A spreadsheet file for data analysis and documentation.|
+|Microsoft Excel|.xls, .xlsx|A spreadsheet file for data analysis and documentation.|
 |Microsoft Outlook|.msg|An email message created or saved within Microsoft Outlook.|
-|Microsoft PowerPoint|.pptx| A presentation file used to display content in a slideshow format.|
-|Microsoft Word|.docx| A text document file.|
+|Microsoft PowerPoint|.ppt, .pptx| A presentation file used to display content in a slideshow format.|
+|Microsoft Word|.doc, .docx| A text document file.|
+|OpenDocument Text|.odt|An open source text document file.|
+|OpenDocument Presentation|.odp|An open source presentation file.|
+|OpenDocument Spreadsheet|.ods|An open source spreadsheet file.|
+|Rich Text Format|.rtf|A text document containing formatting.|
 |Tab Separated Values/TAB|.tsv/.tab| A tab-delimited raw-data file used by spreadsheet programs.|
 |Text|.txt| An unformatted text document.|
 
