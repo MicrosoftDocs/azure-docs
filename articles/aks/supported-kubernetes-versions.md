@@ -189,7 +189,7 @@ The control plane must be within a window of versions from all node pools. For d
 
 **Can I skip multiple AKS versions during cluster upgrade?**
 
-When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between:
+When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. Control planes of Kubernetes do not support minor version skipping according to the [version skew policy](https://kubernetes.io/releases/version-skew-policy/). For example, upgrades between:
   * *1.12.x* -> *1.13.x*: allowed.
   * *1.13.x* -> *1.14.x*: allowed.
   * *1.12.x* -> *1.14.x*: not allowed.
@@ -198,7 +198,7 @@ To upgrade from *1.12.x* -> *1.14.x*:
 1. Upgrade from *1.12.x* -> *1.13.x*.
 1. Upgrade from *1.13.x* -> *1.14.x*.
 
-Skipping multiple versions can only be done when upgrading from an unsupported version back into a supported version. For example, you can upgrade from an unsupported *1.10.x* to a supported *1.15.x*.
+Skipping multiple versions can only be done when upgrading from an unsupported version back into the minimum supported version. For example, you can upgrade from an unsupported *1.10.x* to a supported *1.15.x* if *1.15* is the minimum supported minor version.
 
 **Can I create a new 1.xx.x cluster during its 30 day support window?**
 
