@@ -5,7 +5,7 @@ ms.topic: overview
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
+ms.date: 05/20/2021
 ---
 # What is Document Translation (Preview)?
 
