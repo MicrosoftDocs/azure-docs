@@ -159,35 +159,6 @@ To use a high water mark policy, create or update your data source like this:
 
 > [!WARNING]
 > If the source table does not have an index on the high water mark column, queries used by the MySQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
->
-
-<a name="queryTimeout"></a>
-
-##### queryTimeout
-
-If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration:
-
-```
-    {
-      ... other indexer definition properties
-     "parameters" : {
-            "configuration" : { "queryTimeout" : "00:10:00" } }
-    }
-```
-
-<a name="disableOrderByHighWaterMarkColumn"></a>
-
-##### disableOrderByHighWaterMarkColumn
-
-You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
-
-```
-    {
-     ... other indexer definition properties
-     "parameters" : {
-            "configuration" : { "disableOrderByHighWaterMarkColumn" : true } }
-    }
-```
 
 ### Soft Delete Column Deletion Detection policy
 When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If the rows are physically removed from the table, Azure Cognitive Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
@@ -214,37 +185,16 @@ The **softDeleteMarkerValue** must be a string – use the string representation
 > [!NOTE]
 > The preview does not support geometry types and blobs.
 
-| MySQL data type | Allowed target index field types | Notes |
-| --- | --- | --- |
-| bit |Edm.Boolean, Edm.String | |
-| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| bigint |Edm.Int64, Edm.String | |
-| real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search does not support converting decimal types into Edm.Double because this would lose precision |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |A MySQL string can be used to populate a Collection(Edm.String) field if the string represents a JSON array of strings: `["red", "white", "blue"]` |
-| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
-| uniqueidentifer |Edm.String | |
-| geography |Edm.GeographyPoint |Only geography instances of type POINT with SRID 4326 (which is the default) are supported |
-| rowversion |N/A |Row-version columns cannot be stored in the search index, but they can be used for change tracking |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/A |Not supported |
+| MySQL data type | Allowed target index field types |
+| --- | --- |
+| bool, boolean | Edm.Boolean, Edm.String |
+| tinyint, smallint, mediumint, int, integer, year | Edm.Int32, Edm.Int64, Edm.String |
+| bigint | Edm.Int64, Edm.String |
+| float, double, real | Edm.Double, Edm.String |
+| date, datetime, timestamp | Edm.DateTimeOffset, Edm.String |
+| char, varchar, tinytext, mediumtext, text, longtext, enum, set, time | Edm.String |
+| unsigned numerical data, serial, decimal, dec, bit, blob, binary, geometry | N/A |
 
-## Configuration Settings
-MySQL indexer exposes several configuration settings:
-
-| Setting | Data type | Purpose | Default value |
-| --- | --- | --- | --- |
-| queryTimeout |string |Sets the timeout for MySQL query execution |5 minutes ("00:05:00") |
-| disableOrderByHighWaterMarkColumn |bool |Causes the MySQL query used by the high water mark policy to omit the ORDER BY clause. See [High Water Mark policy](#HighWaterMarkPolicy) |false |
-
-These settings are used in the `parameters.configuration` object in the indexer definition. For example, to set the query timeout to 10 minutes, create or update the indexer with the following configuration:
-
-```http
-    {
-      ... other indexer definition properties
-     "parameters" : {
-            "configuration" : { "queryTimeout" : "00:10:00" } }
-    }
-```
 
 ## Next steps
 
