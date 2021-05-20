@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 05/20/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -160,6 +160,17 @@ You need to set the following attributes for LDAP users and LDAP groups:
 * Required attributes for LDAP groups:   
     `objectClass: posixGroup`, `gidNumber: 555`
 
+### Access Active Directory Attribute Editor 
+
+On a Windows system, you can access the Active Directory Attribute Editor as follows:  
+
+1. Click **Start**, navigate to **Windows Administrative Tools**, and then click **Active Directory Users and Computers** to open the Active Directory Users and Computers window.  
+2.	Click the domain name that you want to view, and then expand the contents.  
+3.	To display the advanced Attribute Editor, enable the **Advanced Features** option in the Active Directory Users Computers **View** menu.   
+    ![Screenshot that shows how to access the Attribute Editor Advanced Features menu.](../media/azure-netapp-files/attribute-editor-advanced-features.png) 
+4. Double-click **Users** on the left pane to see the list of users.
+5. Double-click a particular user to see its **Attribute Editor** tab.
+ 
 ## Configure the NFS client 
 
 Follow instructions in [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) to configure the NFS client.  
