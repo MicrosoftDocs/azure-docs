@@ -11,7 +11,7 @@ description: "Use Azure RBAC for authorization checks on Azure Arc enabled Kuber
 
 # Integrate Azure Active Directory with Azure Arc enabled Kubernetes clusters
 
-Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This implies that you can now use Azure role assignments to granularly control who can read, write, and delete your Kubernetes objects such as Deployment, Pod, and Service.
+Kubernetes [ClusterRoleBinding and RoleBinding](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) object types help to define authorization in Kubernetes natively. By using this feature, you can use Azure Active Directory (Azure AD) and role assignments in Azure to control authorization checks on the cluster. This implies that you can now use Azure role assignments to granularly control who can read, write, and delete Kubernetes objects like deployment, pod, and service.
 
 A conceptual overview of this feature is available in the [Azure RBAC on Azure Arc enabled Kubernetes](conceptual-azure-rbac.md) article.
 
@@ -216,7 +216,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 1. Edit the `KubeadmControlPlane` object by running `kubectl edit kcp <clustername>-control-plane`:
     
-    1. Add the following snippet under `files:`:
+    1. Add the following snippet under `files`:
     
         ```console
         - contentFrom:
@@ -235,7 +235,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
           permissions: "0644"
         ```
 
-    1. Add the following snippet under `apiServer:` > `extraVolumes:`:
+    1. Add the following snippet under `apiServer` > `extraVolumes`:
     
         ```console
         - hostPath: /etc/kubernetes/guard-authn-webhook.yaml
@@ -248,7 +248,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
             readOnly: true
         ```
 
-    1. Add the following snippet under `apiServer:` > `extraArgs:`:
+    1. Add the following snippet under `apiServer` > `extraArgs`:
     
         ```console
         authentication-token-webhook-cache-ttl: 5m0s
