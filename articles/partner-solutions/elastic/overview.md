@@ -29,6 +29,10 @@ Here are the key capabilities provided by the Elastic integration with Azure:
 - **Management experience** - Provides a single location for monitoring how shipping logs for Azure services are sent to Elastic.
 - **Elastic Agent Deployment** - Set up Elastic agents on virtual machine hosts through a single step. 
 
+## Elastic links
+
+For more help with using the Elastic service, see the [Elastic documentation](https://azure-native-02.docs-preview.app.elstc.co/guide/en/cloud/master/ec-azure-marketplace-native.html) for Azure integration.
+
 ## Next steps
 
 To create an instance of Elastic, see [QuickStart: Get started with Elastic](create.md).
