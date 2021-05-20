@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 This document contains information about troubleshooting your solutions that use Elastic.
 
-## Unable to create a Elastic resource
+## Unable to create an Elastic resource
 
 Elastic integration with Azure can only be set up by users who have *Owner* access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md).
 
@@ -38,7 +38,7 @@ To contact support about the Elastic integration with Azure, select the **New Su
 
 :::image type="content" source="media/troubleshoot/open-ticket.png" alt-text="Open support ticket":::
 
-In the Elastic site, open a suport request.
+In the Elastic site, open a support request.
 
 :::image type="content" source="media/troubleshoot/elastic-support.png" alt-text="Open Elastic support":::
 
