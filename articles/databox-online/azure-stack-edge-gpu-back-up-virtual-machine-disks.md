@@ -309,9 +309,9 @@ Before you back up VMs, make sure that:
 
 ## Copy the snapshot into a local storage account
 
-### [Az](#tab/az)
-
 Copy the snapshots to a local storage account on your device. 
+
+### [Az](#tab/az)
 
 1. Set some parameters. 
 
@@ -444,7 +444,7 @@ Copy the snapshots to a local storage account on your device.
 
     ![Storage Explorer showing the backup in the container in local storage account](media/azure-stack-edge-gpu-back-up-virtual-machine-disks/back-up-virtual-machine-disk-1.png)
 
-### [AzureRM](#tab/azure-rm)
+### [AzureRM](#tab/azurerm)
 
 Copy the snapshots to a local storage account on your device. 
 
