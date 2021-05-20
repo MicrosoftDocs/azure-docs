@@ -12,7 +12,7 @@ adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 ---
 # Quickstart: Create your first C# function in Azure using Visual Studio
 
-Azure Functions is a service that lets you run your C# code in a serverless environment in Azure. 
+Azure Functions lets you run your C# code in a serverless environment in Azure. 
 
 In this article, you learn how to:
 
@@ -22,9 +22,9 @@ In this article, you learn how to:
 > * Run your code locally to verify function behavior.
 > * Deploy your code project to Azure Functions. 
  
-The project you create runs on .NET Core 3.1. If you instead want to create a project that runs on .NET 5.0, see [Develop and publish .NET 5 functions using Azure Functions](dotnet-isolated-process-developer-howtos.md).
-
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+ 
+The project you create runs on .NET Core 3.1. If you instead want to create a project that runs on .NET 5.0, see [Develop and publish .NET 5 functions using Azure Functions](dotnet-isolated-process-developer-howtos.md).
 
 ## Prerequisites
 
