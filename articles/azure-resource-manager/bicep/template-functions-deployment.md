@@ -1,12 +1,10 @@
 ---
-title: Template functions - deployment (Bicep)
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information. (Bicep)
-author: mumian
-ms.author: jgao
+title: Template functions - deployment
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---
-# Deployment functions for ARM templates (Bicep)
+# Deployment functions for ARM templates
 
 Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
 
@@ -16,6 +14,8 @@ Resource Manager provides the following functions for getting values related to 
 * [variables](#variables)
 
 To get values from resources, resource groups, or subscriptions, see [Resource functions](template-functions-resource.md).
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## deployment
 
@@ -454,7 +454,7 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-For more information about using parameters, see [Parameters in Bicep](./parameters.md).
+For more information about using parameters, see [Parameters in ARM templates](template-parameters.md).
 
 ## variables
 
@@ -591,8 +591,8 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in Bicep](./variables.md).
+For more information about using variables, see [Variables in ARM template](template-variables.md).
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

@@ -1,12 +1,10 @@
 ---
-title: Template functions - string (Bicep)
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings. (Bicep)
-author: mumian
-ms.author: jgao
+title: Template functions - string
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
 ms.date: 03/02/2021
 ---
-# String functions for ARM templates (Bicep)
+# String functions for ARM templates
 
 Resource Manager provides the following functions for working with strings in your Azure Resource Manager template (ARM template):
 
@@ -43,6 +41,8 @@ Resource Manager provides the following functions for working with strings in yo
 * [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## base64
 
@@ -1437,7 +1437,7 @@ The newGuid function differs from the [guid](#guid) function because it doesn't 
 
 The newGuid function uses the [Guid structure](/dotnet/api/system.guid) in the .NET Framework to generate the globally unique identifier.
 
-If you use the [option to redeploy an earlier successful deployment](../templates/rollback-on-error.md), and the earlier deployment includes a parameter that uses newGuid, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
+If you use the [option to redeploy an earlier successful deployment](rollback-on-error.md), and the earlier deployment includes a parameter that uses newGuid, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
 In a test environment, you may need to repeatedly deploy resources that only live for a short time. Rather than constructing unique names, you can use newGuid with [uniqueString](#uniquestring) to create unique names.
 
@@ -2772,7 +2772,7 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
-* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](../templates/linked-templates.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
 * To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

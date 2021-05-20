@@ -1,12 +1,10 @@
 ---
-title: Template functions - arrays (Bicep)
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays. (Bicep)
-author: mumian
-ms.author: jgao
+title: Template functions - arrays
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Array functions for ARM templates (Bicep)
+# Array functions for ARM templates
 
 Resource Manager provides several functions for working with arrays in your Azure Resource Manager template (ARM template):
 
@@ -27,6 +25,8 @@ Resource Manager provides several functions for working with arrays in your Azur
 * [union](#union)
 
 To get an array of string values delimited by a value, see [split](template-functions-string.md#split).
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## array
 
@@ -227,7 +227,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 ```
 
 ---
@@ -1375,4 +1375,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

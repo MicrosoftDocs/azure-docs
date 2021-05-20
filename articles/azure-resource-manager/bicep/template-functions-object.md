@@ -1,12 +1,10 @@
 ---
-title: Template functions - objects (Bicep)
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects. (Bicep)
-author: mumian
-ms.author: jgao
+title: Template functions - objects
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Object functions for ARM templates (Bicep)
+# Object functions for ARM templates
 
 Resource Manager provides several functions for working with objects in your Azure Resource Manager template (ARM template):
 
@@ -18,6 +16,8 @@ Resource Manager provides several functions for working with objects in your Azu
 * [length](#length)
 * [null](#null)
 * [union](#union)
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## contains
 
@@ -786,4 +786,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

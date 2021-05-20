@@ -1,12 +1,10 @@
 ---
-title: Template functions - comparison (Bicep)
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values. (Bicep)
-author: mumian
-ms.author: jgao
+title: Template functions - comparison
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to compare values.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Comparison functions for ARM templates (Bicep)
+# Comparison functions for ARM templates
 
 Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
 
@@ -16,6 +14,8 @@ Resource Manager provides several functions for making comparisons in your Azure
 * [greaterOrEquals](#greaterorequals)
 * [less](#less)
 * [lessOrEquals](#lessorequals)
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## coalesce
 
@@ -629,4 +629,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

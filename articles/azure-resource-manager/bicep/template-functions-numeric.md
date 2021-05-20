@@ -1,12 +1,10 @@
 ---
-title: Template functions - numeric (Bicep)
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers. (Bicep)
-author: mumian
-ms.author: jgao
+title: Template functions - numeric
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
-# Numeric functions for ARM templates (Bicep)
+# Numeric functions for ARM templates
 
 Resource Manager provides the following functions for working with integers in your Azure Resource Manager template (ARM template):
 
@@ -20,6 +18,8 @@ Resource Manager provides the following functions for working with integers in y
 * [mod](#mod)
 * [mul](#mul)
 * [sub](#sub)
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## add
 
@@ -694,5 +694,5 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 * To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
