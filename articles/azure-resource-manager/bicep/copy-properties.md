@@ -20,7 +20,7 @@ You can also use a loop with [resources](copy-resources.md), [variables](copy-va
 
 Loops can be used to declare multiple properties by:
 
-- Iteratiing over an array.
+- Iterating over an array.
 
   ```bicep
   <property-name>: [for <item> in <collection>: {
