@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 05/04/2021
+ms.date: 05/20/2021
 ms.topic: how-to
 ---
 
@@ -853,11 +853,11 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 ### Add a secondary NIC
 
-You can enhance security to your on-premises management console by adding a secondary NIC. By adding a secondary NIC you will have one dedicated for your users, and the other will support the configuration of a gateway for routed networks. The second NIC is dedicated to all attached sensors within an IP address range.
+You can enhance security to your on-premises management console by adding a secondary NIC. This could be used for high availability. By adding a secondary NIC you may also have one dedicated for your users while using the other to support the configuration of a gateway for routed networks. The second NIC is then dedicated to all attached sensors within an IP address range.
 
-Both NICs have the user interface (UI) enabled. When routing is not necessary, all of the features that are supported by the UI, will be available on the secondary NIC. High Availability will run on the secondary NIC.
+Both NICs will support the user interface (UI). 
 
-If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
+If you choose not to deploy a secondary NIC, all of the above features will be available through the primary NIC. 
 
 If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
 
