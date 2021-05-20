@@ -240,20 +240,20 @@ Make sure the following settings are configured correctly for remote access:
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -DisplayName 'Windows Remote Management (HTTP-In)' -Enabled True
+   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
 
 1. Enable the following firewall rules to allow the RDP traffic:
 
    ```powershell
-   Set-NetFirewallRule -DisplayGroup 'Remote Desktop' -Enabled True
+   Set-NetFirewallRule -Group '@FirewallAPI.dll,-28752' -Enabled True
    ```
 
 1. Enable the rule for file and printer sharing so the VM can respond to ping requests inside the
    virtual network:
 
    ```powershell
-   Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -Enabled True
+   Set-NetFirewallRule -Name FPS-ICMP4-ERQ-In -Enabled True
    ```
 
 1. Create a rule for the Azure platform network:
