@@ -724,6 +724,8 @@ items:
       href: quickstart-copy-activity-load-sql-pool.md
     - name: Transform data using mapping data flows
       href: quickstart-data-flow.md
+    - name: Transform data using Apache Spark job definition
+      href: quickstart-transform-data-using-spark-job-definition.md
   - name: Concepts
     items:
     - name: Pipeline and activity
