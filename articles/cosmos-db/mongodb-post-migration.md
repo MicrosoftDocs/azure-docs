@@ -19,7 +19,7 @@ ms.author: chrande
 
 This MongoDB post-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](mongodb-pre-migration.md), migration, and post-migration, as shown below.
 
-![Diagram of migration steps.](./media/mongodb-pre-migration/overall_migration_steps.png)
+![Diagram of migration steps.](./media/mongodb-pre-migration/overall-migration-steps.png)
 
 ## Overview of post-migration
 

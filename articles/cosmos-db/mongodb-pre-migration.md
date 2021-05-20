@@ -18,7 +18,7 @@ ms.author: anfeldma
 
 This MongoDB pre-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are pre-migration, migration, and [post-migration](mongodb-post-migration.md), as shown below.
 
-![Diagram of migration steps.](./media/mongodb-pre-migration/overall_migration_steps.png)
+![Diagram of migration steps.](./media/mongodb-pre-migration/overall-migration-steps.png)
 
 ## Overview of pre-migration
 
@@ -154,11 +154,11 @@ Finally, now that you have a view of your existing data estate and a design for 
 
    * If your resource can tolerate an offline migration, use the diagram below to choose the appropriate migration tool:
 
-   ![Offline migration tools.](./media/mongodb-pre-migration/offline_tools.png)
+   ![Offline migration tools.](./media/mongodb-pre-migration/offline-tools.png)
 
    * If your resource requires an online migration, use the diagram below to choose the appropriate migration tool:
 
-   ![Online migration tools.](./media/mongodb-pre-migration/online_tools.png)
+   ![Online migration tools.](./media/mongodb-pre-migration/online-tools.png)
 
 * Once you have chosen migration tools for each resource, the next step is to prioritize the resources you will migrate. Good prioritization can help keep your migration on schedule. A good practice is to prioritize migrating those resources which need the most time to be moved; migrating these resources first will bring the greatest progress toward completion. Furthermore, since these time-consuming migrations typically involve more data, they are usually more resource-intensive for the migration tool and therefore are more likely to expose any problems with your migration pipeline early on. This minimizes the chance that your schedule will slip due to any difficulties with your migration pipeline.
 * Plan how you will monitor the progress of migration once it has started. If you are coordinating your data migration effort among a team, plan a regular cadence of team syncs to so that you have a comprehensive view of how the high-priority migrations are going.
@@ -171,13 +171,13 @@ The best choice of MongoDB migration tool depends on your migration scenario.
 
 The compatible tools for each migration scenario are shown below:
 
-![Supported migration scenarios.](./media/mongodb-pre-migration/migration_tools_use_case_table.png)
+![Supported migration scenarios.](./media/mongodb-pre-migration/migration-tools-use-case-table.png)
 
 #### Tooling support for MongoDB versions
 
 Given that you are migrating from a particular MongoDB version, the supported tools are shown below:
 
-![MongoDB versions supported by migration tools.](./media/mongodb-pre-migration/migration_tool_compatibility.png)
+![MongoDB versions supported by migration tools.](./media/mongodb-pre-migration/migration-tool-compatibility.png)
 
 ### Post-migration
 
