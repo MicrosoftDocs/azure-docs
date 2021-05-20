@@ -55,7 +55,7 @@ You can also filter the queries according to the **group by** values mentioned e
 
 ### Combining group by and filter
 
-The filter and group by functionality are designed to work in tandem. They provide flexibility in how queries are arranged. For example, if you using a resource group with multiple resources, you may want to filter down to a specific resource type and arrange the resulting queries by topic.
+The filter and group by functionality are designed to work in tandem. They provide flexibility in how queries are arranged. For example, if you're using a resource group with multiple resources, you may want to filter down to a specific resource type and arrange the resulting queries by topic.
 
 ## Query properties
 Each query has multiple properties that help you group and find them. These properties are available for sorting and filtering, and you can define several of them when [saving your own query](save-query.md). The types of properties are:
