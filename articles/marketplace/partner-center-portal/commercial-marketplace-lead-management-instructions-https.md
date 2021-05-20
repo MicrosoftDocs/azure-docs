@@ -132,7 +132,7 @@ This article explains how to create a new flow in Power Automate to generate the
 ### Connect to a CRM system
 
 1. Select **+ New step**.
-1. Search for and select a CRM system in the **Search connectors and actions** box. The following screen shows **Create a new record (Microsoft Dataverse)** <strike>connector</strike> as an example.
+1. Search for and select a CRM system in the **Search connectors and actions** box. The following screen shows **Create a new record (Microsoft Dataverse)** as an example.
 
     :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/create-new-record.png" alt-text="Shows how to create a new record.":::
 
