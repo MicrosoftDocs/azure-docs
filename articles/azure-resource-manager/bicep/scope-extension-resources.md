@@ -16,7 +16,7 @@ For a full list of extension resource types, see [Resource types that extend cap
 This article shows how to set the scope for an extension resource type when deployed with a Bicep file. It describes the scope property that is available for extension resources when applying to a resource.
 
 > [!NOTE]
-> The scope property is only available to extension resource types. To specify a different scope for a resource type that isn't an extension type, use a [module](module.md).
+> The scope property is only available to extension resource types. To specify a different scope for a resource type that isn't an extension type, use a [module](modules.md).
 
 ## Apply at deployment scope
 
