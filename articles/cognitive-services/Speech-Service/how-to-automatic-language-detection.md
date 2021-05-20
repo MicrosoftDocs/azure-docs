@@ -29,7 +29,14 @@ Language identification currently has a limit of **four languages** for single-s
 
 ::: zone pivot="programming-language-csharp"
 
-The following example runs single-shot recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. When the language may be switching often in a single audio sample, `Latency` is the best option to use. If the language will generally be the same in each individual sample, `Accuracy` is the better option in order to increase the accuracy of the text that's being recognized.
+> [!IMPORTANT]
+> This feature as shown below is currently in **preview**.
+
+The following example runs single-shot recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for live streaming scenarios), but don't know the language in the audio sample. 
+
+`Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
+
+In either case, single-shot recognition as shown below should **not be used** for scenarios where the language may be changing within the same audio sample. See below for continuous recognition for these types of scenarios.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -65,6 +72,7 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
 var region = "<paste-your-region>";
+// currently the v2 endpoint is required for this design pattern
 var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
 var endpointUrl = new Uri(endpointString);
 
@@ -150,7 +158,14 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 
 ::: zone pivot="programming-language-cpp"
 
-The following example runs single-shot recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. When the language may be switching often in a single audio sample, `Latency` is the best option to use. If the language will generally be the same in each individual sample, `Accuracy` is the better option in order to increase the accuracy of the text that's being recognized.
+> [!IMPORTANT]
+> This feature as shown below is currently in **preview**.
+
+The following example runs single-shot recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for a live streaming case), but don't know the language in the audio sample. 
+
+`Accuracy` should be used in scenarios where the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning, and allowing the engine more time will improve recognition results.
+
+In either case, single-shot recognition as shown below should **not be used** for scenarios where the language may be changing within the same audio sample. See below for continuous recognition for these types of scenarios.
 
 ```cpp
 using namespace std;
@@ -184,6 +199,7 @@ using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto region = "<paste-your-region>";
+// currently the v2 endpoint is required for this design pattern
 auto endpointString = std::format("wss://{}.stt.speech.microsoft.com/speech/universal/v2", region);
 auto config = SpeechConfig::FromEndpoint(endpointString, "<paste-your-subscription-key>");
 
@@ -353,6 +369,9 @@ using (var recognizer = new SourceLanguageRecognizer(speechConfig, autoDetectSou
     }
 }
 ```
+
+See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/standalone_language_detection_samples.cs) for more examples of standalone language identification, including an example of continuous identification.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
@@ -379,6 +398,9 @@ if (result->Reason == ResultReason::RecognizedSpeech)
     cout << "DETECTED: Language="<< lidResult->Language << std::endl;
 }
 ```
+
+See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/standalone_language_detection_samples.cpp) for more examples of standalone language identification, including an example of continuous identification.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
