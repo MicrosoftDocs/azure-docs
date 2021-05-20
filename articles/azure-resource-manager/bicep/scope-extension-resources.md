@@ -79,7 +79,7 @@ var role = {
   Reader: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7'
 }
 
-resource roleNameGuid_resource 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
   name: roleNameGuid
   properties: {
     roleDefinitionId: role[builtInRoleType]
@@ -116,10 +116,53 @@ To apply an extension resource to a resource, use the `scope` property. Set the 
 
 The following example creates a storage account and applies a role to it.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/storageandrole.json" highlight="56":::
+```bicep
+@description('The principal to assign the role to')
+param principalId string
+
+@allowed([
+  'Owner'
+  'Contributor'
+  'Reader'
+])
+@description('Built-in role to assign')
+param builtInRoleType string
+
+@description('A new GUID used to identify the role assignment')
+param roleNameGuid string = newGuid()
+param location string = resourceGroup().location
+
+var role = {
+  Owner: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635'
+  Contributor: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c'
+  Reader: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7'
+}
+var uniqueStorageName = 'storage${uniqueString(resourceGroup().id)}'
+
+resource storageName 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+  name: uniqueStorageName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  properties: {}
+}
+
+resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+  name: roleNameGuid
+  properties: {
+    roleDefinitionId: role[builtInRoleType]
+    principalId: principalId
+  }
+  scope: storageName
+  dependsOn: [
+    storageName
+  ]
+}
+```
 
 ## Next steps
 
-* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
-* For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../templates/common-deployment-errors.md).
-* For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](../templates/secure-template-with-sas-token.md).
+* To understand how to define parameters in your template, see [Understand the structure and syntax of Bicep files](file.md).
+
