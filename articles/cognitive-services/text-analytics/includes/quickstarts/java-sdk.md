@@ -16,7 +16,7 @@ ms.reviewer: tasharm, assafi, sumeh
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.5/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.5) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.5/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # [Version 3.0](#tab/version-3)
 
@@ -39,14 +39,14 @@ ms.reviewer: tasharm, assafi, sumeh
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.5) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0-beta.5</version>
+        <version>5.1.0-beta.7</version>
     </dependency>
 </dependencies>
 ```
