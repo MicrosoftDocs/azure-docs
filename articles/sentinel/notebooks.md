@@ -9,7 +9,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 09/06/2020
+ms.date: 05/19/2021
 ---
 
 # Use Jupyter Notebook to hunt for security threats
@@ -106,15 +106,20 @@ Once your deployment is complete, you can launch notebooks in your new Azure ML 
     > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
 1. Select a compute instance. If you don't have a compute instance, do the following:
-    1. Select the plus sign (+) to start the **New compute instance** wizard.
+    1. Select the plus sign (+) to start the **Create compute instance** wizard.
 
         > [!div class="mx-imgBorder"]
         > ![start compute instance wizard](./media/notebooks/sentinel-azure-notebooks-compute-wizard.png)
 
-    1. On the **New compute instance** page, provide the required information, and then select **Create**.
+    1. On the **Select virtual machine** page, provide the required information, and then select **Next**.
 
         > [!div class="mx-imgBorder"]
-        > ![create compute instance](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
+        > ![Select compute instance VM](./media/notebooks/sentinel-azure-notebooks-compute-create.png)
+
+    1. On the **Configure settings** page, provide the required information, and then select **Create**.
+    
+        > [!div class="mx-imgBorder]
+        > ![Configure compute instance settings](./media/notebooks/sentinel-azure-notebooks-compute-settings.png)
 
 1. Once your notebook server is created, within each cell select the run icon to execute code in the notebooks.
 
