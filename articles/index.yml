@@ -1241,12 +1241,12 @@ productDirectory:
         - media
       url: media-services/latest/stream-live-tutorial-with-api.md
     # Card
-    - title: Live Video Analytics (Preview)
+    - title: Video Analyzer (Preview)
       summary: Build intelligent video-based applications using the AI of your choice
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
-      url: media-services/live-video-analytics-edge/overview.md
+      url: azure-video-analyzer/video-analyzer-docs/overview.md
     # Card
     - title: Media Services
       summary: Encode, store, and stream video and audio at scale
