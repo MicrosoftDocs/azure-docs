@@ -17,7 +17,11 @@ Update Management is an Azure Automation feature, and therefore requires an Auto
 
 Update Management depends on a Log Analytics workspace in Azure Monitor to store assessment and update status log data collected from managed machines. Integration with Log Analytics also enables detailed analysis and alerting in Azure Monitor. If you are new to Azure Monitor Logs and the Log Analytics workspace, you should review the [Design a Log Analytics workspace](../../azure-monitor/logs/design-logs-deployment.md) deployment guide. 
 
-## Step 3 - Log Analytics agent
+## Step 3 - Supported operating systems
+
+Update Management supports specific versions of the Windows Server and Linux operating systems. Before you enable Update Management, confirm that the target machines meet the [operating system requirements](operating-system-requirements.md). 
+
+## Step 4 - Log Analytics agent
 
 The [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows and Linux is required to support Update Management. The agent is used for both data collection, and the Automation system Hybrid Runbook Worker role to support Update Management runbooks used to manage the assessment and update deployments on the machine. 
 
@@ -29,7 +33,7 @@ If you're enabling a machine that's currently managed by Operations Manager, a n
 
 Having a machine registered for Update Management in more than one Log Analytics workspace (also referred to as multihoming) isn't supported.
 
-## <a name="ports"></a> Step 4 - Network planning
+## <a name="ports"></a> Step 5 - Network planning
 
 To prepare your network to support Update Management, you may need to configure some infrastructure components. For example, open firewall ports to pass the communications used by Update Management and Azure Monitor.
 
@@ -41,15 +45,15 @@ For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../.
 
 If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
 
-## Step 5 - Permissions
+## Step 6 - Permissions
 
 To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
-## Step 6 - Windows Update client
+## Step 7 - Windows Update client
 
 Azure Automation Update Management relies on the Windows Update client to download and install Windows updates. There are specific group policy settings that are used by Windows Update Agent (WUA) on machines to connect to Windows Server Update Services (WSUS) or Microsoft Update. These group policy settings are also used to successfully scan for software update compliance, and to automatically update the software updates. To review our recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
 
-## Step 7 - Plan deployment targets
+## Step 8 - Plan deployment targets
 
 Update Management allows you to target updates to a dynamic group representing Azure or non-Azure machines, so you can ensure that specific machines always get the right updates at the most convenient times. A dynamic group is resolved at deployment time and is based on the following criteria:
 
