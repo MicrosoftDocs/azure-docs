@@ -35,8 +35,8 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
     
     Review:
 
-    * [Streaming locators](streaming-locators-concept.md)
-    * [Streaming policies](streaming-policy-concept.md)
+    * [Streaming locators](stream-streaming-locators-concept.md)
+    * [Streaming policies](stream-streaming-policy-concept.md)
     * [Packaging and delivery](encode-dynamic-packaging-concept.md)
     * [Filters](filters-concept.md)
 * You can protect your content by encrypting it with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. The [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md) quickstart shows how to configure content protection.
@@ -88,7 +88,7 @@ To publish an asset, you now need to add a streaming locator to your asset.
 
     > [!NOTE]
     > If you want for your stream to be encrypted, you need to create a content key policy and set it on the streaming locator. For details, see [Encrypt content with the Azure portal](drm-encrypt-content-how-to.md).
-1. In the **Add streaming locator** window, you choose one of the predefined streaming policies. For detailed information, see [streaming policies](streaming-policy-concept.md)
+1. In the **Add streaming locator** window, you choose one of the predefined streaming policies. For detailed information, see [streaming policies](stream-streaming-policy-concept.md)
 
     ![Streaming locator](./media/asset-create-asset-upload-portal-quickstart/streaming-locator.png)
 
@@ -99,7 +99,7 @@ Once the asset has been published, you can stream it right in the portal.
 Or, copy the streaming URL and use it in your client player.
 
 > [!NOTE]
-> Make sure the [streaming endpoint](streaming-endpoint-concept.md) is running. When you first create a Media Service account, the default streaming endpoint is created and it is in a stopped state, so you need to start it before you can stream your content.<br/>You're only billed when your streaming endpoint is in the running state.
+> Make sure the [streaming endpoint](stream-streaming-endpoint-concept.md) is running. When you first create a Media Service account, the default streaming endpoint is created and it is in a stopped state, so you need to start it before you can stream your content.<br/>You're only billed when your streaming endpoint is in the running state.
 
 ## Cleanup resources
 

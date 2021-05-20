@@ -1,8 +1,8 @@
 ---
 title: Execute Pipeline Activity in Azure Data Factory 
 description: Learn how you can use the Execute Pipeline Activity to invoke one Data Factory pipeline from another Data Factory pipeline.
-author: dcstwh
-ms.author: weetok
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual

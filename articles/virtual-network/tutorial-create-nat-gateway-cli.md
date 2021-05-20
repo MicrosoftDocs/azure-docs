@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial 
 ms.date: 03/10/2021
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Create a NAT gateway using the Azure CLI
@@ -87,7 +87,7 @@ Create a virtual network named **myVnet** with a subnet named **mySubnet** [az n
 
 Create an Azure Bastion host named **myBastionHost** to access the virtual machine. 
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a Azure Bastion subnet.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create a Azure Bastion subnet.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -106,7 +106,7 @@ az network public-ip create \
     --sku Standard
 ```
 
-Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create the bastion host. 
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host. 
 
 ```azurecli-interactive
 az network bastion create \
@@ -136,7 +136,7 @@ All outbound traffic to Internet destinations is now using the NAT gateway.  It'
 
 In this section, you'll create a virtual machine to test the NAT gateway to verify the public IP address of the outbound connection.
 
-Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).
+Create the virtual machine with [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 az vm create \

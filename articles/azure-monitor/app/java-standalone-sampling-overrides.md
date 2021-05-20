@@ -11,7 +11,7 @@ ms.author: trstalna
 # Sampling overrides (preview) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> The sampling overrides feature is in preview, starting from 3.0.3-BETA.2.
+> The sampling overrides feature is in preview, starting from 3.0.3.
 
 Sampling overrides allow you to override the [default sampling percentage](./java-standalone-config.md#sampling),
 for example:

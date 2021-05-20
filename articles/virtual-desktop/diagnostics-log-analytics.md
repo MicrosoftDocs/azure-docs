@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Use Log Analytics for the diagnostics feature
 

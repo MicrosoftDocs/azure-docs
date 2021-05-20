@@ -12,13 +12,21 @@
     href: quickstart-configure-route-server-powershell.md
   - name: Configure a Route Server - CLI
     href: quickstart-configure-route-server-cli.md
+  - name: Configure a Route Server - ARM template
+    href: quickstart-configure-template.md
   expanded: true
+- name: Samples
+  items:
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Route Server FAQ
     href: route-server-faq.md
   - name: ExpressRoute and Azure VPN support
     href: expressroute-vpn-support.md
+  - name: Dual-homed network
+    href: about-dual-homed-network.md
 - name: How-to guides
   items:
   - name: Troubleshoot Route Server issues

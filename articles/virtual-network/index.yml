@@ -110,6 +110,10 @@ landingContent:
         links:
           - text: Route network traffic - Portal
             url: tutorial-create-route-table-portal.md
+      - linkListType: learn
+        links:
+          - text: Manage and control traffic flow in your Azure deployment with routes
+            url: /learn/modules/control-network-traffic-flow-with-routes/       
 
   # Card
   - title: Create IP addresses 

@@ -52,7 +52,7 @@ The assignments portion controls the who, what, and where of the Conditional Acc
 
 ### Cloud apps or actions
 
-[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications or user actions that will be subject to the policy.
+[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications, user actions, or authentication contexts that will be subjected to the policy.
 
 ### Conditions
 
@@ -81,6 +81,10 @@ This assignment condition allows Conditional Access policies to target specific 
 #### Device state
 
 This control is used to exclude devices that are hybrid Azure AD joined, or marked a compliant in Intune. This exclusion can be done to block unmanaged devices. 
+
+#### Filters for devices (preview)
+
+This control allows targeting specific devices based on their attributes in a policy.
 
 ## Access controls
 

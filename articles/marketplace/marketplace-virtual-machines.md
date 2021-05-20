@@ -14,7 +14,7 @@ ms.date: 10/19/2020
 
 This article explains the different options and requirements for publishing a virtual machine (VM) offer to the commercial marketplace. VM offers are transactable offers deployed and billed through Azure Marketplace.
 
-Before you start, [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md) and ensure your account is enrolled in the commercial marketplace program.
+Before you start, [Create a commercial marketplace account in Partner Center](create-account.md) and ensure your account is enrolled in the commercial marketplace program.
 
 ### Technical fundamentals
 

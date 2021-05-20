@@ -108,6 +108,34 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
         encrypt: true
       }
     };
+    
+    /* 
+        //Use Azure VM Managed Identity to connect to the SQL database
+        const connection = new Connection({
+        server: process.env["db_server"],
+        authentication: {
+            type: 'azure-active-directory-msi-vm',
+        },
+        options: {
+            database: process.env["db_database"],
+            encrypt: true,
+            port: 1433
+        }
+    });
+        //Use Azure App Service Managed Identity to connect to the SQL database
+        const connection = new Connection({
+        server: process.env["db_server"],
+        authentication: {
+            type: 'azure-active-directory-msi-app-service',
+        },
+        options: {
+            database: process.env["db_database"],
+            encrypt: true,
+            port: 1433
+        }
+    });
+
+    */
 
     const connection = new Connection(config);
 
@@ -147,6 +175,9 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
       connection.execSql(request);
     }
     ```
+
+> [!NOTE]
+> For more information about using managed identity for authentication, complete the tutorial to [access data via managed identity](../../app-service/app-service-web-tutorial-connect-msi.md).
 
 > [!NOTE]
 > The code example uses the **AdventureWorksLT** sample database in Azure SQL Database.

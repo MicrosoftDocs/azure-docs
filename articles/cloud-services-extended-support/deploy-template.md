@@ -19,17 +19,12 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
 1. Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources.
 
 2. Create a new resource group using the [Azure portal](../azure-resource-manager/management/manage-resource-groups-portal.md) or [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). This step is optional if you are using an existing resource group.
-
-3. Create a public IP address and set the DNS label property of the public IP address. Cloud Services (extended support) only supports [Basic] (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) SKU Public IP addresses. Standard SKU Public IPs do not work with Cloud Services.
-If you are using a Static IP, it needs to be referenced as a Reserved IP in Service Configuration (.cscfg) file. If using an existing IP address, skip this step and add the IP address information directly into the load balancer configuration settings of your ARM template.
-
-4. Create a Network Profile Object and associate the public IP address to the frontend of the load balancer. The Azure platform automatically creates a 'Classic' SKU load balancer resource in the same subscription as the cloud service resource. The load balancer resource is a read-only resource in ARM. Any updates to the resource are supported only via the cloud service deployment files (.cscfg & .csdef)
  
-5. Create a new storage account using the [Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal) or [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). This step is optional if you are using an existing storage account.
+3. Create a new storage account using the [Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal) or [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). This step is optional if you are using an existing storage account.
 
-6. Upload your Service Definition (.csdef) and Service Configuration (.cscfg) files to the storage account using the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtain the SAS URIs of both files to be added to the ARM template later in this tutorial.
+4. Upload your Package (.cspkg) and Service Configuration (.cscfg) files to the storage account using the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), or [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtain the SAS URIs of both files to be added to the ARM template later in this tutorial.
 
-6. (Optional) Create a key vault and upload the certificates.
+5. (Optional) Create a key vault and upload the certificates.
 
     -  Certificates can be attached to cloud services to enable secure communication to and from the service. In order to use certificates, their thumbprints must be specified in your Service Configuration (.cscfg) file and uploaded to a key vault. A key vault can be created through the [Azure portal](../key-vault/general/quick-create-portal.md) or [PowerShell](../key-vault/general/quick-create-powershell.md).
     - The associated key vault must be located in the same region and subscription as cloud service.
@@ -345,7 +340,7 @@ If you are using a Static IP, it needs to be referenced as a Reserved IP in Serv
           }
         },
         {
-          "apiVersion": "2020-10-01-preview",
+          "apiVersion": "2021-03-01",
           "type": "Microsoft.Compute/cloudServices",
           "name": "[variables('cloudServiceName')]",
           "location": "[parameters('location')]",

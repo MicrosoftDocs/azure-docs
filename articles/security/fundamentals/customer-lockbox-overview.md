@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 02/19/2021
+ms.date: 05/12/2021
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -15,17 +15,19 @@ ms.date: 02/19/2021
 > [!NOTE]
 > To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
 
-Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request.
+Most operations, support, and troubleshooting performed by Microsoft personnel and sub-processors do not require access to customer data. In those rare circumstances where such access is required,  Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft.
 
 This article covers how to enable Customer Lockbox and how Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
 <a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
-## Supported services and scenarios (General Availability)
+## Supported services and scenarios
 
-The following services are now generally available for Customer Lockbox:
+### General Availability
+The following services are generally available for Customer Lockbox:
 
 - Azure API Management
 - Azure App Service
+- Azure Cognitive Search
 - Azure Cognitive Services
 - Azure Container Registry
 - Azure Database for MySQL
@@ -44,6 +46,12 @@ The following services are now generally available for Customer Lockbox:
 - Azure Synapse Analytics
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 
+### Public Preview
+The following services are currently in preview for Customer Lockbox:
+
+- Azure Machine Learning
+- Azure Batch
+
 ## Enable Customer Lockbox
 
 You can now enable Customer Lockbox from the [Administration module](https://aka.ms/customerlockbox/administration) in the Customer Lockbox blade.  
@@ -61,7 +69,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
 
 3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 
-4. If the support engineer can't troubleshoot the issue by using standard tools and telemetry, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
+4. If the support engineer can't troubleshoot the issue by using standard tools and service generated data, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
 
 5. After the access request is submitted by the Azure Engineer, Just-In-Time service evaluates the request taking into account factors such as:
     - The scope of the resource
@@ -124,8 +132,10 @@ We've introduced a new baseline control ([3.13](../benchmarks/security-control-i
 
 Customer Lockbox requests are not triggered in the following engineering support scenarios:
 
-- A Microsoft engineer needs to do an activity that falls outside of standard operating procedures. For example, to recover or restore services in unexpected or unpredictable scenarios.
-- A Microsoft engineer accesses the Azure platform as part of troubleshooting and inadvertently has access to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. In this scenario, if the customer encrypts the data while it is in transit then the engineer cannot read the data.
+- Emergency scenarios that fall outside of standard operating procedures. For example, a major service outage requires immediate attention to recover or restore services in an unexpected or unpredictable scenario. These “break glass” events are rare and, in most instances, do not require any access to customer data to resolve.
+- A Microsoft engineer accesses the Azure platform as part of troubleshooting and is inadvertently exposed to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. It is rare that such scenarios would result in access to meaningful quantities of customer data. Customers can further protect their data through use of in transit and at rest encryption.
+
+Customer Lockbox requests are also not triggered by external legal demands for data. For details, see the discussion of [government requests for data](https://www.microsoft.com/trust-center/) on the Microsoft Trust Center.
 
 ## Next steps
 

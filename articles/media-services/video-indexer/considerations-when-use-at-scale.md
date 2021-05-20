@@ -41,7 +41,7 @@ Second, consider just some of the issues that can affect your performance and he
 
 :::image type="content" source="./media/considerations-when-use-at-scale/first-consideration.png" alt-text="First consideration for using Video Indexer at scale":::
 
-When you upload videos using URL, you just need to provide a path to the location of a media file and Video Indexer takes care of the rest (see the `videoUrl` field in the [upload video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload) API).
+When you upload videos using URL, you just need to provide a path to the location of a media file and Video Indexer takes care of the rest (see the `videoUrl` field in the [upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API).
 
 > [!TIP]
 > Use the `videoUrl` optional parameter of the upload video API.
@@ -54,7 +54,7 @@ Usually in the proof of concept stage when you just start using Video Indexer, y
 
 In Azure Media Services, when you want to increase computing power and parallelization, you need to pay attention to media [reserved units](../latest/concept-media-reserved-units.md)(RUs). The RUs are the compute units that determine the parameters for your media processing tasks. The number of RUs affects the number of media tasks that can be processed concurrently in each account and their type determines the speed of processing and one video might require more than one RU if its indexing is complex. When your RUs are busy, new tasks will be held in a queue until another resource is available.
 
-To operate efficiently and to avoid having resources that stay idle part of the time, Video Indexer offers an auto-scale system that spins RUs down when less processing is needed and spin RUs up when you are in your rush hours (up to fully use all of your RUs). You can enable this functionality by [turning on the autoscale](manage-account-connected-to-azure.md#autoscale-reserved-units) in the account settings or using [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Paid-Account-Azure-Media-Services?&pattern=update).
+To operate efficiently and to avoid having resources that stay idle part of the time, Video Indexer offers an auto-scale system that spins RUs down when less processing is needed and spin RUs up when you are in your rush hours (up to fully use all of your RUs). You can enable this functionality by [turning on the autoscale](manage-account-connected-to-azure.md#autoscale-reserved-units) in the account settings or using [Update-Paid-Account-Azure-Media-Services API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Paid-Account-Azure-Media-Services).
 
 :::image type="content" source="./media/considerations-when-use-at-scale/second-consideration.jpg" alt-text="Second consideration for using Video Indexer at scale":::
 
@@ -72,7 +72,7 @@ Video Indexer is built to deal with indexing at scale, and when you want to get 
 
 We recommend that instead of polling the status of your request constantly from the second you sent the upload request, you can add a [callback URL](upload-index-videos.md#callbackurl), and wait for Video Indexer to update you. As soon as there is any status change in your upload request, you get a POST notification to the URL you specified.
 
-You can add a callback URL as one of the parameters of the [upload video API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?&pattern=upload). Check out the code samples in [GitHub repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). 
+You can add a callback URL as one of the parameters of the [upload video API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video). Check out the code samples in [GitHub repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/). 
 
 For callback URL you can also use Azure Functions, a serverless event-driven platform that can be triggered by HTTP and implement a following flow.
 

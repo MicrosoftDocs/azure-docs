@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 02/26/2021
 ms.author: robinsh
-ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
+ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to X.509 Public Key certificates.
 ---
 
@@ -98,6 +98,13 @@ The format for a private key store defined by [RFC 5208](https://tools.ietf.org/
 ### PKCS#12 key and certificate
 
 A complex format that can store and protect a key and the entire certificate chain. It is commonly used with a .pfx extension. PKCS#12 is synonymous with the PFX format.
+
+## For more information
+
+For more information, see the following topics:
+
+* [The layman’s guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
+* [Conceptual understanding of X.509 CA certificates in the IoT industry](./iot-hub-x509ca-concept.md)
 
 ## Next steps
 

@@ -244,10 +244,10 @@ For storage class parameters, see [Static Provision(bring your own file share)](
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

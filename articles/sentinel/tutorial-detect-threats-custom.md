@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 04/21/2021
 ms.author: yelevin
 
 ---
@@ -71,7 +71,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     > [!NOTE]
     > #### Rule query best practices
-    > - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or “`union *`”.
+    > - The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation.
     >
     > - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
     >
@@ -203,6 +203,8 @@ In the **Alert grouping** section, if you want a single incident to be generated
 - You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can enable, disable, or delete each rule.
 
 - To view the results of the alert rules you create, go to the **Incidents** page, where you can triage, [investigate incidents](tutorial-investigate-cases.md), and remediate the threats.
+
+- You can update the rule query to exclude false positives. For more information, see [Handle false positives in Azure Sentinel](false-positives.md).
 
 > [!NOTE]
 > Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](/graph/security-concept-overview). For more information, see the [Microsoft Graph Security alerts documentation](/graph/api/resources/security-api-overview).

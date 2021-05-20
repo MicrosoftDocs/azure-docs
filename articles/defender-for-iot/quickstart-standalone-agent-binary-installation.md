@@ -1,11 +1,11 @@
 ---
-title: Install Defender for IoT micro agent (Preview)
-description: Learn how to install, and authenticate the Defender Micro Agent.
+title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
+description: In this quickstart, learn how to install, and authenticate the Defender Micro Agent.
 ms.date: 3/9/2021
 ms.topic: quickstart
 ---
 
-# Install Defender for IoT micro agent (Preview)
+# Quickstart: Install Defender for IoT micro agent (Preview)
 
 This article provides an explanation of how to install, and authenticate the Defender micro agent.
 
@@ -89,7 +89,7 @@ To configure the agent to authenticate using a module identity connection string
 
 To authenticate using a certificate:
 
-1. Procure a certificate by following [these instructions](../iot-hub/iot-hub-security-x509-get-started.md).
+1. Procure a certificate by following [these instructions](../iot-hub/tutorial-x509-scripts.md).
 
 1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`. 
 
@@ -143,4 +143,5 @@ sudo apt-get install defender-iot-micro-agent=<version>
 
 ## Next steps
 
-[Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)
+> [!div class="nextstepaction"]
+> [Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)

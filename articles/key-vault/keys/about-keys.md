@@ -20,7 +20,7 @@ Azure Key Vault provides two types of resources to store and manage cryptographi
 |Resource type|Key protection methods|Data-plane endpoint base URL|
 |--|--|--|
 | **Vaults** | Software-protected<br/><br/>and<br/><br/>HSM-protected (with Premium SKU)</li></ul> | https://{vault-name}.vault.azure.net |
-| **Managed HSMs ** | HSM-protected | https://{hsm-name}.managedhsm.azure.net |
+| **Managed HSMs** | HSM-protected | https://{hsm-name}.managedhsm.azure.net |
 ||||
 
 - **Vaults** - Vaults provide a low-cost, easy to deploy, multi-tenant, zone-resilient (where available), highly available key management solution suitable for most common cloud application scenarios.

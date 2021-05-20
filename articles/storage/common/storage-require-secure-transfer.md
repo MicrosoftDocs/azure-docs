@@ -7,11 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/21/2020
+ms.date: 04/27/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Require secure transfer to ensure secure connections
@@ -20,7 +20,7 @@ You can configure your storage account to accept requests from secure connection
 
 When secure transfer is required, a call to an Azure Storage REST API operation must be made over HTTPS. Any request made over HTTP is rejected.
 
-Connecting to an Azure File share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1, SMB 3.0 without encryption, or some versions of the Linux SMB client.
+Connecting to an Azure file share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1 or SMB 3.x without encryption.
 
 By default, the **Secure transfer required** property is enabled when you create a storage account.
 
@@ -34,14 +34,14 @@ You can turn on the **Secure transfer required** property when you create a stor
 ### Require secure transfer for a new storage account
 
 1. Open the **Create storage account** pane in the Azure portal.
-1. Under **Secure transfer required**, select **Enabled**.
+1. In the **Advanced** page, select the **Enable secure transfer** checkbox.
 
    ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### Require secure transfer for an existing storage account
 
 1. Select an existing storage account in the Azure portal.
-1. In the storage account menu pane, under **SETTINGS**, select **Configuration**.
+1. In the storage account menu pane, under **Settings**, select **Configuration**.
 1. Under **Secure transfer required**, select **Enabled**.
 
    ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)

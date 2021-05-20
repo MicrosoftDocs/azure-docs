@@ -18,7 +18,7 @@ In this Sample quickstart, we'll learn how the sample works before we run the sa
 
 ## Download code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop).
 
 ## Overview
 
@@ -41,6 +41,9 @@ Components of the main calling screen:
 - **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
 - **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
 - **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
+
+> [!NOTE]
+> Based on limitations on the Web Calling SDK, only one remote video stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 

@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Configure the personal desktop host pool assignment type for Windows Virtual Desktop (classic)
 

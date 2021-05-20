@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -29,6 +29,13 @@ Azure AD B2C page layout uses the following version of the [jQuery library](http
 |1.1.0 | 1.10.2 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**2.1.3**
+- Security fixes.
 
 **2.1.2**
 - Fixed the localization encoding issue for languages such as Spanish and French.
@@ -83,6 +90,14 @@ Azure AD B2C page layout uses the following version of the [jQuery library](http
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+**2.1.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**2.1.3**
+- Security fixes.
+- Minor bug fixes.
+
 **2.1.2**
 - Fixed the localization encoding issue for languages such as Spanish and French.
 - Allowing the "forgot password" link to use as claims exchange. For more information, see [Self-service password reset](add-password-reset-policy.md#self-service-password-reset-recommended).
@@ -122,6 +137,15 @@ Azure AD B2C page layout uses the following version of the [jQuery library](http
 
 ## MFA page (multifactor)
 
+**1.2.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**1.2.3**
+- Allowing tooltip string override via language localization.
+- Security fixes.
+- Minor bug fixes.
+
 **1.2.2**
 - Fixed an issue with auto-filling the verification code when using iOS.
 - Fixed an issue with redirecting a token to the relying party from Android Webview. 
@@ -158,6 +182,10 @@ Azure AD B2C page layout uses the following version of the [jQuery library](http
 
 ## Exception Page (globalexception)
 
+**1.2.1**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
 **1.2.0**
 
 - Accessibility fixes
@@ -178,6 +206,10 @@ Azure AD B2C page layout uses the following version of the [jQuery library](http
 - Initial release
 
 ## Other pages (ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.1**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
 
 **1.2.0**
 

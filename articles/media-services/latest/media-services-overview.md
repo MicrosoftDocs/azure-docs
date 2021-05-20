@@ -95,7 +95,7 @@ How-to guides contain code samples that demonstrate how to complete a task. In t
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitoring/monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](drm-protect-with-drm-tutorial.md) 
-* [How to encode with a custom transform - CLI](encode-custom-preset-cli-how-to.md)
+* [How to encode with a custom transform - CLI](transform-custom-preset-cli-how-to.md)
 
 ## Ask questions, give feedback, get updates
 

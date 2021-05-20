@@ -4,7 +4,7 @@ description: This quickstart shows you how to send messages to Azure Service Bus
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 03/16/2021
-ms.custom: devx-track-csharp
+ms.custom: contperf-fy21q3
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (.NET)
@@ -183,7 +183,7 @@ This method does the following steps:
     Here are the important steps from the code:
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
     1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specified Service Bus topic. 
-    1. Invokes the helper method `GetMessages` to get a queue of messages to be sent to the Service Bus topic. 
+    1. Invokes the helper method `CreateMessages` to get a queue of messages to be sent to the Service Bus topic. 
     1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
     1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). As the messages are added to the batch, they're removed from the .NET queue. 
     1. Sends the batch of messages to the Service Bus topic using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.

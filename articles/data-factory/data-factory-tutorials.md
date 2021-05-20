@@ -56,6 +56,8 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Data flows inside managed VNet](tutorial-data-flow-private.md)
 
+[Best practices for lake data in ADLS Gen2](tutorial-data-flow-write-to-lake.md)
+
 ## External data services
 
 [Azure Databricks notebook activity](transform-data-using-databricks-notebook.md)

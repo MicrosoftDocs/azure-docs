@@ -35,6 +35,10 @@ You can connect to a virtual machine (VM) through your browser using the Azure p
 * Required VM ports:
   * Inbound ports: RDP (3389)
 
+ >[!NOTE]
+ >The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
+ >
+
 ### <a name="values"></a>Example values
 
 You can use the following example values when creating this configuration, or you can substitute your own.

@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 02/16/2021
+ms.date: 04/07/2021
 ---
 
 # What's new in Language Understanding
@@ -12,6 +12,10 @@ ms.date: 02/16/2021
 Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
 ## Release notes
+
+### April 2021
+
+* Switzerland North [authoring region](luis-reference-regions.md#publishing-to-europe).
 
 ### January 2021
 

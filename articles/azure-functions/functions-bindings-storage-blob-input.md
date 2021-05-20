@@ -271,7 +271,6 @@ import logging
 import azure.functions as func
 
 
-# The type func.InputStream is not supported for blob input binding.
 # The input binding field inputblob can either be 'bytes' or 'str' depends
 # on dataType in function.json, 'binary' or 'string'.
 def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:

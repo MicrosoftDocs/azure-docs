@@ -3,7 +3,8 @@ title: Use Azure AD in Azure Automation to authenticate to Azure
 description: This article tells how to use Azure AD within Azure Automation as the provider for authentication to Azure. 
 services: automation
 ms.date: 03/30/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use Azure AD to authenticate to Azure

@@ -1,20 +1,15 @@
 ---
-title: Windows Virtual Desktop prepare MSIX app attach image preview - Azure
+title: Windows Virtual Desktop prepare MSIX app attach image - Azure
 description: How to create an MSIX app attach image for a Windows Virtual Desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Prepare an MSIX image for Windows Virtual Desktop
 
-> [!IMPORTANT]
-> MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-MSIX app attach (preview) is an application layering solution that allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the master image and give them to users later.
+MSIX app attach is an application layering solution that allows you to dynamically attach apps from an MSIX package to a user session. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the master image and give them to users later.
 
 ## Create a VHD or VHDX package for MSIX
 

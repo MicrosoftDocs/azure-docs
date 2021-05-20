@@ -46,8 +46,6 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
-        - text: Standard voice support
-          url: language-support.md#standard-voices
         - text: Neural voice support
           url: language-support.md#neural-voices
         - text: SSML phonetic sets

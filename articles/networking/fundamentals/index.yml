@@ -33,7 +33,8 @@ landingContent:
         links:
           - text: Build your network infrastructure in Azure
             url: /learn/paths/architect-network-infrastructure/
-
+          - text: Explore Azure networking services
+            url: /learn/modules/azure-networking-fundamentals/
   
   # Card (optional)
   - title: Get started
@@ -62,6 +63,10 @@ landingContent:
             url: ../../virtual-network/create-public-ip-portal.md
           - text: Create a NAT gateway
             url: ../../virtual-network/tutorial-create-nat-gateway-portal.md
+      - linkListType: learn
+        links:
+          - text: Design an IP addressing schema for your Azure deployment
+            url: /learn/modules/design-ip-addressing-for-azure/
 
  
  # Card
@@ -131,6 +136,10 @@ landingContent:
             url: ../../ddos-protection/manage-ddos-protection.md
           - text: Deploy and configure Azure Firewall
             url: ../../firewall/tutorial-firewall-deploy-portal.md
+      - linkListType: learn
+        links:
+          - text: Secure network connectivity on Azure
+            url: /learn/modules/secure-network-connectivity-azure/
     
   # Card
   

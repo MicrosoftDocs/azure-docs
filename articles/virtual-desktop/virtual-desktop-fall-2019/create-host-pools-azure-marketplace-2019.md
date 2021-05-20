@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Create a host pool in Windows Virtual Desktop (classic)
 

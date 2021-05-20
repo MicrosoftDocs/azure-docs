@@ -10,8 +10,8 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 01/26/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, data4ml
+ms.topic: how-to
+ms.custom: devx-track-python, data4ml
 
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 

@@ -109,48 +109,10 @@ To complete all the database objects like table schemas, indexes and stored proc
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
     ```
 
-4. If you have foreign keys in your schema, the initial load and continuous sync of the migration will fail. Execute the following script in PgAdmin or in psql to extract the drop foreign key script and add foreign key script at the destination (Azure Database for PostgreSQL).
-  
-    ```
-    SELECT Queries.tablename
-           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ',
-                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
-        FROM
-        (SELECT
-        tc.table_schema,
-        tc.constraint_name as foreignkey,
-        tc.table_name as tableName,
-        kcu.column_name,
-        ccu.table_schema AS foreign_table_schema,
-        ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name
-    FROM
-        information_schema.table_constraints AS tc
-        JOIN information_schema.key_column_usage AS kcu
-          ON tc.constraint_name = kcu.constraint_name
-          AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu
-          ON ccu.constraint_name = tc.constraint_name
-          AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY') Queries
-      GROUP BY Queries.tablename;
-    ```
+  > [!NOTE]
+   > The migration service internally handles the enable/disable of foreign keys and triggers to ensure a reliable and robust data migration. As a result, you do not have to worry about making any modifications to the target database schema.
 
-    Run the drop foreign key (which is the second column) in the query result.
-
-5. Triggers in the data (insert or update triggers) will enforce data integrity in the target ahead of the replicated data from the source. It's recommended that you disable triggers in all the tables **at the target** during migration and then re-enable the triggers after migration is complete.
-
-    To disable triggers in target database, use the following command:
-
-    ```
-    select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
-    from information_schema.triggers;
-    ```
-
-6. If there are ENUM data type in any tables, it's recommended that you temporarily update it to a ‘character varying’ datatype in the target table. After data replication is done, revert the datatype to ENUM.
-
-## Provisioning an instance of DMS using the CLI
+## Provisioning an instance of DMS using the Azure CLI
 
 1. Install the dms sync extension:
    * Sign in to Azure by running the following command:

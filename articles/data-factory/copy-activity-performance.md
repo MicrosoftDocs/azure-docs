@@ -3,8 +3,8 @@ title: Copy activity performance and scalability guide
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use the copy activity.
 services: data-factory
 documentationcenter: ''
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -56,7 +56,10 @@ This full utilization means you can estimate the overall throughput by measuring
 * Destination data store
 * Network bandwidth in between the source and destination data stores
 
-The table below calculates the copy duration. The duration is based on data size and the network/data store bandwidth limit for your environment.
+The table below shows the calculation of data movement duration. The duration in each cell is calculated based on a given network and data store bandwidth and a given data payload size.
+
+> [!NOTE]
+> The duration provided below are meant to represent achievable performance in an end-to-end data integration solution implemented using ADF, by using one or more performance optimization techniques described in [Copy performance optimization features](#copy-performance-optimization-features), including using ForEach to partition and spawn off multiple concurrent copy activities. We recommend you to follow steps laid out in [Performance tuning steps](#performance-tuning-steps) to optimize copy performance for your specific dataset and system configuration. You should use the numbers obtained in your performance tuning tests for production deployment planning, capacity planning, and billing projection.
 
 &nbsp;
 

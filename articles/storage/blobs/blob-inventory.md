@@ -2,12 +2,12 @@
 title: Use Azure Storage inventory to manage blob data (preview)
 description: Azure Storage inventory is a tool to help get an overview of all your blob data within a storage account.
 services: storage
-author: mhopkins-msft
+author: twooley
 
 ms.service: storage
 ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: mhopkins
+ms.author: twooley
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Use Azure Storage blob inventory to manage blob data (preview)
 
-The Azure Storage blob inventory feature provides an overview of your blob data within a storage account. Use the inventory report to understand your total data size, age, encryption status, and so on. The report provides an overview of your data for business and compliance requirements. Once enabled, an inventory report is automatically created daily.
+The Azure Storage blob inventory feature provides an overview of your blob data within a storage account. Use the inventory report to understand your total data size, age, access tiers, and so on. The report provides an overview of your data for business and compliance requirements. Once enabled, an inventory report is automatically created daily.
 
 ## Availability
 

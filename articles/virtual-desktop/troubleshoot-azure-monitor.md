@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Troubleshoot Azure Monitor for Windows Virtual Desktop
 
@@ -75,4 +75,6 @@ The following are issues and limitations we're aware of and working to fix:
 
 ## Next steps
 
-If you're unsure how to interpret the data or want to learn more about common terms, check out the [Azure Monitor for Windows Virtual Desktop glossary](azure-monitor-glossary.md). If you want to learn how to set up and use Azure Monitor for Windows Virtual Desktop, see [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md).
+- To get started, see [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md).
+- To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](azure-monitor-costs.md).
+- Check out our [glossary](azure-monitor-glossary.md) to learn more about terms and concepts related to Azure Monitor for Windows Virtual Desktop.

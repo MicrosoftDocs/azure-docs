@@ -79,7 +79,7 @@ Before you can use the try & restore feature, you must register your subscriptio
 
 **Use CLI**
 
-Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription. 
+Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SpotTryRestore 
@@ -214,6 +214,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ```
 
 `Response Code: 204` means the simulated eviction was successful. 
+
+For more information, see [Testing a simulated eviction notification](../virtual-machines/windows/spot-powershell.md#simulate-an-eviction).
 
 ## FAQ
 

@@ -2,7 +2,8 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 03/26/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Install Bicep (Preview)
@@ -91,7 +92,7 @@ az bicep upgrade
 To install a specific version:
 
 ```bash
-az bicep install --version v0.3.126
+az bicep install --version v0.3.255
 ```
 
 > [!IMPORTANT]
@@ -153,10 +154,10 @@ bicep --help
 
 ```sh
 # Add the tap for bicep
-brew tap azure/bicep https://github.com/azure/bicep
+brew tap azure/bicep
 
 # Install the tool
-brew install azure/bicep/bicep
+brew install bicep
 ```
 
 ##### macOS manual install

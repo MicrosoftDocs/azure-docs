@@ -92,7 +92,10 @@ To enable annotations in your workbook go to **Advanced Settings** and select **
 Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
 ## Create custom annotations from PowerShell
-You can use the CreateReleaseAnnotation PowerShell script from GitHub to create annotations from any process you like, without using Azure DevOps.
+You can use the CreateReleaseAnnotation PowerShell script to create annotations from any process you like, without using Azure DevOps.
+
+> [!IMPORTANT]
+> If you are using PowerShell 7.1, add `-SkipHttpErrorCheck` at the end of line 26. For example: `$request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore -SkipHttpErrorCheck`.
 
 1. Make a local copy of CreateReleaseAnnotation.ps1:
 
@@ -252,8 +255,8 @@ You can use the CreateReleaseAnnotation PowerShell script from GitHub to create 
 
 You can modify the script, for example to create annotations for the past.
 
+
 ## Next steps
 
 * [Create work items](./diagnostic-search.md#create-work-item)
 * [Automation with PowerShell](./powershell.md)
-

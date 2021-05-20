@@ -4,7 +4,8 @@ description: Common issues, errors, and resolutions for log alert rules in Azure
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/22/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Troubleshoot log alerts in Azure Monitor  
@@ -41,6 +42,10 @@ Log alerts provide an option to mute fired alert actions for a set amount of tim
 A common issue is that you think that the alert didn't fire the actions because of a service issue. Even tough it was muted by the rule configuration.
 
 ![Suppress alerts](media/alerts-troubleshoot-log/LogAlertSuppress.png)
+
+### Alert scope resource has been moved, renamed, or deleted
+
+When you author an alert rule, Log Analytics creates a permission snapshot for your user ID. This snapshot is saved in the rule and contains the rule scope resource Azure Resource Manager ID. If the rule scope resource moves, gets renamed, or deleted, all log alert rules referring to that resource will break. Alert rules will need to be recreated using the new Azure Resource Manager ID to work.
 
 ### Metric measurement alert rule with splitting using the legacy Log Analytics API
 

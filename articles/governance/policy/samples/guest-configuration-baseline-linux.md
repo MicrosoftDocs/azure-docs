@@ -1,7 +1,7 @@
 ---
 title: Reference - Azure Policy Guest Configuration baseline for Linux
 description: Details of the Linux baseline on Azure implemented through Azure Policy Guest Configuration.
-ms.date: 03/12/2021
+ms.date: 05/11/2021
 ms.topic: reference
 ms.custom: generated
 ---

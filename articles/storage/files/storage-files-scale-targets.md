@@ -30,8 +30,8 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Maximum storage account capacity | 5 PiB<sup>1</sup> | 100 TiB (provisioned) |
 | Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
 | Maximum concurrent request rate | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
-| Maximum ingress | <ul><li>US/Europe: 10 Gbp/sec<sup>1</sup></li><li>Other regions (LRS/ZRS): 10 Gbp/sec<sup>1</sup></li><li>Other regions (GRS): 5 Gbp/sec<sup>1</sup></li></ul> | 4,136 MiB/sec |
-| Maximum egress | 50 Gbp/sec<sup>1</sup> | 6,204 MiB/sec |
+| Maximum ingress | <ul><li>US/Europe: 9,536 MiB/sec<sup>1</sup></li><li>Other regions (LRS/ZRS): 9,536 MiB/sec<sup>1</sup></li><li>Other regions (GRS): 4,768 GiB/sec<sup>1</sup></li></ul> | 4,136 MiB/sec |
+| Maximum egress | 47,683 MiB/sec<sup>1</sup> | 6,204 MiB/sec |
 | Maximum number of virtual network rules | 200 | 200 |
 | Maximum number of IP address rules | 200 | 200 |
 | Management read operations | 800 per 5 minutes | 800 per 5 minutes |
@@ -98,7 +98,7 @@ Since the Azure File Sync agent runs on a Windows Server machine that connects t
 
 For Azure File Sync, performance is critical in two stages:
 
-1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
+1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
 2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
@@ -129,7 +129,7 @@ The rate of performance is 20 objects per second. Customers can estimate the tim
 
 **Initial sync of data from Windows Server to Azure File share**:Many Azure File Sync deployments start with an empty Azure file share because all the data is on the Windows Server. In these cases, the initial cloud change enumeration is fast and the majority of time will be spent syncing changes from the Windows Server into the Azure file share(s). 
 
-While sync uploads data to the Azure file share, there is no downtime on the local file server, and administrators can [setup network limits](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) to restrict the amount of bandwidth used for background data upload.
+While sync uploads data to the Azure file share, there is no downtime on the local file server, and administrators can [setup network limits](../file-sync/file-sync-server-registration.md#set-azure-file-sync-network-limits) to restrict the amount of bandwidth used for background data upload.
 
 Initial sync is typically limited by the initial upload rate of 20 files per second per sync group. Customers can estimate the time to upload all their data to Azure using the following formulae to get time in days:  
 
@@ -159,4 +159,4 @@ As a general guide for your deployment, you should keep a few things in mind:
 
 ## See also
 - [Planning for an Azure Files deployment](storage-files-planning.md)
-- [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)

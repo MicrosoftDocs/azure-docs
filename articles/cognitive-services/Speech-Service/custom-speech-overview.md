@@ -15,7 +15,7 @@ ms.custom: contperf-fy21q2; references_regions
 
 # What is Custom Speech?
 
-[Custom Speech](https://aka.ms/customspeech) is a set of UI-based tools that allow you to evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. All it takes to get started is a handful of test audio files. Follow the links in this article to start creating a custom speech-to-text experience.
+Custom Speech allows you to evaluate and improve the Microsoft speech-to-text accuracy for your applications and products. Follow the links in this article to start creating a custom speech-to-text experience.
 
 ## What's in Custom Speech?
 
@@ -76,7 +76,7 @@ To create your first project, select **Speech-to-text/Custom speech**, and then 
 
 ## Model and Endpoint lifecycle
 
-Older models typically become less useful over time because the newest model usually has higher accuracy. Therefore, base models as well as custom models and endpoints created through the portal are subject to expiration after 1 year for adaptation and 2 years for decoding. See a detailed description in the [Model and Endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md) article.
+Older models typically become less useful over time because the newest model usually has higher accuracy. Therefore, base models as well as custom models and endpoints created through the portal are subject to expiration after 1 year for adaptation and 2 years for decoding. See a detailed description in the [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md) article.
 
 ## Next steps
 

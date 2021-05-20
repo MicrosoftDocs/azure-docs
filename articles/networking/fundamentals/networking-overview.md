@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/28/2020
+ms.date: 04/07/2021
 ms.author: kumud
 
 ---
@@ -17,7 +17,7 @@ ms.author: kumud
 
 The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Click any of the following key capabilities to learn more about them:
 - [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, and Azure Bastion.
-- [**Application protection services**](#protect): Protect your applications  using any or a combination of these networking services in Azure - Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
+- [**Application protection services**](#protect): Protect your applications  using any or a combination of these networking services in Azure - Load Balancer, Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
 - [**Application delivery services**](#deliver): Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
 - [**Network monitoring**](#monitor): Monitor your network resources using any or a combination of these networking services in Azure - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
@@ -156,13 +156,13 @@ The following diagram shows url path-based routing with Application Gateway.
 :::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Application Gateway example":::
 
 ## <a name="monitor"></a>Network monitoring services
-This section describes networking services in Azure that help monitor your network resources - Network Watcher, Azure Monitor for Networks, ExpressRoute Monitor, Azure Monitor, and Virtual Network TAP.
+This section describes networking services in Azure that help monitor your network resources - Network Watcher, Azure Monitor Network Insights, Azure Monitor, ExpressRoute Monitor, and Virtual Network TAP.
 
 ### <a name="networkwatcher"></a>Network Watcher
 Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
-### Azure Monitor for Networks Preview
-Azure Monitor for Networks provides a comprehensive view of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). For more information, see [Azure Monitor for Networks Preview](../../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+### Azure Monitor Network Insights
+Azure Monitor for Networks provides a comprehensive view of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-overview.md), [flow logging for network security groups](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). For more information, see [Azure Monitor Network Insights](../../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### <a name="expressroutemonitor"></a>ExpressRoute Monitor
 To learn about how view ExpressRoute circuit metrics, resource logs and alerts, see [ExpressRoute monitoring, metrics, and alerts](../../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
