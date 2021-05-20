@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create Bicep templates - VS Code
+          - text: Create Bicep files - VS Code
             url: quickstart-create-bicep-use-visual-studio-code.md
       - linkListType: learn
         links:
@@ -81,8 +81,6 @@ landingContent:
             url: deploy-cli.md
           - text: REST API
             url: deploy-rest.md
-          - text: Deploy to Azure button
-            url: deploy-to-azure-button.md
           - text: Cloud Shell
             url: deploy-cloud-shell.md
           - text: What-if deployment
@@ -113,12 +111,3 @@ landingContent:
           url: /powershell/module/az.resources
         - text: Azure CLI
           url: /cli/azure/resource
-  # Card
-  - title: Manage templates
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: CI/CD
-            url: add-template-to-azure-pipelines.md
-          - text: View deployment history
-            url: ../templates/deployment-history.md
