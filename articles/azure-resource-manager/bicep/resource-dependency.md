@@ -1,78 +1,76 @@
 ---
-title: Set deployment order for resources (Bicep)
-description: Describes how to set one Azure resource as dependent on another resource during deployment. The dependencies ensure resources are deployed in the correct order. (Bicep)
+title: Set deployment order for resources in Bicep
+description: Describes how to set one Azure resource as dependent on another resource in Bicep. The dependencies ensure resources are deployed in the correct order.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 12/21/2020
+ms.date: 05/20/2021
 ---
 
-# Define the order for deploying resources in ARM templates (Bicep)
+# Define the order for deploying resources in Bicep
 
-When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. Use the `dependsOn` element to define an explicit dependency. Use the **reference** or **list** functions to define an implicit dependency.
+When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one .resource as dependent on the other resource. Order of resource deployment can be influenced in two ways: [implicit dependency](#implicit-dependency) and [explicit dependency](#explicit-dependency)
 
-Azure Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same template.
+Azure Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same Bicep file.
 
-## dependsOn
+## Implicit dependency
 
-Within your Azure Resource Manager template (ARM template), the `dependsOn` element enables you to define one resource as a dependent on one or more resources. Its value is a JavaScript Object Notation (JSON) array of strings, each of which is a resource name or ID. The array can include resources that are [conditionally deployed](conditional-resource-deployment.md). When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
+An implicit dependency is created when one resource declaration references the identifier of another resource declaration in an expression. For example, *dnsZone* is referenced by the second resource definition in the following example:
 
-The following example shows a network interface that depends on a virtual network, network security group, and public IP address. For the full template, see [the quickstart template for a Linux VM](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
+```bicep
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
+  name: 'myZone'
+  location: 'global'
+}
 
-```json
-{
-    "type": "Microsoft.Network/networkInterfaces",
-    "apiVersion": "2020-06-01",
-    "name": "[variables('networkInterfaceName')]",
-    "location": "[parameters('location')]",
-    "dependsOn": [
-      "[resourceId('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
-      "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
-      "[resourceId('Microsoft.Network/publicIpAddresses/', variables('publicIpAddressName'))]"
-    ],
-    ...
+resource otherResource 'Microsoft.Example/examples@2020-06-01' = {
+  name: 'exampleResource'
+  properties: {
+    // get read-only DNS zone property
+    nameServers: dnsZone.properties.nameServers
+  }
+}
+```
+
+
+A nested resource also has an implicit dependency on its containing resource.
+
+```bicep
+resource myParent 'My.Rp/parentType@2020-01-01' = {
+  name: 'myParent'
+  location: 'West US'
+
+  // depends on 'myParent' implicitly
+  resource myChild 'childType' = {
+    name: 'myChild'
+  }
+}
+```
+
+For more information, see [Set name and type for child resources in Bicep](./child-resource-name-type.md).
+
+## Explicit dependency
+
+An explicit dependency is declared via the `dependsOn` property within the resource declaration. The property accept an array of resource identifiers. Here is an example of one DNS zone depending on another explicitly:
+
+```bicep
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
+  name: 'myZone'
+  location: 'global'
+}
+
+resource otherZone 'Microsoft.Network/dnszones@2018-05-01' = {
+  name: 'myZone'
+  location: 'global'
+  dependsOn: [
+    dnsZone
+  ]
 }
 ```
 
 While you may be inclined to use `dependsOn` to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, `dependsOn` isn't the right approach. You can't query which resources were defined in the `dependsOn` element after deployment. Setting unnecessary dependencies slows deployment time because Resource Manager can't deploy those resources in parallel.
 
-## Child resources
-
-An implicit deployment dependency isn't automatically created between a [child resource](child-resource-name-type.md) and the parent resource. If you need to deploy the child resource after the parent resource, set the `dependsOn` property.
-
-The following example shows a logical SQL server and database. Notice that an explicit dependency is defined between the database and the server, even though the database is a child of the server.
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Sql/servers",
-    "apiVersion": "2020-02-02-preview",
-    "name": "[parameters('serverName')]",
-    "location": "[parameters('location')]",
-    "properties": {
-      "administratorLogin": "[parameters('administratorLogin')]",
-      "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
-    },
-    "resources": [
-      {
-        "type": "databases",
-        "apiVersion": "2020-08-01-preview",
-        "name": "[parameters('sqlDBName')]",
-        "location": "[parameters('location')]",
-        "sku": {
-          "name": "Standard",
-          "tier": "Standard"
-          },
-        "dependsOn": [
-          "[resourceId('Microsoft.Sql/servers', concat(parameters('serverName')))]"
-        ]
-      }
-    ]
-  }
-]
-```
-
-For the full template, see [quickstart template for Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/blob/master/101-sql-database/azuredeploy.json).
+Even though explicit dependencies are sometimes required, the need for them is rare. In most cases you have a symbolic reference available to imply the dependency between resources. If you find yourself using dependsOn you should consider if there is a way to get rid of it.
 
 ## reference and list functions
 
