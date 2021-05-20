@@ -21,6 +21,7 @@ ms.date: 07/31/2018
 > * [Azure Machine Learning Studio (classic)](transform-data-using-machine-learning.md) 
 > * [Stored Procedure](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Synapse notebook](../synapse-analytics/synapse-notebook-activity.md)
 > * [Databricks notebook](transform-data-databricks-notebook.md)
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
@@ -74,6 +75,10 @@ You can use the SQL Server Stored Procedure activity in a Data Factory pipeline 
 
 ### Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 
+
+### Synapse Notebook activity 
+
+The Azure Synapse Notebook Activity in a Synapse pipeline runs a Synapse notebook in your Azure Synapse workspace. See [Transform data by running a Synapse notebook](../synapse-analytics/synapse-notebook-activity.md).
 
 ### Databricks Notebook activity
 
