@@ -80,40 +80,8 @@
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
-  - name: Backup and restore with Azure Backup Server
-    items:
-    - name: Back up VMware VMs 
-      href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-    - name: Restore VMware virtual machines 
-      href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-    - name: Monitor Azure Backup workloads
-      href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context 
-  - name: Disaster recovery
-    items:
-    - name: Deploy disaster recovery for VMs
-      href: disaster-recovery-for-virtual-machines.md
-    - name: Disaster recovery to Azure
-      items:
-      - name: Prepare Azure
-        href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
-      - name: Prepare Azure VMware Solution 
-        href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
-      - name: Set up replication
-        href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
-      - name: Run a disaster recovery drill 
-        href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
-      - name: Fail over to Azure 
-        href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
-      - name: Reprotect VMs
-        href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
-      - name: Fail back from Azure 
-        href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
   - name: Azure native integration
     items:
-    - name: Protect VMs with Azure Security Center
-      href: azure-security-integration.md
-    - name: Back up VMware VMs with Azure Backup Server
-      href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
     - name: Monitor and manage VMs
       href: lifecycle-management-of-azure-vmware-solution-vms.md
     - name: Integrate Azure NetApp Files
@@ -124,6 +92,36 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics 
       href: configure-alerts-for-azure-vmware-solution.md
+    - name: Protect VMs with Azure Security Center
+      href: azure-security-integration.md
+    - name: Backup and restore with Azure Backup Server
+      items:
+      - name: Back up VMware VMs 
+        href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+      - name: Restore VMware virtual machines 
+        href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+      - name: Monitor Azure Backup workloads
+        href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context 
+      - name: Disaster recovery
+        items:
+        - name: Deploy disaster recovery for VMs
+          href: disaster-recovery-for-virtual-machines.md
+        - name: Disaster recovery to Azure
+          items:
+          - name: Prepare Azure
+            href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
+          - name: Prepare Azure VMware Solution 
+            href: /azure/site-recovery/avs-tutorial-prepare-avs?context=/azure/azure-vmware/context/context
+          - name: Set up replication
+            href: /azure/site-recovery/avs-tutorial-replication?context=/azure/azure-vmware/context/context
+          - name: Run a disaster recovery drill 
+            href: /azure/site-recovery/avs-tutorial-dr-drill-azure?context=/azure/azure-vmware/context/context
+          - name: Fail over to Azure 
+            href: /azure/site-recovery/avs-tutorial-failover?context=/azure/azure-vmware/context/context
+          - name: Reprotect VMs
+            href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
+          - name: Fail back from Azure 
+            href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
   - name: VMware solutions
     items:
     - name: Configure vRealize Operations
