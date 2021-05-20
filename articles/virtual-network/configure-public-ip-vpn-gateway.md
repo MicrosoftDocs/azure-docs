@@ -31,7 +31,47 @@ In this article, you'll learn how to create a VPN gateway using an existing publ
 
 In this section, you'll create a VPN gateway. You'll select the IP address you created in the prerequisites as the public IP for the VPN gateway.
 
+### Create virtual network
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Virtual network**.
+
+3. In the search results, select **Virtual networks**.
+
+4. Select **+ Create**.
+
+5. In **Create virtual network**, enter or select the following information.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroupVPN**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Name | Enter **myVNet**. |
+    | Region | Select **(US) West US 2**. |
+    
+6. Select the **Review + create** tab, or select the blue **Review + create** button.
+
+7. Select **Create**.
+
+8. In the search box at the top of the portal, enter **Virtual network**.
+
+9. In the search results, select **Virtual networks**.
+
+10. Select **myVNET** in **Virtual networks**.
+
+11. Select **Subnets** in **Settings** of **myVNET**.
+
+12. Select **+ Gateway subnet**.
+
+13. In **Add subnet**, change the **Subnet address range** from **/24** to **/27**.
+
+14. Select **Save**.
+
+### Create VPN gateway
+
 
 2. In the search box at the top of the portal, enter **Virtual network gateway**.
 
@@ -46,64 +86,34 @@ In this section, you'll create a VPN gateway. You'll select the IP address you c
     | **Project details** |   |
     | Subscription | Select your subscription. |
     | **Instance details** |   |
-    | Application gateway name | Enter **myAppGateway**. |
-    | Region | Select **(US) West US 2**. |
-    | Tier | Leave the default of **Standard V2**. |
-    | Enable autoscaling | Leave the default of **Yes**. |
-    | Minium instance count | Leave the default of **0**. |
-    | Maximum instance count | Leave the default of **10**. |
-    | Availability zone | Leave the default of **None**. |
-    | HTTP2 | Leave the default of **Disabled**. |
-    | Virtual network | Select **Create new**. </br> In **Create virtual network**, enter **myVNet** for name. </br> Leave the default address space in **ADDRESS SPACE**. </br> In **SUBNETS**, change **default** to **myAGSubnet**. </br> In the second subnet name, enter **myBackendSubnet**. </br> In **Address range**, enter a range within the default address space. </br> Select **OK**. |
+    | Name | Enter **myVPNGateway**. |
+    | Region | Select **West US 2**. |
+    | Gateway type | Leave the default of **VPN**. |
+    | VPN type | Leave the default of **Route-based**. |
+    | SKU | Select **VpnGw1AZ**. |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Entry will auto-select **GatewaySubnet** you created earlier |
+    | **Public IP address** |   |
+    | Public IP address | Select **Use existing**. |
+    | Choose public IP address | Select **myStandardPublicIP** or your public IP address |
+    | Enable active-active mode | Leave the default of **Disabled**. |
+    | Configure BGP | Leave the default of **Disabled**. |
 
-6. Select **Next: Frontends**.
+6. Select the **Review + create** tab, or select the blue **Review + create** button.
 
-7. Select **myStandardPublicIP-1** for **Public IP address** in the **Frontends** tab, or your public IP address.
-
-8. Select **Next: Backends**. 
-
-9. Select **Add a backend pool**.
-
-10. Enter **myBackendPool** for name in **Add a backend pool**.
-
-11. Select **Next: Configuration**.
-
-12. Select **+ Add a routing rule**. Enter or select the following information.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Rule name | Enter **myRoutingRule**. |
-    | **Listener** |    |
-    | Listener name | Enter **myListener**. |
-    | Frontend IP | Select **Public**. |
-    | Frontend IP Protocol | Leave the default of **HTTP**. |
-    | Port | Leave the default of **80**. |
-    | **Additional settings** |   |
-    | Listener type | Leave the default of **Basic**. |
-    | Error page url | Leave the default of **No**. |
-    | **Backend targets** |    |
-    | Target type | Leave the default of **Backend pool**. |
-    | Backend target | Select **myBackendPool**. |
-    | HTTP settings | Select **Add new**. </br> Enter **myHTTPsetting** in **Name**. </br> Leave the rest at the defaults and select **Add**. |
-
-13. Select **Add**.
-
-14. Select **Next: Tags**, then **Next: Review + create**.
-
-15. Select **Create**.
+7. Select **Create**.
 
 > [!NOTE]
-> This is a simple deployment of a Application Gateway. For advanced configuration and setup, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](../application-gateway/quick-create-portal.md)
+> This is a simple deployment of a VPN Gateway. For advanced configuration and setup, see [Tutorial: Create and manage a VPN gateway using Azure portal](../vpn-gateway/tutorial-create-gateway-portal.md)
 >
-> For more information on Azure Application Gateway, see [What is Azure Application Gateway?](../application-gateway/overview.md)
+> For more information on Azure Application Gateway, see [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ## Change or remove public IP address
 
-Application gateway doesn't support changing the public IP address after creation.
+VPN gateway doesn't support changing the public IP address after creation.
 
 ## Next steps
 
-In this article, you learned how to create a Application Gateway and use an existing public IP. 
+In this article, you learned how to create a VPN Gateway and use an existing public IP. 
 
-- For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](nat-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
