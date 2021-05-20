@@ -20,13 +20,11 @@ ms.service: azure-communication-services
 > For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
 
 
-UI Library supports a number of use cases across calling and chat experiences.
+UI Library supports many cases across calling and chat experiences.
 These capabilities are available through UI Components and Composites.
 For Composites, these capabilities are built directly in and exposed when the composite is integrated into an application.
-
 For UI Components, these capabilities are exposed through a combination of UI functionality and underlying stateful libraries.
-
-To take full advantage of these capabilities we recommend using the UI Components in conjunction with the stateful call and chat client libraries.
+To take full advantage of these capabilities, we recommend using the UI Components with the stateful call and chat client libraries.
 
 ## Calling use cases
 
@@ -71,8 +69,8 @@ For more information on authentication, see [Authentication](../authentication.m
 
 ## Teams Interop Use Case
 
-For [Teams Interop](../teams-interop.md) scenarios, developers can leverage UI Library Components to join Teams meetings through Azure Communication Services.
-To enable this, developers can either leverage calling and chat composites directly or use UI Components to build a custom experience.
+For [Teams Interop](../teams-interop.md) scenarios, developers can use UI Library Components to join Teams meetings through Azure Communication Services.
+To enable Teams Interop, developers can either use calling and chat composites directly or use UI Components to build a custom experience.
 When enabling applications with both calling and chat, its important to remember that the chat client can't be initialized until the participant has been admitted to the call.
 Once admitted, the chat client can be initialized to join the meeting chat thread.
 See the diagram below for guidance:
@@ -88,7 +86,7 @@ For example:
 ## Customization
 
 UI Library exposes patterns for developers to modify components to fit the look and feel of their application.
-This is a key area of differentiation between Composites and UI Components, where Composites provide less customization options in favor of a simpler integration experience.
+These capabilities are a key area of differentiation between Composites and UI Components, where Composites provide less customization options in favor of a simpler integration experience.
 
 | Use Case                                            | Composites | UI Components |
 | --------------------------------------------------- | ---------- | ------------- |
