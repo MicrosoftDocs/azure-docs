@@ -24,6 +24,18 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 
+Once in the application, you can also change which instance is currently connected to the explorer, by selecting the instance name from the top toolbar.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-1.png" alt-text="Screenshot of Azure Digital Twins Explorer. The instance name in the top toolbar is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-1.png":::
+
+This will bring up the **Azure Digital Twins URL modal**, where you can enter the host name of another Azure Digital Twins instance after the *https://* to connect to that instance.
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an editable box containing https:// and a host name." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png":::
+
+>[!NOTE]
+>This ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the correct instance in the Azure portal, or may connect to a certain instance through a [direct link](#share-your-environment).
+
+
 ## Query your digital twin graph
 
 You can use the **QUERY EXPLORER** panel to perform [queries](concepts-query-language.md) on your graph.
