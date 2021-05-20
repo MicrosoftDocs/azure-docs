@@ -153,6 +153,4 @@ Update Management relies on the locally configured update repository to update s
 
 * Before enabling and using Update Management, review [Plan your Update Management deployment](plan-deployment.md).
 
-* For details on how to assess and deploy updates with Update Management, see [Manage updates for your VMs](manage-updates-for-vm.md).
-
 * Review commonly asked questions about Update Management in the [Azure Automation frequently asked questions](../automation-faq.md).
