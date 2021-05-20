@@ -33,13 +33,11 @@ Having a machine registered for Update Management in more than one Log Analytics
 
 To prepare your network to support Update Management, you may need to configure some infrastructure components. For example, open firewall ports to pass the communications used by Update Management and Azure Monitor.
 
-Review [Azure Automation Network Configuration](../automation-network-configuration.md) for detailed information on the ports, URLs, and other networking details required for Update Management. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](../how-to/private-link-security.md). 
+Review [Azure Automation Network Configuration](../automation-network-configuration.md) for detailed information on the ports, URLs, and other networking details required for Update Management, including the Hybrid Runbook Worker role. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](../how-to/private-link-security.md). 
 
 For Windows machines, you must also allow traffic to any endpoints required by Windows Update agent. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Server Update Services](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
-
-For information about ports required for the Hybrid Runbook Worker, see [Update Management addresses for Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
 If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
 
