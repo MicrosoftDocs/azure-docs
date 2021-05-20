@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/19/2021
+ms.date: 05/20/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -63,7 +63,10 @@ The following sections provide common causes for the following issues:
 
 ## VM provisioning timeout
 
-<!--Source provides a graphic of "Creation of virtual machine failed" error at this point.-->
+A common cause of a deployment failure is that VM provisioning does not complete within the timeout period. When VM provisioning times out, you see the following error:
+
+![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
+
 This section provides troubleshooting guidance for some of the most common causes of aVM provisioning timeout:
 
 * Static IP address assigned to the VM is already in use<!--Add section link-->
@@ -72,6 +75,7 @@ This section provides troubleshooting guidance for some of the most common cause
 * `cloud init` issues (Linux VMs)
 * Provisioning flags set incorrectly (Linux VMs)
 * Issues that require Support
+
 
 ### IP assigned to the VM is already in use
 
