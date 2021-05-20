@@ -22,7 +22,7 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
 
 2. Select **Web PubSub** from the search results, then select **Create**.
 
-1. Enter the following settings.
+3. Enter the following settings.
 
     | Setting      | Description                                        |
     | ------------ | -------------------------------------------------- |
