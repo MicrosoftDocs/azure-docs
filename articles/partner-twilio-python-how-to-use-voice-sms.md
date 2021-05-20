@@ -48,7 +48,7 @@ The API uses verbs like these that tell Twilio what to do:
 * **&lt;Hangup&gt;**: Ends a call.
 * **&lt;Pause&gt;**: Waits silently for a specified number of seconds.
 * **&lt;Play&gt;**: Plays an audio file.
-* **&lt;Queue&gt;**: Add the to a queue of callers.
+* **&lt;Queue&gt;**: Adds to a queue of callers.
 * **&lt;Record&gt;**: Records the voice of the caller and returns a URL of a file that contains the recording.
 * **&lt;Redirect&gt;**: Transfers control of a call or SMS to the TwiML at a different URL.
 * **&lt;Reject&gt;**: Rejects an incoming call to your Twilio number without billing you.
