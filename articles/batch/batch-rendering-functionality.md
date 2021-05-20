@@ -93,5 +93,5 @@ When the Azure Marketplace VM images are used, then the best practice is to use 
 
 ## Next steps
 
-- Learn about [using rendering applications with Batch](batch-rendering-applications.md).
-- Learn about [Storage and data movement options for rendering asset and output files](batch-rendering-storage-data-movement.md).
+* Learn about [using rendering applications with Batch](batch-rendering-applications.md).
+*Learn about [Storage and data movement options for rendering asset and output files](batch-rendering-storage-data-movement.md).
