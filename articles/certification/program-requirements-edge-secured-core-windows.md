@@ -10,7 +10,7 @@ ms.service: certification
 ---
 
 # Windows Requirements
-## Device Requirements
+
 
 ---
 |Name|SecuredCore.Built-in.Security|
