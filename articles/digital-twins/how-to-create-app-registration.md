@@ -79,7 +79,7 @@ Enter whatever values you want for Description and Expires, and select **Add**.
 
 :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Add client secret":::
 
-Now, verify that the client secret is visible on the **Certificates & secrets** page with Expires and Value fields. Take note of its **Value** to use later (you can also copy it to the clipboard with the Copy icon).
+Now, verify that the client secret is visible on the **Certificates & secrets** page with Expires and Value fields. Take note of its **Secret ID** and **Value** to use later (you can also copy them to the clipboard with the Copy icons).
 
 :::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Copy client secret value":::
 
