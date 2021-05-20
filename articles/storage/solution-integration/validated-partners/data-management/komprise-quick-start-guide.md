@@ -118,7 +118,7 @@ Setting up Komprise solution is simple:
        - Display Name
        - Username / Password for the user with access to the shares
   
-        :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-3.png" alt-text="Specify shares to discover":::
+        :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-3.png" alt-text="Specify NAS solutions to discover":::
 
 1. Select shares to migrate and **Proceed with selected**
 
@@ -126,7 +126,7 @@ Setting up Komprise solution is simple:
 
 1. Analyze shares and determine data migration plan. Here is an example of analysis.
 
-    :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-shares.png" alt-text="Specify shares to analyze":::
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-shares.png" alt-text="Example of share analysis":::
 
     Information of the analysis is useful and can help with the migration significantly. For example:
     - information on top users, groups, or shares can determine the order of the migration and the most impacted group within the organization to assess business impact migration will have
