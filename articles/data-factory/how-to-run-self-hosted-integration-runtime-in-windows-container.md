@@ -12,7 +12,7 @@ ms.date: 08/05/2020
 
 # How to run Self-Hosted Integration Runtime in Windows container
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article will explain how to run Self-Hosted Integration Runtime in Windows container.
 Azure Data Factory are delivering the official windows container support of Self-Hosted Integration Runtime. You can download the docker build source code and combine the building and running process in your own continuous delivery pipeline. 
