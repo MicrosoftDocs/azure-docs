@@ -101,7 +101,7 @@ The default behavior of data flow sinks is to execute each sink sequentially, in
 
 ### First row only
 
-This option is only available for data flows that have cache sinks enabled for "Output to activity". The output from the data flow that is injected direclty into your pipeline is limited to 2MB. Setting "first row only" helps you to limit the data output from data flow when injecting the data flow activity output directly to your pipeline.
+This option is only available for data flows that have cache sinks enabled for "Output to activity". The output from the data flow that is injected directly into your pipeline is limited to 2MB. Setting "first row only" helps you to limit the data output from data flow when injecting the data flow activity output directly to your pipeline.
 
 ![Sink properties](media/data-flow/sink-properties.png "Set sink properties")
 
