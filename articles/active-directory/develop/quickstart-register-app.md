@@ -32,6 +32,11 @@ The Microsoft identity platform performs identity and access management (IAM) on
   - [Application administrator](../roles/permissions-reference.md#application-administrator) - can create and manage all aspects of app registrations and enterprise apps.
   - [Application developer](../roles/permissions-reference.md#application-developer) - can create application registrations independent of the 'Users can register applications' setting.
   - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator) - can create and manage all aspects of app registrations and enterprise apps except App Proxy.
+- User must have sufficient permissions to register an application. One of the ways to grant such permission is by doing this:
+  - Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+  - Under **Azure services**, select **Azure Active Directory**.
+  - On the left side navigation, under **manage**, select **User settings**.
+  - Under "App registrations", ensure that "Users can register applications" is set to Yes. This setting can only be set by an administrator.
 - Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
 ## Register an application
