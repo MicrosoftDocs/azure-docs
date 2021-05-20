@@ -20,7 +20,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Windows, Linux Ubuntu 18.04, Linux Ubuntu 20.04|
-|HW,SW,SVC Requirements|Azure Defender for IoT|
+|Requirements dependency|Azure Defender for IoT|
 |Validation Type|Manual/Tools|
 |Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Download and deploy security agent from GitHub</li><li>Validate alert message from Azure Defender for IoT.</li></ol>|
 |Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
@@ -33,7 +33,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW,SW,SVC Requirements|??|
+|Requirements dependency|??|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
 |Resources||
@@ -46,7 +46,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW,SW,SVC Requirements|??|
+|Requirements dependency|??|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure the Azure Security Agent can communicate with the secure enclave|
 |Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
@@ -59,7 +59,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|??|
+|Requirements dependency|??|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that the device has a TPM present and that it can be provisioned through IoT Hub using TPM endorsement key.|
 |Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|
@@ -72,7 +72,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|??|
+|Requirements dependency|??|
 |Validation Type|Manual/Tools|
 |Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, Azure Device update, or other approved services.|
 |Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
@@ -86,7 +86,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|??|
+|Requirements dependency|??|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
 |Resources||
@@ -102,7 +102,7 @@ ms.service: certification
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|??|
+|Requirements dependency|??|
 |Validation Type|Manual/Tools|
 Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
 |Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](https://docs.microsoft.com/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
@@ -116,7 +116,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|UEFI, UBoot|
+|Requirements dependency|UEFI, UBoot|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
 |Resources||
@@ -129,7 +129,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|??|
+|Requirements dependency|??|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that code integrity is enabled. </br> Windows: HVCI </br> Linux: dm-verity and IMA|
 |Resources||
@@ -142,7 +142,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements||
+|Requirements dependency||
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that services accepting network connections are not running with SYSTEM or root privileges.|
 |Resources||
@@ -155,7 +155,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|Azure Defender for IoT|
+|Requirements dependency|Azure Defender for IoT|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that Defender IOT system configurations benchmarks have been run.|
 |Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
@@ -168,7 +168,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|DRTM + UEFI|
+|Requirements dependency|DRTM + UEFI|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>DRTM + UEFI Management Mode mitigations</li><li>DRTM + UEFI Management Mode hardening</li><li>Approved FW that does SRTM + runtime firmware hardening</li></ul> |
 |Resources| https://trustedcomputinggroup.org/ |
@@ -181,7 +181,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|Azure Attestation Service|
+|Requirements dependency|Azure Attestation Service|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
 |Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
@@ -194,7 +194,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|Only if DMA capable ports exist|
+|Requirements dependency|Only if DMA capable ports exist|
 |Validation Type|Manual/Tools|
 |Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
 |Resources||
@@ -207,7 +207,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
-|HW/SW/SVC Requirements|??|
+|Requirements dependency|??|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
 |Resources||
