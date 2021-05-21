@@ -329,7 +329,7 @@ This page should show the job that was fired by the Azure Function. The job can 
 
 By clicking on the job, you will see some details about the specific job. If you click on the Output asset name and then use the link to the storage container that is linked to it, you should be able to see your processed video when the job is finished.
 
-![AMS Output](https://raw.githubusercontent.com/Azure-Samples/media-services-v3-python/main/Resources/ams-output.png)
+![AMS Output](https://raw.githubusercontent.com/harmke/azure-docs/master/articles/media-services/latest/media/faceredaction-eventbased-python-quickstart/ams-output.png)
 
  
  ## Clean up Resources
