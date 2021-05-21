@@ -100,7 +100,7 @@ param otherResourceGroup string
 param otherSubscriptionID string
 
 // create resources in a different subscription and resource group
-module  './module.bicep' = {
+module  'module.bicep' = {
   name: 'otherSubAndRG'
   scope: resourceGroup(otherSubscriptionID, otherResourceGroup)
 }
@@ -112,7 +112,7 @@ The next example shows a module that targets a resource group in the same subscr
 param otherResourceGroup string
 
 // create resources in a resource group in the same subscription
-module  './module.bicep' = {
+module  'module.bicep' = {
   name: 'otherRG'
   scope: resourceGroup(otherResourceGroup)
 }
@@ -129,7 +129,7 @@ To deploy to the current subscription, use the subscription function without a p
 ```bicep
 
 // create resources at subscription level
-module  './module.bicep' = {
+module  'module.bicep' = {
   name: 'deployToSub'
   scope: subscription()
 }
@@ -141,7 +141,7 @@ To deploy to a different subscription, specify that subscription ID as a paramet
 param otherSubscriptionID string
 
 // create resources at subscription level but in a different subscription
-module  './module.bicep' = {
+module  'module.bicep' = {
   name: 'deployToSub'
   scope: subscription(otherSubscriptionID)
 }
