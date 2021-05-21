@@ -97,7 +97,7 @@ When an endpoint can't deliver an event within a certain time period or after tr
 If either of the conditions is met, the event is dropped or dead-lettered. By default, each endpoint **does not** turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the endpoint. You can then pull events from this storage account to resolve deliveries.
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
-`https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+`https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md)
 

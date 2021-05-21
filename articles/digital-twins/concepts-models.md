@@ -127,7 +127,7 @@ The fields of the model are:
 
 | Field | Description |
 | --- | --- |
-| `@id` | An identifier for the model. Must be in the format `dtmi:<domain>:<unique model identifier>;<model version number>`. |
+| `@id` | An identifier for the model. Must be in the format `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. |
 | `@type` | Identifies the kind of information being described. For an interface, the type is *Interface*. |
 | `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
 | `displayName` | [optional] Allows you to give the model a friendly name if desired. |

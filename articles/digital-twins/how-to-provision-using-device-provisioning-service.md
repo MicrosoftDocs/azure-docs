@@ -75,7 +75,7 @@ The following Azure CLI command will create a Device Provisioning Service. You'l
 The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
-az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region>
+az iot dps create --name <Device-Provisioning-Service-name> --resource-group <resource-group-name> --location <region>
 ```
 
 ### Add a function to use with Device Provisioning Service
@@ -161,10 +161,10 @@ Now, use the values above to update the .env file settings.
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
-PROVISIONING_IDSCOPE = "<Device Provisioning Service Scope ID>"
-PROVISIONING_REGISTRATION_ID = "<Device Registration ID>"
+PROVISIONING_IDSCOPE = "<Device-Provisioning-Service-Scope-ID>"
+PROVISIONING_REGISTRATION_ID = "<Device-Registration-ID>"
 ADT_MODEL_ID = "dtmi:contosocom:DigitalTwins:Thermostat;1"
-PROVISIONING_SYMMETRIC_KEY = "<Device Provisioning Service enrollment primary SAS key>"
+PROVISIONING_SYMMETRIC_KEY = "<Device-Provisioning-Service-enrollment-primary-SAS-key>"
 ```
 
 Save and close the file.
@@ -185,7 +185,7 @@ You should see the device being registered and connected to IoT Hub, and then st
 As a result of the flow you've set up in this article, the device will be automatically registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](concepts-cli.md) command to find the twin of the device in the Azure Digital Twins instance you created.
 
 ```azurecli-interactive
-az dt twin show --dt-name <Digital Twins instance name> --twin-id "<Device Registration ID>"
+az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
 ```
 
 You should see the twin of the device being found in the Azure Digital Twins instance.
@@ -234,7 +234,7 @@ Next, configure the Azure function app that you set up in the [prerequisites](#p
 2. Add the connection string as a variable in the function app settings with the following Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli).
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" --resource-group <resource group> --name <your App Service (function app) name>
+    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-App-Service-function-app-name>
     ```
 
 ### Add a function to retire with IoT Hub lifecycle events
@@ -321,7 +321,7 @@ It might take a few minutes to see the changes reflected in Azure Digital Twins.
 Use the following [Azure Digital Twins CLI](concepts-cli.md) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
 
 ```azurecli-interactive
-az dt twin show --dt-name <Digital Twins instance name> --twin-id "<Device Registration ID>"
+az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
 ```
 
 You should see that the twin of the device cannot be found in the Azure Digital Twins instance anymore.

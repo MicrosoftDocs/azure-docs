@@ -145,9 +145,9 @@ Azure Digital Twins instance name that you chose earlier when creating the insta
 
 ```azurepowershell-interactive
 $Params = @{
-  ObjectId = '<Azure-AD-user-object-id-of-user-to-assign>'
+  ObjectId = '<Azure-AD-user-object-ID-of-user-to-assign>'
   RoleDefinitionName = 'Azure Digital Twins Data Owner'
-  Scope = '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<name-for-your-Azure-Digital-Twins-instance>'
+  Scope = '/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<name-for-your-Azure-Digital-Twins-instance>'
 }
 New-AzRoleAssignment @Params
 ```

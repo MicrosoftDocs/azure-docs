@@ -82,7 +82,7 @@ The CLI command to create this type of endpoint is below. You'll need the follow
 * the location of your Azure Digital Twins instance
 
 ```azurecli-interactive
-az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-Event-Hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
 ```
 
 ### Create an endpoint with dead-lettering
@@ -148,14 +148,14 @@ Here are the values you'll need to plug into the placeholders in the command:
 * the location of your Azure Digital Twins instance
 
 ```azurecli-interactive
-az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-Event-Hub-or-Service-Bus-topic>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
 ```
 
 #### Message storage schema
 
 Once the endpoint with dead-lettering is set up, dead-lettered messages will be stored in the following format in your storage account:
 
-`{container}/{endpoint-name}/{year}/{month}/{day}/{hour}/{event-ID}.json`
+`<container>/<endpoint-name>/<year>/<month>/<day>/<hour>/<event-ID>.json`
 
 Dead-lettered messages will match the schema of the original event that was intended to be delivered to your original endpoint.
 
@@ -168,7 +168,7 @@ Here is an example of a dead-letter message for a [twin create notification](con
   "type": "Microsoft.DigitalTwins.Twin.Create",
   "source": "<your-instance>.api.<your-region>.da.azuredigitaltwins-test.net",
   "data": {
-    "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "$dtId": "<your-instance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
     "TwinData": "some sample",
     "$metadata": {
@@ -178,7 +178,7 @@ Here is an example of a dead-letter message for a [twin create notification](con
       }
     }
   },
-  "subject": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "subject": "<your-instance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "time": "2020-10-14T01:11:49.3667224Z",
   "datacontenttype": "application/json",
   "traceparent": "00-889a9094ba22b9419dd9d8b3bfe1a301-f6564945cb20e94a-01"
@@ -246,7 +246,7 @@ You can restrict the events being sent by adding a **filter** for an endpoint to
 >
 > For telemetry filters, this means that the casing needs to match the casing in the telemetry sent by the device, not necessarily the casing defined in the twin's model. 
 
-To add a filter, you can use a PUT request to `https://{Your-azure-digital-twins-host-name}/eventRoutes/{event-route-name}?api-version=2020-10-31` with the following body:
+To add a filter, you can use a PUT request to `https://<Your-Azure-Digital-Twins-host-name>/eventRoutes/<event-route-name>?api-version=2020-10-31` with the following body:
 
 :::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
 

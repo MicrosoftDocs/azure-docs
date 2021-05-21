@@ -53,7 +53,7 @@ To create a thermostat-type twin, you'll first need to upload the thermostat [mo
 You'll then need to **create one twin using this model**. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value.
 
 ```azurecli-interactive
-az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
+az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name <Digital-Twins-instance-name>
 ```
 
 > [!Note]
@@ -61,7 +61,7 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 >
 > Create twin:
 > ```azurecli-interactive
-> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name {digital_twins_instance_name}
+> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name <Digital-Twins-instance-name>
 > ```
 
 When the twin is created successfully, the CLI output from the command should look something like this:
@@ -158,7 +158,7 @@ In the end-to-end tutorial, complete the following steps:
 While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value.
 
 ```azurecli-interactive
-az dt twin query --query-command "select * from digitaltwins" --dt-name {digital_twins_instance_name}
+az dt twin query --query-command "select * from digitaltwins" --dt-name <Digital-Twins-instance-name>
 ```
 
 Your output should contain a temperature value like this:

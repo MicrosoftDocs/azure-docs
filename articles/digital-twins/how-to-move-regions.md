@@ -148,7 +148,7 @@ Currently, Azure Digital Twins Explorer is connected to your original Azure Digi
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Screenshot of the Azure Digital Twins Explorer highlighting the Sign In icon in the upper-right corner of the window." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Replace the **ADT URL** to reflect your new instance. Change this value so that it reads *https://{new instance host name}*.
+Replace the **ADT URL** to reflect your new instance. Change this value so that it reads *https://<new-instance-host-name>*.
 
 Select **Connect**. You might be asked to sign in again with your Azure credentials or grant this application consent for your instance.
 
