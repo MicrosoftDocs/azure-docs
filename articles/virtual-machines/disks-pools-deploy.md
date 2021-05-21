@@ -82,7 +82,11 @@ In the Access Control List options section, set the ACL mode to dynamic.
 
 Select Review + create.
 
-## PowerShell
+
+# [PowerShell](#tab/azure-powershell)
+
+PowerShell content
+
 
 ```azurepowershell
 #upgrade PSH module 
@@ -154,3 +158,10 @@ New-AzIscsiTarget -ResourceGroupName $resourceGroupName -TargetIqn $targetIqn -D
 
 Get-AzIscsiTarget -ResourceGroupName $resourceGroupName -Name $iscsiTargetName - 
 ```
+
+
+# [Azure CLI](#tab/azure-cli)
+
+CLI content
+
+---
