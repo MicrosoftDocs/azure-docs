@@ -67,7 +67,6 @@ The following list shows the insights you can retrieve from your videos using Vi
 * **Rolling credits**: Identifies the beginning and end of the rolling credits in the end of TV shows and movies.
 * **Animated characters detection** (preview): Detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
 * **Editorial shot type detection**: Tagging shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
-* **Observed People Tracing**: detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
 
 ### Audio insights
 

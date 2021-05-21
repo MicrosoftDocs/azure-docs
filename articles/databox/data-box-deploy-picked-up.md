@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/04/2021
+ms.date: 05/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -342,7 +342,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone target="docs"
 
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload.md)]
 
 ::: zone-end
 -->
@@ -365,7 +365,8 @@ If you're using Data Box in US Government, Japan, Singapore, Korea, India, South
     ```
 
    > [!NOTE]
-   > Required information for return may vary by region.
+   > - Required information for return may vary by region. 
+   > - If you're returning a Data Box in Brazil, see [Use self-managed shipping for Azure Data Box](data-box-portal-customer-managed-shipping.md) for detailed instructions. 
 
 ::: zone target="chromeless"
 
@@ -388,4 +389,3 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
-

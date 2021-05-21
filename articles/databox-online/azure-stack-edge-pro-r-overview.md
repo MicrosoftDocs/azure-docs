@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 02/22/2021
+ms.date: 04/19/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -65,6 +65,8 @@ The Azure Stack Edge Pro R solution comprises of an Azure Stack Edge resource, A
 - **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge Pro R device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
 - **Azure Stack Edge Pro R local web UI** - A browser-based local user interface on your Azure Stack Edge Pro R device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
+
+    [!INCLUDE [azure-stack-edge-gateway-local-web-ui-languages](../../includes/azure-stack-edge-gateway-local-web-ui-languages.md)]
 
 
 ## Region availability

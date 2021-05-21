@@ -52,13 +52,15 @@ To reflect the fact that the security alerts provided by Azure Defender for Kube
 
 |Alert (alert type)|Description|
 |----|----|
-|Kubernetes penetration testing tool detected<br>(**AKS**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **AKS** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.|
+|Kubernetes penetration testing tool detected<br>(**AKS**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **AKS** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.
+|||
 
 will become:
 
 |Alert (alert type)|Description|
 |----|----|
 |Kubernetes penetration testing tool detected<br>(**K8s**_PenTestToolsKubeHunter)|Kubernetes audit log analysis detected usage of Kubernetes penetration testing tool in the **Kubernetes** cluster. While this behavior can be legitimate, attackers might use such public tools for malicious purposes.|
+|||
 
 Any suppression rules that refer to alerts beginning "AKS_" will be automatically converted. If you've setup SIEM exports, or custom automation scripts that refer to Kubernetes alerts by alert type, you'll need to update them with the new alert types.
 

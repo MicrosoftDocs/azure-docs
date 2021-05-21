@@ -284,6 +284,10 @@ This article provides answers to some of the most common questions about running
 
    No. The SQL Server license type is not an optional property when you're registering with the SQL IaaS Agent extension. You have to set the SQL Server license type as pay-as-you-go or Azure Hybrid Benefit when registering with the SQL IaaS Agent extension in all manageability modes (NoAgent, lightweight, and full). If you have any of the free versions of SQL Server installed, such as Developer or Evaluation edition, you must register with pay-as-you-go licensing. Azure Hybrid Benefit is only available for paid versions of SQL Server such as Enterprise and Standard editions.
 
+1. **What is the default license type when using the automatic registration feature?**
+   
+   The license type automatically defaults to that of the VM image. If you use a pay-as-you-go image for your VM, then your license type will be `PAYG`, otherwise your license type will be `AHUB` by default. 
+
 1. **Can I upgrade the SQL Server IaaS extension from NoAgent mode to full mode?**
 
    No. Upgrading the manageability mode to full or lightweight is not available for NoAgent mode. This is a technical limitation of Windows Server 2008. You will need to upgrade the OS first to Windows Server 2008 R2 or greater, and then you will be able to upgrade to full management mode. 
