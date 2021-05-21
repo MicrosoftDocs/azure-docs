@@ -11,7 +11,9 @@ ms.date: 05/28/2021
 
 # Configure and manage DHCP for Azure VMware Solution
 
-Applications and workloads running in a private cloud environment require DHCP services for IP address assignments. In this how-to article, you'll configure DHCP for Azure VMware Solution in one of the following ways: 
+[!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
+
+In this how-to article, you'll configure DHCP for Azure VMware Solution in one of the following ways: 
 
 - [NSX-T to host your DHCP server](#use-nsx-t-to-host-your-dhcp-server)
 
