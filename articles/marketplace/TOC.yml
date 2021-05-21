@@ -237,8 +237,6 @@
         href: dynamics-365-customer-engage-technical-configuration.md
       - name: Supplemental content
         href: dynamics-365-customer-engage-supplemental-content.md
-      - name: Review and publish
-        href: dynamics-365-customer-engage-review-publish.md
     - name: Create an Operations offer
       items: 
       - name: Create a Dynamics 365 for Operations offer
@@ -259,6 +257,8 @@
         href: dynamics-365-business-central-technical-configuration.md
       - name: Supplemental content
         href: dynamics-365-business-central-supplemental-content.md
+    - name: Review and publish
+      href: dynamics-365-review-publish.md
   - name: IoT Edge module offers
     items:
     - name: Plan an IoT Edge module offer
