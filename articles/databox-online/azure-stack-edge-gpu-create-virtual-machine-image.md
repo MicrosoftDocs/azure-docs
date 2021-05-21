@@ -36,7 +36,7 @@ Do the following steps to create a Windows VM image.
 
    The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD. 
 
-2. Generalize the virtual machine. Connect to the virtual machine, open a command prompt, and run the following `sysprep` command:<!--This step is in the "Download a Windows VHD from Azure topic.-->
+2. Generalize the virtual machine. Connect to the virtual machine, open a command prompt, and run the following `sysprep` command:<!--Or link to "Optional: Generalize the VM" in "Download a Windows VHD from Azure" (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/download-vhd#optional-generalize-the-vm).-->
     
     `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
 
@@ -56,13 +56,16 @@ Do the following steps to create a Windows VM image.
       For example, XX downloads an OS VHD to the XX storage account.
 
       ```azcopy
-      XXX
+      azcopy copy <source URI TK> https://asadassivhdstoracc.blob.core.windows.net/vhd/linux.vhd?sp=racwdl&st=2021-05-03T21:41:48Z&se=2021-05-04T05:41:48Z&sv=2020-02-10&sr=c&sig=Hg3u0D2DNm6CFqUJqa7BL2tWwgBvgOkCqfJ5V5iRB%2BA%3D
       ```
-      For more copy options, see [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
-
-<!--Assuming the "source uri" is the download URL they generated in step 3b, how do they get a "target URI"? 
-In az copy examples, I'm seeing a full path within Blob storage instead of a uri. 
+<!--How do they get a "target URI"? In az copy examples, I'm seeing a full path within Blob storage instead of a uri. 
 Sample format line: azcopy copy "SUB Download URI" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"-->
+
+   If you'd rather download the disk locally, run this command:
+
+   
+
+   
 
 You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro device.
 
