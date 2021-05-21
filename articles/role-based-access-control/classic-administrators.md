@@ -38,7 +38,7 @@ This article describes how to add or change the Co-Administrator and Service Adm
 
 1. Click the **Classic administrators** tab.
 
-    ![Screenshot that opens Classic administrators](./media/classic-administrators/classic-administrators.png)
+    ![Screenshot that opens Classic administrators](./media/shared/classic-administrators.png)
 
 1. Click **Add** > **Add co-administrator** to open the Add co-administrators pane.
 
@@ -107,7 +107,7 @@ Follow these steps to change the Service Administrator in the Azure portal.
 
 1. In the left navigation, click **Properties**.
 
-1. Click **Service Admin**.
+1. Click **Change service Admin**.
 
     ![Screenshot showing the subscription properties in the Azure portal](./media/classic-administrators/service-admin.png)
 

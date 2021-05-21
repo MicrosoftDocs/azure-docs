@@ -46,7 +46,7 @@ Account Administrator, Service Administrator, and Co-Administrator are the three
 
 In the Azure portal, you can manage Co-Administrators or view the Service Administrator by using the **Classic administrators** tab.
 
-![Azure classic subscription administrators in the Azure portal](./media/rbac-and-directory-admin-roles/subscription-view-classic-administrators.png)
+![Azure classic subscription administrators in the Azure portal](./media/shared/classic-administrators.png)
 
 In the Azure portal, you can view or change the Service Administrator or view the Account Administrator on the properties blade of your subscription.
 
@@ -81,11 +81,11 @@ Only the Azure portal and the Azure Resource Manager APIs support Azure RBAC. Us
 
 In the Azure portal, role assignments using Azure RBAC appear on the **Access control (IAM)** blade. This blade can be found throughout the portal, such as management groups, subscriptions, resource groups, and various resources.
 
-![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
+![Access control (IAM) blade in the Azure portal](./media/shared/sub-role-assignments.png)
 
 When you click the **Roles** tab, you will see the list of built-in and custom roles.
 
-![Built-in roles in the Azure portal](./media/rbac-and-directory-admin-roles/roles-list.png)
+![Built-in roles in the Azure portal](./media/shared/roles-list.png)
 
 For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
