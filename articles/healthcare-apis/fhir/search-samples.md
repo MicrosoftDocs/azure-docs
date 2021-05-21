@@ -29,7 +29,7 @@ Below are some examples of using FHIR search operations, including search parame
 
 ### _revinclude
 
-`_revinclude` allows you to search the opposite direction as `_include`. For example, you can for patients and then reverse include all encounters that reference the patients:
+`_revinclude` allows you to search the opposite direction as `_include`. For example, you can search for patients and then reverse include all encounters that reference the patients:
 
 ```rest
 GET [your-fhir-server]/Patient?_revinclude=Encounter:subject
@@ -99,7 +99,7 @@ To perform a series of search operations that cover multiple reference parameter
 
 This request would return all the resources with the patient subject named "Sarah". The period `.` after the field `Patient` performs the chained search on the reference parameter of the `subject` parameter.
 
-Another common use of a regular search is finding all encounters for a specific patient. `Patient`s will often have one or more `Encounter`s with a subject. To search for all `Encounter` resources for a `Patient` with the provided `id`:
+Another common use of a regular search (not a chained search) is finding all encounters for a specific patient. `Patient`s will often have one or more `Encounter`s with a subject. To search for all `Encounter` resources for a `Patient` with the provided `id`:
 
 ```rest
 GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
