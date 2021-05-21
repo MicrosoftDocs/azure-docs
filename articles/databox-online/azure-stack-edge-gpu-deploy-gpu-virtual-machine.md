@@ -468,6 +468,7 @@ PS C:\WINDOWS\system32>
 > When the deployment is complete, the `ProvisioningState` changes to `Succeeded`.
 
 The extension execution output is logged to the following file: `/var/log/azure/nvidia-vmext-status`.
+
 ---
 
 ### Verify driver installation
@@ -591,6 +592,7 @@ Follow these steps to verify the driver installation:
     ```
 
 For more information, see [Nvidia GPU driver extension for Linux](../virtual-machines/extensions/hpccompute-gpu-linux.md).
+
 ---
 
 
@@ -610,7 +612,6 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------    
           True                OK         OK
 ```
-
 
 
 ## Next steps
