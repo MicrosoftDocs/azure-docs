@@ -122,12 +122,12 @@ az group create --name MyResourceGroupName --location eastus --subscription MySu
 
 The output shows the `provisioningState` as `Succeeded` when your resource group is successfully created:
 
-```azurecli
+```output
 <...>
-  "name": "testResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
+   "name": "testResourceGroup",
+   "properties": {
+      "provisioningState": "Succeeded"
+    },
 <...>
 ```
 
@@ -136,26 +136,34 @@ The output shows the `provisioningState` as `Succeeded` when your resource group
 To create an Azure Arc enabled logic app using the Azure CLI, run the command `az logicapp create` as follows:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount 
-        --custom-location MyCustomLocation --subscription MySubscription
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName 
+   --storage-account MyStorageAccount --custom-location MyCustomLocation 
+   --subscription MySubscription
 ```
 
 > [!IMPORTANT]
-> Make sure to use the same location as your custom location and Kubernetes environment. 
-> The locations for your logic app resource, custom location, and Kubernetes environment must all be the same.
+> Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. 
+> The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. 
+> This value is *not the same* as the *name* for your custom location.
 
-Be sure to provide the required parameters in your command:
-* `--name -n`: A unique name for your logic app.
-* `--resource-group -g`: The name of the [resource group](../azure-resource-manager/management/manage-resource-groups-cli.md) in which you want to create your logic app. [Create a resource group](#create-resource-group) if you don't have one to use.
-*  `--storage-account -s`: The [storage account](/cli/azure/storage/account) that you want to use with your logic app. For storage accounts in the same resource group, use a string value. For storage accounts in a different resource group, use a resource ID. `
+Make sure to provide the following required parameters in your command:
+
+| Parameters | Description |
+|------------|-------------|
+| `--name -n` | A unique name for your logic app |
+| `--resource-group -g` | The name of the [resource group](../azure-resource-manager/management/manage-resource-groups-cli.md) where you want to create your logic app. If you don't have one to use, [create a resource group](#create-resource-group). |
+| `--storage-account -s` | The [storage account](/cli/azure/storage/account) that you want to use with your logic app. For storage accounts in the same resource group, use a string value. For storage accounts in a different resource group, use a resource ID. |
+|||
 
 To create a logic app in Azure Arc using a private Azure Container Registry image, run `az logicapp create` as follows:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --subscription MySubscription
-        --custom-location MyCustomLocation
-        --deployment-container-image-name myacr.azurecr.io/myimage:tag
-        --docker-registry-server-password passw0rd --docker-registry-server-user MyUser
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName 
+   --storage-account MyStorageAccount --subscription MySubscription
+   --custom-location MyCustomLocation 
+   --deployment-container-image-name myacr.azurecr.io/myimage:tag
+   --docker-registry-server-password passw0rd 
+   --docker-registry-server-user MyUser
 ```
 
 #### Show logic app details
@@ -163,7 +171,8 @@ az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --
 To show details about your Azure Arc enabled logic app, run the command `az logicapp show` as follows:
 
 ```azurecli
-az logicapp show --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp show --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Deploy logic app
@@ -171,7 +180,10 @@ az logicapp show --name MyLogicAppName --resource-group MyResourceGroupName --su
 To deploy your logic app using Kudu's zip deployment, run the command `az logicapp deployment source config-zip`. For example:
 
 ```azurecli
-az logicapp deployment source config-zip --name MyLogicAppName --resource-group MyResourceGroupName --src C:\uploads\v22.zip --subscription MySubscription
+az logicapp deployment source config-zip --name MyLogicAppName 
+   --resource-group MyResourceGroupName 
+   --src C:\uploads\v22.zip 
+   --subscription MySubscription
 ```
 
 #### Start logic app
@@ -179,7 +191,8 @@ az logicapp deployment source config-zip --name MyLogicAppName --resource-group 
 To start your Azure Arc enabled logic app, run the command `az logicapp start` with the following required parameters:
 
 ```azurecli
-az logicapp start --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp start --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Stop logic app
@@ -187,7 +200,8 @@ az logicapp start --name MyLogicAppName --resource-group MyResourceGroupName --s
 To stop your Azure Arc enabled logic app, run the command `az logicapp stop` with the following required parameters:
 
 ```azurecli
-az logicapp stop --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp stop --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Restart logic app
@@ -195,7 +209,8 @@ az logicapp stop --name MyLogicAppName --resource-group MyResourceGroupName --su
 To restart your Azure Arc enabled logic app, run the command `az logicapp restart` with the following required parameters:
 
 ```azurecli
-az logicapp restart --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp restart --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Delete logic app
@@ -411,7 +426,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is *not* the same as the *name* for your custom location. |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The location for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is not the same as the *name* for your custom location. |
 | App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,logicapp,linux` |
 | Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have the `"type"` set to `"CustomLocation"`. |
 | Hosting plan resource ID | `serverFarmId` | The resource ID of the associated App Service plan, formatted as follows: <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
@@ -484,7 +499,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is *not* the same as the *name* of your custom location. |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is *not the same* as the *name* for your custom location. |
 | App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,logicapp,container` |
 | Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have `"type"` set to `"CustomLocation"`. |
 | Container name | `linuxFxVersion` | The name for your container, formatted as follows: `DOCKER\|<container-name>` |
@@ -671,13 +686,19 @@ To change this maximum, use the Azure CLI (logic app create only) and Azure port
 For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --custom-location --subscription MySubscription  MyCustomLocation [--plan MyHostingPlan] [--min-worker-count 1] [--max-worker-count 4]
+az logicapp create --resource-group MyResourceGroupName 
+   --name MyLogicAppName --storage-account MyStorageAccount 
+   --custom-location --subscription MySubscription  MyCustomLocation 
+   [--plan MyHostingPlan] [--min-worker-count 1] [--max-worker-count 4]
 ```
 
 To configure your maximum instance count, use the `--settings` parameter:
 
 ```azurecli
-az logicapp config appsettings set --name MyLogicAppName --resource-group MyResourceGroupName --settings "K8SE_APP_MAX_INSTANCE_COUNT=10" --subscription MySubscription
+az logicapp config appsettings set --name MyLogicAppName 
+   --resource-group MyResourceGroupName 
+   --settings "K8SE_APP_MAX_INSTANCE_COUNT=10" 
+   --subscription MySubscription
 ```
 
 #### Azure portal
@@ -688,8 +709,9 @@ In your single-tenant based logic app's settings, add or edit the `K8SE_APP_MAX_
 1. On the logic app menu, under **Settings**, select **Configuration**.
 1. In the **Configuration** pane, under **Application settings**, either add a new application setting or edit the existing value, if already added.
 
-   * Select **New application setting**, and add the `K8SE_APP_MAX_INSTANCE_COUNT` setting with the maximum value you want.
-   * Edit the existing value for the `K8SE_APP_MAX_INSTANCE_COUNT` setting.
+   1. Select **New application setting**, and add the `K8SE_APP_MAX_INSTANCE_COUNT` setting with the maximum value you want.
+
+   1. Edit the existing value for the `K8SE_APP_MAX_INSTANCE_COUNT` setting.
 
 1. When you're done, save your changes.
 
@@ -704,13 +726,17 @@ To change this minimum, use the Azure CLI or the Azure portal.
 For a existing logic app resource, run the Azure CLI command, `az logicapp scale`, for example:
 
 ```azurecli
-az logicapp scale --name MyLogicAppName --resource-group MyResourceGroupName --instance-count 5 --subscription MySubscription
+az logicapp scale --name MyLogicAppName --resource-group MyResourceGroupName 
+   --instance-count 5 --subscription MySubscription
 ```
 
 For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --custom-location --subscription MySubscription MyCustomLocation [--plan MyHostingPlan] [--min-worker-count 2] [--max-worker-count 4]
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName 
+   --storage-account MyStorageAccount --custom-location 
+   --subscription MySubscription MyCustomLocation 
+   [--plan MyHostingPlan] [--min-worker-count 2] [--max-worker-count 4]
 ```
 
 #### Azure portal
@@ -728,22 +754,29 @@ To get more information about your deployed logic apps, try the following option
 
 ### Access app settings and configuration
 
-To access your app settings, run the following Azure CLI command: 
+To access your app settings, run the following Azure CLI command:
 
 ```azurecli
-az logicapp config appsettings list --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp config appsettings list --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 To configure an app setting, run the command `az logicapp config appsettings set` as follows. Make sure to use the `--settings` parameter with your setting's name and value.
 
 ```azurecli
-az logicapp config appsettings set --name MyLogicAppName --resource-group MyResourceGroupName --settings "MySetting=1" --subscription MySubscription
+az logicapp config appsettings set --name MyLogicAppName 
+   --resource-group MyResourceGroupName 
+   --settings "MySetting=1" 
+   --subscription MySubscription
 ```
 
 To delete an app setting, run the command `az logicapp config appsettings delete` as follows. Make sure to using the `--setting-names` parameter with the name of the setting you want to delete.
 
 ```azurecli
-az logicapp config appsettings delete --name MyLogicAppName --resource-group MyResourceGroupName --setting-names MySetting --subscription MySubscription
+az logicapp config appsettings delete --name MyLogicAppName 
+   --resource-group MyResourceGroupName 
+   --setting-names MySetting 
+   --subscription MySubscription
 ```
 
 ### View logic app properties
