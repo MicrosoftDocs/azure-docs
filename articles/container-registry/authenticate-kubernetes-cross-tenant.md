@@ -31,7 +31,7 @@ You use the following steps to:
 
 ### Step 1: Create multitenant Azure AD application
 
-1. Sign in to the [Azure portal](http://portal.azure.com/) in **Tenant A**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) in **Tenant A**.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations > + New registration**.
 1. In **Supported account types**, select **Accounts in any organizational directory**.
@@ -64,7 +64,7 @@ In **Tenant B**, assign the AcrPull role to the service principal, scoped to the
 
 ### Step 4: Update AKS with the Azure AD application secret
 
-Use the multitenant application (client) ID and client secret collected in Step 1 to [update the AKS service principal credential](../aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials.md).
+Use the multitenant application (client) ID and client secret collected in Step 1 to [update the AKS service principal credential](../aks/update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
 
 Updating the service principal can take several minutes.
 
@@ -72,6 +72,6 @@ Updating the service principal can take several minutes.
 
 * For more about working with service principals and Azure Container Registry, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
 * Learn more about image pull secrets in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
-- [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)
+- [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
 
 
