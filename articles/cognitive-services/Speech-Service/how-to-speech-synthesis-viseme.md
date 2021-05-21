@@ -32,7 +32,8 @@ Visemes make avatars easier to use and control. Using visemes, you can:
  * Make more **effective language teaching videos** that help language learners to understand the mouth behavior of each word and phoneme. 
  * People with hearing impairment can also pick up sounds visually and **"lip-read"** speech content that shows visemes on an animated face.
 
-See the introduction [video](https://www.youtube.com/watch?v=ui9XT47uwxs) of the viseme.
+See the introduction video of the viseme.
+> [!Video https://www.youtube.com/watch?v=ui9XT47uwxs]
 
 ## Azure neural TTS can produce visemes with speech
 
@@ -43,19 +44,7 @@ A neural voice turns input text or SSML (Speech Synthesis Markup Language) into 
 | Viseme ID | Integer number that specifies a viseme. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. There is no one-to-one correspondence between visemes and phonemes. Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s` and `z`. See the [mapping table between Viseme ID and phonemes](#map-phonemes-to-visemes).  |
 | Audio offset | The start time of each viseme, in ticks (100 nanoseconds). |
 
-Here is an example of the viseme output.
-
-(Viseme), Viseme ID: 1, Audio offset: 200ms.
-
-(Viseme), Viseme ID: 5, Audio offset: 850ms.          
-
-……
-
-(Viseme), Viseme ID: 13, Audio offset: 2350ms.
-
- 
 ## Get viseme events with the Speech SDK
-
 
 To get viseme events, please subscribe to the `VisemeReceived` event in Speech SDK.
 The following snippets show how to subscribe the viseme event.
@@ -160,6 +149,18 @@ SPXSpeechSynthesizer *synthesizer =
 ```
 
 ::: zone-end
+
+Here is an example of the viseme output.
+
+```text
+(Viseme), Viseme ID: 1, Audio offset: 200ms.
+
+(Viseme), Viseme ID: 5, Audio offset: 850ms.          
+
+……
+
+(Viseme), Viseme ID: 13, Audio offset: 2350ms.
+```
 
 ## Map phonemes to visemes
 
