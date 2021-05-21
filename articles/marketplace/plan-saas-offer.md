@@ -1,5 +1,5 @@
 ---
-title: How to plan a SaaS offer for the Microsoft commercial marketplace
+title: How to plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
 description: How to plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 05/21/2021
 ---
 
 # How to plan a SaaS offer for the commercial marketplace
@@ -44,15 +44,13 @@ The _Contact me_ listing option has no technical requirements. You have the opti
 
 The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing options have the following technical requirements:
 
-- Your SaaS application must be a multitenant solution.
-- You can enable both Microsoft Accounts (MSA) and [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for authenticating users.
+- You must enable both Microsoft Accounts (MSA) and [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for authenticating buyers on your site. You must let buyers with an Azure AD account sign in to your application using Azure AD with single sign-on (SSO).
 - You must create a landing page. After a user purchases your offer, they’re directed to the landing page. This helps them complete any additional provisioning or setup that’s required. For guidance on creating the landing page, see these articles:
   - [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md)
   - [Build the landing page for your free or trial SaaS offer in the commercial marketplace](azure-ad-free-or-trial-landing-page.md)
 
 These additional technical requirements apply to the _Sell through Microsoft_ (transactable) listing option only:
 
-- Azure AD with single sign-on (SSO) identity management and authentication is required for the buying user accessing the landing page. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 - You must use the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with Azure Marketplace and Microsoft AppSource. You must expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - You must create at least one plan for your offer. Your plan is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. More details about [plans](#plans) are provided later in this article.
 - The customer can cancel your offer at any time.
