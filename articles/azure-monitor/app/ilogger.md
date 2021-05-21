@@ -460,11 +460,13 @@ From the *appsettings.json* file:
 
 ```json
 {
-  "Logging": {
-    "ApplicationInsights": {
-      "LogLevel": {
-        "Default": "None"
-      }
+    "Logging": {
+        "ApplicationInsights": {
+            "LogLevel": {
+                "Default": "None"
+            }
+        }
+    }
 }
 ```
 
