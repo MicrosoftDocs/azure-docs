@@ -32,7 +32,7 @@ The Microsoft identity platform performs identity and access management (IAM) on
   - [Application administrator](../roles/permissions-reference.md#application-administrator) - can create and manage all aspects of app registrations and enterprise apps.
   - [Application developer](../roles/permissions-reference.md#application-developer) - can create application registrations independent of the 'Users can register applications' setting.
   - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator) - can create and manage all aspects of app registrations and enterprise apps except App Proxy.
-- Completion of the [user permission](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)
+- Completion of the [user permission set up](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance) to register application.
 - Completion of the [Set up a tenant](quickstart-create-new-tenant.md) quickstart.
 
 ## Register an application
