@@ -208,7 +208,7 @@ Once above permissions are granted, you can now proceed to [enabling the custom 
 
 ## Arc enabled Open Service Mesh
 
-The following troubleshooting steps provide guidance on valiating the deployment of all the Open Service Mesh extension components on your cluster.
+The following troubleshooting steps provide guidance on validating the deployment of all the Open Service Mesh extension components on your cluster.
 
 ### 1. Check OSM Controller **Deployment**
 ```bash

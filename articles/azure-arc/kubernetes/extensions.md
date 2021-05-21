@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/12/2021
+ms.date: 05/21/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -250,4 +250,4 @@ Learn more about the cluster extensions currently available for Azure Arc enable
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Arc enabled Open Service Mesh](tutorial-arc-enabled-osm.md)
+> [Azure Arc enabled Open Service Mesh](tutorial-arc-enabled-osm.md)
