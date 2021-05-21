@@ -106,11 +106,11 @@ Follow these steps when deploying GPU VMs on your device:
 
     ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-gpu-virtual-machine-1.png)
 
-1. After the VM is created, deploy GPU extension using the extension template. For linux VMs, see [Install GPU extension for Linux](#gpu-extension-for-linux) and for Windows VMs, see [Install GPU extension for Windows](#gpu-extension-for-windows).
+1. After the VM is created, deploy GPU extension using the extension template. For linux VMs, see [Install GPU extension for Linux](#gpu-extension-for-linux) and for Windows VMs, see [Install GPU extension for Windows](#install-gpu-extension).
 
 1. To verify GPU extension install, connect to the GPU VM:
-    1. If using a Windows VM, follow the steps in [Connect to a Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Verify the installation](#verify-windows-driver-installation).
-    1. If using a Linux VM, follow the steps in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Verify the installation](#verify-linux-driver-installation).
+    1. If using a Windows VM, follow the steps in [Connect to a Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Verify the installation](#verify-driver-installation).
+    1. If using a Linux VM, follow the steps in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Verify the installation](#verify-driver-installation).
 
 1. If needed, you could switch the compute network back to whatever you need. 
 
@@ -231,7 +231,6 @@ If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.
     }
 }
 ```
-
 
 Here is a sample Ubuntu parameter file that was used in this article:
 
@@ -473,7 +472,7 @@ The extension execution output is logged to the following file: `/var/log/azure/
 
 ### Verify driver installation
 
-### [Windows](#tab/windows)
+#### [Windows](#tab/windows)
 
 Sign in to the VM and run the nvidia-smi command-line utility installed with the driver. The `nvidia-smi.exe` is located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
 
