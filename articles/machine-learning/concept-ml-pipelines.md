@@ -17,7 +17,7 @@ ms.custom: devx-track-python
 In this article, you learn how a machine learning pipeline helps you build, optimize, and manage your machine learning workflow. 
 
 <a name="compare"></a>
-## Which Azure pipeline technology should I use?
+## Which Azure Pipeline technology should I use?
 
 The Azure cloud provides several types of pipeline, each with a different purpose. The following table lists the different pipelines and what they are used for:
 
@@ -44,7 +44,7 @@ With pipelines, you may choose to use different hardware for different tasks. Az
 
 You can [track the metrics for your pipeline experiments](./how-to-log-view-metrics.md) directly in  Azure portal or your [workspace landing page (preview)](https://ml.azure.com). After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
 
-In short, all of the complex tasks of the machine learning lifecycle can be helped with pipelines. Other Azure pipeline technologies have their own strengths. [Azure Data Factory pipelines](../data-factory/concepts-pipelines-activities.md) excels at working with data and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is the right tool for continuous integration and deployment. But if your focus is machine learning, Azure Machine Learning pipelines are likely to be the best choice for your workflow needs. 
+In short, all of the complex tasks of the machine learning lifecycle can be helped with pipelines. Other Azure Pipeline technologies have their own strengths. [Azure Data Factory pipelines](../data-factory/concepts-pipelines-activities.md) excels at working with data and [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is the right tool for continuous integration and deployment. But if your focus is machine learning, Azure Machine Learning pipelines are likely to be the best choice for your workflow needs. 
 
 ### Analyzing dependencies
 
