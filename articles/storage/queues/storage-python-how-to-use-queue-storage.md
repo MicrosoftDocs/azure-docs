@@ -113,7 +113,7 @@ queue_service.create_queue(queue_name)
 
 ---
 
-Azure queue messages are stored as text. If you want to store binary data, setup Base64 encoding and decoding functions before putting a message in the queue.
+Azure Queue Messages are stored as text. If you want to store binary data, setup Base64 encoding and decoding functions before putting a message in the queue.
 
 # [Python v12](#tab/python)
 
