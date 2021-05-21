@@ -30,7 +30,7 @@ Depending on the Application Insights logging package you use, there will be var
 
 To add Application Insights telemetry to to ASP.NET Core applications, use the `Microsoft.ApplicationInsights.AspNetCore` NuGet package. This can be configured from with [Visual Studio as a Connected service](/visualstudio/azure/azure-app-insights-add-connected-service), or manually.
 
-By default, ASP.NET Core applications have Application Insights registered when configured using the [Code](./asp-net-core.md) or [Code-less](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) approach. The registered provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater. Severity and categories may be customized. For more information, see [Control logging level](#control-logging-level).
+By default, ASP.NET Core applications have Application Insights logging provider registered when configured using the [Code](./asp-net-core.md) or [Code-less](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) approach. The registered provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater. Severity and categories may be customized. For more information, see [Control logging level](#control-logging-level).
 
 1. Ensure that the NuGet package is installed:
 
@@ -516,4 +516,3 @@ The Application Insights extension in Azure Web Apps uses the new provider. You 
 * [Logging in .NET](/dotnet/core/extensions/logging)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
-
