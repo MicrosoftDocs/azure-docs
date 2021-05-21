@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    In the **Identifier** text box, type one of the following URLs:
+    a. In the **Identifier** text box, type one of the following URLs:
 
     | Identifier |
     |-----------|
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://my.teamgo.co/integration/saml/serviceProviderEntityId` |
     |
 
-    In the **Reply URL** text box, type a URL using one of the following patterns:
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
     | Reply URL |
     |-----------|
