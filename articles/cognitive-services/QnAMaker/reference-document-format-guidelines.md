@@ -97,7 +97,7 @@ After the file is imported, the question-and-answer pair is in the knowledge bas
 
 ### Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source. [QnA pairs](/how-to/edit-knowledge-base#question-and-answer-pairs) have an optional metadata field that can be used to group QnA pairs into categories.
 
 | Question  | Answer  | Source| Metadata (1 key: 1 value) |
 |-----------|---------|----|---------------------|
