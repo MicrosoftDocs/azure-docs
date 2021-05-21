@@ -122,12 +122,12 @@ az group create --name MyResourceGroupName --location eastus --subscription MySu
 
 The output shows the `provisioningState` as `Succeeded` when your resource group is successfully created:
 
-```azurecli
+```output
 <...>
-  "name": "testResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
+   "name": "testResourceGroup",
+   "properties": {
+      "provisioningState": "Succeeded"
+    },
 <...>
 ```
 
@@ -136,26 +136,34 @@ The output shows the `provisioningState` as `Succeeded` when your resource group
 To create an Azure Arc enabled logic app using the Azure CLI, run the command `az logicapp create` as follows:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount 
-        --custom-location MyCustomLocation --subscription MySubscription
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName 
+   --storage-account MyStorageAccount --custom-location MyCustomLocation 
+   --subscription MySubscription
 ```
 
 > [!IMPORTANT]
-> Make sure to use the same location as your custom location and Kubernetes environment. 
-> The locations for your logic app resource, custom location, Kubernetes environment must all be the same.
+> Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. 
+> The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. 
+> This value is *not the same* as the *name* for your custom location.
 
-Be sure to provide the required parameters in your command:
-* `--name -n`: A unique name for your logic app.
-* `--resource-group -g`: The name of the [resource group](../azure-resource-manager/management/manage-resource-groups-cli.md) in which you want to create your logic app. [Create a resource group](#create-resource-group) if you don't have one to use.
-*  `--storage-account -s`: The [storage account](/cli/azure/storage/account) that you want to use with your logic app. For storage accounts in the same resource group, use a string value. For storage accounts in a different resource group, use a resource ID. `
+Make sure to provide the following required parameters in your command:
+
+| Parameters | Description |
+|------------|-------------|
+| `--name -n` | A unique name for your logic app |
+| `--resource-group -g` | The name of the [resource group](../azure-resource-manager/management/manage-resource-groups-cli.md) where you want to create your logic app. If you don't have one to use, [create a resource group](#create-resource-group). |
+| `--storage-account -s` | The [storage account](/cli/azure/storage/account) that you want to use with your logic app. For storage accounts in the same resource group, use a string value. For storage accounts in a different resource group, use a resource ID. |
+|||
 
 To create a logic app in Azure Arc using a private Azure Container Registry image, run `az logicapp create` as follows:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --subscription MySubscription
-        --custom-location MyCustomLocation
-        --deployment-container-image-name myacr.azurecr.io/myimage:tag
-        --docker-registry-server-password passw0rd --docker-registry-server-user MyUser
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName 
+   --storage-account MyStorageAccount --subscription MySubscription
+   --custom-location MyCustomLocation 
+   --deployment-container-image-name myacr.azurecr.io/myimage:tag
+   --docker-registry-server-password passw0rd 
+   --docker-registry-server-user MyUser
 ```
 
 #### Show logic app details
@@ -163,7 +171,8 @@ az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --
 To show details about your Azure Arc enabled logic app, run the command `az logicapp show` as follows:
 
 ```azurecli
-az logicapp show --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp show --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Deploy logic app
@@ -171,7 +180,10 @@ az logicapp show --name MyLogicAppName --resource-group MyResourceGroupName --su
 To deploy your logic app using Kudu's zip deployment, run the command `az logicapp deployment source config-zip`. For example:
 
 ```azurecli
-az logicapp deployment source config-zip --name MyLogicAppName --resource-group MyResourceGroupName --src C:\uploads\v22.zip --subscription MySubscription
+az logicapp deployment source config-zip --name MyLogicAppName 
+   --resource-group MyResourceGroupName 
+   --src C:\uploads\v22.zip 
+   --subscription MySubscription
 ```
 
 #### Start logic app
@@ -179,7 +191,8 @@ az logicapp deployment source config-zip --name MyLogicAppName --resource-group 
 To start your Azure Arc enabled logic app, run the command `az logicapp start` with the following required parameters:
 
 ```azurecli
-az logicapp start --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp start --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Stop logic app
@@ -187,7 +200,8 @@ az logicapp start --name MyLogicAppName --resource-group MyResourceGroupName --s
 To stop your Azure Arc enabled logic app, run the command `az logicapp stop` with the following required parameters:
 
 ```azurecli
-az logicapp stop --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp stop --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Restart logic app
@@ -195,7 +209,8 @@ az logicapp stop --name MyLogicAppName --resource-group MyResourceGroupName --su
 To restart your Azure Arc enabled logic app, run the command `az logicapp restart` with the following required parameters:
 
 ```azurecli
-az logicapp restart --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp restart --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 #### Delete logic app
@@ -253,7 +268,7 @@ The portal-based designer's editing capability is currently under development fo
 1. [In the portal, create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md), but make sure to use the custom location that you created earlier as your app's location.
 
    > [!IMPORTANT]
-   > The locations for your logic app resource, custom location, Kubernetes environment must all be the same.
+   > The locations for your logic app resource, custom location, and Kubernetes environment must all be the same.
 
    By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, You don't need to create an App Service plan, which is created for you.
 
@@ -289,7 +304,7 @@ However, if you use Visual Studio Code for development, but you use Azure CLI or
       "secret": "@appsetting('WORKFLOWAPP_AAD_CLIENTSECRET')"
    } 
    ```
- 
+
 1. In your logic app project's **local.settings.json** file, add your client ID, object ID, tenant ID, and client secret. After deployment, these settings become your logic app settings.
 
    ```json
@@ -308,14 +323,14 @@ However, if you use Visual Studio Code for development, but you use Azure CLI or
 > [!IMPORTANT]
 > For production scenarios or environments, make sure that you protect and secure 
 > such secrets and sensitive information, for example, by using a [key vault](../app-service/app-service-key-vault-references.md).
- 
+
 ### Add access policies
 
 In single-tenant Azure Logic Apps, each logic app has an identity that is granted permissions by access policies to use Azure-hosted and managed connections. You can set up these access policies by using the Azure portal or infrastructure deployments.
 
 #### ARM template
 
-In your Azure Resource Manager (ARM) template, include the following resource definition for *each* managed API connection and provide the following information:
+In your Azure Resource Manager template (ARM template), include the following resource definition for *each* managed API connection and provide the following information:
 
 | Parameter | Description |
 |-----------|-------------|
@@ -347,39 +362,6 @@ In your Azure Resource Manager (ARM) template, include the following resource de
 
 For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation. 
 
-#### Bicep template
-
-In your Bicep template, include the following resource definition for *each* managed API connection and provide the following information:
-
-| Parameter | Description |
-|-----------|-------------|
-| <*connection-name*> | The name for your managed API connection, for example `office365` |
-| <*connection-resource*> | The name for connection's resource definition |
-| <*object-ID*> | The object ID for your Azure AD identity, previously saved from your app registration |
-| <*tenant-ID*> | The tenant ID for your Azure AD identity, previously saved from your app registration |
-|||
-
-```json
-Resource accesspolicy 'Microsoft.Web/connections/accessPolicies@2016-06-01' = {
-   name: '[concat('<connection-name>'),'/','<object-ID>')]'
-   location: '<location>'
-   dependsOn: [
-      '<connection-resource>'
-   ]
-   properties: {
-      principle: {
-         type: 'ActiveDirectory'
-         identity: {
-            objectId: '<object-ID>',
-            tenantId: '<tenant-ID>'
-         }
-      }
-   }
-}
-```
-
-For more information, review the [Microsoft.Web/connections/accesspolicies (Bicep template)](/templates/microsoft.web/connections?tabs=bicep) documentation.
-
 #### Azure portal
 
 For this task, use your previously saved client ID as the *application ID*.
@@ -396,7 +378,6 @@ For this task, use your previously saved client ID as the *application ID*.
 
 1. Repeat these steps for each Azure-hosted connection in your logic app.
 
-
 ## Automate DevOps deployment
 
 To build and deploy your Azure Arc enabled logic apps, you can use the same pipelines and processes as for [single-tenant based logic apps](single-tenant-overview-compare.md). To automate infrastructure deployments using pipelines for DevOps, make the following changes at the infrastructure level for both non-container and container deployments.
@@ -408,14 +389,15 @@ If you use zip deploy for logic app deployment, you don't need to set up a Docke
 - Notify the resource provider that you are creating a logic app on Kubernetes.
 - Include an App Service plan with your deployment. For more information, review [Include App Service plan with deployment](#include-app-service-plan).
 
-In your [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md) or [Bicep template (Preview)](../azure-resource-manager/templates/bicep-overview.md), include the following values:
+In your [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) include the following values:
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | The *custom location* for your Kubernetes environment <p><p>**Important**: Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, Kubernetes environment must all be the same. |
-| App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,logicapp,functionapp,linux` |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The location for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is not the same as the *name* for your custom location. |
+| App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,logicapp,linux` |
+| Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have the `"type"` set to `"CustomLocation"`. |
 | Hosting plan resource ID | `serverFarmId` | The resource ID of the associated App Service plan, formatted as follows: <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
-| Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: You need to provide the connection string for your storage account in your ARM or Bicep template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
+| Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: You need to provide the connection string for your storage account in your ARM template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
 ||||
 
 #### ARM template
@@ -429,6 +411,10 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
    "name": "[parameters('name')]",
    "location": "[parameters('location')]",
    "kind": "kubernetes,functionapp,logicapp,linux",
+   "extendedLocation": {
+      "name": "[parameters('customLocationId')]",
+      "type": "CustomLocation"
+    },
    "properties": {
       "clientAffinityEnabled": false,
       "name": "[parameters('name')]",
@@ -453,7 +439,7 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
             },
             {
                "name": "AzureFunctionsJobHost__extensionBundle__version",
-               "value": "[1.*, 2.0.0]"
+               "value": "[1.*, 2.0.0)"
             },
             {
                "name": "APP_KIND",
@@ -462,75 +448,6 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
          ],
          "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]",
          "linuxFxVersion": "Node|12"
-      }
-   }
-}
-```
-
-#### Bicep template
-
-The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your Bicep template. For more information, review the [Microsoft.Web/sites template format (Bicep template)](/templates/microsoft.web/sites?tabs=bicep) documentation.
-
-```json
-resource logic 'Microsoft.Web/sites@2020-12-01' = {
-   name: logic_name
-   location: location
-   kind: 'kubernetes,logicapp,functionapp,linux'
-   properties: {
-      clientAffinityEnabled: false
-      serverFarmId: '<hosting-plan-ID>'
-      siteConfig: {
-         alwaysOn: true
-         appSettings: [
-            {
-               name: 'WEBSITES_PORT'
-               value: '80'
-            }
-            {
-               name: 'K8SE_FUNCTIONS_TRIGGERS'
-               value: '{"hostJson":{"version":"2.0","logging":{"applicationInsights":{"samplingExcludedTypes":"Request","samplingSettings":{"isEnabled":true}},"logLevel":{"Host.Triggers.Workflow":"Debug"}}},"functionsJson":{}}'
-            }
-            {
-               name: 'APP_KIND'
-               value: 'logicapp'
-            }
-            {
-               name: 'FUNCTION_APP_EDIT_MODE'
-               value: 'readOnly'
-            }
-            {
-               name: 'AzureFunctionsJobHost__extensionBundle__id'
-               value: 'Microsoft.Azure.Functions.ExtensionBundle.Workflows'
-            }
-            {
-               name: 'AzureFunctionsJobHost__extensionBundle__version'
-               value: '[1.*, 2.0.0]'
-            }
-            {
-               name: 'FUNCTIONS_V2_COMPATIBILITY_MODE'
-               value: 'true'
-            }
-            {
-               name: 'AzureWebJobsStorage'
-               value: '<storage-connection-string>'
-            }
-            {
-               name: 'FUNCTIONS_WORKER_RUNTIME'
-               value: 'node'
-            }
-            {
-               name: 'FUNCTIONS_EXTENSION_VERSION'
-               value: '~3'
-            }
-            {
-               name: 'WEBSITE_NODE_DEFAULT_VERSION'
-               value: '~12'
-            }
-            {
-               name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-               value: '${appSettings_insights_key}'
-            }
-         ]
       }
    }
 }
@@ -545,15 +462,16 @@ If you prefer to use container tools and deployment processes, you can container
 - In your deployment template, point to the Docker registry and container image where you plan to deploy. Single-tenant Azure Logic Apps uses this information to get the container image from your Docker registry.
 - Include an App Service plan with your deployment. For more information, review [Include App Service plan with deployment](#include-app-service-plan).
 
-In your [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md) or [Bicep template](../azure-resource-manager/templates/bicep-overview.md), include the following values:
+In your [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md), include the following values:
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | The *custom location* for your Kubernetes environment <p><p>**Important**: Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, Kubernetes environment must all be the same. |
-| App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,logicapp,functionapp,container` |
-| Container name | `linuxFxVersion` | The name for your container, formatted as follows: `DOCKER|<container-name>` |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is *not the same* as the *name* for your custom location. |
+| App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,logicapp,container` |
+| Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have `"type"` set to `"CustomLocation"`. |
+| Container name | `linuxFxVersion` | The name for your container, formatted as follows: `DOCKER\|<container-name>` |
 | Hosting plan resource ID | `serverFarmId` | The resource ID of the associated App Service plan, formatted as follows: <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
-| Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: When you deploy to a Docker container, you need to provide the connection string for your storage account in your ARM or Bicep template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
+| Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: When you deploy to a Docker container, you need to provide the connection string for your storage account in your ARM template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
 ||||
 
 To reference your Docker registry and container image, include these values in your template:
@@ -575,7 +493,11 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
    "apiVersion": "2020-12-01",
    "name": "[parameters('name')]",
    "location": "[parameters('location')]",
-   "kind": " kubernetes,logicapp,functionapp,container",
+   "kind": " kubernetes,functionapp,logicapp,container",
+   "extendedLocation": {
+      "name": "[parameters('customLocationId')]",
+      "type": "CustomLocation"
+    },
    "properties": {
       "name": "[parameters('name')]",
       "clientAffinityEnabled": false,
@@ -600,7 +522,7 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
             },
             {
                "name": "AzureFunctionsJobHost__extensionBundle__version",
-               "value": "[1.*, 2.0.0]"
+               "value": "[1.*, 2.0.0)"
             },
             {
                "name": "APP_KIND",
@@ -626,84 +548,6 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
 }
 ```
 
-#### Bicep template
-
-The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your Bicep template. For more information, review the [Microsoft.Web/sites template format (Bicep template)](/templates/microsoft.web/sites?tabs=bicep) documentation.
-
-```json
-resource logic 'Microsoft.Web/sites@2020-12-01' = {
-   name: logic_name
-   location: location
-   kind: "kubernetes,logicapp,functionapp,container"
-   properties: {
-      clientAffinityEnabled: false
-      serverFarmId: '<host-plan>'
-      siteConfig: {
-         alwaysOn: true
-         appSettings: [
-            {
-               name: 'WEBSITES_PORT'
-               value: '80'
-            }
-            {
-               name: 'K8SE_FUNCTIONS_TRIGGERS'
-               value: '{"hostJson":{"version":"2.0","logging":{"applicationInsights":{"samplingExcludedTypes":"Request","samplingSettings":{"isEnabled":true}},"logLevel":{"Host.Triggers.Workflow":"Debug"}}},"functionsJson":{}}'
-            }
-            {
-               name: 'APP_KIND'
-               value: 'logicapp'
-            }
-            {
-               name: 'FUNCTION_APP_EDIT_MODE'
-               value: 'readOnly'
-            }
-            {
-               name: 'AzureFunctionsJobHost__extensionBundle__id'
-               value: 'Microsoft.Azure.Functions.ExtensionBundle.Workflows'
-            }
-            {
-               name: 'AzureFunctionsJobHost__extensionBundle__version'
-               value: '[1.*, 2.0.0]'
-            }
-            {
-               name: 'FUNCTIONS_V2_COMPATIBILITY_MODE'
-               value: 'true'
-            }
-            {
-               name: 'AzureWebJobsStorage'
-               value: '<storage-connection-string>'
-            }
-            {
-               name: 'FUNCTIONS_WORKER_RUNTIME'
-               value: 'node'
-            }
-            {
-               name: 'FUNCTIONS_EXTENSION_VERSION'
-               value: '~3'
-            }
-            {
-               name: 'WEBSITE_NODE_DEFAULT_VERSION'
-               value: '~12'
-            }
-            {
-               name: 'DOCKER_REGISTRY_SERVER_URL'
-               value: '<docker-registry-server-URL>'
-            }
-            {
-               name: 'DOCKER_REGISTRY_SERVER_USERNAME'
-               value: '<docker-registry-server-username>'
-            }
-            {
-               name: ‘DOCKER_REGISTRY_SERVER_PASSWORD'
-               value: '<docker-registry-server-password>'
-            }
-         ]
-         linuxFxVersion: 'DOCKER|<container-name>'
-      }
-   }
-}
-```
-
 <a name="include-app-service-plan"></a>
 
 ### Include App Service plan with deployment
@@ -712,11 +556,13 @@ Whether you have a standard or container deployment, you have to include an App 
 
 While other create options usually handle provisioning the Azure resource for this plan, if your deployments use "infrastructure-as-code" templates, you have to explicitly create the Azure resource for the plan. The hosting plan resource doesn't change, only the `sku` information.
 
-In your [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md) or [Bicep template](../azure-resource-manager/templates/bicep-overview.md), include the following values:
+In your [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md), include the following values:
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | The *custom location* for your Kubernetes environment <p><p>**Important**: Make sure this location is the same as your logic app resource, custom location, and Kubernetes environment. |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The location for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is not the same as the *name* for your custom location. |
+| Kind | `kind` | The kind of app service plan being deployed which needs to be `kubernetes,linux` |
+| Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have `"type"` set to `"CustomLocation"`. |
 | Hosting plan name | `name` | The name for the App Service plan |
 | Plan tier | `sku: tier` | The App Service plan tier, which is `K1` |
 | Plan name | `sku: name` | The App Service plan name, which is `Kubernetes` |
@@ -733,34 +579,18 @@ The following example describes a sample App Service plan resource definition th
    "location": "<location>",
    "name": "<hosting-plan-name>",
    "kind": "kubernetes,linux",
+   "extendedLocation": {
+      "name": "[parameters('customLocationId')]",
+      "type": "CustomLocation"
+   },
    "sku": {
       "tier": "K1",
-      "name": "Kubernetes"
+      "name": "Kubernetes", 
+      "capacity": 1
    },
    "properties": {
       "kubeEnvironmentProfile": {
          "id": "[parameters('kubeEnvironmentId')]"
-      }
-   }
-}
-```
-
-#### Bicep template
-
-The following example describes a sample App Service plan resource definition that you can use with your app deployment. For more information, review the [Microsoft.Web/serverfarms template format (Bicep template)](/templates/microsoft.web/serverfarms?tabs=bicep) documentation.
-
-```json
-resource webapi_farm_arc 'Microsoft.Web/serverfarms@2020-12-01' = {
-   location: '<location>'
-   name: '<hosting-plan-name>'
-   kind: 'kubernetes,linux'
-   sku: {
-      name: 'K1'
-      tier: 'Kubernetes'
-   }
-   properties: {
-      kubeEnvironmentProfile: {
-         id: kubeEnvironment_id
       }
    }
 }
@@ -809,13 +639,19 @@ To change this maximum, use the Azure CLI (logic app create only) and Azure port
 For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --custom-location --subscription MySubscription  MyCustomLocation [--plan MyHostingPlan] [--min-worker-count 1] [--max-worker-count 4]
+az logicapp create --resource-group MyResourceGroupName 
+   --name MyLogicAppName --storage-account MyStorageAccount 
+   --custom-location --subscription MySubscription  MyCustomLocation 
+   [--plan MyHostingPlan] [--min-worker-count 1] [--max-worker-count 4]
 ```
 
 To configure your maximum instance count, use the `--settings` parameter:
 
 ```azurecli
-az logicapp config appsettings set --name MyLogicAppName --resource-group MyResourceGroupName --settings "K8SE_APP_MAX_INSTANCE_COUNT=10" --subscription MySubscription
+az logicapp config appsettings set --name MyLogicAppName 
+   --resource-group MyResourceGroupName 
+   --settings "K8SE_APP_MAX_INSTANCE_COUNT=10" 
+   --subscription MySubscription
 ```
 
 #### Azure portal
@@ -826,8 +662,9 @@ In your single-tenant based logic app's settings, add or edit the `K8SE_APP_MAX_
 1. On the logic app menu, under **Settings**, select **Configuration**.
 1. In the **Configuration** pane, under **Application settings**, either add a new application setting or edit the existing value, if already added.
 
-   * Select **New application setting**, and add the `K8SE_APP_MAX_INSTANCE_COUNT` setting with the maximum value you want.
-   * Edit the existing value for the `K8SE_APP_MAX_INSTANCE_COUNT` setting.
+   1. Select **New application setting**, and add the `K8SE_APP_MAX_INSTANCE_COUNT` setting with the maximum value you want.
+
+   1. Edit the existing value for the `K8SE_APP_MAX_INSTANCE_COUNT` setting.
 
 1. When you're done, save your changes.
 
@@ -842,13 +679,17 @@ To change this minimum, use the Azure CLI or the Azure portal.
 For a existing logic app resource, run the Azure CLI command, `az logicapp scale`, for example:
 
 ```azurecli
-az logicapp scale --name MyLogicAppName --resource-group MyResourceGroupName --instance-count 5 --subscription MySubscription
+az logicapp scale --name MyLogicAppName --resource-group MyResourceGroupName 
+   --instance-count 5 --subscription MySubscription
 ```
 
 For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --storage-account MyStorageAccount --custom-location --subscription MySubscription MyCustomLocation [--plan MyHostingPlan] [--min-worker-count 2] [--max-worker-count 4]
+az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName 
+   --storage-account MyStorageAccount --custom-location 
+   --subscription MySubscription MyCustomLocation 
+   [--plan MyHostingPlan] [--min-worker-count 2] [--max-worker-count 4]
 ```
 
 #### Azure portal
@@ -866,22 +707,29 @@ To get more information about your deployed logic apps, try the following option
 
 ### Access app settings and configuration
 
-To access your app settings, run the following Azure CLI command: 
+To access your app settings, run the following Azure CLI command:
 
 ```azurecli
-az logicapp config appsettings list --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp config appsettings list --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 To configure an app setting, run the command `az logicapp config appsettings set` as follows. Make sure to use the `--settings` parameter with your setting's name and value.
 
 ```azurecli
-az logicapp config appsettings set --name MyLogicAppName --resource-group MyResourceGroupName --settings "MySetting=1" --subscription MySubscription
+az logicapp config appsettings set --name MyLogicAppName 
+   --resource-group MyResourceGroupName 
+   --settings "MySetting=1" 
+   --subscription MySubscription
 ```
 
 To delete an app setting, run the command `az logicapp config appsettings delete` as follows. Make sure to using the `--setting-names` parameter with the name of the setting you want to delete.
 
 ```azurecli
-az logicapp config appsettings delete --name MyLogicAppName --resource-group MyResourceGroupName --setting-names MySetting --subscription MySubscription
+az logicapp config appsettings delete --name MyLogicAppName 
+   --resource-group MyResourceGroupName 
+   --setting-names MySetting 
+   --subscription MySubscription
 ```
 
 ### View logic app properties
