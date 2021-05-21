@@ -19,7 +19,7 @@ For resource specific tables (currently in preview for SQL API), data is written
 
 ## <a id="azure-diagnostics-queries"></a> AzureDiagnostics Queries
 
-1. How to query for the operations that are taking longer than 3 milliseconds to run:
+- How to query for the operations that are taking longer than 3 milliseconds to run:
 
    ```Kusto
    AzureDiagnostics 
@@ -27,7 +27,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | summarize count() by clientIpAddress_s, TimeGenerated
    ```
 
-2. How to query for the user agent that is running the operations:
+- How to query for the user agent that is running the operations:
 
    ```Kusto
    AzureDiagnostics 
@@ -35,7 +35,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | summarize count() by OperationName, userAgent_s
    ```
 
-3. How to query for the long running operations:
+- How to query for the long running operations:
 
    ```Kusto
    AzureDiagnostics 
@@ -45,7 +45,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | render timechart
    ```
     
-4. How to get partition key statistics to evaluate skew across top 3 partitions for a database account:
+- How to get partition key statistics to evaluate skew across top 3 partitions for a database account:
 
    ```Kusto
    AzureDiagnostics 
@@ -53,7 +53,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
-5. How to get the request charges for expensive queries?
+- How to get the request charges for expensive queries?
 
    ```Kusto
    AzureDiagnostics
@@ -68,7 +68,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | limit 100
    ```
 
-6. How to find which operations are taking most of RU/s?
+- How to find which operations are taking most of RU/s?
 
     ```Kusto
    AzureDiagnostics
@@ -77,7 +77,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
 
-7. How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
+- How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
 
    ```Kusto
    AzureDiagnostics
@@ -92,7 +92,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | limit 100
    ```
 
-8. How to get the request charges and the execution duration of a query?
+- How to get the request charges and the execution duration of a query?
 
    ```kusto
    AzureDiagnostics
@@ -105,7 +105,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    ) on $left.activityId_g == $right.activityId_g
    | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
    ```
-9. How to get the distribution for different operations?
+- How to get the distribution for different operations?
 
    ```kusto
    AzureDiagnostics
@@ -113,108 +113,103 @@ For resource specific tables (currently in preview for SQL API), data is written
    | where TimeGenerated >= ago(2h) 
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
-10. What is the maximum throughput that a partition has consumed?
+- What is the maximum throughput that a partition has consumed?
    
-      ```kusto
-      AzureDiagnostics
-      | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
-      | where TimeGenerated >= ago(2h) 
-      | summarize max(requestCharge_s) by bin(TimeGenerated, 1h), partitionId_g
-      ```
+   ```kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+   | where TimeGenerated >= ago(2h) 
+   | summarize max(requestCharge_s) by bin(TimeGenerated, 1h), partitionId_g
+   ```
 
-11. How to get the information about the partition keys RU/s consumption per second?
+- How to get the information about the partition keys RU/s consumption per second?
 
-      ```kusto
-      AzureDiagnostics 
-      | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
-      | summarize total = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, partitionKey_s, TimeGenerated 
-      | order by TimeGenerated asc 
-      ```
-12. How to get the request charge for a specific partition key
+   ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
+   | summarize total = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, partitionKey_s, TimeGenerated 
+   | order by TimeGenerated asc 
+   ```
+- How to get the request charge for a specific partition key
 
-      ```kusto
-      AzureDiagnostics 
-      | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
-      | where parse_json(partitionKey_s)[0] == "2" 
-      ```
-13. How to get the top partition keys with most RU/s consumed in a specific period?
+   ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
+   | where parse_json(partitionKey_s)[0] == "2" 
+   ```
+- How to get the top partition keys with most RU/s consumed in a specific period?
 
-      ```kusto
-      AzureDiagnostics 
-      | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
-      | where TimeGenerated >= datetime("11/26/2019, 11:20:00.000 PM") and TimeGenerated <= datetime("11/26/2019, 11:30:00.000 PM") 
-      | summarize total = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, partitionKey_s 
-      | order by total desc
-      ```
-14. How to get the logs for the partition keys whose storage size is greater than 8 GB?
+   ```kusto
+   AzureDiagnostics 
+   | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
+   | where TimeGenerated >= datetime("11/26/2019, 11:20:00.000 PM") and TimeGenerated <= datetime("11/26/2019, 11:30:00.000 PM") 
+   | summarize total = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, partitionKey_s 
+   | order by total desc
+   ```
+- How to get the logs for the partition keys whose storage size is greater than 8 GB?
 
-      ```kusto
-      AzureDiagnostics
-      | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics"
-      | where todouble(sizeKb_d) > 800000
-      ```
+   ```kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics"
+   | where todouble(sizeKb_d) > 800000
+   ```
 
-15. How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
+- How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
 
-      ```kusto
-      AzureDiagnostics
-      | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
-      | where TimeGenerated >= ago(2d)
-      | summarize
-      percentile(todouble(responseLength_s), 50), percentile(todouble(responseLength_s), 99), max(responseLength_s),
-      percentile(todouble(requestCharge_s), 50), percentile(todouble(requestCharge_s), 99), max(requestCharge_s),
-      percentile(todouble(duration_s), 50), percentile(todouble(duration_s), 99), max(duration_s),
-      count()
-      by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
-      ```
+   ```kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+   | where TimeGenerated >= ago(2d)
+   | summarize percentile(todouble(responseLength_s), 50), percentile(todouble(responseLength_s), 99), max(responseLength_s), percentile(todouble(requestCharge_s), 50), percentile(todouble(requestCharge_s), 99), max(requestCharge_s), percentile(todouble(duration_s), 50), percentile(todouble(duration_s), 99), max(duration_s), count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
+   ```
  
-16. How to get ControlPlane logs?
+- How to get ControlPlane logs?
  
-      Remember to switch on the flag as described in the [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article, and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
+   Remember to switch on the flag as described in the [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article, and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
  
-      ```kusto  
-      AzureDiagnostics 
-      | where Category =="ControlPlaneRequests"
-      | summarize by OperationName 
-      ```
+   ```kusto  
+   AzureDiagnostics 
+   | where Category =="ControlPlaneRequests"
+   | summarize by OperationName 
+   ```
 
 
 ## <a id="resource-specific-queries"></a> Resource specific Queries
 
-1. How to query for the operations that are taking longer than 3 milliseconds to run:
+- How to query for the operations that are taking longer than 3 milliseconds to run:
 
-    ```Kusto
+    ```kusto
     CDBDataPlaneRequests 
     | where toint(DurationMs) > 3
     | summarize count() by ClientIpAddress, TimeGenerated
     ```
 
-2. How to query for the user agent that is running the operations:
+- How to query for the user agent that is running the operations:
 
-   ```Kusto
+   ```kusto
     CDBDataPlaneRequests
     | summarize count() by OperationName, UserAgent
    ```
 
-3. How to query for the long running operations:
+- How to query for the long running operations:
 
-   ```Kusto
+   ```kusto
     CDBDataPlaneRequests
     | project TimeGenerated , DurationMs 
     | summarize count() by bin(TimeGenerated, 5s)
     | render timechart
    ```
     
-4. How to get partition key statistics to evaluate skew across top 3 partitions for a database account:
+- How to get partition key statistics to evaluate skew across top 3 partitions for a database account:
 
-   ```Kusto
+   ```kusto
     CDBPartitionKeyStatistics
     | project RegionName, DatabaseName, CollectionName, PartitionKey, SizeKb
    ```
 
-5. How to get the request charges for expensive queries?
+- How to get the request charges for expensive queries?
 
-   ```Kusto
+   ```kusto
     CDBDataPlaneRequests
     | where todouble(RequestCharge) > 10.0
     | project ActivityId, RequestCharge
@@ -226,17 +221,17 @@ For resource specific tables (currently in preview for SQL API), data is written
     | limit 100
    ```
 
-6. How to find which operations are taking most of RU/s?
+- How to find which operations are taking most of RU/s?
 
-    ```Kusto
+    ```kusto
     CDBDataPlaneRequests
     | where TimeGenerated >= ago(2h) 
     | summarize max(ResponseLength), max(RequestLength), max(RequestCharge), count = count() by OperationName, RequestResourceType, UserAgent, CollectionName, bin(TimeGenerated, 1h)
    ```
 
-7. How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
+- How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
 
-   ```Kusto
+   ```kusto
     CDBDataPlaneRequests
     | where todouble(RequestCharge) > 100.0
     | project ActivityId, RequestCharge
@@ -248,7 +243,7 @@ For resource specific tables (currently in preview for SQL API), data is written
     | limit 100
    ```
 
-8. How to get the request charges and the execution duration of a query?
+- How to get the request charges and the execution duration of a query?
 
    ```kusto
     CDBQueryRuntimeStatistics
@@ -258,8 +253,7 @@ For resource specific tables (currently in preview for SQL API), data is written
     | project DatabaseName, CollectionName, OperationName , QueryText, RequestCharge, DurationMs, bin(TimeGenerated, 1min)
    ```
 
-
-9. How to get the distribution for different operations?
+- How to get the distribution for different operations?
 
    ```Kusto
     CDBDataPlaneRequests
@@ -267,15 +261,15 @@ For resource specific tables (currently in preview for SQL API), data is written
     | summarize count = count()  by OperationName, RequestResourceType, bin(TimeGenerated, 1h)
    ```
 
-10. What is the maximum throughput that a partition has consumed?
+- What is the maximum throughput that a partition has consumed?
 
-      ```Kusto
-       CDBDataPlaneRequests
-       | where TimeGenerated >= ago(2h) 
-       | summarize max(RequestCharge) by bin(TimeGenerated, 1h), PartitionId
-      ```
+   ```kusto
+   CDBDataPlaneRequests
+   | where TimeGenerated >= ago(2h) 
+   | summarize max(RequestCharge) by bin(TimeGenerated, 1h), PartitionId
+   ```
 
-11. How to get the information about the partition keys RU/s consumption per second?
+- How to get the information about the partition keys RU/s consumption per second?
 
       ```Kusto
        CDBPartitionKeyRUConsumption 
@@ -283,14 +277,14 @@ For resource specific tables (currently in preview for SQL API), data is written
        | order by TimeGenerated asc 
       ```
 
-12. How to get the request charge for a specific partition key?
+- How to get the request charge for a specific partition key?
 
       ```Kusto
        CDBPartitionKeyRUConsumption  
        | where parse_json(PartitionKey)[0] == "2" 
       ```
 
-13. How to get the top partition keys with most RU/s consumed in a specific period? 
+- How to get the top partition keys with most RU/s consumed in a specific period? 
 
       ```Kusto
        CDBPartitionKeyRUConsumption
@@ -299,14 +293,14 @@ For resource specific tables (currently in preview for SQL API), data is written
        | order by total desc
        ```
 
-14. How to get the logs for the partition keys whose storage size is greater than 8 GB?
+- How to get the logs for the partition keys whose storage size is greater than 8 GB?
 
       ```Kusto
        CDBPartitionKeyStatistics
        | where todouble(SizeKb) > 800000
-      ```
+      ``` 
 
-15. How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
+- How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
 
       ```Kusto
        CDBDataPlaneRequests
@@ -319,7 +313,7 @@ For resource specific tables (currently in preview for SQL API), data is written
        by OperationName, RequestResourceType, UserAgent, CollectionName, bin(TimeGenerated, 1h)
       ```
  
-16. How to get ControlPlane logs?
+- How to get ControlPlane logs?
  
       Remember to switch on the flag as described in the [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article, and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
  
@@ -330,4 +324,4 @@ For resource specific tables (currently in preview for SQL API), data is written
 ## Next steps
 * For more information on how to create diagnostic settings for Cosmos DB see [Creating Diagnostics settings](cosmosdb-monitor-resource-logs.md) article.
 
-* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article. 
+* For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) article.
