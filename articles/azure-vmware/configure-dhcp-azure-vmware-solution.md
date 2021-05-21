@@ -79,6 +79,9 @@ If you want to use NSX-T to host your DHCP server, you'll create a DHCP server a
  
 When you create a relay to a DHCP server, you'll also specify the DHCP IP address range.
 
+>[!NOTE]
+>The IP address range shouldn't overlap with the IP range used in other virtual networks in your subscription and on-premises networks.
+
 1. In NSX-T Manager, select **Networking** > **Segments**. 
    
 1. Select the vertical ellipsis on the segment name and select **Edit**.
@@ -124,6 +127,11 @@ If you want to use a third-party external DHCP server, you'll create a DHCP rela
 
 
 ### Specify the DHCP IP address range
+
+When you create a relay to a DHCP server, you'll also specify the DHCP IP address range.
+
+>[!NOTE]
+>The IP address range shouldn't overlap with the IP range used in other virtual networks in your subscription and on-premises networks.
 
 1. In NSX-T Manager, select **Networking** > **Segments**. 
    
