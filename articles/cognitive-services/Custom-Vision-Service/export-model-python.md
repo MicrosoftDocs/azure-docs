@@ -105,8 +105,8 @@ max_square_image = crop_center(image, min_dim, min_dim)
 ### Resize down to 256x256
 
 ```Python
-# Resize that square down to 256x256
-augmented_image = resize_to_256_square(max_square_image)
+# Resize that square down to 300x300
+augmented_image = resize_to_300_square(max_square_image)
 ```
 
 ### Crop the center for the specific input size for the model
@@ -114,7 +114,7 @@ augmented_image = resize_to_256_square(max_square_image)
 ```Python
 # Get the input size of the model
 with tf.compat.v1.Session() as sess:
-    input_tensor_shape = sess.graph.get_tensor_by_name('Placeholder:0').shape.as_list()
+    input_tensor_shape = sess.graph.get_tensor_by_name('data:0').shape.as_list()
 network_input_size = input_tensor_shape[1]
 
 # Crop the center for the specified network_input_Size
@@ -148,9 +148,9 @@ def resize_down_to_1600_max_dim(image):
     new_size = (1600 * w // h, 1600) if (h > w) else (1600, 1600 * h // w)
     return cv2.resize(image, new_size, interpolation = cv2.INTER_LINEAR)
 
-def resize_to_256_square(image):
+def resize_to_300_square(image):
     h, w = image.shape[:2]
-    return cv2.resize(image, (256, 256), interpolation = cv2.INTER_LINEAR)
+    return cv2.resize(image, (300, 300), interpolation = cv2.INTER_LINEAR)
 
 def update_orientation(image):
     exif_orientation_tag = 0x0112
@@ -176,8 +176,8 @@ Once the image is prepared as a tensor, we can send it through the model for a p
 ```Python
 
 # These names are part of the model and cannot be changed.
-output_layer = 'loss:0'
-input_node = 'Placeholder:0'
+output_layer = 'model_output:0'
+input_node = 'data:0'
 
 with tf.compat.v1.Session() as sess:
     try:
