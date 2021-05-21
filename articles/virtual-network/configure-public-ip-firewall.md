@@ -24,14 +24,12 @@ In this article, you'll learn how to create a Azure Firewall using an existing p
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- One standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
-    - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP**.
+- Three standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](create-public-ip-portal.md).
+    - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1**, **myStandardPublicIP-2**, and **myStandardPublicIP-3**.
 
 ## Create Azure Firewall existing public IP
 
 In this section, you'll create a Azure Firewall. You'll select the IP address you created in the prerequisites as the public IP for the firewall.
-
-### Create virtual network
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -50,70 +48,66 @@ In this section, you'll create a Azure Firewall. You'll select the IP address yo
     | Resource group | Select **Create new**. </br> Enter **myResourceGroupFW**. </br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myFirewall**. |
-    | 
+    | Region | Select **West US 2**. |
+    | Availability zone | Leave the default of **None**. |
+    | Firewall tier  | Leave the default of **Standard**. |
+    | Firewall management | Leave the default of **Use a Firewall Policy to manage this firewall**.|
+    | Firewall policy | Select **Add new**. </br> Enter **myFirewallPolicy** in **Policy name**. </br> In **Region** select **West US 2**. </br> Select **Yes**. |
+    | Virtual network name | Enter **myVNet**. |
+    | Address space | Enter **10.0.0.0/16**. |
+    | Subnet address space | Enter **10.0.0.0/26**. |
+    | Public IP address | Select **myStandardPublicIP-1** or your public IP. |
+    | Forced tunneling | Leave the default of **Disabled**. |
+    
  
 6. Select the **Review + create** tab, or select the blue **Review + create** button.
 
 7. Select **Create**.
 
-8. In the search box at the top of the portal, enter **Virtual network**.
-
-9. In the search results, select **Virtual networks**.
-
-10. Select **myVNET** in **Virtual networks**.
-
-11. Select **Subnets** in **Settings** of **myVNET**.
-
-12. Select **+ Gateway subnet**.
-
-13. In **Add subnet**, change the **Subnet address range** from **/24** to **/27**.
-
-14. Select **Save**.
-
-### Create VPN gateway
-
-
-2. In the search box at the top of the portal, enter **Virtual network gateway**.
-
-3. In the search results, select **Virtual network gateways**.
-
-4. Select **+ Create**.
-
-5. In **Create virtual network gateway**, enter or select the following information.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | **Instance details** |   |
-    | Name | Enter **myVPNGateway**. |
-    | Region | Select **West US 2**. |
-    | Gateway type | Leave the default of **VPN**. |
-    | VPN type | Leave the default of **Route-based**. |
-    | SKU | Select **VpnGw1AZ**. |
-    | Virtual network | Select **myVNet**. |
-    | Subnet | Entry will auto-select **GatewaySubnet** you created earlier |
-    | **Public IP address** |   |
-    | Public IP address | Select **Use existing**. |
-    | Choose public IP address | Select **myStandardPublicIP** or your public IP address |
-    | Enable active-active mode | Leave the default of **Disabled**. |
-    | Configure BGP | Leave the default of **Disabled**. |
-
-6. Select the **Review + create** tab, or select the blue **Review + create** button.
-
-7. Select **Create**.
-
 > [!NOTE]
-> This is a simple deployment of a VPN Gateway. For advanced configuration and setup, see [Tutorial: Create and manage a VPN gateway using Azure portal](../vpn-gateway/tutorial-create-gateway-portal.md)
+> This is a simple deployment of Azure Firewall. For advanced configuration and setup, see [Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal](../firewall/tutorial-firewall-deploy-portal-policy.md)
 >
-> For more information on Azure Application Gateway, see [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md)
+> For more information on Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
-## Change or remove public IP address
+## Change public IP address
 
-VPN gateway doesn't support changing the public IP address after creation.
+In this section, you'll change the public IP address associated with the default public IP configuration of the firewall.
 
+1. In the search box at the top of the portal, enter **Firewall**.
+
+2. In the search results, select **Firewalls**.
+
+3. Select **myFirewall** in **Firewalls**.
+
+4. Select **Public IP configuration** in **Settings** in **myFirewall**.
+
+5. In **Public IP configuration**, select **myStandardPublicIP-1** or your IP address.
+
+6. Select **myStandardPublicIP-2** in **Public IP address** of **Edit public IP configuration**.
+
+7. Select **Save**.
+
+## Add public IP configuration
+
+In this section, you'll add a public IP configuration to the Azure Firewall.
+
+1. In the search box at the top of the portal, enter **Firewall**.
+
+2. In the search results, select **Firewalls**.
+
+3. Select **myFirewall** in **Firewalls**.
+
+4. Select **Public IP configuration** in **Settings** in **myFirewall**.
+
+5. Select **+ Add public IP configuration**.
+
+6. Enter **myNewPublicIPconfig** in **Name**.
+
+7. Select **myStandardPublicIP-3** in **Public IP address**.
+
+8. Select **Add**.
 ## Next steps
 
-In this article, you learned how to create a VPN Gateway and use an existing public IP. 
+In this article, you learned how to create a Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
 
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).
