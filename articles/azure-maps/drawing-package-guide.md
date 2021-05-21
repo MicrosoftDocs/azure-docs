@@ -14,7 +14,7 @@ manager: philmea
 
 # Conversion Drawing package guide
 
-This guide shows you how to prepare your Drawing Package for the [Azure Maps Conversion service](/rest/api/maps/conversion) using specific CAD commands to correctly prepare your DWG files and manifest file for the Conversion service.
+This guide shows you how to prepare your Drawing Package for the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) using specific CAD commands to correctly prepare your DWG files and manifest file for the Conversion service.
 
 To start with, make sure your Drawing Package is in .zip format, and contains the following files:
 
@@ -221,3 +221,8 @@ The following snippet shows the unit property object that is associated with the
 ## Step 4: Prepare the Drawing Package
 
 You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files will need to be zipped into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the zipped package. All other files can be in any directory of the zipped package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)
