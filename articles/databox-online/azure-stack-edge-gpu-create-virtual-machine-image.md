@@ -61,11 +61,7 @@ Do the following steps to create a Windows VM image.
 <!--How do they get a "target URI"? In az copy examples, I'm seeing a full path within Blob storage instead of a uri. 
 Sample format line: azcopy copy "SUB Download URI" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"-->
 
-   If you'd rather download the disk locally, run this command:
-
-   
-
-   
+   If you'd rather download the disk locally, use a local path instead of the target URI for the storage account. You will need to upload the VM image to the Azure Storage account for your device before you can use it to deploy VMs on the device.<!--This will need work. Too much info?-->
 
 You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro device.
 
