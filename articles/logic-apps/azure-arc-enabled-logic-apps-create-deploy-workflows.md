@@ -304,7 +304,7 @@ However, if you use Visual Studio Code for development, but you use Azure CLI or
       "secret": "@appsetting('WORKFLOWAPP_AAD_CLIENTSECRET')"
    } 
    ```
- 
+
 1. In your logic app project's **local.settings.json** file, add your client ID, object ID, tenant ID, and client secret. After deployment, these settings become your logic app settings.
 
    ```json
@@ -323,14 +323,14 @@ However, if you use Visual Studio Code for development, but you use Azure CLI or
 > [!IMPORTANT]
 > For production scenarios or environments, make sure that you protect and secure 
 > such secrets and sensitive information, for example, by using a [key vault](../app-service/app-service-key-vault-references.md).
- 
+
 ### Add access policies
 
 In single-tenant Azure Logic Apps, each logic app has an identity that is granted permissions by access policies to use Azure-hosted and managed connections. You can set up these access policies by using the Azure portal or infrastructure deployments.
 
 #### ARM template
 
-In your Azure Resource Manager (ARM) template, include the following resource definition for *each* managed API connection and provide the following information:
+In your Azure Resource Manager template (ARM template), include the following resource definition for *each* managed API connection and provide the following information:
 
 | Parameter | Description |
 |-----------|-------------|
@@ -361,39 +361,6 @@ In your Azure Resource Manager (ARM) template, include the following resource de
 ```
 
 For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation. 
-
-#### Bicep template
-
-In your Bicep template, include the following resource definition for *each* managed API connection and provide the following information:
-
-| Parameter | Description |
-|-----------|-------------|
-| <*connection-name*> | The name for your managed API connection, for example `office365` |
-| <*connection-resource*> | The name for connection's resource definition |
-| <*object-ID*> | The object ID for your Azure AD identity, previously saved from your app registration |
-| <*tenant-ID*> | The tenant ID for your Azure AD identity, previously saved from your app registration |
-|||
-
-```json
-Resource accesspolicy 'Microsoft.Web/connections/accessPolicies@2016-06-01' = {
-   name: '[concat('<connection-name>'),'/','<object-ID>')]'
-   location: '<location>'
-   dependsOn: [
-      '<connection-resource>'
-   ]
-   properties: {
-      principle: {
-         type: 'ActiveDirectory'
-         identity: {
-            objectId: '<object-ID>',
-            tenantId: '<tenant-ID>'
-         }
-      }
-   }
-}
-```
-
-For more information, review the [Microsoft.Web/connections/accesspolicies (Bicep template)](/templates/microsoft.web/connections?tabs=bicep) documentation.
 
 #### Azure portal
 
@@ -589,11 +556,13 @@ Whether you have a standard or container deployment, you have to include an App 
 
 While other create options usually handle provisioning the Azure resource for this plan, if your deployments use "infrastructure-as-code" templates, you have to explicitly create the Azure resource for the plan. The hosting plan resource doesn't change, only the `sku` information.
 
-In your [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md) or [Bicep template](../azure-resource-manager/templates/bicep-overview.md), include the following values:
+In your [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md), include the following values:
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | The *custom location* for your Kubernetes environment <p><p>**Important**: Make sure this location is the same as your logic app resource, custom location, and Kubernetes environment. |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The location for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is not the same as the *name* for your custom location. |
+| Kind | `kind` | The kind of app service plan being deployed which needs to be `kubernetes,linux` |
+| Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have `"type"` set to `"CustomLocation"`. |
 | Hosting plan name | `name` | The name for the App Service plan |
 | Plan tier | `sku: tier` | The App Service plan tier, which is `K1` |
 | Plan name | `sku: name` | The App Service plan name, which is `Kubernetes` |
@@ -610,34 +579,18 @@ The following example describes a sample App Service plan resource definition th
    "location": "<location>",
    "name": "<hosting-plan-name>",
    "kind": "kubernetes,linux",
+   "extendedLocation": {
+      "name": "[parameters('customLocationId')]",
+      "type": "CustomLocation"
+   },
    "sku": {
       "tier": "K1",
-      "name": "Kubernetes"
+      "name": "Kubernetes", 
+      "capacity": 1
    },
    "properties": {
       "kubeEnvironmentProfile": {
          "id": "[parameters('kubeEnvironmentId')]"
-      }
-   }
-}
-```
-
-#### Bicep template
-
-The following example describes a sample App Service plan resource definition that you can use with your app deployment. For more information, review the [Microsoft.Web/serverfarms template format (Bicep template)](/templates/microsoft.web/serverfarms?tabs=bicep) documentation.
-
-```json
-resource webapi_farm_arc 'Microsoft.Web/serverfarms@2020-12-01' = {
-   location: '<location>'
-   name: '<hosting-plan-name>'
-   kind: 'kubernetes,linux'
-   sku: {
-      name: 'K1'
-      tier: 'Kubernetes'
-   }
-   properties: {
-      kubeEnvironmentProfile: {
-         id: kubeEnvironment_id
       }
    }
 }
