@@ -513,6 +513,7 @@ The Application Insights extension in Azure Web Apps uses the new provider. You 
 
 ## Next steps
 
+* [Logging in .NET](/dotnet/core/extensions/logging)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
 
