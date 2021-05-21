@@ -1,12 +1,14 @@
 ---
-title: Detect motion and emit events - Azure
-description: This quickstart shows you how to use Live Video Analytics on IoT Edge to detect motion and emit events, by programmatically calling direct methods.
+title: Detect motion and emit events with Azure Live Video Analytics
+description: This quickstart shows you how to use Azure Live Video Analytics on IoT Edge to detect motion and emit events, by programmatically calling direct methods.
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 
 ---
-# Quickstart: Detect motion and emit events
+# Quickstart: Detect motion and emit events with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you'll be able to run a simulated live video stream through a media graph that detects and reports any motion in that stream. The following diagram shows a graphical representation of that media graph.
 

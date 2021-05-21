@@ -313,6 +313,9 @@
       - name: ARM template
         displayName: Resource Manager
         href: database/single-database-create-arm-template-quickstart.md
+      - name: With ledger and digest storage
+        displayName: Create Azure SQL Database with ledger
+        href: database/ledger-create-a-single-database-with-ledger-enabled.md
     - name: Configure
       items:
       - name: Server-level IP firewall rules
@@ -458,14 +461,32 @@
           href: database/auditing-overview.md
         - name: Audit log format
           href: database/audit-log-format.md
-        - name: Network access controls
-          href: database/network-access-controls-overview.md
         - name: DNS aliases
           href: database/dns-alias-overview.md
-        - name: VNet endpoints
-          href: database/vnet-service-endpoint-rule-overview.md
+        - name: Ledger
+          items:
+          - name: Ledger
+            href: database/ledger-landing.yml
+          - name: Ledger overview
+            href: database/ledger-overview.md
+          - name: Database ledger
+            href: database/ledger-database-ledger.md
+          - name: Updatable ledger tables
+            href: database/ledger-updatable-ledger-tables.md
+          - name: Append-only ledger tables
+            href: database/ledger-append-only-ledger-tables.md
+          - name: Digest management and database verification
+            href: database/ledger-digest-management-and-database-verification.md
+          - name: Ledger auditing
+            href: database/ledger-audit.md
+          - name: Ledger limitations
+            href: database/ledger-limits.md
+        - name: Network access controls
+          href: database/network-access-controls-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
+        - name: VNet endpoints
+          href: database/vnet-service-endpoint-rule-overview.md
 
     - name: Database sharding
       items:
@@ -549,6 +570,17 @@
         href: database/dynamic-data-masking-configure-portal.md
       - name: IP-based firewall
         href: database/firewall-configure.md
+      - name: Ledger
+        items:
+        - name: Create append-only ledger tables
+          href: database/ledger-how-to-append-only-ledger-tables.md
+        - name: Create updatable ledger tables
+          href: database/ledger-how-to-updatable-ledger-tables.md
+        - name: Access Azure Confidential Ledger digest
+          displayName: Access Azure Confidential Ledger digest
+          href: database/ledger-how-to-access-acl-digest.md
+        - name: Verify ledger database for tampering
+          href: database/ledger-verify-database.md
       - name: vNet endpoints - PowerShell
         href: database/scripts/vnet-service-endpoint-rule-powershell-create.md
 

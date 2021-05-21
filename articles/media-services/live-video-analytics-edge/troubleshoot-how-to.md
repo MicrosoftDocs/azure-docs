@@ -10,6 +10,8 @@ ms.date: 12/04/2020
 
 # Troubleshoot Live Video Analytics on IoT Edge
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This article covers troubleshooting steps for Live Video Analytics (LVA) on Azure IoT Edge.
 
 ## Troubleshoot deployment issues

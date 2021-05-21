@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/12/2021
+ms.date: 05/13/2021
 ms.author: aahi
 ---
 
@@ -1849,6 +1849,18 @@ Release notes for `3.0.015490002-onprem-amd64`:
 | `latest`   |                                               |
 | `3.0.015490002-onprem-amd64`   |               |
 
+
+## Translator
+
+The [Translator][tr-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/translator` repository and is named `text-translation`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/translator/text-translation`.
+
+This container image has the following tags available.
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `latest`                      |       |
+
+
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
@@ -1864,3 +1876,4 @@ Release notes for `3.0.015490002-onprem-amd64`:
 [ta-la]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-se]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
 [ta-he]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare
+[tr-containers]: ../translator/containers/translator-how-to-install-container.md
