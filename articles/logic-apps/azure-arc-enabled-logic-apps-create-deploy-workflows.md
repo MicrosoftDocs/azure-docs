@@ -396,7 +396,6 @@ For this task, use your previously saved client ID as the *application ID*.
 
 1. Repeat these steps for each Azure-hosted connection in your logic app.
 
-
 ## Automate DevOps deployment
 
 To build and deploy your Azure Arc enabled logic apps, you can use the same pipelines and processes as for [single-tenant based logic apps](single-tenant-overview-compare.md). To automate infrastructure deployments using pipelines for DevOps, make the following changes at the infrastructure level for both non-container and container deployments.
@@ -408,14 +407,15 @@ If you use zip deploy for logic app deployment, you don't need to set up a Docke
 - Notify the resource provider that you are creating a logic app on Kubernetes.
 - Include an App Service plan with your deployment. For more information, review [Include App Service plan with deployment](#include-app-service-plan).
 
-In your [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md) or [Bicep template (Preview)](../azure-resource-manager/templates/bicep-overview.md), include the following values:
+In your [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) include the following values:
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | The *custom location* for your Kubernetes environment <p><p>**Important**: Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, Kubernetes environment must all be the same. |
-| App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,logicapp,functionapp,linux` |
+| Location | `location` | Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, Kubernetes environment must all be the same. <p><p>**Note**: This value is *not* the same as the name for your custom location. |
+| App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,logicapp,linux` |
+| Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have the `"type"` set to `"CustomLocation"`. |
 | Hosting plan resource ID | `serverFarmId` | The resource ID of the associated App Service plan, formatted as follows: <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
-| Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: You need to provide the connection string for your storage account in your ARM or Bicep template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
+| Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: You need to provide the connection string for your storage account in your ARM template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
 ||||
 
 #### ARM template
@@ -429,6 +429,10 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
    "name": "[parameters('name')]",
    "location": "[parameters('location')]",
    "kind": "kubernetes,functionapp,logicapp,linux",
+   "extendedLocation": {
+      "name": "[parameters('customLocationId')]",
+      "type": "CustomLocation"
+    },
    "properties": {
       "clientAffinityEnabled": false,
       "name": "[parameters('name')]",
@@ -444,7 +448,7 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
                "value": "node"
             },
             {
-               "name": "AzureWebJobsStorage",
+              "name": "AzureWebJobsStorage",
                "value": "<storage-connection-string>"
             },
             {
@@ -453,7 +457,7 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
             },
             {
                "name": "AzureFunctionsJobHost__extensionBundle__version",
-               "value": "[1.*, 2.0.0]"
+               "value": "[1.*, 2.0.0)"
             },
             {
                "name": "APP_KIND",
@@ -462,75 +466,6 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
          ],
          "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]",
          "linuxFxVersion": "Node|12"
-      }
-   }
-}
-```
-
-#### Bicep template
-
-The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your Bicep template. For more information, review the [Microsoft.Web/sites template format (Bicep template)](/templates/microsoft.web/sites?tabs=bicep) documentation.
-
-```json
-resource logic 'Microsoft.Web/sites@2020-12-01' = {
-   name: logic_name
-   location: location
-   kind: 'kubernetes,logicapp,functionapp,linux'
-   properties: {
-      clientAffinityEnabled: false
-      serverFarmId: '<hosting-plan-ID>'
-      siteConfig: {
-         alwaysOn: true
-         appSettings: [
-            {
-               name: 'WEBSITES_PORT'
-               value: '80'
-            }
-            {
-               name: 'K8SE_FUNCTIONS_TRIGGERS'
-               value: '{"hostJson":{"version":"2.0","logging":{"applicationInsights":{"samplingExcludedTypes":"Request","samplingSettings":{"isEnabled":true}},"logLevel":{"Host.Triggers.Workflow":"Debug"}}},"functionsJson":{}}'
-            }
-            {
-               name: 'APP_KIND'
-               value: 'logicapp'
-            }
-            {
-               name: 'FUNCTION_APP_EDIT_MODE'
-               value: 'readOnly'
-            }
-            {
-               name: 'AzureFunctionsJobHost__extensionBundle__id'
-               value: 'Microsoft.Azure.Functions.ExtensionBundle.Workflows'
-            }
-            {
-               name: 'AzureFunctionsJobHost__extensionBundle__version'
-               value: '[1.*, 2.0.0]'
-            }
-            {
-               name: 'FUNCTIONS_V2_COMPATIBILITY_MODE'
-               value: 'true'
-            }
-            {
-               name: 'AzureWebJobsStorage'
-               value: '<storage-connection-string>'
-            }
-            {
-               name: 'FUNCTIONS_WORKER_RUNTIME'
-               value: 'node'
-            }
-            {
-               name: 'FUNCTIONS_EXTENSION_VERSION'
-               value: '~3'
-            }
-            {
-               name: 'WEBSITE_NODE_DEFAULT_VERSION'
-               value: '~12'
-            }
-            {
-               name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
-               value: '${appSettings_insights_key}'
-            }
-         ]
       }
    }
 }
@@ -545,15 +480,16 @@ If you prefer to use container tools and deployment processes, you can container
 - In your deployment template, point to the Docker registry and container image where you plan to deploy. Single-tenant Azure Logic Apps uses this information to get the container image from your Docker registry.
 - Include an App Service plan with your deployment. For more information, review [Include App Service plan with deployment](#include-app-service-plan).
 
-In your [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md) or [Bicep template](../azure-resource-manager/templates/bicep-overview.md), include the following values:
+In your [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md), include the following values:
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | The *custom location* for your Kubernetes environment <p><p>**Important**: Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, Kubernetes environment must all be the same. |
-| App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,logicapp,functionapp,container` |
+| Location | `location` | Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, Kubernetes environment must all be the same. <p><p>**Note**: This value is *not* the same as the name of your custom location. |
+| App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,logicapp,container` |
+| Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have `"type"` set to `"CustomLocation"`. |
 | Container name | `linuxFxVersion` | The name for your container, formatted as follows: `DOCKER|<container-name>` |
 | Hosting plan resource ID | `serverFarmId` | The resource ID of the associated App Service plan, formatted as follows: <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
-| Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: When you deploy to a Docker container, you need to provide the connection string for your storage account in your ARM or Bicep template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
+| Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: When you deploy to a Docker container, you need to provide the connection string for your storage account in your ARM template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
 ||||
 
 To reference your Docker registry and container image, include these values in your template:
@@ -575,7 +511,11 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
    "apiVersion": "2020-12-01",
    "name": "[parameters('name')]",
    "location": "[parameters('location')]",
-   "kind": " kubernetes,logicapp,functionapp,container",
+   "kind": " kubernetes,functionapp,logicapp,container",
+   "extendedLocation": {
+      "name": "[parameters('customLocationId')]",
+      "type": "CustomLocation"
+    },
    "properties": {
       "name": "[parameters('name')]",
       "clientAffinityEnabled": false,
@@ -600,7 +540,7 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
             },
             {
                "name": "AzureFunctionsJobHost__extensionBundle__version",
-               "value": "[1.*, 2.0.0]"
+               "value": "[1.*, 2.0.0)"
             },
             {
                "name": "APP_KIND",
@@ -621,84 +561,6 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
          ],
          "use32BitWorkerProcess": "[parameters('use32BitWorkerProcess')]",
          "linuxFxVersion": "DOCKER|<container-name>"
-      }
-   }
-}
-```
-
-#### Bicep template
-
-The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your Bicep template. For more information, review the [Microsoft.Web/sites template format (Bicep template)](/templates/microsoft.web/sites?tabs=bicep) documentation.
-
-```json
-resource logic 'Microsoft.Web/sites@2020-12-01' = {
-   name: logic_name
-   location: location
-   kind: "kubernetes,logicapp,functionapp,container"
-   properties: {
-      clientAffinityEnabled: false
-      serverFarmId: '<host-plan>'
-      siteConfig: {
-         alwaysOn: true
-         appSettings: [
-            {
-               name: 'WEBSITES_PORT'
-               value: '80'
-            }
-            {
-               name: 'K8SE_FUNCTIONS_TRIGGERS'
-               value: '{"hostJson":{"version":"2.0","logging":{"applicationInsights":{"samplingExcludedTypes":"Request","samplingSettings":{"isEnabled":true}},"logLevel":{"Host.Triggers.Workflow":"Debug"}}},"functionsJson":{}}'
-            }
-            {
-               name: 'APP_KIND'
-               value: 'logicapp'
-            }
-            {
-               name: 'FUNCTION_APP_EDIT_MODE'
-               value: 'readOnly'
-            }
-            {
-               name: 'AzureFunctionsJobHost__extensionBundle__id'
-               value: 'Microsoft.Azure.Functions.ExtensionBundle.Workflows'
-            }
-            {
-               name: 'AzureFunctionsJobHost__extensionBundle__version'
-               value: '[1.*, 2.0.0]'
-            }
-            {
-               name: 'FUNCTIONS_V2_COMPATIBILITY_MODE'
-               value: 'true'
-            }
-            {
-               name: 'AzureWebJobsStorage'
-               value: '<storage-connection-string>'
-            }
-            {
-               name: 'FUNCTIONS_WORKER_RUNTIME'
-               value: 'node'
-            }
-            {
-               name: 'FUNCTIONS_EXTENSION_VERSION'
-               value: '~3'
-            }
-            {
-               name: 'WEBSITE_NODE_DEFAULT_VERSION'
-               value: '~12'
-            }
-            {
-               name: 'DOCKER_REGISTRY_SERVER_URL'
-               value: '<docker-registry-server-URL>'
-            }
-            {
-               name: 'DOCKER_REGISTRY_SERVER_USERNAME'
-               value: '<docker-registry-server-username>'
-            }
-            {
-               name: ‘DOCKER_REGISTRY_SERVER_PASSWORD'
-               value: '<docker-registry-server-password>'
-            }
-         ]
-         linuxFxVersion: 'DOCKER|<container-name>'
       }
    }
 }
