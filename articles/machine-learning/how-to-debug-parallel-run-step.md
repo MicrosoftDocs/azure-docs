@@ -231,6 +231,18 @@ def init():
     fil_path = Path(folder) / "<file_name>"
 ```
 
+### How could I write output file and how to view it in the portal?
+You can get the output directory from `EntryScript` class and write to it. You can view the written files by click on the "Data outputs" link in the "Outputs + logs" tab in the StepRun view in AzureML portal and follow the popped up instructions.
+```python
+from pathlib import Path
+from azureml_user.parallel_run import EntryScript
+
+def run(mini_batch):
+    output_dir = Path(entry_script.output_dir)
+    (Path(output_dir) / res1).write...
+    (Path(output_dir) / res2).write...
+```
+
 ### How could I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
 
 User can pass reference data to script using side_inputs parameter of ParalleRunStep. All datasets provided as side_inputs will be mounted on each worker node. User can get the location of mount by passing argument.
