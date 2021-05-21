@@ -22,7 +22,7 @@ Network rules are applied first, then application rules. The rules are terminati
 ### Example of processing logic
 Example scenario: three rule collection groups exist in a an Azure Firewall Policy.  Each rule collection group has a series of application and network rules.
 
-![firewall-manager](media/rule-processing/Rule-Execution-Order.png)
+![Rule execution order](media/rule-processing/Rule-Execution-Order.png)
 
 In the illustrated diagram, the network rules are executed first, followed by the application rules due to Azure Firewall's rule processing logic stating that network rules always having execution priority before application rules.
 
