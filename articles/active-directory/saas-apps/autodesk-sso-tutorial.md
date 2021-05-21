@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with Autodesk SSO, perform the following step
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Autodesk SSO SSO](#configure-autodesk-sso-sso)** - to configure the single sign-on settings on application side.
+1. **[Configure Autodesk SSO](#configure-autodesk-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Autodesk SSO test user](#create-autodesk-sso-test-user)** - to have a counterpart of B.Simon in Autodesk SSO that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -132,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Autodesk SSO SSO
+## Configure Autodesk SSO
 
 To configure single sign-on on **Autodesk SSO** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Autodesk SSO support team](https://knowledge.autodesk.com/contact-support). They set this setting to have the SAML SSO connection set properly on both sides.
 
