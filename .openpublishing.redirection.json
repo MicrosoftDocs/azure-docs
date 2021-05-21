@@ -10534,6 +10534,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/azure/azure-resource-manager/templates/add-resource-extensions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/resource-extensions",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/vs-resource-groups-project-devops-pipelines.md",
       "redirect_url": "/azure/azure-resource-manager/templates/add-template-to-azure-pipelines",
       "redirect_document_id": false
@@ -10573,6 +10578,16 @@
       "redirect_url": "/azure/azure-resource-manager/templates/complete-mode-deletion",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/azure/azure-resource-manager/templates/complete-mode-deletion.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-complete-mode-deletion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-resource-manager/templates/convert-to-template-spec.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-spec-convert",
+      "redirect_document_id": false
+    },          
     {
       "source_path_from_root": "/articles/azure-resource-manager/conditional-resource-deployment.md",
       "redirect_url": "/azure/azure-resource-manager/templates/conditional-resource-deployment",
@@ -10633,6 +10648,11 @@
       "redirect_url": "/azure/azure-resource-manager/templates/define-resource-dependency",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/azure/azure-resource-manager/templates/define-resource-dependency.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/resource-dependency",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-group-template-deploy-cli.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deploy-cli",
@@ -11014,10 +11034,20 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/azure/azure-resource-manager/templates/template-best-practices.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/best-practices",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/template-deploy-what-if.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-deploy-what-if",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/azure/azure-resource-manager/templates/template-deploy-what-if.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-what-if",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/template-expressions.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-expressions",
