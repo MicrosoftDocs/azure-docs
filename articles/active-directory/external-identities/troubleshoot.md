@@ -58,6 +58,10 @@ If you are using federation authentication and the user does not already exist i
 
 To resolve this issue, the external user’s admin must synchronize the user’s account to Azure Active Directory.
 
+## The guest user object doesn't have a proxyAddress
+
+When inviting an external guest user, sometimes this will conflict with an existing [Contact object](https://docs.microsoft.com/graph/api/resources/contact?view=graph-rest-1.0). When this occurs, the guest user is created without a proxyAddress. This means that the user will not be able to redeem this account using [Just-in-Time redemption](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#redemption-through-a-direct-link) or [Email OTP](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode#user-experience-for-one-time-passcode-guest-users).
+
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 
 “\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Azure portal. 
