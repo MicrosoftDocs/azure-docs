@@ -15,7 +15,7 @@ In this article, we'll cover how to write simple queries to help troubleshoot is
 
 For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query.
 
-For resource specific tables (currently in preview for SQL API), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
+For resource-specific tables (currently in preview for SQL API), data is written into individual tables for each category of the resource. We recommend this mode since it makes it much easier to work with the data, provides better discoverability of the schemas, and improves performance across both ingestion latency and query times.
 
 ## <a id="azure-diagnostics-queries"></a> AzureDiagnostics Queries
 
@@ -35,7 +35,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | summarize count() by OperationName, userAgent_s
    ```
 
-- How to query for the long running operations:
+- How to query for the long-running operations:
 
    ```Kusto
    AzureDiagnostics 
@@ -77,9 +77,9 @@ For resource specific tables (currently in preview for SQL API), data is written
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
 
-- How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
+- How to get all queries that are consuming more than 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
 
-   ```Kusto
+   ```kusto
    AzureDiagnostics
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
    | project activityId_g, requestCharge_s
@@ -105,6 +105,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    ) on $left.activityId_g == $right.activityId_g
    | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
    ```
+
 - How to get the distribution for different operations?
 
    ```kusto
@@ -113,6 +114,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | where TimeGenerated >= ago(2h) 
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
+
 - What is the maximum throughput that a partition has consumed?
    
    ```kusto
@@ -130,6 +132,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | summarize total = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, partitionKey_s, TimeGenerated 
    | order by TimeGenerated asc 
    ```
+
 - How to get the request charge for a specific partition key
 
    ```kusto
@@ -137,6 +140,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | where ResourceProvider == "MICROSOFT.DOCUMENTDB" and Category == "PartitionKeyRUConsumption" 
    | where parse_json(partitionKey_s)[0] == "2" 
    ```
+
 - How to get the top partition keys with most RU/s consumed in a specific period?
 
    ```kusto
@@ -146,6 +150,7 @@ For resource specific tables (currently in preview for SQL API), data is written
    | summarize total = sum(todouble(requestCharge_s)) by databaseName_s, collectionName_s, partitionKey_s 
    | order by total desc
    ```
+
 - How to get the logs for the partition keys whose storage size is greater than 8 GB?
 
    ```kusto
@@ -191,7 +196,7 @@ For resource specific tables (currently in preview for SQL API), data is written
     | summarize count() by OperationName, UserAgent
    ```
 
-- How to query for the long running operations:
+- How to query for the long-running operations:
 
    ```kusto
     CDBDataPlaneRequests
@@ -229,7 +234,7 @@ For resource specific tables (currently in preview for SQL API), data is written
     | summarize max(ResponseLength), max(RequestLength), max(RequestCharge), count = count() by OperationName, RequestResourceType, UserAgent, CollectionName, bin(TimeGenerated, 1h)
    ```
 
-- How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
+- How to get all queries that are consuming more than 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
 
    ```kusto
     CDBDataPlaneRequests
@@ -255,7 +260,7 @@ For resource specific tables (currently in preview for SQL API), data is written
 
 - How to get the distribution for different operations?
 
-   ```Kusto
+   ```kusto
     CDBDataPlaneRequests
     | where TimeGenerated >= ago(2h) 
     | summarize count = count()  by OperationName, RequestResourceType, bin(TimeGenerated, 1h)
@@ -271,56 +276,52 @@ For resource specific tables (currently in preview for SQL API), data is written
 
 - How to get the information about the partition keys RU/s consumption per second?
 
-      ```Kusto
-       CDBPartitionKeyRUConsumption 
-       | summarize total = sum(todouble(RequestCharge)) by DatabaseName, CollectionName, PartitionKey, TimeGenerated 
-       | order by TimeGenerated asc 
-      ```
+   ```kusto
+   CDBPartitionKeyRUConsumption 
+   | summarize total = sum(todouble(RequestCharge)) by DatabaseName, CollectionName, PartitionKey, TimeGenerated 
+   | order by TimeGenerated asc 
+   ```
 
 - How to get the request charge for a specific partition key?
 
-      ```Kusto
-       CDBPartitionKeyRUConsumption  
-       | where parse_json(PartitionKey)[0] == "2" 
-      ```
+   ```kusto
+   CDBPartitionKeyRUConsumption  
+   | where parse_json(PartitionKey)[0] == "2" 
+   ```
 
 - How to get the top partition keys with most RU/s consumed in a specific period? 
 
-      ```Kusto
-       CDBPartitionKeyRUConsumption
-       | where TimeGenerated >= datetime("02/12/2021, 11:20:00.000 PM") and TimeGenerated <= datetime("05/12/2021, 11:30:00.000 PM") 
-       | summarize total = sum(todouble(RequestCharge)) by DatabaseName, CollectionName, PartitionKey 
-       | order by total desc
-       ```
+   ```kusto
+   CDBPartitionKeyRUConsumption
+   | where TimeGenerated >= datetime("02/12/2021, 11:20:00.000 PM") and TimeGenerated <= datetime("05/12/2021, 11:30:00.000 PM") 
+   | summarize total = sum(todouble(RequestCharge)) by DatabaseName, CollectionName, PartitionKey 
+   | order by total desc
+   ```
 
 - How to get the logs for the partition keys whose storage size is greater than 8 GB?
 
-      ```Kusto
-       CDBPartitionKeyStatistics
-       | where todouble(SizeKb) > 800000
-      ``` 
+   ```kusto
+   CDBPartitionKeyStatistics
+   | where todouble(SizeKb) > 800000
+   ``` 
 
 - How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
 
-      ```Kusto
-       CDBDataPlaneRequests
-       | where TimeGenerated >= ago(2d)
-       | summarize
-       percentile(todouble(ResponseLength), 50), percentile(todouble(ResponseLength), 99), max(ResponseLength),
-       percentile(todouble(RequestCharge), 50), percentile(todouble(RequestCharge), 99), max(RequestCharge),
-       percentile(todouble(DurationMs), 50), percentile(todouble(DurationMs), 99), max(DurationMs),
-       count()
-       by OperationName, RequestResourceType, UserAgent, CollectionName, bin(TimeGenerated, 1h)
-      ```
+   ```kusto
+   CDBDataPlaneRequests
+   | where TimeGenerated >= ago(2d)
+   | summarize percentile(todouble(ResponseLength), 50), percentile(todouble(ResponseLength), 99), max(ResponseLength), percentile(todouble(RequestCharge), 50), percentile(todouble(RequestCharge), 99), max(RequestCharge), percentile(todouble(DurationMs), 50), percentile(todouble(DurationMs), 99), max(DurationMs),count() by OperationName, RequestResourceType, UserAgent, CollectionName, bin(TimeGenerated, 1h)
+   ```
  
 - How to get ControlPlane logs?
  
-      Remember to switch on the flag as described in the [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article, and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
+   Remember to switch on the flag as described in the [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article, and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
  
-      ```Kusto  
-       CDBControlPlaneRequests
-       | summarize by OperationName 
-      ```
+   ```kusto  
+   CDBControlPlaneRequests
+   | summarize by OperationName 
+   ```
+
 ## Next steps
 * For more information on how to create diagnostic settings for Cosmos DB see [Creating Diagnostics settings](cosmosdb-monitor-resource-logs.md) article.
 
