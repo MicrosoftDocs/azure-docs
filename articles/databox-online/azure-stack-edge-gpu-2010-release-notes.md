@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro GA release notes| Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running general availability release.
+title: Azure Stack Edge GA release notes| Microsoft Docs
+description: Describes critical open issues and resolutions for the Azure Stack Edge running general availability release.
 services: databox
 author: alkohli
  

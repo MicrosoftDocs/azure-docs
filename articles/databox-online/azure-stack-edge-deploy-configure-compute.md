@@ -1,5 +1,5 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Stack Edge Pro FPGA | Microsoft Docs
+title: Tutorial to filter, analyze data on Azure Stack Edge Pro FPGA with compute
 description: Learn how to configure compute role on Azure Stack Edge Pro FPGA and use it to transform data before sending to Azure.
 services: databox
 author: alkohli

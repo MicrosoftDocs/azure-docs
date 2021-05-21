@@ -1,5 +1,5 @@
 ---
-title: Tutorial to install - Unpack, rack, cable Azure Stack Edge Pro FPGA physical device | Microsoft Docs
+title: Tutorial for Azure Stack Edge Pro FPGA physical device unpacking, racking, cabling  | Microsoft Docs
 description: The second tutorial about installing Azure Stack Edge Pro FPGA involves how to unpack, rack, and cable the physical device.
 services: databox
 author: alkohli

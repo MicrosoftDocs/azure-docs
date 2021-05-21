@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro FPGA device access, power, and connectivity mode | Microsoft Docs 
+title: Azure Stack Edge Pro FPGA device access, power, and connectivity mode 
 description: Describes how to manage access, power, and connectivity mode for the Azure Stack Edge Pro FPGA device that helps transfer data to Azure
 services: databox
 author: alkohli
