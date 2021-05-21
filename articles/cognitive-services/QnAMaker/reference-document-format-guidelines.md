@@ -70,7 +70,7 @@ Below is an example of a structured QnA word document:
 
 ### Structured *TXT*, *TSV* and *XLS* Files
 
-QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be uploaded to QnA Maker to create or augment a knowledge base.  These can either be plain text, or can have content in RTF or HTML.
+QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be uploaded to QnA Maker to create or augment a knowledge base.  These can either be plain text, or can have content in RTF or HTML. [QnA pairs](/how-to/edit-knowledge-base#question-and-answer-pairs) have an optional metadata field that can be used to group QnA pairs into categories.
 
 | Question  | Answer  | Metadata (1 key: 1 value) |
 |-----------|---------|-------------------------|
