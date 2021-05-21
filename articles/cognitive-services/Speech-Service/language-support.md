@@ -284,8 +284,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Urdu (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` <sup>New</sup> | General | 
 | Vietnamese (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | General |
 | Vietnamese (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | General |
-| Welsh (UK) | `cy-GB` | Female | `cy-GB-NiaNeural` <sup>New</sup> | General | 
-| Welsh (UK) | `cy-GB` | Male | `cy-GB-AledNeural` <sup>New</sup> | General | 
+| Welsh (United Kingdom) | `cy-GB` | Female | `cy-GB-NiaNeural` <sup>New</sup> | General | 
+| Welsh (United Kingdom) | `cy-GB` | Male | `cy-GB-AledNeural` <sup>New</sup> | General | 
 
 #### Neural voices in preview
 
