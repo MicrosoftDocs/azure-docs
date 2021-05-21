@@ -1,7 +1,7 @@
 ---
 title: Creating and using resource files 
 description: Learn how to create Batch resource files from various input sources. This article covers a few common methods on how to create and place them on a VM.
-ms.date: 04/26/2021
+ms.date: 05/25/2021
 ms.topic: how-to
 ---
 
@@ -84,7 +84,7 @@ ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName, bl
 
 To create a single resource file, you can specify a valid HTTP URL containing your input data. The URL is provided to the Batch API, and then the data is used to create a resource file. This method can be used whether the data to create your resource file is in Azure Storage, or in any other web location, such as a GitHub endpoint.
 
-The following example uses [FromUrl](/dotnet/api/microsoft.azure.batch.resourcefile.fromurl) to retrieve the file from a string that contains a valid URL, then generates a resource file to be used by your task. No credentials are needed for this scenario.
+The following example uses [FromUrl](/dotnet/api/microsoft.azure.batch.resourcefile.fromurl) to retrieve the file from a string that contains a valid URL, then generates a resource file to be used by your task. No credentials are needed for this scenario. (Credentials are required if using blob storage, unless public read access is enabled on the blob container.)
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromUrl(yourURL, filePath);
