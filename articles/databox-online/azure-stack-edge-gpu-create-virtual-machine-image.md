@@ -16,13 +16,14 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps that are required to create Linux or Windows VM custom images that you can use to deploy VMs on your Azure Stack Edge Pro device.
+To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps that are required to create Linux or Windows VM custom images that you can use to deploy VMs on your Azure Stack Edge Pro GPU device.
 
-NOTE HERE: Image requirements
+> [!NOTE] 
+> The VM image for an Azure virtual machine deployed on an Azure Stack Edge Pro GPU device must be a Fixed virtual hard disk in VHD format from a Generation 1 virtual machine.
 
 ## VM image workflow
 
-The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the VHD corresponding to that VM. This generalized VHD is uploaded to Azure Stack Edge Pro. A managed disk is created from that VHD. An image is created from the managed disk. And, finally, VMs are created from that image.
+The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the OS VHD for that VM. This generalized VHD is uploaded to Azure Stack Edge Pro. A managed disk is created from that VHD. An image is created from the managed disk. And, finally, VMs are created from that image.
 
 For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
