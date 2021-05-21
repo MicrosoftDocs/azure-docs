@@ -1,12 +1,12 @@
 ---
-title: Set plan availability for an IoT Edge Module offer in Microsoft AppSource.
-description: Set plan availability for an IoT Edge Module offer in Microsoft AppSource.
+title: Set plan availability for an IoT Edge Module offer on Azure Marketplace.
+description: Set plan availability for an IoT Edge Module offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 04/30/2021
+ms.date: 05/21/2021
 ---
 
 # Set plan availability for an IoT Edge Module offer

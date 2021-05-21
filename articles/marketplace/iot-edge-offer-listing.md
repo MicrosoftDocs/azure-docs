@@ -1,12 +1,12 @@
 ---
-title: Configure IoT Edge Module offer listing details on Microsoft AppSource
-description: Configure IoT Edge Module offer listing details on Microsoft AppSource.
+title: Configure IoT Edge Module offer listing details on Azure Marketplace
+description: Configure IoT Edge Module offer listing details on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 04/30/2021
+ms.date: 05/21/2021
 ---
 
 # Configure IoT Edge Module offer listing details
@@ -17,8 +17,8 @@ This page lets you define the offer details such as offer name, description, lin
 > Provide offer listing details in one language only. English is not required as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
 
 Here's an example of how offer information appears in Azure Marketplace (any listed prices are for example purposes only and not intended to reflect actual costs):
-<font color="red">[ Should screen be AppSource, not Azure? ]</font>
-:::image type="content" source="media/iot-edge/example-iot-azure-marketplace-offer.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+:::image type="content" source="media/iot-edge/example-iot-azure-marketplace-offer.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
 ##### Call-out descriptions
 
@@ -81,10 +81,6 @@ Provide a **Short description** of your offer, up to 256 characters. This will a
 [!INCLUDE [Long description-2](includes/long-description-2.md)]
 
 Use HTML tags to format your description so it's more engaging. For a list of allowed tags, see [Supported HTML tags](supported-html-tags.md).
-
-<strike>#### Help/Privacy URLs
-
-Enter the **Help link for your app** (URL) where customers can learn more about your offer. Your Help URL cannot be the same as your Support URL.</strike>
 
 Enter the **Privacy policy link** (URL) to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 

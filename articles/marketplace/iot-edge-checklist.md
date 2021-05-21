@@ -1,12 +1,12 @@
 ---
-title: Pre-certification checklist for IoT Edge module offers in Azure Marketplace
-description: Learn about the specific certification requirements for publishing IoT Edge module offers in Azure Marketplace.
+title: Pre-certification checklist for IoT Edge module offers on Azure Marketplace
+description: Learn about the specific certification requirements for publishing IoT Edge module offers on Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 04/30/2021
+ms.date: 05/21/2021
 ---
 
 # Pre-certification checklist for IoT Edge modules

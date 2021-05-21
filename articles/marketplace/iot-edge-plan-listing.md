@@ -1,12 +1,12 @@
 ---
-title: Set up plan listing details for an IoT Edge Module offer in Microsoft AppSource.
-description: Set up plan listing details for an IoT Edge Module offer in Microsoft AppSource.
+title: Set up plan listing details for an IoT Edge Module offer in Azure Marketplace.
+description: Set up plan listing details for an IoT Edge Module offer in Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 04/30/2021
+ms.date: 05/21/2021
 ---
 
 # Set up plan listing details for an IoT Edge Module offer
@@ -26,8 +26,6 @@ Provide a short summary of your plan (not the offer). This summary appears in Az
 Describe what makes this plan unique, as well as differences between plans within your offer. Don't describe the offer, just the plan. This description will appear in Azure Marketplace and in the Azure portal on the offer listing page. It can be the same content you provided in the plan summary and contain up to 2,000 characters.
 
 Select **Save draft** before continuing to the next tab in the **Plan overview** left-nav menu, **Availability**.
-
-<font color="red">[ Put examples here like Azure Containers? ]</font>
 
 ## Next steps
 

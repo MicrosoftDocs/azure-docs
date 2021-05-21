@@ -1,12 +1,12 @@
 ---
-title: Prepare IoT Edge module technical assets - Azure Marketplace
-description: Learn about the technical and configuration requirements your Internet of Things (IoT) Edge module technical assets must meet before you can publish them to Azure Marketplace.
+title: Prepare IoT Edge module technical assets on Azure Marketplace
+description: Prepare IoT Edge module technical assets on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 04/30/2021
+ms.date: 05/21/2021
 ---
 
 # Prepare IoT Edge module technical assets
