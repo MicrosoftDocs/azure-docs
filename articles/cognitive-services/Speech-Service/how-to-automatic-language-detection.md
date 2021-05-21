@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 05/21/2021
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
 # How to use language identification
 
-Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages. The value returned by automatic language detection is then used to select the language model for speech to text, providing you with a more accurate transcription. 
+Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages. The value returned by language identification is then used to select the language model for speech to text, providing you with a more accurate transcription. 
 
-Language identification results can also be used while doing [speech translation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script%2Cwindowsinstall&pivots=programming-language-csharp#multi-lingual-translation-with-language-identification), or by doing [standalone identification](#standalone-language-identification). To see which languages are available, see [Language support](language-support.md).
+Language identification can also be used while doing [speech translation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script%2Cwindowsinstall&pivots=programming-language-csharp#multi-lingual-translation-with-language-identification), or by doing [standalone identification](#standalone-language-identification). To see which languages are available, see [Language support](language-support.md).
 
 ## Prerequisites
 
@@ -63,9 +63,7 @@ using (var recognizer = new SpeechRecognizer(
 }
 ```
 
-The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern.
-
-Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which should be used in cases where the speaker's language may be changing frequently. Switch to `Accuracy` if there are longer segments of audio in the same language, where the accuracy of the recognition outweighs the importance of quickly identifying the language being spoken. 
+The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern. Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which prioritizes response time.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -189,9 +187,7 @@ auto autoDetectSourceLanguageResult =
 auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 ```
 
-The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern.
-
-Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which should be used in cases where the speaker's language may be changing frequently. Switch to `Accuracy` if there are longer segments of audio in the same language, where the accuracy of the recognition outweighs the importance of quickly identifying the language being spoken. 
+The following example shows continuous speech recognition set up for a multilingual scenario. This example only uses `en-US` and `ja-JP` in the language config, but you can use up to **ten languages** for this design pattern. Each time speech is detected, the source language is identified and the audio is also converted to text output. This example uses `Latency` mode, which prioritizes response time.
 
 ```cpp
 using namespace std;
