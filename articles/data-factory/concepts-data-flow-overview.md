@@ -83,7 +83,7 @@ View the [mapping data flow transformation overview](data-flow-transformation-ov
 * binary
 * boolean
 * complex
-* decimal
+* decimal (includes precision)
 * date
 * float
 * integer
