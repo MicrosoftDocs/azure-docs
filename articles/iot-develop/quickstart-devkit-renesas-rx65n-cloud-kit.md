@@ -92,6 +92,7 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
     > *getting-started\Renesas\RX65N_Cloud_Kit\app\azure_config.h*
 
 1. Set the Wi-Fi constants to the following values from your local environment.
+
     |Constant name|Value|
     |-------------|-----|
     |`WIFI_SSID` |{*Your Wi-Fi ssid*}|
