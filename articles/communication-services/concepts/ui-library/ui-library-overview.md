@@ -79,7 +79,7 @@ Understanding these requirements will help you choose the right client library:
 - **How much customization do you desire?** Azure Communication core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
-Details about feature availability in the [UI Library is available here](https://azure.github.io/communication-ui-libraryhttps://azure.github.io/communication-ui-library/?path=/story/use-cases--page), but key trade-offs are summarized below.
+Details about feature availability in the [UI Library is available here](https://azure.github.io/communication-ui-library/?path=/story/use-cases--page), but key trade-offs are summarized below.
 
 | Client library / SDK  | Implementation Complexity | Customization Ability | Calling | Chat | [Teams Interop](../teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- | ------- | ---- | ----------------------------------------------------------------------------------------------------- |
