@@ -83,6 +83,9 @@ Now, verify that the client secret is visible on the **Certificates & secrets** 
 
 :::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Copy client secret value":::
 
+>[!IMPORTANT]
+>Make sure to copy the value now and store it in a safe place, as it cannot be retrieved again. If you can't find the value later, you'll have to create a new secret.
+
 ## Provide Azure Digital Twins API permission
 
 Next, configure the app registration you've created with baseline permissions to the Azure Digital Twins APIs.
