@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 05/21/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -45,8 +45,8 @@ Do the following steps to create a Windows VM image.
 
 3. Download the OS disk from Azure:
 
-   1. [Stop the VM](/azure/virtual-machines/windows/download-vhd#stop-the-vm).<!--When they generalized the VM, it not be already stopped. So, unless we present the option of not generalizing, this step just doesn't fit.-->
-   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url).<!--Blocking issue: VM has been generalized and is stopped. Can't generate the URL while the disk is attached.-->
+   1. [Stop the VM](/azure/virtual-machines/windows/download-vhd#stop-the-vm).<!--When they generalized the VM, it not be already stopped. So, generalizing the disk is optional, this step just doesn't fit.-->
+   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url).<!--Blocking issue: Can't generate the URL while the disk is attached. VM has been generalized and is stopped.-->
    1. Download the disk to the Azure Storage account for your Azure Stack Edge device. You can save time by using `azcopy`instead of the **Download** command in the portal. 
    
       Run the following command:
@@ -64,23 +64,7 @@ Do the following steps to create a Windows VM image.
 In az copy examples, I'm seeing a full path within Blob storage instead of a uri. 
 Sample format line: azcopy copy "SUB Download URI" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"-->
 
-You can now use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device.
-
-
-<!--OLD STEPS - 
-1. Create a Windows Virtual Machine. For more information, go to [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).
-
-2. Download an existing OS disk.
-
-    - Follow the steps in [Download a VHD](../virtual-machines/windows/download-vhd.md).
-
-    - Use the following `sysprep` command instead of what is described in the preceding procedure.
-    
-        `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
-   
-       You can also refer to [Sysprep (system preparation) overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).-->
-
-Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device.
+You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro device.
 
 ## Create a Linux custom VM image
 
