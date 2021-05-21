@@ -34,7 +34,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 
 1. Navigate to your Cosmos DB account in the Azure portal 
 1. Select **Settings** > **Keys** 
-1. Copy your *key* and save it somewhere for the next steps
+1. Copy a PRIMARY or SECONDARY key from the *Read-write Keys* or *Read-only Keys* and save it somewhere for the next steps.
 1. Navigate to your key vault
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your Azure Cosmos DB Account.
