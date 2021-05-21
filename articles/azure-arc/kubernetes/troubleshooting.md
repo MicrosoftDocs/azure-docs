@@ -440,7 +440,7 @@ You will get the following output:
 }
 ```
 
-Refer [OSM ConfigMap documentation](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/osm_config_map.md) to understand `osm-config` ConfigMap values.
+Refer [OSM ConfigMap documentation](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/) to understand `osm-config` ConfigMap values.
 
 ### 11. Check Namespaces
 

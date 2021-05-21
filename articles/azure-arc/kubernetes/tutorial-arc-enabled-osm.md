@@ -250,7 +250,7 @@ Output of data section of the default OSM configmap should look like the followi
   "use_https_ingress": "false"
 }
 ```
-Read [OSM ConfigMap documentation](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/osm_config_map.md) to understand each of the available configurations. Notice the **permissive_traffic_policy_mode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+Read [OSM ConfigMap documentation](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/) to understand each of the available configurations. Notice the **permissive_traffic_policy_mode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
 ### Making changes to OSM ConfigMap
 To make changes to the OSM configmap, use the following guidance:
@@ -397,3 +397,8 @@ When you use the az k8s-extension command to delete the OSM extension, the arc-o
 
 ## Troubleshooting
 Refer to the troubleshooting guide [available here](troubleshooting.md#arc-enabled-open-service-mesh).
+
+## Next steps
+
+> **Just want to try things out?**  
+> Get started quickly with an [Azure Arc Jumpstart](https://aka.ms/arc-jumpstart-osm) scenario using Cluster API.
