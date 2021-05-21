@@ -16,7 +16,7 @@ ms.author: chrande
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Azure Managed Instance for Apache Casandra service requires certain network network and FQDN/application rules to properly manage the service, create backups, and emit telemetry.
+The Azure Managed Instance for Apache Casandra service requires certain network rules to properly manage the service. By ensuring you have the proper rules exposed, you can keep your service secure and prevent operational issues.
 
 ## Azure Global required network rules
 
@@ -26,7 +26,7 @@ The required network rules and IP address dependencies are:
 |----------------------------------------------------------------------------------|----------|---------|------|
 |*.blob.core.windows.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) -  Azure Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage to store backups and Control Plane communication.|
 |*.vault.azure.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure KeyVault | HTTPS | 443 | Required for secure communication between the nodes and Azure Key Vault. Certificates and keys are used to secure communication inside the cluster.|
-|management.azure.com:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Virtual Machine Scale Sets/Azure Management API | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (e.g. reboot)|
+|management.azure.com:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Virtual Machine Scale Sets/Azure Management API | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot)|
 |*.servicebus.windows.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure EventHub | HTTPS | 443 | Required to forward logs to Azure|
 |jarvis-west.dc.ad.msft.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Monitor | HTTPS | 443 | Required to forward metrics Azure |
 |login.microsoftonline.com:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure AAD | HTTPS | 443 | Required for Azure Active Directory authentication.|
