@@ -84,8 +84,10 @@ External file formats define the structure of the files stored on external data 
 ```sql
 CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
 GO
-CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = CSV );
+CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
 ```
+
+Find more information in [this article](develop-tables-external-tables.md?tabs=native#syntax-for-create-external-file-format)
 
 ## Explore your data
 
@@ -95,11 +97,11 @@ reads content of a remote data source (for example file) and returns the content
 ```sql
 select top 10  *
 from openrowset(bulk 'latest/ecdc_cases.parquet',
-                data_source = 'ecdc_cases'
+                data_source = 'ecdc_cases',
                 format='parquet') as a
 ```
 
-The `OPENROWSET` function will give you information about the column in the external files or containers and enable you to define a schema of 
+The `OPENROWSET` function will give you information about the columns in the external files or containers and enable you to define a schema of 
 your external tables and views.
 
 ## Create external tables on Azure storage
@@ -177,11 +179,23 @@ To optimize performance, you should use the smallest possible types in the `WITH
 ## Access and permissions
 
 As a final step, you should create database users that should be able to access your LDW, and give them permissions to select data from the external tables and views.
-In the following script you can see how to add a new user and provide permissions to read data:
+In the following script you can see how to add a new user that will be authenticated using Azure AD identity:
 
 ```sql
 CREATE USER [jovan@contoso.com] FROM EXTERNAL PROVIDER;
 GO
+```
+
+Instead of Azure AD principals, you can create SQL principals that authenticate with the login name and password.
+
+```sql
+CREATE LOGIN [jovan] WITH PASSWORD = 'My Very strong Password ! 1234';
+CREATE USER [jovan] FROM LOGIN [jovan];
+```
+
+In both cases, you can assign permissions to the users.
+
+```sql
 DENY ADMINISTER DATABASE BULK OPERATIONS TO [jovan@contoso.com]
 GO
 GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]

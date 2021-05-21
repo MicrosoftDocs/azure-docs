@@ -46,7 +46,7 @@ See the following technical documents for information about the algorithms used:
 * Paper: [Multivariate time series Anomaly Detection via Graph Attention Network](https://arxiv.org/abs/2009.02040)
 
 
-> [!VIDEO https://www.youtube.com/watch?v=FwuI02edclQ]
+> [!VIDEO https://www.youtube.com/embed/FwuI02edclQ]
 
 
 ## Join the Anomaly Detector community
