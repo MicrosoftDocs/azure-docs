@@ -89,74 +89,36 @@ PowerShell content
 
 
 ```azurepowershell
-#upgrade PSH module 
+#upgrade PSH module
+$subnetConfig = Get-AzVirtualNetworkSubnetConfig -Name $diskpoolSubnetName -VirtualNetwork $virtualNetwork
 
-$subnetConfig = Get-AzVirtualNetworkSubnetConfig -Name $diskpoolSubnetName -VirtualNetwork $virtualNetwork 
+$subnetConfig = ((Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName).Subnets |? { $_.Name -eq $diskpoolSubnetName })
 
- 
-
-$subnetConfig = ((Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroupName).Subnets |? { $_.Name -eq $diskpoolSubnetName }) 
-
-  
-
- 
-
- 
-
-New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetConfig.Id -AvailabilityZone $AvZoneNo #We only support zonal deployment of Disk Pool 
-
-$diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPoolName 
-
- 
+New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetConfig.Id -AvailabilityZone $AvZoneNo #We only support zonal deployment of Disk Pool
+$diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPoolName
 
 #5. Add AVS Cloud as iSCSI initiators to the Disk Pool 
+#5.1 Initialize an iSCSI Target endpoint and expose the attached Disk
+$targetIqn = "<target-iqn>" # Specify the IQN of the iSCSI target representing your Disk Pool. For example: iqn.2005-03.org.iscsi:server
+$iscsiInitiatorIqn = "<avs-iqn>"# Specify the IQN of your AVS Cloud. For example: iqn.2005-03.org.iscsi:client
+$username = "<user-name>" # Minimum length: 7, Maximum length: 511
+$pwd = "<pwd>" # Minimum length: 12; Maximum length: 255; known invalid characters: () @ # $ % ^ & and *
+$lunName = "<lun-name>" # Lun name will be surfaced as the indicator for the disk from iSCSI target
+$iscsiTargetName = "<iscsi-target-name>"
+#Expose the Disk that is added as the storage target under this Disk Pool as a Lun on the iSCSI target. Each added Storage Target can only be mapped against one iSCSI LUN
 
-#5.1 Initialize an iSCSI Target endpoint and expose the attached Disk 
+$lun= New-AzDiskPoolIscsiLunObject -ManagedDiskAzureResourceId $diskId -Name $lunName
+# A target portal group is a set of one or more storage system network interfaces that can be used for an iSCSI session between an initiator and a target. A target portal group composes these properties below.
 
-$targetIqn = "<target-iqn>" # Specify the IQN of the iSCSI target representing your Disk Pool. For example: iqn.2005-03.org.iscsi:server 
+#ACLs: defines the iSCSI initiators that can be connected to this iSCSI target including the credentials to be used for authentication if enabled, and the iSCSI LUN allowed. You can add multiple ACLs per each iSCSI initiator.
+#AttributeAuthentication: defines whether authentication is enabled on the ACL (Challenge Handshake Authentication Protocol). If you enable authentication, you must use and specify credentials for the connection
+#AttributeProdModeWriteProtect: defines whether write protect is enabled on the Luns
+$acls = New-AzDiskPoolAclObject -CredentialsUsername $username -CredentialsPassword $pwd -InitiatorIqn $iscsiInitiatorIqn -MappedLun @($lunName)
+$tpgs = New-AzDiskPoolTargetPortalGroupObject -Lun $lun -AttributeAuthentication $true -AttributeProdModeWriteProtect $false -Acls $acls
+New-AzIscsiTarget -ResourceGroupName $resourceGroupName -TargetIqn $targetIqn -DiskPoolName $diskPoolName -Name $iscsiTargetName -Tpg $tpgs
 
-$iscsiInitiatorIqn = "<avs-iqn>"# Specify the IQN of your AVS Cloud. For example: iqn.2005-03.org.iscsi:client 
-
-$username = "<user-name>" # Minimum length: 7, Maximum length: 511 
-
-$pwd = "<pwd>" # Minimum length: 12; Maximum length: 255; known invalid characters: () @ # $ % ^ & and * 
-
-$lunName = "<lun-name>" # Lun name will be surfaced as the indicator for the disk from iSCSI target 
-
-$iscsiTargetName = "<iscsi-target-name>"  
-
- 
-#Expose the Disk that is added as the storage target under this Disk Pool as a Lun on the iSCSI target. Each added Storage Target can only be mapped against one iSCSI LUN 
-
-$lun= New-AzDiskPoolIscsiLunObject -ManagedDiskAzureResourceId $diskId -Name $lunName 
-
- 
-
-# A target portal group is a set of one or more storage system network interfaces that can be used for an iSCSI session between an initiator and a target. A target portal group composes these properties below.  
-
-#ACLs: defines the iSCSI initiators that can be connected to this iSCSI target including the credentials to be used for authentication if enabled, and the iSCSI LUN allowed. You can add multiple ACLs per each iSCSI initiator. 
-
-#AttributeAuthentication: defines whether authentication is enabled on the ACL (Challenge Handshake Authentication Protocol). If you enable authentication, you must use and specify credentials for the connection  
-
-#AttributeProdModeWriteProtect: defines whether write protect is enabled on the Luns 
-
- 
-
-$acls = New-AzDiskPoolAclObject -CredentialsUsername $username -CredentialsPassword $pwd -InitiatorIqn $iscsiInitiatorIqn -MappedLun @($lunName) 
-
- 
-
-$tpgs = New-AzDiskPoolTargetPortalGroupObject -Lun $lun -AttributeAuthentication $true -AttributeProdModeWriteProtect $false -Acls $acls 
-
- 
-
-New-AzIscsiTarget -ResourceGroupName $resourceGroupName -TargetIqn $targetIqn -DiskPoolName $diskPoolName -Name $iscsiTargetName -Tpg $tpgs   
-
- 
-
-#5.2 Retrieve the iSCSI target properties of the Disk Pool 
-
-Get-AzIscsiTarget -ResourceGroupName $resourceGroupName -Name $iscsiTargetName - 
+#5.2 Retrieve the iSCSI target properties of the Disk Pool
+Get-AzIscsiTarget -ResourceGroupName $resourceGroupName -Name $iscsiTargetName -
 ```
 
 
