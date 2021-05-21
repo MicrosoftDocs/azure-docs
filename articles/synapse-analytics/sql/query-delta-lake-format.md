@@ -160,7 +160,7 @@ ORDER BY
 The `OPENROWSET` function will eliminate partitions that don't match the `year` and `month` in the where clause. This file/partition pruning technique will significantly
 reduce your data set, improve performance, and reduce the cost of the query.
 
-The folder name in the `OPENROWSET` function (`yellow` in this example) is concatenated using the `LOCATION` in `DeltaLakeStorage` data soure, and must reference the root Delta Lake folder that contains a subfolder called `_delta_log`.
+The folder name in the `OPENROWSET` function (`yellow` in this example) is concatenated using the `LOCATION` in `DeltaLakeStorage` data source, and must reference the root Delta Lake folder that contains a subfolder called `_delta_log`.
 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
@@ -183,7 +183,7 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 ## Next steps
 
 Advance to the next article to learn how to [Query Parquet nested types](query-parquet-nested-types.md).
-If you want to continue building Delta Lake solution learn how to create [views](create-use-views.md#delta-lake-views) or [external tables](create-use-external-tables.md#delta-lake-external-table) on the Delta Lake folder.
+If you want to continue building Delta Lake solution, learn how to create [views](create-use-views.md#delta-lake-views) or [external tables](create-use-external-tables.md#delta-lake-external-table) on the Delta Lake folder.
 
 ## See also
 
