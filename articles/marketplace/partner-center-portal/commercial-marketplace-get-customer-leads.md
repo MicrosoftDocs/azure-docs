@@ -39,7 +39,7 @@ Here are places where a lead is generated:
 
 ## Connect to your CRM system
 
-[!INCLUDE [Connect lead management](includes/customer-leads.md)]
+[!INCLUDE [Connect lead management](../includes/customer-leads.md)]
 
 ## Understand lead data
 
