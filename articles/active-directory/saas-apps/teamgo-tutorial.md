@@ -36,9 +36,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Teamgo supports **SP and IDP** initiated SSO.
 * Teamgo supports **Just In Time** user provisioning.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 ## Adding Teamgo from the gallery
 
 To configure the integration of Teamgo into Azure AD, you need to add Teamgo from the gallery to your list of managed SaaS apps.
@@ -76,8 +73,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    In the **Reply URL** text box, type a URL using the following pattern:
-    `https://my.teamgo.co/integration/saml?acs&domain=<DOMAIN NAME>`
+    In the **Identifier** text box, type one of the following URLs:
+
+    | Identifier |
+    |-----------|
+    | `https://my.teamgo.co` |
+    | `https://my.teamgo.co/integration/saml/serviceProviderEntityId` |
+    |
+
+    In the **Reply URL** text box, type a URL using one of the following patterns:
+
+    | Reply URL |
+    |-----------|
+    | `https://my.teamgo.co` |
+    | `https://my.teamgo.co/integration/saml?acs&domain=<DOMAIN NAME>` |
+    |
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
