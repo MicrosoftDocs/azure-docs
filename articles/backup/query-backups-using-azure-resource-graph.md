@@ -7,7 +7,7 @@ ms.date: 05/21/2021
 
 # Query your backups using Azure Resource Graph (ARG)
 
-You can query information on backup for your Azure resources at no additional cost using [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/overview). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. Following are the key benefits of using ARG to query your backup metadata:
+You can query information on backup for your Azure resources at no additional cost using [Azure Resource Graph (ARG)](./articles/governance/resource-graph/overview.md). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. Following are the key benefits of using ARG to query your backup metadata:
 
 - Abilities to query resources at-scale with complex filtering, grouping, and sorting by resource properties.
 - Ability to obtain real-time information on your backups, including in-progress backup jobs.
@@ -30,7 +30,7 @@ To get started with querying your backups using ARG, follow these steps:
 
 1. To explore the data in any of these tables, write **Kusto** queries in the query editor and click **Run Query**.
 
-    You can download the output of these queries as CSV from the **Resource Graph Explorer**. You can also use these queries in custom automation using any automation clients supported by ARG, such as [PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell), [CLI](https://docs.microsoft.com/azure/governance/resource-graph/first-query-azurecli), or [SDK](https://docs.microsoft.com/azure/governance/resource-graph/first-query-python). You can also create [custom workbooks](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) in the Azure portal using ARG as a data source.
+    You can download the output of these queries as CSV from the **Resource Graph Explorer**. You can also use these queries in custom automation using any automation clients supported by ARG, such as [PowerShell](./articles/governance/resource-graph/first-query-powershell.md), [CLI](./articles/governance/resource-graph/first-query-azurecli.md), or [SDK](./articles/governance/resource-graph/first-query-python). You can also create [custom workbooks](./articles/azure-monitor/visualize/workbooks-overview.md) in the Azure portal using ARG as a data source.
 
 >[!NOTE] 
 >- Backup/Restore jobs that are up to 14 days old are available in ARG for query. If you want to query historical records, we recommend you to use **Azure Monitor Logs**.
