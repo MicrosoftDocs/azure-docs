@@ -36,7 +36,7 @@ See the introduction [video](https://www.youtube.com/watch?v=ui9XT47uwxs) of the
 
 ## Azure neural TTS can produce visemes with speech
 
-The viseme turns the input text or SSML (Speech Synthesis Markup Language) into Viseme ID and Audio offset which are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme. With the help of a 2D or 3D rendering engine, you can use the viseme output to control the animation of your avatar.
+A neural voice turns input text or SSML (Speech Synthesis Markup Language) into synthesized speech. Speech audio output can be accompanied by viseme IDs and their offset timestamps. Each viseme ID specifies a specific pose in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme. Using a 2D or 3D rendering engine, you can use these viseme events to animate your avatar.
 
 | Parameter | Description |
 |-----------|-------------|
