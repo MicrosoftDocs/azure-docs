@@ -174,7 +174,7 @@ The name of `App Instance` from Azure Spring Cloud will be changed/generated in 
 * Restart the application.
 * Stop the deployment of application and then start it. 
 
-Thus, when the data stored in Application Insights, it will contain all history of Azure Spring Cloud app instances created since the Java agent enabled. Which means you can see the application data created yesterday but deleted right now with specific the time range with last 24 hours from the portal of Application Insights. Take below scenarios as example.
+Thus, when the data stored in Application Insights, it contains all history of Azure Spring Cloud app instances created/deployed since the Java agent enabled. Which means you can see the application data created yesterday but deleted just now with specific the time range like `last 24 hours` from the portal of Application Insights. Take below scenarios as example.
 
 * You created one application around 8:00 AM today from Azure Spring Cloud with Java agent enabled, and then you deployed one jar file to this application around 8:10 AM today. After some testing, you may change the code and deploy one new jar file to this application around 8:30 AM today. Then you take a break and would like to check some data from Application Insights around 11:00 AM today.
   * You will see 3 instances with time range in last 24 hours from Application Map, Failures, Performance and Metrics.
