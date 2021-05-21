@@ -33854,6 +33854,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-queues.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
+      "redirect_document_id": false
+    },        
+    {
       "source_path_from_root": "/articles/service-fabric/policy-samples.md",
       "redirect_url": "/azure/service-fabric/policy-reference",
       "redirect_document_id": false
