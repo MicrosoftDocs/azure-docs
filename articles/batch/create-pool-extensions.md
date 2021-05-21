@@ -23,7 +23,6 @@ The following extensions can currently be installed when creating a Batch pool:
 
 - Azure Key Vault extension for both [Linux](../virtual-machines/extensions/key-vault-linux.md) and [Windows](../virtual-machines/extensions/key-vault-windows.md)
 - Log analytics and Monitoring extension for both [Linux](../virtual-machines/extensions/oms-linux.md) and [Windows](../virtual-machines/extensions/oms-windows.md)
-- Azure Security Pack (available for Microsoft first-party only)
 
 You can request support for additional publishers and/or extension types by opening a support request.
 
