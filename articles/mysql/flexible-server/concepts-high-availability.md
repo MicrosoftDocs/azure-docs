@@ -56,7 +56,7 @@ Applications are connected to the primary server using the database server name.
 For business continuity, you need to have a failover process for planned and unplanned events. 
 
 >[!NOTE]
-> Always use FQDN to connect to your primary server and avoid using IP address to connect, in failover scenario and once primary and standby server are switched, DNS A-record might change too which would prevent the application from connecting to the new primary server. 
+> Always use fully qualified domain name (FQDN) to connect to your primary server and avoid using IP address to connect. In case of failover, once primary and standby server role are switched, DNS A-record might change too which would prevent the application from connecting to the new primary server if IP address is used in the connection string. 
 
 ### Planned events
 
