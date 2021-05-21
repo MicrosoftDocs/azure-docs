@@ -39,6 +39,9 @@ See the introduction video of the viseme.
 
 A neural voice turns input text or SSML (Speech Synthesis Markup Language) into synthesized speech. Speech audio output can be accompanied by viseme IDs and their offset timestamps. Each viseme ID specifies a specific pose in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme. Using a 2D or 3D rendering engine, you can use these viseme events to animate your avatar.
 
+The overall workflow of viseme is depicted in the flowchart below.
+    :::image type="content" source="media/text-to-speech/viseme-structure.png" The overall workflow of viseme. ":::
+
 | Parameter | Description |
 |-----------|-------------|
 | Viseme ID | Integer number that specifies a viseme. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. There is no one-to-one correspondence between visemes and phonemes. Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s` and `z`. See the [mapping table between Viseme ID and phonemes](#map-phonemes-to-visemes).  |
@@ -161,6 +164,16 @@ Here is an example of the viseme output.
 
 (Viseme), Viseme ID: 13, Audio offset: 2350ms.
 ```
+
+After obtaining the viseme output, you can use these outputs to drive character animation. You can build your own characters and automatically animate the characters.
+
+For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.  With temporal tags provided by viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, below illustration shows a red lip character designed for language learning. 
+
+    :::image type="content" source="media/text-to-speech/viseme-demo-2D.png" 2D render example ":::
+
+For 3D characters, think of the characters as string puppets. The puppet master pulls the strings from one state to another and the laws of physics will do the rest and drive the puppet to move fluidly. The Viseme output acts as a puppet master to provide an action timeline. The animation engine defines the physical laws of action. By interpolating frames with easing algorithms, the engine can further generate high-quality animations.
+
+    :::image type="content" source="media/text-to-speech/viseme-demo-3D.png" 3D render example ":::
 
 ## Map phonemes to visemes
 
