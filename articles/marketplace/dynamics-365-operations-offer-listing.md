@@ -21,7 +21,7 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 :::image type="content" source="media/dynamics-365/example-d365-operations.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 - The boxed section at the top contains your logo and offer name, followed by your search results summary, ratings, and pricing selection.
-- The **Overview** tab contains your search results summary, description, and sample screen shots and (optionally) linked video thumbnails.
+- The **Overview** tab contains your search results summary, description, and sample screenshots and (optionally) linked video thumbnails.
 - The **Details + support** tab contains the information you provide for topics like pricing structure, version, license agreement, privacy policy, and support.
 
 Continue reading below for how to enter these marketplace details.

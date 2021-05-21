@@ -149,7 +149,7 @@ If you want to publish the offer at a later time, you'll need to start the publi
 
 When the offer is ready for you to review and be signed off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available.
 
-The following screenshot shows the **Offer overview** page in the commercial marketplace program in Partner Center. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer. Note that the certification phase can happen during submission to preview or submission to live depending on the offer type.
+The following screenshot shows the **Offer overview** page in the commercial marketplace program in Partner Center. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer. The certification phase can happen during submission to preview or submission to live, depending on the offer type.
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
 
