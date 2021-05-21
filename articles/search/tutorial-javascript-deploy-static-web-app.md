@@ -37,9 +37,9 @@ The Static Web app pulls the information and files for deployment from GitHub us
     |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
-    |Select the location of your application code|`search-website`|
-    |Select the location of your Azure Function code|`search-website/api`|
-    |Enter the path of your build output...|build|
+    |Select the location of your application code|`search-website`<br><br>This is the path, from the root of the repository, to your Azure Static web app. |
+    |Select the location of your Azure Function code|`search-website/api`<br><br>This is the path, from the root of the repository, to your Azure Function app. |
+    |Enter the path of your build output...|`build`<br><br>This is the path, from your Azure Static web app, to your generated files.|
     |Select a location for new resources.|Select a region close to you.|
 
 1. The resource is created, select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
