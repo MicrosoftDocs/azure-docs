@@ -249,8 +249,6 @@
         href: dynamics-365-customer-engage-technical-configuration.md
       - name: Supplemental content
         href: dynamics-365-customer-engage-supplemental-content.md
-      - name: Review and publish
-        href: dynamics-365-customer-engage-review-publish.md
     - name: Create an Operations offer
       items: 
       - name: Create the offer
@@ -266,9 +264,11 @@
       - name: Supplemental content
         href: dynamics-365-operations-supplemental-content.md
       - name: Functional validation
-        href: dynamics-365-finance-operations-functional-validation.md
+        href: dynamics-365-operations-validation.md
     - name: Create a Business Central offer
       href: partner-center-portal/create-new-business-central-offer.md
+    - name: Review and publish
+      href: dynamics-365-review-publish.md
   - name: IoT Edge module offers
     items:
     - name: Plan an IoT Edge module offer

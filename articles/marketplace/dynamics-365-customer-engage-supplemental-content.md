@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
+ms.date: 05/20/2021
 ---
 
 # Set up Dynamics 365 for Customer Engagement & Power Apps offer supplemental content
@@ -21,4 +21,4 @@ Select **Save draft**, then continue with review and publish in **Next steps** b
 
 ## Next steps
 
-- [Review and publish](dynamics-365-customer-engage-review-publish.md)
+- [Review and publish](dynamics-365-review-publish.md)

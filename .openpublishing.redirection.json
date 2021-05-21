@@ -8440,7 +8440,7 @@
     },
     {
       "source_path": "azure/marketplace/dynamics-365-finance-operations-functional-validation.md",
-     "redirect_url": "/azure/marketplace/d365-create-operations-validation",
+     "redirect_url": "/azure/marketplace/dynamics-365-operations-validation",
      "redirect_document_id": false
     },
     {
@@ -29756,6 +29756,11 @@
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-review-publish.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-review-publish",
       "redirect_document_id": false
     },
     {

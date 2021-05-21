@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
+ms.date: 05/20/2021
 ---
 
 # Set up Dynamics 365 for Operations offer supplemental content
@@ -31,4 +31,4 @@ Select **Save draft**, then continue **Functional validation**, which is not in 
 
 ## Next steps
 
-- [Functional validation](dynamics-365-finance-operations-functional-validation.md)
+- [Functional validation](dynamics-365-operations-validation.md)
