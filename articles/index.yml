@@ -336,7 +336,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/translator/index.yml
     # Card
-    - title: Video Analyzer for Media
+    - title: Azure Video Analyzer for Media
       summary: Unlock video insights
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
@@ -1242,7 +1242,7 @@ productDirectory:
       url: media-services/latest/stream-live-tutorial-with-api.md
     # Card
     - title: Azure Video Analyzer (preview)
-      summary: Build intelligent video applications that span the edge and the cloud
+      summary: Build intelligent video-based applications using the AI of your choice
       imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
       azureCategories:
         - media
