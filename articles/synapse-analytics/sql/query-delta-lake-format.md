@@ -83,14 +83,14 @@ If you created your database, and switched the context to your database (using `
 your external data source containing the root URI to your data set and use it to query Delta Lake files:
 
 ```sql
-create external data source DeltaLake
+create external data source DeltaLakeStorage
 with ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
 go
 
 select top 10 *
 from openrowset(
         bulk 'covid',
-        data_source = 'DeltaLake',
+        data_source = 'DeltaLakeStorage',
         format = 'delta'
     ) as rows
 ```
@@ -105,7 +105,7 @@ If a data source is protected with SAS key or custom identity, you can configure
 select top 10 *
 from openrowset(
         bulk 'covid',
-        data_source = 'DeltaLake',
+        data_source = 'DeltaLakeStorage',
         format = 'delta'
     )
     with ( date_rep date,
@@ -142,7 +142,7 @@ SELECT
 FROM  
     OPENROWSET(
         BULK 'yellow',
-        DATA_SOURCE = 'DeltaLake',
+        DATA_SOURCE = 'DeltaLakeStorage',
         FORMAT='DELTA'
     ) nyc
 WHERE
@@ -160,7 +160,7 @@ ORDER BY
 The `OPENROWSET` function will eliminate partitions that don't match the `year` and `month` in the where clause. This file/partition pruning technique will significantly
 reduce your data set, improve performance, and reduce the cost of the query.
 
-The URI in the `OPENROWSET` function (concatenated using the `LOCATION` in  ) must reference the root Delta Lake folder that contains a subfolder called `_delta_log`.
+The folder name in the `OPENROWSET` function (`yellow` in this example) is concatenated using the `LOCATION` in `DeltaLakeStorage` data source, and must reference the root Delta Lake folder that contains a subfolder called `_delta_log`.
 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
@@ -183,7 +183,7 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 ## Next steps
 
 Advance to the next article to learn how to [Query Parquet nested types](query-parquet-nested-types.md).
-If you want to continue building Delta Lake solution learn how to create [views](create-use-views.md#delta-lake-views) or [external tables](create-use-external-tables.md#delta-lake-external-table) on the Delta Lake folder.
+If you want to continue building Delta Lake solution, learn how to create [views](create-use-views.md#delta-lake-views) or [external tables](create-use-external-tables.md#delta-lake-external-table) on the Delta Lake folder.
 
 ## See also
 
