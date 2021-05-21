@@ -59,7 +59,7 @@ For alternative installation methods, see [Azure SDK for Python](https://github.
 
 # [Python v12](#tab/python)
 
-The [`QueueClient`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) object lets you work with a queue. Add the following code near the top of any Python file in which you wish to programmatically access an Azure queue:
+The [`QueueClient`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) object lets you work with a queue. Add the following code near the top of any Python file in which you wish to programmatically access an Azure Queue:
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ImportStatements":::
 
