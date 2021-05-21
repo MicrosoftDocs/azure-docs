@@ -282,16 +282,31 @@ ds = Dataset.File.from_files(default_blob_store, '**path***')
 registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
-## How to Check Progress
-### How to check job progress?
-### What should I check if no progress for a while?
-### When will a job stop?
-### Will node failure impact the job result?
-### Where to find the root cause of failure?
-### Why is there a "long tail"? How to avoid it?
-### What will happen on OOM? How can I check it's the cause?
-### Why I have a lot of processNNN files?
+## How to Check Progress and Analyse it
+This section is about how to check the progress of a ParallelRunStep job and check cause if it's not as expected.
 
+### How to check job progress?
+Beside looking at the overall status of the StepRun, the count of scheduled/processed mini-batches and the progress of generating output can be viewed in `~/logs/job_progress_overview.<timestamp>.txt`. Normally there will be only one such file, but there could be multiple ones if failure-recovery happend, in which case you can check the one with the largest timestamp for the latest information.
+
+### What should I check if no progress for a while?
+You can go into `~/logs/sys/errror` to see if there's any exception. If there is none, it's likely that your entry script is taking a long time, you can print out progress information in your code to locate the time-consuming part, or add `"--profiling_module", "cProfile"` to the `arguments` of `ParallelRunStep` to generate a profile file named as `<process_name>.profile` under `~/logs/sys/node/<node_id>` folder.
+
+### When will a job stop?
+if not canceled, the job will stop with status
+- Completed. If all mini-batches have been processed and output generated for append_row mode.
+- Failed. If `error_threshold` in [`Parameters for ParallelRunConfig`](#parameters-for-parallelrunronfig)  is exceeded, or system error occurred during the job.
+
+### Where to find the root cause of failure?
+You can follow the lead in `~logs/job_result.txt` to find the cause and detailed error log.
+
+### Will node failure impact the job result?
+Not if there are other available nodes in the designated compute cluster. The orchestrator will start a new node as replacement, and ParallelRunStep is resilient to such situation.
+
+### What will happen on OOM? How can I check it's the cause?
+ParallelRunStep will set the current attempt to process the mini-batch to failure status and try to restart the failed process.
+
+### Why I have a lot of processNNN files?
+ParallelRunStep will start new worker process in replace of the ones exited abnormally. However, if the process failed because of failure during the `init` function of user script, and that the error repeated continuously for `3 * process_count_per_node` times, no new worker process will be started.
 
 ## Next steps
 
