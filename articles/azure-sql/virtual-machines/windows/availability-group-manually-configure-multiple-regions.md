@@ -148,6 +148,17 @@ To create a replica in a remote data center, do the following steps:
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
+1. On the new SQL Server in SQL Server Management Studio, grant NT AUTHORITY\SYSTEM permission to alter the availability group.
+
+```sql
+use [master]
+GO
+GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+GO
+```
+
 1. [Open firewall ports on the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
@@ -156,6 +167,7 @@ To create a replica in a remote data center, do the following steps:
 1. [Add a replica to the availability group on the new SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
 
    For a replica in a remote Azure region, set it for asynchronous replication with manual failover.  
+   
 
 ## Set connection for multiple subnets
 
