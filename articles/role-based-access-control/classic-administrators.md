@@ -107,7 +107,7 @@ Follow these steps to change the Service Administrator in the Azure portal.
 
 1. In the left navigation, click **Properties**.
 
-1. Click **Change service Admin**.
+1. Click **Change service admin**.
 
     ![Screenshot showing the subscription properties in the Azure portal](./media/classic-administrators/service-admin.png)
 
