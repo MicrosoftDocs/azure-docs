@@ -79,9 +79,9 @@ See the diagram below for guidance:
 
 When using UI Components to deliver Teams Interop experiences, UI Library provides examples for key pieces of the experience.
 For example:
-- [Lobby Example](https://azure.github.io/communication-ui-library/?path=/docs/examples-teams-interop--lobby): Sample lobby for participant to wait to be admitted to the call.
-- [Compliance banner](https://azure.github.io/communication-ui-library/?path=/docs/examples-teams-interop--compliance-banner): Sample banner to show the user whether the call is being recorded or not.
-- [Teams Theme](https://azure.github.io/communication-ui-library/?path=/docs/examples-themes--teams-theme): Sample theme that makes the UI Library looks like Microsoft Teams.
+- [Lobby Example](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--lobby): Sample lobby for participant to wait to be admitted to the call.
+- [Compliance banner](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--compliance-banner): Sample banner to show the user whether the call is being recorded or not.
+- [Teams Theme](https://azure.github.io/communication-ui-library/?path=/story/examples-themes--teams): Sample theme that makes the UI Library looks like Microsoft Teams.
 
 
 ## Customization
