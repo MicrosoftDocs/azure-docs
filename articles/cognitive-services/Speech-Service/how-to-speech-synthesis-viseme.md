@@ -29,11 +29,11 @@ Visemes make avatars easier to use and control. Using visemes, you can:
  * Create an **animated virtual voice assistant** for intelligent kiosks, building multi-mode integrated services for your customers.
  * Build **immersive news broadcasts** and improve audience experiences with natural face and mouth movements.
  * Generate more **interactive gaming avatars and cartoon characters** that can speak with dynamic content.
- * Make more **effective language teaching videos** that help language learners to understand the mouth behavior of each word and phoneme. 
+ * Make more **effective language teaching videos** that help language learners to understand the mouth behavior of each word and phoneme.
  * People with hearing impairment can also pick up sounds visually and **"lip-read"** speech content that shows visemes on an animated face.
 
-See the introduction video of the viseme.
-> [!Video https://www.youtube.com/watch?v=ui9XT47uwxs]
+See [the introduction video](https://youtu.be/ui9XT47uwxs) of the viseme.
+> [!Video https://www.youtube.com/embed/ui9XT47uwxs]
 
 ## Azure neural TTS can produce visemes with speech
 
@@ -158,7 +158,7 @@ Here is an example of the viseme output.
 ```text
 (Viseme), Viseme ID: 1, Audio offset: 200ms.
 
-(Viseme), Viseme ID: 5, Audio offset: 850ms.          
+(Viseme), Viseme ID: 5, Audio offset: 850ms.
 
 ……
 
@@ -167,7 +167,7 @@ Here is an example of the viseme output.
 
 After obtaining the viseme output, you can use these outputs to drive character animation. You can build your own characters and automatically animate the characters.
 
-For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.  With temporal tags provided by viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, below illustration shows a red lip character designed for language learning. 
+For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.  With temporal tags provided by viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, below illustration shows a red lip character designed for language learning.
 
     :::image type="content" source="media/text-to-speech/viseme-demo-2D.png" 2D render example ":::
 
