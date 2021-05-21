@@ -28,7 +28,7 @@ This article explains how to create a new flow in Power Automate to generate the
 
 1. Under **+ New**, select **+ Instant cloud flow**.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png" alt-text="Shows selcting 'My flows' and then blank 'Instant cloud flow'.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-https/https-my-flows-create-from-blank.png" alt-text="Shows how to select My flows, followed by Instant cloud flow.":::
 
 1. Name your flow, and then under **Choose how to trigger this flow**, select **When a HTTP request is received**.
 
