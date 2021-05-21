@@ -142,7 +142,7 @@ az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName --
 
 > [!IMPORTANT]
 > Make sure to use the same location as your custom location and Kubernetes environment. 
-> The locations for your logic app resource, custom location, Kubernetes environment must all be the same.
+> The locations for your logic app resource, custom location, and Kubernetes environment must all be the same.
 
 Be sure to provide the required parameters in your command:
 * `--name -n`: A unique name for your logic app.
@@ -253,7 +253,7 @@ The portal-based designer's editing capability is currently under development fo
 1. [In the portal, create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md), but make sure to use the custom location that you created earlier as your app's location.
 
    > [!IMPORTANT]
-   > The locations for your logic app resource, custom location, Kubernetes environment must all be the same.
+   > The locations for your logic app resource, custom location, and Kubernetes environment must all be the same.
 
    By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, You don't need to create an App Service plan, which is created for you.
 
@@ -411,7 +411,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, Kubernetes environment must all be the same. <p><p>**Note**: This value is *not* the same as the name for your custom location. |
+| Location | `location` | Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is *not* the same as the *name* for your custom location. |
 | App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,logicapp,linux` |
 | Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have the `"type"` set to `"CustomLocation"`. |
 | Hosting plan resource ID | `serverFarmId` | The resource ID of the associated App Service plan, formatted as follows: <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
@@ -484,10 +484,10 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, Kubernetes environment must all be the same. <p><p>**Note**: This value is *not* the same as the name of your custom location. |
+| Location | `location` | Make sure to use the same location as your custom location and Kubernetes environment. The locations for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is *not* the same as the *name* of your custom location. |
 | App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,logicapp,container` |
 | Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have `"type"` set to `"CustomLocation"`. |
-| Container name | `linuxFxVersion` | The name for your container, formatted as follows: `DOCKER|<container-name>` |
+| Container name | `linuxFxVersion` | The name for your container, formatted as follows: `DOCKER\|<container-name>` |
 | Hosting plan resource ID | `serverFarmId` | The resource ID of the associated App Service plan, formatted as follows: <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
 | Storage connection string | `AzureWebJobsStorage` | The connection string for your storage account <p><p>**Important**: When you deploy to a Docker container, you need to provide the connection string for your storage account in your ARM template. For production scenarios or environments, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault. |
 ||||
