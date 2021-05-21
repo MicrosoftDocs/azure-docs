@@ -79,7 +79,7 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 
 * `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`.
 * `name` represents the name of each incoming column
-* `type` represents the data type of each incoming column. The list of data types in the data flow type system can be found [here.](concepts-data-flow-overview#data-flow-data-types)
+* `type` represents the data type of each incoming column. The list of data types in the data flow type system can be found [here.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` represents the name associated with each stream, or transformation in your flow
 * `position` is the ordinal position of columns in your data flow
 * `origin` is the transformation where a column originated or was last updated
