@@ -1,14 +1,14 @@
 ---
-title: Configure NSX network components in Azure VMware Solution 
+title: Configure NSX network components using Azure VMware Solution 
 description: Learn how to use the Azure VMware Solution console to configure NSX-T network segments.
 ms.topic: how-to
 ms.date: 05/28/2021
 
-# Customer intent: As an Azure service administrator, I want to create a DHCP server or DHCP relay using a simplified view of NSX-T operations a VMware administrator needs daily. The simplified view is targeted at users unfamiliar with NSX-T Manager.
+# Customer intent: As an Azure service administrator, I want to create configure NSX network components using a simplified view of NSX-T operations a VMware administrator needs daily. The simplified view is targeted at users unfamiliar with NSX-T Manager.
 
 ---
 
-# Configure NSX network components in Azure VMware Solution
+# Configure NSX network components using Azure VMware Solution
 
 An Azure VMware Solution private cloud comes with NSX-T by default. The private cloud comes pre-provisioned with an NSX-T Tier-0 gateway in **Active/Active** mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  These gateways let you connect the segments (logical switches) and provide East-West and North-South connectivity. 
 

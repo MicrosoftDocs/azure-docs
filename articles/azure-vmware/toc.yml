@@ -68,7 +68,7 @@
     href: configure-dhcp-azure-vmware-solution.md
   - name: Configure DHCP on L2 stretched VMware HCX networks
     href: configure-l2-stretched-vmware-hcx-networks.md
-  - name: Configure NSX network components
+  - name: Configure NSX components in Azure portal
     href: configure-nsx-network-components-azure-portal.md
   - name: Configure GitHub Enterprise Server
     href: github-enterprise-server.md
