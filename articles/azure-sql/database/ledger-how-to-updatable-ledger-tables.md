@@ -182,3 +182,4 @@ We'll create an account balance table with the following schema.
 - [Append-only ledger tables](ledger-append-only-ledger-tables.md) 
 - [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md) 
 - [How to access the digests stored in Azure Confidential Ledger (ACL)](ledger-how-to-access-acl-digest.md)
+- [How to verify a ledger table to detect tampering](ledger-verify-database.md)

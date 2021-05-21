@@ -56,9 +56,11 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
    ```output
    Ledger verification successful
+   ```
+
    - If there was tampering in your database, the following error will be in the **Messages** window.
   
-   ```
+   ```output
    Failed to execute query. Error: The hash of block xxxx in the database ledger does not match the hash provided in the digest for this block.
    ```
 
