@@ -1,6 +1,6 @@
 ---
 title: How to use Azure API Management with virtual networks
-description: Learn how to setup a connection to a virtual network in Azure API Management and access web services through it.
+description: Learn how to set up a connection to a virtual network in Azure API Management and access web services through it.
 services: api-management
 author: vladvino
 
@@ -55,8 +55,10 @@ Azure API Management can be deployed inside the VNET to access backend services 
 
         ![Private peering][api-management-vnet-private]
 
-1. If you selected **External** or **Internal**, you will see a list of all locations (regions) where your API Management service is provisioned. Choose a **Location**, and then pick its **Virtual network**, **Subnet**, and **IP address**. The virtual network list is populated with Resource Manager virtual networks available in your Azure subscriptions that are set up in the region you are configuring.
-
+1. If you selected **External** or **Internal**, you will see a list of all locations (regions) where your API Management service is provisioned. 
+1. Choose a **Location**.
+1. Pick **Virtual network**, **Subnet**, and **IP address**. 
+  * The VNET list is populated with Resource Manager VNETs available in your Azure subscriptions, set up in the region you are configuring.
 
     :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in the portal.":::
 
@@ -68,7 +70,7 @@ Azure API Management can be deployed inside the VNET to access backend services 
 
 1. Continue configuring virtual network settings for the remaining locations of your API Management instance.
 
-7. In the top navigation bar, select **Save**, and then select **Apply network configuration**.
+7. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
     It can take 15 to 45 minutes to update the API Management instance.
 
@@ -119,7 +121,7 @@ Common misconfiguration issues that can occur while deploying API Management ser
     > If you plan to use a Custom DNS Server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates).
 
 * **Ports required for API Management:**  
-    You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [Network Security Group][Network Security Group]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. Blocked ports is another common misconfiguration issue when using API Management with a VNET.
+    You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [Network Security Group][Network Security Group]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. Blocked ports are another common misconfiguration issue when using API Management with a VNET.
 
 <a name="required-ports"> </a>
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
@@ -135,7 +137,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md)                      | External & Internal  |
 | * / 443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Health and Monitoring Extension         | External & Internal  |
-| * / 1886, 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) and [Application Insights](api-management-howto-app-insights.md)                   | External & Internal  |
+| * / 1886, 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md)                   | External & Internal  |
 | * / 25, 587, 25028                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Redis Service for [Cache](api-management-caching-policies.md) policies between machines         | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines         | External & Internal  |
@@ -184,13 +186,13 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   If you've enabled [Azure Application Insights](api-management-howto-app-insights.md) monitoring on API Management, allow outbound connectivity to the [Telemetry endpoint](../azure-monitor/app/ip-addresses.md#outgoing-ports) from the VNET.
 
 + **Force Tunneling Traffic to On-premises Firewall Using Express Route or Network Virtual Appliance:**  
-  Commonly, you configure and define your own default route (0.0.0.0/0), forcing all traffic from the API Management delegated subnet to flow through an on-premises firewall or to a network virtual appliance. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises or NAT'd to an unrecognizable set of addresses no longer working with various Azure endpoints. You can solve this with a couple of methods: 
+  Commonly, you configure and define your own default route (0.0.0.0/0), forcing all traffic from the API Management-delegated subnet to flow through an on-premises firewall or to a network virtual appliance. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises or NAT'd to an unrecognizable set of addresses no longer working with various Azure endpoints. You can solve this with a couple of methods: 
 
-  * Enable [service endpoints][ServiceEndpoints] for Azure Sql, Azure Storage, Azure EventHub and Azure ServiceBus on the subnet in which the API Management service is deployed. By enabling endpoints directly from API Management delegated subnet to these services, you can use the Microsoft Azure backbone network providing optimal routing for service traffic. If you use service endpoints with a force-tunneled API Management, the above Azure services traffic isn't force-tunneled. The other API Management service dependency traffic is force-tunneled and can't be lost. If lost,the API Management service would not function properly.
+  * Enable [service endpoints][ServiceEndpoints] for Azure Sql, Azure Storage, Azure EventHub, and Azure ServiceBus on the subnet in which the API Management service is deployed. By enabling endpoints directly from API Management-delegated subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, the above Azure services traffic isn't force tunneled. The other API Management service dependency traffic is force tunneled and can't be lost. If lost, the API Management service would not function properly.
 
-  * All the control plane traffic from the internet to the management endpoint of your API Management service are routed through a specific set of inbound IPs, hosted by API Management. When the traffic is force-tunneled, the responses will not symmetrically map back to these inbound source IPs. To overcome the limitation, add the following user-defined routes ([UDRs][UDRs]) to steer traffic back to Azure by setting the destination of these host routes to "Internet". Find the set of inbound IPs for control plane traffic documented in [Control Plane IP Addresses](#control-plane-ips).
+  * All the control plane traffic from the internet to the management endpoint of your API Management service are routed through a specific set of inbound IPs, hosted by API Management. When the traffic is force tunneled, the responses will not symmetrically map back to these inbound source IPs. To overcome the limitation, set the destination of the following user-defined routes ([UDRs][UDRs]) to the "Internet", to steer traffic back to Azure. Find the set of inbound IPs for control plane traffic documented in [Control Plane IP Addresses](#control-plane-ips).
 
-  * For other force-tunneled API Management service dependencies, resolve the hostname and reach out to the endpoint. These include:
+  * For other force tunneled API Management service dependencies, resolve the hostname and reach out to the endpoint. These include:
       - Metrics and Health Monitoring
       - Azure portal Diagnostics
       - SMTP Relay
@@ -234,7 +236,7 @@ In addition to the IP addresses used by the Azure VNET infrastructure, each API 
 * Two IP addresses per unit of Premium SKU, or 
 * One IP address for the Developer SKU. 
 
-Each instance reserves an additional IP address for the external load balancer. When deploying into [internal VNET](./api-management-using-with-internal-vnet.md), the instance requires an additional IP address for the internal load balancer.
+Each instance reserves an extra IP address for the external load balancer. When deploying into [internal VNET](./api-management-using-with-internal-vnet.md), the instance requires an extra IP address for the internal load balancer.
 
 Given the calculation above, the minimum size of the subnet in which API Management can be deployed is /29, which gives three usable IP addresses. Each additional scale unit of API Management requires two more IP addresses.
 
@@ -248,11 +250,11 @@ Given the calculation above, the minimum size of the subnet in which API Managem
 * The subnet and the API Management service must be in the same subscription.
 * A subnet containing API Management instances cannot be moved across subscriptions.
 * For multi-region API Management deployments configured in internal VNET mode, users own the routing and are responsible for managing the load balancing across multiple regions.
-* Due to platform limitations, connectivity between a resource in a globally peered VNET in another region and an API Management service in internal mode will not work. For more information, see [Resources in one virtual network cannot communicate with Azure internal load balancer in peered virtual network](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+* Due to platform limitations, connectivity between a resource in a globally-peered VNET in another region and an API Management service in internal mode will not work. For more information, see [Resources in one virtual network cannot communicate with Azure internal load balancer in peered virtual network](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
 ## <a name="control-plane-ips"> </a> Control Plane IP Addresses
 
-The IP Addresses are divided by **Azure Environment**. When allowing inbound requests IP address marked with **Global** must be allowed along with the **Region** specific IP address.
+The IP Addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address.
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
