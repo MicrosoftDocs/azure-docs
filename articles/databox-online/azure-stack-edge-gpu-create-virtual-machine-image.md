@@ -23,7 +23,7 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 
 ## VM image workflow
 
-The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the OS VHD for that VM. This generalized VHD is uploaded to Azure Stack Edge Pro. A managed disk is created from that VHD. An image is created from the managed disk. And, finally, VMs are created from that image.
+The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the OS VHD for that VM.
 
 For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
@@ -32,20 +32,39 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 
 Do the following steps to create a Windows VM image.
 
-1. Create a Windows Virtual Machine. The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD. For more information, go to [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).
+1. Create a Windows virtual machine in Azure. For portal instructions, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal). For PowerShell instructions, see [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).<!--Make htis an optional step that they won't perform if they're planning to create a specialized image for migration or redeployment of a VM?-->
 
-2. Generalize the virtual machine by running the following `sysprep` command:<!--Link to the appropriate sysprep command reference topic.-->
+   The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD. 
+
+2. Generalize the virtual machine. Connect to the virtual machine, open a command prompt, and run the following `sysprep` command:<!--This step is in the "Download a Windows VHD from Azure topic.-->
     
     `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
 
    > [!IMPORTANT]
    > After the command is complete, the VM will shut down. **Do not restart the VM.** Restarting the VM will corrupt the disk you just prepared.
 
-3. Stop the VM from the Azure portal, and export the OS disk.<!--1) They export instead of downloading the disk, or do they export and then download? When they export a disk, where is it stored? They specify on export? 2) Where are the instructions for stopping a VM and exporting a disk? 3) Preceding step says sysprep shut down the VM. Why do they need to stop the VM now? Not needed in this context? 4) NOTE: In the generalized image from Windows VHD and using ISO, export of the OS disk is skipped.-->
+3. Download the OS disk from Azure:
 
-   ADD: Do not use the **Download** command, which is slow...Instead use `azcopy`...  THIS STEP, or the next (Download) step?
+   1. [Stop the VM](/azure/virtual-machines/windows/download-vhd#stop-the-vm).<!--When they generalized the VM, it not be already stopped. So, unless we present the option of not generalizing, this step just doesn't fit.-->
+   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url).<!--Blocking issue: VM has been generalized and is stopped. Can't generate the URL while the disk is attached.-->
+   1. Download the disk to the Azure Storage account for your Azure Stack Edge device. You can save time by using `azcopy`instead of the **Download** command in the portal. 
+   
+      Run the following command:
 
-Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device.
+      `azcopy copy <source URI> <target URI>`
+
+      For example, XX downloads an OS VHD to the XX storage account.
+
+      ```azcopy
+      XXX
+      ```
+      For more copy options, see [azcopy copy](/azure/storage/common/storage-ref-azcopy-copy).
+
+<!--Assuming the "source uri" is the download URL they generated in step 3b, how do they get a "target URI"? 
+In az copy examples, I'm seeing a full path within Blob storage instead of a uri. 
+Sample format line: azcopy copy "SUB Download URI" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"-->
+
+You can now use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device.
 
 
 <!--OLD STEPS - 
