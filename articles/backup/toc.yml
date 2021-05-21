@@ -440,7 +440,7 @@
         href: backup-azure-arm-userestapi-restoreazurevms.md
       - name: Manage Azure Backup jobs
         href: backup-azure-arm-userestapi-managejobs.md
-    - name: Query Backups using ARG
+    - name: Query backup information using ARG
       href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
       href: backup-rm-template-samples.md
