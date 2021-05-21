@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 13/05/2021
+ms.date: 05/13/2021
 ---
 
 # Quickstart: Transform data using Apache Spark job definition.
@@ -70,7 +70,7 @@ Once you create your Apache Spark job definition, you'll be automatically sent t
 
 8. Sercure input: When checked, input from the activity will not be captured in logging.
 
-     ![drag spark job definition](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-general.png)
+     ![spark job definition general](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-general.png)
 
 ### Settings tab 
 
@@ -100,4 +100,3 @@ Advance to the following articles to learn about Azure Synapse Analytics support
 > [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
 > [Mapping data flow overview](../data-factory/concepts-data-flow-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
 > [Data flow expression language](../data-factory/data-flow-expression-functions.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
-> [Create Apache Spark job definition in Synapse Studio](../synapse-analytics/spark/apache-spark-job-definition.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
