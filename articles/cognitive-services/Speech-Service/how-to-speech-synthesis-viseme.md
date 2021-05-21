@@ -56,7 +56,6 @@ Here is an example of the viseme output.
  
 ## Get viseme events with the Speech SDK
 
-This feature is built into the Speech SDK. With just a few lines of code, you can easily enable facial and mouth animation using the viseme events together with your TTS output. 
 
 To get viseme events, please subscribe to the `VisemeReceived` event in Speech SDK.
 The following snippets show how to subscribe the viseme event.
