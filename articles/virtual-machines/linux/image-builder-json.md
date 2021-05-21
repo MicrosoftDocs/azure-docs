@@ -171,7 +171,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 
 
 > [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+> When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
 Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../image-builder-overview.md#os-support) for the full list. 
@@ -297,7 +297,7 @@ The customize section is an array. Azure Image Builder will run through the cust
  
 ### Shell customizer
 
-The shell customizer supports running shell scripts, these must be publicly accessible for the IB to access them.
+The shell customizer supports running shell scripts. The shell scripts must be publicly accessible or you must have configured an [MSI](./image-builder-user-assigned-identity.md) for Image Builder to access them.
 
 ```json
     "customize": [ 
@@ -415,7 +415,7 @@ Customize properties:
 
 ### File customizer
 
-The File customizer lets image builder download a file from a GitHub or Azure storage. If you have an image build pipeline that relies on build artifacts, you can then set the file customizer to download from the build share, and move the artifacts into the image.  
+The File customizer lets Image Builder download a file from a GitHub repo or Azure storage. If you have an image build pipeline that relies on build artifacts, you can set the file customizer to download from the build share, and move the artifacts into the image.  
 
 ```json
      "customize": [ 
@@ -444,14 +444,14 @@ This is supported by Windows directories and Linux paths, but there are some dif
 - Linux OS’s – the only path Image builder can write to is /tmp.
 - Windows – No path restriction, but the path must exist.
  
- 
-If there is an error trying to download the file, or put it in a specified directory, the customize step will fail, and this will be in the customization.log.
+
+If there is an error trying to download the file, or put it in a specified directory, then customize step will fail, and this will be in the customization.log.
 
 > [!NOTE]
-> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+> The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
 
 ### Windows Update Customizer
-This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner please see the project repository.
+This customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project is not officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, please see the project repository.
 
 ```json
      "customize": [
@@ -465,10 +465,11 @@ This customizer is built on the [community Windows Update Provisioner](https://p
                 "updateLimit": 20
             }
                ], 
-OS support: Windows
 ```
 
-Customize properties:
+OS support: Windows
+
+Customizer properties:
 - **type**  – WindowsUpdate.
 - **searchCriteria** - Optional, defines which type of updates are installed (Recommended, Important etc.), BrowseOnly=0 and IsInstalled=0 (Recommended) is the default.
 - **filters** – Optional, allows you to specify a filter to include or exclude updates.
