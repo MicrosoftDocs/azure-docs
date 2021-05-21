@@ -24,12 +24,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Translator
+          - text: What is Translator?
             url: translator-info-overview.md
-          - text: Document Translation
-            url:  document-translation/overview.md  
-          - text: Custom Translator
-            url: custom-translator/overview.md
+          - text: Language support
+            url:  language-support.md  
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
           - text: Compliance
@@ -38,7 +36,7 @@ landingContent:
             url: ./translator-how-to-signup.md
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
-  - title: Get started
+  - title: Text Translation
     linkLists:
       - linkListType: quickstart
         links:
@@ -56,8 +54,22 @@ landingContent:
             url: reference/v3-0-reference.md
           - text: Request limits
             url: request-limits.md
-          - text: Language support
-            url: language-support.md
+  - title: Document Translation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Document Translation?
+            url: document-translation/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Quickstart
+            url: document-translation/get-started-with-document-translation.md
+      - linkListType: reference
+        links:
+          - text: Document Translation reference
+            url: document-translation/reference/get-supported-document-formats.md
+          - text: Start translation
+            url: document-translation/reference/start-translation.md
   - title: Custom Translation
     linkLists:
       - linkListType: quickstart
@@ -96,6 +108,8 @@ landingContent:
         links:
           - text: Samples on GitHub
             url: https://aka.ms/TranslatorGitHub
+          - text: Compliance and certification
+            url: https://www.microsoft.com/translator/business/notrace/          
           - text: Stack Overflow
             url: https://stackoverflow.com/questions/tagged/microsoft-translator
 
