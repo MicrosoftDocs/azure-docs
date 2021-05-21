@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot: Apache Hive logs fill up disk space - Azure HDInsight
+title: Troubleshoot Hive logs fill up disk space Azure HDInsight
 description: This article provides troubleshooting steps to follow when Apache Hive logs are filling up the disk space on the head nodes in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
