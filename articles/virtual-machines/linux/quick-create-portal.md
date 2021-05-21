@@ -67,7 +67,13 @@ Create an SSH connection with the VM.
 
 1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt. 
 
-1. At your prompt, open an SSH connection to your virtual machine. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
+1. Ensure you have read-only access to the private key.
+
+```console
+chmod 400 myKey1.pem
+```
+
+3. At your prompt, open an SSH connection to your virtual machine. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
 ```console
 ssh -i .\Downloads\myKey1.pem azureuser@10.111.12.123
