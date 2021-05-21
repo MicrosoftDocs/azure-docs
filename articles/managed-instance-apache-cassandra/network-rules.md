@@ -24,12 +24,12 @@ The required network rules and IP address dependencies are:
 
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-|*.blob.core.windows.net:443</br> Or</br> [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) -  Azure Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage to store backups and Control Plane communication.|
-|*.vault.azure.net:443</br> Or</br> [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) – Azure KeyVault | HTTPS | 443 | Required for secure communication between the nodes and Azure Key Vault. Certificates and keys are used to secure communication inside the cluster.|
-|management.azure.com:443</br> Or</br> [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Virtual Machine Scale Sets/Azure Management API | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (e.g. reboot)|
-|*.servicebus.windows.net:443</br> Or</br> [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) – Azure EventHub | HTTPS | 443 | Required to forward logs to Azure|
-|jarvis-west.dc.ad.msft.net:443</br> Or</br> [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Monitor | HTTPS | 443 | Required to forward metrics Azure |
-|login.microsoftonline.com:443</br> Or</br> [ServiceTag](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#available-service-tags) – Azure AAD | HTTPS | 443 | Required for Azure Active Directory authentication.|
+|*.blob.core.windows.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) -  Azure Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage to store backups and Control Plane communication.|
+|*.vault.azure.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure KeyVault | HTTPS | 443 | Required for secure communication between the nodes and Azure Key Vault. Certificates and keys are used to secure communication inside the cluster.|
+|management.azure.com:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Virtual Machine Scale Sets/Azure Management API | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (e.g. reboot)|
+|*.servicebus.windows.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure EventHub | HTTPS | 443 | Required to forward logs to Azure|
+|jarvis-west.dc.ad.msft.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Monitor | HTTPS | 443 | Required to forward metrics Azure |
+|login.microsoftonline.com:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure AAD | HTTPS | 443 | Required for Azure Active Directory authentication.|
 | packages.microsoft.com | HTTPS | 443 | Required for updates to Azure security scanner definition and signatures |
 
 ## Managed Instance for Apache Cassandra internal port usage
