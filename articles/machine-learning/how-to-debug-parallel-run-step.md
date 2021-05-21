@@ -282,6 +282,17 @@ ds = Dataset.File.from_files(default_blob_store, '**path***')
 registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
+## How to Check Progress
+### How to check job progress?
+### What should I check if no progress for a while?
+### When will a job stop?
+### Will node failure impact the job result?
+### Where to find the root cause of failure?
+### Why is there a "long tail"? How to avoid it?
+### What will happen on OOM? How can I check it's the cause?
+### Why I have a lot of processNNN files?
+
+
 ## Next steps
 
 * See these [Jupyter notebooks demonstrating Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
