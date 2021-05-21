@@ -1,6 +1,6 @@
 ---
 title: Tutorial - CI/CD to Azure VMs using Azure Pipelines
-description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure pipeline.
+description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app to Azure VMs using YAML based Azure Pipeline.
 author: ushan
 tags: azure-devops-pipelines
 ms.assetid: 
