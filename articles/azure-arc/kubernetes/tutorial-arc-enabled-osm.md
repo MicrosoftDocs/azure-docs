@@ -3,7 +3,7 @@ title: Azure Arc-enabled Open Service Mesh (Preview)
 description: Open Service Mesh (OSM) extension on Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/20/2021
+ms.date: 05/21/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
@@ -17,7 +17,7 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 
 ### Support limitations for Arc enabled Open Service Mesh
 - Only one instance of Open Service Mesh can be deployed on an Arc connected Kubernetes cluster
-- Public preview is available for Open Service Mesh version v0.8.3 and above. Find the latest version of the release [here](https://github.com/Azure/osm-azure/releases).
+- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases).
 - Following Kubernetes distributions are currently supported
     - AKS Engine
     - Cluster API Azure
@@ -44,7 +44,7 @@ Ensure that your KUBECONFIG environment variable points to the kubeconfig of the
 
 Set the version environment variable:
 ```azurecli-interactive
-export VERSION=0.8.3
+export VERSION=0.8.4
 ```
 While Arc enabled Open Service Mesh is in preview, the az k8s-extension create command only accepts pilot for the --release-train flag. auto-upgrade-minor-version is always set to false and a version must be provided. If you have an OpenShift cluster, use the steps in the [section](#install-a-specific-version-of-osm-on-openshift-cluster).
 
@@ -81,7 +81,7 @@ You should see output similar to the output shown below. It may take 3-5 minutes
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.3"
+  "version": "0.8.4"
 }
 ```
 
@@ -134,7 +134,7 @@ After connecting your cluster to Azure Arc, create a json file with the followin
             }
         },
         "ExtensionVersion": {
-            "defaultValue": "0.8.3",
+            "defaultValue": "0.8.4",
             "type": "String",
             "metadata": {
                 "description": "The extension type version."
@@ -220,7 +220,7 @@ You should see a JSON output similar to the output below:
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.3"
+  "version": "0.8.4"
 }
 ```
 
@@ -284,7 +284,7 @@ More information about onboarding services can be found [here](https://github.co
 You can start with a [demo application](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/install/manual_demo/_index.md#deploy-the-bookstore-demo-applications) or use your test environment to try out SMI policies.
 
 >[!NOTE] 
->Ensure that the version of the bookstore application you run matches the version of the OSM extension have installed on your cluster. Ex: if you are using v0.8.3 of the OSM extension, use the bookstore demo from release-v0.8 branch of OSM upstream repository.
+>Ensure that the version of the bookstore application you run matches the version of the OSM extension have installed on your cluster. Ex: if you are using v0.8.4 of the OSM extension, use the bookstore demo from release-v0.8 branch of OSM upstream repository.
 
 ### Configuring your own Jaeger, Prometheus and Grafana instances
 The OSM extension has [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) installation disabled by default so that users can integrate OSM with their own running instances of these. To integrate with your own instances, refer to the following documentation:
