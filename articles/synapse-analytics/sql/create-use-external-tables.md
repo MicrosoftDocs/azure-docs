@@ -44,6 +44,9 @@ Your first step is to create a database where the tables will be created. Then c
     GO
     CREATE EXTERNAL DATA SOURCE nyctlc
     WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/')
+    GO
+    CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
+    WITH ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
     ```
 
 - File formats `QuotedCSVWithHeaderFormat` and `ParquetFormat` that describe CSV and parquet file types.
@@ -136,8 +139,8 @@ CREATE EXTERNAL TABLE Covid (
      geo_id varchar(6)
 ) WITH (
         LOCATION = 'covid', --> the root folder containing the Delta Lake files
-        data_source = DeltaLake,
-        format = DeltaLakeFormat
+        data_source = DeltaLakeStorage,
+        FILE_FORMAT = DeltaLakeFormat
 );
 ```
 
