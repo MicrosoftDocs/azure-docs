@@ -86,20 +86,6 @@ You can also publish a telemetry event from the Azure Digital Twins API. As with
 
 DTDL also allows for **relationships** to have properties of their own. When defining a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
 
-## Model inheritance
-
-Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
-
-The following example re-imagines the Planet model from the earlier DTDL example as a subtype of a larger CelestialBody model. The "parent" model is defined first, and then the "child" model builds on it by using the field `extends`.
-
-:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
-
-In this example, CelestialBody contributes a name, a mass, and a temperature to Planet. The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).
-
-Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
-
-The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it's also a `double`.
-
 ## Model code
 
 Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension .json. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
@@ -136,6 +122,20 @@ The fields of the model are:
 > [!NOTE]
 > Note that the component interface (Crater in this example) is defined in the same array as the interface that uses it (Planet). Components must be defined this way in API calls in order for the interface to be found.
 
+## Model inheritance
+
+Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
+
+The following example re-imagines the Planet model from the earlier DTDL example as a subtype of a larger CelestialBody model. The "parent" model is defined first, and then the "child" model builds on it by using the field `extends`.
+
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
+
+In this example, CelestialBody contributes a name, a mass, and a temperature to Planet. The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).
+
+Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
+
+The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it's also a `double`.
+
 ## Best practices for designing models
 
 While designing models to reflect the entities in your environment, it can be useful to look ahead and consider the [query](concepts-query-language.md) implications of your design. You may want to design properties in a way that will avoid large result sets from graph traversal. You may also want to model relationships that will to be answered in a single query as single-level relationships.
@@ -152,15 +152,11 @@ This section describes the current set of samples in more detail.
 
 ### Model uploader 
 
-_**For uploading models to Azure Digital Twins**_
-
 Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
 
 However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use [this Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
 ### Model visualizer 
-
-_**For visualizing models**_
 
 Once you have uploaded models into your Azure Digital Twins instance, you can view the models in your Azure Digital Twins instance, including any inheritance and model relationships, using the [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). This sample is currently in a draft state. We encourage the digital twins development community to extend and contribute to the sample. 
 
