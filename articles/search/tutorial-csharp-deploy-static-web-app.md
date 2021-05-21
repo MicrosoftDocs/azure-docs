@@ -25,14 +25,14 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Right-click on the subscription name then select **Create Static Web App (Advanced)**.":::
 
+1. If you see a pop-up window in VS Code asking which branch you want to deploy from, select the default branch, usually **master** or **main**. 
+
+    This setting means only changes you commit to that branch are deployed to your static web app. 
+
 1. Follow the prompts to provide the following information:
 
     |Prompt|Enter|
     |--|--|
-    |How do you want to create a Static Web App?|Use existing GitHub repository|
-    |Choose organization|Select your _own_ GitHub alias as the organization.|
-    |Choose repository|Select **azure-search-dotnet-samples** from the list. |
-    |Choose branch of repository|Select **master** from the list. |
     |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-dotnet-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
