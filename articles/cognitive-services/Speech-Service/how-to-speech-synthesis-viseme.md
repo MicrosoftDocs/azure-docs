@@ -24,7 +24,13 @@ It defines the position of the face and mouth when speaking a word.
 Each viseme depicts the key facial poses for a specific set of phonemes.
 Viseme can be used to control the movement of 2D and 3D avatar models, perfectly matching mouth movements to synthetic speech.
 
-Viseme greatly expands the number of scenarios by making the avatar easier to use and control. Using visemes, you can create an **animated virtual voice assistant** for intelligent kiosks, building the multi-mode integrative services for your customers; build **immersive news broadcasts** and make content consumption much easier with natural face and mouth movements; generate more **interactive gaming avatars and cartoon characters** that can speak with dynamic content; make more **intuitive language teaching videos** that help language learners to understand the mouth behavior of each word and phoneme. People with hearing impairment can also pick up sounds visually and **"lip-read"** speech content that shows visemes on an animated face.
+Visemes make avatars easier to use and control. Using visemes, you can:
+
+ * Create an **animated virtual voice assistant** for intelligent kiosks, building multi-mode integrated services for your customers.
+ * Build **immersive news broadcasts** and improve audience experiences with natural face and mouth movements.
+ * Generate more **interactive gaming avatars and cartoon characters** that can speak with dynamic content.
+ * Make more **effective language teaching videos** that help language learners to understand the mouth behavior of each word and phoneme. 
+ * People with hearing impairment can also pick up sounds visually and **"lip-read"** speech content that shows visemes on an animated face.
 
 See the introduction [video](https://www.youtube.com/watch?v=ui9XT47uwxs) of the viseme.
 
