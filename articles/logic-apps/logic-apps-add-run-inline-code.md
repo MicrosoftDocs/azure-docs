@@ -47,7 +47,7 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
     For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration accounts are meant only for exploratory scenarios and workloads, not production scenarios, are limited in usage and throughput, and aren't supported by a service-level agreement (SLA). Other tiers incur costs, but include SLA support, offer more throughput, and have higher limits. Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-   * If you don't want to use an integration account, you can try using [Azure Logic Apps Preview](logic-apps-overview-preview.md), and create a logic app from the **Logic App (Preview)** resource type.
+   * If you don't want to use an integration account, you can try using [Azure Logic Apps Preview](single-tenant-overview-compare.md), and create a logic app from the **Logic App (Preview)** resource type.
 
      In Azure Logic Apps Preview, **Inline Code** is now named **Inline Code Operations** along with these other differences:
 
@@ -55,13 +55,13 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
      * If you use macOS or Linux, the Inline Code Operations actions are currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
 
-     * Inline Code Operations actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
+     * Inline Code Operations actions have [updated limits](logic-apps-limits-and-config.md#inline-code-action-limits).
 
      You can start from either option here:
 
-     * Create the logic app from the **Logic App (Preview)** resource type [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md).
+     * Create the logic app from the **Logic App (Preview)** resource type [by using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-     * Create a project for the logic app [by using Visual Studio Code and the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md)
+     * Create a project for the logic app [by using Visual Studio Code and the Azure Logic Apps (Preview) extension](create-single-tenant-workflows-visual-studio-code.md)
 
 ## Add inline code
 

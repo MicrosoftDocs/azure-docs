@@ -154,7 +154,7 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
 
 1. Navigate to the working directory where you placed the certificate generation scripts.
 
-1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory.
+1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory. 
 
    ```powershell
    New-CACertsCertChain rsa
@@ -163,6 +163,8 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
    This script command creates several certificate and key files, but when articles ask for the **root CA certificate**, use the following file:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+   
+   This certificate is required before you can create more certificates for your IoT Edge devices and leaf devices as described in the next sections.
 
 ### Linux
 
@@ -201,6 +203,9 @@ The new device identity command creates several certificate and key files, inclu
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
+
+For individual enrollment of the IoT Edge device in the DPS, use `iot-edge-device-identity-<name>.cert.pem`. To register the Iot Edge device to IoT Hub, use the `iot-edge-device-identity-<name>-full-chain.cert.pem` and `iot-edge-device-identity-<name>.key.pem` certificates. For more information, see [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md).
+
 
 ### Linux
 

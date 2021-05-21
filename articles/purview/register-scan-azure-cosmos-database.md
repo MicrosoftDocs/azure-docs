@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/9/2020
+ms.date: 05/08/2021
 ---
 
 # Register and scan Azure Cosmos Database (SQL API)
@@ -37,7 +37,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 1. Copy your *key* and save it somewhere for the next steps
 1. Navigate to your key vault
 1. Select **Settings > Secrets**
-1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your storage account
+1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your Azure Cosmos DB Account.
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan
@@ -57,10 +57,11 @@ To register a new Azure Cosmos Database (SQL API) account in your data catalog, 
 On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate cosmosDB account from the **Cosmos DB account name** drop down box.
-   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
-1. **Finish** to register the data source.
+2. Choose your Azure subscription to filter down Azure Cosmos DBs.
+3. Select an appropriate Cosmos DB Account name.
+4. Select a collection or create a new one (Optional).
+5. Select **Register** to register the data source.
+
 
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="register sources options" border="true":::
 

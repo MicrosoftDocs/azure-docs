@@ -121,7 +121,7 @@ This article demonstrates the use of Azure Storage as a media to back up and res
 10. Set database environment variables for fast recovery area:
 
     ```bash
-    SQL>  system set db_recovery_file_dest_size=4096M scope=both;
+    SQL> alter system set db_recovery_file_dest_size=4096M scope=both;
     SQL> alter system set db_recovery_file_dest='/u02/fast_recovery_area' scope=both;
     ```
     
@@ -364,7 +364,7 @@ While using RMAN and Azure File storage for database backup has many advantages,
     ORACLE instance shut down.
     ```
 
-2.  Remove the datafiles and backups:
+2.  Remove the database datafiles:
 
     ```bash
     cd /u02/oradata/TEST

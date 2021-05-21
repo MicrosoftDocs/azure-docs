@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -108,7 +108,15 @@ sudo iotedge support-bundle --since 6h
 :::moniker-end
 <!-- end 1.2 -->
 
-You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) call to your device to upload the output of the support-bundle command to Azure Blob Storage.
+By default, the `support-bundle` command creates a zip file called **support_bundle.zip** in the directory where the command is called. Use the flag `--output` to specify a different path or file name for the output.
+
+For more information about the command, view its help information.
+
+```bash/cmd
+iotedge support-bundle --help
+```
+
+You can also use the built-in direct method call [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) to upload the output of the support-bundle command to Azure Blob Storage.
 
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
@@ -126,7 +134,7 @@ You can verify the installation of IoT Edge on your devices by [monitoring the e
 To get the latest edgeAgent module twin, run the following command from [Azure Cloud Shell](https://shell.azure.com/):
 
    ```azurecli-interactive
-   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name>
    ```
 
 This command will output all the edgeAgent [reported properties](./module-edgeagent-edgehub.md). Here are some helpful ones monitor the status of the device:

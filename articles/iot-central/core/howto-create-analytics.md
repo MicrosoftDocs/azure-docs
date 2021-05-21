@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: abjork
+
+# This article applies to operators, builders, and administrators.
 ---
 
 # How to use analytics to analyze device data
-
-*This article applies to operators, builders, and administrators.*
 
 Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate various telemetries from your devices. To get started, visit **Analytics** on the left pane.
 

@@ -136,6 +136,20 @@ Enter the following parameters:
 
 After you enter all the information, select **Submit**.
 
+#### Webhook server action
+
+Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered,the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
+
+**To define to a webhook action:**
+
+1. Select the Webhook action.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/webhook.png" alt-text="Define a webhook forwarding rule.":::
+
+1. Enter the server address in the **URL**field.
+1. In the **Key** and **Value**fields, customize the HTTP header with a key and value definition. Keys can only contain letters, numbers, dashes, and underscores. Values can only contain one leading and/or one trailing space.
+1. Select **Save**.
+
 #### NetWitness action
 
 Send alert information to a NetWitness server.

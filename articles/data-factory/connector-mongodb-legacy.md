@@ -1,8 +1,8 @@
 ---
 title: Copy data from MongoDB using legacy
 description: Learn how to copy data from Mongo DB to supported sink data stores by using a copy activity in a legacy Azure Data Factory pipeline.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
