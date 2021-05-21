@@ -57,7 +57,7 @@ All virtual machines (VMs) in a host pool that uses MSIX app attach must have re
 
 ## How many users can use an MSIX image handle?
 
-MSIX app attach does mounting of the MSIX image per machine and not per user. the limit will come from the file system and throughput of the network. Azure files has limitation of 2000 open handles per file. 
+MSIX app attach mounts MSIX images on a per-machine basis, not a per-user basis. The amount of users who can use an MSIX image handle is based on the size of the machine's file system and throughput of the network. Also, Azure Files has a limit of 2,000 open handles per file. 
 
 ## Can I use Azure Active Directory Domain Services (Azure AD DS) with MSIX app attach?
 
