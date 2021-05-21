@@ -22,7 +22,7 @@ In a HDI 4.0 Apache Hive/LLAP cluster, unwanted logs are taking up the entire di
 
 ## Cause
 
-Automatic hive log deletion is not configured in the advanced hive-log4j2 configurations. The default limit for hive logs of 60GB takes too much space for the customer's scenario.
+Automatic hive log deletion is not configured in the advanced hive-log4j2 configurations. The default size limit of 60GB takes too much space for the customer's usage pattern.
 
 ## Resolution
 
