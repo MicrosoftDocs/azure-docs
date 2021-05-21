@@ -156,37 +156,44 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-    	Connecting to SSID 'iot'
+    	Module: ISM43362-M3G-L44-SPI
+	    MAC address: C4:7F:51:8F:67:F6
+    	Firmware revision: C3.5.2.5.STM
+	    Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
     Initializing DHCP
-    	IP address: 10.0.0.123
-    	Mask: 255.255.255.0
-    	Gateway: 10.0.0.1
+	    IP address: 192.168.0.22
+	    Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-    	DNS address: 10.0.0.1
+	    DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
     	SNTP server 0.pool.ntp.org
-    	SNTP IP address: 185.242.56.3
-    	SNTP time update: Nov 16, 2020 23:47:35.385 UTC 
+	    SNTP IP address: 108.62.122.57
+	    SNTP time update: May 21, 2021 22:42:8.394 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-    	DPS endpoint: global.azure-devices-provisioning.net
-    	DPS ID scope: ***
-    	Registration ID: ***
+	    DPS endpoint: global.azure-devices-provisioning.net
+	    DPS ID scope: ***
+	    Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-    	Hub hostname: ***
-    	Device id: ***
-    	Model id: dtmi:azurertos:devkit:gsg;1
-    Connected to IoTHub
+	    Hub hostname: ***.azure-devices.net
+	    Device id: mydevice
+	    Model id: dtmi:azurertos:devkit:gsg;1
+    Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
+
+    Receive twin properties: {"desired":{"$version":1},"reported":{"telemetryInterval":{"value":10,"ac":200,"av":1},"ledState":false,"deviceInformation":{"__t":"c","manufacturer":"STMicroelectronics","model":"B-L4S5I-IOT01A","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":8192,"totalMemory":768},"$version":4}}
+    Device twin writeable property sent: {"telemetryInterval":{"value":10,"ac":200,"av":1}}
+    Device twin property sent: {"ledState":false}
+    Device twin property sent: {"deviceInformation":{"__t":"c","manufacturer":"STMicroelectronics","model":"B-L4S5I-IOT01A","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":8192,"totalMemory":768}}.
 
     Starting Main loop
     ```
@@ -203,7 +210,7 @@ To view the device status in IoT Central portal:
 1. Confirm that the **Device status** is updated to **Provisioned**.
 1. Confirm that the **Device template** is updated to **Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/azure-iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
 
 ## View telemetry
 
@@ -215,7 +222,7 @@ To view telemetry in IoT Central portal:
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/azure-iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -227,11 +234,11 @@ You can also use IoT Central to call a direct method that you have implemented o
 To call a method in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. Select **State** and select **Run**.  The LED light should turn on.
+1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/azure-iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
-1. Unselect **State** and select **Run**. The LED light should turn off.
+1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
@@ -239,7 +246,7 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
-:::image type="content" source="media/quickstart-devkit-stm-b-l475e/azure-iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
+:::image type="content" source="media/quickstart-devkit-stm-b-l475e/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
 
 ## Debugging
 
@@ -247,7 +254,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 ## Clean up resources
 
-If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal. Optionally, if you continue to another tutorial in this Getting Started guide, you can keep the resources you've already created and reuse them.
+If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal.
 
 To remove the entire Azure IoT Central sample application and all its devices and resources:
 1. Select **Administration** > **Your application**.
