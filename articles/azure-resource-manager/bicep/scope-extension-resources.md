@@ -4,10 +4,10 @@ description: Describes how to use the scope property when deploying extension re
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 06/01/2021
 ---
 
-# Setting scope for extension resources in Bicep
+# Set scope for extension resources in Bicep
 
 An extension resource is a resource that modifies another resource. For example, you can assign a role to a resource. The role assignment is an extension resource type.
 
