@@ -239,9 +239,6 @@ You can still use the old provider. (It will be removed only in a major version 
 > [!NOTE]
 > There is a new Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from [here](./worker-service.md).
 
-<!-- For more information, see [Logging in .NET](/dotnet/core/extensions/logging). -->
-
-
 Packages installed:
 
 ```xml
