@@ -122,7 +122,7 @@ landingContent:
             url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
       - linkListType: how-to-guide
         links:
-          - text: Configure and manage DHCP
+          - text: Configure DHCP for Azure VMware Solution
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched VMware HCX networks
             url: configure-l2-stretched-vmware-hcx-networks.md

@@ -1,5 +1,5 @@
 ---
-title: Configure and manage DHCP for Azure VMware Solution
+title: Configure DHCP for Azure VMware Solution
 description: Learn how to configure and manage DHCP for your Azure VMware Solution private cloud using VMware NSX-T Manager.
 ms.topic: how-to
 ms.custom: contperf-fy21q2
@@ -9,7 +9,7 @@ ms.date: 05/28/2021
 
 ---
 
-# Configure and manage DHCP for Azure VMware Solution
+# Configure DHCP for Azure VMware Solution
 
 [!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
