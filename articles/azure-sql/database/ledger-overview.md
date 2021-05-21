@@ -98,6 +98,6 @@ For more information on ledger verification, see [Digest management and database
 - [Digest management and database verification](ledger-digest-management-and-database-verification.md)   
 - [Limitations for Azure SQL Database ledger](ledger-limits.md)
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
-- [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md)
+- [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md)
 - [How to access the digests stored in Azure Confidential Ledger (ACL)](ledger-how-to-access-acl-digest.md)
 - [How to verify a ledger table to detect tampering](ledger-verify-database.md)
