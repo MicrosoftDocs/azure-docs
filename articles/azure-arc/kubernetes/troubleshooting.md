@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 05/19/2021
+ms.date: 05/21/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -486,7 +486,7 @@ Check whether the cluster has the required CRDs:
 kubectl get crds
 ```
 
-Ensure that the CRDs correspond to the same OSM upstream version. E.g. if you are using v0.8.3, ensure that the CRDs match the ones that are available in the release branch v0.8.3 of [OSM OSS project](https://docs.openservicemesh.io/). Refer [OSM release notes](https://github.com/openservicemesh/osm/releases).
+Ensure that the CRDs correspond to the same OSM upstream version. E.g. if you are using v0.8.4, ensure that the CRDs match the ones that are available in the release branch v0.8.4 of [OSM OSS project](https://docs.openservicemesh.io/). Refer [OSM release notes](https://github.com/openservicemesh/osm/releases).
 
 Get the versions of the CRDs installed with the following command:
 ```bash
