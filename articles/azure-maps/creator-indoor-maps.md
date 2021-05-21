@@ -3,7 +3,7 @@ title: Work with indoor maps in Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/27/2020
+ms.date: 05/21/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -36,11 +36,20 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 >
 >* Role-based access control settings, to allow map makers to act as the Azure Maps Data Contributor role, and Creator map data users to act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
 
+## Creator data item types
+
+Creator services create, store, and use various data types that are defined and discussed in the following sections. A creator data item can be of the following types:
+
+* Converted data
+* Dataset
+* Tileset
+* Feature stateset
+
 ## Upload a Drawing package
 
 Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information on Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data (Preview) Upload API](/rest/api/maps/data/uploadpreview) to upload a Drawing package.  Upon a successful upload, the Data Upload API will return a user data identifier (`udid`). The `udid` will be used in the next step to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data (Preview) Upload API](/rest/api/maps/data/uploadpreview) to upload a Drawing package.  Upon a successful upload, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
 
 ## Convert a Drawing package
 
@@ -50,7 +59,7 @@ When an error occurs, the Conversion service provides a link to the [Azure Maps 
 
 ## Create indoor map data
 
-Azure Maps Creator provides services:
+Azure Maps Creator provides services supporting map creation:
 
 * [Dataset service](/rest/api/maps/v2/dataset/createpreview).
 Use the Dataset service to create a dataset from a converted Drawing package data.
