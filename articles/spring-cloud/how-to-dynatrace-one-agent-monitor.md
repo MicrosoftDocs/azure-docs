@@ -39,7 +39,7 @@ Create a deployment with the **Dynatrace** agent and configure **Environment Var
            DT_CONNECTION_POINT=DynatraceConnectionPoint
   ```
 
-  Azure Spring Cloud pre-installs the **Dynatrace OneAgent** to contain the base image. Customers can leverage environment variables like `DT_TENANT`, `DT_TENANTTOKEN` and `DT_CONNECTION_POINT` to configure **OneAgent** from applications.  For more details see [Dynatrace OneAgent environment variables](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/other-deployments-and-configurations/deploy-oneagent-on-kubernetes-for-application-only-monitoring/#expand-container-build-time-injection-3578).
+  Azure Spring Cloud pre-installs the **Dynatrace OneAgent** to the base image. Customers can leverage environment variables like `DT_TENANT`, `DT_TENANTTOKEN` and `DT_CONNECTION_POINT` to configure **OneAgent** from applications.  For more details see [Dynatrace OneAgent environment variables](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/other-deployments-and-configurations/deploy-oneagent-on-kubernetes-for-application-only-monitoring/#expand-container-build-time-injection-3578).
 
 
 ## Portal
