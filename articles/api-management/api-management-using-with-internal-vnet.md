@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # Using Azure API Management service with an internal virtual network
-With Azure Virtual Networks (VNETs), Azure API Management can manage internet-inaccessible APIs using several VPN technologies to make the connection. You can deploy API Management either [externally](./api-management-using-with-vnet.md) or internally inside a VNET. In this article, you will learn how to deploy API Management in internal VNET mode.
+With Azure Virtual Networks (VNETs), Azure API Management can manage internet-inaccessible APIs using several VPN technologies to make the connection. You can deploy API Management either [externally](./api-management-using-with-vnet.md) or internally inside a VNET. In this article, you'll learn how to deploy API Management in internal VNET mode.
 
 When API Management deploys in internal VNET mode, you can only view the following service endpoints within a VNET whose access you control.
 * The proxy gateway
@@ -69,7 +69,7 @@ In an internal network, API Management service hosting locations are based on th
 After successful deployment, you should see your API Management service's **private** virtual IP address and **public** virtual IP address om the **Overview** blade. 
 |  |  |
 | ----- | ----- |
-| **Private virtual IP address** | A load balanced IP address from within the API Management-delegated subnet, over which you can access `gateway`, `portal`, `management` and `scm` endpoints. |  
+| **Private virtual IP address** | A load balanced IP address from within the API Management-delegated subnet, over which you can access `gateway`, `portal`, `management`, and `scm` endpoints. |  
 | **Public virtual IP address** | Used *only* for control plane traffic to `management` endpoint over `port 3443`. Can be locked down to the [ApiManagement][ServiceTags] service tag. |
 
 ![API Management dashboard with an internal VNET configured][api-management-internal-vnet-dashboard]
@@ -141,7 +141,7 @@ If you don't want to access the API Management service with the default host nam
 
 ## <a name="routing"> </a> Routing
 
-* A load balanced *private* virtual IP address from the subnet range (DIP) will be reserved and used to access the API Management service endpoints from within the VNET. 
+* A load balanced *private* virtual IP address from the subnet range (DIP) will be reserved for access to the API Management service endpoints from within the VNET. 
     * Find this private IP address on the service's Overview blade in the Azure portal. 
     * Register this address with the DNS servers used by the VNET.
 * A load balanced *public* IP address (VIP) will also be reserved to provide access to the management service endpoint over `port 3443`. 
@@ -150,7 +150,7 @@ If you don't want to access the API Management service with the default host nam
     * This IP address can be locked down to the [ApiManagement][ServiceTags] service tag.
 * DIP addresses will be assigned to each virtual machine in the service and used to access resources *within* the VNET. A VIP address will be used to access resources *outside* the VNET. If IP restriction lists secure resources within the VNET, you must specify the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
 * The load balanced public and private IP addresses can be found on the Overview blade in the Azure portal.
-* If the service is removed from and added back into the VNET, the IP addresses assigned for public and private access may change. You may need to update DNS registrations, routing rules, and IP restriction lists within the VNET.
+* If you remove or add the service in the VNET, the IP addresses assigned for public and private access may change. You may need to update DNS registrations, routing rules, and IP restriction lists within the VNET.
 
 ## <a name="related-content"> </a>Related content
 To learn more, see the following articles:
