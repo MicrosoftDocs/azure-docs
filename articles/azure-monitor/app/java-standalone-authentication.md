@@ -13,22 +13,22 @@ ms.author: kryalama
 > [!NOTE]
 > The Authentication feature is in preview.
 
-The Application Insights Java agent takes a dependency on [Azure Identity](https://docs.microsoft.com/en-us/java/api/overview/azure/identity-readme?view=azure-java-stable) library which focuses on OAuth authentication with Azure Active Directory(AAD). This library offers a variety of credential classes capable of acquiring an AAD token to authenticate service requests. It is the responsibility of the user of the Java agent to provide the necessary details for the agent to build the [TokenCredentials](https://go.microsoft.com/fwlink/?linkid=2163810) required for authentication with AAD.
+The Application Insights Java agent takes a dependency on [Azure Identity](/java/api/overview/azure/identity-readme?view=azure-java-stable) library which focuses on OAuth authentication with Azure Active Directory(AAD). This library offers different kinds of credential classes which are capable of acquiring an AAD token to authenticate service requests. It is the responsibility of the user of the Java agent to provide the necessary details for the agent to build the [TokenCredentials](https://go.microsoft.com/fwlink/?linkid=2163810) required for authentication with AAD.
 
 ## Prerequisites
 
 We assume users to be familiar with the following articles before enabling authentication with AAD.
-- [Managed Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources.
-- [Assign Azure roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=current) using the Azure portal.
+- [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources.
+- [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal?tabs=current) using the Azure portal.
 
 ## Steps to enable AAD authentication
 
 Following are the high level view of the steps involved in enabling AAD authentication on Java agent to securely send telemetry to Azure Application Insights resource:
 
 1. The first step depends on the type of authentication used by the user. 
-    -   If using System assigned managed identity or User assigned managed identity, follow these [steps](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to configure managed identities for Azure resources on a VM using azure portal. 
-    -   If using service principal, follow these [steps](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create and Azure AD application and service principal that can access resources. We recomment to use this type of authentication only during development.
-2. Follow these [steps](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=current) to add `"Monitoring Metrics Publisher"` role from the Application Insights resource to the Azure resource from which the telemetry is sent.
+    -   If using System assigned managed identity or User assigned managed identity, follow these [steps](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to configure managed identities for Azure resources on a VM using azure portal. 
+    -   If using service principal, follow these [steps](/azure/active-directory/develop/howto-create-service-principal-portal) to create and Azure AD application and service principal that can access resources. We recomment to use this type of authentication only during development.
+2. Follow these [steps](/azure/role-based-access-control/role-assignments-portal?tabs=current) to add `"Monitoring Metrics Publisher"` role from the Application Insights resource to the Azure resource from which the telemetry is sent.
 3. Add the authentication related [configuration](#supported-types-of-authentication) to the ApplicationInsights.json configuration file.
 
 ## Supported types of authentication
