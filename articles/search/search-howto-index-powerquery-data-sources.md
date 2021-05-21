@@ -37,7 +37,14 @@ With the new Power Query data connector integration, you can pull data from many
 ## Supported functionality
 The Power Query connectors support the same functionality that indexers like the blob data source support. Power Query connectors support skillsets, running indexers on a schedule, change tracking using a high water mark column, and many more features.
 
-### Change Detection
+### High Water Mark Change Detection policy
+This change detection policy relies on a "high water mark" column capturing the version or time when a row was last updated.
+
+#### Requirements
+
++ All inserts specify a value for the column.
++ All updates to an item also change the value of the column.
++ The value of this column increases with each insert or update.
 
 ## Preview limitations
 Although there is a lot to be excited about with this preview, there are a few limitations. This section describes a few limitations that are specific to the current version of the preview.
