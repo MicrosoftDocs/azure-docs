@@ -37,4 +37,4 @@ Select **Save draft**, then continue with review and publish in **Next steps** b
 
 ## Next steps
 
-- [Review and publish](review-publish-offer.md)
+- [Review and publish](dynamics-365-review-publish.md)
