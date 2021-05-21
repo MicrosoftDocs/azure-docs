@@ -60,7 +60,7 @@ The cloned repo contains a setup script that installs and configures the require
 
 To install the tools:
 
-1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
+1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain-rx.bat*:
 
     > *getting-started\tools\get-toolchain-rx.bat*
 
@@ -73,7 +73,7 @@ To install the tools:
 
     ```shell
     cmake --version
-    rx-elf-gcc
+    rx-elf-gcc --version
     ```
 To install the remaining tools:
 
@@ -186,36 +186,41 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-    	Connecting to SSID 'iot'
-    SUCCESS: WiFi connected to iot
+	    Connecting to SSID 'JimacoNet'
+    SUCCESS: WiFi connected to JimacoNet
 
     Initializing DHCP
-    	IP address: 10.0.0.123
-    	Gateway: 10.0.0.1
+	    IP address: 192.168.0.21
+	    Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-    	DNS address: 10.0.0.1
+	    DNS address: 75.75.76.76
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-    	SNTP IP address: 185.242.56.3
-    	SNTP time update: Apr 7, 2021 4:11:51.394 UTC 
+	    SNTP server 0.pool.ntp.org
+	    SNTP IP address: 45.79.214.107
+	    SNTP time update: May 21, 2021 20:24:10.76 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-    	DPS endpoint: global.azure-devices-provisioning.net
-    	DPS ID scope: ***
-    	Registration ID: ***
+	    DPS endpoint: global.azure-devices-provisioning.net
+	    DPS ID scope: ***
+	    Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-    	Hub hostname: ***
-    	Device id: ***
+	    Hub hostname: ***.azure-devices.net
+	    Device id: mydevice
 	    Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
-    Connected to IoTHub
+    Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
+
+    Receive twin properties: {"desired":{"$version":1},"reported":{"telemetryInterval":{"value":10,"ac":200,"av":1},"ledState":false,"deviceInformation":{"__t":"c","manufacturer":"Renesas","model":"RX65N Cloud Kit","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"RX65N","processorManufacturer":"Renesas","totalStorage":2048,"totalMemory":640},"$version":4}}
+    Device twin writeable property sent: {"telemetryInterval":{"value":10,"ac":200,"av":1}}
+    Device twin property sent: {"ledState":false}
+    Device twin property sent: {"deviceInformation":{"__t":"c","manufacturer":"Renesas","model":"RX65N Cloud Kit","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"RX65N","processorManufacturer":"Renesas","totalStorage":2048,"totalMemory":640}}.
 
     Starting Main loop
     ```
@@ -253,11 +258,11 @@ You can also use IoT Central to call a direct method that you've implemented on 
 To call a method in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. Select **State** and select **Run**.  The LED light should turn on.
+1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
-1. Unselect **State** and select **Run**. The LED light should turn off.
+1. In the **State** dropdown, select **False**, and then select **Run**.. The LED light should turn off.
 
 ## View device information
 
