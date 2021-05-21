@@ -38,7 +38,7 @@ You should also go ahead and sign in to the [Azure portal](https://portal.azure.
 
 ## Solution architecture
 
-You'll be attaching Azure SignalR Service to Azure Digital Twins through the path below. Sections A, B, and C in the diagram are taken from the architecture diagram of the [end-to-end tutorial prerequisite](tutorial-end-to-end.md). In this how-to article, you will build section D on the existing architecture.
+You'll be attaching Azure SignalR Service to Azure Digital Twins through the path below. Sections A, B, and C in the diagram are taken from the architecture diagram of the [end-to-end tutorial prerequisite](tutorial-end-to-end.md). In this how-to article, you will build section D on the existing architecture, which includes two new Azure functions that communicate with SignalR and client apps.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Diagram of Azure services in an end-to-end scenario, which depicts data flowing in and out of Azure Digital Twins." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
@@ -87,7 +87,7 @@ Next, configure the functions to communicate with your Azure SignalR instance. Y
 1. Select **Keys** from the instance menu to view the connection strings for the SignalR service instance.
 1. Select the *Copy* icon to copy the primary connection string.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot of the Azure portal that shows the Keys page for the SignalR instance. The connection string is being copied." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
 1. Finally, add your Azure SignalR **connection string** to the function's app settings, using the following Azure CLI command. Also, replace the placeholders with your resource group and app service/function app name from the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). The command can be run in [Azure Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli):
  

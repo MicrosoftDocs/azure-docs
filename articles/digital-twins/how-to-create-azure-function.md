@@ -233,7 +233,7 @@ You can now create an application setting:
 
 1. After you create the setting, it should appear on the __Application settings__ tab. Verify that **ADT_SERVICE_URL** appears on the list. Then save the new application setting by selecting __Save__.
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal. On the application settings tab, the new ADT_SERVICE_URL setting and the Save button are both highlighted.":::
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Screenshot of the Azure portal. On the application settings tab, the new A D T SERVICE URL setting and the Save button are both highlighted.":::
 
 1. Any changes to the application settings require an application restart, so select __Continue__ to restart your application when prompted.
 

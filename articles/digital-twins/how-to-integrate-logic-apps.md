@@ -57,7 +57,7 @@ You will also need to create a **_Client secret_** for your Azure AD app registr
 
 Select *Certificates and secrets* from the registration's menu, and then select *+ New client secret*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Screenshot of an Azure AD app registration in the Azure Portal.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Screenshot of an Azure AD app registration in the Azure Portal. 'New client secret' is highlighted.":::
 
 Enter whatever values you want for *Description* and *Expires*, and select *Add*.
 
@@ -73,7 +73,7 @@ Now, you're ready to create a [custom Logic Apps connector](../logic-apps/custom
 
 Navigate to the [Logic Apps Custom Connector](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) page in the Azure portal (you can use this link or search for it in the portal search bar). Select *+ Add*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Screenshot of the 'Logic Apps Custom Connector' page in the Azure portal.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Screenshot of the 'Logic Apps Custom Connector' page in the Azure portal. The 'Add' button is highlighted.":::
 
 In the *Create Logic Apps Custom Connector* page that follows, select your subscription and resource group, and a name and deployment location for your new connector. Select *Review + create*. 
 
@@ -188,7 +188,7 @@ Select *+ New step*.
 
 This will open a *Choose an action* box. Switch to the *Custom* tab. You should see your custom connector from earlier in the top box.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Screenshot of creating a flow in the Logic Apps Designer in the Azure portal.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Screenshot of creating a flow in the Logic Apps Designer in the Azure portal. The custom connector is highlighted.":::
 
 Select it to display the list of APIs contained in that connector. Use the search bar or scroll through the list to select **DigitalTwins_Add**. (This is the API used in this article, but you could also select any other API as a valid choice for a Logic Apps connection).
 
