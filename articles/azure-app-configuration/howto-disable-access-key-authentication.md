@@ -101,3 +101,8 @@ The capability to disable access key authentication is available as a preview. T
 ### ARM template access
 
 When access key authentication is disabled, the capability to read/write key-values in an [ARM template](./quickstart-resource-manager.md) will be disabled as well. This is because access to the Microsoft.AppConfiguration/configurationStores/keyValues resource used in ARM templates requires an Azure Resource Manager role, such as contributor or owner. When access key authentication is disabled, access to the resource requires one of the Azure App Configuration [data plane roles](concept-enable-rbac.md), therefore ARM template access is rejected.
+
+## Next steps
+
+- [Use customer-managed keys to encrypt your App Configuration data](concept-customer-managed-keys.md)
+- [Using private endpoints for Azure App Configuration](concept-private-endpoint.md)

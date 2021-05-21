@@ -63,7 +63,7 @@ Two Azure resources are defined in the template:
 > ```
 
 > [!NOTE]
-> There is a limitation where key-value data access inside an ARM template is disabled if access key authentication is disabled. See "[disable access key authentication](./howto-disable-access-key-authentication.md#limitations)" for more details.
+> There is a limitation where key-value data access inside an ARM template is disabled if access key authentication is disabled. See [disable access key authentication](./howto-disable-access-key-authentication.md#limitations) for more details.
 
 ## Deploy the template
 
