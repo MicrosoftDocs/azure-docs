@@ -425,7 +425,7 @@
       - name: Azure PowerShell Samples
         href: powershell-backup-samples.md
     - name: Use Azure CLI
-        href: create-manage-azure-services-using-azure-command-line-interface.md
+      href: create-manage-azure-services-using-azure-command-line-interface.md
     - name: Use Azure Backup REST API
       items:
       - name: Create Recovery Services vault
