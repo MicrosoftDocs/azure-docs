@@ -23,7 +23,7 @@ Getting OPC UA Server data to flow into Azure Digital Twins is hard. There are m
 
 ## Architecture
 
-[TODO: Architecture digram coming soon]
+TODO: Architecture diagram coming soon
 
 | Component                       | Description                                                                                                                                                |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -34,7 +34,7 @@ Getting OPC UA Server data to flow into Azure Digital Twins is hard. There are m
 | Azure Digital Twins             | Azure Digital Twins the platform that enables you to create a digital representation of real-world things, places, business processes, and people.         |
 | Azure Function                  | Custom Azure Function is used to process the telemetry coming into Azure IoT Hub into the right twins and properties in Azure Digital Twins.               |
 
-This will feel complicated the first time you try it. There are a lot of steps and configurations that need to be done. But after you done it a couple times, it becomes much easier.
+This will feel complicated the first time you try it. There are a lot of steps and configurations that need to be done. Once you have completed it couple times, it becomes much easier.
 
 > [!TIP]
 > All of the files you need for this proof of concept are located in this [GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins). We recommend you clone or download this repo before you get started.
@@ -97,7 +97,7 @@ After you have created the Azure IoT Hub instance, go to the IoT Edge item in th
 
 ![screen shot of adding an iot edge device](./media/how-to-opcua/iot-edge-1.png)
 
-Once your device is created, copy the primary or secondary connection string value. You will need this later when you setup your physical edge device.
+Once your device is created, copy the primary or secondary connection string value. You will need this later when you setup the edge device.
 
 ![screen of iot edge device connection strings](./media/how-to-opcua/iot-edge-2.png)
 
@@ -107,7 +107,7 @@ In order to get your OPC UA Server data into IoT Hub, you need a device that run
 
 ### Create Ubuntu Server virtual machine
 
-Create a Ubuntu Server virtual machine like the following
+Create an Ubuntu Server virtual machine like the following
 
 ![screen of ubuntu virtual machine settings](./media/how-to-opcua/ubuntu-vm-1.png)
 
@@ -129,7 +129,7 @@ admin@gateway:~$ sudo iotedge check
 
 This will run a number of tests to make sure your installation is ready to go.
 
-### Instal OPC Publisher module
+### Install OPC Publisher module
 
 The OPC Publisher module now needs to be installed on your gateway device. The easiest way to install the OPC Publisher module is from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.iotedge-opc-publisher) and follow the steps documented in the [GitHub Repo](https://github.com/Azure/iot-edge-opc-publisher).
 
@@ -230,7 +230,7 @@ Now that we have data flowing from OPC UA Server into Azure IoT Hub, we need to 
 
 ### Create Azure Digital Twins instance
 
-[Follow the documentation](./how-to-set-up-instance-portal) to deploy a new Azure Digital Twins instance from the Azure Portal.
+[Follow the documentation](./how-to-set-up-instance-portal) to deploy a new Azure Digital Twins instance from the Azure portal.
 
 ### Upload model & create twin
 
@@ -254,7 +254,7 @@ Now that we have the OPC UA nodes data flowing into IoT Hub, we need to map and 
 It works like this:
 
 - An Event Subscription is configured for an Azure Function to process incoming messages into IoT Hub.
-- The Azure Function will grab the Node Id for each item and do lookup against the items in the opcua-mapping.json file. In this file, you define the twinId and property, for where you want the value to nodeId saved.
+- The Azure Function will grab the NodeId for each item and do look up against the items in the opcua-mapping.json file. In this file, you define the twinId and property, for where you want the value of the NodeId saved.
 - The Azure Function will then generate the appropriate patch document and will run the twin property updates accordingly.
 
 ### Create opcua-mapping.json file
@@ -276,14 +276,14 @@ The opcua-mapping.json looks like this (see the [GitHub repo](https://github.com
 | Property | Description                                                          | Required |
 | -------- | -------------------------------------------------------------------- | -------- |
 | NodeId   | Value from the OPC UA node. For example: ns=3;i={value}              | ✔        |
-| TwinId   | Twin Id ($dtId) of the twin you want to save the telemetry value for | ✔        |
+| TwinId   | TwinId ($dtId) of the twin you want to save the telemetry value for | ✔        |
 | Property | Name of the property on the twin to save the telemetry value         | ✔        |
-| ModelId  | The modelId to create the twin if the Twin Id does not exist         | ✔        |
+| ModelId  | The modelId to create the twin if the TwinId does not exist         | ✔        |
 
 > ![IMPORTANT]
 > You will need to create a mapping entry for each and every NodeId
 
-Now that we have our mapping file, we need to store it someplace that is accessible from the Azure Function. Azure Blob Storage is a good place. You can use [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to create your storage container and import the opcua-mapping.json file. Then create a shared access signature and save that url, as you will need it later for the Azure Function.
+Now that we have our mapping file, we need to store it in a location that is accessible from the Azure Function. Azure Blob Storage is a good place. You can use [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to create your storage container and import the opcua-mapping.json file. Then create a shared access signature and save that url, as you will need it later for the Azure Function.
 
 ![screen shot of azure storage explorer](./media/how-to-opcua/azure-storage-exp-1.png)
 
@@ -293,7 +293,7 @@ Now that we have our mapping file, we need to store it someplace that is accessi
 
 **Step 2:** Follow these steps to [publish the function](./how-to-create-azure-function?tabs=cli#publish-the-function-app-to-azure) and [setting up security access](./how-to-create-azure-function?tabs=portal#set-up-security-access-for-the-function-app).
 
-**Step 3:** We need to add some application settings to setup your environment properly. Go to the Azure Portal and find your newly created Azure Function. Then click on the “Configuration” section. There are three application settings you need to create.
+**Step 3:** We need to add some application settings to set up your environment properly. Go to the Azure portal and find your newly created Azure Function. Then click on the “Configuration” section. There are three application settings you need to create.
 
 | Setting              | Description                                                                                          | Required |
 | -------------------- | ---------------------------------------------------------------------------------------------------- | -------- |
@@ -314,7 +314,7 @@ Your event subscription should look like this...
 
 ![screen shot of event subscription](./media/how-to-opcua/event-subscription-1.png)
 
-Everything is setup, running, and data should be flowing from your OPC UA Simulation Server, through IoT Hub, and into your Azure Digital Twins instances. Here are a couple Azure CLI commands to monitor the data flowing through IoT Hub and your Azure Function.
+Everything is now installed and running. Data should be flowing from your OPC UA Simulation Server, through Azure IoT Hub, and into your Azure Digital Twins instances. Here are a couple Azure CLI commands that come in handy to monitor the events.
 
 #### Commands
 
@@ -323,7 +323,7 @@ To monitor IoT Hub events
 az iot hub monitor-events -n {hub-name} -t 0
 ```
 
-Monitor Azure Fucntion event processing 
+Monitor Azure Function event processing 
 ```
 az webapp log tail –name {function-name} --resource-group {resource-group}
 ```
