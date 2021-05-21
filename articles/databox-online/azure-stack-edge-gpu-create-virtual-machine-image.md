@@ -21,6 +21,12 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 > [!NOTE] 
 > The VM image for an Azure virtual machine deployed on an Azure Stack Edge Pro GPU device must be a Fixed virtual hard disk in VHD format from a Generation 1 virtual machine.
 
+## Prerequisites
+
+Complete the following prerequisite before you create your VM image:
+
+- [Download AZCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy). The `azcopy copy` gives you a fast way to download of an OS disk to an Azure Storage account.
+
 ## VM image workflow
 
 The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the OS VHD for that VM.
@@ -32,7 +38,7 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 
 Do the following steps to create a Windows VM image.
 
-1. Create a Windows virtual machine in Azure. For portal instructions, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal). For PowerShell instructions, see [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).<!--Make htis an optional step that they won't perform if they're planning to create a specialized image for migration or redeployment of a VM?-->
+1. Create a Windows virtual machine in Azure. For portal instructions, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal). For PowerShell instructions, see [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).
 
    The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD. 
 
@@ -45,25 +51,67 @@ Do the following steps to create a Windows VM image.
 
 3. Download the OS disk from Azure:
 
-   1. [Stop the VM](/azure/virtual-machines/windows/download-vhd#stop-the-vm).<!--When they generalized the VM, it not be already stopped. So, generalizing the disk is optional, this step just doesn't fit.-->
-   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url).<!--Blocking issue: Can't generate the URL while the disk is attached. VM has been generalized and is stopped.-->
-   1. Download the disk to the Azure Storage account for your Azure Stack Edge device. You can save time by using `azcopy`instead of the **Download** command in the portal. 
+   1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). This step is required, even after the is generalize and shut down, to deallocate the OS disk so that the disk can be downloaded. 
+   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url). By default, the URI expires after 3600 seconds (1 hour). You can increase that time if needed. 
+      
+   1. Download the URL to you Azure Storage account. Two methods are available:
    
-      Run the following command:
+      - When you generate a download URL (in the previous step), select **Download the VHD file** to download the disk from the portal. **When you use this method, the disk copy takes a long time.**
 
-      `azcopy copy <source URI> <target URI>`
+      - A faster method is to use AzCopy: In PowerShell, navigate to the directory that contains adcopy.exe, and run the following command:
 
-      For example, XX downloads an OS VHD to the XX storage account.
+        `.\azcopy copy <source URI> <target URI> --recursive`
 
-      ```azcopy
-      azcopy copy <source URI TK> https://asadassivhdstoracc.blob.core.windows.net/vhd/linux.vhd?sp=racwdl&st=2021-05-03T21:41:48Z&se=2021-05-04T05:41:48Z&sv=2020-02-10&sr=c&sig=Hg3u0D2DNm6CFqUJqa7BL2tWwgBvgOkCqfJ5V5iRB%2BA%3D
-      ```
-<!--How do they get a "target URI"? In az copy examples, I'm seeing a full path within Blob storage instead of a uri. 
-Sample format line: azcopy copy "SUB Download URI" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"-->
+        where:
+        * `<source URI>` is the export URL generated in the preceding step.
+        * `<target URI>` is the URI to be assigned to the exported VHD in your Azure Storage account. 
+          Save the VHD to a Blob container in an Azure Storage account. It's a good idea to save it to the storage account for your Azure Stack Edge Pro GPU device.
+          - To get the target URI, generate a shared access signature (SAS) for the target Blob container. You can do this from the container in the Azure Storage account (NO LINK FOUND), [using Azure Storage Explorer](/azure/storage/blobs/sas-service-create?tabs=dotnet#create-a-service-sas-for-a-blob-container)<!--Procedure creates SAS URI for a file rather than its container.-->, or [using .NET or JavaScript](/azure/storage/blobs/sas-service-create?tabs=dotnet#create-a-service-sas-for-a-blob-container).  
+          - Insert the name you want to assign the VHD before the query string (before the **?**) in the format "/<filename>.vhd". The file must have the VHD file name extension. 
+        
+             For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** Blob container in the **mystorageaccount** storage account:
 
-   If you'd rather download the disk locally, use a local path instead of the target URI for the storage account. You will need to upload the VM image to the Azure Storage account for your device before you can use it to deploy VMs on the device.<!--This will need work. Too much info?-->
+             `https://mystorageaccount.blob.core.windows.net/virtualmachines/windowsosdisk.vhd?sp=rw&st=2021-05-21T16:52:24Z&se=2021-05-22T00:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=PV3Q3zpaQ%2FOLidbQJDKlW9nK%2BJ7PkzYv2Eczxko5k%2Bg%3D`
+
+            For example, the following command DESCRIBE.
+
+             ```azcopy
+             .\azcopy copy "https://md-h1rvdq3wwtdp.z24.blob.storage.azure.net/gxs3kpbgjhkr/abcd?sv=2018-03-28&sr=b&si=f86003fc-a231-43b0-baf2-61dd51e3a05a&sig=o5Rj%2BNZSook%2FVNMcuCcwEwsr0i7sy%2F7gIDzak6JhlKg%3D" "https://mystorageaccountvdalc.blob.core.windows.net/virtualmachines/osdisk.vhd?sp=rw&st=2021-05-21T16:52:24Z&se=2021-05-22T00:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=PV3Q3zpaQ%2FOLidbQJDKlW9nK%2BJ7PkzYv2Eczxko5k%2Bg%3D" --recursive
+             ```
+
+            The sample command returns this output:
+
+            ```output
+            PS C:\azcopy\azcopy_windows_amd64_10.10.0> .\azcopy copy "https://md-h1rvdq3wwtdp.z24.blob.storage.azure.net/gxs3kpbgjhkr/abcd?sv=2018-03-28&sr=b&si=f86003fc-a231-43b0-baf2-61dd51e3a05a&sig=o5Rj%2BNZSook%2FVNMcuCcwEwsr0i7sy%2F7gIDzak6JhlKg%3D" "https://mystorageaccountvdalc.blob.core.windows.net/virtualmachines/osdisk.vhd?sp=rw&st=2021-05-21T16:52:24Z&se=2021-05-22T00:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=PV3Q3zpaQ%2FOLidbQJDKlW9nK%2BJ7PkzYv2Eczxko5k%2Bg%3D" --recursive
+            INFO: Scanning...
+            INFO: Failed to create one or more destination container(s). Your transfers may still succeed if the container already exists.
+            INFO: Any empty folders will not be processed, because source and/or destination doesn't have full folder support
+
+            Job 783f2177-8317-3e4b-7d2f-697a8f1ab63c has started
+            Log file is located at: C:\Users\alkohli\.azcopy\783f2177-8317-3e4b-7d2f-697a8f1ab63c.log
+
+            INFO: Destination could not accommodate the tier P10. Going ahead with the default tier. In case of service to service transfer, consider setting the flag --s2s-preserve-access-tier=false.
+            100.0 %, 0 Done, 0 Failed, 1 Pending, 0 Skipped, 1 Total,
+
+
+            Job 783f2177-8317-3e4b-7d2f-697a8f1ab63c summary
+            Elapsed Time (Minutes): 1.4671
+            Number of File Transfers: 1
+            Number of Folder Property Transfers: 0
+            Total Number of Transfers: 1
+            Number of Transfers Completed: 1
+            Number of Transfers Failed: 0
+            Number of Transfers Skipped: 0
+            TotalBytesTransferred: 136367309312
+            Final Job Status: Completed
+
+            PS C:\azcopy\azcopy_windows_amd64_10.10.0>
+            ```
+<!--1) I removed the verbose feedback. Doesn't provide any value, and the procedure is too long. 2) Show a picture of the VM in the Blob container for verification?-->
 
 You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro device.
+<!--STOPPED HERE - 05/21. Will update Linux steps when the Windows steps are complete.-->
+
 
 ## Create a Linux custom VM image
 
