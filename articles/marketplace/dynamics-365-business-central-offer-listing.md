@@ -11,6 +11,8 @@ ms.date: 05/19/2021
 
 # Configure Dynamics 365 for Business Central offer listing details
 
+## Overview
+
 This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
 
 > [!NOTE]

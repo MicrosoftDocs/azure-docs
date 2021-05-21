@@ -1,5 +1,5 @@
 ---
-title: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace).
+title: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace)
 description: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace).
 ms.reviewer: emuench 
 ms.service: marketplace 
