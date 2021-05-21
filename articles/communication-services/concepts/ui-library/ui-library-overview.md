@@ -50,8 +50,8 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 
 | Composite    | Use Cases  | 
 | ------------ | ---------- |
-| [Call](https://azure.github.io/communication-ui-library/?path=/docs/composites-groupcall--group-call-composite) | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those participants with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
-| [Chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-groupchat--group-chat-composite)    | Chat experience where user can send and receive messages. Thread events like typing, reads, participants entering and leaving are displayed to the user as part of the chat thread.                                                                                                                          |
+| [CallComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-groupcall--group-call-composite) | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those participants with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
+| [ChatComposite](https://azure.github.io/communication-ui-library/?path=/docs/composites-groupchat--group-chat-composite)    | Chat experience where user can send and receive messages. Thread events like typing, reads, participants entering and leaving are displayed to the user as part of the chat thread.                                                                                                                          |
 
 ## UI Component overview
 
