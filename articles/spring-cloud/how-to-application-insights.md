@@ -159,7 +159,29 @@ Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of
 * If you enable the Java agent, then you must restart applications.
 * When you disable the Java agent, applications will stop to send all monitoring data after a delay in minutes. You can restart applications to remove the agent from the Java runtime environment.
 
+## Concept Matching between Azure Spring Cloud and Application Insights
+
+| Azure Spring Cloud | Application Insights                                         |
+| ------------------ | ------------------------------------------------------------ |
+| App                | * __Application Map__/Role<br />* __Live Metrics__/Role<br />* __Failures__/Roles/Cloud Role<br />* __Performance__/Roles/Could Role |
+| App Instance       | * __Application Map__/Role Instance<br />* __Live Metrics__/Service Name<br />* __Failures__/Roles/Cloud Instance<br />* __Performance__/Roles/Could Instance |
+| Deployment         | N/A                                                          |
+
+> [!Note]
+>
+> The data stored in Application Insights contains all history data of Azure Spring Cloud app instances created since the Java agent enabled. Which means you can see the application data created yesterday but deleted right now with specific the time range with last 24 hours from the portal of Application Insights. Take below scenarios as example.
+>
+> * You created one application around 8:00 AM today from Azure Spring Cloud with Java agent enabled, and then you deployed one jar file to this application around 8:10 AM today. After some testing, you may change the code and deploy one new jar file to this application around 8:30 AM today. Then you take a break and would like to check some data from Application Insights around 11:00 AM today.
+>   * You will see 3 instances with time range in last 24 hours from Application Map, Failures, Performance and Metrics.
+>   * You will see 1 instance with time range in last hour from Application Map, Failures, Performance and Metrics.
+>   * You will see 1 instance from Live Metrics.
+> * You created one application around 8:00 AM today from Azure Spring Cloud with Java agent enabled, and then you deployed one jar file to this application around 8:10 AM today. After a while, you may have a try for blue/green deployment with another jar file around 8:30 AM today. Currently you have 2 deployments for this application. Then you take a break and would like to check some data from Application Insights around 11:00 AM today.
+>   * You will see 3 instances with time range in last 24 hours from Application Map, Failures, Performance and Metrics.
+>   * You will see 2 instances with time range in last hour from Application Map, Failures, Performance and Metrics.
+>   * You will see 2 instances from Live Metrics.
+
 ## See also
+
 * [Use distributed tracing with Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)
