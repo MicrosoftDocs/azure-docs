@@ -475,7 +475,7 @@
             href: database/ledger-updatable-ledger-tables.md
           - name: Append-only ledger tables
             href: database/ledger-append-only-ledger-tables.md
-          - name: Ledger digest management and database verification
+          - name: Digest management and database verification
             href: database/ledger-digest-management-and-database-verification.md
           - name: Ledger auditing
             href: database/ledger-audit.md

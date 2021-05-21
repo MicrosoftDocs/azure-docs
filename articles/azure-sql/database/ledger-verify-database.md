@@ -24,7 +24,7 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - [Create an Azure SQL Database with ledger enabled.](ledger-create-a-single-database-with-ledger-enabled.md)
-- [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md) or [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md)
+- [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md) or [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md)
 
 ## Run ledger verification for Azure SQL Database
 
@@ -56,9 +56,11 @@ In this article, you'll verify the integrity of the data in your Azure SQL Datab
 
    ```output
    Ledger verification successful
+   ```
+
    - If there was tampering in your database, the following error will be in the **Messages** window.
   
-   ```
+   ```output
    Failed to execute query. Error: The hash of block xxxx in the database ledger does not match the hash provided in the digest for this block.
    ```
 

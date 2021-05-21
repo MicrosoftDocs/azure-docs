@@ -104,4 +104,4 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 Connect and query your database using different tools and languages:
 
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
-- [Create and use append-only updatable ledger tables](ledger-how-to-append-only-ledger-tables.md) 
+- [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md) 

@@ -73,7 +73,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Ledger digest management and database verification
+          - text: Digest management and database verification
             url: ledger-digest-management-and-database-verification.md
           - text: Ledger auditing
             url: ledger-audit.md
