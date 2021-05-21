@@ -46,7 +46,9 @@ For a DTDL model to be compatible with Azure Digital Twins, it must meet these r
 
 Azure Digital Twins also does not observe the `writable` attribute on properties or relationships. Although this can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these are always treated as writable by external clients that have general write permissions to the Azure Digital Twins service.
 
-## Elements of a model
+## Modeling overview
+
+### Elements of a model
 
 Within a model definition, the top-level code item is an **interface**. This encapsulates the entire model, and the rest of the model is defined within the interface. 
 
@@ -64,7 +66,42 @@ A DTDL model interface may contain zero, one, or many of each of the following f
 > [!NOTE]
 > The [spec for DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) also defines **Commands**, which are methods that can be executed on a digital twin (like a reset command, or a command to switch a fan on or off). However, *commands are not currently supported in Azure Digital Twins.*
 
-### Properties vs. telemetry
+### Model code
+
+Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension .json. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
+
+The fields of the model are:
+
+| Field | Description |
+| --- | --- |
+| `@id` | An identifier for the model. Must be in the format `dtmi:<domain>:<unique model identifier>;<model version number>`. |
+| `@type` | Identifies the kind of information being described. For an interface, the type is *Interface*. |
+| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
+| `displayName` | [optional] Allows you to give the model a friendly name if desired. |
+| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
+
+#### Example model
+
+This section contains an example of a basic model, written as a DTDL interface. 
+
+This model describes a **home**, with properties for a display name and ID. The home model also defines a relationship to a **floor** model, which can be used to indicate that a home twin is connected to certain floor twins.
+
+:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json":::
+
+## Modeling properties and telemetry
+
+### Possible schemas
+
+As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
+
+In addition to primitive types, *Property* and *Telemetry* fields can have these complex types:
+* `Object`
+* `Map`
+* `Enum`
+
+*Telemetry* fields also support `Array`.
+
+### Difference between properties and telemetry
 
 Here is some additional guidance on distinguishing between DTDL **property** and **telemetry** fields in Azure Digital Twins.
 
@@ -82,55 +119,54 @@ Telemetry and properties often work together to handle data ingress from devices
 
 You can also publish a telemetry event from the Azure Digital Twins API. As with other telemetry, that is a short-lived event that requires a listener to handle.
 
-#### Properties of relationships
+### Semantic types
+
+In this example, both humidity and temperature are semantic type.
+
+:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="8-16,17-25":::
+
+### Complex (object) properties
+
+Added a new address complex type to collect address information on the home model from earlier.
+
+:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
+
+## Modeling relationships
+
+## Non-targeted relationships
+
+In the following example, removed the target property on the `dtmi:com:adt:dtsample:room:rel_has_sensors;1` on the IRoom model.
+
+:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="26-31":::
+
+### Properties of relationships
 
 DTDL also allows for **relationships** to have properties of their own. When defining a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
 
-## Model code
+In the following example, relationship `dtmi:com:adt:dtsample:home:rel_has_floors;1` on the IHome model has a newly added property.
 
-Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension .json. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
+:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="39-45":::
 
-### Possible schemas
-
-As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
-
-In addition to primitive types, *Property* and *Telemetry* fields can have these complex types:
-* `Object`
-* `Map`
-* `Enum`
-
-*Telemetry* fields also support `Array`.
-
-### Example model
-
-This section contains an example of a typical model, written as a DTDL interface. The model describes **planets**, each with a name, a mass, and a temperature.
- 
-Consider that planets may also interact with **moons** that are their satellites, and may contain **craters**. In the example below, the Planet model expresses connections to these other entities by referencing two external models—Moon and Crater. These models are also defined in the example code below, but are kept very simple so as not to detract from the primary Planet example.
-
-:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
-
-The fields of the model are:
-
-| Field | Description |
-| --- | --- |
-| `@id` | An identifier for the model. Must be in the format `dtmi:<domain>:<unique model identifier>;<model version number>`. |
-| `@type` | Identifies the kind of information being described. For an interface, the type is *Interface*. |
-| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
-| `displayName` | [optional] Allows you to give the model a friendly name if desired. |
-| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
+## Modeling components
 
 > [!NOTE]
-> Note that the component interface (Crater in this example) is defined in the same array as the interface that uses it (Planet). Components must be defined this way in API calls in order for the interface to be found.
+> Note that the component interface is defined in the same array as the interface that uses it . Components must be defined this way in API calls in order for the interface to be found.
 
 ## Model inheritance
 
-Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
+Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
 
-The following example re-imagines the Planet model from the earlier DTDL example as a subtype of a larger CelestialBody model. The "parent" model is defined first, and then the "child" model builds on it by using the field `extends`.
+The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired). A single parent can serve as the base model for multiple extending interfaces.
 
-:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
+The following example re-imagines the home model from the earlier DTDL example as a subtype of a larger "core" model. The parent model (ICore) is defined first, and then the child model (IHome) builds on it by using `extends`.
 
-In this example, CelestialBody contributes a name, a mass, and a temperature to Planet. The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired).
+:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ICore.json":::
+
+:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" range="1-8" highlight="6":::
+
+In this case, ICore contributes an ID and name to IHome. Other models can also extend the ICore model to get these properties as well.
+
+:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="1-8" highlight="6":::
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 

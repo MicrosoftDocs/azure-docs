@@ -728,6 +728,12 @@
       "url": "https://github.com/Azure-Samples/digital-twins-iothub-integration",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "digital-twins-docs-samples-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
