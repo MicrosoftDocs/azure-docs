@@ -1,5 +1,5 @@
 ---
-title: Required outbound network rules and FQDNs
+title: Required outbound network rules and FQDNs for Azure Managed Instance for Apache Cassandra
 description: Learn what are the required outbound network rules and FQDNs for Azure Managed Instance for Apache Cassandra
 author: christopheranderson
 ms.service: managed-instance-apache-cassandra
@@ -29,7 +29,7 @@ The required network rules and IP address dependencies are:
 |management.azure.com:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Virtual Machine Scale Sets/Azure Management API | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot)|
 |*.servicebus.windows.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure EventHub | HTTPS | 443 | Required to forward logs to Azure|
 |jarvis-west.dc.ad.msft.net:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure Monitor | HTTPS | 443 | Required to forward metrics Azure |
-|login.microsoftonline.com:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure AAD | HTTPS | 443 | Required for Azure Active Directory authentication.|
+|login.microsoftonline.com:443</br> Or</br> [ServiceTag](/azure/virtual-network/service-tags-overview#available-service-tags) – Azure AD | HTTPS | 443 | Required for Azure Active Directory authentication.|
 | packages.microsoft.com | HTTPS | 443 | Required for updates to Azure security scanner definition and signatures |
 
 ## Managed Instance for Apache Cassandra internal port usage
