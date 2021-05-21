@@ -1,39 +1,27 @@
 ---
-title: Deploy resources to resource groups (Bicep)
-description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group. (Bicep)
-author: mumian
-ms.author: jgao
+title: Use Bicep to deploy resources to resource groups
+description: Describes how to deploy resources in a Bicep file. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 06/01/2021
 ---
 
-# Resource group deployments with ARM templates (Bicep)
+# Resource group deployments with Bicep files
 
-This article describes how to scope your deployment to a resource group. You use an Azure Resource Manager template (ARM template) for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
+This article describes how to scope your deployment to a resource group. You use a Bicep file for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
 
 ## Supported resources
 
 Most resources can be deployed to a resource group. For a list of available resources, see [ARM template reference](/azure/templates).
 
-## Schema
+## Set scope
 
-For templates, use the following schema:
+By default, a Bicep file is scoped to the resource group. If you want to explicitly set the scope, use:
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    ...
-}
+```bicep
+targetScope = 'resourceGroup'
 ```
 
-For parameter files, use:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
-}
-```
+But, setting the target scope to resource group is unnecessary because that scope is used by default.
 
 ## Deployment commands
 
@@ -47,7 +35,7 @@ For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az_d
 az deployment group create \
   --name demoRGDeployment \
   --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --template-file main.bicep \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -59,7 +47,7 @@ For the PowerShell deployment command, use [New-AzResourceGroupDeployment](/powe
 New-AzResourceGroupDeployment `
   -Name demoRGDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
+  -TemplateFile main.bicep `
   -storageAccountType Standard_GRS `
 ```
 
@@ -75,7 +63,7 @@ For more detailed information about deployment commands and options for deployin
 
 When deploying to a resource group, you can deploy resources to:
 
-* the target resource group from the operation
+* the target resource group for the deployment operation
 * other resource groups in the same subscription or other subscriptions
 * any subscription in the tenant
 * the tenant for the resource group
@@ -88,49 +76,109 @@ This section shows how to specify different scopes. You can combine these differ
 
 ### Scope to target resource group
 
-To deploy resources to the target resource, add those resources to the resources section of the template.
+To deploy resources to the target resource group, add those resources to the Bicep file.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
+```bicep
+// create resource in target resource group
+resource exampleResource 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  ...
+} 
+```
 
 For an example template, see [Deploy to target resource group](#deploy-to-target-resource-group).
 
-### Scope to resource group in same subscription
+### Scope to different resource group
 
-To deploy resources to a different resource group in the same subscription, add a nested deployment and include the `resourceGroup` property. If you don't specify the subscription ID or resource group, the subscription and resource group from the parent template are used. All the resource groups must exist before running the deployment.
+To deploy resources to a resource group that isn't the target resource group, add a [module](modules.md). Use the resourceGroup function to set the `scope` property for that module. 
 
-In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
+If the resource group is in a different subscription, provide the subscription ID and the name of the resource group. If the resource group is in the same subscription as the current deployment, provide only the name of the resource group. If you don't specify a subscription in the resourceGroup function, the current subscription is used. 
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
+The following example shows a module that targets a resource group in a different subscription.
 
-For an example template, see [Deploy to multiple resource groups](#deploy-to-multiple-resource-groups).
+```bicep
+param otherResourceGroup string
+param otherSubscriptionID string
 
-### Scope to resource group in different subscription
+// create resources in a different subscription and resource group
+module  './module.bicep' = {
+  name: 'otherSubAndRG'
+  scope: resourceGroup(otherSubscriptionID, otherResourceGroup)
+}
+```
 
-To deploy resources to a resource group in a different subscription, add a nested deployment and include the `subscriptionId` and `resourceGroup` properties. In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
+The next example shows a module that targets a resource group in the same subscription.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
+```bicep
+param otherResourceGroup string
+
+// create resources in a resource group in the same subscription
+module  './module.bicep' = {
+  name: 'otherRG'
+  scope: resourceGroup(otherResourceGroup)
+}
+```
 
 For an example template, see [Deploy to multiple resource groups](#deploy-to-multiple-resource-groups).
 
 ### Scope to subscription
 
-To deploy resources to a subscription, add a nested deployment and include the `subscriptionId` property. The subscription can be the subscription for the target resource group, or any other subscription in the tenant. Also, set the `location` property for the nested deployment.
+To deploy resources to a subscription, add a module and set its `scope` property. 
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+To deploy to the current subscription, use the subscription function without a parameter. 
+
+```bicep
+
+// create resources at subscription level
+module  './module.bicep' = {
+  name: 'deployToSub'
+  scope: subscription()
+}
+```
+
+To deploy to a different subscription, specify that subscription ID as a parameter in the subscription function.
+
+```bicep
+param otherSubscriptionID string
+
+// create resources at subscription level but in a different subscription
+module  './module.bicep' = {
+  name: 'deployToSub'
+  scope: subscription(otherSubscriptionID)
+}
+```
 
 For an example template, see [Create resource group](#create-resource-group).
 
 ### Scope to tenant
 
-To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+To create resources at the tenant, add a module. Set its `scope` property to `tenant()`.
 
-To use a nested deployment, set `scope` and `location`.
+The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+The following example includes a module that is deployed to the tenant.
 
-Or, you can set the scope to `/` for some resource types, like management groups.
+```bicep
+param otherSubscriptionID string
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+module  './module.bicep' = {
+  name: 'deployToTenant'
+  scope: tenant()
+}
+```
+
+Instead of using a module, you can set the scope to `tenant()` for some resource types. The following example deploys a management group at the tenant.
+
+```bicep
+param mgName string = 'mg-${uniqueString(newGuid())}'
+
+resource managementGroup 'Microsoft.Management/managementGroups@2020-05-01' = {
+  scope: tenant()
+  name: mgName
+  properties: {}
+}
+
+output output string = mgName
+```
 
 For more information, see [Management group](deploy-to-management-group.md#management-group).
 
@@ -138,177 +186,117 @@ For more information, see [Management group](deploy-to-management-group.md#manag
 
 To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep":::
 
 ## Deploy to multiple resource groups
 
-You can deploy to more than one resource group in a single ARM template. To target a resource group that is different than the one for parent template, use a [nested or linked template](../templates/linked-templates.md). Within the deployment resource type, specify values for the subscription ID and resource group that you want the nested template to deploy to. The resource groups can exist in different subscriptions.
+You can deploy to more than one resource group in a single Bicep file.
 
 > [!NOTE]
 > You can deploy to **800 resource groups** in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
 
 The following example deploys two storage accounts. The first storage account is deployed to the resource group specified in the deployment operation. The second storage account is deployed to the resource group specified in the `secondResourceGroup` and `secondSubscriptionID` parameters:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json":::
+```bicep
+@maxLength(11)
+param storagePrefix string
 
-If you set `resourceGroup` to the name of a resource group that doesn't exist, the deployment fails.
+param firstStorageLocation string = resourceGroup().location
 
-To test the preceding template and see the results, use PowerShell or Azure CLI.
+param secondResourceGroup string
+param secondSubscriptionID string = ''
+param secondStorageLocation string
 
-# [PowerShell](#tab/azure-powershell)
+var firstStorageName = concat(storagePrefix, uniqueString(resourceGroup().id))
+var secondStorageName = concat(storagePrefix, uniqueString(secondSubscriptionID, secondResourceGroup))
 
-To deploy two storage accounts to two resource groups in the **same subscription**, use:
+module firstStorageAcct 'storage.bicep' = {
+  name: 'storageModule1'
+  params: {
+    storageLocation: firstStorageLocation
+    storageName: firstStorageName
+  }
+}
 
-```azurepowershell-interactive
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
-
-New-AzResourceGroup -Name $firstRG -Location southcentralus
-New-AzResourceGroup -Name $secondRG -Location eastus
-
-New-AzResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus
+module secondStorageAcct 'storage.bicep' = {
+  name: 'storageModule2'
+  scope: resourceGroup(secondSubscriptionID, secondResourceGroup)
+  params: {
+    storageLocation: secondStorageLocation
+    storageName: secondStorageName
+  }
+}
 ```
 
-To deploy two storage accounts to **two subscriptions**, use:
+Both modules use the same Bicep file.
 
-```azurepowershell-interactive
-$firstRG = "primarygroup"
-$secondRG = "secondarygroup"
+```bicep
+param storageLocation string
+param storageName string
 
-$firstSub = "<first-subscription-id>"
-$secondSub = "<second-subscription-id>"
-
-Set-AzContext -Subscription $secondSub
-New-AzResourceGroup -Name $secondRG -Location eastus
-
-Set-AzContext -Subscription $firstSub
-New-AzResourceGroup -Name $firstRG -Location southcentralus
-
-New-AzResourceGroupDeployment `
-  -ResourceGroupName $firstRG `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
-  -storagePrefix storage `
-  -secondResourceGroup $secondRG `
-  -secondStorageLocation eastus `
-  -secondSubscriptionID $secondSub
+resource StorageAcct 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageName
+  location: storageLocation
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  properties: {}
+}
 ```
-
-# [Azure CLI](#tab/azure-cli)
-
-To deploy two storage accounts to two resource groups in the **same subscription**, use:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-az group create --name $firstRG --location southcentralus
-az group create --name $secondRG --location eastus
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
-```
-
-To deploy two storage accounts to **two subscriptions**, use:
-
-```azurecli-interactive
-firstRG="primarygroup"
-secondRG="secondarygroup"
-
-firstSub="<first-subscription-id>"
-secondSub="<second-subscription-id>"
-
-az account set --subscription $secondSub
-az group create --name $secondRG --location eastus
-
-az account set --subscription $firstSub
-az group create --name $firstRG --location southcentralus
-
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group $firstRG \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json \
-  --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
-```
-
----
 
 ## Create resource group
 
 From a resource group deployment, you can switch to the level of a subscription and create a resource group. The following template deploys a storage account to the target resource group, and creates a new resource group in the specified subscription.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "storagePrefix": {
-            "type": "string",
-            "maxLength": 11
-        },
-        "newResourceGroupName": {
-            "type": "string"
-        },
-        "nestedSubscriptionID": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
-    },
-    "variables": {
-        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2019-06-01",
-            "name": "[variables('storageName')]",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "demoSubDeployment",
-            "location": "westus",
-            "subscriptionId": "[parameters('nestedSubscriptionID')]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-10-01",
-                            "name": "[parameters('newResourceGroupName')]",
-                            "location": "[parameters('location')]",
-                            "properties": {}
-                        }
-                    ],
-                    "outputs": {}
-                }
-            }
-        }
-    ]
+```bicep
+@maxLength(11)
+param storagePrefix string
+
+param firstStorageLocation string = resourceGroup().location
+
+param secondResourceGroup string
+param secondSubscriptionID string = ''
+param secondLocation string
+
+var firstStorageName = concat(storagePrefix, uniqueString(resourceGroup().id))
+
+module firstStorageAcct 'storage2.bicep' = {
+  name: 'storageModule1'
+  params: {
+    storageLocation: firstStorageLocation
+    storageName: firstStorageName
+  }
+}
+
+module newRG 'resourceGroup.bicep' = {
+  name: 'newResourceGroup'
+  scope: subscription(secondSubscriptionID)
+  params: {
+    resourceGroupName: secondResourceGroup
+    resourceGroupLocation: secondLocation
+  }
+}
+```
+
+The preceding example uses the following Bicep file for the module that creates the new resource group.
+
+```bicep
+targetScope='subscription'
+
+param resourceGroupName string
+param resourceGroupLocation string
+
+resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
+  name: resourceGroupName
+  location: resourceGroupLocation
 }
 ```
 
 ## Next steps
 
-* For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+To learn about other scopes, see:
+
+* [subscription deployments](deploy-to-subscription.md)
+* [management group deployments](deploy-to-management-group.md)
+* [tenant deployments](deploy-to-tenant.md)
