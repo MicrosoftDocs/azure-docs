@@ -1,5 +1,5 @@
 ---
-title: Set up a lab with React using Azure Lab Services
+title: Set up a lab with React on Linux using Azure Lab Services
 description: Learn how to set up labs to React development class. 
 author: emaher
 ms.topic: article
@@ -7,7 +7,7 @@ ms.date: 05/16/2021
 ms.author: enewman
 ---
 
-# Set up lab for React
+# Set up lab for React on Linux
 
 [React](https://reactjs.org/) is a popular JavaScript library for building user interfaces (UI). React is a declarative way to create reusable components for your website.  There are many other popular libraries for JavaScript-based front-end development.  We'll use a few of these libraries while creating our lab.  [Redux](https://redux.js.org/) is a library that provides predictable state container for JavaScript apps and is often used in compliment with React. [JSX](https://reactjs.org/docs/introducing-jsx.html) is a library syntax extension to JavaScript often used with React to describe what the UI should look like.  [NodeJS](https://nodejs.org/) is a convenient way to run a webserver for your React application.
 
