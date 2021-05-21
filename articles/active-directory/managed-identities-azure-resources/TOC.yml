@@ -58,6 +58,8 @@
   items:
     - name: Managed identities and Azure VMs
       href: how-managed-identities-work-vm.md
+    - text: Best practice recommendations
+      url: managed-identity-best-practice-recommendations.md      
 - name: How-to guides
   items:
   - name: Configure managed identities on VMs
