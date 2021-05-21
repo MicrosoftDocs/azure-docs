@@ -19864,6 +19864,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/event-grid/move-partner-namespaces-across-regions.md",
+      "redirect_url": "/azure/event-grid/move-system-topics-across-regions",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/event-grid/partner-topics-overview.md",
       "redirect_url": "/azure/event-grid/partner-events-overview",
       "redirect_document_id": false
