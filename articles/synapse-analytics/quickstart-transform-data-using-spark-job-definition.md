@@ -13,23 +13,14 @@ ms.date: 13/05/2021
 
 # Quickstart: Transform data using Apache Spark job definition.
 
-In this quickstart, you'll use Azure Synapse Analytics to create a pipeline that transforms data from an Azure Data Lake Storage Gen2 (ADLS Gen2) source to an ADLS Gen2 sink using Apache Spark job definition. The configuration pattern in this quickstart can be expanded upon when transforming data using Apache Spark job definition.
-
-In this quickstart, you do the following steps:
-
-> [!div class="checklist"]
-> * Create a pipeline with an Apache Spark job definition in Azure Synapse Analytics.
-> * Test run the pipeline.
-> * Monitor an Apache Spark job definition activity.
+In this quickstart, you'll use Azure Synapse Analytics to create a pipeline using Apache Spark job definition.
 
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * **Azure Synapse workspace**: Create a Synapse workspace using the Azure portal following the instructions in [Quickstart: Create a Synapse workspace](quickstart-create-workspace.md).
-* **Apache Spark job definition**: Create a Apache Spark job definition in the Synapse workspace following the instructions in [Tutorial: Create Apache Spark job definition in Synapse Studio](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-job-definitions).
-* **Azure storage account**: You use ADLS storage as *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
+* **Apache Spark job definition**: Create an Apache Spark job definition in the Synapse workspace following the instructions in [Tutorial: Create Apache Spark job definition in Synapse Studio](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-job-definitions).
 
-    The file that we are transforming in this tutorial is MoviesDB.csv, which can be found [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md). The examples will be referencing a container named 'sample-data'.
 
 ### Navigate to the Synapse Studio
 
@@ -85,12 +76,21 @@ Once you create your Apache Spark job definition, you'll be automatically sent t
 
 On this panel, you can reference to the Spark job definition to run.
 
-* Expand the Saprk job definition list, you can choose an existing Apache Spark job definition.
+* Expand the Saprk job definition list, you can choose an existing Apache Spark job definition. You can also create a new Apache Spark job definition by clicking the new button to reference the spark job definition to be run.
 
-* You can also create a new Apache Spark job definition by clicking the new button to reference the spark job definition to be run.
+* You can add command line arguments by clicking the **New** button. It should be noted that this will override the command line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
 
-* Command line arguments: Optional arguments to the job. This will override the command line arguments defined by the Apache Spark job definition. For more setup information see [Tutorial: Create Apache Spark job definition in Synapse Studio](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-job-definitions)
+     ![spark job definition pipline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 
+* You can add dynamic content by clicking the **Add Dynamic Content** button or by pressing the shortcut key <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. In the **Add Dynamic Content** page, you can use any combination of expressions, functions and system variables to add to dynamic content.
+
+     ![add dynamic content](media/quickstart-transform-data-using-spark-job-definition/add-dynamic-content.png)
+
+### User properties tab
+
+You can add properties for Apache Spark job definition activity in this panel.
+
+![user properties](media/quickstart-transform-data-using-spark-job-definition/user-properties.png)
 
 ## Next steps
 
@@ -100,3 +100,4 @@ Advance to the following articles to learn about Azure Synapse Analytics support
 > [Pipeline and activities](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
 > [Mapping data flow overview](../data-factory/concepts-data-flow-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
 > [Data flow expression language](../data-factory/data-flow-expression-functions.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Create Apache Spark job definition in Synapse Studio](../synapse-analytics/spark/apache-spark-job-definition.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
