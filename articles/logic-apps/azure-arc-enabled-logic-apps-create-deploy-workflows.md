@@ -448,7 +448,7 @@ The following example describes a sample Azure Arc enabled Logic Apps resource d
                "value": "node"
             },
             {
-              "name": "AzureWebJobsStorage",
+               "name": "AzureWebJobsStorage",
                "value": "<storage-connection-string>"
             },
             {
