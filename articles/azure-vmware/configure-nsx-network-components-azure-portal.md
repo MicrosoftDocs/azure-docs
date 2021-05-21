@@ -56,7 +56,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 
 ## Create a DHCP server or DHCP relay in the Azure portal
 
-You can create a DHCP server or relay directly from the Azure VMware Solution console in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP.  After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
+You can create a DHCP server or relay directly from Azure VMware Solution in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP. After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP** > **Add**.
 
