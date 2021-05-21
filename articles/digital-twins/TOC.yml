@@ -155,6 +155,10 @@
         href: troubleshoot-error-404.md
       - name: Azure Digital Twins Explorer authentication
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
+  - name: Other
+    items:
+    - name: OPC UA data to Azure Digital Twins
+      href: how-to-opcua-to-azure-digital-twins.md
 - name: Reference
   items:
   - name: REST API reference
