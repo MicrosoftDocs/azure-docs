@@ -37,7 +37,7 @@ If you're using a public endpoint to the Azure Files share, it's important to re
 If you're using a private endpoint to the Azure Files share, it's important to remember the following:
 
 - Access is restricted to traffic originating from the private network, and can’t be accessed through the public internet. Only VMs in the private virtual network, VMs in a network peered to the private virtual network, or machines connected to a VPN for the private network, can access the file share.  
-- Linux students can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by sudo. Because students are given sudo access by default in Azure Lab Service VMs, they can read the storage account key. Consider rotating the storage account key after class has ended.
+- Linux students can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by sudo. Because students are given sudo access by default in Azure Lab Services VMs, they can read the storage account key. Consider rotating the storage account key after class has ended.
 - This approach requires the file share virtual network to be peered to the lab account. The virtual network for the Azure Storage account must be peered to the virtual network for the lab account before the lab is created.
 
 > [!NOTE]
@@ -186,7 +186,7 @@ To use an Azure NetApp Files share in Azure Lab Services:
     capacity_pool_ipaddress=0.0.0.0 # IP address of capacity pool
     
     # Do not use 'mnt' for mount directory.
-    # Using ‘mnt’ may cause issues on student VMs.
+    # Using ‘mnt’ might cause issues on student VMs.
     mount_directory="prm-mnt" 
     
     sudo mkdir -p /$mount_directory
