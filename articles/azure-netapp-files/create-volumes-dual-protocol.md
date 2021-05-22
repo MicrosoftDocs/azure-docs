@@ -48,7 +48,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     |-|-|-|-|
     |     SMB          |     `Unix`          |     Windows to UNIX          |     UNIX (mode-bits or NFSv4.x ACLs)          |
     |     SMB          |     `Ntfs`          |     Windows to UNIX          |     NTFS ACLs (based on Windows SID accessing share)          |
-    |     NFSv3          |      `Unix`    |     None          |     UNIX (mode bits or NFSv4.x ACLs) <br>  >[!NOTE]  NFSv4.x ACLs can be applied using an NFSv4.x administrative client and   honored by NFSv3 clients.          |
+    |     NFSv3          |      `Unix`    |     None          |     UNIX (mode bits or NFSv4.x ACLs) <br><br>    Note that NFSv4.x ACLs can be applied using an NFSv4.x administrative client and honored by NFSv3 clients.          |
     |     NFS          |      `Ntfs`          |     UNIX to Windows          |     NTFS ACLs (based on mapped Windows user SID)          |
 
 * If you have large topologies, and you use the `Unix` security style with a dual-protocol volume or LDAP with extended groups, Azure NetApp Files might not be able to access all servers in your topologies.  If this situation occurs, contact your account team for assistance.  <!-- NFSAAS-15123 --> 
@@ -146,7 +146,8 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
 The **Allow local NFS users with LDAP** option in Active Directory connections enables local NFS client users not present on the Windows LDAP server to access a dual-protocol volume that has LDAP with extended groups enabled. 
 
-> [!NOTE] Before enabling this option, you should understand the [considerations](#considerations). 
+> [!NOTE] 
+> Before enabling this option, you should understand the [considerations](#considerations). 
 
 1. Click **Active Directory connections**.  On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
 
