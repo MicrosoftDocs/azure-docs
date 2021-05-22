@@ -168,22 +168,22 @@ Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of
 
 The name of `App Instance` from Azure Spring Cloud will be changed/generated in follow scenarios.
 
-* Create one new application.
-* Deploy one jar file or source code to one existed application.
+* Create a new application.
+* Deploy a jar file or source code to a existing application.
 * Blue/green deployment.
 * Restart the application.
-* Stop the deployment of application and then start it. 
+* Stop the deployment of an application and then start it. 
 
-Thus, when the data stored in Application Insights, it contains all history of Azure Spring Cloud app instances created/deployed since the Java agent enabled. Which means you can see the application data created yesterday but deleted just now with specific the time range like `last 24 hours` from the portal of Application Insights. Take below scenarios as example.
+When the data is stored in Application Insights, it contains the history of Azure Spring Cloud app instances created/deployed since the Java agent was enabled. This means you can see, from the Application Insights portal,  application data created yesterday but deleted within a specific the time range like `last 24 hours` . The following scenarios show how this works.
 
-* You created one application around 8:00 AM today from Azure Spring Cloud with Java agent enabled, and then you deployed one jar file to this application around 8:10 AM today. After some testing, you may change the code and deploy one new jar file to this application around 8:30 AM today. Then you take a break and would like to check some data from Application Insights around 11:00 AM today.
-  * You will see 3 instances with time range in last 24 hours from Application Map, Failures, Performance and Metrics.
-  * You will see 1 instance with time range in last hour from Application Map, Failures, Performance and Metrics.
-  * You will see 1 instance from Live Metrics.
-* You created one application around 8:00 AM today from Azure Spring Cloud with Java agent enabled, and then you deployed one jar file to this application around 8:10 AM today. After a while, you may have a try for blue/green deployment with another jar file around 8:30 AM today. Currently you have 2 deployments for this application. Then you take a break and would like to check some data from Application Insights around 11:00 AM today.
-  * You will see 3 instances with time range in last 24 hours from Application Map, Failures, Performance and Metrics.
-  * You will see 2 instances with time range in last hour from Application Map, Failures, Performance and Metrics.
-  * You will see 2 instances from Live Metrics.
+* You created a application around 8:00 AM today from Azure Spring Cloud with Java agent enabled, and then you deployed a jar file to this application around 8:10 AM today. After some testing, you change the code and deploy a new jar file to this application at 8:30 AM today. Then you take a break, and when you come back around 11:00 AM, you check some data from Application Insights.
+  * You will see 3 instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance, and Metrics.
+  * You will see 1 instance in Application Map with time range in last hour, as well as Failures, Performance, and Metrics.
+  * You will see 1 instance in Live Metrics.
+* You created a application around 8:00 AM today from Azure Spring Cloud with Java agent enabled, and then you deployed a jar file to this application around 8:10 AM today. Around 8:30 AM today, you try a blue/green deployment with another jar file. Currently you have 2 deployments for this application. After a break around 11:00 AM today, you want to check some data from Application Insights.
+  * You will see 3 instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance and Metrics.
+  * You will see 2 instances in Application Map with time range in last hour, as well as Failures, Performance and Metrics.
+  * You will see 2 instances in Live Metrics.
 
 ## See also
 
