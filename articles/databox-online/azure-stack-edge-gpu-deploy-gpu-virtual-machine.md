@@ -106,7 +106,7 @@ Follow these steps when deploying GPU VMs on your device:
 
     ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-gpu-virtual-machine-1.png)
 
-1. After the VM is created, deploy GPU extension using the extension template. For linux VMs, see [Install GPU extension for Linux](#gpu-extension-for-linux) and for Windows VMs, see [Install GPU extension for Windows](#install-gpu-extension).
+1. After the VM is created, deploy GPU extension using the extension template. For more information, see [Install GPU extension](#install-gpu-extension).
 
 1. To verify GPU extension install, connect to the GPU VM:
     1. If using a Windows VM, follow the steps in [Connect to a Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Verify the installation](#verify-driver-installation).
