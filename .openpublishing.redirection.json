@@ -10534,7 +10534,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-resource-manager/templates/add-resource-extensions.md",
+      "source_path_from_root": "/articles/azure-resource-manager/templates/add-resource-extensions.md",
       "redirect_url": "/azure/azure-resource-manager/templates/resource-extensions",
       "redirect_document_id": false
     },    
@@ -10579,12 +10579,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-resource-manager/templates/complete-mode-deletion.md",
+      "source_path_from_root": "/articles/azure-resource-manager/templates/complete-mode-deletion.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deployment-complete-mode-deletion",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-resource-manager/templates/convert-to-template-spec.md",
+      "source_path_from_root": "/articles/azure-resource-manager/templates/convert-to-template-spec.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-spec-convert",
       "redirect_document_id": false
     },          
@@ -10649,7 +10649,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-resource-manager/templates/define-resource-dependency.md",
+      "source_path_from_root": "/articles/azure-resource-manager/templates/define-resource-dependency.md",
       "redirect_url": "/azure/azure-resource-manager/templates/resource-dependency",
       "redirect_document_id": false
     },    
@@ -11034,7 +11034,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-resource-manager/templates/template-best-practices.md",
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-best-practices.md",
       "redirect_url": "/azure/azure-resource-manager/templates/best-practices",
       "redirect_document_id": false
     },    
@@ -11044,7 +11044,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-resource-manager/templates/template-deploy-what-if.md",
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-deploy-what-if.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deploy-what-if",
       "redirect_document_id": false
     },    
