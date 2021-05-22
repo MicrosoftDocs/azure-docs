@@ -123,7 +123,7 @@ The last step is to validate your code and run it. If you'd like to compare your
 ```php
 <?php
 $accessKey = 'enter key here';
-$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+$endpoint = 'https://api.bing.microsoft.com/v7.0/search';
 $term = 'Microsoft Cognitive Services';
 
 function BingWebSearch ($url, $key, $query) {
