@@ -28,7 +28,7 @@ Create an ACI context by running `docker context create aci`. This context assoc
 docker context create aci myacicontext
 ```
 
-When prompted, select your Azure subscription ID, then select an existing resource group or **create a new resource group**. If you choose a new resource group, it's created with a system-generated name. Azure container instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
+When prompted, select your Azure subscription ID, then select an existing resource group or **create a new resource group**. If you choose a new resource group, it's created with a system-generated name. Azure Container Instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
 
 Run `docker context ls` to confirm that you added the ACI context to your Docker contexts:
