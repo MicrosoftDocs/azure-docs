@@ -116,7 +116,7 @@ The following features are not currently supported. You can optionally remove th
 | --- | --- | --- |
 | Compute | Unassociated virtual machine disks. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
 | Compute | Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
-| Network | Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
+| Network | Endpoint ACLs. | Remove Endpoint Access Control Lists and retry migration or Convert ACLs to Network security groups before migration. [Refer script to convert ACLs to NSGs](https://github.com/tomvachon/azure-classic-migration-scripts/blob/master/Migrate-AzureClassic-EndpointACL-to-NSG.ps1) |
 | Network | Application Gateway | Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is complete. |
 | Network | Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../virtual-network/virtual-network-peering-overview.md). |
 
