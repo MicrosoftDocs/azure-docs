@@ -15,9 +15,12 @@ ms.custom: "devx-track-js, devx-track-csharp"
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!IMPORTANT]
 >
-> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below.
+> * This quickstart uses SDK version **3.1.0** and targets API version **2.1**.
+>
+>* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below.
 
 [Reference documentation](../../index.yml) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -59,9 +62,6 @@ Your app's `package.json` file will be updated with the dependencies.
 Create a file named `index.js`, open it, and import the following libraries:
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_imports)]
-
-> [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js), which contains the code examples in this quickstart.
 
 Create variables for your resource's Azure endpoint and key.
 
@@ -120,9 +120,10 @@ Authenticate a client object using the subscription variables you defined. You'l
 
 You'll also need to add references to the URLs for your training and testing data.
 
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+[!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+
 * Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)) or you can use the above steps to get the SAS URL of an individual document in blob storage.
 
 ## Analyze layout
@@ -132,7 +133,7 @@ You can use Form Recognizer to analyze tables, lines, and words in documents, wi
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
 > [!TIP]
-> You can also get content from a local file. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeContent**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also get content from a local file with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeContent**. 
 
 ### Output
 
@@ -159,7 +160,7 @@ To analyze receipts from a URI, use the `beginRecognizeReceiptsFromUrl` method. 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> You can also analyze local receipt images. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeReceipts**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeReceipts**. 
 
 ### Output
 
@@ -182,10 +183,10 @@ This section demonstrates how to analyze and extract common fields from English-
 
 To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromURL` method.
 
-
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_bc)]
+
 > [!TIP]
-> You can also analyze local business card images. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeBusinessCards**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+ > You can also analyze local business card images with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeBusinessCards**. 
 
 ## Analyze invoices
 
@@ -196,7 +197,7 @@ To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_invoice)]
 
 > [!TIP]
-> You can also analyze local business card images. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeInvoices**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeInvoices**. 
 
 ## Analyze identity documents
 
@@ -211,7 +212,7 @@ To analyze identity documents from a URL use the `beginRecognizeIdDocumentsFromU
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
+> You can also train models with a graphical user interface (GUI) such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
 
 ### Train a model without labels
 
@@ -307,7 +308,7 @@ You'll use the `beginRecognizeCustomFormsFromUrl` method. The returned value is 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
 > [!TIP]
-> You can also analyze local files. See the [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also analyze local files with [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) methods, such as **beginRecognizeCustomForms**. 
 
 ### Output
 
