@@ -18,7 +18,7 @@ ms.date: 05/25/2021
 >
 > Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) and Azure portal provide this feature. There is currently SDK support.
+> The [REST API version 2020-06-30-Preview](search-api-preview.md) and Azure portal provide this feature. There is currently no SDK support.
 
 ## Overview
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index. Indexers provide a convenient way for users to index content from their data source without having to write their own crawler or push model. Indexers also allow you to add a skillset to their pipeline so that they can further enrich their data.
