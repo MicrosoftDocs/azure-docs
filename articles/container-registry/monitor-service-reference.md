@@ -72,7 +72,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. | 
 | [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | Metric data emitted by Azure services that measure their health and performance.    |  
 |  [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Login Auditing Logs                             |                                                     
-|  [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Repository Auditing Logs                         |                                                    
+|  [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/containerregistryrepositoryevents)               | Azure Container Registry Repository Auditing Logs                         |                                                    
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
