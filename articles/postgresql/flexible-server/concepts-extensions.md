@@ -206,9 +206,10 @@ SELECT cron.schedule('0 10 * * *', 'VACUUM');
 To unschedule all tasks from pg_cron
 ```
 SELECT cron.unschedule(jobid) FROM cron.job;
-``
+```
 
 ## pg_stat_statements
+
 The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL flexible server to provide you a means of tracking execution statistics of SQL statements.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter.
 
