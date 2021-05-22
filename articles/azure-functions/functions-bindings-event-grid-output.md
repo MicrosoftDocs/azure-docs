@@ -98,7 +98,100 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # [Java](#tab/java)
 
-The Event Grid output binding is not available for Java.
+The following example shows a Java function that writes a message to an Event Grid custom topic, using the OutputBinding's `setValue` as the output using the `String` type.:
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<String> outputEvent,
+            final ExecutionContext context) {
+        context.getLogger().info("Java EventGrid trigger processed a request." + content);
+        final String eventGridOutputDocument = "{\"id\": \"1807\", \"eventType\": \"recordInserted\", \"subject\": \"myapp/cars/java\", \"eventTime\":\"2017-08-10T21:03:07+00:00\", \"data\": {\"make\": \"Ducati\",\"model\": \"Monster\"}, \"dataVersion\": \"1.0\"}";
+        outputEvent.setValue(eventGridOutputDocument);
+    }
+}
+```
+
+You can utilize a POJO class to send EventGrid messages as well.
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<EventGridEvent> outputEvent,
+            final ExecutionContext context) {
+        context.getLogger().info("Java EventGrid trigger processed a request." + content);
+
+        final EventGridEvent eventGridOutputDocument = new EventGridEvent();
+        eventGridOutputDocument.setId("1807");
+        eventGridOutputDocument.setEventType("recordInserted");
+        eventGridOutputDocument.setEventTime("2017-08-10T21:03:07+00:00");
+        eventGridOutputDocument.setDataVersion("1.0");
+        eventGridOutputDocument.setSubject("myapp/cars/java");
+        eventGridOutputDocument.setData("{\"make\": \"Ducati\",\"model\":\"monster\"");
+
+        outputEvent.setValue(eventGridOutputDocument);
+    }
+}
+
+class EventGridEvent {
+    private String id;
+    private String eventType;
+    private String subject;
+    private String eventTime;
+    private String dataVersion;
+    private String data;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getDataVersion() {
+        return dataVersion;
+    }
+
+    public void setDataVersion(String dataVersion) {
+        this.dataVersion = dataVersion;
+    }
+
+    public String getEventTime() {
+        return eventTime;
+    }
+
+    public void setEventTime(String eventTime) {
+        this.eventTime = eventTime;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }  
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -300,7 +393,19 @@ Attributes are not supported by C# Script.
 
 # [Java](#tab/java)
 
-The Event Grid output binding is not available for Java.
+For Java classes, use the [EventGridAttribute](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/EventGridOutput.java) attribute.
+
+The attribute's constructor takes the name of an app setting that contains the name of the custom topic, and the name of an app setting that contains the topic key. For more information about these settings, see [Output - configuration](#configuration). Here's an `EventGridOutput` attribute example:
+
+```java
+public class Function {
+    @FunctionName("EventGridTriggerTest")
+    public void run(@EventGridTrigger(name = "event") String content,
+            @EventGridOutput(name = "outputEvent", topicEndpointUri = "MyEventGridTopicUriSetting", topicKeySetting = "MyEventGridTopicKeySetting") OutputBinding<String> outputEvent, final ExecutionContext context) {
+            ...
+    }
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -312,7 +417,7 @@ Attributes are not supported by PowerShell.
 
 # [Python](#tab/python)
 
-The Event Grid output binding is not available for Python.
+Attributes are not supported by Python.
 
 ---
 
@@ -347,7 +452,7 @@ Send messages by using a method parameter such as `out EventGridEvent paramName`
 
 # [Java](#tab/java)
 
-The Event Grid output binding is not available for Java.
+Send messages by using a method parameter such as `out EventGridOutput paramName`. To write multiple messages, you can use `ICollector<EventGridOutput>`.
 
 # [JavaScript](#tab/javascript)
 
@@ -359,7 +464,9 @@ Access the output event by using the `Push-OutputBinding` commandlet to send an 
 
 # [Python](#tab/python)
 
-The Event Grid output binding is not available for Python.
+There are two options for outputting an Event Grid message from a function:
+- **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an EventGrid message.
+- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an Out type. [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an EventGrid message.
 
 ---
 
