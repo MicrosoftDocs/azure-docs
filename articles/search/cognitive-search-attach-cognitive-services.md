@@ -139,7 +139,7 @@ Content-Type: application/json
 
 ## Example: Estimate costs
 
-To estimate the costs associated with cognitive search indexing, start with an idea of what an average document looks like so you can run some numbers. For example, you might approximate:
+To estimate the costs associated with Cognitive Search indexing, start with an idea of what an average document looks like so you can run some numbers. For example, you might approximate:
 
 + 1,000 PDFs.
 + Six pages each.
