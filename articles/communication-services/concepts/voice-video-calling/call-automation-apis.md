@@ -339,7 +339,7 @@ Content-Type: application/json
   "name": "invite-participant "
 }-->
 ```
-POST /calls/{callId}/participants?api-version={api-version}
+POST /calling/calls/{callId}/participants?api-version={api-version}
 Content-Type: application/json
 
 {
@@ -682,6 +682,9 @@ Event notifications are sent as JSON payloads to the calling application via the
 ```
 ## Out-of-Call APIs
 
+> [!NOTE] 
+> The conversationID in all Out-of-Call APIs can be either conversationID gotten from client, or the groupID of a group call.
+
 ### Join call
 #### Request
 **HTTP**
@@ -723,7 +726,7 @@ var createCallOptions = new CreateCallOptions(
     new List<CallModality> { CallModality.Audio }, 
     new List<EventSubscritionType> { EventSubscritionType.ParticipantsUpdated, EventSubscritionType.DtmfReceived });
 
-//Conversation id for the call. Can be a group id or encoded conversation url
+//Conversation id for the call. Can be a conversation id or a group id.
 var conversationId = "<group-id or base64-encoded-conversation-url>";
 
 //Starting the call
