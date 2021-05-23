@@ -15,6 +15,8 @@ ms.custom:
 
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using Azure PowerShell.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account

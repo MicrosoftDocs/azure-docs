@@ -41,7 +41,7 @@ Edv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 | Standard_E64d_v4 | 64 | 504 | 2400 | 32 | 615000/3872 | 8|30000 |
 
 
-<sup>**</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
+<sup>**</sup> These IOPs values can be achieved by using [Gen2 VMs](generation-2.md)
 
 ## Edsv4-series
 
@@ -72,6 +72,8 @@ Edsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake
 <sup>1</sup> [Constrained core sizes available](./constrained-vcpu.md).
 
 <sup>2</sup> Instance is isolated to hardware dedicated to a single customer.
+
+<sup>**</sup> These IOPs values can be achieved by using [Gen2 VMs](generation-2.md)
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

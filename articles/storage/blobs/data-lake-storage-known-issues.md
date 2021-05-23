@@ -79,7 +79,7 @@ ACLs are not yet supported.
 
 ## Third party applications
 
-Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
+Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2.
 Applications that call Blob APIs will likely work.
 
 ## Access control lists (ACL) and anonymous read access

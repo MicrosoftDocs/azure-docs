@@ -50,7 +50,7 @@ To create a thermostat-type twin, you'll first need to upload the thermostat [mo
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-You'll then need to **create one twin using this model**. Use the following command to create a thermostat twin named **thermostat67**, and set 0.0 as an initial temperature value.
+You'll then need to **create one twin using this model**. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value.
 
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
@@ -147,7 +147,7 @@ Select the _Create_ button to create the event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by [this Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
 1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -158,7 +158,7 @@ In the end-to-end tutorial, complete the following steps:
 While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value.
 
 ```azurecli-interactive
-az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
+az dt twin query --query-command "select * from digitaltwins" --dt-name {digital_twins_instance_name}
 ```
 
 Your output should contain a temperature value like this:

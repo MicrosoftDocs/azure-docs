@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 05/10/2021
 ms.author: cherylmc
 
 ---
@@ -93,7 +93,13 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 
    * **Tenant:** TenantID for the Azure AD tenant ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
-   * **Audience:** ApplicationID of the "Azure VPN" Azure AD Enterprise App ```{AppID of the "Azure VPN" AD Enterprise app}```
+   * **Audience:** Application ID of the "Azure VPN" Azure AD Enterprise App
+
+	   * Enter 41b23e61-6c1e-4545-b367-cd054e0ed4b4 for Azure Public
+	   * Enter 51bb15d4-3a4f-4ebf-9dca-40096fe32426 for Azure Government
+	   * Enter 538ee9e6-310a-468d-afef-ea97365856a9 for Azure Germany
+	   * Enter 49f817b6-84ae-4cc0-928c-73f27289b3aa for Azure China 21Vianet
+
 
    * **Issuer**: URL of the Secure Token Service ```https://sts.windows.net/{AzureAD TenantID}/```
 

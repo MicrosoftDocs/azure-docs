@@ -31,7 +31,7 @@ You can improve recall by spell-correcting individual search query terms before 
   The queryLanguage is required for speller, and currently "en-us" is the only valid value.
 
 > [!Note]
-> The speller parameter is available on all tiers, in the same regions that provide semantic search. You do not need to sign up for access to this preview feature. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> The speller parameter is available on all tiers, in the same regions that provide semantic search. ign up is required but there is no charge and no tier restrictions. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Spell correction with simple search
 
