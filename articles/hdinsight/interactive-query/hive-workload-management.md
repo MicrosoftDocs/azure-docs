@@ -1,6 +1,6 @@
 ---
-title: Hive LLAP Workload Management Feature
-description: Hive LLAP Workload Management Feature
+title: Hive LLAP Workload Management feature
+description: Hive LLAP Workload Management feature
 ms.service: hdinsight
 ms.topic: how-to
 author: guptanikhil007
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.date: 04/07/2021
 ---
 
-# Hive LLAP Workload Management (WLM) Feature
+# Hive LLAP Workload Management (WLM) feature
 In an Interactive Query Cluster, resource management is imperative, especially in a multi-tenant environment. Hive LLAP (low-latency analytical processing) uses workload management to enable users to match specific workload needs and prevent contention for those resources. <br> 
 Workload Management implements resource pools (also known as query pools) which lets you divide resources available for Hive/LLAP into pools to be used for specific workloads.
 It also allows you to configure percentage of resources and query parallelism for each individual resource pool.
 
-![`LLAP Architecture/Components`](./media/hive-workload-management/llap-architecture.png "LLAP Architecture/Components")
+:::image type="content" source="./media/hive-workload-management/llap-architecture.png" alt-text="LLAP Architecture":::
 
 ## Enable Hive LLAP Workload Management feature for HDInsight clusters
 
@@ -23,33 +23,33 @@ Enable workload management feature in HDInsight Interactive Query clusters by fo
 2. Change cluster configs via Ambari to enable the feature in Hive.
 3. Create and Activate a resource plan.
 
-### Create a new yarn queue suitable for Workload Management feature.
+### Create a new yarn queue suitable for Workload Management feature
 Create a new yarn queue called `wm` with the help of following [guide](../hdinsight-troubleshoot-yarn.md).
 Configure the `wm` queue on cluster based on following configurations:
 
 | QueueName   | Capacity | Max Capacity | Priority | Maximum AM Resource |
-|-------------|----------|--------------|----------|---------------------|
-| `default` | 5%       | 5%           | 0        | 33%                 |
-| `llap`   | 85%      | 100%         | 10       | 33%                 |
-| `wm`      | 10%      | 15%          | 9        | 100%                |
+|------------|---------|--------------|----------|---------------------|
+| `default`   | 5%       | 5%           | 0        | 33%                 |
+| `llap`      | 85%      | 100%         | 10       | 33%                 |
+| `wm`        | 10%      | 15%          | 9        | 100%                |
 
 Confirm if the `wm` queue configuration looks as shown below.
-![`wm-queue`](./media/hive-workload-management/wm-yarn-queue.png)
+:::image type="content" source="./media/hive-workload-management/wm-yarn-queue.png" alt-text="wm queue configuration":::
 
-### Enable Workload Management feature in Hive Configs
+### Enable Workload Management feature in Hive configs
 Add the following property to Custom hiveserver2-interactive-site and set its value to the name of newly create yarn queue that is, `wm`. Restart Interactive HiveServer for configuration changes to take place.
 ```
 hive.server2.tez.interactive.queue=wm
 ```
 
-### Create Resource Plan
+### Create resource plan
 Following is an example on how to create a basic resource plan.
-![Resource Plan](./media/hive-workload-management/WLM-ResourcePlan.jpg "Basic Resource Plan")
+:::image type="content" source="./media/hive-workload-management/wlm-resourceplan.jpg" alt-text="basic resource plan":::
 
 Execute following commands via beeline to create the above resource plan.
 
 #### Commands to create, view, and drop the resource plan
-```
+```hql
 # CREATE RESOURCE PLAN
 CREATE RESOURCE PLAN demo_plan;
 
@@ -79,12 +79,33 @@ ALTER RESOURCE PLAN demo_plan ACTIVATE;
 # SHOW RESOURCE PLAN
 SHOW RESOURCE PLANS;
 SHOW RESOURCE PLAN demo_plan;
+
+# VALIDATE PLAN
+ALTER RESOURCE PLAN demo_plan VALIDATE;
+
+# ENABLE PLAN
+ALTER RESOURCE PLAN demo_plan ENABLE;
+
+#  ACTIVATE PLAN
+ALTER RESOURCE PLAN demo_plan ACTIVATE;
+
+#SHOW RESOURCE PLAN
+SHOW RESOURCE PLANS;
+SHOW RESOURCE PLAN demo_plan;
+
+# DISABLE PLAN
+-- In case plan is in active state first run:
+-- DISABLE WORKLOAD MANAGEMENT;
+ALTER RESOURCE PLAN demo_plan DISABLE;
+
+# DROP RESOURCE PLAN
+DROP RESOURCE PLAN demo_plan;
 ```
 
-## Understanding Resource Plan
+## Understanding resource plan
 To have an optimal resource plan, one needs to have a thorough understanding of the workload requirements.
 
-### Number of Pools
+### Number of pools
 The number of pools is limited by total query parallelism (Minimum one query per pool).
 Most of the workloads rarely require more than three pools. 
 - default, for interactive queries 
@@ -111,14 +132,14 @@ If ordering is specified with the optional `WITH ORDER` clause, lower-order rule
 The order of group rules with the same priority is undefined.
 
 
-## Important Notes
+## Important notes
 1. Tez AMs in `llap` queue will remain unused when WLM plan is active. These Tez AMs in `llap` queue will be readily available in case the WLM resource plan is disabled.
 2. Enabling WLM resource plan launches number of Tez AMs equal to total `QUERY_PARALLELISM` configured for the given resource plan. `wm` queue size should be tuned to avoid these Tez AM getting stuck in ACCEPTED state.
 3. We only support the use of following two counters for use in resource plans:
     1. EXECUTION_TIME
     2. ELAPSED_TIME
 
-## Related Articles
+## Related articles
 * [Hive LLAP Workload Management Commands Summary](workload-management-commands.md)
 * [Troubleshoot Hive LLAP Workload Management Issues](troubleshoot-workload-management-issues.md)
 

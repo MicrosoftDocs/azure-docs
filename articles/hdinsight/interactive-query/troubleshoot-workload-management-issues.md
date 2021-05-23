@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Hive LLAP Workload Management Issues
-description: Troubleshoot Hive LLAP Workload Management Issues
+title: Troubleshoot Hive LLAP Workload Management issues
+description: Troubleshoot Hive LLAP Workload Management issues
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: guptanikhil007
@@ -9,15 +9,37 @@ ms.reviewer: jasonh
 ms.date: 04/07/2021
 ---
 
-# Troubleshoot Hive LLAP Workload Management Issues
+# Troubleshoot Hive LLAP Workload Management issues
 
 Workload Management (WLM) is available to the customers starting HDInsight 4.0 clusters. 
 Use the resources below to help debug issues related to WLM feature.
 
-## WLM Metrics
+## Get WLM resource plan and plan entities
+#### To get all resource plans on the cluster:
+```hql
+SHOW RESOURCE PLANS;
+```
+
+#### To get definition of a given resource plan
+```hql
+SHOW RESOURCE PLAN <plan_name>;
+```
+
+## Get WLM entities information from metastore database
+> Note: Only applicable for custom hive metastore database
+
+WLM entities information can also be viewed from following tables in Hive Metastore database 
+
+* **WM_RESOURCEPLANS** (NAME string, STATUS string, QUERY_PARALLELISM int, DEFAULT_POOL_PATH string)
+* **WM_POOLS** (RP_NAME string, PATH string, ALLOC_FRACTION double, QUERY_PARALLELISM int, SCHEDULING_POLICY string)
+* **WM_MAPPINGS** (RP_NAME string, ENTITY_TYPE string, ENTITY_NAME string, POOL_PATH string, ORDERING int)
+* **WM_TRIGGERS** (RP_NAME string, NAME string, TRIGGER_EXPRESSION string, ACTION_EXPRESSION string)
+* **WM_POOLS_TO_TRIGGERS** (RP_NAME string, POOL_PATH string, TRIGGER_NAME string)
+
+## WLM metrics
 
 WLM Metrics can be accessed directly via HS2Interactive UI under the Metrics Dump Tab. <br>
-![HS22Interactive UI](./media/hive-workload-management/hs2interactive-wlm.jpg)
+:::image type="content" source="./media/hive-workload-management/hs2interactive-wlm.jpg" alt-text="HS22Interactive UI":::
 
 Example metrics published by WLM for a given pool in a resource plan.
 ```
@@ -42,39 +64,15 @@ default.General.WM_<pool>_numRunningQueries
 default.General.WM_<pool>_numParallelQueries
 default.General.WM_<pool>_numQueuedQueries
 ```
-Replace `<pool>` with respective pool name to get the metrics in grafana. 
-![Grafana](./media/hive-workload-management/grafana-wlm.jpg)
+Replace `<pool>` with respective pool name to get the metrics in grafana.
+:::image type="content" source="./media/hive-workload-management/grafana-wlm.jpg" alt-text="Grafana WLM":::
 
 Note: Make sure hiveserver2 component is selected in the above filters and component name.
 
 <br>
 
-## Get WLM Resource Plan and Plan entities
-#### To get all resource plans on the cluster:
-```
-SHOW RESOURCE PLANS;
-```
-
-#### To get definition of a given resource plan
-```
-SHOW RESOURCE PLAN <plan_name>;
-```
-
-## Get WLM entities information from metastore database
-> Note: Only applicable for custom hive metastore database
-
-WLM entities information can also be viewed from following tables in Hive Metastore database 
-
-* **WM_RESOURCEPLANS** (NAME string, STATUS string, QUERY_PARALLELISM int, DEFAULT_POOL_PATH string)
-* **WM_POOLS** (RP_NAME string, PATH string, ALLOC_FRACTION double, QUERY_PARALLELISM int, SCHEDULING_POLICY string)
-* **WM_MAPPINGS** (RP_NAME string, ENTITY_TYPE string, ENTITY_NAME string, POOL_PATH string, ORDERING int)
-* **WM_TRIGGERS** (RP_NAME string, NAME string, TRIGGER_EXPRESSION string, ACTION_EXPRESSION string)
-* **WM_POOLS_TO_TRIGGERS** (RP_NAME string, POOL_PATH string, TRIGGER_NAME string)
-
-<br>
-
-## WLM Feature Characteristics
-### **Lifecycle of Tez AMs in WLM Enabled Clusters**
+## WLM feature characteristics
+### **Lifecycle of Tez AMs in WLM enabled clusters**
 In contrast to default LLAP clusters, WLM enabled clusters have another set of Tez AMs. These Tez AMs are scheduled to run in `wm` queue if *hive.server2.tez.interactive.queue=wm* is set in hive configs. <br>
 These Tez AMs spawn up when WLM is activated based on the sum of QUERY_PARALLELISM of all the pools defined in the resource plan. <br>
 When we disable the Workload Management in the cluster, these Tez AMs are automatically KILLED.
@@ -84,15 +82,15 @@ When we disable the Workload Management in the cluster, these Tez AMs are automa
 In WLM enabled LLAP cluster, resources are shared among queries based on resource plan configuration. The resource sharing sometimes leads to query slowness.
 Some tunings can be done to resource plan to reduce the resource contention that happens within a pool. For example `scheduling_policy` can be defined as either `fair`, which guarantees an equal share of resources on the cluster to each query that is assigned to the pool; or `fifo`, which guarantees all resources to the first query that comes to the pool.<br>
 Following example shows how to set scheduling policy for a pool named `etl` in the resource plan `wlm_basic`:
-```
+```hql
 ALTER POOL wlm_basic.etl SET SCHEDULING_POLICY = fair;
 ```
 One can also set the scheduling policy while creating the pool:
-```
+```hql
 CREATE POOL wlm_basic.default WITH ALLOC_FRACTION = 0.5, QUERY_PARALLELISM = 2, SCHEDULING_POLICY = fifo;
 ```
 
-### **Query Failures for some specific use cases**
+### **Query failures for some specific use cases**
 Running queries in WLM can get killed automatically for following cases:
 1. When Move Trigger is applied to a query and destination pool that doesn't have any Tez AMs available, then query is killed instead. <br>
 The above is a design limitation of WLM feature. You can work around this feature by increasing the `QUERY_PARALLELISM` property for the destination pool so that even for maximum load scenario, the queries submitted to the cluster can be supported by this pool. Also, tune the `wm` queue size to accommodate this change. <br>
@@ -125,7 +123,7 @@ java.util.concurrent.CancellationException: Task was cancelled.
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_275]
 ```
 
-## Known Issues
+## Known issues
 1. Spark jobs submitted via [Hive Warehouse Connector (HWC)](apache-hive-warehouse-connector.md) can experience intermittent failures if target LLAP cluster has WLM feature enabled. <br>
 To avoid the above issues, Customer can have two LLAP Clusters, one with WLM enabled and other without WLM.
 The customer then can use HWC to connect their Spark cluster to the LLAP cluster without WLM.
@@ -138,7 +136,7 @@ Check if an active resource plan is available before running `DISABLE WORKLOAD M
 3. Some of Tez AM can keep on running and doesn't go away with `DISABLE WORKLOAD MANAGEMENT` command or HS2 restart. <br>
 Kill these Tez AMs via `yarn UI` or `yarn console application` after disabling workload management.
 
-## Related Articles
+## Related articles
 * [Hive LLAP Workload Management](hive-workload-management.md)
 * [Hive LLAP Workload Management Commands Summary](workload-management-commands.md)
 

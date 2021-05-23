@@ -290,7 +290,7 @@
       href: /azure/templates/microsoft.hdinsight/allversions
     - name: Azure Policy built-ins
       href: ./policy-reference.md
-    - name: Hive LLAP Workload Management Commands
+    - name: Hive LLAP Workload Management commands
       href: ./interactive-query/workload-management-commands.md
   - name: Resources
     items:
@@ -827,7 +827,7 @@
         href: ./hadoop/apache-hadoop-hive-java-udf.md
       - name: Query Hive with PowerShell and ODBC
         href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
-      - name: Enable Hive LLAP Workload Management Feature
+      - name: Enable Hive LLAP Workload Management feature
         href: ./interactive-query/hive-workload-management.md
     - name: Manage
       items:
