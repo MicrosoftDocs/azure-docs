@@ -51,10 +51,10 @@ These alerts appear in Azure Defender's security alerts page and include:
 
 ## What kind of alerts does Azure Defender for open-source relational databases provide?
 
-Threat intelligence enriched security alerts are triggered when there's:
+Threat intelligence enriched security alerts are triggered when there are:
 
 - **Anomalous database access and query patterns** - For example, an abnormally high number of failed sign-in attempts with different credentials (a brute force attempt)
-- **Suspicious database activity** - For example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server
+- **Suspicious database activities** - For example, a legitimate user accessing an SQL Server from a breached computer which communicated with a crypto-mining C&C server
 - **Brute-force attacks** – With the ability to separate simple brute force from brute force on a valid user or a successful brute force
 
 > [!TIP]
