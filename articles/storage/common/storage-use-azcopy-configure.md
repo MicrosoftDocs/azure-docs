@@ -25,6 +25,9 @@ The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `
 
 By default, the log and plan files are located in the `%USERPROFILE%\.azcopy` directory on Windows or `$HOME$\.azcopy` directory on Mac and Linux, but you can change that location. 
 
+> [!NOTE]
+> If you are using an older version such as 7.3, then you will have to check the path %USERPROFILE%\AppData\Local\Microsoft\Azure\AzCopy. The file name would be AzCopyVerbose.log and will get created when using /V Verbose switch.
+
 The relevant error isn't necessarily the first error that appears in the file. For errors such as network errors, timeouts and Server Busy errors, AzCopy will retry up to 20 times and usually the retry process succeeds.  The first error that you see might be something harmless that was successfully retried.  So instead of looking at the first error in the file, look for the errors that are near `UPLOADFAILED`, `COPYFAILED`, or `DOWNLOADFAILED`. 
 
 > [!IMPORTANT]
