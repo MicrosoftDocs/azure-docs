@@ -12,11 +12,16 @@ manager: rkarlin
 
 # Identify vulnerable container images in your CI/CD workflows
 
-This page explains how to use the built-in vulnerability scanner to scan the container images stored in your Azure Resource Manager-based Azure Container Registry when they're built as part for your GitHub workflows.
+This page explains how to scan your Azure Container Registry-based container images with the integrated vulnerability scanner  when they're built as part of your GitHub workflows.
 
-When **Azure Defender for container registries** is enabled, and the CI/CD integration is enabled, you'll be able to view both registry scan results and a summary of CI/CD summary scan results together for images pushed from CI/CD workflows to your registries.
+To set up the scanner, you'll need to enable **Azure Defender for container registries** and the CI/CD integration. When your CI/CD workflows push images to your registries, you can view registry scan results and a summary of CI/CD scan results.
 
-As with the other built-in vulnerability scanners, Security Center presents the findings and related information as recommendations. The findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You’ll also get traceability information such as the GitHub workflow and the GitHub Run URL, to help identify the workflows that are resulting in vulnerable images.
+As with the other built-in vulnerability scanners, Security Center presents the findings and related information as recommendations. The findings include related information such as:
+- remediation steps
+- relevant CVEs
+- CVSS scores
+
+You’ll also get traceability information such as the GitHub workflow and the GitHub run URL, to help identify the workflows that are resulting in vulnerable images.
 
 ## Availability
 
@@ -27,7 +32,7 @@ As with the other built-in vulnerability scanners, Security Center presents the 
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
-## Identify vulnerabilities in images in images in CI/CD workflows
+## Identify vulnerabilities in images in CI/CD workflows
 
 To enable vulnerability scans of images in your GitHub workflows:
 
@@ -41,18 +46,19 @@ To enable vulnerability scans of images in your GitHub workflows:
     1. From Security Center's sidebar, select **Pricing & settings**.
     1. Select the relevant subscription.
     1. From the sidebar of the settings page for that subscription, select **Integrations**.
-    1. In the pane that appears, select a Microsoft Managed Application Insights account to push the CI/CD scan results from your workflow. Copy the authentication token and connection string into your GitHub workflow.
+    1. In the pane that appears, select an Application Insights account to push the CI/CD scan results from your workflow.
+    1. Copy the authentication token and connection string into your GitHub workflow.
 
-    :::image type="content" source="./media/defender-for-container-registries-cicd/enable-cicd-integration.png" alt-text="Enable the CI/CD integration for vulnerability scans of container images in your GitHub workflows" lightbox="./media/defender-for-container-registries-cicd/enable-cicd-integration.png":::
+        :::image type="content" source="./media/defender-for-container-registries-cicd/enable-cicd-integration.png" alt-text="Enable the CI/CD integration for vulnerability scans of container images in your GitHub workflows" lightbox="./media/defender-for-container-registries-cicd/enable-cicd-integration.png":::
 
-    > [!IMPORTANT]
-    > The authentication token and connection string are used to correlate the ingested security telemetry with resources in the subscription. If you use invalid values for these parameters, it'll lead to dropped telemetry.
+        > [!IMPORTANT]
+        > The authentication token and connection string are used to correlate the ingested security telemetry with resources in the subscription. If you use invalid values for these parameters, it'll lead to dropped telemetry.
 
 
     1. From your GitHub workflow, enable CI/CD scanning as follows:
 
         > [!TIP]
-        > It’s good practice to create two secrets in your repo that you can reference in your YAML file. The secrets can be named according to your own naming conventions. In this example, the secrets are referenced as **AZ_APPINSIGHTS_CONNECTION_STRING** and **AZ_SUBSCRIPTION_TOKEN**.
+        > We recommend creating two secrets in your repository to reference in your YAML file as shown below. The secrets can be named according to your own naming conventions. In this example, the secrets are referenced as **AZ_APPINSIGHTS_CONNECTION_STRING** and **AZ_SUBSCRIPTION_TOKEN**.
 
 
         ```yml
@@ -71,8 +77,7 @@ To enable vulnerability scans of images in your GitHub workflows:
             subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
         ```
 
-
-1. Run the workflow that will push the image to the selected Azure Container Registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Azure Security Center.
+1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Azure Security Center.
 
 1. [View and remediate findings as explained below](#view-and-remediate-findings).
 
@@ -120,7 +125,7 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 1. Follow the steps in the remediation section of this pane.
 
-1. When you have taken the steps required to remediate the security issue, replace the image in your registry:
+1. When you've taken the steps required to remediate the security issue, replace the image in your registry:
 
     1. Push the updated image. This will trigger scans of both the registry and the CI/CD workflow. 
     
@@ -128,7 +133,7 @@ To enable vulnerability scans of images in your GitHub workflows:
     
         If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
 
-    1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
+    1. When you're sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
 
 ## Next steps
