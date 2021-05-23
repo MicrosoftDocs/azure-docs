@@ -24,6 +24,7 @@ ms.author: yelevin
 
 Symantec ICDx connector allows you to easily connect all your Symantec security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Integration between Symantec ICDx and Azure Sentinel makes use of REST API.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.

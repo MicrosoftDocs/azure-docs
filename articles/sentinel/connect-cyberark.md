@@ -24,6 +24,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The CyberArk Enterprise Password Vault (EPV) data connector in Azure Sentinel is currently in public preview. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The CyberArk Syslog connector allows you to easily connect all your CyberArk security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between CyberArk and Azure Sentinel makes use of the CEF Data Connector to properly parse and display CyberArk Syslog messages.
 
 > [!NOTE]

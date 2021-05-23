@@ -22,6 +22,8 @@ ms.author: yelevin
 
 The F5 BIG-IP connector allows you to easily connect all your F5 BIG-IP logs with Azure Sentinel, to view workbooks, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Integration between F5 BIG-IP and Azure Sentinel makes use of REST API.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 

@@ -24,6 +24,7 @@ ms.author: yelevin
 
 This article explains how to connect your Cisco ASA appliance to Azure Sentinel. The Cisco ASA data connector allows you to easily connect your Cisco ASA logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Using Cisco ASA on Azure Sentinel will provide you more insights into your organization’s Internet usage, and will enhance its security operation capabilities.​ 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 
 ## Forward Cisco ASA logs to the Syslog agent

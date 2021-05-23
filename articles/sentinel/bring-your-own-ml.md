@@ -27,6 +27,8 @@ ML detection models can adapt to individual environments and to changes in user 
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="machine learning framework":::
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## What is the Bring Your Own Machine Learning (BYO-ML) platform?
 
 For organizations that have ML resources and would like to build customized ML models for their unique business needs, we offer the **BYO-ML platform**. The platform makes use of the [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)/[Apache Spark](http://spark.apache.org/) environment and Jupyter Notebooks to produce the ML environment. It provides the following components:

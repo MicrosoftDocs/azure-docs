@@ -18,6 +18,8 @@ You can connect Azure Firewall logs to Azure Sentinel, enabling you to view log 
 
 Learn more about [monitoring Azure Firewall logs](../firewall/firewall-diagnostics.md).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Prerequisites
 
 - You must have read and write permissions on the Azure Sentinel workspace.
