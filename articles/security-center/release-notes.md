@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 05/22/2021
+ms.date: 05/23/2021
 ms.author: memildin
 
 ---
@@ -29,6 +29,8 @@ Updates in May include:
 - [Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
 - [Vulnerability findings query link added to the relevant recommendations](#vulnerability-findings-query-link-added-to-the-relevant-recommendations)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
+- [New recommendations to enable trusted launch capabilities](#new-recommendations-to-enable-trusted-launch-capabilities)
+- [New recommendations for hardening Kubernetes clusters](#new-recommendations-for-hardening-kubernetes-clusters)
 - [Assessments API expanded with two new fields](#assessments-api-expanded-with-two-new-fields)
 - [Asset inventory gets a cloud environment filter](#asset-inventory-gets-a-cloud-environment-filter)
 
@@ -86,6 +88,32 @@ The severity of the recommendation **Sensitive data in your SQL databases should
 This is part of the ongoing changes to this recommendation announced in [Enhancements to SQL data classification recommendation](upcoming-changes.md#enhancements-to-sql-data-classification-recommendation). 
 
 
+### New recommendations to enable trusted launch capabilities
+
+Azure offers trusted launch as a seamless way to improve the security of [generation 2](../virtual-machines/generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats. Learn more in [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+
+Security Center's recommendation, **vTPM should be enabled on supported virtual machines**, ensures your Azure VMs are using a vTPM. This virtualized version of a hardware Trusted Platform Module enables attestation by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers).
+
+With the vTPM enabled, the **Guest Attestation extension** can remotely validate the secure boot. The following recommendations ensure this extension is deployed:
+
+- **Secure Boot should be enabled on supported Windows virtual machines**
+- **Guest Attestation extension should be installed on supported Windows virtual machines**
+- **Guest Attestation extension should be installed on supported Windows virtual machine scale sets**
+- **Guest Attestation extension should be installed on supported Linux virtual machines**
+- **Guest Attestation extension should be installed on supported Linux virtual machine scale sets**
+
+Learn more in [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+ 
+### New recommendations for hardening Kubernetes clusters
+
+The following recommendations allow you to further harden your Kubernetes clusters
+
+- **Kubernetes clusters should not use the default namespace** - To protect against unauthorized access for ConfigMap, Pod, Secret, Service, and ServiceAccount resource types, prevent usage of the default namespace in Kubernetes clusters.
+- **Kubernetes clusters should disable automounting API credentials** - To prevent a potentially compromised Pod resource from running API commands against Kubernetes clusters, disable automounting API credentials.
+- **Kubernetes clusters should not grant CAPSYSADMIN security capabilities**
+
+Learn how Security Center can protect your containerized environments in [Container security in Security Center](container-security.md).
+
 ### Assessments API expanded with two new fields
 
 We've added the following two fields to the [Assessments REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments):
@@ -101,7 +129,7 @@ To access this information, you can use any of the methods in the table below.
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REST API call        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates |
 | Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
-| Workflow automation  | The two dedicated fields will be available the Log Analytics workspace data                                                                                                       |
+| Workflow automation  | The two dedicated fields will be available the Log Analytics workspace data                                                                                            |
 | [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                                        |
 |                      |                                                                                                                                                                        |
 
