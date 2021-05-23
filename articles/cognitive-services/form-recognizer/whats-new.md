@@ -29,7 +29,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### [**C#**](#tab/csharp)
 
-| [Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet) | [NuGet package version 3.0.1](https://www.nuget.org/packages/Azure.AI.FormRecognizer) |
+| [Reference documentation](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet&preserve-view=true) | [NuGet package version 3.0.1](https://www.nuget.org/packages/Azure.AI.FormRecognizer) |
 
 #### **Non-breaking changes**
 
@@ -55,7 +55,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### [**Java**](#tab/java)
 
-  | [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable)| [Maven artifact package dependency version 3.1.0](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) |
+  | [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [Maven artifact package dependency version 3.1.0](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) |
 
 #### **Non-breaking changes**
 
@@ -85,13 +85,13 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 * **FieldValueGender** class type removed.
 
-* **pollInterval**. Removed the pollInterval methods from **RecognizeBusinessCardsOptions**, **RecognizeContentOptions**, **RecognizeCustomFormsOptions**, **RecognizeIdentityDocumentOptions**, **RecognizeInvoicesOptions**, and  **RecognizeReceiptsOptions** classes. Polling interval can be updated using the Azure Core [**SyncPoller setPollInterval**](/java/api/com.azure.core.util.polling.syncpoller.setpollinterval?view=azure-java-stable) or [**PollerFlux setPollInterval**](/java/api/com.azure.core.util.polling.pollerflux.setpollinterval?view=azure-java-stable) methods synchronously or asynchronously, respectively.
+* **pollInterval**. Removed the pollInterval methods from **RecognizeBusinessCardsOptions**, **RecognizeContentOptions**, **RecognizeCustomFormsOptions**, **RecognizeIdentityDocumentOptions**, **RecognizeInvoicesOptions**, and  **RecognizeReceiptsOptions** classes. Polling interval can be updated using the Azure Core [**SyncPoller setPollInterval**](/java/api/com.azure.core.util.polling.syncpoller.setpollinterval?view=azure-java-stable&preserve-view=true) or [**PollerFlux setPollInterval**](/java/api/com.azure.core.util.polling.pollerflux.setpollinterval?view=azure-java-stable&preserve-view=true) methods synchronously or asynchronously, respectively.
 
 * **FormLine**, **FormPage**, **FormTable**, **FormSelectionMark**, **TextAppearance**, **CustomFormModel**, **CustomFormModelInfo**, **CustomFormModelProperties**, **CustomFormSubmodel**, and **TrainingDocumentInfo** are now immutable model classes.
 
 ### [**JavaScript**](#tab/javascript)
 
-| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
+| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
 
 #### **Non-breaking changes**
 
@@ -119,7 +119,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ### [**Python**](#tab/python)
 
-| [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable)| [PyPi azure-ai-formrecognizer 3.1.0](https://pypi.org/project/azure-ai-formrecognizer/) |
+| [Reference documentation](/java/api/com.azure.ai.formrecognizer.models?view=azure-java-stable&preserve-view=true)| [PyPi azure-ai-formrecognizer 3.1.0](https://pypi.org/project/azure-ai-formrecognizer/) |
 
 #### **Non-breaking changes**
 

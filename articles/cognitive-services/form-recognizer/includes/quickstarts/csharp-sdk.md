@@ -298,7 +298,7 @@ To analyze identity documents from a URI use the `StartRecognizeIdentityDocument
 
 The following code processes the identity document at the given URI and prints the major fields and values to the console.
 
-[code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs"?name="snippet_id_print")]
+[code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs"?name=snippet_id_print)]
 
 ## Train a custom model
 
@@ -630,7 +630,8 @@ catch (RequestFailedException e)
 
 You'll notice that additional information, like the client request ID of the operation, is logged.
 
-```
+```console
+
 Message:
     Azure.RequestFailedException: Service request failed.
     Status: 400 (Bad Request)
