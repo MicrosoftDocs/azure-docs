@@ -67,7 +67,7 @@ There are two steps to establish persistent connections between the client and t
     }
     ```
 
-1. After receiving the redirect response, client uses the new URL and access token to start the normal process to connect to SignalR Service.
+2. After receiving the redirect response, client uses the new URL and access token to start the normal process to connect to SignalR Service.
 
 Learn more about ASP.NET Core SignalR's [transport protocols](https://github.com/aspnet/SignalR/blob/release/2.2/specs/TransportProtocols.md).
 
