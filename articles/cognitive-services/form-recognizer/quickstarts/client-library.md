@@ -16,12 +16,13 @@ ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: forms processing, automated data processing
 ---
 
-# Quickstart: Use the Form Recognizer client library or REST API
+# Quickstart: get started with the client library SDKs or REST API
 
 Get started with the Form Recognizer using the development language of your choice. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. Follow these steps to install the SDK package and try out the example code for basic tasks.
 
 Use Form Recognizer to:
 
+* [Authenticate the client](#authenticate-the-client)
 * [Analyze Layout](#analyze-layout)
 * [Analyze receipts](#analyze-receipts)
 * [Analyze business cards](#analyze-business-cards)
