@@ -298,7 +298,7 @@ To analyze identity documents from a URI use the `StartRecognizeIdentityDocument
 
 The following code processes the identity document at the given URI and prints the major fields and values to the console.
 
-[code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs"?name=snippet_id_print)]
+[code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_id_print)]
 
 ## Train a custom model
 
@@ -649,7 +649,7 @@ Headers:
     X-Content-Type-Options: REDACTED
     Date: Mon, 20 Apr 2020 22:48:35 GMT
     Content-Type: application/json; charset=utf-8
-``
+```
 
 ## Next steps
 
