@@ -65,6 +65,99 @@ You must enable the feature for your subscription. Use the following steps to en
     
 ### Create ZRS managed disks
 
+# [Azure CLI](#tab/azure-cli)
+
+#### Create a VM with ZRS disks
+
+```azurecli
+rgName=yourRGName
+vmName=yourVMName
+location=westus2
+vmSize=Standard_DS2_v2
+image=UbuntuLTS 
+osDiskSku=StandardSSD_ZRS
+dataDiskSku=Premium_ZRS
+
+
+az vm create -g $rgName \
+-n $vmName \
+-l $location \
+--image $image \
+--size $vmSize \
+--generate-ssh-keys \
+--data-disk-sizes-gb 128 \
+--storage-sku os=$osDiskSku 0=$dataDiskSku
+```
+#### Create VMs with a shared ZRS disk attached to the VMs in different zones
+```azurecli
+
+location=westus2
+rgName=yourRGName
+vmNamePrefix=yourVMNamePrefix
+vmSize=Standard_DS2_v2
+image=UbuntuLTS
+osDiskSku=StandardSSD_LRS
+sharedDiskName=yourSharedDiskName
+sharedDataDiskSku=Premium_ZRS
+
+
+az disk create -g $rgName \
+-n $sharedDiskName \
+-l $location \
+--size-gb 1024 \
+--sku $sharedDataDiskSku \
+--max-shares 2
+
+
+sharedDiskId=$(az disk show -g $rgName -n $sharedDiskName --query 'id' -o tsv)
+
+az vm create -g $rgName \
+-n $vmNamePrefix"01" \
+-l $location \
+--image $image \
+--size $vmSize \
+--generate-ssh-keys \
+--zone 1 \
+--attach-data-disks $sharedDiskId \
+--storage-sku os=$osDiskSku \
+--vnet-name $vmNamePrefix"_vnet" \
+--subnet $vmNamePrefix"_subnet"
+
+az vm create -g $rgName \
+-n $vmNamePrefix"02" \
+-l $location \
+--image $image \
+--size $vmSize \
+--generate-ssh-keys \
+--zone 2 \
+--attach-data-disks $sharedDiskId \
+--storage-sku os=$osDiskSku \
+--vnet-name $vmNamePrefix"_vnet" \
+--subnet $vmNamePrefix"_subnet"
+
+```
+#### Create a virtual machine scale set with ZRS Disks
+```azurecli
+location=westus2
+rgName=yourRGName
+vmssName=yourVMSSName
+vmSize=Standard_DS3_V2
+image=UbuntuLTS 
+osDiskSku=StandardSSD_ZRS
+dataDiskSku=Premium_ZRS
+
+az vmss create -g $rgName \
+-n $vmssName \
+--encryption-at-host \
+--image UbuntuLTS \
+--upgrade-policy automatic \
+--generate-ssh-keys \
+--data-disk-sizes-gb 128 \
+--storage-sku os=$osDiskSku 0=$dataDiskSku
+```
+
+# [Resource Manager Template](#tab/azure-resource-manager)
+
 Use the `2020-12-01` API with your Azure Resource Manager template to create a ZRS disk.
 
 #### Create a VM with ZRS disks
