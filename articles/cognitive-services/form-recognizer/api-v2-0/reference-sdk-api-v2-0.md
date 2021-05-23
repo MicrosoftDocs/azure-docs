@@ -33,30 +33,30 @@ Use Form Recognizer to:
 
 :: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# SDK quickstart](includes/csharp-v3-1-0.md)]
+[!INCLUDE [C# SDK v2.0 (includes/csharp-v3-1-0.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java SDK quickstart](includes/java-v3-1-0.md)]
+[!INCLUDE [Java SDK v3.1.0](includes/java-v3-1-0.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS SDK quickstart](includes/javascript-v3-1-0.md)]
+[!INCLUDE [NodeJS SDK v3.1.0](includes/javascript-v3-1-0.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python SDK quickstart](includes/python-v3-1-0.md)]
+[!INCLUDE [Python SDK v3.1.0](includes/python-v3-1-0.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API quickstart](includes/rest-api-v2-0.md)]
+[!INCLUDE [REST API v2.0](includes/rest-api-v2-0.md)]
 
 ::: zone-end

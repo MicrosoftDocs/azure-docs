@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer client library for Java"
+title: "Reference: Form Recognizer 3.1.0 client library for Java"
 description: Use the Form Recognizer client library for Java to create a forms processing app that Docs Markdown extension in the Docs Authoring Pack for VS Code extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: laujan
