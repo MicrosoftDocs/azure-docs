@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 04/29/2021
+ms.date: 05/23/2021
 ---
 
 
@@ -57,7 +57,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | ----- | ----- | ---- |
 |- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
-| - [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Not Available |
+| - [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | GA | Public Preview |
 | - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA |
 | - [Hunting](/azure/sentinel/hunting) | GA | GA |
 |- [Notebooks](/azure/sentinel/notebooks) | GA | GA |
