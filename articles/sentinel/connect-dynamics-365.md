@@ -25,6 +25,8 @@ The [Dynamics 365](/office365/servicedescriptions/microsoft-dynamics-365-online-
 >
 > The Dynamics 365 Common Data Service (CDS) activities connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Prerequisites
 
 - You must have read and write permissions on your Azure Sentinel workspace.
