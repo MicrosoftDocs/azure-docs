@@ -38,10 +38,10 @@ Indexers that reference Power Query data sources have the same level of support 
 ## Prerequisites
 Before you start pulling data from one of the supported data sources, you'll want to make sure you have all your resources set up.
 + Azure Cognitive Search service
-    + Azure Cognitive Search service set up in a supported region.
-    + Ensure that the Azure Cognitive Search team has enabled your search service for the preview. You can sign up for the preview filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
+    + Azure Cognitive Search service set up in a [supported region](search-howto-index-powerquery-data-sources.md#regional-availability).
+    + Ensure that the Azure Cognitive Search team has enabled your search service for the preview. You can sign up for the preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
 + Azure Blob storage account
-    + A Blob storage account is required for the preview to be used as an intermediary for your data. The data will flow from your data source, then to Blob storage, then to the index. This limitation only exists with the initial gated preview.
+    + A Blob storage account is required for the preview to be used as an intermediary for your data. The data will flow from your data source, then to Blob storage, then to the index. This requirement only exists with the initial gated preview.
 
 ## Getting started using the Azure portal
 The Azure portal provides support for the Power Query connectors. By sampling data and reading metadata on the container, the Import data wizard in Azure Cognitive Search can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
@@ -134,28 +134,33 @@ Once you've finished filling out this page select **Submit**.
 This change detection policy relies on a "high water mark" column capturing the version or time when a row was last updated.
 
 ### Requirements
-
 + All inserts specify a value for the column.
 + All updates to an item also change the value of the column.
 + The value of this column increases with each insert or update.
 
+## Unsupported column names
+Field names in an Azure Cognitive Search index have to meet certain requirements. One of these requirements is that some characters such as "/" are not allowed. If a column name in your database does not meet these requirements, the index schema detection will not recognize your column as a valid field name and you won't see that column listed as a suggested field for your index. Normally, using [field mappings](search-indexer-field-mappings) would solve this problem but field mappings are not supported in the portal.
+
+To index content from a column in your table that has an unsupported field name, rename the column during the "Transform your data" phase of the import data process. For example, you can rename a column named "Billing code/Zip code" to "zipcode". By renaming the column, the index schema detection will recognize it as a valid field name and add it as a suggestion to your index definition.
+
+## Regional availability
+The preview is only available to customers with search services in the following regions:
++ Central US
++ East US
++ East US 2
++ North Central US
++ North Europe
++ South Central US
++ West Central US
++ West Europe
++ West US
++ West US 2
+
 ## Preview limitations
 There is a lot to be excited about with this preview, but there are a few limitations. This section describes the limitations that are specific to the current version of the preview.
-+ The initial preview requires you to supply a Blob storage account.
 + Support for this preview is limited to the Azure portal.
-+ The preview is only available to customers with search services in the following regions:
-    + Central US
-    + East US
-    + East US 2
-    + North Central US
-    + North Europe
-    + South Central US
-    + West Central US
-    + West Europe
-    + West US
-    + West US 2
 + Pulling binary data from your data source is not supported in this version of the preview. 
 + [Debug sessions](cognitive-search-debug-session.md) are not supported at this time.
 
 ## Next steps
-Congratulations! You have learned how to pull data from new data sources using the Power Query connectors. To learn more about indexers, see [Indexers in Azure Cognitive Search](search-indexer-overview.md).
+You have learned how to pull data from new data sources using the Power Query connectors. To learn more about indexers, see [Indexers in Azure Cognitive Search](search-indexer-overview.md).
