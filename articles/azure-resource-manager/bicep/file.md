@@ -255,7 +255,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 }]
 ```
 
-For more information, see [Serial or Parallel](copy-resources.md#serial-or-parallel).
+For more information, see [Serial or Parallel](loop-resources.md#serial-or-parallel).
 
 ## Outputs
 

@@ -12,7 +12,7 @@ ms.date: 06/01/2021
 
 This article shows you how to create more than one value for an output in your Bicep file. You can add a loop to the file's `output` section and dynamically return several items during deployment.
 
-You can also use a loop with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
+You can also use a loop with [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [variables](loop-variables.md).
 
 ## Syntax
 
@@ -166,9 +166,9 @@ The output returns an array with the following values:
 ## Next steps
 
 - For other uses of loops, see:
-  - [Resource iteration in Bicep files](copy-resources.md)
-  - [Property iteration in Bicep files](copy-properties.md)
-  - [Variable iteration in Bicep files](copy-variables.md)
+  - [Resource iteration in Bicep files](loop-resources.md)
+  - [Property iteration in Bicep files](loop-properties.md)
+  - [Variable iteration in Bicep files](loop-variables.md)
 - If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
 - For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
 - To set dependencies on resources that are created in a loop, see [Define the order for deploying resources](resource-dependency.md).

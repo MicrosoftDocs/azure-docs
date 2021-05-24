@@ -251,5 +251,5 @@ Resource Manager provides the following functions for working with strings:
 
 * For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
 * To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](../templates/linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](loop-resources.md).
 * To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

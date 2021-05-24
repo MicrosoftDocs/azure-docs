@@ -12,7 +12,7 @@ ms.date: 06/01/2021
 
 This article shows you how to create more than one instance of a resource in your Bicep file. You can add a loop to the `resource` section of your file and dynamically set the number of resources to deploy. You also avoid repeating syntax in your Bicep file.
 
-You can also use a loop with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
+You can also use a loop with [properties](loop-properties.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
@@ -91,7 +91,7 @@ resource storageNames_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for n
 }]
 ```
 
-If you want to return values from the deployed resources, you can use a loop in the [output section](copy-outputs.md).
+If you want to return values from the deployed resources, you can use a loop in the [output section](loop-outputs.md).
 
 ## Serial or Parallel
 
@@ -163,9 +163,9 @@ The following examples show common scenarios for creating more than one instance
 ## Next steps
 
 - For other uses of the loop, see:
-  - [Property iteration in Bicep files](copy-properties.md)
-  - [Variable iteration in Bicep files](copy-variables.md)
-  - [Output iteration in Bicep files](copy-outputs.md)
+  - [Property iteration in Bicep files](loop-properties.md)
+  - [Variable iteration in Bicep files](loop-variables.md)
+  - [Output iteration in Bicep files](loop-outputs.md)
 - If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
 - For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
 - To set dependencies on resources that are created in a loop, see [Define the order for deploying resources](resource-dependency.md).
