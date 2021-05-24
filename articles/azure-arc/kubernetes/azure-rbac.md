@@ -63,7 +63,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     az ad sp credential reset --name <serverApplicationId> --credential-description "ArcSecret" --query password -o tsv
     ```
 
-1. Grant the application's API permissions:
+1. Grant API permissions to the application:
 
     ```azurecli
     az ad app permission add --id <serverApplicationId> --api 00000003-0000-0000-c000-000000000000 --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope
