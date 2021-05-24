@@ -129,14 +129,15 @@ Not applicable. Blob versioning is supported only in the Azure Storage client li
 You can restore or disable soft deleted blobs and directories in accounts that have a hierarchical namespace. You can use the PowerShell, Azure CLI, or with code by using an SDK.
 
 > [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled on them is currently in public preview, and is available only in the East US 2 and West Europe region.
+> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in public preview, and is available only in the East US 2 and West Europe region.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
 > To enroll in the preview, see [this form](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2FPages%2FResponsePage.aspx%3Fid%3Dv4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOUxPTkFSSjJDRlBZNlpZSjhGUktFVzFDRi4u&data=04%7C01%7CSachin.Sheth%40microsoft.com%7C6e6a6d56c2014cdf749308d90e915f1e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637556839790913940%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=qnYxVDdI7whCqBW4johgutS3patACP6ubleUrMGFtf8%3D&reserved=0).
 
 #### Restore soft deleted blobs and directories by using PowerShell
 
-1. Ensure that you have the **Az.Storage** preview module (version blah). See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md&tabs=azure-powershell#enable-blob-and-directory-soft-delete-hierarchical-namespace).
+1. Ensure that you have the **Az.Storage** preview module (version blah). See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md?tabs=azure-powershell#enable-blob-and-directory-soft-delete-hierarchical-namespace).
 
 2. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
@@ -160,14 +161,14 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 #### Restore soft deleted blobs and directories by using Azure CLI
 
-1. Make sure that you have the `storage-preview` extension installed. See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md&tabs=azure-CLI#enable-blob-and-directory-soft-delete-hierarchical-namespace).
+1. Make sure that you have the `storage-preview` extension installed. See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md?tabs=azure-CLI#enable-blob-and-directory-soft-delete-hierarchical-namespace).
 
 2. Get a list of deleted items.
 
    ```azurecli
    $filesystemName = "my-file-system"
    az storage fs list-deleted-path -f $filesystemName --auth-mode login
-```
+   ```
 
 3. These commands undelete a directory. Add a better explanation here.
 
@@ -261,27 +262,27 @@ You can restore or disable soft deleted blobs and directories in accounts that h
     > [!NOTE]
     > The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-python.md#connect-to-the-account).
 
-```python
-def restoreDirectory():
+    ```python
+    def restoreDirectory():
 
-    try:
-        global file_system_client
+        try:
+            global file_system_client
 
-        file_system_client = service_client.create_file_system(file_system="my-file-system")
+            file_system_client = service_client.create_file_system(file_system="my-file-system")
 
-        directory_path = 'my-directory'
-        directory_client = file_system_client.create_directory(directory_path)
-        resp = directory_client.delete_directory()
+            directory_path = 'my-directory'
+            directory_client = file_system_client.create_directory(directory_path)
+            resp = directory_client.delete_directory()
         
-        restored_directory_client = file_system_client.undelete_path(directory_client, resp['deletion_id'])
-        props = restored_directory_client.get_directory_properties()
+            restored_directory_client = file_system_client.undelete_path(directory_client, resp['deletion_id'])
+            props = restored_directory_client.get_directory_properties()
         
-        print(props)
+            print(props)
    
-    except Exception as e:
-        print(e)
+        except Exception as e:
+            print(e)
 
-```
+    ```
 
 ## Next steps
 
