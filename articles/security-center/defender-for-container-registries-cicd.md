@@ -77,9 +77,9 @@ To enable vulnerability scans of images in your GitHub workflows:
       with:
         image-name: githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} 
     
-    - name: Push Docker image - lakasagithubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    - name: Push Docker image - githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
       run: |
-      docker push lakasagithubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+      docker push githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
     
     - name: Post logs to appinsights
       uses: Azure/publish-security-assessments@v0
