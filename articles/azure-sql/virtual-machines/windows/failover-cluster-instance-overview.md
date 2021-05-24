@@ -177,6 +177,6 @@ Review [cluster configurations best practices](hadr-cluster-best-practices.md), 
 
 To learn more, see:
 
-- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster.md)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
 - [Failover cluster instance overview](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 

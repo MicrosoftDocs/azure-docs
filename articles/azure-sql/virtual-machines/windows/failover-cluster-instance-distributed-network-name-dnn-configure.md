@@ -201,7 +201,7 @@ Alternatively, configure a network adapter in Azure to reserve the IP address us
 
 To learn more, see:
 
-- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster.md)
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
 - [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md)
 - [Failover cluster instance overview](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 - [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)
