@@ -59,7 +59,7 @@ In addition to **Security settings**, Microsoft Azure Policy has a **Compliance*
 - If the assignment is **Audit**, the compliance will report if the Azure AD DS instance is compliant.
 - If the assignment is **Deny**, the compliance will prevent an Azure AD DS instance from being created if TLS 1.2 is not enabled and prevent any update to an Azure AD DS instance until TLS 1.2 is enabled.
 
-![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/policy-tls.png)
+![Screenshot of Compliance settings](media/secure-your-domain/policy-tls.png)
 
 ## Use PowerShell to harden your domain
 
