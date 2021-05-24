@@ -8,13 +8,13 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 05/17/2021
+ms.date: 05/27/2021
 
 ---
 
 # Data sources gallery
 
-## Indexer data sources in Azure Cognitive Search
+## Generally available data sources by Cognitive Search
 
 :::row:::
 :::column span="":::
@@ -36,6 +36,21 @@ Extract blob metadata and content, serialized into JSON documents, and imported 
 
 ---
 
+### Azure Cosmos DB (SQL API)
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Connect to Cosmos DB through the SQL API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+
+[More details](search-howto-index-cosmosdb.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
 ### Azure SQL Database
 
 by [Cognitive Search](search-what-is-azure-search.md)
@@ -47,17 +62,106 @@ Extract field values from a single table or view, serialized into JSON documents
 :::image type="icon" source="media/search-data-sources-gallery/azuresqlconnectorlogo_medium.png":::
 
 :::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
 :::column span="":::
 
 ---
 
-### Azure Cosmos DB
+### Azure Table Storage
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Connect to Cosmos DB to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+Extract rows from an Azure Table, serialized into JSON documents, and imported into a search index as search documents. 
 
-SQL API is generally available, with MongoDB API, Cassandra API, and [Gremlin API](search-howto-index-cosmosdb-gremlin.md) in preview.
+[More details](search-howto-indexing-azure-tables.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Azure Data Lake Storage Gen2
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Connect to Azure Storage through Azure Data Laker Storage Gen2 to extract content from a hierarchy of directories and nested subdirectories.
+
+[More details](search-howto-index-azure-data-lake-storage.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+---
+
+## Preview data sources by Cognitive Search
+
+:::row:::
+:::column span="":::
+
+---
+
+### Cosmos DB (Gremlin API)
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Connect to Cosmos DB through the Gremlin API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+
+[More details](search-howto-index-cosmosdb-gremlin.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Cosmos DB (Cassandra API)
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Connect to Cosmos DB through the Cassandra API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
+
+[More details](search-howto-index-cosmosdb.md)
+
+:::image type="icon" source="media/search-data-sources-gallery/azure_cosmos_db_logo_small.png":::
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Cosmos DB (Mongo API)
+
+by [Cognitive Search](search-what-is-azure-search.md)
+
+Connect to Cosmos DB through the Mongo API to extract items from a container, serialized into JSON documents, and imported into a search index as search documents. Configure change tracking to refresh the search index with the latest changes in your database.
 
 [More details](search-howto-index-cosmosdb.md)
 
@@ -94,30 +198,20 @@ Connect to a SharePoint Online site and index documents from one or more Documen
 
 ---
 
-### Power Query Connectors
+### Azure MySQL
 
 by [Cognitive Search](search-what-is-azure-search.md)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Connect to MySQL database on Azure to extract rows in a table, serialized into JSON documents, and imported into a search index as search documents. On subsequent runs, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index.
 
-[More details](TBD.md)
+[More details](search-howto-index-mysql.md)
 
-:::image type="icon" source="media/search-data-sources-gallery/power_query_logo.png":::
+:::image type="icon" source="media/search-data-sources-gallery/azure_mysql.png":::
 
 :::column-end:::
 :::column span="":::
 
 ---
-
-### Azure Table Storage
-
-by [Cognitive Search](search-what-is-azure-search.md)
-
-Extract rows from an Azure Table, serialized into JSON documents, and imported into a search index as search documents. 
-
-[More details](search-howto-indexing-azure-tables.md)
-
-:::image type="icon" source="media/search-data-sources-gallery/azure_storage.png":::
 
 :::column-end:::
 :::row-end:::
@@ -130,7 +224,145 @@ Extract rows from an Azure Table, serialized into JSON documents, and imported i
 
 :::row-end:::
 
-## Indexer data sources from our Partners
+---
+
+## Power Query Connectors
+
+:::row:::
+:::column span="":::
+
+---
+
+### Amazon Redshift
+
+Powered by [Power Query](/power-query/power-query-what-is-power-query)
+
+Connect to Amazon Redshift and extract searchable content for indexing in Cognitive Search.
+
+[More details](search-howto-index-powerquery-data-sources.md)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Elasticsearch
+
+Powered by [Power Query](/power-query/power-query-what-is-power-query)
+
+Connect to Elasticsearch in the cloud and extract searchable content for indexing in Cognitive Search.
+
+[More details](search-howto-index-powerquery-data-sources.md)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### PostgreSQL
+
+Powered by [Power Query](/power-query/power-query-what-is-power-query)
+
+Connect to a PostgreSQL database in the cloud and extract searchable content for indexing in Cognitive Search.
+
+[More details](search-howto-index-powerquery-data-sources.md)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### Salesforce Objects
+
+Powered by [Power Query](/power-query/power-query-what-is-power-query)
+
+Connect to Salesforce Objects and extract searchable content for indexing in Cognitive Search.
+
+[More details](search-howto-index-powerquery-data-sources.md)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Salesforce Reports
+
+Powered by [Power Query](/power-query/power-query-what-is-power-query)
+
+Connect to Salesforce Reports and extract searchable content for indexing in Cognitive Search.
+
+[More details](search-howto-index-powerquery-data-sources.md)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Smartsheet
+
+Powered by [Power Query](/power-query/power-query-what-is-power-query)
+
+Connect to Smartsheet and extract searchable content for indexing in Cognitive Search.
+
+[More details](search-howto-index-powerquery-data-sources.md)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### Snowflake
+
+Powered by [Power Query](/power-query/power-query-what-is-power-query)
+
+Extract searchable data and metadata from a Snowflake database and populate an index based on field-to-field mappings between the index and your data source. 
+
+[More details](search-howto-index-powerquery-data-sources.md)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+:::column-end:::
+:::column span="":::
+
+---
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+## Data sources from our Partners
 
 :::row:::
 :::column span="":::
