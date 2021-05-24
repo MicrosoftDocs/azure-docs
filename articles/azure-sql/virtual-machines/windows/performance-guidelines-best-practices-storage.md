@@ -45,8 +45,6 @@ Review the following checklist for a brief overview of the storage best practice
     - Always stop the SQL Server service before changing the cache settings of your disk.
 - For development and test workloads, and long-term backup archival consider using standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
 - [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
-- Provision the storage account in the same region as the SQL Server VM. 
-- Disable Azure geo-redundant storage (geo-replication) and use LRS (local redundant storage) on the storage account.
 - Format your data disk to use 64 KB block size (allocation unit size) for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with a block size and interleave for the storage pool set to 64 KB. 
 
 To compare the storage checklist with the others, see the comprehensive [Performance best practices checklist](performance-guidelines-best-practices-checklist.md). 

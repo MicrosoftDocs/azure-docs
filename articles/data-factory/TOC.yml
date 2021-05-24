@@ -253,6 +253,8 @@
       href: connector-amazon-redshift.md
     - name: Amazon S3
       href: connector-amazon-simple-storage-service.md
+    - name: Amazon S3 Compatible Storage
+      href: connector-amazon-s3-compatible-storage.md
     - name: Avro format
       href: format-avro.md
     - name: Azure Blob Storage
@@ -299,14 +301,14 @@
       href: connector-cassandra.md
     - name: Common Data Model format
       href: format-common-data-model.md
-    - name: Common Data Service for Apps
-      href: connector-dynamics-crm-office-365.md
     - name: Concur
       href: connector-concur.md
     - name: Couchbase
       href: connector-couchbase.md
     - name: DB2
       href: connector-db2.md
+    - name: Dataverse
+      href: connector-dynamics-crm-office-365.md
     - name: Delimited text format
       href: format-delimited-text.md
     - name: Delta format
@@ -383,6 +385,8 @@
       href: connector-office-365.md
     - name: Oracle
       href: connector-oracle.md
+    - name: Oracle Cloud Storage
+      href: connector-oracle-cloud-storage.md
     - name: Oracle Eloqua
       href: connector-oracle-eloqua.md
     - name: Oracle Responsys

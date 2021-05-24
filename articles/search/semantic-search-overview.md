@@ -21,7 +21,7 @@ Semantic search is a collection of query-related capabilities that add semantic 
 Semantic search is a premium feature. We recommend this article for background, but if you'd rather get started, follow these steps:
 
 1. [Check regional and service tier requirements](#availability-and-pricing).
-1. [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup).
+1. [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup). It can take up to two business days to process the request.
 1. Upon acceptance, create or modify queries to return [semantic captions and highlights](semantic-how-to-query-request.md).
 1. Add a few more query properties to also return [semantic answers](semantic-answers.md).
 1. Optionally, include a [spell check](speller-how-to-add.md) property to maximize precision and recall.
@@ -67,6 +67,16 @@ Results are then re-scored based on the [conceptual similarity](semantic-ranking
 
 To use semantic capabilities in queries, you'll need to make small modifications to the [search request](semantic-how-to-query-request.md), but no extra configuration or reindexing is required.
 
+## Semantic capabilities and limitations
+
+Semantic search is a newer technology so it's important to set expectations about what it can and cannot do.
+
+It improves the quality of search results in two ways. First, the promotion of documents that are semantically closer to the intent of original query is a significant benefit. Second, results are more immediately consumable when captions, and potentially answers, are present on the page. At all times, the engine is working with existing content. Language models used in semantic search are designed to extract an intact string that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
+
+Semantic search is not a logic engine and does not infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return.
+
+In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
+
 ## Availability and pricing
 
 Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early June, semantic features are offered free of charge.
@@ -86,4 +96,4 @@ Final pricing information will be documented in the [Cognitive Search pricing pa
 
 [Sign-up](https://aka.ms/SemanticSearchPreviewSignup) for the preview on a search service that meets the tier and regional requirements noted in the previous section.
 
-When your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.
+It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.
