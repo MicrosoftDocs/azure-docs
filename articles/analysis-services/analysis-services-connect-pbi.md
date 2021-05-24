@@ -48,7 +48,7 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 ## Request Memory Limit
 
-To safeguard the performance of the system, a memory limit is enforced for all queries issued by Power BI reports against Azure Analysis Services, regardless of the [Query Memory Limit](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current) configured on the Azure Analysis Services server. Users should consider simplifying the query or its calculations if the query is too memory intensive.
+To safeguard the performance of the system, a memory limit is enforced for all queries issued by Power BI reports against Azure Analysis Services, regardless of the [Query Memory Limit](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current&preserve-view=true) configured on the Azure Analysis Services server. Users should consider simplifying the query or its calculations if the query is too memory intensive.
 
 |                                                           | Request Memory limit |
 |-----------------------------------------------------------|----------------------|
