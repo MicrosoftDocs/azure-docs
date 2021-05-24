@@ -71,7 +71,7 @@ If you are using Unity UWP application, a log file can be created using the appl
     config.SetProperty(PropertyId.Speech_LogFilename, logFile);
 #endif
 ```
-More about file access permission for UWP applications is available [here](/windows/uwp/files/file-access-permissions).
+For more about file access permissions in UWP applications, see [File access permissions](/windows/uwp/files/file-access-permissions).
 
 ### Android
 
