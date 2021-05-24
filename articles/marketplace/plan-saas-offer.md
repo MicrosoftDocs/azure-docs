@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 05/25/2021
 ---
 
 # How to plan a SaaS offer for the commercial marketplace
@@ -45,7 +45,7 @@ The _Contact me_ listing option has no technical requirements. You have the opti
 The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing options have the following technical requirements:
 
 - You must enable both Microsoft Accounts (MSA) and [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for authenticating buyers on your site. You must let buyers with an Azure AD account sign in to your application using Azure AD with single sign-on (SSO).
-- You must create a landing page. After a user purchases your offer, they’re directed to the landing page. This helps them complete any additional provisioning or setup that’s required. For guidance on creating the landing page, see these articles:
+- You must create a landing page that offers a seamless sign-in and onboarding experience for a customer who’s purchased your offer. The landing page helps them complete any additional provisioning or setup that’s required. For guidance on creating the landing page, see these articles:
   - [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md)
   - [Build the landing page for your free or trial SaaS offer in the commercial marketplace](azure-ad-free-or-trial-landing-page.md)
 
