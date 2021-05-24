@@ -448,7 +448,7 @@ To solve this issue, you can refer to the following recommendations:
 
 - If the account kind is Storage (general purpose v1), upgrade your storage account to the **general purpose v2** or choose a different authentication.
 
-    Image 4: Upgrade storage account to general purpose v2
+    Image 4: Upgrade the storage account to general purpose v2
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/upgrade-storage-account.png" alt-text="Screenshot that shows how to upgrade storage account to general purpose v2"::: 
     
@@ -537,7 +537,7 @@ You encounter this error because of your wrong configuration.
 
 For Snowflake, it applies the following rules for storing identifiers (at creation/definition time) and resolving them (in queries and other SQL statements):
 
-When an identifier (table name, schema name, column name, etc.) is unquoted, it is stored and resolved in uppercase by default, and it is case-in-sensitive.
+When an identifier (table name, schema name, column name, etc.) is unquoted, it is stored and resolved in uppercase by default, and it is case-in-sensitive. For example:
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/unquoted-identifier.png" alt-text="Screenshot that shows the example of unquoted identifier."lightbox="./media/data-flow-troubleshoot-connector-format/unquoted-identifier.png"::: 
 
@@ -547,7 +547,7 @@ Because it is case-in-sensitive, so you can feel free to use following query to 
 - `Select movieID, TITLE from PUBLIC.TESTQUOTEDTABLE2`<br/>
 - `...`
 
-When an identifier (table name, schema name, column name, etc.) is double-quoted, it is stored and resolved exactly as entered, including case as it is case-sensitive. For more details, please refer to this document: [Identifier Requirements](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#identifier-requirements).
+When an identifier (table name, schema name, column name, etc.) is double-quoted, it is stored and resolved exactly as entered, including case as it is case-sensitive, and you can see an example in the following picture. For more details, please refer to this document: [Identifier Requirements](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#identifier-requirements).
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/double-quoted-identifier.png" alt-text="Screenshot that shows the example of double quoted identifier" lightbox="./media/data-flow-troubleshoot-connector-format/double-quoted-identifier.png"::: 
 
