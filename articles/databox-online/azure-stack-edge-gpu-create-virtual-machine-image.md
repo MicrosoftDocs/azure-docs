@@ -63,7 +63,7 @@ Do the following steps to create a Windows VM image.
         `.\azcopy copy <source URI> <target URI> --recursive`
 
         where:
-        * `<source URI>` is the export URL generated in the preceding step.
+        * `<source URI>` is the download URL generated in the preceding step.
         * `<target URI>` is the URI to be assigned to the exported VHD in your Azure Storage account. 
           Save the VHD to a Blob container in an Azure Storage account. It's a good idea to save it to the storage account for your Azure Stack Edge Pro GPU device.
           - To get the target URI, generate a shared access signature (SAS) for the target Blob container. You can do this from the container in the Azure Storage account (NO LINK FOUND), [using Azure Storage Explorer](/azure/storage/blobs/sas-service-create?tabs=dotnet#create-a-service-sas-for-a-blob-container)<!--Procedure creates SAS URI for a file rather than its container.-->, or [using .NET or JavaScript](/azure/storage/blobs/sas-service-create?tabs=dotnet#create-a-service-sas-for-a-blob-container).  
