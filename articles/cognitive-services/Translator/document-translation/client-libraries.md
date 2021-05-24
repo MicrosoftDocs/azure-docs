@@ -19,7 +19,7 @@ Use the Document Translation cloud-based batch document translation service via 
 Use Document Translation to
 
 * [**Create a Document Translation job**](#create-a-document-translation-job)
-* [**Check  the status of submitted documents**](#check-the-status-of-submitted-documents)
+* [**Check the status of submitted documents**](#check-the-status-of-submitted-documents)
 * [**Check the status of all submitted translation jobs**](#check-the-status-of-all-submitted-translation-jobs)
 
 >[!IMPORTANT]
@@ -67,15 +67,13 @@ Build succeeded.
 
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
-
 ```console
 dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 ```
 
-
 ## Create a Document Translation job
 
-## Check  the status of submitted documents
+## Check the status of submitted documents
 
 ## Check the status of all submitted translation jobs
 
@@ -83,7 +81,7 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 
 ### [Python](#tab/python)
 
-[Reference documentation](/python/api/azure-ai-translation-document/azure.ai.translation.document.documenttranslationclient?view=azure-python-preview) | [Package (PyPi)](https://pypi.org/project/azure-ai-translation-document/) | [Samples](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/)
+[Reference documentation](/python/api/azure-ai-translation-document/azure.ai.translation.document.documenttranslationclient?view=azure-python-preview&preserve-view=true) | [Package (PyPi)](https://pypi.org/project/azure-ai-translation-document/) | [Samples](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/)
 
 ## Prerequisites
 
