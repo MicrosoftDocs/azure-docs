@@ -161,7 +161,6 @@ The preview is only available to customers with search services in the following
 
 ## Preview limitations
 There is a lot to be excited about with this preview, but there are a few limitations. This section describes the limitations that are specific to the current version of the preview.
-+ Support for this preview is limited to the Azure portal.
 + Pulling binary data from your data source is not supported in this version of the preview. 
 + [Debug sessions](cognitive-search-debug-session.md) are not supported at this time.
 
