@@ -23,6 +23,8 @@ The result is a set of open-source DTDL-based ontologies, which learn from, buil
 
 At this time, Microsoft has worked with partners to develop ontologies for [smart buildings](#realestatecore-smart-building-ontology), [smart cities](#smart-cities-ontology), and [energy grids](#energy-grid-ontology), which provide common ground for modeling based on standards in these industries to avoid the need for reinvention. 
 
+Each ontology is focused on an initial set of models. The ontology authors welcome you to contribute to extend the initial set of use cases and improve the existing models. 
+
 ## RealEstateCore smart building ontology
 
 *Get the ontology from the following repository:* [Digital Twins Definition Language-based RealEstateCore ontology for smart buildings](https://github.com/Azure/opendigitaltwins-building).
@@ -41,8 +43,6 @@ You can also read more about the partnership with RealEstateCore and goals for t
 
 Microsoft has collaborated with [Open Agile Smart Cities (OASC)](https://oascities.org/) and [Sirus](https://sirus.be/) to provide a DTDL-based ontology for smart cities, starting with [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). In addition to ETSI NGSI-LD, we’ve also evaluated Saref4City, CityGML, ISO, and others.
 
-The current release of the ontology is focused on an initial set of models. The ontology authors welcome you to contribute to extend the initial set of use cases and improve the existing models. 
-
 To learn more about the ontology, how to use it, and how to contribute, visit the ontology's repository on GitHub: [Azure/opendigitaltwins-smartcities](https://github.com/Azure/opendigitaltwins-smartcities). 
 
 You can also read more about the partnerships and approach for smart cities in the following blog post and accompanying video: [Smart Cities Ontology for Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/smart-cities-ontology-for-digital-twins/ba-p/2166585).
@@ -52,8 +52,6 @@ You can also read more about the partnerships and approach for smart cities in t
 *Get the ontology from the following repository:* [Digital Twins Definition Language (DTDL) ontology for Energy Grid](https://github.com/Azure/opendigitaltwins-energygrid/).
 
 This ontology was created to help solution providers accelerate development of digital twin solutions for energy use cases (monitoring grid assets, outage and impact analysis, simulation, and predictive maintenance) and facilitate digital transformation and modernization of the energy grid. It is adapted from the [Common Information Model (CIM)](https://cimug.ucaiug.org/), a global standard for energy grid assets management, power system operations modeling and physical energy commodity market.
-
-The current release of the ontology is focused on an initial set of models. The ontology authors welcome you to contribute to extend the initial set of use cases and improve the existing models. 
 
 To learn more about the ontology, how to use it, and how to contribute, visit the ontology's repository on GitHub: [Azure/opendigitaltwins-energygrid](https://github.com/Azure/opendigitaltwins-energygrid/). 
 
