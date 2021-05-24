@@ -75,7 +75,7 @@ The Azure Repos Git repo can be in a different Azure Active Directory tenant. To
 
 ### Use your personal Microsoft account
 
-To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
+To use a personal Microsoft account for Git integration, you can link your personal Azure Repos to your organization's Active Directory.
 
 1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../../active-directory/external-identities/add-users-administrator.md).
 
