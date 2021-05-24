@@ -9,6 +9,7 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/25/2021
+ms.custom: references_regions
 ---
 
 # Index data using Power Query connectors (preview)
