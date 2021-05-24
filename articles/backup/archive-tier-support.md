@@ -299,7 +299,7 @@ The recovery point will remain in archive forever. For more information, see [Im
 
 ### Is Cross Region restore supported from archive tier?
 
-When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross-region-restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
+When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
 
 While restoring from recovery point in archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
 
