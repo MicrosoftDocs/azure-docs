@@ -13,7 +13,7 @@ This article provides answers to some of the most common issues that customers f
 ## Change parquet files to store timestamp in UTC time zone
 
 Workaround:
-* ssh both head nodes and backup below jar files in case you need to rollback. Don't keep backup under the same path.
+* ssh both head nodes and backup below jar files in case you need to roll back. Don't keep backup under the same path.
 /usr/hdp/4.1.2.5/hive/lib/hive-common-3.1.2.4.1.2.5.jar and hive-exec-3.1.2.4.1.2.5.jar
 * Download updated jars from https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar  and https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar
 * Move downloaded jars to /usr/hdp/4.1.2.5/hive/lib on both head nodes.
@@ -93,11 +93,12 @@ To create external tables under a custom location, specify the location in the c
 
 ## Disable ACID in HDInsight 4.0
 
-We recommend to enable ACID in HDI 4.0 as most of the recent enhancements (both functional and performance) in Hive are made available only for ACID tables.
+We recommend enabling ACID in HDI 4.0 as most of the recent enhancements (both functional and performance) in Hive are made available only for ACID tables.
 
 Steps to disable ACID on HDI4.0:
 * Change the following hive configurations in Ambari:
 
+        ```markdown
         hive.strict.managed.tables=false
         hive.support.concurrency=false; 
         hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager;
@@ -106,11 +107,12 @@ Steps to disable ACID on HDI4.0:
         hive.compactor.worker.threads=0;
         hive.create.as.insert.only=false;
         metastore.create.as.acid=false;
+        ```
 
 * Restart hive service.
 
 **Important notes**:
-* **We do not recommend sharing the same data/storage with HDInsight 3.6 and HDInsight 4.0 Hive managed tables, it is unsupported scenario**.
+* **We do not recommend sharing the same data/storage with HDInsight 3.6 and HDInsight 4.0 Hive-managed tables, it is unsupported scenario**.
 
 * Normally, above configurations should be set even before creating any Hive tables on HDI4.0 cluster. We shouldn't disable ACID once managed tables are created. It would potentially cause data loss or inconsistent results. So, it is recommended to set it once when you create a new cluster and don’t change it later.
 
