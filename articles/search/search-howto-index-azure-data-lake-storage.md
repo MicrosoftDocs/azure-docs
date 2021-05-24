@@ -54,7 +54,7 @@ A Data Lake Storage Gen2 data source definition looks similar to the example bel
     Content-Type: application/json
     api-key: [Search service admin key]
     {
-        "name" : "my-adlsgen2-datasource",
+        "name" : "adlsgen2-datasource",
         "type" : "adlsgen2",
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
@@ -126,8 +126,8 @@ Once the index and data source have been created, you're ready to create the ind
     api-key: [admin key]
 
     {
-      "name" : "myadlsgen2indexer",
-      "dataSourceName" : "my-adlsgen2-datasource",
+      "name" : "adlsgen2-indexer",
+      "dataSourceName" : "adlsgen2-datasource",
       "targetIndexName" : "my-target-index",
       "schedule" : { 
         "interval" : "PT2H"
@@ -165,12 +165,12 @@ In a search index, the document key uniquely identifies each document. The field
 The following example demonstrates `metadata_storage_name` as the document key. Assume the index has a key field named `key` and another field named `fileSize` for storing the document size. [Field mappings](search-indexer-field-mappings.md) in the indexer definition establish field associations, and `metadata_storage_name` has the [`base64Encode` field mapping function](search-indexer-field-mappings.md#base64EncodeFunction) to handle unsupported characters.
 
 ```http
-    PUT https://[service name].search.windows.net/indexers/my-blob-indexer?api-version=2020-06-30
+    PUT https://[service name].search.windows.net/indexers/adlsgen2-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
     
     {
-      "dataSourceName" : "my-blob-datasource ",
+      "dataSourceName" : "adlsgen2-datasource",
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" },
       "fieldMappings" : [
@@ -185,7 +185,7 @@ The following example demonstrates `metadata_storage_name` as the document key. 
 There are times when you need to use an encoded version of a field like `metadata_storage_path` as the key, but also need that field to be searchable (without encoding) in the search index. To support both use cases, you can map `metadata_storage_path` to two fields; one for the key (encoded), and a second for a path field that we can assume is attributed as "searchable" in the index schema. The example below shows two field mappings for `metadata_storage_path`.
 
 ```http
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
+    PUT https://[service name].search.windows.net/indexers/adlsgen2-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
     
