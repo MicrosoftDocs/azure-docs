@@ -102,7 +102,7 @@ string logFile = Application.persistentDataPath + "/logFile.txt";
 config.SetProperty(PropertyId.Speech_LogFilename, logFile);
 ```
 In addition, you need to also set write permission in your Unity Player settings for Android to "External (SDCard)". The log will be written 
-to a directory which you can get e.g. using AndroidStudio Device File Explorer. The exact directory path may vary between Android devices, 
+to a directory you can get using a tool such as AndroidStudio Device File Explorer. The exact directory path may vary between Android devices, 
 normally location is `sdcard/Android/data/your-app-packagename/files` directory.
 
 More about data and file storage for Android applications is available [here](https://developer.android.com/guide/topics/data/data-storage.html).
