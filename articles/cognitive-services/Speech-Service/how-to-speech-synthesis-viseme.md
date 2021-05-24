@@ -33,7 +33,7 @@ Visemes make avatars easier to use and control. Using visemes, you can:
  * People with hearing impairment can also pick up sounds visually and **"lip-read"** speech content that shows visemes on an animated face.
 
 See [the introduction video](https://youtu.be/ui9XT47uwxs) of the viseme.
-> [!Video https://www.youtube.com/embed/ui9XT47uwxs]
+> [!VIDEO https://www.youtube.com/embed/ui9XT47uwxs]
 
 ## Azure neural TTS can produce visemes with speech
 
