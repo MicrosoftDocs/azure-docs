@@ -56,9 +56,9 @@ Do the following steps to create a Windows VM image.
       
    1. Download the URL to you Azure Storage account. Two methods are available:
    
-      - When you generate a download URL (in the previous step), select **Download the VHD file** to download the disk from the portal. **When you use this method, the disk copy takes a long time.**
+      - One method is to select **Download the VHD file** when you generate a download URL (in the previous step) to download the disk from the portal. **When you use this method, the disk copy takes a long time.**
 
-      - A faster method is to use AzCopy: In PowerShell, navigate to the directory that contains adcopy.exe, and run the following command:
+      - A faster method is to use AzCopy. In PowerShell, navigate to the directory that contains adcopy.exe, and run the following command:
 
         `.\azcopy copy <source URI> <target URI> --recursive`
 
