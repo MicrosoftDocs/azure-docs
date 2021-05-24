@@ -137,8 +137,7 @@ To save time in debugging, it's **highly recommended** you test-run your endpoin
 > [!Important]
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before deploying to Azure. Local deployment has the following limitations:
 > - Local endpoints do **not** support traffic rules, authentication, scale settings, or probe settings. 
-> - Local endpoints only support one deployment per endpoint.
-> - Currently, local deployment requires inline specification of model and environment (as in the example YAML. That is, in a local deployment you cannot use a reference to a model or environment registered in your Azure machine learning workspace. 
+> - Local endpoints only support one deployment per endpoint.). That is, in a local deployment you cannot use a reference to a model or environment registered in your Azure machine learning workspace. 
 
 ### Deploy the model locally
 
