@@ -315,9 +315,9 @@ Debugging steps:
 
 1.	Find out what process(es) are using the lock,<!--How? Where?--> and either wait for the processes to complete or end the processes.
 
-1.	Retry setting the extension.<!--Is this a portal step? Is there a Retry option they select?-->
+1.	Retry setting the extension.<!--What step are they performing again? Source article/procedure?-->
 
-1.	If the extension retry fails again, try creating a new VM, and make sure the lock is not in use before you deploy the GPU extension.
+1.	If extension deployment fails again, create a new VM and make sure the lock isn't in use before you deploy the GPU extension.
 
 
 ## Next steps
