@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    b. In the **Identifier** text box, type one of the following URLs:
+    a. In the **Identifier** text box, type one of the following values:
 
     | Environment | Identifier |
     |-------------| -------------|
@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | AP | `ap.portal.checkpoint.com` |
     |
 
-    a. In the **Reply URL** text box, type one of the following URLs:
+    b. In the **Reply URL** text box, type one of the following URLs:
 
     | Environment | Reply URL |
     |-------------| -------------|
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | AP | `https://ap.portal.checkpoint.com/` |
     |
 
-	b. In the **Sign on URL** text box, type one of the following URLs:
+    c. In the **Sign on URL** text box, type one of the following URLs:
 
     | Environment | Sign on URL |
     |-------------| -------------|
