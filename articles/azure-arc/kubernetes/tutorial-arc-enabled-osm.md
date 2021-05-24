@@ -320,7 +320,7 @@ osm metrics enable --namespace <namespace1>
 osm metrics enable --namespace <namespace2>
 ```
 4. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
-5. Add the namespaces you want to monitor in container-azm-ms-osmconfig Configmap. Download the configmap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
+5. Add the namespaces you want to monitor in container-azm-ms-osmconfig ConfigMap. Download the ConfigMap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
 ```azurecli-interactive
 monitor_namespaces = ["namespace1", "namespace2"]
 ```
