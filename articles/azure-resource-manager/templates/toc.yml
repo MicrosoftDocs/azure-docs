@@ -301,7 +301,7 @@
     href: deployment-modes.md
   - name: Deployment history deletions
     href: deployment-history-deletions.md
-  - name: Complete mode deletion
+  - name: Deployment complete mode deletion
     href: deployment-complete-mode-deletion.md
 - name: How to
   items:
