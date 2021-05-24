@@ -146,7 +146,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Standard for Success Accreditation test user
 
-1.	Sign in to Standard for Success Accreditation as an Administrator with superuser privledges.
+1.	Sign in to Standard for Success Accreditation as an Administrator with superuser privileges.
 
 1. From the menu, click on **Admin Portal -> Create New Evaluatee** and perform the following steps.
 
