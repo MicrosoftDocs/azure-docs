@@ -86,11 +86,11 @@ You can also leverage this agent from portal with the following procedure.
 
 8. View **JVMs** of the application from **New Relic** dashboard.
 
-   ![JVM page](media/new-relic-monitoring/jvm-page.png) 
+   [ ![JVM page](media/new-relic-monitoring/jvm-page.png)](media/new-relic-monitoring/jvm-page.png) 
 
 9. View the application profile from **New Relic** dashboard.
 
-   ![Application profile](media/new-relic-monitoring/profile-app.png) 
+   [ ![Application profile](media/new-relic-monitoring/profile-app.png)](media/new-relic-monitoring/profile-app.png) 
 
 ## New Relic Java Agent Logging
 
