@@ -134,7 +134,7 @@ This command moves an archivable recovery point to archive. It returns a job tha
 This command returns all the archived recovery points.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive-StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime
 ```
 
 ### Restore with PowerShell
@@ -301,7 +301,7 @@ The recovery point will remain in archive forever. For more information, see [Im
 
 When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross-region-restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
 
-While restoring from recovery point in archive tier, the recovery point is copied to the Standard tier and is retained according to the rehydration duration. You can perform Cross region restore e from these rehydrated recovery points.
+While restoring from recovery point in archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
 
 ## Next steps
 
