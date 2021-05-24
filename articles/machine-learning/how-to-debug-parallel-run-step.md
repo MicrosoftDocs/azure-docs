@@ -297,7 +297,7 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 This section is about how to check the progress of a ParallelRunStep job and check the cause of unexpected behavior.
 
 ### How to check job progress?
-Besides looking at the overall status of the StepRun, the count of scheduled/processed mini-batches and the progress of generating output can be viewed in `~/logs/job_progress_overview.<timestamp>.txt`. Normally there will be only one such file, but there could be multiple ones if there have been failure-recovery, in which case you can check the one with the largest timestamp for the latest information.
+Besides looking at the overall status of the StepRun, the count of scheduled/processed mini-batches and the progress of generating output can be viewed in `~/logs/job_progress_overview.<timestamp>.txt`. The file rotates on daily basis, you can check the one with the largest timestamp for the latest information.
 
 ### What should I check if there is no progress for a while?
 You can go into `~/logs/sys/errror` to see if there's any exception. If there is none, it's likely that your entry script is taking a long time, you can print out progress information in your code to locate the time-consuming part, or add `"--profiling_module", "cProfile"` to the `arguments` of `ParallelRunStep` to generate a profile file named as `<process_name>.profile` under `~/logs/sys/node/<node_id>` folder.
@@ -313,7 +313,7 @@ You can follow the lead in `~logs/job_result.txt` to find the cause and detailed
 ### Will node failure impact the job result?
 Not if there are other available nodes in the designated compute cluster. The orchestrator will start a new node as replacement, and ParallelRunStep is resilient to such operation.
 
-### What will happen on OOM? How can I check the cause?
+### What will happen on OutOfMemory? How can I check the cause?
 ParallelRunStep will set the current attempt to process the mini-batch to failure status and try to restart the failed process. You can check `~logs/perf/<node_id>` to find the memory-consuming process.
 
 ### Why I have a lot of processNNN files?
