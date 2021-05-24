@@ -21,19 +21,19 @@ In most cases, app developers need to know nothing more than how to deploy to th
 
 ## Public preview limitations
 
-The following public preview limitations apply to App Service Kubernetes environments. They will be updated when additional distributions are validated and more regions are supported.
+The following public preview limitations apply to App Service Kubernetes environments. They will be updated as changes are made available.
 
-| Limitation                                              | Details                                                                          |
-|---------------------------------------------------------|----------------------------------------------------------------------------------|
-| Supported Azure regions                                 | East US, West Europe                                                             |
-| Validated Kubernetes distributions                      | Azure Kubernetes Service                                                         |
-| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported) |
-| Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                               |
-| Feature: Key vault references                           | Not available (depends on managed identities)                                    |
-| Feature: Pull images from ACR with managed identity     | Not available (depends on managed identities)                                    |
-| Feature: In-portal editing for Functions and Logic Apps | Not available                                                                    |
-| Feature: FTP publishing                                 | Not available                                                                    |
-| Logs                                                    | Log Analytics must be configured with cluster extension; not per-site            |
+| Limitation                                              | Details                                                                               |
+|---------------------------------------------------------|---------------------------------------------------------------------------------------|
+| Supported Azure regions                                 | East US, West Europe                                                                  |
+| Cluster networking requirement                          | Must support `LoadBalancer` service type and provide a publicly addressable static IP |
+| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported)      |
+| Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
+| Feature: Key vault references                           | Not available (depends on managed identities)                                         |
+| Feature: Pull images from ACR with managed identity     | Not available (depends on managed identities)                                         |
+| Feature: In-portal editing for Functions and Logic Apps | Not available                                                                         |
+| Feature: FTP publishing                                 | Not available                                                                         |
+| Logs                                                    | Log Analytics must be configured with cluster extension; not per-site                 |
 
 ## Pods created by the App Service extension
 
