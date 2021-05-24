@@ -32,56 +32,68 @@ You’ll also get traceability information such as the GitHub workflow and the G
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
-## Identify vulnerabilities in images in CI/CD workflows
+## Prerequisites
+
+To scan your images as they're pushed by CI/CD workflows into your registries, you must have **Azure Defender for container registries** enabled on the subscription. 
+
+## Set up vulnerability scanning of your CI/CD workflows
 
 To enable vulnerability scans of images in your GitHub workflows:
 
-1. Enable **Azure Defender for container registries** for your subscription. Security Center is now ready to present CI/CD scan results along with registry scan results for your images in your registries.
+[Step 1. Enable the CI/CD integration in Security Center](#step-1-enable-the-cicd-integration-in-security-center)
 
-    >[!NOTE]
-    > This feature is charged per image.
+[Step 2. Add the necessary lines to your GitHub workflow](#step-2-add-the-necessary-lines-to-your-github-workflow)
 
-1. Enable the CI/CD integration:
+### Step 1. Enable the CI/CD integration in Security Center
 
-    1. From Security Center's sidebar, select **Pricing & settings**.
-    1. Select the relevant subscription.
-    1. From the sidebar of the settings page for that subscription, select **Integrations**.
-    1. In the pane that appears, select an Application Insights account to push the CI/CD scan results from your workflow.
-    1. Copy the authentication token and connection string into your GitHub workflow.
+1. From Security Center's sidebar, select **Pricing & settings**.
+1. Select the relevant subscription.
+1. From the sidebar of the settings page for that subscription, select **Integrations**.
+1. In the pane that appears, select an Application Insights account to push the CI/CD scan results from your workflow.
+1. Copy the authentication token and connection string into your GitHub workflow.
 
-        :::image type="content" source="./media/defender-for-container-registries-cicd/enable-cicd-integration.png" alt-text="Enable the CI/CD integration for vulnerability scans of container images in your GitHub workflows" lightbox="./media/defender-for-container-registries-cicd/enable-cicd-integration.png":::
+    :::image type="content" source="./media/defender-for-container-registries-cicd/enable-cicd-integration.png" alt-text="Enable the CI/CD integration for vulnerability scans of container images in your GitHub workflows" lightbox="./media/defender-for-container-registries-cicd/enable-cicd-integration.png":::
 
-        > [!IMPORTANT]
-        > The authentication token and connection string are used to correlate the ingested security telemetry with resources in the subscription. If you use invalid values for these parameters, it'll lead to dropped telemetry.
+    > [!IMPORTANT]
+    > The authentication token and connection string are used to correlate the ingested security telemetry with resources in the subscription. If you use invalid values for these parameters, it'll lead to dropped telemetry.
+
+### Step 2. Add the necessary lines to your GitHub workflow and perform a scan
+
+1. From your GitHub workflow, enable CI/CD scanning as follows:
+
+    > [!TIP]
+    > We recommend creating two secrets in your repository to reference in your YAML file as shown below. The secrets can be named according to your own naming conventions. In this example, the secrets are referenced as **AZ_APPINSIGHTS_CONNECTION_STRING** and **AZ_SUBSCRIPTION_TOKEN**.
 
 
-    1. From your GitHub workflow, enable CI/CD scanning as follows:
-
-        > [!TIP]
-        > We recommend creating two secrets in your repository to reference in your YAML file as shown below. The secrets can be named according to your own naming conventions. In this example, the secrets are referenced as **AZ_APPINSIGHTS_CONNECTION_STRING** and **AZ_SUBSCRIPTION_TOKEN**.
-
-
-        ```yml
-        - uses: Azure/container-scan@v0 
-          name: Scan image for vulnerabilities
-          id: container-scan
-          continue-on-error: true
-          with:
-            image-name: githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} 
-
-        - name: Post logs to appinsights
-          uses: Azure/publish-security-assessments@v0
-          with: 
-            scan-results-path: ${{ steps.container-scan.outputs.scan-report-path }}
-            connection-string: ${{ secrets.AZ_APPINSIGHTS_CONNECTION_STRING }}
-            subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
-        ```
+    ```yml
+    - run: |
+      echo "github.sha=$GITHUB_SHA"
+      docker build -t githubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    
+    - uses: Azure/container-scan@v0 
+      name: Scan image for vulnerabilities
+      id: container-scan
+      continue-on-error: true
+      with:
+        image-name: githubdemo1.azurecr.io/k8sdemo:${{ github.sha }} 
+    
+    - name: Push Docker image - lakasagithubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+      run: |
+      docker push lakasagithubdemo1.azurecr.io/k8sdemo:${{ github.sha }}
+    
+    - name: Post logs to appinsights
+      uses: Azure/publish-security-assessments@v0
+      with: 
+        scan-results-path: ${{ steps.container-scan.outputs.scan-report-path }}
+        connection-string: ${{ secrets.AZ_APPINSIGHTS_CONNECTION_STRING }}
+        subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
+    ```
 
 1. Run the workflow that will push the image to the selected container registry. Once the image is pushed into the registry, a scan of the registry runs and you can view the CI/CD scan results along with the registry scan results within Azure Security Center.
 
-1. [View and remediate findings as explained below](#view-and-remediate-findings).
+1. [View CI/CD scan results](#view-cicd-scan-results).
 
-## View and remediate findings
+## View CI/CD scan results
 
 1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the recommendation **Vulnerabilities in Azure Container Registry images should be remediated**.
 
