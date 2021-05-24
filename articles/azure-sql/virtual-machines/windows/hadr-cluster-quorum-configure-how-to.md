@@ -21,7 +21,7 @@ ms.author: chadam
 
 This article teaches you to configure one of the three quorum options for a Windows Server Failover Cluster running on SQL Server on Azure Virtual Machines (VMs) - a disk witness, a cloud witness, and a file share witness.
 
-f
+
 ## Overview
 
 The quorum for a cluster is determined by the number of voting elements that must be part of active cluster membership for the cluster to start properly or continue running. Configuring a quorum resource allows a two-node cluster to continue with only one node online. The Windows Server Failover Cluster is the underlying technology for the SQL Server on Azure VMs high availability options: [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) and [availability groups (AGs)](availability-group-overview.md). 
