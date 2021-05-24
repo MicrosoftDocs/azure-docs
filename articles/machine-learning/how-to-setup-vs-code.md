@@ -1,5 +1,5 @@
 ---
-title: Set up Visual Studio Code extension
+title: Set up Visual Studio Code extension (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to set up the Azure Machine Learning Visual Studio Code extension
 services: machine-learning
@@ -11,7 +11,7 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ---
 
-# Set up the Visual Studio Code Azure Machine Learning extension
+# Set up the Visual Studio Code Azure Machine Learning extension (preview)
 
 Learn how to set up the Azure Machine Learning Visual Studio Code extension for your machine learning workflows.
 
