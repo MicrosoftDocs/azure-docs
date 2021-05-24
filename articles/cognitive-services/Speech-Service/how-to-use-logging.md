@@ -63,7 +63,7 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-If you are using Unity UWP application, a log file can be created using the application persistent data path folder as follows:
+Within a Unity UWP application, a log file can be created using the application persistent data path folder as follows:
 
 ```csharp
 #if ENABLE_WINMD_SUPPORT
