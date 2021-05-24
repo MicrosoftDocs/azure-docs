@@ -12,13 +12,16 @@ author: balaramesh
 
 Azure NetApp Files (ANF) provides a production-ready CSI driver for Kubernetes users to directly consume ANF volumes through AKS. This is achieved using Trident, NetApp's open-source dynamic storage orchestrator for Kubernetes. Trident is an enterprise-grade storage orchestrator purpose-built for Kubernetes that is **fully supported** by NetApp. It simplifies access to storage across Kubernetes environments by automating storage provisioning. ANF consumers can take advantage of Trident's CSI driver for ANF to abstract underlying details and create/expand/snapshot ANF volumes on-demand.
 
-To understand how you can install Trident and provision ANF volumes using the CSI driver, please refer to [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][azure-netapp-files-dynamic.md]. The article walks you through all the steps involved in deploying Trident and provisioning ANF volumes using the `azure-netapp-files` CSI storage driver.
+To understand how you can install Trident and provision ANF volumes using the CSI driver, please refer to [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netapp-files-dynamic]. The article walks you through all the steps involved in deploying Trident and provisioning ANF volumes using the `azure-netapp-files` CSI storage driver.
+
+> [!NOTE]
+> In addition to provisioning ANF volumes, you can also consume a rich set of storage and application-aware data management services with Astra. [Astra](https://cloud.netapp.com/astra) is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads in both public clouds and on-premises. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning.
 
 ## Next steps
 
 - For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
 - You can also learn more about Trident and how Azure NetApp Files can be configured to work with Trident from the detailed [Backend Configuration Guide](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/backends/anf.html).
-- If you would rather like to create ANF volumes statically, see [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][azure-netapp-files.md]
+- If you would rather like to create ANF volumes statically, see [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netapp-files].
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -47,6 +50,8 @@ To understand how you can install Trident and provision ANF volumes using the CS
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
+[az-netapp-files]: azure-netapp-files.md
+[az-netapp-files-dynamic]: azure-netapp-files-dynamic.md
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md

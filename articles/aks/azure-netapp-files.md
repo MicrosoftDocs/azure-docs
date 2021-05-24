@@ -14,6 +14,9 @@ ms.date: 05/10/2021
 
 You can also create ANF volumes **on-demand** using [Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes. To learn how that works, see [Dynamic Provisioning of ANF volumes with Trident][az-netapp-files-dynamic].
 
+> [!NOTE]
+> In addition to provisioning ANF volumes, you can also consume a rich set of storage and application-aware data management services with Astra. [Astra](https://cloud.netapp.com/astra) is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads in both public clouds and on-premises. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning.
+
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
