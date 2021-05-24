@@ -58,15 +58,14 @@ Do the following steps to create a Windows VM image.
    
       - One method is to select **Download the VHD file** when you generate a download URL (in the previous step) to download the disk from the portal. **When you use this method, the disk copy takes a long time.**
 
-      - A faster method is to use AzCopy. In PowerShell, navigate to the directory that contains adcopy.exe, and run the following command:
+      - A faster method is to use AzCopy. In PowerShell, navigate to the directory that contains azcopy.exe, and run the following command:
 
         `.\azcopy copy <source URI> <target URI> --recursive`
 
         where:
-        * `<source URI>` is the download URL generated in the preceding step.
-        * `<target URI>` is the URI to be assigned to the exported VHD in your Azure Storage account. 
-          Save the VHD to a Blob container in an Azure Storage account. It's a good idea to save it to the storage account for your Azure Stack Edge Pro GPU device.
-          - To get the target URI, generate a shared access signature (SAS) for the target Blob container. You can do this from the container in the Azure Storage account (NO LINK FOUND), [using Azure Storage Explorer](/azure/storage/blobs/sas-service-create?tabs=dotnet#create-a-service-sas-for-a-blob-container)<!--Procedure creates SAS URI for a file rather than its container.-->, or [using .NET or JavaScript](/azure/storage/blobs/sas-service-create?tabs=dotnet#create-a-service-sas-for-a-blob-container).  
+        * `<source URI>` is the download URL generated in step 1b.
+        * `<target URI>` tells where to store the new image in your Azure Storage account. Copy the VHD to a Blob container. It's a good idea to copy it to the storage account for your Azure Stack Edge Pro GPU device.
+          - To get the target URI, generate a shared access signature (SAS) for the target Blob container. For more information, see [Create SAS tokens for blobs in the Azure portal](/azure/cognitive-services/translator/document-translation/create-sas-tokens?tabs=Containers#create-sas-tokens-for-blobs-in-the-azure-portal).  
           - Insert the name you want to assign the VHD before the query string (before the **?**) in the format "/<filename>.vhd". The file must have the VHD file name extension. 
         
              For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** Blob container in the **mystorageaccount** storage account:
