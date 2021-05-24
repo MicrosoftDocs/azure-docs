@@ -7,10 +7,10 @@ ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang:
 ms.topic: guide
-author: danimir
-ms.author: danil
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: sstein
-ms.date: 02/04/2019
+ms.date: 05/24/2021
 ---
 
 # Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance
