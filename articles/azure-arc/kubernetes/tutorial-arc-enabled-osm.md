@@ -229,7 +229,7 @@ You should see a JSON output similar to the output below:
 
 ## OSM controller configuration
 
-Currently you can access and configure the OSM controller configuration via the Configmap. To view the OSM controller configuration settings, query the osm-config Configmap via `kubectl` to view its configuration settings.
+Currently you can access and configure the OSM controller configuration via the ConfigMap. To view the OSM controller configuration settings, query the `osm-config` ConfigMap via `kubectl` to view its configuration settings.
 
 ```azurecli-interactive
 kubectl get configmap osm-config -n arc-osm-system -o json
