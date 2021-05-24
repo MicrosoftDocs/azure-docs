@@ -879,6 +879,8 @@
         href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
       - name: Security options for Hive
         href: ./interactive-query/hdinsight-security-options-for-hive.md
+      - name: HDInsight 3.6 to 4.0 troubleshooting guide for Hive workloads
+        href: ./interactive-query-troubleshoot-migrate-36-to-40.md
 - name: ML Services
   items:
   - name: Overview
