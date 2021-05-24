@@ -8,6 +8,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
+ms.custom: references_regions
 ---
 
 # Microsoft edge locations by abbreviation for Azure Front Door

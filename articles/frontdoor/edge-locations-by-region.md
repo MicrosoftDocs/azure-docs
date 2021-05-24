@@ -8,6 +8,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
+ms.custom: references_regions
 ---
 
 # Azure Front Door edge locations by metro
