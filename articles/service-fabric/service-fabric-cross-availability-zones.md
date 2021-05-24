@@ -52,7 +52,7 @@ The Service Fabric load balancer brings up replicas in the working zones to matc
 
 ## Upcoming Optimizations
 * To provide reliable infrastructure updates, service fabric requires the VMSS durability to be set atleast to Silver. This enables the underlying VMSS and service fabric runtime to provide realiable updates. This also requires each, zone to have atleast 5 VMs. We are working to bring this requirement down to 3 & 2 VMs per zone for primary & non-primary nodeTypes respectively.
-* All the below mentioned configurations and upcoming work, provides in-place migration to the customers where the same cluster can be upgraded to use the new configuration by adding new nodeTypes and retiring the old ones.
+* All the below mentioned configurations and upcoming work, provide in-place migration to the customers where the same cluster can be upgraded to use the new configuration by adding new nodeTypes and retiring the old ones.
 
 ## Networking requirements
 
