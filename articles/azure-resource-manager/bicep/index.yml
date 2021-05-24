@@ -79,8 +79,6 @@ landingContent:
             url: deploy-powershell.md
           - text: Azure CLI
             url: deploy-cli.md
-          - text: REST API
-            url: deploy-rest.md
           - text: Cloud Shell
             url: deploy-cloud-shell.md
           - text: What-if deployment

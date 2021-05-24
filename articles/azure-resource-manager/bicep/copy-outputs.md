@@ -5,7 +5,7 @@ description: Use a Bicep output loop to iterate and return deployment values.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 05/20/2021
 ---
 
 # Output iteration in Bicep
@@ -16,9 +16,9 @@ You can also use a loop with [resources](copy-resources.md), [properties in a re
 
 ## Syntax
 
-Loops can be used to return many items during deployment:
+Loops can be used to return many items during deployment by:
 
-- Iterate over an array.
+- Iterating over an array.
 
   ```bicep
   output <output-name> array = [for <item> in <collection>: {
@@ -27,7 +27,7 @@ Loops can be used to return many items during deployment:
 
   ```
 
-- Iterate over the elements of an array.
+- Iterating over the elements of an array.
 
   ```bicep
   output <output-name> array = [for <item>, <index> in <collection>: {
@@ -35,7 +35,7 @@ Loops can be used to return many items during deployment:
   }]
   ```
 
-- Use a loop index.
+- Using a loop index.
 
   ```bicep
   output <output-name> array = [for <index> in range(<start>, <stop>): {
@@ -43,11 +43,9 @@ Loops can be used to return many items during deployment:
   }]
   ```
 
----
+## Copy limits
 
-## Deployment
-
-The Bicep file deploys as a JSON template that uses a copy loop with the `count` and `input` properties. For more information, see [Output iteration in ARM templates](../templates/copy-outputs.md).
+The Bicep file builds a JSON template that uses the `copy` element and there are limitations that affect the `copy` element. For more information, see [Output iteration in ARM templates](../templates/copy-outputs.md).
 
 ## Output iteration
 
@@ -70,8 +68,6 @@ resource baseName 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in ran
 
 output storageEndpoints array = [for i in range(0, storageCount): reference(${i}${baseName_var}).primaryEndpoints.blob]
 ```
-
----
 
 The output returns an array with the following values:
 
@@ -105,8 +101,6 @@ output storageInfo array = [for i in range(0, storageCount): {
   status: reference(concat(i, baseName_var)).statusOfPrimary
 }]
 ```
-
----
 
 The output returns an array with the following values:
 
@@ -175,6 +169,8 @@ The output returns an array with the following values:
   - [Resource iteration in Bicep files](copy-resources.md)
   - [Property iteration in Bicep files](copy-properties.md)
   - [Variable iteration in Bicep files](copy-variables.md)
-- To learn more, see [Tutorial: Create multiple resource instances with ARM templates](../templates/template-tutorial-create-multiple-instances.md).
-- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
-- To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
+- If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
+- For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
+- To set dependencies on resources that are created in a loop, see [Define the order for deploying resources](resource-dependency.md).
+- To learn how to deploy with PowerShell, see [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
+- To learn how to deploy with Azure CLI, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md).

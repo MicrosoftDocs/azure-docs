@@ -1,44 +1,26 @@
 ---
-title: Deploy multiple instances of resources (Bicep)
-description: Use copy operation and arrays in an Azure Resource Manager template (ARM template) to deploy resource type many times. (Bicep)
+title: Deploy multiple instances of resources in Bicep
+description: Use loops and arrays in a Bicep file to deploy multiple instances of resources.
 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/20/2021
 ---
-# Resource iteration in ARM templates (Bicep)
 
-This article shows you how to create more than one instance of a resource in your Azure Resource Manager template (ARM template). By adding copy loop to the resources section of your template, you can dynamically set the number of resources to deploy. You also avoid having to repeat template syntax.
+# Resource iteration in Bicep
 
-You can also use copy loop with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
+This article shows you how to create more than one instance of a resource in your Bicep file. You can add a loop to the `resource` section of your file and dynamically set the number of resources to deploy. You also avoid repeating syntax in your Bicep file.
+
+You can also use a loop with [properties](copy-properties.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
 ## Syntax
 
-# [JSON](#tab/json)
-
-Add the `copy` element to the resources section of your template to deploy multiple instances of the resource. The `copy` element has the following general format:
-
-```json
-"copy": {
-  "name": "<name-of-loop>",
-  "count": <number-of-iterations>,
-  "mode": "serial" <or> "parallel",
-  "batchSize": <number-to-deploy-serially>
-}
-```
-
-The `name` property is any value that identifies the loop. The `count` property specifies the number of iterations you want for the resource type.
-
-Use the `mode` and `batchSize` properties to specify if the resources are deployed in parallel or in sequence. These properties are described in [Serial or Parallel](#serial-or-parallel).
-
-# [Bicep](#tab/bicep)
-
 Loops can be used declare multiple resources by:
 
-- Iterating over an array:
+- Iterating over an array.
 
   ```bicep
   @batchSize(<number>)
@@ -47,7 +29,7 @@ Loops can be used declare multiple resources by:
   }]
   ```
 
-- Iterating over the elements of an array
+- Iterating over the elements of an array.
 
   ```bicep
   @batchSize(<number>)
@@ -56,7 +38,7 @@ Loops can be used declare multiple resources by:
   }]
   ```
 
-- Using loop index
+- Using a loop index.
 
   ```bicep
   @batchSize(<number>)
@@ -65,84 +47,13 @@ Loops can be used declare multiple resources by:
   }]
   ```
 
----
-
 ## Copy limits
 
-The count can't exceed 800.
-
-The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
-
-- Azure PowerShell **2.6** or later
-- Azure CLI **2.0.74** or later
-- REST API version **2019-05-10** or later
-- [Linked deployments](../templates/linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
-
-Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
+The Bicep file builds a JSON template that uses the `copy` element and there are limitations that affect the `copy` element. For more information, see [Resource iteration in ARM templates](../templates/copy-resources.md).
 
 ## Resource iteration
 
 The following example creates the number of storage accounts specified in the `storageCount` parameter.
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageCount": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {},
-      "copy": {
-        "name": "storagecopy",
-        "count": "[parameters('storageCount')]"
-      }
-    }
-  ]
-}
-```
-
-Notice that the name of each resource includes the `copyIndex()` function, which returns the current iteration in the loop. `copyIndex()` is zero-based. So, the following example:
-
-```json
-"name": "[concat('storage', copyIndex())]",
-```
-
-Creates these names:
-
-- storage0
-- storage1
-- storage2.
-
-To offset the index value, you can pass a value in the `copyIndex()` function. The number of iterations is still specified in the copy element, but the value of `copyIndex` is offset by the specified value. So, the following example:
-
-```json
-"name": "[concat('storage', copyIndex(1))]",
-```
-
-Creates these names:
-
-- storage1
-- storage2
-- storage3
-
-The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.
-
-# [Bicep](#tab/bicep)
 
 ```bicep
 param storageCount int = 2
@@ -160,48 +71,7 @@ resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in r
 
 Notice the index `i` is used in creating the storage account resource name.
 
----
-
-The following example creates one storage account for each name provided in the parameter.
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "storageNames": {
-          "type": "array",
-          "defaultValue": [
-            "contoso",
-            "fabrikam",
-            "coho"
-          ]
-      }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(parameters('storageNames')[copyIndex()], uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {},
-      "copy": {
-        "name": "storagecopy",
-        "count": "[length(parameters('storageNames'))]"
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
-
-# [Bicep](#tab/bicep)
+The following example creates one storage account for each name provided in the `storageNames` parameter.
 
 ```bicep
 param storageNames array = [
@@ -221,54 +91,13 @@ resource storageNames_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for n
 }]
 ```
 
----
-
-If you want to return values from the deployed resources, you can use [copy in the outputs section](copy-outputs.md).
+If you want to return values from the deployed resources, you can use a loop in the [output section](copy-outputs.md).
 
 ## Serial or Parallel
 
 By default, Resource Manager creates the resources in parallel. It applies no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the template. The order in which they're created isn't guaranteed.
 
-However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
-
-For example, to serially deploy storage accounts two at a time, use:
-
-# [JSON](#tab/json)
-
-To serially deploy more than one instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
-
-The value for `batchSize` can't exceed the value for `count` in the copy element.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 4,
-        "mode": "serial",
-        "batchSize": 2
-      },
-      "properties": {}
-    }
-  ],
-  "outputs": {}
-}
-```
-
-The `mode` property also accepts **parallel**, which is the default value.
-
-# [Bicep](#tab/bicep)
+You may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
 
 To serially deploy more than one instance of a resource, set the `batchSize` [decorator](./file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
@@ -285,29 +114,21 @@ resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in r
 }]
 ```
 
----
-
 ## Iteration for a child resource
 
-You can't use a copy loop for a child resource. To create more than one instance of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
+You can't use a loop for a child resource. To create more than one instance of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
 
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
-```json
-"resources": [
-{
-  "type": "Microsoft.DataFactory/factories",
-  "name": "exampleDataFactory",
-  ...
-  "resources": [
-    {
-      "type": "datasets",
-      "name": "exampleDataSet",
-      "dependsOn": [
-        "exampleDataFactory"
-      ],
-      ...
-    }
+```bicep
+resource dataFactoryName_resource 'Microsoft.DataFactory/factories@2018-06-01' = {
+  name: exampleDataFactory
+...
+resource dataFactoryName_ArmtemplateTestDatasetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+  parent: dataFactoryName_resource
+  name: 'ArmtemplateTestDatasetIn'
+  dependsOn: [
+    dataFactoryName_resource
   ]
 ```
 
@@ -316,31 +137,6 @@ To create more than one data set, move it outside of the data factory. The datas
 To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the format: `{parent-resource-name}/{child-resource-name}`.
 
 The following example shows the implementation:
-
-# [JSON](#tab/json)
-
-```json
-"resources": [
-{
-  "type": "Microsoft.DataFactory/factories",
-  "name": "exampleDataFactory",
-  ...
-},
-{
-  "type": "Microsoft.DataFactory/factories/datasets",
-  "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
-  "dependsOn": [
-    "exampleDataFactory"
-  ],
-  "copy": {
-    "name": "datasetcopy",
-    "count": "3"
-  },
-  ...
-}]
-```
-
-# [Bicep](#tab/bicep)
 
 ```bicep
 resource dataFactoryName_resource 'Microsoft.DataFactory/factories@2018-06-01' = {
@@ -354,8 +150,6 @@ resource dataFactoryName_ArmtemplateTestDatasetIn 'Microsoft.DataFactory/factori
 }
 ```
 
----
-
 ## Example templates
 
 The following examples show common scenarios for creating more than one instance of a resource or property.
@@ -368,11 +162,12 @@ The following examples show common scenarios for creating more than one instance
 
 ## Next steps
 
-- To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
-- To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](../templates/template-tutorial-create-multiple-instances.md).
-- For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
-- For other uses of the copy loop, see:
-  - [Property iteration in ARM templates](copy-properties.md)
-  - [Variable iteration in ARM templates](copy-variables.md)
-  - [Output iteration in ARM templates](copy-outputs.md)
-- For information about using copy with nested templates, see [Using copy](../templates/linked-templates.md#using-copy).
+- For other uses of the loop, see:
+  - [Property iteration in Bicep files](copy-properties.md)
+  - [Variable iteration in Bicep files](copy-variables.md)
+  - [Output iteration in Bicep files](copy-outputs.md)
+- If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
+- For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
+- To set dependencies on resources that are created in a loop, see [Define the order for deploying resources](resource-dependency.md).
+- To learn how to deploy with PowerShell, see [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
+- To learn how to deploy with Azure CLI, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md).
