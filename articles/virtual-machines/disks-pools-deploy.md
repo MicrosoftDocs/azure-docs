@@ -10,26 +10,32 @@ ms.subservice: disks
 ---
 # Deploy a disk pool
 
-This article covers how to deploy and configure a disk pool. Before deploying a disk pool, we recommend reading the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
+This article covers how to deploy and configure a disk pool. Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
 ## Initial setup
 
-You must register your subscription to the Microsoft.StoragePool provider in order to use the feature.
+Register your subscription to the **Microsoft.StoragePool** provider to get access to and use disk pools.
 
 1. Sign in to the Azure portal
-1. On the Azure portal menu, search for and select Subscriptions.
+1. On the Azure portal menu, search for and select **Subscriptions**.
 1. Select the subscription you want to use for disk pools.
-1. On the left menu, under Settings, select Resource providers.
-1. Find the resource provider Microsoft.StoragePool and select Register.
+1. On the left menu, under **Settings**, select **Resource providers**.
+1. Find the resource provider **Microsoft.StoragePool** and select **Register**.
+
+Once your subscription has been registered, you can deploy a disk pool.
 
 ## Get started
 
 ### Delegate subnet permission
 
-Once your subscription has been registered, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the Microsoft.StoragePool resource provider.
+In order for your disk pool to correctly function with your client machines, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the **Microsoft.StoragePool** resource provider.
 
-1. Go to the virtual networks blade in the Azure portal and select the virtual network you will use for the disk pool.
+1. Go to the virtual networks blade in the Azure portal and select the virtual network to use for the disk pool.
+1. From here, you can either:
     - Select Subnets from the virtual network blade and select +Subnet.
+
+    Or
+
     - Create a new subnet by completing the following required fields in the Add Subnet page:
         - Name: Specify name.
         - Address range: Specify IP address range.
@@ -46,10 +52,10 @@ In order for your disk pool to work correctly, the StoragePool resource provider
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
+## Create a disk pool
 
-1. Sign in to the Azure portal.
-1. Search for and select Disk pool.
-1. Select +Add to create a new disk pool.
+1. Search for and select **Disk pool**.
+1. Select **+Add** to create a new disk pool.
 1. Fill in the details requested, make sure to select the same region and availability zone as the clients that will use the disk pool.
 1. Select the subnet that has been delegated to the StoragePool resource provider, and its associated virtual network.
 
@@ -66,7 +72,7 @@ To add a disk, it must meet the following requirements:
 - Must be a shared disk with a maxShares value of two or greater.
 - You must have granted RBAC permissions for this disk to your disk pool resource provider.
 
-If your disk meets all these pre-requisites, you can add it to the disk pool by selecting **+Add disk** in the disk pool blade.
+If your disk meets these requirements, you can add it to a disk pool by selecting **+Add disk** in the disk pool blade.
 
 ### Enable iSCSI
 
