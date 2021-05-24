@@ -52,7 +52,7 @@ To complete this article, you need the following resources:
 
    ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
 
-## Compliance for TLS 1.2 usage
+## Assign Azure Policy compliance for TLS 1.2 usage
 
 In addition to **Security settings**, Microsoft Azure Policy has a **Compliance** setting to enforce TLS 1.2 usage. The policy has no impact until it is assigned. When the policy is assigned, it appears in **Compliance**:
 
