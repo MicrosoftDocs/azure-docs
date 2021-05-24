@@ -32,8 +32,8 @@ This article provides guidance on the prerequisites that are needed for using th
  - Tenants that are deployed in Azure Government, China, or other specialized cloud are not currently available for use in this public preview. 
 
 ## Known limitations
+The following is a current list of known limitations with  the Azure AD ECMA Connector Host
 
-1. The following applications and directories are not yet supported
    1. **AD DS** (user / group writeback from Azure AD, using the on-prem provisioning preview)
        - When a user is managed by Azure AD Connect, the source of authority is on-prem Active Directory. Therefore, user attributes cannot be changed in Azure AD. This preview does not change the source of authority for users managed by Azure AD Connect.
        - Attempting to use Azure AD Connect and the on-prem provisioning to provision groups / users into AD DS can lead to creation of a loop, where Azure AD Connect can overwrite a change that was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group / user writeback.  Please upvote the  UserVoice feedback [here](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure) to track the status of the preview. Alternatively, you can use [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) for user / group writeback from Azure AD to AD.
