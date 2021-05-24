@@ -463,7 +463,7 @@ The following annotation must be present:
 ```
 
 
-View the labels of the namepace bookbuyer:
+View the labels of the namespace `bookbuyer`:
 ```bash
 kc get namespace bookbuyer -o json | jq '.metadata.labels'
 ```
