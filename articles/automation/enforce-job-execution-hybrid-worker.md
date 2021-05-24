@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group when initiating from the Azure portal, with the Azure PowerShell, or REST API. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook in the Azure sandbox. 
 
-Anyone in your organization who is a member of the [Automation Job Operator](automation-role-based-access-control.md#automation-job-operator) or higher can create runbook jobs. To manage runbook execution targeting a Hybrid Runbook Worker group in your Automation account, you can use [Azure Policy](../governance/policy/overview.md). 
+Anyone in your organization who is a member of the [Automation Job Operator](automation-role-based-access-control.md#automation-job-operator) or higher can create runbook jobs. To manage runbook execution targeting a Hybrid Runbook Worker group in your Automation account, you can use [Azure Policy](../governance/policy/overview.md). This helps to enforce organizational standards and ensure your automation jobs are controlled and managed by those designated, and anyone cannot execute a runbook on an Azure sandbox, only on Hybrid Runbook workers. 
 
 A custom Azure Policy definition is included in this article to help you control these activities using the following Automation REST API operations. Specifically:
 
@@ -187,3 +187,64 @@ Here we compose the policy rule and then assign it to either a management group 
     - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
     ---
+
+4. Sign in to the [Azure portal](https://portal.azure.com).
+5. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching for and selecting **Policy**.
+6. Select **Compliance** in the left side of the page. Then locate the policy assignment you created.
+
+:::image type="content" source="./media/enforce-job-execution-hybrid-worker/azure-policy-dashboard-policy-status.png" alt-text="Example of Activity log for failed job execution.":::
+
+When one of the Automation REST operations are executed without reference to a Hybrid Runbook Worker in the request body, a 403 response code is returned with an error similar to the following example indicating the operation attempted execution on an Azure sandbox:
+
+```rest
+{
+  "error": {
+    "code": "RequestDisallowedByPolicy",
+    "target": "Start_VMS",
+    "message": "Resource 'Start_VMS' was disallowed by policy. Policy identifiers: '[{\"policyAssignment\":{\"name\":\"Enforce Jobs on Automation Hybrid Runbook Workers\",\"id\":\"/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/resourceGroups/MAIC-RG/providers/Microsoft.Authorization/policyAssignments/fd5e2cb3842d4eefbc857917\"},\"policyDefinition\":{\"name\":\"Enforce Jobs on Automation Hybrid Runbook Workers\",\"id\":\"/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/providers/Microsoft.Authorization/policyDefinitions/4fdffd35-fd9f-458e-9779-94fe33401bfc\"}}]'.",
+    "additionalInfo": [
+      {
+        "type": "PolicyViolation",
+        "info": {
+          "policyDefinitionDisplayName": "Enforce Jobs on Automation Hybrid Runbook Workers",
+          "evaluationDetails": {
+            "evaluatedExpressions": [
+              {
+                "result": "True",
+                "expressionKind": "Field",
+                "expression": "type",
+                "path": "type",
+                "expressionValue": "Microsoft.Automation/automationAccounts/jobs",
+                "targetValue": "Microsoft.Automation/automationAccounts/jobs",
+                "operator": "Equals"
+              },
+              {
+                "result": "True",
+                "expressionKind": "Value",
+                "expression": "[length(field('Microsoft.Automation/automationAccounts/jobs/runOn'))]",
+                "expressionValue": 0,
+                "targetValue": 1,
+                "operator": "Less"
+              }
+            ]
+          },
+          "policyDefinitionId": "/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/providers/Microsoft.Authorization/policyDefinitions/4fdffd35-fd9f-458e-9779-94fe33401bfc",
+          "policyDefinitionName": "4fdffd35-fd9f-458e-9779-94fe33401bfc",
+          "policyDefinitionEffect": "Deny",
+          "policyAssignmentId": "/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/resourceGroups/MAIC-RG/providers/Microsoft.Authorization/policyAssignments/fd5e2cb3842d4eefbc857917",
+          "policyAssignmentName": "fd5e2cb3842d4eefbc857917",
+          "policyAssignmentDisplayName": "Enforce Jobs on Automation Hybrid Runbook Workers",
+          "policyAssignmentScope": "/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/resourceGroups/MAIC-RG",
+          "policyAssignmentParameters": {}
+        }
+      }
+    ]
+  }
+}
+```
+
+The attempted operation is also logged in the Automation account's Activity Log, similar to the following example.
+
+:::image type="content" source="./media/enforce-job-execution-hybrid-worker/failed-job-activity-log-example.png" alt-text="Example of Activity log for failed job execution.":::
+
+## Next steps
