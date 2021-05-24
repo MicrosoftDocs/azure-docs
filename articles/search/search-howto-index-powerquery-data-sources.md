@@ -18,12 +18,12 @@ ms.date: 05/25/2021
 >
 > Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) and Azure portal provide this feature. There is currently no SDK support.
+> The Azure portal provides this feature. There is currently no SDK support.
 
 ## Overview
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index. Indexers provide a convenient way for users to index content from their data source without having to write their own crawler or push model. Indexers also allow you to add a skillset to their pipeline so that they can further enrich their data.
 
-With the new Power Query data connector integration, you can pull data from many new data sources! [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) is a data transformation and data preparation engine. Power Query connectors are used in products like Power BI and Excel. Azure Cognitive Search has added support for select Power Query data connectors so that you can pull data from more data sources.
+With the new Power Query data connector integration, you can pull data from many new data sources. [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) is a data transformation and data preparation engine. Power Query connectors are used in products like Power BI and Excel. Azure Cognitive Search has added support for select Power Query data connectors so that you can pull data from more data sources. These new data sources are supported in the Azure portal.
 
 ## Supported data sources
 + Amazon Redshift
@@ -35,7 +35,7 @@ With the new Power Query data connector integration, you can pull data from many
 + Snowflake
 
 ## Supported functionality
-The Power Query connectors support the same functionality that indexers like the blob data source support. Power Query connectors support skillsets, running indexers on a schedule, change tracking using a high water mark column, and many more features.
+Indexers that reference Power Query data sources have the same level of support for skillsets, schedules, and high water mark change detection logic as other indexers.
 
 ### High Water Mark Change Detection policy
 This change detection policy relies on a "high water mark" column capturing the version or time when a row was last updated.
@@ -49,7 +49,7 @@ This change detection policy relies on a "high water mark" column capturing the 
 ## Preview limitations
 Although there is a lot to be excited about with this preview, there are a few limitations. This section describes a few limitations that are specific to the current version of the preview.
 + The initial preview requires you to supply a Blob storage account.
-+ Support for this preview is limited to the Azure Portal for all data sources and the 2020-06-30-Preview API for some data sources.
++ Support for this preview is limited to the Azure portal for all data sources and the 2020-06-30-Preview API for some data sources.
 + The preview is only available to customers with search services in the following regions:
     + Central US
     + East US
@@ -61,11 +61,11 @@ Although there is a lot to be excited about with this preview, there are a few l
     + West Europe
     + West US
     + West US 2
-+ Binary data is not supported in this version of the preview. 
++ Pulling binary data from your data source is not supported in this version of the preview. 
 + Debug sessions are not supported at this time.
 
 ## Prerequisites
-Before you start pulling data from one of the supported data sources, you'll want to make sure you have all your resources setup.
+Before you start pulling data from one of the supported data sources, you'll want to make sure you have all your resources set up.
 + Azure Cognitive Search service
     + Azure Cognitive Search service set up in a supported region.
     + Ensure that the Azure Cognitive Search team has enabled your search service for the preview. You can sign up for the preview filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
@@ -118,7 +118,7 @@ For more information about transforming data with Power Query, look at [Using Po
 
 Once you're done transforming your data, select **Next**.
 
-### Step 7 – Add Azure blob storage
+### Step 7 – Add Azure Blob storage
 The Power Query connector preview currently requires you to provide a blob storage account. This blob storage account will serve as temporary storage for data that moves from your data source to an Azure Cognitive Search index.
 
 We recommend providing a full access storage account connection string: 
@@ -159,5 +159,5 @@ When creating the indexer, you can optionally choose to run the indexer on a sch
 
 Once you've finished filling out this page select **Submit**.
 
-## See also
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
+## Next steps
+Congratulations! You have learned how to pull data from new data sources using the Power Query connectors. To learn more about indexers, see [Indexers in Azure Cognitive Search](search-indexer-overview.md).
