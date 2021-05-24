@@ -1258,7 +1258,7 @@
       - name: Azure PowerShell
         href: /powershell/azure/
       - name: Azure CLI
-        href: /cli/azure/
+        href: /cli/azure/azure-cli-reference-for-sql
       - name: T-SQL
         href: /sql/t-sql/language-reference
       - name: SQL Server Drivers
@@ -1345,7 +1345,7 @@
   - name: T-SQL language reference
     href: /sql/t-sql/language-reference
   - name: Azure CLI
-    href: /cli/azure/sql
+    href: /cli/azure/azure-cli-reference-for-sql
   - name: Azure PowerShell
     href: /powershell/module/az.sql
   - name: .NET
