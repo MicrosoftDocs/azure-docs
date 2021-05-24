@@ -7,7 +7,7 @@ ms.date: 06/01/2021
 
 # Resource group deployments with Bicep files
 
-This article describes how to scope your deployment to a resource group. You use a Bicep file for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
+This article describes how to set scope with Bicep when deploying to a resource group.
 
 ## Supported resources
 
@@ -79,7 +79,7 @@ This section shows how to specify different scopes. You can combine these differ
 To deploy resources to the target resource group, add those resources to the Bicep file.
 
 ```bicep
-// create resource in target resource group
+// resource deployed to target resource group
 resource exampleResource 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   ...
 } 
@@ -99,8 +99,8 @@ The following example shows a module that targets a resource group in a differen
 param otherResourceGroup string
 param otherSubscriptionID string
 
-// create resources in a different subscription and resource group
-module  './module.bicep' = {
+// module deployed to different subscription and resource group
+module exampleModule 'module.bicep' = {
   name: 'otherSubAndRG'
   scope: resourceGroup(otherSubscriptionID, otherResourceGroup)
 }
@@ -111,8 +111,8 @@ The next example shows a module that targets a resource group in the same subscr
 ```bicep
 param otherResourceGroup string
 
-// create resources in a resource group in the same subscription
-module  './module.bicep' = {
+// module deployed to resource group in the same subscription
+module exampleModule 'module.bicep' = {
   name: 'otherRG'
   scope: resourceGroup(otherResourceGroup)
 }
@@ -122,14 +122,14 @@ For an example template, see [Deploy to multiple resource groups](#deploy-to-mul
 
 ### Scope to subscription
 
-To deploy resources to a subscription, add a module and set its `scope` property. 
+To deploy resources to a subscription, add a module. Use the subscription function to set its `scope` property. 
 
 To deploy to the current subscription, use the subscription function without a parameter. 
 
 ```bicep
 
-// create resources at subscription level
-module  './module.bicep' = {
+// module deployed at subscription level
+module exampleModule 'module.bicep' = {
   name: 'deployToSub'
   scope: subscription()
 }
@@ -140,8 +140,8 @@ To deploy to a different subscription, specify that subscription ID as a paramet
 ```bicep
 param otherSubscriptionID string
 
-// create resources at subscription level but in a different subscription
-module  './module.bicep' = {
+// module deployed at subscription level but in a different subscription
+module exampleModule 'module.bicep' = {
   name: 'deployToSub'
   scope: subscription(otherSubscriptionID)
 }
@@ -151,16 +151,15 @@ For an example template, see [Create resource group](#create-resource-group).
 
 ### Scope to tenant
 
-To create resources at the tenant, add a module. Set its `scope` property to `tenant()`.
+To create resources at the tenant, add a module. Use the tenant function to set its `scope` property.
 
 The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
 The following example includes a module that is deployed to the tenant.
 
 ```bicep
-param otherSubscriptionID string
-
-module  './module.bicep' = {
+// module deployed at tenant level
+module exampleModule 'module.bicep' = {
   name: 'deployToTenant'
   scope: tenant()
 }
@@ -171,6 +170,7 @@ Instead of using a module, you can set the scope to `tenant()` for some resource
 ```bicep
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
+// ManagementGroup deployed at tenant
 resource managementGroup 'Microsoft.Management/managementGroups@2020-05-01' = {
   scope: tenant()
   name: mgName
@@ -207,8 +207,8 @@ param secondResourceGroup string
 param secondSubscriptionID string = ''
 param secondStorageLocation string
 
-var firstStorageName = concat(storagePrefix, uniqueString(resourceGroup().id))
-var secondStorageName = concat(storagePrefix, uniqueString(secondSubscriptionID, secondResourceGroup))
+var firstStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
+var secondStorageName = '${storagePrefix}${uniqueString(secondSubscriptionID, secondResourceGroup)}'
 
 module firstStorageAcct 'storage.bicep' = {
   name: 'storageModule1'
@@ -228,13 +228,13 @@ module secondStorageAcct 'storage.bicep' = {
 }
 ```
 
-Both modules use the same Bicep file.
+Both modules use the same Bicep file named **storage.bicep**.
 
 ```bicep
 param storageLocation string
 param storageName string
 
-resource StorageAcct 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
   location: storageLocation
   sku: {
@@ -259,8 +259,9 @@ param secondResourceGroup string
 param secondSubscriptionID string = ''
 param secondLocation string
 
-var firstStorageName = concat(storagePrefix, uniqueString(resourceGroup().id))
+var firstStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
+// resource deployed to target resource group
 module firstStorageAcct 'storage2.bicep' = {
   name: 'storageModule1'
   params: {
@@ -269,6 +270,7 @@ module firstStorageAcct 'storage2.bicep' = {
   }
 }
 
+// module deployed to subscription
 module newRG 'resourceGroup.bicep' = {
   name: 'newResourceGroup'
   scope: subscription(secondSubscriptionID)
