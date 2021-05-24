@@ -187,6 +187,9 @@ Here are details of the application's actions and arguments:
 
     3. Select **Register**.
 
+> [!NOTE]
+> Release Notes are available on the same [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
+
 ## Service account for Self-hosted integration runtime
 
 The default log on service account of Self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
