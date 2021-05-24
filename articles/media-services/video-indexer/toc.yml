@@ -35,8 +35,6 @@
     href: language-identification-model.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Observed people 
-    href: observed-people-tracing.md
   - name: Customizing content models
     items:
     - name: Overview

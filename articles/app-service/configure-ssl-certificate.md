@@ -60,7 +60,7 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 
 The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional TLS/SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
-- Does not support wildcard certificates.
+- Does not support wildcard certificates and should not be used as a client certificate.
 - Is not exportable.
 - Is not supported on App Service Environment (ASE).
 - Is not supported with root domains that are integrated with Traffic Manager.

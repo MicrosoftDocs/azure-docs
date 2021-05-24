@@ -27,7 +27,7 @@ Alternatively, you can also manage endpoints and routes with the [Event Routes A
 
 ## Prerequisites
 
-* You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+* You'll need an **Azure account**, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
@@ -149,7 +149,7 @@ After enabling the minimal filter of `true`, endpoints will receive a variety of
 
 You can restrict the types of events being sent by defining a more-specific filter.
 
-To add an event filter while you are creating an event route, use the _Add an event route filter_ section of the *Create an event route* page. 
+To add an event filter while you are creating an event route, use the "Add an event route filter" section of the *Create an event route* page. 
 
 You can either select from some basic common filter options, or use the advanced filter options to write your own custom filters.
 

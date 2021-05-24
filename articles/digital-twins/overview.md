@@ -33,7 +33,7 @@ Here's a summary of the features provided by Azure Digital Twins.
 
 In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [models](concepts-models.md). 
 
-You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", and "elevator". You can then create **digital twins** based on these models to represent your specific environment.
+You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as Building, Floor, and Elevator. You can then create **digital twins** based on these models to represent your specific environment.
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
@@ -95,11 +95,11 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 ## Service limits
 
-You can read about the **service limits** of Azure Digital Twins here: [Azure Digital Twins service limits](reference-service-limits.md). This can be useful while working with the service to understand the service's functional and rate limitations, as well as which limits can be adjusted if necessary.
+You can read about the **service limits** of Azure Digital Twins in the [Azure Digital Twins service limits article](reference-service-limits.md). This can be useful while working with the service to understand the service's functional and rate limitations, as well as which limits can be adjusted if necessary.
 
 ## Terminology
 
-You can view a list of **common IoT terms** and their uses across the Azure IoT services, including Azure Digital Twins, here: [Azure IoT Glossary](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
+You can view a list of **common IoT terms** and their uses across the Azure IoT services, including Azure Digital Twins, in the [Azure IoT Glossary](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This resource may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
 
 ## Next steps
 
