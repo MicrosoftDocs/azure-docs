@@ -52,9 +52,10 @@ To safeguard the performance of the system, a memory limit is enforced for all q
 
 |                                                          | Request Memory limit |
 |----------------------------------------------------------|----------------------|
-| **Live connect from PowerBI**                            | 10 GB |
-| **DirectQuery from PowerBI report in Shared workspace**  | 1 GB  |
-| **DirectQuery from PowerBI report in Premium workspace** | 10 GB |
+| **Live connect from PowerBI**                            | 10 GB  |
+| **DirectQuery from PowerBI report in Shared workspace**  | 1 GB   |
+| **DirectQuery from PowerBI report in Premium workspace** | 10 GB  |
+| **[PowerBI Q&A](/power-bi/create-reports/power-bi-tutorial-q-and-a)** | 100 MB |
 
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
