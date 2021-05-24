@@ -375,7 +375,7 @@ Check the [OSM CRD Upgrades documentation](https://github.com/openservicemesh/os
 >Upgrading the CRDs will affect the data plane as the SMI policies won't exist between the time they're deleted and the time they're created again.
 
 ### Upgrade Instructions
-1. [Delete outdated CRDs and install udpated CRDs](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/upgrade_guide.md#crd-upgrades) if necessary
+1. [Delete outdated CRDs and install updated CRDs](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/upgrade_guide.md#crd-upgrades) if necessary
 - Back up existing Custom Resources as a reference for when you create new ones.
 - Install the updated CRDs and Custom Resources prior to installing the new extension version.
 2. Set the new chart version as an environment variable:
