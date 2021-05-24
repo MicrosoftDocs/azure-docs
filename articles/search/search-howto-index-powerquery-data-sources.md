@@ -20,7 +20,6 @@ ms.date: 05/25/2021
 > 
 > The Azure portal provides this feature. There is currently no SDK support.
 
-## Overview
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index. Indexers provide a convenient way for users to index content from their data source without having to write their own crawler or push model. Indexers also allow you to add a skillset to their pipeline so that they can further enrich their data.
 
 With the new Power Query data connector integration, you can pull data from many new data sources. [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) is a data transformation and data preparation engine. Power Query connectors are used in products like Power BI and Excel. Azure Cognitive Search has added support for select Power Query data connectors so that you can pull data from more data sources. These new data sources are supported in the Azure portal.
@@ -59,7 +58,7 @@ After you're approved for the preview, the Azure Cognitive Search team will prov
 There are a few data sources that you can pull data from using this preview. All data sources that use Power Query will include a "Powered By Power Query" on their tile. 
 Select your data source. 
  
-![Select a data source](./media/search-power-query-connectors/powerquery-import-data.png "Select a data source")
+![Select a data source](./media/search-power-query-connectors/power-query-import-data.png "Select a data source")
 
 Once you've selected your data source, select **Next: Configure your data** to move to the next section.
 
@@ -75,7 +74,7 @@ Once you've provided your connection credentials, select **Next**.
 ### Step 5 – Select your data
 The import wizard will preview various tables that are available in your data source. In this step you'll check one table that contains the data you want to import into your index.
  
-![Preview your data](./media/search-power-query-connectors/powerquery-preview-data.png "Preview your data")
+![Preview your data](./media/search-power-query-connectors/power-query-preview-data.png "Preview your data")
 
 Once you've selected your table, select **Next**.
 
@@ -84,7 +83,7 @@ Power Query connectors provide you with a rich UI experience that allows you to 
 
 It's not required that you transform your data before importing it into Azure Cognitive Search.
 
-![Transform your data](./media/search-power-query-connectors/powerquery-transform-data.png "Transform your data") 
+![Transform your data](./media/search-power-query-connectors/power-query-transform-data.png "Transform your data") 
 
 For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](https://docs.microsoft.com/power-query/power-query-quickstart-using-power-bi). 
 
@@ -116,7 +115,7 @@ Review the description of index attributes and language analyzers for more infor
 
 Take a moment to review your selections. Once you run the wizard, physical data structures are created and you won't be able to edit most of the properties for these fields without dropping and recreating all objects.
 
-![Create your index](./media/search-power-query-connectors/powerquery-index.png "Create your index")
+![Create your index](./media/search-power-query-connectors/power-query-index.png "Create your index")
 
 When complete, select **Next: Create an Indexer**.
 
@@ -127,7 +126,7 @@ The output of the Import data wizard is an indexer that crawls your data source 
 
 When creating the indexer, you can optionally choose to run the indexer on a schedule and add change detection. To add change detection, designate a 'high water mark' column.
 
-![Create your indexer](./media/search-power-query-connectors/powerquery-indexer-configuration.png "Create your indexer")
+![Create your indexer](./media/search-power-query-connectors/power-query-indexer-configuration.png "Create your indexer")
 
 Once you've finished filling out this page select **Submit**.
 
