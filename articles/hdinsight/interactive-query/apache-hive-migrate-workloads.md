@@ -98,7 +98,7 @@ Create a new HDInsight 4.0 cluster, [selecting the upgraded Hive metastore](../h
 
 ### 5. Convert Tables for ACID Compliance
 
-Managed tables must be ACID-compliant on HDInsight 4.0. Run *strictmanagedmigration* on HDInsight 4.0 to convert all non-ACID managed tables to external tables with property ```'external.table.purge'='true'```. Execute from the headnode:
+Managed tables must be ACID-compliant on HDInsight 4.0. Run `strictmanagedmigration` on HDInsight 4.0 to convert all non-ACID managed tables to external tables with property `'external.table.purge'='true'`. Execute from the headnode:
 
 ```bash
 sudo su - hive
