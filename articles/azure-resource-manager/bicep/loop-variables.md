@@ -1,5 +1,5 @@
 ---
-title: Define multiple instances of a variable
+title: Define multiple instances of a variable in Bicep
 description: Use Bicep variable loop to iterate when creating a variable.
 
 author: mumian
