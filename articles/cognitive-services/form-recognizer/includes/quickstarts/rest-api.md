@@ -50,11 +50,11 @@ curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Cont
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
 https://<span></span>cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/**{resultId}**. 
 
-In the following example, as part of the URL, the string after `analyzeResults/` is the operation ID.
+In the following example, as part of the URL, the string after `analyzeResults/` is the result ID.
 
 ```console
 https://cognitiveservice/formrecognizer/v2/layout/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -66,7 +66,7 @@ After you've called the **[Analyze Layout](https://westus.dev.cognitive.microsof
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `{resultId}` with the operation ID from the previous step.
+1. Replace `{resultId}` with the result ID from the previous step.
 <!-- markdownlint-disable MD024 -->
 
 #### Request
@@ -226,11 +226,11 @@ curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/receipt/analyze
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
 *https://<span></span>cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/**{resultId}***
 
-In the following example, the string after `operations/` is the operation ID:
+In the following example, the string after `operations/` is the result ID:
 
 ```console
 https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -241,7 +241,7 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/operations/54f0b07
 After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `{resultId}` with the operation ID from the previous step.
+1. Replace `{resultId}` with the result ID from the previous step.
 1. Replace `{subscription key}` with your subscription key.
 
 #### Request
@@ -605,11 +605,11 @@ curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/an
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
 _https://<span></span>cognitiveservice/formrecognizer/v2.1/prebuilt/businessCard/analyzeResults/**{resultId}**_
 
-In the following example, as part of the URL, the string after `analyzeResults/` is the operation ID.
+In the following example, as part of the URL, the string after `analyzeResults/` is the result ID.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.1/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -620,7 +620,7 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/businessCard/analyzeResult
 After you've called the **Analyze Business Card** API, you call the **[Get Analyze Business Card Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeBusinessCardResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `{resultId}` with the operation ID from the previous step.
+1. Replace `{resultId}` with the result ID from the previous step.
 1. Replace `{subscription key}` with your subscription key.
 
 ```bash
@@ -768,11 +768,11 @@ curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze"
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
  _https://<span></span>cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/**{resultId}**_
 
-In the following example, as part of the URL, the string after `analyzeResults/` is the operation ID:
+In the following example, as part of the URL, the string after `analyzeResults/` is the result ID:
 
 ```console
 https://cognitiveservice/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -783,7 +783,7 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/54f
 After you've called the **Analyze Invoice** API, you call the **[Get Analyze Invoice Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9acb78c40a2533aee83)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `{resultId}` with the operation ID from the previous step.
+1. Replace `{resultId}` with the result ID from the previous step.
 1. Replace `{subscription key}` with your subscription key.
 
 #### Request
@@ -978,11 +978,11 @@ curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/anal
 
 Operation-Location
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
 _https://<span></span>cognitiveservice/formrecognizer/v2.1/prebuilt/documentId/analyzeResults/**{resultId}**_
 
-In the following example, the string after `analyzeResults/` is the operation ID:
+In the following example, the string after `analyzeResults/` is the result ID:
 
 ```console
 https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/prebuilt/idDocument/analyzeResults/83d0137b-28e1-4051-98ce-42bd21f77ae0
@@ -993,7 +993,7 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/prebuilt/idDocume
 After you've called the **Analyze ID Document** API, call the **[Get Analyze ID Document Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeBusinessCardResult)** API to get the status of the operation and the extracted data.  Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `{resultId}` with the operation ID from the previous step.
+1. Replace `{resultId}` with the result ID from the previous step.
 1. Replace `{subscription key}` with your subscription key.
 
 #### Request
@@ -1289,7 +1289,7 @@ Save this results ID for the next step.
 Call the Get **[Analyze Form Result]https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeFormResult)** API to query the results of the Analyze operation.
 
 1. Replace `{endpoint}` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `{operation ID}` with the ID that you received in the previous section.
+1. Replace `{result ID}` with the ID that you received in the previous section.
 1. Replace `{subscription key}` with your subscription key.
 
 #### Request
