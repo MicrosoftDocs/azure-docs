@@ -45,7 +45,7 @@ the following logic:
 - All but the last two segments of the namespace are trimmed.
 
 - The casing is adjusted so that the first letter of each word is
-    capitalized. All other letters are converted to lowercase.
+    capitalized.
 
 - All underscores (\_) are replaced with spaces.
 
