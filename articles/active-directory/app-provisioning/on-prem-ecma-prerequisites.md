@@ -64,5 +64,7 @@ The following is a current list of known limitations with  the Azure AD ECMA Con
 
 ## Next Steps
 
-- App provisioning](user-provisioning.md)
-- On-premises app provisioning architecture(on-prem-app-prov-arch.md)
+- [App provisioning](user-provisioning.md)
+- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
+- [Azure AD ECMA Connector Host configuration](on-prem-ecma-config.md)
+- [Generic SQL Connector](on-prem-sql-connector-configure.md)
