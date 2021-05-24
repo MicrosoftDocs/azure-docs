@@ -1,6 +1,6 @@
 ---
-title: Create Datadog - Azure partner solutions
-description: This article describes how to use the Azure portal to create an instance of Datadog.
+title: Link to existing Datadog - Azure partner solutions
+description: This article describes how to use the Azure portal to link to an existing instance of Datadog.
 ms.service: partner-services
 ms.topic: quickstart
 ms.date: 05/28/2021
@@ -9,9 +9,9 @@ ms.author: tomfitz
 ms.custom: references_regions
 ---
 
-# QuickStart: Get started with Datadog by creating new instance
+# QuickStart: Link to existing Datadog organization
 
-In this quickstart, you'll create a new instance of Datadog. You can either create a new Datadog organization or [link to an existing Datadog organization](link-to-existing-organization.md).
+In this quickstart, you'll link to a existing instance of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
 
 ## Prerequisites
 
@@ -25,33 +25,27 @@ Use the Azure portal to find Datadog.
 
 1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
 
-    :::image type="content" source="media/create/marketplace.png" alt-text="Marketplace icon.":::
+    :::image type="content" source="media/link-to-existing-organization/marketplace.png" alt-text="Marketplace icon.":::
 
 1. In the Marketplace, search for **Datadog**.
 
 1. In the plan overview screen, select **Set up + subscribe**.
 
-   :::image type="content" source="media/create/datadog-app.png" alt-text="Datadog application in Azure Marketplace.":::
+   :::image type="content" source="media/link-to-existing-organization/datadog-app.png" alt-text="Datadog application in Azure Marketplace.":::
 
-## Create a Datadog resource in Azure
+## Link to existing Datadog organization
 
-The portal displays a form for creating the Datadog resource.
+You can link your new Datadog resource in Azure to an existing Datadog organization in **US3**.
 
-:::image type="content" source="media/create/datadog-create-resource.png" alt-text="Create Datadog resource" border="true":::
+Select **Existing** for Data organization, and then select **Link to Datadog org**.
 
-Provide the following values.
+:::image type="content" source="media/link-to-existing-organization/link-to-existing.png" alt-text="Link to existing Datadog organization." border="true":::
 
-|Property | Description
-|:-----------|:-------- |
-| Subscription | Select the Azure subscription you want to use for creating the Datadog resource. You must have owner access. |
-| Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
-| Resource name | Specify a name for the Datadog resource. This name will be the name of the new Datadog organization, when creating a new Datadog organization. |
-| Location | Select West US 2. Currently, West US 2 is the only supported region. |
-| Datadog organization | To create a new Datadog organization, select **New**. To link to an existing Datadog organization, select **Existing**. |
-| Pricing plan | When creating a new organization, select from the list of available Datadog plans. |
-| Billing Term | Monthly. |
+The link opens a Datadog authentication window. Sign in to Datadog.
 
-If you're linking to an existing Datadog organization, see the next section. Otherwise, select **Next: Metrics and logs** and skip the next section.
+By default, Azure links your current Datadog organization to your Datadog resource. If you would like to link to a different organization, select the appropriate organization in the authentication window, as shown below.
+
+:::image type="content" source="media/link-to-existing-organization/select-datadog-organization.png" alt-text="Select appropriate Datadog organization to link" border="true":::
 
 ## Configure metrics and logs
 
@@ -73,7 +67,7 @@ Tag rules for sending **logs** are:
 
 For example, the screenshot below shows a tag rule where only those virtual machines, virtual machine scale sets, and app service plans tagged as *Datadog = True* send metrics to Datadog.
 
-:::image type="content" source="media/create/config-metrics-logs.png" alt-text="Configure Logs and Metrics." border="true":::
+:::image type="content" source="media/link-to-existing-organization/config-metrics-logs.png" alt-text="Configure Logs and Metrics." border="true":::
 
 There are two types of logs that can be emitted from Azure to Datadog.
 
@@ -95,7 +89,7 @@ If your organization uses Azure Active Directory as its identity provider, you c
 
 If you're linking the Datadog resource to an existing Datadog organization, you can't set up single sign-on at this step. Instead, you set up single sign-on after creating the Datadog resource. For more information, see [Reconfigure single sign-on](manage.md#reconfigure-single-sign-on).
 
-:::image type="content" source="media/create/linking-sso.png" alt-text="Single sign-on for linking to existing Datadog organization." border="true":::
+:::image type="content" source="media/link-to-existing-organization/linking-sso.png" alt-text="Single sign-on for linking to existing Datadog organization." border="true":::
 
 To establish single sign-on through Azure Active directory, select the checkbox for **Enable single sign-on through Azure Active Directory**.
 
@@ -103,7 +97,7 @@ The Azure portal retrieves the appropriate Datadog application from Azure Active
 
 Select the Datadog app name.
 
-:::image type="content" source="media/create/sso.png" alt-text="Enable Single sign-on to Datadog." border="true":::
+:::image type="content" source="media/link-to-existing-organization/sso.png" alt-text="Enable Single sign-on to Datadog." border="true":::
 
 Select **Next: Tags**.
 
@@ -111,7 +105,7 @@ Select **Next: Tags**.
 
 You can specify custom tags for the new Datadog resource. Provide name and value pairs for the tags to apply to the Datadog resource.
 
-:::image type="content" source="media/create/tags.png" alt-text="Add custom tags for the Datadog resource." border="true":::
+:::image type="content" source="media/link-to-existing-organization/tags.png" alt-text="Add custom tags for the Datadog resource." border="true":::
 
 When you've finished adding tags, select **Next: Review+Create**.
 
@@ -119,13 +113,13 @@ When you've finished adding tags, select **Next: Review+Create**.
 
 Review your selections and the terms of use. After validation completes, select **Create**.
 
-:::image type="content" source="media/create/review-create.png" alt-text="Review and Create Datadog resource." border="true":::
+:::image type="content" source="media/link-to-existing-organization/review-create.png" alt-text="Review and Create Datadog resource." border="true":::
 
 Azure deploys the Datadog resource.
 
 When the process completes, select **Go to Resource** to see the Datadog resource.
 
-:::image type="content" source="media/create/go-to-resource.png" alt-text="Datadog resource deployment." border="true":::
+:::image type="content" source="media/link-to-existing-organization/go-to-resource.png" alt-text="Datadog resource deployment." border="true":::
 
 ## Next steps
 

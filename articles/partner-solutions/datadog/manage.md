@@ -3,7 +3,7 @@ title: Manage a Datadog resource - Azure partner solutions
 description: This article describes management of a Datadog resource in the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
 ---
@@ -146,12 +146,6 @@ Go to **Overview** in left pane and select **Delete**. Confirm that you want to 
 If only one Datadog resource is mapped to a Datadog organization, logs and metrics are no longer sent to Datadog. All billing stops for Datadog through Azure Marketplace.
 
 If more than one Datadog resource is mapped to the Datadog organization, deleting the Datadog resource only stops sending logs and metrics for that Datadog resource. Because the Datadog organization is linked to other Azure resources, billing continues through the Azure Marketplace.
-
-## Getting support
-
-To contact support about the Azure Datadog integration, select **New Support request** in the left pane. Select the link to the Datadog portal.
-
-:::image type="content" source="media/manage/support-request.png" alt-text="Create a new Datadog support request" border="true":::
 
 ## Next steps
 
