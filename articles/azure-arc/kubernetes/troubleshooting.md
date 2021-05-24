@@ -233,7 +233,7 @@ osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
 osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 ```
 
-Eventhough we had one controller _evicted_ at some point, we have another one which is `READY 1/1` and `Running` with `0` restarts.
+Even though we had one controller _evicted_ at some point, we have another one which is `READY 1/1` and `Running` with `0` restarts.
 If the column `READY` is anything other than `1/1` the service mesh would be in a broken state.
 Column `READY` with `0/1` indicates the control plane container is crashing - we need to get logs. See `Get OSM Controller Logs from Azure Support Center` section below.
 Column `READY` with a number higher than 1 after the `/` would indicate that there are sidecars installed. OSM Controller would most likely not work with any sidecars attached to it.
