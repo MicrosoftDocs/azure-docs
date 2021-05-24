@@ -83,7 +83,7 @@ Follow these steps when deploying GPU VMs on your device:
 
 1. Before you can deploy VMs on your Azure Stack Edge device, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
 
-1. To create GPU VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md) except for the following differences: 
+1. To create GPU VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md) or [Deploy Vm on your Azure Stack Edge using Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md) except for the following differences: 
 
     1. While configuring compute network, enable the port that is connected to the Internet, for compute. This allows you to download the GPU drivers required for GPU extensions for your GPU VMs.
 
@@ -92,13 +92,14 @@ Follow these steps when deploying GPU VMs on your device:
         ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
             
-    1. [Create a VM using the templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md). When specifying GPU VM sizes, make sure to use the NCasT4-v3-series in the `CreateVM.parameters.json` as these are supported for GPU VMs. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+    1. If you create a VM using the templates, when specifying GPU VM sizes, make sure to use the NCasT4-v3-series in the `CreateVM.parameters.json` as these are supported for GPU VMs. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
 
         ```json
             "vmSize": {
           "value": "Standard_NC4as_T4_v3"
         },
         ```
+        If you use the Azure portal to create your VM, you can still select a VM size from NCasT4-v3-series.
 
     1. Once the GPU VM is successfully created, you can view this VM in the list of virtual machines in your Azure Stack Edge resource in the Azure portal.
 
@@ -617,4 +618,8 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)
+Learn how to:
+
+- [Manage VM disks](azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md).
+- [Manage VM network interfaces](azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md).
+- [Manage VM sizes](azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md).
