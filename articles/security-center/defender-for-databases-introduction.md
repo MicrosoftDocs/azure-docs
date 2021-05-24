@@ -3,7 +3,7 @@ title: Azure Defender for open-source relational databases - the benefits and fe
 description: Learn about the benefits and features of Azure Defender for open-source relational databases such as PostgreSQL, MySQL, and MariaDB
 author: memildin
 ms.author: memildin
-ms.date: 05/13/2021
+ms.date: 05/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -24,7 +24,7 @@ Azure Defender detects anomalous activities indicating unusual and potentially h
 
 | Aspect                             | Details                                                                                                                                    |
 |------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                     | Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                     |
+| Release state:                     | General Availability (GA)]                                                     |
 | Pricing:                           | **Azure Defender for open-source relational databases** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)   |
 | Protected versions of PostgreSQL:  | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL pricing tiers](../postgresql/concepts-pricing-tiers.md).   |
 | Protected versions of MySQL:       | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md).                        |
