@@ -82,6 +82,8 @@
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md
+    - name: Client libraries and SDKs
+      href: client-libraries.md
     - name: Quickstart
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
