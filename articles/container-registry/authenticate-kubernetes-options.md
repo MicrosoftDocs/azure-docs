@@ -1,13 +1,13 @@
 ---
 title: Scenarios to authenticate with Azure Container Registry from Kubernetes 
-description: Overview of options and scenarios to authenticate to an Azure container registry from a Kubernetes cluster to pull conainer images
+description: Overview of options and scenarios to authenticate to an Azure container registry from a Kubernetes cluster to pull container images
 ms.topic: article
 author: dlepow
 ms.author: danlep
 ms.date: 05/24/2021
 ---
 
-# Scenarios to authenticate with Azure Container Registry from a Kubernetes cluster
+# Scenarios to authenticate with Azure Container Registry from Kubernetes
 
 
 You can use an Azure container registry as a source of container images with any Kubernetes cluster, including clusters you manage yourself, managed clusters hosted in [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) or other clouds, and "local" Kubernetes clusters such as [minikube](https://minikube.sigs.k8s.io/) and [kind](https://kind.sigs.k8s.io/). 
@@ -17,7 +17,7 @@ When you want to pull images to your Kuberentes cluster from an Azure container 
 
 | Scenario |Authentication method  | Description  | Example | 
 |---------|---------|---------|----------|
-| AKS cluster |Integrate AKS cluster with a container registry    |  Enable the AKS kubelet [managed identity](use-managed-identity.md) to pull images from an attached Azure container registry in the same or a different Azure subscription      | [Authenticate with Azure Container Registry from Azure Kubernetes Service](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)| 
+| AKS cluster |Integrate AKS cluster with a container registry    |  Enable the AKS kubelet [managed identity](../aks/use-managed-identity.md) to pull images from an attached Azure container registry in the same or a different Azure subscription      | [Authenticate with Azure Container Registry from Azure Kubernetes Service](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)| 
 | AKS cluster | Configure AKS service principal to pull from registry     | Enable the [AKS service principal](../aks/kubernetes-service-principal.md) with permissions to a target Azure container registry in the same or a different Azure Active Directory tenant        | [Pull images from an Azure container registry to an AKS cluster in a different AD tenant](authenticate-aks-cross-tenant.md)
 | Kubernetes cluster other than AKS |Configure pod [imagePullSecrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)     |  Use general Kubernetes mechanism to manage registry credentials for pod deployments  | [Pull images from an Azure container registry to a Kubernetes cluster using a pull secret](container-registry-auth-kubernetes.md) | 
 

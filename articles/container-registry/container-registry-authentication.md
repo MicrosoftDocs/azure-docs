@@ -14,7 +14,7 @@ Recommended ways include:
 * Authenticate to a registry directly via [individual login](#individual-login-with-azure-ad)
 * Applications and container orchestrators can perform unattended, or "headless," authentication by using an Azure Active Directory (Azure AD) [service principal](#service-principal)
 
-If you use a container registry with Azure Kubernetes Service (AKS) or other Kubernetes cluster, see [Scenarios to authenticate with Azure Container Registry from a Kubernetes cluster](authenticate-kubernetes-options.md).
+If you use a container registry with Azure Kubernetes Service (AKS) or another Kubernetes cluster, see [Scenarios to authenticate with Azure Container Registry from Kubernetes](authenticate-kubernetes-options.md).
 
 ## Authentication options
 
