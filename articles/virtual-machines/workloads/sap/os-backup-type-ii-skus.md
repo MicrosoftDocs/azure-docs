@@ -3,15 +3,15 @@ title: Operating system backup and restore of SAP HANA on Azure (Large Instances
 description: Perform Operating system backup and restore for SAP HANA on Azure (Large Instances) Type II SKUs
 services: virtual-machines-linux
 documentationcenter:
-author: saghorpa
-manager: juergent
+author: jaawasth
+manager: hrushib
 editor:
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
-ms.author: juergent
+ms.author: jaawasth
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -27,10 +27,11 @@ This document describes the steps to perform an operating system file level back
 > * The OS backup scripts uses xfsdump utility.  
 > * This document supports complete Root filesystem backup and **no incremental** backups
 > * Do ensure that while taking backups, there are no files being written actively to the system for which you will need a backup, since while the system is being backed up and there is a backup being performed it might not get updated in the backup.
-> * This documentation replaces ReaR tool based backups.
-> * This procedure has been tested inhouse for multiple OS corruption scenarios, since the customer is solely responsible for the OS, it is recommended that they test it out before relying on this documentation for their scenarios.
+> * ReaR backup is deprecated for Type II SKUs of the HANA Large Instances of Revision 3.
+> * This procedure has been tested inhouse for multiple OS corruption scenarios, since the customer is solely responsible for the OS, it is recommended to thoroughly test before relying on this documentation for customer scenarios.
 > * The process listed out has been tested out on SLES OS.
-> * OS restore, with the process mentioned in this document is not possible without engaging Microsoft for a console access, please create a support ticket with Microsoft to assist in recovery.
+> * Major versions upgrades, such as SLES 12.x to SLES 15x, are not supported.
+> * To complete an OS restore following the process mentioned in this document, Microsoft assistance is required since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
 
 
 ## How to take a manual backup?
@@ -42,7 +43,7 @@ To perform a manual backup :
    zypper in xfsdump
    ```
 
-* Create a backup 
+* Create a complete backup 
    ```
    xfsdump -l 0 -f /data1/xfs_dump /
    ```
@@ -52,9 +53,9 @@ To perform a manual backup :
    ![how](media/HowToHLI/OSBackupTypeIISKUs/dump_capture.PNG)
 
 
-* Save a copy of backup in NFS volumes as well, in the scenario where data1 partition also gets corrupted.
+* Important: Save a copy of backup in NFS volumes as well, in the scenario where data1 partition also gets corrupted.
    ```
-   cp /data1/xfs_dump /nfs_vol/
+   cp /data1/xfs_dump /osbackup/
    ```
 
 * For excluding regular directories and files from dump, please tag files with chattr
@@ -70,7 +71,7 @@ To perform a manual backup :
 
 >[!NOTE]
 > * This step requires engaging Microsoft team.
-> * OS restore, with the process mentioned in this document is not possible without engaging Microsoft for a console access, please create a support ticket with Microsoft to assist in recovery.
+> * To complete an OS restore following the process mentioned in this document, Microsoft assistance is required since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
 > * We will be restoring the complete filesystem:
 
 * Mount OS iso on the system 
@@ -111,11 +112,8 @@ To perform a manual backup :
 * Ensure that RAID disks are synced and the configuration is in a clean state.
    * RAID disks take sometime in syncing and for the initial few minutes it will sync before it is 100% synced.
 
-* Start HANA DB
-   ```
-   su - sidadm
-   HDB start
-   ```
+* Start HANA DB and verify HANA is operating as expected.
+
 * Ensure HANA comes up and there are no errors
    ```
    hdbinfo
