@@ -26,7 +26,7 @@ Blob soft delete is part of a comprehensive data protection strategy for blob da
 
 Blob soft delete is disabled by default for a new storage account. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 To enable blob soft delete for your storage account by using the Azure portal, follow these steps:
 
@@ -38,7 +38,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
 :::image type="content" source="media/soft-delete-blob-enable/blob-soft-delete-configuration-portal.png" alt-text="Screenshot showing how to enable soft delete in the Azure portal":::
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To enable blob soft delete with PowerShell, call the [Enable-AzStorageBlobDeleteRetentionPolicy](/powershell/module/az.storage/enable-azstorageblobdeleteretentionpolicy) command, specifying the retention period in days.
 
@@ -59,7 +59,7 @@ $properties.DeleteRetentionPolicy.Enabled
 $properties.DeleteRetentionPolicy.Days
 ```
 
-# [Azure CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
 To enable blob soft delete with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command, specifying the retention period in days.
 
@@ -81,23 +81,23 @@ az storage account blob-service-properties show --account-name <storage-account>
 
 ---
 
-## Enable blob and directory soft delete (hierarchical namespace)
+## Enable blob soft delete (hierarchical namespace)
 
-You can enable or disable soft delete in accounts that have a hierarchical namespace. You can use the PowerShell, Azure CLI, or with code by using an SDK.
+You can enable or disable blob soft delete in accounts that have a hierarchical namespace. 
 
 > [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled on them is currently in public preview, and is available only in the East US 2 and West Europe region.
+> Blob soft delete can also protect blobs and directories in accounts that have the hierarchical namespace feature enabled on them. This capability is in public preview, and is available only in the East US 2 and West Europe region.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > To enroll in the preview, see [this form](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2FPages%2FResponsePage.aspx%3Fid%3Dv4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOUxPTkFSSjJDRlBZNlpZSjhGUktFVzFDRi4u&data=04%7C01%7CSachin.Sheth%40microsoft.com%7C6e6a6d56c2014cdf749308d90e915f1e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637556839790913940%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=qnYxVDdI7whCqBW4johgutS3patACP6ubleUrMGFtf8%3D&reserved=0).
 
-### [Portal](#tab/azure-portal)
+### Enable blob soft delete by using Azure portal, PowerShell, or the Azure CLI
+
+#### [Portal](#tab/azure-portal)
 
 Not yet implemented.
 
-### [PowerShell](#tab/azure-powershell)
-
-#### Install PowerShell modules
+#### [PowerShell](#tab/azure-powershell)
 
 1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.	
 
@@ -122,9 +122,7 @@ Not yet implemented.
 
     For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
-#### Enable soft delete
-
-1. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
+4. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
    The following example obtains authorization by using a storage account key.
 
@@ -145,9 +143,7 @@ Not yet implemented.
    Enable-AzStorageDeleteRetentionPolicy -RetentionDays 4  -Context $ctx
    ```
 
-### [Azure CLI](#tab/azure-CLI)
-
-#### Install the storage CLI extension
+#### [Azure CLI](#tab/azure-CLI)
 
 1. Open the [Azure Cloud Shell](/azure/cloud-shell/overview), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
@@ -159,8 +155,6 @@ Not yet implemented.
    az extension add s https://zuhdefault.blob.core.windows.net/cliext/storage_preview-0.7.2-py2.py3-none-any.whl`
    ```
 4. Connect to your storage account. See [Connect to the account](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account).
-
-#### Enable soft delete
 
 > [!NOTE]
 > The example presented in this article show Azure Active Directory (Azure AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
@@ -181,9 +175,11 @@ az storage fs service-properties update --delete-retention false --connection-st
 
 ---
 
-### .NET
+### Enable blob soft delete by using code
 
-#### Set up your .NET project
+You can enable soft delete in accounts that have a hierarchical namespace by using .NET, Java, and Python.
+
+#### Enable soft delete by using .NET
 
 1. Open a command prompt and change directory (`cd`) into your project folder For example:
 
@@ -210,31 +206,27 @@ az storage fs service-properties update --delete-retention false --connection-st
     using System.Threading.Tasks;
     ```
 
-#### Enable soft delete
+4. The following code enables soft delete.
 
-The following code enables soft delete.
+   > [!NOTE]
+   > To see examples of how to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance, see [Connect to the account](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account).
 
-> [!NOTE]
-> To see examples of how to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance, see [Connect to the account](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account).
+    ```csharp
+    public void EnableSoftDelete(DataLakeServiceClient serviceClient)
+    {
+        DataLakeServiceProperties serviceProperties = await serviceClient.GetPropertiesAsync();
+            serviceProperties.DeleteRetentionPolicy = new DataLakeRetentionPolicy
+            {
+                Enabled = true,
+                Days = 3
+            };
 
-```csharp
-public void EnableSoftDelete(DataLakeServiceClient serviceClient)
-{
-    DataLakeServiceProperties serviceProperties = await serviceClient.GetPropertiesAsync();
-        serviceProperties.DeleteRetentionPolicy = new DataLakeRetentionPolicy
-        {
-            Enabled = true,
-            Days = 3
-        };
+            await serviceClient.SetPropertiesAsync(serviceProperties);
+    }
 
-        await serviceClient.SetPropertiesAsync(serviceProperties);
-}
+    ```  
 
-```  
-
-### Java
-
-#### Set up your Java project
+#### Enable soft delete by using Java
 
 1. To get started, open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
 
@@ -252,12 +244,10 @@ public void EnableSoftDelete(DataLakeServiceClient serviceClient)
    Put imports here
    ```
 
-#### Enable soft delete
+3. Enable soft delete by using the `setDeleteRetentionPolicy` method. 
 
-Enable soft delete by using the `setDeleteRetentionPolicy` method. 
-
-> [!NOTE]
-> To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
+   > [!NOTE]
+   > To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
 
    ```java
 
@@ -274,35 +264,31 @@ Enable soft delete by using the `setDeleteRetentionPolicy` method.
 
    ```
 
-### Python
+#### Enable soft delete by using Python
 
-### Set up your Python project
+1. Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
 
-Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
+   ```
+   pip install azure-storage-file-datalake
+   ```
 
-```
-pip install azure-storage-file-datalake
-```
+2. Add these import statements to the top of your code file.
 
-Add these import statements to the top of your code file.
+   ```python
+   import os, uuid, sys
+   from azure.storage.filedatalake import DataLakeServiceClient
+   from azure.storage.filedatalake import FileSystemClient
+   ```
 
-```python
-import os, uuid, sys
-from azure.storage.filedatalake import DataLakeServiceClient
-from azure.storage.filedatalake import FileSystemClient
-```
+3. The following code enable soft delete.
 
-### Enable Soft Delete
+   > [!NOTE]
+   > The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-python.md#connect-to-the-account).
 
-The following code enable soft delete.
-
-> [!NOTE]
-> The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-python.md#connect-to-the-account).
-
-```python
-def enableSoftDelete():
- # Need code for enabling soft delete
-```
+   ```python
+   def enableSoftDelete():
+    # Need code for enabling soft delete
+   ```
 
 
 ## Next steps

@@ -66,7 +66,7 @@ You can use the Azure Storage client libraries to restore a soft-deleted blob or
 
 ### Restore soft-deleted objects when versioning is disabled
 
-# [.NET v12](#tab/dotnet)
+#### [.NET v12](#tab/dotnet)
 
 To restore deleted blobs when versioning is not enabled, call the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation on those blobs. The **Undelete Blob** operation restores soft-deleted blobs and any deleted snapshots associated with those blobs.
 
@@ -78,7 +78,7 @@ To restore a specific version, first call the **Undelete Blob** operation on the
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
-# [.NET v11](#tab/dotnet11)
+#### [.NET v11](#tab/dotnet11)
 
 To restore deleted blobs when versioning is not enabled, call the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation on those blobs. The **Undelete Blob** operation restores soft-deleted blobs and any deleted snapshots associated with those blobs.
 
@@ -114,17 +114,17 @@ blockBlob.StartCopy(copySource);
 
 To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob with a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation.  
 
-# [.NET v12](#tab/dotnet)
+#### [.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RestorePreviousVersion":::
 
-# [.NET v11](#tab/dotnet11)
+#### [.NET v11](#tab/dotnet11)
 
 Not applicable. Blob versioning is supported only in the Azure Storage client libraries version 12.x and higher.
 
 ---
 
-## Restore soft-deleted blobs and directories (hierarchical namespaces)
+## Manage soft-deleted blobs and directories (hierarchical namespaces)
 
 You can restore or disable soft deleted blobs and directories in accounts that have a hierarchical namespace. You can use the PowerShell, Azure CLI, or with code by using an SDK.
 
@@ -134,9 +134,9 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > To enroll in the preview, see [this form](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2FPages%2FResponsePage.aspx%3Fid%3Dv4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOUxPTkFSSjJDRlBZNlpZSjhGUktFVzFDRi4u&data=04%7C01%7CSachin.Sheth%40microsoft.com%7C6e6a6d56c2014cdf749308d90e915f1e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637556839790913940%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=qnYxVDdI7whCqBW4johgutS3patACP6ubleUrMGFtf8%3D&reserved=0).
 
-### PowerShell
+#### Restore soft deleted blobs and directories by using PowerShell
 
-1. Ensure that you have the **Az.Storage** preview module (version blah). See [Install PowerShell modules](soft-delete-blob-enable.md#install-powershell-modules).
+1. Ensure that you have the **Az.Storage** preview module (version blah). See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md&tabs=azure-powershell#enable-blob-and-directory-soft-delete-hierarchical-namespace).
 
 2. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
@@ -158,9 +158,9 @@ You can restore or disable soft deleted blobs and directories in accounts that h
    ```
 
 
-### Azure CLI
+#### Restore soft deleted blobs and directories by using Azure CLI
 
-1. Make sure that you have the `storage-preview` extension installed. See [Install the storage CLI extension](soft-delete-blob-enable.md#install-the-storage-cli-extension).
+1. Make sure that you have the `storage-preview` extension installed. See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md&tabs=azure-CLI#enable-blob-and-directory-soft-delete-hierarchical-namespace).
 
 2. Get a list of deleted items.
 
@@ -179,9 +179,9 @@ You can restore or disable soft deleted blobs and directories in accounts that h
    az storage fs delete -n $filesystemName --auth-mode login
    ```
 
-### .NET
+#### Restore soft deleted blobs and directories by using .NET
 
-1. Make sure that you have installed the  `Azure.Storage.Files.DataLake -v 12.6.0-alpha.20201209.1` version of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package, and that you've added the appropriate using statements to the top of your code file. See [Set up your .NET project](soft-delete-blob-enable.md#set-up-your-net-project).
+1. Make sure that you have installed the  `Azure.Storage.Files.DataLake -v 12.6.0-alpha.20201209.1` version of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package, and that you've added the appropriate using statements to the top of your code file. See [Enable soft delete by using .NET](soft-delete-blob-enable.md#enable-soft-delete-by-using-net).
 
 2. The following code deletes a directory, and then restores a soft deleted directory.
 
@@ -220,9 +220,9 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
    ```
 
-### Java
+#### Restore soft deleted blobs and directories by using Java
 
-1. Add the required dependencies to the *pom.xml* file of your project, and then add the appropriate import statements to your code file. See [Set up your project](soft-delete-blob-enable.md#set-up-your-java-project).
+1. Add the required dependencies to the *pom.xml* file of your project, and then add the appropriate import statements to your code file. See See [Enable soft delete by using Java](soft-delete-blob-enable.md#enable-soft-delete-by-using-java).
 
 2. The following snippet restores a soft deleted file named `my-file`. 
    > [!NOTE]
@@ -252,9 +252,9 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
    ```
 
-### Python
+#### Restore soft deleted blobs and directories by using Python
 
-1. Make sure that you have installed the appropriate version of the Azure Data Lake Storage client library for Python. See [Set up your project](soft-delete-blob-enable.md#set-up-your-python-project).
+1. Make sure that you have installed the appropriate version of the Azure Data Lake Storage client library for Python. See See [Enable soft delete by using Python](soft-delete-blob-enable.md#enable-soft-delete-by-using-python).
 
 2. The following code deletes a directory, and then restores a soft deleted directory.
 
