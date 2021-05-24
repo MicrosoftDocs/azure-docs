@@ -95,7 +95,7 @@ You also need to request `WRITE_EXTERNAL_STORAGE` permission in the manifest fil
 </manifest>
 ```
 
-If you are using Unity Android application, the log file can be created using the application persistent data path folder as follows:
+Within a Unity Android application, the log file can be created using the application persistent data path folder as follows:
 
 ```csharp
 string logFile = Application.persistentDataPath + "/logFile.txt";
