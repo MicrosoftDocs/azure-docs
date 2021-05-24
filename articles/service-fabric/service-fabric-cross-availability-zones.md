@@ -36,7 +36,7 @@ The following sample node list depicts FD/UD formats in a virtual machine scale 
 
 ![Screenshot that shows a sample node list of FD/UD formats in a virtual machine scale set spanning zones.][sf-multi-az-nodes]
 
-## Distribution of service replicas across zones
+### Distribution of service replicas across zones
 
 When a service is deployed on the node types that span Availability Zones, the replicas are placed to ensure that they land in separate zones. The fault domains on the nodes in each of these node types are configured with the zone information (that is, FD = fd:/zone1/1, etc.). For example, for five replicas or service instances, the distribution is 2-2-1, and the runtime will try to ensure equal distribution across zones.
 
@@ -44,7 +44,7 @@ When a service is deployed on the node types that span Availability Zones, the r
 
 Stateful user services deployed on the node types across Availability Zones should be configured like this: replica count with target = 9, min = 5. This configuration helps the service work even when one zone goes down because six replicas will be still up in the other two zones. An application upgrade in this scenario will also be successful.
 
-## Cluster ReliabilityLevel
+### Cluster ReliabilityLevel
 
 This value defines the number of seed nodes in the cluster and the replica size of the system services. A cross-Availability Zone setup has a higher number of nodes, which are spread across zones to enable zone resiliency.
   
@@ -56,7 +56,7 @@ When a zone goes down, all of the nodes and service replicas for that zone appea
 
 The Service Fabric load balancer brings up replicas in the working zones to match the target replica count. At this point, the services appear healthy. When the zone that was down comes back up, the load balancer will spread all of the service replicas evenly across the zones.
 
-### Upcoming Optimization
+## Upcoming Optimizations
 * To provide reliable infrastructure updates, service fabric requires the VMSS durability to be set atleast to Silver. This enables the underlying VMSS and service fabric runtime to provide realiable updates. This also requires each, zone to have atleast 5 VMs. We are working to bring this requirement down to 3 & 2 VMs per zone for primary & non-primary nodeTypes respectively.
 * All the below mentioned configurations and upcoming work, provides in-place migration to the customers where the same cluster can be upgraded to use the new configuration by adding new nodeTypes and retiring the old ones.
 
@@ -275,7 +275,7 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 For all migration scenarios, you need to add a new node type that supports multiple Availability Zones. An existing node type can't be migrated to support multiple zones.
 The [Scale up a Service Fabric cluster primary node type](./service-fabric-scale-up-primary-node-type.md) article includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
 
-* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a previous section](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per Availability Zone.
+* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a sub-section below](#migrate-to-availability-zones-from-a-cluster-by-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) for the solution with one node type per Availability Zone.
 
   For the new node type, the only difference is that there's only one virtual machine scale set and one node type for all Availability Zones instead of one each per Availability Zone.
 * Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG: Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
