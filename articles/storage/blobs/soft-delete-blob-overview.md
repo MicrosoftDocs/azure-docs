@@ -136,7 +136,7 @@ The following table describes the expected behavior for delete and write operati
 | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) | No change. Overwritten blob metadata is not recoverable. | A new version that captures the blob's state prior to the operation is automatically generated. |
 | [Set Blob Tier](/rest/api/storageservices/set-blob-tier) | The base blob is moved to the new tier. Any active or soft-deleted snapshots remain in the original tier. No soft-deleted snapshot is created. | The base blob is moved to the new tier. Any active or soft-deleted versions remain in the original tier. No new version is created. |
 
-The following table describes the expected behavior for delete and write operations when blob soft delete is enabled on accounts that have a hierarchical namespace enabled.
+The following table describes the expected behavior for delete and write operations when blob soft delete is enabled on accounts that have a hierarchical namespace.
 
 |**REST API operation**|**Soft Delete enabled**|
 |---|---|

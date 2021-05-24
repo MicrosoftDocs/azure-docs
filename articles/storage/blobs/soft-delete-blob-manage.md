@@ -124,7 +124,7 @@ Not applicable. Blob versioning is supported only in the Azure Storage client li
 
 ---
 
-## Manage soft-deleted blobs and directories (hierarchical namespaces)
+## Manage soft-deleted blobs and directories (hierarchical namespace)
 
 You can restore or disable soft deleted blobs and directories in accounts that have a hierarchical namespace. You can use the PowerShell, Azure CLI, or with code by using an SDK.
 
@@ -137,7 +137,7 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 #### Restore soft deleted blobs and directories by using PowerShell
 
-1. Ensure that you have the **Az.Storage** preview module (version blah). See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md?tabs=azure-powershell#enable-blob-and-directory-soft-delete-hierarchical-namespace).
+1. Ensure that you have the **Az.Storage** preview module (version blah). See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md?tabs=azure-powershell#enable-blob-soft-delete-hierarchical-namespace).
 
 2. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
@@ -147,21 +147,19 @@ You can restore or disable soft deleted blobs and directories in accounts that h
    $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
    ```
 
-3. Use the following commands to restore a deleted folder. 
+3. To restore soft deleted item, use the `Restore-AzDataLakeGen2DeletedItem` command.
 
    ```powershell
    $filesystemName = "my-file-system"
    $dirName="my-directory"
    $deletedItems = Get-AzDataLakeGen2DeletedItem -Context $ctx -FileSystem $filesystemName -Path $dirName
    $deletedItems | Restore-AzDataLakeGen2DeletedItem
-   Disable-AzStorageDeleteRetentionPolicy -Context $ctx
-   Remove-AzDatalakeGen2FileSystem -Name $filesystemName -Context $ctx -Force
    ```
 
 
 #### Restore soft deleted blobs and directories by using Azure CLI
 
-1. Make sure that you have the `storage-preview` extension installed. See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md?tabs=azure-CLI#enable-blob-and-directory-soft-delete-hierarchical-namespace).
+1. Make sure that you have the `storage-preview` extension installed. See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md?tabs=azure-CLI#enable-blob-soft-delete-hierarchical-namespace).
 
 2. Get a list of deleted items.
 
@@ -170,14 +168,11 @@ You can restore or disable soft deleted blobs and directories in accounts that h
    az storage fs list-deleted-path -f $filesystemName --auth-mode login
    ```
 
-3. These commands undelete a directory. Add a better explanation here.
+3. To restore an item, use the `az storage fs undelete-path` command.
 
    ```azurecli
    $dirName="my-directory"
    az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName —deletion-id "<deletionId>" --auth-mode login
-   az storage fs file list -f $filesystemName --connection-string $con –recursive
-   az storage fs service-properties update --delete-retention false --auth-mode login
-   az storage fs delete -n $filesystemName --auth-mode login
    ```
 
 #### Restore soft deleted blobs and directories by using .NET
@@ -186,8 +181,7 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 2. The following code deletes a directory, and then restores a soft deleted directory.
 
-   > [!NOTE]
-   > To see examples of how to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance, see [Connect to the account](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account).
+   This method assumes that you've created a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance. To learn how to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance, see [Connect to the account](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account).
 
    ```csharp
       public void RestoreDirectory(DataLakeServiceClient serviceClient)
@@ -223,11 +217,11 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 #### Restore soft deleted blobs and directories by using Java
 
-1. Add the required dependencies to the *pom.xml* file of your project, and then add the appropriate import statements to your code file. See See [Enable soft delete by using Java](soft-delete-blob-enable.md#enable-soft-delete-by-using-java).
+1. Add the required dependencies to the *pom.xml* file of your project, and then add the appropriate import statements to your code file. See [Enable soft delete by using Java](soft-delete-blob-enable.md#enable-soft-delete-by-using-java).
 
 2. The following snippet restores a soft deleted file named `my-file`. 
-   > [!NOTE]
-   > To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
+
+   This method assumes that you've created a **DataLakeServiceClient** instance. To learn how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
 
    ```java
 
@@ -255,12 +249,11 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 #### Restore soft deleted blobs and directories by using Python
 
-1. Make sure that you have installed the appropriate version of the Azure Data Lake Storage client library for Python. See See [Enable soft delete by using Python](soft-delete-blob-enable.md#enable-soft-delete-by-using-python).
+1. Make sure that you have installed the appropriate version of the Azure Data Lake Storage client library for Python. See [Enable soft delete by using Python](soft-delete-blob-enable.md#enable-soft-delete-by-using-python).
 
 2. The following code deletes a directory, and then restores a soft deleted directory.
 
-    > [!NOTE]
-    > The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-python.md#connect-to-the-account).
+   The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-python.md#connect-to-the-account).
 
     ```python
     def restoreDirectory():

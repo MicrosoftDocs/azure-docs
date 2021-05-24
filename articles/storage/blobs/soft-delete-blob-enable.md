@@ -92,7 +92,9 @@ Blob soft delete can also protect blobs and directories in accounts that have th
 >
 > To enroll in the preview, see [this form](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2FPages%2FResponsePage.aspx%3Fid%3Dv4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOUxPTkFSSjJDRlBZNlpZSjhGUktFVzFDRi4u&data=04%7C01%7CSachin.Sheth%40microsoft.com%7C6e6a6d56c2014cdf749308d90e915f1e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637556839790913940%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=qnYxVDdI7whCqBW4johgutS3patACP6ubleUrMGFtf8%3D&reserved=0).
 
-### Enable blob soft delete by using tools (hierarchical namespace)
+<a id="enable-blob-soft-delete-hierarchical-namespace"></a>
+
+### Enable blob soft delete
 
 #### [Portal](#tab/azure-portal)
 
@@ -176,7 +178,9 @@ az storage fs service-properties update --delete-retention false --connection-st
 
 ---
 
-### Enable blob soft delete by using code (hierarchical namespace)
+<a id="enable-blob-soft-delete-hierarchical-namespace-with-code"></a>
+
+### Enable blob soft delete by using code
 
 You can enable soft delete in accounts that have a hierarchical namespace by using .NET, Java, and Python.
 
