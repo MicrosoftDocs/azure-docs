@@ -78,7 +78,7 @@ To create a generic SQL connector use the following steps:
  8. On the **Schema 4** page, review the attributes DataType and the Direction of flow for the connector.  You can adjust them if needed and click Next.
      ![Enter schema 4](.\media\on-prem-sql-connector-configure\sql-7.png)  
  9. On the **Global** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes.
-     ![Enter connectivity](.\media\on-prem-sql-connector-configure\sql-8.png)
+     ![Enter global information](.\media\on-prem-sql-connector-configure\sql-8.png)
 
      |Property|Description|
      |-----|-----|
