@@ -35,7 +35,7 @@ In this quickstart, we use the workspace named "sampletest" as an example. It wi
 
 ## Create a pipeline with an Apache Spark job definition
 
-A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline that contains a Apache Spark job definition activity.
+A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline that contains an Apache Spark job definition activity.
 
 1. Go to the **Integrate** tab. Select on the plus icon next to the pipelines header and select Pipeline.
 
@@ -60,7 +60,7 @@ Once you create your Apache Spark job definition, you'll be automatically sent t
 
 3. (Option) You can also enter a description.
 
-4. Timeout: Maximum amount of time an activity can run. Default is 7 days, which is also the maximum amount of time allowed. Format is in D.HH:MM:SS.
+4. Timeout: Maximum amount of time an activity can run. Default is seven days, which is also the maximum amount of time allowed. Format is in D.HH:MM:SS.
 
 5. Retry: Maximum number of retry attempts.
 
@@ -68,7 +68,7 @@ Once you create your Apache Spark job definition, you'll be automatically sent t
 
 7. Secure output: When checked, output from the activity will not be captured in logging.
 
-8. Sercure input: When checked, input from the activity will not be captured in logging.
+8. Secure input: When checked, input from the activity will not be captured in logging.
 
      ![spark job definition general](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-general.png)
 
@@ -78,11 +78,11 @@ On this panel, you can reference to the Spark job definition to run.
 
 * Expand the Spark job definition list, you can choose an existing Apache Spark job definition. You can also create a new Apache Spark job definition by clicking the new button to reference the Spark job definition to be run.
 
-* You can add command line arguments by clicking the **New** button. It should be noted that this will override the command line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
+* You can add command-line arguments by clicking the **New** button. It should be noted that this will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
 
      ![spark job definition pipline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 
-* You can add dynamic content by clicking the **Add Dynamic Content** button or by pressing the shortcut key <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. In the **Add Dynamic Content** page, you can use any combination of expressions, functions and system variables to add to dynamic content.
+* You can add dynamic content by clicking the **Add Dynamic Content** button or by pressing the shortcut key <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd>. In the **Add Dynamic Content** page, you can use any combination of expressions, functions, and system variables to add to dynamic content.
 
      ![add dynamic content](media/quickstart-transform-data-using-spark-job-definition/add-dynamic-content.png)
 
