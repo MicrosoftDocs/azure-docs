@@ -28,7 +28,9 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 4. Select a connection option and then press **Connect**. 
 
-    Both **Connect live** and **Import** options are supported. However, we recommended you use live connections because Import mode does have some limitations; most notably, server performance might be impacted during import. Also, if the model is to be refreshed in the Power BI service, the **Allow access from Power BI** setting applies only when choosing **Connect live**.
+    Both **Connect live** and **Import** options are supported. However, we recommended you use live connections or direct query because Import mode does have some limitations; most notably, server performance might be impacted during import. Also, if the model is to be refreshed in the Power BI service, the **Allow access from Power BI setting** applies only when choosing **Connect live**.
+    
+    If you have a PowerBI model with [Mixed storage mode](/power-bi/transform-model/desktop-composite-models), the **Connect live** option is replaced by the **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** option. Live connections are also automatically upgraded to DirectQuery if the model is switched from Import to Mixed storage mode.
 
 5. If prompted, enter your login credentials. 
 
@@ -44,14 +46,14 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 1. Create a Power BI Desktop file that has a live connection to your model on your server.
 2. In [Power BI](https://powerbi.microsoft.com), click **Get Data** > **Files**, and then locate and select your .pbix file.
 
-## Request Limit
+## Request Memory Limit
 
 To safeguard the performance of the system, a memory limit is enforced for all queries issued by Power BI reports against Azure Analysis Services, regardless of the [Query Memory Limit](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current) configured on the Azure Analysis Services server. Users should consider simplifying the query or its calculations if the query is too memory intensive.
 
-|                           | Request Memory limit |
-|---------------------------|----------------------|
-| **Live connect from PowerBI** | 10 GB |
-| **DirectQuery from PowerBI report in Shared workspace** | 1 GB |
+|                                                          | Request Memory limit |
+|----------------------------------------------------------|----------------------|
+| **Live connect from PowerBI**                            | 10 GB |
+| **DirectQuery from PowerBI report in Shared workspace**  | 1 GB  |
 | **DirectQuery from PowerBI report in Premium workspace** | 10 GB |
 
 ## See also
