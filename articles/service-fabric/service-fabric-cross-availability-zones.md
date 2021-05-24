@@ -16,7 +16,7 @@ To support clusters that span across Availability Zones, Azure Service Fabric pr
 
 Sample templates are available at [Service Fabric cross-Availability Zone templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).
 
-## Recommended topology for primary node type of Azure Service Fabric clusters spanning across Availability Zones
+## Recommended topology for primary node type spanning across Availability Zones
 
 * The cluster reliability level set to `Platinum`
 * A single public IP resource using Standard SKU
@@ -166,7 +166,7 @@ The Standard SKU load balancer and public IP introduce new abilities and differe
 > Each node type in a Service Fabric cluster that uses a Standard SKU load balancer requires a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup. Any deployment without this rule will fail.
 
 
-## Method1:(Preview) Enable multiple Availability Zones in single virtual machine scale set
+## Method1:(Preview) Enable multiple Availability Zones in single VMSS
 
 This solution allows users to deploy three Availability Zones in the same node type. Hence, this is the recommended deployment as the customers have to maintain just 1 VMSS which spans all the zones.
 
@@ -275,7 +275,7 @@ The [Scale up a Service Fabric cluster primary node type](./service-fabric-scale
 * Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG: Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
 
 
-## Method2: Deploy three zones by pinning one VMSS to each zone
+## Method2: Deploy zones by pinning one VMSS to each zone
 
 This is the current generally available configuration right now.
 
