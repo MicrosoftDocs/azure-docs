@@ -37,7 +37,7 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 ## Getting started with the Azure portal
 
-The Azure portal supports importing data from Azure Data Lake Storage Gen2. To import data from Data Lake Storage Gen2, navigate to you Azure Cognitive Search service page in the Azure portal, select "Import data", select "Azure Data Lake Storage Gen2", then continue to follow the Import data flow to create your data source, skillset, index, and indexer.
+The Azure portal supports importing data from Azure Data Lake Storage Gen2. To import data from Data Lake Storage Gen2, navigate to your Azure Cognitive Search service page in the Azure portal, select **Import data**, select **Azure Data Lake Storage Gen2**, then continue to follow the Import data flow to create your data source, skillset, index, and indexer.
 
 ## Getting started with the REST API
 
@@ -190,7 +190,7 @@ There are times when you need to use an encoded version of a field like `metadat
     api-key: [admin key]
     
     {
-      "dataSourceName" : " blob-datasource ",
+      "dataSourceName" : " adlsgen2-datasource",
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" },
       "fieldMappings" : [
@@ -204,7 +204,7 @@ There are times when you need to use an encoded version of a field like `metadat
 
 ## Index content and metadata
 
-Blobs contain content and metadata. You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
+Data Lake Storage Gen2 blobs contain content and metadata. You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
 
 + `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
 
