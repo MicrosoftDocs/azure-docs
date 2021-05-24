@@ -23,6 +23,7 @@ To get you started quickly, this article uses a smartphone app as an IoT device.
 You can use this smartphone app to:
 
 - Explore a basic IoT scenario.
+- Manage and interact with your phone remotely.
 - Test your configuration.
 - As a starting point for your custom device development.
 
@@ -51,11 +52,19 @@ The app collects data from sensors on the phone to send as telemetry to the IoT 
 
 :::image type="content" source="media/iot-phone-app-how-to/telemetry.png" alt-text="Screenshot of telemetry page in smartphone app.":::
 
+The following screenshot shows a device view in IoT Central that displays some of the device telemetry:
+
+:::image type="content" source="media/iot-phone-app-how-to/central-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central.":::
+
 ### Properties
 
 The app reports device status, such as device model and manufacturer. There's also an editable property that you can modify and see the change synchronize in your AzureIoT solution:
 
 :::image type="content" source="media/iot-phone-app-how-to/properties.png" alt-text="Screenshot that shows properties page in mobile device app.":::
+
+The following screenshot shows the writable property in IoT Central after the property was sent to the device:
+
+:::image type="content" source="media/iot-phone-app-how-to/central-writable-property.png" alt-text="Screenshot that shows the writable property in IoT Central.":::
 
 ### Image upload
 
@@ -102,8 +111,6 @@ Create an IoT Central application. To learn more, see [Create an IoT Central app
 ### Register a device
 
 Before you connect the phone app, you need to register a device in your IoT Central application. When you create a device registration, IoT Central generates the device connection information.
-
-In IoT Central, a device registration also associates the device with a device template. The device template defines the telemetry, properties, and commands the device supports and enables IoT Central to create dashboards for the device.
 
 To register the device in IoT Central:
 
@@ -217,6 +224,9 @@ After you create the enrollment group in DPS, you can connect the smartphone app
 
 ### Verify the connection
 
+> [!TIP]
+> The following steps use the Azure CLI to verify the connection. If you prefer to use a GUI tool, see [Install and use Azure IoT explorer](../iot-pnp/howto-use-iot-explorer.md).
+
 To verify that the smartphone app has connected to the cloud and is sending telemetry:
 
 1. Use the following command to verify the device is connected to your IoT hub. Replace `{your IoT Hub name}` with the name you chose when you created your IoT hub:
@@ -302,6 +312,9 @@ To connect the app using the device connection string:
 1. On the **Settings > Registration** page, you can see the connection string that the app used to connect to your IoT hub.
 
 ### Verify the connection
+
+> [!TIP]
+> The following steps use the Azure CLI to verify the connection. If you prefer to use a GUI tool, see [Install and use Azure IoT explorer](../iot-pnp/howto-use-iot-explorer.md).
 
 To verify that the smartphone app has connected to the cloud and is sending telemetry:
 
