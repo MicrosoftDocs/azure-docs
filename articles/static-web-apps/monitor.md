@@ -1,6 +1,6 @@
 ---
-title: Monitoring Azure Static Web Apps Preview
-description: Monitor requests, failures, and tracing information in Azure Static Web Apps Preview
+title: Monitoring Azure Static Web Apps
+description: Monitor requests, failures, and tracing information in Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
