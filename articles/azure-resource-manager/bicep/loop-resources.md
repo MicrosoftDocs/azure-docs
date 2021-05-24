@@ -5,7 +5,7 @@ description: Use loops and arrays in a Bicep file to deploy multiple instances o
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 06/01/2021
 ---
 
 # Resource iteration in Bicep

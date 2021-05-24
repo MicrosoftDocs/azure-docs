@@ -5,8 +5,9 @@ description: Use copy operation in an Azure Resource Manager template (ARM templ
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/01/2021
 ---
+
 # Variable iteration in ARM templates (Bicep)
 
 This article shows you how to create more than one value for a variable in your Azure Resource Manager template (ARM template). By adding the `copy` element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.

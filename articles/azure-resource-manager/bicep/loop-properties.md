@@ -5,7 +5,7 @@ description: Use a Bicep property loop to iterate when creating a resource prope
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 06/01/2021
 ---
 
 # Property iteration in Bicep

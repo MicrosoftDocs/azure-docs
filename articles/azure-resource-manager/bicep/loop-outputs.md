@@ -5,7 +5,7 @@ description: Use a Bicep output loop to iterate and return deployment values.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 06/01/2021
 ---
 
 # Output iteration in Bicep
