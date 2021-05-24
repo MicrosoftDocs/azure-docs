@@ -63,10 +63,10 @@
           items:
           - name: Transparency Note
             items:
-          - name: Use cases for Pronunciation Assessment
-            href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
-          - name: Characteristics and limitations
-            href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
+            - name: Use cases for Pronunciation Assessment
+              href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
+            - name: Characteristics and limitations
+              href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
     - name: Tutorials
       items:
         - name: Improve accuracy with tenant models
