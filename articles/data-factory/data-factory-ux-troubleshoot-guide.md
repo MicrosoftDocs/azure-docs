@@ -108,11 +108,10 @@ To learn more on which the supported data store settings for each connector, you
 
 ## Could not load resource while opening pipeline 
 
-When the user accesses pipeline using ADF GUI authoring tool, the  error messgae says, "Could not load resource 'xxxxxx'. Please ensure no mistakes in the JSON and that referenced resources exist. Status: TypeError: Cannot read property 'xxxxx' of undefined, Possible reason: TypeError: Cannot read property 'xxxxxxx' of undefined."
+When the user accesses pipeline using ADF GUI authoring tool, the  error message says, "Could not load resource 'xxxxxx'. Please ensure no mistakes in the JSON and that referenced resources exist. Status: TypeError: Cannot read property 'xxxxx' of undefined, Possible reason: TypeError: Cannot read property 'xxxxxxx' of undefined."
 
-The source of the error message is JSON file the describes pipeline. It happens when cusotmer uses Git integration and pipeline JSON files get corrupted for some reason.
-SOlution is to fix JSON files at first and then reopen the pipeline using Authoring tool.
-
+The source of the error message is JSON file the describes pipeline. It happens when customer uses Git integration and pipeline JSON files get corrupted for some reason.
+Solution is to fix JSON files at first and then reopen the pipeline using Authoring tool.
 
 
 
