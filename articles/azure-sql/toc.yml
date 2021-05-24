@@ -1105,6 +1105,7 @@
         items:
         - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
         - name: Backup and restore
           href: virtual-machines/windows/backup-restore.md
         - name: Azure Storage for backup
@@ -1115,6 +1116,7 @@
           href: virtual-machines/windows/failover-cluster-instance-overview.md
         - name: Windows Server Failover Cluster
           href: virtual-machines/windows/hadr-windows-server-failover-cluster-overview.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
       - name: Best practices
         items:
         - name: Quick checklist
@@ -1127,6 +1129,7 @@
           href: virtual-machines/windows/security-considerations-best-practices.md
         - name: HADR configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
+          displayName: failover cluster instance, fci, availability group, ag, always on
         - name: Collect baseline 
           href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
         - name: Application patterns
