@@ -69,8 +69,65 @@ To create a generic SQL connector use the following steps:
      |User:Name of Multi-Values Table/Views||
      |User:Stored Procedure Parameters||
      |User:Provide SQL query for detecting object types||
+ 7. On the **Schema 3** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes.  The attributes that you see will depend on the information provided in the previous step.
+     ![Enter schema 3](.\media\on-prem-sql-connector-configure\sql-6.png)
+
+     |Property|Description|
+     |-----|-----|
+     |Select DN attribute for User||
+ 8. On the **Schema 4** page, review the attributes DataType and the Direction of flow for the connector.  You can adjust them if needed and click Next.
+     ![Enter schema 4](.\media\on-prem-sql-connector-configure\sql-7.png)  
+ 9. On the **Global** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes.
+     ![Enter connectivity](.\media\on-prem-sql-connector-configure\sql-8.png)
+
+     |Property|Description|
+     |-----|-----|
+     |Water Mark Query||
+     |Data Source Time Zone|Select the time zone that the data source is located in.|
+     |Data Source Date Time Format|Specify the format for the data source.|
+     |Use named parameters to execute a stored procedure||
+     |Operation Methods||
+ 10. On the **Select partition** page, ensure that the correct partitions are selected and click Next.
+     ![Enter partition information](.\media\on-prem-sql-connector-configure\sql-9.png)  
+
+ 11. On the **Run Profiles** page, select the run profiles that you wish to use and click Next.
+     ![Enter run profiles](.\media\on-prem-sql-connector-configure\sql-10.png)
+
+     |Property|Description|
+     |-----|-----|
+     |Export|Run profile that will export data to SQL.  This run profile is required.|
+     |Full import|Run profile that will import all data from SQL sources specified earlier.|
+     |Delta import|Run profile that will import only changes from SQL since the last full or delta import.|
+ 
+ 12. On the **Run Profiles** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes. 
+     ![Enter Export information](.\media\on-prem-sql-connector-configure\sql-11.png)
+
+     |Property|Description|
+     |-----|-----|
+     |Operation Method||
+     |Table/View/SP||
+     |Start Index Parameter Name||
+     |End Index Parameter Name||
+     |Stored Procedure Parameters||
+ 
+ 13. On the **Object Types** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes. 
+     ![Enter object types](.\media\on-prem-sql-connector-configure\sql-12.png)
+
+     |Property|Description|
+     |-----|-----|
+     |Target Object|The object that you are configuring.|
+     |Anchor|The attribute that will be used as the objects anchor.|
+     |Query attribute||
+     |DN|The attribute that is used for the target objects distinguished name.|
+ 
+ 14. On the **Select Attributes** page, select attributes from the drop-down to add. 
+     ![Enter attributes](.\media\on-prem-sql-connector-configure\sql-13.png)
+
+15. On the **Deprovisioning** page, review the deprovisionig information and make adjustments as necessary. Click Finish.
+     ![Enter deprovisioning information](.\media\on-prem-sql-connector-configure\sql-14.png)
+
 
 
 ## Next Steps
 
-- App provisioning](user-provisioning.md)
+- [App provisioning](user-provisioning.md)
