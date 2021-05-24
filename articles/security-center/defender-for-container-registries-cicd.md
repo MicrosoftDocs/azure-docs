@@ -42,7 +42,7 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 [Step 1. Enable the CI/CD integration in Security Center](#step-1-enable-the-cicd-integration-in-security-center)
 
-[Step 2. Add the necessary lines to your GitHub workflow](#step-2-add-the-necessary-lines-to-your-github-workflow)
+[Step 2. Add the necessary lines to your GitHub workflow](#step-2-add-the-necessary-lines-to-your-github-workflow-and-perform-a-scan)
 
 ### Step 1. Enable the CI/CD integration in Security Center
 
