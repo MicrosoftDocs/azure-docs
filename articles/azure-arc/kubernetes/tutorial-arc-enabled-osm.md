@@ -253,9 +253,9 @@ Output:
 Read [OSM ConfigMap documentation](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/) to understand each of the available configurations. Notice the **permissive_traffic_policy_mode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
 ### Making changes to OSM ConfigMap
-To make changes to the OSM Configmap, use the following guidance:
+To make changes to the OSM ConfigMap, use the following guidance:
 
-1.  Copy and save the changes you wish to make in a JSON file. In this example, we are going to change the permissive_traffic_policy_mode from true to false. Each time you make a change to `osmconfig`, you will have to provide the full list of changes (compared to the default `osmconfig`) in a JSON file.
+1.  Copy and save the changes you wish to make in a JSON file. In this example, we are going to change the permissive_traffic_policy_mode from true to false. Each time you make a change to `osm-config`, you will have to provide the full list of changes (compared to the default `osm-config`) in a JSON file.
 ```json
 {
     "osm.OpenServiceMesh.enablePermissiveTrafficPolicy" : "false"
