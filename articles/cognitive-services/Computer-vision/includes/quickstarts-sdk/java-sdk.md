@@ -63,7 +63,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.6-beta")
 }
 ```
 
