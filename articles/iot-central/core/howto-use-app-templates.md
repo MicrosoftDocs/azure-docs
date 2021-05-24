@@ -68,6 +68,8 @@ To create an application template from an existing IoT Central application:
 
 ![Create an application template](media/howto-use-app-templates/create-template.png)
 
+![Export an application template](media/howto-use-app-templates/create-template-2.png)
+
 ### Use an application template
 
 To use an application template to create a new IoT Central application, you need a previously created **Shareable Link**. Paste the **Shareable Link** into your browser's address bar. The **Create an application** page displays with your custom application template selected:
