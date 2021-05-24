@@ -12,9 +12,11 @@ manager: rkarlin
 
 # Identify vulnerable container images in your CI/CD workflows
 
-This page explains how to scan your Azure Container Registry-based container images with the integrated vulnerability scanner  when they're built as part of your GitHub workflows.
+This page explains how to scan your Azure Container Registry-based container images with the integrated vulnerability scanner when they're built as part of your GitHub workflows.
 
 To set up the scanner, you'll need to enable **Azure Defender for container registries** and the CI/CD integration. When your CI/CD workflows push images to your registries, you can view registry scan results and a summary of CI/CD scan results.
+
+The findings of the CI/CD scans are an enrichment to the existing registry scan findings by Qualys. Azure Defender's CI/CD scanning is powered by [Trivy](https://0x1.gitlab.io/security/Trivy/).
 
 As with the other built-in vulnerability scanners, Security Center presents the findings and related information as recommendations. The findings include related information such as:
 - remediation steps
@@ -22,6 +24,9 @@ As with the other built-in vulnerability scanners, Security Center presents the 
 - CVSS scores
 
 You’ll also get traceability information such as the GitHub workflow and the GitHub run URL, to help identify the workflows that are resulting in vulnerable images.
+
+> [!TIP]
+> The vulnerabilities identified in a scan of your registry might differ from the findings of your CI/CD scans. One reason for these  differences is that the registry scanning is [continuous](defender-for-container-registries-introduction.md#when-are-images-scanned), whereas the CI/CD scanning happens immediately before the workflow pushes the image into the registry.
 
 ## Availability
 
