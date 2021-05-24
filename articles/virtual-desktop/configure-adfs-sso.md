@@ -57,18 +57,18 @@ After you create these certificate templates, you'll need to enable the template
 > [!NOTE]
 > This solution generates new short term certificates for every user logon which can fill up the Certificate Authority database over time if you have a lot of users. You can avoid this by [setting up a CA for non-persistent certificate processing](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ff934598(v=ws.10)).
 
-### To create the enrollment agent certificate template
+### Create the enrollment agent certificate template
 
 Depending on your environment, you may already have configured an enrollment agent certificate template for other purposes like Windows Hello for Business, Logon certificates or VPN certificates. If so, you will need to modify it to support SSO. If not, you can create a new template.
 
-To determine if you are already using an enrollment agent certificate template, run the following PowerShell command on the AD FS server and see if a value is returned. If it's empty, [create a new enrollment agent certificate template](#create-a-new-enrollment-agent-certificate-template). Otherwise, remember the name and [update an existing enrollment agent certificate template](#update-an-existing-enrollment-agent-certificate-template).
+To determine if you are already using an enrollment agent certificate template, run the following PowerShell command on the AD FS server and see if a value is returned. If it's empty, create a new enrollment agent certificate template. Otherwise, remember the name and update the existing enrollment agent certificate template.
 
 ```powershell
 Import-Module adfs
 (Get-AdfsCertificateAuthority).EnrollmentAgentCertificateTemplateName
 ```
 
-#### Create a new enrollment agent certificate template
+To create a new enrollment agent certificate template:
 
 1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
 2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add >** > **OK** to view the list of certificate templates.
@@ -77,13 +77,13 @@ Import-Module adfs
 5. Select the **Security** tab, then select **Add...**.
 6. Next, select **Object Types...**, then **Service Accounts**, and then **OK**.
 7. Enter the service account name for AD FS and select **OK**.
-   * In an isolated AD FS setup, the service account will be named "adfssvc$".
-   * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$".
+   * In an isolated AD FS setup, the service account will be named "adfssvc$"
+   * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$"
 8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
    :::image type="content" source="media/adfs-enrollment-properties-security.png" alt-text="A screenshot showing the security tab of the Enrollment Agent certificate template after it is properly configured.":::
 
-#### Update an existing enrollment agent certificate template
+To update an existing enrollment agent certificate template:
 
 1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
 2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add >** > **OK** to view the list of certificate templates.
@@ -91,11 +91,13 @@ Import-Module adfs
 4. Select the **Security** tab, then select **Add...**.
 5. Next, select **Object Types...**, then **Service Accounts**, and then **OK**.
 6. Enter the service account name for AD FS and select **OK**.
-   * In an isolated AD FS setup, the service account will be named "adfssvc$".
-   * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$".
+   * In an isolated AD FS setup, the service account will be named "adfssvc$"
+   * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$"
 7. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
-### To create the Smartcard Logon certificate template
+### Create the Smartcard Logon certificate template
+
+To create the Smartcard Logon certificate template:
 
 1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
 2. Select **File...** > **Add/Remote Snap-in...** > **Certificate Templates** > **Add** > **OK** to view the list of certificate templates.
@@ -116,14 +118,16 @@ Import-Module adfs
 8. For **Application policy**, select **Certificate Request Agent**.
 9.  Select the **Security** tab, then select **Add...**.
 10. Select **Object Types...**, **Service Accounts**, and **OK**.
-11. Enter the service account name for AD FS just like you did in the [Create the enrollment agent certificate template](#to-create-the-enrollment-agent-certificate-template) section.
-    * In an isolated AD FS setup, the service account will be named "adfssvc$".
-    * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$".
-1. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll", then select **OK** to save.
+11. Enter the service account name for AD FS just like you did in the [Create the enrollment agent certificate template](#create-the-enrollment-agent-certificate-template) section.
+    * In an isolated AD FS setup, the service account will be named "adfssvc$"
+    * If you set up AD FS using Azure AD Connect, the service account will be named "aadcsvc$"
+12. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll", then select **OK** to save.
 
    :::image type="content" source="media/adfs-sso-properties-security.png" alt-text="A screenshot showing the security tab of the SSO certificate template after it is properly configured.":::
 
-### To enable the new certificate templates:
+### Enable the new certificate templates:
+
+To enable the new certificate templates:
 
 1. On the certificate authority, run **mmc.exe** from the Start menu to launch the **Microsoft Management Console**.
 2. Select **File...** > **Add/Remove Snap-in...** > **Certification Authority** > **Add >** > **Finish** > and **OK** to view the Certification Authority.
@@ -138,7 +142,7 @@ Import-Module adfs
 
 ## Configure the AD FS Servers
 
-You must configure the AD FS servers to use the new certificate templates and set the relying-party trust to support SSO.
+You must configure the Active Directory Federation Services (AD FS) servers to use the new certificate templates and set the relying-party trust to support SSO.
 
 The relying-party trust between your AD FS server and the Windows Virtual Desktop service allows single sign-on certificate requests to be forwarded correctly to your domain environment.
 
@@ -163,7 +167,7 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
    > If you already have an EnrollmentAgentCertificateTemplate configured, ensure you use the existing template name instead of ADFSEnrollmentAgent.
 
 2. Run the ConfigureWVDSSO.ps1 script.
-   > [!Note]
+   > [!NOTE]
    > You need the `$config` variable values to complete the next part of the instructions, so don't close the PowerShell window you used to complete the previous instructions. You can either keep using the same PowerShell window or leave it open while launching a new PowerShell session.
    
    * If you're using a shared key in the Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
@@ -173,7 +177,7 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
      $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" [-WvdWebAppAppIDUri "<WVD Web App URI>"] [-RdWebURL "<RDWeb URL>"]
      ```
 
-     > [!Note]
+     > [!NOTE]
      > You need the WvdWebAppAppIDUri and RdWebURL properties to configure an environment in a sovereign cloud like Azure Government. In the Azure Commercial Cloud, these properties are automatically set to `https://www.wvd.microsoft.com` and `https://rdweb.wvd.microsoft.com` respectively.
 
    * If you're using a certificate in the Key Vault, run the following PowerShell cmdlet on the AD FS server with ADFSServiceUrl replaced with the full URL to reach your AD FS service:
@@ -183,7 +187,7 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
      $config = ConfigureWVDSSO.ps1 -ADFSAuthority "<ADFSServiceUrl>" -UseCert -CertPath "<Path to the pfx file>" -CertPassword <Password to the pfx file> [-WvdWebAppAppIDUri "<WVD Web App URI>"] [-RdWebURL "<RDWeb URL>"]
      ```
 
-     > [!Note]
+     > [!NOTE]
      > You need the WvdWebAppAppIDUri and RdWebURL properties to configure an environment in a sovereign cloud like Azure Government. In the Azure Commercial Cloud, these properties are automatically set to `https://www.wvd.microsoft.com` and `https://rdweb.wvd.microsoft.com` respectively.
 
 3. Set the access policy on the Azure Key Vault by running the following PowerShell cmdlet:
@@ -208,8 +212,8 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
      $secret = Import-AzKeyVaultCertificate -VaultName "<Key Vault Name>" -Name "adfsssosecret" -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]} -FilePath "<Path to pfx>" -Password (ConvertTo-SecureString -String "<pfx password>"  -AsPlainText -Force)
      ```
 
-> [!Note]
-> You can optionally configure how often users are prompted for credentials by changing the [AD FS single sign-on settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#keep-me-signed-in-for-unauthenticated-devices). By default, users will be prompted every 8 hours on unregistered devices.
+> [!NOTE]
+> You can optionally configure how often users are prompted for credentials by changing the [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#keep-me-signed-in-for-unauthenticated-devices). By default, users will be prompted every 8 hours on unregistered devices.
 
 ## Configure your Windows Virtual Desktop host pool
 
@@ -226,7 +230,7 @@ After that, update the SSO information for your host pool by running one of the 
   Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "<WVD Web App URI>" -SsoSecretType SharedKeyInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
   ```
 
-  > [!Note]
+  > [!NOTE]
   > You need to set the SsoClientId property to match the Azure cloud you're deploying SSO in. In the Azure Commercial Cloud, this property should be set to `https://www.wvd.microsoft.com`. However, the required setting for this property will be different for other clouds, like the Azure Government cloud.
 
 * If you're using a certificate in the Key Vault, run the following PowerShell cmdlet:
@@ -235,7 +239,7 @@ After that, update the SSO information for your host pool by running one of the 
   Update-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" -SsoadfsAuthority "<ADFSServiceUrl>" -SsoClientId "<WVD Web App URI>" -SsoSecretType CertificateInKeyVault -SsoClientSecretKeyVaultPath $secret.Id
   ```
 
-  > [!Note]
+  > [!NOTE]
   > You need to set the SsoClientId property to match the Azure cloud you're deploying SSO in. In the Azure Commercial Cloud, this property should be set to `https://www.wvd.microsoft.com`. However, the required setting for this property will be different for other clouds, like the Azure Government cloud.
 
 ### Configure additional host pools
@@ -265,7 +269,7 @@ Install-Script UnConfigureWVDSSO
 UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplicationID "a85cf173-4192-42f8-81fa-777a763e6e2c"
 ```
 
-> [!Note]
+> [!NOTE]
 > The WvdWebAppAppIDUri property needs to match the Azure cloud you are deploying in. In the Azure Commercial Cloud, this property is `https://www.wvd.microsoft.com`. It will be different for other clouds like the Azure Government cloud.
 
 ## Next steps
