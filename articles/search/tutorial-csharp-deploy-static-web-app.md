@@ -29,12 +29,17 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     This setting means only changes you commit to that branch are deployed to your static web app. 
 
+1. If you see a pop-up window asking you to commit your changes, do not do this. The secrets from the bulk import step should not be committed to the repository. 
+
+    To rollback the changes, in VS Code select the Source Control icon in the Activity bar, then select each changed file in the Changes list and select the **Discard changes** icon.
+
 1. Follow the prompts to provide the following information:
 
     |Prompt|Enter|
     |--|--|
     |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-dotnet-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
+    |Select a SKU| Select the free SKU for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
     |Select the location of your application code|`search-website`<br><br>This is the path, from the root of the repository, to your Azure Static web app. |
     |Select the location of your Azure Function code|`search-website/api`<br><br>This is the path, from the root of the repository, to your Azure Function app. |
