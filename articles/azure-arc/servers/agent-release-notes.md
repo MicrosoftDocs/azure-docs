@@ -24,6 +24,7 @@ Version 1.6
 
    - Policies are executed in a separate process.
    - Added V2 signature support for extension validation.
+   - Minor update to data logging.
 
 ## April 2021
 
