@@ -30,7 +30,7 @@ Refresh tokens need to be stored safely in line with stringent requirements sinc
 
 ### Token timeouts
 
-Using [token lifetime configuration](active-directory-configurable-token-lifetimes#refresh-and-session-token-lifetime-policy-properties), the lifetime of refresh tokens can be altered. Tokens can go without use and expire. This is a normal occurrence. For example, the user does not open the app for three months. Apps will come across scenarios where the sign-in server rejects a refresh token because of its age. These scenarios include:
+Using [token lifetime configuration](active-directory-configurable-token-lifetimes#refresh-and-session-token-lifetime-policy-properties), the lifetime of refresh tokens can be reduced or lengthened. This setting changes the length of time that a refresh token can go without use. For example, if a user does not open an app for three months, when the app attempts to use that 90+ day old refresh token it will find that it has expired. Additionally, an admin can  require that second factors be used on a regular cadence, forcing the user to manually sign in at specific intervals. These scenarios include:
 
 * MaxInactiveTime: If the refresh token hasn't been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid.
 * MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then reauthentication will be required after the time set in the MaxAgeSession* elapses.
