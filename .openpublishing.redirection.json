@@ -11109,6 +11109,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/outputs",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-templates-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-parameters",
       "redirect_document_id": false
@@ -11119,6 +11124,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/parameters",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/template-samples.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-samples",
       "redirect_document_id": false
@@ -11128,6 +11138,11 @@
       "redirect_url": "/azure/azure-resource-manager/templates/templates-cloud-consistency",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/templates-cloud-consistency.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-cloud-consistency",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/best-practices-resource-manager-design-templates.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
@@ -11163,6 +11178,11 @@
       "redirect_url": "/azure/azure-resource-manager/templates/template-syntax#resources",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-syntax.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/syntax",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/template-tutorial-add-functions.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-add-functions",
@@ -11279,6 +11299,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-user-defined-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/user-defined-functions",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-templates-variables.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-variables",
       "redirect_document_id": false
@@ -11288,6 +11313,11 @@
       "redirect_url": "/azure/azure-resource-manager/templates/template-variables",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/variables",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/vs-azure-tools-update-deploy-script-to-az-powershell.md",
       "redirect_url": "/azure/azure-resource-manager/templates/update-visual-studio-deployment-script",
