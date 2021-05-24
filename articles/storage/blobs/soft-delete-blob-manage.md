@@ -138,7 +138,7 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 1. Ensure that you have the **Az.Storage** preview module (version blah). See [Install PowerShell modules](soft-delete-blob-enable.md#install-powershell-modules).
 
-2. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell#connect-to-the-account).
+2. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
    The following example obtains authorization by using a storage account key.
 
@@ -160,7 +160,7 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 
 ### Azure CLI
 
-1. Make sure that you have the `storage-preview` extension installed. See [Install the storage CLI extension](soft-delete-blob-enable.md#install-the-storage-CLI-extensions).
+1. Make sure that you have the `storage-preview` extension installed. See [Install the storage CLI extension](soft-delete-blob-enable.md#install-the-storage-cli-extension).
 
 2. Get a list of deleted items.
 

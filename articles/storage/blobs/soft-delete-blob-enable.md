@@ -59,7 +59,7 @@ $properties.DeleteRetentionPolicy.Enabled
 $properties.DeleteRetentionPolicy.Days
 ```
 
-# [CLI](#tab/azure-CLI)
+# [Azure CLI](#tab/azure-CLI)
 
 To enable blob soft delete with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command, specifying the retention period in days.
 
@@ -105,7 +105,7 @@ Not yet implemented.
     echo $PSVersionTable.PSVersion.ToString() 
     ```
     
-    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 2. Install the latest **PowershellGet** module. Then, close and reopen the Powershell console.
 
@@ -120,11 +120,11 @@ Not yet implemented.
     Need the correct version here.
     ```
 
-    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 #### Enable soft delete
 
-1. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell#connect-to-the-account).
+1. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
    The following example obtains authorization by using a storage account key.
 
@@ -145,20 +145,20 @@ Not yet implemented.
    Enable-AzStorageDeleteRetentionPolicy -RetentionDays 4  -Context $ctx
    ```
 
-### [CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
 #### Install the storage CLI extension
 
-1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Open the [Azure Cloud Shell](/azure/cloud-shell/overview), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Download the CLI package. See [Need package download here](http://www.microsoft.com).
+2. Download the [CLI package](https://adlsgen2softdelete.blob.core.windows.net/privatedrop/storage_preview-0.7.0-py2.py3-none-any.whl?sv=2019-12-12&st=2021-02-26T00%3A12%3A25Z&se=2022-02-27T00%3A12%3A00Z&sr=b&sp=r&sig=63jHjEI9ISHHiGLPFYgkvo3e4cTd33nVVL%2BxO0Mn5Mo%3D).
 
 3. Install the `storage-preview` extension.
 
    ```azurecli
    az extension add s https://zuhdefault.blob.core.windows.net/cliext/storage_preview-0.7.2-py2.py3-none-any.whl`
    ```
-4. Connect to your storage account. See [Connect to the account](data-lake-storage-directory-file-acl-cli#connect-to-the-account).
+4. Connect to your storage account. See [Connect to the account](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account).
 
 #### Enable soft delete
 
