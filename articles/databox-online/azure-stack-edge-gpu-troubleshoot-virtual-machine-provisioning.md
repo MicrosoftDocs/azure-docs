@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/20/2021
+ms.date: 05/24/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -51,15 +51,16 @@ To collect guest logs for failed virtual machines, do these steps:
    **Windows VMs:**
    C:\Windows\Azure\Panther\WaSetup.xml<!--The Windows log is an outlier. Is it included in the support package?-->
 
-## Troubleshoot VM deployment issues
+
+## Troubleshoot VM provisioning issues
 
 The following sections provide common causes for the following issues:
  
-* VM provisioning timeout
-* Network interface creation issues
-* VM image issues
-* VM creation issues
-* GPU extension failed to be deployed (GPU VMs)
+* [VM provisioning timeout](#vm-provisioning-timeout)
+* [Network interface creation issues](#network-interface-creation-issues)
+* [VM image issues](#vm-image-issues)
+* [VM creation issues](#vm-creation-issues)
+* [GPU extension failed to be deployed (GPU VMs)](#gpu-extension-failed-to-be-deployed)
 
 ## VM provisioning timeout
 
@@ -67,6 +68,7 @@ A common cause of a deployment failure is that VM provisioning does not complete
 
 ![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
+<!--Section is difficult to navigate because there is so much stuff with different types of grouping. All deal with one error. Can we convert entries to a table (Issue/Errors | Solution)? Then no overview list would be needed.-->
 This section provides troubleshooting guidance for some of the most common causes of aVM provisioning timeout:
 
 * Static IP address assigned to the VM is already in use<!--Add section link-->
@@ -80,6 +82,8 @@ This section provides troubleshooting guidance for some of the most common cause
 ### IP assigned to the VM is already in use
 
 **Error description:**  If you assigned a static IP address during virtual machine creation, and the IP address is already in use, VM provisioning will fail.
+
+**Suggested solution:** Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.
 
 To check for a duplicate IP address: 
 
@@ -95,14 +99,11 @@ To check for a duplicate IP address:
 
    If you get a response to any of these commands, the IP address that you assigned the new VM is already in use.
 
-**Suggested resolution:** Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.<!--For more information?-->
-
-
 ### VM image not prepared correctly
 
 **Error description:** To prepare a VM image to use to deploy VMs on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. You must create a virtual machine (VM) in Azure, customize the VM, and then generalize the VM. Then you'll download the VHD for that VM.<!--Final step is to upload the image to an Azure Storage account?-->
 
-**Suggested resolution:** Complete the workflow for preparing a VM image for use on Azure Stack Edge Pro GPU. For instructions, see one of the following articles. The procedures will vary depending on the type of source VHD and whether you're creating a generalized image (to deploy new VMs) or a specialized image (to migrate or restore an existing VM).<!--Some bridge seemed needed, but final sentence gets long. Revisit this later.-->
+**Suggested solution:** Complete the workflow for preparing a VM image for use on Azure Stack Edge Pro GPU. For instructions, see one of the following articles. The procedures will vary depending on the type of source VHD and whether you're creating a generalized image (to deploy new VMs) or a specialized image (to migrate or restore an existing VM).<!--Some bridge seemed needed, but final sentence gets long. Revisit this later.-->
 
 * [Create custom VM images for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md) (Workflow for creating a VM image)
 * [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
@@ -113,7 +114,7 @@ To check for a duplicate IP address:
 
 **Error description:** If the default gateway and DNS server can't be reached during VM deployment, VM provisioning will time out, and the VM deployment will fail.
 
-**Suggested resolution:** Verify that the default gateway and DNS server can be reached from the VM. Then repeat VM deployment.
+**Suggested solution:** Verify that the default gateway and DNS server can be reached from the VM. Then repeat VM deployment.
 
 To verify that the default gateway and DNS server can be reached:
 1. Console-connect to the VM. <!--Are they starting a remote PowerShell session? Explicit instructions needed?-->
@@ -126,9 +127,9 @@ To verify that the default gateway and DNS server can be reached:
 
 ### `cloud init` issues (Linux VMs)
 
-**Error description:** The `cloud init` command did not run, or there were issues while `cloud init` was running during the provisioning of a Linux VM, and VM provisioning timed out.<!--Note to me: What does cloud init do?-->
+**Error description:** The `cloud init` command did not run, or there were issues while `cloud init` was running during the provisioning of a Linux VM, and VM provisioning timed out. `cloud-init` is used to customize a Linux VM when it boots for the first time.
 
-**Suggested resolution:** To find the issues that occurred when `cloud init` was run:
+**Suggested solution:** To find issues that occurred when `cloud init` was run:
 1. Console connect to the VM.
 1. Check for `cloud init` errors in the following log files:
 
@@ -136,13 +137,13 @@ To verify that the default gateway and DNS server can be reached:
    /var/log/cloud-init.log
    /var/log/waagent/log 
 
-NO GUIDANCE ON FIXING THE ERRORS. WILL THE LOG ENTRIES TELL HOW TO FIX THE ERRORS?  
+For help resolving `cloud init` issues, see [Troubleshooting VM provisioning with cloud-init](/azure/virtual-machines/linux/cloud-init-troubleshooting).
 
 ### Provisioning flags set incorrectly (Linux VMs)
 
-**Error description:** XXX
+**Error description:** To successfully deploy a Linux VM in Azure, provisioning must be enabled on the image, and provisioning using `cloud init' must be enabled. 
 
-**Suggested resolution:** Make sure the Provisioning flags in the `/etc/waagent.conf` file have the following values:
+**Suggested solution:** Make sure the Provisioning flags in the `/etc/waagent.conf` file have the following values:<!--Where is this file discussed in Azure VM provisioning?-->
 
    | Capability                      | Required value                |
    |---------------------------------|-------------------------------|
@@ -183,19 +184,21 @@ Files:
 
 ##	Network interface creation issues
 
+This section covers issues that creation of the network interface on a new VM to fail.
+
 ### NIC creation timeout
 
 **Error description:** Creation of the network interface on the VM didn't complete within the allowed timeout period. This failure can be caused by DHCP server issues in your environment. 
 
 To verify whether the network interface was created successfully, do these steps:
 
-1. In the Azure portal, go to the Azure Stack Edge resource for your device (go to **Edge Services** > **Virtual machines**); then select **Deployments** and navigate to the VM deployment.<!--It would take two graphics to show this.--> 
+1. In the Azure portal, go to the Azure Stack Edge resource for your device (go to **Edge Services** > **Virtual machines**). Then select **Deployments**, and navigate to the VM deployment.<!--It would take two graphics to show this.--> 
 
 1. If a network interface was not created successfully, you'll see the following error.
 
    ![Portal error displayed when network interface creation fails](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
 
-**Suggested resolution:** Create the VM again, and assign it a static IP address.
+**Suggested solution:** Create the VM again, and assign it a static IP address.
 
 ##	VM image issues
 
@@ -205,15 +208,15 @@ For guidance on resolving image creation issues, see [Troubleshoot virtual machi
 
 ## VM creation issues
 
-ADD SECTION INTRO.
+This section covers common issues that occur during VM creation.
 
 ### Not enough memory to create the VM
 
 **Error description:** When VM creation fails because of insufficient memory, you'll see the following error.
  
-![Portal error displayed when VM creation fails](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)<!--Box the area of the error message -->
+![Portal error displayed when VM creation fails](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
 
-**Suggested resolution:** Check the available memory on the device, and choose the VM size accordingly. For more information, see [Supported virtual machine sizes on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
+**Suggested solution:** Check the available memory on the device, and choose the VM size accordingly. For more information, see [Supported virtual machine sizes on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
 
 #### Calculate memory available for VMs
 
@@ -248,26 +251,26 @@ Error displayed:
 ![Portal error displayed when creation of a GPU VM fails because of not enough GPUs](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)<!--Screenshot probably won't stay.-->
 
 **Possible causes:**
-If Kubernetes is enabled before the VM is created, Kubernetes will grab all the available GPUs and you won’t be able to create any GPU-sized VMs. You can create as many GPU-sized VMs as the number of GPUs (1 or 2 GPU SKU). 
+If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of GPUs (1 or 2 GPU SKU). 
 
-**Suggested solution:** For more information, see [Overview and deployment of GPU VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
+**Suggested solution:** For troubleshooting guidance, see [Overview and deployment of GPU VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
 ## GPU extension failed to be deployed
 Debugging steps:
 
 ### VM size is not GPU VM size
 
-**Error description:** A GPU VM must use the Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 VM size. If these size requirements aren't met, attempting to attach the GPU extension will fail.
+**Error description:** A GPU VM must be either Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 size. If any other VM size is used, the GPU extension will fail to be attached.
 
-**Suggested solution:** Create a VM with the Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 VM size. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).<!--Verify: They specify the configuration for the VmSize setting, and the associated sizes are configured on the VM?-->
+**Suggested solution:** Create a VM with the Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 VM size. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
 
 ### Image OS is not supported
 
-**Error description:** The GPU extension doesn't support the operating system of the VM. 
+**Error description:** The GPU extension doesn't support the operating system installed on the VM image. 
 
 **Suggested solution:** Prepare a new VM image that has an operating system that the GPU extension supports. 
 
-* For a list of supported operating systems for GPU on Windows and Linux VMs, see [Supported OS and GPU drivers for GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#supported-os-and-gpu-drivers).
+* For a list of supported operating systems, see [Supported OS and GPU drivers for GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#supported-os-and-gpu-drivers).
 
 * For image preparation requirements for a GPU VM, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
@@ -283,7 +286,7 @@ Debugging steps:
 
 **Error description:** Extension provisioning failed during extension installation or while in the Enable state.
 
-1. Check the guest log for the actual error:
+1. Check the guest log for the associated error:
 
    On a Linux VM:
    * Look in `/var/log/waagent.log` or `/var/log/azure/nvidia-vmext-status`.
@@ -292,13 +295,13 @@ Debugging steps:
    * Find out the error status in `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status`.
    * Review the complete execution log: `C:\WindowsAzure\Logs\WaAppAgent.txt`.
 
-1.	If the installation process failed while downloading the package, that indicates the VM couldn't access the public network to download the driver.
+1.	If installation fails while the package is being downloaded, that indicates the VM couldn't access the public network to download the driver.
 
 **Suggested solution:**
 
 1.	Reassign the compute port on the VM to the public network (Port 2).<!--Where are the instructions for configuring the port used for compute?-->
 
-2.	De-allocate the existing failed VM.<!--They delete the VM?-->
+2.	De-allocate the existing, failed VM.<!--To do this, do they stop the VM in the portal?-->
  
 3.	Create a new VM.
 
@@ -314,7 +317,7 @@ Debugging steps:
 
 1.	Retry setting the extension.<!--Is this a portal step? Is there a Retry option they select?-->
 
-1.	If the extension retry fails again, try creating a new VM, and make sure the lock is not used before you deploy the GPU extension.
+1.	If the extension retry fails again, try creating a new VM, and make sure the lock is not in use before you deploy the GPU extension.
 
 
 ## Next steps
