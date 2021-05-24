@@ -72,7 +72,7 @@ Choosing a default Azure Machine Learning workspace enables the following when a
 - Diagnostics
 
 > [!IMPORTANT]
-> Autocompletion is not available on vnet and private-link enabled workspaces.
+> Autocompletion is not available on VNet and Azure Private Link enabled workspaces.
 
 If you don't have a workspace, create one. For more information, see [manage Azure Machine Learning resources with the VS Code extension](how-to-manage-resources-vscode.md).
 
