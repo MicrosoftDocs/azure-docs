@@ -27,6 +27,8 @@
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
   - name: Deploy the Azure Sentinel solution for SAP
     href: sap-deploy-solution.md
+  - name: Create a Power BI report
+    href: powerbi.md
 - name: Concepts
   items:
   - name: Classify data using entities
