@@ -18,7 +18,7 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 
 # Microsoft identity platform refresh tokens
 
-When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. The refresh token is bound to a combination of user and client. Refresh tokens are used only with authorization servers and are never sent to resource servers. Refresh tokens can be used to obtain extra access tokens with similar or lesser permissions and scope. 
+When a client acquires an access token to access a protected resource, the client usually also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires, and to acquire additional access tokens for other resources. Refresh tokens are bound to a combination of user and client, but are not locked with respect to resources or tenant - this allows a client to use a refresh token to acquire access tokens across any combination of resource and tenant where it has permission to do so. 
 
 A refresh token can be revoked at any time, and the token's validity is checked every time the token is used. Refresh tokens are not revoked when used to fetch new access tokens. The best practice, however, is to securely delete the old token when getting a new one.
 
