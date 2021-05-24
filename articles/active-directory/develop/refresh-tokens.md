@@ -24,7 +24,7 @@ Refresh tokens have a significantly longer lifetime than access tokens - 90 days
 
 Whenever access tokens expire but still need to access a resource that is protected, refresh tokens are used to acquire new access tokens. This happens without prompting the user to reauthenticate. It's important to make a distinction between confidential clients and public clients, as this impacts how long refresh tokens can be used. For more information about different types of clients, see RFC 6749.
 
-## Refresh token lifetimes
+## Refresh token expiration
 
 Refresh tokens need to be stored safely in line with stringent requirements since they have a long lifetime and are used to obtain access tokens. The tokens can, however, be invalidated or revoked at any time, for different reasons. These reasons fall into two main categories: timeouts and revocations
 
