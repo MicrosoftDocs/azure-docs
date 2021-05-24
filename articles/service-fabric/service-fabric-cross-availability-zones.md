@@ -4,7 +4,7 @@ description: Learn how to create an Azure Service Fabric cluster across Availabi
 author: peterpogorski
 
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 05/24/2021
 ms.author: pepogors
 ---
 
@@ -18,13 +18,7 @@ Sample templates are available at [Service Fabric cross-Availability Zone templa
 
 ## Recommended topology for primary node type of Azure Service Fabric clusters spanning across Availability Zones
 
-The recommended topology for the primary node type requires these resources:
-* Three node types marked as primary
-  * Each node type should be mapped to its own virtual machine scale set located in a different zone.
-  * Each virtual machine scale set should have at least five nodes (Silver Durability).
-
 * The cluster reliability level set to `Platinum`
-
 * A single public IP resource using Standard SKU
 * A single load balancer resource using Standard SKU
 * A network security group (NSG) referenced by the subnet in which you deploy your virtual machine scale sets
