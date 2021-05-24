@@ -23,7 +23,7 @@ ms.date: 05/25/2021
 ## Overview
 An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index. Indexers provide a convenient way for users to index content from their data source without having to write their own crawler or push model. Indexers also allow you to add a skillset to their pipeline so that they can further enrich their data.
 
-With the new Power Query data connector integration, you can pull data from many new data sources. [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) is a data transformation and data preparation engine. Power Query connectors are used in products like Power BI and Excel. Azure Cognitive Search has added support for select Power Query data connectors so that you can pull data from more data sources. These new data sources are supported in the Azure portal.
+With the new Power Query data connector integration, you can pull data from many new data sources that are outside of the Azure cloud. [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) is a data transformation and data preparation engine. Power Query connectors are used in products like Power BI and Excel. Azure Cognitive Search has added support for select Power Query data connectors so that you can pull data from more data sources. These new data sources are supported in the Azure portal.
 
 ## Supported data sources
 + Amazon Redshift
