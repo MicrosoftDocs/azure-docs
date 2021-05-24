@@ -83,7 +83,7 @@ Power Query connectors provide you with a rich UI experience that allows you to 
 
 It's not required that you transform your data before importing it into Azure Cognitive Search.
 
-![Transform your data](./media/search-power-query-connectors/power-query-transform-data.png "Transform your data") 
+![Transform your data](./media/search-power-query-connectors/power-query-transform-your-data.png "Transform your data") 
 
 For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](https://docs.microsoft.com/power-query/power-query-quickstart-using-power-bi). 
 
