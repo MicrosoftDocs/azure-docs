@@ -88,7 +88,7 @@ So you will experience the issues if the following criteria are met:
 
 #### Symptoms
 
-Mapping data flows in Azure Data Factory supports the use of parameters. The parameter values are set by the calling pipeline via the Execute Data Flow activity, and using parameters make your data flows general-purpose, flexible, and reusable. You can parameterize data flow settings and expressions with these parameters: [Parameterizing mapping data flows](https://docs.microsoft.com/azure/data-factory/parameters-data-flow).
+Mapping data flows in Azure Data Factory supports the use of parameters. The parameter values are set by the calling pipeline via the Execute Data Flow activity, and using parameters makes your data flows general-purpose, flexible, and reusable. You can parameterize data flow settings and expressions with these parameters: [Parameterizing mapping data flows](https://docs.microsoft.com/azure/data-factory/parameters-data-flow).
 
 After setting parameters and using them in the query of data flow source, they do not take effective.
 
@@ -100,7 +100,7 @@ You encounter this error due to the wrong configuration.
 
 You can use the following rules to set parameters in the query, and for more detailed information, please refer to [Build expressions in mapping data flow](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
 
-1. Apply double quotes in the beginning of the SQL statement.
+1. Apply double quotes at the beginning of the SQL statement.
 2. Use single quotes around the parameter.
 3. Use lowercase letters for all CLAUSE statements.
 
@@ -426,7 +426,7 @@ In data flows, if you use Azure Blob Storage (general purpose v1) with the servi
 
 When you use the Azure Blob linked service in data flows, the managed identity or service principal authentication is not supported when the account kind is empty or "Storage". This situation is shown in Image 1 and Image 2 below.
 
-Image 1: Account kind in Azure Blob Storage linked service
+Image 1: The account kind in the Azure Blob Storage linked service
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-kind.png" alt-text="Screenshot that shows the storage account kind in Azure Blob Storage linked service."::: 
 
@@ -439,9 +439,9 @@ Image 2: Storage account page
 
 To solve this issue, you can refer to the following recommendations:
 
-- If the storage account kind is **None** in Azure Blob linked service, specify the proper account kind, and you can refer to Image 3 shown below to accomplish it. Furthermore, you can refer to Image 2 to get the account kind of the storage account, and check and confirm the account kind is not Storage (general purpose v1).
+- If the storage account kind is **None** in Azure Blob linked service, specify the proper account kind, and you can refer to Image 3 shown below to accomplish it. Furthermore, you can refer to Image 2 to get the storage account kind, and check and confirm the account kind is not Storage (general purpose v1).
 
-    Image 3: Specify storage account kind in Azure Blob Storage linked service
+    Image 3: Specify the storage account kind in the Azure Blob Storage linked service
 
     :::image type="content" source="./media/data-flow-troubleshoot-connector-format/specify-storage-account-kind.png" alt-text="Screenshot that shows how to specify storage account kind in Azure Blob Storage linked service."::: 
     
@@ -467,7 +467,7 @@ You encounter the following error when you create the linked service to a Snowfl
 
 #### Cause
 
-You have not applied the account name in the format that is given in the document Snowflake account (including additional segments that identify the region and cloud platform), for example, `XXXXXXXX.east-us-2.azure`. You can refer to this document: [Linked service properties](https://docs.microsoft.com/azure/data-factory/connector-snowflake#linked-service-properties) for more information.
+You have not applied the account name in the format that is given in the Snowflake account document (including additional segments that identify the region and cloud platform), for example, `XXXXXXXX.east-us-2.azure`. You can refer to this document: [Linked service properties](https://docs.microsoft.com/azure/data-factory/connector-snowflake#linked-service-properties) for more information.
 
 #### Recommendation
 
@@ -483,7 +483,7 @@ When you try to use "import projection", "data preview", etc. in the Snowflake s
 
 #### Cause
 
-You meet this error because of the wrong configuration. When you use the data flow to read Snowflake data, the runtime ADB (Azure Databricks) is not directly select query to Snowflake. Instead, a temporary stage are created, and data are pulled from tables to the stage and then compressed and pulled by ADB. This process is shown in the picture below.
+You meet this error because of the wrong configuration. When you use the data flow to read Snowflake data, the runtime ADB (Azure Databricks) is not directly select the query to Snowflake. Instead, a temporary stage are created, and data are pulled from tables to the stage and then compressed and pulled by ADB. This process is shown in the picture below.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/snowflake-data-read-model.png" alt-text=" Screenshot that shows the Snowflake data read model." lightbox="./media/data-flow-troubleshoot-connector-format/snowflake-data-read-model.png"::: 
 
@@ -579,7 +579,7 @@ When you meet up this error, it may be caused by the following issues:
 
 1. There is a quote in your database value, and the quote is imported by JSON serialization and deserialization (it has empty spaces in the original database value) during the activity payload transfer among different ADF micro-services and components.
 
-2. There are wrong firewall settings on your Azure SQL Database server that cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks are used to build spark cluster to run the job, but Azure Databricks does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses).
+2. There are wrong firewall settings on your Azure SQL Database server, so that it cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks are used to build spark cluster to run the job, but Azure Databricks does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses).
 
 #### Recommendation
 
@@ -593,7 +593,7 @@ When you meet up this error, it may be caused by the following issues:
 
 #### Symptoms
 
-When you use query as input in the data flow source with the Azure SQL, it fails with following error message:
+When you use queries as input in the data flow source with the Azure SQL, you fail with the following error message:
 
 `at Source 'source1': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Incorrect syntax XXXXXXXX.`
 
@@ -607,13 +607,13 @@ The query used in the data flow source should be able to run as a sub query. The
 
 #### Recommendation
 
-You need to provide a correct query and test it in the SSMS first.
+You need to provide a correct query and test it in the SSMS firstly.
 
 ### Failed with an error: "SQLServerException: 111212; Operation cannot be performed within a transaction."
 
 #### Symptoms
 
-When you use the Azure SQL Database as a sink in the data flow (preview data, debug/trigger run, etc.), you may find your job will fail with following error message:
+When you use the Azure SQL Database as a sink in the data flow (preview data, debug/trigger run, etc.), you may find your job fails with following error message:
 
 `{"StatusCode":"DFExecutorUserError","Message":"Job failed due to reason: at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction.","Details":"at Sink 'sink': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: 111212;Operation cannot be performed within a transaction."}`
 
@@ -687,7 +687,7 @@ For Cause 1, you can refer to the following document: [Use virtual network servi
 
 For Cause 2, please work around it with one of the following options:
 
-- Option-1: If you use the VNET integration runtime, you need to use managed identity in the authentication method in the ADLS GEN 2 account as staging.
+- Option-1: If you use the VNET integration runtime, you need to use the managed identity in the authentication method in the ADLS GEN 2 account as staging.
 
 - Option-2: If your staging Azure Storage is configured with the VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on the storage account. You can refer to this doc: [Staged copy by using PolyBase](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#staged-copy-by-using-polybase) for more information.
 
@@ -703,14 +703,14 @@ For Cause 3, please work around it with one of the following options:
 
 #### Symptoms
 
-If the Synapse (Former SQL DW) sink failed with following error when staging is enabled:<br/>
+The Synapse (Former SQL DW) sink fails with following error when staging is enabled:<br/>
 **Kusto query example**:<br/>
 cluster('azuredmprod.kusto.windows.net').database('AzureDataMovement').ExecutionApiCall | where * == "**activityRunId**"\
 **ErrorDetails**:<br/>
 *DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException:* **This operation is not permitted on a non-empty directory.** *at org.apache.hadoop.fs.azure.AzureNativeFileSystemStore.delete(AzureNativeFileSystemStore.java:2607) at org.apache.hadoop.fs.azure.AzureNativeFileSystemStore.delete(AzureNativeFileSystemStore.java:2617) at org.apache.hadoop.fs.azure.NativeAzureFileSystem.deleteFile(NativeAzureFileSystem.java:2657) at org.apache.hadoop.fs.azure.NativeAzureFileSystem$2.execute(NativeAzureFileSystem.java:2391) at org.apache.hadoop.fs.azure.AzureFileSystemThreadPoolExecutor.executeParallel(AzureFileSystemThreadPoolExecutor.java:223) at org.apache.hadoop.fs.azure.NativeAzureFileSystem.deleteWithoutAuth(NativeAzureFileSystem.java:2403) at org.apache.hadoop.fs.azure.NativeAzureFileSystem.delete(NativeAzureFileSystem.java:2453) at org.apache.hadoop.fs.azure.NativeAzureFileSyste*
 
 #### Cause
-You use the Azure Blob storage as the staging linked service to link to a storage account that has the hierarchical namespace enabled, and that account uses key authentication in the linked service.
+You use the Azure Blob storage as the staging linked service to link to a storage account that has the enabled hierarchical namespace, and that account uses key authentication in the linked service.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-configuration.png" alt-text="Screenshot that shows the storage account configuration"::: 
 
@@ -732,9 +732,7 @@ The RWX permission is not set correctly or the dataset property is not set corre
 
 #### Recommendation
 
-- If the target folder doesn't have correct permissions:
-
-    Follow this document to assign the correct permission in Gen1: [Use service principal authentication](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store#use-service-principal-authentication)
+- If the target folder doesn't have correct permissions, please refer to this document to assign the correct permission in Gen1: [Use service principal authentication](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store#use-service-principal-authentication).
 
 - If the target folder has the correct permission and you use the file name property in the data flow to target to the right folder and file name, but the file path property of the dataset is not set to the target file path (usually leave not set), as the example shown in the following pictures, you will encounter this failure because the backend system tries to create files based on the file path of the dataset, and the file path of the dataset doesn't have the correct permission.
     
