@@ -67,10 +67,11 @@ In an internal network, API Management service hosting locations are based on th
 4. Select **Save**.
 
 After successful deployment, you should see your API Management service's **private** virtual IP address and **public** virtual IP address om the **Overview** blade. 
+
 |  |  |
 | ----- | ----- |
 | **Private virtual IP address** | A load balanced IP address from within the API Management-delegated subnet, over which you can access `gateway`, `portal`, `management`, and `scm` endpoints. |  
-| **Public virtual IP address** | Used *only* for control plane traffic to `management` endpoint over `port 3443`. Can be locked down to the [ApiManagement][ServiceTags] service tag. |
+| **Public virtual IP address** | Used *only* for control plane traffic to `management` endpoint over `port 3443`. Can be locked down to the [ApiManagement][ServiceTags] service tag. |  
 
 ![API Management dashboard with an internal VNET configured][api-management-internal-vnet-dashboard]
 
