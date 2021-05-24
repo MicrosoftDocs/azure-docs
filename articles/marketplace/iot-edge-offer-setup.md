@@ -1,5 +1,5 @@
 ---
-title: Create a IoT Edge Module offer on Azure Marketplace.
+title: Create a IoT Edge Module offer on Azure Marketplace
 description: Create a IoT Edge Module offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher

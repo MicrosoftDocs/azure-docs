@@ -1,5 +1,5 @@
 ---
-title: Set up plan listing details for an IoT Edge Module offer in Azure Marketplace.
+title: Set up plan listing details for an IoT Edge Module offer in Azure Marketplace
 description: Set up plan listing details for an IoT Edge Module offer in Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher

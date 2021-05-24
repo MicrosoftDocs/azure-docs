@@ -1,5 +1,5 @@
 ---
-title: Set the preview audience for an IoT Edge Module offer on Azure Marketplace.
+title: Set the preview audience for an IoT Edge Module offer on Azure Marketplace
 description: Set the preview audience for an IoT Edge Module offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -24,4 +24,4 @@ Add up to 10 GUIDs individually or up to 100 by uploading a CSV file. By adding 
 
 ## Next steps
 
-- [Create and manage plans](iot-edge-plan-overview.md)
+- [Create plans](iot-edge-plan-overview.md)

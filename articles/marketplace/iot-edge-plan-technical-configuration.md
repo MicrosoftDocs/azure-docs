@@ -1,5 +1,5 @@
 ---
-title: Set plan technical configuration for an IoT Edge Module offer on Azure Marketplace.
+title: Set plan technical configuration for an IoT Edge Module offer on Azure Marketplace
 description: Set plan technical configuration for an IoT Edge Module offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher

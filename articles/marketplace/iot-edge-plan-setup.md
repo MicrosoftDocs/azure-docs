@@ -1,5 +1,5 @@
 ---
-title: Set up plans for an IoT Edge Module offer on Azure Marketplace.
+title: Set up plans for an IoT Edge Module offer on Azure Marketplace
 description: Set up plans for an IoT Edge Module offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -14,6 +14,8 @@ ms.date: 05/21/2021
 The **Plan setup** page lets you configure which clouds the plan is available in. Your answers on this tab affect which fields are displayed on other tabs.
 
 ## Azure regions
+
+Select from Azure Global or Azure Government.
 
 ### Azure Global
 

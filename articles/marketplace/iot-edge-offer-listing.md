@@ -37,7 +37,7 @@ Here's an example of how offer information appears in Azure Marketplace (any lis
 
 :::image type="content" source="media/iot-edge/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
-#### Call-out descriptions
+##### Call-out descriptions
 
 1. Small logo
 2. Offer name
@@ -47,7 +47,7 @@ Here's an example of how offer information appears in Azure Marketplace (any lis
 
 :::image type="content" source="media/iot-edge/example-iot-azure-portal-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
-#### Call-out descriptions
+##### Call-out descriptions
 
 1. Name
 2. Description
@@ -58,7 +58,7 @@ Here's an example of how offer information appears in Azure Marketplace (any lis
 
 :::image type="content" source="media/iot-edge/example-iot-azure-portal-offer-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
 
-#### Call-out descriptions
+##### Call-out descriptions
 
 1. Small logo
 2. Offer name

@@ -267,6 +267,8 @@
         href: iot-edge-preview-audience.md
       - name: Create plans
         items:
+        - name: Plan overview
+          href: iot-edge-plan-overview.md
         - name: Plan setup
           href: iot-edge-plan-setup.md
         - name: Plan listing
