@@ -16,22 +16,18 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps that are required to create Linux or Windows VM custom images that you can use to deploy VMs on your Azure Stack Edge Pro GPU device.
+To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps that are required to create Windows or Linux VM custom images that you can use to deploy VMs on your Azure Stack Edge Pro GPU device.
 
-> [!NOTE] 
-> For a VM image used on an Azure Stack Edge Pro GPU device, you need to use a fixed VHD to create a Generation 1 VM. The VM can be any VM size that Azure supports. For more information, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+There's a required workflow for preparing the image. You must create a virtual machine in Azure, customize the VM, generalize the OS VHD, and then download the OS VHD to an Azure storage account. For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).<!--Review initial description, and workflow in step links. Then revisit process description.-->
+
+For the image source, you need to use a fixed VHD from a Gen1 VM of any size that Azure supports.
+ 
 
 ## Prerequisites
 
 Complete the following prerequisite before you create your VM image:
 
 - [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). The `azcopy copy` gives you a fast way to download of an OS disk to an Azure Storage account.
-
-## VM image workflow
-
-The workflow requires you to create a virtual machine in Azure, customize the VM, generalize, and then download the OS VHD for that VM.
-
-For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
 
 ## Create a Windows custom VM image
@@ -52,21 +48,27 @@ Do the following steps to create a Windows VM image.
 3. Download the OS disk from Azure:
 
    1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). This step is required, even after the is generalize and shut down, to deallocate the OS disk so that the disk can be downloaded. 
-   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url). By default, the URI expires after 3600 seconds (1 hour). You can increase that time if needed. 
+   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url). By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed. 
       
    1. Download the URL to you Azure Storage account. Two methods are available:
    
-      - One method is to select **Download the VHD file** when you generate a download URL (in the previous step) to download the disk from the portal. **When you use this method, the disk copy takes a long time.**
+      - One method is to select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy takes a long time.**
 
-      - A faster method is to use AzCopy. In PowerShell, navigate to the directory that contains azcopy.exe, and run the following command:
+      - A faster method is to use AzCopy. In PowerShell, navigate to the directory where you stored azcopy.exe, and run the following command:
 
         `.\azcopy copy <source URI> <target URI> --recursive`
 
         where:
-        * `<source URI>` is the download URL generated in step 1b.
-        * `<target URI>` tells where to store the new image in your Azure Storage account. Copy the VHD to a Blob container. It's a good idea to copy it to the storage account for your Azure Stack Edge Pro GPU device.
-          - To get the target URI, generate a shared access signature (SAS) for the target Blob container. For more information, see [Create SAS tokens for blobs in the Azure portal](/azure/cognitive-services/translator/document-translation/create-sas-tokens?tabs=Containers#create-sas-tokens-for-blobs-in-the-azure-portal).  
-          - Insert the name you want to assign the VHD before the query string (before the **?**) in the format "/<filename>.vhd". The file must have the VHD file name extension. 
+        * `<source URI>` is the download URL that you generated in step 3b.
+        * `<target URI>` tells where to copy the new image to in your Azure Storage account. It's a good idea to use the same storage account used for the device where the virtual machines will be deployed.
+
+          1. To get the target URI, generate a shared access signature (SAS) for the Blob container where you'll store the image. Display **Containers** for the storage account, and select the container. Then right-click the container name, and select Generate SAS. Select Read and Write **Permissions**. Then select **Generate SAS token and URL**. Copy the **Blob SAS URL**.
+           
+          ![Portal option for generating a shared access signature for a container](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/create-image-01.png) 
+
+          The Blob SAS URL has this format: 
+            
+          - Insert the name to assign the VHD before the **?** that begins the query string. Use this format: /<filename>.vhd. Be sure to use the VHD file name extension. 
         
              For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** Blob container in the **mystorageaccount** storage account:
 
@@ -144,6 +146,40 @@ Use this VHD to now create and deploy a VM on your Azure Stack Edge Pro device. 
 
 For a full list of Azure Marketplace images that could work (presently not tested), go to [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
+## UCse Azopy to copy image to storage account
+
+1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url) for the VHD. This will be the source URI for the `azcopy` command.
+
+1. Generate a shared access signature (SAS) for the Blob container that you'll copy the image to. You'll use the Blob SAS URL in the export URI for the `azcopy` command.
+   
+   1. In your storage account, display **Containers**, and select the container that you want to use. Then right-click the container name, and select **Generate SAS**.
+           
+      ![Portal option for generating a shared access signature for a container](media/azure-stack-edge-gpu-create-virtual-machine-image/create-image-01.png)
+
+   1. On the **Generate SAS** blade, select Read and Write **Permissions**. Then select **Generate SAS token and URL**. 
+
+      ![Portal options for setting Read and Writer permissions and generating an SAS token and URL](media/azure-stack-edge-gpu-create-virtual-machine-image/create-image-02.png)
+
+   1. Copy the **Blob SAS URL**.
+
+      ![Portal option for copying a Blob SAS URL](media/azure-stack-edge-gpu-create-virtual-machine-image/create-image-03.png)
+
+     The Blob SAS URL will have this format:
+
+     XXX
+
+1. In PowerShell, navigate to the directory where you stored azcopy.exe, and run the following command:
+
+   `.\azcopy copy <source URI> <target URI> --recursive`
+
+        where:
+        * `<source URI>` is the download URL that you generated in step 1.
+        * `<target URI>` tells where to copy the new image to in your Azure Storage account. It's a good idea to use the same storage account you used for your device.
+          1. To get the target URI, generate a shared access signature (SAS) for the Blob container where you'll store the image. Display **Containers** for the storage account, and select the container. Then right-click the container name, and select Generate SAS. Select Read and Write **Permissions**. Then select **Generate SAS token and URL**. Copy the **Blob SAS URL**.
+           
+          ![Portal option for generating a shared access signature for a container](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/create-image-01.png) 
+          
+          
 
 ## Next steps
 
