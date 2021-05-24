@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into the Standard for Success Accreditation site as an administrator with superuser access.
 
-1. From your menu, click on **Admin Portal**.
+1. From the menu, click on **Admin Portal**.
 
 1. Scroll down to **Single Sign On Settings** and click the **Microsoft Azure Single Sign On** link and perform the following steps.
 
