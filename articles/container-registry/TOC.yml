@@ -122,12 +122,16 @@
           href: container-registry-repository-scoped-permissions.md
         - name: Authenticate from Azure Container Instances
           href: container-registry-auth-aci.md
-        - name: Authenticate from Kubernetes with pull secret
-          href: container-registry-auth-kubernetes.md
-        - name: Authenticate from Azure Kubernetes Service (AKS)
-          href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-        - name: Authenticate with repository-scoped token (preview)
-          href: container-registry-repository-scoped-permissions.md
+        - name: Authenticate from Kubernetes
+          items:
+          - name: Kubernetes scenarios
+            href: authenticate-kubernetes-options.md  
+          - name: Attach registry to Azure Kubernetes Service (AKS)
+            href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+          - name: Cross-tenant authentication from AKS
+            href: authenticate-aks-cross-tenant.md 
+          - name: Authenticate using Kubernetes pull secret
+            href: container-registry-auth-kubernetes.md
       - name: Azure role-based access control
         href: container-registry-roles.md
         displayName: permissions, authorization

@@ -53,6 +53,7 @@ You use the following steps to:
     https://login.microsoftonline.com/<Tenant B ID>/oauth2/authorize?client_id=<Multitenant application ID>&response_type=code&redirect_uri=<redirect url>
     ```
 1. Select **Consent on behalf of your organization** and then **Accept**. 
+    
     :::image type="content" source="media/authenticate-kubernetes-cross-tenant/multitenant-app-consent.png" alt-text="Grant tenant access to application":::
  
 
