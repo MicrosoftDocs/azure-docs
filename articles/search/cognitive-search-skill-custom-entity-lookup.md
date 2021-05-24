@@ -304,4 +304,4 @@ This warning will be emitted if the number of matches detected is greater than t
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition.md)
++ [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition-v3.md)

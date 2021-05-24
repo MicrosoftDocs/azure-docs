@@ -443,11 +443,11 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 }
 ```
 
-Here, we're counting on the built-in [entity recognition skill](cognitive-search-skill-entity-recognition.md) to be present in the skillset and to have enriched the document with the list of organizations. For reference, here's an entity extraction skill configuration that would be sufficient in generating the data we need:
+Here, we're counting on the built-in [entity recognition skill](cognitive-search-skill-entity-recognition-v3.md) to be present in the skillset and to have enriched the document with the list of organizations. For reference, here's an entity extraction skill configuration that would be sufficient in generating the data we need:
 
 ```json
 {
-    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
     "name": "#1",
     "description": "Organization name extraction",
     "context": "/document/merged_content",

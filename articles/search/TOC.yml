@@ -540,8 +540,10 @@
         href: cognitive-search-skill-custom-entity-lookup.md 
       - name: Document Extraction
         href: cognitive-search-skill-document-extraction.md
+      - name: Entity Linking
+        href: cognitive-search-skill-entity-linking-v3.md
       - name: Entity Recognition
-        href: cognitive-search-skill-entity-recognition.md
+        href: cognitive-search-skill-entity-recognition-v3.md
       - name: Image Analysis
         href: cognitive-search-skill-image-analysis.md
       - name: Key Phrase Extraction 
