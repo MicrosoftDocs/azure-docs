@@ -1,6 +1,6 @@
 ---
-title: Overview and deployment of GPU VMs on your Azure Stack Edge Pro device
-description: Describes how to create and manage GPU virtual machines (VMs) on an Azure Stack Edge Pro device using templates.
+title: Overview and deployment of GPU VMs on your Azure Stack Edge Pro GPU device
+description: Describes how to create and manage GPU virtual machines (VMs) on an Azure Stack Edge Pro GPU device using templates.
 services: databox
 author: alkohli
 
@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/21/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro GPU device using APIs so that I can efficiently manage my VMs.
 ---
 
 # GPU VMs for your Azure Stack Edge Pro GPU device
@@ -22,7 +22,7 @@ This article applies to Azure Stack Edge Pro GPU and Azure Stack Edge Pro R devi
 
 ## About GPU VMs
 
-Your Azure Stack Edge Pro devices are equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU optimized VM sizes. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. 
+Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU optimized VM sizes. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. 
 
 For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
 
@@ -34,7 +34,7 @@ The Nvidia GPU driver extension installs appropriate Nvidia CUDA or GRID drivers
 
 ### Supported OS for GPU extension for Windows
 
-This extension supports the following operating systems (OSs). Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge Pro devices.
+This extension supports the following operating systems (OSs). Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge devices.
 
 | Distribution | Version |
 |---|---|
@@ -43,7 +43,7 @@ This extension supports the following operating systems (OSs). Other versions ma
 
 ### Supported OS for GPU extension for Linux
 
-This extension supports the following OS distros, depending on the driver support for specific OS version. Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge Pro devices.
+This extension supports the following OS distros, depending on the driver support for specific OS version. Other versions may work but have not been tested in-house on GPU VMs running on Azure Stack Edge devices.
 
 
 | Distribution | Version |
@@ -81,7 +81,9 @@ Follow these steps when deploying GPU VMs on your device:
 
 1. [Download the VM templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
 
-1. To create GPU VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md) except for the following differences: 
+1. Before you can deploy VMs on your Azure Stack Edge device, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
+
+1. To create GPU VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md) except for the following differences: 
 
     1. While configuring compute network, enable the port that is connected to the Internet, for compute. This allows you to download the GPU drivers required for GPU extensions for your GPU VMs.
 
@@ -90,7 +92,7 @@ Follow these steps when deploying GPU VMs on your device:
         ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
             
-    1. Create a VM using the templates. When specifying GPU VM sizes, make sure to use the NCasT4-v3-series in the `CreateVM.parameters.json` as these are supported for GPU VMs. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+    1. [Create a VM using the templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md). When specifying GPU VM sizes, make sure to use the NCasT4-v3-series in the `CreateVM.parameters.json` as these are supported for GPU VMs. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
 
         ```json
             "vmSize": {
