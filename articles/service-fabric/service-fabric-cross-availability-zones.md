@@ -16,7 +16,7 @@ To support clusters that span across Availability Zones, Azure Service Fabric pr
 
 Sample templates are available at [Service Fabric cross-Availability Zone templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).
 
-## Recommended topology for primary node type spanning across Availability Zones
+## Recommended topology for primary node type of Azure Service Fabric clusters spanning across Availability Zones
 
 * The cluster reliability level set to `Platinum`
 * A single public IP resource using Standard SKU
