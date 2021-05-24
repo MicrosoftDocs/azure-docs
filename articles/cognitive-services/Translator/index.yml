@@ -42,12 +42,14 @@ landingContent:
         links:
           - text: Quickstart
             url: quickstart-translator.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
-          - text: Create a WPF translation app, C#
-            url: tutorial-wpf-translation-csharp.md
-          - text: Create a flask translation app, REST
-            url: tutorial-build-flask-app-translation-synthesis.md
+          - text: Create a resource
+            url: translator-how-to-signup.md
+          - text: Prevent translation of content
+            url: prevent-translation.md
+          - text: Use the Dynamic Dictionary
+            url: dynamic-dictionary.md
       - linkListType: reference
         links:
           - text: Translator reference (v3)
@@ -70,7 +72,7 @@ landingContent:
             url: document-translation/reference/get-supported-document-formats.md
           - text: Start translation
             url: document-translation/reference/start-translation.md
-  - title: Custom Translation
+  - title: Custom Translator
     linkLists:
       - linkListType: quickstart
         links:
