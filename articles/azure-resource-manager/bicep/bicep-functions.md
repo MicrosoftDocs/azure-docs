@@ -52,24 +52,6 @@ Resource Manager provides several functions for working with arrays.
 * [take](./bicep-functions-array.md#take)
 * [union](./bicep-functions-array.md#union)
 
-<a id="coalesce" aria-hidden="true"></a>
-<a id="equals" aria-hidden="true"></a>
-<a id="less" aria-hidden="true"></a>
-<a id="lessorequals" aria-hidden="true"></a>
-<a id="greater" aria-hidden="true"></a>
-<a id="greaterorequals" aria-hidden="true"></a>
-
-## Comparison functions
-
-Resource Manager provides several functions for making comparisons in your templates.
-
-* [coalesce](./bicep-functions-comparison.md#coalesce)
-* [equals](./bicep-functions-comparison.md#equals)
-* [less](./bicep-functions-comparison.md#less)
-* [lessOrEquals](./bicep-functions-comparison.md#lessorequals)
-* [greater](./bicep-functions-comparison.md#greater)
-* [greaterOrEquals](./bicep-functions-comparison.md#greaterorequals)
-
 <a id="deployment" aria-hidden="true"></a>
 <a id="parameters" aria-hidden="true"></a>
 <a id="variables" aria-hidden="true"></a>

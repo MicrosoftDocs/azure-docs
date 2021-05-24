@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve deployme
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 05/21/2021
 ---
 # Deployment functions for Bicep
 
@@ -28,7 +28,7 @@ Returns information about the current deployment operation.
 This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
 
 * deploying a template or a template spec.
-* deploying a template that is a local file or deploying a template that is a remote file accessed through a URI.
+* deploying a template that is a local file.
 * deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
 
 When deploying a local template to a resource group: the function returns the following format:
@@ -53,57 +53,7 @@ When deploying a local template to a resource group: the function returns the fo
 }
 ```
 
-When deploying a remote template to a resource group: the function returns the following format:
-
-```json
-{
-  "name": "",
-  "properties": {
-    "templateLink": {
-      "uri": ""
-    },
-    "template": {
-      "$schema": "",
-      "contentVersion": "",
-      "parameters": {},
-      "variables": {},
-      "resources": [],
-      "outputs": {}
-    },
-    "templateHash": "",
-    "parameters": {},
-    "mode": "",
-    "provisioningState": ""
-  }
-}
-```
-
-When deploying a template spec to a resource group: the function returns the following format:
-
-```json
-{
-  "name": "",
-  "properties": {
-    "templateLink": {
-      "id": ""
-    },
-    "template": {
-      "$schema": "",
-      "contentVersion": "",
-      "parameters": {},
-      "variables": {},
-      "resources": [],
-      "outputs": {}
-    },
-    "templateHash": "",
-    "parameters": {},
-    "mode": "",
-    "provisioningState": ""
-  }
-}
-```
-
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The location property is included when deploying either a local template or an external template. The format is:
+When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The location property is included when deploying a local template . The format is:
 
 ```json
 {
@@ -124,55 +74,13 @@ When you deploy to an Azure subscription, management group, or tenant, the retur
 }
 ```
 
-### Remarks
-
-You can use deployment() to link to another template based on the URI of the parent template.
-
-# [JSON](#tab/json)
-
-```json
-"variables": {
-  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-var sharedTemplateUrl = uri(deployment().prperties.templateLink.uri, 'shared-resources.json')
-```
-
----
-
-If you redeploy a template from the deployment history in the portal, the template is deployed as a local file. The `templateLink` property isn't returned in the deployment function. If your template relies on `templateLink` to construct a link to another template, don't use the portal to redeploy. Instead, use the commands you used to originally deploy the template.
-
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) returns the deployment object:
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "deploymentOutput": {
-      "type": "object",
-      "value": "[deployment()]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
+The following example returns the deployment object:
 
 ```bicep
 output deploymentOutput object = deployment()
 ```
-
----
 
 The preceding example returns the following object:
 

@@ -6,7 +6,7 @@ author: mumian
 ms.author: jgao
 ms.service: azure-resource-manager
 ms.subservice: bicep
-ms.date: 03/02/2021
+ms.date: 05/21/2021
 ---
 # Any function for Bicep
 
