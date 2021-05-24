@@ -18,9 +18,9 @@ ms.custom: it-pro
 
 This article contains the currently available app consent permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find the permissions required for some common scenarios related to app consent and permissions.
 
-## Required license plan
+## License requirements
 
-Using this feature requires an Azure AD Premium P1 license for your Azure AD organization. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## App consent permissions
 

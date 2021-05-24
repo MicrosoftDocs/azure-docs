@@ -556,6 +556,9 @@
   - name: Migrate data with MySQL Workbench
     href: concepts-migrate-import-export.md
     displayName: import , migrate, export
+  - name: Migrate RDS MySQL data with MySQL Workbench
+    href: how-to-migrate-rds-mysql-workbench.md
+    displayName: import , migrate, export
   - name: Minimal downtime migration with DMS
     href: howto-migrate-online.md
     displayName: migrate, dms, database migration service
