@@ -36,7 +36,7 @@ Using [token lifetime configuration](active-directory-configurable-token-lifetim
 * Session age-out: If `MaxAgeSessionMultiFactor` or `MaxAgeSessionSingleFactor` have been set to something other than their default (Until-revoked), then reauthentication will be required after the time set in the MaxAgeSession* elapses.  This is used to force users to re-authenticate with a first or second factor periodically. 
 * Examples:
   * The tenant has a MaxInactiveTime of five days, and the user went on vacation for a week. As such, Azure AD hasn't seen a new token request from the user in seven days. The next time the user requests a new token, they'll find their Refresh Token has been revoked, and they must enter their credentials again.
-  * A sensitive application has a MaxAgeSessionSingleFactor of one day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they'll be required to reauthenticate.
+  * A sensitive application has a `MaxAgeSessionMultiFactor` of one day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they'll be required to go through MFA once more in an interactive prompt. 
 
 Not all refresh tokens follow the rules set in the token lifetime policy.  Specifically, refresh tokens used in "[single page apps](reference-third-party-cookies-spas.md)" are always limited to 24 hours of activity, as if they have a MaxAgeSessionSingleFactor policy of 24 hours applied to them. 
 ### Revocation
