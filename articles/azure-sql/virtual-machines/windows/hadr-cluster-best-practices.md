@@ -32,10 +32,10 @@ Review the following checklist for a brief overview of the HADR best practices t
 For your Windows cluster, consider these best practices: 
 
 * Change the cluster to less aggressive parameters to avoid unexpected outages from transient network failures or Azure platform maintenance. To learn more, see [heartbeat and threshold settings](hadr-cluster-best-practices.md#heartbeat-and-threshold). For Windows Server 2012 and later, use the following recommended values: 
- - **SameSubnetDelay**:  1 second
- - **SameSubnetThreshold**: 40 heartbeats
- - **CrossSubnetDelay**: 1 second
- - **CrossSubnetThreshold**:  40 heartbeats
+   - **SameSubnetDelay**:  1 second
+   - **SameSubnetThreshold**: 40 heartbeats
+   - **CrossSubnetDelay**: 1 second
+   - **CrossSubnetThreshold**:  40 heartbeats
 * Place your VMs in an availability set or different availability zones.  To learn more, see [VM availability settings](hadr-cluster-best-practices.md#vm-availability-settings). 
 * Use a single NIC per cluster node and a single subnet. 
 * Configure cluster [quorum voting](hadr-cluster-best-practices.md#quorum-voting) to use 3 or more odd number of votes. Do not assign votes to DR regions. 
@@ -47,8 +47,8 @@ For your Windows cluster, consider these best practices:
 
 For your SQL Server availability group or failover cluster instance, consider these best practices: 
 
-* If you're experiencing frequent unexpected failures, follow  the performance best practices outlined in the rest of this article. 
-* If optimizing SQL Server VM performance does not resolve your unexpected failovers, consider [relaxing the monitoring](hadr-cluster-best-practices.md#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so will not address the underlying source of the issue and could mask symptoms by reducing the liklihood of failure. You may still need to investigate and address the underlying root cause. For Windows Server 2012 or higher, use the following recommended values: 
+* If you're experiencing frequent unexpected failures, follow the performance best practices outlined in the rest of this article. 
+* If optimizing SQL Server VM performance does not resolve your unexpected failovers, consider [relaxing the monitoring](hadr-cluster-best-practices.md#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so may not address the underlying source of the issue and could mask symptoms by reducing the likelihood of failure. You may still need to investigate and address the underlying root cause. For Windows Server 2012 or higher, use the following recommended values: 
    - **Lease timeout**: Use this equation to calculate the maximum lease time out value: `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
    - **Max failures in a specified period**: Set this value to 6. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
@@ -58,6 +58,9 @@ For your SQL Server availability group or failover cluster instance, consider th
    - Use a unique DNN port in the connection string when connecting to the DNN listener for an availability group. 
 - Use a database mirroring connection string for a basic availability group to bypass the need for a load balancer or DNN. 
 - Validate the sector size of your VHDs before deploying your high availability solution to avoid having misaligned I/Os. See [KB3009974](https://support.microsoft.com/topic/kb3009974-fix-slow-synchronization-when-disks-have-different-sector-sizes-for-primary-and-secondary-replica-log-files-in-sql-server-ag-and-logshipping-environments-ed181bf3-ce80-b6d0-f268-34135711043c) to learn more. 
+
+
+To learn more, see the comprehensive [HADR best practices](hadr-cluster-best-practices.md). 
 
 
 ## VM availability settings

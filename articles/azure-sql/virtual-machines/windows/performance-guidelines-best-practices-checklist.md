@@ -114,15 +114,15 @@ The following is a quick checklist of best practices for Azure-specific guidance
 
 ## HADR configuration
 
-High availability and disaster recovery (HADR) features, such as the [Always On availability group](availability-group-overview.md) and the [failover cluster instance](failover-cluster-instance-overview.md), rely on underlying [Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md) technology. Review the best practices for modifying your HADR settings to better support the cloud environment. 
+High availability and disaster recovery (HADR) features, such as the [Always On availability group](availability-group-overview.md) and the [failover cluster instance](failover-cluster-instance-overview.md) rely on underlying [Windows Server Failover Cluster](hadr-windows-server-failover-cluster-overview.md) technology. Review the best practices for modifying your HADR settings to better support the cloud environment. 
 
 For your Windows cluster, consider these best practices: 
 
-* Change the cluster to less aggressive parameters to avoid unexpected outaages from transiente network failurse or Azure platform maintenance. To learn more, see [heartbeat and threshold settings](hadr-cluster-best-practices.md#heartbeat-and-threshold). For Windows Server 2012 and later, use the following recommended values: 
- - **SameSubnetDelay**:  1 second
- - **SameSubnetThreshold**: 40 heartbeats
- - **CrossSubnetDelay**: 1 second
- - **CrossSubnetThreshold**:  40 heartbeats
+* Change the cluster to less aggressive parameters to avoid unexpected outages from transient network failures or Azure platform maintenance. To learn more, see [heartbeat and threshold settings](hadr-cluster-best-practices.md#heartbeat-and-threshold). For Windows Server 2012 and later, use the following recommended values: 
+   - **SameSubnetDelay**:  1 second
+   - **SameSubnetThreshold**: 40 heartbeats
+   - **CrossSubnetDelay**: 1 second
+   - **CrossSubnetThreshold**:  40 heartbeats
 * Place your VMs in an availability set or different availability zones.  To learn more, see [VM availability settings](hadr-cluster-best-practices.md#vm-availability-settings). 
 * Use a single NIC per cluster node and a single subnet. 
 * Configure cluster [quorum voting](hadr-cluster-best-practices.md#quorum-voting) to use 3 or more odd number of votes. Do not assign votes to DR regions. 
@@ -134,8 +134,8 @@ For your Windows cluster, consider these best practices:
 
 For your SQL Server availability group or failover cluster instance, consider these best practices: 
 
-* If you're experiencing frequent unexpected failures, follow  the performance best practices outlined in the rest of this article. 
-* If optimizing SQL Server VM performance does not resolve your unexpected failovers, consider [relaxing the monitoring](hadr-cluster-best-practices.md#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so will not address the underlying source of the issue and could mask symptoms by reducing the liklihood of failure. You may still need to investigate and address the underlying root cause. For Windows Server 2012 or higher, use the following recommended values: 
+* If you're experiencing frequent unexpected failures, follow the performance best practices outlined in the rest of this article. 
+* If optimizing SQL Server VM performance does not resolve your unexpected failovers, consider [relaxing the monitoring](hadr-cluster-best-practices.md#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so may not address the underlying source of the issue and could mask symptoms by reducing the likelihood of failure. You may still need to investigate and address the underlying root cause. For Windows Server 2012 or higher, use the following recommended values: 
    - **Lease timeout**: Use this equation to calculate the maximum lease time out value: `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
    - **Max failures in a specified period**: Set this value to 6. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
