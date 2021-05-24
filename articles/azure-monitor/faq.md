@@ -239,7 +239,7 @@ The solution specific VM extensions exist to collect scenario specific data or p
 
 Here’s a diagram explaining the **new extensibility architecture**:
 
-![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch-diag.png)
+![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch-new.png)
 
 
 ### Which Log Analytics solutions are supported on the new Azure Monitor Agent?
@@ -254,6 +254,12 @@ Log Analytics solutions can be enabled using the new Azure Monitor Agent either 
 | **VM Insights with metrics support** | Private preview on AMA |
 | **VM Insights guest health (new)** | Public preview: [VM insights guest health (preview)](vm/vminsights-health-overview.md) |
 | **SQL Monitoring (new)** | Public preview exclusively on AMA: [SQL insights (preview)](insights/sql-insights-overview.md) |
+
+
+### How can I collect Windows security events using the new Azure Monitor Agent?
+There's two ways you can collect Security events using the new agent:
+- You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace.
+- If you have Sentinel enabled on the workspace, the Security Events flow via AMA into the ['SecurityBaseline'](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/securitybaseline) table instead (same as using Log Analytics Agent). This will always require the solution to be enabled first.
 
 
 ### Can the new Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
