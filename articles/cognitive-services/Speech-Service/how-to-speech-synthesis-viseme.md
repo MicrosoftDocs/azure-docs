@@ -173,7 +173,7 @@ For 2D characters, you can design a character that suits your scenario and use S
 
 For 3D characters, think of the characters as string puppets. The puppet master pulls the strings from one state to another and the laws of physics will do the rest and drive the puppet to move fluidly. The Viseme output acts as a puppet master to provide an action timeline. The animation engine defines the physical laws of action. By interpolating frames with easing algorithms, the engine can further generate high-quality animations.
 
-    :::image type="content" source="media/text-to-speech/viseme-demo-3D.png" 3D render example ":::
+:::image type="content" source="media/text-to-speech/viseme-demo-3D.png" alt-text="3D render example":::
 
 ## Map phonemes to visemes
 
