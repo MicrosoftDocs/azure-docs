@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/27/2021
+ms.date: 05/21/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: "devx-track-csharp"
@@ -123,6 +123,165 @@ To restore a soft-deleted blob when versioning is enabled, copy a previous versi
 Not applicable. Blob versioning is supported only in the Azure Storage client libraries version 12.x and higher.
 
 ---
+
+## Restore soft-deleted blobs and directories (hierarchical namespaces)
+
+You can restore or disable soft deleted blobs and directories in accounts that have a hierarchical namespace. You can use the PowerShell, Azure CLI, or with code by using an SDK.
+
+> [!IMPORTANT]
+> Soft delete in accounts that have the hierarchical namespace feature enabled on them is currently in public preview, and is available only in the East US 2 and West Europe region.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> To enroll in the preview, see [this form](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2FPages%2FResponsePage.aspx%3Fid%3Dv4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOUxPTkFSSjJDRlBZNlpZSjhGUktFVzFDRi4u&data=04%7C01%7CSachin.Sheth%40microsoft.com%7C6e6a6d56c2014cdf749308d90e915f1e%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637556839790913940%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=qnYxVDdI7whCqBW4johgutS3patACP6ubleUrMGFtf8%3D&reserved=0).
+
+### PowerShell
+
+1. Ensure that you have the **Az.Storage** preview module (version blah). See [Install PowerShell modules](soft-delete-blob-enable.md#install-powershell-modules).
+
+2. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell#connect-to-the-account).
+
+   The following example obtains authorization by using a storage account key.
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
+   ```
+
+3. Use the following commands to restore a deleted folder. 
+
+   ```powershell
+   $filesystemName = "my-file-system"
+   $dirName="my-directory"
+   $deletedItems = Get-AzDataLakeGen2DeletedItem -Context $ctx -FileSystem $filesystemName -Path $dirName
+   $deletedItems | Restore-AzDataLakeGen2DeletedItem
+   Disable-AzStorageDeleteRetentionPolicy -Context $ctx
+   Remove-AzDatalakeGen2FileSystem -Name $filesystemName -Context $ctx -Force
+   ```
+
+
+### Azure CLI
+
+1. Make sure that you have the `storage-preview` extension installed. See [Install the storage CLI extension](soft-delete-blob-enable.md#install-the-storage-CLI-extensions).
+
+2. Get a list of deleted items.
+
+   ```azurecli
+   $filesystemName = "my-file-system"
+   az storage fs list-deleted-path -f $filesystemName --auth-mode login
+```
+
+3. These commands undelete a directory. Add a better explanation here.
+
+   ```azurecli
+   $dirName="my-directory"
+   az storage fs undelete-path -f $filesystemName --deleted-path-name $dirName —deletion-id "<deletionId>" --auth-mode login
+   az storage fs file list -f $filesystemName --connection-string $con –recursive
+   az storage fs service-properties update --delete-retention false --auth-mode login
+   az storage fs delete -n $filesystemName --auth-mode login
+   ```
+
+### .NET
+
+1. Make sure that you have installed the  `Azure.Storage.Files.DataLake -v 12.6.0-alpha.20201209.1` version of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package, and that you've added the appropriate using statements to the top of your code file. See [Set up your .NET project](soft-delete-blob-enable.md#set-up-your-net-project).
+
+2. The following code deletes a directory, and then restores a soft deleted directory.
+
+   > [!NOTE]
+   > To see examples of how to create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance, see [Connect to the account](data-lake-storage-directory-file-acl-dotnet.md#connect-to-the-account).
+
+   ```csharp
+      public void RestoreDirectory(DataLakeServiceClient serviceClient)
+      {
+          DataLakeFileSystemClient fileSystemClient = 
+             serviceClient.GetFileSystemClient("my-container");
+
+          DataLakeDirectoryClient directory = 
+              fileSystem.GetDirectoryClient("my-directory");
+
+          // Delete the Directory
+          await directory.DeleteAsync();
+ 
+          // List Deleted Paths
+          List<PathHierarchyDeletedItem> deletedItems = new List<PathHierarchyDeletedItem>();
+          await foreach (PathHierarchyDeletedItem deletedItem in fileSystemClient.GetDeletedPathsAsync())
+          {
+            deletedItems.Add(deletedItem);
+          }
+ 
+          Assert.AreEqual(1, deletedItems.Count);
+          Assert.AreEqual("my-directory", deletedItems[0].Path.Name);
+          Assert.IsTrue(deletedItems[0].IsPath);
+ 
+          // Restore deleted directory.
+          Response<DataLakePathClient> restoreResponse = await fileSystemClient.RestorePathAsync(
+          deletedItems[0].Path.Name,
+          deletedItems[0].Path.DeletionId);
+
+      }
+
+   ```
+
+### Java
+
+1. Add the required dependencies to the *pom.xml* file of your project, and then add the appropriate import statements to your code file. See [Set up your project](soft-delete-blob-enable.md#set-up-your-java-project).
+
+2. The following snippet restores a soft deleted file named `my-file`. 
+   > [!NOTE]
+   > To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-java.md#connect-to-the-account).
+
+   ```java
+
+   public void RestoreFile(DataLakeServiceClient serviceClient){
+
+       DataLakeFileSystemClient fileSystemClient = 
+           serviceClient.getFileSystemClient("my-container");
+       
+       DataLakeFileClient fileClient = 
+           fileSystemClient.getFileClient("my-file");
+
+       String deletionId = null;
+
+       for (PathDeletedItem item : fileSystemClient.listDeletedPaths()) {
+    
+           if (item.getName().equals(fileClient.getFilePath())) {
+              deletionId = item.getDeletionId();
+           }
+       }
+
+       fileSystemClient.restorePath(fileClient.getFilePath(), deletionId);
+    }
+
+   ```
+
+### Python
+
+1. Make sure that you have installed the appropriate version of the Azure Data Lake Storage client library for Python. See [Set up your project](soft-delete-blob-enable.md#set-up-your-python-project).
+
+2. The following code deletes a directory, and then restores a soft deleted directory.
+
+    > [!NOTE]
+    > The code example below contains an object named `service_client` of type **DataLakeServiceClient**. To see examples of how to create a **DataLakeServiceClient** instance, see [Connect to the account](data-lake-storage-directory-file-acl-python.md#connect-to-the-account).
+
+```python
+def restoreDirectory():
+
+    try:
+        global file_system_client
+
+        file_system_client = service_client.create_file_system(file_system="my-file-system")
+
+        directory_path = 'my-directory'
+        directory_client = file_system_client.create_directory(directory_path)
+        resp = directory_client.delete_directory()
+        
+        restored_directory_client = file_system_client.undelete_path(directory_client, resp['deletion_id'])
+        props = restored_directory_client.get_directory_properties()
+        
+        print(props)
+   
+    except Exception as e:
+        print(e)
+
+```
 
 ## Next steps
 
