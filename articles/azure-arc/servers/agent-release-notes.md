@@ -22,7 +22,6 @@ Version 1.6
 - Added support for SUSE Enterprise Linux 12
 - Updated Guest Configuration agent to version 1.26.12.0 to include:
 
-   - Incremental update to improve logging of data.
    - Policies are executed in a separate process.
    - Added V2 signature support for extension validation.
 
