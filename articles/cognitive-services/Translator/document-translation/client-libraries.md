@@ -77,8 +77,6 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 
 ## Check the status of all submitted translation jobs
 
----
-
 ### [Python](#tab/python)
 
 [Reference documentation](/python/api/azure-ai-translation-document/azure.ai.translation.document.documenttranslationclient?view=azure-python-preview&preserve-view=true) | [Package (PyPi)](https://pypi.org/project/azure-ai-translation-document/) | [Samples](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/)
