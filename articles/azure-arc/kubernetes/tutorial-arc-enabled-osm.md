@@ -360,7 +360,7 @@ Read more about integration with Azure Monitor [here](https://github.com/microso
 
 ## Upgrade the OSM extension instance to a specific version
 >[!NOTE] 
->1. Upgrading the OSM add-on could potentially overwrite user-configured values in the OSM Configmap. To prevent any previous ConfigMap changes from being overwritten, pass in the same configuration settings file used to make those edits.
+>1. Upgrading the OSM add-on could potentially overwrite user-configured values in the OSM ConfigMap. To prevent any previous ConfigMap changes from being overwritten, pass in the same configuration settings file used to make those edits.
 >2. There may be some downtime of the control plane during upgrades. The data plane will only be affected during CRD upgrades.
 
 ### Supported Upgrades
