@@ -13,6 +13,9 @@ Our backup partners have industry-leading backup and restore solutions in VMware
 
 Backup network traffic between Azure VMware Solution VMs and the backup repository in Azure travels over a high-bandwidth, low-latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
 
+>[!NOTE]
+>The cloudadmin extension privileges aren't supported, and there are no plans to support it.
+
 You can find more information on these backup solutions here:
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
 - [Commvault](https://documentation.commvault.com/11.21/essential/128997_support_for_azure_vmware_solution.html)
