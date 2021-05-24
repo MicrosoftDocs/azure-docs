@@ -240,9 +240,9 @@ This section covers common issues that occur during VM creation.
 
 **Suggested solutions:**
 
-- Configure the VM for a smaller memory size.
-- Stop the VM which is not in use from the portal.<!--Translated: Stop any VMs that are not in use while you deploy the new VM?-->
-- Delete unused VMs. 
+- Configure the VM with a smaller memory size.<!--Or configure it with "less XX memory"?-->
+- Stop any VMs that aren't in use from the portal while you deploy the new VM.
+- Delete any VMs that are no longer in use. 
 
 ### Insufficient number of GPUs to create GPU VM
 
