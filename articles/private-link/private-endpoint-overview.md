@@ -76,7 +76,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure App Service** | Microsoft.Web/sites    | sites |
 |**Azure App Service Slots** | Microsoft.Web/sites    | sites-`<slot name>` |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
-|**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
+|**SignalR** | Microsoft.SignalRService/SignalR    | signalr |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
 |**Cognitive Services** | (Microsoft.CognitiveServices/accounts    | account |
 |**Azure File Sync** | Microsoft.StorageSync/storageSyncServices    | Afs |
