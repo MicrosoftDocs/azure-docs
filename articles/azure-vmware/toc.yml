@@ -155,7 +155,7 @@
     - name: VMware software 
       href: /azure/azure-vmware/faq#vmware-software
     - name: Third-party backup solutions 
-      name: /azure/azure-vmware/faq#third-party-backup-and-recovery
+      href: /azure/azure-vmware/faq#third-party-backup-and-recovery
     - name: Compute
       href: /azure/azure-vmware/faq#compute
     - name: Networking and interconnectivity
