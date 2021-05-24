@@ -312,7 +312,7 @@ Both Azure Monitor and Azure Application Insights helps you maximize the availab
 
 Arc enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
 
-1. Ensure that prometheus_scraping is set to true in the OSM Configmap.
+1. Ensure that prometheus_scraping is set to true in the OSM ConfigMap.
 2. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
 3. Expose the prometheus endpoints for application namespaces
 ```azurecli-interactive
