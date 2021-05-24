@@ -1241,8 +1241,7 @@ The table below lists the limits for data that you send to Document Translation.
 |Number of target languages in a batch| ≤ 10 |
 |Size of Translation memory file| ≤ 10 MB|
 
-> [!NOTE]
-> The above content limits are subject to change prior to the public release.
+Document Translation can not be used to translate secrued documents such as those with an encrypted password or with restricted access to copy content.
 
 ## Learn more
 
