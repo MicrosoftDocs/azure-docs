@@ -44,6 +44,16 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 1. Create a Power BI Desktop file that has a live connection to your model on your server.
 2. In [Power BI](https://powerbi.microsoft.com), click **Get Data** > **Files**, and then locate and select your .pbix file.
 
+## Request Limit
+
+To safeguard the performance of the system, a memory limit is enforced for all queries issued by Power BI reports against Azure Analysis Services, regardless of the [Query Memory Limit](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current) configured on the Azure Analysis Services server. Users should consider simplifying the query or its calculations if the query is too memory intensive.
+
+|                           | Request Memory limit |
+|---------------------------|----------------------|
+| **Live connect from PowerBI** | 10 GB |
+| **DirectQuery from PowerBI report in Shared workspace** | 1 GB |
+| **DirectQuery from PowerBI report in Premium workspace** | 10 GB |
+
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
 [Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)
