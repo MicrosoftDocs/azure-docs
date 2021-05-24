@@ -76,7 +76,7 @@ Once you create your Apache Spark job definition, you'll be automatically sent t
 
 On this panel, you can reference to the Spark job definition to run.
 
-* Expand the Saprk job definition list, you can choose an existing Apache Spark job definition. You can also create a new Apache Spark job definition by clicking the new button to reference the spark job definition to be run.
+* Expand the Spark job definition list, you can choose an existing Apache Spark job definition. You can also create a new Apache Spark job definition by clicking the new button to reference the Spark job definition to be run.
 
 * You can add command line arguments by clicking the **New** button. It should be noted that this will override the command line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
 
