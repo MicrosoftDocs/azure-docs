@@ -169,7 +169,7 @@ After obtaining the viseme output, you can use these outputs to drive character 
 
 For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.  With temporal tags provided by viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, below illustration shows a red lip character designed for language learning.
 
-    :::image type="content" source="media/text-to-speech/viseme-demo-2D.png" 2D render example ":::
+:::image type="content" source="media/text-to-speech/viseme-demo-2D.png" alt-text="2D render example":::
 
 For 3D characters, think of the characters as string puppets. The puppet master pulls the strings from one state to another and the laws of physics will do the rest and drive the puppet to move fluidly. The Viseme output acts as a puppet master to provide an action timeline. The animation engine defines the physical laws of action. By interpolating frames with easing algorithms, the engine can further generate high-quality animations.
 
