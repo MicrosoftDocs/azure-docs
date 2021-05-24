@@ -55,7 +55,7 @@
       - name: Common startup tasks
         href: cloud-services-startup-tasks-common.md
       - name: Use a task to Install .NET on a Cloud Service role
-          href: cloud-services-dotnet-install-dotnet.md
+        href: cloud-services-dotnet-install-dotnet.md
     - name: Configure Remote Desktop
       items:
       - name: Portal
