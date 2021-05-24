@@ -292,7 +292,7 @@ You can start with a [demo application](https://release-v0-8.docs.openservicemes
 The OSM extension has [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) installation disabled by default so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
 
 - [BYO-Jaeger instance](https://github.com/openservicemesh/osm-docs/blob/main/content/docs/tasks_usage/observability/tracing.md#byo-bring-your-own)
-  - You would also need to update the osm-config Configmap with the following settings:  
+  - To set the values described in this documentation, you will need to update the `osm-config` ConfigMap with the following settings:
     ```json
     {
       "osm.OpenServiceMesh.tracing.enable": "true",
