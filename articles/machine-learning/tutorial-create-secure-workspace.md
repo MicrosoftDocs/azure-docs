@@ -24,7 +24,8 @@ In this article, learn how to create and connect to a secure Azure Machine Learn
 
 To create a virtual network, use the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), select __+ Create a resource__ and then enter __Virtual Network__ in the search field. Select the __Virtual Network__ entry, and then select __Create__.
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Virtual Network__ in the search field. Select the __Virtual Network__ entry, and then select __Create__.
+
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-resource-search-vnet.png" alt-text="The create resource UI search":::
 
@@ -70,6 +71,12 @@ To create a virtual network, use the following steps:
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Create a Scoring subnet":::
 
+    1. To create a subnet for use with Azure Bastion, select __+ Add subnet__ again, and use the follow values:
+        * __Subnet name__: AzureBastionSubnet
+        * __Subnet address range__: 172.17.2.0/27
+
+        Leave the other fields at the default values.
+
 1. Select __Review + create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ipaddress-final.png" alt-text="Review + create button":::
@@ -82,7 +89,7 @@ To create a virtual network, use the following steps:
 
 Use the following steps create a network security group (NSG) and add rules required for using Azure Machine Learning compute clusters and compute instances to train models:
 
-1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Network security group__. Select the __Network security group__ entry, and then select __Create__.
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Network security group__. Select the __Network security group__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __name__ for the new network security group.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-nsg.png" alt-text="Image of the basic network security group config":::
@@ -133,9 +140,15 @@ Use the following steps create a network security group (NSG) and add rules requ
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/nsg-associate-subnet.png" alt-text="Image of the associate config":::
 
+## Create a Bastion
+
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Bastion__. Select the __Bastion__ entry, and then select __Create__.
+1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __name__ for this Bastion instance, and then select the __virtual network__ you created earlier. Set the __Subnet__ to the __AzureBastionSubnet__ created earlier. For __Public IP Address__, select __Create new__, and set the __Public IP address name__.
+1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
+
 ## Create a storage account
 
-1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __storage account__. Select the __Storage Account__ entry, and then select __Create__.
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Storage account__. Select the __Storage Account__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __Storage account name__, and set __Redundancy__ to __Locally-redundant storage (LRS)__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-storage.png" alt-text="Image of storage account basic config":::
@@ -190,7 +203,7 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 ## Create a key vault
 
-1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Key Vault__. Select the __Key Vault__ entry, and then select __Create__.
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Key Vault__. Select the __Key Vault__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __Key vault name__. Leave the other fields at the default value.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-key-vault.png" alt-text="Create a new key vault":::
@@ -218,7 +231,7 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 ## Create a container registry
 
-1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Container Registry__. Select the __Container Registry__ entry, and then select __Create__.
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Container Registry__. Select the __Container Registry__ entry, and then select __Create__.
 1. From the __Basics__ tab, select the __subscription__, __resource group__, and __location__ you previously used for the virtual network. Enter a unique __Registry name__ and set the __SKU__ to __Premium__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-container-registry.png" alt-text="Create a container registry":::
@@ -253,7 +266,7 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 ## Create a workspace
 
-1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Machine Learning__. Select the __Machine Learning__ entry, and then select __Create__.
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Machine Learning__. Select the __Machine Learning__ entry, and then select __Create__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/machine-learning-create.png" alt-text="{alt-text}":::
 
@@ -294,100 +307,6 @@ Use the following steps create a network security group (NSG) and add rules requ
 1. Once the private endpoint information appears, select __DNS configuration__ from the left of the page. Save the IP address and fully qualified domain name (FQDN) information on this page, as it will be used later.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-dns.png" alt-text="IP and FQDN entries":::
-## Create a VPN gateway
-
-There are several ways that you might connect to the virtual network to use your workspace. The steps in this section use an Azure Virtual Network Gateway (VPN) with a __point-to-site__ configuration. For information on other VPN configurations, see [VPN gateway design](../vpn-gateway/design.md).
-
-1. In the Azure portal, select the __Home__ link to return to the homepage. Select __+ Create a resource__ and then enter __Virtual network gateway__. Select the __Virtual network gateway__ entry, and then select __Create__.
-1. From the __Basics__ tab, select the __subscription__ and __Region__ you used for the virtual network. Use the follow values for the other fields:
-    * __Name__: A unique name for your VPN gateway.
-    * __Gateway type__: VPN
-    * __VPN type__: Route-based
-    * __SKU__: VpnGw2
-    * __Generation__: Generation2
-    * __Virtual network__: Your virtual network.
-    * __Gateway subnet address range__: 172.17.2.0/24
-    * __Public IP address__: Create new
-    * __Public IP address name__: A unique name for the IP address.
-    * __Public IP address SKU__: Basic
-    * __Assignment__: Dynamic
-    * __Enable active-active mode__: Disabled
-    * __Configure BGP__: Disabled
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vpn-gateway.png" alt-text="Basic VPN gateway config":::
-
-1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
-
-    > [!IMPORTANT]
-    > It can take up to 45 minutes for the VPN gateway creation process to finish.
-
-### Configure the gateway and client
-
-Once the VPN gateway creation has completed, use the following steps to enable a __point-to-site__ configuration:
-
-1. To create an authentication certificate, use the __Generate certificates__ section of [Configure a Point-To-Site VPN connection](/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert) article.
-1. From the portal, select the VPN gateway you created previously. From the left navigation, select __Point-to-site configuration__ and then select __Configure now__:
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/vpn-config-point-to-site.png" alt-text="Create point-to-site config":::
-
-1. Use the following values in the form:
-    * __Address pool__: 172.16.201.0/24
-    * __Tunnel type__: IKEv2
-    * __Authentication type__: Azure certificate
-
-    When the __Root certificates__ fields appear, enter a unique __Name__ and then paste the contents of the __root certificate__ file you created earlier into the __Public certificate data__ field.
-
-    > [!TIP]
-    > If your root certificate file contains `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` lines, __do not__ include these lines when pasting into the __root certificate__ field.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/vpn-point-to-site-config.png" alt-text="Point-to-site config settings":::
-
-1. Select __Save__ to save the configuration.
-
-    > [!TIP]
-    > When you navigate away from the point-to-site configuration screen, you may receive an error that your changes will be discarded. Select __OK__. You can then select the configuration again to verify the settings were saved.
-
-1. From the __Point-to-site configuration__, select __Download VPN client__. For more information on configuring a VPN client using this zip, see [Create and install VPN client configuration files](/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md).
-
-    > [!TIP]
-    > It may take several seconds before the download begins.
-
-    Once you have configured the client, use it to verify that you can connect to the VPN gateway.
-
-## Name resolution
-
-When using Azure Machine Learning behind a virtual network, the client must be able to resolve the fully qualified domain names (FQDN) used within the virtual network. In a production configuration, you would use a [custom DNS server](how-to-custom-dns.md) to resolve the names. However, as a quick test of a point-to-site configuration you can add the FQDNs and IP addresses to the __hosts__ file on the VPN client machine.
-
-The location of your hosts file can vary depending on the operating system you are using:
-
-| Operating system | Hosts file location |
-| ----- | ----- |
-| Windows | `C:\Windows\System32\drivers\etc\hosts` |
-| macOS | `/private/etc/hosts` |
-| Linux | `/etc/hosts` |
-
-> [!TIP]
-> The file can be opened with a text editor on all systems, though you may require admin or super user rights to save changes.
-
-Add the FQDNs and IP addresses you saved earlier (from your workspace private endpoint connections) to your hosts file and save the changes.
-
-## Create compute instance
-
-After configuring name resolution and a VPN client ([Create and install VPN client configuration files](/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md)), use the following steps to verify that you can connect from the VPN client:
-
-1. From the Azure Machine Learning studio, select 
-1. On the __Select virtual machine__ page, accept the default values by selecting __Next__.
-1. On the __Configure Settings__ page, enter a unique name for the compute resource.
-1. Select __Create__ to create the compute instance.
-
-### Compute instance name resolution
-
-Before you can use the compute instance from your client, you must be able to resolve the FQDN. To identify the IP address and FQDN of the compute instance, use the following information:
-
-* The __host name (FQDN)__ uses the format `<instance-name>.<region>.instances.azureml.ms`. Replace `<instance-name>` with the name of the compute instance. Replace `<region>` with the Azure region that contains the compute instance. For example, a compute instance named `docs-ml-ci` in the `East US 2` region would have a FQDN of `docs-ml-ci.eastus2.instances.azureml.ms`.
-* The __IP address__ is the _same_ as the IP address of the FQDN entry ending in `api.azureml.ms` that you retrieved earlier from the workspace. It is __NOT__ the private IP listed in properties for the compute instance.
-
-
 
 ## Configure image builds
 
