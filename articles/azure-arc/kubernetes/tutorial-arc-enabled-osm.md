@@ -400,7 +400,7 @@ az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_N
 ```
 This output should not include OSM. If you don't have any other extensions installed on your cluster, it will just be an empty array.
 
-When you use the az k8s-extension command to delete the OSM extension, the arc-osm-system namespace is not removed, and the actual resources within the namespace (mutating webhook configuration, osm-controller pod, etc) will take around ~10 minutes to delete.
+When you use the az k8s-extension command to delete the OSM extension, the arc-osm-system namespace is not removed, and the actual resources within the namespace (like mutating webhook configuration and osm-controller pod) will take around ~10 minutes to delete.
 
 >[!NOTE] 
 >Use the az k8s-extension CLI to uninstall OSM components managed by Arc. Using the OSM CLI to uninstall is not supported by Arc and can result in undesirable behavior.
