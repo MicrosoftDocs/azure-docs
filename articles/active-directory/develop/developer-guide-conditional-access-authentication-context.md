@@ -76,7 +76,7 @@ Second: The developers of an application planning to use Conditional Access auth
 
 These steps are the changes that you need to carry in your code base. The steps broadly comprise of
 
-- Query MS Graph to list all the available auth contexts [conditionalaccess resource type](/graph/api/resources/conditionalaccessroot?view=graph-rest-beta).
+- Query MS Graph to list all the available auth contexts [conditionalaccess resource type](/graph/api/resources/conditionalaccessroot?view=graph-rest-beta&preserve-view=true).
 - Allow IT admins to select sensitive/ high-privileged operations and assign them against the available auth contexts. 
 - Save this mapping information in your database, per tenant, unless your application is going to ever be used in a single tenant.
 
@@ -235,6 +235,6 @@ Do not use auth context where the app itself is going to be a target of Conditio
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a Web API](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md)
 - [Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context-preview)
 - [Claims challenge, claims request, and client capabilities in the Microsoft Identity Platform](claims-challenge.md)
-- [Using authentication context with Microsoft Information Protection and SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Using authentication context with Microsoft Information Protection and SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
 - [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
