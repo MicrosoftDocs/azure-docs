@@ -23,9 +23,9 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 > [!NOTE]
 > For SQL API accounts, we recommend creating the diagnostic setting in resource specific mode [following our instructions for creating diagnostics setting via REST API](cosmosdb-monitor-resource-logs.md#create-diagnostic-setting). This option provides additional cost-optimizations with an improved view for handling data.
 
-## Create using Azure Portal
+## Create using the Azure portal
 
-1. Sign into the [Azure Portal](https://portal.azure.com).
+1. Sign into the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cosmos account. Open the **Diagnostic settings** pane, and then select **Add diagnostic setting** option.
 

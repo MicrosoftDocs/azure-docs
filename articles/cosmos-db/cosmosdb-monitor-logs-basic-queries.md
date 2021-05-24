@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot issues with diagnostics queries
-titleSuffix: Troubleshoot issues with diagnostics queries on Azure Cosmos DB
+titleSuffix: Azure Cosmos DB
 description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB
 author: StefArroyo
 services: cosmos-db
