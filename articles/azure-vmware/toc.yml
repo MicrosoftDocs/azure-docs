@@ -154,8 +154,10 @@
       href: /azure/azure-vmware/faq#configuration-and-setup
     - name: VMware software 
       href: /azure/azure-vmware/faq#vmware-software
-    - name: Compute, backup and disaster recovery
-      href: /azure/azure-vmware/faq#compute,-backup,-and-disaster-recovery
+    - name: Third-party backup solutions 
+      name: /azure/azure-vmware/faq#third-party-backup-and-recovery
+    - name: Compute
+      href: /azure/azure-vmware/faq#compute
     - name: Networking and interconnectivity
       href: /azure/azure-vmware/faq#networking-and-interconnectivity
     - name: Storage
