@@ -450,7 +450,7 @@ Refer [OSM ConfigMap documentation](https://release-v0-8.docs.openservicemesh.io
 We use the `osm namespace add` command to join namespaces to a given service mesh.
 When a kubernetes namespace is part of the mesh, the following must be true:
 
-View the annotations of the namespace bookbuyer:
+View the annotations of the namespace `bookbuyer`:
 ```bash
 kc get namespace bookbuyer -o json | jq '.metadata.annotations'
 ```
