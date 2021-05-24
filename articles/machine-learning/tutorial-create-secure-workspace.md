@@ -71,11 +71,16 @@ To create a virtual network, use the following steps:
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Create a Scoring subnet":::
 
-    1. To create a subnet for use with Azure Bastion, select __+ Add subnet__ again, and use the follow values:
-        * __Subnet name__: AzureBastionSubnet
-        * __Subnet address range__: 172.17.2.0/27
+1. Select __Security__. For __BastionHost__, select __Enable__. [Azure Bastion] provides a secure way to access the VM jump box you will create inside the VNet in a later step. Use the following values for the remaining fields:
 
-        Leave the other fields at the default values.
+    * __Bastion name__: A unique name for this Bastion instance
+    * __AzureBastionSubnetAddress space__: 172.17.2.0/27
+    * __Public IP address__: Create a new public IP address.
+
+    Leave the other fields at the default values.
+
+    > [!TIP]
+    > While this tutorial uses a VM jump box inside the VNet, another method you might use is a [Network gateway (VPN)].
 
 1. Select __Review + create__.
 
@@ -139,12 +144,6 @@ Use the following steps create a network security group (NSG) and add rules requ
     > The rules added in this section only apply to training computes, so do not need to be associated with the scoring subnet.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/nsg-associate-subnet.png" alt-text="Image of the associate config":::
-
-## Create a Bastion
-
-1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Bastion__. Select the __Bastion__ entry, and then select __Create__.
-1. From the __Basics__ tab, select the __subscription__, __resource group__, and __region__ you previously used for the virtual network. Enter a unique __name__ for this Bastion instance, and then select the __virtual network__ you created earlier. Set the __Subnet__ to the __AzureBastionSubnet__ created earlier. For __Public IP Address__, select __Create new__, and set the __Public IP address name__.
-1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
 
 ## Create a storage account
 
@@ -308,6 +307,14 @@ Use the following steps create a network security group (NSG) and add rules requ
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-private-endpoint-dns.png" alt-text="IP and FQDN entries":::
 
+## Create a jump box (VM)
+
+1. Search for __Data science virtual machine__. Select the Windows 2019 version. Create.
+1. Networking tab. Put it in the the training subnet and set public IP to none.
+
+## Configure storage access
+
+1. Select the workspace that you created previously. From __
 ## Configure image builds
 
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use an Azure Machine Learning compute cluster to build images. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
