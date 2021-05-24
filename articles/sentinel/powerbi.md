@@ -64,7 +64,7 @@ Run the exported M query in Power BI Desktop to get data.
 
 1. Open Power BI Desktop, and sign in to your Power BI account that has read access to the Log Analytics workspace.
    
-   :::image type="content" source="media/powerbi/sign-in.png" alt-text="Screenshot showing sign in to Power BI Desktop.":::
+   :::image type="content" source="media/powerbi/sign-in.png" alt-text="Screenshot showing sign-in to Power BI Desktop.":::
    
 1. In the Power BI ribbon, select **Get data** and then select **Blank query**. The **Power Query Editor** opens.
    
@@ -116,7 +116,7 @@ You also want to show what percentage of sign-in attempts failed for each applic
    
    :::image type="content" source="media/powerbi/column-chart.png" alt-text="Screenshot showing the stacked column chart icon under Visualizations in Power BI Desktop.":::
    
-1. In the ribbon, select **Quick measure**.
+1. With the new visualization selected, select **Quick measure** in the ribbon.
    
 1. In the **Quick measures** window, under **Calculation**, select **Division**. Drag **Failed** from **Fields** into the **Numerator** field, and drag **Attempts** from **Fields** to **Denominator**.
    
