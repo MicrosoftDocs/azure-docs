@@ -38,6 +38,7 @@ Using [token lifetime configuration](active-directory-configurable-token-lifetim
   * The tenant has a MaxInactiveTime of five days, and the user went on vacation for a week. As such, Azure AD hasn't seen a new token request from the user in seven days. The next time the user requests a new token, they'll find their Refresh Token has been revoked, and they must enter their credentials again.
   * A sensitive application has a MaxAgeSessionSingleFactor of one day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they'll be required to reauthenticate.
 
+Not all refresh tokens follow the rules set in the token lifetime policy.  Specifically, refresh tokens used in "[single page apps](reference-third-party-cookies-spas.md)" are always limited to 24 hours of activity, as if they have a MaxAgeSessionSingleFactor policy of 24 hours applied to them. 
 ### Revocation
 
 Refresh tokens can be revoked by the server because of a change in credentials, user action, or admin action.  Refresh tokens fall into two classes: tokens issued to confidential clients (the rightmost column) and tokens issued to public clients (all other columns).
