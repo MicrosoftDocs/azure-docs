@@ -296,14 +296,16 @@ Review the resolutions for some commonly known issues and errors:
 **Cluster node removed from membership**
 
 
-If the **Windows cluster settings** are too aggressive for your environment, you may see following message in the system event log frequently. 
+If the [Windows Cluster heartbeat and threshold settings](#heartbeat-and-threshold) are too aggressive for your environment, you may see following message in the system event log frequently. 
 
 ```
 Error 1135
 Cluster node 'Node1' was removed from the active failover cluster membership. 
-The Cluster service on this node may have stopped. This could also be due to the node having lost communication with other active nodes in the failover cluster. 
-Run the Validate a Configuration wizard to check your network configuration. If the condition persists, check for hardware or software errors related to 
-the network adapters on this node. Also check for failures in any other network components to which the node is connected such as hubs, switches, or bridges.
+The Cluster service on this node may have stopped. This could also be due to the node having 
+lost communication with other active nodes in the failover cluster. Run the Validate a 
+Configuration Wizard to check your network configuration. If the condition persists, check 
+for hardware or software errors related to the network adapters on this node. Also check for 
+failures in any other network components to which the node is connected such as hubs, switches, or bridges.
 ```
 
 
@@ -313,7 +315,7 @@ For more information, review [Troubleshooting cluster issue with Event ID 1135.]
 **Lease has expired** / **Lease is no longer valid**
 
 
-If **monitoring** is too aggressive for your environment, you may see frequent AG or FCI restarts, failures, or failovers. Additionally for availability groups, you may see the following messages in the SQL Server error log: 
+If [monitoring](#relaxed-monitoring) is too aggressive for your environment, you may see frequent AG or FCI restarts, failures, or failovers. Additionally for availability groups, you may see the following messages in the SQL Server error log: 
 
 ```
 Error 19407: The lease between availability group 'PRODAG' and the Windows Server Failover Cluster has expired. 
@@ -339,8 +341,9 @@ or the endpoint address provided for the replica is not the database mirroring e
 
 ```
 Error 35206
-A connection timeout has occurred on a previously established connection to availability replica 'replicaname' with ID [availability_group_id]. 
-Either a networking or a firewall issue exists, or the availability replica has transitioned to the resolving role. 
+A connection timeout has occurred on a previously established connection to availability 
+replica 'replicaname' with ID [availability_group_id]. Either a networking or a firewall issue 
+exists, or the availability replica has transitioned to the resolving role. 
 ```
 
 **Not failing over group**
