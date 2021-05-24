@@ -349,8 +349,12 @@
     href: /connectors/azuresentinel/
   - name: Entities reference
     href: entities-reference.md
-  - name: Network normalization schema
-    href: normalization-schema.md
+  - name: Normalization
+    items:
+    - name: Network normalization schema
+      href: normalization-schema.md
+    - name: DNS normalization schema
+      href: dns-normalization-schema.md
   - name: Data source schema reference
     href: data-source-schema-reference.md
   - name: Kusto Query Language
