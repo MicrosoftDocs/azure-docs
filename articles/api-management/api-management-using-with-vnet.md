@@ -39,36 +39,39 @@ Azure API Management can be deployed inside the VNET to access backend services 
 1. Choose your API Management instance.
 
 1. Select **Virtual network**.
-1. Configure the API Management instance to be deployed inside a Virtual network.
+1. Configure the API Management instance to be deployed inside a VNET.
 
-    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select virtual network in Azure portal.":::
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select VNET in Azure portal.":::
 
 1. Select the desired access type:
 
-    * **Off**: Default type. API Management is not deployed into a virtual network.
+    * **Off**: Default type. API Management is not deployed into a VNET.
 
-    * **External**: The API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the virtual network.
+    * **External**: The API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the VNET.
 
         ![Public peering][api-management-vnet-public]
 
-    * **Internal**: The API Management gateway and developer portal are accessible only from within the virtual network via an internal load balancer. The gateway can access resources within the virtual network.
+    * **Internal**: The API Management gateway and developer portal are accessible only from within the VNET via an internal load balancer. The gateway can access resources within the VNET.
 
         ![Private peering][api-management-vnet-private]
 
 1. If you selected **External** or **Internal**, you will see a list of all locations (regions) where your API Management service is provisioned. 
 1. Choose a **Location**.
 1. Pick **Virtual network**, **Subnet**, and **IP address**. 
-  * The VNET list is populated with Resource Manager VNETs available in your Azure subscriptions, set up in the region you are configuring.
+    * The VNET list is populated with Resource Manager VNETs available in your Azure subscriptions, set up in the region you are configuring.
 
-    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Virtual network settings in the portal.":::
+        :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="VNET settings in the portal.":::
 
-    > [!IMPORTANT]
-    > * When your client uses **API version 2020-12-01 or earlier** to deploy an Azure API Management instance in a Resource Manager VNET, the service must be in a dedicated subnet that contains no resources except Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
-    > * When your client uses **API version 2021-01-01-preview or later** to deploy an Azure API Management instance in a virtual network, only a Resource Manager virtual network is supported. Additionally, the subnet used may contain other resources. You don't have to use a subnet dedicated to API Management instances.
+        > [!IMPORTANT]
+        > * **If using API version 2020-12-01 or earlier to deploy an Azure API Management instance in a Resource Manager VNET:** 
+        > The service must be in a dedicated subnet that contains only Azure API Management instances. Attempting to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources will cause the deployment to fail.
+        >
+        > * **If using API version 2021-01-01-preview or later to deploy an Azure API Management instance in a VNET:**
+        > Only a Resource Manager VNET is supported, but the subnet used may contain other resources. You don't have to use a subnet dedicated to API Management instances.
 
-1. Select **Apply**. The **Virtual network** page of your API Management instance is updated with your new virtual network and subnet choices.
+1. Select **Apply**. The **Virtual network** page of your API Management instance is updated with your new VNET and subnet choices.
 
-1. Continue configuring virtual network settings for the remaining locations of your API Management instance.
+1. Continue configuring VNET settings for the remaining locations of your API Management instance.
 
 7. In the top navigation bar, select **Save**, then select **Apply network configuration**.
 
@@ -88,7 +91,7 @@ Azure API Management can be deployed inside the VNET to access backend services 
 
 ### <a name="deploy-apim-external-vnet"> </a>Deploy API Management into External VNET
 
-You can also enable virtual network connectivity by using the following methods.
+You can also enable VNET connectivity by using the following methods.
 
 ### API version 2021-01-01-preview
 
@@ -102,9 +105,9 @@ You can also enable virtual network connectivity by using the following methods.
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet%2Fazuredeploy.json)
 
-* Azure PowerShell cmdlets - [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a virtual network
+* Azure PowerShell cmdlets - [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a VNET
 
-## <a name="connect-vnet"> </a>Connect to a web service hosted within a virtual Network
+## <a name="connect-vnet"> </a>Connect to a web service hosted within a virtual network
 Once you've connected your API Management service to the VNET, you'll be able to access backend services within it just as you do public services. When creating or editing an API, type the local IP address or the host name (if a DNS server is configured for the VNET) of your web service into the **Web service URL** field.
 
 ![Add API from VPN][api-management-setup-vpn-add-api]
@@ -126,7 +129,7 @@ Common misconfiguration issues that can occur while deploying API Management ser
 <a name="required-ports"> </a>
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
-| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | Virtual Network type |
+| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | VNET type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell         | External & Internal  |
@@ -168,7 +171,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service tags may use the tags' regional versions corresponding to the region containing the API Management instance (for example, `Storage.WestUS` for an API Management instance in the West US region). In multi-region deployments, the NSG in each region should allow traffic to the service tags for that region and the primary region.
 
     > [!IMPORTANT]
-    > Enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a virtual network by allowing outbound connectivity to blob storage in the West US region. For example, use the **Storage.WestUS** service tag in an NSG rule. Currently, connectivity to blob storage in the West US region is required to publish the developer portal for any API Management instance.
+    > Enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a VNET by allowing outbound connectivity to blob storage in the West US region. For example, use the **Storage.WestUS** service tag in an NSG rule. Currently, connectivity to blob storage in the West US region is required to publish the developer portal for any API Management instance.
 
 + **SMTP Relay:**  
   Outbound network connectivity for the SMTP Relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` and `ies.global.microsoft.com`
