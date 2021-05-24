@@ -28,7 +28,7 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 4. Select a connection option and then press **Connect**. 
 
-    Both **Connect live** and **Import** options are supported. However, we recommended you use live connections or direct query because Import mode does have some limitations; most notably, server performance might be impacted during import. Also, if the model is to be refreshed in the Power BI service, the **Allow access from Power BI setting** applies only when choosing **Connect live**.
+    Both **Connect live** and **Import** options are supported. However, we recommended you use live connections because Import mode does have some limitations; most notably, server performance might be impacted during import. Also, if the model is to be refreshed in the Power BI service, the **Allow access from Power BI** setting applies only when choosing **Connect live**.
     
     If you have a PowerBI model with [Mixed storage mode](/power-bi/transform-model/desktop-composite-models), the **Connect live** option is replaced by the **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** option. Live connections are also automatically upgraded to DirectQuery if the model is switched from Import to Mixed storage mode.
 
