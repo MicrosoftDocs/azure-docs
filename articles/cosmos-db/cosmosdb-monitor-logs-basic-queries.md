@@ -1,5 +1,6 @@
 ---
 title: Troubleshoot issues with diagnostics queries
+titleSuffix: Troubleshoot issues with diagnostics queries on Azure Cosmos DB
 description: Learn how to query diagnostics logs for troubleshooting data stored in Azure Cosmos DB
 author: StefArroyo
 services: cosmos-db
@@ -11,7 +12,7 @@ ms.author: esarroyo
 
 # Troubleshoot issues with diagnostics queries
 
-In this article, we'll cover how to write simple queries to help troubleshoot issues with your Azure Cosmos DB account using diagnostics logs sent to **AzureDiagnostics (legacy)** and **Resource specific (preview)** tables.
+In this article, we'll cover how to write simple queries to help troubleshoot issues with your Azure Cosmos DB account using diagnostics logs sent to **AzureDiagnostics (legacy)** and **Resource-specific (preview)** tables.
 
 For Azure Diagnostics tables, all data is written into one single table and users will need to specify which category they'd like to query.
 
@@ -179,7 +180,7 @@ For resource-specific tables (currently in preview for SQL API), data is written
    ```
 
 
-## <a id="resource-specific-queries"></a> Resource specific Queries
+## <a id="resource-specific-queries"></a> Resource-specific Queries
 
 - How to query for the operations that are taking longer than 3 milliseconds to run:
 

@@ -25,7 +25,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 ## Create using Azure Portal
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign into the [Azure Portal](https://portal.azure.com).
 
 1. Navigate to your Azure Cosmos account. Open the **Diagnostic settings** pane, and then select **Add diagnostic setting** option.
 
