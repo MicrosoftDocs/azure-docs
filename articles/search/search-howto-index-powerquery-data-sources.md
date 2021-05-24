@@ -90,7 +90,7 @@ For more information about transforming data with Power Query, look at [Using Po
 Once you're done transforming your data, select **Next**.
 
 ### Step 7 – Add Azure Blob storage
-The Power Query connector preview currently requires you to provide a blob storage account. This blob storage account will serve as temporary storage for data that moves from your data source to an Azure Cognitive Search index.
+The Power Query connector preview currently requires you to provide a blob storage account. This step only exists with the initial gated preview. This blob storage account will serve as temporary storage for data that moves from your data source to an Azure Cognitive Search index.
 
 We recommend providing a full access storage account connection string: 
 ```
@@ -139,7 +139,7 @@ This change detection policy relies on a "high water mark" column capturing the 
 + The value of this column increases with each insert or update.
 
 ## Unsupported column names
-Field names in an Azure Cognitive Search index have to meet certain requirements. One of these requirements is that some characters such as "/" are not allowed. If a column name in your database does not meet these requirements, the index schema detection will not recognize your column as a valid field name and you won't see that column listed as a suggested field for your index. Normally, using [field mappings](search-indexer-field-mappings) would solve this problem but field mappings are not supported in the portal.
+Field names in an Azure Cognitive Search index have to meet certain requirements. One of these requirements is that some characters such as "/" are not allowed. If a column name in your database does not meet these requirements, the index schema detection will not recognize your column as a valid field name and you won't see that column listed as a suggested field for your index. Normally, using [field mappings](search-indexer-field-mappings.md) would solve this problem but field mappings are not supported in the portal.
 
 To index content from a column in your table that has an unsupported field name, rename the column during the "Transform your data" phase of the import data process. For example, you can rename a column named "Billing code/Zip code" to "zipcode". By renaming the column, the index schema detection will recognize it as a valid field name and add it as a suggestion to your index definition.
 
