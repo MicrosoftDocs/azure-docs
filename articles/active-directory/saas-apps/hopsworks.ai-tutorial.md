@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://managed.hopsworks.ai/sso-open/<ORGANIZATION>`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. In the **Identifier (Entity ID)** text box, type a value using the following pattern:
     `urn:amazon:cognito:sp:us-east-2_<ID>`
 
 	> [!NOTE]
