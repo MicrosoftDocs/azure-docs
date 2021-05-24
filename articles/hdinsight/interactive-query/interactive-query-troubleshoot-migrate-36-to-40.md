@@ -28,7 +28,7 @@ Workaround:
     ```hive.metastore.batch.retrieve.max=2000```
 * Restart Hive and all stale services
 
-## Unable to query GZipped text file if skip.header.line.count and skip.footer.line.count are set for table
+## Unable to query Gzipped text file if skip.header.line.count and skip.footer.line.count are set for table
 
 Issue has been fixed in Interactive Query 4.0 but still not in Interactive Query 3.1.0
 
@@ -98,16 +98,16 @@ We recommend enabling ACID in HDI 4.0 as most of the recent enhancements (both f
 Steps to disable ACID on HDI4.0:
 * Change the following hive configurations in Ambari:
 
-        ```markdown
-        hive.strict.managed.tables=false
-        hive.support.concurrency=false; 
-        hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager;
-        hive.enforce.bucketing=false;
-        hive.compactor.initiator.on=false;
-        hive.compactor.worker.threads=0;
-        hive.create.as.insert.only=false;
-        metastore.create.as.acid=false;
-        ```
+```markdown
+hive.strict.managed.tables=false
+hive.support.concurrency=false; 
+hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager;
+hive.enforce.bucketing=false;
+hive.compactor.initiator.on=false;
+hive.compactor.worker.threads=0;
+hive.create.as.insert.only=false;
+metastore.create.as.acid=false;
+```
 
 * Restart hive service.
 
