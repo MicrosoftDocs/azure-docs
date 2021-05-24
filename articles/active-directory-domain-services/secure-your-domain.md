@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 05/24/2021
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -43,7 +43,7 @@ To complete this article, you need the following resources:
 1. Search for and select **Azure AD Domain Services**.
 1. Choose your managed domain, such as *aaddscontoso.com*.
 1. On the left-hand side, select **Security settings**.
-1. Click **Disable** for the following settings:
+1. Click **Enable** or **Disable** for the following settings:
    - **TLS 1.2 only mode**
    - **NTLM authentication**
    - **NTLM password synchronization from on-premises**
@@ -51,6 +51,15 @@ To complete this article, you need the following resources:
    - **Kerberos armoring**
 
    ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
+
+## Compliance for TLS 1.2 usage
+
+In addition to **Security settings**, Microsoft Azure Policy has a **Compliance** setting to enforce TLS 1.2 usage. The policy has no impact until it is assigned. When the policy is assigned, it appears in **Compliance**:
+
+- If the assignment is **Audit**, the compliance will report if the Azure AD DS instance is compliant.
+- If the assignment is **Deny**, the compliance will prevent an Azure AD DS instance from being created if TLS 1.2 is not enabled and prevent any update to an Azure AD DS instance until TLS 1.2 is enabled.
+
+![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/policy-tls.png)
 
 ## Use PowerShell to harden your domain
 
