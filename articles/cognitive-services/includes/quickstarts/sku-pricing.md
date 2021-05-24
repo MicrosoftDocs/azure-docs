@@ -13,15 +13,15 @@ See the list of SKUs and pricing information below.
 
 #### Multi-service
 
-| Service                    | Kind                      |
-|----------------------------|---------------------------|
+| Service     | Kind    |
+|-------------|------------|
 | Multiple services. For more information, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) page.            | `CognitiveServices`     |
 
 
 #### Vision
 
-| Service                    | Kind                      |
-|----------------------------|---------------------------|
+| Service    | Kind    |
+|------------|---------|
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision - Prediction | `CustomVision.Prediction` |
 | Custom Vision - Training   | `CustomVision.Training`   |
