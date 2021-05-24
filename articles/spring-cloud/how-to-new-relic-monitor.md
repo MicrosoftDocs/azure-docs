@@ -74,7 +74,7 @@ You can also leverage this agent from portal with the following procedure.
 
 5. View the application api/gateway **Summary** page from the **New Relic** dashboard.
 
-   ![App summary page](media/new-relic-monitoring/app-summary-page.png)
+   [ ![App summary page](media/new-relic-monitoring/app-summary-page.png)](media/new-relic-monitoring/app-summary-page.png) ]
 
 6. View the application customers-service **Summary** page from **New Relic** dashboard.
  
