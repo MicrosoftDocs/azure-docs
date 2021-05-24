@@ -14,26 +14,29 @@ ms.date: 05/25/2021
 # Index data using Power Query connectors (preview)
 
 > [!IMPORTANT] 
-> Power Query connector support is currently in a **gated public preview**. You can request access to the gated preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview).
->
-> Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> The Azure portal provides this feature. There is currently no SDK support.
+> Power Query connector support is currently in a **gated public preview**. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to request access.
 
-An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index. Indexers provide a convenient way for users to index content from their data source without having to write their own crawler or push model. Indexers also allow you to add a skillset to their pipeline so that they can further enrich their data.
+If you are using an indexer to crawl external data sources for indexing, you can now use select [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) connectors for your data source connection in Azure Cognitive Search.
 
-With the new Power Query data connector integration, you can pull data from many new data sources. [Power Query](https://docs.microsoft.com/power-query/power-query-what-is-power-query) is a data transformation and data preparation engine. Power Query connectors are used in products like Power BI and Excel. Azure Cognitive Search has added support for select Power Query data connectors so that you can pull data from more data sources. These new data sources are supported in the Azure portal.
+Power Query connectors can reach a broader range of data sources, including those on other cloud providers. New data sources supported in this preview include:
 
-Indexers that reference Power Query data sources have the same level of support for skillsets, schedules, high water mark change detection logic, and most parameters that other indexers support.
-
-## Supported data sources
-+ Amazon Redshift
++ Amazon Redshift
 + Elasticsearch
 + PostgreSQL
-+ Salesforce Objects
-+ Salesforce Reports
++ Salesforce Objects
++ Salesforce Reports
 + Smartsheet
 + Snowflake
+
+This article shows you an Azure portal-based approach for setting up an indexer using Power Query connectors. Currently, there is no SDK support.
+
+> [!NOTE]
+> Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Supported functionality
+Power Query connectors are used in indexers. An indexer in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index. Indexers provide a convenient way for users to index content from their data source without having to write their own crawler or push model.
+
+Indexers that reference Power Query data sources have the same level of support for skillsets, schedules, high water mark change detection logic, and most parameters that other indexers support.
 
 ## Prerequisites
 Before you start pulling data from one of the supported data sources, you'll want to make sure you have all your resources set up.
