@@ -297,7 +297,7 @@ There are several error codes that come up when a recovery point can't be moved 
 
 The recovery point will remain in archive forever. For more information, see [Impact of stop protection on recovery points](manage-recovery-points.md#impact-of-stop-protection-on-recovery-points).
 
-### Is Cross Region restore supported from archive Tier?
+### Is Cross Region restore supported from archive tier?
 
 When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross-region-restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
 
