@@ -142,7 +142,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | **Source Device** | Src\* | Device | `SrcIpAddr` | DNS event sources usually report the IP address of the source of the request, and therefore **SrcIpAddr** is mandatory. <br><br>If the reporting device provides more information on the source of the request, or if you enrich the data, use the device entity guidelines to normalize using **Src** as the field's prefix. |
 | **Destination Device** | Dst\* | Device |  | DNS event sources usually do not report information about the destination of the request. If the reporting device provides information on the destination of the request, or if you enrich the data, use the device entity guidelines to normalize, using **Dst** as the prefix. |
 | **Reporting Device** | Dvc\* | Device | `Dvc` | Most events include information about the reporting device. Use <!--unfinished sentence?-->|
-| **Process Information** | Process\* | Process |  | Information related to the process that generated the DNS query on the client device. ||
+| **Process Information** | Process\* | Process |  | Information related to the process that generated the DNS query on the client device. |
 | | | | | |
 
 ## Handling DNS response
