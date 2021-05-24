@@ -25,7 +25,7 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 
 Complete the following prerequisite before you create your VM image:
 
-- [Download AZCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy). The `azcopy copy` gives you a fast way to download of an OS disk to an Azure Storage account.
+- [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). The `azcopy copy` gives you a fast way to download of an OS disk to an Azure Storage account.
 
 ## VM image workflow
 
