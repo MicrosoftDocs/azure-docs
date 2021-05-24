@@ -25,7 +25,12 @@ This documentation contains the following article types:
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|
+|**Automatically detect document language**|Let the Document Translation service determine the language of the document.|
+|**Translate documents with content in multiple languages**|Use the auto-detect feature to translate documents with content in multiple languages into your target language.|
 
+> [!NOTE]
+> When translating documents with content in multiple languages, the feature is intended for complete sentences in a single language. If sentences are composed of more than one language, the content may not all translate into the target language.
+> 
 ## How to get started?
 
 In our how-to guide, you'll learn how to quickly get started using Document Translator. To begin, you'll need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
