@@ -617,6 +617,8 @@
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: Refresh tokens
+        href: refresh-tokens.md
       - name: Configure token lifetimes
         href: active-directory-configurable-token-lifetimes.md
       - name: UserInfo endpoint

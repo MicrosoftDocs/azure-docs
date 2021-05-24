@@ -22,6 +22,13 @@ When a client acquires an access token to access a protected resource, the clien
 
 Refresh tokens have a significantly longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. The Microsoft identity platform doesn't revoke refresh tokens when used to fetch new access tokens. Securely delete the old refresh token when acquiring a new one. 
 
+## Prerequisites
+
+Before reading through this article, it is recommended that you go through the following articles:
+
+* [ID tokens](id-tokens.md) in Azure AD.
+* [Access tokens](access-tokens.md) in Azure AD.
+
 ## Refresh token expiration
 
 Refresh tokens need to be stored safely in line with stringent requirements since they have a long lifetime and are used to obtain access tokens. The tokens can, however, be invalidated or revoked at any time, for different reasons. These reasons fall into two main categories: timeouts and revocations
@@ -53,6 +60,5 @@ Refresh tokens can be revoked by the server because of a change in credentials, 
 
 ## Next steps
 
-* Learn about [ID tokens in Azure AD](id-tokens.md).
-* Learn about [Access tokens in Azure AD](access-tokens.md).
+* Learn about [configurable token lifetimes](active-directory-configurable-token-lifetimes.md)
 * Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) for more details on primary refresh tokens.
