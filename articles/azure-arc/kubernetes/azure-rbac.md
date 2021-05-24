@@ -198,7 +198,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
     1. Save and close the editor to update the `apiserver` pod.
 
 
-### Cluster created by using the Cluster API
+### Cluster created by using Cluster API
 
 1. Copy the guard secret that contains authentication and authorization webhook configuration files from the workload cluster onto your machine:
 
