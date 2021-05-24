@@ -58,15 +58,15 @@ Create a deployment with the **Dynatrace** agent and configure **Environment Var
 
 * View the **Hosts** page from the **Dynatrace** dashboard.
 
-  ![Host view](media/dynatrace-oneagent/hosts.png)
+  [ ![Host view](media/dynatrace-oneagent/hosts.png)](media/dynatrace-oneagent/hosts.png)
 
 * View application **Host** details from the **Dynatrace** dashboard.
 
-  ![Dashboard view](media/dynatrace-oneagent/dashboard.png)
+  [ ![Dashboard view](media/dynatrace-oneagent/dashboard.png)](media/dynatrace-oneagent/dashboard.png)
 
 * View the **Metrics** page of the application from the **Dynatrace** dashboard.
 
-  ![Metrics view](media/dynatrace-oneagent/metrics.png)
+  [ ![Metrics view](media/dynatrace-oneagent/metrics.png)](media/dynatrace-oneagent/metrics.png)
 
 ## Dynatrace OneAgent Logging
 
