@@ -20,8 +20,6 @@ This Azure Defender plan brings threat protections for the following open-source
 
 Azure Defender detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. The plan makes it simple to address potential threats to databases without the need to be a security expert or manage advanced security monitoring systems.
 
-The feature is available for General Purpose and Memory Optimized servers in .
-
 ## Availability
 
 | Aspect                             | Details                                                                                                                                    |
@@ -47,7 +45,7 @@ These alerts appear in Azure Defender's security alerts page and include:
 - recommended actions for how to investigate and mitigate the threat
 - options for continuing your investigations with Azure Sentinel
 
-:::image type="content" source="media/defender-for-databases-introduction/defender-alerts.png" alt-text="Some of the security alerts you might see with your databases protected by Azure Defender for open-source relational databases" lightbox="./media/defender-for-databases-introduction/defender-alerts.png":::
+:::image type="content" source="media/defender-for-databases-introduction/defender-alerts.png" alt-text="Some of the security alerts you might see with your databases protected by Azure Defender for open-source relational databases." lightbox="./media/defender-for-databases-introduction/defender-alerts.png":::
 
 ## What kind of alerts does Azure Defender for open-source relational databases provide?
 
