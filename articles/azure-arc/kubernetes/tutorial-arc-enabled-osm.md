@@ -291,7 +291,17 @@ You can start with a [demo application](https://release-v0-8.docs.openservicemes
 ### Configuring your own Jaeger, Prometheus and Grafana instances
 The OSM extension has [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) installation disabled by default so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
 
-- [BYO-Jaeger instance](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/docs/osm/tracing.md)
+- [BYO-Jaeger instance](https://github.com/openservicemesh/osm-docs/blob/main/content/docs/tasks_usage/observability/tracing.md#byo-bring-your-own)
+  - You would also need to update the osm-config Configmap with the following settings:  
+    ```json
+    {
+      "osm.OpenServiceMesh.tracing.enable": "true",
+      "osm.OpenServiceMesh.tracing.address": "<tracing server hostname>",
+      "osm.OpenServiceMesh.tracing.port": "<tracing server port>",
+      "osm.OpenServiceMesh.tracing.endpoint": "<tracing server endpoint>",
+    }
+    ```
+    Use the guidance available in [this section](#making-changes-to-osm-configmap) to push these settings to  osm-config.
 - [BYO-Prometheus instance](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/tasks_usage/metrics.md#byo-bring-your-own)
 - [BYO-Grafana dashboard](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/tasks_usage/metrics.md#importing-dashboards-on-a-byo-grafana-instance)
 
