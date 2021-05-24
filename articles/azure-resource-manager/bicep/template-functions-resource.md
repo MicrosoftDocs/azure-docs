@@ -184,7 +184,7 @@ The list function is supported for all deployment scopes.
 
 The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a template. Output values are stored in the deployment history and could be retrieved by a malicious user.
 
-When used with [property iteration](copy-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+When used with [property iteration](loop-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
 
 ### Implementations
 
@@ -640,7 +640,7 @@ resource myVault 'Microsoft.KeyVault/vaults@2019-09-01' = {
 
 ### Valid uses
 
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the reference function for `input` because the expression is assigned to the resource property.
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](loop-properties.md), you can use the reference function for `input` because the expression is assigned to the resource property.
 
 You can't use the reference function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the reference function is resolved.
 
@@ -1543,5 +1543,5 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 
 * For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
 * To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](../templates/linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](loop-resources.md).
 * To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
