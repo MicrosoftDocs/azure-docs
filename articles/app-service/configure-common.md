@@ -54,7 +54,7 @@ To edit a setting, click the **Edit** button on the right side.
 When finished, click **Update**. Don't forget to click **Save** back in the **Configuration** page.
 
 > [!NOTE]
-> In a default Linux container or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore).
+> In a default Linux container, a custom Linux container, or Function app, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore).
 >
 
 ### Edit in bulk
