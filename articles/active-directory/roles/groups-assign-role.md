@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -20,11 +20,20 @@ ms.collection: M365-identity-device-management
 
 This section describes how an IT admin can assign Azure Active Directory (Azure AD) role to an Azure AD group.
 
-## Using Azure AD admin center
+## Prerequisites
+
+- Azure AD Premium P1 or P2 license
+- Privileged Role Administrator or Global Administrator
+- AzureADPreview module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
+
+## Azure portal
 
 Assigning a group to an Azure AD role is similar to assigning users and service principals except that only groups that are role-assignable can be used. In the Azure portal, only groups that are role-assignable are displayed.
 
-1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
+1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
 
 1. Select **Azure Active Directory** > **Roles and administrators**, and select the role you want to assign.
 
@@ -40,7 +49,7 @@ Assigning a group to an Azure AD role is similar to assigning users and service 
 
 For more information on assigning role permissions, see [Assign administrator and non-administrator roles to users](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## Using PowerShell
+## PowerShell
 
 ### Create a group that can be assigned to role
 
@@ -60,7 +69,7 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk 
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 ```
 
-## Using Microsoft Graph API
+## Microsoft Graph API
 
 ### Create a group that can be assigned Azure AD role
 

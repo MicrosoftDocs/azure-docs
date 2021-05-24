@@ -214,7 +214,7 @@ Once you have the registration credentials, use the following steps to create a 
    {
      "auth": {
        "identityProviders": {
-         "openIdConnectProviders": {
+         "customOpenIdConnectProviders": {
            "myProvider": {
              "registration": {
                "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID>",

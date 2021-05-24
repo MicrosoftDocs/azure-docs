@@ -25,7 +25,7 @@ If you are using a different API, see [API for MongoDB](how-to-provision-through
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
-1. Select **New Container.** Enter a name for your database, container, and a partition key. Under **Throughput**, select the **autoscale** option, and set the [maximum throughput (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) that you want the database or container to scale to.
+1. Select **New Container.** Enter a name for your database, container, and a partition key. Under database or container throughput, select the **Autoscale** option, and set the [maximum throughput (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) that you want the database or container to scale to.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creating a container and configuring autoscale provisioned throughput":::
 

@@ -7,7 +7,7 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 04/26/2021
 tags: connectors
 ---
 
@@ -25,9 +25,11 @@ This connector includes a Microsoft MQ client that communicates with a remote MQ
 
 ## Available operations
 
-* Multi-tenant Azure Logic Apps: When you create a **Logic App (Consumption)** resource, you can connect to an MQ server only by using the *managed* MQ connector. This connector provides only actions, no triggers.
+The IBM MQ connector provides actions but no triggers.
 
-* Single-tenant Azure Logic Apps: When you create a single-tenant based logic app workflow, you can connect to an MQ server by using either the managed MQ connector, which includes *only* actions, or the *built-in* MQ operations, which includes triggers *and* actions.
+* Multi-tenant Azure Logic Apps: When you create a consumption-based logic app workflow, you can connect to an MQ server by using the *managed* MQ connector.
+
+* Single-tenant Azure Logic Apps (preview): When you create a preview logic app workflow, you can connect to an MQ server by using either the managed MQ connector or the *built-in* MQ operations (preview).
 
 For more information about the difference between a managed connector and built-in operations, review [key terms in Logic Apps](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
@@ -42,14 +44,11 @@ The following list describes only some of the managed operations available for M
 
 For all the managed connector operations and other technical information, such as properties, limits, and so on, review the [MQ connector's reference page](/connectors/mq/).
 
-#### [Built-in](#tab/built-in)
+#### [Built-in (preview)](#tab/built-in)
 
 The following list describes only some of the built-in operations available for MQ:
 
-* When a message is available in a queue, take some action.
-* When one or more messages are received from a queue (auto-complete), take some action.
-* When one or more messages are received from a queue (peek-lock), take some action.
-* Receive a single message or an array of messages from a queue. For multiple messages, you can specify the maximum number of messages to return per batch and the maximum batch size in KB.
+* Receive a single message or an array of messages from the MQ server. For multiple messages, you can specify the maximum number of messages to return per batch and the maximum batch size in KB.
 * Send a single message or an array of messages to the MQ server.
 
 These built-in MQ operations also have the following capabilities plus the benefits from all the other capabilities for logic apps in the [single-tenant Logic Apps service](../logic-apps/single-tenant-overview-compare.md):
@@ -122,7 +121,7 @@ When you add an MQ action for the first time, you're prompted to create a connec
 
 1. When you're done, select **Create**.
 
-#### [Built-in](#tab/built-in)
+#### [Built-in (preview)](#tab/built-in)
 
 1. Provide the connection information for your MQ server.
 
