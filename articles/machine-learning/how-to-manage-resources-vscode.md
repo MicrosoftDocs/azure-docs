@@ -26,9 +26,6 @@ Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
 ## Create resources
 
-> [!IMPORTANT]
-> Autocompletion is not available on VNet and Azure Private Link enabled workspaces.
-
 The quickest way to create resources is using the extension's toolbar.
 
 1. Open the Azure Machine Learning view.
