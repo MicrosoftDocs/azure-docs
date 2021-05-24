@@ -36,7 +36,7 @@ Follow these steps to create a sample Batch account for test purposes. You need 
 
 1. Under **Storage account**, click **Select a storage account**, then select an existing storage account or create a new one.
 
-1. Do not change any other settings. Select **Review + create**, then select **Create** to create the Batch account.
+1. Leave the other settings as is. Select **Review + create**, then select **Create** to create the Batch account.
 
 When the **Deployment succeeded** message appears, go to the Batch account that you created.
 
@@ -86,7 +86,7 @@ Now that you have a pool, create a job to run on it. A Batch job is a logical gr
 
 Now, select the job to open the **Tasks** page. This is where you'll create sample tasks to run in the job. Typically, you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a command line to display the Batch environment variables on a compute node, and then waits 90 seconds.
 
-When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+When you use Batch, the command line is where you specify your app or script. Batch provides several ways to deploy apps and scripts to compute nodes.
 
 To create the first task:
 
@@ -102,7 +102,7 @@ After you create a task, Batch queues it to run on the pool. When a node is avai
 
 ## View task output
 
-The example tasks you created will complete in a couple of minutes. To view the output of a completed task, select the task, then select the file `stdout.txt` to view the standard output of the task. The contents are similar to the following:
+The example tasks you created will complete in a couple of minutes. To view the output of a completed task, select the task, then select the file `stdout.txt` to view the standard output of the task. The contents are similar to the following example:
 
 :::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Screenshot of the output from a completed task.":::
 
@@ -112,7 +112,7 @@ The contents show the Azure Batch environment variables that are set on the node
 
 If you want to continue with Batch tutorials and samples, you can keep using the Batch account and linked storage account created in this quickstart. There is no charge for the Batch account itself.
 
-You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. In the account view, select **Pools** and the name of the pool. Then select **Delete**.  When you delete the pool, all task output on the nodes is deleted.
+You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. In the account view, select **Pools** and the name of the pool. Then select **Delete**.  After you delete the pool, all task output on the nodes is deleted.
 
 When no longer needed, delete the resource group, Batch account, and all related resources. To do so, select the resource group for the Batch account and select **Delete resource group**.
 
