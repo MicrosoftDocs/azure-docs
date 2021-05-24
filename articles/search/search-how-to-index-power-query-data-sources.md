@@ -42,7 +42,7 @@ Indexers that reference Power Query data sources have the same level of support 
 ## Prerequisites
 Before you start pulling data from one of the supported data sources, you'll want to make sure you have all your resources set up.
 + Azure Cognitive Search service
-    + Azure Cognitive Search service set up in a [supported region](search-howto-index-powerquery-data-sources.md#regional-availability).
+    + Azure Cognitive Search service set up in a [supported region](search-how-to-index-power-query-data-sources.md#regional-availability).
     + Ensure that the Azure Cognitive Search team has enabled your search service for the preview. You can sign up for the preview by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
 + Azure Blob storage account
     + A Blob storage account is required for the preview to be used as an intermediary for your data. The data will flow from your data source, then to Blob storage, then to the index. This requirement only exists with the initial gated preview.
