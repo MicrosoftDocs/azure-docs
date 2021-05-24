@@ -61,7 +61,7 @@ And to these IP addresses:
 - 20.190.128.0/18
 - 40.126.0.0/18
 
-If you are n US Government customer, ensure that you have access to the following URLs:
+If you are a US Government customer, ensure that you have access to the following URLs:
 
 - `http://www.msftncsi.com`
 - *.Microsoft.com
