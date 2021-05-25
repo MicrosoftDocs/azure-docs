@@ -43,7 +43,7 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 1. On the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal). Then return to the **New Azure Cache for Redis** pane to create and configure your Premium-tier cache.
 
    > [!IMPORTANT]
-   > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, the deployment fails.
+   > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, or has a NAT Gateway assigned, the deployment fails.
    > 
    > 
 
