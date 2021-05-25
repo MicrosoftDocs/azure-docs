@@ -154,7 +154,7 @@
       href: howto-password-ban-bad-on-premises-faq.yml
     - name: Agent version history
       href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Nudge to use Microsoft Authenticator app (Preview)
+  - name: Nudge Microsoft Authenticator setup (Preview)
     href: how-to-nudge-authenticator-app.md
   - name: Use a Temporary Access Pass (Preview)
     href: howto-authentication-temporary-access-pass.md

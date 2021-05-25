@@ -1,12 +1,12 @@
 ---
-title: Nudge users to use Microsoft Authenticator app (Preview) - Azure Active Directory
+title: Nudge users to set up Microsoft Authenticator app (Preview) - Azure Active Directory
 description: Learn how to move your organization away from less secure authentication methods to the Microsoft Authenticator app
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 05/25/2021
 
 ms.author: justinha
 author: mjsantani
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to nudge users to use Microsoft Authenticator (Preview) - Microsoft Authenticator app
+# How to nudge users to set up Microsoft Authenticator (Preview) - Microsoft Authenticator app
 
 You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude sets of users to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to Microsoft Authenticator.  
 
@@ -63,7 +63,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
       ![Installation complete](./media/how-to-nudge-authenticator-app/finish.png)
 
-1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for a number of days, which can be defined by an admin. Or the user can snooze by simply closing their browser.
+1. If a user wishes to not install the Authenticator app, they can tap **Not now** to snooze the prompt for a number of days, which can be defined by an admin. 
  
    ![Snooze installation](./media/how-to-nudge-authenticator-app/snooze.png)
 
@@ -91,7 +91,7 @@ The following table lists **authenticationMethodsRegistrationCampaign** properti
 
 | Name | Possible values | Description |
 |------|-----------------|-------------|
-| state |	"enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>"default" means disabled.<br>Change states to either enabled or disabled as needed. |
+| state |	"enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>"default" means disabled. Default value is used when the configuration hasn't been explicitly set and will use Azure AD default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
 | snoozeDurationInDays | Range: 0 – 14 | Defines after how many days the user will see the nudge again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
 | includeTargets | N/A | Allows you to include different users and groups that you want the feature to target. |
 | excludeTargets | N/A | Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
@@ -163,7 +163,7 @@ Here are a few sample JSONs you can use to get started!
 
 - Include and exclude specific users/groups of users
 
-  If you want to include AND exclude certain users/groups of users in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes%20and%20Excludes.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. 
+  If you want to include AND exclude certain users/groups of users in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes%20and%20Excludes.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. Enter the correct GUIDs for your users and groups.
 
   ```json
   {
@@ -265,3 +265,5 @@ No. The Nudge will only work for users who are doing MFA using the Azure MFA ser
 
 **Will Guest/B2B users in my tenant be Nudged?** 
 Yes. If they have been scoped for the Nudge using the policy. 
+
+**What if the user closes the browser?** It's the same as snoozing.
