@@ -56,13 +56,13 @@ When you create a support request, the **Share diagnostic information** option i
 
 To change your **Share diagnostic information** selection after the request has been created:
 
-    1. On the **All support requests** page, select the support request.
+1. On the **All support requests** page, select the support request.
     
-    1. On the **Support Request** page, look for **Share diagnostic information** and then select **Change**.
+1. On the **Support Request** page, look for **Share diagnostic information** and then select **Change**.
     
-    1.  Select **Yes** or **No**, then select **OK** to confirm.
+1.  Select **Yes** or **No**, then select **OK** to confirm.
     
-        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
 
 ## Upload files
 
