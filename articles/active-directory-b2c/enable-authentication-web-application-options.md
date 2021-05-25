@@ -1,5 +1,5 @@
 ---
-title: Enable web application options
+title: Enable web application options using Azure Active Directory B2C
 description:  Enable the use of web application options by using several ways.
 services: active-directory-b2c
 author: msmimart
