@@ -81,7 +81,7 @@ The reference for the endpoint YAML format is below. To understand how to specif
 | $schema    | [Optional] The YAML schema. You can view the schema in the above example in a browser to see all available options in the YAML file.|
 | name       | Name of the endpoint. Needs to be unique at Azure region level.|
 | traffic | Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100 |
-| auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint get-credentialsß` command). |
+| auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint get-credentials` command). |
 | deployments | Contains a list of deployments to be created in the endpoint. In this case, we have only one deployment, named `blue`. For more on multiple deployments, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)|
 
 Attributes of the `deployment`:
@@ -105,7 +105,7 @@ Attributes of the `deployment`:
 
 ### Registering your model and environment separately
 
- In this example, we're specifying the model and environment properties inline: `name`, `version`, and the `local_path` from which to upload files. Under the covers, the CLI will upload the files and register the model and environment automatically. As a best practice for production, you should separately register the model and environment and specify the registered name and version in the YAML. The form is `model:azureml:my-model:1` or `environment:azureml:my-env:1`.
+ In this example, we're specifying the model and environment properties inline: `name`, `version`, and the `local_path` from which to upload files. Under the covers, the CLI will upload the files and register the model and environment automatically. As a best practice for production, you should separately register the model and environment and specify the registered name and version in the YAML. The form is `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
 
  To do the registration, you may extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
