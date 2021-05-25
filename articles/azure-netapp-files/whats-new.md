@@ -21,7 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## May 2021
+## June 2021
 
 * [NFS `Chown Mode` export policy and UNIX export permissions](configure-unix-permissions-change-ownership-mode.md) (Preview)   
 
@@ -32,6 +32,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The Azure NetApp Files Unix Permissions functionality enables you to specify change permissions for the mount path. 
 
     These new features provide options to move access control of certain files and directories into the hands of the data user instead of the service operator.   
+
+## May 2021
 
 * Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
 
