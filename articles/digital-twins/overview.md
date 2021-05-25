@@ -49,7 +49,7 @@ Digital models in Azure Digital Twins are live, up-to-date representations of th
 
 You can visualize your Azure Digital Twins graph in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), which provides the following interface for interacting with your graph:
 
-:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing a graph of nodes representing digital twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 Azure Digital Twins provides a rich **event system** to keep that graph current with data processing and business logic. You can connect external compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), to drive this data processing in flexible, customized ways.
 
