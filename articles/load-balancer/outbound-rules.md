@@ -41,6 +41,9 @@ Outbound rules allow you to control:
 * **Whether to send a TCP Reset on idle timeout.**
      * When timing out idle connections, do we send a TCP RST to the client and server so they know the flow is abandoned?
 
+>[!Important]
+> When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.
+
 ## Outbound rule definition
 
 Outbound rules follow the same familiar syntax as load balancing and inbound NAT rules: **frontend** + **parameters** + **backend pool**. 

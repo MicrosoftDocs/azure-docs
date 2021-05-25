@@ -96,6 +96,9 @@ Blob soft delete can also protect blobs and directories in accounts that have th
 
 ### Enable blob soft delete
 
+>[!IMPORTANT]
+> This section applies only to accounts that have a hierarchical namespace.
+
 #### [Portal](#tab/azure-portal)
 
 Not yet implemented.
@@ -184,7 +187,13 @@ az storage fs service-properties update --delete-retention false --connection-st
 
 You can enable soft delete in accounts that have a hierarchical namespace by using .NET, Java, and Python.
 
+>[!IMPORTANT]
+> This section section applies only to accounts that have a hierarchical namespace.
+
 #### Enable soft delete by using .NET
+
+>[!IMPORTANT]
+> This section section applies only to accounts that have a hierarchical namespace.
 
 1. Open a command prompt and change directory (`cd`) into your project folder For example:
 
@@ -232,6 +241,9 @@ You can enable soft delete in accounts that have a hierarchical namespace by usi
 
 #### Enable soft delete by using Java
 
+>[!IMPORTANT]
+> This section section applies only to accounts that have a hierarchical namespace.
+
 1. To get started, open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
 
    ```xml
@@ -268,6 +280,9 @@ You can enable soft delete in accounts that have a hierarchical namespace by usi
    ```
 
 #### Enable soft delete by using Python
+
+>[!IMPORTANT]
+> This section section applies only to accounts that have a hierarchical namespace.
 
 1. Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
 

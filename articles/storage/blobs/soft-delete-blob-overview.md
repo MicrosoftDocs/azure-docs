@@ -47,7 +47,7 @@ Attempting to delete a soft-deleted object does not affect its expiry time.
 
 If you disable blob soft delete, you can continue to access and recover soft-deleted objects in your storage account until the soft delete retention period has elapsed.
 
-Blob versioning is available for general-purpose v2, block blob, and Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
+Blob versioning is available for general-purpose v2, block blob, and Blob storage accounts. Storage accounts with a hierarchical namespace aren't currently supported.
 
 Version 2017-07-29 and higher of the Azure Storage REST API support blob soft delete.
 
@@ -64,7 +64,7 @@ If a blob has snapshots, the blob cannot be deleted unless the snapshots are als
 
 You can also delete one or more active snapshots without deleting the base blob. In this case, the snapshot is soft-deleted.
 
-If a directory is deleted in an account that has the hierarchical namespace feature enabled it, the directory and all its contents are marked as soft-deleted.
+If a directory is deleted in an account that has the hierarchical namespace feature enabled on it, the directory and all its contents are marked as soft-deleted.
 
 Soft-deleted objects are invisible unless they are explicitly displayed or listed. For more information about how to list soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.md).
 

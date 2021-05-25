@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 05/21/2021
 ms.author: helohr
 manager: femila
 ---
@@ -21,7 +21,7 @@ The Start Virtual Machine (VM) on Connect (preview) feature lets you save costs 
 
 ## Requirements and limitations
 
-You can enable the start VM on Connect feature for personal host pools using PowerShell and the Azure portal. If you want to enable the feature on a pooled desktop, you'll need to use PowerShell.
+You can enable the start VM on Connect feature for personal or pooled host pools using PowerShell and the Azure portal.
 
 The following Remote Desktop clients support the Start VM on Connect feature:
 
@@ -120,10 +120,7 @@ To use the Azure portal to configure Start VM on Connect:
 
 2. In the Azure portal, go to **Windows Virtual Desktop**.
 
-3. Select **Host pools**, then find the host pool that contains the personal desktops you assigned the role to.
-
-   >[!NOTE]
-   > Currently, you can only use the Azure portal to enable this setting on personal host pools. If you want to enable this setting on pooled desktops, you'll need to use [PowerShell](#use-powershell) instead.
+3. Select **Host pools**, then go to the host pool where you want to enable the setting.
 
 4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
 
