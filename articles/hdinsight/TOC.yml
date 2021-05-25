@@ -873,10 +873,10 @@
         href: ./interactive-query/hdinsight-security-options-for-hive.md
       - name: Apache Hive LLAP Workload Management
         href: ./interactive-query/troubleshoot-workload-management-issues.md
-    - name: Reference
-      items:
-      - name: Hive LLAP Workload Management commands
-        href: ./interactive-query/workload-management-commands.md
+  - name: Reference
+    items:
+    - name: Hive LLAP Workload Management commands
+      href: ./interactive-query/workload-management-commands.md
 - name: ML Services
   items:
   - name: Overview
