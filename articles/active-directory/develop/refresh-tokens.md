@@ -18,11 +18,7 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 
 # Microsoft identity platform refresh tokens
 
-When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. Refresh tokens are also used to acquire extra access tokens for other resources. Refresh tokens are bound to a combination of user and client, but aren't tied to a resource or tenant. This allows a client to use a refresh token to acquire access tokens across any combination of resource and tenant where it has permission to do so. 
-
-Refresh tokens have a significantly longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. The Microsoft identity platform doesn't revoke refresh tokens when used to fetch new access tokens. Securely delete the old refresh token when acquiring a new one. Refresh tokens need to be stored safely in line with stringent requirements since they have a long lifetime and are used to obtain access tokens. 
-
-Refresh tokens are encrypted and only Azure AD service can read them.
+When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. Refresh tokens are also used to acquire extra access tokens for other resources. Refresh tokens are bound to a combination of user and client, but aren't tied to a resource or tenant. This allows a client to use a refresh token to acquire access tokens across any combination of resource and tenant where it has permission to do so. Refresh tokens are encrypted and only Azure AD service can read them.
 
 ## Prerequisites
 
@@ -30,6 +26,10 @@ Before reading through this article, it's recommended that you go through the fo
 
 * [ID tokens](id-tokens.md) in the Microsoft identity platform.
 * [Access tokens](access-tokens.md) in the Microsoft identity platform.
+
+## Refresh token lifetime
+
+Refresh tokens have a significantly longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. The Microsoft identity platform doesn't revoke refresh tokens when used to fetch new access tokens. Securely delete the old refresh token after acquiring a new one. Refresh tokens need to be stored safely in line with stringent requirements since they have a long lifetime and are used to obtain access tokens. 
 
 ## Refresh token expiration
 
@@ -46,6 +46,7 @@ Using [token lifetime configuration](active-directory-configurable-token-lifetim
   * A sensitive application has a `MaxAgeSessionMultiFactor` of one day. A user will be required to go through MFA once more through an interactive prompt if they sign in again after a period of one day. For example, if a user logs in on Monday, and on Tuesday after 25 hours have elapsed. 
 
 Not all refresh tokens follow the rules set in the token lifetime policy. Specifically, refresh tokens used in [single page apps](reference-third-party-cookies-spas.md) are always limited to 24 hours of activity, as if they have a `MaxAgeSessionSingleFactor` policy of 24 hours applied to them. 
+
 ### Revocation
 
 Refresh tokens can be revoked by the server because of a change in credentials, user action, or admin action.  Refresh tokens fall into two classes: tokens issued to confidential clients (the rightmost column) and tokens issued to public clients (all other columns).
