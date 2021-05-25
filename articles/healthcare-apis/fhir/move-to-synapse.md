@@ -1,5 +1,5 @@
 ---
-title: Exporting data in Azure API for FHIR to Azure Synapse Analytics
+title: Moving data in Azure API for FHIR to Azure Synapse Analytics
 description: This article describes moving FHIR data into Synapse
 author: ginalee-dotcom
 ms.service: healthcare-apis
