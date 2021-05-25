@@ -16,7 +16,9 @@ ms.service: digital-twins
 
 # Get OPC UA data into Azure Digital Twins
 
-Getting OPC UA Server data to flow into Azure Digital Twins is hard. There are multiple components you need to install on different devices, custom code to write, and settings that you need to configure. But it can be done. To help, we put together a proof of concept that connects all these pieces together to get your OPC UA nodes into Azure Digital Twins. We hope this article will provide you the right guidance and tools to build upon for your own solutions.
+Getting OPC UA Server data to flow into Azure Digital Twins is hard. There are multiple components you need to install on different devices, custom code to write, and settings that you need to configure. But it can be done. 
+
+This article shows how to connect all these pieces together to get your OPC UA nodes into Azure Digital Twins. You can continue to build on this guidance for your own solutions.
 
 > [!NOTE]
 > This article does not address converting OPC UA nodes into DTDL. It only addresses getting the telemetry from your OPC UA Server into existing Azure Digital Twins. If you are interested in generating DTDL models from OPC UA data, check out the [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) and [OPCUA2DTDL](https://github.com/khilscher/OPCUA2DTDL) repos.
@@ -30,16 +32,16 @@ TODO: Architecture diagram coming soon
 | ProSys OPC UA Simulation Server | Free OPC UA Server to simulate the OPC UA data |
 | IoT Edge | IoT Hub service that gets installed on a local Linux gateway device. It is required for the OPC Publisher module to run and send data to IoT Hub. |
 | OPC Publisher | IoT Edge module built by the Azure Industrial IoT team. This module connects to your OPC UA Server and sends the node data into Azure IoT Hub. |
-| Azure IoT Hub | OPC Publisher sends the OPC UA telemetry into Azure IoT Hub. From there, we can process the data through an Azure Function and into Azure Digital Twins. |
+| Azure IoT Hub | OPC Publisher sends the OPC UA telemetry into Azure IoT Hub. From there, you can process the data through an Azure Function and into Azure Digital Twins. |
 | Azure Digital Twins | Azure Digital Twins the platform that enables you to create a digital representation of real-world things, places, business processes, and people.         |
 | Azure Function | Custom Azure Function is used to process the telemetry flowing in Azure IoT Hub to the proper twins and properties in Azure Digital Twins. |
 
 > [!TIP]
-> All of the files you need for this proof of concept are located in the [Azure Samples GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins). We recommend you clone or download the repo before you get started.
+> All of the files you need for this proof of concept are located in the [Azure Samples GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins). You may want to clone or download the repo before you get started.
 
 ## Setup Edge Components
 
-The first step is getting the devices and software set up on the edge. It includes your OPC UA simulation server, gateway device, and Azure IoT Hub components. The steps to install these components are well documented, but we wanted to step through the together so you can see the whole story. Detailed guidance can be found in the following articles: 
+The first step is getting the devices and software set up on the edge. It includes your OPC UA simulation server, gateway device, and Azure IoT Hub components. The steps to install these components are well documented, but this article will step through the together so you can see the whole story. Detailed guidance can be found in the following articles: 
 
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
@@ -48,7 +50,7 @@ The first step is getting the devices and software set up on the edge. It includ
 
 ## OPC UA Server
 
-For our proof of concept, and we did not have access to physical devices running a real OPC UA Server. So instead, we installed the free [Prosys OPC UA Simulation Server](https://www.prosysopc.com/products/opc-ua-simulation-server/) on a Windows VM to generate the OPC UA data. If you already have an OPC UA device, or another OPC UA simulation server, you can [skip to the next step](#setup-iot-edge-device).
+For this proof of concept, you do not need access to physical devices running a real OPC UA Server. Instead, you can install the free [Prosys OPC UA Simulation Server](https://www.prosysopc.com/products/opc-ua-simulation-server/) on a Windows VM to generate the OPC UA data. If you already have an OPC UA device, or another OPC UA simulation server, you can [skip to the next step](#setup-iot-edge-device).
 
 ### Windows 10 virtual machine
 
@@ -75,7 +77,7 @@ Copy the Connection Address (UA TCP) and replace the machine name with the Publi
 opc.tcp://{ip address}:53530/OPCUA/SimulationServer
 ```
 
-For this example, we are going to use the simulation nodes provided by default in the Simulation folder. Each item will have a unique NodeId (`ns=3;i=1003`) value. You will need the NodeId values for both the publishednodes.json and opcua-mapping.json files later in this article.
+For this example, you'll use the simulation nodes provided by default in the Simulation folder. Each item will have a unique NodeId (`ns=3;i=1003`) value. You will need the NodeId values for both the publishednodes.json and opcua-mapping.json files later in this article.
 
 :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/prosys-server-2.png" alt-text="Screenshot of O P C  U A nodes.":::
 
@@ -155,7 +157,7 @@ In the "Container Create Options" make sure you add the following json:
 }
 ```
 
-The create options above should work without any changes, but you may need to adjust the settings if your gateway device differs from our guidance so far.
+The create options above should work without any changes, but you may need to adjust the settings if your gateway device differs from the article's guidance so far.
 
 Follow the prompts to create the module. After about 15 seconds, you can run `iotedge list` on your gateway device. You should now see the OPCPublisher module up and running.
 
@@ -225,7 +227,7 @@ You now have data flowing from an OPC UA Server into IoT Hub. Next up, getting t
 
 ## Setup Azure Digital Twins
 
-Now that we have data flowing from OPC UA Server into Azure IoT Hub, we need to setup and configure Azure Digital Twins. For this example, we are just going to use a single model and a single twin instance to match the properties on the simulation server. To see a more complex scenario, see the chocolate factory example in the [GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins).
+Now that you have data flowing from OPC UA Server into Azure IoT Hub, you'll need to setup and configure Azure Digital Twins. For this example, you'll use a single model and a single twin instance to match the properties on the simulation server. To see a more complex scenario, see the chocolate factory example in the [GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins).
 
 ### Create Azure Digital Twins instance
 
@@ -233,7 +235,7 @@ Now that we have data flowing from OPC UA Server into Azure IoT Hub, we need to 
 
 ### Upload model & create twin
 
-We recommend using [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer) to upload the `simulation` model and create a new twin called "simulation-1".
+Use [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer) to upload the `simulation` model and create a new twin called "simulation-1".
 
 :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/azure-digital-twins-explorer.png" alt-text="Screenshot of Azure Digital Twins Explorer.":::
 
@@ -248,7 +250,7 @@ We recommend using [Azure Digital Twins Explorer](/samples/azure-samples/digital
 
 ## Publish Azure Function
 
-Now that we have the OPC UA nodes data flowing into IoT Hub, we need to map and save that data to the correct twin and properties in Azure Digital Twins. This is where our Azure Function and opcua-mapping.json file come in.
+Now that you have the OPC UA nodes data flowing into IoT Hub, you'll need to map and save that data to the correct twin and properties in Azure Digital Twins. This is where your Azure Function and opcua-mapping.json file come in.
 
 It works like this:
 
@@ -282,7 +284,7 @@ The `opcua-mapping.json` looks like this (see the [GitHub repo](https://github.c
 > [!IMPORTANT]
 > You will need to create a mapping entry for each and every NodeId
 
-Now that we have our mapping file, we need to store it in a location that is accessible from the Azure Function. Azure Blob Storage is a good place. You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create your storage container and import the opcua-mapping.json file. Then create a shared access signature and save that url, as you will need it later for the Azure Function.
+Now that you have your mapping file, you'll need to store it in a location that is accessible from the Azure Function. Azure Blob Storage is a good place. You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create your storage container and import the opcua-mapping.json file. Then create a shared access signature and save that url, as you will need it later for the Azure Function.
 
 :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/azure-storage-explorer.png" alt-text="Screenshot of Azure storage Explorer.":::
 
@@ -295,7 +297,7 @@ Clone or download this [GitHub repo](https://github.com/Azure-Samples/opcua-to-a
 Follow these steps to [publish the function](how-to-create-azure-function.md?tabs=cli#publish-the-function-app-to-azure) and [setting up security access](how-to-create-azure-function.md?tabs=portal#set-up-security-access-for-the-function-app).
 
 #### Step 3
-We need to add some application settings to set up your environment properly. Go to the Azure portal and find your newly created Azure Function. Then click on the "Configuration" section. There are three application settings you need to create.
+You'll need to add some application settings to set up your environment properly. Go to the Azure portal and find your newly created Azure Function. Then click on the "Configuration" section. There are three application settings you need to create.
 
 | Setting | Description | Required |
 | --- | --- | --- |
