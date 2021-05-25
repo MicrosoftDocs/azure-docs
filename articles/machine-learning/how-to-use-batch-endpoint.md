@@ -180,7 +180,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 
 * Use `--mini-batch-size` to overwrite `mini_batch_size` if different size of input data is used. 
 * Use `--instance-count` to overwrite `instance_count` if different compute resource is needed for this job. 
-* Use `--set` to overwrite other settings including `max_retries`, `timeout`, `error_threshold`, and `logging_level`.
+* Use `--set` to overwrite other settings including `max_retries`, `timeout`, and `error_threshold`.
 
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
@@ -260,7 +260,7 @@ az ml endpoint show --name mybatchedp --type batch
 For batch inference, you must send 100% of inquiries to the wanted deployment. To set your newly created deployment as the target, use:
 
 ```azurecli
-az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
+az ml endpoint update --name mybatchedp --type batch --traffic mnist-deployment:100
 ```
 
 If you re-examine the details of your deployment, you will see your changes:
@@ -288,7 +288,7 @@ scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring
 2. Get the access token:
 
 ```azurecli
-auth_token=$(az account get-access-token --resource https://ml.azure.com --query accessToken -o tsv)
+auth_token=$(az account get-access-token --query accessToken -o tsv)
 ```
 
 3. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:
