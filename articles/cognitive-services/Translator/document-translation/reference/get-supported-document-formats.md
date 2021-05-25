@@ -58,10 +58,11 @@ The following information is returned in a successful response.
 |Name|Type|Description|
 |--- |--- |--- |
 |value|FileFormat []|FileFormat[] contains the details listed below.|
-|value.format|string[]|Supported Content-Types for this format.|
+|value.contentTypes|string[]|Supported Content-Types for this format.|
+|value.defaultVersion|string|Default version if none is specified.|
 |value.fileExtensions|string[]|Supported file extension for this format.|
-|value.contentTypes|string[]|Name of the format.|
-|value.versions|String[]|Supported Version.|
+|value.format|string|Name of the format.|
+|value.versions|string [] | Supported version.|
 
 ### Error response
 
@@ -69,9 +70,10 @@ The following information is returned in a successful response.
 |--- |--- |--- |
  |code|string|Enums containing high-level error codes. Possible values:<ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
 
 ## Examples
 
@@ -90,8 +92,7 @@ Status code: 200
       ],
       "contentTypes": [
         "text/plain"
-      ],
-      "versions": []
+      ]
     },
     {
       "format": "PortableDocumentFormat",
@@ -100,48 +101,7 @@ Status code: 200
       ],
       "contentTypes": [
         "application/pdf"
-      ],
-      "versions": []
-    },
-    {
-      "format": "OpenXmlPresentation",
-      "fileExtensions": [
-        ".pptx"
-      ],
-      "contentTypes": [
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-      ],
-      "versions": []
-    },
-    {
-      "format": "OpenXmlSpreadsheet",
-      "fileExtensions": [
-        ".xlsx"
-      ],
-      "contentTypes": [
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-      ],
-      "versions": []
-    },
-    {
-      "format": "OutlookMailMessage",
-      "fileExtensions": [
-        ".msg"
-      ],
-      "contentTypes": [
-        "application/vnd.ms-outlook"
-      ],
-      "versions": []
-    },
-    {
-      "format": "HtmlFile",
-      "fileExtensions": [
-        ".html"
-      ],
-      "contentTypes": [
-        "text/html"
-      ],
-      "versions": []
+      ]
     },
     {
       "format": "OpenXmlWord",
@@ -150,8 +110,35 @@ Status code: 200
       ],
       "contentTypes": [
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      ]
+    },
+    {
+      "format": "OpenXmlPresentation",
+      "fileExtensions": [
+        ".pptx"
       ],
-      "versions": []
+      "contentTypes": [
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+      ]
+    },
+    {
+      "format": "OpenXmlSpreadsheet",
+      "fileExtensions": [
+        ".xlsx"
+      ],
+      "contentTypes": [
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      ]
+    },
+    {
+      "format": "HtmlFile",
+      "fileExtensions": [
+        ".html",
+        ".htm"
+      ],
+      "contentTypes": [
+        "text/html"
+      ]
     }
   ]
 }

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/10/2020
+ms.date: 05/13/2021
 ---
 # Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -80,27 +80,26 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
 <a id="create-container-database"></a>
 ## Add a database and a container 
 
-You can use the Data Explorer in the Azure portal to create a database and container. 
+You can use the Data Explorer in the Azure portal to create a database and container.
 
-1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Container**. 
-    
+1. Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Container**. 
+
     You may need to scroll right to see the **Add Container** window.
-    
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="The Azure portal Data Explorer, Add Container pane":::
-    
-1.  In the **Add container** pane, enter the settings for the new container.
-    
+
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/add-database-container.png" alt-text="The Azure portal Data Explorer, Add Container pane":::
+
+1. In the **Add container** pane, enter the settings for the new container.
+
     |Setting|Suggested value|Description
     |---|---|---|
-    |**Database ID**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
-    |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.<br><br>**Note**: This setting is not available when creating a new container in a serverless account.| 
+    |**Database ID**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Share throughput across containers** option, it allows you to share the throughput provisioned on the database across all the containers within the database. This option also helps with cost savings. |
+    | **Database throughput**| You can provision **Autoscale** or **Manual** throughput. Manual throughput allows you to scale RU/s yourself whereas  autoscale throughput allows the system to scale RU/s based on usage. Select **Manual** for this example. <br><br> Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later by estimating the required RU/s with the [capacity calculator](estimate-ru-with-capacity-planner.md).<br><br>**Note**: This setting is not available when creating a new container in a serverless account. |
     |**Container ID**|Items|Enter *Items* as the name for your new container. Container IDs have the same character requirements as database names.|
     |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
 
-    
-    Don't add **Unique keys** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
-    
-1.  Select **OK**. The Data Explorer displays the new database and the container that you created.
+    Don't add **Unique keys** or turn on **Analytical store** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB.](unique-keys.md) [Analytical store](analytical-store-introduction.md) is used to enable large-scale analytics against operational data without any impact to your transactional workloads.
+
+1. Select **OK**. The Data Explorer displays the new database and the container that you created.
 
 ## Add data to your database
 

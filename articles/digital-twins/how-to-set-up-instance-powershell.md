@@ -114,7 +114,7 @@ Get-AzDigitalTwinsInstance -ResourceGroupName <your-resource-group> -ResourceNam
 > [!TIP]
 > You can use this command to see all the properties of your instance at any time.
 
-Note the Azure Digital Twins instance's **HostName**, **Name**, and **ResourceGroup**. These are
+Note the Azure Digital Twins instance's **host name**, **name**, and **resource group**. These are
 important values that you may need as you continue working with your Azure Digital Twins instance,
 to set up authentication, and related Azure resources. If other users will be programming against
 the instance, you should share these values with them.

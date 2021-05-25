@@ -103,6 +103,10 @@ CREATE EXTERNAL TABLE Taxi (
          FILE_FORMAT = ParquetFormat
 );
 ```
+
+> [!NOTE]
+> The table is created on partitioned folder structure, but you cannot leverage some partition elimination. If you want to get better performance by skipping the files that do not satisfy some criterion (like specific year or month in this case), use [views on external data](create-use-views.md).
+
 ## Use an external table
 
 You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.

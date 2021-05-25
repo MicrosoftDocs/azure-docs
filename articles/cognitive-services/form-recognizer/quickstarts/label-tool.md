@@ -183,7 +183,7 @@ In v2.1, if your training document does not have a value filled in, you can draw
 
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze.
 
-### [v2.0](#tab/v2-1)  
+### [v2.1 preview](#tab/v2-1)  
 
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Select **+** to create a new tag.

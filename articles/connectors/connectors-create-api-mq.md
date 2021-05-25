@@ -51,7 +51,7 @@ The following list describes only some of the built-in operations available for 
 * Receive a single message or an array of messages from the MQ server. For multiple messages, you can specify the maximum number of messages to return per batch and the maximum batch size in KB.
 * Send a single message or an array of messages to the MQ server.
 
-These built-in MQ operations also have the following capabilities plus the benefits from all the other capabilities for logic apps in the [single-tenant Logic Apps service](../logic-apps/logic-apps-overview-preview.md):
+These built-in MQ operations also have the following capabilities plus the benefits from all the other capabilities for logic apps in the [single-tenant Logic Apps service](../logic-apps/single-tenant-overview-compare.md):
 
 * Transport Layer Security (TLS) encryption for data in transit
 * Message encoding for both the send and receive operations

@@ -47,8 +47,6 @@
     href: logs/get-started-queries.md
   - name: Create a dashboard from log query
     href: visualize/tutorial-logs-dashboards.md
-  - name: Create alert from log query
-    href: alerts/tutorial-response.md
   - name: Autoscale on performance and schedule
     href: autoscale/tutorial-autoscale-performance-schedule.md
   - name: Application Insights
@@ -372,6 +370,9 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: FAQ
+        displayname: Azure Monitor agent FAQ
+        href: faq.md#azure-monitor-agent-preview
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -649,15 +650,15 @@
         items:
           - name: Web apps
             displayname: java
-            href: app/java-get-started.md
+            href: app/java-2x-get-started.md
           - name: Log traces
-            href: app/java-trace-logs.md
+            href: app/java-2x-trace-logs.md
           - name: Dependencies
-            href: app/java-agent.md
+            href: app/java-2x-agent.md
           - name: Filter telemetry
-            href: app/java-filter-telemetry.md
+            href: app/java-2x-filter-telemetry.md
           - name: Troubleshoot
-            href: app/java-troubleshoot.md
+            href: app/java-2x-troubleshoot.md
       - name: Node.js 
         href: app/nodejs.md
       - name: Python
@@ -787,6 +788,8 @@
       - name: Multi-step tests
         displayname: availability, GSM, visual studio web test, web test
         href: app/availability-multistep.md
+      - name: Private testing
+        href: app/availability-private-test.md
       - name: Availability + Azure Functions
         href: app/availability-azure-functions.md
         displayname: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
@@ -1442,10 +1445,10 @@
     - name: Key Vault Analytics (deprecated)
       href: insights/azure-key-vault-deprecated.md
     - name: Unix metrics
-      href: app/java-collectd.md
+      href: app/java-2x-collectd.md
     - name: Micrometer Metrics
       displayname: java
-      href: app/micrometer-java.md
+      href: app/java-2x-micrometer.md
     - name: Views
       items:
       - name: View Designer

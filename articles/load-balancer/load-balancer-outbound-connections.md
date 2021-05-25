@@ -55,7 +55,7 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 
  | Associations | Method | IP protocols |
  | ---------- | ------ | ------------ |
- | Public load balancer or stand-alone | [SNAT (Source Network Address Translation)](#snat) </br> is not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
+ | Public IP on VM's NIC | [SNAT (Source Network Address Translation)](#snat) </br> is not used. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
  All traffic will return to the requesting client from the virtual machine's public IP address (Instance Level IP).
  

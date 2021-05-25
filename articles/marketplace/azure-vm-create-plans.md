@@ -152,9 +152,6 @@ Select **Save draft** before continuing to the next tab in the left-nav Plan men
 
 Provide the images and other technical properties associated with this plan.
 
-> [!NOTE]
-> This tab doesn't display if you configured this plan to reuse packages from another on the **Plan setup** tab.
-
 ### Reuse technical configuration
 
 If you have more than one plan of the same type, and the packages are identical between them, select **This plan reuses the technical configuration from another plan**. This option lets you select one of the other plans of the same type for this offer and reuse its technical configuration.

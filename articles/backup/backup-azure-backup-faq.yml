@@ -3,7 +3,7 @@ metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
   ms.topic: conceptual
-  ms.date: 07/07/2019
+  ms.date: 05/10/2021
     
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
@@ -31,7 +31,7 @@ sections:
       - question: |
           How many policies can I create per vault?
         answer: |
-          You can only have up to 200 policies per vault.
+          You can only have up to 200 policies per vault. However, adding Backup policies through Azure Resource Manager (ARM) templates or PowerShell is limited to 50 over a span of 24 hours.
 
       - question: |
           If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?

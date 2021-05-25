@@ -500,6 +500,9 @@
       - name: Advanced entry script authoring
         displayName: swagger inference schema binary cors
         href: how-to-deploy-advanced-entry-script.md
+      - name: Inference HTTP server
+        href: how-to-inference-server-http.md
+        displayName: local debug
       - name: Monitor web services
         items:
         - name: Collect & evaluate model data

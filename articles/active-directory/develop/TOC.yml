@@ -153,6 +153,8 @@
     href: v2-permissions-and-consent.md
   - name: Conditional access
     href: v2-conditional-access-dev-guide.md
+  - name: Authentication context
+    href: developer-guide-conditional-access-authentication-context.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
@@ -657,6 +659,8 @@
   - name: Mobile single sign-on (SSO)
     href: mobile-sso-support-overview.md
     displayName: android, ios
+  - name: Claims challenges and requests
+    href: claims-challenge.md
   - name: Permissions and consent
     displayName: Scopes
     items:

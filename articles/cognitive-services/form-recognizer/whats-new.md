@@ -1,21 +1,21 @@
 ---
 title: What's new in Form Recognizer?
 titleSuffix: Azure Cognitive Services
-description: Understand the latest changes to the Form Recognizer API.
+description: Learn the latest changes and updates to the Form Recognizer Service API.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
-ms.date: 04/28/2021
+ms.topic: overview
+ms.date: 04/14/2021
 ms.author: lajanuar
 
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
-# What's new in Form Recognizer?
+# What's new in Form Recognizer
 
-The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
+Learn what's new in the Form Recognizer service. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
 
 ## April 2021
 <!-- markdownlint-disable MD029 -->

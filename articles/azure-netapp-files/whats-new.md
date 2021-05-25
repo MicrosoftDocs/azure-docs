@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 05/12/2021
 ms.author: b-juche
 ---
 
@@ -22,6 +22,10 @@ ms.author: b-juche
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## May 2021
+
+* Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
+
+    AzAcSnap is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL). See [Release Notes for AzAcSnap](azacsnap-release-notes.md) for the latest changes about the tool.   
 
 * [Support for capacity pool billing tags](manage-billing-tags.md)   
 
@@ -118,7 +122,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports LDAP signing for secure LDAP lookups between the Azure NetApp Files service and the user-specified Active Directory Domain Services domain controllers. This feature is currently in preview.
 
-* [AES encryption for AD authentication](azure-netapp-files-create-volumes-smb.md) (Preview)
+* [AES encryption for AD authentication](create-active-directory-connections.md#create-an-active-directory-connection) (Preview)
 
     Azure NetApp Files now supports AES encryption on LDAP connection to DC to enable AES encryption for an SMB volume. This feature is currently in preview. 
 

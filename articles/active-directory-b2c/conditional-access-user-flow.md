@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -23,8 +23,6 @@ Conditional Access can be added to your Azure Active Directory B2C (Azure AD B2C
 ![Conditional access flow](media/conditional-access-user-flow/conditional-access-flow.png)
 
 Automating risk assessment with policy conditions means risky sign-ins are identified immediately and then either remediated or blocked.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Service overview
 
@@ -52,12 +50,12 @@ In the *Remediation* phase that follows, the user is challenged with MFA. Once c
 
 The remediation may also happen through other channels. For example, when the account's password is reset, either by the administrator or by the user. You can check the the user *Risk state* in the [risky users report](identity-protection-investigate-risk.md#navigating-the-risky-users-report).
 
+::: zone pivot="b2c-custom-policy"
+
 > [!IMPORTANT]
 > To remediate the risk successfully within the journey, make sure the *Remediation* technical profile is called after the *Evaluation* technical profile is executed. If  *Evaluation* is invoked without *Remediation*, the risk state will be *At risk*.
 
 When the *Evaluation* technical profile recommendation returns `Block`, the call to the *Evaluation* technical profile is not required. The risk state is set to *At risk*.
-
-::: zone pivot="b2c-custom-policy"
 
 The following example shows a Conditional Access technical profile used to remediate the identified threat:
 
@@ -123,7 +121,7 @@ A Conditional Access policy is an if-then statement of assignments and access co
 To add a Conditional Access policy:
 
 1. In the Azure portal, search for and select **Azure AD B2C**.
-1. Under **Security**, select **Conditional Access (Preview)**. The **Conditional Access Policies** page opens.
+1. Under **Security**, select **Conditional Access**. The **Conditional Access Policies** page opens.
 1. Select **+ New policy**.
 1. Enter a name for the policy, such as *Block risky sign-in*.
 1. Under **Assignments**, choose **Users and groups**, and then select the one of the following supported configurations:
@@ -233,11 +231,17 @@ Multiple Conditional Access policies may apply to an individual user at any time
 
 ## Enable multi-factor authentication (optional)
 
-When adding Conditional Access to a user flow, consider the use of **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are independent from Conditional Access settings. You can choose from these MFA options:
+When adding Conditional Access to a user flow, consider using **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, or a one-time password via email for multi-factor authentication. MFA settings are configured separately from Conditional Access settings. You can choose from these MFA options:
 
-   - **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
-   - **Always on** - MFA is always required regardless of your Conditional Access setup. If users aren't already enrolled in MFA, they're prompted to enroll during sign-in. During sign-up, users are prompted to enroll in MFA.
-   - **Conditional (Preview)** - MFA is required only when an active Conditional Access Policy requires it. If the result of the Conditional Access evaluation is an MFA challenge with no risk, MFA is enforced during sign-in. If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked. During sign-up, users aren't prompted to enroll in MFA.
+- **Off** - MFA is never enforced during sign-in, and users are not prompted to enroll in MFA during sign-up or sign-in.
+- **Always on** - MFA is always required, regardless of your Conditional Access setup. During sign-up, users are prompted to enroll in MFA. During sign-in, if users aren't already enrolled in MFA, they're prompted to enroll.
+- **Conditional** - During sign-up and sign-in, users are prompted to enroll in MFA (both new users and existing users who aren't enrolled in MFA). During sign-in, MFA is enforced only when an active Conditional Access policy evaluation requires it:
+
+   - If the result is an MFA challenge with no risk, MFA is enforced. If the user isn't already enrolled in MFA, they're prompted to enroll.
+   - If the result is an MFA challenge due to risk *and* the user is not enrolled in MFA, sign-in is blocked.
+
+   > [!NOTE]
+   > With general availability of Conditional Access in Azure AD B2C, users are now prompted to enroll in an MFA method during sign-up. Any sign-up user flows you created prior to general availability won't automatically reflect this new behavior, but you can include the behavior by creating new user flows.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -255,9 +259,9 @@ To enable Conditional Access for a user flow, make sure the version supports Con
  
    ![Configure MFA and Conditional Access in Properties](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. In the **Multifactor authentication** section, select the desired **Type of method**, and then under **MFA enforcement**, select **Conditional (Preview)**.
+1. In the **Multifactor authentication** section, select the desired **Type of method**, and then under **MFA enforcement**, select **Conditional**.
  
-1. In the **Conditional access (Preview)** section, select the **Enforce conditional access policies** check box.
+1. In the **Conditional access** section, select the **Enforce conditional access policies** check box.
 
 1. Select **Save**.
 

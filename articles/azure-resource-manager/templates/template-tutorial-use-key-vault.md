@@ -109,7 +109,7 @@ Azure Quickstart Templates is a repository for ARM templates. Instead of creatin
 1. In the **File name** box, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. Select **Open** to open the file. The scenario is the same as the one that's used in [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md).
@@ -129,7 +129,7 @@ Azure Quickstart Templates is a repository for ARM templates. Instead of creatin
 1. Repeat steps 1-3 to open the following URL, and then save the file as *azuredeploy.parameters.json*.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.parameters.json
     ```
 
 ## Edit the parameters file

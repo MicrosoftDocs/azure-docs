@@ -37,7 +37,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 1. Copy your *key* and save it somewhere for the next steps
 1. Navigate to your key vault
 1. Select **Settings > Secrets**
-1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your storage account
+1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *key* from your Azure Cosmos DB Account.
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan

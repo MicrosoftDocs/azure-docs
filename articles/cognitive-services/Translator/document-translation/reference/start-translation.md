@@ -95,10 +95,10 @@ Destination for the finished translated documents.
 |glossaries.format|string|False|Format.|
 |glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We will use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it won't be applied.|
 |glossaries.storageSource|StorageSource|False|StorageSource listed above.|
+|glossaries.version|string|False|Optional Version. If not specified, default is used.|
 |targetUrl|string|True|Location of the folder / container with your documents.|
 |language|string|True|Two letter Target Language code. See [list of language codes](../../language-support.md).|
 |storageSource|StorageSource []|False|StorageSource [] listed above.|
-|version|string|False|Version.|
 
 ## Example request
 
@@ -229,9 +229,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |inner.Errorcode|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
 
 ## Examples
 

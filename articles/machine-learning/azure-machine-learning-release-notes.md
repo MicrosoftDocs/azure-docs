@@ -19,6 +19,34 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
 
+## 2021-05-10
+
+### Azure Machine Learning SDK for Python v1.28.0
++ **Bug fixes and improvements**
+  + **azureml-automl-runtime**
+    + Improved AutoML Scoring script to make it consistent with designer
+    + Patch bug where forecasting with the Prophet model would throw a "missing column" error if trained on an earlier version of the SDK.
+    + Added the ARIMAX model to the public-facing, forecasting-supported model lists of the AutoML SDK. Here, ARIMAX is a regression with ARIMA errors and a special case of the transfer function models developed by Box and Jenkins. For a discussion of how the two approaches are different, see [The ARIMAX model muddle](https://robjhyndman.com/hyndsight/arimax/). Unlike the rest of the multivariate models that use auto-generated, time-dependent features (hour of the day, day of the year, and so on) in AutoML, this model uses only features that are provided by the user, and it makes interpreting coefficients easy.
+  + **azureml-contrib-dataset**
+    + Updated documentation description with indication that libfuse should be installed while using mount.
+  + **azureml-core**
+    + Default CPU curated image is now mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04. Default GPU image is now mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.2-cudnn8-ubuntu18.04
+    + Run.fail() is now deprecated, use Run.tag() to mark run as failed or use Run.cancel() to mark the run as canceled.
+    + Updated documentation with a note that libfuse should be installed when mounting a file dataset.
+    + Add experimental register_dask_dataframe() support to tabular dataset.
+    + Support DatabricksStep with Azure Blob/ADL-S as inputs/outputs and expose parameter permit_cluster_restart to let customer decide whether AML can restart cluster when i/o access configuration need to be added into cluster
+  + **azureml-dataset-runtime**
+    + azureml-dataset-runtime now supports versions of pyarrow < 4.0.0
+  + **azureml-mlflow**
+    + Added support for deploying to AzureML via our MLFlow plugin.
+  + **azureml-pipeline-steps**
+    + Support DatabricksStep with Azure Blob/ADL-S as inputs/outputs and expose parameter permit_cluster_restart to let customer decide whether AML can restart cluster when i/o access configuration need to be added into cluster
+  + **azureml-synapse**
+    + Enable audience in msi authentication
+  + **azureml-train-automl-client**
+    + Added changed link for compute target doc
+
+
 ## 2021-04-19
 
 ### Azure Machine Learning SDK for Python v1.27.0

@@ -246,7 +246,7 @@ In *host.json*, modify the `customHandler` section to configure the custom handl
 To test the function locally, start the local Azure Functions runtime host in the root of the project folder: 
 ::: zone pivot="programming-language-csharp"  
 ```console
-func start --build  
+func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   

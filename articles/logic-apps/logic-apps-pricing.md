@@ -14,9 +14,9 @@ ms.date: 03/24/2021
 
 <a name="consumption-pricing"></a>
 
-## Multi-tenant pricing
+## Consumption pricing (multi-tenant)
 
-A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Logic Apps service. All successful and unsuccessful runs are metered and billed.
+A pay-for-use consumption pricing model applies to logic apps that run in the public, "global", multi-tenant Logic Apps environment. All successful and unsuccessful runs are metered and billed.
 
 For example, a request that a polling trigger makes is still metered as an execution even if that trigger is skipped, and no logic app workflow instance is created.
 
@@ -59,11 +59,38 @@ To help you estimate more accurate consumption costs, review these tips:
 
   For example, suppose you set up trigger that checks an endpoint every day. When the trigger checks the endpoint and finds 15 events that meet the criteria, the trigger fires and runs the corresponding workflow 15 times. The Logic Apps service meters all the actions that those 15 workflows perform, including the trigger requests.
 
+<a name="preview-pricing"></a>
+
+## Preview pricing (single-tenant)
+
+When you create the **Logic App (Preview)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan, either [App Service or Functions Premium](../azure-functions/functions-scale.md) for your logic app. If you select the App Service plan, you must also choose a [pricing tier](../app-service/overview-hosting-plans.md). These choices determine the pricing that applies when running your workflows in single-tenant Logic Apps.
+
+> [!NOTE]
+> During preview, running preview logic app resources and workflows in App Service doesn't incur *extra* charges on top of your selected hosting plan.
+
+Azure Logic Apps uses [Azure Storage](/storage) for any storage operations. With multi-tenant Logic Apps, any storage usage and costs are attached to the logic app. With single-tenant Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data.
+
+When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are separately listed in your Azure billing invoice.
+
+### Estimate storage needs and costs
+
+To help you get some idea about the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of operations. You can then use these numbers to estimate costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
+This article describes how to estimate your storage costs when you're using your own Azure Storage account with single-tenant logic apps. First, you can estimate the number of storage operations you'll perform using the Logic Apps storage calculator. Then, you can estimate your possible storage costs using these numbers in the 
+
+For more information about the pricing models that apply to preview logic apps, review the following documentation:
+
+* [Azure Functions scale and hosting](../azure-functions/functions-scale.md)
+* [Scale up an app in Azure App Service](../app-service/manage-scale-up.md)
+* [Azure Functions pricing details](https://azure.microsoft.com/pricing/details/functions/)
+* [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/)
+* [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
+
 <a name="fixed-pricing"></a>
 
-## ISE pricing
+## ISE pricing (dedicated)
 
-A fixed pricing model applies to logic apps that run in an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is billed using the [Integration Service Environment price](https://azure.microsoft.com/pricing/details/logic-apps), which depends on the [ISE level or *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) that you create. This pricing differs from multi-tenant pricing as you're paying for reserved capacity and dedicated resources whether or not you use them.
+A fixed pricing model applies to logic apps that run in the dedicated [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is billed using the [Integration Service Environment price](https://azure.microsoft.com/pricing/details/logic-apps), which depends on the [ISE level or *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) that you create. This pricing differs from multi-tenant pricing as you're paying for reserved capacity and dedicated resources whether or not you use them.
 
 | ISE SKU | Description |
 |---------|-------------|

@@ -44,6 +44,9 @@ Classic storage accounts do not support firewalls and virtual networks.
 
 You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. This process is documented in the [Manage Exceptions](#manage-exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
 
+> [!IMPORTANT] 
+> If you delete subnet that has been included in a network rule, make sure to remove that subnet from the network rule. Otherwise, if you create a subnet by the same name, you won't be able to use that subnet in the network rules of any storage accounts. 
+
 ## Change the default network access rule
 
 By default, storage accounts accept connections from clients on any network. To limit access to selected networks, you must first change the default action.
