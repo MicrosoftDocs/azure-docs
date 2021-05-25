@@ -123,12 +123,12 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
 3. Create an [Azure file share](../storage/files/storage-how-to-create-file-share.md).
 4. Follow the steps to enable identity-based authorization. If you're using Active Directory on-premises, and you're synchronizing it with Azure Active Directory (Azure AD), see [On-premises Active Directory Domain Services authentication over SMB for Azure file shares](../storage/files/storage-files-identity-auth-active-directory-enable.md). If you're using only  Azure AD, see [Enable Azure Active Directory Domain Services authentication on Azure Files](../storage/files/storage-files-identity-auth-active-directory-domain-service-enable.md).
     >[!IMPORTANT]
-    >Talk to the team that manages your Active Directory to verify that all prerequisites listed in the instructions are met.
+    >Talk to the team that manages your Active Directory instance to verify that all prerequisites listed in the instructions are met.
 5. Assign SMB share permission roles in Azure. For details about permissions that are granted to each role, see [share-level permissions](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
     - **Storage File Data SMB Share Elevated Contributor** role must be assigned to the person or group that will set up permissions for contents of the file share.
     - **Storage File Data SMB Share Contributor** role should be assigned to students who need to add or edit files on the file share.
     - **Storage File Data SMB Share Reader** role should be assigned to students who only need to read the files from the file share.
-6. Set up directory- and/or file-level permissions for the file share. You must set up permissions from a domain-joined machine that has network access to the file share. To modify directory- and/or file-level permissions, mount the file share by using the storage key, not your Azure AD credentials. To assign permissions, use the [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command, or [icacls](/windows-server/administration/windows-commands/icacls) in Windows.
+6. Set up directory-level and/or file-level permissions for the file share. You must set up permissions from a domain-joined machine that has network access to the file share. To modify directory-level and/or file-level permissions, mount the file share by using the storage key, not your Azure AD credentials. To assign permissions, use the [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command, or [icacls](/windows-server/administration/windows-commands/icacls) in Windows.
 7. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the storage account to the lab account.
 8. [Create the classroom lab](how-to-manage-classroom-labs.md).
 9. Save a script on the template VM that students can run to connect to the network drive. To get example script:
