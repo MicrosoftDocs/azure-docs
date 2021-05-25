@@ -33,15 +33,15 @@ ms.custom: seodec18
 **Highlights summary**
 
 - Smaller footprint - we continue to decrease the memory and disk footprint of the Speech SDK and its components.
-- A new stand alone language detection API allows you to recognize what language is being spoken.
+- A new stand alone language identification API allows you to recognize what language is being spoken.
 - Develop speech enabled mixed reality and gaming applications using Unity on macOS.
 - You can now use text-to-speech in addition to speech recognition from the Go programming language.
 - Several Bug fixes to address issues YOU, our valued customers, have flagged on GitHub! THANK YOU! Keep the feedback coming!
 
 #### New features
 
-- **C++/C#**: New stand-alone Single-Shot/At-Start and Continuous Language Detection via the `SourceLanguageRecognizer` API. If you only want to detect the language(s) spoken in audio content, this is the API to do that.
-- **C++/C#**: Speech Recognition and Translation Recognition now support both single-shot and continuous Language Detection so you can programmatically determine which language(s) are being spoken before they are transcribed or translated. See documentation [here for Speech Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection) and [here for Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation).
+- **C++/C#**: New stand-alone Single-Shot/At-Start and Continuous Language Identification via the `SourceLanguageRecognizer` API. If you only want to detect the language(s) spoken in audio content, this is the API to do that.
+- **C++/C#**: Speech Recognition and Translation Recognition now support both single-shot and continuous Language Identification so you can programmatically determine which language(s) are being spoken before they are transcribed or translated. See documentation [here for Speech Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection) and [here for Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation).
 - **C#**:  Added support Unity support to macOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
 - **Go**: We added support for speech synthesis/text-to-speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
 - **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-lower-tts-latency).
@@ -473,7 +473,7 @@ Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` a
 **New features**
 - **C#**: Added support for asynchronous conversation transcription. See documentation [here](./how-to-async-conversation-transcription.md).  
 - **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
-- **JavaScript**: Added support for automatic language detection/language ID. See documentation [here](./how-to-automatic-language-detection.md?pivots=programming-language-javascript).
+- **JavaScript**: Added support for language identification/language ID. See documentation [here](./how-to-automatic-language-detection.md?pivots=programming-language-javascript).
 - **Objective-C**: Added support for [multi-device conversation](./multi-device-conversation.md) and [conversation transcription](./conversation-transcription.md). 
 - **Python**: Added compressed audio support for Python on Windows and Linux. See documentation [here](./how-to-use-codec-compressed-audio-input-streams.md). 
 
@@ -733,7 +733,7 @@ Stay healthy!
 **New Features**
 
 - Added a `FromHost()` API, to ease use with on-prem containers and sovereign clouds.
-- Added Automatic Source Language Detection for Speech Recognition (in Java and C++)
+- Added Source Language Identification for Speech Recognition (in Java and C++)
 - Added `SourceLanguageConfig` object for Speech Recognition, used to specify expected source languages (in Java and C++)
 - Added `KeywordRecognizer` support on Windows (UWP), Android and iOS through the NuGet and Unity packages
 - Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches.
@@ -752,7 +752,7 @@ Stay healthy!
 
 - Xamarin sample for `KeywordRecognizer`
 - Unity sample for `KeywordRecognizer`
-- C++ and Java samples for Automatic Source Language Detection.
+- C++ and Java samples for Automatic Source Language Identification.
 
 ## Speech SDK 1.7.0: 2019-September release
 
