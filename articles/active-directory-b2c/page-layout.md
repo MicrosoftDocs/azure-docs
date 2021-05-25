@@ -30,6 +30,12 @@ Azure AD B2C page layout uses the following version of the [jQuery library](http
 
 ## Self-asserted page (selfasserted)
 
+**2.1.6**
+- Fixed password error get cleared when typing too quickly on a different field.
+
+**2.1.5**
+- Fixed cursor jumps issue on iOS when editing in the middle of the text.
+
 **2.1.4**
 - Updated jQuery version to 3.5.1.
 - Updated HandlebarJS version to 4.7.6.
@@ -89,6 +95,10 @@ Azure AD B2C page layout uses the following version of the [jQuery library](http
 
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
+
+**2.1.5**
+- Fixed an issue on tab order when idpselector template is used on sign in page.
+- Fixed an encoding issue on sign-in link text.
 
 **2.1.4**
 - Updated jQuery version to 3.5.1.
