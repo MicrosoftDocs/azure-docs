@@ -9,6 +9,9 @@ ms.date: 03/23/2021
 ---
 ### Upgrade Personalizer instance to multislot
 
+> [!NOTE]
+> Multi-slot personalization (Preview) impacts other functionality of the Personalizer service. This change cannot be undone. Before you enable multi-slot personalization, see [Multi-slot personalization (Preview)](../concept-multi-slot-personalization.md). 
+
 In the Azure portal, in the Personalizer resource on the **Model and learning settings** page, click **Export learning settings**. The **arguments** field in the downloaded json file will start with **--cb_explore_adf**. Change this to **--ccb_explore_adf** while leaving the rest of the file untouched. Save the file. 
 
 ![Learning settings before change](../media/settings/learning-settings-pre-upgrade.png)
