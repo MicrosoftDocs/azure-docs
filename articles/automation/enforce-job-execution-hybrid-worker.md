@@ -248,3 +248,5 @@ The attempted operation is also logged in the Automation account's Activity Log,
 :::image type="content" source="./media/enforce-job-execution-hybrid-worker/failed-job-activity-log-example.png" alt-text="Example of Activity log for failed job execution.":::
 
 ## Next steps
+
+To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
