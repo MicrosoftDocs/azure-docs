@@ -14,7 +14,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Get a network relay token
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 This quickstart shows you how to retrieve a network relay token to access Azure Communication Services TURN servers
 
@@ -32,3 +32,7 @@ This quickstart shows you how to retrieve a network relay token to access Azure 
 ::: zone-end
 
 ::: zone-end
+
+## Clean up resources
+
+If you want to clean up and remove a Communication Services resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
