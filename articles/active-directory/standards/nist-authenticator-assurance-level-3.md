@@ -105,13 +105,13 @@ To meet the requirement for reauthentication regardless of user activity, Micros
 
 NIST also allows the use of compensating controls for confirming the subscriber's presence:
 
-* You can set a session inactivity timeout of 15 minutes by locking the device at the OS level. You can do so by using System Center Configuration Manager (SCCM), Group Policy Objects (GPO), or Intune. You must also require local authentication for the subscriber to unlock it.
+* You can set a session inactivity timeout of 15 minutes by locking the device at the OS level. You can do so by using Microsoft Endpoint Configuration Manager, Group Policy Object (GPO), or Intune. You must also require local authentication for the subscriber to unlock it.
 
-* You can achieve timeout regardless of activity by running a scheduled task (by using SCCM, GPO, or Intune) that locks the machine after 12 hours, regardless of activity.
+* You can achieve timeout regardless of activity by running a scheduled task (by using Configuration Manager, GPO, or Intune) that locks the machine after 12 hours, regardless of activity.
 
-## Man-in-the-middle (MitM) resistance 
+## Man-in-the-middle resistance 
 
-All communications between the claimant and Azure AD are done over an authenticated, protected channel to provide resistance to MitM attacks. This configuration satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
+All communications between the claimant and Azure AD are done over an authenticated, protected channel to provide resistance to man-in-the-middle (MitM) attacks. This configuration satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
 
 ## Verifier impersonation resistance
 
