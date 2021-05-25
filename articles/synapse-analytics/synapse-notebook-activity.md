@@ -5,7 +5,6 @@ services: synapse analytics
 author: ruixinxu 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
-ms.subservice: synapse pipeline
 ms.date: 05/19/2021
 ms.author: ruxu 
 ms.reviewer: 
@@ -69,7 +68,7 @@ You can read notebook cell output value in subsequent activities follow steps be
 1. Call [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) API in your Synapse notebook activity to return the value that you want to show in activity output, for example:  
 
 ```python
-mssparkutils.notebook.exit(“hello world”) 
+mssparkutils.notebook.exit("hello world") 
 ```
 
 Saving the notebook content and retrigger the pipeline, the notebook activity output will contain the exitValue that can be consumed for subsequent activities in step 2. 
@@ -85,7 +84,7 @@ Here is a sample expression that is used to check whether the exitValue fetched 
 You can reference other notebook in a Synapse notebook activity via calling [%run magic](./spark/apache-spark-development-using-notebooks#notebook-reference) or [mssparkutils notebook utilities](./spark/microsoft-spark-utilities.md/#notebook-utilities). Both support nesting function calls. Here are key differences of these two methods. You can decide which one to use based on your scenario.
 
 - [%run magic](./spark/apache-spark-development-using-notebooks#notebook-reference) copies all cells from the referenced notebook to the %run cell and share the variable context. When notebook1 reference notebook2 via `%run notebook2` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function. The cell execution in notebook1 will be stopped. We recommend you to use %run magic when you want to "include" a notebook file.
-- [mssparkutils notebook utilities](./spark/microsoft-spark-utilities.md/#notebook-utilities) calls the referenced notebook as a method or a function. The variable context is not shared. When notebook1 reference notebook2 via `mssparkutils.notebook.run(notebook2)` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function. The cell execution in notebook1 will continue. We recommend you to use mssparkutils notebook utilities when you want to  "import" a notebook.
+- [mssparkutils notebook utilities](./spark/microsoft-spark-utilities.md/#notebook-utilities) calls the referenced notebook as a method or a function. The variable context is not shared. When notebook1 reference notebook2 via `mssparkutils.notebook.run("notebook2")` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function. The cell execution in notebook1 will continue. We recommend you to use mssparkutils notebook utilities when you want to  "import" a notebook.
 
 >[!Note]
 > Run another Synapse notebook from a Synapse pipeline only work for notebook with Preview enabled.
@@ -94,9 +93,14 @@ You can reference other notebook in a Synapse notebook activity via calling [%ru
 ## See notebook activity run history
 Go to **Pipeline runs** under **Monitor** tab, you can see the pipeline you have triggered. Open the pipeline that contains notebook activity to see the run history. 
 
-You can see the notebook activity input or output via clicking the **input** or **Output** button, and also see the latest run including both cells input and output via clicking the **open notebook** button. 
-
+You can see the latest notebook run snapshot including both cells input and output via clicking the **open notebook** button. 
 ![see-notebook-activity-history](./media/synapse-notebook-activity/input-output-open-notebook.png)
+
+
+You can see the notebook activity input or output via clicking the **input** or **Output** button. If your pipeline failed with user error, you can click the **output** to check the **result** field to see the detailed user error traceback.
+
+![notebook-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
+
 
 
 ## Synapse Notebook activity definition
