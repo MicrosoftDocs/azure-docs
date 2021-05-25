@@ -69,6 +69,23 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Enable the nudge policy
 
+To enable the Nudge, you must use the Authentication Methods Policy using Graph APIs or Powershell commands. Global administrator and Authentication Methody Policy administrator can update the policy. 
+
+To configure the policy using Graph Explorer:
+1)	Sign in to Graph Explorer and ensure you’ve consented to the “Policy.Read.All” and “Policy.ReadWrite.AuthenticationMethod” permissions.
+
+To open the Permissions panel:
+
+   ![Screenshot of Graph Explorer](./media/how-to-nudge-authenticator-app/permissions.png)
+
+
+   ![User object ID](./media/how-to-nudge-authenticator-app/object-id.png)
+
+   ![Nudge group](./media/how-to-nudge-authenticator-app/group.png)
+
+## Limitations
+
+The nudge will not appear on mobile devices that run Android or iOS.
 
 ## Frequently asked questions
 
