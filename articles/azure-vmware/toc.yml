@@ -92,7 +92,7 @@
     items:
     - name: Deploy disaster recovery for VMs
       href: disaster-recovery-for-virtual-machines.md
-    - name: Disaster recovery to Azure
+    - name: Disaster recovery to Azure Site Recovery
       items:
       - name: Prepare Azure
         href: /azure/site-recovery/avs-tutorial-prepare-azure?context=/azure/azure-vmware/context/context
