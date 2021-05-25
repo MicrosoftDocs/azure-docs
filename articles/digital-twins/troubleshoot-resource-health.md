@@ -31,7 +31,7 @@ To check the health of your instance, follow these steps:
 
 2. From your instance's menu, select _**Resource health**_ under *Support + troubleshooting*. This will take you to the page for viewing resource health history. 
 
-    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days. Each day shows a status of 'Available.'":::
+    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days.":::
 
 In the image above, this instance is showing as *Available*, and has been for the past nine days. To learn more about the *Available* status and the other status types that may appear, see [Azure resource health overview](../service-health/resource-health-overview.md).
 
