@@ -134,7 +134,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 ### Additional entities
 
 Events evolve around entities such as users, hosts, process, or files. Each entity may require several fields to describe. For example, a host may have a name and an IP address. In addition, a single record may include multiple entities of the same type, for example a source and destination host. 
-The DNS schema as documented above includes fields that describe entities. If your source includes additional information to describe those entities, add additional fields based on the entities below to capture this information. For more information about entities refer to (Normalization in Azure Sentinel)[https://docs.microsoft.com/en-us/azure/sentinel/normalization].
+The DNS schema as documented above includes fields that describe entities. If your source includes additional information to describe those entities, add additional fields based on the entities below to capture this information. For more information about entities refer to [Normalization in Azure Sentinel](normalization.md).
 
 | **Entity** | **Fields** | **Type** | **Mandatory fields** | **Notes** |
 | --- | --- | --- | --- | --- |
