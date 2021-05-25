@@ -73,7 +73,7 @@ Make sure you can access your file. If your file is protected with SAS key or cu
 The previous examples used the full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage. Once you've created the external data source, use the data source and the relative path to the file in the `OPENROWSET` function. This way you don't need to use the full absolute URI to your files. You can also then define custom credentials to access the storage location.
 
 > [!IMPORTANT]
-> Data sources can be created only in custom databases (not in master of the databases replicated from Apache Spark). 
+> Data sources can be created only in custom databases (not in the master database or the databases replicated from Apache Spark pools). 
 
 To use the samples below, you will need to complete the following step:
 1. **Create a database** with a datasource that references [NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) storage account. 

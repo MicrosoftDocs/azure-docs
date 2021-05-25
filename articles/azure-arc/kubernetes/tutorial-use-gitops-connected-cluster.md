@@ -177,6 +177,9 @@ If you don't want Flux to write to the repository and `--git-user` or `--git-ema
 
 For more information, see the [Flux documentation](https://aka.ms/FluxcdReadme).
 
+>[!NOTE]
+> Flux defaults to sync from the `master` branch of the git repo. However, newer git repositories have the root branch named `main`, in which case you need to set `--git-branch=main` in the --operator-params. 
+
 > [!TIP]
 > You can create a configuration in the Azure portal in the **GitOps** tab of the Azure Arc enabled Kubernetes resource.
 
