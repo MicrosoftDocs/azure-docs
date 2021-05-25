@@ -93,6 +93,12 @@
       href: troubleshoot-cross-origin-resources.md
 - name: Reference
   items:
+  - name: Azure Front Door edge locations
+    items:
+    - name: Edge locations by region
+      href: edge-locations.md
+    - name: Edge locations by abbreviation
+      href: edge-locations-by-abbreviation.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.cdn
   - name: REST API
