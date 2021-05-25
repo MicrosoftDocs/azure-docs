@@ -121,7 +121,7 @@ Here is more information about the outputs from an HTTP trigger or action, which
 
 ## Authentication for single-tenant environment
 
-If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the corresponding extra steps for that authentication type. Otherwise, the call fails.
+If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
 
 * [TSL/SSL certificate](#tsl-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and provide the thumbprint for your thumbprint for your TSL/SSL certificate.
 
