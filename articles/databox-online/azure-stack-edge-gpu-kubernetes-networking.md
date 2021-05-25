@@ -88,7 +88,7 @@ The master and worker VMs each have 2 network interfaces, one that connects to t
 - **External virtual switch**: This switch is created when we enable a device port for compute via the **Compute** page in the local UI. The external virtual switch connects to the intranet or the private network. 
 - **Internal virtual switch**: This switch is created as a part of the factory default settings on your device. The internal virtual switch provides connectivity to the internet. The internal virtual switch uses Network Address Translation (NAT) to route the internet traffic to the port on the device that is configured with a default gateway. The port with the default gateway configured is used to route all the IoT runtime requests from the VMs to the internet or the Azure portal.
 
-[Insert a simplified diagram here]
+    ![Azure Stack Edge networking simplified diagram](./media/azure-stack-edge-gpu-kubernetes-networking/azure-stack-edge-networking-0.png)
 
 ## Network routes 
 
