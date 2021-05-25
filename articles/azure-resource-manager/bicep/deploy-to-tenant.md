@@ -178,13 +178,13 @@ To target a resource group within the tenant, add a module. Use the resourceGrou
 ```bicep
 targetScope = 'tenant'
 
-param resourceGroup string
+param resourceGroupName string
 param subscriptionID string
 
 // create resources at resource group level
 module  'module.bicep' = {
   name: 'deployToRG'
-  scope: resourceGroup(subscriptionID, resourceGroup)
+  scope: resourceGroup(subscriptionID, resourceGroupName)
 }
 ```
 
