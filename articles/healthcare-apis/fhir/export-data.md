@@ -140,7 +140,7 @@ address range in CIDR format is used instead, 100.64.0.0/10. The reason why the 
     
 ## Next steps
 
-In this article, you learned how to export FHIR resources using $export command. Next, to learn how to export de-identified data, see:
+In this article, you've learned how to export FHIR resources using $export command. Next, to learn how to export de-identified data, see:
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
