@@ -36,10 +36,17 @@ In this article, you learn how to use the new REST APIs to:
 - A service principal authentication token. Follow the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) to retrieve this token. 
 - The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
 
+## Set endpoint name
+
+> [!NOTE]
+> Endpoint names need to be unique at the Azure region level. For example, there can be only one endpoint with the name my-endpoint in westus2.
+
+ :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-deploy-rest.sh" id="set_endpoint_name":::
+
 ## Azure Machine Learning managed online endpoints
 Managed online endpoints (preview) provide you the ability to deploy your model without your having to create and manage the underlying infrastructure. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you will have to register the assets needed for deployment, including model, code and environment.
 
-There are many ways to create an Azure Machine Learning online endpoints including the CLI, and visually with the studio. The following example a managed online endpoint with the REST API.
+There are many ways to create an Azure Machine Learning online endpoints [including the CLI](link-to-how-to-deploy), and visually with[the studio](link-to-studio-ui-doc). The following example a managed online endpoint with the REST API.
 
 ## Create machine learning assets
 
@@ -59,29 +66,17 @@ The service provider uses the `api-version` argument to ensure compatibility. Th
 API_VERSION="2021-03-01-preview"
 ```
 
-
-
-### Environment 
-
-The LightGBM example needs to run in a LightGBM environment. Create the environment with a PUT request. Use a docker image from Microsoft Container Registry.
-
-You can configure the docker image with `Docker` and add conda dependencies with `condaFile`: 
-
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_environment":::
-
 ### Get storage account details
 
 In order register the model and code, first they need to be uploaded to a storage account. The details of the storage account are available in the data store. In this example, you get the default datastore and Azure Storage account for your workspace. Query your workspace with a GET request to return a JSON file with the information.
 
 You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON result and get the required values. You can also use the Azure portal to find the same information.
 
-```bash
-response=$(curl --location --request GET "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/datastores?api-version=$API_VERSION&isDefault=true" \
---header "Authorization: Bearer $TOKEN")
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-deploy-rest.sh" id="get_storage_details":::
 
-AZURE_STORAGE_ACCOUNT=$(echo $response | jq '.value[0].properties.contents.accountName')
-AZUREML_DEFAULT_DATASTORE=$(echo $response | jq '.value[0].name')
-AZUREML_DEFAULT_CONTAINER=$(echo $response | jq '.value[0].properties.contents.containerName')
+Get the storage key
+
+```bash
 AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
 ```
 
@@ -90,10 +85,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 Now that you have the datastore, you can upload the scoring script. Use the Azure Storage CLI to upload a blob into your default container. You can also use other methods to upload, such as the Azure portal or Azure Storage Explorer.
 
 
-```bash
-az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/score \
- -s endpoints/online/model-1/onlinescoring --account-name $AZURE_STORAGE_ACCOUNT --account-key $AZURE_STORAGE_KEY
-```
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-deploy-rest.sh" id="upload_code":::
 
 Once you upload your code, you can specify your code with a PUT request and refer to the datastore with `datastoreId`. 
 
@@ -103,10 +95,7 @@ Once you upload your code, you can specify your code with a PUT request and refe
 
 Similar to the code, Upload the model files
 
-```bash
-az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/model \
- -s endpoints/online/model-1/model --account-name $AZURE_STORAGE_ACCOUNT --account-key $AZURE_STORAGE_KEY
-```
+:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-deploy-rest.sh" id="upload_model":::
 
 Now, register the model
 
@@ -157,4 +146,6 @@ If you aren't going use the deployment, you should delete it with the below comm
 
 ## Next steps
 
-Now that you have a trained model, learn [how to deploy your model using CLI](add_the_correcT_link).
+learn [how to deploy your model using CLI](add_the_correcT_link).
+Learn how to monitor
+(we can have have next steps from how to deploy from cli)
