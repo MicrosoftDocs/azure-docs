@@ -76,7 +76,7 @@ Create or modify your Conditional Access policies to use the Conditional Access 
 
 These steps are the changes that you need to carry in your code base. The steps broadly comprise of
 
-- Query MS Graph to [list all the available Auth Contexts](graph/api/conditionalaccessroot-list-authenticationcontextclassreferences).
+- Query MS Graph to [list all the available Auth Contexts](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences).
 - Allow IT admins to select sensitive/ high-privileged operations and assign them against the available Auth Contexts using CA policies. 
 - Save this mapping information in your database/local store.
 
@@ -207,7 +207,7 @@ These steps are the changes that you need to carry in your code base. The steps 
 
 ## Caveats and recommendations
 
-Do not hard-code Auth Context values in your app. Apps should read and apply auth context [using MS Graph calls](graph/api/resources/authenticationcontextclassreference). This practice is critical for [multi-tenant applications](howto-convert-app-to-be-multi-tenant.md). The Auth Context values will vary between Azure AD tenants will not available in Azure AD free edition. For more information on how an app should query, set, and use auth context in their code, see the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md) as how an app should query, set and use auth context in their code. 
+Do not hard-code Auth Context values in your app. Apps should read and apply auth context [using MS Graph calls](/graph/api/resources/authenticationcontextclassreference). This practice is critical for [multi-tenant applications](howto-convert-app-to-be-multi-tenant.md). The Auth Context values will vary between Azure AD tenants will not available in Azure AD free edition. For more information on how an app should query, set, and use auth context in their code, see the code sample, [Use the Conditional Access auth context to perform step-up authentication](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md) as how an app should query, set and use auth context in their code. 
 
 Do not use auth context where the app itself is going to be a target of Conditional Access policies. The feature works best when parts of the application require the user to meet a higher bar of authentication.
 
@@ -218,7 +218,7 @@ Do not use auth context where the app itself is going to be a target of Conditio
 - [Building Zero Trust ready apps with the Microsoft identity platform](/security/zero-trust/identity-developer)
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a Web API](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md)
 - [Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context-preview)
-- [authenticationContextClassReference resource type - MS Graph](graph/api/conditionalaccessroot-list-authenticationcontextclassreferences)
+- [authenticationContextClassReference resource type - MS Graph](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences)
 - [Claims challenge, claims request, and client capabilities in the Microsoft Identity Platform](claims-challenge.md)
 - [Using authentication context with Microsoft Information Protection and SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)
