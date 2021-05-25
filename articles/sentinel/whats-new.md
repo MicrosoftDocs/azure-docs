@@ -50,6 +50,8 @@ Then, select your entity type and the relevant details you want to match:
 
 :::image type="content" source="media/whats-new/alert-grouping-details.png" alt-text="Group alerts by matching entity details.":::
 
+For more information, see [Alert grouping](tutorial-detect-threats-custom.md#alert-grouping).
+
 ### Azure Sentinel solutions (Public preview)
 
 Azure Sentinel now offers **packaged content** [solutions](sentinel-solutions-catalog.md) that include combinations of one or more data connectors, workbooks, analytics rules, playbooks, hunting queries, parsers, watchlists, and other components for Azure Sentinel.
