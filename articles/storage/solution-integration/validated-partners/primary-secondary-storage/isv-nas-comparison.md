@@ -20,7 +20,7 @@ Azure offers various options for storing file data. Azure native services are:
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) – large-scale object storage platform for storing unstructured data. Azure Blob Storage offer two different types (standard and premium) with different performance characteristics. 
   
 There are several articles that describe the differences and recommendation on selecting the native file service. You can learn more:
-- Our migration guide describes the [basic flow chart](/azure/storage/common/storage-migration-overview%23choose-a-target-storage-service)
+- Our migration guide describes the [basic flow chart](/azure/storage/common/storage-migration-overview#choose-a-target-storage-service)
 - [Detailed comparison between Azure Files and Azure NetApp Files](/azure/storage/files/storage-files-netapp-comparison)
 
 Many independent software vendor (ISV) solutions can provide file services in Azure. This article addresses two topics:
