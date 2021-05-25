@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/21/2021
 ms.author: banders
 ms.reviewer: baolcsva
 ---
@@ -91,6 +91,10 @@ Ensure you update your tax ID after moving your subscriptions. The tax ID is use
 1. Make your updates, and then select **Save**.
 
 [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
+## Cancel support plan
+
+Learn how to [cancel a previous support plan](../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json#cancel-a-prior-support-plan).
 
 ## Need help? Contact us
 

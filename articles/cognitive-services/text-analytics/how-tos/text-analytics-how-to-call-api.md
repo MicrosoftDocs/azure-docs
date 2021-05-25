@@ -151,7 +151,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             },
             {
                 "id": "doc2",
-                "text": "Pike place market is my favorite Seattle attraction."
+                "text": "Pike place market is my favorite Seattle attraction. The shops have very good food."
             }
         ]
     },
@@ -160,7 +160,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8",
+                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false"
                 }
             }
@@ -169,10 +169,10 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8",
+                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "true",
                     "domain": "phi",
-                    "pii-categories":"default"
+                    "piiCategories":["default"]
                 }
             }
         ],
@@ -180,7 +180,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8",
+                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false"
                 }
             }
@@ -197,9 +197,9 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8",
+                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false",
-                    "opinionMining": "false"
+                    "opinionMining": "true"
                 }
             }
         ]
