@@ -834,6 +834,8 @@
         href: honestly-tutorial.md
       - name: Hootsuite
         href: hootsuite-tutorial.md
+      - name: Hopsworks.ai
+        href: hopsworks-ai-tutorial.md  
       - name: Hornbill
         href: hornbill-tutorial.md
       - name: Hosted Graphite
