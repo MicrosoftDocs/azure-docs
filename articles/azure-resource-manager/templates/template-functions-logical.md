@@ -176,7 +176,7 @@ The output from the preceding example is:
 
 Returns a value based on whether a condition is true or false.
 
-The `if` function is not supported in Bicep. Use the [?: operator](../bicep/operators-logical.md#conditional-expression-) instead.
+The `if` function is not supported in Bicep. Use the [?: operator](../bicep/operators-logical.md#conditional-expression--) instead.
 
 ### Parameters
 

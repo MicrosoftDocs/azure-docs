@@ -396,7 +396,7 @@ The output from the preceding example with the default values is:
 
 Returns the remainder of the integer division using the two provided integers.
 
-The `mod` function is not supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#mod-) instead.
+The `mod` function is not supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#modulo-) instead.
 
 ### Parameters
 

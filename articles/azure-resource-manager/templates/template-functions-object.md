@@ -109,7 +109,7 @@ The output from the preceding example with the default values is:
 
 Creates an object from the keys and values.
 
-The `createObject` function is not supported by Bicep.  Construct an object by using `{}`. See [Objects](../bicep/data-type.md#objects).
+The `createObject` function is not supported by Bicep.  Construct an object by using `{}`. See [Objects](../bicep/data-types.md#objects).
 
 ### Parameters
 
