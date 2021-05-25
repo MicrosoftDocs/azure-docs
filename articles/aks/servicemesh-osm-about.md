@@ -47,6 +47,12 @@ OSM can assist your AKS deployments with the following scenarios:
 
 - Collection and viewing of KPIs from application traffic
 
+## Prerequisites
+
+- The Azure CLI, version 2.20.0 or later
+- The `aks-preview` extension version 0.5.5 or later
+- OSM version v0.8.0 or later
+
 ## OSM Service Quotas and Limits (Preview)
 
 OSM preview limitations for service quotas and limits can be found on the AKS [Quotas and regional limits page](./quotas-skus-regions.md).
@@ -71,12 +77,6 @@ OSM preview limitations for service quotas and limits can be found on the AKS [Q
 
 > [!WARNING]
 > Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
-
-## Prerequisites
-
-- The Azure CLI, version 2.20.0 or later
-- The `aks-preview` extension version 0.5.5 or later
-- OSM version v0.8.0 or later
 
 ### Register the `AKS-OpenServiceMesh` preview feature
 
