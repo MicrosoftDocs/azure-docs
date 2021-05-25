@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 05/18/2021
 ms.author: duau
 ---
 
@@ -64,11 +64,11 @@ Origin group can be composed of Storage, Web App, Kubernetes instances, or any o
 
 ### What regions is the service available in?
 
-Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all the POPs (Point of Presence). 
+Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all edge locations. 
 
-### What are the POP locations for Azure Front Door?
+### Where are the edge locations for Azure Front Door?
 
-Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](../../cdn/cdn-pop-locations.md).
+For the complete list of Azure Front Door edge locations, see [Azure Front Door edge locations](edge-locations.md).
 
 ### Is Azure Front Door a dedicated deployment for my application or is it shared across customers?
 
