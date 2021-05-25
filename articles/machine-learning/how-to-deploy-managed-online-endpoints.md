@@ -211,9 +211,7 @@ az ml endpoint list --output table
 
 Check if the model was deployed without error by checking the logs:
 
-```azurecli
-az ml endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 By default, logs are pulled from the inference-server. If you want to see the logs from the storage-initializer (which mounts the assets such as model and code to the container), add the flag `--container storage-initializer`.
 
@@ -257,7 +255,7 @@ az ml endpoint update -n $ENDPOINT_NAME -f endpoints/online/managed/simple-flow/
 > [!IMPORTANT]
 > Update using the YAML is declarative. That is, changes in the YAML will be reflected in the underlying Azure Resource Manager resources (endpoints & deployments). This approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *ALL* changes to endpoints/deployments go through the YAML (even `instance_count`). As a side effect, if you remove a deployment from the YAML and run `az ml endpoint update` using the file, that deployment will be deleted. You may make updates without using the YAML using the `--set ` flag, as  described in the following Tip.
 
-5. Because you modified the `init()` function, which runs when the endpoint is created or updates, the message `Updated successfully` will be in the logs. Retrieve the0 logs by running:
+5. Because you modified the `init()` function, which runs when the endpoint is created or updates, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 ```azurecli
 az ml endpoint get-logs -n $ENDPOINT_NAME --deployment blue
 ```
