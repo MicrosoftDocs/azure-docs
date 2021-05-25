@@ -22,6 +22,8 @@ ms.custom: aaddev, devx-track-python
 
 This article highlights changes you need to make to migrate an app that uses the Azure Active Directory Authentication Library (ADAL) to use the Microsoft Authentication Library (MSAL).
 
+You can learn more about MSAL and get started with an [overview of the Microsoft Authentication Library](msal-overview.md).
+
 ## Difference highlights
 
 ADAL works with the Azure Active Directory (Azure AD) v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform--formerly known as the Azure Active Directory v2.0 endpoint. The Microsoft identity platform differs from Azure AD v1.0 in that it:
