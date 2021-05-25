@@ -66,7 +66,7 @@ For more on configuring the ML extension, see [Install, set up, and use the 2.0 
 
 * The example repository
 
-Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli-preview/experiment/using-cli/assets/endpoints/batch`.
+Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/batch`.
 
 ## Create a compute target
 
