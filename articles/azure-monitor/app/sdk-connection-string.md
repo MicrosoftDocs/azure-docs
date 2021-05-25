@@ -20,6 +20,8 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 > [!IMPORTANT]
 > We don't recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
 
+> [!TIP]
+> We recommend the use of connection strings over instrumentation keys.
 
 ## Scenario overview 
 
