@@ -28,6 +28,9 @@ This configuration uses a flow table to route traffic from an external (host) IP
 
 You can configure and view NAT rules on your VPN gateway settings at any time.
 
+> [!NOTE]
+> Site-to-site NAT is not supported with Site-to-site VPN connections where policy based traffic selectors are used.
+
    :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing how to edit rules."lightbox="./media/nat-rules-vpn-gateway/edit-rules.png":::
 1. Navigate to your virtual hub.
 1. Select **VPN (Site to site)**.
@@ -168,6 +171,10 @@ The **Effective Routes** on the Network Interface Cards (NIC) of any virtual mac
 The on-premises device should also contain routes for prefixes contained within the **External Mapping** of **Egress NAT Rules**. 
 
 ####  Common configuration patterns 
+
+> [!NOTE]
+> Site-to-site NAT is not supported with Site-to-site VPN connections where policy based traffic selectors are used.
+
 The following table shows common configuration patterns that arise when configuring different types of NAT rules on the Site-to-site VPN Gateway.  
 
 | Type of VPN Site | Ingress NAT Rules | Egress NAT Rules
