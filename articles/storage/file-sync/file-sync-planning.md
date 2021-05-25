@@ -266,6 +266,9 @@ Based on your organization's policy or unique regulatory requirements, you may r
 - Configure Azure File Sync to support your proxy in your environment.
 - Throttle network activity from Azure File Sync.
 
+> [!Important]  
+> Azure File Sync does not support internet routing. The default network routing option, Microsoft routing, is supported by Azure File Sync.
+
 To learn more about Azure File Sync and networking, see [Azure File Sync networking considerations](file-sync-networking-overview.md).
 
 ## Encryption

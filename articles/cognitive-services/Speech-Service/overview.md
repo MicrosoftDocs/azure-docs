@@ -138,7 +138,7 @@ Other products offer speech models tuned for specific purposes like healthcare o
 * Standard Text-to-speech
 * Neural Text-to-speech
 * Custom Text-to-speech (preview)
-* Speech Language Detection (preview)
+* Speech Language Identification (preview)
 
 ## Reference docs
 
