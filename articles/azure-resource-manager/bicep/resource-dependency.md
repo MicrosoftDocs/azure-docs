@@ -215,4 +215,4 @@ For information about assessing the deployment order and resolving dependency er
 * For recommendations when setting dependencies, see [ARM template best practices](../templates/template-best-practices.md).
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../templates/common-deployment-errors.md).
 * To learn about creating Azure Resource Manager templates, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
-* For a list of the available functions in a template, see [ARM template functions](template-functions.md).
+* For a list of the available Bicep functions, see [Bicep functions](./bicep-functions.md).

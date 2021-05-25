@@ -305,7 +305,7 @@ param virtualMachineSize string = 'Standard_DS1_v2'
 
 ## Use parameter
 
-In a JSON template, you reference the value for the parameter by using the [parameters](bicep-functions-deployment.md#parameters) function. In Bicep, you use the parameter name. The following example uses a parameter value for a Key Vault name.
+In a JSON template, you reference the value for the parameter by using the [parameters](../templates/template-functions-deployment.md#parameters) function. In Bicep, you use the parameter name. The following example uses a parameter value for a Key Vault name.
 
 # [JSON](#tab/json)
 

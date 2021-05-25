@@ -99,7 +99,7 @@ The output from the preceding example with the default values is:
 
 Checks whether two values equal each other.
 
-In Bicep, use the `==` operator instead. See [Equals ==](../bicep/operators-logical.md#equals-).
+In Bicep, use the `==` operator instead. See [Equals ==](../bicep/operators-comparison.md#equals-).
 
 ### Parameters
 
@@ -234,7 +234,7 @@ The output from the preceding example is:
 
 Checks whether the first value is greater than the second value.
 
-In Bicep, use the `>` operator instead. See [Greater than >](../bicep/operators-logical.md#greater-than-).
+In Bicep, use the `>` operator instead. See [Greater than >](../bicep/operators-comparison.md#greater-than-).
 
 ### Parameters
 
@@ -301,7 +301,7 @@ The output from the preceding example with the default values is:
 
 Checks whether the first value is greater than or equal to the second value.
 
-In Bicep, use the `>=` operator instead. See [Greater than or equal >=](../bicep/operators-logical.md#greater-than-or-equal-).
+In Bicep, use the `>=` operator instead. See [Greater than or equal >=](../bicep/operators-comparison.md#greater-than-or-equal-).
 
 ### Parameters
 
@@ -368,7 +368,7 @@ The output from the preceding example with the default values is:
 
 Checks whether the first value is less than the second value.
 
-In Bicep, use the `<` operator instead. See [Less than <](../bicep/operators-logical.md#less-than-).
+In Bicep, use the `<` operator instead. See [Less than <](../bicep/operators-comparison.md#less-than-).
 
 ### Parameters
 
@@ -435,7 +435,7 @@ The output from the preceding example with the default values is:
 
 Checks whether the first value is less than or equal to the second value.
 
-In Bicep, use the `<=` operator instead. See [Less than or equal <=](../bicep/operators-logical.md#less-than-or-equal-).
+In Bicep, use the `<=` operator instead. See [Less than or equal <=](../bicep/operators-comparison.md#less-than-or-equal-).
 
 ### Parameters
 

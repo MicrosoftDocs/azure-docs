@@ -139,8 +139,6 @@
       href: bicep-functions-any.md
     - name: Array functions
       href: bicep-functions-array.md
-    - name: Comparison functions
-      href: bicep-functions-comparison.md
     - name: Date functions
       href: bicep-functions-date.md
     - name: Deployment functions
