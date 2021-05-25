@@ -733,7 +733,7 @@ Stay healthy!
 **New Features**
 
 - Added a `FromHost()` API, to ease use with on-prem containers and sovereign clouds.
-- Added Automatic Source Language Identification for Speech Recognition (in Java and C++)
+- Added Source Language Identification for Speech Recognition (in Java and C++)
 - Added `SourceLanguageConfig` object for Speech Recognition, used to specify expected source languages (in Java and C++)
 - Added `KeywordRecognizer` support on Windows (UWP), Android and iOS through the NuGet and Unity packages
 - Added Remote Conversation Java API to do Conversation Transcription in asynchronous batches.
