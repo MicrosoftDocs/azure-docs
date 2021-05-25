@@ -1,0 +1,46 @@
+---
+title: Connecting Azure Percept Over Cellular Networks
+description: This article explains how to connect the Azure Percept DK over cellular networks.
+author: mimcco
+ms.author: mimcco
+ms.service: azure-percept
+ms.topic: conceptual 
+ms.date: 05/20/2021
+ms.custom: template-concept 
+---
+
+# Connecting Azure Percept Over Cellular Networks
+
+The benefits of connecting Edge AI devices over cellular (LTE and 5G) networks are many. Scenarios where Edge AI is most effective are in places where Wi-Fi and LAN connectivity are limited, such as smart cities, autonomous vehicles, and agriculture. Additionally, cellular networks provide better security than WiFi. Lastly, using IoT devices that run AI at the Edge provides a way to optimize the bandwidth on cellular networks. Where only necessary information is sent to the cloud while most of the data is processed on the device. Today, the Azure Percept DK isn't able to connect directly to cellular networks. However, they can connect to cellular gateways using the built-in Ethernet and WiFi capabilities. This article covers how this works.
+
+## Options for connecting the Azure Percept DK Over Cellular Networks
+With some other hardware, you can connect the Azure Percept DK easily using cellular connectivity like LTE or 5G. There are two primary options supported today:
+1. **Cellular WiFi hotspot device** - where the dev kit is connected to the Wi-Fi network that the Wi-Fi hotspot provides. In this case, the dev kit connects to the network like any other Wi-Fi network. For more instructions, follow the [Azure Percept DK Setup Guide](articles\azure-percept\quickstart-percept-dk-set-up.md) and select the Wi-Fi network of your choosing.
+1. **Cellular Ethernet gateway device** - here the dev kit is connected to the cellular gateway over Ethernet, which takes advantage of the improved security compared to Wi-Fi connections. The rest of this article goes into more detail on how a network like this is configured.
+
+## Cellular Gateway Topology
+:::image type="Image" source="media/connect-over-cellular/topology.png" alt-text="This diagram shows how the Azure Percept DK connects to a cellular gateway via Ethernet.":::
+
+:::image-end:::
+
+In the above diagram, you can see how a cellular gateway can be easily paired with the Azure Percept DK.
+
+## Considerations when Connecting to a Cellular Gateway
+Here are some important points to consider when connecting the Azure Percept DK to a cellular gateway.
+- Set up the gateway first and then validate that it's receiving a connection via the SIM. It will then be easier to troubleshoot any issues found while connecting the Azure Percept DK.
+- Ensure both ends of the Ethernet cable are firmly connected to the gateway and Azure Percept DK.
+- Follow the [default instructions](articles\azure-percept\how-to-connect-over-ethernet.md) for connecting the Azure Percept DK over Ethernet.
+- If Wi-Fi security is a concern, you may want to disable Wi-Fi entirely on the dev kit. Follow [these instructions](articles\azure-percept\how-to-disable-wifi.md) for disabling Wi-Fi.
+- If your cellular plan has a quota, it's recommended that you [optimize how much data](articles\azure-percept\how-to-optimize-data-usage.md) your Azure Percept DK sends to the cloud.
+- Ensure you have a [properly configured firewall](articles\azure-percept\concept-security-configuration.md) that blocks externally originated inbound traffic.
+
+## SSH Over a Cellular Network
+To SSH into the dev kit via a cellular ethernet gateway, you have these options:
+- **Using the dev kit's Wi-Fi access point**. If you have Wi-Fi disabled, you can re-enable it by rebooting your dev kit. From there, you can connect to the dev kit's Wi-Fi access point and follow [these SSH procedures](articles\azure-percept\how-to-ssh-into-percept-dk.md).
+- **Using a Ethernet connection to a local network (LAN)**. With this option, you'll unplug your dev kit from the cellular gateway and plug it into LAN router. For more information, see [How to Connect over Ethernet](articles\azure-percept\how-to-connect-over-ethernet.md). 
+- **Using the gateway's remote access features**. Many cellular gateways include remote access managers that can be used to connect to devices on the network via SSH. Check with manufacturer of your cellular gateway to see if it has this feature. Here's an example of a remote access manager for [Cradlepoint cellular gateways](https://customer.cradlepoint.com/s/article/NCM-Remote-Connect-LAN-Manager).
+- **Using the dev kit's serial port**. The Azure Percept DK includes a serial connection port that can be used to connect directly to the device. See [Connect your Azure Percept DK over serial](articles\azure-percept\how-to-connect-to-percept-dk-over-serial.md) for detailed instructions.
+
+## Next steps
+If you have a cellular gateway and would like to connect your Azure Percept DK to it, follow these next steps.
+- [How to Connect your Azure Percept DK over Ethernet](articles\azure-percept\how-to-connect-over-ethernet.md)
