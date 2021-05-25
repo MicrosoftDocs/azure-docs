@@ -33,7 +33,7 @@ var concatToParam = '${inputValue}-addtoparam'
 
 You can use [Bicep functions](./bicep-functions.md) to construct the variable value.
 
-The following example creates a string value for a storage account name. It uses several template functions to get a parameter value, and concatenates it to a unique string.
+The following example creates a string value for a storage account name. It uses several Bicep functions to get a parameter value, and concatenates it to a unique string.
 
 ```bicep
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'

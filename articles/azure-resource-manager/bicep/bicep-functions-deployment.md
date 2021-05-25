@@ -51,7 +51,7 @@ When deploying a local Bicep file to a resource group: the function returns the 
 }
 ```
 
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The location property is included when deploying a local template . The format is:
+When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The location property is included when deploying a local Bicep file. The format is:
 
 ```json
 {

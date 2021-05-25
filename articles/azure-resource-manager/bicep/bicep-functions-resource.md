@@ -149,7 +149,7 @@ The syntax for this function varies by name of the list operations. Each impleme
 
 ### Valid uses
 
-The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a template. Output values are stored in the deployment history and could be retrieved by a malicious user.
+The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a Bicep file. Output values are stored in the deployment history and could be retrieved by a malicious user.
 
 When used with [property loop](./loop-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
 
@@ -323,11 +323,11 @@ The returned object varies by the list function you use. For example, the listKe
 }
 ```
 
-Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example template.
+Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example Bicep file.
 
 ### Remarks
 
-Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
+Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same Bicep file that deploys the referenced resource, use the resource name.
 
 If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the [conditional expression **?:** operator](./operators-logical.md#conditional-expression--) to make sure the function is only evaluated when the resource is being deployed.
 
