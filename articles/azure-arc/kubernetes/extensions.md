@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/21/2021
+ms.date: 05/24/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -47,7 +47,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
 | [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
-| [Azure Arc enabled Open Service Mesh](tutorial-arc-enabled-osm.md) | Deploys Open Service Mesh on the cluster and enables capabilities like mTLS security, fine grained access control, traffic shifting, monitoring with Azure Monitor or with open source add-ons of Prometheus and Grafana, tracing with Jaeger, integration with external certification management solution.
+| [Azure Arc enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) | Deploys Open Service Mesh on the cluster and enables capabilities like mTLS security, fine grained access control, traffic shifting, monitoring with Azure Monitor or with open source add-ons of Prometheus and Grafana, tracing with Jaeger, integration with external certification management solution.
 
 ## Usage of cluster extensions
 
@@ -250,4 +250,4 @@ Learn more about the cluster extensions currently available for Azure Arc enable
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Azure Arc enabled Open Service Mesh](tutorial-arc-enabled-osm.md)
+> [Azure Arc enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
