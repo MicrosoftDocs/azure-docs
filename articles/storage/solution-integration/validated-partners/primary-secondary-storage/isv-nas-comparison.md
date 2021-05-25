@@ -188,7 +188,7 @@ This article compares several ISV solutions that provide files services in Azure
 - Option to apply renames to the cloud target
 - Partial write to objects
 - Ransomware protection
-- Multi site sync / collaboration
+- Multi-site sync / collaboration
 
 **XenData**
 - Cosmos DB service provides fast synchronization of multiple gateways, including application-specific owner files for global collaboration 
