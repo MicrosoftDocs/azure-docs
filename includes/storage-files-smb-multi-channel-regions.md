@@ -12,4 +12,4 @@
 
 SMB Multichannel for Azure file shares is widely available in most regions.
 - LRS: Available in all regions, except government and sovereign regions.
-- ZRS: France Central.
+- ZRS: France Central, East US, East US 2, West US 2, Southeast Asia, Japan East, Australia East, and UK South.

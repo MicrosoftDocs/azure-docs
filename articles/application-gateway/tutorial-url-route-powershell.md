@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to use PowerShell to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
 ---
 # Route web traffic based on the URL using Azure PowerShell

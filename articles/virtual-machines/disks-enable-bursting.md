@@ -7,7 +7,7 @@ ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Enable on-demand bursting
@@ -128,3 +128,5 @@ With the `2020-09-30` disk API, you can enable on-demand bursting on newly-creat
 ## Next steps
 
 To learn how to gain insight into your bursting resources, see [Disk bursting metrics](disks-metrics.md).
+
+

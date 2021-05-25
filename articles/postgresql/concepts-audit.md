@@ -32,7 +32,7 @@ To learn how to set up logging to Azure Storage, Event Hubs, or Azure Monitor lo
 
 ## Installing pgAudit
 
-To install pgAudit, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a server restart to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/configurations/createorupdate).
+To install pgAudit, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a server restart to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate).
 
 Using the [Azure portal](https://portal.azure.com):
 
@@ -99,4 +99,4 @@ AzureDiagnostics
 
 ## Next steps
 - [Learn about logging in Azure Database for PostgreSQL](concepts-server-logs.md)
-- Learn how to set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/configurations/createorupdate).
+- Learn how to set parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate).

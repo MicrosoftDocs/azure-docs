@@ -93,7 +93,7 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
                 resource: 'https://cognitiveservices.azure.com/'
             }
         },
-        function(err, resp, tokenResult) {
+        function(err, res, tokenResult) {
             if (err) {
                 console.log(err);
                 return res.status(500).send('CogSvcs IssueToken error');

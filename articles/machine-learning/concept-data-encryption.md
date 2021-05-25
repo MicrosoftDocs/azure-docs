@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/09/2020
+ms.date: 04/21/2021
 ---
 
 # Data encryption with Azure Machine Learning
@@ -117,9 +117,11 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 
 ### Machine Learning Compute
 
-The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no runs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk.
+The OS disk for each compute node stored in Azure Storage is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. This compute target is ephemeral, and clusters are typically scaled down when no runs are queued. The underlying virtual machine is de-provisioned, and the OS disk is deleted. Azure Disk Encryption isn't supported for the OS disk. 
 
 Each virtual machine also has a local temporary disk for OS operations. If you want, you can use the disk to stage training data. The disk is encrypted by default for workspaces with the `hbi_workspace` parameter set to `TRUE`. This environment is short-lived only for the duration of your run, and encryption support is limited to system-managed keys only.
+
+The OS disk for compute instance is encrypted with Microsoft-managed keys in Azure Machine Learning storage accounts. The local temporary disk on compute instance is encrypted with Microsoft managed keys for workspaces with the `hbi_workspace` parameter set to `TRUE`.
 
 ### Azure Databricks
 

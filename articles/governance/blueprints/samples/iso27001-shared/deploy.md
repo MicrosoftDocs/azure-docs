@@ -1,7 +1,7 @@
 ---
 title: Deploy ISO 27001 Shared Services blueprint sample
 description: Deploy steps for the ISO 27001 Shared Services blueprint sample including blueprint artifact parameter details.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
 ---
 # Deploy the ISO 27001 Shared Services blueprint sample

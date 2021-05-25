@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
 ms.collection: linux
-ms.custom: contperf-fy21q3-portal
+ms.custom: contperf-fy21q3-portal, devx-track-azurecli
 ---
 # Find Azure Marketplace image information using the Azure CLI
 

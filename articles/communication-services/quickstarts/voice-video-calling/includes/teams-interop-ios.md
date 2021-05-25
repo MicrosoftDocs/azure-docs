@@ -15,6 +15,21 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 - A working [Communication Services calling iOS app](../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
+We will use beta.12 of AzureCommunicationCalling SDK for this quickstart so we need to update the podfile and install the Pods again. 
+
+Replace your podfile with the following code to the Podfile and save (make sure that "target" matches the name of your project):
+
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
+
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '1.0.0-beta.12'
+   end
+   ```
+Delete your Pods folder, Podfile.lock and the `.xcworkspace.` file.
+
+Run `pod install` and open the `.xcworkspace` with Xcode.
 
 ## Add the Teams UI controls and Enable the Teams UI controls
 
@@ -67,17 +82,13 @@ struct ContentView: View {
             self.callClient = CallClient()
 
             // Creates the call agent
-            self.callClient?.createCallAgent(userCredential: userCredential) { (agent, error) in
-                if error == nil {
-                    guard let agent = agent else {
-                        self.message = "Failed to create CallAgent"
-                        return
-                    }
-
+            self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, error) in
+                if error != nil {
+                    self.message = "Failed to create CallAgent."
+                    return
+                } else {
                     self.callAgent = agent
                     self.message = "Call agent successfully created."
-                } else {
-                    self.message = "Failed to create CallAgent with error"
                 }
             }
         }
@@ -88,19 +99,22 @@ struct ContentView: View {
         AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
             if granted {
                 let joinCallOptions = JoinCallOptions()
-                let teamsMeetingLinkLocator = TeamsMeetingLinkLocator(meetingLink: self.meetingLink);
-                guard let call = self.callAgent?.join(with: teamsMeetingLinkLocator, joinCallOptions: joinCallOptions) else {
-                    self.message = "Failed to join Teams meeting"
-                    return
+                let teamsMeetingLinkLocator = TeamsMeetingLinkLocator(meetingLink: self.meetingLink)
+                self.callAgent?.join(with: teamsMeetingLinkLocator, joinCallOptions: joinCallOptions) {(call, error) in
+                    if (error == nil) {
+                        self.call = call
+                        self.callObserver = CallObserver(self)
+                        self.call!.delegate = self.callObserver
+                        self.message = "Teams meeting joined successfully"
+                    } else {
+                        print("Failed to get call object")
+                        return
+                    }
                 }
-
-                self.call = call
-                self.callObserver = CallObserver(self)
-                self.call!.delegate = self.callObserver
-                self.message = "Teams meeting joined successfully"
             }
         }
     }
+
 
     func leaveMeeting() {
         if let call = call {
@@ -123,8 +137,7 @@ class CallObserver : NSObject, CallDelegate {
         owner = view
     }
 
-    public func onCallStateChanged(_ call: Call!,
-                                   args: PropertyChangedEventArgs!) {
+    public func call(_ call: Call, didChangeState args: PropertyChangedEventArgs) {
         owner.callStatus = CallObserver.callStateToString(state: call.state)
         if call.state == .disconnected {
             owner.call = nil
@@ -136,7 +149,7 @@ class CallObserver : NSObject, CallDelegate {
         }
     }
     
-    public func onIsRecordingActiveChanged(_ call: Call!, args: PropertyChangedEventArgs!) {
+    public func call(_ call: Call, didChangeRecordingState args: PropertyChangedEventArgs) {
         if (call.isRecordingActive == true) {
             owner.recordingStatus = "This call is being recorded"
         }
@@ -145,6 +158,7 @@ class CallObserver : NSObject, CallDelegate {
         }
     }
 
+
     private static func callStateToString(state: CallState) -> String {
         switch state {
         case .connected: return "Connected"
@@ -152,8 +166,6 @@ class CallObserver : NSObject, CallDelegate {
         case .disconnected: return "Disconnected"
         case .disconnecting: return "Disconnecting"
         case .earlyMedia: return "EarlyMedia"
-        case .hold: return "Hold"
-        case .incoming: return "Incoming"
         case .none: return "None"
         case .ringing: return "Ringing"
         case .inLobby: return "InLobby"
@@ -172,8 +184,8 @@ struct ContentView_Previews: PreviewProvider {
 
 ## Get the Teams meeting link
 
-The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta). You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ## Launch the app and join Teams meeting
 

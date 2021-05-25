@@ -59,7 +59,7 @@ To run the Single Object Sync tool, perform the following steps:
 
  1. Open a new Windows PowerShell session on your Azure AD Connect server with the Run as Administrator option. 
 
- 2. Set the [execution policy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy) to RemoteSigned or Unrestricted. 
+ 2. Set the [execution policy](/powershell/module/microsoft.powershell.security/set-executionpolicy) to RemoteSigned or Unrestricted. 
 
  3. Disable the sync scheduler after verifying that no synchronization operations are running. 
 
@@ -90,4 +90,4 @@ The Single Object Sync tool **is** intended for investigating and troubleshootin
 ## Next steps
 - [Troubleshooting object synchronization](tshoot-connect-objectsync.md)
 - [Troubleshoot object not synchronizing](tshoot-connect-object-not-syncing.md)
-- [End-to-end troubleshooting of Azure AD Connect objects and attributes](https://docs.microsoft.com/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)
+- [End-to-end troubleshooting of Azure AD Connect objects and attributes](/troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes)

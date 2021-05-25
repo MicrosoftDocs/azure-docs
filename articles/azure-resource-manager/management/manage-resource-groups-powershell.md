@@ -4,7 +4,8 @@ description: Use Azure PowerShell to manage your resource groups through Azure R
 author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Manage Azure Resource Manager resource groups by using Azure PowerShell

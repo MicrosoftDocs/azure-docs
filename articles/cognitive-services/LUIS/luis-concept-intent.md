@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 04/13/2021
 
 ---
 # Intents in your LUIS app
@@ -49,7 +49,7 @@ Create an intent when the user's _intention_ would trigger an action in your cli
 
 |Intent   | Entity | Example utterance   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "Seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` |
 ||||
 
@@ -70,7 +70,7 @@ If you want to determine negative and positive intentions, such as "I **want** a
 
 ## Intents and patterns
 
-If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](luis-concept-entity-types.md#regular-expression-entity) paired with a [pattern](luis-concept-patterns.md).
+If you have example utterances, which can be defined in part or whole as a regular expression, consider using the [regular expression entity](luis-concept-entity-types.md#regex-entity) paired with a [pattern](luis-concept-patterns.md).
 
 Using a regular expression entity guarantees the data extraction so that the pattern is matched. The pattern matching guarantees an exact intent is returned.
 

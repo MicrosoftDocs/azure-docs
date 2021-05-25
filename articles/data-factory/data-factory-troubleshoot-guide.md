@@ -102,6 +102,14 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Ensure the user has the required permissions in the workspace.
 
+<br/> 
+
+- **Message**: `Job is not fully initialized yet. Please retry later.`
+
+- **Cause**: The job has not initialized.
+
+- **Recommendation**: Wait and try again later.
+
 ### Error code: 3203
 
 - **Message**: `The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later.`
