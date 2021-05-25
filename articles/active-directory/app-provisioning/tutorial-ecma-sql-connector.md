@@ -115,82 +115,130 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
  5. On the **Schema 1** page, fill in the boxes with the values specified in the table below and click **Next**.
      ![Enter schema 1](.\media\tutorial-ecma-sql-connector\conn-3.png)
 
-     |Property|Description|
+     |Property|Value|
      |-----|-----|
      |Object type detection method|Fixed Value|
      |Fixed value list/Table/View/SP|User|
  6. On the **Schema 2** page,fill in the boxes with the values specified in the table below and click **Next**.
-     ![Enter schema 2](.\media\tutorial-ecma-sql-connector\sql-5.png)
+     ![Enter schema 2](.\media\tutorial-ecma-sql-connector\conn-4.png)
+
+     |Property|Value|
+     |-----|-----|
+     |User:Attribute Detection|Table|
+     |User:Table/View/SP|Employees|
+ 7. On the **Schema 3** page, fill in the boxes with the values specified in the table below and click **Next**.
+     ![Enter schema 3](.\media\tutorial-ecma-sql-connector\conn-5.png)
 
      |Property|Description|
      |-----|-----|
-     |User:Attribute Detection||
-     |User:Table/View/SP||
-     |User:Name of Multi-Values Table/Views||
-     |User:Stored Procedure Parameters||
-     |User:Provide SQL query for detecting object types||
- 7. On the **Schema 3** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes.  The attributes that you see will depend on the information provided in the previous step.
-     ![Enter schema 3](.\media\tutorial-ecma-sql-connector\sql-6.png)
-
-     |Property|Description|
-     |-----|-----|
-     |Select DN attribute for User||
- 8. On the **Schema 4** page, review the attributes DataType and the Direction of flow for the connector.  You can adjust them if needed and click Next.
-     ![Enter schema 4](.\media\tutorial-ecma-sql-connector\sql-7.png)  
+     |Select Anchor for :User|User:ContosoLogin|
+     |Select DN attribute for User|AzureID|
+ 8. On the **Schema 4** page, leave the defaults and click **Next**.
+     ![Enter schema 4](.\media\tutorial-ecma-sql-connector\conn-6.png)  
  9. On the **Global** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes.
-     ![Enter global information](.\media\tutorial-ecma-sql-connector\sql-8.png)
+     ![Enter global information](.\media\tutorial-ecma-sql-connector\conn-7.png)
 
      |Property|Description|
      |-----|-----|
-     |Water Mark Query||
-     |Data Source Time Zone|Select the time zone that the data source is located in.|
-     |Data Source Date Time Format|Specify the format for the data source.|
-     |Use named parameters to execute a stored procedure||
-     |Operation Methods||
-     |Extension Name||
-     |Set Password SP Name||
-     |Set Password SP Parameters||
- 10. On the **Select partition** page, ensure that the correct partitions are selected and click Next.
-     ![Enter partition information](.\media\tutorial-ecma-sql-connector\sql-9.png)  
+     |Data Source Date Time Format|yyyy-MM-dd HH:mm:ss|
+ 10. On the **Select partition** page, click **Next**.
+     ![Enter partition information](.\media\tutorial-ecma-sql-connector\conn-8.png)  
 
- 11. On the **Run Profiles** page, select the run profiles that you wish to use and click Next.
-     ![Enter run profiles](.\media\tutorial-ecma-sql-connector\sql-10.png)
+ 11. On the **Run Profiles** page, keep **Export** and add **Full Import**.  Click **Next**.
+     ![Enter run profiles](.\media\tutorial-ecma-sql-connector\conn-9.png)
+
+ 12. On the **Export** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes. 
+     ![Enter Export information](.\media\tutorial-ecma-sql-connector\conn-10.png)
 
      |Property|Description|
      |-----|-----|
-     |Export|Run profile that will export data to SQL.  This run profile is required.|
-     |Full import|Run profile that will import all data from SQL sources specified earlier.|
-     |Delta import|Run profile that will import only changes from SQL since the last full or delta import.|
+     |Operation Method|Table|
+     |Table/View/SP|Employees|
  
- 12. On the **Run Profiles** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes. 
-     ![Enter Export information](.\media\tutorial-ecma-sql-connector\sql-11.png)
+ 12. On the **Full Import** page, fill in the boxes and click **Next**.  Use the table below the image for guidance on the individual boxes. 
+     ![Enter Full import information](.\media\tutorial-ecma-sql-connector\conn-11.png)
 
      |Property|Description|
      |-----|-----|
-     |Operation Method||
-     |Table/View/SP||
-     |Start Index Parameter Name||
-     |End Index Parameter Name||
-     |Stored Procedure Parameters||
+     |Operation Method|Table|
+     |Table/View/SP|Employees|
  
- 13. On the **Object Types** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes. 
-     ![Enter object types](.\media\tutorial-ecma-sql-connector\sql-12.png)
+ 13. On the **Object Types** page, fill in the boxes and click **Next**.  Use the table below the image for guidance on the individual boxes. 
+     ![Enter object types](.\media\tutorial-ecma-sql-connector\conn-12.png)
 
      |Property|Description|
      |-----|-----|
-     |Target Object|The object that you are configuring.|
-     |Anchor|The attribute that will be used as the objects anchor.|
-     |Query attribute||
-     |DN|The attribute that is used for the target objects distinguished name.|
+     |Target Object|User|
+     |Anchor|ContosoLogin|
+     |Query attribute|AzureID|
+     |DN|AzureID|
  
- 14. On the **Select Attributes** page, select attributes from the drop-down to add. 
-     ![Enter attributes](.\media\tutorial-ecma-sql-connector\sql-13.png)
+ 14. On the **Select Attributes** page, add all of the attributes in the drop-down and click **Next**. 
+     ![Enter attributes](.\media\tutorial-ecma-sql-connector\conn-13.png)
 
-15. On the **Deprovisioning** page, review the deprovisionig information and make adjustments as necessary. Click Finish.
-     ![Enter deprovisioning information](.\media\tutorial-ecma-sql-connector\sql-14.png)
+15. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Click **Finish**.
+     ![Enter deprovisioning information](.\media\tutorial-ecma-sql-connector\conn-14.png)
+
+#### Step 6 - Ensure ECMA2Host service is running
+1.  On the server the running the Azure AD ECMA Connector Host, click Start.
+2. Type run and enter services.msc in the box
+3. In the services, ensure that **Microsoft ECMA2Host** is present and running.  If not, click **Start**.
+ ![Service is running](.\media\on-prem-ecma-configure\configure-2.png)
+
+#### Step 7 - Add Enterprise application
+1.  Sign-in to the Azure portal as an application administrator
+2. In the portal, navigate to Azure Active Directory, **Enterpirse Applications**.
+3. Click on **New Application**.
+ ![Add new application](.\media\on-prem-ecma-configure\configure-4.png)
+4. Search the gallery for the test application **on-premises provisioning** and click **Create**.
+ ![Add new application](.\media\tutorial-ecma-sql-connector\app-1.png)
+
+## Step 8 - Configure the applicaion and test
+ 1. Once it has been created, click he **Provisioning page**.
+ 2. Click **get started**.
+ ![get started](.\media\on-prem-ecma-configure\configure-6.png)
+ 3. On the **Provisioning page**, change the mode to **Automatic**
+   ![Add new application](.\media\on-prem-ecma-configure\configure-7.png)
+ 4. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
+   >[!NOTE]
+   >After adding the agent, you need to wait 10 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
+   >
+   >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
+   
+   ![Assign an agent](.\media\on-prem-ecma-configure\configure-8.png)
+ 7.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
+ 
+   https://localhost:8585/ecma2host_connectorName/scim
+
+   For example, if the connector you created was named SQL, the url would be:
+ 
+   https://localhost:8585/ecma2host_SQL/scim
+  
+  
+ 6. Enter the secret token value that you defined when creating the connector.
+ 7. Click Test Connection and wait one minute.
+  ![Assign an agent](.\media\on-prem-ecma-configure\configure-5.png)
+ 9. Once connection test is successful, click **save**.
+ ![Assign an agent](.\media\on-prem-ecma-configure\configure-9.png)
 
 
-## Step 5. Configure provisioning in Azure AD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Step 6. Configure provisioning in Azure AD
 1. Assign the agents to your application (get steps from preview doc).
 2. Provide the URL and secret token (get steps from preview doc). 
 2. [Determine who should be in scope for provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
