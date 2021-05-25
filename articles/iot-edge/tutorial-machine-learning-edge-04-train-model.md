@@ -47,7 +47,7 @@ We use Machine Learning Studio to host the two Jupyter notebooks and supporting 
 
 ### Install Azure Machine Learning Visual Studio Code extension
 
-Visual Studio Code on the development VM should have this extension installed. If you're running on a different instance, reinstall the extension as described in [Set up the Visual Studio Code extension](../machine-learning/tutorial-setup-vscode-extension.md).
+Visual Studio Code on the development VM should have this extension installed. If you're running on a different instance, reinstall the extension as described in [Set up the Visual Studio Code extension](../machine-learning/how-to-setup-vs-code.md).
 
 ### Create an Azure Machine Learning account
 
