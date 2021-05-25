@@ -81,7 +81,7 @@ The reference for the endpoint YAML format is below. To understand how to specif
 | $schema    | [Optional] The YAML schema. You can view the schema in the above example in a browser to see all available options in the YAML file.|
 | name       | Name of the endpoint. Needs to be unique at Azure region level.|
 | traffic | Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100 |
-| auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint list-keys` command). |
+| auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint get-credentials` command). |
 | deployments | Contains a list of deployments to be created in the endpoint. In this case, we have only one deployment, named `blue`. For more on multiple deployments, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)|
 
 Attributes of the `deployment`:
@@ -105,7 +105,7 @@ Attributes of the `deployment`:
 
 ### Registering your model and environment separately
 
- In this example, we're specifying the model and environment properties inline: `name`, `version`, and the `local_path` from which to upload files. Under the covers, the CLI will upload the files and register the model and environment automatically. As a best practice for production, you should separately register the model and environment and specify the registered name and version in the YAML. The form is `model:azureml:my-model:1` or `environment:azureml:my-env:1`.
+ In this example, we're specifying the model and environment properties inline: `name`, `version`, and the `local_path` from which to upload files. Under the covers, the CLI will upload the files and register the model and environment automatically. As a best practice for production, you should separately register the model and environment and specify the registered name and version in the YAML. The form is `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
 
  To do the registration, you may extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
@@ -137,8 +137,7 @@ To save time in debugging, it's **highly recommended** you test-run your endpoin
 > [!Important]
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before deploying to Azure. Local deployment has the following limitations:
 > - Local endpoints do **not** support traffic rules, authentication, scale settings, or probe settings. 
-> - Local endpoints only support one deployment per endpoint.
-> - Currently, local deployment requires inline specification of model and environment (as in the example YAML. That is, in a local deployment you cannot use a reference to a model or environment registered in your Azure machine learning workspace. 
+> - Local endpoints only support one deployment per endpoint. That is, in a local deployment you cannot use a reference to a model or environment registered in your Azure machine learning workspace. 
 
 ### Deploy the model locally
 
@@ -211,9 +210,7 @@ az ml endpoint list --output table
 
 Check if the model was deployed without error by checking the logs:
 
-```azurecli
-az ml endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 By default, logs are pulled from the inference-server. If you want to see the logs from the storage-initializer (which mounts the assets such as model and code to the container), add the flag `--container storage-initializer`.
 
@@ -257,7 +254,7 @@ az ml endpoint update -n $ENDPOINT_NAME -f endpoints/online/managed/simple-flow/
 > [!IMPORTANT]
 > Update using the YAML is declarative. That is, changes in the YAML will be reflected in the underlying Azure Resource Manager resources (endpoints & deployments). This approach facilitates [GitOps](https://www.atlassian.com/git/tutorials/gitops): *ALL* changes to endpoints/deployments go through the YAML (even `instance_count`). As a side effect, if you remove a deployment from the YAML and run `az ml endpoint update` using the file, that deployment will be deleted. You may make updates without using the YAML using the `--set ` flag, as  described in the following Tip.
 
-5. Because you modified the `init()` function, which runs when the endpoint is created or updates, the message `Updated successfully` will be in the logs. Retrieve the0 logs by running:
+5. Because you modified the `init()` function, which runs when the endpoint is created or updates, the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 ```azurecli
 az ml endpoint get-logs -n $ENDPOINT_NAME --deployment blue
 ```
