@@ -83,36 +83,6 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
 
-### CREATE STATEMENT is not supported in master database
-
-If your query fails with the error message:
-
-> 'Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' 
-
-it means that master database in serverless SQL pool does not support creation of:
-  - External tables
-  - External data sources
-  - Database scoped credentials
-  - External file formats
-
-Solution:
-
-  1. Create a user database:
-
-```sql
-CREATE DATABASE <DATABASE_NAME>
-```
-
-  2. Execute create statement in the context of <DATABASE_NAME>, which failed earlier for master database. 
-  
-  Example for creation of External file format:
-    
-```sql
-USE <DATABASE_NAME>
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
-WITH ( FORMAT_TYPE = PARQUET)
-```
-
 ### Query fails with error while handling an external file. 
 
 If your query fails with the error message 'error handling external file: Max errors count reached', it means that there is a mismatch of a specified column type and the data that needs to be loaded. 
@@ -448,6 +418,36 @@ CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 
 > [!NOTE]
 > Replace 'password' with a different secret here. 
+
+### CREATE STATEMENT is not supported in master database
+
+If your query fails with the error message:
+
+> 'Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' 
+
+it means that master database in serverless SQL pool does not support creation of:
+  - External tables
+  - External data sources
+  - Database scoped credentials
+  - External file formats
+
+Solution:
+
+  1. Create a user database:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Execute create statement in the context of <DATABASE_NAME>, which failed earlier for master database. 
+  
+  Example for creation of External file format:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
 
 ### Operation [[operation name]] is not allowed for a replicated database.
    

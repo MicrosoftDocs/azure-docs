@@ -19710,6 +19710,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/concepts-integration.md",
+      "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-create-twin-level-role-based-access-control.md",
       "redirect_url": "/azure/digital-twins/how-to-use-tags",
       "redirect_document_id": false
@@ -66427,6 +66432,11 @@
     {
       "source_path_from_root": "/articles/azure/media-services/video-indexer/",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/tutorial-bulk-processing.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/tutorial-ai-builder",
       "redirect_document_id": false
     }
 
