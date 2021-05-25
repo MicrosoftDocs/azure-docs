@@ -56,14 +56,14 @@ The script uses the Azure SDK for Cognitive Search:
 * [PYPI package azure-search-documents](https://pypi.org/project/azure-search-documents/)
 * [Reference Documentation](/python/api/azure-search-documents)
 
-1. In Visual Studio Code, open the `bulk_upload.py` file in the subdirectory,  `search-website/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
+1. In Visual Studio Code, open the `bulk_upload.py` file in the subdirectory,  `search-website/bulk-upload`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
     :::code language="python" source="~/azure-search-python-samples/search-website/bulk-upload/bulk-upload.py" highlight="12,13, 117" :::
 
-1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, and run the following command to install the dependencies. 
+1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-upload`, and run the following command to install the dependencies. 
 
     ```bash
     pip install -r requirements.txt 
@@ -71,7 +71,7 @@ The script uses the Azure SDK for Cognitive Search:
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, to run the following bash command to run the `bulk_upload.py` script:
+1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-upload`, to run the following bash command to run the `bulk_upload.py` script:
 
     ```bash
     python bulk-upload.py

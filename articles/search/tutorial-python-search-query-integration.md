@@ -31,6 +31,8 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a configuration file
 
+The Azure Function app settings environment variables are pulled in from a file, `__init__.py`, shared between the three API functions. 
+
 :::code language="python" source="~/azure-search-python-samples/search-website/api/shared_code/__init__.py" highlight="6-9" :::
 
 ## Azure Function: Search the catalog
@@ -53,7 +55,7 @@ Call the Azure Function in the React client with the following code.
 
 The `Suggest` [API](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website/api/Suggest/__init__.py) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
 
-The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website/bulk-insert/good-books-index.json) used during bulk upload.
+The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website/bulk-upload/good-books-index.json) used during bulk upload.
 
 Routing for the Suggest API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-python-samples/blob/master/search-website/api/Suggest/function.json) bindings.
 

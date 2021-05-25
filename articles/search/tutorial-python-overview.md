@@ -40,7 +40,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/m
 |--|--|--|
 |Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website/src](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website/src)|
 |Server|Azure Function app (business layer) - calls the Azure Cognitive Search API using Python SDK |[/search-website/api](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website/src)|
-|Bulk insert|Python file to create the index and add documents to it.|[/search-website/bulk-insert](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website/bulk-insert)|
+|Bulk insert|Python file to create the index and add documents to it.|[/search-website/bulk-upload](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/search-website/bulk-upload)|
 
 ## Set up your development environment
 
