@@ -4,7 +4,7 @@ description: Secure HTTPS access to your custom domain by creating a TLS/SSL bin
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -37,7 +37,7 @@ To follow this how-to guide:
 - [Add a private certificate to your app](configure-ssl-certificate.md)
 
 > [!NOTE]
-> The easiest way to add a private certificate is to [create a free App Service Managed Certificate](configure-ssl-certificate.md#create-a-free-managed-certificate-preview) (Preview).
+> The easiest way to add a private certificate is to [create a free App Service managed certificate](configure-ssl-certificate.md#create-a-free-managed-certificate).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -68,7 +68,7 @@ If your app has no certificate for the selected custom domain, then you have two
 - **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-certificate.md#import-an-app-service-certificate), then select this option here.
 
 > [!NOTE]
-> You can also [Create a free certificate](configure-ssl-certificate.md#create-a-free-managed-certificate-preview) (Preview) or [Import a Key Vault certificate](configure-ssl-certificate.md#import-a-certificate-from-key-vault), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
+> You can also [Create a free certificate](configure-ssl-certificate.md#create-a-free-managed-certificate) or [Import a Key Vault certificate](configure-ssl-certificate.md#import-a-certificate-from-key-vault), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
 
 ### Create binding
 
