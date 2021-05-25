@@ -1,9 +1,9 @@
 ---
 title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
-author: danielsollondon
-ms.author: danis
-ms.date: 05/04/2021
+author: kof-f
+ms.author: kofiforson
+ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -65,11 +65,9 @@ The location is the region where the custom image will be created. For the Image
 - West Central US
 - West US
 - West US 2
+- South Central US
 - North Europe
 - West Europe
-- South Central US
-
-Coming soon (mid 2021):
 - South East Asia
 - Australia Southeast
 - Australia East
@@ -82,6 +80,9 @@ Coming soon (mid 2021):
 
 ### Data Residency
 The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
+
+### Zone Redundancy
+Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type]( Create an Azure Image Builder template (preview) - Azure Virtual Machines | Microsoft Docs) if specified.
 
  
 ## vmProfile
