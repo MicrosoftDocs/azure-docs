@@ -12,16 +12,18 @@ ms.topic: conceptual
 ms.custom: how-to, deploy
 ---
 
-# View costs for an Azure Machine Learning managed online endpoint
+# View costs for an Azure Machine Learning managed online endpoint (preview)
 
-Learn how to view costs for a managed online endpoint. Costs for your endpoints will accrue to the associated workspace. You can see costs for a specific endpoint using tags.
+Learn how to view costs for a managed online endpoint (preview). Costs for your endpoints will accrue to the associated workspace. You can see costs for a specific endpoint using tags.
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 > [!IMPORTANT]
 > This article only applies to viewing costs for Azure Machine Learning managed online endpoints (preview). Managed online endpoints are different from other resources since they must use tags to track costs. For more information on viewing the costs of other Azure resources, see [Quickstart: Explore and analyze costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 
 ## Prerequisites
 
-- Deploy an Azure Machine Learning managed online endpoint
+- Deploy an Azure Machine Learning managed online endpoint (preview).
 - Have at least [Billing Reader](../role-based-access-control/role-assignments-portal.md) access on the subscription where the endpoint is deployed
 
 ## View costs
@@ -51,7 +53,8 @@ Create a tag filter to show your managed online endpoint and/or managed online d
 
     [![Managed online endpoint cost analysis: screenshot of the Cost Analysis view showing a red box around the "Tag" buttons in the top right.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png#lightbox)
 
-
 ## Next steps
-
-* Learn how to [monitor your managed online endpoint](./how-to-monitor-online-endpoints.md).
+- [What are endpoints?](concept-endpoints.md)
+- Learn how to [monitor your managed online endpoint](./how-to-monitor-online-endpoints.md).
+- [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)

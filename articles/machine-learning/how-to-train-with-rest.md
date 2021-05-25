@@ -1,5 +1,5 @@
 ---
-title: 'Train models with REST'
+title: 'Train models with REST (preview)'
 titleSuffix: Azure Machine Learning
 description: Learn how to train models and create jobs with REST APIs.
 services: machine-learning
@@ -13,9 +13,11 @@ ms.date: 05/25/2021
 ms.reviewer: peterlu
 ---
 
-# Train models with REST
+# Train models with REST (preview)
 
-Learn how to use the Azure Machine Learning REST API to create and manage training jobs.
+Learn how to use the Azure Machine Learning REST API to create and manage training jobs (preview).
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
@@ -158,4 +160,5 @@ To create a sweep job with the same LightGBM example, use the following commands
 :::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_a_sweep_job":::
 
 ## Next steps
-- Deploy models with REST
+
+Now that you have a trained model, learn [how to deploy your model](how-to-deploy-and-where.md).
