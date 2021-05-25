@@ -12,7 +12,7 @@ ms.author: inhenkel
 
 # Analyze video and audio files with Azure Media Services
 
-[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
+[!INCLUDE [regulation](../../azure-video-analyzer/video-analyzer-for-media-docs/includes/regulation.md)]
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
