@@ -1,5 +1,6 @@
 ---
-title: Import a WebSocket API
+title: Import a WebSocket API using the Azure portal | Microsoft Docs
+titleSuffix: 
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
 ms.service: api-management
 author: v-hhunter
@@ -34,7 +35,7 @@ In this article, you will:
 
 API Management supports WebSocket passthrough. 
 
-:::image type="content" source="./media/websocket-api/websocket-api-passthru.png" alt-text="Visual illustration of WebSocket passthrough flow":::
+:::image type="content" source="./media/websocket-api/websocket-api-passthrough.png" alt-text="Visual illustration of WebSocket passthrough flow":::
 
 During the WebSocket passthrough the client application establishes a WebSocket connection with the API Management Gateway, which then establishes a connection with the corresponding backend services. API Management then proxies WebSocket client-server messages.
 
