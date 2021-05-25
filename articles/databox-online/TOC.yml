@@ -233,6 +233,8 @@
         href: azure-stack-edge-gpu-virtual-machine-overview.md
       - name: View supported VMs
         href: azure-stack-edge-gpu-virtual-machine-sizes.md              
+      - name: View supported API profiles
+        href: azure-stack-edge-profiles-azure-resource-manager-versions.md
       - name: Create VM image
         items:
         - name: Custom image from Azure VM
@@ -278,7 +280,7 @@
           - name: Connect to VM console
             href: azure-stack-edge-gpu-connect-virtual-machine-console.md
           - name: VM image upload
-            href: azure-stack-edge-troubleshoot-virtual-machine-image-upload.md    
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md    
     - name: Manage certificates
       items:
       - name: Requirements
