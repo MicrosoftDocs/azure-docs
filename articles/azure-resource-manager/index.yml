@@ -71,27 +71,27 @@ conceptualContent:
         - url: bicep/overview.md
           itemType: overview
           text: Overview
-        - url: templates/template-tutorial-create-first-template.md
-          itemType: tutorial
-          text: Beginner tutorial series
-        - url: templates/template-syntax.md
+        - url: /learn/modules/deploy-azure-resources-by-using-bicep-templates
+          itemType: learn
+          text: Deploy Azure resources
+        - url: bicep/file.md
           itemType: reference
-          text: Template syntax
-        - url: templates/template-functions.md
+          text: Bicep file structure
+        - url: bicep/bicep-functions.md
           itemType: reference
-          text: Template functions
-        - url: /azure/templates/
+          text: Bicep functions
+        - url: bicep/operators.md
           itemType: reference
-          text: Template reference
-        - url: templates/deploy-powershell.md
+          text: Bicep operators
+        - url: bicep/deploy-powershell.md
           itemType: how-to-guide
           text: Deploy
-        - url: templates/template-best-practices.md
-          itemType: concept
-          text: Best practices
+        - url: bicep/deploy-powershell.md
+          itemType: how-to-guide
+          text: Deploy
       # footerLink (optional)
       footerLink:
-        url: templates/index.yml
+        url: bicep/index.yml
         text: See more
     # Card
     - title: Manage resources
