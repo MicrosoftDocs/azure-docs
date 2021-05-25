@@ -12,7 +12,7 @@ ms.date: 05/25/2021
 
 This article shows how to create an example automated integration workflow by using the **Logic App (Standard)** resource type, Visual Studio Code, and the **Azure Logic Apps (Standard)** extension. When you create this logic app workflow in Visual Studio Code, you can run and test the workflow in your *local* development environment.
 
-When you're ready, you can deploy to the *single-tenant Azure Logic Apps environment* or anywhere that Azure Functions can run, due to the redesigned Azure Logic Apps runtime. Compared to the multi-tenant **Azure Logic Apps (Consumption)** extension, which works for the multi-tenant Azure Logic Apps environment, the single-tenant **Azure Logic Apps (Standard)** extension provides the capability for you to create logic apps with the following attributes:
+When you're ready, you can deploy to the *single-tenant Azure Logic Apps environment* or anywhere that Azure Functions can run, due to the redesigned Azure Logic Apps containerized runtime. Compared to the multi-tenant **Azure Logic Apps (Consumption)** extension, which works for the multi-tenant Azure Logic Apps environment, the single-tenant **Azure Logic Apps (Standard)** extension provides the capability for you to create logic apps with the following attributes:
 
 * The **Logic App (Standard)** resource type can host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless) that run locally in your development environment, in the single-tenant Azure Logic Apps environment, or anywhere that Azure Functions can run, such as containers. This attribute provides flexibility and portability for your workflows.
 
@@ -77,7 +77,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [Azure Functions Core Tools 3.0.3447 or later](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3447) by using the Microsoft Installer (MSI) version, which is `func-cli-3.0.3447-x*.msi`.
+  * [Azure Functions Core Tools 3.0.3477 or later](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3477) by using the Microsoft Installer (MSI) version, which is `func-cli-3.0.3477-x*.msi`.
 
     These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
@@ -98,6 +98,8 @@ For more information, review the [Azurite documentation](https://github.com/Azur
     1. In the extensions search box, enter `azure logic apps standard`. From the results list, select **Azure Logic Apps (Standard)** **>** **Install**.
 
        After the installation completes, the extension appears in the **Extensions: Installed** list.
+
+       ![Screenshot showing Visual Studio Code with the Azure Logic Apps (Standard) extension installed](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-extension-installed.png)
 
        > [!TIP]
        > If the extension doesn't appear in the installed list, try restarting Visual Studio Code.
@@ -162,7 +164,7 @@ To find and confirm these settings, follow these steps:
    ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
    After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps** section, not the **Logic Apps (Standard)** section.
-   
+
    If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
 
    1. In the subscriptions list, move your pointer next to the first subscription until the **Select Subscriptions** button (filter icon) appears. Select the filter icon.
@@ -1167,7 +1169,6 @@ After Application Insights opens, you can review various metrics for your logic 
 
 * [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
 * [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
-
 
 <a name="delete-from-designer"></a>
 

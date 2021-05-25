@@ -71,6 +71,8 @@
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Edit host and app settings for logic apps in single-tenant
+      href: edit-app-settings-host-settings.md
     - name: Create parameters for single-tenant workflows
       href: parameterize-workflow-app.md
     - name: DevOps deployment for single-tenant
@@ -81,6 +83,12 @@
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: Estimate storage costs for single-tenant workflows
       href: estimate-storage-costs.md
+  - name: Azure Arc enabled Logic Apps
+    items:
+    - name: About Azure Arc enabled Logic Apps
+      href: azure-arc-enabled-logic-apps-overview.md
+    - name: Create and deploy Arc enabled logic apps
+      href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Develop
     items:
     - name: Create from prebuilt templates

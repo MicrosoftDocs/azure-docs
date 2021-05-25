@@ -1,11 +1,11 @@
 ---
  title: include file
  description: include file
- author: JimacoMS4
+ author: timlt
  ms.service: iot-develop
  ms.topic: include
  ms.date: 05/17/2021
- ms.author: v-jbrannian
+ ms.author: timlt
  ms.custom: include file
 ---
 

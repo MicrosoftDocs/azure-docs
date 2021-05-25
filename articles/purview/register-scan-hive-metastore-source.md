@@ -36,7 +36,7 @@ The Hive Metastore source supports Full scan to extract metadata from a **Hive M
 4.  You will have to manually download the Hive Metastore database's
     JDBC driver on your virtual machine where self-hosted integration
     runtime is running. For example, if the database used is mssql, make
-    sure to download [Microsoft's JDBC driver for SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
+    sure to download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
