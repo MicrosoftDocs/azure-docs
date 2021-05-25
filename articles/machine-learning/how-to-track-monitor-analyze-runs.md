@@ -190,10 +190,11 @@ To view your runs in the studio:
 In the **All runs'** page, you can filter the runs list by tags, experiments, compute target and more to better organize and scope your work.  
     
 1. Make customizations to the page by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
-    
+
+1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
+
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
     
-1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
 
 ## Run display name
 A run display name is an optional, non-unique, user-friendly property that can be added to a run to help annotate runs and provide more meaningful information to the run. 
