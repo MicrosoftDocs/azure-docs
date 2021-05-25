@@ -18,12 +18,7 @@ To set up the scanner, you'll need to enable **Azure Defender for container regi
 
 The findings of the CI/CD scans are an enrichment to the existing registry scan findings by Qualys. Azure Defender's CI/CD scanning is powered by [Trivy](https://0x1.gitlab.io/security/Trivy/).
 
-As with the other built-in vulnerability scanners, Security Center presents the findings and related information as recommendations. The findings include related information such as:
-- remediation steps
-- relevant CVEs
-- CVSS scores
-
-You’ll also get traceability information such as the GitHub workflow and the GitHub run URL, to help identify the workflows that are resulting in vulnerable images.
+You’ll get traceability information such as the GitHub workflow and the GitHub run URL, to help identify the workflows that are resulting in vulnerable images.
 
 > [!TIP]
 > The vulnerabilities identified in a scan of your registry might differ from the findings of your CI/CD scans. One reason for these  differences is that the registry scanning is [continuous](defender-for-container-registries-introduction.md#when-are-images-scanned), whereas the CI/CD scanning happens immediately before the workflow pushes the image into the registry.
@@ -132,25 +127,6 @@ To enable vulnerability scans of images in your GitHub workflows:
 
     :::image type="content" source="media/defender-for-container-registries-cicd/cicd-findings.png" alt-text="CI/CD findings about specific GitHub branches and commits":::
 
-1. To learn more about a finding, select the finding. 
-
-    The findings details pane opens.
-
-    [![Findings details pane](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
-
-    This pane includes a detailed description of the issue and links to external resources to help mitigate the threats.
-
-1. Follow the steps in the remediation section of this pane.
-
-1. When you've taken the steps required to remediate the security issue, replace the image in your registry:
-
-    1. Push the updated image. This will trigger scans of both the registry and the CI/CD workflow. 
-    
-    1. Check the recommendations page for the recommendation "Vulnerabilities in Azure Container Registry images should be remediated". 
-    
-        If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
-
-    1. When you're sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
 
 ## Next steps
