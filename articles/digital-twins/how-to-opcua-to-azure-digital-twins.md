@@ -44,9 +44,9 @@ This will feel complicated the first time you try it. There are a lot of steps a
 The first step is getting the devices and software setup on the edge. This includes your OPC UA simulation server, gateway device, and Azure IoT Hub components. The steps to install these components are well documented, but we wanted to step through these together so you can see the whole story. However, if you want more details, you can read the following articles:
 
 - [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) | Kevin Hilscher
-- [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge?view=iotedge-2020-11) | Microsoft Docs
+- [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) | Microsoft Docs
 - [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | GitHub Repo
-- [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure) | Microsoft Docs
+- [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure.md) | Microsoft Docs
 
 ## OPC UA Server
 
@@ -115,11 +115,11 @@ Create an Ubuntu Server virtual machine like the following
 > The default size “Standard_b1s – vcpu, 1GiB memory ($7.59/month)” is too slow for RDP. Try updating it to the 2 GiB memory for a better RDP experience.
 
 > [!NOTE]
-> If you choose to RDP into your Ubuntu VM, you can follow [the instructions here](../virtual-machines/linux/use-remote-desktop).
+> If you choose to RDP into your Ubuntu VM, you can follow [the instructions here](../virtual-machines/linux/use-remote-desktop.md).
 
 ### Install IoT Edge container
 
-Follow the instructions to [Install IoT Edge on Linux](../virtual-machines/linux/use-remote-desktop).
+Follow the instructions to [Install IoT Edge on Linux](../virtual-machines/linux/use-remote-desktop.md).
 
 Once the installation completes run:
 
@@ -210,7 +210,7 @@ az iot hub monitor-events -n {iot-hub-instance} -t 0
 ![screen shot of iot hub monitor-events logs results](./media/how-to-opcua/az-iot-hub-monitor-events-1.png)
 
 > [!TIP]
-> Try using [Azure IoT Explorer](../iot-pnp/howto-use-iot-explorer) to monitor IoT Hub messages.
+> Try using [Azure IoT Explorer](../iot-pnp/howto-use-iot-explorer.md) to monitor IoT Hub messages.
 
 Sweet, you now have data flowing from an OPC UA Server into IoT Hub. Next up, getting the telemetry data into Azure Digital Twins.
 
@@ -234,12 +234,12 @@ Now that we have data flowing from OPC UA Server into Azure IoT Hub, we need to 
 
 ### Upload model & create twin
 
-We recommend using [Azure Digital Twins Explorer](../../samples/azure-samples/digital-twins-explorer/digital-twins-explorer) to upload the `simulation` model and create a new twin called “simulation-1”.
+We recommend using [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer) to upload the `simulation` model and create a new twin called “simulation-1”.
 
 ![screen shot azure digital twins explorer](./media/how-to-opcua/adt-explorer-1.png)
 
 > [!TIP]
-> If you are not familiar with Azure Digital Twins, visit the [sample scenario](./quickstart-azure-digital-twins-explorer) documentation to get started.
+> If you are not familiar with Azure Digital Twins, visit the [sample scenario](quickstart-azure-digital-twins-explorer.md) documentation to get started.
 
 ### Verify success
 
@@ -283,7 +283,7 @@ The opcua-mapping.json looks like this (see the [GitHub repo](https://github.com
 > ![IMPORTANT]
 > You will need to create a mapping entry for each and every NodeId
 
-Now that we have our mapping file, we need to store it in a location that is accessible from the Azure Function. Azure Blob Storage is a good place. You can use [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to create your storage container and import the opcua-mapping.json file. Then create a shared access signature and save that url, as you will need it later for the Azure Function.
+Now that we have our mapping file, we need to store it in a location that is accessible from the Azure Function. Azure Blob Storage is a good place. You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create your storage container and import the opcua-mapping.json file. Then create a shared access signature and save that url, as you will need it later for the Azure Function.
 
 ![screen shot of azure storage explorer](./media/how-to-opcua/azure-storage-exp-1.png)
 
@@ -291,7 +291,7 @@ Now that we have our mapping file, we need to store it in a location that is acc
 
 **Step 1:** Clone or download this [GitHub repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) and open the OPCUAFunctions solution in Visual Studio.
 
-**Step 2:** Follow these steps to [publish the function](./how-to-create-azure-function?tabs=cli#publish-the-function-app-to-azure) and [setting up security access](./how-to-create-azure-function?tabs=portal#set-up-security-access-for-the-function-app).
+**Step 2:** Follow these steps to [publish the function](how-to-create-azure-function.md?tabs=cli#publish-the-function-app-to-azure) and [setting up security access](how-to-create-azure-function.md?tabs=portal#set-up-security-access-for-the-function-app).
 
 **Step 3:** We need to add some application settings to set up your environment properly. Go to the Azure portal and find your newly created Azure Function. Then click on the “Configuration” section. There are three application settings you need to create.
 
@@ -308,7 +308,7 @@ Now that we have our mapping file, we need to store it in a location that is acc
 
 ### Event Subscription
 
-Finally, [follow these instructions](./tutorial-end-to-end#process-simulated-telemetry-from-an-iot-hub-device) to create an event subscription to connect your newly added function app to IoT Hub. This is needed so that data can flow from the gateway device into IoT Hub through the function, which then updates the Azure Digital Twins.
+Finally, [follow these instructions](tutorial-end-to-end.md#process-simulated-telemetry-from-an-iot-hub-device) to create an event subscription to connect your newly added function app to IoT Hub. This is needed so that data can flow from the gateway device into IoT Hub through the function, which then updates the Azure Digital Twins.
 
 Your event subscription should look like this...
 
@@ -335,26 +335,4 @@ az webapp log tail –name {function-name} --resource-group {resource-group}
 * Added three new application settings to the Azure Functions app.
 * Event Subscription created.
 
-## Next steps
-
-
-
-
-### Verify success ggg
-
-[!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
-
-You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it.
-
-In the “Container Create Options” make sure you add the following json:
-
-## Next steps
-
-Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands:
-
-- [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
-- [_How-to: Use the Azure Digital Twins CLI_](how-to-use-cli.md)
-
-Or, see how to connect a client application to your instance with authentication code:
-
-- [_How-to: Write app authentication code_](how-to-authenticate-client.md)
+## Summary and next steps
