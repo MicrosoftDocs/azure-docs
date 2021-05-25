@@ -22,7 +22,7 @@ You need at least the Contributor role in the AKS cluster's subscription and the
 You use the following steps to:
 
 * Create a new multitenant app (service principal) in **Tenant A**. 
-* Register the app in **Tenant B**.
+* Provision the app in **Tenant B**.
 * Configure the service principal to pull from the registry in **Tenant B**
 * Update the AKS cluster in **Tenant A** to authenticate using the new service principal
 
@@ -57,7 +57,7 @@ You use the following steps to:
     :::image type="content" source="media/authenticate-kubernetes-cross-tenant/multitenant-app-consent.png" alt-text="Grant tenant access to application":::
  
 
-### Step 3: Grant service principal ACR image pull permission
+### Step 3: Grant service principal permission to pull from registry
 
 In **Tenant B**, assign the AcrPull role to the service principal, scoped to the target container registry. You can use the [Azure portal](../role-based-access-control/role-assignments-portal.md) or other tools to assign the role. For example steps using the Azure CLI, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md#use-an-existing-service-principal).
 
@@ -71,8 +71,8 @@ Updating the service principal can take several minutes.
 
 ## Next steps
 
-* For more about working with service principals and Azure Container Registry, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
+* Learn more [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
 * Learn more about image pull secrets in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
-- [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+- Learn about [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
 
 
