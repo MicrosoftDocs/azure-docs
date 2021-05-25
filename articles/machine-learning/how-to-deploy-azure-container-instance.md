@@ -33,7 +33,7 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 - A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 - The __Python__ code snippets in this article assume that the following variables are set:
 
@@ -93,7 +93,7 @@ For more information, see the [az ml model deploy](/cli/azure/ml/model#az_ml_mod
 
 ## Using VS Code
 
-See [deploy your models with VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
+See [how to manage resources in VS Code](how-to-manage-resources-vscode.md).
 
 > [!IMPORTANT]
 > You don't need to create an ACI container to test in advance. ACI containers are created as needed.

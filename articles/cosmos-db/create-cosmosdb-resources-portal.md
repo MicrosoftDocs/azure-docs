@@ -49,7 +49,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
     |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-31 characters in length.|
     |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>[Learn more about the SQL API](introduction.md).|
     |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](set-throughput.md) mode. Select **Serverless** to create an account in [serverless](serverless.md) mode.|
-    |Apply Azure Cosmos DB free tier discount|Apply or Do not apply|With Azure Cosmos DB free tier, you will get the first 400 RU/s and 5 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+    |Apply Azure Cosmos DB free tier discount|Apply or Do not apply|With Azure Cosmos DB free tier, you will get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](free-tier.md) article.|
     |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
     |Account Type|Production or Non-Production|Select **Production** if the account will be used for a production workload. Select **Non-Production** if the account will be used for non-production, e.g. development, testing, QA, or staging. This is an Azure resource tag setting that tunes the Portal experience but does not affect the underlying Azure Cosmos DB account. You can change this value anytime.|
     |Geo-Redundancy|Enable or Disable|Enable or disable global distribution on your account by pairing your region with a pair region. You can add more regions to your account later.|
@@ -57,7 +57,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
     |Availability Zones|Enable or Disable|Availability Zones help you further improve availability and resiliency of your application.|
 
 > [!NOTE]
-> You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
+> You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier. To learn more, see [free tier](free-tier.md) article.
 
 > [!NOTE]
 > The following options are not available if you select **Serverless** as the **Capacity mode**:

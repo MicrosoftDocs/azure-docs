@@ -18,6 +18,9 @@ adobe-target: true
 
 Learn how to deploy your machine learning or deep learning model as a web service in the Azure cloud.
 
+> [!TIP]
+> Managed online endpoints (preview) provide a way to deploy your trained model without your having to create and manage the underlying infrastructure. For more information, see [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+
 The workflow is similar no matter where you deploy your model:
 
 1. Register the model
