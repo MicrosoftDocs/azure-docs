@@ -1,15 +1,15 @@
 ---
-title: Deploy resources to management group (Bicep)
-description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template. (Bicep)
-author: mumian
-ms.author: jgao
+title: Use Bicep tp deploy resources to management group
+description: Describes how to create a Bicep file that deploys resources at the management group scope.
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 06/01/2021
 ---
 
-# Management group deployments with ARM templates (Bicep)
+# Management group deployments with Bicep files
 
-As your organization matures, you can deploy an Azure Resource Manager template (ARM template) to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
+This article describes how to set scope with Bicep when deploying to a management group.
+
+As your organization matures, you can deploy a Bicep file to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
 
 ## Supported resources
 
@@ -44,26 +44,12 @@ For managing your resources, use:
 
 Management groups are tenant-level resources. However, you can create management groups in a management group deployment by setting the scope of the new management group to the tenant. See [Management group](#management-group).
 
-## Schema
+## Set scope
 
-The schema you use for management group deployments is different than the schema for resource group deployments.
+To set the scope to management group, use:
 
-For templates, use:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    ...
-}
-```
-
-The schema for a parameter file is the same for all deployment scopes. For parameter files, use:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
-}
+```bicep
+targetScope = 'managementGroup'
 ```
 
 ## Deployment commands
@@ -124,45 +110,85 @@ An [extension resource](scope-extension-resources.md) can be scoped to a target 
 
 The user deploying the template must have access to the specified scope.
 
-This section shows how to specify different scopes. You can combine these different scopes in a single template.
+### Scope to management group
 
-### Scope to target management group
+To deploy resources to the target management group, add those resources with the `resource` keyword.
 
-Resources defined within the resources section of the template are applied to the management group from the deployment command.
+```bicep
+targetScope = 'managementGroup'
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+// policy definition created in the management group
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+  ...
+}
+```
 
-### Scope to another management group
+To target another management group, add a module. Use the managementGroup function to set the `scope` property.
 
-To target another management group, add a nested deployment and specify the `scope` property. Set the `scope` property to a value in the format `Microsoft.Management/managementGroups/<mg-name>`.
+```bicep
+targetScope = 'managementGroup'
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,18,22":::
+param otherManagementGroupName string
+
+// module deployed at management group level but in a different management group
+module exampleModule 'module.bicep' = {
+  name: 'deployToDifferntMG'
+  scope: managementGroup(otherManagementGroupName)
+}
+```
 
 ### Scope to subscription
 
 You can also target subscriptions within a management group. The user deploying the template must have access to the specified scope.
 
-To target a subscription within the management group, use a nested deployment and the `subscriptionId` property.
+To target a subscription within the management group, add a module. Use the subscription function to set the `scope` property.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="9,10,18":::
+```bicep
+targetScope = 'managementGroup'
+
+param subscriptionID string
+
+// module deployed to subscription in the management group
+module exampleModule 'module.bicep' = {
+  name: 'deployToSub'
+  scope: subscription(subscriptionID)
+}
+```
 
 ### Scope to resource group
 
 You can also target resource groups within the management group. The user deploying the template must have access to the specified scope.
 
-To target a resource group within the management group, use a nested deployment. Set the `subscriptionId` and `resourceGroup` properties. Don't set a location for the nested deployment because it's deployed in the location of the resource group.
+To target a resource group within the management group, add a module. Use the resourceGroup function to set the `scope` property.  Provide the subscription ID and resource group name.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="9,10,18":::
+```bicep
+targetScope = 'managementGroup'
+
+param subscriptionID string
+param resourceGroupName string
+
+// module deployed to resource group in the management group
+module exampleModule 'module.bicep' = {
+  name: 'deployToRG'
+  scope: resourceGroup(subscriptionID, resourceGroupName)
+}
+```
 
 To use a management group deployment for creating a resource group within a subscription and deploying a storage account to that resource group, see [Deploy to subscription and resource group](#deploy-to-subscription-and-resource-group).
 
 ### Scope to tenant
 
-To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+To create resources at the tenant, add a module. Use the tenant function to set its `scope` property. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-To use a nested deployment, set `scope` and `location`.
+```bicep
+targetScope = 'managementGroup'
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
+// module deployed at tenant level
+module exampleModule 'module.bicep' = {
+  name: 'deployToTenant'
+  scope: tenant()
+}
+```
 
 Or, you can set the scope to `/` for some resource types, like management groups. Creating a new management group is described in the next section.
 
@@ -172,46 +198,46 @@ To create a management group in a management group deployment, you must set the 
 
 The following example creates a new management group in the root management group.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+```bicep
+targetScope = 'managementGroup'
+
+param mgName string = 'mg-${uniqueString(newGuid())}'
+
+resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
+  scope: tenant()
+  name: mgName
+  properties: {}
+}
+
+output newManagementGroup string = mgName
+```
 
 The next example creates a new management group in the management group specified as the parent. Notice that the scope is set to `/`.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string",
-            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-        },
-        "parentMG": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "name": "[parameters('mgName')]",
-            "type": "Microsoft.Management/managementGroups",
-            "apiVersion": "2020-05-01",
-            "scope": "/",
-            "location": "eastus",
-            "properties": {
-                "details": {
-                    "parent": {
-                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
-                    }
-                }
-            }
-        }
-    ],
-    "outputs": {
-        "output": {
-            "type": "string",
-            "value": "[parameters('mgName')]"
-        }
+```bicep
+targetScope = 'managementGroup'
+
+param mgName string = 'mg-${uniqueString(newGuid())}'
+param parentMGName string
+
+resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
+  scope: tenant()
+  name: mgName
+  properties: {
+    details: {
+      parent: {
+        id: parentMG.id
+      }
     }
+  }
 }
+
+resource parentMG 'Microsoft.Management/managementGroups@2020-05-01' existing = {
+  name: parentMGName
+  scope: tenant()
+}
+
+output newManagementGroup string = mgName
 ```
 
 ## Subscriptions
