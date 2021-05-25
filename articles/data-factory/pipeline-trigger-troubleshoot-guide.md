@@ -21,7 +21,7 @@ Pipeline runs are typically instantiated by passing arguments to parameters that
 
 ### An Azure Functions app pipeline throws an error with private endpoint connectivity
  
-You have Data Factory and an Azure function app running on a private endpoint. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
+You have Data Factory and a function app running on a private endpoint in Azure. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
 
 **Cause**
 

@@ -12,9 +12,9 @@
     href: ./samples/index.md
 - name: Concepts
   items:
-  - name: Azure delegated resource management
-    displayName: delegation, projection
-    href: ./concepts/azure-delegated-resource-management.md
+  - name: Architecture
+    displayName: delegation, projection, resource, registration
+    href: ./concepts/architecture.md
   - name: Cross-tenant management experiences
     displayName: scenarios, supported, enhanced, services, limitations, current
     href: ./concepts/cross-tenant-management-experience.md
@@ -42,7 +42,7 @@
       displayName: mfa, authentication, secure, group
       href: ./concepts/recommended-security-practices.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/lighthouse-security-baseline?toc=/azure/lighthouse/toc.json
 - name: How-to guides
   items:
   - name: Customer actions
@@ -59,7 +59,7 @@
       displayName: ARM, template, delegation, authorization, resource management
       href: ./how-to/onboard-customer.md
     - name: Publish Managed Service offers to Azure Marketplace 
-      displayName: managed services offer, azure marketplace, publish, marketplace
+      displayName: managed services, azure marketplace, publish, marketplace
       href: ./how-to/publish-managed-services-offers.md
     - name: Update delegations
       displayName: upgrade

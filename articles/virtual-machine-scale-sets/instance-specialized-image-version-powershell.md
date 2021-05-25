@@ -3,12 +3,12 @@ title: Create a scale set from a specialized image
 description: Create a scale set using a specialized image in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: mimckitt
 ---
 
 # Create a scale set from a specialized image using PowerShell 

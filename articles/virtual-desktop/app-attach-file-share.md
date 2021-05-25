@@ -15,7 +15,7 @@ MSIX app attach doesn't have any dependencies on the type of storage fabric the 
 
 ## Performance requirements
 
-MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDx files, as well as the size limitations of the VHD, VHSD or CIM files and the file system.
+MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDx files, as well as the size limitations of the VHD, VHDX or CIM files and the file system.
 
 The following table gives an example of how many resources a single 1 GB MSIX image with one MSIX app inside of it requires for each VM:
 
@@ -71,7 +71,7 @@ To assign session host VMs permissions for the storage account and file share:
 
 4. Create a storage account.
 
-5. Create a file share under the storage account by following the instructions in [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md#create-file-share).
+5. Create a file share under the storage account by following the instructions in [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share).
 
 6. Join the storage account to AD DS by following the instructions in [Part one: enable AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module).
 

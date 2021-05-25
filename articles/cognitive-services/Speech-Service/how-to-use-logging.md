@@ -65,6 +65,17 @@ config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 
 More about file access permission for UWP applications is available [here](/windows/uwp/files/file-access-permissions).
 
+### Universal Windows Platform (UWP) on Unity
+
+In Unity and UWP application, a log file can be created in the application persistent folder as follows:
+
+```csharp
+#if ENABLE_WINMD_SUPPORT
+        string logFile = Application.persistentDataPath + "/logFile.txt";
+        config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+#endif
+```
+
 ### Android
 
 You can save a log file to either internal storage, external storage, or the cache directory. Files created in the internal storage or the cache directory are private to the application. It is preferable to create a log file in external storage.

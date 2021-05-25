@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 04/20/2018
 ms.author: cynthn
-
+ms.subservice: cloud-init
 ---
 # Use cloud-init to update and install packages in a Linux VM in Azure
 

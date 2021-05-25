@@ -188,3 +188,20 @@ Azure Monitor for containers requires its DaemonSet to be run in privileged mode
 ```console
 juju config kubernetes-worker allow-privileged=true
 ```
+
+## Enable custom locations using service principal
+
+When you are connecting your cluster to Azure Arc or when you are enabling custom locations feature on an existing cluster, you may observe the following warning:
+
+```console
+Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
+```
+
+The above warning is observed when you have used a service principal to log into Azure and this service principal doesn't have permissions to get information of the application used by Azure Arc service. Run the following commands to grant the required permissions:
+
+```console
+az ad app permission add --id <service-principal-app-id> --api 00000002-0000-0000-c000-000000000000 --api-permissions 3afa6a7d-9b1a-42eb-948e-1650a849e176=Role
+az ad app permission admin-consent --id <service-principal-app-id>
+```
+
+Once above permissions are granted, you can now proceed to [enabling the custom location feature](custom-locations.md#enable-custom-locations-on-cluster) on the cluster.

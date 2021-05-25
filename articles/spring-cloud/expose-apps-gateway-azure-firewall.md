@@ -19,7 +19,7 @@ This document explains how to expose applications to the Internet using Applicat
 
 ## Define variables
 
-Define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](spring-cloud-tutorial-deploy-in-azure-virtual-network.md). Customize the values based on your real environment.
+Define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment.
 
 ```
 SUBSCRIPTION='subscription-id'
@@ -134,5 +134,5 @@ Copy and paste the public IP address into the address bar of your browser.
 
 ## See also
 
-- [Troubleshooting Azure Spring Cloud in VNET](spring-cloud-troubleshooting-vnet.md)
-- [Customer Responsibilities for Running Azure Spring Cloud in VNET](spring-cloud-vnet-customer-responsibilities.md)
+- [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
+- [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)

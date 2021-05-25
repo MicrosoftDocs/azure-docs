@@ -2,7 +2,7 @@
 title: Archive Tier support (Preview)
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 05/13/2021
 ---
 
 # Archive Tier support (Preview)
@@ -72,15 +72,24 @@ Supported clients:
 
         `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
+1. Add the date range for which you want to view the recovery  points. For example, if you want to view the recovery points from the last 60 days to last 30 days, use the following command:
+
+   ```azurepowershell
+    $startDate = (Get-Date).AddDays(-59)
+    $endDate = (Get-Date).AddDays(-30) 
+
+    ```
+    >[!NOTE]
+    >The span of the start date and the end date should not be more than 30 days.
 ## Use PowerShell
 
 ### Check archivable recovery points
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm  -IsReadyForMove $true -TargetTier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $true -TargetTier VaultArchive
 ```
 
-This will list all the recovery points associated with a particular backup item that are ready to be moved to archive.
+This will list all recovery points associated with a particular backup item that are ready to be moved to archive (from the start date to the end date). You can also modify the start dates and the end dates.
 
 ### Check why a recovery point cannot be moved to archive
 

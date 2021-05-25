@@ -1,12 +1,12 @@
 ---
 title: Support matrix for Azure Blobs backup
-description: Provides a summary of support settings and limitations when backing up Azure Blobs (in preview)
+description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 05/05/2021
 ms.custom: references_regions 
 ---
 
-# Support matrix for Azure Blobs backup (in preview)
+# Support matrix for Azure Blobs backup
 
 This article summarizes the regional availability, supported scenarios, and limitations of operational backup of blobs.
 
@@ -30,4 +30,4 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 ## Next steps
 
-- [Overview of operational backup for Azure Blobs (in preview)](blob-backup-overview.md)
+[Overview of operational backup for Azure Blobs](blob-backup-overview.md)

@@ -66,6 +66,10 @@ At the bottom of the **Add an identity provider** page, click **Add** to enable 
 
 You now have an app that's secured by the App Service authentication and authorization.
 
+> [!NOTE]
+> To allow accounts from other tenants, change the 'Issuer URL' to 'https://login.microsoftonline.com/common/v2.0' by editing your 'Identity Provider' from the 'Authentication' blade.
+>
+
 ## Verify limited access to the web app
 
 When you enabled the App Service authentication/authorization module, an app registration was created in your Azure AD tenant. The app registration has the same display name as your web app. To check the settings, select **Azure Active Directory** from the portal menu, and select **App registrations**. Select the app registration that was created. In the overview, verify that **Supported account types** is set to **My organization only**.

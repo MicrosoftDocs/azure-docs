@@ -60,7 +60,7 @@ Azure Container Registry also supports [availability zones](zone-redundancy.md) 
 
 ## Configure geo-replication
 
-Configuring geo-replication is as easy as clicking regions on a map. You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI, or deploy a registry enabled for geo-replication with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
+Configuring geo-replication is as easy as clicking regions on a map. You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI, or deploy a registry enabled for geo-replication with an [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/).
 
 Geo-replication is a feature of [Premium registries](container-registry-skus.md). If your registry isn't yet Premium, you can change from Basic and Standard to Premium in the [Azure portal](https://portal.azure.com):
 
@@ -99,7 +99,7 @@ ACR begins syncing images across the configured replicas. Once complete, the por
 
 ## Delete a replica
 
-After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) command in the Azure CLI.
+After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az_acr_replication_delete) command in the Azure CLI.
 
 To delete a replica in the Azure portal:
 
@@ -157,5 +157,5 @@ Check out the three-part tutorial series, [Geo-replication in Azure Container Re
 > [!div class="nextstepaction"]
 > [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md)
 
-[az-acr-replication-list]: /cli/azure/acr/replication#az-acr-replication-list
-[az-acr-replication-update]: /cli/azure/acr/replication#az-acr-replication-update
+[az-acr-replication-list]: /cli/azure/acr/replication#az_acr_replication_list
+[az-acr-replication-update]: /cli/azure/acr/replication#az_acr_replication_update

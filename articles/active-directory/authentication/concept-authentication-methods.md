@@ -73,7 +73,7 @@ The following table outlines when an authentication method can be used during a 
 | Voice call                     | No                     | MFA and SSPR              |
 | Password                       | Yes                    |                           |
 
-All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
 To learn more about how each authentication method works, see the following separate conceptual articles:
 
@@ -89,6 +89,9 @@ To learn more about how each authentication method works, see the following sepa
 > [!NOTE]
 > In Azure AD, a password is often one of the primary authentication methods. You can't disable the password authentication method. If you use a password as the primary authentication factor, increase the security of sign-in events using Azure AD Multi-Factor Authentication.
 
+> [!IMPORTANT]
+> While FIDO2 meets the requirements necessary to serve as a form of MFA, FIDO2 can only be used as a passwordless form of authentication.
+
 The following additional verification methods can be used in certain scenarios:
 
 * [App passwords](howto-mfa-app-passwords.md) - used for old applications that don't support modern authentication and can be configured for per-user Azure AD Multi-Factor Authentication.
@@ -103,7 +106,7 @@ To learn more about SSPR concepts, see [How Azure AD self-service password reset
 
 To learn more about MFA concepts, see [How Azure AD Multi-Factor Authentication works][concept-mfa].
 
-Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
 To review what authentication methods are in use, see [Azure AD Multi-Factor Authentication authentication method analysis with PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 

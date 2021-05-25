@@ -1,6 +1,6 @@
 ---
 title: Manage the devices in your Azure IoT Central application | Microsoft Docs
-description: As an operator, learn how to manage devices in your Azure IoT Central application. Learn how to manage individual devices and do bulk import and exports of the devices in your application.
+description: Learn how to manage devices in your Azure IoT Central application. Learn how to manage individual devices and do bulk import and exports of the devices in your application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/08/2020
@@ -9,11 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
+
+# Operator
 ---
 
 # Manage devices in your Azure IoT Central application
 
-This article describes how, as an operator, you manage devices in your Azure IoT Central application. As an operator, you can:
+This article describes how you manage devices in your Azure IoT Central application. You can:
 
 - Use the **Devices** page to view, add, and delete devices connected to your Azure IoT Central application.
 - Import and export devices in bulk.

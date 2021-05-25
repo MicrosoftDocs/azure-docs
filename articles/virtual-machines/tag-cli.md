@@ -1,5 +1,5 @@
 ---
-title: How to tag an Azure virtual machine using the CLI
+title: How to tag an Azure virtual machine using the Azure CLI
 description: Learn about tagging a virtual machine using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
@@ -10,7 +10,7 @@ ms.author: cynthn
 ms.custom: devx-track-azurecli
 
 ---
-# How to tag a VM using the CLI
+# How to tag a VM using the Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 

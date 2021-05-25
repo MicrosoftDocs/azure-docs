@@ -36,7 +36,9 @@ Threat Intelligence also provides useful context within other Azure Sentinel exp
 
 ## Azure Sentinel data connectors for threat intelligence
 
-Just like all the other event data in Azure Sentinel, threat indicators are imported using data connectors. There are two data connectors in Azure Sentinel provided specifically for threat indicators, **Threat Intelligence - TAXII** and **Threat Intelligence Platforms**. You can use either data connector alone, or both connectors together, depending on where your organization sources threat indicators. Let’s talk about each of the data connectors.
+Just like all the other event data in Azure Sentinel, threat indicators are imported using data connectors. There are two data connectors in Azure Sentinel provided specifically for threat indicators, **Threat Intelligence - TAXII** and **Threat Intelligence Platforms**. You can use either data connector alone, or both connectors together, depending on where your organization sources threat indicators. 
+
+See this catalog of [threat intelligence integrations](threat-intelligence-integration.md) available with Azure Sentinel.
 
 ### Adding threat indicators to Azure Sentinel with the Threat Intelligence Platforms data connector
 
@@ -423,4 +425,5 @@ There is also a rich community of [Azure Monitor workbooks on GitHub](https://gi
 In this document, you learned about the threat intelligence capabilities of Azure Sentinel, and the new Threat Intelligence blade. For practical guidance on using Azure Sentinel's threat intelligence capabilities, see the following articles:
 
 - [Connect threat intelligence data](./connect-threat-intelligence.md) to Azure Sentinel.
+- [Integrate TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) with Azure Sentinel.
 - Create [built-in](./tutorial-detect-threats-built-in.md) or [custom](./tutorial-detect-threats-custom.md) alerts, and [investigate](./tutorial-investigate-cases.md) incidents, in Azure Sentinel.

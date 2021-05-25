@@ -1,7 +1,7 @@
 ---
-title: 'Reset VPN gateway or connection to reestablish IPsec tunnel'
+title: 'Reset a VPN gateway or connection to reestablish IPsec tunnels'
 titleSuffix: Azure VPN Gateway
-description: Reset a connection or a VPN gateway to reestablish IPsec tunnels.
+description: Learn how to reset a gateway or a gateway connection to reestablish IPsec tunnels.
 author: cherylmc
 
 ms.service: vpn-gateway

@@ -51,3 +51,4 @@ Connect-AzAccount
 - [Azure Disk Encryption overview](disk-encryption-overview.md)
 - [Encrypt a virtual machine scale sets using the Azure CLI](disk-encryption-cli.md)
 - [Encrypt a virtual machine scale sets using the Azure PowerShell](disk-encryption-powershell.md)
+

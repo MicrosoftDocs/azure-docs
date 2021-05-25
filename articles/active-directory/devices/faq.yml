@@ -329,4 +329,4 @@ additionalContent: |
   - Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
   - Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
   - Learn more about [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
-          
+  - [The Microsoft Error Lookup Tool](/windows/win32/debug/system-error-code-lookup-tool)
