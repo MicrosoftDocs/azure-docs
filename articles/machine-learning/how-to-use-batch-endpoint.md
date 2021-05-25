@@ -97,7 +97,7 @@ Below is the YAML file defining the MLFlow batch endpoint:
 | type | Type of the endpoint. Use `batch` for batch endpoint. |
 | auth_mode | Use `aad_token` for Azure token-based authentication. |
 | traffic | Percentage traffic routed to this deployment. For batch endpoints, the only valid values for `traffic` are `0` or `100`. The deployment with a value of `100` traffic is active. When invoked, all data is sent to the active deployment. |
-| deployments | A list of deployments to be created in the batch endpoint. The example only has one deployment named `autolog_deployment`. |
+| deployments | A list of deployments to be created in the batch endpoint. The example only has one deployment named `autolog-deployment`. |
 
 Deployment Attributes:
 
