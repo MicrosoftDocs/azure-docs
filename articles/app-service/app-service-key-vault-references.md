@@ -4,7 +4,7 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: mattchenderson
 
 ms.topic: article
-ms.date: 04/23/2021
+ms.date: 05/25/2021
 ms.author: mahender
 ms.custom: seodec18
 
@@ -158,8 +158,8 @@ An example pseudo-template for a function app might look like the following:
                 //...
                 "accessPolicies": [
                     {
-                        "tenantId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').tenantId]",
-                        "objectId": "[reference(concat('Microsoft.Web/sites/',  variables('functionAppName'), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').principalId]",
+                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2015-08-31-PREVIEW', 'Full').identity.tenantId]",
+                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2015-08-31-PREVIEW', 'Full').identity.principalId]",
                         "permissions": {
                             "secrets": [ "get" ]
                         }
