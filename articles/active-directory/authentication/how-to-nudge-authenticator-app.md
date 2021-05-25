@@ -117,15 +117,86 @@ Here are a few sample JSONs you can use to get started!
 
 - Include all users 
   
-  If you want to include ALL users in your tenant simply download this JSON and paste it in Graph Explorer and run `PATCH` on the https://graph.microsoft.com/beta/policies/authenticationmethodspolicy endpoint. 
+  If you want to include ALL users in your tenant simply [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/All%20Users%20Enabled.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. 
+
+  ```json
+  {
+  "registrationEnforcement": {
+          "authenticationMethodsRegistrationCampaign": {
+              "snoozeDurationInDays": 0,
+              "state": "enabled",
+              "excludeTargets": [],
+              "includeTargets": [
+                  {
+                      "id": "all_users",
+                      "targetType": "group",
+                      "targetedAuthenticationMethod": "microsoftAuthenticator"
+                  }
+              ]
+          }
+      }
+  }
+  ```
 
 - Include specific users or groups of users
 
-  If you want to include certain users or groups in your tenant, download this JSON and update it with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the https://graph.microsoft.com/beta/policies/authenticationmethodspolicy endpoint. 
+  If you want to include certain users or groups in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes.json) and update it with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the endpoint. 
+
+  ```json
+  {
+  "registrationEnforcement": {
+          "authenticationMethodsRegistrationCampaign": {
+              "snoozeDurationInDays": 0,
+              "state": "enabled",
+              "excludeTargets": [],
+              "includeTargets": [
+                  {
+                      "id": "all_users",
+                      "targetType": "group",
+                      "targetedAuthenticationMethod": "microsoftAuthenticator"
+                  }
+              ]
+          }
+      }
+  }
+  ```
 
 - Include and exclude specific users/groups of users
 
-  If you want to include AND exclude certain users/groups of users in your tenant, download this JSON and paste it in Graph Explorer and run `PATCH` on the https://graph.microsoft.com/beta/policies/authenticationmethodspolicy endpoint. 
+  If you want to include AND exclude certain users/groups of users in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes%20and%20Excludes.json) and paste it in Graph Explorer and run `PATCH` on the endpoint. 
+
+  ```json
+  {
+  "registrationEnforcement": {
+          "authenticationMethodsRegistrationCampaign": {
+              "snoozeDurationInDays": 0,
+              "state": "enabled",
+              "excludeTargets": [
+                  {
+                      "id": "*********PLEASE ENTER GUID***********",
+                      "targetType": "group"
+                  },
+  		{
+                      "id": "*********PLEASE ENTER GUID***********",
+                      "targetType": "user"
+                  }
+              ],
+              "includeTargets": [
+                  {
+                      "id": "*********PLEASE ENTER GUID***********",
+                      "targetType": "group",
+                      "targetedAuthenticationMethod": "microsoftAuthenticator"
+                  },
+  		{
+                      "id": "*********PLEASE ENTER GUID***********",
+                      "targetType": "user",
+                      "targetedAuthenticationMethod": "microsoftAuthenticator"
+                  }
+              ]
+          }
+      }
+  }
+  ```
 
 ### Identify the GUIDs of users to insert in the JSONs
 
