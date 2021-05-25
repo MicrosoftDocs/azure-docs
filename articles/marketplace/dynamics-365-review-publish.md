@@ -1,18 +1,18 @@
 ---
-title: Review and publish a Dynamics 365 for Customer Engagement and Power Apps offer to Microsoft AppSource (Azure Marketplace).
-description: Review and publish a Dynamics 365 for Customer Engagement and Power Apps offer to Microsoft AppSource (Azure Marketplace).
+title: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace).
+description: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace).
 ms.reviewer: emuench 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
+ms.date: 05/20/2021
 ---
 
-# Review and publish a Dynamics 365 CE&PA offer
+# Review and publish a Dynamics 365 offer
 
-This article shows you how to use Partner Center to preview your draft Dynamics 365 for Customer Engagement and Power Apps offer and then publish it to the commercial marketplace. It also cover how to check publishing status as it proceeds through the publishing steps.
+This article shows you how to use Partner Center to preview your draft Dynamics 365 offer and then publish it to the commercial marketplace. It also covers how to check publishing status as it proceeds through the publishing steps.
 
 ## Offer status
 

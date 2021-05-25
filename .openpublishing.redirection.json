@@ -8434,6 +8434,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/appsource-offer-publishing-guide.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/dynamics-365-finance-operations-functional-validation.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-validation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log-alerts",
       "redirect_document_id": true
@@ -9841,11 +9856,6 @@
     {
       "source_path_from_root": "/articles/managed-applications/create-uidefinition-functions.md",
       "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-functions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-overview",
       "redirect_document_id": false
     },
     {
@@ -27524,6 +27534,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/promote-your-business-with-microsoft.md",
+      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/publishing-checklist-appsource.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-create-attach-compute-sdk.md",
       "redirect_url": "/azure/machine-learning/how-to-attach-compute-targets",
       "redirect_document_id": false
@@ -27542,6 +27562,11 @@
       "source_path_from_root": "/articles/machine-learning/service/how-to-change-storage-access-key.md",
       "redirect_url": "/azure/machine-learning/how-to-change-storage-access-key",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/dynamics-365-solution-preparation.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/how-to-configure-auto-train.md",
@@ -28704,16 +28729,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/dynamics-365-solution-preparation.md",
-      "redirect_url": "/azure/marketplace/appsource-offer-publishing-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/publishing-checklist-appsource.md",
-      "redirect_url": "/azure/marketplace/appsource-offer-publishing-guide",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/marketplace/enable-appsource-marketplace-using-azure-ad.md",
       "redirect_url": "/azure/marketplace/azure-ad-saas",
       "redirect_document_id": true
@@ -29162,11 +29177,6 @@
       "source_path_from_root": "/articles/marketplace/gtm-benefits.md",
       "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/promote-your-business-with-microsoft.md",
-      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/insights-dashboard.md",
@@ -29749,6 +29759,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-review-publish.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-review-publish",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-contacts-tab.md",
       "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
@@ -29817,41 +29832,6 @@
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-customer-engagement-offer.md",
       "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/bpm-and-methodologies.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/code-upgrade.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/data-entities.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/help-wiki.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/lcs-subscription.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-channel-info-tab.md",
@@ -63939,6 +63919,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-automate.md",
       "redirect_url": "/azure/azure-monitor/visualize/workbooks-automate",
       "redirect_document_id": false
@@ -63951,6 +63941,36 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-composite-bar.md",
       "redirect_url": "/azure/azure-monitor/visualize/workbooks-composite-bar",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/lcs-subscription.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/code-upgrade.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/data-entities.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/bpm-and-methodologies.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/help-wiki.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-new-operations-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
       "redirect_document_id": false
     },
     {

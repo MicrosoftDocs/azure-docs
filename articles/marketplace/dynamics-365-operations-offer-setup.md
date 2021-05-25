@@ -1,17 +1,17 @@
 ---
-title: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource (Azure Marketplace).
-description: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource (Azure Marketplace).
+title: Create a Dynamics 365 for Operations offer on Microsoft AppSource (Azure Marketplace)
+description: Create a Dynamics 365 for Operations offer on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
+ms.date: 05/19/2021
 ---
 
-# How to create a Dynamics 365 for Customer Engagement & PowerApps offer
+# Create a Dynamics 365 for Operations offer
 
-This article describes how to create a Dynamics 365 for Customer Engagement & PowerApps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
+This article describes how to create a [Dynamics 365 for Operations](https://dynamics.microsoft.com/finance-and-operations) offer. This offer type is an enterprise resource planning (ERP) service that supports advanced operations, finance, manufacturing, and supply chain management. All offers for Dynamics 365 go through our certification process.
 
 Before you start, create a commercial marketplace account in [Partner Center](partner-center-portal/create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
@@ -23,9 +23,9 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **Dynamics 365 for Customer Engagement & Power Apps**.
+3. On the Overview page, select **+ New offer** > **Dynamics 365 for operations**.
 
-    :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-customer-engagement.png" alt-text="Shows the left pane menu options and the 'New offer' button with Customer Engagement select.":::
+    :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-operations.png" alt-text="The left pane menu options and the 'New offer' button.":::
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
@@ -35,7 +35,7 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
+- Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
@@ -47,16 +47,11 @@ Select **Create** to generate the offer. Partner Center opens the **Offer setup*
 
 ## Alias
 
-Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias (pre-populated with what you entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](dynamics-365-customer-engage-offer-listing.md) page.
+Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias (pre-populated with what you entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](dynamics-365-operations-offer-listing.md) page.
 
 ## Setup details
 
-For **How do you want potential customers to interact with this listing offer?**, select the option you want to use for this offer:
-
-- **Enable app license management through Microsoft** – Manage your app licenses through Microsoft. To let customers run your app’s base functionality without a license and run premium features after they’ve purchased a license, select the **Allow customers to install my app even if licenses are not assigned box**. If you select this second box, you need to configure your solution package to not require a license.
-
-    > [!NOTE]
-    > You cannot change this setting after you publish your offer. To learn more about this setting, see [Third-party app license management through Microsoft](third-party-license.md).
+For **How do you want potential customers to interact with this listing offer?**, select the option you'd like to use for this offer.
 
 - **Get it now (free)** – List your offer to customers for free.
 - **Free trial (listing)** – List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
@@ -81,9 +76,15 @@ To enable a test drive, select the **Enable a test drive** check box and select 
 
 For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
+## Business Applications ISV Program
+
+Your offer is initially enrolled in the Standard tier. If your solution meets program eligibility criteria, you may request an upgrade to the Premium tier, which offers expanded program benefits. If you do so, be sure to complete the [Co-sell module](https://aka.ms/BizAppsISVProgram) before you publish your offer.
+
+Select the check box to request an upgrade to the premium tier.
+
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 
 ## Next steps
 
-- [Configure offer properties](dynamics-365-customer-engage-properties.md)
+- [Configure offer properties](dynamics-365-operations-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
