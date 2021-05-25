@@ -56,9 +56,12 @@ The ProSys Software does not require much resources. This Windows 10 VM (see spe
 
 ![screen shot of windows virtual machine](./media/how-to-opcua/create-windows-vm-1.png)
 
-Your VM must be reachable over the internet. To keep things simple, you can open all ports and assign the VM a Public IP address. However, this is a security risk, and you may consider better security measures for your environment.
+Your VM must be reachable over the internet. To keep things simple, you can open all ports and assign the VM a Public IP address. 
 
 ![screen shot of windows virtual machine networking settings](./media/how-to-opcua/create-windows-vm-2.png)
+
+> [!WARNING]
+> Opening all ports to the internet is a security risk. You may consider better security measures for your environment.
 
 ### Install OPC UA simulation software
 
