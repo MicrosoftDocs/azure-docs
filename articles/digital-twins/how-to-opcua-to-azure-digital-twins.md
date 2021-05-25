@@ -30,7 +30,7 @@ This article shows how to connect all these pieces together to get your OPC UA n
 Before completing this article, complete the following prerequisites:
 * **Download sample repo**: This article uses a [DTDL model](concepts-models.md) file and an Azure function body from the [OPC UA to Azure Digital Twins GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins). Start by downloading the sample repo onto your machine. You can select the **Code** button for the repo to either clone the repository or download it as a .zip file to your machine.
 
-    :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/download-repo.png" alt-text="Screenshot of the digital-twins-explorer repo on GitHub. The Code button is selected, producing a small dialog box where the Download ZIP button is highlighted." lightbox="media/how-to-opcua-to-azure-digital-twins/download-repo.png":::
+    :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/download-repo.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to clone or download the code." lightbox="media/how-to-opcua-to-azure-digital-twins/download-repo.png":::
     
     If you download the repository as a .zip, be sure to unzip it and extract the files.
 * **Download Visual Studio**: This article uses Visual Studio to publish an Azure function. You can download the latest version of Visual Studio from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
@@ -298,7 +298,7 @@ First, deploy a new Azure Digital Twins instance, using the guidance in [How-to:
 
 Next, add a model and twin to your instance. The model file that you'll upload to the instance is part of the sample project you downloaded in the [Prerequisites](#prerequisites) section, located at *Simulation Example/simulation-dtdl-model.json*.
 
-You can use [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer) to upload the Simulation model, and create a new twin called **simulation-1**.
+You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to upload the Simulation model, and create a new twin called **simulation-1**.
 
 :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/azure-digital-twins-explorer.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing the Simulation model and simulation-1 twin.":::
 
