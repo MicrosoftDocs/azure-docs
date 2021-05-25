@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: saachigopal
 ms.author:  sagopal
-ms.date: 5/10/2021
+ms.date: 5/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -36,7 +36,7 @@ Curated environments contain collections of Python packages and are available in
 
 Click on an environment to see detailed information about its contents.
 
-    :::image type="content" source="media/how-to-manage-environments-in-studio/curated-env.png" alt-text="Browse curated environments":::
+:::image type="content" source="media/how-to-manage-environments-in-studio/curatedenv.jpg" alt-text="Browse curated environments":::
 
 ## Create an environment
 
@@ -51,6 +51,8 @@ Create an environment by specifying one of the following:
 > * Conda yaml [file](https://conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#sharing-an-environment)
 > * Docker [image](https://hub.docker.com/search?q=&type=image)
 > * [Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+
+:::image type="content" source="media/how-to-manage-environments-in-studio/createpage.png" alt-text="Environment creation wizard":::
 
 You can customize the configuration file, add tags and descriptions, and review the properties before creating the entity. 
 
