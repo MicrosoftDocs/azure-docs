@@ -199,7 +199,7 @@ Now that you've completed setup, you can run the sample code project.
 
 Here is the console output of the program: 
 
-:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Screenshot of the console output showing the twin details with incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [Visualization](how-to-manage-graph.md#visualization) section of this article. 
