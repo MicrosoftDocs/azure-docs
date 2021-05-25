@@ -85,9 +85,8 @@ Your device is available as a 1-node configuration that constitutes the infrastr
 
 The master and worker VMs each have 2 network interfaces, one that connects to the internal virtual switch and another that connects to the external virtual switch. 
 
-The external virtual switch is created when we enable a device port for compute via the Compute page. The internal virtual switch is created as a part of the factory default settings on your device.
-
-The external virtual switch connects to the intranet or the private network.  The internal virtual switch provides connectivity to the internet. The internal virtual switch uses Network Address Translation (NAT) to route the internet traffic to the port on the device that is configured with a default gateway. The port with the default gateway configured is used to route all the IoT runtime requests from the VMs to the internet or the Azure portal.
+- **External virtual switch**: This switch is created when we enable a device port for compute via the **Compute** page in the local UI. The external virtual switch connects to the intranet or the private network. 
+- **Internal virtual switch**: This switch is created as a part of the factory default settings on your device. The internal virtual switch provides connectivity to the internet. The internal virtual switch uses Network Address Translation (NAT) to route the internet traffic to the port on the device that is configured with a default gateway. The port with the default gateway configured is used to route all the IoT runtime requests from the VMs to the internet or the Azure portal.
 
 [Insert a simplified diagram here]
 
@@ -95,23 +94,29 @@ The external virtual switch connects to the intranet or the private network.  Th
 
 For the Kubernetes VMs on your device, you can route the traffic by adding a new route configuration. A route configuration is a routing table entry that includes the following fields:
 
+| Parameter     | Description                                                                              |
+|---------------|------------------------------------------------------------------------------------------|
+| Destination   | Either an IP address or an IP address prefix.                                            |
+| Prefix length | The prefix length corresponding to the address or range of addresses in the destination. |
+| Next hop      | The IP address to which the packet is forwarded.                                         |
+| Interface     | The network interface that forwards the IP packet.                                       |
+| Metric        | Routing metric determines the preferred network interface used to reach the destination. |
 
 
 ## Change routing on compute network
 
-Use the Add-HcsNetRoute cmdlet to modify the routing on the Kubernetes worker and master VMs. Consider the layout in the diagram below. 
+Use the `Add-HcsNetRoute` cmdlet to modify the routing on the Kubernetes worker and master VMs. Consider the layout in the diagram below. 
 
-[Insert a diagram here]
+![Azure Stack Edge networking diagram](./media/azure-stack-edge-gpu-kubernetes-networking/azure-stack-edge-networking-1.png)
 
 - Port 2 is connected to the internet and is your desired path for outbound traffic. 
 - You've enabled compute on Port 3 and this has created an external virtual switch on this network interface. 
 - Port 3 is connected to a private network that has cameras and other sensors that are feeding raw data to the Azure Stack Edge device for processing. 
 
 
-
 If a gateway is configured in your environment in the private network, consider setting custom routes for the Kubernetes master and worker VMs so that they can communicate with your gateway for only the relevant traffic. This lets you be in control of the traffic that flows on the compute network vs the other ports that you might have configured on your Azure Stack Edge device. For example, you may want all other internet-facing traffic to flow over the other physical ports your device. In this case, internet-facing traffic can go through Port 2. 
 
-You may want to factor these other considerations as well:
+You should also factor these other considerations:
 
 - If you have a flat subnet, then you don't need to add these routes to the private network. You can (optionally) add these routes when there are multiple subnets on your private network.
 - You can add these routes only to the Kubernetes master and worker VMs and not to the device (Windows host).
@@ -126,8 +131,9 @@ To add a new custom route to the private network, use the cmdlet as follows:
 ```powershell
 Add-HcsNetRoute -InterfaceAlias <Port number> -DestinationPrefix <Destination IP address or IP address prefix> -NextHop <IP address of next hop> -RouteMetric <Route metric number> 
 ```
+Here is an example output.
 
-```powershell
+```output
 Add-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24" -NextHop "192.168.20.1" -RouteMetric 100 
 ```
 
@@ -138,7 +144,7 @@ The above command will create an entry in the routing table that defines a desti
 Use this cmdlet to check for all the custom route configurations that you added on your device. These routes do not include all the system routes or default routes that already exist on the device.
 
 ```powershell
-Get-HcsNetRoute -InterfaceAlias Port3
+Get-HcsNetRoute -InterfaceAlias <Port number>
 ```
 
 ## Remove a route configuration
@@ -146,12 +152,12 @@ Get-HcsNetRoute -InterfaceAlias Port3
 Use this cmdlet to remove a route configuration that you added on your device.
 
 ```powershell
-Remove-HcsNetRoute -InterfaceAlias "Port3" -DestinationPrefix "192.168.21.0/24"
+Remove-HcsNetRoute -InterfaceAlias <Port number> -DestinationPrefix <Destination IP or IP prefix>
 ```
 
 ## Routing with multiple network interfaces
 
-If multiple device ports are connected, then standard NIC teaming or Switch Embedded Teaming (SET) that lets you group several physical network adapters into a single virtual network adapter in a Hyper-V environment, are not supported.
+If multiple device ports are connected, then standard NIC teaming or Switch Embedded Teaming (SET) that lets you group several physical network adapters into a single virtual network adapter in a Hyper-V environment, is not supported.
 
 
 ## Next steps
