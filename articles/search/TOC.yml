@@ -430,7 +430,7 @@
       href: search-traffic-analytics.md
   - name: Security
     items:
-    - name: Admin rights
+    - name: Assign roles
       href: search-security-rbac.md
     - name: Data encryption
       items:
