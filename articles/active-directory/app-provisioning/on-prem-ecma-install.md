@@ -18,12 +18,12 @@ The Azure AD ECMA Connector Host is included and part of the Azure AD Connect Pr
 
 ## Download and install the Azure AD Connect Provisioning Agent Package
 
- 1. Sign in to the server you'll use with enterprise admin permissions.
- 2. Sign in to the Azure portal, and then go to **Azure Active Directory**.
- 3. In the left menu, select **Azure AD Connect**.
- 4. Select **Manage cloud sync** > **Review all agents**.
- 5. Download the Azure AD Connect provisioning agent package from the Azure portal.
- 6. Accept the terms and click download.
+ 1. Sign into the Azure portal
+ 2. Navigate to enterprise applications > Add a new application
+ 3. Search for the "On-premises provisioning" application and add it to your tenant image
+ 4. Navigate to the provisioning blade
+ 5. Click on on-premises connectivity
+ 6.  Download the agent installer
  7. Run the Azure AD Connect provisioning installer AADConnectProvisioningAgentSetup.msi.
  8. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
    ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/on-prem-ecma-install/install-1.png)</br>
