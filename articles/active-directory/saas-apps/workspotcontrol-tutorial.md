@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. Select **Save**.
 
-### Create a Workspot Control test user
+### Create Workspot Control test user
 
 To enable Azure AD users to sign in to Workspot Control, they must be provisioned into Workspot Control. Provisioning is a manual task.
 
