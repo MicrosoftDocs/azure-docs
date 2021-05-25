@@ -23,14 +23,16 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Cognitive Search
+          - text: What is Azure Cognitive Search?
             url: search-what-is-azure-search.md
-          - text: What is semantic search
+          - text: What is semantic search?
             url: semantic-search-overview.md
-          - text: What is AI enrichment
+          - text: What is AI enrichment?
             url: cognitive-search-concept-intro.md
-          - text: What is an indexer
+          - text: What is an indexer?
             url: search-indexer-overview.md
+          - text: What are Azure Applied AI Services?
+            url: ../applied-ai-services/what-are-applied-ai-services.md
       - linkListType: video
         links:
           - text: Use AI in search solutions

@@ -14,6 +14,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!NOTE]
 >
 > * This quickstart  targets Azure Form Recognizer API version **2.1** using cURL to execute REST API calls.
@@ -82,7 +83,7 @@ You'll receive a `200 (success)` response with JSON content.
 See the following invoice image and its corresponding JSON output.
 
 * The `"readResults"` node contains every line of text with its respective bounding box placement on the page.
-* The `"selectionMarks"` node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+* The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
 * The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
 :::image type="content" source="../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
@@ -976,7 +977,7 @@ To start analyzing an identification document, use the cURL command below. For m
 curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your identity document URL}'}"
 ```
 
-Operation-Location
+#### Operation-Location
 
 You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
@@ -1191,7 +1192,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../sas-instructions.md)]
+1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
@@ -1221,7 +1222,7 @@ Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../sas-instructions.md)]
+1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 
@@ -1451,7 +1452,7 @@ This sample JSON output has been shortened for simplicity. See the [full sample 
 
 ### Improve results
 
-[!INCLUDE [improve results](../improve-results-unlabeled.md)]
+[!INCLUDE [improve results](../../includes/improve-results-unlabeled.md)]
 
 ## Manage custom models
 

@@ -73,6 +73,11 @@ Interactive authoring capabilities is used for functionalities like test connect
 
 ![Interactive authoring](./media/managed-vnet/interactive-authoring.png)
 
+## Activity execution time using managed virtual network
+By design, Azure integration runtime in managed virtual network takes longer queue time than public Azure integration runtime as we are not reserving one compute node per data factory, so there is a warm up for each activity to start, and it occurs primarily on virtual network join rather than Azure integration runtime. For non-copy activities including pipeline activity and external activity, there is a 60 minutes Time To Live (TTL) when you trigger them at the first time. Within TTL， the queue time is much shorted because the node is already warmed up. 
+> [!NOTE]
+> Copy activity doesn't have TTL support yet.
+
 ## Create managed virtual network via Azure PowerShell
 ```powershell
 $subscriptionId = ""
@@ -119,7 +124,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 ## Limitations and known issues
 ### Supported Data Sources
-Below data sources are supported to connect through private link from ADF Managed Virtual Network.
+Below data sources have native Private Endpoint support and can be connected through private link from ADF Managed Virtual Network.
 - Azure Blob Storage (not including Storage account V1)
 - Azure Table Storage (not including Storage account V1)
 - Azure Files (not including Storage account V1)

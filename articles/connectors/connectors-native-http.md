@@ -4,8 +4,8 @@ description: Send outbound HTTP or HTTPS requests to service endpoints from Azur
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 02/18/2021
+ms.topic: how-to
+ms.date: 05/25/2021
 tags: connectors
 ---
 
@@ -189,6 +189,41 @@ By default, all HTTP-based actions in Azure Logic Apps follow the standard [asyn
 
 * The HTTP action's underlying JavaScript Object Notation (JSON) definition implicitly follows the asynchronous operation pattern.
 
+<a name="tsl-ssl-certificate-authentication"></a>
+
+## TSL/SSL certificate authentication
+
+If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you try to call an HTTPS endpoint from your workflow by using the HTTP operation and a TSL/SSL certificate for authentication, the call fails unless you also complete these steps:
+
+1. In your logic ap resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
+
+1. For the setting value, provide the thumbprint for your TSL/SSL certificate as the root certificate to be trusted.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+
+For example, if you're working in Visual Studio Code, follow these steps:
+
+1. Open your logic app project's **local.settings.json** file.
+
+1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_ROOT_CERTIFICATES` setting:
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+For more information, review the following documentation:
+
+* [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [Private client certificates - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
 <a name="disable-asynchronous-operations"></a>
 
 ## Disable asynchronous operations
@@ -228,7 +263,7 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 ## Disable checking location headers
 
-Some endpoints, services, systems, or APIs return a "202 ACCEPTED" response that don't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:
+Some endpoints, services, systems, or APIs return a `202 ACCEPTED` response that doesn't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:
 
 * [Disable the HTTP action's asynchronous operation pattern](#disable-asynchronous-operations) so that the action doesn't continually poll or check the request's status. Instead, the action waits for the receiver to respond with the status and results after the request finishes processing.
 
@@ -257,7 +292,7 @@ Although Logic Apps won't stop you from saving logic apps that use an HTTP trigg
 
 ## Connector reference
 
-For more information about trigger and action parameters, see these sections:
+For technical information about trigger and action parameters, see these sections:
 
 * [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)

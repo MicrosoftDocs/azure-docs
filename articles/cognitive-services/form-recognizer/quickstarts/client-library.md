@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Form Recognizer client library or REST API"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Use the Form Recognizer client library or REST API to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: laujan
@@ -18,9 +18,9 @@ keywords: forms processing, automated data processing
 
 # Quickstart: get started with the client library SDKs or REST API
 
-Get started with the Form Recognizer using the development language of your choice. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. Follow these steps to install the SDK package and try out the example code for basic tasks.
+Get started with the Form Recognizer using the development language of your choice. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-Use Form Recognizer to:
+You'll use the following APIs to extract structured data from forms and documents:
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze Layout](#analyze-layout)

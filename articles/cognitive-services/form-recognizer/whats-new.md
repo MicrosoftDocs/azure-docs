@@ -1,6 +1,6 @@
 ---
 title: What's new in Form Recognizer?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Understand the latest changes to the Form Recognizer API.
 author: laujan
 manager: nitinme
@@ -13,9 +13,26 @@ ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
-# What's new in Form Recognizer?
+# What's new in Form Recognizer
 
-The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+
+## May 2021
+
+### Form Recognizer 2.1 (GA)
+
+Form Recognizer 2.1 is generally available. This release enables you to detect and extract information and data from the following:
+
+* [Documents](concept-layout.md)
+* [Receipts](concept-receipts.md)
+* [Business cards](concept-business-cards.md)
+* [Invoices](concept-invoices.md)
+* [Identity documents](concept-identification-cards.md)
+* [Custom forms](concept-custom.md)
+
+### Layout adds table headers
+
+The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This can be used to identify which rows make up the table header.
 
 ## May 2021
 
@@ -373,7 +390,7 @@ pip package version 3.1.0b4
 **New samples** are available on GitHub.
 
 * The [Knowledge Extraction Recipes - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) collects best practices from real Form Recognizer customer engagements and provides usable code samples, checklists, and sample pipelines used in developing these projects.
-* The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](quickstarts/label-tool.md) for getting started with the tool.
+* The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](label-tool.md) for getting started with the tool.
 * The [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Form Recognizer sample shows how to integrate `Analyze Receipt` and `Train Custom Model` - _Train without Labels_.
 
 ## July 2020
@@ -437,7 +454,7 @@ pip package version 3.1.0b4
   * `time`
   * `integer`
 
-  See the [Sample labeling tool](./quickstarts/label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
+  See the [Sample labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
 * **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This feature lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 
