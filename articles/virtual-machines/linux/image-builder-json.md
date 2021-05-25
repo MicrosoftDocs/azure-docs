@@ -1,9 +1,9 @@
 ---
 title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
-author: danielsollondon
-ms.author: danis
-ms.date: 05/04/2021
+author: kof-f
+ms.author: kofiforson
+ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -65,11 +65,9 @@ The location is the region where the custom image will be created. For the Image
 - West Central US
 - West US
 - West US 2
+- South Central US
 - North Europe
 - West Europe
-- South Central US
-
-Coming soon (mid 2021):
 - South East Asia
 - Australia Southeast
 - Australia East
@@ -83,12 +81,15 @@ Coming soon (mid 2021):
 ### Data Residency
 The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
 
+### Zone Redundancy
+Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type]( Create an Azure Image Builder template (preview) - Azure Virtual Machines | Microsoft Docs) if specified.
+
  
 ## vmProfile
 ## buildVM
-By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you speciify in the `source`. You can override this and may wish to do this for these reasons:
+By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
-2. Running Windows builds, you should use "Standard_D2_v2" or equivilent VM size.
+2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](https://docs.microsoft.com/azure/virtual-machines/isolation).
 4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
 5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) that don't use local temporary disks.
@@ -171,7 +172,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 
 
 > [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+> When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
 Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../image-builder-overview.md#os-support) for the full list. 

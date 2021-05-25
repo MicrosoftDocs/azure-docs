@@ -11,7 +11,7 @@ ms.custom: support-help-page
 
 We have created a number of support request options to serve the needs of managing your Service Fabric clusters and application workloads, depending on the urgency of support needed and the severity of the issue.
 
-## Self help troubleshooting content
+## Self help troubleshooting
 <div class='icon is-large'>
     <img alt='Self help content' src='./media/logos/i-article.svg'>
 </div>
