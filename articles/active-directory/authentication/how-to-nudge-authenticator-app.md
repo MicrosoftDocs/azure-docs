@@ -69,19 +69,63 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Enable the nudge policy
 
-To enable the Nudge, you must use the Authentication Methods Policy using Graph APIs or Powershell commands. Global administrator and Authentication Methody Policy administrator can update the policy. 
+To enable the nudge, you must use the Authentication Methods Policy using Graph APIs or PowerShell commands. Global administrators and Authentication Method Policy administrators can update the policy. 
 
 To configure the policy using Graph Explorer:
-1)	Sign in to Graph Explorer and ensure you’ve consented to the “Policy.Read.All” and “Policy.ReadWrite.AuthenticationMethod” permissions.
 
-To open the Permissions panel:
+1. Sign in to Graph Explorer and ensure you’ve consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions.
+
+   To open the Permissions panel:
 
    ![Screenshot of Graph Explorer](./media/how-to-nudge-authenticator-app/permissions.png)
 
+1. Retrieve the Authentication methods policy:
+   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy
+
+1. Update the registrationEnforcement and authenticationMethodsRegistrationCampaign section of the policy to enable the nudge on a user or group.
 
    ![User object ID](./media/how-to-nudge-authenticator-app/object-id.png)
 
+To update the policy perform a PATCH on the Authentication Methods Policy with only the updated registrationEnforcement section.
+PATCH https://graph.microsoft.com/beta/policies/authenticationmethodspolicy
+
    ![Nudge group](./media/how-to-nudge-authenticator-app/group.png)
+
+The following table lists **authenticationMethodsRegistrationCampaign** properties.
+
+| Name | Possible values | Description |
+|------|-----------------|-------------|
+| state |	"enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>"default" means disabled.<br>Change states to either enabled or disabled as needed. |
+| snoozeDurationInDays | Range: 0 – 14 | Defines after how many days the user will see the nudge again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
+| includeTargets | N/A | Allows you to include different users and groups that you want the feature to target. |
+| excludeTargets | N/A | Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
+
+The following table lists **includeTargets** properties.
+
+| Name | Possible values | Description |
+|------|-----------------|-------------|
+| targetType| "user"<br>"group" | The kind of entity targeted. |
+| Id | A guid identifier | The ID of the user or group targeted. |
+| targetedAuthenticationMethod | "microsoftAuthenticator" | The authentication method user is prompted to register. The only permissible value is "microsoftAuthenticator". |
+
+The following table lists **excludeTargets** properties.
+
+| Name       | Possible values   | Description                           |
+|------------|-------------------|---------------------------------------|
+| targetType | "user"<br>"group" | The kind of entity targeted.          |
+| Id         | A string          | The ID of the user or group targeted. |
+
+### PowerShell
+
+1. Install the module.
+1. Ensure you pass the right roles:
+   
+   ```powershell
+   Connect-MgGraph -Scopes "User.Read.All","Group.ReadWrite.All"
+   ```
+
+1. Select the beta profile.
+1. Call `Update-MgPolicyAuthenticationMethod`.
 
 ## Limitations
 
