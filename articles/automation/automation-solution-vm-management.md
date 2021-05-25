@@ -13,7 +13,9 @@ ms.custom: devx-track-azurepowershell
 The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios.
 
 > [!NOTE]
-> Before you install this version (v1), we would like you to know about the [next version](../azure-functions/start-stop-vms/overview.md), which is in preview right now. This new version (v2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance. Start/Stop VMs during off-hours (v1) will deprecate on 5/21/2022. 
+> Before you install this version (v1), we would like you to know about the [next version](../azure-functions/start-stop-vms/overview.md), which is in preview right now. This new version (v2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance. 
+>
+> Start/Stop VMs during off-hours (v1) will deprecate on 5/21/2022. 
 
 This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](/powershell/module/az.compute/stop-azvm) for stopping VMs.
 
