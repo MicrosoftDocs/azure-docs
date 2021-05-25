@@ -9,7 +9,7 @@ ms.date: 06/01/2021
 
 # Logical functions for Bicep
 
-Resource Manager provides a `bool` function for Bicep. Some of the ARM JSON logical functions are replaced with [Bicep logical operators](./operators-logical.md).
+Resource Manager provides a `bool` function for Bicep. Some of the Azure Resource Manager JSON logical functions are replaced with [Bicep logical operators](./operators-logical.md).
 
 ## bool
 

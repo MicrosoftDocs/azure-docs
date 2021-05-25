@@ -15,7 +15,7 @@ Resource Manager provides the following functions for working with integers in y
 * [max](#max)
 * [min](#min)
 
-Some of the ARM JSON numeric functions are replaced with [Bicep numeric operators](./operators-numeric.md).
+Some of the Azure Resource Manager JSON numeric functions are replaced with [Bicep numeric operators](./operators-numeric.md).
 
 ## int
 
