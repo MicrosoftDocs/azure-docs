@@ -56,8 +56,8 @@ To configure and test Azure AD SSO with Hopsworks.ai, perform the following step
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Hopsworks.ai SSO](#configure-hopsworksai-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Hopsworks.ai test user](#create-hopsworksai-test-user)** - to have a counterpart of B.Simon in Hopsworks.ai that is linked to the Azure AD representation of user.
+1. **[Configure Hopsworks.ai SSO](#configure-hopsworks.ai-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Hopsworks.ai test user](#create-hopsworks.ai-test-user)** - to have a counterpart of B.Simon in Hopsworks.ai that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://managed.hopsworks.ai/sso-open/<ORGANIZATION>`
 
-    b. In the **Identifier (Entity ID)** text box, type a value using the following pattern:
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `urn:amazon:cognito:sp:us-east-2_<ID>`
 
 	> [!NOTE]
