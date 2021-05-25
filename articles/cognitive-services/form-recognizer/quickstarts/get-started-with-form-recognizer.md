@@ -27,8 +27,6 @@ Use Form Recognizer to:
 * Analyze using a Prebuilt model (invoices, receipts, ID documents)
 * Train & Analyze a custom Form
 
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
-
 ## Prerequisites
 
 To complete this quickstart, you must have:

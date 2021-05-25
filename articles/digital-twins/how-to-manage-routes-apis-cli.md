@@ -3,8 +3,8 @@
 title: Manage endpoints and routes (APIs and CLI)
 titleSuffix: Azure Digital Twins
 description: See how to set up and manage endpoints and event routes for Azure Digital Twins data.
-author: alexkarcher-msft
-ms.author: alkarche # Microsoft employees only
+author: baanders
+ms.author: baanders # Microsoft employees only
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
