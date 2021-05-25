@@ -55,7 +55,7 @@ The first step in debugging errors is to get your deployment logs. First, follow
 
 To get the logs from a deployed webservice, do:
 
-```bash
+```azurecli
 az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
 ```
 

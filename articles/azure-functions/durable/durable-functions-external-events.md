@@ -70,6 +70,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$approved = Start-DurableExternalEventListener -EventName "Approval"
+
+if ($approved) {
+    # approval granted - do the approved action
+} else {
+    # approval denied - send a notification
+}
+```
+
 ---
 
 The preceding example listens for a specific single event and takes action when it's received.
@@ -149,6 +163,25 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$event1 = Start-DurableExternalEventListener -EventName "Event1" -NoWait
+$event2 = Start-DurableExternalEventListener -EventName "Event2" -NoWait
+$event3 = Start-DurableExternalEventListener -EventName "Event3" -NoWait
+
+$winner = Wait-DurableTask -Task @($event1, $event2, $event3) -Any
+
+if ($winner -eq $event1) {
+    # ...
+} else if ($winner -eq $event2) {
+    # ...
+} else if ($winner -eq $event3) {
+    # ...
+}
+```
 ---
 
 The previous example listens for *any* of multiple events. It's also possible to wait for *all* events.
@@ -216,6 +249,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$applicationId = $Context.Input
+$gate1 = Start-DurableExternalEventListener -EventName "CityPlanningApproval" -NoWait
+$gate2 = Start-DurableExternalEventListener -EventName "FireDeptApproval" -NoWait
+$gate3 = Start-DurableExternalEventListener -EventName "BuildingDeptApproval" -NoWait
+
+Wait-DurableTask -Task @($gate1, $gate2, $gate3)
+
+Invoke-ActivityFunction -FunctionName 'IssueBuildingPermit' -Input $applicationId
+```
 ---
 
 `WaitForExternalEvent` waits indefinitely for some input.  The function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it is awakened automatically and immediately processes the event.
@@ -273,9 +320,16 @@ async def main(instance_id:str, starter: str) -> func.HttpResponse:
     await client.raise_event(instance_id, 'Approval', True)
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($instanceId)
+
+Send-DurableExternalEvent -InstanceId $InstanceId -EventName "Approval"
+```
 ---
 
-Internally, `RaiseEventAsync` (.NET), `raiseEvent` (JavaScript), or `raise_event` (Python) enqueues a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
+Internally, `RaiseEventAsync` (.NET), `raiseEvent` (JavaScript), `raise_event` (Python),  or `Send-DurableExternalEvent` (PowerShell)  enqueues a message that gets picked up by the waiting orchestrator function. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
 
 > [!NOTE]
 > If there is no orchestration instance with the specified *instance ID*, the event message is discarded.

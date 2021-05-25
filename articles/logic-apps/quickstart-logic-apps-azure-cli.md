@@ -1,15 +1,15 @@
 ---
-title: Create and manage logic apps with the Azure CLI
-description: Use the Azure CLI to create a logic app, then manage your logic app using operations such as list, show (get), update, and delete.
+title: Quickstart - Create and manage workflows with multi-tenant Azure Logic Apps and the Azure CLI
+description: Using the CLI, create logic app workflows with multi-tenant Azure Logic Apps, and manage logic with operations such as list, show (get), update, and delete.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
-ms.date: 04/23/2021
+ms.date: 05/25/2021
 ---
 
-# Quickstart: Create and manage logic apps using the Azure CLI
+# Quickstart: Create and manage workflows in multi-tenant Azure Logic Apps using the Azure CLI
 
 This quickstart shows you how to create and manage logic apps by using the [Azure CLI Logic Apps extension](/cli/azure/logic) (`az logic`). From the command line, you can create a logic app by using the JSON file for a logic app workflow definition. You can then manage your logic app by running operations such as `list`, `show` (`get`), `update`, and `delete` from the command line.
 

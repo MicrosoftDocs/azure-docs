@@ -56,25 +56,14 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-let username = "";
+let accountId = "";
 
 const myMsal = new PublicClientApplication(config);
 
 myMsal.loginPopup(loginRequest)
     .then(function (loginResponse) {
-        //login success
-
-        // In case multiple accounts exist, you can select
-        const currentAccounts = myMsal.getAllAccounts();
-    
-        if (currentAccounts === null) {
-            // no accounts detected
-        } else if (currentAccounts.length > 1) {
-            // Add choose account code here
-        } else if (currentAccounts.length === 1) {
-            username = currentAccounts[0].username;
-        }
-    
+        accountId = loginResponse.account.homeAccountId;
+        // Display signed-in user content, call API, etc.
     }).catch(function (error) {
         //login failure
         console.log(error);
@@ -303,28 +292,30 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-let username = "";
+let accountId = "";
 
 const myMsal = new PublicClientApplication(config);
 
 function handleResponse(response) {
-    //handle redirect response
-
-    // In case multiple accounts exist, you can select
-    const currentAccounts = myMsal.getAllAccounts();
-
-    if (currentAccounts === null) {
-        // no accounts detected
-    } else if (currentAccounts.length > 1) {
-        // Add choose account code here
-    } else if (currentAccounts.length === 1) {
-        username = currentAccounts[0].username;
+    if (response !== null) {
+        accountId = response.account.homeAccountId;
+        // Display signed-in user content, call API, etc.
+    } else {
+        // In case multiple accounts exist, you can select
+        const currentAccounts = myMsal.getAllAccounts();
+    
+        if (currentAccounts.length === 0) {
+            // no accounts signed-in, attempt to sign a user in
+            myMsal.loginRedirect(loginRequest);
+        } else if (currentAccounts.length > 1) {
+            // Add choose account code here
+        } else if (currentAccounts.length === 1) {
+            accountId = currentAccounts[0].homeAccountId;
+        }
     }
 }
 
 myMsal.handleRedirectPromise().then(handleResponse);
-
-myMsal.loginRedirect(loginRequest);
 ```
 
 # [JavaScript (MSAL.js v1)](#tab/javascript1)

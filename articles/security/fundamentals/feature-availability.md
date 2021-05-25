@@ -1,8 +1,8 @@
 ---
 title: Azure service cloud feature availability for US government customers
 description: Lists feature availability for Azure security services, such as Azure Sentinel for US government customers
-author: batami
-ms.author: bagol
+author: TerryLanfear
+ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 04/29/2021

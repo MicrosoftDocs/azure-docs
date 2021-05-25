@@ -27,7 +27,7 @@ If the glossary is invalid or unreachable during translation, an error is indica
 
 Send a `POST` request to:
 ```HTTP
-POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
+POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -95,10 +95,10 @@ Destination for the finished translated documents.
 |glossaries.format|string|False|Format.|
 |glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We will use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it won't be applied.|
 |glossaries.storageSource|StorageSource|False|StorageSource listed above.|
+|glossaries.version|string|False|Optional Version. If not specified, default is used.|
 |targetUrl|string|True|Location of the folder / container with your documents.|
 |language|string|True|Two letter Target Language code. See [list of language codes](../../language-support.md).|
 |storageSource|StorageSource []|False|StorageSource [] listed above.|
-|version|string|False|Version.|
 
 ## Example request
 
@@ -229,9 +229,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |inner.Errorcode|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
 
 ## Examples
 
@@ -242,7 +243,7 @@ The following information is returned in a successful response.
 You can find the job ID in the POST method's response Header Operation-Location URL value. The last parameter of the URL is the operation's job ID (the string following "/operation/").
 
 ```HTTP
-Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0.preview.1/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
+Operation-Location: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55
 ```
 
 ### Example error response
