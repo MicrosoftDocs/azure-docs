@@ -118,7 +118,7 @@ Once your deployment is complete, you can launch notebooks in your new Azure ML 
 
     1. On the **Configure settings** page, provide the required information, and then select **Create**.
     
-        > [!div class="mx-imgBorder]
+        > [!div class="mx-imgBorder"]
         > ![Configure compute instance settings](./media/notebooks/sentinel-azure-notebooks-compute-settings.png)
 
 1. Once your notebook server is created, within each cell select the run icon to execute code in the notebooks.
