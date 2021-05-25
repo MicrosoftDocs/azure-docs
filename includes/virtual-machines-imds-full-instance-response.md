@@ -99,6 +99,9 @@ ms.reviewer: azmetadatadev
                     "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
             }
         },
         "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
@@ -222,6 +225,9 @@ ms.reviewer: azmetadatadev
                     "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
             }
         },
         "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",

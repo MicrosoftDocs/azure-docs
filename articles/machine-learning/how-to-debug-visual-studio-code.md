@@ -23,7 +23,7 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 
 ### Prerequisites
 
-* Azure Machine Learning VS Code extension (preview). For more information, see [Set up Azure Machine Learning VS Code extension](tutorial-setup-vscode-extension.md).
+* Azure Machine Learning VS Code extension (preview). For more information, see [Set up Azure Machine Learning VS Code extension](how-to-setup-vs-code.md).
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop for Mac and Windows
   * Docker Engine for Linux.
