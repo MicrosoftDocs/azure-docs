@@ -137,7 +137,7 @@ $SqlText = "EXEC internal.cleanup_server_retention_window_exclusive"
 $Job | Add-AzureRmSqlElasticJobStep -Name "step to execute cleanup stored procedure" -TargetGroupName $SSISDBTargetGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText
 
 # Run the job to immediately start cleanup stored procedure execution for once
-IF(($RunJobOrNot = "Y") -Or ($RunJobOrNot = "y"))
+IF(($RunJobOrNot -eq "Y") -Or ($RunJobOrNot -eq "y"))
 {
 Write-Output "Start a new execution of the stored procedure for SSISDB log cleanup immediately..."
 $JobExecution = $Job | Start-AzureRmSqlElasticJob
