@@ -31,7 +31,7 @@ The following article will be beneficial before going through this article:
 
 ## Claims in an ID token
 
-ID tokens are JSON web tokens (JWT). These ID tokens consist of a header, payload, and signature. The header and signature are used to verify the authenticity of the token, while the payload contains the information about the user requested by your client. The v1.0 and v2.0 ID tokens have differences in the information they carry. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint (v1.0), new applications should use the "Microsoft identity platform" endpoint(v2.0).
+ID tokens are [JSON web tokens (JWT)](https://jwt.io/introduction/). These ID tokens consist of a header, payload, and signature. The header and signature are used to verify the authenticity of the token, while the payload contains the information about the user requested by your client. The v1.0 and v2.0 ID tokens have differences in the information they carry. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint (v1.0), new applications should use the "Microsoft identity platform" endpoint(v2.0).
 
 * v1.0: Azure AD endpoint: `https://login.microsoftonline.com/common/oauth2/authorize`
 * v2.0: Microsoft identity Platform endpoint: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
