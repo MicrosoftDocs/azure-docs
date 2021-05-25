@@ -203,7 +203,7 @@ The preceding figure shows how the virtual networks in both regions are connecte
 
 ## Next steps
 
-Learn about deploying SAP HANA (Large Instances).
+Learn about the storage architecture of SAP HANA (Large Instances).
 
 > [!div class="nextstepaction"]
-> [SAP HANA (Large Instances) deployment](hana-overview-infrastructure-connectivity.md)
+> [SAP HANA (Large Instances) storage architecture](hana-storage-architecture.md)

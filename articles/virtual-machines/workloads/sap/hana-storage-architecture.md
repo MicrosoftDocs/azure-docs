@@ -133,4 +133,8 @@ The storage used in HANA Large Instances has a file size limitation. The [size l
 > - Be aware of SAP note [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 ## Next steps
-- Refer [Supported scenarios for HANA Large Instances](hana-supported-scenario.md)
+
+Learn about deploying SAP HANA (Large Instances).
+
+> [!div class="nextstepaction"]
+> [SAP HANA (Large Instances) deployment](hana-overview-infrastructure-connectivity.md)
