@@ -71,6 +71,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|Audit|Audit|Yes|
 |HttpRequest|HTTP Requests|Yes|
 
 
@@ -184,9 +185,9 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|No|
-|RequestResponse|Request and Response Logs|No|
-|Trace|Trace Logs|No|
+|Audit|Audit Logs|Yes|
+|RequestResponse|Request and Response Logs|Yes|
+|Trace|Trace Logs|Yes|
 
 
 ## Microsoft.Communication/CommunicationServices
@@ -199,12 +200,19 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Usage|Usage Records|No|
 
 
+## Microsoft.ConnectedVehicle/platformAccounts
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Logs|MCVP Logs|Yes|
+
+
 ## Microsoft.ContainerRegistry/registries
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ContainerRegistryLoginEvents|Login Events|No|
-|ContainerRegistryRepositoryEvents|RepositoryEvent logs|No|
+|ContainerRegistryLoginEvents|Login Events|Yes|
+|ContainerRegistryRepositoryEvents|RepositoryEvent logs|Yes|
 
 
 ## Microsoft.ContainerService/managedClusters
@@ -414,20 +422,20 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|C2DCommands|C2D Commands|No|
-|C2DTwinOperations|C2D Twin Operations|No|
-|Configurations|Configurations|No|
-|Connections|Connections|No|
-|D2CTwinOperations|D2CTwinOperations|No|
-|DeviceIdentityOperations|Device Identity Operations|No|
-|DeviceStreams|Device Streams (Preview)|No|
-|DeviceTelemetry|Device Telemetry|No|
-|DirectMethods|Direct Methods|No|
-|DistributedTracing|Distributed Tracing (Preview)|No|
-|FileUploadOperations|File Upload Operations|No|
-|JobsOperations|Jobs Operations|No|
-|Routes|Routes|No|
-|TwinQueries|Twin Queries|No|
+|C2DCommands|C2D Commands|Yes|
+|C2DTwinOperations|C2D Twin Operations|Yes|
+|Configurations|Configurations|Yes|
+|Connections|Connections|Yes|
+|D2CTwinOperations|D2CTwinOperations|Yes|
+|DeviceIdentityOperations|Device Identity Operations|Yes|
+|DeviceStreams|Device Streams (Preview)|Yes|
+|DeviceTelemetry|Device Telemetry|Yes|
+|DirectMethods|Direct Methods|Yes|
+|DistributedTracing|Distributed Tracing (Preview)|Yes|
+|FileUploadOperations|File Upload Operations|Yes|
+|JobsOperations|Jobs Operations|Yes|
+|Routes|Routes|Yes|
+|TwinQueries|Twin Queries|Yes|
 
 
 ## Microsoft.Devices/provisioningServices
@@ -460,6 +468,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
 |PartitionKeyStatistics|PartitionKeyStatistics|No|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|No|
+|TableApiRequests|TableApiRequests|Yes|
 
 
 ## Microsoft.EventGrid/domains
@@ -563,7 +572,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditEvent|Audit Logs|No|
+|AuditEvent|Audit Logs|Yes|
 
 
 ## Microsoft.Kusto/Clusters
@@ -608,16 +617,16 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|KeyDeliveryRequests|Key Delivery Requests|No|
+|KeyDeliveryRequests|Key Delivery Requests|Yes|
 
 
-## Microsoft.Network/applicationGateways
+## Microsoft.Network/applicationgateways
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ApplicationGatewayAccessLog|Application Gateway Access Log|No|
-|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|No|
-|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|No|
+|ApplicationGatewayAccessLog|Application Gateway Access Log|Yes|
+|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|Yes|
+|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|Yes|
 
 
 ## Microsoft.Network/azurefirewalls
@@ -649,6 +658,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |FrontdoorAccessLog|Frontdoor Access Log|No|
 |FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|No|
+
+
+## Microsoft.Network/loadBalancers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|LoadBalancerAlertEvent|Load Balancer Alert Events|No|
+|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|No|
 
 
 ## Microsoft.Network/networksecuritygroups
@@ -801,7 +818,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AllLogs|Azure SignalR Service Logs.|No|
+|AllLogs|Azure SignalR Service Logs.|Yes|
 
 
 ## Microsoft.SignalRService/WebPubSub
@@ -815,41 +832,9 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DevOpsOperationsAudit|Devops operations Audit Logs|No|
-|ResourceUsageStats|Resource Usage Statistics|No|
-|SQLSecurityAuditEvents|SQL Security Audit Event|No|
-
-
-## Microsoft.Sql/managedInstances/databases
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Errors|Errors|No|
-|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
-|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
-|SQLInsights|SQL Insights|No|
-
-
-## Microsoft.Sql/servers/databases
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|AutomaticTuning|Automatic tuning|No|
-|Blocks|Blocks|No|
-|DatabaseWaitStatistics|Database Wait Statistics|No|
-|Deadlocks|Deadlocks|No|
-|DevOpsOperationsAudit|Devops operations Audit Logs|No|
-|DmsWorkers|Dms Workers|No|
-|Errors|Errors|No|
-|ExecRequests|Exec Requests|No|
-|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
-|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
-|RequestSteps|Request Steps|No|
-|SQLInsights|SQL Insights|No|
-|SqlRequests|Sql Requests|No|
-|SQLSecurityAuditEvents|SQL Security Audit Event|No|
-|Timeouts|Timeouts|No|
-|Waits|Waits|No|
+|DevOpsOperationsAudit|Devops operations Audit Logs|Yes|
+|ResourceUsageStats|Resource Usage Statistics|Yes|
+|SQLSecurityAuditEvents|SQL Security Audit Event|Yes|
 
 
 ## Microsoft.Storage/storageAccounts/blobServices
@@ -900,13 +885,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|No|
-|GatewayApiRequests|Synapse Gateway Api Requests|No|
+|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|Yes|
+|GatewayApiRequests|Synapse Gateway Api Requests|Yes|
 |IntegrationActivityRuns|Integration Activity Runs|Yes|
 |IntegrationPipelineRuns|Integration Pipeline Runs|Yes|
 |IntegrationTriggerRuns|Integration Trigger Runs|Yes|
-|SQLSecurityAuditEvents|SQL Security Audit Event|No|
-|SynapseRbacOperations|Synapse RBAC Operations|No|
+|SQLSecurityAuditEvents|SQL Security Audit Event|Yes|
+|SynapseRbacOperations|Synapse RBAC Operations|Yes|
 
 
 ## Microsoft.Synapse/workspaces/bigDataPools
@@ -914,6 +899,19 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
+
+
+## Microsoft.Synapse/workspaces/kustoPools
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Command|Command|Yes|
+|FailedIngestion|Failed ingest operations|Yes|
+|IngestionBatching|Ingestion batching|Yes|
+|Query|Query|Yes|
+|SucceededIngestion|Successful ingest operations|Yes|
+|TableDetails|Table details|Yes|
+|TableUsageStatistics|Table usage statistics|Yes|
 
 
 ## Microsoft.Synapse/workspaces/sqlPools
