@@ -15,6 +15,16 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Text-to-speech 2021-May release
+
+**New languages and voices added for neural TTS**
+
+- **Ten new languages introduced** - 20 new voices in 10 new locales are added into the neural TTS language list: Yan in `en-HK` English (Hongkong), Sam in `en-HK` English (Hongkong), Molly in `en-NZ` English (New Zealand), Mitchell in `en-NZ` English (New Zealand), Luna in `en-SG` English (Singapore), Wayne in `en-SG` English (Singapore), Leah in `en-ZA` English (South Africa), Luke in `en-ZA` English (South Africa), Dhwani in `gu-IN` Gujarati (India), Niranjan in `gu-IN` Gujarati (India), Aarohi in `mr-IN` Marathi (India), Manohar in `mr-IN` Marathi (India), Elena in `es-AR` Spanish (Argentina), Tomas in `es-AR` Spanish (Argentina), Salome in `es-CO` Spanish (Columbia), Gonzalo in `es-CO` Spanish (Columbia), Paloma in `es-US` Spanish (US), Alonso in `es-US` Spanish (US), Zuri in `sw-KE` Swahili (Kenya), Rafiki in `sw-KE` Swahili (Kenya).
+
+- **Eleven new en-US voices in preview** - 11 new en-US voices in preview are added to American English, they are Ashley, Amber, Ana, Brandon, Christopher, Cora, Elizabeth, Eric, Michelle, Monica, Jacob.
+
+- **Five `zh-CN` Chinese (Mandarin, Simplified) voices are generally available** - 5 Chinese (Mandarin, Simplified) voices are changed from preview to generally available. They are Yunxi, Xiaomo, Xiaoman, Xiaoxuan, Xiaorui. Now, these voices are available in all [regions](regions.md#neural-and-standard-voices). Yunxi is added with a new 'assistant' style, which is suitable for chat bot and voice agent. Xiaomo's voice styles are refined to be more natural and featured. 
+
 ## Speech SDK 1.17.0: 2021-May release
 
 >[!NOTE]
@@ -84,7 +94,6 @@ ms.custom: seodec18
 
 As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
-
 
 ## Text-to-speech 2021-April release
 
