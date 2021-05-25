@@ -2,7 +2,7 @@
 title: Encryption in Azure Backup
 description: Learn how encryption features in Azure Backup help you protect your backup data and meet the security needs of your business.
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 05/25/2021
 ms.custom: references_regions 
 ---
 
