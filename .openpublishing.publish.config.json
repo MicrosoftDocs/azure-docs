@@ -254,7 +254,13 @@
       "url": "https://github.com/Azure-Samples/azure-search-dotnet-samples",
       "branch": "master",
       "branch_mapping": {}
-    },    
+    },
+    {
+      "path_to_root": "azure-search-python-samples",
+      "url": "https://github.com/Azure-Samples/azure-search-python-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",

@@ -130,7 +130,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 - With per-machine installation, Teams on VDI isn't automatically updated the same way non-VDI Teams clients are. To update the client, you'll need to update the VM image by installing a new MSI.
 - Media optimization for Teams is only supported for the Windows Desktop client on machines running Windows 10.
-- Use of explicit HTTP proxies defined on an endpoint is not supported.
+- Use of explicit HTTP proxies defined on the client endpoint device is not supported.
 
 ### Calls and meetings
 
