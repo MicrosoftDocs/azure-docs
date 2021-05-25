@@ -446,7 +446,20 @@ CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 > [!NOTE]
 > Replace 'password' with a different secret here. 
 
+## Delta Lake
 
+Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
+- Make sure that you are referencing root Delta Lake folder in the [OPENROWSET](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-openrowset) function or external table location.
+  - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
+  - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
+- You cannot use schema inference in the [OPENROWSET](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-openrowset) function if you have nested/complex types in the files. Make sure that you explicitly specify the schema in `WITH` clause.
+- Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
+- External tables do not support partitioning. Use [partitioned views](create-use-views.md#partitioned-views) on Delta Lake folder to leverage the partition elimination.
+- Serverless SQL pools do not support time travel queries or updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data) or [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Serverless SQL pools do not support Delta Lake data sets with the partitions containing `null` or empty values. Update `null` or empty values in your data sets if you need to read them withe the serverless SQL pools.
+- Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
+
+You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
 
 ## Next steps
 
