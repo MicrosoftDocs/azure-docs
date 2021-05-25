@@ -231,11 +231,7 @@ This section covers common issues that occur during VM creation.
 
 **Suggested solution:** Check the available memory on the device, and choose the VM size accordingly. For more information, see [Supported virtual machine sizes on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
 
-For guidance on available memory, see the following sources:
-
-* [Compute and memory specifications for an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications)
-* [Compute and memory specifications for an Azure Stack Edge Mini R device](azure-stack-edge-mini-r-technical-specifications-compliance.md#compute-memory)
-* Memory required for deploying 
+<!--BETTER SOLUTION - Reference existing sizing/memory usage guidelines in each of these errors. Compute and memory specs are available for Azure Stack Edge Pro GPU (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-technical-specifications-compliance#compute-and-memory-specifications) and Mini R (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-mini-r-technical-specifications-compliance#compute-memory), but I'm not finding guidance for the Kubernetes calculations.-->
 
 #### Calculate memory available for VMs
 <!--These calculations shouldn't be introduced in troubleshooting. No one will think to look for them there, and they should be available for VM deployment planning. If we keep the calculations here for now, we should move them as quickly as possible to a new "VM sizing best practices" article.-->
@@ -339,6 +335,7 @@ Debugging steps:
 1.	[Install the GPU extension](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension) again.
 
 1.	If extension deployment fails again, create a new VM and make sure the lock isn't present before you install the GPU extension.
+
 
 ## Next steps
 
