@@ -293,7 +293,7 @@ For a list of all Azure Monitor support metrics, which includes Azure Blob Stora
 > [!TIP]
 > To view Azure CLI or .NET examples, choose the corresponding tabs listed here.
 
-### [.NET](#tab/azure-portal)
+### [.NET SDK](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
  
