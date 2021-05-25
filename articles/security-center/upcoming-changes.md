@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 05/24/2021
+ms.date: 05/25/2021
 ms.author: memildin
 
 ---
@@ -85,9 +85,9 @@ Security Center includes multiple recommendations to encrypt data at rest with c
 
 Data in Azure is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when required for compliance with a specific policy your organization is choosing to enforce.
 
-With this change, the recommendations to use CMKs will be disabled by default. When relevant for your organization, you can enable them by changing the *Effect* parameter for the corresponding security policy to audit or enforce. Learn more in [Manage security policies](tutorial-security-policy.md) and [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
+With this change, the recommendations to use CMKs will be **disabled by default**. When relevant for your organization, you can enable them by changing the *Effect* parameter for the corresponding security policy to **AuditIfNotExists** or **Enforce**. Learn more in [Enable a security policy](tutorial-security-policy.md#enable-a-security-policy).
 
-Initially, the change will be reflected in the names of the recommendation with a new prefix, **[Enable if required]**, as shown in the following examples:
+Initially, this change will be reflected in the names of the recommendation with a new prefix, **[Enable if required]**, as shown in the following examples:
 
 - [Enable if required] Storage accounts should use customer-managed key to encrypt data at rest
 - [Enable if required] Container registries should be encrypted with a customer-managed key (CMK)
@@ -108,11 +108,13 @@ The recommendation **Sensitive data in your SQL databases should be classified**
 
 Security Center's hardening recommendations are grouped into security controls. Each control is a logical group of related security recommendations, and reflects a vulnerable attack surface. The contribution of each security control towards the overall secure score is shown clearly on the recommendations page as well as in the list of controls in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
+Since its introduction, the **Enable Azure Defender** control has had a maximum possible score of 0 points. **With this change, the control will contribute towards your secure score**.
+
 When you enable Azure Defender you'll extend the capabilities of Security Center's free mode to your workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. Some of the major features of Azure Defender are: integrated Microsoft Defender for Endpoint licenses for your servers, vulnerability scanning for virtual machines and container registries, security alerts based on advanced behavioral analytics and machine learning, and container security features. For a full list, see [Azure Security Center free vs Azure Defender enabled](security-center-pricing.md).
 
-Since its introduction, the **Enable Azure Defender** control has had a maximum possible score of 0 points. With this change, the control will contribute towards your secure score. 
-
 With this change, there will be an impact on the secure score of any subscriptions that aren't protected by Azure Defender. We suggest you enable Azure Defender before this change occurs to ensure there is no impact on your scores. 
+
+Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
 
 ## Next steps
