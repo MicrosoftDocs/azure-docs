@@ -35,7 +35,7 @@ When selecting the best solution for running a file services in Azure, several c
 
 ### Basic considerations
 
-Basic functionality consideration examines the most common functionalities of the underlying storage platforms. This step is done initially to explore what solutions provide the basic functionality we need to satisfy our requirements. Important basic features vary from case to case. The most common ones are protocol support, namespace size, automatic tiering, encryption, WORM support, and authentication. You can see the list of basic functionalities that our ISV solutions support in [feature comparison](#feature-comparison).
+Basic functionality consideration examines the most common functionalities of the underlying storage platforms. This step is done initially to explore what solutions provide the basic functionality we need to satisfy our requirements. Important basic features vary from case to case. The most common ones are protocol support, namespace size, automatic tiering, encryption, WORM support, and authentication. You can see the list of basic functionalities that our ISV solutions support in [feature comparison](#isv-solutions-comparison).
 
 ### Performance considerations
 
