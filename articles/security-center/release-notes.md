@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 05/23/2021
+ms.date: 05/25/2021
 ms.author: memildin
 
 ---
@@ -27,10 +27,10 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 Updates in May include:
 
 - [Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
-- [Vulnerability findings query link added to the relevant recommendations](#vulnerability-findings-query-link-added-to-the-relevant-recommendations)
+- [More Resource Graph queries available for some recommendations](#more-resource-graph-queries-available-for-some-recommendations)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
-- [New recommendations to enable trusted launch capabilities](#new-recommendations-to-enable-trusted-launch-capabilities)
-- [New recommendations for hardening Kubernetes clusters](#new-recommendations-for-hardening-kubernetes-clusters)
+- [New recommendations to enable trusted launch capabilities (in preview)](#new-recommendations-to-enable-trusted-launch-capabilities-in-preview)
+- [New recommendations for hardening Kubernetes clusters (in preview)](#new-recommendations-for-hardening-kubernetes-clusters-in-preview)
 - [Assessments API expanded with two new fields](#assessments-api-expanded-with-two-new-fields)
 - [Asset inventory gets a cloud environment filter](#asset-inventory-gets-a-cloud-environment-filter)
 
@@ -60,7 +60,7 @@ To simplify the process of enabling these plans, use the recommendations:
 > Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
 
 
-### Vulnerability findings query link added to the relevant recommendations
+### More Resource Graph queries available for some recommendations
 
 All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](security-center-recommendations.md#review-recommendation-data-in-azure-resource-graph-explorer-arg).
 
@@ -71,9 +71,11 @@ Security Center includes built-in vulnerability scanners to scan your VMs, SQL s
 - SQL databases should have vulnerability findings resolved
 - SQL servers on machines should have vulnerability findings resolved
 
-With this change, you can use the **Open query** button to also open the query showing  the security findings.
+With this change, you can use the **Open query** button to also open the query showing the security findings.
 
 :::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings fof vulnerability scanner related recommendations":::
+
+The **Open query** button offers additional options for some other recommendations too where relevant.
 
 Learn more about Security Center's vulnerability scanners:
 
@@ -88,9 +90,14 @@ The severity of the recommendation **Sensitive data in your SQL databases should
 This is part of the ongoing changes to this recommendation announced in [Enhancements to SQL data classification recommendation](upcoming-changes.md#enhancements-to-sql-data-classification-recommendation). 
 
 
-### New recommendations to enable trusted launch capabilities
+### New recommendations to enable trusted launch capabilities (in preview)
 
-Azure offers trusted launch as a seamless way to improve the security of [generation 2](../virtual-machines/generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats. Learn more in [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+Azure offers trusted launch as a seamless way to improve the security of [generation 2](../virtual-machines/generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats. Learn more in [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+
+> [!IMPORTANT]
+> Trusted launch requires the creation of new virtual machines. You can't enable trusted launch on existing virtual machines that were initially created without it.
+> 
+> Trusted launch is currently in public preview. The preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 Security Center's recommendation, **vTPM should be enabled on supported virtual machines**, ensures your Azure VMs are using a vTPM. This virtualized version of a hardware Trusted Platform Module enables attestation by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers).
 
@@ -102,9 +109,9 @@ With the vTPM enabled, the **Guest Attestation extension** can remotely validate
 - **Guest Attestation extension should be installed on supported Linux virtual machines**
 - **Guest Attestation extension should be installed on supported Linux virtual machine scale sets**
 
-Learn more in [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
- 
-### New recommendations for hardening Kubernetes clusters
+Learn more in [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md). 
+
+### New recommendations for hardening Kubernetes clusters (in preview)
 
 The following recommendations allow you to further harden your Kubernetes clusters
 
