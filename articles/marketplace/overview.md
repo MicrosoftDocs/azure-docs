@@ -3,22 +3,27 @@ title: What is the Microsoft commercial marketplace?
 description: An overview of the benefits and options for Microsoft partners who list solutions on the Microsoft commercial marketplace.
 author: mingshen-ms 
 ms.author: mingshen
-ms.service: marketplace 
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
 ms.date: 10/15/2020
 ---
 
 # What is the Microsoft commercial marketplace?
 
-The Microsoft commercial marketplace is a catalog of solutions from our independent software vendor (ISV) partners. As an ISV member of the Microsoft Partner Network, you can create, publish, and manage your commercial marketplace offers in Partner Center. Your solutions are listed in our online stores, alongside our own Microsoft solutions, connecting you with businesses, organizations, and government agencies around the world.
+The Microsoft commercial marketplace is a catalog of solutions from our independent software vendor (ISV) partners. As an ISV member of the Microsoft Partner Network, you can create, publish, and manage your commercial marketplace offers in Partner Center. Your solutions are listed together with our Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world.
 
 The commercial marketplace is available in more than 100 countries and regions, and we manage tax payment in many of them. If you sell to established Microsoft customers, they have the added benefit of including commercial marketplace purchases in their existing Microsoft purchase agreements to receive a consolidated invoice from Microsoft.
 
-## Commercial marketplace online stores
+## What are the commercial marketplace stores?
 
-The Microsoft commercial marketplace has two online stores: [Microsoft AppSource](https://appsource.microsoft.com/) and [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource contains business solutions and Azure Marketplace contains IT solutions. Commercial marketplace software and services can also be found in Microsoft products such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.
+The Microsoft commercial marketplace as discussed in this article has two main online stores: 
 
-When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
+- [Microsoft AppSource](https://appsource.microsoft.com/), which contains business solutions and Azure Marketplace.
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/), which is designed for IT solutions.
+
+> [!NOTE]
+> Other commercial marketplace software and services can also be found in Microsoft products such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.
 
 ### Microsoft AppSource
 
@@ -26,7 +31,7 @@ When you create a commercial marketplace offer in Partner Center, it may be list
 
 Here's an example of an offer listing page in AppSource:
 
-:::image type="content" source="media/overview/example-appsource.png" alt-text="Illustrates an offer listing page in Microsoft AppSource.":::
+:::image type="content" source="media/overview/example-appsource.png" alt-text="Screenshot showing an offer listing page in Microsoft AppSource.":::
 
 ####  AppSource in-product experience
 
@@ -56,7 +61,10 @@ This option opens the Azure Marketplace within the Azure portal, where they can 
 
 :::image type="content" source="media/overview/search-portal.png" alt-text="Shows the Azure Marketplace search options within the Azure portal"::: 
 
-## Benefits of selling with Microsoft
+### Which store should I choose?
+When you create a commercial marketplace offer in Partner Center, it may be listed on either store based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
+
+## Why sell with Microsoft?
 
 Our goal is to help you accelerate your business in partnership with Microsoft, and to connect Microsoft customers with the best solutions that our partner ecosystem offers. To do that, we support you throughout your journey, from onboarding to publishing and growth. Take advantage of the capabilities in the commercial marketplace to grow your business.
 
