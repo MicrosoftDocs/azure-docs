@@ -324,7 +324,7 @@ Debugging steps:
 
 ### VM Extension failed with error `dpkg is used/yum lock is used` (Linux VM)
 
-**Error description:** GPU extension deployment on a Linux VM failed because another process was using `dpkg` or another process has created a `yum` lock. 
+**Error description:** GPU extension deployment on a Linux VM failed because another process was using `dpkg` or another process has created a `yum lock`. 
 
 **Suggested solution:** To resolve the issue, do these steps:
 
