@@ -110,23 +110,6 @@
     items:
     - name: Compile/Decompile
       href: decompile.md
-  - name: Share templates
-    items:
-    - name: Create & deploy template specs
-      href: template-specs.md
-    - name: Create with linked templates
-      href: template-specs-create-linked.md
-    - name: Deploy as linked template
-      href: template-specs-deploy-linked-template.md
-    - name: Convert portal template gallery
-      href: template-spec-convert.md
-  - name: Use deployment scripts
-    items:
-    - name: Deployment script
-      displayName: custom script
-      href: deployment-script-template.md
-    - name: Create deployment script dev environment
-      href: deployment-script-template-configure-dev.md
 - name: Reference
   items:
   - name: Template reference
