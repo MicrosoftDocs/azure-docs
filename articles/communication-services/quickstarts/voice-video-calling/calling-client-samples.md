@@ -30,7 +30,7 @@ Get started with Azure Communication Services by using the Communication Service
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Calling with Windows](./includes/get-started-windows.md)]
+[!INCLUDE [Calling with Windows](./includes/calling-sdk-windows.md)]
 ::: zone-end
 
 ## Clean up resources

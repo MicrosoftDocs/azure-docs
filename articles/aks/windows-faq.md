@@ -114,10 +114,6 @@ Kubenet is currently not supported with Windows nodes.
 
 Yes, an ingress-controller that supports Windows Server containers can run on Windows nodes in AKS.
 
-## Can I use Azure Dev Spaces with Windows nodes?
-
-Azure Dev Spaces is currently only available for Linux-based node pools.
-
 ## Can my Windows Server containers use gMSA?
 
 Group managed service accounts (gMSA) support is not currently available in AKS.
@@ -176,6 +172,22 @@ If the cluster has Azure Hybrid Benefit enabled, the output of `az vmss show` wi
 ## Can I use the Kubernetes Web Dashboard with Windows containers?
 
 Yes, you can use the [Kubernetes Web Dashboard][kubernetes-dashboard] to access information about Windows containers, but at this time you can't run *kubectl exec* into a running Windows container directly from the Kubernetes Web Dashboard. For more details on connecting to your running Windows container, see [Connect with RDP to Azure Kubernetes Service (AKS) cluster Windows Server nodes for maintenance or troubleshooting][windows-rdp].
+
+## How do I change the time zone of a running container?
+
+To change the time zone of a running Windows Server container, connect to the running container with a PowerShell session. For example:
+    
+```azurecli-interactive
+kubectl exec -it CONTAINER-NAME -- powershell
+```
+
+In the running container, use [Set-TimeZone](/powershell/module/microsoft.powershell.management/set-timezone) to set the time zone of the running container. For example:
+
+```powershell
+Set-TimeZone -Id "Russian Standard Time"
+```
+
+To see the current time zone of the running container or an available list of time zones, use [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
 
 ## What if I need a feature that's not supported?
 

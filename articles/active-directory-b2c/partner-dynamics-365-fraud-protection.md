@@ -81,7 +81,7 @@ Following is an example:
 
 ## Deploy the UI templates
 
-1. Deploy the provided [Azure AD B2C UI templates](https://github.com/azure-ad-b2c/partner-integrations/blob/adstoffe/remove-middle-layer-api/samples/Dynamics-Fraud-Protection/ui-templates) to a public facing internet hosting service such as Azure Blob Storage.
+1. Deploy the provided [Azure AD B2C UI templates](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/ui-templates) to a public facing internet hosting service such as Azure Blob Storage.
 
 2. Replace the value `https://<YOUR-UI-BASE-URL>/` with the root URL for your deployment location.
 
@@ -107,7 +107,7 @@ See [UI customization documentation](https://docs.microsoft.com/azure/active-dir
 
 ### Replace the configuration values
 
-In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies), find the following placeholders and replace them with the corresponding values from your instance.
+In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/policies), find the following placeholders and replace them with the corresponding values from your instance.
 
 | Placeholder | Replace with | Notes |
 | :-------- | :------------| :-----------|
@@ -134,7 +134,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 
 ## Configure the Azure AD B2C policy
 
-1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/adstoffe/remove-middle-layer-api/samples/Dynamics-Fraud-Protection/policies) in the Policies folder.
+1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/policies) in the Policies folder.
 
 2. Follow this [document](./tutorial-create-user-flows.md?pivots=b2c-custom-policy?tabs=applications#custom-policy-starter-pack) to download [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 

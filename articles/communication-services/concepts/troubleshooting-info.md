@@ -190,6 +190,17 @@ The Azure Communication Services Calling SDK uses the following error codes to h
 | 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
 
+## Chat SDK error codes
+
+The Azure Communication Services Chat SDK uses the following error codes to help you troubleshoot chat issues. The error codes are exposed through the `error.code` property in the error response.
+
+| Error code | Description | Action to take |
+| -------- | ---------------| ---------------|
+| 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
+| 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
+| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
+| 503 | Service Unavailable | File a support request through the Azure portal. |
+
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)
 - [Metrics](metrics.md)

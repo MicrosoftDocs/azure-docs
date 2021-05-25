@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 03/10/2021
+ms.date: 05/18/2021
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -39,7 +39,7 @@ properties from related resource types. Here is the list of tables available in 
 |PatchInstallationResources|No |Includes resources _related_ to Azure Virtual Machines patch installation. |
 |PolicyResources |No |Includes resources _related_ to `Microsoft.PolicyInsights`. (**Preview**) |
 |RecoveryServicesResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
-|SecurityResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Security`. |
+|SecurityResources |Yes (preview) |Includes resources _related_ to `Microsoft.Security`. |
 |ServiceHealthResources |No |Includes resources _related_ to `Microsoft.ResourceHealth`. |
 |WorkloadMonitorResources |No |Includes resources _related_ to `Microsoft.WorkloadMonitor`. |
 

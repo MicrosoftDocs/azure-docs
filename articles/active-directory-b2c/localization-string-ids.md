@@ -254,46 +254,46 @@ The following example shows the use of some of the user interface elements in th
 
 The Following are the IDs for a content definition with an ID of `api.phonefactor`, and [phone factor technical profile](phone-factor-technical-profile.md).
 
-| ID | Default value |
-| -- | ------------- |
-| **button_verify** | Call Me |
-| **country_code_label** | Country Code |
-| **cancel_message** | The user has canceled multi-factor authentication |
-| **text_button_send_second_code** | send a new code |
-| **code_pattern** | \\d{6} |
-| **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. |
-| **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. |
-| **button_verify_code** | Verify Code |
-| **requiredField_code** | Please enter the verification code you received |
-| **invalid_code** | Please enter the 6-digit code you received |
-| **button_cancel** | Cancel |
-| **local_number_input_placeholder_text** | Phone number |
-| **button_retry** | Retry |
-| **alternative_text** | I don't have my phone |
-| **intro_phone_p** | We have the following numbers on record for you. Choose a number that we can phone to authenticate you. |
-| **intro_phone** | We have the following number on record for you. We will phone to authenticate you. |
-| **enter_code_text_intro** | Enter your verification code below, or  |
-| **intro_entry_phone** | Enter a number below that we can phone to authenticate you. |
-| **intro_entry_sms** | Enter a number below that we can send a code via SMS to authenticate you. |
-| **button_send_code** | Send Code |
-| **invalid_number** | Please enter a valid phone number |
-| **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. |
-| **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
-| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. |
-| **requiredField_countryCode** | Please select your country code |
-| **requiredField_number** | Please enter your phone number |
-| **country_code_input_placeholder_text** |Country or region |
-| **number_label** | Phone Number |
-| **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. |
-| **error_sms_throttled** | You hit the limit on the number of text messages. Try again shortly. |
-| **error_phone_throttled** | You hit the limit on the number of call attempts. Try again shortly. |
-| **error_throttled** | You hit the limit on the number of verification attempts. Try again shortly. |
-| **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. |
-| **countryList** | See [the countries list](#phone-factor-authentication-page-example). |
-| **error_448** | The phone number you provided is unreachable. |
-| **error_449** | User has exceeded the number of retry attempts. |
-| **verification_code_input_placeholder_text** | Verification code |
+| ID | Default value | Page Layout Version |
+| -- | ------------- | ------ |
+| **button_verify** | Call Me | `All` |
+| **country_code_label** | Country Code | `All` |
+| **cancel_message** | The user has canceled multi-factor authentication | `All` |
+| **text_button_send_second_code** | send a new code | `All` |
+| **code_pattern** | \\d{6} | `All` |
+| **intro_mixed** | We have the following number on record for you. We can send a code via SMS or phone to authenticate you. | `All` |
+| **intro_mixed_p** | We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you. | `All` |
+| **button_verify_code** | Verify Code | `All` |
+| **requiredField_code** | Please enter the verification code you received | `All` |
+| **invalid_code** | Please enter the 6-digit code you received | `All` |
+| **button_cancel** | Cancel | `All` |
+| **local_number_input_placeholder_text** | Phone number | `All` |
+| **button_retry** | Retry | `All` |
+| **alternative_text** | I don't have my phone | `All` |
+| **intro_phone_p** | We have the following numbers on record for you. Choose a number that we can phone to authenticate you. | `All` |
+| **intro_phone** | We have the following number on record for you. We will phone to authenticate you. | `All` |
+| **enter_code_text_intro** | Enter your verification code below, or  | `All` |
+| **intro_entry_phone** | Enter a number below that we can phone to authenticate you. | `All` |
+| **intro_entry_sms** | Enter a number below that we can send a code via SMS to authenticate you. | `All` |
+| **button_send_code** | Send Code | `All` |
+| **invalid_number** | Please enter a valid phone number | `All` |
+| **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. | `All` |
+| **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. | `All` |
+| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
+| **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. | `All` |
+| **requiredField_countryCode** | Please select your country code | `All` |
+| **requiredField_number** | Please enter your phone number | `All` |
+| **country_code_input_placeholder_text** |Country or region | `All` |
+| **number_label** | Phone Number | `All` |
+| **error_tryagain** | The phone number you provided is busy or unavailable. Please check the number and try again. | `All` |
+| **error_sms_throttled** | You hit the limit on the number of text messages. Try again shortly. | `>= 1.2.3` |
+| **error_phone_throttled** | You hit the limit on the number of call attempts. Try again shortly. | `>= 1.2.3` |
+| **error_throttled** | You hit the limit on the number of verification attempts. Try again shortly. | `>= 1.2.3` |
+| **error_incorrect_code** | The verification code you have entered does not match our records. Please try again, or request a new code. | `All` |
+| **countryList** | See [the countries list](#phone-factor-authentication-page-example). | `All` |
+| **error_448** | The phone number you provided is unreachable. | `All` |
+| **error_449** | User has exceeded the number of retry attempts. | `All` |
+| **verification_code_input_placeholder_text** | Verification code | `All` |
 
 The following example shows the use of some of the user interface elements in the MFA enrollment page:
 
