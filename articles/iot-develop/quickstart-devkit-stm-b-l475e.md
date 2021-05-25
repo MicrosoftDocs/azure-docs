@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/18/2021
+ms.date: 05/25/2021
 ---
 
 # Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTO1A Discovery kit to IoT Central
