@@ -70,7 +70,7 @@ output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
 
 ## Outside parent resource
 
-The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](copy-resources.md) to create more than one child resource. To do this, specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
+The following example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](loop-resources.md) to create more than one child resource. To do this, specify the parent property on the child with the value set to the symbolic name of the parent. With this syntax you still need to declare the full resource type, but the name of the child resource is only the name of the child.
 
 ```bicep
 resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {

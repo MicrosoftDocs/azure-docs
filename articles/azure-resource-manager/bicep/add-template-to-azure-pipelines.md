@@ -174,7 +174,7 @@ The following YAML shows the [Azure Resource Manager template deployment task](h
 
 There are several parts of this task to review in greater detail.
 
-- `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription`, and `Resource Group`. To learn more about the scopes, see [Deployment scopes](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription`, and `Resource Group`. 
 
 - `azureResourceManagerConnection`: Provide the name of the service connection you created.
 

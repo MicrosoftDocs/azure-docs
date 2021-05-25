@@ -2772,7 +2772,13 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
+<<<<<<< HEAD:articles/azure-resource-manager/bicep/bicep-functions-string.md
 * For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
 * To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
+=======
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](../templates/linked-templates.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](loop-resources.md).
+>>>>>>> 088dfd49235f189a83d83be7a484b33c994e68fd:articles/azure-resource-manager/bicep/template-functions-string.md
 * To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

@@ -74,4 +74,4 @@ You set a [resource as dependent](./resource-dependency.md) on a conditional res
 
 * For a Microsoft Learn module that covers conditional deployment, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * For recommendations about creating templates, see [ARM template best practices](../templates/template-best-practices.md).
-* To create multiple instances of a resource, see [Resource iteration in Bicep](./copy-resources.md).
+* To create multiple instances of a resource, see [Resource iteration in Bicep](./loop-resources.md).

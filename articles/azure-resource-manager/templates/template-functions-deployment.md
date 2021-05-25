@@ -282,6 +282,8 @@ The preceding example returns the following object when deployed to global Azure
 
 Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
 
+In Bicep, directly reference parameters by using their symbolic names.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -388,6 +390,8 @@ For more information about using parameters, see [Parameters in ARM templates](t
 `variables(variableName)`
 
 Returns the value of variable. The specified variable name must be defined in the variables section of the template.
+
+In Bicep, directly reference variables by using their symbolic names.
 
 ### Parameters
 

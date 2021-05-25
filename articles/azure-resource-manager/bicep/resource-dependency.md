@@ -115,7 +115,7 @@ To learn more, see [reference function](bicep-functions-resource.md#reference).
 
 ## Depend on resources in a loop
 
-To deploy resources that depend on resources in a [copy loop](copy-resources.md), you have two options. You can either set a dependency on individual resources in the loop or on the whole loop.
+To deploy resources that depend on resources in a [copy loop](loop-resources.md), you have two options. You can either set a dependency on individual resources in the loop or on the whole loop.
 
 > [!NOTE]
 > For most scenarios, you should set the dependency on individual resources within the copy loop. Only depend on the whole loop when you need all of the resources in the loop to exist before creating the next resource. Setting the dependency on the whole loop causes the dependencies graph to expand significantly, especially if those looped resources depend on other resources. The expanded dependencies make it difficult for the deployment to complete efficiently.

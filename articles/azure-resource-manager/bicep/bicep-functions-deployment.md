@@ -8,12 +8,10 @@ ms.date: 05/21/2021
 ---
 # Deployment functions for Bicep
 
-Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
+Resource Manager provides the following functions for getting values related to the current deployment of your Bicep file:
 
 * [deployment](#deployment)
 * [environment](#environment)
-* [parameters](#parameters)
-* [variables](#variables)
 
 To get values from resources, resource groups, or subscriptions, see [Resource functions](./bicep-functions-resource.md).
 
@@ -27,11 +25,10 @@ Returns information about the current deployment operation.
 
 This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
 
-* deploying a template or a template spec.
-* deploying a template that is a local file.
+* deploying a local Bicep file.
 * deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
 
-When deploying a local template to a resource group: the function returns the following format:
+When deploying a local Bicep file to a resource group: the function returns the following format:
 
 ```json
 {
@@ -153,31 +150,11 @@ This function returns properties for the current Azure environment. The followin
 
 ### Example
 
-The following example template returns the environment object.
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "environmentOutput": {
-      "type": "object",
-      "value": "[environment()]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
+The following example Bicep file returns the environment object.
 
 ```bicep
 output environmentOutput object = environment()
 ```
-
----
 
 The preceding example returns the following object when deployed to global Azure:
 
@@ -214,292 +191,6 @@ The preceding example returns the following object when deployed to global Azure
   }
 }
 ```
-
-## parameters
-
-`parameters(parameterName)`
-
-Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| parameterName |Yes |string |The name of the parameter to return. |
-
-### Return value
-
-The value of the specified parameter.
-
-### Remarks
-
-Typically, you use parameters to set resource values. The following example sets the name of web site to the parameter value passed in during deployment.
-
-# [JSON](#tab/json)
-
-```json
-"parameters": {
-  "siteName": {
-    "type": "string"
-  }
-}, "resources": [
-  {
-    "type": "Microsoft.Web/Sites",
-    "apiVersion": "2016-08-01",
-    "name": "[parameters('siteName')]",
-    ...
-  }
-]
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param siteName string
-
-resource mySite 'Microsoft.Web/Sites@2016-08-01' = {
-  name: siteName
-  ...
-}
-```
-
----
-
-### Example
-
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) shows a simplified use of the parameters function.
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringParameter": {
-      "type": "string",
-      "defaultValue": "option 1"
-    },
-    "intParameter": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "objectParameter": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b"
-      }
-    },
-    "arrayParameter": {
-      "type": "array",
-      "defaultValue": [ 1, 2, 3 ]
-    },
-    "crossParameter": {
-      "type": "string",
-      "defaultValue": "[parameters('stringParameter')]"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "stringOutput": {
-      "value": "[parameters('stringParameter')]",
-      "type": "string"
-    },
-    "intOutput": {
-      "value": "[parameters('intParameter')]",
-      "type": "int"
-    },
-    "objectOutput": {
-      "value": "[parameters('objectParameter')]",
-      "type": "object"
-    },
-    "arrayOutput": {
-      "value": "[parameters('arrayParameter')]",
-      "type": "array"
-    },
-    "crossOutput": {
-      "value": "[parameters('crossParameter')]",
-      "type": "string"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-param stringParameter string = 'option 1'
-param intParameter int = 1
-param objectParameter object = {
-  'one': 'a'
-  'two': 'b'
-}
-param arrayParameter array = [
-  1
-  2
-  3
-]
-param crossParameter string = stringParameter
-
-output stringOutput string = stringParameter
-output intOutput int = intParameter
-output objectOutput object = objectParameter
-output arrayOutput array = arrayParameter
-output crossOutput string = crossParameter
-```
-
----
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| stringOutput | String | option 1 |
-| intOutput | Int | 1 |
-| objectOutput | Object | {"one": "a", "two": "b"} |
-| arrayOutput | Array | [1, 2, 3] |
-| crossOutput | String | option 1 |
-
-For more information about using parameters, see [Parameters in ARM templates](template-parameters.md).
-
-## variables
-
-`variables(variableName)`
-
-Returns the value of variable. The specified variable name must be defined in the variables section of the template.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| variableName |Yes |String |The name of the variable to return. |
-
-### Return value
-
-The value of the specified variable.
-
-### Remarks
-
-Typically, you use variables to simplify your template by constructing complex values only once. The following example constructs a unique name for a storage account.
-
-# [JSON](#tab/json)
-
-```json
-"variables": {
-  "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
-},
-"resources": [
-  {
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageName')]",
-    ...
-  },
-  {
-    "type": "Microsoft.Compute/virtualMachines",
-    "dependsOn": [
-      "[variables('storageName')]"
-    ],
-    ...
-  }
-],
-
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-var storageName = 'storage${uniqueString(resourceGroup().id)}'
-
-resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageName
-  ...
-}
-
-resource myVm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-}
-```
-
----
-
-### Example
-
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) returns different variable values.
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "var1": "myVariable",
-    "var2": [ 1, 2, 3, 4 ],
-    "var3": "[ variables('var1') ]",
-    "var4": {
-      "property1": "value1",
-      "property2": "value2"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "exampleOutput1": {
-      "value": "[variables('var1')]",
-      "type": "string"
-    },
-    "exampleOutput2": {
-      "value": "[variables('var2')]",
-      "type": "array"
-    },
-    "exampleOutput3": {
-      "value": "[variables('var3')]",
-      "type": "string"
-    },
-    "exampleOutput4": {
-      "value": "[variables('var4')]",
-      "type": "object"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-var var1 = 'myVariable'
-var var2 = [
-  1
-  2
-  3
-  4
-]
-var var3 = var1
-var var4 = {
-  'property1': 'value1'
-  'property2': 'value2'
-}
-
-output exampleOutput1 string = var1
-output exampleOutput2 array = var2
-output exampleOutput3 string = var3
-output exampleOutput4 object = var4
-```
-
----
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
-| exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
-| exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
-
-For more information about using variables, see [Variables in ARM template](template-variables.md).
 
 ## Next steps
 
