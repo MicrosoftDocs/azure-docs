@@ -1,10 +1,8 @@
 ---
 title: Convert templates between JSON and Bicep
 description: Describes commands for converting Azure Resource Manager templates from Bicep to JSON and from JSON to Bicep.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/01/2021
 ms.custom: devx-track-azurepowershell
 ---
 # Converting ARM templates between JSON and Bicep
@@ -22,13 +20,13 @@ The Bicep CLI provides a command to decompile any existing JSON template to a Bi
 If you have Azure CLI version 2.20.0 or later, the Bicep CLI is automatically installed. To decompile a JSON file, use:
 
 ```azurecli
-az bicep decompile mainTemplate.json
+az bicep decompile --file main.json
 ```
 
 If you don't have a recent version of Azure CLI, and have instead installed the Bicep CLI manually, use:
 
 ```bash
-bicep decompile mainTemplate.json
+bicep decompile main.json
 ```
 
 This command provides a starting point for Bicep authoring. The command doesn't work for all templates. Currently, nested templates can be decompiled only if they use the 'inner' expression evaluation scope. Templates that use copy loops can't be decompiled.
@@ -40,13 +38,13 @@ The Bicep CLI also provides a command to convert Bicep to JSON.
 For Azure CLI version 2.20.0 or later, use the following command to build a JSON file:
 
 ```azurecli
-az bicep build mainTemplate.bicep
+az bicep build --file main.bicep
 ```
 
 If you've installed the Bicep CLI manually, use:
 
 ```bash
-bicep build mainTemplate.bicep
+bicep build main.bicep
 ```
 
 ## Export template and convert
@@ -57,7 +55,7 @@ You can export the template for a resource group, and then pass it directly to t
 
 ```azurecli
 az group export --name "your_resource_group_name" > main.json
-az bicep decompile main.json
+az bicep decompile --file main.json
 ```
 
 # [PowerShell](#tab/azure-powershell)
