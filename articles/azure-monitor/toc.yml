@@ -240,8 +240,12 @@
         href: logs/log-analytics-tutorial.md
       - name: Query scope
         href: logs/scope.md
-      - name: Example queries
-        href: logs/example-queries.md
+      - name: Saving queries
+        href: logs/save-query.md
+      - name: Using queries
+        href: logs/queries.md
+      - name: Query packs
+        href: logs/query-packs.md
     - name: Log queries
       items:
       - name: Overview
