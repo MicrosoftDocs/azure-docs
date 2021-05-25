@@ -221,6 +221,7 @@ If no `stdout` or `stderr` specified, a subprocess will inherit the setting of t
 ### How could I write to a file to show up in the portal?
 Files in `logs` folder will be uploaded and show up in the portal.
 You can get the folder `logs/user/entry_script_log/<node_id>` like below and compose your file path to write:
+
 ```python
 from pathlib import Path
 def init():
@@ -231,8 +232,12 @@ def init():
     fil_path = Path(folder) / "<file_name>"
 ```
 
-### How could I write file to output directory and how to view it in the portal?
-You can get the output directory from `EntryScript` class and write to it, then you can view the written files by clicking on the "Data outputs" link in the "Outputs + logs" tab in the StepRun view in AzureML portal and follow the popped up instructions. The `EntryScript` should be used as follows in your entry script:
+### How do I write a file to the output directory, and then view it in the portal?
+
+You can get the output directory from the `EntryScript` class and write to it. To view the written files, in the step Run view in the Azure Machine Learning portal, select the **Outputs + logs** tab. Select the **Data outputs** link, and then complete the steps that are described in the dialog. 
+
+Use `EntryScript` in your entry script like in this example:
+
 ```python
 from pathlib import Path
 from azureml_user.parallel_run import EntryScript
@@ -243,7 +248,7 @@ def run(mini_batch):
     (Path(output_dir) / res2).write...
 ```
 
-### How could I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
+### How can I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
 
 User can pass reference data to script using side_inputs parameter of ParalleRunStep. All datasets provided as side_inputs will be mounted on each worker node. User can get the location of mount by passing argument.
 
