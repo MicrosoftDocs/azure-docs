@@ -5209,6 +5209,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/batch/tutorial-rendering-cli.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/tutorial-rendering-batchexplorer-blender.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/tutorial-r-doazureparallel.md",
+      "redirect_url": "/azure/batch/tutorial-parallel-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/batch-rendering-render-managers.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/high-performance-computing.md",
       "redirect_url": "/azure/architecture/topics/high-performance-computing/",
       "redirect_document_id": false
