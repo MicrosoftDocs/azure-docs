@@ -8,7 +8,7 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 05/25/2021
 ---
 
 # Sentiment cognitive skill (V3)
@@ -35,7 +35,7 @@ Parameters are case-sensitive.
 |----------------|----------------------|
 | `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) |
 | `modelVersion`   | (optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
-| `includeOpinionMining` | If set to `true`, enables [the opinion mining feature of TextAnalytics](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#opinion-mining), which allows aspect-based sentiment analysis to be included in your output results. Defaults to `false`. |
+| `includeOpinionMining` | If set to `true`, enables [the opinion mining feature of TextAnalytics](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining), which allows aspect-based sentiment analysis to be included in your output results. Defaults to `false`. |
 
 ## Skill inputs 
 
