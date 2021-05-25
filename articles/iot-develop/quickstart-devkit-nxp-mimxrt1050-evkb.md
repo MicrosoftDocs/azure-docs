@@ -207,11 +207,11 @@ You can also use IoT Central to call a direct method that you've implemented on 
 To call a method in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. Select **State** and select **Run**.  There will be no change to the devkit as there isn't an available LED to toggle. You can view the output in Termite to monitor the status of the methods.
+1. In the **State** dropdown, select **True**, and then select **Run**.  There will be no change on the device as there isn't an available LED to toggle. You can view the output in Termite to monitor the status of the methods.
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
-1. Unselect **State** and select **Run**.
+1. In the **State** dropdown, select **False**, and then select **Run**.
 
 ## View device information
 
@@ -227,7 +227,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 ## Clean up resources
 
-If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal. Optionally, if you continue to another tutorial in this Getting Started guide, you can keep the resources you've already created and reuse them.
+If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal.
 
 To remove the entire Azure IoT Central sample application and all its devices and resources:
 1. Select **Administration** > **Your application**.
