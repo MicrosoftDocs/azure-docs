@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # NIST authentication basics 
 
-To understand NIST guidelines, you need to know the terminology. You also need to understand Trusted Platform Module (TPM) technology and authentication factors. This article provides that information. 
+To understand National Institute of Standards and Technology (NIST) guidelines, you need to know the terminology. You also need to understand Trusted Platform Module (TPM) technology and authentication factors. This article provides that information. 
 
 ## Terminology
 
@@ -35,13 +35,13 @@ The following terminology is used throughout these NIST articles.
 |Relying party| An entity that relies on a *verifier’s assertion* or a *claimant’s authenticators* and *credentials*, usually to grant access to a system. |
 |  Subject| A person, organization, device, hardware, network, software, or service. |
 | Subscriber| A party who has received a *credential* or *authenticator* from a *CSP*. |
-|Trusted Platform Module (TPM)  | A TPM is a tamper-resistant module that does cryptographic operations, including key generation. |
+|Trusted Platform Module  | A TPM is a tamper-resistant module that does cryptographic operations, including key generation. |
 |  Verifier| An entity that verifies the *claimant’s* identity by verifying the claimant’s possession and control of *authenticators*. |
 
 
 ## About Trusted Platform Module technology
 
-Trusted Platform Module (TPM) technology is designed to provide hardware-based security-related functions. A TPM chip, or hardware TPM, is a secure cryptographic processor that helps you with actions like generating, storing, and limiting the use of cryptographic keys. 
+Trusted Platform Module technology is designed to provide hardware-based security-related functions. A TPM chip, or hardware TPM, is a secure cryptographic processor that helps you with actions like generating, storing, and limiting the use of cryptographic keys. 
 
 Microsoft provides significant information on how TPMs work with Windows. For more information, see [Trusted Platform Module](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-top-node). 
 
