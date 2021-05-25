@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/26/2021
+ms.date: 05/06/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -46,9 +46,9 @@ You can use the the sign-ins log to find answers to questions like:
 
 ## Who can access it?
 
-You can always access your own sign-ins log. 
+You can always access your own sign-ins history using this link: [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 
-To access the sign-ins log of another user, you need to be:
+To access the sign-ins log, you need to be:
 
 - A global administrator
 
@@ -265,6 +265,35 @@ By clicking an item, you get more details about the sign-in operation:
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
 ![Screenshot shows the Activity section where you can select Sign-ins.](./media/concept-sign-ins/08.png "Sign-in activity")
+
+## Authentication details
+
+The **Authentication Details** tab located within the sign-ins report provides the following information, for each authentication attempt:
+
+- A list of authentication policies applied (such as Conditional Access, per-user MFA, Security Defaults)
+- The sequence of authentication methods used to sign-in
+- Whether or not the authentication attempt was successful
+- Detail about why the authentication attempt succeeded or failed
+
+This information allows admins to troubleshoot each step in a user’s sign-in, and track:
+
+- Volume of sign-ins protected by multi-factor authentication 
+- Usage and success rates for each authentication method 
+- Usage of passwordless authentication methods (such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business) 
+- How frequently authentication requirements are satisfied by token claims (where users are not interactively prompted to enter a password, enter an SMS OTP, and so on)
+
+While viewing the Sign-ins report, select the **Authentication Details** tab: 
+
+![Screenshot of the Authentication Details tab](media/concept-sign-ins/auth-details-tab.png)
+
+>[!NOTE]
+>**OATH verification code** is logged as the authentication method for both OATH hardware and software tokens (such as the Microsoft Authenticator app).
+
+>[!IMPORTANT]
+>The **Authentication details** tab can initially show incomplete or inaccurate data, until log information is fully aggregated. Known examples include: 
+>- A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
+>- The **Primary authentication** row is not initially logged. 
+
 
 ## Usage of managed applications
 

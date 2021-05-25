@@ -35,10 +35,15 @@ Azure Digital Twins provides intra-region HA by implementing redundancies within
 
 There could be some rare situations when a data center experiences extended outages due to power failures or other events in the region. Such events are rare, and during such failures, the intra region HA capability described above may not help. Azure Digital Twins addresses this with Microsoft-initiated failover.
 
-**Microsoft-initiated failover** is exercised by Microsoft in rare situations to failover all the Azure Digital Twins instances from an affected region to the corresponding geo-paired region. This process is a default option (with no way for users to opt out), and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's instance is failed over.
+**Microsoft-initiated failover** is exercised in rare situations to failover all the Azure Digital Twins instances from an affected region to the corresponding [geo-paired region](../best-practices-availability-paired-regions.md). This process is a default option (with no way for users to opt out), and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve user consent before the user's instance is failed over.
 
 >[!NOTE]
-> Some Azure services also provide an additional option called **customer-initiated failover**, which enables customers to initiate a failover just for their instance, such as to run a DR drill. This mechanism is currently **not supported** by Azure Digital Twins. 
+> Some Azure services provide an additional option called **customer-initiated failover**, which enables customers to initiate a failover just for their instance, such as to run a DR drill. This mechanism is currently **not supported** by Azure Digital Twins. 
+
+If it's important for you to keep all data within certain geographical areas, please check the location of the [geo-paired region](../best-practices-availability-paired-regions.md#azure-regional-pairs) for the region where you're creating your instance, to ensure that it meets your data residency requirements.
+
+>[!NOTE]
+> Some Azure services provide an option for users to configure a different region for failover, as a way to meet data residency requirements. This capability is currently **not supported** by Azure Digital Twins. 
 
 ## Monitor service health
 

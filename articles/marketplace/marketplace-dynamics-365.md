@@ -83,5 +83,5 @@ After you've considered the planning items described above, select one of the fo
 | [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) | When you're building for Enterprise Edition, first review these additional [publishing processes and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
 | [Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md) |   |
 | [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
-| [Power BI](/partner-center-portal/create-power-bi-app-offer.md) | First review these additional [publishing processes and guidelines](/power-bi/developer/office-store). |
+| [Power BI](/azure/marketplace/partner-center-portal/create-power-bi-app-offer) | First review these additional [publishing processes and guidelines](/power-bi/developer/office-store). |
 |||

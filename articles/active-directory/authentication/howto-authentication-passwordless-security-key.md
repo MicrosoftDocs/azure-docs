@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/04/2021
 
 ms.author: justinha
 author: justinha
@@ -53,6 +53,22 @@ Registration features for passwordless authentication methods rely on the combin
    1. **Target** - All users or Select users
 1. **Save** the configuration.
 
+
+### FIDO Security Key optional settings 
+
+There are some optional settings for managing security keys per tenant.  
+
+![Screenshot of FIDO2 security key options](media/howto-authentication-passwordless-security-key/optional-settings.png) 
+
+**General**
+
+- **Allow self-service set up** should remain set to **Yes**. If set to no, your users will not be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
+- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+
+**Key Restriction Policy**
+
+- **Enforce key restrictions** should be set to **Yes** only if your organization wants to only allow or disallow certain FIDO security keys, which are identified by their AAGuids. You can work with your security key provider to determine the AAGuids of their devices. If the key is already registered, AAGUID can also be found by viewing the authentication method details of the key per user. 
+
 ## User registration and management of FIDO2 security keys
 
 1. Browse to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
@@ -89,9 +105,6 @@ If you'd like to share feedback or encounter issues with this feature, share via
 
 Administrator provisioning and de-provisioning of security keys is not available.
 
-### Cached logon on Hybrid Azure AD joined devices
-
-Cached logon with FIDO2 keys fails on hybrid Azure AD joined devices on Windows 10, version 20H2. As a result, users will not be able to login when line of sight to the on-premises domain controller is unavailable. This is currently under investigation.
 
 ### UPN changes
 

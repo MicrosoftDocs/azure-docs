@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 04/27/2021
+ms.date: 05/04/2021
 ms.topic: how-to
 ---
 
@@ -901,8 +901,8 @@ The on-premises management console VM supports the following architectures:
 | Architecture | Specifications | Usage | 
 |--|--|--|
 | Enterprise <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments | 
-| Enterprise | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
-| Enterprise | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
+| Small | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
+| Office | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments | 
    
 ### Prerequisites
 
@@ -1031,6 +1031,191 @@ To install the software:
 1. Access the management console via the IP address previously configured: `<https://ip_address>`.
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Screenshot that shows the management console's sign-in screen.":::
+
+## Legacy devices
+
+This section describes devices that are no longer available for purchase, but are still supported by Azure Defender for IoT.
+
+### Nuvo 5006LP installation
+
+This section provides the Nuvo 5006LP installation procedure. Before installing the software on the Nuvo 5006LP appliance, you need to adjust the appliance BIOS configuration. 
+
+#### Nuvo 5006LP front panel
+
+:::image type="content" source="media/tutorial-install-components/nuvo5006lp_frontpanel.png" alt-text="A view of the front panel of the Nuvo 5006LP device.":::
+
+1. Power button, Power indicator
+1. DVI video connectors
+1. HDMI video connectors
+1. VGA video connectors
+1. Remote on/off Control, and status LED output
+1. Reset button
+1. Management network adapter
+1. Ports to receive mirrored data
+
+#### Nuvo back panel
+
+:::image type="content" source="media/tutorial-install-components/nuvo5006lp_backpanel.png" alt-text="A view of the back panel of the Nuvo 5006lp.":::
+
+1. SIM card slot
+1. Microphone, and speakers
+1. COM ports
+1. USB connectors
+1. DC power port (DC IN)
+
+#### Configure the Nuvo 5006LP BIOS
+
+The following procedure describes how to configure the Nuvo 5006LP BIOS. Make sure the operating system was previously installed on the appliance.
+
+To configure the BIOS:
+
+1. Power on the appliance.
+
+1. Press **F2** to enter the BIOS configuration.
+
+1. Navigate to **Power** and change Power On after Power Failure to S0-Power On.
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-power-on.png" alt-text="Change you Nuvo 5006 to power on after a power failure..":::
+
+1. Navigate to **Boot** and ensure that **PXE Boot to LAN** is set to **Disabled**.
+
+1. Press **F10** to save, and then select **Exit**. 
+
+#### Software installation (Nuvo 5006LP)
+
+The installation process takes approximately 20 minutes. After installation, the system is restarted several times.
+
+1. Connect the external CD, or disk on key with the ISO image.
+
+1. Boot the appliance.
+
+1. Select **English**.
+
+1. Select **XSENSE-RELEASE-<version> Office...**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select the version of the sensor to install.":::
+
+1. Define the appliance architecture, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Define the Nuvo's architecture and network properties.":::
+
+    | Parameter | Configuration |
+    | ----------| ------------- |
+    | **Hardware profile** | Select **office**. |
+    | **Management interface** | **eth0** |
+    | **Management network IP address** | **IP address provided by the customer** | 
+    | **Management subnet mask** | **IP address provided by the customer** | 
+    | **DNS** | **IP address provided by the customer** |
+    | **Default gateway IP address** | **0.0.0.0** | 
+    | **Input interface** | The list of input interfaces is generated for you by the system. <br />To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
+    | **Bridge interface** | - |
+
+1. Accept the settings and continue by entering `Y`.
+
+After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
+
+### Fitlet2 mini sensor Installation
+
+This section provides the Fitlet2 installation procedure. Before installing the software on the Fitlet appliance, you need to adjust the appliance's BIOS configuration.
+
+#### Fitlet2 front panel 
+
+:::image type="content" source="media/tutorial-install-components/fitlet-front-panel.png" alt-text="A view of the front panel of the Fitlet 2.":::
+
+#### Fitlet2 back panel
+
+:::image type="content" source="media/tutorial-install-components/fitlet2-back-panel.png" alt-text="A view of the back panel of the Fitlet 2.":::
+
+#### Configure the Fitlet2 BIOS
+
+1. Power on the appliance.
+
+1. Navigate to **Main** > **OS Selection**.
+
+1. Press **+/-** to select **Linux**.
+
+    :::image type="content" source="media/tutorial-install-components/fitlet-linux.png" alt-text="Set the OS to Linux on your Fitlet2.":::
+
+1. Verify that the system date, and time are updated with the installation date, and time.
+
+1. Navigate to **Advanced**, and select **ACPI Settings**.
+
+1. Select **Enable Hibernation**, and press **+/-** to select **Disabled**.
+
+    :::image type="content" source="media/tutorial-install-components/disable-hibernation.png" alt-text="Diable the hibernation mode on your Fitlet2.":::
+
+1. Press **Esc**.
+
+1. Navigate to **Advanced** > **TPM Configuration**.
+
+1. Select **fTPM**, and press **+/-** to select **Disabled**.
+
+1. Press **Esc**.
+
+1. Navigate to **CPU Configuration** > **VT-d**.
+
+1. Press **+/-** to select **Enabled**.
+
+1. Navigate to **CSM Configuration** > **CSM Support**.
+
+1. Press **+/-** to select **Enabled**.
+1. Navigate to **Advanced** > **Boot option filter [Legacy only]** and change setting in the following fields to **Legacy**:
+    - Network
+    - Storage
+    - Video
+    - Other PCI
+
+    :::image type="content" source="media/tutorial-install-components/legacy-only.png" alt-text="Set all fields to Legacy.":::
+
+1. Press **Esc**.
+
+1. Navigate to **Security** > **Secure Boot Customization**.
+
+1. Press **+/-** to select **Disabled**.
+
+1. Press **Esc**.
+
+1. Navigate to **Boot** > **Boot mode** select, and select **Legacy**.
+
+1. Select **Boot Option #1 – [USB CD/DVD]**.
+ 
+1. Select **Save & Exit**.
+
+#### Software installation (Fitlet2)
+
+The installation process takes approximately 20 minutes. After installation, the system is restarted several times.
+
+1. Connect the external CD, or disk on key with the ISO image.
+
+1. Boot the appliance.
+
+1. Select **English**.
+
+1. Select **XSENSE-RELEASE-<version> Office...**.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select the version of the sensor to install.":::
+
+    > [!Note]
+    > Do not select Ruggedized.
+
+1. Define the appliance architecture, and network properties:
+
+    :::image type="content" source="media/tutorial-install-components/nuvo-profile-appliance.png" alt-text="Define the Nuvo's architecture and network properties.":::
+
+    | Parameter | Configuration |
+    | ----------| ------------- |
+    | **Hardware profile** | Select **office**. |
+    | **Management interface** | **em1** |
+    | **Management network IP address** | **IP address provided by the customer** | 
+    | **Management subnet mask** | **IP address provided by the customer** | 
+    | **DNS** | **IP address provided by the customer** |
+    | **Default gateway IP address** | **0.0.0.0** | 
+    | **Input interface** | The list of input interfaces is generated for you by the system. <br />To mirror the input interfaces, copy all the items presented in the list with a comma separator. |
+    | **Bridge interface** | - |
+
+1. Accept the settings and continue by entering `Y`.
+
+After approximately 10 minutes, sign-in credentials are automatically generated. Save the username and passwords, you'll need these credentials to access the platform the first time you use it.
 
 ## Post-installation validation
 
@@ -1246,7 +1431,7 @@ You can enhance system security by preventing direct user access to the sensor. 
 
 To enable tunneling:
 
-1. Sign in to the on-premises management console's CLI with **CyberX** or **Support** user credentials.
+1. Sign in to the on-premises management console's CLI with the **CyberX**, or the **Support** user credentials.
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 

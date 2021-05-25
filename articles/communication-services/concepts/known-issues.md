@@ -108,3 +108,15 @@ If access to devices are granted, after some time, device permissions are reset.
 
 ###  Sometimes it takes a long time to render remote participant videos
 During an ongoing group call, _User A_ sends video and then _User B_ joins the call. Sometimes, User B doesn't see video from User A, or User A's video begins rendering after a long delay. This issue could be caused by a network environment that requires further configuration. Refer to the [network requirements](./voice-video-calling/network-requirements.md) documentation for network configuration guidance.
+
+### Using 3rd party libraries to access GUM during the call may result in audio loss
+Using getUserMedia separately inside the application will result in losing audio stream since a third party library takes over device access from ACS library.
+Developers are encouraged to do the following:
+1. Don't use 3rd party libraries that are using internally GetUserMedia API during the call.
+2. If you still need to use 3rd party library, only way to recover is to either change the selected device (if the user has more than one) or restart the call.
+
+<br/>Browsers: Safari
+<br/>Operating System: iOS
+
+#### Possible causes
+In some browsers (Safari for example), acquiring your own stream from the same device will have a side-effect of running into race conditions. Acquiring streams from other devices may lead the user into insufficient USB/IO bandwidth, and sourceUnavailableError rate will skyrocket.  

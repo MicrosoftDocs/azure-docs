@@ -122,8 +122,7 @@ The example host.json file below contains only the settings for version 5.0.0 an
                 "maxConcurrentCalls": 32,
                 "maxConcurrentSessions": 10,
                 "maxMessages": 2000,
-                "sessionIdleTimeout": "00:01:00",
-                "maxAutoLockRenewalDuration": "00:05:00"
+                "sessionIdleTimeout": "00:01:00"
             }
         }
     }

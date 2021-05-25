@@ -77,6 +77,8 @@
       href: tutorial-firewall-dnat.md
     - name: Deploy using Azure PowerShell
       href: deploy-ps.md
+    - name: Deploy policy using Azure PowerShell
+      href: deploy-ps-policy.md
     - name: Deploy in hybrid network - PowerShell
       href: tutorial-hybrid-ps.md
     - name: Deploy using Azure CLI

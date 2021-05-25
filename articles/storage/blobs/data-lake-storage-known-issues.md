@@ -79,7 +79,7 @@ ACLs are not yet supported.
 
 ## Third party applications
 
-Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
+Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2.
 Applications that call Blob APIs will likely work.
 
 ## Access control lists (ACL) and anonymous read access
@@ -93,10 +93,6 @@ The setting for retention days is not yet supported, but you can delete logs man
 ## Lifecycle management policies with premium tier for Azure Data Lake Storage
 
 You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy data from the premium tier to the hot access tier in a different account.
-
-## Dremio support with premium-performance BlockBlobStorage storage accounts
-
-Dremio doesn't yet connect to a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. 
 
 ## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
 

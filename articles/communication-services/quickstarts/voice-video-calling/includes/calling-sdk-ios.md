@@ -31,9 +31,7 @@ You're not going to create unit tests or UI tests during this quickstart. Feel f
    platform :ios, '13.0'
    use_frameworks!
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.8'
-     pod 'AzureCommunication', '~> 1.0.0-beta.8'
-     pod 'AzureCore', '~> 1.0.0-beta.8'
+     pod 'AzureCommunicationCalling', '~> 1.0.0'
    end
    ```
 
@@ -90,13 +88,13 @@ import AzureCommunication
 
 let tokenString = "token_string"
 var userCredential: CommunicationTokenCredential?
-var userCredential: CommunicationTokenCredential?
-   do {
-       userCredential = try CommunicationTokenCredential(with: CommunicationTokenRefreshOptions(initialToken: token, 
-                                                                     refreshProactively: true,
-                                                                     tokenRefresher: self.fetchTokenSync))
-   } catch {
-       return
+do {
+    let options = CommunicationTokenRefreshOptions(initialToken: token, refreshProactively: true, tokenRefresher: self.fetchTokenSync)
+    userCredential = try CommunicationTokenCredential(withOptions: options)
+} catch {
+    updates("Couldn't created Credential object", false)
+    initializationDispatchGroup!.leave()
+    return
 }
 
 // tokenProvider needs to be implemented by Contoso, which fetches a new token
@@ -110,11 +108,11 @@ Pass the `CommunicationTokenCredential` object that you created to `CallClient`,
 
 ```swift
 
-callClient = CallClient()
-let callAgentOptions:CallAgentOptions = CallAgentOptions()!
-options.displayName = " iOS User"
+self.callClient = CallClient()
+let callAgentOptions = CallAgentOptions()
+options.displayName = " iOS ACS User"
 
-callClient?.createCallAgent(userCredential: userCredential!,
+self.callClient!.createCallAgent(userCredential: userCredential!,
     options: callAgentOptions) { (callAgent, error) in
         if error == nil {
             print("Create agent succeeded")
@@ -137,7 +135,14 @@ Call creation and start are synchronous. You'll receive a call instance that all
 ```swift
 
 let callees = [CommunicationUser(identifier: 'UserId')]
-let oneToOneCall = self.callAgent.call(participants: callees, options: StartCallOptions())
+self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
+     if error == nil {
+         print("Successfully started outgoing call")
+         self.call = call
+     } else {
+         print("Failed to start outgoing call")
+     }
+}
 
 ```
 
@@ -147,8 +152,15 @@ To place the call to PSTN, you have to specify a phone number acquired with Comm
 ```swift
 
 let pstnCallee = PhoneNumberIdentifier(phoneNumber: '+1999999999')
-let callee = CommunicationUserIdentifier(identifier: 'UserId')
-let groupCall = self.callAgent.call(participants: [pstnCallee, callee], options: StartCallOptions())
+let callee = CommunicationUserIdentifier('UserId')
+self.callAgent?.startCall(participants: [pstnCallee, callee], options: StartCallOptions()) { (groupCall, error) in
+     if error == nil {
+         print("Successfully started outgoing call to multiple participants")
+         self.call = groupCall
+     } else {
+         print("Failed to start outgoing call to multiple participants")
+     }
+}
 
 ```
 
@@ -157,15 +169,23 @@ To get a device manager instance, see the section about [managing devices](#mana
 
 ```swift
 
-let camera = self.deviceManager!.cameras!.first
-let localVideoStream = LocalVideoStream(camera: camera)
-let videoOptions = VideoOptions(localVideoStream: localVideoStream)
+let firstCamera = self.deviceManager!.cameras.first
+self.localVideoStreams = [LocalVideoStream]()
+self.localVideoStreams!.append(LocalVideoStream(camera: firstCamera!))
+let videoOptions = VideoOptions(localVideoStreams: self.localVideoStreams!)
 
 let startCallOptions = StartCallOptions()
-startCallOptions?.videoOptions = videoOptions
+startCallOptions.videoOptions = videoOptions
 
-let callee = CommunicationUserIdentifier(identifier: 'UserId')
-let call = self.callAgent?.call(participants: [callee], options: startCallOptions)
+let callee = CommunicationUserIdentifier('UserId')
+self.callAgent?.startCall(participants: [callee], options: startCallOptions) { (call, error) in
+     if error == nil {
+         print("Successfully started outgoing video call")
+         self.call = call
+     } else {
+         print("Failed to start outgoing video call")
+     }
+}
 
 ```
 
@@ -174,8 +194,15 @@ To join a call, you need to call one of the APIs on `CallAgent`.
 
 ```swift
 
-let groupCallLocator = GroupCallLocator(groupId: UUID(uuidString: "uuid_string"))!
-let call = self.callAgent?.join(with: groupCallLocator, joinCallOptions: JoinCallOptions())
+let groupCallLocator = GroupCallLocator(groupId: UUID(uuidString: "uuid_string")!)
+self.callAgent?.join(with: groupCallLocator, joinCallOptions: JoinCallOptions()) { (call, error) in
+     if error == nil {
+         print("Successfully joined group call")
+         self.call = call
+     } else {
+         print("Failed to join group call")
+     }
+}
 
 ```
 
@@ -186,48 +213,48 @@ Subscribe to an incoming call event.
 final class IncomingCallHandler: NSObject, CallAgentDelegate, IncomingCallDelegate
 {
     // Event raised when there is an incoming call
-    public func onIncomingCall(_ callAgent: CallAgent!, incomingcall: IncomingCall!) {
+    public func callAgent(_ callAgent: CallAgent, didRecieveIncomingCall incomingcall: IncomingCall) {
         self.incomingCall = incomingcall
         // Subscribe to get OnCallEnded event
         self.incomingCall?.delegate = self
     }
 
     // Event raised when incoming call was not answered
-    public func onCallEnded(_ incomingCall: IncomingCall!, args: PropertyChangedEventArgs!) {
+    public func incomingCall(_ incomingCall: IncomingCall, didEnd args: PropertyChangedEventArgs) {
+        print("Incoming call was not answered")
         self.incomingCall = nil
     }
 }
 ```
 
 ### Accept an incoming call
-To accept a call, call the `accept` method on a call object. Set a delegate to `CallAgent`.
+To accept a call, call the `accept` method on a `IncomingCall` object.
 
 ```swift
-final class CallHandler: NSObject, CallAgentDelegate
-{
-    public var incomingCall: Call?
- 
-    public func onCallsUpdated(_ callAgent: CallAgent!, args: CallsUpdatedEventArgs!) {
-        if let incomingCall = args.addedCalls?.first(where: { $0.isIncoming }) {
-            self.incomingCall = incomingCall
-        }
-    }
+self.incomingCall!.accept(options: AcceptCallOptions()) { (call, error) in
+   if (error == nil) {
+       print("Successfully accepted incoming call")
+       self.call = call
+   } else {
+       print("Failed to accept incoming call")
+   }
 }
 
-let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras!.first
-let localVideoStream = LocalVideoStream(camera: firstCamera)
+let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras.first
+localVideoStreams = [LocalVideoStream]()
+localVideoStreams!.append(LocalVideoStream(camera: firstCamera!))
 let acceptCallOptions = AcceptCallOptions()
-acceptCallOptions!.videoOptions = VideoOptions(localVideoStream:localVideoStream!)
-if let incomingCall = CallHandler().incomingCall {
-   incomingCall.accept(options: acceptCallOptions) { (call, error) in
-               if error == nil {
-                   print("Incoming call accepted")
-               } else {
-                   print("Failed to accept incoming call")
-               }
-           }
+acceptCallOptions.videoOptions = VideoOptions(localVideoStreams: localVideoStreams!)
+if let incomingCall = self.incomingCall {
+  incomingCall.accept(options: acceptCallOptions) { (call, error) in
+        if error == nil {
+            print("Incoming call accepted")
+        } else {
+            print("Failed to accept incoming call")
+        }
+    }
 } else {
-   print("No incoming call found to accept")
+  print("No incoming call found to accept")
 }
 ```
 
@@ -253,7 +280,7 @@ Registration for push notifications needs to happen after successful initializat
 ```swift
 
 let deviceToken: Data = pushRegistry?.pushToken(for: PKPushType.voIP)
-callAgent.registerPushNotifications(deviceToken: deviceToken) { (error) in
+callAgent.registerPushNotifications(deviceToken: deviceToken!) { (error) in
     if(error == nil) {
         print("Successfully registered to push notification.")
     } else {
@@ -268,13 +295,13 @@ To receive push notifications for incoming calls, call `handlePushNotification()
 
 ```swift
 
-let callNotification = IncomingCallInformation.from(payload: pushPayload?.dictionaryPayload)
+let callNotification = PushNotificationInfo.fromDictionary(pushPayload.dictionaryPayload)
 
 callAgent.handlePush(notification: callNotification) { (error) in
-    if (error != nil) {
-        print("Handling of push notification failed")
-    } else {
+    if (error == nil) {
         print("Handling of push notification was successful")
+    } else {
+        print("Handling of push notification failed")
     }
 }
 
@@ -288,11 +315,11 @@ Applications can unregister push notification at any time. Simply call the `unre
 
 ```swift
 
-callAgent.unregisterPushNotifications { (error) in
-    if (error != nil) {
-        print("Unregister of push notification failed, please try again")
-    } else {
+callAgent.unregisterPushNotification { (error) in
+    if (error == nil) {
         print("Unregister of push notification was successful")
+    } else {
+       print("Unregister of push notification failed, please try again")
     }
 }
 
@@ -335,8 +362,8 @@ To start sending local video to other participants in a call, use the `startVide
 
 ```swift
 
-let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras!.first
-let localVideoStream = LocalVideoStream(camera: firstCamera)
+let firstCamera: VideoDeviceInfo? = self.deviceManager!.cameras.first
+let localVideoStream = LocalVideoStream(camera: firstCamera!)
 
 call!.startVideo(stream: localVideoStream) { (error) in
     if (error == nil) {
@@ -352,7 +379,7 @@ After you start sending video, the `LocalVideoStream` instance is added the `loc
 
 ```swift
 
-call.localVideoStreams[0]
+call.localVideoStreams
 
 ```
 
@@ -390,7 +417,7 @@ call.remoteParticipants
 var remoteParticipantDelegate = remoteParticipant.delegate
 
 // [CommunicationIdentifier] identity - same as the one used to provision a token for another user
-var identity = remoteParticipant.identity
+var identity = remoteParticipant.identifier
 
 // ParticipantStateIdle = 0, ParticipantStateEarlyMedia = 1, ParticipantStateConnecting = 2, ParticipantStateConnected = 3, ParticipantStateOnHold = 4, ParticipantStateInLobby = 5, ParticipantStateDisconnected = 6
 var state = remoteParticipant.state
@@ -466,8 +493,8 @@ To start rendering remote participant streams, use the following code.
 
 ```swift
 
-let renderer: Renderer? = Renderer(remoteVideoStream: remoteParticipantVideoStream)
-let targetRemoteParticipantView: RendererView? = renderer?.createView(with: RenderingOptions(scalingMode: ScalingMode.crop))
+let renderer = VideoStreamRenderer(remoteVideoStream: remoteParticipantVideoStream)
+let targetRemoteParticipantView = renderer?.createView(withOptions: CreateViewOptions(scalingMode: ScalingMode.crop))
 // To update the scaling mode later
 targetRemoteParticipantView.update(scalingMode: ScalingMode.fit)
 
@@ -502,27 +529,9 @@ To access local devices, you can use enumeration methods on the device manager. 
 
 ```swift
 // enumerate local cameras
-var localCameras = deviceManager.cameras! // [VideoDeviceInfo, VideoDeviceInfo...]
-// enumerate local cameras
-var localMicrophones = deviceManager.microphones! // [AudioDeviceInfo, AudioDeviceInfo...]
-// enumerate local cameras
-var localSpeakers = deviceManager.speakers! // [AudioDeviceInfo, AudioDeviceInfo...]
+var localCameras = deviceManager.cameras // [VideoDeviceInfo, VideoDeviceInfo...]
+
 ``` 
-
-### Set the default microphone or speaker
-
-You can use the device manager to set a default device that will be used when a call is started. If stack defaults aren't set, Communication Services will fall back to OS defaults.
-
-```swift
-// get first microphone
-var firstMicrophone = self.deviceManager!.cameras!.first
-// [Synchronous] set microphone
-deviceManager.setMicrophone(microphoneDevice: firstMicrophone)
-// get first speaker
-var firstSpeaker = self.deviceManager!.speakers!
-// [Synchronous] set speaker
-deviceManager.setSpeaker(speakerDevice: firstSpeaker)
-```
 
 ### Get a local camera preview
 
@@ -530,10 +539,10 @@ You can use `Renderer` to begin rendering a stream from your local camera. This 
 
 ```swift
 
-let camera: VideoDeviceInfo = self.deviceManager!.getCameraList()![0]
-let localVideoStream: LocalVideoStream = LocalVideoStream(camera: camera)
-let renderer: Renderer = Renderer(localVideoStream: localVideoStream)
-self.view = try renderer!.createView()
+let camera: VideoDeviceInfo = self.deviceManager!.cameras.first!
+let localVideoStream = LocalVideoStream(camera: camera)
+let localRenderer = try! VideoStreamRenderer(localVideoStream: localVideoStream)
+self.view = try! localRenderer.createView()
 
 ```
 
@@ -544,20 +553,20 @@ The renderer has set of properties and methods that allow you to control the ren
 ```swift
 
 // Constructor can take in LocalVideoStream or RemoteVideoStream
-let localRenderer = Renderer(localVideoStream:localVideoStream)
-let remoteRenderer = Renderer(remoteVideoStream:remoteVideoStream)
+let localRenderer = VideoStreamRenderer(localVideoStream:localVideoStream)
+let remoteRenderer = VideoStreamRenderer(remoteVideoStream:remoteVideoStream)
 
 // [StreamSize] size of the rendering view
 localRenderer.size
 
-// [RendererDelegate] an object you provide to receive events from this Renderer instance
+// [VideoStreamRendererDelegate] an object you provide to receive events from this Renderer instance
 localRenderer.delegate
 
 // [Synchronous] create view
 try! localRenderer.createView()
 
 // [Synchronous] create view with rendering options
-try! localRenderer.createView(with: RenderingOptions(scalingMode: ScalingMode.fit))
+try! localRenderer!.createView(withOptions: CreateViewOptions(scalingMode: ScalingMode.fit))
 
 // [Synchronous] dispose rendering view
 localRenderer.dispose()
@@ -574,8 +583,7 @@ To subscribe to `property changed` events, use the following code.
 ```swift
 call.delegate = self
 // Get the property of the call state by getting on the call's state member
-public func onCallStateChanged(_ call: Call!,
-                               args: PropertyChangedEventArgs!)
+public func call(_ call: Call, didChangeState args: PropertyChangedEventArgs) {
 {
     print("Callback from SDK when the call state changes, current state: " + call.state.rawValue)
 }
@@ -591,8 +599,7 @@ To subscribe to `collection updated` events, use the following code.
 ```swift
 call.delegate = self
 // Collection contains the streams that were added or removed only
-public func onLocalVideoStreamsChanged(_ call: Call!,
-                                       args: LocalVideoStreamsUpdatedEventArgs!)
+public func call(_ call: Call, didUpdateLocalVideoStreams args: LocalVideoStreamsUpdatedEventArgs) {
 {
     print(args.addedStreams.count)
     print(args.removedStreams.count)

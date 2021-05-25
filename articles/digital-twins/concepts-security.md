@@ -48,7 +48,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 #### Authorization: Azure roles for Azure Digital Twins
 
-Azure provides **two Azure built-in roles** for authorizing access to the Azure Digital Twins [data plane APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). You can refer to the roles either by name or by ID:
+Azure provides **two Azure built-in roles** for authorizing access to the Azure Digital Twins [data plane APIs](concepts-apis-sdks.md#overview-data-plane-apis). You can refer to the roles either by name or by ID:
 
 | Built-in role | Description | ID | 
 | --- | --- | --- |
@@ -68,7 +68,7 @@ For more information about how built-in roles are defined, see [Understand role 
 When referring to roles in automated scenarios, it's recommended to refer to them by their **IDs** rather than their names. The names may change between releases, but the IDs will not, making them a more stable reference in automation.
 
 > [!TIP]
-> If you're assiging roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass an ID instead of a name for the role.
+> If you're assigning roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass an ID instead of a name for the role.
 
 ### Permission scopes
 

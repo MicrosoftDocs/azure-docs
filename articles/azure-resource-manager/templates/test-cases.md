@@ -2,7 +2,7 @@
 title: Test cases for test toolkit
 description: Describes the tests that are run by the ARM template test toolkit.
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 05/17/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -35,30 +35,6 @@ The schema property in the template must be set to one of the following schemas:
 * `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json`
-
-## Parameters must exist
-
-Test name: **Parameters Property Must Exist**
-
-Your template should have a parameters element. Parameters are essential for making your templates reusable in different environments. Add parameters to your template for values that change when deploying to different environments.
-
-The following example **passes** this test:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "vmName": {
-          "type": "string",
-          "defaultValue": "linux-vm",
-          "metadata": {
-            "description": "Name for the Virtual Machine."
-          }
-      }
-  },
-  ...
-```
 
 ## Declared parameters must be used
 

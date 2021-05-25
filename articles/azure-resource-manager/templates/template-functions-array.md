@@ -227,7 +227,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 ```
 
 ---

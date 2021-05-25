@@ -212,6 +212,8 @@
         href: backup-azure-system-state.md
     - name: Restore
       items:
+      - name: Overview
+        href: about-restore-microsoft-azure-recovery-services.md
       - name: Recover files from Azure to Windows Server
         href: backup-azure-restore-windows-server.md
       - name: Restore all files in a volume
@@ -240,10 +242,18 @@
     items:
     - name: Overview
       href: blob-backup-overview.md
-    - name: Configure and manage
-      href: blob-backup-configure-manage.md
-    - name: Restore
-      href: blob-restore.md
+    - name: From the Azure portal
+      items:
+      - name: Configure and manage
+        href: blob-backup-configure-manage.md
+      - name: Restore
+        href: blob-restore.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-blobs-storage-account-ps.md
+      - name: Restore
+        href: restore-blobs-storage-account-ps.md
   - name: Azure File share backup
     items:
     - name: Overview

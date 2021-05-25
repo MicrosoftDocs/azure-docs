@@ -69,14 +69,15 @@ foundation. This environment is composed of:
   enable encrypted traffic between an Azure virtual network and an on-premises location over the
   public Internet.
 
-> [!NOTE] 
+> [!NOTE]
 > The Azure Security Benchmark Foundation lays out a foundational architecture for
 > workloads. The architecture diagram above includes several notional resources to demonstrate
 > potential use of subnets. You still need to deploy workloads on this foundational architecture.
 
 ## Next steps
 
-You've reviewed the overview and architecture of the Azure Security Benchmark Foundation blueprint sample.
+You've reviewed the overview and architecture of the Azure Security Benchmark Foundation blueprint
+sample.
 
 > [!div class="nextstepaction"]
 > [Azure Security Benchmark Foundation blueprint - Deploy steps](./deploy.md)
