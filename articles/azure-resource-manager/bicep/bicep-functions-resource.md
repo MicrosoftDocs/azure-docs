@@ -6,6 +6,7 @@ ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
 ---
+
 # Resource functions for Bicep
 
 Resource Manager provides the following functions for getting resource values in your Bicep file:

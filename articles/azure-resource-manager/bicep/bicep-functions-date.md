@@ -4,8 +4,9 @@ description: Describes the functions to use in a Bicep file to work with dates.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 06/01/2021
 ---
+
 # Date functions for Bicep
 
 Resource Manager provides the following functions for working with dates in your Bicep file:

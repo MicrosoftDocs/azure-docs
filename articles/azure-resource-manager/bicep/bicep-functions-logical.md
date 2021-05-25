@@ -4,8 +4,9 @@ description: Describes the functions to use in a Bicep file to determine logical
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 06/01/2021
 ---
+
 # Logical functions for Bicep
 
 Resource Manager provides a `bool` function for Bicep. Some ARM JSON logical functions are replaced with [Bicep logical operators](../operators-logical.md).

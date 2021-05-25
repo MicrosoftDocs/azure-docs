@@ -4,8 +4,9 @@ description: Describes the functions to use in a Bicep file to retrieve deployme
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 06/01/2021
 ---
+
 # Deployment functions for Bicep
 
 Resource Manager provides the following functions for getting values related to the current deployment of your Bicep file:

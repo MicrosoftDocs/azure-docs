@@ -6,8 +6,9 @@ author: mumian
 ms.author: jgao
 ms.service: azure-resource-manager
 ms.subservice: bicep
-ms.date: 05/21/2021
+ms.date: 06/01/2021
 ---
+
 # Any function for Bicep
 
 Bicep supports a function called `any()` to resolve type errors in the Bicep type system. You use this function when the format of the value you provide doesn't match what the type system expects. For example, if the property requires a number but you need to provide it as a string, like `'0.5'`. Use the `any()` function to suppress the error reported by the type system.
