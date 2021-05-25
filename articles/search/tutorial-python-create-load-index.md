@@ -1,22 +1,22 @@
 ---
 title: "Python tutorial: Add search to web apps" 
 titleSuffix: Azure Cognitive Search
-description: Create index and import CSV data into Search index with Python using the npm SDK @azure/search-documents.
+description: Create index and import CSV data into Search index with Python using the PYPI package SDK azure-search-documents.
 manager: nitinme
 author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 05/25/2021
 ms.custom: devx-track-python
-ms.devlang: javascript
+ms.devlang: python
 ---
 
 # 2 - Create and load Search Index with Python
 
 Continue to build your Search-enabled website by:
 * Creating a Search resource with the VS Code extension
-* Creating a new index and importing data with Python using the sample script and Azure SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
+* Creating a new index and importing data with Python using the sample script and Azure SDK [azure-search-documents](https://pypi.org/project/azure-search-documents/).
 
 ## Create an Azure Search resource 
 
@@ -53,32 +53,32 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
 The script uses the Azure SDK for Cognitive Search:
 
-* [npm package @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
-* [Reference Documentation](/javascript/api/overview/azure/search-documents-readme)
+* [PYPI package azure-search-documents](https://pypi.org/project/azure-search-documents/)
+* [Reference Documentation](/python/api/azure-search-documents)
 
-1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-website/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
+1. In Visual Studio Code, open the `bulk_upload.py` file in the subdirectory,  `search-website/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
+    :::code language="javascript" source="~/azure-search-python-samples/search-website/bulk-insert/bulk_upload.py" highlight="12,13" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, and run the following command to install the dependencies. 
 
     ```bash
-    npm install 
+    pip install -r requirements.txt 
     ```
 
 ## Run the bulk import script for Search
 
-1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, to run the following bash command to run the `bulk_insert_books.js` script:
+1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, to run the following bash command to run the `bulk_upload.py` script:
 
     ```javascript
-    npm start
+    python bulk-upload.py
     ```
 
 1. As the code runs, the console displays progress. 
-1. When the upload is complete, the last statement printed to the console is "done".
+1. When the upload is complete, the last statement printed to the console is "Done. Press any key to close the terminal.".
 
 ## Review the new Search Index
 
