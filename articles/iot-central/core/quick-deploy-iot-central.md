@@ -73,14 +73,14 @@ Keep this page open. In the next section you scan this QR code using the phone a
 
 ## Connect your device
 
-To get you started quickly, this article uses a smartphone app as an IoT device. The app sends telemetry collected from the phone's sensors, responds to commands invoked from IoT Central, and reports property values to IoT Central.
+To get you started quickly, this article uses the **IoT Plug and Play** smartphone app as an IoT device. The app sends telemetry collected from the phone's sensors, responds to commands invoked from IoT Central, and reports property values to IoT Central.
 
 Install the app on your smartphone from one of the app stores:
 
 - Link to Android app store <!-- TODO Badge generator: https://play.google.com/intl/en_us/badges/ -->
 - Link to Apple app store <!-- TODO Badge generator: https://tools.applemediaservices.com/app-store -->
 
-To connect the app to you Iot Central application:
+To connect the **IoT Plug and Play** app to you Iot Central application:
 
 1. Open the **IoT PnP** app on your smartphone.
 
@@ -96,6 +96,8 @@ To view the telemetry from the smartphone app in IoT Central:
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentral-telemetry.png" alt-text="Screenshot of the overview page with telemetry plots.":::
 
+> [!TIP]
+> The smartphone app only sends data when the screen is on.
 ## Clean up resources
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]

@@ -22486,22 +22486,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/tutorial-monitor-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-monitor-devices",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/quick-monitor-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-monitor-devices/",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/quick-monitor-devices.md",
-      "redirect_url": "/azure/iot-central/core/quick-monitor-devices/",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/tutorial-monitor-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-monitor-devices/",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central/",
       "redirect_document_id": false
     },
     {
@@ -23063,6 +23063,16 @@
       "source_path_from_root": "/articles/iot-central/core/howto-version-device-template.md",
       "redirect_url": "/azure/iot-central/core/howto-edit-device-template",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/quick-monitor-devices.md",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/quick-create-simulated-device.md",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",

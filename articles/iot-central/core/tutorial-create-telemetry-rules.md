@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstarts to create the **Sensor Controller** device template to work with.
+Before you begin, complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) to create the **Sensor Controller** device template to work with.
 
 ## Create a rule
 
