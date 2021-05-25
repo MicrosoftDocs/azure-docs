@@ -125,10 +125,3 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
-
-## Clean up resources
-
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-- [Portal](#todo-link-to-cleanup-doc)
-- [Azure CLI](#todo-link-to-cleanup-doc)
