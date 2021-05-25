@@ -382,7 +382,7 @@ Example output:
 ```bash
 1845
 ```
-The number in the output indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under a 1000, it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the ValidatingWebhook would be throw an error and prohibit you from making changes to the `osm-config` ConfigMap in the `arc-osm-system` namespace.
+The number in the output indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or some number under a 1000, it would indicate that the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the ValidatingWebhook would throw an error and prohibit you from making changes to the `osm-config` ConfigMap in the `arc-osm-system` namespace.
 
 Let's look at a sample error when the CA Bundle is incorrect:
 - An attempt to change the `osm-config` ConfigMap:

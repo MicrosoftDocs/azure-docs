@@ -343,7 +343,7 @@ Read more about integration with Azure Monitor [here](https://github.com/microso
 2. Go to Azure Monitor and navigate to the Reports tab to access the OSM workbook.
 3. Select the time-range & namespace to scope your services.
 
-![OSM workbook](./media/tutorial-arc-enabled-osm/osm-workbook.jpg)
+![OSM workbook](./media/tutorial-arc-enabled-open-service-mesh/osm-workbook.jpg)
 
 #### Requests Tab
 
