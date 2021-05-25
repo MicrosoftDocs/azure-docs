@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/18/2021
+ms.date: 05/25/2021
 ---
 
 # Quickstart: Connect an NXP MIMXRT1060-EVK Evaluation kit to IoT Central
@@ -216,7 +216,7 @@ To call a method in IoT Central portal:
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
-1. In the **State** dropdown, select **True**, and then select **Run**.
+1. In the **State** dropdown, select **False**, and then select **Run**.
 
 ## View device information
 
