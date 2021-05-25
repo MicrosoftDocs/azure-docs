@@ -37,7 +37,7 @@ If you require that each resource has its own identity, or have resources that r
 
 | Scenario| Recommendation|Notes|
 |---|---|---|
-| Rapid creation of resources (for example, ephemeral computing) with managed identities |  User-assigned identity | If you attempt to create multiple managed identities in a short space of time – for example, deploying multiple virtual machines each with their own system-assigned identity - you may exceed the rate limit for Azure Active Directory object creations, and the request will fail with a HTTP 429 error. <br/><br/>If resources are being created or deleted rapidly, you may also exceed the limit on the number of resources in Azure Active Directory if using system-assigned identities. While a deleted  system-assigned identity is no longer accessible by any resource, it will count towards your limit until fully purged after 30 days.<br/><br/>Deploying the resources associated with a single user-assigned identity will require the creation of only one Service Principal in Azure Active Directory, avoiding the rate limit. Using a single identity that is created in advance will also reduce the risk of replication delays that could occur if multiple resources are created each with their own identity.<br/><br/>Read more about the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits#managed-identity-limits). |
+| Rapid creation of resources (for example, ephemeral computing) with managed identities |  User-assigned identity | If you attempt to create multiple managed identities in a short space of time – for example, deploying multiple virtual machines each with their own system-assigned identity - you may exceed the rate limit for Azure Active Directory object creations, and the request will fail with a HTTP 429 error. <br/><br/>If resources are being created or deleted rapidly, you may also exceed the limit on the number of resources in Azure Active Directory if using system-assigned identities. While a deleted  system-assigned identity is no longer accessible by any resource, it will count towards your limit until fully purged after 30 days.<br/><br/>Deploying the resources associated with a single user-assigned identity will require the creation of only one Service Principal in Azure Active Directory, avoiding the rate limit. Using a single identity that is created in advance will also reduce the risk of replication delays that could occur if multiple resources are created each with their own identity.<br/><br/>Read more about the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits). |
 | Replicated resources/applications | User-assigned identity  |  Resources that carry out the same task – for example, duplicated web servers or identical functionality running in an app service and in an application on a virtual machine – typically require the same permissions. <br/><br/>By using the same user-assigned identity, fewer role assignments are required which reduces the management overhead. The resources don't have to be of the same type. 
 |Compliance| User-assigned identity  | If your organization requires that all identity creation must go through an approval process, using a single user-assigned identity across multiple resources will require fewer approvals than system-assigned Identities, which are created as new resources are created. |
 Access required before a resource is deployed |User-assigned identity| Some resources may require access to certain Azure resources as part of their deployment.<br/><br/>In this case, a system-assigned identity may not be created in time so a pre-existing user-assigned identity should be used.|
@@ -76,8 +76,8 @@ In the example below, “Virtual Machine 4” has both a user-assigned identity,
 
 **Limits**
 
-View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits#azure-role-based-access-control-limits)
-and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits#azure-role-based-access-control-limits).
+View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits)
+and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits).
 
 **Maintenance**
 
@@ -88,6 +88,6 @@ You'll need to manually delete a user-assigned identity when it's no longer requ
 Role assignments aren't automatically deleted when either system-assigned or user-assigned managed identities are deleted. These role assignments should be manually deleted so the limit of role assignments per subscription isn't exceeded. 
 
 Role assignments that are associated with deleted managed identities
-will be displayed with “Identity not found” when viewed in the portal. [Read more](../../role-based-access-control/troubleshooting#role-assignments-with-identity-not-found).
+will be displayed with “Identity not found” when viewed in the portal. [Read more](../../role-based-access-control/troubleshooting.md#role-assignments-with-identity-not-found).
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/identity-not-found.png" alt-text="Identity not found for role assignment":::
