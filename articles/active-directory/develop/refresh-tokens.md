@@ -20,18 +20,20 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 
 When a client acquires an access token to access a protected resource, the client also receives a refresh token. The refresh token is used to obtain new access/refresh token pairs when the current access token expires. Refresh tokens are also used to acquire extra access tokens for other resources. Refresh tokens are bound to a combination of user and client, but aren't tied to a resource or tenant. This allows a client to use a refresh token to acquire access tokens across any combination of resource and tenant where it has permission to do so. 
 
-Refresh tokens have a significantly longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. The Microsoft identity platform doesn't revoke refresh tokens when used to fetch new access tokens. Securely delete the old refresh token when acquiring a new one. 
+Refresh tokens have a significantly longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. The Microsoft identity platform doesn't revoke refresh tokens when used to fetch new access tokens. Securely delete the old refresh token when acquiring a new one. Refresh tokens need to be stored safely in line with stringent requirements since they have a long lifetime and are used to obtain access tokens. 
+
+Refresh tokens are encrypted and only Azure AD service can read them.
 
 ## Prerequisites
 
-Before reading through this article, it is recommended that you go through the following articles:
+Before reading through this article, it's recommended that you go through the following articles:
 
 * [ID tokens](id-tokens.md) in the Microsoft identity platform.
 * [Access tokens](access-tokens.md) in the Microsoft identity platform.
 
 ## Refresh token expiration
 
-Refresh tokens can, be be revoked at any time, due to timeouts and revocations.  Your app must handle rejections by the login service gracefully when this occurs, by sending the user to an interactive sign in prompt for sign in again. 
+Refresh tokens can be revoked at any time, because of timeouts and revocations. Your app must handle rejections by the sign-in service gracefully when this occurs. This is done by sending the user to an interactive sign-in prompt for sign-in again. 
 
 ### Token timeouts
 
@@ -41,7 +43,7 @@ Using [token lifetime configuration](active-directory-configurable-token-lifetim
 * Session age-out: If `MaxAgeSessionMultiFactor` or `MaxAgeSessionSingleFactor` have been set to something other than their default (Until-revoked), then reauthentication will be required after the time set in the MaxAgeSession* elapses.  This is used to force users to reauthenticate with a first or second factor periodically. 
 * Examples:
   * The tenant has a MaxInactiveTime of five days, and the user went on vacation for a week. As such, Azure AD hasn't seen a new token request from the user in seven days. The next time the user requests a new token, they'll find their Refresh Token has been revoked, and they must enter their credentials again.
-  * A sensitive application has a `MaxAgeSessionMultiFactor` of one day. A user will be required to go through MFA once more through an interactive prompt if they log in again after a period of one day. For example, if a user logs in on Monday, and on Tuesday after 25 hours have elapsed. 
+  * A sensitive application has a `MaxAgeSessionMultiFactor` of one day. A user will be required to go through MFA once more through an interactive prompt if they sign-in again after a period of one day. For example, if a user logs in on Monday, and on Tuesday after 25 hours have elapsed. 
 
 Not all refresh tokens follow the rules set in the token lifetime policy. Specifically, refresh tokens used in [single page apps](reference-third-party-cookies-spas.md) are always limited to 24 hours of activity, as if they have a `MaxAgeSessionSingleFactor` policy of 24 hours applied to them. 
 ### Revocation
