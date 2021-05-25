@@ -1,6 +1,6 @@
 ---
-title: 'ECMA Connector Host configuration for Azure AD'
-description: This article describes how to configure the ECMA connect host.
+title: 'Azure AD ECMA Connector Host configuration'
+description: This article describes how to configure the Azure AD ECMA Connector Host.
 services: active-directory
 author: billmath
 manager: daveba
@@ -13,66 +13,98 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Configure the provisioning agent and ECMA connector host
-This article provides guidance on how to configure the provisioning agent and the ECMA connector host once you have successfully installed them.
+# Configure the Azure AD ECMA Connector Host and the provisioning agent.
+This article provides guidance on how to configure the Azure AD ECMA Connector Host and the provisioning agent  once you have successfully installed them.
 
 
-## Configure the provisioning agent
-Use the following steps to configure the provisioning agent.
+## Configure the Azure AD ECMA Connector Host
+Configuring the Azure AD ECMA Connector Host occurs in 2 parts.
+    
+   - [Configure the settings](#configure-the-settings) - configure the port and certificate for the Azure AD ECMA Connector Host to use.  This is only done the first time the ECMA Connector Host is started.
+   - Create a connector - create a connector (for example, SQL or LDAP) to allow the Azure AD ECMA Connector Host to export or import data to a data source.
 
- 1. Launch the provisioning agent wizard from your desktop.
- 2. When prompted to select an extension, select the "on-prem provisioning" option.
-  ![on-prem option](.\media\on-prem-ecma-configure\configure-1.png)
- 3. Click authorize and provide Azure AD credentials. The credentials provided should be for a user that is a global administrator or hybrid administrator.
- 4. Click confirm.
+### Configure the Settings
+When you first start the Azure AD ECMA Connector Host you will see a port number which will already be filled out using the default 8585.  
 
-## Configure the ECMA host
-Use the following steps to configure the ECMA Host.
+ ![Configure your settings](.\media\on-prem-ecma-configure\configure-1.png)
+
+You will also be asked to select a certificate for the Azure AD ECMA Connector Host to use, or generate a new self-signed certificate.
+
+ >[!NOTE]
+ >If you are providing your own certificate, it must be located in the personal store of the local computer account.  This is so that it can be presented when you click Select.
+
+
+### Create a connector
+Now you must create a connector for the Azure AD ECMA Connector Host to use.  This connector will allow the ECMA Connector Host to export (and import if desired) data to the data source for the connector you create.  
+
+The configuration steps for each of the indiviudal connectors are longer and are provided in their own documents.
+
+Use one of the links below to create and configure a connector.
+
+- [Generic SQL connector](on-prem-sql-connector-configure.md) - a connector that will work with SQL databases such as Microsoft SQL or MySQL.
+- Generic LDAP connector - a connector that will work with LDAP directories such as OpenLDAP and Active Directory Lightweight Directory Services.
+
+
+## Establish connectivity between Azure AD and the Azure AD ECMA Connector Host
+The following sections will guide you through establishing connectivity with the on-premises Azure AD ECMA Connector Host and Azure AD.
+
+#### Ensure ECMA2Host service is running
+1.  On the server the running the Azure AD ECMA Connector Host, click Start.
+2. Type run and enter services.msc in the box
+3. In the services, ensure that **Microsoft ECMA2Host** is present and running.  If not, click **Start**.
+
+#### Add Enterprise application
+1.  Sign-in to the Azure portal as an application administrator
+2. In the portal, navigate to Azure Active Directory, Enterpirse Applications.
+3. Click on New Application.
+4. Locate your application and click **Create**.
+
+### Configure the applicaion and test
+ 1. Once it has been created, click he **Provisioning page**.
+ 2. Click **get started**.
+ 3. On the **Provisioning page**, change the mode to **Automatic**
+ 4. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
+   >[!NOTE]
+   >After adding the agent, you need to wait 10 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
+   >
+   >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
+ 5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
  
- 1. Navigate to the start menu and identify the Microsoft ECMA Host application. Open this as an administrator. 
-  ![ECMA configuration](.\media\on-prem-ecma-configure\configure-2.png)
- 2. Generate the certificate for connectivity to the provisioning agent. 
-  ![Generate certificate](.\media\on-prem-ecma-configure\configure-3.png)
- 3. A new window will appear with a list of connectors. The first time this is run, no connector configurations will be present. Click New Connector.
-  ![New Connector](.\media\on-prem-ecma-configure\configure-4.png)
- 4. Walk through the pages of the ECMA host to configure your connector. For more details, see the tutorials linked below:
-   - SQL ECMA tutorial
-   - Generic SQL MIM tutorial
-   - Generic LDAP MIM tutorial
+   https://localhost:8585/ecma2host_connectorName/scim
 
-## Configure provisioning in Azure AD
+   For example, if the connector you created was named GenericSQL, the url would be:
+ 
+   https://localhost:8585/ecma2host_GenericSQL/scim
 
+ 6. Enter the secret token value that you defined when creating the connector.
+ 7. Click Test Connection and wait one minute.
+ 8. Once connection test is successful, click save.
 
-### Establish connectivity between Azure AD and the ECMA Host
-
-  1. Check to ensure that the connector host Windows Service is running. Click on the start menu, and type services. In the services list, scroll to Microsoft ECMA2Host. Ensure that the status is Running. If the status is blank, click Start.
-2.  Sign into Azure Portal as an application administrator in the tenant used to register the provisioning agent. The tenant should have Azure AD Premium P1 or Premium P2 (EMS E3 or E5). This is required to be able to provision to an on-prem application.
-3. In the Azure Portal, navigate to Azure Active Directory area, navigate to Enterprise Applications, and click on New Application.
-4. Search for Provisioning Private Preview Test Application and add it to your tenant.
-5. Once the app has been created, click on the Provisioning page.
-6. Click get started.
-7. Change the Provisioning Mode to Automatic. Additional settings will appear on that screen.
-8. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
-9. Before performing the next step, wait 10 minutes for the agent registration to complete. Test connection will not succeed until the agent registration is completed. Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
-10. In the tenant URL field, enter the following URL, replacing "connectorName" with the name of the connector on the ECMA Host.
- https://localhost:8585/ecma2host_connectorName/scim
-11. Enter the secret token value that you defined in the ECMA Host in the field Secret Token.
-12. Click Test Connection and wait one minute. If you reveive an error message, please review the troubleshooting steps.
-13. Once connection test is successful, click save.
-
-### Configure who is in scope for provisioning
-Azure AD allows you to scope who should be provisioned based on assignment to an application and / or by filtering on a particular attribute. Determine who should be in scope for provisioning and define your scoping rules as necessary. Most customers will stick with the default scope of "assigned users and groups," without doing any additional scoping configuration.
+## Configure who is in scope for provisioning
+Now that you have the Azure AD ECMA Connector Host talking with Azure AD you can move on to configuring who is in scope for provisioning.  The sections below will provide information on how scope your users.
 
 ### Assign users to your application
-If you chose scoping based on assignment in the previous step (recommended), please assign users and / or groups to your application.
+Azure AD allows you to scope who should be provisioned based on assignment to an application and / or by filtering on a particular attribute. Determine who should be in scope for provisioning and define your scoping rules as necessary.  For more information, see [Manage user assignment for an app in Azure Active Directory](../../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
 ### Configure your attribute mappings
-You will need to map the user attributes in Azure AD to the attributes in the target application. The Azure AD Provisioning service relies on the SCIM standard for provisioning and as a result, the attributes surfaced have the SCIM name space. The example below shows how you can map the country and objectId attributes in Azure AD to the Country and InternalGUID attributes in an application. Note, the default mapping contains userPrincipalName to an attribute name PLACEHOLDER. You will need to change the PLACEHOLDER attribute to one that is found in your application. Learn more about configuring attribute mappings.
+You will need to map the user attributes in Azure AD to the attributes in the target application. The Azure AD Provisioning service relies on the SCIM standard for provisioning and as a result, the attributes surfaced have the SCIM name space. The example below shows how you can map the mail and objectId attributes in Azure AD to the Email and InternalGUID attributes in an application. 
+
+Note, the default mapping contains userPrincipalName to an attribute name PLACEHOLDER. You will need to change the PLACEHOLDER attribute to one that is found in your application. For more information, see [Matching users in the source and target systems](customize-application-attributes.md#matching-users-in-the-source-and-target--systems).
 
 |Attribute name in Azure AD|Attribute name in SCIM|Attribute name in target application|
 |-----|-----|-----|
-|country|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Country|Country|
+|mail|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email|Email|
 |objectId|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:InternalGUID|InternalGUID|
+
+#### Configure attribute mapping
+ 1. In the Azure AD portal, under **Enterprise applications**, click he **Provisioning page**.
+ 2. Click **get started**.
+ 3. Expand **Mappings** and click **Provision Azure Active Directory Users**
+ 4. Click **Add new mapping**
+ 5. Specify the source and target attributes
+ 6. Click **Save**
+
+For more information on mapping user attributes from applications to Azure AD, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](customize-application-attributes.md).
 
 ### Test your configuration by provisioning users on demand
 To test your configuration, you can use on-demand provisiong of user.  For information on provisiong users on-demand see [On-demand provisioning](provision-on-demand.md)
