@@ -188,7 +188,7 @@ Data transferred between HANA Large Instances and VMs isn't encrypted. However, 
 
 ## Use HANA Large Instance units in multiple regions
 
-For disaster recovery, you need to have HANA Large Instance units in multiple Azure regions. Using only Azure [Global Vnet Peering](../../virtual-network-peering-overview.md), by default the transitive routing won't work between HANA Large Instance tenants in different regions. Global Reach, however, opens up communication between HANA Large Instance units in different regions. This scenario using ExpressRoute Global Reach enables:
+For disaster recovery, you need to have HANA Large Instance units in multiple Azure regions. Using only Azure [Global Vnet Peering](../../../virtual-network/virtual-network-peering-overview.md), by default the transitive routing won't work between HANA Large Instance tenants in different regions. Global Reach, however, opens up communication between HANA Large Instance units in different regions. This scenario using ExpressRoute Global Reach enables:
 
  - HANA system replication without any more proxies or firewalls.
  - Copying backups between HANA Large Instance units in different regions to perform system copies or system refreshes.
