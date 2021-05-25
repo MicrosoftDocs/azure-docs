@@ -81,9 +81,9 @@ Here is a sample expression that is used to check whether the exitValue fetched 
 
 ## Run another Synapse notebook 
 
-You can reference other notebook in a Synapse notebook activity via calling [%run magic](./spark/apache-spark-development-using-notebooks#notebook-reference) or [mssparkutils notebook utilities](./spark/microsoft-spark-utilities.md/#notebook-utilities). Both support nesting function calls. Here are key differences of these two methods. You can decide which one to use based on your scenario.
+You can reference other notebook in a Synapse notebook activity via calling [%run magic](./spark/apache-spark-development-using-notebooks.md#notebook-reference) or [mssparkutils notebook utilities](./spark/microsoft-spark-utilities.md/#notebook-utilities). Both support nesting function calls. Here are key differences of these two methods. You can decide which one to use based on your scenario.
 
-- [%run magic](./spark/apache-spark-development-using-notebooks#notebook-reference) copies all cells from the referenced notebook to the %run cell and share the variable context. When notebook1 reference notebook2 via `%run notebook2` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function. The cell execution in notebook1 will be stopped. We recommend you to use %run magic when you want to "include" a notebook file.
+- [%run magic](./spark/apache-spark-development-using-notebooks.md#notebook-reference) copies all cells from the referenced notebook to the %run cell and share the variable context. When notebook1 reference notebook2 via `%run notebook2` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function. The cell execution in notebook1 will be stopped. We recommend you to use %run magic when you want to "include" a notebook file.
 - [mssparkutils notebook utilities](./spark/microsoft-spark-utilities.md/#notebook-utilities) calls the referenced notebook as a method or a function. The variable context is not shared. When notebook1 reference notebook2 via `mssparkutils.notebook.run("notebook2")` and notebook2 calls a [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) function. The cell execution in notebook1 will continue. We recommend you to use mssparkutils notebook utilities when you want to  "import" a notebook.
 
 >[!Note]
@@ -99,7 +99,7 @@ You can see the latest notebook run snapshot including both cells input and outp
 
 You can see the notebook activity input or output via clicking the **input** or **Output** button. If your pipeline failed with user error, you can click the **output** to check the **result** field to see the detailed user error traceback.
 
-![notebook-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
+![see-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
 
 
 
