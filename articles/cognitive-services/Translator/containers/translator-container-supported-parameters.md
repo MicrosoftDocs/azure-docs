@@ -22,8 +22,9 @@ Translate text.
 Send a `POST` request to:
 
 ```HTTP
-https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
+http://localhost:{port}/translate?api-version=3.0
 ```
+Example: http://<span></span>localhost:5000/translate?api-version=3.0
 
 ## Request parameters
 
