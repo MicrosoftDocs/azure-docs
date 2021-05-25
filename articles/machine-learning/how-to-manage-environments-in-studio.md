@@ -64,6 +64,8 @@ Once an environment has been created, view its details by clicking on the name. 
 
 Click on the pencil icons to edit tags and descriptions as well as the configuration files or image. Keep in mind that any changes to the Docker or Conda sections will create a new version of the environment. 
 
+:::image type="content" source="media/how-to-manage-environments-in-studio/detailspage.jpg" alt-text="Environments details page":::
+
 ## View image build logs
 
 Click on the **Build log** tab within the details page to view the image build logs of an environment version. 
