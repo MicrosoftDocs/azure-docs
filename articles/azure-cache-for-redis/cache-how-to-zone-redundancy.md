@@ -13,6 +13,9 @@ In this article, you'll learn how to configure a zone-redundant Azure Cache inst
 
 Azure Cache for Redis Standard, Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](../virtual-machines/availability.md) and highly available, they're susceptible to datacenter level failures. Azure Cache for Redis also supports zone redundancy in its Premium and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [availability zones](../availability-zones/az-overview.md). It provides higher resilience and availability.
 
+> [!NOTE]
+> Data transfer between Azure Availability Zones will be charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
@@ -46,7 +49,7 @@ To create a cache, follow these steps:
 1. Leave other options in their default settings. 
 
     > [!NOTE]
-    > Zone redundancy support only works with non-clustered and non-geo-replicated caches currently. In addition, it doesn't support private link, scaling, data persistence, or import/export.
+    > Zone redundancy doesn't support AOF persistence or work with geo-replication currently.
     >
 
 1. Click **Create**. 

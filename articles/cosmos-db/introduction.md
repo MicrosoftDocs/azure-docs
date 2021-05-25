@@ -19,7 +19,7 @@ Azure Cosmos DB is a fully managed NoSQL database for modern app development. Si
 > [!NOTE]
 > Would you like to help improve Azure Cosmos DB docs by participating in a user study? Please take a few minutes to fill out this 5 minute [screening survey](https://aka.ms/cosmosdb-documentation-screener-survey). If you qualify, you are redirected to a scheduler where you can book a slot to join an interactive research session. No personal data is collected during this process as per our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839).
 
-You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](optimize-dev-test.md#azure-cosmos-db-free-tier) to get an account with the first 400 RU/s and 5 GB of storage free.
+You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](free-tier.md) to get an account with the first 1000 RU/s and 25 GB of storage free.
 
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/)

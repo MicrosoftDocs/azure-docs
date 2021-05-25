@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 05/13/2021
 ms.author: banders
 ---
 
@@ -88,7 +88,7 @@ You can opt in and configure additional recipients to receive your Azure invoice
 
     ![Screenshot that shows the opt-in flow step 3](./media/download-azure-invoice-daily-usage-date/invoicearticlestep03.png)
 
-If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
+If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.microsoft.com/profile) in the Microsoft Account center.
 
 ### Opt out of getting your subscription's invoices in email
 
