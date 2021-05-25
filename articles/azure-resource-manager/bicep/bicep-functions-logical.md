@@ -9,7 +9,7 @@ ms.date: 06/01/2021
 
 # Logical functions for Bicep
 
-Resource Manager provides a `bool` function for Bicep. Some ARM JSON logical functions are replaced with [Bicep logical operators](../operators-logical.md).
+Resource Manager provides a `bool` function for Bicep. Some ARM JSON logical functions are replaced with [Bicep logical operators](./operators-logical.md).
 
 * [bool](#bool)
 
@@ -28,10 +28,6 @@ Converts the parameter to a boolean.
 ### Return value
 
 A boolean of the converted value.
-
-### Remarks
-
-You can also use [true()](#true) and [false()](#false) to get boolean values.
 
 ### Examples
 

@@ -151,7 +151,7 @@ The syntax for this function varies by name of the list operations. Each impleme
 
 The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a template. Output values are stored in the deployment history and could be retrieved by a malicious user.
 
-When used with [property iteration](copy-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+When used with [property loop](./loop-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
 
 ### Implementations
 
@@ -329,7 +329,7 @@ Other list functions have different return formats. To see the format of a funct
 
 Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
 
-If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the [conditional expression **?:** operator](./operators-logical.md#conditional-expression-) to make sure the function is only evaluated when the resource is being deployed.
+If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the [conditional expression **?:** operator](./operators-logical.md#conditional-expression--) to make sure the function is only evaluated when the resource is being deployed.
 
 ### List example
 
@@ -434,7 +434,7 @@ output storageEndpoint object = myStorageAccount.properties.primaryEndpoints
 
 In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
 
-For more information, see [Reference resources](./compare-template-syntax.md#reference-resources) and the [JSON template reference function](../template/template-functions-resource.md#reference).
+For more information, see [Reference resources](./compare-template-syntax.md#reference-resources) and the [JSON template reference function](../templates/template-functions-resource.md#reference).
 
 ## resourceGroup
 

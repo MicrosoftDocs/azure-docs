@@ -12,12 +12,10 @@ ms.date: 06/01/2021
 Resource Manager provides several functions for working with objects in your Bicep file:
 
 * [contains](#contains)
-* [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
 * [json](#json)
 * [length](#length)
-* [null](#null)
 * [union](#union)
 
 ## contains
@@ -186,8 +184,6 @@ The JSON data type from the specified string, or an empty value when **null** is
 ### Remarks
 
 If you need to include a parameter value or variable in the JSON object, use the [concat](./bicep-functions-string.md#concat) function to create the string that you pass to the function.
-
-You can also use [null()](#null) to get a null value.
 
 ### Example
 

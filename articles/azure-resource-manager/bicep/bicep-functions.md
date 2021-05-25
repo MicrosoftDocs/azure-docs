@@ -40,7 +40,6 @@ Resource Manager provides several functions for working with arrays.
 * [array](./bicep-functions-array.md#array)
 * [concat](./bicep-functions-array.md#concat)
 * [contains](./bicep-functions-array.md#contains)
-* [createArray](./bicep-functions-array.md#createarray)
 * [empty](./bicep-functions-array.md#empty)
 * [first](./bicep-functions-array.md#first)
 * [intersection](./bicep-functions-array.md#intersection)
@@ -70,8 +69,6 @@ Resource Manager provides the following functions for getting values from sectio
 
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)
-* [parameters](./bicep-functions-deployment.md#parameters)
-* [variables](./bicep-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true"></a>
 <a id="bool" aria-hidden="true"></a>
@@ -83,13 +80,7 @@ Resource Manager provides the following functions for getting values from sectio
 
 Resource Manager provides the following functions for working with logical conditions:
 
-* [and](./bicep-functions-logical.md#and)
 * [bool](./bicep-functions-logical.md#bool)
-* [false](./bicep-functions-logical.md#false)
-* [if](./bicep-functions-logical.md#if)
-* [not](./bicep-functions-logical.md#not)
-* [or](./bicep-functions-logical.md#or)
-* [true](./bicep-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -106,16 +97,9 @@ Resource Manager provides the following functions for working with logical condi
 
 Resource Manager provides the following functions for working with integers:
 
-* [add](./bicep-functions-numeric.md#add)
-* [copyIndex](./bicep-functions-numeric.md#copyindex)
-* [div](./bicep-functions-numeric.md#div)
-* [float](./bicep-functions-numeric.md#float)
 * [int](./bicep-functions-numeric.md#int)
 * [min](./bicep-functions-numeric.md#min)
 * [max](./bicep-functions-numeric.md#max)
-* [mod](./bicep-functions-numeric.md#mod)
-* [mul](./bicep-functions-numeric.md#mul)
-* [sub](./bicep-functions-numeric.md#sub)
 
 <a id="json" aria-hidden="true"></a>
 
@@ -124,12 +108,10 @@ Resource Manager provides the following functions for working with integers:
 Resource Manager provides several functions for working with objects.
 
 * [contains](./bicep-functions-object.md#contains)
-* [createObject](./bicep-functions-object.md#createobject)
 * [empty](./bicep-functions-object.md#empty)
 * [intersection](./bicep-functions-object.md#intersection)
 * [json](./bicep-functions-object.md#json)
 * [length](./bicep-functions-object.md#length)
-* [null](./bicep-functions-object.md#null)
 * [union](./bicep-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>
@@ -231,6 +213,5 @@ Resource Manager provides the following functions for working with strings:
 ## Next steps
 
 * For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
-* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
+* To iterate a specified number of times when creating a type of resource, see [Deploy multiple instances of resources in Bicep](./loop-resources.md).
+* To see how to deploy the Bicep file you've created, see [Deploy resources with Bicep and Azure PowerShell](./deploy-powershell.md).
