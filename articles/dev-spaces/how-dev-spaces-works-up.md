@@ -39,7 +39,7 @@ When you start a service in a dev space, the client-side tooling and controller 
 
 At a more granular level, here is what happens when you run `azds up`:
 
-1. [Files are synchronized][sync-section] from the user's computer to an Azure file storage that is unique to the user's AKS cluster. The source code, Helm chart, and configuration files are uploaded.
+1. [Files are synchronized][sync-section] from the user's computer to an Azure File Storage that is unique to the user's AKS cluster. The source code, Helm chart, and configuration files are uploaded.
 1. The controller creates a request to start a new session. This request contains several properties, including a unique ID, space name, path to source code, and a debugging flag.
 1. The controller replaces the *$(tag)* placeholder in the Helm chart with the unique session ID and installs the Helm chart for your service. Adding a reference to the unique session ID to the Helm chart allows the container deployed to the AKS cluster for this specific session to be tied back to the session request and associated information.
 1. During the installation of the Helm chart, the Kubernetes webhook admission server adds additional containers to your application's pod for instrumentation and access to your project's source code. The devspaces-proxy and devspaces-proxy-init containers are added to provide HTTP tracing and space routing. The devspaces-build container is added to provide the pod with access to the Docker instance and project source code for building your application's container.
