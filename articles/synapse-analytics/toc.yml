@@ -680,8 +680,6 @@ items:
     items:
     - name: Connect to Synapse Link for Cosmos DB
       href: quickstart-connect-synapse-link-cosmos-db.md
-    - name: Connect to your Customer Insights Data
-      href: /dynamics365/customer-insights/audience-insights/export-azure-synapse-analytics?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Concepts
     items:
     - name: Cosmos DB
