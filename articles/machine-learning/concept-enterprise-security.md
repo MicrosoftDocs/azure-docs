@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: aashishb
+ms.author: jmartens
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/20/2020
+ms.date: 05/25/2021
 ---
 
 # Enterprise security and governance for Azure Machine Learning
@@ -47,7 +47,12 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
-Azure Machine Learning also creates an additional application (the name starts with `aml-` or `Microsoft-AzureML-Support-App-`) with contributor-level access in your subscription for every workspace region. For example, if you have one workspace in East US and one in North Europe in the same subscription, you'll see two of these applications. These applications enable Azure Machine Learning to help you manage compute resources.
+> [!NOTE]
+> If your Azure Machine Learning workspaces were created __before May 14th, 2021__, you may also have an additional application account. The account name starts with `aml-` or `Microsoft-AzureML-Support-App-` and has contributor-level access to your subscription for every workspace region. These accounts are not created or used by workspaces created after May 14th, 2021.
+> 
+> If your workspaces have attached Azure Kubernetes Service (AKS) clusters, and those clusters were created or attached __before May 14th, 2021__, you must keep the application account. To remove the dependency on the account, you must __delete and recreate__ the AKS clusters.
+>
+> If your workspaces do not use AKS, or uses an AKS instance created after May 14th, 2021, you can delete the application account. __This only applies to the application account where the name starts with `aml-` or `Microsoft-AzureML-Support-App-`!__
 
 You can also configure your own managed identities for use with Azure Virtual Machines and Azure Machine Learning compute cluster. With a VM, the managed identity can be used to access your workspace from the SDK, instead of the individual user's Azure AD account. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Authentication for Azure Machine Learning workspace](how-to-setup-authentication.md).
 
