@@ -87,6 +87,9 @@ To create a generic SQL connector use the following steps:
      |Data Source Date Time Format|Specify the format for the data source.|
      |Use named parameters to execute a stored procedure||
      |Operation Methods||
+     |Extension Name||
+     |Set Password SP Name||
+     |Set Password SP Parameters||
  10. On the **Select partition** page, ensure that the correct partitions are selected and click Next.
      ![Enter partition information](.\media\on-prem-sql-connector-configure\sql-9.png)  
 
