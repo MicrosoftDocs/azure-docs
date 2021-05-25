@@ -57,7 +57,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-Different resource types are supported in different locations. To get the supported locations for an Azure service, See [Products available by region])(https://azure.microsoft.com/global-infrastructure/services/).  To get the supported locations for a resource type, use Azure PowerShell or Azure CLI.
+Different resource types are supported in different locations. To get the supported locations for an Azure service, See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).  To get the supported locations for a resource type, use Azure PowerShell or Azure CLI.
 
 # [PowerShell](#tab/azure-powershell)
 
