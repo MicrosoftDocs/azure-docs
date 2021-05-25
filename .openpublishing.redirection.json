@@ -232,11 +232,11 @@
     },
     {
       "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
-      "redirect_url": "/azure/container-registry/monitor-service",
+      "redirect_url": "/azure/container-registry/monitor-service"
     },
     {
       "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
-      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
+      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent"
     },
     {
       "source_path": "articles/azure-percept/advanced-development-cloud.md",
@@ -33743,7 +33743,7 @@
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-metrics-azure-monitor.md",
       "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
@@ -33878,7 +33878,7 @@
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions.md",
       "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path_from_root": "/articles/service-fabric/policy-samples.md",
       "redirect_url": "/azure/service-fabric/policy-reference",
@@ -50153,7 +50153,7 @@
       "source_path_from_root": "/articles/active-directory/external-identities/add-guest-to-role.md",
       "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
       "redirect_document_id": false
-      },
+    },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-external-identities.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-compare-b2c",
@@ -61107,7 +61107,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract.md",
       "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#train-a-custom-model",
-       "redirect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
@@ -66398,6 +66398,12 @@
       "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
       "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/media-services/video-indexer/",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
+      "redirect_document_id": false
     }
+
   ]
 }
