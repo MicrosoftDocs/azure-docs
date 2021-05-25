@@ -27,7 +27,7 @@ This documentation contains the following article types:
 * [**Concepts**](concept-layout.md) provide in-depth explanations of the service functionality and features.
 * [**Quickstarts**](quickstarts/client-library.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](build-training-data-set.md) contain instructions for using the service in more specific or customized ways.
-* [**Tutorials**](tutorial-bulk-processing.md) are longer guides that show you how to use the service as a component in broader business solutions.
+* [**Tutorials**](tutorial-ai-builder.md) are longer guides that show you how to use the service as a component in broader business solutions.
 
 ## Form Recognizer features
 
