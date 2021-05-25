@@ -133,11 +133,7 @@ Yes, Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forw
 
 ### How long does it take to deploy an Azure Front Door? Does my Front Door still work when being updated?
 
-<<<<<<< HEAD
-A new Front Door creation or any updates to an existing Front Door takes about 3 to 5 minutes for global deployment. That means in about 3 to 5 minutes, your Front Door configuration will be deployed across all edge locations globally.
-=======
 Most Rules Engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
->>>>>>> b99b6c8c9f49f9b711beaf6feb15f6c3edb4335e
 
  > [!Note]  
   > Most custom TLS/SSL certificate updates take about 30 minutes to be deployed globally.
