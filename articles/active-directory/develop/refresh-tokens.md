@@ -26,8 +26,8 @@ Refresh tokens have a significantly longer lifetime than access tokens. The defa
 
 Before reading through this article, it is recommended that you go through the following articles:
 
-* [ID tokens](id-tokens.md) in Azure AD.
-* [Access tokens](access-tokens.md) in Azure AD.
+* [ID tokens](id-tokens.md) in the Microsoft identity platform.
+* [Access tokens](access-tokens.md) in the Microsoft identity platform.
 
 ## Refresh token expiration
 
