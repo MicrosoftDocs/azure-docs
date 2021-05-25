@@ -17064,6 +17064,12 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/manage/review-service-usage-api.md",
+      "redirect_url": "/azure/cost-management-billing/costs/ingest-azure-usage-at-scale",
+      "redirect_document_id": true
+    },
+
+    {
       "source_path_from_root": "/articles/databox-family/index.md",
       "redirect_url": "/azure/databox/index",
       "redirect_document_id": false
