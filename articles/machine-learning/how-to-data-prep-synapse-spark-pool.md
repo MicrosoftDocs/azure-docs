@@ -246,7 +246,7 @@ input1 = train_ds.as_mount()
 
 If you are ready to automate and productionize your data wrangling tasks, you can submit an experiment run to [an attached Synapse Spark pool](how-to-link-synapse-ml-workspaces.md#attach-a-pool-with-the-python-sdk) with the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.  
 
-Similarly, if you have an Azure Machine Learning pipeline, you can use the [SynapseSparkStep to specify your Synapse Spark pool as the compute target for the data preparation step in your pipeline](how-to-use-synapsesparkstep.md).
+Similarly, if you have an Azure Machine Learning pipeline, you can use the [SynapseSparkStep to specify your Synapse Spark pool as the compute target](how-to-use-synapsesparkstep.md) for the data preparation step in your pipeline.
 
 Making your data available to the Synapse Spark pool depends on your dataset type. 
 
