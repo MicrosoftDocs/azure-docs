@@ -50,7 +50,7 @@ Event domains also allow for domain-scope subscriptions. An event subscription o
 
 When you create an event domain, you're given a publishing endpoint similar to if you had created a topic in Event Grid. 
 
-To publish events to any topic in an Event Domain, push the events to the domain's endpoint the [same way you would for a custom topic](#post-to-custom-topic.md). The only difference is that you must specify the topic you'd like the event to be delivered to.
+To publish events to any topic in an Event Domain, push the events to the domain's endpoint the [same way you would for a custom topic](./post-to-custom-topic.md). The only difference is that you must specify the topic you'd like the event to be delivered to.
 
 For example, publishing the following array of events would send event with `"id": "1111"` to topic `foo` while the event with `"id": "2222"` would be sent to topic `bar`:
 
