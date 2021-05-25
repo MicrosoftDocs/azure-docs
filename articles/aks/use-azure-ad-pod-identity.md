@@ -13,8 +13,6 @@ Azure Active Directory pod-managed identities uses Kubernetes primitives to asso
 
 > [!NOTE]
 >The feature described in this document, pod-managed identities (preview), will be replaced with pod-managed identities V2 (preview) in September 2021. The public preview of V2 will include migration from V1, and will leverage OIDC Discovery endpoints for token exchange with Azure Active Directory.
-
-> [!NOTE]
 > If you have an existing installation of AADPODIDENTITY, you must remove the existing installation. Enabling this feature means that the MIC component isn't needed.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
