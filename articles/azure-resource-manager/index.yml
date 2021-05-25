@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 03/04/2020
+  ms.date: 06/01/2021
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -29,10 +29,10 @@ highlightedContent:
       itemType: overview
       url: templates/overview.md
     # Card
-    - title: Create your first template
-      itemType: tutorial
-      url: templates/template-tutorial-create-first-template.md
-    
+    - title: What is Bicep?
+      itemType: overview
+      url: bicep/overview.md
+
 # conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -41,6 +41,34 @@ conceptualContent:
     - title: Deploy ARM templates
       links:
         - url: templates/overview.md
+          itemType: overview
+          text: Overview
+        - url: templates/template-tutorial-create-first-template.md
+          itemType: tutorial
+          text: Beginner tutorial series
+        - url: templates/template-syntax.md
+          itemType: reference
+          text: Template syntax
+        - url: templates/template-functions.md
+          itemType: reference
+          text: Template functions
+        - url: /azure/templates/
+          itemType: reference
+          text: Template reference
+        - url: templates/deploy-powershell.md
+          itemType: how-to-guide
+          text: Deploy
+        - url: templates/template-best-practices.md
+          itemType: concept
+          text: Best practices
+      # footerLink (optional)
+      footerLink:
+        url: templates/index.yml
+        text: See more
+    # Card
+    - title: Bicep
+      links:
+        - url: bicep/overview.md
           itemType: overview
           text: Overview
         - url: templates/template-tutorial-create-first-template.md
