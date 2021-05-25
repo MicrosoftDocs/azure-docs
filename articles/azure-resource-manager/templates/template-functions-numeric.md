@@ -26,6 +26,8 @@ Resource Manager provides the following functions for working with integers in y
 
 Returns the sum of the two provided integers.
 
+The `add` function in not supported in Bicep. Use the [`+` operator](../bicep/operators-numeric.md#add-) instead.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -149,6 +151,8 @@ An integer representing the current index of the iteration.
 
 Returns the integer division of the two provided integers.
 
+The `div` function in not supported in Bicep. Use the [`/` operator](../bicep/operators-numeric.md#divide-) instead.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -206,6 +210,8 @@ The output from the preceding example with the default values is:
 `float(arg1)`
 
 Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App.
+
+The `float` function is not supported in Bicep.
 
 ### Parameters
 
@@ -390,6 +396,8 @@ The output from the preceding example with the default values is:
 
 Returns the remainder of the integer division using the two provided integers.
 
+The `mod` function is not supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#modulo-) instead.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -447,6 +455,8 @@ The output from the preceding example with the default values is:
 `mul(operand1, operand2)`
 
 Returns the multiplication of the two provided integers.
+
+The `mul` function is not supported in Bicep. Use the [* operator](../bicep/operators-numeric.md#multiply-) instead.
 
 ### Parameters
 
