@@ -123,7 +123,7 @@ This response has been truncated to illustrate the structure of a response.
     "Status": "GA"
   },
 
-  ...
+    ...
 
      {
     "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyMultilingualNeural)",
