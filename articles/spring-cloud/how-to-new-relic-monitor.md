@@ -1,7 +1,7 @@
 ---
-title: "How to monitor with New Relic in-process agent"
+title: "How to monitor with New Relic Java agent"
 titleSuffix: Azure Spring Cloud
-description: Learn how to monitor Azure Spring Cloud apps using the New Relic in-process agent.
+description: Learn how to monitor Azure Spring Cloud apps using the New Relic Java agent.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -10,13 +10,13 @@ ms.date: 04/07/2021
 ms.custom: devx-track-java
 ---
 
-# How to monitor with New Relic Java in-process agent (Preview)
+# How to monitor with New Relic Java agent (Preview)
 
-This feature enables monitoring of Azure Spring Cloud apps with the **New Relic** Java in-process agent.
+This feature enables monitoring of Azure Spring Cloud apps with the **New Relic** Java agent.
 
-With the **New Relic** Java in-process agent, you can:
-* Consume the **New Relic** Java in-process agent.
-* Configure the **New Relic** Java in-process agent using **Environment Variables**.
+With the **New Relic** Java agent, you can:
+* Consume the **New Relic** Java agent.
+* Configure the **New Relic** Java agent using **Environment Variables**.
 * Check all monitoring data from the **New Relic** dashboard.
 
 ## Prerequisites
@@ -26,7 +26,7 @@ With the **New Relic** Java in-process agent, you can:
 
 ## Leverage the New Relic Java in process agent
 
-Use the following procedure to access the in-process agent:
+Use the following procedure to access the agent:
 
 1. Create an instance of Azure Spring Cloud.
 
