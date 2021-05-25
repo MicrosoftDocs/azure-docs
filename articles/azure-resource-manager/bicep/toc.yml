@@ -39,12 +39,6 @@
         href: child-resource-name-type.md
       - name: Conditional deployment
         href: conditional-resource-deployment.md
-      - name: Set resource dependencies
-        href: resource-dependency.md
-      - name: Set resource location
-        href: resource-location.md
-      - name: Use template extensions
-        href: resource-extensions.md
     - name: Outputs
       href: outputs.md
     - name: Loops
