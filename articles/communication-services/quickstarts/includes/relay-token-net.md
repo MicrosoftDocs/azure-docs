@@ -35,7 +35,7 @@ dotnet build
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Services Identiry and NetworkTraversal library for .NET package by using the `dotnet add package` command.
+While still in the application directory, install the Azure Communication Services Identity and NetworkTraversal library for .NET package by using the `dotnet add package` command.
 
 ```console
 dotnet add package Azure.Communication.Identity
@@ -47,7 +47,7 @@ dotnet add package Azure.Communication.NetworkTraversal
 From the project directory:
 
 1. Open **Program.cs** file in a text editor
-2. Add a `using` directive to include the `Azure.Communication.Identity`, `System.Threading.Tasks` and `System.Net.Http`
+2. Add a `using` directive to include the `Azure.Communication.Identity`, `System.Threading.Tasks`, and `System.Net.Http`
 3. Update the `Main` method declaration to support async code
 
 Here's the code:
@@ -88,7 +88,7 @@ var client = new CommunicationIdentityClient(connectionString);
 
 ## Create an identity
 
-Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`.Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
+Azure Communication Services maintains a lightweight identity directory. Use the `createUser` method to create a new entry in the directory with a unique `Id`. Store received identity with mapping to your application's users. For example, by storing them in your application server's database. The identity is required later to issue access tokens.
 
 ```csharp
 var identityResponse = await client.CreateUserAsync();
