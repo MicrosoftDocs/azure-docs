@@ -8,7 +8,7 @@
     href: compare-template-syntax.md
 - name: Install
   items:
-  - name: Install Bicep CLI
+  - name: Install Bicep tools
     href: install.md
 - name: Quickstarts
   items:
