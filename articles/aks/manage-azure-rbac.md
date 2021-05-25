@@ -77,6 +77,11 @@ To add Azure RBAC for Kubernetes Authorization into an existing AKS cluster, use
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
 ```
+To remove Azure RBAC for Kubernetes Authorization from an existing AKS cluster, use the [az aks update][az-aks-update] command with the flag `disable-azure-rbac`.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myAKSCluster --disable-azure-rbac
+```
 
 ## Create role assignments for users to access cluster
 
