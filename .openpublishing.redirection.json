@@ -66401,7 +66401,7 @@
     },
     {
       "source_path_from_root": "/articles/azure/media-services/video-indexer/",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
       "redirect_document_id": false
     }
 
