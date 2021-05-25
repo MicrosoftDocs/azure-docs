@@ -11,7 +11,7 @@ ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
-# Quickstart: Build an app to manage Cosmos DB data using the Apache Spark 3 OLTP Connector for SQL API
+# Quickstart: Build an app to manage Cosmos DB data using the Cosmos DB Spark 3 OLTP Connector for SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
