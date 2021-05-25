@@ -53,7 +53,7 @@ Before implementing offline DRM for Widevine on Android devices, you should firs
 
 ## Configure content protection in Azure Media Services
 
-In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) method, the following necessary steps are present:
+In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L192) method, the following necessary steps are present:
 
 1. Specify how content key delivery is authorized in the license delivery service: 
 
@@ -86,7 +86,7 @@ In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media
 
 ## Enable offline mode
 
-To enable **offline** mode for Widevine licenses, you need to configure [Widevine license template](drm-widevine-license-template-concept.md). In the **policy_overrides** object, set the **can_persist** property to **true** (default is false), as shown in [ConfigureWidevineLicenseTempate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563). 
+To enable **offline** mode for Widevine licenses, you need to configure [Widevine license template](drm-widevine-license-template-concept.md). In the **policy_overrides** object, set the **can_persist** property to **true** (default is false), as shown in [ConfigureWidevineLicenseTemplate](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L452). 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#ConfigureWidevineLicenseTempate)]
 

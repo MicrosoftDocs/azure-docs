@@ -43,7 +43,7 @@ Before you implement offline DRM for FairPlay on an iOS 10+ device:
 
     - [Apple FairPlay license requirements and configuration](drm-fairplay-license-overview.md)
     - [Use DRM dynamic encryption and license delivery service](drm-protect-with-drm-tutorial.md)
-    - A .NET sample that includes configuration of online FPS streaming: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
+    - A .NET sample that includes configuration of online FPS streaming: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L493)
 * Obtain the FPS SDK from the Apple Developer Network. The FPS SDK contains two components:
 
     - The FPS Server SDK, which contains the Key Security Module (KSM), client samples, a specification, and a set of test vectors.
@@ -54,7 +54,7 @@ Before you implement offline DRM for FairPlay on an iOS 10+ device:
 
 ## Configure content protection in Azure Media Services
 
-In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) method, do the following:
+In the [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L192) method, do the following:
 
 Uncomment the code that configures the FairPlay policy option:
 
@@ -76,7 +76,7 @@ options.Add(
 
 ## Enable offline mode
 
-To enable offline mode, create a custom StreamingPolicy and use its name when creating a StreamingLocator in [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L561).
+To enable offline mode, create a custom StreamingPolicy and use its name when creating a StreamingLocator in [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L538).
  
 ```csharp
 CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
