@@ -29,7 +29,7 @@ Save and close the file.
 
 Next, configure the *appsettings.json* file to be copied to the output directory when you build the *SampleClientApp*. To do this, right-select the *appsettings.json* file, and choose **Properties**. In the **Properties** inspector, look for the *Copy to Output Directory* property. Change the value to **Copy if newer** if it is not set to that already.
 
-:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Excerpt from Visual Studio window showing the Solution Explorer pane with appsettings.json highlighted, and the Properties pane with 'Copy to Output Directory' property set to 'Copy if newer'" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
+:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Screenshot of the the Solution Explorer in Visual Studio with appsettings.json and 'Copy to Output Directory' property highlighted in Properties." border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 
 Keep the _**AdtE2ESample**_ project open in Visual Studio to continue using it in the tutorial.
 
