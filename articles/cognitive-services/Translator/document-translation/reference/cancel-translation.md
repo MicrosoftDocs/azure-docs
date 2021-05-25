@@ -22,7 +22,7 @@ Cancel a currently processing or queued operation. An operation won't be cancele
 Send a `DELETE` request to:
 
 ```DELETE HTTP
-https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
