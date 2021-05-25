@@ -1,19 +1,19 @@
 ---
-title: Template functions - arrays (Bicep)
-description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays. (Bicep)
+title: Bicep functions - arrays
+description: Describes the functions to use in a Bicep file for working with arrays.
 author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 11/18/2020
----
-# Array functions for ARM templates (Bicep)
+ms.author: jgao
+ms.date: 06/01/2021
 
-Resource Manager provides several functions for working with arrays in your Azure Resource Manager template (ARM template):
+---
+# Array functions for Bicep
+
+Resource Manager provides several functions for working with arrays in Bicep:
 
 * [array](#array)
 * [concat](#concat)
 * [contains](#contains)
-* [createArray](#createarray)
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
@@ -26,7 +26,7 @@ Resource Manager provides several functions for working with arrays in your Azur
 * [take](#take)
 * [union](#union)
 
-To get an array of string values delimited by a value, see [split](template-functions-string.md#split).
+To get an array of string values delimited by a value, see [split](./bicep-functions-string.md#split).
 
 ## array
 
@@ -48,50 +48,6 @@ An array.
 
 The following example shows how to use the array function with different types.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "intToConvert": {
-      "type": "int",
-      "defaultValue": 1
-    },
-    "stringToConvert": {
-      "type": "string",
-      "defaultValue": "efgh"
-    },
-    "objectToConvert": {
-      "type": "object",
-      "defaultValue": {
-        "a": "b",
-        "c": "d"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "intOutput": {
-      "type": "array",
-      "value": "[array(parameters('intToConvert'))]"
-    },
-    "stringOutput": {
-      "type": "array",
-      "value": "[array(parameters('stringToConvert'))]"
-    },
-    "objectOutput": {
-      "type": "array",
-      "value": "[array(parameters('objectToConvert'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param intToConvert int = 1
 param stringToConvert string = 'efgh'
@@ -104,8 +60,6 @@ output intOutput array = array(intToConvert)
 output stringOutput array = array(stringToConvert)
 output objectOutput array = array(objectToConvert)
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -138,43 +92,6 @@ A string or array of concatenated values.
 
 The following example shows how to combine two arrays.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [
-        "1-1",
-        "1-2",
-        "1-3"
-      ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [
-        "2-1",
-        "2-2",
-        "2-3"
-      ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "return": {
-      "type": "array",
-      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param firstArray array = [
   '1-1'
@@ -190,47 +107,27 @@ param secondArray array = [
 output return array = concat(firstArray, secondArray)
 ```
 
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) shows how to combine two string values and return a concatenated string.
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "prefix": {
-      "type": "string",
-      "defaultValue": "prefix"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "concatOutput": {
-      "type": "string",
-      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
+The following example shows how to combine two string values and return a concatenated string.
 
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
 ```
 
----
+You can also use:
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
+```
 
 The output from the preceding example with the default values is:
 
@@ -259,63 +156,6 @@ Checks whether an array contains a value, an object contains a key, or a string 
 
 The following example shows how to use contains with different types:
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "OneTwoThree"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'e')]"
-    },
-    "stringFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('stringToTest'), 'z')]"
-    },
-    "objectTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'one')]"
-    },
-    "objectFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('objectToTest'), 'a')]"
-    },
-    "arrayTrue": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'three')]"
-    },
-    "arrayFalse": {
-      "type": "bool",
-      "value": "[contains(parameters('arrayToTest'), 'four')]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
@@ -337,8 +177,6 @@ output arrayTrue bool = contains(arrayToTest, 'three')
 output arrayFalse bool = contains(arrayToTest, 'four')
 ```
 
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -349,90 +187,6 @@ The output from the preceding example with the default values is:
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
-
-## createArray
-
-`createArray (arg1, arg2, arg3, ...)`
-
-Creates an array from the parameters. The `createArray` function is not supported by Bicep.  Construct an array literal by using `[]`.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| args |No |String, Integer, Array, or Object |The values in the array. |
-
-### Return value
-
-An array. When no parameters are provided, it returns an empty array.
-
-### Example
-
-The following example shows how to use createArray with different types:
-
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "stringArray": {
-      "type": "array",
-      "value": "[createArray('a', 'b', 'c')]"
-    },
-    "intArray": {
-      "type": "array",
-      "value": "[createArray(1, 2, 3)]"
-    },
-    "objectArray": {
-      "type": "array",
-      "value": "[createArray(parameters('objectToTest'))]"
-    },
-    "arrayArray": {
-      "type": "array",
-      "value": "[createArray(parameters('arrayToTest'))]"
-    },
-    "emptyArray": {
-      "type": "array",
-      "value": "[createArray()]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-> [!NOTE]
-> `createArray()` is not supported by Bicep.  Construct an array literal by using `[]`.
-
----
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| stringArray | Array | ["a", "b", "c"] |
-| intArray | Array | [1, 2, 3] |
-| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | Array | [["one", "two", "three"]] |
-| emptyArray | Array | [] |
 
 ## empty
 
@@ -454,47 +208,6 @@ Returns **True** if the value is empty; otherwise, **False**.
 
 The following example checks whether an array, object, and string are empty.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": []
-    },
-    "testObject": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": ""
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testArray'))]"
-    },
-    "objectEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testObject'))]"
-    },
-    "stringEmpty": {
-      "type": "bool",
-      "value": "[empty(parameters('testString'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param testArray array = []
 param testObject object = {}
@@ -504,8 +217,6 @@ output arrayEmpty bool = empty(testArray)
 output objectEmpty bool = empty(testObject)
 output stringEmpty bool = empty(testString)
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -535,35 +246,6 @@ The type (string, int, array, or object) of the first element in an array, or th
 
 The following example shows how to use the first function with an array and string.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[first(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[first('One Two Three')]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param arrayToTest array = [
   'one'
@@ -574,8 +256,6 @@ param arrayToTest array = [
 output arrayOutput string = first(arrayToTest)
 output stringOutput string = first('One Two Three')
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -606,55 +286,6 @@ An array or object with the common elements.
 
 The following example shows how to use intersection with arrays and objects:
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "z",
-        "three": "c"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param firstObject object = {
   'one': 'a'
@@ -683,8 +314,6 @@ output objectOutput object = intersection(firstObject, secondObject)
 output arrayOutput array = intersection(firstArray, secondArray)
 ```
 
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -712,35 +341,6 @@ The type (string, int, array, or object) of the last element in an array, or the
 
 The following example shows how to use the last function with an array and string.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "arrayOutput": {
-      "type": "string",
-      "value": "[last(parameters('arrayToTest'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[last('One Two Three')]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param arrayToTest array = [
   'one'
@@ -751,8 +351,6 @@ param arrayToTest array = [
 output arrayOutput string = last(arrayToTest)
 output stringOutput string = last('One Two three')
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -781,58 +379,6 @@ An int.
 
 The following example shows how to use length with an array and string:
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "stringToTest": {
-      "type": "string",
-      "defaultValue": "One Two Three"
-    },
-    "objectToTest": {
-      "type": "object",
-      "defaultValue": {
-        "propA": "one",
-        "propB": "two",
-        "propC": "three",
-        "propD": {
-          "propD-1": "sub",
-          "propD-2": "sub"
-        }
-      }
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayLength": {
-      "type": "int",
-      "value": "[length(parameters('arrayToTest'))]"
-    },
-    "stringLength": {
-      "type": "int",
-      "value": "[length(parameters('stringToTest'))]"
-    },
-    "objectLength": {
-      "type": "int",
-      "value": "[length(parameters('objectToTest'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param arrayToTest array = [
   'one'
@@ -855,8 +401,6 @@ output stringLength int = length(stringToTest)
 output objectLength int = length(objectToTest)
 ```
 
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -864,26 +408,6 @@ The output from the preceding example with the default values is:
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
-
-You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
-
-# [JSON](#tab/json)
-
-```json
-"copy": {
-  "name": "websitescopy",
-  "count": "[length(parameters('siteNames'))]"
-}
-```
-
-# [Bicep](#tab/bicep)
-
-> [!NOTE]
-> Loops are not implemented yet in Bicep.  See [Loops](https://github.com/Azure/bicep/blob/main/docs/spec/loops.md).
-
----
-
-For more information about using this function with an array, see [Resource iteration in ARM templates](loop-resources.md).
 
 ## max
 
@@ -905,34 +429,6 @@ An int representing the maximum value.
 
 The following example shows how to use max with an array and a list of integers:
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[max(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[max(0,3,2,5,4)]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param arrayToTest array = [
   0
@@ -945,8 +441,6 @@ param arrayToTest array = [
 output arrayOutput int = max(arrayToTest)
 output intOutput int = max(0,3,2,5,4)
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -975,34 +469,6 @@ An int representing the minimum value.
 
 The following example shows how to use min with an array and a list of integers:
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[min(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[min(0,3,2,5,4)]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param arrayToTest array = [
   0
@@ -1015,8 +481,6 @@ param arrayToTest array = [
 output arrayOutput int = min(arrayToTest)
 output intOutput int = min(0,3,2,5,4)
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -1046,42 +510,12 @@ An array of integers.
 
 The following example shows how to use the range function:
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "startingInt": {
-      "type": "int",
-      "defaultValue": 5
-    },
-    "numberOfElements": {
-      "type": "int",
-      "defaultValue": 3
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "rangeOutput": {
-      "type": "array",
-      "value": "[range(parameters('startingInt'),parameters('numberOfElements'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param startingInt int = 5
 param numberOfElements int = 3
 
 output rangeOutput array = range(startingInt, numberOfElements)
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -1110,50 +544,6 @@ An array or string.
 
 The following example skips the specified number of elements in the array, and the specified number of characters in a string.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToSkip": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToSkip": {
-      "type": "int",
-      "defaultValue": 4
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param testArray array = [
   'one'
@@ -1167,8 +557,6 @@ param charactersToSkip int = 4
 output arrayOutput array = skip(testArray, elementsToSkip)
 output stringOutput string = skip(testString, charactersToSkip)
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -1198,50 +586,6 @@ An array or string.
 
 The following example takes the specified number of elements from the array, and characters from a string.
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testArray": {
-      "type": "array",
-      "defaultValue": [
-        "one",
-        "two",
-        "three"
-      ]
-    },
-    "elementsToTake": {
-      "type": "int",
-      "defaultValue": 2
-    },
-    "testString": {
-      "type": "string",
-      "defaultValue": "one two three"
-    },
-    "charactersToTake": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "array",
-      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param testArray array = [
   'one'
@@ -1255,8 +599,6 @@ param charactersToTake int = 2
 output arrayOutput array = take(testArray, elementsToTake)
 output stringOutput string = take(testString, charactersToTake)
 ```
-
----
 
 The output from the preceding example with the default values is:
 
@@ -1287,55 +629,6 @@ An array or object.
 
 The following example shows how to use union with arrays and objects:
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "firstObject": {
-      "type": "object",
-      "defaultValue": {
-        "one": "a",
-        "two": "b",
-        "three": "c1"
-      }
-    },
-    "secondObject": {
-      "type": "object",
-      "defaultValue": {
-        "three": "c2",
-        "four": "d",
-        "five": "e"
-      }
-    },
-    "firstArray": {
-      "type": "array",
-      "defaultValue": [ "one", "two", "three" ]
-    },
-    "secondArray": {
-      "type": "array",
-      "defaultValue": [ "three", "four" ]
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "objectOutput": {
-      "type": "object",
-      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-    }
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
 ```bicep
 param firstObject object = {
   'one': 'a'
@@ -1364,8 +657,6 @@ output objectOutput object = union(firstObject, secondObject)
 output arrayOutput array = union(firstArray, secondArray)
 ```
 
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -1375,4 +666,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
+* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).

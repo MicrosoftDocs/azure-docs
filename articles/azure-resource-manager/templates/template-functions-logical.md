@@ -23,6 +23,8 @@ Resource Manager provides several functions for making comparisons in your Azure
 
 Checks whether all parameter values are true.
 
+The `and` function is not supported in Bicep, use the [&& operator](../bicep/operators-logical.md#and-) instead.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -134,6 +136,8 @@ The output from the preceding example with the default values is:
 
 Returns false.
 
+The `false` function is not available in Bicep.  Use the `false` keyword instead.
+
 ### Parameters
 
 The false function doesn't accept any parameters.
@@ -171,6 +175,8 @@ The output from the preceding example is:
 `if(condition, trueValue, falseValue)`
 
 Returns a value based on whether a condition is true or false.
+
+The `if` function is not supported in Bicep. Use the [?: operator](../bicep/operators-logical.md#conditional-expression--) instead.
 
 ### Parameters
 
@@ -277,6 +283,8 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 Converts boolean value to its opposite value.
 
+The `not` function is not supported in Bicep, use the [! operator](../bicep/operators-logical.md#not-) instead.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -350,6 +358,8 @@ The output from the preceding example is:
 
 Checks whether any parameter value is true.
 
+The `or` function is not supported in Bicep, use the [|| operator](../bicep/operators-logical.md#or-) instead.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -401,6 +411,8 @@ The output from the preceding example is:
 `true()`
 
 Returns true.
+
+The `true` function is not available in Bicep.  Use the `true` keyword instead.
 
 ### Parameters
 

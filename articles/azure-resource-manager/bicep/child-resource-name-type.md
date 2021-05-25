@@ -118,4 +118,4 @@ Referencing the child resource symbolic name works the same as referencing the p
 ## Next steps
 
 * To learn about creating Bicep files, see [Understand the structure and syntax of Bicep files](./file.md).
-* To learn about the format of the resource name when referencing the resource, see the [reference function](./template-functions-resource.md#reference).
+* To learn about the format of the resource name when referencing the resource, see the [reference function](./bicep-functions-resource.md#reference).

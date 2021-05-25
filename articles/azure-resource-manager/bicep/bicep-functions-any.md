@@ -1,13 +1,14 @@
 ---
-title: Template functions - any
+title: Bicep functions - any
 description: Describes the any function that is available in Bicep to convert types.
 ms.topic: conceptual
-author: tfitzmac
-ms.author: tomfitz
+author: mumian
+ms.author: jgao
 ms.service: azure-resource-manager
-ms.subservice: templates
-ms.date: 03/02/2021
+ms.subservice: bicep
+ms.date: 06/01/2021
 ---
+
 # Any function for Bicep
 
 Bicep supports a function called `any()` to resolve type errors in the Bicep type system. You use this function when the format of the value you provide doesn't match what the type system expects. For example, if the property requires a number but you need to provide it as a string, like `'0.5'`. Use the `any()` function to suppress the error reported by the type system.
@@ -32,7 +33,7 @@ The value in a form that is compatible with any data type.
 
 ### Examples
 
-The following example template shows how to use the `any()` function to provide numeric values as strings.
+The following example shows how to use the `any()` function to provide numeric values as strings.
 
 ```bicep
 resource wpAci 'microsoft.containerInstance/containerGroups@2019-12-01' = {

@@ -164,7 +164,7 @@ param demoParam string = 'Contoso'
 
 ---
 
-You can use expressions with the default value. You can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
+You can use expressions with the default value. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
 
 Expressions aren't allowed with other parameter properties.
 
@@ -305,7 +305,7 @@ param virtualMachineSize string = 'Standard_DS1_v2'
 
 ## Use parameter
 
-In a JSON template, you reference the value for the parameter by using the [parameters](template-functions-deployment.md#parameters) function. In Bicep, you use the parameter name. The following example uses a parameter value for a Key Vault name.
+In a JSON template, you reference the value for the parameter by using the [parameters](../templates/template-functions-deployment.md#parameters) function. In Bicep, you use the parameter name. The following example uses a parameter value for a Key Vault name.
 
 # [JSON](#tab/json)
 
@@ -470,8 +470,8 @@ The following examples demonstrate scenarios for using parameters.
 
 |Template  |Description  |
 |---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstrates how to use template functions when defining default values for parameters. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstrates using an object for a parameter. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
+|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.bicep) | Demonstrates how to use Bicep functions when defining default values for parameters. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
+|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.bicep) | Demonstrates using an object for a parameter. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
 
 ## Next steps
 

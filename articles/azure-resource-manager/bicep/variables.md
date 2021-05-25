@@ -31,15 +31,15 @@ var concatToVar =  '${stringVar}-addtovar'
 var concatToParam = '${inputValue}-addtoparam'
 ```
 
-You can use [template functions](./template-functions.md) to construct the variable value.
+You can use [Bicep functions](./bicep-functions.md) to construct the variable value.
 
-The following example creates a string value for a storage account name. It uses several template functions to get a parameter value, and concatenates it to a unique string.
+The following example creates a string value for a storage account name. It uses several Bicep functions to get a parameter value, and concatenates it to a unique string.
 
 ```bicep
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 ```
 
-In JSON templates, you can't use the [reference](template-functions-resource.md#reference) function or any of the [list](template-functions-resource.md#list) functions in the variable declaration. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
+In JSON templates, you can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the variable declaration. These functions get the runtime state of a resource, and can't be executed before deployment when variables are resolved.
 
 In Bicep files, the reference and list functions are valid when declaring a variable.
 

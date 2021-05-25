@@ -51,7 +51,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use functions
-            url: ./template-functions.md
+            url: ./bicep-functions.md
           - text: Use operators
             url: ./operators.md
           - text: Use data types
