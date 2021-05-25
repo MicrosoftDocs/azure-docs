@@ -63860,6 +63860,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/kube-advisor-tool.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
