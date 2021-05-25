@@ -25,7 +25,7 @@ There are several articles that describe the differences and recommendation on s
 
 Many independent software vendor (ISV) solutions can provide file services in Azure. This article addresses two topics:
 - provides general considerations on selecting file services
-- outlies the differences between ISV solutions.
+- outlines the differences between ISV solutions.
   
 Full list of verified ISV solutions is available on [Azure Storage partners for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
 
