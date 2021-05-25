@@ -230,6 +230,7 @@ Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
 Guest/server VMDK | Yes
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
+FIPS encryption | No
 Guest/server NFS | No
 Guest/server iSCSI | For Migration - Yes<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
