@@ -4,7 +4,7 @@ description: Learn about solutions offered by partners on Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 02/12/2021
+ms.date: 05/25/2021
 ms.author: tomfitz
 ---
 
