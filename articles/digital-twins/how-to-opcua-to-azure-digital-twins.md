@@ -3,7 +3,7 @@
 title: How to get OPC UA data into Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Steps to get your Azure OPC UA Data into Azure Digital Twins
-author: dahellem
+author: danhellem
 ms.author: dahellem # Microsoft employees only
 ms.date: 5/20/2021
 ms.topic: how-to
@@ -44,9 +44,9 @@ This will feel complicated the first time you try it. There are a lot of steps a
 The first step is getting the devices and software setup on the edge. This includes your OPC UA simulation server, gateway device, and Azure IoT Hub components. The steps to install these components are well documented, but we wanted to step through these together so you can see the whole story. However, if you want more details, you can read the following articles:
 
 - [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) | Kevin Hilscher
-- [Install IoT Edge on Linux](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11) | Microsoft Docs
+- [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge?view=iotedge-2020-11) | Microsoft Docs
 - [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | GitHub Repo
-- [Configure OPC Publisher](https://docs.microsoft.com/en-us/azure/iot-accelerators/howto-opc-publisher-configure) | Microsoft Docs
+- [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure) | Microsoft Docs
 
 ## OPC UA Server
 
@@ -115,11 +115,11 @@ Create an Ubuntu Server virtual machine like the following
 > The default size “Standard_b1s – vcpu, 1GiB memory ($7.59/month)” is too slow for RDP. Try updating it to the 2 GiB memory for a better RDP experience.
 
 > [!NOTE]
-> If you choose to RDP into your Ubuntu VM, you can follow [the instructions here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop).
+> If you choose to RDP into your Ubuntu VM, you can follow [the instructions here](../virtual-machines/linux/use-remote-desktop).
 
 ### Install IoT Edge container
 
-Follow the instructions to [Install IoT Edge on Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop).
+Follow the instructions to [Install IoT Edge on Linux](../virtual-machines/linux/use-remote-desktop).
 
 Once the installation completes run:
 
@@ -131,7 +131,7 @@ This will run a number of tests to make sure your installation is ready to go.
 
 ### Install OPC Publisher module
 
-The OPC Publisher module now needs to be installed on your gateway device. The easiest way to install the OPC Publisher module is from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.iotedge-opc-publisher) and follow the steps documented in the [GitHub Repo](https://github.com/Azure/iot-edge-opc-publisher).
+The OPC Publisher module now needs to be installed on your gateway device. The easiest way to install the OPC Publisher module is from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.iotedge-opc-publisher) and follow the steps documented in the [GitHub Repo](https://github.com/Azure/iot-edge-opc-publisher).
 
 ![screen of opc publisher in azure marketplace](./media/how-to-opcua/opc-publisher-1.png)
 
@@ -207,10 +207,10 @@ To monitor the messages flowing into Azure IoT hub, you can use the following co
 az iot hub monitor-events -n {iot-hub-instance} -t 0
 ```
 
-![screen shot iotedge logs results](./media/how-to-opcua/az-iot-hub-monitor-events-1.png)
+![screen shot of iot hub monitor-events logs results](./media/how-to-opcua/az-iot-hub-monitor-events-1.png)
 
 > [!TIP]
-> Try using [Azure IoT Explorer](https://docs.microsoft.com/en-us/azure/iot-pnp/howto-use-iot-explorer) to monitor IoT Hub messages.
+> Try using [Azure IoT Explorer](../iot-pnp/howto-use-iot-explorer) to monitor IoT Hub messages.
 
 Sweet, you now have data flowing from an OPC UA Server into IoT Hub. Next up, getting the telemetry data into Azure Digital Twins.
 
@@ -230,11 +230,11 @@ Now that we have data flowing from OPC UA Server into Azure IoT Hub, we need to 
 
 ### Create Azure Digital Twins instance
 
-[Follow the documentation](./how-to-set-up-instance-portal) to deploy a new Azure Digital Twins instance from the Azure portal.
+[Follow the documentation](./how-to-set-up-instance-portal.md) to deploy a new Azure Digital Twins instance from the Azure portal.
 
 ### Upload model & create twin
 
-We recommend using [Azure Digital Twins Explorer](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) to upload the `simulation` model and create a new twin called “simulation-1”.
+We recommend using [Azure Digital Twins Explorer](../../samples/azure-samples/digital-twins-explorer/digital-twins-explorer) to upload the `simulation` model and create a new twin called “simulation-1”.
 
 ![screen shot azure digital twins explorer](./media/how-to-opcua/adt-explorer-1.png)
 
