@@ -83,8 +83,6 @@
     href: concept-identification-cards.md
 - name: Tutorials
   items:
-  - name: Extract form data in bulk
-    href: tutorial-bulk-processing.md
   - name: Use Form Recognizer with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Form Recognizer with AI Builder
