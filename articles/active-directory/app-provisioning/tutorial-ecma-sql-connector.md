@@ -12,7 +12,7 @@ ms.date: 03/09/2021
 ms.author: billmath
 ms.reviewer: arvinh
 ---
----
+
 
 # Azure AD ECMA Host Connector Generic SQL Connector
 

@@ -66,7 +66,7 @@ The following sections will guide you through establishing connectivity with the
  2. Click **get started**.
  ![get started](.\media\on-prem-ecma-configure\configure-6.png)
  3. On the **Provisioning page**, change the mode to **Automatic**
-   ![Add new application](.\media\on-prem-ecma-configure\configure-7.png)
+   ![Change mode](.\media\on-prem-ecma-configure\configure-7.png)
  4. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
    >[!NOTE]
    >After adding the agent, you need to wait 10 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
@@ -85,9 +85,9 @@ The following sections will guide you through establishing connectivity with the
   
  6. Enter the secret token value that you defined when creating the connector.
  7. Click Test Connection and wait one minute.
-  ![Assign an agent](.\media\on-prem-ecma-configure\configure-5.png)
+  ![Test the connection](.\media\on-prem-ecma-configure\configure-5.png)
  9. Once connection test is successful, click **save**.
- ![Assign an agent](.\media\on-prem-ecma-configure\configure-9.png)
+ ![Successful test](.\media\on-prem-ecma-configure\configure-9.png)
 
 ## Configure who is in scope for provisioning
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD you can move on to configuring who is in scope for provisioning.  The sections below will provide information on how scope your users.
@@ -128,7 +128,7 @@ To test your configuration, you can use on-demand provisiong of user.  For infor
 
 ### Start provisioning users
  1. Once on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and group, turn **provisioning On**, and click **Save**.
-   ![Test provisioning](.\media\on-prem-ecma-configure\configure-14.png)
+   ![Start provisioning](.\media\on-prem-ecma-configure\configure-14.png)
   2.  Wait several minutes for provisioning to start (it may take up to 40 minutes). You can learn more about the provisioning service performance here. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to Off, and click Save. This will stop the provisioning service from running in the future.
 
 ### Verify users have been successfully provisioned
