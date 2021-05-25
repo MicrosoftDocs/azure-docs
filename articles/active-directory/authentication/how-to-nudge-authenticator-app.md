@@ -79,17 +79,13 @@ To configure the policy using Graph Explorer:
 
    ![Screenshot of Graph Explorer](./media/how-to-nudge-authenticator-app/permissions.png)
 
-1. Retrieve the Authentication methods policy:
-   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy
+1. Retrieve the Authentication methods policy: `GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy`
 
 1. Update the registrationEnforcement and authenticationMethodsRegistrationCampaign section of the policy to enable the nudge on a user or group.
 
-   ![User object ID](./media/how-to-nudge-authenticator-app/object-id.png)
+   ![Campaign section](./media/how-to-nudge-authenticator-app/campaign.png)
 
-To update the policy perform a PATCH on the Authentication Methods Policy with only the updated registrationEnforcement section.
-PATCH https://graph.microsoft.com/beta/policies/authenticationmethodspolicy
-
-   ![Nudge group](./media/how-to-nudge-authenticator-app/group.png)
+To update the policy, perform a PATCH on the Authentication Methods Policy with only the updated registrationEnforcement section: `PATCH https://graph.microsoft.com/beta/policies/authenticationmethodspolicy`
 
 The following table lists **authenticationMethodsRegistrationCampaign** properties.
 
@@ -114,6 +110,42 @@ The following table lists **excludeTargets** properties.
 |------------|-------------------|---------------------------------------|
 | targetType | "user"<br>"group" | The kind of entity targeted.          |
 | Id         | A string          | The ID of the user or group targeted. |
+
+### Examples
+
+Here are a few sample JSONs you can use to get started! 
+
+- Include all users 
+  
+  If you want to include ALL users in your tenant simply download this JSON and paste it in Graph Explorer and run `PATCH` on the https://graph.microsoft.com/beta/policies/authenticationmethodspolicy endpoint. 
+
+- Include specific users or groups of users
+
+  If you want to include certain users or groups in your tenant, download this JSON and update it with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the https://graph.microsoft.com/beta/policies/authenticationmethodspolicy endpoint. 
+
+- Include and exclude specific users/groups of users
+
+  If you want to include AND exclude certain users/groups of users in your tenant, download this JSON and paste it in Graph Explorer and run `PATCH` on the https://graph.microsoft.com/beta/policies/authenticationmethodspolicy endpoint. 
+
+### Identify the GUIDs of users to insert in the JSONs
+
+1. Navigate to the Azure Portal.
+1. Tap **Azure Active Directory**.
+1. In the **Manage** blade, tap **Users**.
+1. In the **Users** page, identify the specific user you want to target.
+1. When you tap the specific user, you’ll see their **Object ID**, which is the user’s GUID.
+
+   ![User object ID](./media/how-to-nudge-authenticator-app/object-id.png)
+
+### Identify the GUIDs of users to insert in the JSONs
+
+1. Navigate to the Azure Portal.
+1. Tap **Azure Active Directory**.
+1. In the **Manage** blade, tap **Groups**.
+1. In the **Groups** page, identify the specific group you want to target.
+1. Tap the group and get the **Object ID**.
+
+   ![Nudge group](./media/how-to-nudge-authenticator-app/group.png)
 
 ### PowerShell
 
