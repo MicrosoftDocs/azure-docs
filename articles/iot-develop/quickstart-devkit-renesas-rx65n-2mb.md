@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/18/2021
+ms.date: 05/25/2021
 ---
 
 # Quickstart: Connect a Renesas Starter Kit+ for RX65N-2MB to IoT Central
@@ -244,11 +244,11 @@ You can also use IoT Central to call a direct method that you've implemented on 
 To call a method in IoT Central portal:
 
 1. Select the **Command** tab from the device page.
-1. Select **State** and select **Run**.  The LED light should turn on.
+1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
     :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
 
-1. Unselect **State** and select **Run**. The LED light should turn off.
+1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
 ## View device information
 
@@ -260,7 +260,7 @@ Select **About** tab from the device page.
 
 ## Clean up resources
 
-If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal. Optionally, if you continue to another tutorial in this Getting Started guide, you can keep the resources you've already created and reuse them.
+If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal.
 
 To remove the entire Azure IoT Central sample application and all its devices and resources:
 1. Select **Administration** > **Your application**.
