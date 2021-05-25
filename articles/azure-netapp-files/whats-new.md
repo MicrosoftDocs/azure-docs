@@ -21,7 +21,7 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-## May 2021
+## June 2021
 
 * Features now generally available (GA)   
 
@@ -33,6 +33,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Administrators in Active Directory configuration](create-active-directory-connections.md) 
 
     The Active Directory configuration now includes an **Administrators** field. You can specify users or groups that will be given administrator privileges on the volume.
+
+## May 2021
 
 * Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
 
