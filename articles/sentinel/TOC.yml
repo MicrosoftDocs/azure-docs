@@ -319,9 +319,9 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
-- name: SAP - Continuous threat monitoring
+- name: SAP integration
   items:
-    - name: Deploy the Azure Sentinel solution for SAP
+    - name: Deploy SAP continuous threat monitoring
       href: sap-deploy-solution.md
     - name: Detailed SAP solution requirements
       href: sap-solution-detailed-requirements.md
