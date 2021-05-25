@@ -9,7 +9,7 @@ ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/27/2020
 ---
-[Reference documentation](/javascript/api/@azure/cognitiveservices-personalizer/) |[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
+[Reference documentation](/javascript/api/@azure/cognitiveservices-personalizer) |[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## Prerequisites
 
