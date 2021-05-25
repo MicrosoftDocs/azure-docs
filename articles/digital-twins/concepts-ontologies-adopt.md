@@ -55,7 +55,7 @@ This ontology was created to help solution providers accelerate development of d
 
 To learn more about the ontology, how to use it, and how to contribute, visit the ontology's repository on GitHub: [Azure/opendigitaltwins-energygrid](https://github.com/Azure/opendigitaltwins-energygrid/). 
 
-You can also read more about the partnerships and approach for energy grids in the following blog post: [Energy Grid Ontology for Digital Twins is Now Available](https://techcommunity.microsoft.com/t5/internet-of-things/energy-grid-ontology-for-digital-twins-is-now-available/ba-p/2325134).
+You can also read more about the partnerships and approach for energy grids in the following blog post: [Energy Grid Ontology for Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/energy-grid-ontology-for-digital-twins-is-now-available/ba-p/2325134).
 
 ## Next steps
 
