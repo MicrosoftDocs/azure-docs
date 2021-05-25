@@ -81,7 +81,7 @@ Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage 
 
    | Setting       | Sample value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Subscription** | *My subscription* | For details about your subscriptions, see [Subscriptions](https://account.azure.com/Subscriptions). |
+   | **Subscription** | *My subscription* | For details about your subscriptions, see [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). |
    | **ResourceGroup** | *myResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    | **Name** | *mystorageaccount* | A unique name for your storage account. |
    | **Location** | *East US* | Choose a location. |
