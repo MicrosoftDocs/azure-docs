@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/22/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->

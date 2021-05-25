@@ -3,7 +3,7 @@ author: laujan
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 06/12/2019
+ms.date: 05/25/2021
 ms.author: lajanuar
 ---
 
