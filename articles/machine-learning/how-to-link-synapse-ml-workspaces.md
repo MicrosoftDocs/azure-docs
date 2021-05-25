@@ -35,7 +35,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 
 * [Create a Synapse workspace in Azure portal](../synapse-analytics/quickstart-create-workspace.md).
 
-* [Create Apache Spark pool using Azure portal, web tools or Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)
+* [Create Apache Spark pool using Azure portal, web tools, or Synapse Studio](../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)
 
 * Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)
 
@@ -47,7 +47,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 > [!IMPORTANT]
 > To link to the Synapse workspace successfully, you must be granted the **Owner** role of the Synapse workspace. Check your access in the [Azure portal](https://ms.portal.azure.com/).
 >
-> If you are not an **Owner** and are only a **Contributor** to the Synapse workspace, you can only use existing linked services. See how to [Retrive and use an existing linked service](how-to-data-prep-synapse-spark-pool.md#get-an-existing-linked-service).
+> If you are not an **Owner** and are only a **Contributor** to the Synapse workspace, you can only use existing linked services. See how to [Retrieve and use an existing linked service](#get-an-existing-linked-service).
 
 The following code employs the [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice) and [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration) classes to,
 
@@ -117,7 +117,7 @@ Link your machine learning workspace and Synapse workspace via the Azure Machine
 
 Before you can attach a dedicated compute for data wrangling, you must have an ML workspace that's linked to an Azure Synapse Analytics workspace, this is referred to as a linked service. 
 
-To retrieve and use an existing linked service requires **User or Contributor** permissions to the **Azure Synapse Analytics workspace**.
+To retrieve and use an existing linked service, requires **User or Contributor** permissions to the **Azure Synapse Analytics workspace**.
 
 This example retrieves an existing linked service, `synapselink1`, from the workspace, `ws`, with the [`get()`](/python/api/azureml-core/azureml.core.linkedservice#get-workspace--name-) method.
 ```python
