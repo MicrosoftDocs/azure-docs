@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Build an app to manage Cosmos DB data using the Apache Spark 3 OLTP Connector for SQL API
+title: Quickstart - Build an app to manage Cosmos DB data using the Cosmos DB Spark 3 OLTP Connector for SQL API
 description: This quickstart presents a Cosmos DB Apache Spark 3 OLTP Connector for SQL API code sample you can use to connect to and query the Azure Cosmos DB SQL API
 author: anfeldma-ms
 ms.service: cosmos-db
