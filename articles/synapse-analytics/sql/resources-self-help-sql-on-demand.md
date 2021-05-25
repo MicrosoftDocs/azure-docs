@@ -449,6 +449,12 @@ CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 > [!NOTE]
 > Replace 'password' with a different secret here. 
 
+### Operation [[operation name]] is not allowed for a replicated database.
+   
+If you are trying to create some SQL objects, users, or change permissions in a database, you might get the errors like 'Operation CREATE USER is not allowed for a replicated database'. This error is returned when you try to create some objects in a database that is [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read-only. You cannot create new objects into replicated database using T-SQL.
+
+Create a separate database and reference the synchronized [tables](../metadata/table.md) using 3-part names and cross-database queries.
+
 ## Delta Lake
 
 Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
