@@ -18,6 +18,8 @@
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
       href: /azure/active-directory/saas-apps
+    - name: Azure AD ECMA Connector Host Generic SQL Connector
+      href: tutorial-ecma-sql-connector.md
   - name: Concepts
     expanded: true
     items: 
