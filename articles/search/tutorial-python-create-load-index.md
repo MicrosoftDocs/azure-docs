@@ -73,7 +73,7 @@ The script uses the Azure SDK for Cognitive Search:
 
 1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, to run the following bash command to run the `bulk_upload.py` script:
 
-    ```javascript
+    ```bash
     python bulk-upload.py
     ```
 
@@ -101,4 +101,4 @@ Note your **Search resource name**. You will need this to connect the Azure Func
 
 ## Next steps
 
-[Deploy your Static Web App](tutorial-javascript-deploy-static-web-app.md)
+[Deploy your Static Web App](tutorial-python-deploy-static-web-app.md)
