@@ -31,7 +31,7 @@ Before reading through this article, it is recommended that you go through the f
 
 ## Refresh token expiration
 
-Refresh tokens need to be stored safely in line with stringent requirements since they have a long lifetime and are used to obtain access tokens. The tokens can, however, be invalidated or revoked at any time, for different reasons. These reasons fall into two main categories: timeouts and revocations
+Refresh tokens can, be be revoked at any time, due to timeouts and revocations.  Your app must handle rejections by the login service gracefully when this occurs, by sending the user to an interactive sign in prompt for sign in again. 
 
 ### Token timeouts
 
