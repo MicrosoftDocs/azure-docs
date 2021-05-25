@@ -277,18 +277,17 @@ The [Scale up a Service Fabric cluster primary node type](./service-fabric-scale
 
 ## Method2: Deploy zones by pinning one VMSS to each zone
 
-This is the current generally available configuration right now.
-
-The following diagram shows the Azure Service Fabric Availability Zone architecture:
-
-![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
-
+This is the generally available configuration right now.
 To span a Service Fabric cluster across Availability Zones, you must create a primary node type in each Availability Zone supported by the region. This distributes seed nodes evenly across each of the primary node types.
 
 The recommended topology for the primary node type requires this:
 * Three node types marked as primary
   * Each node type should be mapped to its own virtual machine scale set located in a different zone.
   * Each virtual machine scale set should have at least five nodes (Silver Durability).
+
+The following diagram shows the Azure Service Fabric Availability Zone architecture:
+
+![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
 
 ### Enable zones on a virtual machine scale set
 
