@@ -192,7 +192,7 @@ Here we compose the policy rule and then assign it to either a management group 
 5. Launch the Azure Policy service in the Azure portal by selecting **All services**, then searching for and selecting **Policy**.
 6. Select **Compliance** in the left side of the page. Then locate the policy assignment you created.
 
-:::image type="content" source="./media/enforce-job-execution-hybrid-worker/azure-policy-dashboard-policy-status.png" alt-text="Example of Activity log for failed job execution.":::
+   :::image type="content" source="./media/enforce-job-execution-hybrid-worker/azure-policy-dashboard-policy-status.png" alt-text="Screenshot of Azure Policy dashboard.":::
 
 When one of the Automation REST operations are executed without reference to a Hybrid Runbook Worker in the request body, a 403 response code is returned with an error similar to the following example indicating the operation attempted execution on an Azure sandbox:
 
