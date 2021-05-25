@@ -83,9 +83,9 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
         }
     }
     ```
-    >[!NOTE]
-    > when running Flask under uwscgi in docker enviorment there is a need to enable: `lazy-apps = true` in uwsgi confgiuration [issue description](https://github.com/census-instrumentation/opencensus-python/issues/660) othervise it will not work
- 
+    
+    > [!NOTE]
+    > To run Flask under uWSGI in a Docker environment, you must set first add `lazy-apps = true`to the uWSGI configuration file (uwsgi.ini). For more information, see the [issue description](https://github.com/census-instrumentation/opencensus-python/issues/660). 
     
 ## Tracking Pyramid applications
 
