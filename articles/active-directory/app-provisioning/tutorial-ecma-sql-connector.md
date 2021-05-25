@@ -27,6 +27,7 @@ This tutorial covers how to setup and use the generic SQL connector with the Azu
 - Both VMs have connectivity to the internet.
 - SQL Server Agent has been started
 - You have an Azure AD tenant to test with.  This tutorial uses ecmabmcontoso.onmicrosoft.com.  Substitute your tenant with this one.
+- You have 3 or 4 users created in your tenant for testing.
 
 For additional information on setting up this environment, see [Tutorial: Basic Active Directory environment](../../active directory/cloud sync/tutorial-basic-ad-azure.md)
 
@@ -86,7 +87,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
  
 ## Step 4 - Configure the Azure AD ECMA Connector Host
 1. On the desktop, click the ECMA shortcut.
-2. Once the ECMA Connector Host Configuration starts, leave the default port 8585 and click **Generate**.  This will generate a certificate.
+2. Once the ECMA Connector Host Configuration starts, leave the default port 8585 and click **Generate**.  This will generate a certificate.  The auto-generated certificate will be self-signed / part of the trusted root and the SAN matches the hostname.
      ![Configure your settings](.\media\on-prem-ecma-configure\configure-1.png)
 3. Click **Save**.
 
@@ -179,93 +180,102 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 15. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Click **Finish**.
      ![Enter deprovisioning information](.\media\tutorial-ecma-sql-connector\conn-14.png)
 
-#### Step 6 - Ensure ECMA2Host service is running
+## Step 6 - Ensure ECMA2Host service is running
 1.  On the server the running the Azure AD ECMA Connector Host, click Start.
 2. Type run and enter services.msc in the box
 3. In the services, ensure that **Microsoft ECMA2Host** is present and running.  If not, click **Start**.
  ![Service is running](.\media\on-prem-ecma-configure\configure-2.png)
 
-#### Step 7 - Add Enterprise application
+## Step 7 - Add Enterprise application
 1.  Sign-in to the Azure portal as an application administrator
 2. In the portal, navigate to Azure Active Directory, **Enterpirse Applications**.
 3. Click on **New Application**.
  ![Add new application](.\media\on-prem-ecma-configure\configure-4.png)
 4. Search the gallery for the test application **on-premises provisioning** and click **Create**.
- ![Add new application](.\media\tutorial-ecma-sql-connector\app-1.png)
+ ![Create new application](.\media\tutorial-ecma-sql-connector\app-1.png)
 
 ## Step 8 - Configure the applicaion and test
- 1. Once it has been created, click he **Provisioning page**.
- 2. Click **get started**.
- ![get started](.\media\on-prem-ecma-configure\configure-6.png)
- 3. On the **Provisioning page**, change the mode to **Automatic**
-   ![Add new application](.\media\on-prem-ecma-configure\configure-7.png)
- 4. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
-   >[!NOTE]
-   >After adding the agent, you need to wait 10 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
-   >
-   >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
+1. Once it has been created, click he **Provisioning page**.
+2. Click **get started**.
+     ![get started](.\media\on-prem-ecma-configure\configure-6.png)
+3. On the **Provisioning page**, change the mode to **Automatic**
+     ![Add new application](.\media\on-prem-ecma-configure\configure-7.png)
+4. In the on-premises connectivity section, select the agent that you just deployed and click **assign agent(s)**.
+     >[!NOTE]
+     >After adding the agent, you need to wait 10 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
+     >
+     >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
    
-   ![Assign an agent](.\media\on-prem-ecma-configure\configure-8.png)
- 7.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
+     ![Restart an agent](.\media\on-prem-ecma-configure\configure-8.png)
+5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
+
+     |Property|Value|
+     |-----|-----|
+     |Tenant URL|https://localhost:8585/ecma2host_SQL/scim|
+
+6. Enter the secret token value that you defined when creating the connector.
+7. Click Test Connection and wait one minute.
+     ![Assign an agent](.\media\on-prem-ecma-configure\configure-5.png)
+8. Once connection test is successful, click **save**.
+     ![Test an agent](.\media\on-prem-ecma-configure\configure-9.png)
+
+## Step 9 - Assign users to application
+Now that you have the Azure AD ECMA Connector Host talking with Azure AD you can move on to configuring who is in scope for provisioning. 
+
+1. In the Azure portal select **Enterprise Applications**
+2. Click on the **on-premises provisioning** application
+3. On the left, under **Manage** click on **Users and groups**
+4. Click **Add user/group**
+     ![Add user](.\media\tutorial-ecma-sql-connector\app-2.png)
+5. Under **Users** click **None selected**
+     ![None selected](.\media\tutorial-ecma-sql-connector\app-3.png)
+6. Select users from the right and click **Select**.
+     ![Select users](.\media\tutorial-ecma-sql-connector\app-4.png)
+7. Now click **Assign**.
+     ![Assign users](.\media\tutorial-ecma-sql-connector\app-5.png)
+
+## Step 10 - Configure attribute mappings
+Now we need to map attributes between the on-premises application and our SQL server.
+
+#### Configure attribute mapping
+ 1. In the Azure AD portal, under **Enterprise applications**, click he **Provisioning page**.
+ 2. Click **get started**.
+ 3. Expand **Mappings** and click **Provision Azure Active Directory Users**
+   ![provision a user](.\media\on-prem-ecma-configure\configure-10.png)
+ 5. Click **Add new mapping**
+     ![Add a mapping](.\media\on-prem-ecma-configure\configure-11.png)
+ 6. Specify the source and target attributes and  and add all of the mappings in the table below.
+     |Mapping Type|Source attribute|Target attribute|
+     |-----|-----|----|
+     |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
+     |Direct|objectID|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:AzureID|
+     |Direct|mail|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email|
+     |Direct|givenName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:FirstName|
+     |Direct|surName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:LastName|
+     |Direct|mailNickname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID|
+     ![Edit attributes](.\media\on-prem-ecma-configure\configure-12.png)
+ 7. Click **Save**
+     ![Add a mapping](.\media\tutorial-ecma-sql-connector\app-6.png)
+
+## Step 11 - Test provisioning
+Now that our attributes are mapped we can test on-demand provisioning with one of our users.
  
-   https://localhost:8585/ecma2host_connectorName/scim
+ 1. In the Azure portal select **Enterprise Applications**
+ 2. Click on the **on-premises provisioning** application
+ 3. On the left, click **Provisioning**.
+ 4. Click **Provision on-demand**
+ 5. Search for one of your test users and click **Provision**
+     ![Test provisioning](.\media\on-prem-ecma-configure\configure-13.png)
 
-   For example, if the connector you created was named SQL, the url would be:
- 
-   https://localhost:8585/ecma2host_SQL/scim
-  
-  
- 6. Enter the secret token value that you defined when creating the connector.
- 7. Click Test Connection and wait one minute.
-  ![Assign an agent](.\media\on-prem-ecma-configure\configure-5.png)
- 9. Once connection test is successful, click **save**.
- ![Assign an agent](.\media\on-prem-ecma-configure\configure-9.png)
+### Step 12 - Start provisioning users
+ 1. Once on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and group, turn **provisioning On**, and click **Save**.
+   ![Start provisioning](.\media\on-prem-ecma-configure\configure-14.png)
+  2.  Wait several minutes for provisioning to start (it may take up to 40 minutes). You can learn more about the provisioning service performance here. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to Off, and click Save. This will stop the provisioning service from running in the future.
 
+### Step 13 - Verify users have been successfully provisioned
+After waiting, check the SQL database to ensure users are being provisioned.
+ ![Verify users are provisioned](.\media\on-prem-ecma-configure\configure-15.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Step 6. Configure provisioning in Azure AD
-1. Assign the agents to your application (get steps from preview doc).
-2. Provide the URL and secret token (get steps from preview doc). 
-2. [Determine who should be in scope for provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts).
-3. [Assign users to your application](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-assign-users) if scoping is based on assignment to the application (recommended).
-4. [Configure your attribute mappings.](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes)
-5. [Provision a user on-demand.](https://docs.microsoft.com/azure/active-directory/app-provisioning/provision-on-demand)
-6. Add additional users to your application.
-7. Turn provisioning on.
-
-## Step 6. Monitor your deployment
-Once you've configured provisioning, use the following resources to monitor your deployment:
-
-1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully.
-2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion.
-3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
-
-## Troubleshooting tips
-
-
-## Known issues
-
-* LDAP referrals between servers not supported (RFC 4511/4.1.10)
-
-
-
-
- 
 ## Appendix A
 **SQL script to create the sample database**
 
@@ -301,22 +311,9 @@ GO
 
 ```
 
-## Appendix B: Configuring the Generic SQL Connector for SQL Server
 
-If you do not have a connector MA, but have SQL Server in your environment, then you can still validate the provisioning process, using the instructions in the Generic SQL Connector guide at [https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) and  [https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step)
-
-After creating an ODBC file, you can then use that file when creating a new Connector.
-
-## Appendix G: Building a demo SQL environment for testing
-https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step
-https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql
-
-
-## Appendix H: Configuring the host using SQL
-
-The following screenshots show you how to configure the host, if you are using the demo environment described above.
 
 
 ## Next Steps
 
-- App provisioning](user-provisioning.md)
+- [App provisioning](user-provisioning.md)

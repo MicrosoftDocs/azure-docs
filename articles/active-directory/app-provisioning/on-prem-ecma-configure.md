@@ -28,10 +28,10 @@ When you first start the Azure AD ECMA Connector Host you will see a port number
 
  ![Configure your settings](.\media\on-prem-ecma-configure\configure-1.png)
 
-You will also be asked to select a certificate for the Azure AD ECMA Connector Host to use, or generate a new self-signed certificate.
+For the preview, you will need to generate a new self-signed certificate.
 
  >[!NOTE]
- >If you are providing your own certificate, it must be located in the personal store of the local computer account.  This is so that it can be presented when you click Select.
+ >This preview uses a time-sensitive cerfiticate. The auto-generated certificate will be self-signed, part of the trusted root and the SAN matches the hostname.
 
 
 ### Create a connector
