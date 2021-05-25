@@ -7,9 +7,9 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 05/25/2021
 ms.custom: devx-track-python
-ms.devlang: javascript
+ms.devlang: python
 ---
 
 # 3 - Deploy the search-enabled website
@@ -25,15 +25,15 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Right-click on the subscription name then select **Create Static Web App (Advanced)**.":::
 
-1. Follow the prompts to provide the following information:
+1. Follow the 8 prompts to provide the following information:
 
     |Prompt|Enter|
     |--|--|
     |How do you want to create a Static Web App?|Use existing GitHub repository|
     |Choose organization|Select your _own_ GitHub alias as the organization.|
-    |Choose repository|Select **azure-search-javascript-samples** from the list. |
+    |Choose repository|Select **azure-search-python-samples** from the list. |
     |Choose branch of repository|Select **master** from the list. |
-    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
+    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-python-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
     |Select the location of your application code|`search-website`|
@@ -116,4 +116,4 @@ To clean up the resources created in this tutorial, delete the resource group.
 
 ## Next steps
 
-* [Understand Search integration for the search-enabled website](tutorial-javascript-search-query-integration.md)
+* [Understand Search integration for the search-enabled website](tutorial-python-search-query-integration.md)
