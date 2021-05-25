@@ -81,7 +81,7 @@ The reference for the endpoint YAML format is below. To understand how to specif
 | $schema    | [Optional] The YAML schema. You can view the schema in the above example in a browser to see all available options in the YAML file.|
 | name       | Name of the endpoint. Needs to be unique at Azure region level.|
 | traffic | Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100 |
-| auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint get-credentialsß` command). |
+| auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint get-credentials` command). |
 | deployments | Contains a list of deployments to be created in the endpoint. In this case, we have only one deployment, named `blue`. For more on multiple deployments, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)|
 
 Attributes of the `deployment`:
