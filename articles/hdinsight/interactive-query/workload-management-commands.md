@@ -11,7 +11,7 @@ ms.date: 05/25/2021
 ---
 # Hive LLAP Workload Management commands
 
-Workload management feature can be controlled and managed with the help of following Hive commands. These commands resemble the existing ALTER, CREATE, DROP, and SHOW statements used for managing database level objects in hive.
+Workload management feature can be controlled and managed with the help of following Hive commands. These commands resemble the existing ALTER, CREATE, DROP, and SHOW statements.
 
 ## Alter Mapping 
 Changes the routing of queries to a resource pool. 
