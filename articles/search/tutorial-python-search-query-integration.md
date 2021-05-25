@@ -31,7 +31,7 @@ The Function app authenticates through the SDK to the cloud-based Cognitive Sear
 
 ## Configure secrets in a configuration file
 
-:::code language="python" source="~/azure-search-python-samples/search-website/api/shared_code/__init__.py" highlight="3,4" :::
+:::code language="python" source="~/azure-search-python-samples/search-website/api/shared_code/__init__.py" highlight="6-9" :::
 
 ## Azure Function: Search the catalog
 
@@ -47,7 +47,7 @@ The Azure Function pulls in the Search configuration information, and fulfills t
 
 Call the Azure Function in the React client with the following code. 
 
-:::code language="javascript" source="~/azure-search-python-samples/search-website/src/pages/Search/Search.js" highlight="40-51" :::
+:::code language="javascript" source="~/azure-search-python-samples/search-website/src/pages/Search/Search.js" highlight="42-55" :::
 
 ## Azure Function: Suggestions from the catalog
 
