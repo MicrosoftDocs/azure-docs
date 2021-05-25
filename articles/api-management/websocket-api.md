@@ -52,6 +52,29 @@ During the WebSocket passthrough the client application establishes a WebSocket 
 > [!NOTE]
 > The client-side and backend-side connections consist of one-to-one mapping. 
 
+## onHandshake operation
+
+Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client application tries to establish a WebSocket connection with a backend service, it will first send an [opening handshake request](https://tools.ietf.org/html/rfc6455#page-6). Each WebSocket API in API Management has an onHandshake operation. onHandshake is an immutable, unremovable, automatically created system operation. The onHandshake operation enables API publishers to intercept these handshake requests and apply API Management policies to them.
+
+:::image type="content" source="./media/websocket-api/onhandshake-screen.png" alt-text="onHandshake screen example":::
+
+## Add a WebSocket API
+
+1. Navigate to your API Management instance.
+1. From the side navigation menu, under the **APIs** section, select **APIs**.
+1. Under **Define a new API**, select the **WebSocket** icon.
+1. In the dialog box, select **Full** and complete the required form fields.
+
+    | Field | Description |
+    |----------------|-------|
+    | Display name | The name by which your WebSocket API will be displayed. |
+    | Name | Raw name of the WebSocket API. Automatically populates as you type the display name. |
+    | WebSocket URL | The base URL with your websocket name. For example: ws://example.com/your-socket-name |
+    | Products | Associate your WebSocket API with a product to publish it. |
+    | Gateways | Associate your WebSocket API with existing gateways. |
+ 
+1. Click **Create**.
+
 ## Limitations
 
 WebSocket APIs are available and supported in public preview through Azure portal, Management API, and Azure Resource Manager. Below are the current restrictions of WebSocket support in API Management:
@@ -81,36 +104,6 @@ The following policies are not supported by and cannot be applied to the onHands
 
 > [!NOTE]
 > If you applied the policies at higher scopes (i.e., global or product) and they were inherited by a WebSocket API through the policy, they will be skipped at run time.
-
-
-## onHandshake operation
-
-Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client application tries to establish a WebSocket connection with a backend service, it will first send an [opening handshake request](https://tools.ietf.org/html/rfc6455#page-6). Each WebSocket API in API Management has an onHandshake operation. onHandshake is an immutable, unremovable, automatically created system operation. The onHandshake operation enables API publishers to intercept these handshake requests and apply API Management policies to them.
-
-:::image type="content" source="./media/websocket-api/onhandshake-screen.png" alt-text="onHandshake screen example":::
-
-## Add a WebSocket API
-
-1. Navigate to your API Management instance.
-1. From the side navigation menu, under the **APIs** section, select **APIs**.
-1. Under **Define a new API**, select the **WebSocket** icon.
-1. In the dialog box, select **Full** and complete the required form fields.
-
-    | Field | Description |
-    |----------------|-------|
-    | Display name | The name by which your WebSocket API will be displayed. |
-    | Name | Raw name of the WebSocket API. Automatically populates as you type the display name. |
-    | WebSocket URL | The base URL with your websocket name. For example: ws://example.com/your-socket-name |
-    | Products | Associate your WebSocket API with a product to publish it. |
-    | Gateways | Associate your WebSocket API with existing gateways. |
- 
-1. Click **Create**.
-
-<!--
-## Test your WebSocket API
-
-## View WebSocket API metrics and logs
--->
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
