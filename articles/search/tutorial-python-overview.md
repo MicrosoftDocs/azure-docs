@@ -46,8 +46,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/m
 
 Install the following for your local development environment. 
 
-- [Node.js 12 or 14](https://nodejs.org/en/download)
-    - If you have a different version of Node.js installed on your local computer, consider using [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) or a Docker container.  
+- [Python 3.9](https://www.python.org/downloads/)
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)

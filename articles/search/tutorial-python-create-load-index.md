@@ -61,7 +61,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="javascript" source="~/azure-search-python-samples/search-website/bulk-insert/bulk_upload.py" highlight="12,13" :::
+    :::code language="python" source="~/azure-search-python-samples/search-website/bulk-insert/bulk_upload.py" highlight="12,13" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-insert`, and run the following command to install the dependencies. 
 
