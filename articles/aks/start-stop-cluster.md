@@ -81,6 +81,9 @@ You can verify when your cluster has started by using the [az aks show][az-aks-s
 
 If the `provisioningState` shows `Starting` that means your cluster hasn't fully started yet.
 
+> [!NOTE]
+> In a Cluster Autoscaler scenario when you start your cluster back up you may see that your current node count is not in your min to max range that you have set. This is the correct behavior, as your cluster starts with the correct number of nodes it needs to run its workloads. As your cluster scales, it will then respect your min and max ranges. Staying in that desired range until you stop your cluster.
+
 ## Next steps
 
 - To learn how to scale `User` pools to 0, see [Scale `User` pools to 0](scale-cluster.md#scale-user-node-pools-to-0).
