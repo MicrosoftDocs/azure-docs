@@ -55,7 +55,7 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 
 #### Symptoms
 
-If you use the copy activity to generate some JSON files, and then try to read these files in data flows, you fail with the error message :`JSON parsing error, unsupported encoding or multiline`
+If you use the copy activity to generate some JSON files, and then try to read these files in data flows, you fail with the error message:`JSON parsing error, unsupported encoding or multiline`
 
 #### Cause
 
@@ -548,7 +548,7 @@ When you use snowflake in Azure Data Factory, you can successfully use test-conn
 
 #### Cause
 
-The cause is that the Azure Data Factory data flow does not support the use of fixed IP ranges, and you can refer to [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) for more detailed information.
+The Azure Data Factory data flow does not support the use of fixed IP ranges, and you can refer to [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) for more detailed information.
 
 #### Recommendation
 
