@@ -159,7 +159,7 @@ The following sample code shows you how to send a message to a queue.
     	});
     
     	// Waiting long enough before closing the sender to send messages
-    	await delay(5000);
+    	await delay(20000);
     
     	await receiver.close();	
     	await sbClient.close();

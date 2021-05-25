@@ -133,6 +133,11 @@ Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now co
 
 ### Modify ASP.NET Core
 
+> [!NOTE]
+> **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Azure SDK. 
+> It is replaced with new **Azure Identity client library** available for .NET, Java, TypeScript and Python and should be used for all new development. 
+> Information about how to migrate to `Azure Identity`can be found here: [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
+
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
