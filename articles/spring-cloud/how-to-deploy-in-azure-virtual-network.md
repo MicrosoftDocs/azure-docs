@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
 
 # Deploy Azure Spring Cloud in a virtual network
 
-**This article applies to:** âœ”ï¸ Java âœ”ï¸ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 This tutorial explains how to deploy an Azure Spring Cloud instance in your virtual network. This deployment is sometimes called VNet injection.
 

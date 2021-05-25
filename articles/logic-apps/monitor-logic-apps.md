@@ -198,7 +198,7 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 > [request trigger](../connectors/connectors-native-reqres.md) in your workflow,
 > which lets you perform tasks like these examples:
 >
-> * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+> * [Post to Slack](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app)
 > * [Send a text](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app)
 > * [Add a message to a queue](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app)
 

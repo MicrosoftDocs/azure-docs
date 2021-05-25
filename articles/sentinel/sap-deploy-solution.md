@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/12/2021
+ms.date: 05/13/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -23,13 +23,14 @@ This tutorial takes you step by step through the process of deploying the Azure 
 
 [Azure Sentinel solutions](sentinel-solutions.md) include bundled security content, such as threat detections, workbooks, and watchlists. Solutions enable you to onboard Azure Sentinel security content for a specific data connector using a single process.
 
-The Azure Sentinel SAP data connector enables SAP logs to be ingested into your Azure Sentinel workspace, where you can view your data, create custom alerts, investigate, and more.
+The Azure Sentinel SAP data connector enables you to monitor SAP systems for sophisticated threats within the business and application layers.
 
-The SAP data connector provides both stateless and stateful connections for logs from the entire SAP system landscape, and collects logs from both Advanced Business Application Programming (ABAP) via NetWeaver RFC calls and file storage data via OSSAP Control interface.
+The SAP data connector streams a multitude of 14 application logs from the entire SAP system landscape, and collects logs from both Advanced Business Application Programming (ABAP) via NetWeaver RFC calls and file storage data via OSSAP Control interface. The SAP data connector adds to Azure Sentinels ability to monitor the SAP underlying infrastructure.
 
-To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP data connector installed on your SAP environment. We recommend that you use a Docker container on an Azure VM for the deployment, as described in this tutorial.
+To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP data connector installed on your SAP environment.
+We recommend that you use a Docker container on an Azure VM for the deployment, as described in this tutorial.
 
-After the SAP data connector is deployed, deploy the SAP solution security content to smoothly gain insight into your organization's SAP environment and improve any related security operation capabilities.
+After the SAP data connector is deployed, deploy the  SAP solution security content to smoothly gain insight into your organization's SAP environment and improve any related security operation capabilities.
 
 In this tutorial, you learn:
 

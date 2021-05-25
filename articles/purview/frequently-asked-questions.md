@@ -145,4 +145,4 @@ Yes, Azure Purview supports Soft Delete for Azure subscription status management
 
 No, Azure Purview does not provide Data Loss Prevention capabilities at this point. 
 
-Read about [Data Loss Prevention in Microsoft Information Protection](https://docs.microsoft.com/microsoft-365/compliance/information-protection?view=o365-worldwide#prevent-data-loss) if you are interested in Data Loss Prevention features inside Microsoft 365.
+Read about [Data Loss Prevention in Microsoft Information Protection](/microsoft-365/compliance/information-protection#prevent-data-loss) if you are interested in Data Loss Prevention features inside Microsoft 365.

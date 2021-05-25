@@ -112,6 +112,8 @@ items:
         displayName: Register and scan Azure SQL DB Managed Instance
       - name: Azure Dedicated SQL pool (formerly SQL DW)
         href: register-scan-azure-synapse-analytics.md
+      - name: Hive Metastore Database
+        href: register-scan-hive-metastore-source.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
       - name: Oracle
@@ -186,6 +188,8 @@ items:
     items:
     - name: Manage Private endpoints
       href: catalog-private-link.md
+    - name: Azure Purview Private endpoints FAQs
+      href: catalog-private-link-faqs.md
   - name: Disaster recovery
     items:
     - name: Disaster recovery
