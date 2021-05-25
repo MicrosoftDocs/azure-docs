@@ -997,6 +997,16 @@ When you use [secured parameters](#secure-action-parameters) to handle and secur
 }
 ```
 
+> [!IMPORTANT]
+> If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, 
+> and you want to use an HTTP operation with any of the following authentication types, 
+> make sure to complete the extra corresponding steps for that authentication type. 
+> Otherwise, the call fails.
+>
+> * [TSL/SSL certificate](../connectors/connectors-native-http.md#tsl-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and provide the thumbprint for your thumbprint for your TSL/SSL certificate.
+>
+> * [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication)
+
 For more information about securing services by using client certificate authentication, see these topics:
 
 * [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)

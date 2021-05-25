@@ -121,11 +121,11 @@ Here is more information about the outputs from an HTTP trigger or action, which
 
 ## Authentication for single-tenant environment
 
-If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to call an HTTPS endpoint from your workflow by using an HTTP operation and either of the following authentication types, make sure to complete the corresponding extra steps for that authentication type. Otherwise, the call fails.
+If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the corresponding extra steps for that authentication type. Otherwise, the call fails.
 
 * [TSL/SSL certificate](#tsl-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and provide the thumbprint for your thumbprint for your TSL/SSL certificate.
 
-* [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication)
+* [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
 
 <a name="tsl-ssl-certificate-authentication"></a>
 
@@ -133,9 +133,9 @@ If you have a **Logic App (Standard)** resource in single-tenant Azure Logic App
 
 1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_ROOT_CERTIFICATES`.
 
-1. For the setting value, specify `1`.
+1. For the setting value, provide the thumbprint for your TSL/SSL certificate as the root certificate to be trusted.
 
-   `"WEBSITE_LOAD_USER_PROFILE": "1"`
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
 
 For example, if you're working in Visual Studio Code, follow these steps:
 
@@ -162,19 +162,19 @@ For more information, review the following documentation:
 
 <a name="client-certificate-authentication"></a>
 
-### Client certificate or Azure AD OAuth with "Certificate" authentication
+### Client certificate or Azure AD OAuth with "Certificate" credential type authentication
 
 1. In your logic app resource's app settings, [add or update the app setting](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings), `WEBSITE_LOAD_USER_PROFILE`.
 
-1. For the setting value, provide the thumbprint for your TSL/SSL certificate as the root certificate to be trusted.
+1. For the setting value, specify `1`.
 
-   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+   `"WEBSITE_LOAD_USER_PROFILE": "1"`
 
 For example, if you're working in Visual Studio Code, follow these steps:
 
 1. Open your logic app project's **local.settings.json** file.
 
-1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_ROOT_CERTIFICATES` setting:
+1. In the `Values` JSON object, add or update the `WEBSITE_LOAD_USER_PROFILE` setting:
 
    ```json
    {
@@ -182,7 +182,7 @@ For example, if you're working in Visual Studio Code, follow these steps:
       "Values": {
          <...>
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "WEBSITE_LOAD_ROOT_CERTIFICATES": "1",
+         "WEBSITE_LOAD_USER_PROFILE": "1",
          <...>
       }
    }
