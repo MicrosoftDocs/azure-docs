@@ -87,9 +87,9 @@ Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant 
  
 ## vmProfile
 ## buildVM
-By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you speciify in the `source`. You can override this and may wish to do this for these reasons:
+By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you specify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
-2. Running Windows builds, you should use "Standard_D2_v2" or equivilent VM size.
+2. Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 3. Require [VM isolation](https://docs.microsoft.com/azure/virtual-machines/isolation).
 4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
 5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) that don't use local temporary disks.
