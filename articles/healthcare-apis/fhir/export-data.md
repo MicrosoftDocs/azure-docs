@@ -5,7 +5,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/17/2021
+ms.date: 5/25/2021
 ms.author: cavoeg
 ---
 # How to export FHIR data
@@ -61,7 +61,7 @@ The Azure API for FHIR supports the following query parameters. All of these par
 | \_since | Yes | Allows you to only export resources that have been modified since the time provided |
 | \_type | Yes | Allows you to specify which types of resources will be included. For example, \_type=Patient would return only patient resources|
 | \_typefilter | Yes | To request finer-grained filtering, you can use \_typefilter along with the \_type parameter. The value of the _typeFilter parameter is a comma-separated list of FHIR queries that further restrict the results |
-| \_container | No |  Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported to that container in a new folder with the name. If the container is not specified, it will be exported to a new container using timestamp and job ID. |
+| \_container | No |  Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder into that container. If the container is not specified, the data will be exported to a new container. |
 
 > [!Note]
 > Only storage accounts in the same subscription as that for Azure API for FHIR are allowed to be registered as the destination for $export operations.
