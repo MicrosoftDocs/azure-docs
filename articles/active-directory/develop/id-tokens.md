@@ -31,10 +31,10 @@ The following article will be beneficial before going through this article:
 
 ## Claims in an ID token
 
-ID tokens for Microsoft identity are JSON web tokens (JWT). These ID tokens consist of a header, payload, and signature. The header and signature are used to verify the authenticity of the token, while the payload contains the information about the user requested by your client. The v1.0 and v2.0 ID tokens have differences in the information they carry. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint (v1.0), new applications should use the "Microsoft identity platform" endpoint(v2.0).
+ID tokens are JSON web tokens (JWT). These ID tokens consist of a header, payload, and signature. The header and signature are used to verify the authenticity of the token, while the payload contains the information about the user requested by your client. The v1.0 and v2.0 ID tokens have differences in the information they carry. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint (v1.0), new applications should use the "Microsoft identity platform" endpoint(v2.0).
 
-* v1.0: Azure AD endpoints: `https://login.microsoftonline.com/common/oauth2/authorize`
-* v2.0: Microsoft identity Platform endpoints: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+* v1.0: Azure AD endpoint: `https://login.microsoftonline.com/common/oauth2/authorize`
+* v2.0: Microsoft identity Platform endpoint: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ### Sample v1.0 ID token
 
@@ -67,12 +67,12 @@ The table below shows header claims present in ID tokens.
 
 ### Payload claims
 
-The table below shows the JWT claims that are in most ID tokens by default (except where noted).  However, your app can use [optional claims](active-directory-optional-claims.md) to request more JWT claims in the ID token. Optional claims can range from the `groups` claim to information about the user's name.
+The table below shows the claims that are in most ID tokens by default (except where noted).  However, your app can use [optional claims](active-directory-optional-claims.md) to request more claims in the ID token. Optional claims can range from the `groups` claim to information about the user's name.
 
 |Claim | Format | Description |
 |-----|--------|-------------|
-|`aud` |  String, an App ID URI | Identifies the intended recipient of the token. In `id_tokens`, the audience is your app's Application ID, assigned to your app in the Azure portal. This value should be validated. The token should be rejected if it fails to match your app's Application ID. |
-|`iss` |  String, an STS URI | Identifies the Security Token Service(STS) that constructs and returns the token. It also identifies the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`.  The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
+|`aud` |  String, an App ID GUID | Identifies the intended recipient of the token. In `id_tokens`, the audience is your app's Application ID, assigned to your app in the Azure portal. This value should be validated. The token should be rejected if it fails to match your app's Application ID. |
+|`iss` |  String, an issuer URI | Identifies the issuer, or "authorization server" that constructs and returns the token. It also identifies the Azure AD tenant for which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`.  The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`iat` |  int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred.  |
 |`idp`|String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim isn't present, it means that the value of `iss` can be used instead.  For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
