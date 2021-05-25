@@ -37,9 +37,9 @@ Our goal is to help you accelerate your business in partnership with Microsoft, 
 
 Partners who list with the commercial marketplace are eligible for a diverse set of free technical, marketing, and sales benefits to help grow your business:
 
-- Leverage the technical resources you need to get your application ready for launch, from technical support, application design, and architecture design, to Azure credits for development and testing.
-- Access free Microsoft Go-To-Market Launch Fundamentals to help you launch and promote your solution. You might also be eligible for additional Microsoft marketing campaign inclusion and opportunities to be featured in the commercial marketplace.
-- Reach additional customers and expand your sales opportunities with the [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider) (CSP) program, the [co-sell](./co-sell-overview.md) program, and Microsoft Sales teams.
+- Get the technical resources you need to get your application ready for launch, from technical support, application design, and architecture design, to Azure credits for development and testing.
+- Access free Microsoft Go-To-Market Launch Fundamentals to help you launch and promote your solution. You might also be eligible for Microsoft marketing campaigns and opportunities to be featured in the commercial marketplace.
+- Reach more customers and expand your sales opportunities with the [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider) (CSP) program, the [co-sell](./co-sell-overview.md) program, and Microsoft Sales teams.
 
 To learn about these benefits in more detail, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
 
@@ -63,7 +63,7 @@ This option opens a window where the customer can search for Power BI add-ins by
 
 ### Azure Marketplace
 
-[Azure Marketplace](https://azuremarketplace.microsoft.com/) is for solutions that are built on or built for Azure and intended for IT professionals and developers. This includes listings for consulting and managed services. Azure Marketplace consulting services are professional service offerings that help customers get started with or accelerate the use of Azure.
+[Azure Marketplace](https://azuremarketplace.microsoft.com/) is for solutions that are built on or built for Azure and intended for IT professionals and developers. This store includes listings for consulting and managed services. Azure Marketplace consulting services are professional service offerings that help customers get started with or accelerate the use of Azure.
 
 Here's an example of an offer listing page in Azure Marketplace:
 
