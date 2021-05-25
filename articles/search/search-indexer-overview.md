@@ -34,7 +34,7 @@ You can use an indexer as the sole means for data ingestion, or as part of a com
 
 ## Supported data sources
 
-Indexers crawl data stores on Azure.
+Indexers crawl data stores on Azure and outside of Azure.
 
 + [Amazon Redshift](search-how-to-index-power-query-data-sources.md) (in preview)
 + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
