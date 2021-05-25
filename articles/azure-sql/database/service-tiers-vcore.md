@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/15/2021
+ms.date: 05/01/2021
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -106,12 +106,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 DC-series is only supported for the Provisioned compute (Serverless is not supported) and it does not support zone redundancy. For regions where DC-series is available, see [DC-series availability](#dc-series-1).
 
-#### Azure offer types supported by DC-series
-
-To access DC-series, the subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For a complete list of Azure offer types supported by DC-series, see [current offers without spending limits](https://azure.microsoft.com/support/legal/offer-details).
-
 ### Compute and memory specifications
-
 
 |Hardware generation  |Compute  |Memory  |
 |:---------|:---------|:---------|

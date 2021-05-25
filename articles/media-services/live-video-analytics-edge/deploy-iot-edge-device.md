@@ -1,11 +1,13 @@
 ---
-title: Deploy Live Video Analytics on an IoT Edge device - Azure
-description: This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
+title: Deploy Azure Live Video Analytics on an IoT Edge device 
+description: This article lists the steps that will help you deploy Azure Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 ms.topic: how-to
 ms.date: 09/09/2020
 
 ---
-# Deploy Live Video Analytics on an IoT Edge device
+# Deploy Azure Live Video Analytics on an IoT Edge device
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 
