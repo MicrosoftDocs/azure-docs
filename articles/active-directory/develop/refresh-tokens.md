@@ -33,7 +33,7 @@ Before reading through this article, it's recommended that you go through the fo
 
 ## Refresh token expiration
 
-Refresh tokens can be revoked at any time, because of timeouts and revocations. Your app must handle rejections by the sign-in service gracefully when this occurs. This is done by sending the user to an interactive sign-in prompt for sign-in again. 
+Refresh tokens can be revoked at any time, because of timeouts and revocations. Your app must handle rejections by the sign-in service gracefully when this occurs. This is done by sending the user to an interactive sign-in prompt for signing in again. 
 
 ### Token timeouts
 
