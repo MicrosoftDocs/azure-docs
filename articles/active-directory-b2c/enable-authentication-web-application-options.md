@@ -270,7 +270,7 @@ In the *ConfigureServices* method, add the *AddAuthorization* method, which adds
 ```csharp
 services.AddAuthorization(options =>
     {
-        options.AddPolicy("Founders", policy =>
+        options.AddPolicy("EmployeeOnly", policy =>
               policy.RequireClaim("EmployeeNumber", "1", "2", "3", "4", "5"));
     });
 ```
