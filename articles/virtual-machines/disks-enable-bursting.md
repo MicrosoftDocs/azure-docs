@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: Enable on-demand disk bursting
 description: Enable on-demand disk bursting on your managed disk.

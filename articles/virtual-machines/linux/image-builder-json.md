@@ -91,15 +91,15 @@ The Azure VM Image Builder service doesn't store/process customer data outside r
 By default Image Builder will use a "Standard_D1_v2" build VM, this is built from the image you speciify in the `source`. You can override this and may wish to do this for these reasons:
 1. Performing customizations that require increased memory, CPU and handling large files (GBs).
 2. Running Windows builds, you should use "Standard_D2_v2" or equivilent VM size.
-3. Require [VM isolation](https://docs.microsoft.com/azure/virtual-machines/isolation).
+3. Require [VM isolation](../isolation.md).
 4. Customize an Image that require specific hardware, e.g. for a GPU VM, you need a GPU VM size. 
-5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](https://docs.microsoft.com/azure/virtual-machines/azure-vms-no-temp-disk) that don't use local temporary disks.
+5. Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.md) that don't use local temporary disks.
  
 This is optional.
 
 
 ## Proxy VM Size
-The proxy VM is used to send commands between the Azure Image Builder Service and the build VM, this is only deployed when specifying an existing VNET, for more details review the networking options [documentation](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking#why-deploy-a-proxy-vm).
+The proxy VM is used to send commands between the Azure Image Builder Service and the build VM, this is only deployed when specifying an existing VNET, for more details review the networking options [documentation](image-builder-networking.md#why-deploy-a-proxy-vm).
 ```json
  {
     "proxyVmSize": "Standard A1_v2"
