@@ -4,7 +4,7 @@ description: Describes how to set one Azure resource as dependent on another res
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 06/01/2021
 ---
 
 # Define the order for deploying resources in Bicep
@@ -31,7 +31,6 @@ resource otherResource 'Microsoft.Example/examples@2020-06-01' = {
   }
 }
 ```
-
 
 A nested resource also has an implicit dependency on its containing resource.
 
@@ -74,7 +73,7 @@ Even though explicit dependencies are sometimes required, the need for them is r
 
 ## reference and list functions
 
-The [reference function](template-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. The [list* functions](template-functions-resource.md#list) return values for a resource from a list operation.
+The [reference function](bicep-functions-resource.md#reference) enables an expression to derive its value from other JSON name and value pairs or runtime resources. The [list* functions](bicep-functions-resource.md#list) return values for a resource from a list operation.
 
 Reference and list expressions implicitly declare that one resource depends on another. Whenever possible, use an implicit reference to avoid adding an unnecessary dependency.
 
