@@ -7,6 +7,7 @@ ms.topic: reference
 ms.date: 05/24/2021
 ms.author: robb
 ---
+
 # Supported metrics with Azure Monitor
 
 > [!NOTE]
