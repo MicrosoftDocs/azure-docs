@@ -26,7 +26,7 @@ Deployments are deleted from your history when you exceed 775 deployments. Azure
 > [!IMPORTANT]
 > Starting around June 7th, 2021, the threshold for automatic deletion starts when you exceed 700 deployments, and ends when the deployment history is down to 600.
 
-:::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.png" alt-text="Deletions from deployment history":::
+:::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.png" alt-text="Diagram of deployment history deletion.":::
 
 > [!IMPORTANT]
 > If your resource group is already at the 800 limit, your next deployment fails with an error. The automatic deletion process starts immediately. You can try your deployment again after a short wait.
