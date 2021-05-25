@@ -333,7 +333,7 @@ If you use a **list** function in a resource that is conditionally deployed, the
 
 ### List example
 
-The following example uses listKeys when setting a value for [deployment scripts](./deployment-script-template.md).
+The following example uses listKeys when setting a value for [deployment scripts](../templates/deployment-script-template.md).
 
 ```bicep
 storageAccountSettings: {
