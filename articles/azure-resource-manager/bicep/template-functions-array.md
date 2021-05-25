@@ -883,7 +883,7 @@ You can use this function with an array to specify the number of iterations when
 
 ---
 
-For more information about using this function with an array, see [Resource iteration in ARM templates](copy-resources.md).
+For more information about using this function with an array, see [Resource iteration in ARM templates](loop-resources.md).
 
 ## max
 

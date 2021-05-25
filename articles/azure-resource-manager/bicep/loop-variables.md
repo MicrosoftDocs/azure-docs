@@ -1,17 +1,18 @@
 ---
-title: Define multiple instances of a variable (Bicep)
-description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a variable. (Bicep)
+title: Define multiple instances of a variable in Bicep
+description: Use Bicep variable loop to iterate when creating a variable.
 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/01/2021
 ---
-# Variable iteration in ARM templates (Bicep)
 
-This article shows you how to create more than one value for a variable in your Azure Resource Manager template (ARM template). By adding the `copy` element to the variables section of your template, you can dynamically set the number of items for a variable during deployment. You also avoid having to repeat template syntax.
+# Variable iteration in Bicep
 
-You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [outputs](copy-outputs.md).
+This article shows you how to create more than one value for a variable in your Bicep file. You can add a loop to the `variables` section and dynamically set the number of items for a variable during deployment. You also avoid repeating syntax in your Bicep file.
+
+You can also use copy with [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [outputs](loop-outputs.md).
 
 ## Syntax
 
@@ -318,10 +319,12 @@ The following examples show common scenarios for creating more than one value fo
 
 ## Next steps
 
-- To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](../templates/template-tutorial-create-multiple-instances.md).
 - For other uses of the copy element, see:
-  - [Resource iteration in ARM templates](copy-resources.md)
-  - [Property iteration in ARM templates](copy-properties.md)
-  - [Output iteration in ARM templates](copy-outputs.md)
-- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
-- To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
+  - [Resource iteration in Bicep files](loop-resources.md)
+  - [Property iteration in Bicep files](loop-properties.md)
+  - [Output iteration in Bicep files](loop-outputs.md)
+- If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
+- For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
+- To set dependencies on resources that are created in a loop, see [Define the order for deploying resources](resource-dependency.md).
+- To learn how to deploy with PowerShell, see [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
+- To learn how to deploy with Azure CLI, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md).

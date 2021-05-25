@@ -51,16 +51,16 @@
       items:
       - name: Resources
         displayName: iteration,copy,multiple
-        href: copy-resources.md
+        href: loop-resources.md
       - name: Properties
         displayName: iteration,copy,multiple
-        href: copy-properties.md
+        href: loop-properties.md
       - name: Variables
         displayName: iteration,copy,multiple
-        href: copy-variables.md
+        href: loop-variables.md
       - name: Outputs
         displayName: iteration,copy,multiple
-        href: copy-outputs.md
+        href: loop-outputs.md
     - name: Modules
       href: modules.md
   - name: Deploy
@@ -87,10 +87,6 @@
         href: deploy-cli.md
       - name: Deploy - PowerShell
         href: deploy-powershell.md
-      - name: Deploy - REST API
-        href: deploy-rest.md
-      - name: Deploy - GitHub
-        href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
     - name: Parameters

@@ -67,7 +67,7 @@ In some scenarios, you don't know the number of instances of a value you need to
 > [!NOTE]
 > Iterative output isn't currently available for Bicep.
 
-For more information, see [Output iteration in Bicep](./copy-outputs.md).
+For more information, see [Output iteration in Bicep](loop-outputs.md).
 
 ## Modules
 

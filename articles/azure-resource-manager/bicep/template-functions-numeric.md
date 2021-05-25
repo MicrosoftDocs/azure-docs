@@ -113,10 +113,10 @@ The **loopName** property enables you to specify whether copyIndex is referring 
 
 For more information about using copy, see:
 
-* [Resource iteration in ARM templates](copy-resources.md)
-* [Property iteration in ARM templates](copy-properties.md)
-* [Variable iteration in ARM templates](copy-variables.md)
-* [Output iteration in ARM templates](copy-outputs.md)
+* [Resource iteration in ARM templates](loop-resources.md)
+* [Property iteration in ARM templates](loop-properties.md)
+* [Variable iteration in ARM templates](loop-variables.md)
+* [Output iteration in ARM templates](loop-outputs.md)
 
 ### Example
 
@@ -695,4 +695,4 @@ The output from the preceding example with the default values is:
 ## Next steps
 
 * For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](../templates/template-syntax.md).
-* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](loop-resources.md).

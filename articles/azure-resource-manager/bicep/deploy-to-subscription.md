@@ -1,20 +1,18 @@
 ---
-title: Deploy resources to subscription (Bicep)
-description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope. (Bicep)
-author: mumian
-ms.author: jgao
+title: Use Bicep to deploy resources to subscription
+description: Describes how to create a resource group in a Bicep file. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 06/01/2021
 ---
 
-# Subscription deployments with ARM templates (Bicep)
+# Subscription deployments with Bicep files
 
-To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
+This article describes how to set scope with Bicep when deploying to a subscription.
+
+To simplify the management of resources, you can deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
-
-To deploy templates at the subscription level, use Azure CLI, PowerShell, REST API, or the portal.
 
 ## Supported resources
 
@@ -61,26 +59,12 @@ Other supported types include:
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-## Schema
+## Set scope
 
-The schema you use for subscription-level deployments is different than the schema for resource group deployments.
+To set the scope to subscription, use:
 
-For templates, use:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    ...
-}
-```
-
-The schema for a parameter file is the same for all deployment scopes. For parameter files, use:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
-}
+```bicep
+targetScope = 'subscription'
 ```
 
 ## Deployment commands
@@ -95,7 +79,7 @@ For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az_deplo
 az deployment sub create \
   --name demoSubDeployment \
   --location centralus \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
+  --template-file main.bicep \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
@@ -107,7 +91,7 @@ For the PowerShell deployment command, use [New-AzDeployment](/powershell/module
 New-AzSubscriptionDeployment `
   -Name demoSubDeployment `
   -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
+  -TemplateFile main.bicep `
   -rgName demoResourceGroup `
   -rgLocation centralus
 ```
@@ -118,15 +102,13 @@ For more detailed information about deployment commands and options for deployin
 
 * [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
 * [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
-* [Deploy resources with ARM templates and Azure Resource Manager REST API](deploy-rest.md)
-* [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
 * [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
 ## Deployment location and name
 
 For subscription level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Management group](deploy-to-management-group.md) and [tenant](deploy-to-tenant.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
 
-You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named _azuredeploy.json_ creates a default deployment name of **azuredeploy**.
+You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named _main.json_ creates a default deployment name of **main**.
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. For example, if you create a subscription deployment with the name **deployment1** in **centralus**, you can't later create another deployment with the name **deployment1** but a location of **westus**. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
@@ -143,41 +125,86 @@ An [extension resource](scope-extension-resources.md) can be scoped to a target 
 
 The user deploying the template must have access to the specified scope.
 
-This section shows how to specify different scopes. You can combine these different scopes in a single template.
+### Scope to subscription
 
-### Scope to target subscription
+To deploy resources to the target subscription, add those resources to with the `resource` keyword.
 
-To deploy resources to the target subscription, add those resources to the resources section of the template.
+```bicep
+targetScope = 'subscription'
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+// resource group created in target subscription
+resource exampleResource 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+  ...
+} 
+```
 
 For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
 
-### Scope to other subscription
+To deploy resources to a subscription that is different than the subscription from the operation, add a module. Use the subscription function to set the `scope` property. Provide the `subscriptionId` property to the ID of the subscription you want to deploy to.
 
-To deploy resources to a subscription that is different than the subscription from the operation, add a nested deployment. Set the `subscriptionId` property to the ID of the subscription you want to deploy to. Set the `location` property for the nested deployment.
+```bicep
+targetScope = 'subscription'
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
+param otherSubscriptionID string
+
+// module deployed at subscription level but in a different subscription
+module exampleModule 'module.bicep' = {
+  name: 'deployToDifferntSub'
+  scope: subscription(otherSubscriptionID)
+}
+```
 
 ### Scope to resource group
 
-To deploy resources to a resource group within the subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
+To deploy resources to a resource group within the subscription, add a module and set its `scope` property. If the resource group already exists, use the resourceGroup function to set the scope value.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+```bicep
+targetScope = 'subscription'
 
-For an example of deploying to a resource group, see [Create resource group and resources](#create-resource-group-and-resources).
+param resourceGroupName string
+
+module exampleModule 'module.bicep' = {
+  name: 'exampleModule'
+  scope: resourceGroup(resourceGroupName)
+}
+```
+
+If the resource group is created in the same Bicep file, use the symbolic name of the resource group to set the scope value. For an example of setting the scope to the symbolic name, see [Create resource group and resources](#create-resource-group-and-resources).
 
 ### Scope to tenant
 
-To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+To create resources at the tenant, add a module. Use the tenant function to set its `scope` property.
 
-To use a nested deployment, set `scope` and `location`.
+The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+The following example includes a module that is deployed to the tenant.
 
-Or, you can set the scope to `/` for some resource types, like management groups.
+```bicep
+targetScope = 'subscription'
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+// module deployed at tenant level
+module exampleModule 'module.bicep' = {
+  name: 'deployToTenant'
+  scope: tenant()
+}
+```
+
+Instead of using a module, you can set the scope to `tenant()` for some resource types. The following example deploys a management group at the tenant.
+
+```bicep
+targetScope = 'subscription'
+
+param mgName string = 'mg-${uniqueString(newGuid())}'
+
+// management group created at tenant
+resource managementGroup 'Microsoft.Management/managementGroups@2020-05-01' = {
+  scope: tenant()
+  name: mgName
+  properties: {}
+}
+
+output output string = mgName
+```
 
 For more information, see [Management group](deploy-to-management-group.md#management-group).
 
@@ -185,139 +212,65 @@ For more information, see [Management group](deploy-to-management-group.md#manag
 
 ### Create resource groups
 
-To create a resource group in an ARM template, define a [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) resource with a name and location for the resource group.
+To create a resource group, define a [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) resource with a name and location for the resource group.
 
-The following template creates an empty resource group.
+The following example creates an empty resource group.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "rgName": {
-      "type": "string"
-    },
-    "rgLocation": {
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
-      "name": "[parameters('rgName')]",
-      "location": "[parameters('rgLocation')]",
-      "properties": {}
-    }
-  ],
-  "outputs": {}
+```bicep
+targetScope='subscription'
+
+param resourceGroupName string
+param resourceGroupLocation string
+
+resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
+  name: resourceGroupName
+  location: resourceGroupLocation
 }
 ```
-
-Use the [copy element](copy-resources.md) with resource groups to create more than one resource group.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "rgNamePrefix": {
-      "type": "string"
-    },
-    "rgLocation": {
-      "type": "string"
-    },
-    "instanceCount": {
-      "type": "int"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
-      "location": "[parameters('rgLocation')]",
-      "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
-      "copy": {
-        "name": "rgCopy",
-        "count": "[parameters('instanceCount')]"
-      },
-      "properties": {}
-    }
-  ],
-  "outputs": {}
-}
-```
-
-For information about resource iteration, see [Resource iteration in ARM templates](./copy-resources.md), and [Tutorial: Create multiple resource instances with ARM templates](../templates/template-tutorial-create-multiple-instances.md).
 
 ### Create resource group and resources
 
-To create the resource group and deploy resources to it, use a nested template. The nested template defines the resources to deploy to the resource group. Set the nested template as dependent on the resource group to make sure the resource group exists before deploying the resources. You can deploy to up to 800 resource groups.
+To create the resource group and deploy resources to it, add a module. The module includes the resources to deploy to the resource group. Set the scope for the module to the symbolic name for the resource group you create. You can deploy to up to 800 resource groups.
 
-The following example creates a resource group, and deploys a storage account to the resource group.
+The following example creates a resource group, and deploys a storage account to the resource group. Notice that the `scope` property for the module is set to `newRG`, which is the symbolic name for the resource group that is being created.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "rgName": {
-      "type": "string"
-    },
-    "rgLocation": {
-      "type": "string"
-    },
-    "storagePrefix": {
-      "type": "string",
-      "maxLength": 11
-    }
-  },
-  "variables": {
-    "storageName": "[concat(parameters('storagePrefix'), uniqueString(subscription().id, parameters('rgName')))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
-      "name": "[parameters('rgName')]",
-      "location": "[parameters('rgLocation')]",
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
-      "name": "storageDeployment",
-      "resourceGroup": "[parameters('rgName')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [
-            {
-              "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-06-01",
-              "name": "[variables('storageName')]",
-              "location": "[parameters('rgLocation')]",
-              "sku": {
-                "name": "Standard_LRS"
-              },
-              "kind": "StorageV2"
-            }
-          ],
-          "outputs": {}
-        }
-      }
-    }
-  ],
-  "outputs": {}
+```bicep
+targetScope='subscription'
+
+param resourceGroupName string
+param resourceGroupLocation string
+param storageName string
+param storageLocation string
+
+resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
+  name: resourceGroupName
+  location: resourceGroupLocation
+}
+
+module storageAcct 'storage.bicep' = {
+  name: 'storageModule'
+  scope: newRG
+  params: {
+    storageLocation: storageLocation
+    storageName: storageName
+  }
+}
+```
+
+The module uses a Bicep file named **storage.bicep** with the following contents:
+
+```bicep
+param storageLocation string
+param storageName string
+
+resource storageAcct 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageName
+  location: storageLocation
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  properties: {}
 }
 ```
 
@@ -327,155 +280,52 @@ The following example creates a resource group, and deploys a storage account to
 
 The following example assigns an existing policy definition to the subscription. If the policy definition takes parameters, provide them as an object. If the policy definition doesn't take parameters, use the default empty object.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
-    },
-    "policyName": {
-      "type": "string"
-    },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "scope": "[subscription().id]",
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
+```bicep
+targetScope = 'subscription'
+
+param policyDefinitionID string
+param policyName string
+param policyParameters object = {}
+
+resource policyAssign 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
+  name: policyName
+  properties: {
+    policyDefinitionId: policyDefinitionID
+    parameters: policyParameters
+  }
 }
-```
-
-To deploy this template with Azure CLI, use:
-
-```azurecli-interactive
-# Built-in policy definition that accepts parameters
-definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
-
-az deployment sub create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json" \
-  --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
-```
-
-To deploy this template with PowerShell, use:
-
-```azurepowershell-interactive
-$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
-
-$locations = @("westus", "westus2")
-$policyParams =@{listOfAllowedLocations = @{ value = $locations}}
-
-New-AzSubscriptionDeployment `
-  -Name policyassign `
-  -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json" `
-  -policyDefinitionID $definition.PolicyDefinitionId `
-  -policyName setLocation `
-  -policyParameters $policyParams
 ```
 
 ### Create and assign policy definitions
 
-You can [define](../../governance/policy/concepts/definition-structure.md) and assign a policy definition in the same template.
+You can [define](../../governance/policy/concepts/definition-structure.md) and assign a policy definition in the same Bicep file.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
-        }
+```bicep
+targetScope = 'subscription'
+
+resource locationPolicy 'Microsoft.Authorization/policyDefinitions@2020-09-01' = {
+  name: 'locationpolicy'
+  properties: {
+    policyType: 'Custom'
+    parameters: {}
+    policyRule: {
+      if: {
+        field: 'location'
+        equals: 'northeurope'
       }
-    },
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-05-01",
-      "name": "location-lock",
-      "dependsOn": [
-        "locationpolicy"
-      ],
-      "properties": {
-        "scope": "[subscription().id]",
-        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+      then: {
+        effect: 'deny'
       }
     }
-  ]
+  }
 }
-```
 
-To create the policy definition in your subscription, and assign it to the subscription, use the following CLI command:
-
-```azurecli
-az deployment sub create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
-```
-
-To deploy this template with PowerShell, use:
-
-```azurepowershell
-New-AzSubscriptionDeployment `
-  -Name definePolicy `
-  -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
-```
-
-## Azure Blueprints
-
-### Create blueprint definition
-
-You can [create](../../governance/blueprints/tutorials/create-from-sample.md) a blueprint definition from a template.
-
-:::code language="json" source="~/quickstart-templates/subscription-deployments/blueprints-new-blueprint/azuredeploy.json":::
-
-To create the blueprint definition in your subscription, use the following CLI command:
-
-```azurecli
-az deployment sub create \
-  --name demoDeployment \
-  --location centralus \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/blueprints-new-blueprint/azuredeploy.json"
-```
-
-To deploy this template with PowerShell, use:
-
-```azurepowershell
-New-AzSubscriptionDeployment `
-  -Name demoDeployment `
-  -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/blueprints-new-blueprint/azuredeploy.json"
+resource locationRestrict 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
+  name: 'allowedLocation'
+  properties: {
+    policyDefinitionId: locationPolicy.id
+  }
+}
 ```
 
 ## Access control
@@ -484,7 +334,79 @@ To learn about assigning roles, see [Add Azure role assignments using Azure Reso
 
 The following example creates a resource group, applies a lock to it, and assigns a role to a principal.
 
-:::code language="json" source="~/quickstart-templates/subscription-deployments/create-rg-lock-role-assignment/azuredeploy.json":::
+```bicep
+targetScope = 'subscription'
+
+@description('Name of the resourceGroup to create')
+param resourceGroupName string
+
+@description('Location for the resourceGroup')
+param resourceGroupLocation string
+
+@description('principalId of the user that will be given contributor access to the resourceGroup')
+param principalId string
+
+@description('roleDefinition to apply to the resourceGroup - default is contributor')
+param roleDefinitionId string = 'b24988ac-6180-42a0-ab88-20f7382dd24c'
+
+@description('Unique name for the roleAssignment in the format of a guid')
+param roleAssignmentName string = guid(principalId, roleDefinitionId, resourceGroupName)
+
+var roleID = '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/${roleDefinitionId}'
+
+resource newResourceGroup 'Microsoft.Resources/resourceGroups@2019-10-01' = {
+  name: resourceGroupName
+  location: resourceGroupLocation
+  properties: {}
+}
+
+module applyLock 'lock.bicep' = {
+  name: 'applyLock'
+  scope: newResourceGroup
+}
+
+module assignRole 'role.bicep' = {
+  name: 'assignRBACRole'
+  scope: newResourceGroup
+  params: {
+    principalId: principalId
+    roleNameGuid: roleAssignmentName
+    roleDefinitionId: roleID
+  }
+}
+```
+
+The following example shows the module to apply the lock:
+
+```bicep
+resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
+  name: 'rgLock'
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Resource group should not be deleted.'
+  }
+}
+```
+
+The next example shows the module to assign the role:
+
+```bicep
+@description('The principal to assign the role to')
+param principalId string
+
+@description('A GUID used to identify the role assignment')
+param roleNameGuid string = newGuid()
+
+param roleDefinitionId string
+
+resource roleNameGuid_resource 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+  name: roleNameGuid
+  properties: {
+    roleDefinitionId: roleDefinitionId
+    principalId: principalId
+  }
+}
+```
 
 ## Next steps
 
