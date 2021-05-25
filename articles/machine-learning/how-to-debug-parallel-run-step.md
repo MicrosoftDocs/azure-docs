@@ -322,7 +322,7 @@ ParallelRunStep has mechanism to retry for a certain times to give chance for re
 ### What will happen on OutOfMemory? How can I check the cause?
 ParallelRunStep will set the current attempt to process the mini-batch to failure status and try to restart the failed process. You can check `~logs/perf/<node_id>` to find the memory-consuming process.
 
-### Why I have a lot of processNNN files?
+### Why do I have a lot of processNNN files?
 ParallelRunStep will start new worker processes in replace of the ones exited abnormally, and each process will generate a `processNNN` file as log. However, if the process failed because of exception during the `init` function of user script, and that the error repeated continuously for `3 * process_count_per_node` times, no new worker process will be started.
 
 ## Next steps
