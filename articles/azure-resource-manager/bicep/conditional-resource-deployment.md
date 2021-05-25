@@ -64,9 +64,34 @@ For a complete example template that uses the `condition` element, see [VM with 
 
 ## Runtime functions
 
-If you use a [reference](./template-functions-resource.md#reference) or [list](./template-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
+If you use a [reference](./bicep-functions-resource.md#reference) or [list](./bicep-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
 
-Use the [if](./template-functions-logical.md#if) function to make sure the function is only evaluated for conditions when the resource is deployed. See the [if function](./template-functions-logical.md#if) for a sample template that uses `if` and `reference` with a conditionally deployed resource.
+Use the [conditional expression ?:](./operators-logical.md#conditional-expression--) operator to make sure the function is only evaluated for conditions when the resource is deployed. The following example template shows how to use this function with expressions that are only conditionally valid.
+
+```bicep
+param vmName string
+param location string
+param logAnalytics string = ''
+
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = if (!empty(logAnalytics)) {
+  name: '${vmName}/omsOnboarding'
+  location: location
+  properties: {
+    publisher: 'Microsoft.EnterpriseCloud.Monitoring'
+    type: 'MicrosoftMonitoringAgent'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {
+      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : json('null'))
+    }
+    protectedSettings: {
+      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : json('null'))
+    }
+  }
+}
+
+output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
+```
 
 You set a [resource as dependent](./resource-declaration.md#set-resource-dependencies) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 

@@ -109,6 +109,8 @@ The output from the preceding example with the default values is:
 
 Creates an object from the keys and values.
 
+The `createObject` function is not supported by Bicep.  Construct an object by using `{}`. See [Objects](../bicep/data-types.md#objects).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -484,6 +486,8 @@ The output from the preceding example with the default values is:
 `null()`
 
 Returns null.
+
+The `null` function is not available in Bicep. Use the `null` keyword instead.
 
 ### Parameters
 

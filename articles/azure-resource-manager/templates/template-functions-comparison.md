@@ -22,6 +22,8 @@ Resource Manager provides several functions for making comparisons in your Azure
 
 Returns first non-null value from the parameters. Empty strings, empty arrays, and empty objects are not null.
 
+In Bicep, use the `??` operator instead. See [Coalesce ??](../bicep/operators-logical.md#coalesce-).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -96,6 +98,8 @@ The output from the preceding example with the default values is:
 `equals(arg1, arg2)`
 
 Checks whether two values equal each other.
+
+In Bicep, use the `==` operator instead. See [Equals ==](../bicep/operators-comparison.md#equals-).
 
 ### Parameters
 
@@ -230,6 +234,8 @@ The output from the preceding example is:
 
 Checks whether the first value is greater than the second value.
 
+In Bicep, use the `>` operator instead. See [Greater than >](../bicep/operators-comparison.md#greater-than-).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -294,6 +300,8 @@ The output from the preceding example with the default values is:
 `greaterOrEquals(arg1, arg2)`
 
 Checks whether the first value is greater than or equal to the second value.
+
+In Bicep, use the `>=` operator instead. See [Greater than or equal >=](../bicep/operators-comparison.md#greater-than-or-equal-).
 
 ### Parameters
 
@@ -360,6 +368,8 @@ The output from the preceding example with the default values is:
 
 Checks whether the first value is less than the second value.
 
+In Bicep, use the `<` operator instead. See [Less than <](../bicep/operators-comparison.md#less-than-).
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -424,6 +434,8 @@ The output from the preceding example with the default values is:
 `lessOrEquals(arg1, arg2)`
 
 Checks whether the first value is less than or equal to the second value.
+
+In Bicep, use the `<=` operator instead. See [Less than or equal <=](../bicep/operators-comparison.md#less-than-or-equal-).
 
 ### Parameters
 

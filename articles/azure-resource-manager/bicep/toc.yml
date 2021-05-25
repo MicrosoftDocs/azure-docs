@@ -128,27 +128,25 @@
   - name: Template functions
     items:
     - name: All functions
-      href: template-functions.md
+      href: bicep-functions.md
     - name: Any function
-      href: template-functions-any.md
+      href: bicep-functions-any.md
     - name: Array functions
-      href: template-functions-array.md
-    - name: Comparison functions
-      href: template-functions-comparison.md
+      href: bicep-functions-array.md
     - name: Date functions
-      href: template-functions-date.md
+      href: bicep-functions-date.md
     - name: Deployment functions
-      href: template-functions-deployment.md
+      href: bicep-functions-deployment.md
     - name: Logical functions
-      href: template-functions-logical.md
+      href: bicep-functions-logical.md
     - name: Numeric functions
-      href: template-functions-numeric.md
+      href: bicep-functions-numeric.md
     - name: Object functions
-      href: template-functions-object.md
+      href: bicep-functions-object.md
     - name: Resource functions
-      href: template-functions-resource.md
+      href: bicep-functions-resource.md
     - name: String functions
-      href: template-functions-string.md
+      href: bicep-functions-string.md
   - name: Operators
     items:
     - name: All operators

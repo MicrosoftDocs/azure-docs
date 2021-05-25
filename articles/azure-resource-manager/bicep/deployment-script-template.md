@@ -148,7 +148,7 @@ Property value details:
 
   If the arguments contain escaped characters, use [JsonEscaper](https://www.jsonescaper.com/) to double escaped the characters. Paste your original escaped string into the tool, and then select **Escape**.  The tool outputs a double escaped string. For example, in the previous sample template, The argument is `-name \"John Dole\"`. The escaped string is `-name \\\"John Dole\\\"`.
 
-  To pass an ARM template parameter of type object as an argument, convert the object to a string by using the [string()](./template-functions-string.md#string) function, and then use the [replace()](./template-functions-string.md#replace) function to replace any `\"` into `\\\"`. For example:
+  To pass an ARM template parameter of type object as an argument, convert the object to a string by using the [string()](./bicep-functions-string.md#string) function, and then use the [replace()](./bicep-functions-string.md#replace) function to replace any `\"` into `\\\"`. For example:
 
   ```json
   replace(string(parameters('tables')), '\"', '\\\"')
@@ -286,7 +286,7 @@ To specify an existing storage account, add the following JSON to the property e
 ```
 
 - `storageAccountName`: specify the name of the storage account.
-- `storageAccountKey`: specify one of the storage account keys. You can use the [listKeys()](./template-functions-resource.md#listkeys) function to retrieve the key. For example:
+- `storageAccountKey`: specify one of the storage account keys. You can use the [listKeys()](./bicep-functions-resource.md#listkeys) function to retrieve the key. For example:
 
     ```json
     "storageAccountSettings": {
@@ -564,7 +564,7 @@ The container instance and storage account are deleted according to the `cleanup
 
 Deployment script execution is an idempotent operation. If none of the `deploymentScripts` resource properties (including the inline script) are changed, the script doesn't execute when you redeploy the template. The deployment script service compares the resource names in the template with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
 
-- Change the name of your `deploymentScripts` resource. For example, use the [utcNow](./template-functions-date.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new `deploymentScripts` resource. It's good for keeping a history of script execution.
+- Change the name of your `deploymentScripts` resource. For example, use the [utcNow](./bicep-functions-date.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new `deploymentScripts` resource. It's good for keeping a history of script execution.
 
     > [!NOTE]
     > The `utcNow` function can only be used in the default value for a parameter.
