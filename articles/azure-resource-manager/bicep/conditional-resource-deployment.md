@@ -5,7 +5,7 @@ description: Describes how to conditionally deploy a resource in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 06/01/2021
 ---
 
 # Conditional deployment in Bicep
@@ -93,7 +93,7 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
 output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
 ```
 
-You set a [resource as dependent](./resource-dependency.md) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
+You set a [resource as dependent](./resource-declaration.md#set-resource-dependencies) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 ## Next steps
 

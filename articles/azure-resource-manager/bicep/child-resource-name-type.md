@@ -4,7 +4,7 @@ description: Describes how to set the name and type for child resources in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 06/01/2021
 ---
 
 # Set name and type for child resources in Bicep

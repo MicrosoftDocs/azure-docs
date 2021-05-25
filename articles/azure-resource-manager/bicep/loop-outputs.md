@@ -171,6 +171,6 @@ The output returns an array with the following values:
   - [Variable iteration in Bicep files](loop-variables.md)
 - If you want to learn about the sections of a Bicep file, see [Understand the structure and syntax of Bicep files](file.md).
 - For information about how to deploy multiple resources, see [Use Bicep modules](modules.md).
-- To set dependencies on resources that are created in a loop, see [Define the order for deploying resources](resource-dependency.md).
+- To set dependencies on resources that are created in a loop, see [Set resource dependencies](./resource-declaration.md#set-resource-dependencies).
 - To learn how to deploy with PowerShell, see [Deploy resources with Bicep and Azure PowerShell](deploy-powershell.md).
 - To learn how to deploy with Azure CLI, see [Deploy resources with Bicep and Azure CLI](deploy-cli.md).
