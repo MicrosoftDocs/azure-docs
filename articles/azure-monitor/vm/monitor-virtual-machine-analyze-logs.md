@@ -19,7 +19,6 @@ The following table lists the tables in the Log Analytics workspace with data re
 | Table | Description | Source|
 |:---|:---|:---|
 | [ActivityLog](/azure/azure-monitor/reference/tables/activitylog) | Configuration changes and history of when each virtual machine is stopped and started. | Activity Log |
-
 | [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) | Performance data collected from guest operating system. | VM insights |
 | [Perf](/azure/azure-monitor/reference/tables/insightsmetrics) | Performance data collected from guest operating system and applications. | Workspace |
 | [Syslog](/azure/azure-monitor/reference/tables/syslog) | Linux events created on guest operating system. | Workspace |
@@ -32,8 +31,24 @@ The following table lists the tables in the Log Analytics workspace with data re
 > [!NOTE]
 > Performance data collected by the Log Analytics agent writes to the *Perf* table while VM insights will collect it to the *InsightsMetrics* table. This is the same data, but the tables have a different structure. If you have existing queries based on *Perf*, the will need to be rewritten to use *InsightsMetrics*.
 
-## Virtual machines and processes
 
+## Heartbeat
+
+| Table | Description |
+|:---|:---|
+| [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) | Rows logged by Log Analytics agents once per minute to report on agent health. | 
+
+## Performance data
+
+| Table | Description | Source|
+|:---|:---|:---|
+| [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) | Performance data collected from guest operating system. | VM insights |
+
+
+
+
+## Processes and dependencies
+These tables are collected by VM insights and analyzed by the Map feature.
 ### Tables
 
 | Table | Description | Source|
@@ -224,13 +239,6 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## Heartbeat
-
-| Table | Description |
-|:---|:---|
-| [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) | Rows logged by Log Analytics agents once per minute to report on agent health. | 
-
-##
 
 
 ## Configuration changes

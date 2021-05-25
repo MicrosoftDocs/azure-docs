@@ -9,10 +9,10 @@ ms.date: 11/10/2020
 ---
 
 # How to create alerts from VM insights
-[Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. VM insights does not include pre-configured alert rules, but you can create your own based on data that it collects. This article provides guidance on creating alert rules, including a set of sample queries.
+[Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no per-configured alert rules for virtual machines, but you can create your own based on collected telemetry. This article provides guidance on creating alert rules, including a set of sample queries.
 
 > [!IMPORTANT]
-> The alerts described in this article are based on log queries from data collected VM insights. This is different than the alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
+> The alerts described in this article do not include alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
 
 
 ## Alert rule types

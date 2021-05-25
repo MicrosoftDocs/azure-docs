@@ -39,7 +39,13 @@ There are fundamentally three layers to a virtual machine that require monitorin
 ### Virtual machine host
 Virtual machines in Azure generate the following data for the virtual machine host the same as other Azure resources as described in [Monitoring data](../essentials/monitor-azure-resource.md#monitoring-data).
 
+## Types of machines
 
+| Type | Description |
+|:---|:---|
+| Azure virtual machines | Virtual machines running in Azure have host data collected automatically. They require an agent to collect data from the guest operating system. |
+| Hybrid machines | A hybrid machine is a virtual machine running in another cloud or a virtual or physical machine running on-premises in your data center. Hybrid machines are supported by Azure Monitor using [Azure Arc enabled servers](../azure-arc/servers/overview.md). Once connected to Azure Arc, the machine can be managed like any other Azure virtual machine.
+| Virtual machine scale set | | 
 
 
 ## Agents
@@ -174,6 +180,19 @@ Event
 
 ![Log alert for failed logons](media/monitor-vm-azure/log-alert-02.png)
 
+
+## Enable VM insights
+[VM insights](../vm/vminsights-overview.md) is the feature in Azure Monitor for monitoring virtual machines It provides the following additional value over standard Azure Monitor features.
+
+- Simplified onboarding of Log Analytics agent and Dependency agent to enable monitoring of a virtual machine guest operating system and workloads. 
+- Pre-defined trending performance charts and workbooks that allow you to analyze core performance metrics from the virtual machine's guest operating system.
+- Dependency map that displays processes running on each virtual machine and the interconnected components with other machines and external sources.
+
+
+
+You need to enable VM insights on each workspace. You can do this through the portal or an ARM template. 
+
+![Enable VM insights](media/monitor-vm-azure/enable-vminsights.png)
 
 ## System Center Operations Manager
 System Center Operations Manager provides granular monitoring of workloads on virtual machines. See the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) for a comparison of monitoring platforms and different strategies for implementation.
