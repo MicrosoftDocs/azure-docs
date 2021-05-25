@@ -1,12 +1,13 @@
 ---
 title: Hive LLAP Workload Management feature
+titleSuffix: Azure HDInsight
 description: Hive LLAP Workload Management feature
 ms.service: hdinsight
 ms.topic: how-to
 author: guptanikhil007
 ms.author: guptan
 ms.reviewer: jasonh
-ms.date: 04/07/2021
+ms.date: 05/25/2021
 ---
 
 # Hive LLAP Workload Management (WLM) feature
@@ -14,7 +15,7 @@ In an Interactive Query Cluster, resource management is imperative, especially i
 Workload Management implements resource pools (also known as query pools) which lets you divide resources available for Hive/LLAP into pools to be used for specific workloads.
 It also allows you to configure percentage of resources and query parallelism for each individual resource pool.
 
-:::image type="content" source="./media/hive-workload-management/llap-architecture.png" alt-text="LLAP Architecture":::
+![`LLAP Architecture.`](./media/hive-workload-management/llap-architecture.png)
 
 ## Enable Hive LLAP Workload Management feature for HDInsight clusters
 
@@ -34,7 +35,7 @@ Configure the `wm` queue on cluster based on following configurations:
 | `wm`        | 10%      | 15%          | 9        | 100%                |
 
 Confirm if the `wm` queue configuration looks as shown below.
-:::image type="content" source="./media/hive-workload-management/wm-yarn-queue.png" alt-text="wm queue configuration":::
+:::image type="content" source="./media/hive-workload-management/wm-yarn-queue.png" alt-text="wm queue configuration.":::
 
 ### Enable Workload Management feature in Hive configs
 Add the following property to Custom hiveserver2-interactive-site and set its value to the name of newly create yarn queue that is, `wm`. Restart Interactive HiveServer for configuration changes to take place.
@@ -44,7 +45,7 @@ hive.server2.tez.interactive.queue=wm
 
 ### Create resource plan
 Following is an example on how to create a basic resource plan.
-:::image type="content" source="./media/hive-workload-management/wlm-resourceplan.jpg" alt-text="basic resource plan":::
+![`Basic resource plan.`](./media/hive-workload-management/wlm-resourceplan.jpg)
 
 Execute following commands via beeline to create the above resource plan.
 
@@ -89,7 +90,7 @@ ALTER RESOURCE PLAN demo_plan ENABLE;
 #  ACTIVATE PLAN
 ALTER RESOURCE PLAN demo_plan ACTIVATE;
 
-#SHOW RESOURCE PLAN
+# SHOW RESOURCE PLAN
 SHOW RESOURCE PLANS;
 SHOW RESOURCE PLAN demo_plan;
 
@@ -123,8 +124,8 @@ For example: <br/>
 Let's assume Tez AM container size is 4 GB and total memory capacity of yarn cluster is 400 GB, out of which 10% is allocated for wm queue then, <br/>
 Number of total concurrent queries = floor((400/4) x 0.10) = 10
 
-> [!IMPORTANT]
-> Note: Have a slightly more capacity in wm queue than required to avoid tez AMs getting stuck in accepted state that is, `wm` queue capacity can be made to 10.01% and `default` queue capacity can be reduced to 4.99%.
+> [!Tip]
+> Have a slightly more capacity in wm queue than required to avoid tez AMs getting stuck in accepted state that is, `wm` queue capacity can be made to 10.01% and `default` queue capacity can be reduced to 4.99%.
 
 ### Mappings
 Mappings provide a mechanism to direct queries to certain pools. As number of mappings increase, multiple rules may apply for a given query. To establish which rule should take precedence:
@@ -132,12 +133,12 @@ If ordering is specified with the optional `WITH ORDER` clause, lower-order rule
 The order of group rules with the same priority is undefined.
 
 
-## Important notes
-1. Tez AMs in `llap` queue will remain unused when WLM plan is active. These Tez AMs in `llap` queue will be readily available in case the WLM resource plan is disabled.
-2. Enabling WLM resource plan launches number of Tez AMs equal to total `QUERY_PARALLELISM` configured for the given resource plan. `wm` queue size should be tuned to avoid these Tez AM getting stuck in ACCEPTED state.
-3. We only support the use of following two counters for use in resource plans:
-    1. EXECUTION_TIME
-    2. ELAPSED_TIME
+> [!Note]
+> * Tez AMs in `llap` queue will remain unused when WLM plan is active. These Tez AMs in `llap` queue will be readily available in case the WLM resource plan is disabled.
+> * Enabling WLM resource plan launches number of Tez AMs equal to total `QUERY_PARALLELISM` configured for the given resource plan. `wm` queue size should be tuned to avoid these Tez AM getting stuck in ACCEPTED state.
+> * We only support the use of following two counters for use in resource plans:
+>    * EXECUTION_TIME
+>    * ELAPSED_TIME
 
 ## Related articles
 * [Hive LLAP Workload Management Commands Summary](workload-management-commands.md)

@@ -1,12 +1,13 @@
 ---
 title: Troubleshoot Hive LLAP Workload Management issues
+titleSuffix: Azure HDInsight
 description: Troubleshoot Hive LLAP Workload Management issues
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: guptanikhil007
 ms.author: guptan
 ms.reviewer: jasonh
-ms.date: 04/07/2021
+ms.date: 05/25/2021
 ---
 
 # Troubleshoot Hive LLAP Workload Management issues
@@ -26,7 +27,8 @@ SHOW RESOURCE PLAN <plan_name>;
 ```
 
 ## Get WLM entities information from metastore database
-> Note: Only applicable for custom hive metastore database
+> [!NOTE]
+> Only applicable for custom hive metastore database
 
 WLM entities information can also be viewed from following tables in Hive Metastore database 
 
@@ -39,7 +41,7 @@ WLM entities information can also be viewed from following tables in Hive Metast
 ## WLM metrics
 
 WLM Metrics can be accessed directly via HS2Interactive UI under the Metrics Dump Tab. <br>
-:::image type="content" source="./media/hive-workload-management/hs2interactive-wlm.jpg" alt-text="HS22Interactive UI":::
+:::image type="content" source="./media/hive-workload-management/hs2-interactive-wlm.jpg" alt-text="HS2 Interactive UI." lightbox="./media/hive-workload-management/hs2-interactive-wlm.jpg":::
 
 Example metrics published by WLM for a given pool in a resource plan.
 ```
@@ -55,7 +57,8 @@ Example metrics published by WLM for a given pool in a resource plan.
     "NumExecutorsMax" : 10
 ```
 
-For ESP clusters as HS2Interactive UI is unavailable (a known issue), we can get the same metrics on grafana. <br>
+HS2Interactive UI may not work for the ESP(Enterprise Security Package) enabled clusters released before Apr 2021. In such cases, WLM-related metrics can be obtained from customized Grafana dashboards.
+<br>
 The metrics name follows the below patterns:
 ```
 default.General.WM_<pool>_numExecutors
@@ -65,9 +68,10 @@ default.General.WM_<pool>_numParallelQueries
 default.General.WM_<pool>_numQueuedQueries
 ```
 Replace `<pool>` with respective pool name to get the metrics in grafana.
-:::image type="content" source="./media/hive-workload-management/grafana-wlm.jpg" alt-text="Grafana WLM":::
 
-Note: Make sure hiveserver2 component is selected in the above filters and component name.
+:::image type="content" source="./media/hive-workload-management/grafana-wlm.jpg" alt-text="Grafana WLM metrics." lightbox="./media/hive-workload-management/grafana-wlm.jpg":::
+
+> Note: Make sure hiveserver2 component is selected in the above filters and component name.
 
 <br>
 
@@ -95,9 +99,9 @@ Running queries in WLM can get killed automatically for following cases:
 1. When Move Trigger is applied to a query and destination pool that doesn't have any Tez AMs available, then query is killed instead. <br>
 The above is a design limitation of WLM feature. You can work around this feature by increasing the `QUERY_PARALLELISM` property for the destination pool so that even for maximum load scenario, the queries submitted to the cluster can be supported by this pool. Also, tune the `wm` queue size to accommodate this change. <br>
 2. When WLM is disabled, all the inflight queries will fail with following exception pattern:
-```
-FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Dag received [DAG_TERMINATE, DAG_KILL] in RUNNING state.
-```
+   ```
+   FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.tez.TezTask. Dag received [DAG_TERMINATE, DAG_KILL] in RUNNING state.
+   ```
 3. When a WLM Tez AM is manually killed, then some of the queries may fail with following pattern. <br/>These queries should run without any issues on resubmission.
 ```
 java.util.concurrent.CancellationException: Task was cancelled.
@@ -124,16 +128,16 @@ java.util.concurrent.CancellationException: Task was cancelled.
 ```
 
 ## Known issues
-1. Spark jobs submitted via [Hive Warehouse Connector (HWC)](apache-hive-warehouse-connector.md) can experience intermittent failures if target LLAP cluster has WLM feature enabled. <br>
-To avoid the above issues, Customer can have two LLAP Clusters, one with WLM enabled and other without WLM.
-The customer then can use HWC to connect their Spark cluster to the LLAP cluster without WLM.
+* Spark jobs submitted via [Hive Warehouse Connector (HWC)](apache-hive-warehouse-connector.md) can experience intermittent failures if target LLAP cluster has WLM feature enabled. <br>
+  To avoid the above issues, Customer can have two LLAP Clusters, one with WLM enabled and other without WLM.
+  The customer then can use HWC to connect their Spark cluster to the LLAP cluster without WLM.
 
-2. The `DISABLE WORKLOAD MANAGEMENT;` command hangs for a long time sometimes. <br>
+* The `DISABLE WORKLOAD MANAGEMENT;` command hangs for a long time sometimes. <br>
 Cancel the command and check the resource plans status with following command:
 `SHOW RESOURCE PLANS;`
 Check if an active resource plan is available before running `DISABLE WORKLOAD MANAGEMENT` command again; <br>
 
-3. Some of Tez AM can keep on running and doesn't go away with `DISABLE WORKLOAD MANAGEMENT` command or HS2 restart. <br>
+* Some of Tez AM can keep on running and doesn't go away with `DISABLE WORKLOAD MANAGEMENT` command or HS2 restart. <br>
 Kill these Tez AMs via `yarn UI` or `yarn console application` after disabling workload management.
 
 ## Related articles
