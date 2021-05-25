@@ -5,7 +5,7 @@ keywords: Azure, artificial intelligence, ai, natural language processing, nlp, 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 04/16/2021
+ms.date: 05/17/2021
 ms.custom: cog-serv-seo-aug-2020
 ---
 
@@ -45,7 +45,7 @@ This documentation contains the following article types:
 -	**Plan**: Identify the scenarios that users might use your application for. Define the actions and relevant information that needs to be recognized.
 -	**Build**: Use your authoring resource to develop your app. Start by defining [intents](luis-concept-intent.md) and [entities](luis-concept-entity-types.md). Then, add training [utterances](luis-concept-utterance.md) for each intent. 
 -	**Test and Improve**: Start testing your model with other utterances to get a sense of how the app behaves, and you can decide if any improvement is needed. You can improve your application by following these [best practices](luis-concept-best-practices.md). 
--	**Publish**: Deploy your app for prediction and query the endpoint using your prediction resource. Learn more about authoring and prediction resources [here](luis-how-to-azure-subscription.md#luis-resources). 
+-	**Publish**: Deploy your app for prediction and query the endpoint using your prediction resource. Learn more about authoring and prediction resources [here](luis-how-to-azure-subscription.md). 
 -	**Connect**: Connect to other services such as [Microsoft Bot framework](/composer/tutorial/tutorial-luis), [QnA Maker](../QnAMaker/choose-natural-language-processing-service.md), and [Speech service](../speech-service/get-started-intent-recognition.md). 
 -	**Refine**: [Review endpoint utterances](luis-concept-review-endpoint-utterances.md) to improve your application with real life examples
 

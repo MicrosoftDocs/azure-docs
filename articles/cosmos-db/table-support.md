@@ -33,7 +33,7 @@ At this time, the [Azure Cosmos DB Table API](table-introduction.md) has four SD
 * [Node.js SDK](table-sdk-nodejs.md): This Azure Storage SDK has the ability to connect to Azure Cosmos DB accounts using the Table API.
 
 
-Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](table-api-faq.md) article.
+Additional information about working with the Table API is available in the [FAQ: Develop with the Table API](table-api-faq.yml) article.
 
 ## Developing with Azure Table storage
 

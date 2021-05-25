@@ -34,6 +34,9 @@ You can use the Azure portal to create a data collection rule and associate virt
 > [!IMPORTANT]
 > There is currently a known issue where if the data collection rule creates a managed identity on a virtual machine that already has a user-assigned managed identity, the user-assigned identity is disabled.
 
+> [!NOTE]
+> If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
+
 In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Add** to add a new Data Collection Rule and assignment.
 
 [![Data Collection Rules](media/data-collection-rule-azure-monitor-agent/data-collection-rules.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rules.png#lightbox)
@@ -97,6 +100,9 @@ The following table shows examples for filtering events using a custom XPath.
 
 Follow the steps below to create a data collection rule and associations using the REST API.
 
+> [!NOTE]
+> If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
+
 1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule).
 
 2. Create the rule using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
@@ -105,6 +111,9 @@ Follow the steps below to create a data collection rule and association
 
 
 ## Create association using Resource Manager template
+
+> [!NOTE]
+> If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
 You can create an association between an Azure virtual machine or Azure Arc enabled server using a Resource Manager template. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates.
 

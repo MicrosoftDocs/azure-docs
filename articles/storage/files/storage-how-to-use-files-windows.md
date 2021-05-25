@@ -1,6 +1,6 @@
 ---
 title: Use an Azure file share with Windows | Microsoft Docs
-description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.0 on Windows installations running on-premises or on Azure VMs.
+description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.x on Windows installations running on-premises or on Azure VMs.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -13,24 +13,25 @@ ms.custom: devx-track-azurepowershell
 # Use an Azure file share with Windows
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be seamlessly used in Windows and Windows Server. This article discusses the considerations for using an Azure file share with Windows and Windows Server.
 
-In order to use an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.0. 
+In order to use an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. 
 
 You can use Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support accessing file shares in which environment:
 
 | Windows version        | SMB version | Mountable in Azure VM | Mountable on-premises |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Yes | Yes |
-| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Yes | Yes |
-| Windows Server 2016 | SMB 3.0 | Yes | Yes |
+| Windows Server 2019 | SMB 3.1.1 | Yes | Yes |
+| Windows 10<sup>1</sup> | SMB 3.1.1 | Yes | Yes |
+| Windows Server semi-annual channel<sup>2</sup> | SMB 3.1.1 | Yes | Yes |
+| Windows Server 2016 | SMB 3.1.1 | Yes | Yes |
+| Windows 10, version 1507 | SMB 3.0 | Yes | Yes |
 | Windows 8.1 | SMB 3.0 | Yes | Yes |
 | Windows Server 2012 R2 | SMB 3.0 | Yes | Yes |
 | Windows Server 2012 | SMB 3.0 | Yes | Yes |
 | Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
 
-<sup>1</sup>Windows 10, versions 1507, 1607, 1803, 1809, 1903, 1909, and 2004.  
-<sup>2</sup>Windows Server, versions 1809, 1903, 1909, 2004.  
+<sup>1</sup>Windows 10, versions 1607, 1809, 1909, 2004, and 20H2  
+<sup>2</sup>Windows Server, versions 2004 and 20H2.  
 <sup>3</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
 > [!Note]  

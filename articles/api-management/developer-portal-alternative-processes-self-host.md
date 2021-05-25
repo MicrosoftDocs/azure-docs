@@ -76,7 +76,7 @@ npm run build-function
 
 Then, sign in to the Azure CLI and deploy it:
 
-```sh
+```azurecli
 az login
 cd ./dist/function
 func azure functionapp publish <function app name>

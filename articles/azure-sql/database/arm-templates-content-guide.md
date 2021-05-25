@@ -7,10 +7,10 @@ ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang:
 ms.topic: guide
-author: danimir
-ms.author: danil
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: sstein
-ms.date: 02/04/2019
+ms.date: 05/24/2021
 ---
 
 # Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance
@@ -33,9 +33,9 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Auditing to Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-auditing-server-policy-to-eventhub) | This template allows you to deploy a server with auditing enabled to write audit logs to an existing event hub. In order to send audit events to Event Hubs, set auditing settings with `Enabled` `State`, and set `IsAzureMonitorTargetEnabled` as `true`. Also, configure Diagnostic Settings with the `SQLSecurityAuditEvents` log category on the `master` database (for server-level auditing). Auditing tracks database events and writes them to an audit log that can be placed in your Azure storage account, OMS workspace, or Event Hubs.|
 | [Azure Web App with SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-sql-database) | This sample creates a free Azure web app and a database in Azure SQL Database at the "Basic" service level.|
 | [Azure Web App and Redis Cache with SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | This template creates a web app, Redis Cache, and database in the same resource group and creates two connection strings in the web app for the database and Redis Cache.|
-| [Import data from Blob storage using ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/101-data-factory-v2-blob-to-sql-copy) | This Azure Resource Manager template creates an instance of Azure Data Factory V2 that copies data from Azure Blob storage to SQL Database.|
-| [HDInsight cluster with a database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | This template allows you to create an HDInsight cluster, a logical SQL server, a database, and two tables. This template is used by the [Use Sqoop with Hadoop in HDInsight article](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
-| [Azure Logic App that runs a SQL Stored Procedure on a schedule](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | This template allows you to create a logic app that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.|
+| [Import data from Blob storage using ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | This Azure Resource Manager template creates an instance of Azure Data Factory V2 that copies data from Azure Blob storage to SQL Database.|
+| [HDInsight cluster with a database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-with-sql-database) | This template allows you to create an HDInsight cluster, a logical SQL server, a database, and two tables. This template is used by the [Use Sqoop with Hadoop in HDInsight article](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
+| [Azure Logic App that runs a SQL Stored Procedure on a schedule](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-sql-proc) | This template allows you to create a logic app that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.|
 
 ## [Azure SQL Managed Instance](#tab/managed-instance)
 

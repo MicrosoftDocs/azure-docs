@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: April 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/
     - name: March 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/
     - name: February 2021 new and updated features
@@ -204,8 +206,8 @@
           href: core/howto-create-iot-central-application.md
         - name: Set up a device template
           href: core/howto-set-up-template.md
-        - name: Version device template
-          href: core/howto-version-device-template.md
+        - name: Edit a device template
+          href: core/howto-edit-device-template.md
         - name: How to use properties
           href: core/howto-use-properties.md
         - name: How to use commands

@@ -46,7 +46,7 @@ In **Multiple Workspace View**, only the **Incidents** screen is available for n
 
 - You'll need to have read and write permissions on all the workspaces from which you've selected incidents. If you have only read permissions on some workspaces, you'll see warning messages if you select incidents in those workspaces. You won't be able to modify those incidents or any others you've selected together with those (even if you do have permissions for the others).
 
-- If you choose a single incident and click **View full details** or **Investigate**, you will from then on be in the data context of that incident's workspace and no others.
+- If you choose a single incident and click **View full details** or **Actions** > **Investigate**, you will from then on be in the data context of that incident's workspace and no others.
 
 ## Next steps
 In this document, you learned how to view and work with incidents in multiple Azure Sentinel workspaces concurrently. To learn more about Azure Sentinel, see the following articles:

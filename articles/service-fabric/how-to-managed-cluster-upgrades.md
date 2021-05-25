@@ -21,7 +21,7 @@ With wave deployment, you can create a pipeline for upgrading your test, stage, 
 
 To select a wave deployment for automatic upgrade, first determine which wave to assign your cluster:
 
-* **Wave 0** (`Wave0`) Clusters are updated as soon as a new Service Fabric build is released.
+* **Wave 0** (`Wave0`): Clusters are updated as soon as a new Service Fabric build is released.
 * **Wave 1** (`Wave1`): Clusters are updated after Wave 0 to allow for bake time. This occurs after a minimum of 7 days after Wave 0
 * **Wave 2** (`Wave2`): Clusters are updated last to allow for further bake time. This occurs after a minimum of 14 days after Wave 0
 

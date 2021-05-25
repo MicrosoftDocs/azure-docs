@@ -84,7 +84,7 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
    | Subscription | Choose the same subscription as your IoT hub. |
    | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
    | Location | Choose a location close to you. |
-   | Hosting environment | Select **Edge**. |
+   | Hosting environment | Select **Edge**. This option indicates that the job is going to be deployed to an IoT Edge device instead of hosted in the cloud. |
 
 1. Select **Create**.
 
@@ -101,6 +101,8 @@ Using the three elements of input, output, and query, this section creates a job
    ![Azure Stream Analytics - add input](./media/tutorial-deploy-stream-analytics/asa-input.png)
 
 1. Choose **Edge Hub** from the drop-down list.
+
+   If you don't see the **Edge Hub** option in the list, then you may have created your Stream Analytics job as a cloud-hosted job. Try creating a new job and be sure to select **Edge** as the hosting environment.
 
 1. In the **New input** pane, enter **temperature** as the input alias.
 
