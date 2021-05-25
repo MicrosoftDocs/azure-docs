@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/20/2021
+ms.date: 05/25/2021
 ---
 
 # Quickstart: Connect a Renesas RX65N Cloud Kit to IoT Central
