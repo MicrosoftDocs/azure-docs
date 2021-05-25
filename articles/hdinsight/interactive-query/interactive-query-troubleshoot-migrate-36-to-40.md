@@ -3,7 +3,7 @@ title: Troubleshoot migration of Hive from 3.6 to 4.0 - Azure HDInsight
 description: Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to 4.0
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/30/2019
+ms.date: 05/24/2021
 ---
 
 # Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to HDInsight 4.0
@@ -14,11 +14,11 @@ This article provides answers to some of the most common issues that customers f
 
 Workaround:
 1. ssh both head nodes and backup below jar files in case you need to roll back. Don't keep backup under the same path.
-`/usr/hdp/4.1.2.5/hive/lib/hive-common-3.1.2.4.1.2.5.jar` and `hive-exec-3.1.2.4.1.2.5.jar`
+    `/usr/hdp/4.1.2.5/hive/lib/hive-common-3.1.2.4.1.2.5.jar` and `hive-exec-3.1.2.4.1.2.5.jar`
 
 2. Download these two jars files
-- [https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar](https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar) 
-- [https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar](https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar)
+    - [https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar](https://wenjmshare.blob.core.windows.net/public/hive-common-3.1.2.4.1.2.5.jar) 
+    - [https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar](https://wenjmshare.blob.core.windows.net/public/hive-exec-3.1.2.4.1.2.5.jar)
 
 3. Move the downloaded jars to `/usr/hdp/4.1.2.5/hive/lib` location on both head nodes.
 
@@ -33,7 +33,7 @@ Workaround:
     ```hive.metastore.batch.retrieve.max=2000```
 * Restart Hive and all stale services
 
-## Unable to query GZipped text file if skip.header.line.count and skip.footer.line.count are set for table
+## Unable to query Gzipped text file if skip.header.line.count and skip.footer.line.count are set for table
 
 Issue has been fixed in Interactive Query 4.0 but still not in Interactive Query 3.1.0
 
@@ -74,15 +74,15 @@ It is caused by the difference of WebHCat(Templeton) between HDInsight 3.6 and H
 * Hive Rest API - add ```arg=--showHeader=false -d arg=--outputformat=tsv2 -d```
 
 * .NET SDK - initialize args of ```HiveJobSubmissionParameters```
-```csharp
-List<string> args = new List<string> { { "--showHeader=false" }, { "--outputformat=tsv2" } };
-            var parameters = new HiveJobSubmissionParameters
-            {
-                Query = "SELECT clientid,market from hivesampletable LIMIT 10",
-                Defines = defines,
-                Arguments = args
-            };
-```
+    ```csharp
+    List<string> args = new List<string> { { "--showHeader=false" }, { "--outputformat=tsv2" } };
+                var parameters = new HiveJobSubmissionParameters
+                {
+                    Query = "SELECT clientid,market from hivesampletable LIMIT 10",
+                    Defines = defines,
+                    Arguments = args
+                };
+    ```
 
 ## Reduce Hive internal table creation latency
 
@@ -107,21 +107,21 @@ We recommend enabling ACID in HDInsight 4.0 as most of the recent enhancements (
 Steps to disable ACID on HDInsight 4.0:
 1. Change the following hive configurations in Ambari:
 
-```text
-hive.strict.managed.tables=false
-hive.support.concurrency=false; 
-hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager;
-hive.enforce.bucketing=false;
-hive.compactor.initiator.on=false;
-hive.compactor.worker.threads=0;
-hive.create.as.insert.only=false;
-metastore.create.as.acid=false;
-```
+    ```text
+    hive.strict.managed.tables=false
+    hive.support.concurrency=false; 
+    hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DummyTxnManager;
+    hive.enforce.bucketing=false;
+    hive.compactor.initiator.on=false;
+    hive.compactor.worker.threads=0;
+    hive.create.as.insert.only=false;
+    metastore.create.as.acid=false;
+    ```
 
 2. Restart hive service.
 
-**Important notes**:
-* **Microsoft recommeds against sharing the same data/storage with HDInsight 3.6 and HDInsight 4.0 Hive-managed tables.It is an unsupported scenario**.
+> [!IMPORTANT]
+> Microsoft recommends against sharing the same data/storage with HDInsight 3.6 and HDInsight 4.0 Hive-managed tables.It is an unsupported scenario.
 
 * Normally, above configurations should be set even before creating any Hive tables on HDInsight 4.0 cluster. We shouldn't disable ACID once managed tables are created. It would potentially cause data loss or inconsistent results. So, it is recommended to set it once when you create a new cluster and don’t change it later.
 
@@ -133,7 +133,7 @@ metastore.create.as.acid=false;
     4. Create m_t1 again and copy data from external table using CTAS command ```create table m_t1 select * from e_t1```.        
     5. Drop external table using ```drop table e_t1```.
 
-    Make sure all managed tables are converted to external tables and dropped before disabling ACID. Also, compare the schema and data after each step to avoid any discrepancy.
+Make sure all managed tables are converted to external tables and dropped before disabling ACID. Also, compare the schema and data after each step to avoid any discrepancy.
 
 ## Create Hive external table with 755 permission
 
