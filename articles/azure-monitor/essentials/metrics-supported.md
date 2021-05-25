@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 05/22/2021
+ms.date: 05/24/2021
 ms.author: robb
 ---
 # Supported metrics with Azure Monitor
@@ -2303,7 +2303,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |ErGatewayConnectionBitsOutPerSecond|No|BitsOutPerSecond|BitsPerSecond|Average|Bits egressing Azure per second|ConnectionName|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Yes|Count Of Routes Advertised to Peer(Preview)|Count|Maximum|Count Of Routes Advertised To Peer by ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Yes|Count Of Routes Learned from Peer (Preview)|Count|Maximum|Count Of Routes Learned From Peer by ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Yes|CPU utilization|Count|Average|CPU Utilization of the ExpressRoute Gateway|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Yes|CPU utilization|Percent|Average|CPU Utilization of the ExpressRoute Gateway|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Frequency of Routes change (Preview)|Count|Total|Frequency of Routes change in ExpressRoute Gateway|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Number of VMs in the Virtual Network(Preview)|Count|Maximum|Number of VMs in the Virtual Network|No Dimensions|
 |ExpressRouteGatewayPacketsPerSecond|No|Packets per second|CountPerSecond|Average|Packet count of ExpressRoute Gateway|roleInstance|
@@ -2408,8 +2408,8 @@ For important additional information, see [Monitoring Agents Overview](../agents
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes Out|PrivateEndpointId|
-|PEBytesOut|Yes|Bytes Out|Count|Total|Total number of Bytes Out|PrivateEndpointId|
+|PEBytesIn|No|Bytes In|Count|Total|Total number of Bytes Out|No Dimensions|
+|PEBytesOut|No|Bytes Out|Count|Total|Total number of Bytes Out|No Dimensions|
 
 
 ## Microsoft.Network/privateLinkServices
@@ -2468,7 +2468,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |AverageBandwidth|Yes|Gateway S2S Bandwidth|BytesPerSecond|Average|Average site-to-site bandwidth of a gateway in bytes per second|No Dimensions|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Yes|Count Of Routes Advertised to Peer(Preview)|Count|Maximum|Count Of Routes Advertised To Peer by ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Yes|Count Of Routes Learned from Peer (Preview)|Count|Maximum|Count Of Routes Learned From Peer by ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Yes|CPU utilization|Count|Average|CPU Utilization of the ExpressRoute Gateway|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Yes|CPU utilization|Percent|Average|CPU Utilization of the ExpressRoute Gateway|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Frequency of Routes change (Preview)|Count|Total|Frequency of Routes change in ExpressRoute Gateway|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Number of VMs in the Virtual Network(Preview)|Count|Maximum|Number of VMs in the Virtual Network|No Dimensions|
 |ExpressRouteGatewayPacketsPerSecond|No|Packets per second|CountPerSecond|Average|Packet count of ExpressRoute Gateway|roleInstance|
@@ -2494,8 +2494,30 @@ For important additional information, see [Monitoring Agents Overview](../agents
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|BytesDroppedDDoS|Yes|Inbound bytes dropped DDoS|BytesPerSecond|Maximum|Inbound bytes dropped DDoS|ProtectedIPAddress|
+|BytesForwardedDDoS|Yes|Inbound bytes forwarded DDoS|BytesPerSecond|Maximum|Inbound bytes forwarded DDoS|ProtectedIPAddress|
+|BytesInDDoS|Yes|Inbound bytes DDoS|BytesPerSecond|Maximum|Inbound bytes DDoS|ProtectedIPAddress|
+|DDoSTriggerSYNPackets|Yes|Inbound SYN packets to trigger DDoS mitigation|CountPerSecond|Maximum|Inbound SYN packets to trigger DDoS mitigation|ProtectedIPAddress|
+|DDoSTriggerTCPPackets|Yes|Inbound TCP packets to trigger DDoS mitigation|CountPerSecond|Maximum|Inbound TCP packets to trigger DDoS mitigation|ProtectedIPAddress|
+|DDoSTriggerUDPPackets|Yes|Inbound UDP packets to trigger DDoS mitigation|CountPerSecond|Maximum|Inbound UDP packets to trigger DDoS mitigation|ProtectedIPAddress|
+|IfUnderDDoSAttack|Yes|Under DDoS attack or not|Count|Maximum|Under DDoS attack or not|ProtectedIPAddress|
+|PacketsDroppedDDoS|Yes|Inbound packets dropped DDoS|CountPerSecond|Maximum|Inbound packets dropped DDoS|ProtectedIPAddress|
+|PacketsForwardedDDoS|Yes|Inbound packets forwarded DDoS|CountPerSecond|Maximum|Inbound packets forwarded DDoS|ProtectedIPAddress|
+|PacketsInDDoS|Yes|Inbound packets DDoS|CountPerSecond|Maximum|Inbound packets DDoS|ProtectedIPAddress|
 |PingMeshAverageRoundtripMs|Yes|Round trip time for Pings to a VM|MilliSeconds|Average|Round trip time for Pings sent to a destination VM|SourceCustomerAddress, DestinationCustomerAddress|
 |PingMeshProbesFailedPercent|Yes|Failed Pings to a VM|Percent|Average|Percent of number of failed Pings to total sent Pings of a destination VM|SourceCustomerAddress, DestinationCustomerAddress|
+|TCPBytesDroppedDDoS|Yes|Inbound TCP bytes dropped DDoS|BytesPerSecond|Maximum|Inbound TCP bytes dropped DDoS|ProtectedIPAddress|
+|TCPBytesForwardedDDoS|Yes|Inbound TCP bytes forwarded DDoS|BytesPerSecond|Maximum|Inbound TCP bytes forwarded DDoS|ProtectedIPAddress|
+|TCPBytesInDDoS|Yes|Inbound TCP bytes DDoS|BytesPerSecond|Maximum|Inbound TCP bytes DDoS|ProtectedIPAddress|
+|TCPPacketsDroppedDDoS|Yes|Inbound TCP packets dropped DDoS|CountPerSecond|Maximum|Inbound TCP packets dropped DDoS|ProtectedIPAddress|
+|TCPPacketsForwardedDDoS|Yes|Inbound TCP packets forwarded DDoS|CountPerSecond|Maximum|Inbound TCP packets forwarded DDoS|ProtectedIPAddress|
+|TCPPacketsInDDoS|Yes|Inbound TCP packets DDoS|CountPerSecond|Maximum|Inbound TCP packets DDoS|ProtectedIPAddress|
+|UDPBytesDroppedDDoS|Yes|Inbound UDP bytes dropped DDoS|BytesPerSecond|Maximum|Inbound UDP bytes dropped DDoS|ProtectedIPAddress|
+|UDPBytesForwardedDDoS|Yes|Inbound UDP bytes forwarded DDoS|BytesPerSecond|Maximum|Inbound UDP bytes forwarded DDoS|ProtectedIPAddress|
+|UDPBytesInDDoS|Yes|Inbound UDP bytes DDoS|BytesPerSecond|Maximum|Inbound UDP bytes DDoS|ProtectedIPAddress|
+|UDPPacketsDroppedDDoS|Yes|Inbound UDP packets dropped DDoS|CountPerSecond|Maximum|Inbound UDP packets dropped DDoS|ProtectedIPAddress|
+|UDPPacketsForwardedDDoS|Yes|Inbound UDP packets forwarded DDoS|CountPerSecond|Maximum|Inbound UDP packets forwarded DDoS|ProtectedIPAddress|
+|UDPPacketsInDDoS|Yes|Inbound UDP packets DDoS|CountPerSecond|Maximum|Inbound UDP packets DDoS|ProtectedIPAddress|
 
 
 ## Microsoft.Network/virtualRouters
