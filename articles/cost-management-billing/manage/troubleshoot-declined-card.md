@@ -1,18 +1,18 @@
 ---
 title: Troubleshoot a declined card at Azure sign-up
-description: Resolve declined credit card at Azure sign-up in the Azure portal or account center.
+description: Resolve declined credit card at Azure sign-up in the Azure portal.
 author: v-miegge
 ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: banders
 ---
 
 # Troubleshoot a declined card at Azure sign-up
 
-You may experience an issue or error in which a credit card is declined at Azure sign-up in either the Microsoft Azure portal, or the Azure account center.
+You may experience an issue or error in which a credit card is declined at Azure sign-up in the Microsoft Azure portal.
 
 To resolve your issue, select the topic below which most closely resembles your error.
 
@@ -37,9 +37,9 @@ Contact your bank to make sure that your card is active.
 
 You may be experiencing other sign-up issues
 
-For more information about how to troubleshoot Azure sign-up issues, see the following Knowledge Base article:
+For more information about how to troubleshoot Azure sign-up issues, see the following article:
 
-[You can't sign-up for Azure in the Azure portal or Azure account center](troubleshoot-azure-sign-up.md)
+[You can't sign-up for Azure in the Azure portal](troubleshoot-azure-sign-up.md)
 
 ## You represent a business that doesn't want to pay by card
 

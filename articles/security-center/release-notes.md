@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 05/18/2021
 ms.author: memildin
 
 ---
@@ -26,8 +26,34 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in May include:
 
+- [Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
 - [Assessments API expanded with two new fields](#assessments-api-expanded-with-two-new-fields)
+
+
+### Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)
+
+These two cloud-native breadth threat protection plans are now GA.
+
+These new protections greatly enhance your resiliency against attacks from threat actors, and significantly increase the number of Azure resources protected by Azure Defender.
+
+- **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
+    - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+    - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+    - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
+    - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
+    - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
+    - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
+
+To simplify the process of enabling these plans, use the recommendations:
+
+- **Azure Defender for Resource Manager should be enabled**
+- **Azure Defender for DNS should be enabled**
+
+> [!NOTE]
+> Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
 
 ### SQL data classification recommendation severity changed
 
@@ -51,7 +77,7 @@ To access this information, you can use any of the methods in the table below.
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REST API call        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview&$expand=statusEvaluationDates |
 | Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
-| Workflow automation  | The two dedicated fields will be availbel the Log Analytics workspace data                                                                                                       |
+| Workflow automation  | The two dedicated fields will be available the Log Analytics workspace data                                                                                                       |
 | [CSV export](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | The two fields are included in the CSV files                                                        |
 |                      |                                                                                                                                                                        |
 

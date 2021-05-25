@@ -2,11 +2,11 @@
 title: Pricing scenarios for Calling (Voice/Video) and Chat
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' Pricing Model.
-author: mikben
-manager: jken
+author: nmurav
+manager: nmurav
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -46,16 +46,16 @@ Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used
 Alice makes a PSTN Call from an app to Bob on his US phone number beginning with `+1-425`.
 
 - Alice used the JS SDK to build the app.
-- The call lasts a total of 5 minutes.
+- The call lasts a total of 10 minutes.
 
 **Cost calculations**
 
 - 1 participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
-- 1 participant on the PSTN outbound leg (Charlie) from Communication Services servers to a US telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13.
+- 1 participant on the PSTN outbound leg (Bob) from Communication Services servers to a US telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13.
 
 Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
 
-**Total cost for the group call**: $0.04 + $0.13 = $0.17
+**Total cost for the call**: $0.04 + $0.13 = $0.17
 
 
 ### Pricing example: Group audio call using JS SDK and 1 PSTN leg

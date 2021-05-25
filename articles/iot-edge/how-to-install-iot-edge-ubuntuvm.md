@@ -77,9 +77,10 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 ## Deploy from Azure CLI
 
 1. Ensure that you have installed the Azure CLI iot extension with:
-    ```azurecli-interactive
-    az extension add --name azure-iot
-    ```
+
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
 
 1. Next, if you're using Azure CLI on your desktop, start by logging in:
 

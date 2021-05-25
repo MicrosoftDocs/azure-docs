@@ -13,17 +13,15 @@ ms.author: cshoe
 
 The following quotas exist for Azure Static Web Apps.
 
-| Feature                     | Free plan        |
-|-----------------------------|------------------|
-| Included bandwidth          | 100 GB per month |
-| Overage bandwidth           | Unavailable      |
-| Apps per Azure subscription | 10               |
-| App size                    | 250 MB           |
-| Pre-production environments | 3                |
-| Custom domains              | 1                |
-| Authorization (with custom roles and routing rules) | Maximum of 25 end-users that may belong to custom roles |
-| Azure Functions             | Available        |
-| SLA                         | None             |
+| Feature                     | Free plan        | Standard plan |
+|-----------------------------|------------------|---------------|
+| Included bandwidth          | 100 GB per month, per subscription | 100 GB per month, per subscription |
+| Overage bandwidth           | Unavailable      | $0.20 per GB |
+| Apps per Azure subscription | 10               | Unlimited |
+| App size                    | 250 MB           | 500 MB |
+| Pre-production environments | 3                | 10 |
+| Custom domains              | 2 per app        | 5 per app |
+| Authorization (with custom roles and routing rules) | Maximum of 25 end-users that may belong to custom roles | Maximum of 25 end-users that may belong to custom roles |
 
 ## GitHub storage
 

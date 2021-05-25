@@ -16,13 +16,13 @@ This article describes causes and resolution steps for receiving an 'Authenticat
 
 When setting up and running the Azure Digital Twins Explorer application, attempts to authenticate with the app are met with the following error message:
 
-:::image type="content" source="media/troubleshoot-error-azure-digital-twins-explorer-authentication/authentication-error.png" alt-text="Screenshot of an error message in Azure Digital Twins explorer with the following text:Authentication failed. If you are running the app locally, please make sure that you are logged in to Azure on your host machine, or example by running 'az login' in a command prompt, by signing into Visual Studio or VS Code or by setting environment variables. If you need more information, please see the readme, or look up DefaultAzureCredential in the Azure.Identity documentation. If you are running adt-explorer hosted in the cloud, please make sure that your hosting Azure Function has a system-assigned managed identity set up. See the readme for more information.":::
+:::image type="content" source="media/troubleshoot-error-azure-digital-twins-explorer-authentication/authentication-error.png" alt-text="Screenshot of an authentication failure error message in the Azure Digital Twins Explorer.":::
 
 ## Causes
 
 ### Cause #1
 
-The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) (part of the `Azure.Identity` library), which will search for credentials within your local environment.
+The Azure Digital Twins Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) (part of the `Azure.Identity` library), which will search for credentials within your local environment.
 
 As the error text states, this error may occur if you have not provided local credentials for `DefaultAzureCredential` to pick up.
 
