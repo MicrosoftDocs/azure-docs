@@ -50,7 +50,7 @@ To perform a manual backup:
 
    The following screen show shows the sample manual backup:
    
-   ![how](media/HowToHLI/OSBackupTypeIISKUs/dump_capture.PNG)
+   ![dump capture](media/HowToHLI/OSBackupTypeIISKUs/dump_capture.PNG)
 
 
 * Important: Save a copy of backup in NFS volumes as well, in the scenario where data1 partition also gets corrupted.
@@ -90,7 +90,7 @@ To perform a manual backup:
    ```
    xfsrestore -f /mnt1/xfs_dump /mnt2
    ```
-   ![how](media/HowToHLI/OSBackupTypeIISKUs/restore_screenshot.PNG)
+   ![restore screenshot](media/HowToHLI/OSBackupTypeIISKUs/restore_screenshot.PNG)
 * Reboot the system.
    ```
    reboot
@@ -107,7 +107,7 @@ To perform a manual backup:
    ```
    mdadm -D /dev/md126
    ```
-   ![how](media/HowToHLI/OSBackupTypeIISKUs/RAID_status.PNG)
+   ![raid status](media/HowToHLI/OSBackupTypeIISKUs/RAID_status.PNG)
 
 * Ensure that RAID disks are synced and the configuration is in a clean state.
    * RAID disks take sometime in syncing; sync may continue for a few minutes before it is 100% synced.
@@ -118,6 +118,6 @@ To perform a manual backup:
    ```
    hdbinfo
    ```
-   ![how](media/HowToHLI/OSBackupTypeIISKUs/hana_status.PNG)
+   ![hana status](media/HowToHLI/OSBackupTypeIISKUs/hana_status.PNG)
 
 * If any post checks fail, please engage OS vendor and Microsoft for console access.
