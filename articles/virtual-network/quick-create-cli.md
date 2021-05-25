@@ -3,7 +3,7 @@ title: Create a virtual network - quickstart - Azure CLI
 titlesuffix: Azure Virtual Network
 description: In this quickstart, learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet.
 author: KumudD
-Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
+# Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/06/2021
@@ -79,6 +79,8 @@ az vm create \
   --generate-ssh-keys
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ### Azure CLI output message
 
 The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI returns output like this:
@@ -99,7 +101,7 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
 
 ## VM public IP
 
-To get the public IP address **myVM2**, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
+To get the public IP address **myVM2**, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
 
 ```azurecli-interactive
 az network public-ip show \

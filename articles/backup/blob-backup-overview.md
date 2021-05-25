@@ -1,12 +1,12 @@
 ---
 title: Overview of operational backup for Azure Blobs
-description: Learn about operational backup for Azure Blobs (in preview).
+description: Learn about operational backup for Azure Blobs.
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 05/05/2021
 
 ---
 
-# Overview of operational backup for Azure Blobs (in preview)
+# Overview of operational backup for Azure Blobs
 
 Operational backup for Blobs is a managed, local data protection solution that lets you protect your block blobs from various data loss scenarios like corruptions, blob deletions, and accidental storage account deletion. The data is stored locally within the source storage account itself and can be recovered to a selected point in time whenever needed. So it provides a simple, secure, and cost-effective means to protect your blobs.
 
@@ -18,7 +18,7 @@ Operational backup of blobs is a **local backup** solution. So the backup data i
 
 Operational backup uses blob platform capabilities to protect your data and allow recovery when required:
 
-- **Point-in-time restore**: [Blob point-in-time restore](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview) allows restoring blob data to an earlier state. This, in turn, uses **soft delete**, **change feed** and **blob versioning** to retain data for the specified duration. Operational backup takes care of enabling point-in-time restore as well as the underlying capabilities to ensure data is retained for the specified duration.
+- **Point-in-time restore**: [Blob point-in-time restore](../storage/blobs/point-in-time-restore-overview.md) allows restoring blob data to an earlier state. This, in turn, uses **soft delete**, **change feed** and **blob versioning** to retain data for the specified duration. Operational backup takes care of enabling point-in-time restore as well as the underlying capabilities to ensure data is retained for the specified duration.
 
 - **Delete lock**: Delete lock prevents the storage account from being deleted accidentally or by unauthorized users. Operational backup when configured also automatically applies a delete lock to reduce the possibilities of data loss because of storage account deletion.
 
@@ -59,9 +59,9 @@ Operational backup gives you the option to restore all block blobs in the storag
 
 You won't incur any management charges or instance fee when using operational backup for blobs. However, you will incur the following charges:
 
-- Restores are done using blob point-in-time restore and attract charges based on the amount of data processed. For more information, see [point-in-time restore pricing](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview#pricing-and-billing).
+- Restores are done using blob point-in-time restore and attract charges based on the amount of data processed. For more information, see [point-in-time restore pricing](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing).
 
-- Retention of data because of [Soft delete for blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview), [Change feed support in Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-change-feed), and [Blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+- Retention of data because of [Soft delete for blobs](../storage/blobs/soft-delete-blob-overview.md), [Change feed support in Azure Blob Storage](../storage/blobs/storage-blob-change-feed.md), and [Blob versioning](../storage/blobs/versioning-overview.md).
 
 ## Next steps
 

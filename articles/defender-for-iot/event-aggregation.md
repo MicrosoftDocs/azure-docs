@@ -1,22 +1,11 @@
 ---
-title: Security module classic event aggregation
+title: Defender-IoT-micro-agent classic event aggregation
 description: Learn about Defender for IoT event aggregation.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/20/2021
-ms.author: shhazam
+ms.date: 3/23/2021
 ---
 
-# Security module classic event aggregation
+# Defender-IoT-micro-agent classic event aggregation
 
 Defender for IoT security agents collects data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the number of messages security agents are forced to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that is crucial to protecting your device.
 

@@ -1,12 +1,9 @@
 ---
 title: Support matrix-Hyper-V disaster recovery to a secondary VMM site with Azure Site Recovery
 description: Summarizes support for Hyper-V VM replication in VMM clouds to a secondary site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
-ms.author: raynew
 ---
 
 # Support matrix for disaster recovery of Hyper-V VMs to a secondary site

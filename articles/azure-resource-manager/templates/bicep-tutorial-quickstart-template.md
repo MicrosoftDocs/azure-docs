@@ -2,7 +2,7 @@
 title: Tutorial - Use quickstart templates for Azure Resource Manager Bicep development
 description: Learn how to use Azure Quickstart templates to complete your Bicep development.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -34,7 +34,7 @@ Currently, the Azure Quickstart templates only provide JSON templates. There are
 
 1. Open [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
 1. In **Search**, enter _deploy linux web app_.
-1. Select the tile with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Select the tile with the title **Deploy a basic Linux web app**. If you have trouble finding it, here's the [direct link](https://azure.microsoft.com/resources/templates/webapp-basic-linux/).
 1. Select **Browse on GitHub**.
 1. Select _azuredeploy.json_. This is the template you can use.
 1. Select **Raw**, and then make a copy of the URL.

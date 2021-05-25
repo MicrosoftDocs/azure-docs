@@ -1,11 +1,11 @@
 ---
 title: Copy and transform data in Azure Synapse Analytics
 description: Learn how to copy data to and from Azure Synapse Analytics, and transform data in Azure Synapse Analytics by using Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 05/10/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory
@@ -43,7 +43,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 > [!TIP]
 > To achieve best performance, use PolyBase or COPY statement to load data into Azure Synapse Analytics. The [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) and [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) sections have details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](load-azure-sql-data-warehouse.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that define Data Factory entities specific to an Azure Synapse Analytics connector.
 
@@ -385,6 +385,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure Synapse Analytics in each run. Use this property to clean up the preloaded data. | No                                            |
 | tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory collects metrics such as Azure Synapse Analytics DWUs for copy performance optimization and recommendations, which introduce additional master DB access. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 #### Azure Synapse Analytics sink example
 
@@ -515,7 +516,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    4. `nullValue` is left as default or set to **empty string** (""), and `treatEmptyAsNull` is left as default or set to true.
    5. `encodingName` is left as default or set to **utf-8**.
    6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row, which can be configured as `firstRowAsHeader` in ADF.
-   7. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   7. `compression` can be **no compression**, **``GZip``**, or **Deflate**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
 
@@ -610,7 +611,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ### Best practices for using PolyBase
 
-The following sections provide best practices in addition to those practices mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
+The following sections provide best practices in addition to those practices mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 #### Required database permission
 
@@ -704,7 +705,7 @@ Using COPY statement supports the following configuration:
 
 2. Format settings are with the following:
 
-   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
+   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **``GZip``**.
    2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
    3. For **Delimited text**:
       1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
@@ -712,7 +713,7 @@ Using COPY statement supports the following configuration:
       3. `encodingName` is left as default or set to **utf-8 or utf-16**.
       4. `escapeChar` must be same as `quoteChar`, and is not empty.
       5. `skipLineCount` is left as default or set to 0.
-      6. `compression` can be **no compression** or **GZip**.
+      6. `compression` can be **no compression** or **``GZip``**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. 
 
@@ -816,7 +817,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 - Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.
 - Truncate: All rows from the target table will get removed.
 
-**Enable staging:** Determines whether or not to use [PolyBase](/sql/relational-databases/polybase/polybase-guide) when writing to Azure Synapse Analytics. The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). 
+**Enable staging:** This enables loading into Azure Synapse Analytics SQL Pools using the copy command and is recommended for most Synpase sinks. The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). 
 
 - When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
 - If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
@@ -826,6 +827,24 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
 ![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+
+### Error row handling
+
+When writing to Azure Synapse Analytics, certain rows of data may fail due to constraints set by the destination. Some common errors include:
+
+*    String or binary data would be truncated in table
+*    Cannot insert the value NULL into column
+*    Conversion failed when converting the value to data type
+
+By default, a data flow run will fail on the first error it gets. You can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Azure Data Factory provides different options for you to handle these error rows.
+
+**Transaction Commit:** Choose whether your data gets written in a single transaction or in batches. Single transaction will provide better performance and no data written will be visible to others until the transaction completes. Batch transactions have worse performance but can work for large datasets.
+
+**Output rejected data:** If enabled, you can output the error rows into a csv file in Azure Blob Storage or an Azure Data Lake Storage Gen2 account of your choosing. This will write the error rows with three additional columns: the SQL operation like INSERT or UPDATE, the data flow error code, and the error message on the row.
+
+**Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
+
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Screenshot that shows the error row handling" border="false":::
 
 ## Lookup activity properties
 

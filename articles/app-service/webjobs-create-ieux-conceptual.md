@@ -57,4 +57,4 @@ The following file types are supported:
 ## Next steps
 
 * Learn how to [create a WebJob](./webjobs-create-ieux.md)
-* View log history of WebJobs](./webjobs-create-ieux-view-log.md)
+* View log history of [WebJobs](./webjobs-create-ieux-view-log.md)

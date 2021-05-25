@@ -2,7 +2,7 @@
 title: Tutorial - add functions to Azure Resource Manager Bicep files
 description: Add functions to your Bicep files to construct values.
 author: mumian
-ms.date: 03/02/2021
+ms.date: 04/20/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 # Tutorial: Add functions to Azure Resource Manager Bicep file
 
-In this tutorial, you learn how to add [template functions](template-functions.md) to your Bicep file. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add [template functions](template-functions.md) to your Bicep file. You use functions to dynamically construct values. Currently, Bicep doesn't support user-defined functions. This tutorial takes **7 minutes** to complete.
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
@@ -32,7 +32,7 @@ The location of the storage account is hard-coded to **East US**. However, you m
 
 Functions add flexibility to your Bicep file by dynamically getting values during deployment. In this tutorial, you use a function to get the location of the resource group you're using for deployment.
 
-The following example highlights the changes to add a parameter called `location`. The parameter default value calls the [resourceGroup](template-functions-resource.md#resourcegroup) function. This function returns an object with information about the resource group being used for deployment. One of the properties on the object is a location property. When you use the default value, the storage account location has the same location as the resource group. The resources inside a resource group don't have to share the same location. You can also provide a different location when needed.
+The following example shows the changes to add a parameter called `location`. The parameter default value calls the [resourceGroup](template-functions-resource.md#resourcegroup) function. This function returns an object with information about the resource group being used for deployment. One of the properties on the object is a location property. When you use the default value, the storage account location has the same location as the resource group. The resources inside a resource group don't have to share the same location. You can also provide a different location when needed.
 
 Copy the whole file and replace your Bicep file with its contents.
 

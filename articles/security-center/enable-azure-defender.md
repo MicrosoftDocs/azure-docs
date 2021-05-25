@@ -1,6 +1,6 @@
 ---
 title: Enable Azure Security Center's integrated workload protections
-description: Learn how to enable Azure Defender to extend the protections of Azure Security Center to your hybrid and multicloud resources
+description: Learn how to enable Azure Defender to extend the protections of Azure Security Center to your hybrid and multi-cloud resources
 author: memildin
 ms.author: memildin
 manager: rkarlin
@@ -27,7 +27,7 @@ To enable all Security Center features including threat protection capabilities,
 
 - You can enable **Azure Defender for Storage accounts** at either the subscription level or resource level
 - You can enable **Azure Defender for SQL** at either the subscription level or resource level
-- You can enable threat protection for **Azure Database for MariaDB/ MySQL/ PostgreSQL** at the resource level only
+- You can enable **Azure Defender for open-source relational databases** at the resource level only
 
 ### To enable Azure Defender on your subscriptions and workspaces:
 

@@ -25,11 +25,10 @@ Digital Twins instance ready to start programming against.
 
 This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-* To go through these steps manually using the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (portal)*](how-to-set-up-instance-portal.md).
-* To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
+* To go through these steps manually using the Azure portal, see the portal version of this article: [How-to: Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
+* To run through an automated setup using a deployment script sample, see the scripted version of this article: [How-to: Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## Prepare your environment
 
@@ -83,7 +82,7 @@ You'll need to provide:
   ```
 
 * A region for the deployment. To see what regions support Azure Digital Twins, visit
-  [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+  [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * A name for your instance. The name of the new instance must be unique within the region for your
   subscription. If your subscription has another Azure Digital Twins instance in the region that's
   already using the specified name, you'll be asked to pick a different name.
@@ -115,7 +114,7 @@ Get-AzDigitalTwinsInstance -ResourceGroupName <your-resource-group> -ResourceNam
 > [!TIP]
 > You can use this command to see all the properties of your instance at any time.
 
-Note the Azure Digital Twins instance's **HostName**, **Name**, and **ResourceGroup**. These are
+Note the Azure Digital Twins instance's **host name**, **name**, and **resource group**. These are
 important values that you may need as you continue working with your Azure Digital Twins instance,
 to set up authentication, and related Azure resources. If other users will be programming against
 the instance, you should share these values with them.
@@ -126,6 +125,13 @@ user permissions to manage it.
 ## Set up user access permissions
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+
+### Prerequisites: Permission requirements
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
+### Assign the role
+
+To give a user permissions to manage an Azure Digital Twins instance, you must assign them the _**Azure Digital Twins Data Owner**_ role within the instance.
 
 First, determine the **ObjectId** for the Azure AD account of the user that should be assigned the role. You can find this value using the [Get-AzAdUser](/powershell/module/az.resources/get-azaduser) cmdlet, by passing in the user principal name on the Azure AD account to retrieve their ObjectId (and other user information). In most cases, the user principal name will match the user's email on the Azure AD account.
 
@@ -157,4 +163,4 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 See how to connect a client application to your instance with authentication code:
-* [*How-to: Write app authentication code*](how-to-authenticate-client.md)
+* [How-to: Write app authentication code](how-to-authenticate-client.md)

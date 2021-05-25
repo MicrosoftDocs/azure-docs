@@ -6,7 +6,7 @@ manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -29,7 +29,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A Windows or macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, including the **Android Build Support** with **Android SDK & NDK Tools** and **OpenJDK** modules.
+- A Windows or macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity (LTS)</a>, including the **Android Build Support** with **Android SDK & NDK Tools** and **OpenJDK** modules. Use **Unity 2020 LTS** with ASA SDK version 2.9 or later (which uses the [Unity XR Plug-in Framework](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)) or **Unity 2019 LTS** with ASA SDK version 2.8 or earlier.
   - If running on Windows, you'll also need <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
   - If running on macOS, get Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
@@ -40,6 +40,8 @@ To complete this quickstart, make sure you have:
 ## Download and open the Unity sample project
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the Android platform.
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 

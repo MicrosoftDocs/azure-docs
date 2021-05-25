@@ -6,7 +6,6 @@ documentationcenter: CloudFoundry
 author: ruyakubu
 manager: brunoborges
 editor: ruyakubu
-
 ms.assetid:
 ms.author: ruyakubu
 ms.date: 09/13/2018

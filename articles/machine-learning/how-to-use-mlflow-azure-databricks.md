@@ -9,8 +9,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 ---
 
 # Track Azure Databricks ML experiments with MLflow and Azure Machine Learning (preview)
@@ -21,6 +21,8 @@ In this article, learn how to enable MLflow's tracking URI and logging API, coll
 
 See [Track experiment runs with MLflow and Azure Machine Learning](how-to-use-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
+If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
+
 >[!NOTE]
 > As an open source library, MLflow changes frequently. As such, the functionality made available via the Azure Machine Learning and MLflow integration should be considered as a preview, and not fully supported by Microsoft.
 
@@ -30,7 +32,7 @@ See [Track experiment runs with MLflow and Azure Machine Learning](how-to-use-ml
 ## Prerequisites
 
 * Install the `azureml-mlflow` package. 
-    * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which provides the connectivity for MLflow to access your workspace.
+    * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install), which provides the connectivity for MLflow to access your workspace.
 * An [Azure Databricks workspace and cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).

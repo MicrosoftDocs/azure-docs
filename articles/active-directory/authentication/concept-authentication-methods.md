@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/15/2021
 
 ms.author: justinha
 author: justinha
@@ -42,7 +42,7 @@ The following table outlines the security considerations for the available authe
 | Windows Hello for Business     | High     | High      | High         |
 | Microsoft Authenticator app    | High     | High      | High         |
 | FIDO2 security key             | High     | High      | High         |
-| OATH hardware tokens           | Medium   | Medium    | High         |
+| OATH hardware tokens (preview) | Medium   | Medium    | High         |
 | OATH software tokens           | Medium   | Medium    | High         |
 | SMS                            | Medium   | High      | Medium       |
 | Voice                          | Medium   | Medium    | Medium       |
@@ -67,20 +67,20 @@ The following table outlines when an authentication method can be used during a 
 | Windows Hello for Business     | Yes                    | MFA                       |
 | Microsoft Authenticator app    | Yes                    | MFA and SSPR              |
 | FIDO2 security key             | Yes                    | MFA                       |
-| OATH hardware tokens           | No                     | MFA                       |
+| OATH hardware tokens (preview) | No                     | MFA                       |
 | OATH software tokens           | No                     | MFA                       |
 | SMS                            | Yes                    | MFA and SSPR              |
 | Voice call                     | No                     | MFA and SSPR              |
 | Password                       | Yes                    |                           |
 
-All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+All of these authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
 To learn more about how each authentication method works, see the following separate conceptual articles:
 
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Microsoft Authenticator app](concept-authentication-authenticator-app.md)
 * [FIDO2 security key](concept-authentication-passwordless.md#fido2-security-keys)
-* [OATH hardware tokens](concept-authentication-oath-tokens.md#oath-hardware-tokens)
+* [OATH hardware tokens (preview)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [OATH software tokens](concept-authentication-oath-tokens.md#oath-software-tokens)
 * [SMS sign-in](howto-authentication-sms-signin.md) and [verification](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Voice call verification](concept-authentication-phone-options.md)
@@ -88,6 +88,9 @@ To learn more about how each authentication method works, see the following sepa
 
 > [!NOTE]
 > In Azure AD, a password is often one of the primary authentication methods. You can't disable the password authentication method. If you use a password as the primary authentication factor, increase the security of sign-in events using Azure AD Multi-Factor Authentication.
+
+> [!IMPORTANT]
+> While FIDO2 meets the requirements necessary to serve as a form of MFA, FIDO2 can only be used as a passwordless form of authentication.
 
 The following additional verification methods can be used in certain scenarios:
 
@@ -103,7 +106,7 @@ To learn more about SSPR concepts, see [How Azure AD self-service password reset
 
 To learn more about MFA concepts, see [How Azure AD Multi-Factor Authentication works][concept-mfa].
 
-Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
 
 To review what authentication methods are in use, see [Azure AD Multi-Factor Authentication authentication method analysis with PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 

@@ -5,7 +5,7 @@ description: With this how-to article, get started with Azure Standard Load Bala
 services: load-balancer
 documentationcenter: na
 author: irenehua
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -24,7 +24,7 @@ When you work with virtual machine scale sets and an instance of Azure Load Bala
 
 ## Set up a load balancer for scaling out virtual machine scale sets
 
-Make sure that the instance of Azure Load Balancer has an [inbound NAT pool](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) set up and that the virtual machine scale set is put in the backend pool of the load balancer. Load Balancer will automatically create new inbound NAT rules in the inbound NAT pool when new virtual machine instances are added to the virtual machine scale set.
+Make sure that the instance of Azure Load Balancer has an [inbound NAT pool](/cli/azure/network/lb/inbound-nat-pool) set up and that the virtual machine scale set is put in the backend pool of the load balancer. Load Balancer will automatically create new inbound NAT rules in the inbound NAT pool when new virtual machine instances are added to the virtual machine scale set.
 
 To check whether the inbound NAT pool is properly set up:
 
@@ -38,7 +38,7 @@ Individual inbound NAT rules can't be added. But you can add a set of inbound NA
 
 To add a whole set of inbound NAT rules for the virtual machine scale sets, first create an inbound NAT pool in the load balancer. Then reference the inbound NAT pool from the network profile of the virtual machine scale set. A full example using the CLI is shown.
 
-The new inbound NAT pool should not have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
+The new inbound NAT pool should not have an overlapping front-end port range with existing inbound NAT pools. To view existing inbound NAT pools that are set up, use this [CLI command](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 
@@ -56,7 +56,7 @@ The new inbound NAT pool should not have an overlapping front-end port range wit
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
   az vmss update-instances
-          -–instance-ids *
+          -â€“instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS
 ```
@@ -92,7 +92,7 @@ To delete the NAT pool, first remove it from the scale set. A full example using
        --name MyVMSS
     az network lb inbound-nat-pool delete
        --resource-group MyResourceGroup
-       -–lb-name MyLoadBalancer
+       -â€“lb-name MyLoadBalancer
        --name MyNatPool
 ```
 
@@ -128,7 +128,7 @@ Make sure to create separate inbound NAT pools with non-overlapping frontend por
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
             
   az vmss update-instances
-          -–instance-ids *
+          -â€“instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS
           
@@ -147,7 +147,7 @@ Make sure to create separate inbound NAT pools with non-overlapping frontend por
           --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
             
   az vmss update-instances
-          -–instance-ids *
+          -â€“instance-ids *
           --resource-group MyResourceGroup
           --name MyVMSS2
 ```

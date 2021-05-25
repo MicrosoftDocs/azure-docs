@@ -7,7 +7,7 @@ author: KumudD
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 
 ms.assetid: 
 ms.service: virtual-network

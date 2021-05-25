@@ -1,6 +1,6 @@
 ---
-title: Set up agentless dependency analysis in Azure Migrate Server Assessment
-description:  Set up agentless dependency analysis in Azure Migrate Server Assessment.
+title: Set up agentless dependency analysis in Azure Migrate
+description:  Set up agentless dependency analysis in Azure Migrate.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -11,10 +11,10 @@ ms.date: 6/08/2020
 
 # Analyze server dependencies (agentless)
 
-This article describes how to set up agentless dependency analysis using Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
+This article describes how to set up agentless dependency analysis using Azure Migrate:Discovery and assessment tool. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
 
 > [!IMPORTANT]
-> Agentless dependency analysis is currently in preview for servers running in your VMware environment, discovered with the Azure Migrate:Server Assessment tool.
+> Agentless dependency analysis is currently in preview for servers running in your VMware environment, discovered with the Azure Migrate:Discovery and assessment tool.
 > This preview is covered by customer support and can be used for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -26,7 +26,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## Before you start
 
-- Ensure that you have [created an Azure Migrate project](./create-manage-projects.md) with the Azure Migrate:Server Assessment tool added to it.
+- Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate:Discovery and assessment tool added to it.
 - Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform dependency analysis.
 - Review [appliance requirements](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) before setting up the appliance.
 - [Review dependency analysis requirements](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) before enabling dependency analysis on servers.
@@ -37,7 +37,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 3. [Review data](migrate-appliance.md#collected-data---vmware) that the appliance collects during discovery and assessment.
 4. [Note](migrate-support-matrix-vmware.md#port-access-requirements) port access requirements for the appliance.
-5. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create a server running in your vCenter Server. After deploying the appliance, you need to register it with the Azure Migrate project and configure it to initiate the discovery.
+5. [Deploy the Azure Migrate appliance](how-to-set-up-appliance-vmware.md) to start discovery. To deploy the appliance, you download and import an OVA template into VMware to create a server running in your vCenter Server. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
 6. As you configure the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the vCenter Server to which you want to connect.
     - vCenter Server credentials scoped to discover the servers in your VMware environment.
@@ -46,7 +46,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 ## Verify permissions
 
 - You need to [create a vCenter Server read-only account](./tutorial-discover-vmware.md#prepare-vmware) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the servers to collect dependency data.
-- You need a user account so that Server Assessment can access the server to collect dependency data. [Learn](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) about account requirements for Windows and Linux servers.
+- You need a user account so that Azure Migrate can access the server to collect dependency data. [Learn](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) about account requirements for Windows and Linux servers.
 
 ### Add credentials and initiate discovery
 
@@ -64,7 +64,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 Select the servers on which you want to enable dependency discovery.
 
-1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
+1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
 2. Choose the **Appliance name** whose discovery you want to review.
 1. You can see the validation status of the servers under **Dependencies (agentless)** column.
 1. Click the **Dependency analysis** drop-down.
@@ -78,7 +78,7 @@ You can visualize dependencies around six hours after enabling dependency analys
 
 ## Visualize dependencies
 
-1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
+1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
 1. Choose the **Appliance name** whose discovery you want to review.
 1. Search for the server whose dependencies, you want to review.
 1. Under the **Dependencies (agentless)** column, click **View dependencies**
@@ -97,7 +97,7 @@ You can visualize dependencies around six hours after enabling dependency analys
 
 ## Export dependency data
 
-1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
+1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
 2. Click the **Dependency analysis** drop-down.
 3. Click **Export application dependencies**.
 4. In the **Export application dependencies** page, choose the appliance name that is discovering the desired servers.
@@ -129,7 +129,7 @@ Destination port | Port number on the destination server
 
 Select the servers on which you want to stop dependency discovery.
 
-1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
+1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
 1. Choose the **Appliance name** whose discovery you want to review.
 1. Click the **Dependency analysis** drop-down.
 1. Click **Remove servers**.
@@ -154,7 +154,7 @@ Download the PowerShell module from [Azure PowerShell Samples](https://github.co
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Select the subscription in which you have created the Azure Migrate project 
+2. Select the subscription in which you have created the project 
 
     ```PowerShell
     select-azsubscription -subscription "Fabrikam Demo Subscription"
@@ -168,7 +168,7 @@ Download the PowerShell module from [Azure PowerShell Samples](https://github.co
 
 ### Enable or disable dependency data collection
 
-1. Get the list of discovered servers in your Azure Migrate project using the following commands. In the example below, the project name is FabrikamDemoProject, and the resource group it belongs to is FabrikamDemoRG. The list of servers will be saved in FabrikamDemo_VMs.csv
+1. Get the list of discovered servers in your project using the following commands. In the example below, the project name is FabrikamDemoProject, and the resource group it belongs to is FabrikamDemoRG. The list of servers will be saved in FabrikamDemo_VMs.csv
 
     ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
@@ -209,7 +209,7 @@ Azure Migrate offers a Power BI template that you can use to visualize network c
         Connect-AzAccount -EnvironmentName AzureUSGovernment
         ```
 
-    - Select the subscription in which you have created the Azure Migrate project
+    - Select the subscription in which you have created the project
 
         ```PowerShell
         select-azsubscription -subscription "Fabrikam Demo Subscription"

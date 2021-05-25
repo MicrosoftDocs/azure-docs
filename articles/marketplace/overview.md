@@ -18,7 +18,7 @@ The commercial marketplace is available in more than 100 countries and regions, 
 
 The Microsoft commercial marketplace has two online stores: [Microsoft AppSource](https://appsource.microsoft.com/) and [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource contains business solutions and Azure Marketplace contains IT solutions. Commercial marketplace software and services can also be found in Microsoft products such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.
 
-When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store) and [A Buyer's Guide to Microsoft AppSource and Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
 
 ### Microsoft AppSource
 
@@ -70,12 +70,12 @@ Partners who list with the commercial marketplace are eligible for a diverse set
 
 - Leverage the technical resources you need to get your application ready for launch, from technical support, application design, and architecture design, to Azure credits for development and testing.
 - Access free Microsoft Go-To-Market Launch Fundamentals to help you launch and promote your solution. You might also be eligible for additional Microsoft marketing campaign inclusion and opportunities to be featured in the commercial marketplace.
-- Reach additional customers and expand your sales opportunities with the [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider) (CSP) program, the [co-sell](marketplace-co-sell.md) program, and Microsoft Sales teams.
+- Reach additional customers and expand your sales opportunities with the [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider) (CSP) program, the [co-sell](./co-sell-overview.md) program, and Microsoft Sales teams.
 
 To learn about these benefits in more detail, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
 
 ## Next steps
 
 - Get an [Introduction to the Microsoft commercial marketplace](/learn/modules/intro-commercial-marketplace/) on Microsoft Learn.
-- For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md).
+- For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](create-account.md).
 - To learn more about recent and future releases, join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).

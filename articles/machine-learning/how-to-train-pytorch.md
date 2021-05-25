@@ -9,8 +9,7 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
 ms.date: 01/14/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 
 #Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
@@ -29,11 +28,11 @@ Run this code on either of these environments:
 
 - Azure Machine Learning compute instance - no downloads or installation necessary
 
-    - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > pytorch > train-hyperparameter-tune-deploy-with-pytorch** folder. 
  
  - Your own Jupyter Notebook server
-    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
+    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
@@ -61,7 +60,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -178,7 +177,7 @@ For more information on creating and using environments, see [Create and use sof
 
 ### Create a ScriptRunConfig
 
-Create a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. 
+Create a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. 
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -200,7 +199,7 @@ For more information on configuring jobs with ScriptRunConfig, see [Configure an
 
 ## Submit your run
 
-The [Run object](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
+The [Run object](/python/api/azureml-core/azureml.core.run%28class%29) provides the interface to the run history while the job is running and after it has completed.
 
 ```Python
 run = Experiment(ws, name='Tutorial-pytorch-birds').submit(src)
@@ -265,7 +264,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-In order to execute a distributed job using MPI/Horovod on Azure ML, you must specify an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. The below code will configure a 2-node distributed job running one process per node. If you would also like to run multiple processes per node (i.e. if your cluster SKU has multiple GPUs), additionally specify the `process_count_per_node` parameter in MpiConfiguration (the default is `1`).
+In order to execute a distributed job using MPI/Horovod on Azure ML, you must specify an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. The below code will configure a 2-node distributed job running one process per node. If you would also like to run multiple processes per node (i.e. if your cluster SKU has multiple GPUs), additionally specify the `process_count_per_node` parameter in MpiConfiguration (the default is `1`).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -292,7 +291,7 @@ There are no fundamental differences between these launch options; it is largely
 #### Per-process launch
 To use this option to run a distributed PyTorch job, do the following:
 1. Specify the training script and arguments
-2. Create a [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) and specify the `process_count` as well as `node_count`. The `process_count` corresponds to the total number of processes you want to run for your job. This should typically equal the number of GPUs per node multiplied by the number of nodes. If `process_count` is not specified, Azure ML will by default launch one process per node.
+2. Create a [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration) and specify the `process_count` as well as `node_count`. The `process_count` corresponds to the total number of processes you want to run for your job. This should typically equal the number of GPUs per node multiplied by the number of nodes. If `process_count` is not specified, Azure ML will by default launch one process per node.
 
 Azure ML will set the following environment variables:
 * `MASTER_ADDR` - IP address of the machine that will host the process with rank 0.
@@ -381,7 +380,7 @@ To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your tra
 In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
 * [How and where to deploy models](how-to-deploy-and-where.md)
-* [Track run metrics during training](how-to-track-experiments.md)
+* [Track run metrics during training](how-to-log-view-metrics.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

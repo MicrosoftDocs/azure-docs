@@ -13,9 +13,8 @@ ms.date: 11/05/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-#As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD organization more secure.
-
 ms.collection: M365-identity-device-management
+#Customer intent: As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD organization more secure.
 ---
 
 # Administrator roles by admin task in Azure Active Directory
@@ -54,7 +53,7 @@ Read all configuration | Global reader |
 Read B2C audit logs | Global reader ([see documentation](../../active-directory-b2c/faq.md)) | 
 
 > [!NOTE]
-> Azure AD B2C Global readers do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
+> Azure AD B2C Global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
 
 ## Company branding
 

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -98,10 +98,10 @@ When you create a storage account with the Azure portal, the minimum TLS version
 To configure the minimum TLS version for an existing storage account with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
-1. Select the **Configuration** setting.
-1. Under **Minimum TLS version**, use the drop-down to select the minimum version of TLS required to access data in this storage account, as shown in the following image.
+1. Under **Settings** select the **Configuration**.
+1. Under **Minimum TLS version**, use the drop-down to select the minimum version of TLS required to access data in this storage account.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot showing how to configure minimum version of TLS in the Azure portal":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot showing how to configure minimum version of TLS in the Azure portal." lightbox="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -250,22 +250,24 @@ To create a policy with an Audit effect for the minimum TLS version with the Azu
 
     ```json
     {
-      "if": {
-        "allOf": [
-          {
-            "field": "type",
-            "equals": "Microsoft.Storage/storageAccounts"
-          },
-          {
-            "not": {
-              "field":"Microsoft.Storage/storageAccounts/minimumTlsVersion",
-              "equals": "TLS1_2"
+      "policyRule": {
+        "if": {
+          "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+              "not": {
+                "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+                "equals": "TLS1_2"
+              }
             }
-          }
-        ]
-      },
-      "then": {
-        "effect": "audit"
+          ]
+        },
+        "then": {
+          "effect": "audit"
+        }
       }
     }
     ```
@@ -312,22 +314,24 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
 
 ```json
 {
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Storage/storageAccounts"
-      },
-      {
-        "not": {
-          "field":"Microsoft.Storage/storageAccounts/minimumTlsVersion",
-          "equals": "TLS1_2"
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Storage/storageAccounts"
+        },
+        {
+          "not": {
+            "field": "Microsoft.Storage/storageAccounts/minimumTlsVersion",
+            "equals": "TLS1_2"
+          }
         }
-      }
-    ]
-  },
-  "then": {
-    "effect": "deny"
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
   }
 }
 ```

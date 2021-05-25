@@ -1,12 +1,8 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/18/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # About Azure Defender for IoT network setup
@@ -616,7 +612,7 @@ An overview of the industrial network diagram will allow you to define the prope
  
     <Add your network diagram with marked serial connection> 
 
-7. For QoS, the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
+7. For Quality of Service (QoS), the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
 
    Business unit (BU): ________________ 
 

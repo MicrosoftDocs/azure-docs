@@ -64,6 +64,9 @@ In this scenario, there is an existing forest synced using Azure AD Connect sync
 9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
 ![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install-4a.png)</br>
 
+   > [!NOTE]
+   > The group managed service account (for example, CONTOSO\provAgentgMSA$) is created in the same Active Directory domain where the host server has joined.
+
 10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install-5.png)</br>
 11. If you still see the initial splash screen, click **Close**.
