@@ -2,7 +2,7 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 05/10/2021
+ms.date: 05/25/2021
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -31,7 +31,7 @@ This article shows how to configure a private endpoint for your registry using t
 
   az provider register --namespace Microsoft.ContainerRegistry
   ``` 
-## Set up private endpoint - portal
+## Set up private endpoint - portal (recommended)
 
 Set up a private endpoint when you create a registry, or add a private endpoint to an existing registry. 
 

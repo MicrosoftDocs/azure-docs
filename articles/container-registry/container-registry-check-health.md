@@ -40,10 +40,10 @@ az acr check-health --name myregistry
 
 ### Check registry access in a virtual network
 
-To verify DNS settings to route to a private endpoint, pass the resource ID of the virtual network:
+To verify DNS settings to route to a private endpoint, pass the name or resource ID of the virtual network:
 
 ```azurecli
-az acr check-health --name myregistry --vnet myvnetID
+az acr check-health --name myregistry --vnet myvnet
 ```
 
 ## Error reporting
