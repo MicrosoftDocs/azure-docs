@@ -16,8 +16,8 @@
     href: quickstart-create-bicep-use-visual-studio-code.md
 - name: Tutorials
   items:
-  - name: MSLearn - Deploy Azure resources
-    href: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
+  - name: Microsoft Learn - Bicep
+    href: learn-bicep.md
 - name: How to
   items:
   - name: Author
