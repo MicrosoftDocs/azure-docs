@@ -37,7 +37,7 @@ For the preview, these features are supported:
  
 
 ## Regions
-The Azure Image Builder Service will be available for preview in [these](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-json#location) regions. Images can be distributed outside of these regions.
+The Azure Image Builder Service will be available for preview in [these](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#location) regions. Images can be distributed outside of these regions.
 
 ## OS support
 AIB will support Azure Marketplace base OS images:
