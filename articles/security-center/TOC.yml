@@ -202,6 +202,9 @@
     - name: Scan your registry images for vulnerabilities
       displayName: ACR, registry, images, qualys
       href: defender-for-container-registries-usage.md
+    - name: Scan images in your CI/CD workflows
+      displayName: ACR, registry, images, trevi, vulnerabilities, scanner
+      href: defender-for-container-registries-cicd.md
     - name: Disable specific image vulnerability findings
       displayName: ACR, registry, images, qualys
       href: defender-for-container-registries-usage.md#disable-specific-findings-preview
