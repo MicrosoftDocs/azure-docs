@@ -77,15 +77,15 @@ conceptualContent:
         - url: bicep/file.md
           itemType: reference
           text: Bicep file structure
+        - url: bicep/data-types.md
+          itemType: reference
+          text: Bicep data types
         - url: bicep/bicep-functions.md
           itemType: reference
           text: Bicep functions
         - url: bicep/operators.md
           itemType: reference
           text: Bicep operators
-        - url: bicep/deploy-powershell.md
-          itemType: how-to-guide
-          text: Deploy
         - url: bicep/deploy-powershell.md
           itemType: how-to-guide
           text: Deploy
