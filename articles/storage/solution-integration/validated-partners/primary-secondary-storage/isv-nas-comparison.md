@@ -10,11 +10,11 @@ ms.service: storage
 ms.subservice: common
 ---
 
-# Considerations for running ISV file services in Azure
+# Running ISV file services in Azure
 
 ## Overview
 
-Azure offers various options for storing file data. There are several Azure native services:
+Azure offers various options for storing file data. Azure native services are:
 - [Azure Files](https://azure.microsoft.com/services/storage/files/) – Fully managed file shares in the cloud that are accessible via the industry-standard SMB and NFS protocols. Azure files offer two different types (standard and premium) with different performance characteristics.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) – Fully managed file shares in the cloud designed to meet the performance requirements for enterprise line-of-business applications. Azure NetApp Files offer multiple service levels with different performance limitations (standard, premium, and ultra).
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) – large-scale object storage platform for storing unstructured data. Azure Blob Storage offer two different types (standard and premium) with different performance characteristics. 
@@ -24,8 +24,8 @@ There are several articles that describe the differences and recommendation on s
 - [Detailed comparison between Azure Files and Azure NetApp Files](/azure/storage/files/storage-files-netapp-comparison)
 
 Many independent software vendor (ISV) solutions can provide file services in Azure. This article addresses two topics:
-- outlies the differences between ISV solutions
-- provides general guidance on selecting file services. 
+- provides general considerations on selecting file services
+- outlies the differences between ISV solutions.
   
 Full list of verified ISV solutions is available on [Azure Storage partners for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
 
@@ -63,7 +63,7 @@ Some general rules are always recommended:
     - have a suitable caching algorithm.
   - For high concurrency and large block size workloads, explore solutions that use Azure Blob Storage as a backend
 
-## Solution overview and example use cases
+## ISV solutions: overview and example use cases
 
 This article compares several ISV solutions that provide files services in Azure.
 
@@ -75,7 +75,7 @@ This article compares several ISV solutions that provide files services in Azure
 | **Tiger Technology** | **Tiger Bridge** is a data management software solution. Provides tiering between an NTFS file system and Azure Blob Storage or Azure managed disks. Creates a single namespace with local file locking. | - Analytics <br> - Cloud archive <br> - Continuous data protection (CDP) <br> - Disaster Recovery for Windows servers <br> - Multi-sync sync and collaboration <br> - Remote workflows (VDI) |
 | **XenData** | **Cloud File Gateway** creates a highly scalable global file system using windows file servers | - Global sharing of engineering and scientific files <br> - Collaborative video editing |
 
-## Feature comparison
+## ISV solutions comparison
 
 ### Supported protocols
 
