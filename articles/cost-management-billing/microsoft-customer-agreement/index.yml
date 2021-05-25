@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 05/05/2021
+  ms.date: 05/21/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -75,6 +75,8 @@ landingContent:
         url: https://www.youtube.com/watch?v=9sqglBlKkho
       - text: Understand your invoice
         url: https://www.youtube.com/watch?v=e2LGZZ7GubA
+      - text: Transition billing for Azure subscriptions from MOSA to MCA
+        url: https://www.youtube.com/watch?v=gfiUI2YLsgc
 
 
   # Card (optional)
