@@ -15,7 +15,7 @@ The Microsoft commercial marketplace is a catalog of solutions from our independ
 
 The commercial marketplace is available in more than 100 countries and regions, and we manage tax payment in many of them. If you sell to established Microsoft customers, they have the added benefit of including commercial marketplace purchases in their existing Microsoft purchase agreements to receive a consolidated invoice from Microsoft.
 
-## What are the commercial marketplace stores?
+## Commercial marketplace online stores
 
 The Microsoft commercial marketplace as discussed in this article has two main online stores: 
 
