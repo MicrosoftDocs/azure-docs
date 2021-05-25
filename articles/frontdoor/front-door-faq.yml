@@ -181,7 +181,7 @@ sections:
       - question: |
           How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
         answer:  |
-          Most Rules Engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
+          Most rules engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
       - question: |
           Can I configure Azure CDN behind my Front Door profile or vice versa?
