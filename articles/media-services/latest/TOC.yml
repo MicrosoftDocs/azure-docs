@@ -95,6 +95,8 @@
     items:
     - name: Python Basic Encoding
       href: encode-basic-encoding-python-quickstart.md
+    - name: Event-based Face Redaction
+      href: faceredaction-eventbased-python-quickstart.md
   - name: Azure portal
     items:
     - name: Customer managed keys or BYOK tutorial
