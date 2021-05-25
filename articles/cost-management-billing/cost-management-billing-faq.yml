@@ -7,7 +7,7 @@ metadata:
   ms.reviewer: adwise
   ms.service: cost-management-billing
   ms.topic: conceptual
-  ms.date: 04/15/2021
+  ms.date: 05/21/2021
   ms.author: banders
     
 title: Azure Cost Management + Billing frequently asked questions (FAQ)
@@ -27,15 +27,18 @@ sections:
       - question: Why am I getting charged? I have a Free Azure account.
         answer: |
           Free services have limits. Most likely, you've exceeded the free limits. See [Avoid charges with your Azure free account](manage/avoid-charges-free-account.md).
-      - question: How do I understand my bill?
+      - question: How do I understand my bill and reconcile charges?
         answer: |
-          If you bought your Azure subscription through the Azure website, see [Review your individual Azure subscription bill](understand/review-individual-bill.md).
+          If you bought your Azure subscription through the Azure website, see the [Review your individual Azure subscription bill](understand/review-individual-bill.md) tutorial. The tutorial explains how charges on your invoice relate to the services that you've used.
       - question: How do I quickly see my charges?
         answer: |
           See [Explore and analyze costs with cost analysis](costs/quick-acm-cost-analysis.md).
       - question: I have unexpected charges. How do I understand them?
         answer: |
           See [Analyze unexpected charges](understand/analyze-unexpected-charges.md).
+      - question: How do I change my billing information?
+        answer: |
+          See [Change billing information](manage/change-azure-account-profile.md).
       - question: How do I cancel my Azure subscription?
         answer: |
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).

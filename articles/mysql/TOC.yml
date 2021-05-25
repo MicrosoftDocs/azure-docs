@@ -198,13 +198,13 @@
         - name: Configure TLS
           href: howto-tls-configurations.md
           displayName: TLS, security, development
-        - name: Advanced Threat Protection
-          items:
-            - name: Concepts
-              href: concepts-data-access-and-security-threat-protection.md 
-            - name: Configuring Advanced Threat Protection using Azure portal
-              href: howto-database-threat-protection-portal.md
-              displayName: atp, advanced thread, security      
+      - name: Advanced Threat Protection
+        items:
+          - name: Threat protection with Azure Defender
+            href: ../security-center/defender-for-databases-introduction.md
+          - name: Configuring Azure Defender using Azure portal
+            href: howto-database-threat-protection-portal.md
+            displayName: atp, advanced thread, security      
       - name: Encryption at rest
         items:
         - name: Data Encryption
