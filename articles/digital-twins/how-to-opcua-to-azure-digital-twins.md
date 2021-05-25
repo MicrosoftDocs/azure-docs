@@ -334,4 +334,13 @@ az webapp log tail –name {function-name} --resource-group {resource-group}
 * Added three new application settings to the Azure Functions app.
 * Event Subscription created.
 
-## Summary and next steps
+## Next steps
+
+Read about the supporting tools and processes to help get your OPC UA Server data into Azure Digital Twins:
+
+- [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
+- [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
+- [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher)
+- [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure.md)
+- [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) 
+- [OPCUA2DTDL](https://github.com/khilscher/OPCUA2DTDL)
