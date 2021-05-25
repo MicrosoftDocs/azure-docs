@@ -54,7 +54,7 @@ Follow these steps to create a VM connected to an Azure Files share.
 5. [Publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM.
 
 > [!IMPORTANT]
-> Make sure Azure Firewall isn't blocking the outgoing SMB connection through port 445. By default, SMB is allowed for Azure VMs.
+> Make sure Windows Defender Firewall isn't blocking the outgoing SMB connection through port 445. By default, SMB is allowed for Azure VMs.
 
 ### Use Azure Files with Linux
 
@@ -128,7 +128,7 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
     - **Storage File Data SMB Share Elevated Contributor** role must be assigned to the person or group that will set up permissions for contents of the file share.
     - **Storage File Data SMB Share Contributor** role should be assigned to students who need to add or edit files on the file share.
     - **Storage File Data SMB Share Reader** role should be assigned to students who only need to read the files from the file share.
-6. Set up directory- and file-level permissions for the file share. You must set up permissions from a domain-joined machine that has network access to the file share. To modify directory- and file-level permissions, mount the file share by using the storage key, not your Azure AD credentials. To assign permissions, use the [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command, or [icacls](/windows-server/administration/windows-commands/icacls) in Windows.
+6. Set up directory- and/or file-level permissions for the file share. You must set up permissions from a domain-joined machine that has network access to the file share. To modify directory- and/or file-level permissions, mount the file share by using the storage key, not your Azure AD credentials. To assign permissions, use the [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command, or [icacls](/windows-server/administration/windows-commands/icacls) in Windows.
 7. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the storage account to the lab account.
 8. [Create the classroom lab](how-to-manage-classroom-labs.md).
 9. Save a script on the template VM that students can run to connect to the network drive. To get example script:
@@ -139,7 +139,7 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
     1. Copy the code in the example, and save it on the template machine in a `.ps1` file for Windows, or an `.sh` file for Linux.
 10. On the template machine, download and run the script to [join student machines to the domain](https://github.com/Azure/azure-devtestlab/blob/master/samples/ClassroomLabs/Scripts/ActiveDirectoryJoin/README.md#usage). The `Join-AzLabADTemplate` script [publishes the template VM](how-to-create-manage-template.md#publish-the-template-vm) automatically.  
     > [!NOTE]
-    > The template machine isn't domain-joined. To view files on the share, assign a published student VM for themselves.
+    > The template machine isn't domain-joined. To view files on the share, instructors need to use a student VM for themselves.
 11. Students using Windows can connect to the Azure Files share by using [File Explorer](../storage/files/storage-how-to-use-files-windows.md) with their credentials, after they've been given the path to the file share. Alternately, students can run the preceding script to connect to the network drive. For students who are using Linux, run the preceding script.
 
 ## NetApp Files with NFS volumes
@@ -150,7 +150,7 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
 - Permission policies are IP-based for each volume.
 - If students need their own volume that other students don't have access to, permission policies must be assigned after the lab is published.
 - In the context of Azure Lab Services, only Linux machines are supported.
-- The virtual network for the Azure NetApp Files capacity pool must be peered to the virtual network for the lab account before the lab is created.
+- The virtual network for the Azure NetApp Files capacity pool must be peered to the virtual network for the lab account **before** the lab is created.
 
 To use an Azure NetApp Files share in Azure Lab Services:
 
