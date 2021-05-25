@@ -1,6 +1,6 @@
 ---
 title: Use Bicep to deploy resources to subscription
-description: Describes how to create a resource group in a Bicep file. It also shows how to deploy resources at the Azure subscription scope.
+description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope. It shows how to create a resource group.
 ms.topic: conceptual
 ms.date: 06/01/2021
 ---
@@ -127,7 +127,7 @@ The user deploying the template must have access to the specified scope.
 
 ### Scope to subscription
 
-To deploy resources to the target subscription, add those resources to with the `resource` keyword.
+To deploy resources to the target subscription, add those resources with the `resource` keyword.
 
 ```bicep
 targetScope = 'subscription'
