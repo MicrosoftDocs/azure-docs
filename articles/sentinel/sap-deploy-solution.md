@@ -11,9 +11,9 @@ ms.subservice: azure-sentinel
 
 ---
 
-# Tutorial: Deploy the Azure Sentinel solution for SAP (public preview)
+#  Deploy the Azure Sentinel solution for SAP (public preview)
 
-This tutorial takes you step by step through the process of deploying the Azure Sentinel solution for SAP.
+This article takes you step by step through the process of deploying the Azure Sentinel solution for SAP.
 
 > [!IMPORTANT]
 > The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
