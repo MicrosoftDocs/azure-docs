@@ -4,7 +4,7 @@ description: Details and configuration options (VNet, no cold start, unlimited e
 author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: cachai, glenga
+ms.author: cachai
 ms.custom:
 - references_regions
 - fasttrack-edit
