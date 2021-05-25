@@ -25,18 +25,18 @@ This document describes the steps to perform an operating system file level back
 
 >[!NOTE]
 > * The OS backup scripts uses xfsdump utility.  
-> * This document supports complete Root filesystem backup and **no incremental** backups
-> * Do ensure that while taking backups, there are no files being written actively to the system for which you will need a backup, since while the system is being backed up and there is a backup being performed it might not get updated in the backup.
+> * This document supports complete Root filesystem backup and **no incremental** backups.
+> * Ensure that while creating a backup, no files are being written to the same system.  Otherwise, files being written during the backup may not be included in the backup.
 > * ReaR backup is deprecated for Type II SKUs of the HANA Large Instances of Revision 3.
-> * This procedure has been tested inhouse for multiple OS corruption scenarios, since the customer is solely responsible for the OS, it is recommended to thoroughly test before relying on this documentation for customer scenarios.
-> * The process listed out has been tested out on SLES OS.
-> * Major versions upgrades, such as SLES 12.x to SLES 15x, are not supported.
-> * To complete an OS restore following the process mentioned in this document, Microsoft assistance is required since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
+> * We've tested this procedure inhouse against multiple OS corruption scenarios. However, since you, as customer, are solely responsible for the OS, we recommend you thoroughly test before relying on this documentation for your scenario.
+> * We've tested this process on SLES OS.
+> * Major versions upgrades, such as SLES 12.x to SLES 15x, aren't supported.
+> * To complete an OS restore with this process, you'll need Microsoft assistance since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
 
 
 ## How to take a manual backup?
 
-To perform a manual backup :
+To perform a manual backup:
 
 * Install the backup tool 
    ```
@@ -70,54 +70,54 @@ To perform a manual backup :
 ## How to restore a backup?
 
 >[!NOTE]
-> * This step requires engaging Microsoft team.
-> * To complete an OS restore following the process mentioned in this document, Microsoft assistance is required since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
+> * This step requires engaging the Microsoft operations team.
+> * To complete an OS restore with this process, Microsoft assistance is required since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
 > * We will be restoring the complete filesystem:
 
-* Mount OS iso on the system 
+* Mount OS iso on the system.
 
-* Enter rescue mode
+* Enter rescue mode.
 
-* Mount data1 (or nfs volume, wherever the dump is stored) partition in read write mode
+* Mount data1 (or nfs volume, wherever the dump is stored) partition in read/write mode.
    ```
    mount -o rw /dev/md126p4 /mnt1
    ```
-* Mount Root in read write mode
+* Mount Root in read/write mode.
    ```
    mount -o rw /dev/md126p2 /mnt2
    ```
-* Restore Filesystem 
+* Restore Filesystem.
    ```
    xfsrestore -f /mnt1/xfs_dump /mnt2
    ```
    ![how](media/HowToHLI/OSBackupTypeIISKUs/restore_screenshot.PNG)
-* Reboot the system
+* Reboot the system.
    ```
    reboot
    ```
 
-* * In the scenario, any post checks fail, please engage OS vendor and Microsoft for a console access.
+* * If any post checks fail, please engage the OS vendor and Microsoft for console access.
 
 ## Post Restore check
 
 * Ensure the system has complete attributes restored.
-   * Network is up
-   * NFS volumes are mounted
-* Ensure RAID is configured, please replace with your RAID device
+   * Network is up.
+   * NFS volumes are mounted.
+* Ensure RAID is configured; please replace with your RAID device.
    ```
    mdadm -D /dev/md126
    ```
    ![how](media/HowToHLI/OSBackupTypeIISKUs/RAID_status.PNG)
 
 * Ensure that RAID disks are synced and the configuration is in a clean state.
-   * RAID disks take sometime in syncing and for the initial few minutes it will sync before it is 100% synced.
+   * RAID disks take sometime in syncing; sync may continue for a few minutes before it is 100% synced.
 
 * Start HANA DB and verify HANA is operating as expected.
 
-* Ensure HANA comes up and there are no errors
+* Ensure HANA comes up and there are no errors.
    ```
    hdbinfo
    ```
    ![how](media/HowToHLI/OSBackupTypeIISKUs/hana_status.PNG)
 
-* In the scenario, any post checks fail, please engage OS vendor and Microsoft for a console access.
+* If any post checks fail, please engage OS vendor and Microsoft for console access.
