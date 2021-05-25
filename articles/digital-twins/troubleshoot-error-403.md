@@ -69,15 +69,15 @@ Switch to the *All applications* tab to see all the app registrations that have 
 
 You should see the app registration you just created in the list. Select it to open up its details.
 
-:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="App registrations page in the Azure portal":::
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Screenshot of the app registrations page in the Azure portal.":::
 
 First, verify that the Azure Digital Twins permissions settings were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
 
 Next, select *API permissions* from the menu bar to verify that this app registration contains Read/Write permissions for Azure Digital Twins. You should see an entry like this:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Portal view of the API permissions for the Azure AD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Azure AD app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
 
 #### Fix issues
 
