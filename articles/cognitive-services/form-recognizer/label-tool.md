@@ -18,11 +18,7 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the sample labeling tool
 
-<<<<<<< HEAD:articles/cognitive-services/form-recognizer/quickstarts/label-tool.md
-In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
-=======
 In this article, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
->>>>>>> 66c0a3ae37f30dbcbf9d115c95aa47155577e1c6:articles/cognitive-services/form-recognizer/label-tool.md
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -365,8 +361,4 @@ In this quickstart, you've learned how to use the Form Recognizer sample labelin
 > [Train with labels using Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [What is Form Recognizer?](overview.md)
-<<<<<<< HEAD:articles/cognitive-services/form-recognizer/quickstarts/label-tool.md
-* [Form Recognizer quickstart](client-library.md)
-=======
 * [Form Recognizer quickstart](quickstarts/client-library.md)
->>>>>>> 66c0a3ae37f30dbcbf9d115c95aa47155577e1c6:articles/cognitive-services/form-recognizer/label-tool.md

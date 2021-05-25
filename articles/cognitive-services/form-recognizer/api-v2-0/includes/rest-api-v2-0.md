@@ -32,6 +32,19 @@ ms.author: lajanuar
 * A URL for an image of a business card. You can use a [sample image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
 * A URL for an image of an invoice. You can use a [sample document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
 
+## Code examples
+
+These code snippets show you how to do the following tasks with the Form Recognizer REST API:
+<!-- markdownlint-disable MD001 -->
+
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
+* [Train a custom model](#train-a-custom-model)
+* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Manage custom models](#manage-custom-models)
+
+
+
 ## Analyze layout
 
 You can use Form Recognizer to analyze and extract tables, selection marks, text, and structure in documents, without needing to train a model. For more information about layout extraction see the [Layout conceptual guide](../../concept-layout.md). Before you run the command, make these changes:
@@ -551,7 +564,7 @@ To train a custom model, you'll need a set of training data in an Azure Storage 
 Training without labeled data is the default operation and is simpler. Alternatively, you can manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
+> You can also train models with a graphical user interface such as the [Form Recognizer sample labeling tool](../../label-tool.md).
 
 ### Train a model without labels
 
@@ -571,7 +584,7 @@ You'll receive a `201 (Success)` response with a **Location** header. The value 
 
 ### Train a model with labels
 
-To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
+To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
 
 Before you run the command, make these changes:
 

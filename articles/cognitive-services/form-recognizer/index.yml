@@ -1,11 +1,7 @@
 ### YamlMime:Landing
 
 title: Form Recognizer documentation # < 60 chars
-<<<<<<< HEAD
-summary: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and field data without manual data labeling or intensive coding. You can also do supervised learning with manually labeled data. Models trained with labeled data perform better and can work with more complicated documents. # < 160 chars
-=======
 summary: Azure Form Recognizer is a part of Azure Applied AI Services that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and field data without manual data labeling or intensive coding. You can also do supervised learning with manually labeled data. Models trained with labeled data can perform better and can work with more complicated documents. # < 160 chars
->>>>>>> 66c0a3ae37f30dbcbf9d115c95aa47155577e1c6
 
 metadata:
   title: Form Recognizer documentation - Quickstarts, Tutorials, API Reference - Azure Applied AI Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -99,11 +95,6 @@ landingContent:
             url: concept-business-cards.md
       - linkListType: quickstart
         links:
-<<<<<<< HEAD
-            - text: Train using the sample labeling tool
-              url: quickstarts/label-tool.md
-  - title: Extract data from receipts
-=======
           - text: Using the .NET SDK
             url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
           - text: Using the Python SDK
@@ -120,7 +111,6 @@ landingContent:
             url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 
   - title: Extract data from invoices
->>>>>>> 66c0a3ae37f30dbcbf9d115c95aa47155577e1c6
     linkLists:
       - linkListType: concept
         links:
