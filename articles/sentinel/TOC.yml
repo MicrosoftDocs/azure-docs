@@ -319,17 +319,17 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
-- name: SAP integration
+- name: Integrate SAP and Azure Sentinel
   items:
     - name: Deploy SAP continuous threat monitoring
       href: sap-deploy-solution.md
-    - name: Detailed SAP solution requirements
+    - name: Deployment requirements
       href: sap-solution-detailed-requirements.md
     - name: Available SAP logs
       href: sap-solution-log-reference.md
-    - name: SAP solution security content
+    - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
-    - name: Advanced - Deploy the SAP data connector on-premises
+    - name: Deploy the SAP data connector on-premises
       href: sap-solution-deploy-alternate.md
 - name: Reference
   items:
