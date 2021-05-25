@@ -121,7 +121,7 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: /cli/azure/sql
+            url: /cli/azure/azure-cli-reference-for-sql#sql-managed-instance-references
           - text: PowerShell
             url: /powershell/module/az.sql
           - text: REST API
