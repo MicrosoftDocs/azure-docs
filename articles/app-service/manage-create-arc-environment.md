@@ -45,6 +45,7 @@ az extension add --upgrade --yes --name connectedk8s
 az extension add --upgrade --yes --name k8s-extension
 az extension add --upgrade --yes --name customlocation
 az provider register --namespace Microsoft.ExtendedLocation --wait
+az provider register --namespace Microsoft.Web --wait
 az extension remove --name appservice-kube
 az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
 ```
@@ -52,11 +53,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 ## Create a connected cluster
 
 > [!NOTE]
-> As more Kubernetes distributions are validated for App Service Kubernetes environments, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc enabled Kubernetes cluster.
-
-<!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
-
-Because App Service on Arc is currently validated only on [Azure Kubernetes Service](/azure/aks/), create an Azure Arc enabled cluster on Azure Kubernetes Service. 
+> This tutorial uses [Azure Kubernetes Service (AKS)](/azure/aks/) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you will likely not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. The steps below will help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc enabled Kubernetes cluster.
 
 1. Create a cluster in Azure Kubernetes Service with a public IP address. Replace `<group-name>` with the resource group name you want.
 

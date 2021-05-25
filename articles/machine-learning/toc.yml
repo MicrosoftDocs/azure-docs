@@ -73,8 +73,8 @@
           href: tutorial-labeling.md
     - name: CLI
       items: 
-        - name: Train & deploy with CLI
-          href: tutorial-train-deploy-model-cli.md
+        - name: Train models with 2.0 CLI
+          href: how-to-train-cli.md
         - name: Access Azure resources with managed endpoints
           href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
