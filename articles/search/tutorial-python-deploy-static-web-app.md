@@ -1,7 +1,7 @@
 ---
 title:  "Python tutorial: Deploy search-enabled website"
 titleSuffix: Azure Cognitive Search
-description: Deploy search-enabled website to Azure Static web app.
+description: Deploy search-enabled Python website to Azure Static web app.
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -12,7 +12,7 @@ ms.custom: devx-track-python
 ms.devlang: python
 ---
 
-# 3 - Deploy the search-enabled website
+# 3 - Deploy the search-enabled Python website
 
 Deploy the search-enabled website as an Azure Static web app. This deployment includes both the React app and the Function app.  
 

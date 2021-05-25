@@ -1,7 +1,7 @@
 ---
 title: "Python tutorial: Search integration overview"
 titleSuffix: Azure Cognitive Search
-description: Technical overview and setup for adding search to a website and deploying to Azure Static Web App. 
+description: Technical overview and setup for adding search to a website with Python and deploying to Azure Static Web App. 
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -12,7 +12,7 @@ ms.custom: devx-track-python
 ms.devlang: python
 ---
 
-# 1 - Overview of adding search to a website
+# 1 - Overview of adding search to a website with Python
 
 This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. 
 
