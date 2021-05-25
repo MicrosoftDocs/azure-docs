@@ -8,18 +8,19 @@ ms.subservice: core
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 09/30/2020
+ms.date: 05/25/2021
 ---
 
 # Interactive debugging with Visual Studio Code
-
-
 
 Learn how to interactively debug Azure Machine Learning experiments, pipelines, and deployments using Visual Studio Code (VS Code) and [debugpy](https://github.com/microsoft/debugpy/).
 
 ## Run and debug experiments locally
 
 Use the Azure Machine Learning extension to validate, run, and debug your machine learning experiments before submitting them to the cloud.
+
+> [!IMPORTANT]
+> The Azure Machine Learning VS Code extension uses the 2.0 CLI by default. The instructions in this guide use 1.0 CLI. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
 
 ### Prerequisites
 
