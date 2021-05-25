@@ -45,20 +45,13 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         
         | Security style 	| Clients that can modify permissions 	| Permissions that clients can use 	| Resulting effective security style 	| Clients that can access files 	|
         |-	|-	|-	|-	|-	|
-        | `Unix` 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
+        | `Unix` 	| NFS 	| NFSv3 or NFSv4.1 mode bits 	| UNIX 	| NFS and Windows	|
         | `Ntfs` 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
 
     * The direction in which the name mapping occurs (Windows to UNIX, or UNIX to Windows) depends on which protocol is used and which security style is applied to a volume. A Windows client always requires a Windows-to-UNIX name mapping. Whether a user is applied to review permissions depends on the security style. Conversely, an NFS client only needs to use a UNIX-to-Windows name mapping if the NTFS security style is in use. 
 
         The following table describes the name mappings and security styles:  
     
-<<<<<<< HEAD
-    | Security style 	| Clients that can modify permissions 	| Permissions that clients can use 	| Resulting effective security style 	| Clients that can access files 	|
-    |-	|-	|-	|-	|-	|
-    | `Unix` 	| NFS 	| NFSv3 or NFSv4.1 mode bits 	| UNIX 	| NFS and Windows	|
-    | `Ntfs` 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
-* UNIX users mounting the NTFS security style volume using NFS will be authenticated as Windows user `root` for UNIX `root` and `pcuser` for all other users. Make sure that these user accounts exist in your Active Directory prior to mounting the volume when using NFS. 
-=======
         |     Protocol          |     Security style          |     Name mapping direction          |     Permissions applied          |
         |-|-|-|-|
         |  SMB  |  `Unix`  |  Windows to UNIX  |  UNIX (mode bits or NFSv4.x ACLs)  |
@@ -66,7 +59,6 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
         |  NFSv3  |  `Unix`  |  None  |  UNIX (mode bits or NFSv4.x ACLs) <br><br>  Note that NFSv4.x ACLs can be applied using an NFSv4.x administrative client and honored by NFSv3 clients.  |
         |  NFS  |  `Ntfs`  |  UNIX to Windows  |  NTFS ACLs (based on mapped Windows user SID)  |
 
->>>>>>> 5eb3f608ea5e532c17bdd4eef9de345089a828d4
 * If you have large topologies, and you use the `Unix` security style with a dual-protocol volume or LDAP with extended groups, Azure NetApp Files might not be able to access all servers in your topologies.  If this situation occurs, contact your account team for assistance.  <!-- NFSAAS-15123 --> 
 * You don't need a server root CA certificate for creating a dual-protocol volume. It is required only if LDAP over TLS is enabled.
 
