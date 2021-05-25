@@ -60,7 +60,7 @@ When an application or the end user would first use the IP address associated wi
 
 ## Kubernetes network configuration
 
-The IP addresses used for Kubernetes nodes and the external services are provided via the Compute network page in the local UI of the device.
+The IP addresses used for Kubernetes nodes and the external services are provided via the **Compute** page in the local UI of the device.
 
 ![Kubernetes IP assignment in local UI](./media/azure-stack-edge-gpu-kubernetes-networking/kubernetes-ip-assignment-local-ui-1.png)
 
@@ -73,8 +73,8 @@ The IP assignment is for:
 
 Calico, Metallb, and Core DNS are all the components that are installed for networking on your Azure Stack Edge Pro GPU. 
 
-- **Calico** assigns an IP address from a private IP range to every pod and configure networking for these pods so that pod on one node can communicate with the pod on another node. 
-- **Metallb** runs on an in-cluster pod and assigns IP address to services of type load balancer. Load balancer IP addresses are chosen from the service Ip range provided via the local UI. 
+- **Calico** assigns an IP address from a private IP range to every pod and configures networking for these pods so that pod on one node can communicate with the pod on another node. 
+- **Metallb** runs on an in-cluster pod and assigns IP address to services of type `load balancer`. Load balancer IP addresses are chosen from the service IP range provided via the local UI. 
 - **Core DNS** - This add-on configures DNS records mapping service name to cluster IP address.
 
 When you connect to the PowerShell interface of your device, you can see the above networking components running on your Kubernetes cluster.
