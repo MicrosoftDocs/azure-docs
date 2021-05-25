@@ -422,6 +422,6 @@ For information on using Azure Kubernetes Service with Azure Machine Learning, s
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/sizes-gpu.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[azureml-aks]: ../machine-learning/how-to-deploy-azure-kubernetes-service
-[azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus
-[azureml-triton]: ../machine-learning/how-to-deploy-with-triton
+[azureml-aks]: ../machine-learning/how-to-deploy-azure-kubernetes-service.md
+[azureml-gpu]: ../machine-learning/how-to-deploy-inferencing-gpus.md
+[azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
