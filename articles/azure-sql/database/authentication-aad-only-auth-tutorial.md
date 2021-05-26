@@ -36,14 +36,14 @@ In this tutorial, you learn how to:
 
 ## Assign role to enable Azure AD-only authentication
 
-In order to enable or disable Azure AD-only authentication, selected built-in roles are required for the Azure AD users executing these operations in this tutorial. We are going to assign the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role to the user in this tutorial.
+In order to enable or disable Azure AD-only authentication, selected built-in roles are required for the Azure AD users executing these operations in this tutorial. We're going to assign the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role to the user in this tutorial.
 
 For more information on how to assign a role to an Azure AD account, see [Assign administrator and non-administrator roles to users with Azure Active Directory](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 For more information on the required permission to enable or disable Azure AD-only authentication, see the [Permissions section of Azure AD-only authentication](authentication-aad-only-auth.md#permissions) article.
 
-1. In our example, we will assign the **SQL Security Manager** role to the user `UserSqlSecurityManager@contoso.onmicrosoft.com`. Using privileged user that can assign Azure AD roles, sign into the [Azure portal](https://portal.zure.com).
-1. Go to your SQL server resource, and select **Access control (IAM)** in the menu. Click **Add** and then **Add role assignment** in the drop down menu.
+1. In our example, we'll assign the **SQL Security Manager** role to the user `UserSqlSecurityManager@contoso.onmicrosoft.com`. Using privileged user that can assign Azure AD roles, sign into the [Azure portal](https://portal.zure.com).
+1. Go to your SQL server resource, and select **Access control (IAM)** in the menu. Select the **Add** button and then **Add role assignment** in the drop-down menu.
 
    :::image type="content" source="media/authentication-aad-only-auth/aad-only-auth-access-control.png" alt-text="Access control pane in the Azure portal":::
 
@@ -66,7 +66,7 @@ To enable Azure AD-only authentication auth in the Azure portal, see the steps b
 
    :::image type="content" source="media/authentication-aad-only-auth/aad-only-auth-portal.png" alt-text="Enable Azure AD only auth menu":::
 
-1. If you have not added an **Azure Active Directory admin**, you will need to set this before you can enable Azure AD-only authentication.
+1. If you haven't added an **Azure Active Directory admin**, you'll need to set this before you can enable Azure AD-only authentication.
 1. Select the **Support only Azure Active Directory authentication for this server** checkbox.
 1. The **Enable Azure AD authentication only** popup will show. Click **Yes** to enable the feature and **Save** the setting.
 
@@ -268,7 +268,7 @@ The status will return **True** if the feature is enabled, and **False** if disa
 
 After enabling Azure AD-only authentication, test with [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to [connect to your SQL Database or Managed Instance](connect-query-ssms.md). Use SQL authentication for the connection.
 
-You should see a login failed message similar to the following:
+You should see a login failed message similar to the following output:
 
 <pre><code overflow-wrap: break-word>
 Cannot connect to <myserver>.database.windows.net.
