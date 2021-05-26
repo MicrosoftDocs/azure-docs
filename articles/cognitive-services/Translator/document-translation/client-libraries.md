@@ -16,9 +16,6 @@ ms.author: lajanuar
 
 Use the Document Translation cloud-based batch document translation service via the C#/.NET or Python SDKs. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide. You can translate large files and whole documents asynchronously to and from 90 languages and dialects while preserving the original layout and data formats.
 
->[!IMPORTANT]
-> The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
-
 ### [C#/.NET](#tab/csharp)
 
 [Source code][documenttranslation_client_src] | [Package (NuGet)][documenttranslation_nuget_package] | [API reference documentation][documenttranslation_refdocs] | [Product documentation][documenttranslation_docs] | [Samples][documenttranslation_samples]
@@ -29,7 +26,7 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource).
+* A [**single-service Translator resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource).
 
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
 
@@ -57,15 +54,9 @@ Build succeeded.
 ...
 ```
 
-### Install the client library
+ ## Get started
 
-Within the application directory, install the Form Recognizer client library for .NET with the following command:
-
-```console
-dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
-```
-
-Next, explore our Azure Document Translation client library for .NET kit. There you will find code samples for the following operations:
+Next, explore our [**Azure Document Translation client library for .NET**](/dotnet/api/overview/azure/ai.translation.document-readme-pre) documentation. There you will find code samples for the following operations:
 
 * [**Translate documents**](/dotnet/api/overview/azure/ai.translation.document-readme-pre?branch=main#start-translation)
 
@@ -98,16 +89,9 @@ To get started, you'll need:
 
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
 
-## Setting up
+## Get started
 
-### Install the client library
-
-After installing Python, you can install the latest version of the Form Recognizer client library with:
-
-```console
-pip install azure-ai-translation-document --pre
-```
-Next, explore our Azure Document Translation client library for Python kit. There you will find code samples for the following operations:
+Next, explore our [**Azure Document Translation client library for Python**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview) documentation. There you will find code samples for the following operations:
 
 * [**Translate documents**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview#translate-your-documents)
 
@@ -122,6 +106,7 @@ Next, explore our Azure Document Translation client library for Python kit. Ther
 [python-dt-product-docs]: https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview
 [python-dt-ref-docs]: https://aka.ms/azsdk/python/documenttranslation/docs
 [python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
+
 ---
 
 > [!div class="nextstepaction"]
