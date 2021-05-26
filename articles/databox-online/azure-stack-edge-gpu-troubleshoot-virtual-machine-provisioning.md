@@ -256,15 +256,16 @@ This section covers common issues that occur during VM creation.
 - Delete any VMs that are no longer in use.
 
 ### Insufficient number of GPUs to create GPU VM
+<!--Note to reviewers. I updated this section on 05/26 a.m. These changes: 1) Added lead sentence. 2) Wrote around "SKU". 3) Targeted solution to a specific section of the GPU article.-->
 
-Error displayed:
+If you try to deploy a VM on a GPU device that already has Kubernetes enabled, no GPUs will be available, and VM provisioning will fail with the following error:
 
 ![Portal error displayed when creation of a GPU VM fails because of not enough GPUs](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
 
 **Possible causes:**
-If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of GPUs (1 or 2 GPU SKU). 
+If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs, and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of available GPUs. Your Azure Stack Edge device can be equipped with 1 or 2 GPUs.
 
-**Suggested solution:** For troubleshooting guidance, see [Overview and deployment of GPU VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).<!--Link to a specific section. Somewhere around here: https://review.docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-deploy-gpu-virtual-machine?branch=pr-en-us-159155#for-2-gpu-device-->
+**Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine?tabs=windows#gpu-vms-and-kubernetes)<!--OLD REFERENCE - [Overview and deployment of GPU VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).-->
 
 ## GPU extension failed to be deployed
 Debugging steps:
