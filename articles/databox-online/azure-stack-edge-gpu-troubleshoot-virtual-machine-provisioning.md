@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/25/2021
+ms.date: 05/26/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -66,7 +66,7 @@ When VM provisioning times out, you see the following error:
 This section provides troubleshooting guidance for some of the most common causes of a VM provisioning timeout.
 
 
-### IP assigned to the VM is already in use
+#### IP assigned to the VM is already in use
 
 **Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed.<!--1) Does this error apply to both portal and CLI procedures? Doesn't the portal check for duplicate IP addresses, and prevent them deploying if they have one? 2) Can issues other than an existing VM with an IP address produce this error? For example, address pool/subnet issue?-->
 
@@ -86,25 +86,20 @@ To check for a duplicate IP address:
 
    If you get a response, the IP address that you assigned to the new VM is already in use.
 
-### VM image not prepared correctly
+#### VM image not prepared correctly
 
-**Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. If any steps are left out, VM provisioning on your device will fail when you use that VM image.
+**Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. You must create a gen1 virtual machine in Azure, customize the VM, generalize the VHD, and then download the OS VHD for that virtual machine. The prepared image must be a gen1 VHD of Fixed size.
 
-1. Prepare the source VM from a gen1 VHD with a Fixed size.
-1. Start the VM, and install the operating system. 
-1. Generalize the VHD using the *sysprep* utility.
-1. Copy the generalized image to Blob storage.
+For an overview of requirements, see [Create custom VM images for an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md).  
 
-For more information, see [Create custom VM images for an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md).  
+**Suggested solution:** Complete the workflow for preparing your VM image. For instructions, see one of the following articles:
 
-**Suggested solution:** Complete the workflow for preparing your VM image. For instructions, see one of the following articles:<!--Pick one?-->
-
-* [Create custom VM images for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md) (Workflow for creating a VM image)
+* [Create custom VM images for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md) (Workflow for creating a VM images for Linux and Windows virtual machines)
 * [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
 * [Prepare generalized image from ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
 * [Use a specialized image to deploy VMs](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)<!--Article not yet available?-->
 
-### Gateway, DNS server couldn't be reached from guest VM
+#### Gateway, DNS server couldn't be reached from guest VM
 
 **Error description:** If the default gateway and DNS server can't be reached during VM deployment, VM provisioning will time out, and the VM deployment will fail.
 
@@ -119,7 +114,7 @@ To verify that the default gateway and DNS server can be reached, do the followi
    ping <DNS server IP address>
    ```
 
-### `cloud init` issues (Linux VMs)
+#### `cloud init` issues (Linux VMs)
 
 <!--Error applies to Linux VMs only? Has the use of cloud init with Windows VMs been tested?-->
 
@@ -135,7 +130,7 @@ To verify that the default gateway and DNS server can be reached, do the followi
 
 For help resolving `cloud init` issues, see [Troubleshooting VM provisioning with cloud-init](/azure/virtual-machines/linux/cloud-init-troubleshooting).
 
-### Provisioning flags set incorrectly (Linux VMs)
+#### Provisioning flags set incorrectly (Linux VMs)
 
 **Error description:** To successfully deploy a Linux VM in Azure, instance creation must be disabled on the image, and provisioning using `cloud init' must be enabled. 
 
@@ -146,11 +141,11 @@ For help resolving `cloud init` issues, see [Troubleshooting VM provisioning wit
    | Enable instance creation        | `Provisioning.Enabled=n`      |
    | Rely on cloud-init to provision | `Provisioning.UseCloudInit=y` |
 
-### Contact Support for these log entries
+#### Contact Support for these log entries
 
 If you see one of the errors highlighted (in bold) in the following log entries, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for help.<!--Please provide a brief explanation of the errors they are to contact support for, so readers will know what the issue is. Thanks.-->
 
-#### Windows VM
+**Windows VM**
 
 Log file: C:\Windows\Azure\Panther\WaSetup.xml
 
@@ -164,7 +159,7 @@ Error entries:
 
 `<Event time="2021-03-26T20:08:54.929Z" category="ERROR" source="WireServer"><UnhandledError><Message>GetGoalState: RefreshGoalState failed with ErrNo -2147221503</Message><Number>-2147221503</Number><Description>Not initialized</Description><Source>WireServer.wsf</Source></UnhandledError></Event>`-->
 
-#### Linux VM
+**Linux VM**
 
 Log files: 
 * /var/log/cloud-init-output.log
