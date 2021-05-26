@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 
 ---
-
 # Memory leak detection (preview)
 
 >[!NOTE]
