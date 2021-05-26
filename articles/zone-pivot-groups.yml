@@ -1253,6 +1253,7 @@ groups:
   - id: programming-language-java
     title: Java
 # Owner: philmea
+- id: facility-ontology-schema
   title: Creator Facility Ontology
   prompt: Choose a Facility Ontology Version
   pivots:

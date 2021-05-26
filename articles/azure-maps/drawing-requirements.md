@@ -407,6 +407,9 @@ Below is the manifest file for the sample Drawing package. To download the entir
 When your Drawing package meets the requirements, you can use the [Azure Maps Conversion service](/rest/api/maps/v2/conversion) to convert the package to a map dataset. Then, you can use the dataset to generate an indoor map by using the indoor maps module.
 
 > [!div class="nextstepaction"]
+> [Creator Facility Ontology](creator-facility-ontology.md)
+
+> [!div class="nextstepaction"]
 >[Creator for indoor maps](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
