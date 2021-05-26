@@ -53,9 +53,9 @@ Azure Digital Twins also does not observe the `writable` attribute on properties
 Within a model definition, the top-level code item is an **interface**. This encapsulates the entire model, and the rest of the model is defined within the interface. 
 
 A DTDL model interface may contain zero, one, or many of each of the following fields:
-* **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Properties have backing storage and can be read at any time. For more information, see [Modeling properties and telemetry](#modeling-properties-and-telemetry) below.
-* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur. For more information, see [Modeling properties and telemetry](#modeling-properties-and-telemetry) below.
-* **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. Relationships can also have properties of their own. For more information, see [Modeling relationships](#modeling-relationships) below.
+* **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Properties have backing storage and can be read at any time. For more information, see [Properties and telemetry](#properties-and-telemetry) below.
+* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur. For more information, see [Properties and telemetry](#properties-and-telemetry) below.
+* **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. Relationships can also have properties of their own. For more information, see [Relationships](#Relationships) below.
 * **Component** - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a model for a *phone*. You must first define an interface for *frontCamera* as though it were its own model, and then you can reference it when defining *Phone*.
 
     Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by **relationships**
@@ -63,7 +63,7 @@ A DTDL model interface may contain zero, one, or many of each of the following f
     >[!TIP] 
     >Components can also be used for organization, to group sets of related properties within a model interface. In this situation, you can think of each component as a namespace or "folder" inside the interface.
 
-    For more information, see [Modeling components](#modeling-components) below.
+    For more information, see [Components](#components) below.
 
 
 > [!NOTE]
@@ -91,7 +91,7 @@ This model describes a **home**, with one property for an ID. The home model als
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json":::
 
-## Modeling properties and telemetry
+## Properties and telemetry
 
 This section goes into more detail about **properties** and **telemetry** in DTDL models.
 
@@ -149,7 +149,7 @@ The following example shows another version of the Home model, with a property f
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
 
-## Modeling relationships
+## Relationships
 
 This section goes into more detail about **relationships** in DTDL models.
 
@@ -177,7 +177,7 @@ The following example shows another version of the Home model, where the `rel_ha
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="39-45":::
 
-## Modeling components
+## Components
 
 This section goes into more detail about **components** in DTDL models.
 
@@ -188,7 +188,7 @@ Here is a basic example of a component on a DTDL model. This example shows ...
 > [!NOTE]
 > Note that the component interface is defined in the same array as the interface that uses it. Components must be defined this way in API calls in order for the interface to be found.
 
-## Inheritance
+## Model inheritance
 
 Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**: interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
 
@@ -208,7 +208,7 @@ Once inheritance is applied, the extending interface exposes all properties from
 
 The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it's also a `double`.
 
-## Best practices for designing models
+## Modeling best practices
 
 While designing models to reflect the entities in your environment, it can be useful to look ahead and consider the [query](concepts-query-language.md) implications of your design. You may want to design properties in a way that will avoid large result sets from graph traversal. You may also want to model relationships that will to be answered in a single query as single-level relationships.
 
@@ -216,7 +216,7 @@ While designing models to reflect the entities in your environment, it can be us
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Tools for models 
+## Modeling tools
 
 There are several samples available to make it even easier to deal with models and ontologies. They are located in this repository: [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
 
