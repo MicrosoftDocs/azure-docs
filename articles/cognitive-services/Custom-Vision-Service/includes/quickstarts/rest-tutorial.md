@@ -23,9 +23,10 @@ Use the Custom Vision client library for .NET to:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Create a Custom Vision resource"  target="_blank">create a Custom Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to create a training and prediction resource and get your keys and endpoint. Wait for it to deploy and click the **Go to resource** button.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="Create a Custom Vision resource"  target="_blank">create a Custom Vision resource </a> in the Azure portal to create a training and prediction resource and get your keys and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resources you create to connect your application to Custom Vision. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 
 ## Create a new Custom Vision project
@@ -169,7 +170,7 @@ This method makes the current iteration of the model available for querying. You
 * Replace `{projectId}` with your own project ID.
 * Replace `{iterationId}` with the ID returned in the previous step.
 * Replace `{publishedName}` with the name you'd like to assign to your prediction model.
-* Replace `{predictionId}` with your own prediction resource ID. You can find it on your prediction resource's **Overview** tab in the Azure portal, listed as **Subscription ID**.
+* Replace `{predictionId}` with your own prediction resource ID. You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
 * Optionally use other URL parameters. See the [Publish Iteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5) API.
 
 ## Test the prediction endpoint

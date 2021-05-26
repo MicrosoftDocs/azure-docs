@@ -2,7 +2,8 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/18/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Management group deployments with ARM templates
@@ -20,7 +21,7 @@ For Azure Blueprints, use:
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [versions](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-For Azure Policies, use:
+For Azure Policy, use:
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -70,7 +71,7 @@ To deploy to a management group, use the management group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
+For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
 
 ```azurecli-interactive
 az deployment mg create \
@@ -215,6 +216,16 @@ The next example creates a new management group in the management group specifie
 }
 ```
 
+## Subscriptions
+
+To use an ARM template to create a new Azure subscription in a management group, see:
+
+* [Programmatically create Azure Enterprise Agreement subscriptions](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Programmatically create Azure subscriptions for a Microsoft Customer Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Programmatically create Azure subscriptions for a Microsoft Partner Agreement](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
+
+To deploy a template that moves an existing Azure subscription to a new management group, see [Move subscriptions in ARM template](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
+
 ## Azure Policy
 
 Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function. Built-in policy definitions are tenant level resources. To get the ID of a built-in policy definition, use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function.
@@ -312,7 +323,7 @@ From a management group level deployment, you can target a subscription within t
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2020-10-01",
             "name": "nestedSub",
             "location": "[parameters('nestedLocation')]",
             "subscriptionId": "[parameters('nestedSubId')]",
@@ -328,7 +339,7 @@ From a management group level deployment, you can target a subscription within t
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('nestedRG')]",
                             "location": "[parameters('nestedLocation')]"
                         }
@@ -338,7 +349,7 @@ From a management group level deployment, you can target a subscription within t
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2020-10-01",
             "name": "nestedRG",
             "subscriptionId": "[parameters('nestedSubId')]",
             "resourceGroup": "[parameters('nestedRG')]",

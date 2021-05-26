@@ -2,7 +2,6 @@
 title: Manage smart groups
 description: Managing Smart Groups created over your alert instances
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 09/24/2018
 
 ---

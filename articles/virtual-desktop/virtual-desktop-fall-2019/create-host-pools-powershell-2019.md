@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create a host pool in Windows Virtual Desktop (classic) with PowerShell
 
@@ -58,7 +58,7 @@ You can create a virtual machine in multiple ways:
 
 - [Create a virtual machine from an Azure Gallery image](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Create a virtual machine from a managed image](../../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 >[!NOTE]
 >If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).

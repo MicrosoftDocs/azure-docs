@@ -1,7 +1,6 @@
 ---
 title: workspace() expression in Azure Monitor log query | Microsoft Docs
 description: The workspace expression is used in an Azure Monitor log query to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

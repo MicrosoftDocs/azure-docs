@@ -26,7 +26,7 @@ After you have a token, you can call a protected web API. You usually call the d
 
 When you use *Microsoft.Identity.Web*, you have three usage scenarios:
 
-- [Option 1: Call Microsoft Graph with the Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Option 1: Call Microsoft Graph with the SDK](#option-1-call-microsoft-graph-with-the-sdk)
 - [Option 2: Call a downstream web API with the helper class](#option-2-call-a-downstream-web-api-with-the-helper-class)
 - [Option 3: Call a downstream web API without the helper class](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
@@ -34,7 +34,7 @@ When you use *Microsoft.Identity.Web*, you have three usage scenarios:
 
 In this scenario, you've added `.AddMicrosoftGraph()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
 
-```CSharp
+```csharp
  [Authorize]
  [AuthorizeForScopes(Scopes = new[] { "user.read" })]
  public class IndexModel : PageModel
@@ -70,7 +70,7 @@ In this scenario, you've added `.AddMicrosoftGraph()` in *Startup.cs* as specifi
 
 In this scenario, you've added `.AddDownstreamWebApi()` in *Startup.cs* as specified in [Code configuration](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
 
-```CSharp
+```csharp
  [Authorize]
  [AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
  public class TodoListController : Controller
@@ -97,7 +97,7 @@ In this scenario, you've added `.AddDownstreamWebApi()` in *Startup.cs* as speci
 
 The `CallWebApiForUserAsync` method also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method received a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
 
-```CSharp
+```csharp
  // GET: TodoList/Details/5
  public async Task<ActionResult> Details(int id)
  {
@@ -120,16 +120,16 @@ If you've decided to acquire a token manually by using the `ITokenAcquisition` s
  After you've acquired the token, use it as a bearer token to call the downstream API.
 
 ```csharp
- private async Task CallTodoListService(string accessToken)
- {
+private async Task CallTodoListService(string accessToken)
+{
   // After the token has been returned by Microsoft.Identity.Web, add it to the HTTP authorization header before making the call to access the todolist service.
- _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+  _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
- // Call the todolist service.
- HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
- // ...
- }
- ```
+  // Call the todolist service.
+  HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
+  // ...
+}
+```
 
 # [Java](#tab/java)
 
@@ -137,7 +137,7 @@ The following code continues the example code that's shown in [A web API that ca
 
 After you've acquired the token, use it as a bearer token to call the downstream API.
 
-```Java
+```java
 private String callMicrosoftGraphMeEndpoint(String accessToken){
     RestTemplate restTemplate = new RestTemplate();
 
@@ -156,7 +156,8 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # [Python](#tab/python)
-A sample demonstrating this flow with MSAL Python isn't yet available.
+
+A sample demonstrating this flow with MSAL Python is available at [ms-identity-python-on-behalf-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of).
 
 ---
 

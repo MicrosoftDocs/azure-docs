@@ -74,6 +74,6 @@ landingContent:
           - text: Azure SDK for Python
             url: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
           - text: REST
-            url: /rest/api/resources/managementgroups
+            url: /rest/api/managementgroups
           - text: Resource Manager templates
             url: /azure/templates/microsoft.management/managementgroups

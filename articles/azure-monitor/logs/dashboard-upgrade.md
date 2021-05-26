@@ -1,7 +1,6 @@
 ---
 title: Upgrading your Log Analytics Dashboard visualizations
 description: Learn how to upgrade your Log Analytics Dashboard visualizations with queries that can provide powerful insights. 
-ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb

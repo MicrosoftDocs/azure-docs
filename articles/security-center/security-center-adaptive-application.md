@@ -1,18 +1,11 @@
 ---
 title: Adaptive application controls in Azure Security Center
 description: This document helps you use adaptive application control in Azure Security Center to allow list applications running in Azure machines.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/07/2021
+ms.date: 04/21/2021
 ms.author: memildin
 
 ---
@@ -189,6 +182,12 @@ To remediate the issues:
 
 1. For further details, and the list of affected machines, select an alert.
 
+    The alerts page shows the more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the ":::
+
+    > [!NOTE]
+    > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.
 
 
 ## Move a machine from one group to another
@@ -233,10 +232,17 @@ Some of the functions that are available from the REST API:
 
 ## FAQ - Adaptive application controls
 
+- [Are there any options to enforce the application controls?](#are-there-any-options-to-enforce-the-application-controls)
+- [Why do I see a Qualys app in my recommendeded applications?](#why-do-i-see-a-qualys-app-in-my-recommendeded-applications)
+
 ### Are there any options to enforce the application controls?
 No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
 
- 
+### Why do I see a Qualys app in my recommendeded applications?
+[Azure Defender for servers](defender-for-servers-introduction.md) includes vulnerability scanning for your machines at no extra cost. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center. For details of this scanner and instructions for how to deploy it, see [Defender's integrated vulnerability assessment solution](deploy-vulnerability-assessment-vm.md).
+
+To ensure no alerts are generated when Security Center deploys the scanner, the adaptive application controls recommended allow list includes the scanner for all machines. 
+
 
 ## Next steps
 In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:

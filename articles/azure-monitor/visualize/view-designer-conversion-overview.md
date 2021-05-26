@@ -1,10 +1,8 @@
 ---
 title: Azure Monitor view designer to workbooks transition guide
 description: Transition from views to workbooks in Azure Monitor.
-author: austonli
-ms.author: aul
-
-ms.subservice: 
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 08/04/2020
 

@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 07/07/2020
+  ms.date: 02/28/2021
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -169,6 +169,10 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-finma-switzerland
           itemType: concept
           text: FINMA (Switzerland)
+
+    # Card
+    - title: Financial services
+      links:
         - url: /azure/compliance/offerings/offering-finra-4511-us
           itemType: concept
           text: FINRA 4511 (US)
@@ -178,11 +182,6 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-fsa-denmark
           itemType: concept
           text: FSA (Denmark)
-
-
-    # Card
-    - title: Financial services
-      links:
         - url: /azure/compliance/offerings/offering-glba-us
           itemType: concept
           text: GLBA (US)
@@ -198,9 +197,16 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-osfi-canada
           itemType: concept
           text: OSFI (Canada)
+
+    # Card
+    - title: Financial services
+      links:
         - url: /azure/compliance/offerings/offering-ospar-singapore
           itemType: concept
           text: OSPAR (Singapore)
+        - url: /azure/compliance/offerings/offering-pci-3ds
+          itemType: concept
+          text: PCI 3DS
         - url: /azure/compliance/offerings/offering-pci-dss
           itemType: concept
           text: PCI DSS
@@ -362,34 +368,47 @@ additionalContent:
       summary: To access a resource you may need to be signed into your cloud service 
       items:
 
-        - title: Audit reports
+        - title: Audit reports and certificates
+          summary: Accessible in the Azure portal by navigating to Home > Security Center > Regulatory Compliance
           links:
-            - text: CCSL/IRAP
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=ffcb3aeb-475e-4f23-8a8f-2fc7dac18d68&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_GRC_Assessment_Reports
-            - text: CDSA
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=5a989727-8eaa-410c-888f-91af0bb03811&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_GRC_Assessment_Reports
-            - text: ENS
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=69a6a010-85da-43ff-94cf-19cf921f25fb&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_ENS_Audit_Reports_and_Certificates
-            - text: ISO 27001
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_ISO_Reports
-            - text: FedRAMP
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FedRAMP_Reports
-            - text: PCI DSS
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_PCI_DSS
+            - text: Cyber Essentials Plus (UK)
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: ENS High (Spain)
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: GSMA
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: ASIP HDS (France)
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: HITRUST
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: IRAP (Australia)
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: ISO 9001, 20000-1, 22301, 27001, 27017, 27018, 27701
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: MTCS (Singapore)
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: FedRAMP SSP (incl. NIST 800-53 controls)
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: OSPAR (Singapore)
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
+            - text: PCI DSS and PCI 3DS
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
             - text: SOC 1, 2, 3
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_SOC_/_SSAE_16_Reports
+              url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
 
 
         - title: Privacy and GDPR
           links:
             - text: Checklists
-              url: /microsoft-365/compliance/gdpr-arc-azure
+              url: /compliance/regulatory/gdpr-arc-azure-dynamics
             - text: Data subject requests
-              url: /microsoft-365/compliance/gdpr-dsr-azure
+              url: /compliance/regulatory/gdpr-dsr-Azure
             - text: Breach notification
-              url: /microsoft-365/compliance/gdpr-breach-azure-dynamics
+              url: /compliance/regulatory/gdpr-breach-azure-dynamics
             - text: Data protection impact assessments
               url: /microsoft-365/compliance/gdpr-dpia-azure
+            - text: Data residency in Azure
+              url: https://azure.microsoft.com/global-infrastructure/data-residency/
 
         - title: Compliance blueprints
           links:
@@ -428,7 +447,7 @@ additionalContent:
             - text: Japan security and privacy requirements
               url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-the-japan-security-and-privacy-requirements/
             - text: Malaysian security and privacy requirements
-              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-8b936d6a
+              url: https://www.microsoft.com/en-sg/apac/trustedcloud/malaysia.aspx
             - text: New Zealand security and privacy requirements
               url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-new-zealand/
             - text: Navigating your way to the cloud in Europe 
@@ -467,13 +486,15 @@ additionalContent:
             - text: IT-Grundschutz workbook
               url: https://azure.microsoft.com/resources/it-grundschutz-konformitt-mit-azure/
             - text: NEN7510-2011 standard coverage guide
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=3285c45c-921c-49ad-b881-be43e0b70490&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+              url: https://azure.microsoft.com/resources/azure-nen7510-coverage-report-guide 
             - text: NERC CIP standards
               url: https://azure.microsoft.com/resources/microsoft-azure-nerc-cip-standards-and-cloud-computing/
             - text: NZ GCIO cloud computing considerations
               url: https://azure.microsoft.com/resources/microsoft-azure-response-to-nz-gcio-cloud-computing-information-security-privacy-considerations
+            - text: PCI 3DS shared responsibility
+              url: https://download.microsoft.com/download/b/5/e/b5e4adc3-56c1-4e02-b7a0-81adb7d50a0b/PCI3DS_Azure_Shared_Responsibility_Matrix.xlsx
             - text: PCI DSS 3.2.1 responsibility matrix
-              url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
+              url: https://download.microsoft.com/download/2/2/e/22e4f646-04e1-445c-92ed-724a6166e321/PCI_DSS_3.2.1_Azure_Shared_Responsibility_Matrix.xlsx
             - text: SCI guidance
               url: https://azure.microsoft.com/resources/microsoft-azure-regulation-systems-compliance-and-integrity-sci-cloud-implementation-guide/
             - text: SOX guidance
@@ -485,11 +506,11 @@ additionalContent:
         - title: White papers and analyst reports
           links:
             - text: Overview of Azure compliance
-              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers
-            - text: Enabling data residency and data protection
+              url: /azure/compliance/offerings/
+            - text: Enabling data residency and protection
               url: https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/
-            - text: Data residency and security
-              url: https://azure.microsoft.com/resources/azure-for-secure-worldwide-public-sector-cloud-adoption
+            - text: Azure for worldwide public sector
+              url: ../azure-government/documentation-government-overview-wwps.md
             - text: Azure RFI on security and compliance
               url: https://azure.microsoft.com/resources/azure-standard-response-to-rfi-on-security-privacy-and-compliance/
             - text: Azure Internet of Things compliance
@@ -504,3 +525,7 @@ additionalContent:
               url: https://azure.microsoft.com/resources/microsoft-azure-cloud-services-us-uk-and-eu-export-controls/
             - text: Azure enables a world of compliance
               url: https://azure.microsoft.com/resources/azure-enables-a-world-of-compliance/
+            - text: Azure cloud platform for PCI 3DS
+              url: https://azure.microsoft.com/resources/azure-cloud-platform-for-pci-3ds/
+            - text: A practical guide to designing secure health solutions
+              url: https://azure.microsoft.com/resources/a-practical-guide-to-designing-secure-health-solutions-using-microsoft-azure/

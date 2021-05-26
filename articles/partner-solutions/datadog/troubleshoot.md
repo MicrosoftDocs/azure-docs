@@ -12,6 +12,16 @@ ms.author: tomfitz
 
 This document contains information about troubleshooting your solutions that use Datadog.
 
+## Purchase errors
+
+* Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
+
+  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
+
+* The EA subscription doesn't allow Marketplace purchases.
+
+  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Datadog support](https://www.datadoghq.com/support).
+
 ## Unable to create Datadog resource
 
 To set up the Azure Datadog integration, you must have **Owner** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.

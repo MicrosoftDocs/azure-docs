@@ -1,6 +1,6 @@
 ---
 title: Define a new IoT device type in Azure IoT Central | Microsoft Docs
-description: This article shows you, as a solution builder, how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
+description: This article shows you how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: [contperf-fy21q1, device-developer]
+
+# This article applies to solution builders and device developers.
 ---
 
 # Define a new IoT device type in your Azure IoT Central application
-
-*This article applies to solution builders and device developers.*
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an [Azure IoT Central application](concepts-app-templates.md).
 
@@ -52,7 +52,7 @@ Some [application templates](concepts-app-templates.md) already include device t
 
 ## Create a device template from the device catalog
 
-As a builder, you can quickly start building out your solution by using a certified device. See the list in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrates with the device catalog so you can import a device model from any of the certified devices. To create a device template from one of these devices in IoT Central:
+As a builder, you can quickly start building out your solution by using a certified device. See the list in the [Azure IoT Device Catalog](https://devicecatalog.azure.com). IoT Central integrates with the device catalog so you can import a device model from any of the certified devices. To create a device template from one of these devices in IoT Central:
 
 1. Go to the **Device templates** page in your IoT Central application.
 1. Select **+ New**, and then select any of the certified devices from the catalog. IoT Central creates a device template based on this device model.
@@ -77,9 +77,11 @@ To create a device template in IoT Central:
 
 ## Manage a device template
 
-You can rename or delete a template from the template's home page.
+You can rename or delete a template from the template's editor page.
 
-After you've added a device model to your template, you can publish it. Until you've published the template, you can't connect a device based on this template for your operators to see in the **Devices** page.
+After you've defined the template, you can publish it. Until the template is published, you can't connect a device to it, and it doesn't appear on the **Devices** page.
+
+To learn more about modifying device templates, see [Edit an existing device template](howto-edit-device-template.md).
 
 ## Create a capability model
 
@@ -166,6 +168,7 @@ The following table shows the configuration settings for a command capability:
 | Display Name | The display name for the command used on views and forms. |
 | Name | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Command. |
+| Queue if offline | If enabled, you can call the command even if the device is offline. If not enabled, you can only call the command when the the device is online. |
 | Comment | Any comments about the command capability. |
 | Description | A description of the command capability. |
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
@@ -190,9 +193,11 @@ Cloud-to-device messages:
 
 ## Manage a component
 
-If you haven't published the component, you can edit the capabilities defined by the component. After you publish the component, if you want to make any changes, you must create a new version of the device template and [version the component](howto-version-device-template.md). You can make changes that don't require versioning, such as display names or units, in the **Customize** section.
+Use components to assemble a device template from other interfaces. For example, the device template for a temperature controller could include several thermostat components. Components can be edited directly in the device template or exported and imported as JSON files. Devices can interact with component instances. For example, a device with two thermostats can send telemetry from each thermostat to separate components in your IoT Central application.
 
-You can also export the component as a JSON file if you want to reuse it in another capability model.
+## Inheritance
+
+You can extend an interface using inheritance. Use inheritance to add capabilities to existing interfaces. Inherited interfaces are transparent to devices.
 
 ## Add cloud properties
 
@@ -209,13 +214,7 @@ The following table shows the configuration settings for a cloud property:
 
 ## Add customizations
 
-Use customizations when you need to modify an imported component or add IoT Central-specific features to a capability. You can only customize fields that don't break component compatibility. For example, you can:
-
-- Customize the display name and units of a capability.
-- Add a default color to use when the value appears on a chart.
-- Specify initial, minimum, and maximum values for a property.
-
-You can't customize the capability name or capability type. If there are changes you can't make in the **Customize** section, you'll need to version your device template and component to modify the capability.
+Use customizations when you need to modify an imported component or add IoT Central-specific features to a capability. You can customize any part of an existing device template's capabilities.
 
 ### Generate default views
 
@@ -269,7 +268,7 @@ To add a form to a device template:
 
 Before you can connect a device that implements your device model, you must publish your device template.
 
-After you publish a device template, you can only make limited changes to the device model. To modify a component, you need to [create and publish a new version](./howto-version-device-template.md).
+To learn more about modifying a device template it's published, see [Edit an existing device template](howto-edit-device-template.md).
 
 To publish a device template, go to you your device template, and select **Publish**.
 
@@ -277,4 +276,4 @@ After you publish a device template, an operator can go to the **Devices** page,
 
 ## Next steps
 
-If you're a device developer, a suggested next step is to read about [device template versioning](./howto-version-device-template.md).
+A suggested next step is to read about how to [Make changes to an existing device template](howto-edit-device-template.md).

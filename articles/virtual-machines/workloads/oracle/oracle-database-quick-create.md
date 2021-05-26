@@ -65,7 +65,7 @@ After you create the VM, Azure CLI displays information similar to the following
 ## Create and attach a new disk for Oracle datafiles and FRA
 
 ```bash
-az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 128 --sku StandardSSD_LRS --vm-name vmoracle19c
+az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 64 --sku StandardSSD_LRS --vm-name vmoracle19c
 ```
 
 ## Open ports for connectivity
@@ -217,12 +217,12 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 1.  Switch to the **oracle** user:
 
     ```bash
-    $ sudo su - oracle
+    sudo su - oracle
     ```
 2. Start the database listener
 
    ```bash
-   $ lsnrctl start
+   lsnrctl start
    ```
    The output is similar to the following:
   

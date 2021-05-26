@@ -54,7 +54,7 @@ To edit a setting, click the **Edit** button on the right side.
 When finished, click **Update**. Don't forget to click **Save** back in the **Configuration** page.
 
 > [!NOTE]
-> In a default Linux container or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore).
+> In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore).
 >
 
 ### Edit in bulk
@@ -266,8 +266,6 @@ You can [add custom storage for your containerized app](configure-connect-to-azu
 For more information, see [Access Azure Storage as a network share from a container in App Service](configure-connect-to-azure-storage.md).
 
 ## Configure language stack settings
-
-For Linux apps, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md)
 - [Node.js](configure-language-nodejs.md)

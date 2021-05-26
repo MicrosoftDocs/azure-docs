@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Advanced features of the Azure metrics explorer
@@ -68,13 +67,34 @@ To view multiple metrics on the same chart, first [create a new chart](./metrics
 > [!NOTE]
 > Typically, your charts shouldn't mix metrics that use different units of measure. For example, avoid mixing one metric that uses milliseconds with another that uses kilobytes. Also avoid mixing metrics whose scales differ significantly. 
 >
-> In these cases, consider using multiple charts instead. In the metrics explorer, select **Add chart** to create a new chart.
+> In these cases, consider using multiple charts instead. In the metrics explorer, select **New chart** to create a new chart.
+
+![Screenshot showing multiple metrics.](./media/metrics-charts/multiple-metrics-chart.png)
 
 ### Multiple charts
 
-To create another chart that uses a different metric, select **Add chart**.
+To create another chart that uses a different metric, select **New chart**.
 
 To reorder or delete multiple charts, select the ellipsis (**...**) button to open the chart menu. Then choose **Move up**, **Move down**, or **Delete**.
+
+![Screenshot showing multiple charts.](./media/metrics-charts/multiple-charts.png)
+
+## Time range controls
+
+In addition to changing the time range using the [time picker panel](metrics-getting-started.md#select-a-time-range), you can also pan and zoom using the controls in the chart area.
+### Pan
+
+To pan, click on the left and right arrows at the edge of the chart.  This will move the selected time range back and forward by one half the chart's time span.  For example, if you're viewing the past 24 hours, clicking on the left arrow will cause the time range to shift to span a day and a half to 12 hours ago.
+
+Most metrics support 93 days of retention but only let you view 30 days at a time.  Using the pan controls, you look at the past 30 days and then easily walk back 15 days at a time to view the rest of the retention period.
+
+![Animated gif showing the left and right pan controls.](./media/metrics-charts/metrics-pan-controls.gif)
+
+### Zoom
+
+You can click and drag on the chart to zoom into a section of a chart.  Zooming will update the chart's time range to span your selection and will select a smaller time grain if the time grain is set to "Automatic".  The new time range will apply to all charts in Metrics.
+
+![Animated gif showing the metrics zoom feature.](./media/metrics-charts/metrics-zoom-control.gif)
 
 ## Aggregation
 
@@ -226,6 +246,42 @@ The alert rule creation pane opens. In the pane, you see the chart's metric dime
 
 For more information, see [Create, view, and manage metric alerts](../alerts/alerts-metric.md).
 
+## Correlate metrics to logs
+To help customer diagnose the root cause of anomalies in their metrics chart, we created Drill into Logs. Drill into Logs allows customers to correlate spikes in their metrics chart to logs and queries. 
+
+Before we dive into the experience, we want to first introduce the different types of logs and queries provided. 
+
+| Term             | Definition  | 
+|------------------|-------------|
+| Activity logs    | Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane) in addition to updates on Service Health events. Use the Activity Log, to determine the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. There is a single Activity log for each Azure subscription.  |   
+| Diagnostic log   | Provide insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. **Note:** Must be provided by service and enabled by customer  | 
+| Recommended log | Scenario-based queries that customer can leverage to investigate anomalies in their metrics explorer.  |
+
+Currently, Drill into Logs are available for select resource providers. The resource providers that have the complete Drill into Logs experience are: 
+
+* Application Insights 
+* Autoscale 
+* App Services  
+* Storage  
+
+Below is a sample experiences for the Application Insights resource provider.
+
+![Spike in failures in app insights metrics blade](./media/metrics-charts/drill-into-log-ai.png)
+
+To diagnose the spike in failed requests, click on “Drill into Logs”.
+
+![Screenshot of drill into logs dropdown](./media/metrics-charts/drill-into-logs-dropdown.png)
+
+By clicking on the failure option, you will be led to a custom failure blade that provides you with the failed operation operations, top exceptions types, and dependencies. 
+
+![Screenshot of app insights failure blade](./media/metrics-charts/ai-failure-blade.png)
+
+### Common problems with Drill into Logs
+
+* Log and queries are disabled - To view recommended logs and queries, you must route your diagnostic logs to Log Analytics. Read [this document](./diagnostic-settings.md) to learn how to do this. 
+* Activity logs are only provided - The Drill into Logs feature is only available for select resource providers. By default, activity logs are provided. 
+
+ 
 ## Troubleshooting
 
 If you don't see any data on your chart, review the following troubleshooting information:
@@ -239,4 +295,3 @@ If you don't see any data on your chart, review the following troubleshooting in
 ## Next steps
 
 To create actionable dashboards by using metrics, see [Creating custom KPI dashboards](../app/tutorial-app-dashboards.md).
-

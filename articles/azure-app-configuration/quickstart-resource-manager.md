@@ -2,12 +2,12 @@
 title: Create an Azure App Configuration store by using Azure Resource Manager template (ARM template)
 titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
-author: ZhijunZhao
-ms.author: zhijzhao
-ms.date: 10/16/2020
-ms.service: azure-resource-manager
+author: GrantMeStrength
+ms.author: jken
+ms.date: 05/26/2021
+ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure App Configuration store by using an ARM template
@@ -62,6 +62,9 @@ Two Azure resources are defined in the template:
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
 
+> [!NOTE]
+> There is a limitation where key-value data access inside an ARM template is disabled if access key authentication is disabled. See [disable access key authentication](./howto-disable-access-key-authentication.md#limitations) for more details.
+
 ## Deploy the template
 
 Select the following image to sign in to Azure and open a template. The template creates an App Configuration store with two key-values inside.
@@ -105,5 +108,5 @@ Write-Host "Press [ENTER] to continue..."
 
 To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
 
-- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
-- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)
+- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
+- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)

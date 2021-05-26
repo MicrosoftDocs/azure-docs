@@ -3,19 +3,17 @@ title: Managing Media Services assets across multiple storage accounts | Microso
 description: This articles give you guidance on how to manage Media Services assets across multiple storage accounts.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Managing Media Services assets across multiple storage accounts  
 

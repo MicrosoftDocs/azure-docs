@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 5 blueprint sample controls
 description: Control mapping of the DoD Impact Level 5 blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 5 blueprint sample
@@ -13,7 +13,7 @@ controls, see
 The Defense Information Systems Agency (DISA) is an agency of the US Department of Defense (DoD)
 that is responsible for developing and maintaining the DoD Cloud Computing Security Requirements
 Guide (SRG). The SRG defines the baseline security requirements for cloud service providers (CSPs)
-that host DoD information, systems, and applications, and for DoD's use of cloud services.  
+that host DoD information, systems, and applications, and for DoD's use of cloud services.
 
 The following mappings are to the **DoD Impact Level 5** controls. Use the navigation on the right
 to jump directly to a specific control mapping. Many of the mapped controls are implemented with an
@@ -196,7 +196,7 @@ assessment on virtual machines, virtual machine scale sets, SQL Database servers
 Instance servers. These policy definitions also audit configuration of diagnostic logs to provide
 insight into operations that are performed within Azure resources. These insights provide real-time
 information about the security state of your deployed resources and can help you prioritize
-remediation actions. For detailed vulnerability scanning and monitoring, we recommend you leverage
+remediation actions. For detailed vulnerability scanning and monitoring, we recommend you use
 Azure Sentinel and Azure Security Center as well.
 
 - Audit diagnostic setting
@@ -237,20 +237,20 @@ settings are enabled or not.
 ## CM-7 (2) Least Functionality | Prevent Program Execution
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application allow list solution that can block or prevent specific software from running on your
+application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control can run in an enforcement mode that prohibits non-approved
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
-virtual machines where an application allow list is recommended but has not yet been configured.
+virtual machines where an application allowlist is recommended but has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application allow list solution that can block or prevent specific software from running on your
+application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application wallow list is recommended but has not yet
+helps you monitor virtual machines where an application allowlist is recommended but has not yet
 been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
@@ -258,11 +258,11 @@ been configured.
 ## CM-11 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application allow list solution that can block or prevent specific software from running on your
+application allowlist solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application allow list is recommended
-but has not yet been configured.
+definition that helps you monitor virtual machines where an application allowlist is recommended but
+has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 
@@ -276,7 +276,7 @@ ensure necessary contingency controls are in place.
 
 - Audit virtual machines without disaster recovery configured
 
-## CP-9 (05)  Information System Backup | Transfer to Alternate Storage Site
+## CP-9 (05) Information System Backup | Transfer to Alternate Storage Site
 
 This blueprint assigns Azure Policy definitions that audit the organization's system backup
 information to the alternate storage site electronically. For physical shipment of storage metadata,
@@ -353,8 +353,8 @@ all virtual machine user accounts comply with your organization's password polic
 
 This blueprint provides policy definitions that audit records with analysis of vulnerability
 assessment on virtual machines, virtual machine scale sets, and SQL servers. These insights provide
-real-time information about the security state of your deployed resources and can help you prioritize
-remediation actions.
+real-time information about the security state of your deployed resources and can help you
+prioritize remediation actions.
 
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
@@ -382,10 +382,10 @@ vulnerabilities in your deployed resources.
 
 ## SC-5 Denial of Service Protection
 
-Azure's distributed denial of service (DDoS) standard tier provides additional features and
+Azure's distributed denial of service (DDoS) Standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
 integration and the ability to review post-attack mitigation reports. This blueprint assigns an
-[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS standard tier is
+[Azure Policy](../../../policy/overview.md) definition that audits if the DDoS Standard tier is
 enabled. Understanding the capability difference between the service tiers can help you select the
 best solution to address denial of service protections for your Azure environment.
 
@@ -481,15 +481,15 @@ This blueprint assigns policy definitions that help you ensure applications are 
 version of HTTP, Java, PHP, Python, and TLS. This blueprint also assigns a policy definition that
 ensures that Kubernetes Services is upgraded to its non-vulnerable version.
 
-- Ensure that 'HTTP Version' is the latest, if used to run the Api app
+- Ensure that 'HTTP Version' is the latest, if used to run the API app
 - Ensure that 'HTTP Version' is the latest, if used to run the Function app
 - Ensure that 'HTTP Version' is the latest, if used to run the Web app
-- Ensure that 'Java version' is the latest, if used as a part of the Api app
+- Ensure that 'Java version' is the latest, if used as a part of the API app
 - Ensure that 'Java version' is the latest, if used as a part of the Function app
 - Ensure that 'Java version' is the latest, if used as a part of the Web app
-- Ensure that 'PHP version' is the latest, if used as a part of the Api app
+- Ensure that 'PHP version' is the latest, if used as a part of the API app
 - Ensure that 'PHP version' is the latest, if used as a part of the WEB app
-- Ensure that 'Python version' is the latest, if used as a part of the Api app
+- Ensure that 'Python version' is the latest, if used as a part of the API app
 - Ensure that 'Python version' is the latest, if used as a part of the Function app
 - Ensure that 'Python version' is the latest, if used as a part of the Web app
 - Latest TLS version should be used in your API App
@@ -537,8 +537,8 @@ you can take appropriate action.
 ## SI-4 (12) Information System Monitoring | Automated Alerts
 
 This blueprint provides policy definitions that help you ensure data security notifications are
-properly enabled. In addition, this blueprint ensures that the standard pricing tier is enabled for
-Azure Security Center. Note that the standard pricing tier enables threat detection for networks and
+properly enabled. In addition, this blueprint ensures that the Standard pricing tier is enabled for
+Azure Security Center. Note that the Standard pricing tier enables threat detection for networks and
 virtual machines, providing threat intelligence, anomaly detection, and behavior analytics in Azure
 Security Center.
 
@@ -547,8 +547,8 @@ Security Center.
 - A security contact phone number should be provided for your subscription
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
-> clouds. 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 

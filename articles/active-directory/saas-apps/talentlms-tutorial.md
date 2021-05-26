@@ -166,11 +166,11 @@ To enable Azure AD users to sign in to TalentLMS, they must be provisioned into 
 
     ![Add User](./media/talentlms-tutorial/IC777299.png "Add User")  
 
-    a. In the **First name** textbox, enter the first name of user like **Britta**.
+    a. In the **First name** textbox, enter the first name of user like `Britta`.
 
-    b. In the **Last name** textbox, enter the last name of user like **Simon**.
+    b. In the **Last name** textbox, enter the last name of user like `Simon`.
  
-    c. In the **Email address** textbox, enter the email of user like `brittasimon\@contoso.com`.
+    c. In the **Email address** textbox, enter the email of user like `brittasimon@contoso.com`.
 
     d. Click **Add User**.
 

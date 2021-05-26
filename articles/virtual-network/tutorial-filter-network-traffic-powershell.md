@@ -7,7 +7,7 @@ author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
+# Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 
 ms.assetid: 
 ms.service: virtual-network

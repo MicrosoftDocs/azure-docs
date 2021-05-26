@@ -6,7 +6,7 @@ author: chrwhit
 manager: nimag
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
@@ -18,7 +18,7 @@ To list all the phone numbers owned by your Azure Communications Services resour
 
 ```javascript
 
-var admin = require('@azure/communication-administration');
+var admin = require('@azure/communication-identity');
 
 let phoneManagement = new admin.PhoneNumberManagementClient(INSERT CONNECTION STRING);
 
@@ -38,7 +38,7 @@ phoneManagement.phone().getAcquiredTelephoneNumbers(INSERT LOCALE).then(numbers 
 
 ```
 
-1. Using the `Administration client library`, we instantiate a `PhoneNumberManagementClient` using the resources Connection String.
+1. Using the `Identity SDK`, we instantiate a `PhoneNumberManagementClient` using the resources Connection String.
 2. We then use the client to access the `Phone Manager`.
 3. We use the getAcquiredTelephoneNUmbers method of the manager to get the numbers owned by the resource. Here, you need to pass a valid locale value which will determine the locale in which the phone information is returned. (ex. "en-us")
 

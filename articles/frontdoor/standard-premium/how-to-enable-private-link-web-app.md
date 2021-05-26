@@ -7,7 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.author: tyao
+ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to a Web App origin with Private Link
@@ -68,4 +68,4 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 ## Next steps
 
-Learn about [Private Link service with Azure Web App](../../app-service/networking/private-endpoint).
+Learn about [Private Link service with Azure Web App](../../app-service/networking/private-endpoint.md).

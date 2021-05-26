@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
-ms.subservice: logs
 ---
 # Overview of Azure platform logs
 Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. They are automatically generated although you need to configure certain platform logs to be forwarded to one or more destinations to be retained. This article provides an overview of platform logs including what information they provide and how you can configure them for collection and analysis.
@@ -41,8 +40,8 @@ You can send platform logs to one or more of the destinations in the following t
 
 | Destination | Description |
 |:---|:---|
-| Log Analytics workspace | Analyze the logs of all your Azure resources together and take advantage of all the features available to [Azure Monitor Logs](../logs/data-platform-logs.md) including [log queries](../logs/log-query-overview.md) and [log alerts](../alerts/alerts-log.md). Pin the results of a log query to an Azure dashboard or include it in a workbook as part of an interactive report. |  |
-| Event hub | Send platform log data outside of Azure, for example to a third-party SIEM or custom telemetry platform.
+| Log Analytics workspace | Analyze the logs of all your Azure resources together and take advantage of all the features available to [Azure Monitor Logs](../logs/data-platform-logs.md) including [log queries](../logs/log-query-overview.md) and [log alerts](../alerts/alerts-log.md). Pin the results of a log query to an Azure dashboard or include it in a workbook as part of an interactive report. | 
+| Event hub | Send platform log data outside of Azure, for example to a third-party SIEM or custom telemetry platform. |
 | Azure storage | Archive the logs for audit or backup. |
 
 - For details on creating a diagnostic setting for activity log or resource logs, see [Create diagnostic settings to send platform logs and metrics to different destinations](../essentials/diagnostic-settings.md). 

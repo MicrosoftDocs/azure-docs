@@ -17,6 +17,9 @@ After you've created and trained a Custom Vision project, you may want to copy y
 
 The **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** and **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** APIs enable this scenario by allowing you to copy projects from one Custom Vision account into others. This guide shows you how to use these REST APIs with cURL. You can also use an HTTP request service like Postman to issue the requests.
 
+> [!TIP]
+> For an example of this scenario using the Python client library, see the [Move Custom Vision Project](https://github.com/Azure-Samples/custom-vision-move-project/tree/master/) repository on GitHub.
+
 ## Business scenarios
 
 If your app or business depends on the use of a Custom Vision project, we recommend you copy your model to another Custom Vision account in another region. Then if a regional outage occurs, you can access your project in the region where it was copied.
@@ -26,6 +29,7 @@ If your app or business depends on the use of a Custom Vision project, we recomm
 - Two Azure Custom Vision resources. If you don't have them, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - The training keys and endpoint URLs of your Custom Vision resources. You can find these values on the resource's **Overview** tab on the Azure portal.
 - A created Custom Vision project. See [Build a classifier](./getting-started-build-a-classifier.md) for instructions on how to do this.
+* [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line utility.
 
 ## Process overview
 

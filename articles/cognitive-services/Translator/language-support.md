@@ -13,7 +13,7 @@ ms.author: lajanuar
 ---
 # Language and region support for text and speech translation
 
-Use Translator to translate to and from any of the 80+ text translation languages. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
+Use Translator to translate to and from any of the 90 text translation languages and dialects. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
 
 You can also use Translator in conjunction with Custom Translator to build neural translation systems that understand the terminology used in your own business and industry, and with Microsoft Speech Service to add speech translation to your app.
 
@@ -46,8 +46,8 @@ Translator supports the following languages for text to text translation.
 | Chinese Traditional | `zh-Hant` |
 | Croatian | `hr` |
 | Czech | `cs` |
-| Dari | `prs` |
 | Danish | `da` |
+| Dari | `prs` |
 | Dutch | `nl` |
 | English | `en` |
 | Estonian | `et` |
@@ -123,6 +123,9 @@ Translator supports the following languages for text to text translation.
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
+
+> [!NOTE]
+> The following languages are not currently available in containers: Samoan, Tahitian, Klingon, Klingon (plqaD), and Thai.
 
 ### Detect
 
@@ -334,6 +337,7 @@ The following languages are available for customization to or from English using
 | Hungarian      | `hu`          |
 | Icelandic | `is` |
 | Indonesian|	`id`	|
+| Inuktitut|	`iu`	|
 | Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |

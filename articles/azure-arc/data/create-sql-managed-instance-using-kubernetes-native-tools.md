@@ -4,8 +4,8 @@ description: Create a SQL managed instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
@@ -88,10 +88,10 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 ### Customizing the name

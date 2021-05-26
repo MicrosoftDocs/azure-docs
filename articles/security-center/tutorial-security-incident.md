@@ -107,7 +107,7 @@ If you don't plan to continue, or you want to disable either of these features:
 1. Select the relevant subscription.
 1. To downgrade, select **Azure Defender off**.
 1. To disable automatic provisioning, open the **Data Collection** page and set **Auto provisioning** to **Off**.
-4. Select **Save**.
+1. Select **Save**.
 
 >[!NOTE]
 > Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
