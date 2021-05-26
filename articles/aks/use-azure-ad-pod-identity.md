@@ -12,7 +12,7 @@ ms.date: 3/12/2021
 Azure Active Directory pod-managed identities uses Kubernetes primitives to associate [managed identities for Azure resources][az-managed-identities] and identities in Azure Active Directory (AAD) with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on AAD as an identity provider.
 
 > [!NOTE]
->The feature described in this document, pod-managed identities (preview), will be replaced with pod-managed identities V2 (preview). The public preview of V2 will include migration from V1, and will leverage OIDC Discovery endpoints for token exchange with Azure Active Directory.
+>The feature described in this document, pod-managed identities (preview), will be replaced with pod-managed identities V2 (preview).
 > If you have an existing installation of AADPODIDENTITY, you must remove the existing installation. Enabling this feature means that the MIC component isn't needed.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
