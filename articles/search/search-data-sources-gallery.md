@@ -16,6 +16,8 @@ ms.date: 05/29/2021
 
 ## Generally available data sources by Cognitive Search
 
+Pull in content from other Azure services using indexers and the following data source connectors.
+
 :::row:::
 :::column span="":::
 
@@ -122,6 +124,8 @@ Connect to Azure Storage through Azure Data Laker Storage Gen2 to extract conten
 
 ## Preview data sources by Cognitive Search
 
+New data sources are issued as preview features. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to get started.
+
 :::row:::
 :::column span="":::
 
@@ -226,9 +230,9 @@ Connect to MySQL database on Azure to extract rows in a table, serialized into J
 
 ---
 
-## Power Query Connectors
+## Power Query Connectors (preview)
 
-Connect to data on other cloud platforms using indexers and a Power Query connector as the data source.
+Connect to data on other cloud platforms using indexers and a Power Query connector as the data source. [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) to get started.
 
 :::row:::
 :::column span="":::
@@ -252,7 +256,7 @@ Connect to [Amazon Redshift](https://aws.amazon.com/redshift/) and extract searc
 
 Powered by [Power Query](/power-query/power-query-what-is-power-query)
 
-Connect to [Elasticsearch](www.elastic.co/elasticsearch) in the cloud and extract searchable content for indexing in Cognitive Search.
+Connect to [Elasticsearch](https://www.elastic.co/elasticsearch) in the cloud and extract searchable content for indexing in Cognitive Search.
 
 [More details](search-how-to-index-power-query-data-sources.md)
 

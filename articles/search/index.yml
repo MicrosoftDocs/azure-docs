@@ -95,7 +95,7 @@ landingContent:
             url: /python/api/overview/azure/search-documents-readme
           - text: REST API Reference
             url: /rest/api/searchservice/index
-            
+
   # Card
   - title: Enrich with AI
     linkLists:
@@ -120,24 +120,6 @@ landingContent:
           - text: Built-in skills
             url: cognitive-search-predefined-skills.md
          
-  # Card
-  - title: Index any data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Define an index
-            url: search-what-is-an-index.md
-          - text: Import data
-            url: search-what-is-data-import.md
-          - text: Index using Power Query connectors
-            url: search-how-to-index-power-query-data-sources.md
-      - linkListType: reference
-        links:
-          - text: Create Index (REST)
-            url: /rest/api/searchservice/create-index
-          - text: Create Indexer (REST)
-            url: /rest/api/searchservice/create-indexer
-
   # Card
   - title: Query data
     linkLists:
