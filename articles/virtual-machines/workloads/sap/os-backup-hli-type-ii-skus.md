@@ -38,12 +38,12 @@ This document describes the steps to perform an operating system file level back
 
 To perform a manual backup:
 
-1. Install the backup tool 
+1. Install the backup tool.
    ```
    zypper in xfsdump
    ```
 
-2. Create a complete backup 
+2. Create a complete backup. 
    ```
    xfsdump -l 0 -f /data1/xfs_dump /
    ```
@@ -58,7 +58,7 @@ To perform a manual backup:
    cp /data1/xfs_dump /osbackup/
    ```
 
-4. For excluding regular directories and files from dump, please tag files with chattr
+4. For excluding regular directories and files from dump, please tag files with chattr.
    * chattr -R +d directory
    * chattr +d file
    * Run xfsdump with “-e” option
@@ -96,28 +96,28 @@ To perform a manual backup:
    reboot
    ```
 
-* * If any post checks fail, please engage the OS vendor and Microsoft for console access.
+If any post checks fail, please engage the OS vendor and Microsoft for console access.
 
 ## Post Restore check
 
-* Ensure the system has complete attributes restored.
+1. Ensure the system has complete attributes restored.
    * Network is up.
    * NFS volumes are mounted.
-* Ensure RAID is configured; please replace with your RAID device.
+2. Ensure RAID is configured; please replace with your RAID device.
    ```
    mdadm -D /dev/md126
    ```
    [![raid status](media/HowToHLI/OSBackupTypeIISKUs/raid-status.PNG)](media/HowToHLI/OSBackupTypeIISKUs/raid-status.PNG#lightbox)
 
-* Ensure that RAID disks are synced and the configuration is in a clean state.
+3. Ensure that RAID disks are synced and the configuration is in a clean state.
    * RAID disks take sometime in syncing; sync may continue for a few minutes before it is 100% synced.
 
-* Start HANA DB and verify HANA is operating as expected.
+4. Start HANA DB and verify HANA is operating as expected.
 
-* Ensure HANA comes up and there are no errors.
+5. Ensure HANA comes up and there are no errors.
    ```
    hdbinfo
    ```
    [![hana status](media/HowToHLI/OSBackupTypeIISKUs/hana-status.PNG)](media/HowToHLI/OSBackupTypeIISKUs/hana-status.PNG#lightbox)
 
-* If any post checks fail, please engage OS vendor and Microsoft for console access.
+6. If any post checks fail, please engage OS vendor and Microsoft for console access.
