@@ -48,7 +48,7 @@ sections:
       - question: |
          Will tenant application data ever go to Azure?
         answer: |
-              When replicating between service provider-owned sites, application data never goes to Azure. Data is encrypted in-transit, and replicated directly between the service provider sites.
+              When replicating between service provider-owned sites, application data never goes to Azure. Data is encrypted in-transit (HTTPS), and replicated directly between the service provider sites.
           
               If you're replicating to Azure, application data is sent to Azure storage but not to the Site Recovery service. Data is encrypted in-transit, and remains encrypted in Azure.
           

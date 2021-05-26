@@ -1,2 +1,2 @@
 > [!IMPORTANT]
-> Azure Dev Spaces is being retired and will stop working on October 31, 2023. Consider migrating to [Bridge to Kubernetes](../articles/dev-spaces/migrate-to-bridge-to-kubernetes.md).
+> Azure Dev Spaces is retired as of May 15, 2021. Customers should use [Bridge to Kubernetes](../articles/dev-spaces/migrate-to-bridge-to-kubernetes.md).

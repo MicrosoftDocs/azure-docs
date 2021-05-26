@@ -215,6 +215,19 @@ The [az iot hub module-twin](/cli/azure/iot/hub/module-twin) structure provides 
 * **az iot hub module-twin update** - Update a module twin definition.
 * **az iot hub module-twin replace** - Replace a module twin definition with a target JSON.
 
+>[!TIP]
+>To target the runtime modules with CLI commands, you may need to escape the `$` character in the module ID. For example:
+>
+>```azurecli
+>az iot hub module-twin show -m '$edgeAgent' -n <hub name> -d <device name>
+>```
+>
+>Or:
+>
+>```azurecli
+>az iot hub module-twin show -m \$edgeAgent -n <hub name> -d <device name>
+>```
+
 ## Next steps
 
 Learn how to [communicate with EdgeAgent using built-in direct methods](how-to-edgeagent-direct-method.md).

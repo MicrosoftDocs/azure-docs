@@ -17,7 +17,7 @@ We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-s
 
 ## Prerequisites
 
-* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights). 
+* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights). 
 
 * Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
@@ -120,6 +120,6 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## See also
 
-* [Application insights](spring-cloud-howto-application-insights.md)
-* [Distributed tracing](spring-cloud-howto-distributed-tracing.md)
-* [Circuit breaker dashboard](spring-cloud-tutorial-circuit-breaker.md)
+* [Application insights](./how-to-application-insights.md)
+* [Distributed tracing](./how-to-distributed-tracing.md)
+* [Circuit breaker dashboard](./tutorial-circuit-breaker.md)

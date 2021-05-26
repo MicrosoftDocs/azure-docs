@@ -118,7 +118,7 @@ The possible hardware revisions are:
 Also, on the right side, you'll find the [Azure proximity placement group's](../virtual-machines/co-location.md) name, which is created automatically for each deployed BareMetal instance. Reference the proximity placement group when you deploy the Azure VMs that host the application layer. When you use the proximity placement group associated with the BareMetal instance, you ensure that the Azure VMs get deployed close to the BareMetal instance.
  
 >[!TIP]
->To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
+>To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
 
 ### [Azure CLI](#tab/azure-cli)
 

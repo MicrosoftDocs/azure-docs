@@ -15,7 +15,7 @@ ms.custom:
 
 This article provides an overview on the platform-supported migration tool and how to use it to migrate [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Azure Cloud Services (extended support)](overview.md).
 
-The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview). 
+The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
 
 > [!IMPORTANT]
 > Migrating from Cloud Services (classic) to Cloud Services (extended support) using the migration tool is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -23,7 +23,7 @@ The migration tool utilizes the same APIs and has the same experience as the [Vi
 
 Refer to the following resources if you need assistance with your migration: 
 
-- [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html): Microsoft and community support for migration.
+- [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html): Microsoft and community support for migration.
 - [Azure Migration Support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%22e79dcabe-5f77-3326-2112-74487e1e5f78%22,%22supportTopicId%22:%22fca528d2-48bd-7c9f-5806-ce5d5b1d226f%22%7D): Dedicated support team for technical assistance during migration. Customers without technical support can use [free support capability](https://aka.ms/cs-migration-errors) provided specifically for this migration.
 - If your company/organization has partnered with Microsoft or works with Microsoft representatives such as cloud solution architects or technical account managers, reach out to them for more resources for migration.
 - Complete [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR--AgudUMwJKgRGMO84rHQtUQzZYNklWUk4xOTFXVFBPOFdGOE85RUIwVC4u) to provide feedback or raise issues to the Cloud Services (extended support) product team. 
@@ -64,7 +64,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
     ```
 
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
-Azure Service Manager supports two different compute products, [Azure Virtual Machines (classic)](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) and [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) or Web/ Worker roles. The two products differ based on the deployment type that lies within the Cloud Service. Azure Cloud Services (classic) uses Cloud Service containing deployments with Web/Worker roles. Azure Virtual Machines (classic) uses a cloud service containing deployments with IaaS VMs.
+Azure Service Manager supports two different compute products, [Azure Virtual Machines (classic)](/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) and [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) or Web/ Worker roles. The two products differ based on the deployment type that lies within the Cloud Service. Azure Cloud Services (classic) uses Cloud Service containing deployments with Web/Worker roles. Azure Virtual Machines (classic) uses a cloud service containing deployments with IaaS VMs.
 
 The list of supported scenarios differ between Cloud Services (classic) and Virtual Machines (classic) because of differences in the deployment types.
 
@@ -109,7 +109,7 @@ These are top scenarios involving combinations of resources, features, and Cloud
 
 | Service |	Configuration | Comments | 
 |---|---|---|
-| [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) | Virtual networks that contain Azure Active Directory Domain services. | Virtual network containing both Cloud Service deployment and Azure AD Domain services is supported. Customer first needs to separately migrate Azure AD Domain services and then migrate the virtual network left only with the Cloud Service deployment |
+| [Azure AD Domain Services](../active-directory-domain-services/migrate-from-classic-vnet.md) | Virtual networks that contain Azure Active Directory Domain services. | Virtual network containing both Cloud Service deployment and Azure AD Domain services is supported. Customer first needs to separately migrate Azure AD Domain services and then migrate the virtual network left only with the Cloud Service deployment |
 | Cloud Service | Cloud Service with a deployment in a single slot only. | Cloud Services containing either a prod or staging slot deployment can be migrated |
 | Cloud Service | Deployment not in a publicly visible virtual network (default virtual network deployment) | A Cloud Service can be in a publicly visible virtual network, in a hidden virtual network or not in any virtual network.  Cloud Services in a hidden virtual network and publicly visible virtual networks are supported for migration. Customer can use the Validate API to tell if a deployment is inside a default virtual network or not and thus determine if it can be migrated. |
 |Cloud Service | XML extensions (BGInfo, Visual Studio Debugger, Web Deploy, and Remote Debugging). | All xml extensions are supported for migration 
@@ -123,13 +123,13 @@ These are top scenarios involving combinations of resources, features and Cloud 
 
 | Resource | Next steps / work-around | 
 |---|---|
-| Auto Scale Rules | Migration goes through but rules are dropped. [Recreate the rules](https://docs.microsoft.com/azure/cloud-services-extended-support/configure-scaling) after migration on Cloud Services (extended support). | 
-| Alerts | Migration goes through but alerts are dropped. [Recreate the rules](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-alerts) after migration on Cloud Services (extended support). | 
+| Auto Scale Rules | Migration goes through but rules are dropped. [Recreate the rules](./configure-scaling.md) after migration on Cloud Services (extended support). | 
+| Alerts | Migration goes through but alerts are dropped. [Recreate the rules](./enable-alerts.md) after migration on Cloud Services (extended support). | 
 | VPN Gateway | Remove the VPN Gateway before beginning migration and then recreate the VPN Gateway once migration is complete. | 
 | Express Route Gateway (in the same subscription as Virtual Network only) | Remove the Express Route Gateway before beginning migration and then recreate the Gateway once migration is complete. | 
-| Quota	 | Quota is not migrated. [Request new quota](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution) on Azure Resource Manager prior to migration for the validation to be successful. | 
+| Quota	 | Quota is not migrated. [Request new quota](../azure-resource-manager/templates/error-resource-quota.md#solution) on Azure Resource Manager prior to migration for the validation to be successful. | 
 | Affinity Groups | Not supported. Remove any affinity groups before migration.  | 
-| Virtual networks using [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)| Before migrating a virtual network that is peered to another virtual network, delete the peering, migrate the virtual network to Resource Manager and re-create peering. This can cause downtime depending on the architecture. | 
+| Virtual networks using [virtual network peering](../virtual-network/virtual-network-peering-overview.md)| Before migrating a virtual network that is peered to another virtual network, delete the peering, migrate the virtual network to Resource Manager and re-create peering. This can cause downtime depending on the architecture. | 
 | Virtual networks that contain App Service environments | Not supported | 
 | Virtual networks that contain HDInsight services | Not supported. 
 | Virtual networks that contain Azure API Management deployments | Not supported. <br><br> To migrate the virtual network, change the virtual network of the API Management deployment. This is a no downtime operation. | 
@@ -146,7 +146,7 @@ These are top scenarios involving combinations of resources, features and Cloud 
 | Migration of deployments containing both production and staging slot deployment using Reserved IP addresses | Not supported. | 
 | Migration of production and staging deployment in different virtual network|Migration of a two slot cloud service requires deleting the staging slot. Once the staging slot is deleted, migrate the production slot as an independent cloud service (extended support) in Azure Resource Manager. A new Cloud Services (extended support) deployment can then be linked to the migrated deployment with swappable property enabled. Deployments files of the old staging slot deployment can be reused to create this new swappable deployment. | 
 | Migration of empty Cloud Service (Cloud Service with no deployment) | Not supported. | 
-| Migration of deployment containing the remote desktop plugin and the remote desktop extensions | Option 1: Remove the remote desktop plugin before migration. This requires changes to deployment files. The migration will then go through. <br><br> Option 2: Remove remote desktop extension and migrate the deployment. Post-migration, remove the plugin and install the extension. This requires changes to deployment files. <br><br> Remove the plugin and extension before migration. [Plugins are not recommended](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-prerequisite#required-service-definition-file-csdef-updates) for use on Cloud Services (extended support).| 
+| Migration of deployment containing the remote desktop plugin and the remote desktop extensions | Option 1: Remove the remote desktop plugin before migration. This requires changes to deployment files. The migration will then go through. <br><br> Option 2: Remove remote desktop extension and migrate the deployment. Post-migration, remove the plugin and install the extension. This requires changes to deployment files. <br><br> Remove the plugin and extension before migration. [Plugins are not recommended](./deploy-prerequisite.md#required-service-definition-file-csdef-updates) for use on Cloud Services (extended support).| 
 | Virtual networks with both PaaS and IaaS deployment |Not Supported <br><br> Move either the PaaS or IaaS deployments into a different virtual network. This will cause downtime. | 
 Cloud Service deployments using legacy role sizes (such as Small or ExtraLarge). | The migration will complete, but the role sizes will be updated to use modern role sizes. There is no change in cost or SKU properties and virtual machine will not be rebooted for this change. Update all deployment artifacts to reference these new modern role sizes. For more information, see [Available VM sizes](available-sizes.md)|
 | Migration of Cloud Service to different virtual network | Not supported <br><br> 1. Move the deployment to a different classic virtual network before migration. This will cause downtime. <br> 2. Migrate the new virtual network to Azure Resource Manager. <br><br> Or <br><br> 1. Migrate the virtual network to Azure Resource Manager <br>2. Move the Cloud Service to a new virtual network. This will cause downtime. | 
@@ -165,9 +165,9 @@ Minor changes are made to customer’s .csdef and .cscfg file to make the deploy
 - Classic sizes like Small, Large, ExtraLarge are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in .csdef file. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-service-definition-file-csdef-updates)
 
 - Use the Get API to get the latest copy of the deployment files. 
-    - Get the template using [Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell#export-resource-groups-to-templates), [CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli#export-resource-groups-to-templates), and [Rest API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate) 
-    - Get the .csdef file using [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
-    - Get the .cscfg file using [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) or [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package). 
+    - Get the template using [Portal](../azure-resource-manager/templates/export-template-portal.md), [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), [CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), and [Rest API](/rest/api/resources/resourcegroups/exporttemplate) 
+    - Get the .csdef file using [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) or [Rest API](/rest/api/compute/cloudservices/rest-get-package). 
+    - Get the .cscfg file using [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) or [Rest API](/rest/api/compute/cloudservices/rest-get-package). 
     
  
 

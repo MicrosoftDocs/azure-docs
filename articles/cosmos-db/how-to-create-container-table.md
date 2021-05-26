@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown 
-ms.custom: devx-track-azurecli, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Create a container in Azure Cosmos DB Table API

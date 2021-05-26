@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 12/15/2020
+ms.date: 04/30/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -18,11 +18,32 @@ ms.author: marsma
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+## April 2021
+
+### New articles
+
+- [Claims mapping policy type](reference-claims-mapping-policy-type.md)
+- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
+
+### Updated articles
+
+- [Configurable token lifetimes in the Microsoft identity platform (preview)](active-directory-configurable-token-lifetimes.md)
+- [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
+- [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
+- [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md)
+- [Quickstart: Sign in users and get an access token in a Node web app using the auth code flow](quickstart-v2-nodejs-webapp-msal.md)
+- [Quickstart: Sign in users and get an access token in an Angular single-page application](quickstart-v2-angular.md)
+- [Single-page application: Acquire a token to call an API](scenario-spa-acquire-token.md)
+- [Single-page application: Code configuration](scenario-spa-app-configuration.md)
+- [Single-page application: Sign-in and Sign-out](scenario-spa-sign-in.md)
+- [Use MSAL in a national cloud environment](msal-national-cloud.md)
+- [Understanding Azure AD application consent experiences](application-consent-experience.md)
+
 ## March 2021
 
 ### New articles
 
-- [Restore or remove a recently deleted application with the Microsoft identity platform](quickstart-restore-app.md)
+- [Restore or remove a recently deleted application with the Microsoft identity platform](./howto-restore-app.md)
 
 ### Updated articles
 
@@ -67,26 +88,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Quickstart: Set up a tenant](quickstart-create-new-tenant.md)
 - [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
 - [Quickstart: Acquire a token and call Microsoft Graph API from a Java console app using app's identity](quickstart-v2-java-daemon.md)
-
-## January 2021
-
-### New articles
-
-- [Logging in MSAL for Android](msal-logging-android.md)
-- [Logging in MSAL.NET](msal-logging-dotnet.md)
-- [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
-- [Logging in MSAL for Java](msal-logging-java.md)
-- [Logging in MSAL.js](msal-logging-js.md)
-- [Logging in MSAL for Python](msal-logging-python.md)
-
-### Updated articles
-
-- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
-- [Application model](application-model.md)
-- [Authentication vs. authorization](authentication-vs-authorization.md)
-- [How to: Restrict your Azure AD app to a set of users in an Azure AD tenant](howto-restrict-your-app-to-a-set-of-users.md)
-- [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md)
-- [Configurable token lifetimes in Microsoft identity platform (preview)](active-directory-configurable-token-lifetimes.md)
-- [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
-- [Microsoft identity platform authentication libraries](reference-v2-libraries.md)
-- [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)

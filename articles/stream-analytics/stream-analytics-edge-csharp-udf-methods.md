@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 5/12/2021
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
@@ -21,7 +21,7 @@ Azure Stream Analytics offers a SQL-like query language for performing transform
 * East US 2
 * West Europe
 
-If you are interested in using this feature in any another region, you can [request access](https://aka.ms/ccodereqregion).
+If you are interested in using this feature in any another region, you can [request access](https://aka.ms/ccodereqregion).  However, there is no such region restriction when using [Stream Analytics clusters](https://docs.microsoft.com/azure/stream-analytics/cluster-overview).
 
 ## Package path
 

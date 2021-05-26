@@ -173,7 +173,7 @@ Create the following helper function to wait for the **PersonGroup** to finish t
 ### Create a PersonGroup
 
 The following code:
-- Creates a [PersonGroup](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/persongroup)
+- Creates a [PersonGroup](/javascript/api/@azure/cognitiveservices-face/persongroup)
 - Adds faces to the **PersonGroup** by calling `AddFacesToPersonGroup`, which you defined previously.
 - Trains the **PersonGroup**.
 - Identifies the faces in the **PersonGroup**.
@@ -208,10 +208,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face client library for JavaScript to do basis facial recognition tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face client library for JavaScript to do basis facial recognition tasks. Next, learn about the different face detection models and how to specify the right model for your use case.
 
 > [!div class="nextstepaction"]
-> [Face API reference (JavaScript)](/javascript/api/@azure/cognitiveservices-face/)
+> [Specify a face detection model version](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [What is the Face service?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js).

@@ -208,33 +208,6 @@ To resolve this issue:
 8. Under **ClusterSettings**, find **SessionDirectoryListener** and make sure its data value is **rdp-sxs...**.
 9. If **SessionDirectoryListener** isn't set to **rdp-sxs...**, you'll need to follow the steps in the [Uninstall the agent and boot loader](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) section to first uninstall the agent, boot loader, and stack components, and then [Reinstall the agent and boot loader](#step-4-reinstall-the-agent-and-boot-loader). This will reinstall the side-by-side stack.
 
-## Error: Heartbeat issue where users keep getting disconnected from session hosts
-
-If your server isn't picking up a heartbeat from the Windows Virtual Desktop service, you'll need to change the heartbeat threshold. This will temporarily mitigate the issue symptoms, but won't fix the underlying network issue. Follow the instructions in this section if one or more of the following scenarios apply to you:
-
-- You're receiving a **CheckSessionHostDomainIsReachableAsync** error
-- You're receiving a **ConnectionBrokenMissedHeartbeatThresholdExceeded** error
-- You're receiving a **ConnectionEstablished:UnexpectedNetworkDisconnect** error
-- User clients keep getting disconnected
-- Users keep getting disconnected from their session hosts
-
-To change the heartbeat threshold:
-1. Open your command prompt as an administrator.
-2. Enter the **qwinsta** command and run it.
-3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
-   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number. If it is, make sure to write down this number for later.
-4. Open the Registry Editor.
-5. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
-6. Under **WinStations**, you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
-7. Create a new registry DWORD by right-clicking the registry editor, then selecting **New** > **DWORD (32-bit) Value**. When you create the DWORD, enter the following values:
-   - HeartbeatInterval: 10000
-   - HeartbeatWarnCount: 30 
-   - HeartbeatDropCount: 60 
-8. Restart your VM.
-
->[!NOTE]
->If changing the heartbeat threshold doesn't resolve your issue, you may have an underlying network issue that you'll need need to contact the Azure Networking team about.
-
 ## Error: DownloadMsiException
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **DownloadMsiException** in the description, there isn't enough space on the disk for the RDAgent.

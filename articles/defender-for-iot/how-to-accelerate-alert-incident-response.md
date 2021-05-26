@@ -101,7 +101,7 @@ Alert groups are predefined. For details about alerts associated with alert grou
 
 ## Customize alert rules
 
-Use custom alert rules to more specifically pinpoint activity of interest to you. 
+Use custom alert rules to more specifically pinpoint activity of interest to you.
 
 You can add custom alert rules based on:
 
@@ -125,7 +125,7 @@ The alert message indicates that a user-defined rule triggered the alert.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Screenshot that shows customized alerts.":::
 
-To create a custom alert rule:
+**To create a custom alert rule:**
 
 1. Select **Custom Alerts** from the side menu of a sensor.
 1. Select the plus sign (**+**) to create a rule.

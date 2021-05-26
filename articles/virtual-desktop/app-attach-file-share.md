@@ -15,7 +15,7 @@ MSIX app attach doesn't have any dependencies on the type of storage fabric the 
 
 ## Performance requirements
 
-MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDx files, as well as the size limitations of the VHD, VHSD or CIM files and the file system.
+MSIX app attach image size limits for your system depend on the storage type you're using to store the VHD or VHDx files, as well as the size limitations of the VHD, VHDX or CIM files and the file system.
 
 The following table gives an example of how many resources a single 1 GB MSIX image with one MSIX app inside of it requires for each VM:
 

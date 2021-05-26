@@ -133,6 +133,11 @@ Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now co
 
 ### Modify ASP.NET Core
 
+> [!NOTE]
+> **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Azure SDK. 
+> It is replaced with new **Azure Identity client library** available for .NET, Java, TypeScript and Python and should be used for all new development. 
+> Information about how to migrate to `Azure Identity`can be found here: [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
+
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
@@ -244,6 +249,9 @@ All that's left now is to publish your changes to Azure.
 ![Publish from Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 In the publish page, click **Publish**. 
+
+> [!IMPORTANT]
+> Ensure that your app service name doesn't match with any existing [App Registrations](../active-directory/manage-apps/add-application-portal.md). This will lead to Principal ID conflicts.
 
 **If you came from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, publish your changes using Git, with the following commands:
 

@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 04/24/2021
+ms.date: 04/29/2021
 ---
 
 # Connectivity architecture for Azure SQL Managed Instance
@@ -82,7 +82,7 @@ When connections start inside SQL Managed Instance (as with backups and audit lo
 
 To address customer security and manageability requirements, SQL Managed Instance is transitioning from manual to service-aided subnet configuration.
 
-With service-aided subnet configuration, the user is in full control of data (TDS) traffic, while SQL Managed Instance takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
+With service-aided subnet configuration, the customer is in full control of data (TDS) traffic, while SQL Managed Instance control plane takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
 
 Service-aided subnet configuration builds on top of the virtual network [subnet delegation](../../virtual-network/subnet-delegation-overview.md) feature to provide automatic network configuration management and enable service endpoints. 
 
@@ -95,7 +95,7 @@ Service endpoints could be used to configure virtual network firewall rules on s
 
 Deploy SQL Managed Instance in a dedicated subnet inside the virtual network. The subnet must have these characteristics:
 
-- **Dedicated subnet:** The SQL Managed Instance subnet can't contain any other cloud service that's associated with it, and it can't be a gateway subnet. The subnet can't contain any resource but SQL Managed Instance, and you can't later add other types of resources in the subnet.
+- **Dedicated subnet:** The managed instance's subnet can't contain any other cloud service that's associated with it, but other managed instances are allowed and it can't be a gateway subnet. The subnet can't contain any resource but the managed instance(s), and you can't later add other types of resources in the subnet.
 - **Subnet delegation:** The SQL Managed Instance subnet needs to be delegated to the `Microsoft.Sql/managedInstances` resource provider.
 - **Network security group (NSG):** An NSG needs to be associated with the SQL Managed Instance subnet. You can use an NSG to control access to the SQL Managed Instance data endpoint by filtering traffic on port 1433 and ports 11000-11999 when SQL Managed Instance is configured for redirect connections. The service will automatically provision and keep current [rules](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) required to allow uninterrupted flow of management traffic.
 - **User defined route (UDR) table:** A UDR table needs to be associated with the SQL Managed Instance subnet. You can add entries to the route table to route traffic that has on-premises private IP ranges as a destination through the virtual network gateway or virtual network appliance (NVA). Service will automatically provision and keep current [entries](#mandatory-user-defined-routes-with-service-aided-subnet-configuration) required to allow uninterrupted flow of management traffic.
