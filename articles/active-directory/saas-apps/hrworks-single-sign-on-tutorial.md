@@ -71,10 +71,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, perform the folowing step:
+1. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
+    `https://login.hrworks.de/?companyId=<COMPANY_ID>&directssologin=true`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [HRworks Single Sign-On Client support team](mailto:nadja.sommerfeld@hrworks.de) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
