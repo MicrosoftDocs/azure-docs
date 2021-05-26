@@ -2,10 +2,7 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-author: mumian
-ms.author: jgao
-
-ms.date: 05/05/2021
+ms.date: 06/01/2021
 ---
 
 # Data types in Bicep
