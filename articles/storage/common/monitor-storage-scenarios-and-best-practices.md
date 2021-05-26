@@ -59,19 +59,80 @@ Put something here.
 
 Put something here.
 
-### Advanced scenarios
+### Scenarios and example queries
 
-#### Determine the number of bytes read per request by a specific service principal
+This section shows example queries that you can use for common scenarios.
 
-Put something here.
+##### Number of bytes read per request by a specific service principal
 
-#### Determine the number of bytes read per request as part of a particular connection  
+Put query here
 
-Put something here.
+##### Number of bytes read per request as part of a particular connection  
+
+Put query here
+
+##### 10 most common errors over the last three days
+
+```Kusto
+StorageBlobLogs
+| where TimeGenerated > ago(3d) and StatusText !contains "Success"
+| summarize count() by StatusText
+| top 10 by count_ desc
+```
+
+##### Top 10 operations that caused the most errors over the last three days
+
+```Kusto
+StorageBlobLogs
+| where TimeGenerated > ago(3d) and StatusText !contains "Success"
+| summarize count() by OperationName
+| top 10 by count_ desc
+```
+
+##### Top 10 operations with the longest end-to-end latency over the last three days
+
+```Kusto
+StorageBlobLogs
+| where TimeGenerated > ago(3d)
+| top 10 by DurationMs desc
+| project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
+```
+
+##### All operations that caused server-side throttling errors over the last three days
+
+```Kusto
+StorageBlobLogs
+| where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
+| project TimeGenerated, OperationName, StatusCode, StatusText
+```
+
+##### All requests with anonymous access over the last three days
+
+```Kusto
+StorageBlobLogs
+| where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
+| project TimeGenerated, OperationName, AuthenticationType, Uri
+```
+
+##### Operations used over the last three days
+
+This output appears in a pie chart
+
+```Kusto
+StorageBlobLogs
+| where TimeGenerated > ago(3d)
+| summarize count() by OperationName
+| sort by count_ desc 
+| render piechart
+```
 
 ## Audit control plane activities
 
 Put something here.
+
+## Scenarios and examples
+
+Put scenarios here.
 
 ## Receive real-time alerts of account activity
 
@@ -84,7 +145,6 @@ Put something here.
 ### Alert when a file is approaching a capacity limit
 
 Put something here.
-
 
 ## Next steps
 * [Monitor a storage account](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
