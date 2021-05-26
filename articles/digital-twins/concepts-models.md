@@ -53,15 +53,18 @@ Azure Digital Twins also does not observe the `writable` attribute on properties
 Within a model definition, the top-level code item is an **interface**. This encapsulates the entire model, and the rest of the model is defined within the interface. 
 
 A DTDL model interface may contain zero, one, or many of each of the following fields:
-* **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Properties have backing storage and can be read at any time.
-* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur. For more on the differences between property and telemetry, see [Difference between properties and telemetry](#difference-between-properties-and-telemetry) below.
+* **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Properties have backing storage and can be read at any time. For more information, see [Modeling properties and telemetry](#modeling-properties-and-telemetry) below.
+* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur. For more information, see [Modeling properties and telemetry](#modeling-properties-and-telemetry) below.
+* **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. Relationships can also have properties of their own. For more information, see [Modeling relationships](#modeling-relationships) below.
 * **Component** - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a model for a *phone*. You must first define an interface for *frontCamera* as though it were its own model, and then you can reference it when defining *Phone*.
 
-    Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by *relationships* (see next bullet).
+    Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by **relationships**
     
     >[!TIP] 
     >Components can also be used for organization, to group sets of related properties within a model interface. In this situation, you can think of each component as a namespace or "folder" inside the interface.
-* **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. Relationships can also have [properties](#properties-of-relationships) of their own.
+
+    For more information, see [Modeling components](#modeling-components) below.
+
 
 > [!NOTE]
 > The [spec for DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) also defines **Commands**, which are methods that can be executed on a digital twin (like a reset command, or a command to switch a fan on or off). However, *commands are not currently supported in Azure Digital Twins.*
@@ -78,7 +81,7 @@ The fields of the model are:
 | `@type` | Identifies the kind of information being described. For an interface, the type is *Interface*. |
 | `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
 | `displayName` | [optional] Allows you to give the model a friendly name if desired. |
-| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
+| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (**property**, **telemetry**, **command**, **relationship**, or **component**) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a **property**). |
 
 #### Example model
 
@@ -90,16 +93,17 @@ This model describes a **home**, with one property for an ID. The home model als
 
 ## Modeling properties and telemetry
 
-### Possible schemas
+This section goes into more detail about **properties** and **telemetry** in DTDL models.
 
-As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
+### Basic property example
 
-In addition to primitive types, *Property* and *Telemetry* fields can have these complex types:
-* `Object`
-* `Map`
-* `Enum`
+Here is a basic example of a property on a DTDL model. This example shows the ID property of a home.
 
-*Telemetry* fields also support `Array`.
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="7-11":::
+
+### Basic telemetry example
+
+Here is a basic example of a telemetry field on a DTDL model. This example shows ...
 
 ### Difference between properties and telemetry
 
@@ -119,23 +123,49 @@ Telemetry and properties often work together to handle data ingress from devices
 
 You can also publish a telemetry event from the Azure Digital Twins API. As with other telemetry, that is a short-lived event that requires a listener to handle.
 
+### Schema
+
+As per DTDL, the schema for **property** and **telemetry** attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
+
+In addition to primitive types, property and telemetry fields can have these [complex types](#complex-object-properties):
+* `Object`
+* `Map`
+* `Enum`
+* (**telemetry** only) `Array`
+
+They can also be [semantic types](#semantic-types), such as ... 
+
 ### Semantic types
 
-In this example, both humidity and temperature are semantic type.
+The following example shows a Room model, with two semantic-type properties. Both humidity and temperature are semantic type.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="8-16,17-25":::
 
 ### Complex (object) properties
 
-Added a new address complex type to collect address information on the home model from earlier.
+Properties can be of complex types, including an `Object` type.
+
+The following example shows another version of the Home model, with a property for its address. `address` is an object, with its own fields for street, city, state, and zip.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
 
 ## Modeling relationships
 
-### Non-targeted relationships
+This section goes into more detail about **relationships** in DTDL models.
 
-In the following example, removed the target property on the `dtmi:com:adt:dtsample:room:rel_has_sensors;1` on the IRoom model.
+### Basic relationship example
+
+Here is a basic example of a relationship on a DTDL model. This example shows a relationship on a Home model that allows it to connect to a Floor model.
+
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="12-18":::
+
+### Targeted and non-targeted relationships
+
+Relationships can be defined with or without a **target**. A target specifies which types of twin the relationship can reach. For example, you might include a target to specify that a Home model can only have a rel_has_floors relationship with Floor twins. 
+
+Sometimes, you might want to define a relationship without a specific target, so that the relationship can connect to many different types of twins.
+
+Here is an example of a relationship on a DTDL model that does not have a target. In this example, the relationship is for defining what sensors a Room might have, and the relationship can connect to any type.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="26-31":::
 
@@ -143,18 +173,24 @@ In the following example, removed the target property on the `dtmi:com:adt:dtsam
 
 DTDL also allows for **relationships** to have properties of their own. When defining a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
 
-In the following example, relationship `dtmi:com:adt:dtsample:home:rel_has_floors;1` on the IHome model has a newly added property.
+The following example shows another version of the Home model, where the `rel_has_floors` relationship has a property representing when the related room was last occupied.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="39-45":::
 
 ## Modeling components
 
+This section goes into more detail about **components** in DTDL models.
+
+### Basic component example
+
+Here is a basic example of a component on a DTDL model. This example shows ...
+
 > [!NOTE]
-> Note that the component interface is defined in the same array as the interface that uses it . Components must be defined this way in API calls in order for the interface to be found.
+> Note that the component interface is defined in the same array as the interface that uses it. Components must be defined this way in API calls in order for the interface to be found.
 
 ## Inheritance
 
-Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
+Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**: interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
 
 The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired). A single parent can serve as the base model for multiple extending interfaces.
 
