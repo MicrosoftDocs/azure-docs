@@ -118,7 +118,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 To configure single sign-on on Miro side, use the certificate you previously downloaded and the Login URL you previously copied. In the Miro account settings go to the **Security** section and toggle on **Enable SSO/SAML**. 
 
 1. Paste the Login URL in the **SAML Sign-in URL** field.
-1. Open the certifcate file with a text editor and copy the certificate sequence. Paste the sequence in the **Key x509 Certificate** field.
+1. Open the certificate file with a text editor and copy the certificate sequence. Paste the sequence in the **Key x509 Certificate** field.
 ![Miro settings](./media/miro-tutorial/security.png "Miro settings")
 
 1. In the **Domains** field type in your domain address, click **Add** and follow the verification procedure. Repeat for your other domain addresses if you have any. The Miro SSO feature will be working for the end-users which domains are on the list. 
