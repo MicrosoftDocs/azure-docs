@@ -46,7 +46,7 @@
         href: on-prem-ecma-install.md
       - name: Azure AD ECMA Connector Host configuration
         href: on-prem-ecma-configure.md
-      - name: Generic SQL connector configureation
+      - name: Generic SQL connector configuration
         href: on-prem-sql-connector-configure.md
       - name: On-premises app provisioning to SCIM-enabled apps
         href: on-prem-scim-provisioning.md
