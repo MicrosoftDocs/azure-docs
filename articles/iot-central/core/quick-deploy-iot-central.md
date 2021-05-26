@@ -3,7 +3,7 @@ title: Quickstart - Create and use an Azure IoT Central application | Microsoft 
 description: Quickstart - Create a new Azure IoT Central application and connect your first device. This quickstart uses a smartphone app from either the Google Play or Apple app store as an IoT device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/23/2021
+ms.date: 05/27/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central

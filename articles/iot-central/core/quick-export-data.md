@@ -1,48 +1,108 @@
 ---
-title: Quickstart - Monitor your devices in Azure IoT Central
-description: Quickstart - Learn how to use your Azure IoT Central application to monitor your devices.
+title: Quickstart - Export data from Azure IoT Central
+description: Quickstart - Learn how to use the data export feature in IoT Central to integrate with other cloud services.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/16/2020
+ms.date: 05/27/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ---
 
-# Quickstart: Use Azure IoT Central to monitor your devices
+# Quickstart: Export data from an IoT Central application
 
-This quickstart shows you how to use your Azure IoT Central application to monitor your devices and change settings.
+This quickstart shows you how to continuously export data from your Azure IoT Central application to another cloud service. To get you set up quickly, this quickstart uses [Azure Data Explorer](../../data-explorer/data-explorer-overview.md) to let you store, query, and process the telemetry from the **IoT Plug and Play** smartphone app.
+
+In this quickstart, you:
+
+- Use the data export feature in IoT Central to export the telemetry sent by the smartphone app to an Azure Event Hubs queue.
+- Ingest the telemetry from the Event Hubs queue into an Azure Data Explorer database.
+- Use Azure Data Explorer to run queries on the telemetry.
 
 ## Prerequisites
 
-Before you begin, you should complete the three previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md), [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) and [Configure rules and actions for your device](quick-configure-rules.md).
+Before you begin, you should complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md). The second quickstart, [Configure rules and actions for your device](quick-configure-rules.md), is optional.
 
-## Receive a notification
+## Install Azure services
 
-Azure IoT Central sends notifications about devices as email messages. As a builder, you added a rule to send a notification to an operator when the humidity in a connected device sensor exceeded a threshold. As an operator, you check your emails for notifications.
+Before you can export data from your IoT Central application, you need to create an Event Hubs queue and an Azure Data Explorer database.
 
-Open the email message you received at the end of the [Configure rules and actions for your device](quick-configure-rules.md) quickstart. In the email, select the link to the device:
+<!-- To Do: Add link to an ARM template that create the ADE cluster and EH queue. Deployment takes approx 10 minutes :( -->
+<!-- To Do: Make a note of the connection string that the ARM template outputs.  -->
 
-:::image type="content" source="media/quick-monitor-devices/email.png" alt-text="Screenshot that shows notification email":::
+## Configure data export
 
-The **Overview** view for the simulated device you created in the previous quickstarts opens in your browser:
+This scenario uses an Azure Event Hubs queue to deliver telemetry collected by your IoT Central application to Azure Data Explorer.
 
-:::image type="content" source="media/quick-monitor-devices/dashboard.png" alt-text="Screenshot that shows overview of device that triggered the notification":::
+To configure the data export from IoT Central:
 
-## Investigate an issue
+1. Navigate to the **Data export** page in your IoT Central application.
+1. Select the **Destinations** tab and then **+ New destination**.
+1. Enter *Azure Data Explorer* as the destination name. Select **Azure Event Hubs** as the destination type.
+1. Enter the Event Hubs queue connection string you saved in the previous section. The **Event Hub** is filled out automatically.
+1. Select **Save**.
+1. On the **Data export** page, select the **Exports** tab, and then **+ New export**.
+1. Enter *Telemetry Export* as the export name.
+1. Select **Telemetry** as the type of data to export.
+1. Add **Azure Data Explorer** as a destination.
+1. Select **Save**.
 
-As an operator, you can view information about the device on the **Overview**, **About**, and **Commands** views. The builder created a **Manage device** view for you to edit device information and set device properties.
+When the export is running, the status on the **Data export** page is **Healthy**:
 
-The chart on the dashboard shows a plot of the device humidity. You decide that the device humidity is too high.
+:::image type="content" source="media/quick-export-data/healthy-export.png" alt-text="Screenshot that shows a running data export with the healthy status.":::
 
-## Remediate an issue
+## Configure data ingestion
 
-To make a change to the device, use the **Manage device** page.
+Your IoT Central application is continuously exporting telemetry to the Event Hubs queue. In this section, you configure your Azure Data Explorer cluster to continuously ingest the telemetry into a table where you can query it.
 
-Change **Target temperature** to 80 to warm the device and reduce the humidity. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
+To configure data ingestion:
 
-:::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Screenshot that shows the updated target temperature setting for the device":::
+1. In the Azure portal, navigate to your Azure Data Explorer cluster:
+
+    :::image type="content" source="media/quick-export-data/azure-data-explorer-portal.png" alt-text="Screenshot of the Azure Data Explorer overview page.":::
+
+1. Select **Ingest new data**.
+1. On the **Ingest new data** page, select your cluster and the **iotcentraldata** database.
+1. Select **Create new** to create a new table called *telemetry*.
+1. Select **Event Hubs** as the source type.
+1. Enter *IoT-Central-connection* as the data connection name.
+1. Use the information in the following table to fill out the remainder of the form:
+
+    | Field                   | Value                            |
+    |-------------------------|----------------------------------|
+    | Subscription            | Select your Azure subscription   |
+    | Event Hub namespace     | Select your Event Hubs namespace |
+    | Event Hub               | `centraltelemetry`               |
+    | Consumer group          | `$Default`                       |
+    | Data format             | JSON                             |
+    | Compression             | None                             |
+    | Event system properties | Leave blank                      |
+
+1. Select **Edit schema**.
+1. The **Schema** page shows a data preview of the messages in the Event Hubs queue.
+1. Change the nested levels value to `3` to expand the JSON and show each telemetry value in its own column.
+1. Select **Start ingestion**. Wait until the data ingestion is complete:
+
+:::image type="content" source="media/quick-export-data/data-ingestion-complete.png" alt-text="Screenshot that shows competed data ingestion is Azure Data Explorer.":::
+
+Leave this page open, you use it in the next section.
+
+## Query exported data
+
+Your Azure Data Explorer cluster is now continuously ingesting data from your IoT Central application. To query the data:
+
+1. On the Azure Data Explorer page from the previous section, select the **Take 10** quick query. This query selects ten records from the **telemetry** table.
+1. Replace the query with the following query:
+
+    ```kusto
+    ['telemetry'] 
+    | where isnotnull(telemetry_magnetometer_x)
+    | project Time=todatetime(enqueuedTime), deviceId, telemetry_magnetometer_x, telemetry_magnetometer_y, telemetry_magnetometer_z
+    | render timechart 
+    ```
+
+    This query plots the magnetometer telemetry values on a time-line.
 
 ## Clean up resources
 
@@ -50,13 +110,9 @@ Change **Target temperature** to 80 to warm the device and reduce the humidity. 
 
 ## Next steps
 
-In this quickstart, you learned how to:
+In this quickstart, you learned how to continuously export data from IoT Central to another Azure service.
 
-* Receive a notification
-* Investigate an issue
-* Remediate an issue
-
-Now that you know now to monitor your device, the suggested next step is to:
+Now that you know now to export your data, the suggested next step is to:
 
 > [!div class="nextstepaction"]
 > [Build and manage a device template](howto-set-up-template.md).
