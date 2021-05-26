@@ -43,12 +43,12 @@ var resultId = result.ResultId;
 
 ::: zone pivot="programming-language-cpp"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesisresult) |
+| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/cpp/cognitive-services/speech/speechsynthesisresult) |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
 
-The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesisresult). Refer following codes to get them.
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](/cpp/cognitive-services/speech/speechsynthesisresult). Refer following codes to get them.
 
 ```cpp
 auto result = synthesizer->SpeakTextAsync(text).get();
@@ -62,12 +62,12 @@ auto resultId = result->ResultId;
 
 ::: zone pivot="programming-language-java"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) |
+| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
 
-The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
 
 ```java
 SpeechSynthesisResult result = synthesizer.SpeakTextAsync(text).get();
@@ -82,12 +82,12 @@ String resultId = result.getResultId();
 
 ::: zone pivot="programming-language-python"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult) |
+| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult) |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
 
-The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
 
 ```python
 result = synthesizer.speak_text_async(text).get()
@@ -101,12 +101,12 @@ result_id = result.result_id
 
 ::: zone pivot="programming-language-objectivec"
 
-| Latency | Description | Property in the property bag of [SPXSpeechSynthesisResult](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesisresult) |
+| Latency | Description | Property in the property bag of [SPXSpeechSynthesisResult](/objectivec/cognitive-services/speech/spxspeechsynthesisresult) |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SPXSpeechServiceResponseSynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SPXSpeechServiceResponseSynthesisFinishLatencyMs` |
 
-The Speech SDK measured the latencies and puts them in the property bag of [`SPXSpeechSynthesisResult`](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesisresult). Refer following codes to get them.
+The Speech SDK measured the latencies and puts them in the property bag of [`SPXSpeechSynthesisResult`](/objectivec/cognitive-services/speech/spxspeechsynthesisresult). Refer following codes to get them.
 
 ```Objective-C
 SPXSpeechSynthesisResult *speechResult = [speechSynthesizer speakText:text];
@@ -157,7 +157,7 @@ using (var synthesizer = new SpeechSynthesizer(config, null as AudioConfig))
 
 ::: zone pivot="programming-language-cpp"
 
-You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-pushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/cpp/cognitive-services/speech/audio-pullaudiooutputstream), [`PushAudioOutputStream`](/cpp/cognitive-services/speech/audio-pushaudiooutputstream), [`Synthesizing` event](/cpp/cognitive-services/speech/speechsynthesizer#synthesizing), and [`AudioDateStream`](/cpp/cognitive-services/speech/audiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
@@ -177,7 +177,7 @@ while ((filledSize = audioDataStream->ReadData(buffer, sizeof(buffer))) > 0)
 
 ::: zone pivot="programming-language-java"
 
-You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_Synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_Synthesizing), and [`AudioDateStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
@@ -197,7 +197,7 @@ while (filledSize > 0) {
 
 ::: zone pivot="programming-language-python"
 
-You can use the [`PullAudioOutputStream`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#synthesizing), and [`AudioDateStream`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#synthesizing), and [`AudioDateStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
@@ -216,7 +216,7 @@ while filled_size > 0:
 
 ::: zone pivot="programming-language-objectivec"
 
-You can use the [`SPXPullAudioOutputStream`](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpullaudiooutputstream), [`SPXPushAudioOutputStream`](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpushaudiooutputstream), [`Synthesizing` event](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addsynthesizingeventhandler), and [`SPXAudioDataStream`](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxaudiodatastream) of the Speech SDK to enable streaming.
+You can use the [`SPXPullAudioOutputStream`](/objectivec/cognitive-services/speech/spxpullaudiooutputstream), [`SPXPushAudioOutputStream`](/objectivec/cognitive-services/speech/spxpushaudiooutputstream), [`Synthesizing` event](/objectivec/cognitive-services/speech/spxspeechsynthesizer#addsynthesizingeventhandler), and [`SPXAudioDataStream`](/objectivec/cognitive-services/speech/spxaudiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
@@ -226,7 +226,7 @@ SPXSpeechSynthesisResult *speechResult = [synthesizer startSpeakingText:inputTex
 SPXAudioDataStream *stream = [[SPXAudioDataStream alloc] initFromSynthesisResult:speechResult];
 NSMutableData* data = [[NSMutableData alloc]initWithCapacity:16000];
 while ([stream readData:data length:16000] > 0) {
-    // read data here
+    // Read data here
 }
 ```
 
@@ -312,7 +312,7 @@ We recommend using object pool in service scenario, see our sample code for [C#]
 When the network is unstable or with limited bandwidth, the payload size will also impact latency.
 Meanwhile, compressed audio format helps to save the users' precious network bandwidth especially for mobile users.
 
-We support many compressed formats including `opus`, `webm`, `mp3`, `silk`, and so on, see the full list in `enum` of type [SpeechSynthesisOutputFormat](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
+We support many compressed formats including `opus`, `webm`, `mp3`, `silk`, and so on, see the full list in `enum` of type [SpeechSynthesisOutputFormat](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
 For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps, while `Audio24Khz48KBitRateMonoMp3` only costs 48 kbps.
 Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set and `GStreamer` is properly installed.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
