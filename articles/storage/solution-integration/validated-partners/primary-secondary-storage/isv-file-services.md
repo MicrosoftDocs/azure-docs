@@ -128,7 +128,7 @@ This article compares several ISV solutions that provide files services in Azure
 |-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|
 | **Azure AD support**                                | Yes (via ADDS)       | Yes (via ADDS)                 | Yes (via ADDS)            | Yes (via ADDS)        | Yes (via ADDS)        |
 | **Active directory support**                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   |
-| **LDAP support**                                    | Yes                  | Yes, Same as ONTAP             | No                        | No                    | Yes                   |
+| **LDAP support**                                    | Yes                  | Yes                            | No                        | No                    | Yes                   |
 
 ### Management
 
