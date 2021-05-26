@@ -60,12 +60,15 @@ Next, you'll need to specify the connection information for the data source. For
 
 For details of different types of data sources, see [How-to: Connect different data sources](../data-feeds-from-different-sources.md).
 
-### Verify and get schema
+### Load data
 
-After the connection string and query string are set, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
+After the connection string and query string are inputted, select **Load data**. Within this operation, Metrics Advisor will check connection and permission to load data, check necessary parameters (@IntervalStart and @IntervalEnd) which need to be used in query, and check the column name from data source. 
 
-* Your connection string and query are correct.
-* Your Metrics Advisor instance is able to connect to the data source if there are firewall settings.
+If there's an error at this step, check:
+1. Whether connection string is valid. 
+2. Whether there's sufficient permission and ingestion worker IP address is granted access.
+3. Whether required parameters (@IntervalStart and @IntervalEnd) are used in your query. 
+
 
 ### Schema configuration
 
@@ -79,9 +82,9 @@ If the timestamp of a data point is omitted, Metrics Advisor will use the timest
 |**Timestamp**     | The timestamp of a data point. If omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column. If you get a **column cannot be specified as Timestamp** error, check your query or data source for duplicate timestamps.      |
 |**Measure**     |  The numeric values in the data feed. For each data feed, you can specify multiple measures but at least one column should be selected as measure.        | Should be specified with at least one column.        |
 |**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
-|**Ignore**     | Ignore the selected column.        | Optional. See the below text.       |
+|**Ignore**     | Ignore the selected column.        | Optional. For data sources support using a query to get data, there is no 'Ignore' option.       |
 
-If you want to ignore columns, we recommend updating your query or data source to exclude those columns. You can also ignore columns using **Ignore columns** and then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
+You can ignore columns using **Ignore columns** and then **Ignore** on the specific columns. If a column should be a dimension and is mistakenly set as *Ignored*, Metrics Advisor may end up ingesting partial data. For example, assume the data from your query is as below:
 
 | Row ID | Timestamp | Country | Language | Income |
 | --- | --- | --- | --- | --- |
@@ -92,6 +95,10 @@ If you want to ignore columns, we recommend updating your query or data source t
 | ... | ...| ... | ... | ... |
 
 If *Country* is a dimension and *Language* is set as *Ignored*, then the first and second rows will have the same dimensions for a timestamp. Metrics Advisor will arbitrarily use one value from the two rows. Metrics Advisor will not aggregate the rows in this case.
+
+After configuring the schema, select **Verify schema**. Within this operation, Metrics Advisor will perform following checks:
+1. Whether timestamp of queried data falls into one single interval. 
+2. Whether there's duplicate values returned for the same dimention combination within one metric interval.  
 
 ### Automatic roll up settings
 
