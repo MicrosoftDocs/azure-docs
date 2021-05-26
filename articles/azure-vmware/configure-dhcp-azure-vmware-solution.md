@@ -81,7 +81,10 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
 
 If you want to use a third-party external DHCP server, you'll create a DHCP relay service. You'll also specify the DHCP IP address range in NSX-T Manager.
 
+
 ### Create DHCP relay service
+
+Use DHCP Relay for any non-NSX based DHCP service. For example, a VM running DHCP in Azure VMware Solution, Azure IaaS, or on-premises.
 
 1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add Server**.
 
