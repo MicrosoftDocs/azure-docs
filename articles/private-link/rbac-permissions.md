@@ -1,6 +1,6 @@
 ---
 title: Azure RBAC permissions for Azure Private Link
-description: Get started learning about the RBAC permissions needed to deploy a private endpoint and private link service.
+description: Get started learning about the Azure RBAC permissions needed to deploy a private endpoint and private link service.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Azure RBAC permissions for Azure Private Link
 
-Access management for cloud resources is a critical function for any organization. Azure role-based access control (Azure RBAC) manages who has access to Azure resources and what they can do with those resources. 
+Access management for cloud resources is a critical function for any organization. Azure role-based access control (Azure RBAC) manages access and operations of Azure resources.
 
 To deploy a private endpoint or private link service a user must have assigned a built-in role such as: 
 
