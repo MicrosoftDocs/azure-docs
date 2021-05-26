@@ -147,7 +147,7 @@ For more information on managing Azure AD-only authentication using APIs, see [M
 
 To enable Azure AD-only authentication in Azure SQL Managed Instance using PowerShell, see the commands below. [Az.Sql 2.10.0](https://www.powershellgallery.com/packages/Az.Sql/2.10.0) module or higher is required to execute these commands. 
 
-For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-aad-only-auth.md#managing-azure-ad-only-authentication-using-apis)
+For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-aad-only-auth.md#managing-azure-ad-only-authentication-using-apis).
 
 
 1. [Sign into Azure](/powershell/azure/authenticate-azureps) using the account with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role.
@@ -270,11 +270,11 @@ After enabling Azure AD-only authentication, test with [SQL Server Management St
 
 You should see a login failed message similar to the following output:
 
-<pre><code>
-Cannot connect to <myserver>.database.windows.net.
-<b>Additional information:</b>
-  Login failed for user 'username'. Reason: Azure Active Directory only authentication is enabled. <br />  Please contact your system administrator. (Microsoft SQL Server, Error: 18456)
-</code></pre>
+   <pre><code>
+   Cannot connect to <myserver>.database.windows.net.
+   <b>Additional information:</b>
+   Login failed for user 'username'. Reason: Azure Active Directory only authentication is enabled. <br />   Please contact your system administrator. (Microsoft SQL Server, Error: 18456)
+   </code></pre>
 
 ## Disable Azure AD-only authentication
 
