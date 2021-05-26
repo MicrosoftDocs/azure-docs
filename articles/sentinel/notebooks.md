@@ -36,7 +36,7 @@ The Azure Sentinel notebooks use many popular Python libraries such as pandas, m
 - Statistics and numerical computing
 - Machine learning and deep learning
 
-We've also released some open-source Jupyter security tools in a package named [msticpy](https://github.com/Microsoft/msticpy/). This package is used in many of the included notebooks. Msticpy tools are designed specifically to help with creating notebooks for hunting and investigation and we're actively working on new features and improvements.
+We've also released some open-source Jupyter security tools in a package named [msticpy](https://github.com/Microsoft/msticpy/). This package is used in many of the included notebooks. Msticpy tools are designed specifically to help with creating notebooks for hunting and investigation and we're actively working on new features and improvements. For more information, see the [MSTIC Jupyter and Python Security Tools documentation](https://msticpy.readthedocs.io/.
 
 The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
@@ -144,3 +144,4 @@ In this article, you learned how to get started using Jupyter Notebook in Azure 
 
 - [Proactively hunt for threats](hunting.md)
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
+- [Jupyter, msticpy and Azure Sentinel](https://msticpy.readthedocs.io/en/latest/getting_started/JupyterAndAzureSentinel.html)
