@@ -343,7 +343,7 @@ Here is the schema for the entries:
 | NodeId | Value from the OPC UA node. For example: ns=3;i={value} | ✔ |
 | TwinId | TwinId ($dtId) of the twin you want to save the telemetry value for | ✔ |
 | Property | Name of the property on the twin to save the telemetry value | ✔ |
-| ModelId  | The modelId to create the twin if the TwinId does not exist | ✔ |
+| ModelId  | The modelId to create the twin if the TwinId does not exist |  |
 
 > [!TIP]
 > For a complete example of a *opcua-mapping.json* file, see the [OPC UA to Azure Digital Twins GitHub repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins).
@@ -424,6 +424,10 @@ Run this command to monitor Azure function event processing:
 ```azurecli-interactive
 az webapp log tail –name <function-name> --resource-group <resource-group-name>
 ```
+
+Finally, you can use Azure Digital Twins Explorer to manually monitor twin property updates. 
+
+:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/adt-explorer-2.png" alt-text="Screenshot of using azure digital twins explorer to monitor twin property updates":::
 
 ### Verify completion
 
