@@ -71,8 +71,6 @@ additionalContent:
       items:
         - title: Support & Help
           links:
-            - text: Submit feedback on UserVoice
-              url: https://aka.ms/AppliedAIUserVoice
             - text: Ask questions on Microsoft Q&A
               url: https://aka.ms/AppliedAIMSFTQandA
             # Card
