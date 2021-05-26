@@ -23,10 +23,15 @@ You can configure your Virtual WAN VPN gateway with static one-to-one NAT rules.
 This configuration uses a flow table to route traffic from an external (host) IP Address to an internal IP address associated with an endpoint inside a virtual network (virtual machine, computer, container, etc.).
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagram showing architecture.":::
+   
+In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors are not supported in conjunction with NAT configuration.
 
 ## <a name="rules"></a>Configure NAT rules
 
 You can configure and view NAT rules on your VPN gateway settings at any time.
+
+> [!NOTE]
+> Site-to-site NAT is not supported with Site-to-site VPN connections where policy based traffic selectors are used.
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing how to edit rules."lightbox="./media/nat-rules-vpn-gateway/edit-rules.png":::
 1. Navigate to your virtual hub.
@@ -168,6 +173,10 @@ The **Effective Routes** on the Network Interface Cards (NIC) of any virtual mac
 The on-premises device should also contain routes for prefixes contained within the **External Mapping** of **Egress NAT Rules**. 
 
 ####  Common configuration patterns 
+
+> [!NOTE]
+> Site-to-site NAT is not supported with Site-to-site VPN connections where policy based traffic selectors are used.
+
 The following table shows common configuration patterns that arise when configuring different types of NAT rules on the Site-to-site VPN Gateway.  
 
 | Type of VPN Site | Ingress NAT Rules | Egress NAT Rules

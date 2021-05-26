@@ -25,8 +25,6 @@
     href: tutorial-respond-threats-playbook.md
   - name: Create KQL queries (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
-  - name: Deploy the Azure Sentinel solution for SAP
-    href: sap-deploy-solution.md
 - name: Concepts
   items:
   - name: Classify data using entities
@@ -278,12 +276,8 @@
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
-  - name: Deploy solutions
-    items:
-    - name: Discover and deploy solutions
-      href: sentinel-solutions-deploy.md
-    - name: Advanced - Deploy the SAP data connector on-premises
-      href: sap-solution-deploy-alternate.md
+  - name: Discover and deploy solutions
+    href: sentinel-solutions-deploy.md
   - name: Work with SOC-ML anomaly rules
     href: work-with-anomaly-rules.md
   - name: Create custom entity activities
@@ -325,6 +319,18 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
+- name: Integrate SAP and Azure Sentinel
+  items:
+    - name: Deploy SAP continuous threat monitoring
+      href: sap-deploy-solution.md
+    - name: Deployment requirements
+      href: sap-solution-detailed-requirements.md
+    - name: Available SAP logs
+      href: sap-solution-log-reference.md
+    - name: SAP workbook, rules, and watchlists
+      href: sap-solution-security-content.md
+    - name: Deploy the SAP data connector on-premises
+      href: sap-solution-deploy-alternate.md
 - name: Reference
   items:
   - name: Top Azure Sentinel workbooks
@@ -367,14 +373,6 @@
     href: cef-name-mapping.md
   - name: MCAS alerts not onboarded to Microsoft 365 Defender
     href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
-  - name: SAP solution references
-    items:
-      - name: Detailed SAP solution requirements
-        href: sap-solution-detailed-requirements.md
-      - name: Available SAP logs
-        href: sap-solution-log-reference.md
-      - name: SAP solution security content reference
-        href: sap-solution-security-content.md
 - name: Resources
   items:
   - name: Useful resources
