@@ -260,7 +260,6 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 ### New features and improvements
 - We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from Azure AD to Azure AD Domain Services.
 - We added support for reliable sessions between the authentication agent and service bus.
-- This release enforces TLS 1.2 for communication between authentication agent and cloud services.
 - We added a DNS cache for websocket connections between authentication agent and cloud services.
 - We added the ability to target specific agent from cloud to test for agent connectivity.
 
