@@ -259,10 +259,10 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 ## Next steps
 
 In this tutorial, you created a key in App Configuration that references a secret stored in Key Vault.
-To learn how to automatically reload secrets from Key Vault, continue to the next tutorial:
+To learn how to automatically reload secrets and certificates from Key Vault, continue to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Automatically reload secrets from Key Vault](./reload-key-vault-secrets-aspnet-core.md)
+> [Reload secrets and certificates from Key Vault automatically](./reload-key-vault-secrets-aspnet-core.md)
 
 To learn how to use Managed Identity to streamline access to App Configuration and Key Vault, refer to the following tutorial:
 

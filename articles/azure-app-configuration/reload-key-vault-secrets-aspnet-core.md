@@ -127,6 +127,8 @@ Update the `ConfigureKeyVault` method to set up a refresh interval for your Key 
         .UseStartup<Startup>();
 ```
 
+---
+
 The first argument in `SetSecretRefreshInterval` method is the key of the Key Vault reference in App Configuration. This argument is optional. If no key is provided, the refresh interval will apply to all those secrets and certificates which do not have individual refresh intervals. 
 
 `SetSecretRefreshInterval` method doesn't monitor the value of a key in App Configuration. For monitoring the value in App Configuration, use the `ConfigureRefresh` method to register keys for refresh. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
