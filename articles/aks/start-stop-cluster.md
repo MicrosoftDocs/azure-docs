@@ -82,7 +82,7 @@ You can verify when your cluster has started by using the [az aks show][az-aks-s
 If the `provisioningState` shows `Starting` that means your cluster hasn't fully started yet.
 
 > [!NOTE]
-> In a Cluster Autoscaler scenario when you start your cluster back up you may see that your current node count is not in your min to max range that you have set. This is the correct behavior, as your cluster starts with the correct number of nodes it needs to run its workloads. As your cluster scales, it will then respect your min and max ranges. Staying in that desired range until you stop your cluster.
+> If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
 ## Next steps
 
