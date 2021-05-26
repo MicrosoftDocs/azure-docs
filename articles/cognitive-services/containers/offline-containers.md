@@ -11,7 +11,7 @@ ms.date: 05/24/2021
 ms.author: aahi
 ---
 
-## Use Docker containers in disconnected environments
+# Use Docker containers in disconnected environments
 
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Offline containers enable you to use these APIs completely disconnected from the internet. 
@@ -26,6 +26,10 @@ You must meet the following prerequisites before using offline containers. If yo
     * You will need the key and endpoint from the resource to use the container.
 
 [!INCLUDE [Gathering required parameters](includes/container-gathering-required-parameters.md)]
+
+## The host computer
+
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
@@ -61,11 +65,11 @@ For a full description of available tags for the <service> containers, see the [
 docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase:latest
 ```
 
-[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## Run the container with the Docker run command
 
-Once the container is on the [host computer](#the-host-computer), use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
+Once the container is on the host computer](#the-host-computer), use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
 
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
@@ -103,24 +107,24 @@ The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `http://localhost:5000`, for container APIs.
 
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
-<!-- link to your containers configuration article-->
-If you run the container with an output [mount](../TBD-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+<!-- link to the offline containers configuration article-->
+If you run the container with an output mount and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
-[!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 
 The <service> containers send billing information to Azure, using a <service> resource on your Azure account. 
 
-[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 ## Summary
 
