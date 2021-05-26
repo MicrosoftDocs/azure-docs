@@ -124,9 +124,7 @@ The following table lists the field names and descriptions:
 
 ## Enable diagnostic logging on all public IPs
 
-This [template](https://aka.ms/ddosdiaglogs) creates an Azure Policy definition to automatically enable diagnostic logging on all public IP logs in a defined scope.
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
+This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F752154a7-1e0f-45c6-a880-ac75a7e4f648) automatically enables diagnostic logging on all public IP logs in a defined scope. See [Azure Policy built-in definitions for Azure DDoS Protection Standard](policy-reference.md) for full list of built-in policies.
 
 ## View log data in workbooks
 

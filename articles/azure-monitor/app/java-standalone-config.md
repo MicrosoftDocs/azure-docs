@@ -36,7 +36,7 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.1.0.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.1.0.jar`.
 
 You can specify your own configuration file path using either
 
@@ -348,7 +348,8 @@ You can also suppress these instrumentations by setting these environment variab
 
 ## Heartbeat
 
-By default, Application Insights Java 3.0 sends a heartbeat metric once every 15 minutes. If you are using the heartbeat metric to trigger alerts, you can increase the frequency of this heartbeat:
+By default, Application Insights Java 3.x sends a heartbeat metric once every 15 minutes.
+If you are using the heartbeat metric to trigger alerts, you can increase the frequency of this heartbeat:
 
 ```json
 {
@@ -364,7 +365,9 @@ By default, Application Insights Java 3.0 sends a heartbeat metric once every 15
 
 ## HTTP Proxy
 
-If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 to use an HTTP proxy:
+If your application is behind a firewall and cannot connect directly to Application Insights
+(see [IP addresses used by Application Insights](./ip-addresses.md)),
+you can configure Application Insights Java 3.x to use an HTTP proxy:
 
 ```json
 {
@@ -375,7 +378,7 @@ If your application is behind a firewall and cannot connect directly to Applicat
 }
 ```
 
-Application Insights Java 3.0 also respects the global `https.proxyHost` and `https.proxyPort` system properties
+Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
 if those are set (and `http.nonProxyHosts` if needed).
 
 ## Metric interval
@@ -420,11 +423,11 @@ The setting applies to all of these metrics:
 
 ## Self-diagnostics
 
-"Self-diagnostics" refers to internal logging from Application Insights Java 3.0.
+"Self-diagnostics" refers to internal logging from Application Insights Java 3.x.
 
 This functionality can be helpful for spotting and diagnosing issues with Application Insights itself.
 
-By default, Application Insights Java 3.0 logs at level `INFO` to both the file `applicationinsights.log`
+By default, Application Insights Java 3.x logs at level `INFO` to both the file `applicationinsights.log`
 and the console, corresponding to this configuration:
 
 ```json
