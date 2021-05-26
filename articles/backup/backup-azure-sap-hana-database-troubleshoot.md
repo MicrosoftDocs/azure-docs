@@ -26,7 +26,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | Error Message      | <span style="font-weight:normal">Failed to connect to HANA system</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <li>Connection to HANA instance failed</li><li>System DB  is offline</li><li>Tenant DB is offline</li><li>Backup user (AZUREWLBACKUPHANAUSER) doesn’t have enough permissions/privileges.</li> |
+| **Possible causes**    | <ul><li>Connection to HANA instance failed</li><li>System DB  is offline</li><li>Tenant DB is offline</li><li>Backup user (AZUREWLBACKUPHANAUSER) doesn’t have enough permissions/privileges.</li></ul> |
 | **Recommended action** | Check if the system is up and running. If the database(s) is up and running, ensure that the required permissions are set by downloading and running the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana). |
 
 ### UserErrorHanaInstanceNameInvalid
@@ -152,10 +152,9 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 ### UserErrorRecoverySysScriptFailedToTriggerRestore
 
 **Error** | <span style="font-weight:normal">RecoverySys.py could not be run successfully to restore System DB.</span>
---------- | ---------
+-------- | ---------
 **Possible causes** | <br>Possible causes for System DB restore to fail are:</br><ul><li>Azure Backup is unable to find **Recoverysys.py** on the HANA machine. This happens when the HANA environment isn’t set up properly.</li><li>**Recoverysys.py** is present, but triggering this script has failed to invoke HANA to perform the restore.</li><li>Recoverysys.py has successfully invoked HANA to perform the restore, but HANA fails to restore.</li></ul>
-**Recommended action** | <ul><li>For issue 1, work with the SAP HANA team to fix the issue.</li><li>For 2 and 3, see the log trace by running the HDSetting.sh command in sid-adm prompt. For example, **/usr/sap/SID/HDB00/HDBSetting.sh**.</li></oul><br>
-Share these findings with the SAP HANA team to get the issue fixed.</br>
+**Recommended action** | <ul><li>For issue 1, work with the SAP HANA team to fix the issue.</li><li>For 2 and 3, see the log trace by running the HDSetting.sh command in sid-adm prompt. For example, **/usr/sap/SID/HDB00/HDBSetting.sh**.</li></ul><br>Share these findings with the SAP HANA team to get the issue fixed.</br>
 
 ### UserErrorDBNameNotInCorrectFormat
 
