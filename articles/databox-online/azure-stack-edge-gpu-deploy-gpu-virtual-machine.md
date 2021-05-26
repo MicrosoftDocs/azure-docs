@@ -231,14 +231,6 @@ Here is a sample Ubuntu parameter file that was used in this article:
 
 #### RHEL and RHEL BYOS
 
-If you used a Red Hat Enterprise Linux bring-your-own-subscription (RHEL BYOS) image (also known as Red Hat Gold image) to create your VM and want to install the GPU extension, follow these steps: 
-
-1. Enable your Red Hat subscription for Cloud Access. See [instructions]().
-1. Enable your Azure subscription. See [instructions](). This will allow you access to Red Hat Gold Images.  
-1. Register and subscribe your VM with the Red Hat Customer portal. This step allows you to access the Red Hat Update Infrastructure (RHUI) that hosts the Red Hat packages. For more information, see [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273)
-1. When you install the GPU extension, the installation script may look for a vulkan-filesystem package that is on CentOS7 repo (for RHEL7). You need to either manually install the vulkan-filesystempackage or add CentOS7 repo to your yum repo list.
-
-You can then deploy the extension. 
 
 If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.json` file takes the following parameters:
 
@@ -267,6 +259,10 @@ If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.
     }
 }
 ```
+
+> [!NOTE]
+> If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscription image, make sure that you followed the steps in [using RHEL BYOS image](azure-stack-edge-gpu-create-virtual-machine-image.md). When you install the GPU extension, the installation script may look for a `vulkan-filesystem` package that is on CentOS7 repo (for RHEL7). Before you deploy the extension, you need to either manually install the `vulkan-filesystem` package or add CentOS7 repo to your yum repo list. 
+
 ---
 
 ### Deploy template 
