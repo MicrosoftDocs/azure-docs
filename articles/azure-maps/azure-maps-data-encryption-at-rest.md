@@ -14,4 +14,4 @@ ms.custom: mvc
 
 # Azure Maps data encryption at rest
 
-Azure Maps provides [double encryption for both data in-transit and data at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).  For more details on how Azure Maps protects data at rest, see  [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) For information on data encryption in general, see [Azure encryption overview](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview).
+Azure Maps provides [double encryption for both data in-transit and data at rest](../security/fundamentals/encryption-overview.md).  For more details on how Azure Maps protects data at rest, see  [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md) For information on data encryption in general, see [Azure encryption overview](../security/fundamentals/encryption-overview.md).
