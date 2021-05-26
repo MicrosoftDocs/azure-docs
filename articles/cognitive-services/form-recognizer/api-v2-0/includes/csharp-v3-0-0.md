@@ -134,9 +134,10 @@ Repeat the steps above for a new method that authenticates a training client.
 
 You'll also need to add references to the URLs for your training and testing data. Add these to the root of your **Program** class.
 
-* [!INCLUDE [get SAS URL](../sas-instructions.md)]
+* To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+
 * Then, repeat the above steps to get the SAS URL of an individual document in blob storage container. Save it to a temporary location as well.
 * Finally, save the URL of the sample image(s) included below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
 
