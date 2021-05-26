@@ -19,7 +19,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## May 2021
 
-### Form Recognizer 2.1 (GA)
+### Form Recognizer 2.1 API is now Generally Available (GA)
 
 * Form Recognizer 2.1 is generally available. This General Availability (GA) release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following:
 
@@ -30,7 +30,8 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * [Identity documents](concept-identification-cards.md)
 * [Custom forms](concept-custom.md)
 
-* We now support multiple service API versions—Form Recognizer v2.1 and v2.0.
+#### Get started 
+Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](quickstarts/get-started-with-form-recognizer.md) 
 
 ### Layout adds table headers
 
