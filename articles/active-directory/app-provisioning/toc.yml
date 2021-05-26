@@ -25,6 +25,8 @@
     items: 
      - name: How application provisioning works
        href: how-provisioning-works.md
+     - name: On-premises application provisioning architecture
+       href: on-prem-app-prov-arch.md 
      - name: Plan an application provisioning deployment
        href: plan-auto-user-provisioning.md
      - name: Plan a cloud HR provisioning deployment

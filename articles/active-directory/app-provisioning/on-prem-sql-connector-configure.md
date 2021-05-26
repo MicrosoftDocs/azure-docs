@@ -12,7 +12,6 @@ ms.date: 03/09/2021
 ms.author: billmath
 ms.reviewer: arvinh
 ---
----
 
 # Azure AD ECMA Connector Host generic SQL configuration
 
