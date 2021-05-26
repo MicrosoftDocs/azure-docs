@@ -1,19 +1,17 @@
 ---
-title: Configure Power BI app offer listing details on Microsoft AppSource
-description: Configure Power BI app offer listing details on Microsoft AppSource.
+title: Configure Power BI app offer listing details on Microsoft AppSource (Azure Marketplace)
+description: Configure Power BI app offer listing details on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/17/2020
+author: keferna
+ms.author: keferna
+ms.date: 05/26/2021
 ---
 
 # Configure Power BI app offer listing details
 
-<strike>This page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
-
-Define marketplace details for each language/market here, such as offer name, description, and images. Select the language/market name to provide this information.</strike>This page lets you define the offer details such as offer name, description, links, contacts, logos, and screenshots.
+This page lets you define the offer details such as offer name, description, links, contacts, logos, and screenshots that will appear on Microsoft AppSource.
 
 > [!NOTE]
 > Provide offer listing details in one language only. English is not required as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful link URL* to offer content in a language other than the one used in the Offer listing content.
@@ -27,10 +25,12 @@ Here's an example of how offer information appears in Microsoft AppSource (any l
 1. Logo
 1. Products
 1. Categories
+1. Industries
 1. Support address (link)
 1. Terms of use
+1. Privacy policy
 1. Offer name
-1. Offer name
+1. Search results summary
 1. Description
 1. Screenshots/videos
 
@@ -64,7 +64,7 @@ In the **Support contact** section, provide the **Support URL** where CSP partne
 
 ## Supporting documents
 
-Provide up to three related PDF marketing documents here, such as white papers, brochures, checklists, or presentations. <font color="red">[ One not required, like D365 offers? ]</font>
+Provide up to three related PDF marketing documents here, such as white papers, brochures, checklists, or presentations (optional).
 
 ## Marketplace media
 

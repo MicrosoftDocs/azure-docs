@@ -1,12 +1,12 @@
 ---
-title: Configure Power BI app offer properties on Microsoft AppSource
-description: Configure Power BI app offer properties on Microsoft AppSource.
+title: Configure Power BI app offer properties on Microsoft AppSource (Azure Marketplace)
+description: Configure Power BI app offer properties on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/17/2020
+author: keferna
+ms.author: keferna
+ms.date: 05/26/2021
 ---
 
 # Configure Power BI app offer properties
@@ -25,9 +25,7 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 ### Industries
 
-[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)].
-
-<strike>Enter an **App version** for your offer. Customers will see this number listed on the offer's detail page. If you are only updating the version number due to marketing/descriptive changes, check the **Marketing only change** box. This option allows the offer to bypass the certification and provisioning stages.</strike>
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### Legal
 

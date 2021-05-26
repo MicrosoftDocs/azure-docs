@@ -1,17 +1,23 @@
 ---
-title: Set up Power BI app offer technical configuration on Microsoft AppSource
-description: Set up Power BI app offer technical configuration on Microsoft AppSource.
+title: Set up Power BI app offer technical configuration on Microsoft AppSource (Azure Marketplace)
+description: Set up Power BI app offer technical configuration on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: navits
-ms.date: 12/17/2020
+author: keferna
+ms.author: keferna
+ms.date: 05/26/2021
 ---
 
 # Set up Power BI app offer technical configuration
 
-Promote your app in Power BI Service to production <strike>and provide</strike> by providing the Power BI **App installer link** that enables customers to install your app.
+This topic discusses how to promote your Power BI app.
+
+## Promote your app
+
+Promote your app in Power BI app to production by providing the Power BI **App installer link** that enables customers to install your app.
+
+[ new text ]
 
 For more information, see [Publish apps with dashboards and reports in Power BI](/power-bi/service-create-distribute-apps).
 

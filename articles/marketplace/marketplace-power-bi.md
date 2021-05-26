@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2021
+ms.date: 05/26/2021
 ---
 
 # Plan a Power BI App offer
 
-This article explains how to publish a Power BI app to Microsoft [AppSource](https://appsource.microsoft.com/). A Power BI app packages customizable content, including datasets, reports, and dashboards. You can then use the app with other Power BI platforms using AppSource, perform the adjustments and customizations allowed by the developer, and connect it to your own data.
+This article highlights the content and requirements you need to have ready or completed to publish a Power BI app to Microsoft [AppSource](https://appsource.microsoft.com/). A Power BI app packages customizable content, including datasets, reports, and dashboards. You can then use the app with other Power BI platforms using AppSource, perform the adjustments and customizations allowed by the developer, and connect it to your own data.
 
 Before you begin, review these links, which provide templates, tips, and samples:
 
@@ -34,7 +34,9 @@ Benefits of publishing to the commercial marketplace:
 
 :::image type="content" source="media/power-bi/power-bi-app-publishing-steps.png" alt-text="Overview of the steps to publish a Power BI app offer." border="false":::
 
-These are the key publishing steps:
+If you're ready to create your offer now, see [Next steps](#next-steps) below. Otherwise, continue reading to ensure you're properly prepared before starting the offer creation process.
+
+These are the key publishing steps covered in the next several topics:
 
 1. Create your application in Power BI. You'll receive a package install link, which is the main technical asset for the offer. Send the test package to pre-production before creating the offer in Partner Center. For details, see [What are Power BI apps?](/power-bi/service-template-apps-overview)
 2. Add the marketing materials, such as official name, description, and logos.
@@ -73,14 +75,11 @@ The business requirements include procedural, contractual, and legal obligations
 
 ## Licensing options
 
-These are the available licensing options for Power BI app offers: <font color="red"> [ pick the right ones, or add ] </font>
+This is the only licensing option available for Power BI app offers:
 
 | Licensing option | Transaction process |
 | --- | --- |
-| BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
 | Get it now (free) | List your offer to customers for free. |
-| Free trial (listing) | Offer your customers a one-, three- or six-month free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft. |
-| Contact me | Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see the **Customer leads** section of your offer type's **Offer setup** page. |
 |
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
@@ -111,7 +110,7 @@ To help create your offer more easily, prepare these items ahead of time. All ar
 - **Contact information**
   - **Support contact** – The name, phone, and email that Microsoft partners will use when your customers open tickets. Include the URL for your support website.
   - **Engineering contact** – The name, phone, and email for Microsoft to use directly when there are problems with your offer. This contact information isn’t listed in the commercial marketplace.
-  - **Supporting documents** – 
+  - **Supporting documents** (optional) – Up to three customer-facing documents, such as whitepapers, brochures, checklists, or PowerPoint presentations, in PDF form.
 - **Media**
     - **Logos** – A PNG file for the **Large** logo. Partner Center will use this to create other required logo sizes. You can optionally replace these with different images later.
     - **Screenshots** – At least one and up to five screenshots that show how your offer works. Images must be 1280 x 720 pixels, in PNG format, and include a caption.
@@ -120,35 +119,11 @@ To help create your offer more easily, prepare these items ahead of time. All ar
 > [!Note]
 > Your offer must meet the general [commercial marketplace certification policies](/legal/marketplace/certification-policies#100-general) to be published to the commercial marketplace.
 
-<strike>
-
-## Preview audience
-
-A preview audience can access your offer prior to being published live in the online stores in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience.
-
-You can send invites to Azure subscription IDs. Add up to 10 IDs manually or import up to 100 with a .csv file. If your offer is already live, you can still define a preview audience for testing any changes or updates to your offer.</strike>
-
-## <strike>Plans and</strike> Pricing
-
-<strike>Container offers require at least one plan. A plan defines the solution scope and limits. You can create multiple plans for your offer to give your customers different technical and licensing options.</strike>
-
-Power BI app offers support [ how many? ] licensing models: Free or Bring Your Own License (BYOL). BYOL means you’ll bill your customers directly, and Microsoft won’t charge you any fees. Microsoft only passes through Azure infrastructure usage fees. For more information, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).<font color="red"> [ licensing is discussed above, perhaps this section should be there, or vice versa ] </font>
-
 ## Additional sales opportunities
 
 You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
 
-- **Resell through CSPs** – Allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. For more information about this program, see [Cloud Solution Provider program](cloud-solution-providers.md).
 - **Co-sell with Microsoft** – Let Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For details about co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies). For details on preparing your offer for evaluation, see [Co-sell option in Partner Center](commercial-marketplace-co-sell.md).
-
-## Offer requirements <font color="red"> [ from Containers, as starter info ] </font>
-
-| Requirement | Details |  
-| --- | --- |  
-| Billing and metering | Support either the free or BYOL billing model. |
-| Image built from a Dockerfile | Container images must be based on the Docker image specification and built from a Dockerfile. For more information about building Docker images, see the "Usage" section of [Dockerfile reference](https://docs.docker.com/engine/reference/builder/#usage). |
-| Hosting in an Azure Container Registry repository | Container images must be hosted in an Azure Container Registry repository. For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](../container-registry/container-registry-get-started-portal.md).<br><br> |
-| Image tagging | Container images must contain at least one tag (maximum number of tags: 16). For more information about tagging an image, see the `docker tag` page on the [Docker Documentation](https://docs.docker.com/engine/reference/commandline/tag) site. |
 
 ## Next steps
 
