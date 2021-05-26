@@ -30,7 +30,8 @@ In Azure Purview, there are few options to use as authentication method to scan 
 
 Before setting up any credentials and to identify which authentication method is needed, you need to consider few factors, such as the type of your data sources or networking requirements. Review the following decision tree to find what credential is most suitable for your scenario:
 
-   :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree.png" alt-text="Manage credentials decision tree":::
+
+   :::image type="content" source="media/manage-credentials/manage-credentials-decision-tree-small.png" alt-text="Manage credentials decision tree" lightbox="media/manage-credentials/manage-credentials-decision-tree.png":::
 
 ## Use Purview managed identity to set up scans
 
