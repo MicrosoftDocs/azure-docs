@@ -33,8 +33,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | Error Message      | <span style="font-weight:normal">The specified SAP HANA instance is either invalid or can't be found</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <li>The specified SAP HANA instance is either invalid or can’t be found.</li><li>Multiple SAP HANA instances on a single Azure VM can't be backed up.</li> |
-| **Recommended action** | <li>Ensure that only one HANA instance is running on the Azure VM.</li><li>Run the script from the Discover DB pane (you can also find this [here](https://aka.ms/scriptforpermsonhana) with the correct SAP HANA instance to resolve the issue.</li> |
+| **Possible causes**    | <ul><li>The specified SAP HANA instance is either invalid or can’t be found.</li><li>Multiple SAP HANA instances on a single Azure VM can't be backed up.</li></ul> |
+| **Recommended action** | <ul><li>Ensure that only one HANA instance is running on the Azure VM.</li><li>Run the script from the Discover DB pane (you can also find this [here](https://aka.ms/scriptforpermsonhana) with the correct SAP HANA instance to resolve the issue.</li></ul> |
 
 ### UserErrorHanaUnsupportedOperation
 
@@ -47,7 +47,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | Error Message      | <span style="font-weight:normal">Backup log chain is broken</span>                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <br>HANA LSN Log chain break can be triggered for various reasons, including:</br><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog is not yet updated with success in Hana system.</li><li>Backup failed from Azure Backup perspective, but success from HANA's perspective - the log backup/catalog destination may have been updated from backint to file system, or the backint executable may have been changed.</li> |
+| **Possible causes**    | <br>HANA LSN Log chain break can be triggered for various reasons, including:</br><ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog is not yet updated with success in Hana system.</li><li>Backup failed from Azure Backup perspective, but success from HANA's perspective - the log backup/catalog destination may have been updated from backint to file system, or the backint executable may have been changed.</li></ul> |
 | **Recommended action** | <br>To resolve this issue, Azure Backup triggers an auto-heal Full backup. While this auto-heal backup is in progress, all log backups are triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Once the auto-heal Full backup is complete, logs and all other backups will start working as expected.</br><br>If you do not see an auto-heal full backup triggered or any successful backup (Full/Differential/ Incremental) in 24 hours, contact Microsoft support.</br> |
 
 ### UserErrorSDCtoMDCUpgradeDetected
@@ -82,7 +82,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error** |	<span style="font-weight:normal">Azure Backup does not have enough privileges to carry out Backup and Restore operations.</span>
 ---------- | ---------
-**Possible causes** | <br>Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn’t have one or more of the following roles assigned:</br><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for **HANA 2.0 SPS05** and later) to create new databases during restore.</li><li>For SDC, BACKUP ADMIN to create new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>**SAP_INTERNAL_HANA_SUPPORT** to access a few private tables. Only required for SDC and MDC versions prior to **HANA 2.0 SPS04 Rev 46**. This is not required for **HANA 2.0 SPS04 Rev 46** and later as we are getting the required information from public tables now with the fix from HANA team.</li>
+**Possible causes** | <br>Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn’t have one or more of the following roles assigned:</br><ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for **HANA 2.0 SPS05** and later) to create new databases during restore.</li><li>For SDC, BACKUP ADMIN to create new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>**SAP_INTERNAL_HANA_SUPPORT** to access a few private tables. Only required for SDC and MDC versions prior to **HANA 2.0 SPS04 Rev 46**. This is not required for **HANA 2.0 SPS04 Rev 46** and later as we are getting the required information from public tables now with the fix from HANA team.</li></ul>
 **Recommended action** | To resolve the issue, add the required roles and permissions manually to the Backup user (AZUREWLBACKUPHANAUSER), or download and run the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana).
 
 ### UserErrorDatabaseUserPasswordExpired
@@ -95,7 +95,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 ## UserErrorInconsistentSSFS
 
 **Error** | <span style="font-weight:normal">SAP HANA error</span>
------ | ----
+------------ | ----------
 **Possible causes** | Inconsistent Secure Storage File System (SSFS) error received from SAP HANA Engine.
 **Recommended action** | Work with the SAP HANA team to fix this issue. To learn more, see the **SAP note 0002097613**.
 
@@ -123,7 +123,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 ### OperationCancelledBecauseConflictingOperationRunningUserError
 
 **Error** | <span style="font-weight:normal">Conflicting operation in progress.</span>
------------ ---------
+----------- | -------------
 **Possible causes** | A Full/Differential/Incremental backup triggered through portal/CLI/native HANA clients, while another Full/Differential/Incremental backup is already in progress.
 **Recommended action** | Wait for the active backup job to complete before triggering a new Full/delta backup.
 
@@ -137,7 +137,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 ### UserErrorHanaPreScriptNotRun
 
 **Error** | <span style="font-weight:normal">Pre-registration script not run.</span>
----------- | --------
+--------- | --------
 **Possible causes** | The SAP HANA pre-registration script for setting up the environment has not been run.
 **Recommended action** | Download and run the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana).
 
@@ -152,9 +152,9 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 ### UserErrorRecoverySysScriptFailedToTriggerRestore
 
 **Error** | <span style="font-weight:normal">RecoverySys.py could not be run successfully to restore System DB.</span>
--------- | ---------
-**Possible causes** | <br>Possible causes for System DB restore to fail are:</br><li>Azure Backup is unable to find **Recoverysys.py** on the HANA machine. This happens when the HANA environment isn’t set up properly.</li><li>**Recoverysys.py** is present, but triggering this script has failed to invoke HANA to perform the restore.</li><li>Recoverysys.py has successfully invoked HANA to perform the restore, but HANA fails to restore.</li>
-**Recommended action** | <li>For issue 1, work with the SAP HANA team to fix the issue.</li><li>For 2 and 3, see the log trace by running the HDSetting.sh command in sid-adm prompt. For example, **/usr/sap/SID/HDB00/HDBSetting.sh**.</li><br>
+--------- | ---------
+**Possible causes** | <br>Possible causes for System DB restore to fail are:</br><ul><li>Azure Backup is unable to find **Recoverysys.py** on the HANA machine. This happens when the HANA environment isn’t set up properly.</li><li>**Recoverysys.py** is present, but triggering this script has failed to invoke HANA to perform the restore.</li><li>Recoverysys.py has successfully invoked HANA to perform the restore, but HANA fails to restore.</li></ul>
+**Recommended action** | <ul><li>For issue 1, work with the SAP HANA team to fix the issue.</li><li>For 2 and 3, see the log trace by running the HDSetting.sh command in sid-adm prompt. For example, **/usr/sap/SID/HDB00/HDBSetting.sh**.</li></oul><br>
 Share these findings with the SAP HANA team to get the issue fixed.</br>
 
 ### UserErrorDBNameNotInCorrectFormat
