@@ -256,7 +256,7 @@ Now we need to map attributes between the on-premises application and our SQL se
      |Direct|surName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:LastName|
      |Direct|mailNickname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID|
      
-      ![Edit attributes](.\media\on-prem-ecma-configure\configure-12.png)
+
  7. Click **Save**
      ![Save the mapping](.\media\tutorial-ecma-sql-connector\app-6.png)
 
