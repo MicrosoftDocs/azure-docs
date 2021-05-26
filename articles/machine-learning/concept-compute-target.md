@@ -52,7 +52,7 @@ You can create Azure Machine Learning compute instances or compute clusters from
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * The [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview).
-* An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
+* An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 * A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
@@ -99,11 +99,11 @@ See the following table to learn more about supported series and restrictions.
 | NC | None. |  GPU | Compute clusters and instance |
 | NC Promo | None. | GPU | Compute clusters and instance |
 | NCsv2 | Requires approval. | GPU | Compute clusters and instance |
-| NCsv3 | Requires approval. | GPU | Compute clusters and instance |  
-| NDs | Requires approval. | GPU | Compute clusters and instance | 
-| NDv2 | Requires approval. | GPU | Compute clusters and instance | 
-| NV | None. | GPU | Compute clusters and instance | 
-| NVv3 | Requires approval. | GPU | Compute clusters and instance | 
+| NCsv3 | Requires approval. | GPU | Compute clusters and instance |
+| NDs | Requires approval. | GPU | Compute clusters and instance |
+| NDv2 | Requires approval. | GPU | Compute clusters and instance |
+| NV | None. | GPU | Compute clusters and instance |
+| NVv3 | Requires approval. | GPU | Compute clusters and instance |
 
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).

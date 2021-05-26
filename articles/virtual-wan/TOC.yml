@@ -148,7 +148,7 @@
             - name: Windows 10
               href: openvpn-azure-ad-client.md
             - name: macOS - Preview
-              href: ../vpn-gateway/openvpn-azure-ad-client-mac.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+              href: openvpn-azure-ad-client-mac.md
     - name: Configure Always-On tunnels
       items:
       - name: User tunnel

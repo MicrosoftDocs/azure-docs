@@ -70,18 +70,6 @@ python -m pip install azureml-inference-server-http
     ' > score.py
     ```
 
-    The directory structure should look like the following tree structure:
-
-    ```text
-    server_quickstart/
-    ├── score.py
-    └── myenv/lib/python3.7/site-packages
-                            ├── pip
-                            ├── setuptools
-                            ├── ...
-                            └── azureml-inference-server-http
-    ```
-
 1. Start the server and set `score.py` as the entry script:
 
     ```bash

@@ -164,7 +164,7 @@ Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [E
 
 ### How can I confirm that the Log Analytics agent is able to communicate with Azure Monitor?
 
-From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
+From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
 
 ### How do I stop the Log Analytics agent from communicating with Azure Monitor?
 
@@ -229,7 +229,7 @@ Here's how AMA impacts the two SCOM related monitor scenarios:
 - **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
 
 > [!NOTE] 
-> You can run both scenarios above with MMA and AMA side-by-side without any impact*
+> You can run both scenarios above with MMA and AMA side-by-side without any impact.
 
 
 ### Will the new Azure Monitor agent support data collection for the various Log Analytics solutions?
@@ -239,7 +239,7 @@ The solution specific VM extensions exist to collect scenario specific data or p
 
 Here’s a diagram explaining the **new extensibility architecture**:
 
-![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch-diag.png)
+![Extensions architecture](agents/media/azure-monitor-agent/extensibility-arch-new.png)
 
 
 ### Which Log Analytics solutions are supported on the new Azure Monitor Agent?
@@ -254,6 +254,12 @@ Log Analytics solutions can be enabled using the new Azure Monitor Agent either 
 | **VM Insights with metrics support** | Private preview on AMA |
 | **VM Insights guest health (new)** | Public preview: [VM insights guest health (preview)](vm/vminsights-health-overview.md) |
 | **SQL Monitoring (new)** | Public preview exclusively on AMA: [SQL insights (preview)](insights/sql-insights-overview.md) |
+
+
+### How can I collect Windows security events using the new Azure Monitor Agent?
+There's two ways you can collect Security events using the new agent, when sending to Log Analytics workspace(s):
+- You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace.
+- If you have Sentinel enabled on the workspace, the Security Events flow via AMA into the ['SecurityEvent'](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (same as using Log Analytics Agent). This will always require the solution to be enabled first.
 
 
 ### Can the new Azure Monitor Agent and Log Analytics Agent co-exist side-by-side?
@@ -290,7 +296,8 @@ For syslog on Linux, you can choose Facilities and log level for each facility t
 ### Does the new Azure Monitor agent support sending data to EventHubs and Azure Storage Accounts?
 Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in the future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
 
-
+### Does the new Azure Monitor agent have hardening support for Linux?
+This is not available currently for the agent in preview, and is planned to be added post GA.
 
 
 ## Visualizations
@@ -308,13 +315,13 @@ View Designer is only available for users assigned with Contributor permissions 
 * [.NET app](app/asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](app/monitor-performance-live-website-now.md#troubleshoot)
 * [Azure diagnostics](agents/diagnostics-extension-to-application-insights.md)
-* [Java web app](app/java-troubleshoot.md)
+* [Java web app](app/java-2x-troubleshoot.md)
 
 *I get no data from my server:*
 
 * [Set firewall exceptions](app/ip-addresses.md)
 * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
-* [Set up a Java server](app/java-agent.md)
+* [Set up a Java server](app/java-2x-agent.md)
 
 *How many Application Insights resources should I deploy:*
 
@@ -324,7 +331,7 @@ View Designer is only available for users assigned with Contributor permissions 
 
 * [Web apps on an IIS server in Azure VM or Azure virtual machine scale set](app/azure-vm-vmss-apps.md)
 * [Web apps on an IIS server - on-premises or in a VM](app/asp-net.md)
-* [Java web apps](app/java-get-started.md)
+* [Java web apps](app/java-in-process-agent.md)
 * [Node.js apps](app/nodejs.md)
 * [Web apps on Azure](app/azure-web-apps.md)
 * [Cloud Services on Azure](app/cloudservices.md)
@@ -380,6 +387,10 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
+### Should I use connection strings or instrumentation keys?
+
+[Connection Strings](./app/sdk-connection-string.md) are recommended over instrumentation keys.
+
 ### Can I use `providers('Microsoft.Insights', 'components').apiVersions[0]` in my Azure Resource Manager deployments?
 
 We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
@@ -397,7 +408,7 @@ From server web apps:
 * HTTP requests
 * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
 * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-* [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](app/azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-collectd.md).
+* [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](app/azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
 * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
 * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
 
@@ -423,7 +434,7 @@ Yes, in the server you can write:
 * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
 * Telemetry Initializer to add properties to all items of telemetry.
 
-Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/java-filter-telemetry.md).
+Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/java-2x-filter-telemetry.md).
 
 ### How are city, country/region, and other geo location data calculated?
 

@@ -224,7 +224,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Are SQL Server failover cluster instances (FCI) supported on Azure VMs?**
 
-   Yes. You can install a failover cluster instance using either [premium file shares (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) or [storage spaces direct (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) for the storage subsystem. Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider using storage spaces direct based on manged premium or ultra-disks. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server on Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
+   Yes. You can configure a [failover cluster instance](failover-cluster-instance-overview.md) using [Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md), [premium file shares (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md), or [storage spaces direct (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) for the storage subsystem. Premium file shares provide IOPS and throughput capacities that meet the needs of many workloads. For IO-intensive workloads, consider using storage spaces direct based on managed premium or ultra-disks. Alternatively, you can use third-party clustering or storage solutions as described in [High availability and disaster recovery for SQL Server on Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > At this time, the _full_ [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the _full_ extension from VMs that participate in the FCI, and install the extension in _lightweight_ mode instead. This extension supports features, such as Automated Backup and Patching and some portal features for SQL Server. These features will not work for SQL Server VMs after the _full_ agent is uninstalled.
@@ -283,6 +283,10 @@ This article provides answers to some of the most common questions about running
 1. **Can I register with the SQL IaaS Agent extension without specifying the SQL Server license type?**
 
    No. The SQL Server license type is not an optional property when you're registering with the SQL IaaS Agent extension. You have to set the SQL Server license type as pay-as-you-go or Azure Hybrid Benefit when registering with the SQL IaaS Agent extension in all manageability modes (NoAgent, lightweight, and full). If you have any of the free versions of SQL Server installed, such as Developer or Evaluation edition, you must register with pay-as-you-go licensing. Azure Hybrid Benefit is only available for paid versions of SQL Server such as Enterprise and Standard editions.
+
+1. **What is the default license type when using the automatic registration feature?**
+   
+   The license type automatically defaults to that of the VM image. If you use a pay-as-you-go image for your VM, then your license type will be `PAYG`, otherwise your license type will be `AHUB` by default. 
 
 1. **Can I upgrade the SQL Server IaaS extension from NoAgent mode to full mode?**
 

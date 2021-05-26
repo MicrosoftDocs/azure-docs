@@ -154,6 +154,6 @@ When an alert is raised, Application Insights can automatically create a work it
 Getting started with Application Insights is easy. The main options are:
 
 * [IIS servers](./monitor-performance-live-website-now.md), and also for [Azure App Service](./app-insights-overview.md).
-* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-get-started.md) apps, as well as [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
+* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-in-process-agent.md) apps, as well as [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
 * Instrument [any web page](./javascript.md) by adding a short code snippet.
 
