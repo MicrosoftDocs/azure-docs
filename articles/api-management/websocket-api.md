@@ -24,6 +24,8 @@ In this article, you will:
 > [!div class="checklist"]
 > * Understand Websocket passthrough flow.
 > * Add a WebSocket API to your API Management instance.
+> * Test your WebSocket API.
+> * View the metrics and logs for your WebSocket API.
 > * Learn the limitations of WebSocket API.
 
 ## Prerequisites
