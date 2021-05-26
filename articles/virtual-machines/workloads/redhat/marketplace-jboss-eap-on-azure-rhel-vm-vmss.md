@@ -74,13 +74,14 @@ To use RHEL as BYOS VMs/virtual machine scale sets, you're required to have a va
     az vm image terms accept --publisher redhat --offer jboss-eap-rhel --plan $PLANID
     ```
     Where `$PLANID` is one of the following (repeat step #3 for each Marketplace offer plan you wish to use):
-   
-        jboss-eap-73-byos-rhel-80-byos
-        jboss-eap-73-byos-rhel-8-byos-clusteredvm
-        jboss-eap-73-byos-rhel-80-byos-vmss
-        jboss-eap-73-byos-rhel-80-payg
-        jboss-eap-73-byos-rhel-8-payg-clusteredvm
-        jboss-eap-73-byos-rhel-80-payg-vmss
+    ```
+    jboss-eap-73-byos-rhel-80-byos
+    jboss-eap-73-byos-rhel-8-byos-clusteredvm
+    jboss-eap-73-byos-rhel-80-byos-vmss
+    jboss-eap-73-byos-rhel-80-payg
+    jboss-eap-73-byos-rhel-8-payg-clusteredvm
+    jboss-eap-73-byos-rhel-80-payg-vmss
+    ```
 
 4. Your subscription is now ready to deploy EAP on RHEL BYOS plans. During deployment, your subscription(s) will be automatically attached using the `subscription-manager` with the credentials supplied during deployment.
 
