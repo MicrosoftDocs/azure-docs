@@ -116,7 +116,7 @@ Capture the `NodeId` values for the simulated nodes that you want to publish. Yo
 
 #### Verify completion
 
-In this section, you set up set up the OPC UA Server for simulating data. Verify that you've completed the following checklist:
+In this section, you setup the OPC UA Server for simulating data. Verify that you've completed the following checklist:
 
 > [!div class="checklist"]
 > * Prosys Simulation Server is set up and running
@@ -125,7 +125,7 @@ In this section, you set up set up the OPC UA Server for simulating data. Verify
 
 ### Set up IoT Edge device
 
-In this section, you'll set up an IoT Hub instance and an IoT Edge device to receive data from the OPC UA Server. 
+In this section, you'll set up an IoT Hub instance and an IoT Edge device. 
 
 First, [create an Azure IoT Hub instance](../iot-hub/iot-hub-create-through-portal.md). For this article, you can create an instance in the **F1 - Free** tier.
 
