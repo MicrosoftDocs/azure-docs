@@ -13,7 +13,7 @@ ms.date: 05/28/2021
 
 [!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
-In this how-to article, you'll configure DHCP for Azure VMware Solution in one of the following ways: 
+In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMware Solution in one of the following ways: 
 
 - [NSX-T to host your DHCP server](#use-nsx-t-to-host-your-dhcp-server)
 
@@ -79,7 +79,7 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
 
 ## Use a third-party external DHCP server
 
-If you want to use a third-party external DHCP server, you'll create a DHCP relay service. You'll also specify the DHCP IP address range in NSX-T Manager.
+If you want to use a third-party external DHCP server, you'll create a DHCP relay service in NSX-T Manager. You'll also specify the DHCP IP address range.
 
 
 ### Create DHCP relay service
