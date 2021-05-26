@@ -30,6 +30,9 @@ Form Recognizer 2.1 is generally available. This release enables you to detect a
 * [Identity documents](concept-identification-cards.md)
 * [Custom forms](concept-custom.md)
 
+Get started go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](quickstarts/get-started-with-form-recognizer.md) 
+
+
 ### Layout adds table headers
 
 The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This can be used to identify which rows make up the table header.
