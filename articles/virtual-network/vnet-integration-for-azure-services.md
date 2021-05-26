@@ -83,7 +83,7 @@ For more information, see [Virtual network service endpoints](virtual-network-se
 
 ## Service tags
 
-A service tag represents a group of IP address prefixes from a given Azure service. With service tags, you can define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). You can allow or deny the traffic for the service. Specify the service tag in the source or destination field of a rule. 
+A service tag represents a group of IP address prefixes from a given Azure service. With service tags, you can define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). You can allow or deny the traffic for the service. To allow or deny the traffic, specify the service tag in the source or destination field of a rule. 
 
 ![Allow or deny traffic using Service Tags](./media/network-isolation/service-tags.png)
 
