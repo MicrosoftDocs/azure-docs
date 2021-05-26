@@ -96,8 +96,6 @@
         href: add-template-to-azure-pipelines.md
       - name: Deploy - GitHub Actions
         href: deploy-github-actions.md
-      - name: Tutorial - Continuous integration with Azure Pipelines
-        href: deployment-tutorial-pipeline.md
   - name: Decompile Bicep
     items:
     - name: Compile/Decompile
