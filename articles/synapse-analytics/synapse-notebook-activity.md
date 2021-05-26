@@ -14,6 +14,8 @@ ms.custom: devx-track-python
 
 # Transform data by running a Synapse notebook
 
+<Token>**APPLIES TO:** ![not supported](media/applies-to/no.png)Azure Data Factory ![supported](media/applies-to/yes.png)Azure Synapse Analytics </Token>
+
 The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook in your Azure Synapse workspace. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
 
 ## Create a Synapse notebook activity
