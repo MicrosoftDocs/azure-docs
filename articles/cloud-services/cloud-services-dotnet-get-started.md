@@ -75,7 +75,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 6. If you're using Visual Studio 2015 or higher, change the SQL Server connection string in the application *Web.config* file of the ContosoAdsWeb project and in the *ServiceConfiguration.Local.cscfg* file of the ContosoAdsCloudService project. In each case, change "(localdb)\v11.0" to "(localdb)\MSSQLLocalDB".
 7. Press CTRL+F5 to run the application.
 
-    When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) database to simulate Azure cloud storage.
+    When you run a cloud service project locally, Visual Studio automatically invokes the Azure *Compute Emulator* and Azure *Storage Emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) database to simulate Azure cloud storage.
 
     The first time you run a cloud service project, it takes a minute or so for the emulators to start up. When emulator startup is finished, the default browser opens to the application home page.
 
