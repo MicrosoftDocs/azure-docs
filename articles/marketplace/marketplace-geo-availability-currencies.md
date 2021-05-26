@@ -197,7 +197,7 @@ For details on how to enter prices for specific offer types, refer to these arti
 - [Create a consulting service offer](./create-consulting-service-offer.md)
 - [Create a Dynamics 365 for Customer Engagement & Power Apps offer](dynamics-365-customer-engage-offer-setup.md)
 - [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
-- [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md)
+- [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md)
 - [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
 - [Create a Managed Service offer](./plan-managed-service-offer.md)
 - [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)

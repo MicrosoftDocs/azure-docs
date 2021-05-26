@@ -534,7 +534,6 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
 ### Constraints
 
 - Integrated Windows Authentication is usable for *federated+* users only, that is, users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing, known as *managed* users, can't use this authentication flow. This limitation doesn't affect the username and password flow.
-- IWA is for apps written for .NET Framework, .NET Core, and Universal Windows Platform (UWP) platforms.
 - IWA doesn't bypass [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md). If MFA is configured, IWA might fail if an MFA challenge is required, because MFA requires user interaction.
 
     IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country/region, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
