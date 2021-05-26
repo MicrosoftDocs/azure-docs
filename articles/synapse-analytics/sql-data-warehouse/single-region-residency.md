@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Configure single region residency for a [dedicated SQL pool (formerly SQL DW)] in Azure Synapse Analytics
+# Configure single region residency for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 In this article, you will learn to provision your database on locally redundant storage to ensure that your data stays within your geographic boundary. This article is only applicable to dedicated SQL pools that reside in a region where the Azure regional pair is located outside of the country. Following the steps in this article will result in most data and all backups not being replicated to a [paired region](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Note that some metadata such as logical server name, logical database name, resource group name is still replicated to a paired region by default and this cannot be changed. 
 
