@@ -28,7 +28,7 @@ resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
 }
 ```
 
-For a more complex example, see [Azure SQL logical server](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server).
+Conditions may be used with dependency declarations. If the identifier of conditional resource is specified in `dependsOn` of another resource (explicit dependency), the dependency is ignored if the condition evaluates to false at template deployment time. If the condition evaluates to true, the dependency is respected. Referencing a property of a conditional resource (implicit dependency) is allowed but may produce a runtime error in some cases.
 
 ## New or existing resource
 

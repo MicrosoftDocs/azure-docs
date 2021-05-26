@@ -171,6 +171,29 @@ While you may be inclined to use `dependsOn` to map relationships between your r
 
 Even though explicit dependencies are sometimes required, the need for them is rare. In most cases you have a symbolic reference available to imply the dependency between resources. If you find yourself using dependsOn you should consider if there is a way to get rid of it.
 
+## Reference existing resources
+
+You can add references and access runtime properties from resources outside of the current file by using the `existing` keyword in a resource declaration. This is equivalent to using the ARM Template [reference() function](../templates/template-functions-resource.md#reference).
+
+When using the `existing` keyword, you must provide the `name` of the resource, and may optionally also set the `scope` property to access a resource in a different scope. See [Resource Scopes](./deploy-to-resource-group.md) for more information on using the scope property.
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+  name: 'exampleStorage'
+}
+
+output blobEndpoint string = stg.properties.primaryEndpoints.blob
+```
+
+The preceding example don't deploy the storage account, but the declaration provides access to properties on the existing resource. Using the 'stg' symbolic name, you can access properties on the storage account.
+
+The following examples shows how to specify the `scope` property:
+
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+  name: 'exampleStorage'
+  scope: resourceGroup(mySub, myRg)
+}
+
 ## Use template extensions
 
 ARM template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../../virtual-machines/extensions/features-linux.md).
