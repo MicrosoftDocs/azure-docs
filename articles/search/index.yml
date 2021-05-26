@@ -59,7 +59,7 @@ landingContent:
             url: search-howto-index-cosmosdb.md
 
   # Card
-  - title: Day-1 quickstarts
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
@@ -77,7 +77,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Add search to web sites
+          - text: Add search to web apps
             url: tutorial-csharp-overview.md
       - linkListType: how-to-guide
         links:
@@ -89,11 +89,13 @@ landingContent:
             url: search-get-started-rest.md
       - linkListType: reference
         links:
-          - text: REST API Reference
-            url: /rest/api/searchservice/index
           - text: Azure SDK for .NET
             url: /dotnet/api/overview/azure/search.documents-readme
-
+          - text: Azure SDK for Python
+            url: /python/api/overview/azure/search-documents-readme
+          - text: REST API Reference
+            url: /rest/api/searchservice/index
+            
   # Card
   - title: Enrich with AI
     linkLists:

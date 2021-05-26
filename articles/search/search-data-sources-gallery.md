@@ -8,7 +8,7 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 layout: LandingPage
-ms.date: 05/27/2021
+ms.date: 05/29/2021
 
 ---
 
@@ -228,6 +228,8 @@ Connect to MySQL database on Azure to extract rows in a table, serialized into J
 
 ## Power Query Connectors
 
+Connect to data on other cloud platforms using indexers and a Power Query connector as the data source.
+
 :::row:::
 :::column span="":::
 
@@ -237,9 +239,9 @@ Connect to MySQL database on Azure to extract rows in a table, serialized into J
 
 Powered by [Power Query](/power-query/power-query-what-is-power-query)
 
-Connect to Amazon Redshift and extract searchable content for indexing in Cognitive Search.
+Connect to [Amazon Redshift](https://aws.amazon.com/redshift/) and extract searchable content for indexing in Cognitive Search.
 
-[More details](search-howto-index-powerquery-data-sources.md)
+[More details](search-how-to-index-power-query-data-sources.md)
 
 :::column-end:::
 :::column span="":::
@@ -250,9 +252,9 @@ Connect to Amazon Redshift and extract searchable content for indexing in Cognit
 
 Powered by [Power Query](/power-query/power-query-what-is-power-query)
 
-Connect to Elasticsearch in the cloud and extract searchable content for indexing in Cognitive Search.
+Connect to [Elasticsearch](www.elastic.co/elasticsearch) in the cloud and extract searchable content for indexing in Cognitive Search.
 
-[More details](search-howto-index-powerquery-data-sources.md)
+[More details](search-how-to-index-power-query-data-sources.md)
 
 :::column-end:::
 :::column span="":::
@@ -263,9 +265,9 @@ Connect to Elasticsearch in the cloud and extract searchable content for indexin
 
 Powered by [Power Query](/power-query/power-query-what-is-power-query)
 
-Connect to a PostgreSQL database in the cloud and extract searchable content for indexing in Cognitive Search.
+Connect to a [PostgreSQL](https://www.postgresql.org/) database in the cloud and extract searchable content for indexing in Cognitive Search.
 
-[More details](search-howto-index-powerquery-data-sources.md)
+[More details](search-how-to-index-power-query-data-sources.md)
 
 :::column-end:::
 :::row-end:::
@@ -289,7 +291,7 @@ Powered by [Power Query](/power-query/power-query-what-is-power-query)
 
 Connect to Salesforce Objects and extract searchable content for indexing in Cognitive Search.
 
-[More details](search-howto-index-powerquery-data-sources.md)
+[More details](search-how-to-index-power-query-data-sources.md)
 
 :::column-end:::
 :::column span="":::
@@ -302,7 +304,7 @@ Powered by [Power Query](/power-query/power-query-what-is-power-query)
 
 Connect to Salesforce Reports and extract searchable content for indexing in Cognitive Search.
 
-[More details](search-howto-index-powerquery-data-sources.md)
+[More details](search-how-to-index-power-query-data-sources.md)
 
 :::column-end:::
 :::column span="":::
@@ -315,7 +317,7 @@ Powered by [Power Query](/power-query/power-query-what-is-power-query)
 
 Connect to Smartsheet and extract searchable content for indexing in Cognitive Search.
 
-[More details](search-howto-index-powerquery-data-sources.md)
+[More details](search-how-to-index-power-query-data-sources.md)
 
 :::column-end:::
 :::row-end:::
@@ -339,7 +341,7 @@ Powered by [Power Query](/power-query/power-query-what-is-power-query)
 
 Extract searchable data and metadata from a Snowflake database and populate an index based on field-to-field mappings between the index and your data source. 
 
-[More details](search-howto-index-powerquery-data-sources.md)
+[More details](search-how-to-index-power-query-data-sources.md)
 
 :::column-end:::
 :::column span="":::
