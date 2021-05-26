@@ -31,7 +31,7 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.mi
  2. Navigate to your app > Provisioning > Download the provisioning agent.
  3. Install the agent on-prem (provide admin credentials).
  4. . Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.  
- 5. Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users) to the application.
+ 5. Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
  6. Test provisioning a few users [on-demand](provision-on-demand.md).
  7. Add additional users into scope by assigning them to your application.
  8. Navigate to the provisioning blade and hit start provisioning.
