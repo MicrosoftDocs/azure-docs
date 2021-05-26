@@ -114,7 +114,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     kubectl get pods -n \<release-namespace-name\>
     ```
     > [!IMPORTANT]
-    > A Custom Location needs to be created before attempting to deploy Event Grid topics. To create a custom location, you can select the **Context** page at the bottom 5 minutes after the "Your deployment is complete" notification is shown. Alternatively, you can create a custom location using the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ExtendedLocation%2FCustomLocations). For more information, see the [Custom Location documentation](../azure-arc/kubernetes/custom-locations.md).
+    > A Custom Location needs to be created before attempting to deploy Event Grid topics. To create a custom location, you can select the **Context** page at the bottom 5 minutes after the "Your deployment is complete" notification is shown. Alternatively, you can create a custom location using the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.ExtendedLocation%2FCustomLocations). For more information, see the [Custom Location documentation](../../azure-arc/kubernetes/custom-locations.md).
 1. After the deployment succeeds, you'll be able to see an entry on the **Extensions** page with the name you provided to your Event Grid extension.
 
 ## Install using Azure CLI
@@ -184,7 +184,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 ### Custom location
 
 > [!IMPORTANT]
-> A Custom Location needs to be created before attempting to deploy Event Grid topics. You can create a custom location using the [Azure portal](../azure-arc/kubernetes/custom-locations.md#create-custom-location).
+> A Custom Location needs to be created before attempting to deploy Event Grid topics. You can create a custom location using the [Azure portal](../../azure-arc/kubernetes/custom-locations.md#create-custom-location).
 
 ## Troubleshooting
 
