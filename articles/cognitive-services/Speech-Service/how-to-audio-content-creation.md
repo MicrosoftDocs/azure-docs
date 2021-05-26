@@ -45,9 +45,9 @@ It takes a few moments to deploy your new Speech resource. Once the deployment i
 
 1. After getting the Azure account and the Speech resource, you can log into [Audio Content Creation](https://aka.ms/audiocontentcreation) by clicking **Get started**.
 2. The home page lists all the products under Speech Studio. Click **Audio Content Creation** to start.
-3. The **Welcome to Speech Studio** page will be shown to you to set up the speech service. Select the Azure subscription and the Speech resource you want to work on. Click **Use resource** to complete the settings. When you log into the Audio Content Creation tool for the Next time, we will link you directly to the audio work files under the current speech resource. You can check your Azure subscriptions details and status in [Azure portal](https://portal.azure.com/). If you do not have available speech resource and you are the owner or admin of an Azure subscription, you can also create a new Speech resource in Speech Studio by clicking **Create a new resource**. If you are a user role for a certain Azure subscription, you may not have the permission to create a new speech resource. Please contact your admin to get the speech resource access. 
+3. The **Welcome to Speech Studio** page will appear to you to set up the speech service. Select the Azure subscription and the Speech resource you want to work on. Click **Use resource** to complete the settings. When you log into the Audio Content Creation tool for the Next time, we will link you directly to the audio work files under the current speech resource. You can check your Azure subscriptions details and status in [Azure portal](https://portal.azure.com/). If you do not have available speech resource and you are the owner or admin of an Azure subscription, you can also create a new Speech resource in Speech Studio by clicking **Create a new resource**. If you are a user role for a certain Azure subscription, you may not have the permission to create a new speech resource. Please contact your admin to get the speech resource access. 
 4. You can modify your Speech resource at any time with the **Settings** option, located in the top nav.
-5. If you want to swith directory, please go the **Settings** or your profile to operate. 
+5. If you want to switch directory, please go the **Settings** or your profile to operate. 
 
 ## How to use the tool?
 
@@ -61,7 +61,7 @@ This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use t
    > [!NOTE]
    > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](./text-to-speech.md).
 
-4. Select the content you want to preview and click the **play** icon (a triangle) to preview the default synthesis output. Please note that if you make any changes on teh text, you need to click the **Stop** icon and then click **play** icon again to re-generate the audio with changed scripts. 
+4. Select the content you want to preview and click the **play** icon (a triangle) to preview the default synthesis output. Please note that if you make any changes on the text, you need to click the **Stop** icon and then click **play** icon again to re-generate the audio with changed scripts. 
 5. Improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). Here is a [video](https://youtu.be/ygApYuOOG6w) to show how to fine-tune speech output with Audio Content Creation.
 6. Save and [export your tuned audio](#export-tuned-audio). When you save the tuning track in the system, you can continue to work and iterate on the output. When you're satisfied with the output, you can create an audio creation task with the export feature. You can observe the status of the export task and download the output for use with your apps and products.
 

@@ -249,7 +249,7 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
     1. Click the **Pre-copy Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
 
         ```sql
-        TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
+        IF EXISTS (SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}) TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)

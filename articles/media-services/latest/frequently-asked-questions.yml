@@ -121,3 +121,9 @@ sections:
       - question: How do I migrate from Media Services v2 to Media Services v3? 
         answer: |
           We have created a [comprehensive guide for migration from v3 to v3](./migrate-v-2-v-3-migration-introduction.md).  We are very interested in knowing about your migration experience and needs so please feel free to provide feedback via GitHub issue or support ticket.
+      - question: How do I use a Managed Identity to encrypt data to Media Services? 
+        answer: |
+          Take a look at the [Use a Key Vault key to encrypt data into a Media Services account tutorial](security-encrypt-data-managed-identity-cli-tutorial.md) for using the CLI to pair Media Services with Key Vault to encrypt your data.  
+      - question: How do I use a Managed Identity to give Media Services access to a restricted Storage account? 
+        answer: |
+          If you would like to access a storage account when the storage account is configured to block requests from unknown IP addresses,  follow the steps in [Access storage with a Media Services Managed Identity](security-access-storage-managed-identity-cli-tutorial.md).
