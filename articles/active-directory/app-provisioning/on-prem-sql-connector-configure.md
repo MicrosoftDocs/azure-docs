@@ -35,9 +35,9 @@ To create a generic SQL connector use the following steps:
      |Property|Description|
      |-----|-----|
      |Name|The name for this connector|
-     |Autosync timer (minutes)||
-     |Secret Token||
-     |Description||
+     |Autosync timer (minutes)|Minimum allowed is 120 minutes.|
+     |Secret Token|123456 [This must be a string of 10-20 ASCII letters and/or digits.]|
+     |Description|The description of the connector|
      |Extension DLL|For a generic sql connector, select Microsoft.IAM.Connector.GenericSql.dll.|
  4. On the **Connectivity** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes.
      ![Enter connectivity](.\media\on-prem-sql-connector-configure\sql-3.png)
@@ -45,17 +45,17 @@ To create a generic SQL connector use the following steps:
      |Property|Description|
      |-----|-----|
      |DSN File|The Data Source Name file used to connect to the SQL server|
-     |User Name|The username of an individual with rights to the SQL server.|
+     |User Name|The username of an individual with rights to the SQL server.  This must be in the form of hostname\sqladminaccount for standalone servers, or domain\sqladminaccount for domain member servers.|
      |Password|The password of the username provided above.|
-     |DN is Anchor||
+     |DN is Anchor|Unless the your environment is known to require these settings, leave DN is Anchor and Export Type:Object Replace deselected.|
      |Export TypeObjectReplace||
  5. On the **Schema 1** page, fill in the boxes and click next.  Use the table below the image for guidance on the individual boxes.
      ![Enter schema 1](.\media\on-prem-sql-connector-configure\sql-4.png)
 
      |Property|Description|
      |-----|-----|
-     |Object type detection method||
-     |Fixed value list/Table/View/SP||
+     |Object type detection method|The method used to detect the object type the connector will be provisioning.|
+     |Fixed value list/Table/View/SP|This should contain User.|
      |Column Name for Table/View/SP||
      |Stored Procedure Parameters||
      |Provide SQL query for detecting object types||
@@ -64,8 +64,8 @@ To create a generic SQL connector use the following steps:
 
      |Property|Description|
      |-----|-----|
-     |User:Attribute Detection||
-     |User:Table/View/SP||
+     |User:Attribute Detection|This should be set to Table.|
+     |User:Table/View/SP|his should contain Employees.|
      |User:Name of Multi-Values Table/Views||
      |User:Stored Procedure Parameters||
      |User:Provide SQL query for detecting object types||
@@ -119,11 +119,11 @@ To create a generic SQL connector use the following steps:
      |Property|Description|
      |-----|-----|
      |Target Object|The object that you are configuring.|
-     |Anchor|The attribute that will be used as the objects anchor.|
-     |Query attribute||
-     |DN|The attribute that is used for the target objects distinguished name.|
+     |Anchor|The attribute that will be used as the objects anchor.  This attribute should be uniqie in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.|
+     |Query attribute|Used by the ECMA host to query the in-memory cache. This attribute should be unique.|
+     |DN|The attribute that is used for the target objects distinguished name.  The autogenerate option should be selected in most cases. If deselected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType|
  
- 14. On the **Select Attributes** page, select attributes from the drop-down to add. 
+ 14. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you would like to expose to Azure AD. These attributes can then be configured in the Azure Portal for provisioning.  On the **Select Attributes** page, select attributes from the drop-down to add. 
      ![Enter attributes](.\media\on-prem-sql-connector-configure\sql-13.png)
 
 15. On the **Deprovisioning** page, review the deprovisionig information and make adjustments as necessary. Click Finish.
