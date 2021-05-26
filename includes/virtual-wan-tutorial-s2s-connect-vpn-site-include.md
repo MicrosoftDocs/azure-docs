@@ -22,7 +22,7 @@
 2. Select **Connect**.
 3. After a few minutes, the site will show the connection and connectivity status.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot shows a site to site connection and connectivity status." border="false":::
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot shows a site to site connection and connectivity status." lightbox="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png"border="false":::
 
    **Connection Status:** This is the status of the Azure resource for the connection that connects the VPN site to the Azure hub’s VPN gateway. Once this control plane operation is successful, Azure VPN gateway and the on-premises VPN device will proceed to establish connectivity.
 
