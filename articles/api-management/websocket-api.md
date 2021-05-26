@@ -78,7 +78,26 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 
 ## Test a WebSocket API
 
+1. Navigate to your WebSocket API.
+1. Within your WebSocket API, select the onHandshake operation.
+1. Select the **Test** tab to access the Test console. 
+
+    :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="onHandshake screen example":::
+
+1. Verify the query, payload fields are correct.
+1. Click **Connect**.
+1. In the **Output** field, verify connection.
+1. Click **Send**.
+
 ## View WebSocket API metrics and logs
+
+You can view your WebSocket API metrics and logs from its **Change log** tab. The change log shows the history of changes you have deployed to your production API. These changes are shown on the developer portal with your API. To create a change log entry:
+
+1. Navigate to your WebSocket API.
+1. Add a new revision to your API.
+1. Make your changes.
+1. Select **Make current**.
+1. Select the **Change log** tab to view your changes.
 
 ## Limitations
 
