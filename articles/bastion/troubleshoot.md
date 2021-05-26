@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshoot Azure Bastion | Microsoft Docs'
-description: In this article, learn how to troubleshoot Azure Bastion.
+description: Learn how to troubleshoot Azure Bastion.
 services: bastion
 author: charwen
 
