@@ -23,7 +23,7 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
 * Mobility services (Preview) to request public transit information, plan routes by blending different travel modes and real-time arrivals.
 * Time zone and Geolocation (Preview) services.
-* Elevation services (Preview) with Digital Elevation Model
+* Elevation services with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
 
@@ -55,9 +55,9 @@ Use the Azure Maps Android SDK to create mobile mapping applications.
 
 Azure Maps consists of the following services that can provide geographic context to your Azure applications.
 
-### Data service (Preview)
+### Data service
 
-Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see the [Data service documentation](/rest/api/maps/data).
+Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see the [Data service documentation](/rest/api/maps/data v2).
 
 ### Geolocation service (Preview)
 
@@ -191,7 +191,7 @@ Maps Creator provides three core services:
 
 * [WFS service](/rest/api/maps/v2/featurestate). Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
 
-### Elevation service (Preview)
+### Elevation service
 
 The Azure Maps Elevation service is a web service that developers can use to retrieve elevation data from anywhere on the Earth’s surface.
 

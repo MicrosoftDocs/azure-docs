@@ -39,7 +39,7 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Spatial Data Services (SDS)           | [Search](/rest/api/maps/search) + [Route](/rest/api/maps/route) + other Azure Services |
 | Time Zone                             | [Time Zone](/rest/api/maps/timezone)  |
 | Traffic Incidents                     | [Traffic Incident Details](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
-| Elevation                             | [Elevation (Preview)](/rest/api/maps/elevation)
+| Elevation                             | [Elevation](/rest/api/maps/elevation)
 
 The following service APIs are not currently available in Azure Maps:
 

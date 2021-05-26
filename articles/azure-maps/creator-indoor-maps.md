@@ -16,6 +16,7 @@ manager: philmea
 This article introduces concepts and tools that apply to Azure Maps Creator. We recommend that you read this article before you begin to use the Azure Maps Creator API and SDK.
 
 You can use Creator to develop applications with map features that are based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data.  Typically, the workflow is completed by two different personas with distinct areas of expertise and responsibility:
+
 - The map maker is responsible for curating and preparing the map data.
 - The Creator map data user leverages customer map data in applications.
 
@@ -53,7 +54,7 @@ Creator services create, store, and use various data types that are defined and 
 
 Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information about Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data (Preview) Upload API](/rest/api/maps/data/uploadpreview) to upload a Drawing package. Upon a successful upload, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data Upload API](/rest/api/maps/data%20v2/uploadpreview) to upload a Drawing package. Upon a successful upload, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
 
 ## Convert a Drawing package
 
@@ -109,7 +110,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 ### Render V2 service
 
-The Azure Maps [Render V2 service-Get Map Tile API (Preview)](/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator tilesets.
+The Azure Maps [Render V2 service-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator tilesets.
 
 The Render V2 service-Get Map State Tile API allows applications to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
 
@@ -145,10 +146,10 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
 The following example shows how to update a dataset, create a new tileset, and delete an old tileset:
 
 1. Follow steps in the [Upload a Drawing package](#upload-a-drawing-package) and [Convert a Drawing package](#convert-a-drawing-package) sections to upload and convert the new Drawing package.
-1. Use the [Dataset Create API](/rest/api/maps/v2/dataset/createpreview) to append the converted data to the existing dataset.
-1. Use the [Tileset Create API](/rest/api/maps/v2/tileset/createpreview) to generate a new tileset out of the updated dataset. 
-1. Save the new **tilesetId** for the next step.
-1. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer in use, you can delete it.
+2. Use the [Dataset Create API](/rest/api/maps/v2/dataset/createpreview) to append the converted data to the existing dataset.
+3. Use the [Tileset Create API](/rest/api/maps/v2/tileset/createpreview) to generate a new tileset out of the updated dataset.
+4. Save the new **tilesetId** for the next step.
+5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer in use, you can delete it.
 
 ## Next steps
 

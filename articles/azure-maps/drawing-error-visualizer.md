@@ -41,7 +41,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Failed",
         "properties": {
-            "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
+            "diagnosticPackageLocation": "https://us.atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=2.0"
         }
     }
     ```

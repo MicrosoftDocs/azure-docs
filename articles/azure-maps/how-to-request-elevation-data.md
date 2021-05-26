@@ -525,16 +525,16 @@ The following sample webpage describes how to use the map control to display ele
 
 ## Next steps
 
-To further explore the Azure Maps Elevation (Preview) APIs, see:
+To further explore the Azure Maps ElevationAPIs, see:
 
 > [!div class="nextstepaction"]
-> [Elevation (Preview) - Get Data for Lat Long Coordinates](/rest/api/maps/elevation/getdataforpoints)
+> [Elevation - Get Data for Lat Long Coordinates](/rest/api/maps/elevation/getdataforpoints)
 
 > [!div class="nextstepaction"]
-> [Elevation (Preview) - Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox)
+> [Elevation - Get Data for Bounding Box](/rest/api/maps/elevation/getdataforboundingbox)
 
 > [!div class="nextstepaction"]
-> [Elevation (Preview) - Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline)
+> [Elevation - Get Data for Polyline](/rest/api/maps/elevation/getdataforpolyline)
 
 > [!div class="nextstepaction"]
 > [Render V2 – Get Map Tile](/rest/api/maps/renderv2)
