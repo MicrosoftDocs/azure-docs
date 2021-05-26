@@ -256,6 +256,8 @@
       items:
       - name: Monitor Blob storage
         href: monitor-blob-storage.md
+      - name: Scenarios and best practices
+        href: ../common/monitor-storage-scenarios-and-best-practices.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Monitoring (classic)
