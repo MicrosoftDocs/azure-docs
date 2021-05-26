@@ -5,7 +5,7 @@ author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.date: 05/26/2021
-msauthor: jawilley
+ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
