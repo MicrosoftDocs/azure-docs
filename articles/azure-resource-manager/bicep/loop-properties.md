@@ -44,9 +44,9 @@ Loops can be used to declare multiple properties by:
   }]
   ```
 
-## Copy limits
+## Loop limits
 
-The Bicep file builds a JSON template that uses the `copy` element and there are limitations that affect the `copy` element. For more information, see [Property iteration in ARM templates](../templates/copy-properties.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
 
 ## Property iteration
 
@@ -73,6 +73,8 @@ resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   }
 }
 ```
+
+The `lun` property uses the range iterator `i` to create logical unit numbers (LUN) from 0-15.
 
 The deployed template becomes:
 
@@ -124,14 +126,6 @@ resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for
   }
 }]
 ```
-
-## Example templates
-
-The following example shows a common scenario for creating more than one value for a property.
-
-|Template  |Description  |
-|---------|---------|
-|[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-windows-copy-datadisks) |Deploys several data disks with a virtual machine. |
 
 ## Next steps
 

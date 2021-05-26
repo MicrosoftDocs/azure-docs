@@ -43,9 +43,9 @@ Loops can be used to return many items during deployment by:
   }]
   ```
 
-## Copy limits
+## Loop limits
 
-The Bicep file builds a JSON template that uses the `copy` element and there are limitations that affect the `copy` element. For more information, see [Output iteration in ARM templates](../templates/copy-outputs.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
 
 ## Output iteration
 
