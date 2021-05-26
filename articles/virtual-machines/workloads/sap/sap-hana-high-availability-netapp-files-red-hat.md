@@ -413,8 +413,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     net.ipv4.tcp_slow_start_after_idle=0 
     net.ipv4.tcp_no_metrics_save = 1
     net.ipv4.tcp_moderate_rcvbuf = 1
-    net.ipv4.tcp_window_scaling = 1
-    net.ipv4.tcp_timestamps = 1
+    net.ipv4.tcp_window_scaling = 1    
     net.ipv4.tcp_sack = 1
     </code></pre>
 
