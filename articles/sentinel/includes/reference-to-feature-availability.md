@@ -1,7 +1,7 @@
 ---
 title: Reference to feature availability in Azure Government cloud
 description: References the feature availability table for Azure Government.
-services: sentinel
+ms.service: sentinel
 author: batamig
 ms.topic: include
 ms.date: 03/15/2021
