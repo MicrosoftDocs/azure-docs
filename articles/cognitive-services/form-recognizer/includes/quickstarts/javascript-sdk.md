@@ -106,7 +106,7 @@ Authenticate a client object using the subscription variables you defined. You'l
 
 You'll also need to add references to the URLs for your training and testing data.
 
-[!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 

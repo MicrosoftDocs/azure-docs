@@ -582,7 +582,7 @@ catch (RequestFailedException e)
 
 You'll notice that additional information, like the client request ID of the operation, is logged.
 
-``
+```
 
 Message:
     Azure.RequestFailedException: Service request failed.
@@ -601,7 +601,7 @@ Headers:
     X-Content-Type-Options: REDACTED
     Date: Mon, 20 Apr 2020 22:48:35 GMT
     Content-Type: application/json; charset=utf-8
-``
+```
 
 ## Next steps
 
