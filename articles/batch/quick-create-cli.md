@@ -2,13 +2,13 @@
 title: Quickstart - Run your first Batch job with the Azure CLI
 description: This quickstart shows how to create a Batch account and run a Batch job with the Azure CLI.
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 05/25/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Run your first Batch job with the Azure CLI
 
-Get started with Azure Batch by using the Azure CLI to to create a Batch account, a pool of compute nodes (virtual machines), and a job that runs tasks on the pool. Each sample task runs a basic command on one of the pool nodes.
+Get started with Azure Batch by using the Azure CLI to create a Batch account, a pool of compute nodes (virtual machines), and a job that runs tasks on the pool. Each sample task runs a basic command on one of the pool nodes.
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
@@ -67,7 +67,7 @@ az batch account login \
 
 ## Create a pool of compute nodes
 
-Now that you have a Batch account, create a sample pool of Linux compute nodes using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. The following example creates a pool named *mypool* of 2 size *Standard_A1_v2* nodes running Ubuntu 16.04 LTS. The suggested node size offers a good balance of performance versus cost for this quick example.
+Now that you have a Batch account, create a sample pool of Linux compute nodes using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. The following example creates a pool named *mypool* of two *Standard_A1_v2* nodes running Ubuntu 16.04 LTS. The suggested node size offers a good balance of performance versus cost for this quick example.
  
 ```azurecli-interactive
 az batch pool create \
@@ -98,9 +98,9 @@ az batch job create \
 
 ## Create tasks
 
-Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create some tasks to run in the job. In this example, you create four identical tasks. Each task runs a `command-line` to display the Batch environment variables on a compute node, and then waits 90 seconds. When you use Batch, this command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+Now use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create some tasks to run in the job. In this example, you create four identical tasks. Each task runs a `command-line` to display the Batch environment variables on a compute node, and then waits 90 seconds. When you use Batch, this command line is where you specify your app or script. Batch provides several ways to deploy apps and scripts to compute nodes.
 
-The following Bash script creates 4 parallel tasks (*mytask1* to *mytask4*).
+The following Bash script creates four parallel tasks (*mytask1* to *mytask4*).
 
 ```azurecli-interactive
 for i in {1..4}

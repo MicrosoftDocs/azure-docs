@@ -38,7 +38,7 @@ You can find these details in the [Azure portal](https://portal.azure.com) after
 
 Select your instance from the results to see these details in the Overview for your instance:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance. The name and resource group are highlighted.":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted.":::
 
 ## Create an endpoint for Azure Digital Twins
 
@@ -59,7 +59,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 
 1. From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. This will open the *Create an endpoint* page, where you'll fill in the fields in the following steps.
 
-    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid in the Azure portal." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
 
 1. Enter a **Name** for your endpoint and choose the **Endpoint type**.
 
@@ -68,7 +68,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hub in the Azure portal." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
         :::column-end:::
         :::column:::
         :::column-end:::
@@ -83,7 +83,7 @@ After creating your endpoint, you can verify that the endpoint was successfully 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot of notification to verify the creation of endpoint. The bell-shaped icon from the portal's top bar is selected, and there is a notification saying 'Endpoint ADT-eh-endpoint successfully created'.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot of the notification to verify the creation of an endpoint in the Azure portal.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -134,7 +134,7 @@ On the *Create an event route* page that opens up, choose at minimum:
 
 For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` will create the route, but no events will be sent to it.) To do this, toggle the switch for the _Advanced editor_ to enable it, and write `true` in the *Filter* box.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating event route for your instance." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating an event route for your instance in the Azure portal." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 When finished, select the _Save_ button to create your event route.
 
@@ -164,7 +164,7 @@ To use the basic filters, expand the _Event types_ option and select the checkbo
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter. Selecting the checkboxes of the events.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the checkboxes of the events.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -174,7 +174,7 @@ This will auto-populate the filter text box with the text of the filter you've s
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter. Showing the auto-populated filter text after selecting the events.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter in the Azure portal, highlighting the auto-populated filter text after selecting the events.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -188,7 +188,7 @@ To create an event route with advanced filter options, toggle the switch for the
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter in the Azure portal.":::
     :::column-end:::
     :::column:::
     :::column-end:::
