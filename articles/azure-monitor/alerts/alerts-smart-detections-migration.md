@@ -19,7 +19,7 @@ With the migration, smart detection now allows you to take advantage of the full
 
 - **Rich Notification options for all detectors** - [Action groups](../alerts/action-groups.md) allow you to configure multiple types of notifications and actions which are triggered when an alert is fired. This includes notification by email, SMS, voice call or push notifications, and actions such as calling a secure webhook, Logic App, automation runbook, and more. Action groups further management at scale by allowing you to configure actions once and use them across multiple alert ruless
 - **At-scale management** of smart detection alerts using the Azure Monitor alerts experience and API.
-- **Rule based suppression of notifications** - [Action Rules](../alerts/alerts-action-rules?tabs=portal) help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on. They are especially helpful at reducing notification overload during times of system maintenance.  
+- **Rule based suppression of notifications** - [Action Rules](../alerts/alerts-action-rules.md) help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on. They are especially helpful at reducing notification overload during times of system maintenance.  
 
 ## Migrated smart detection capabilities
 
@@ -368,9 +368,9 @@ This Azure Resource Manager template example demonstrates configuring an **Respo
 > - **MemoryLeakDetector**
 
 > [!NOTE]
-> After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](proactive-arm-config.md#smart-detection-rule-configuration).
+> After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](../app/proactive-arm-config.md#smart-detection-rule-configuration).
 
 ## Next Steps
 
 - [Learn more about alerts in Azure](./alerts-overview.md)
-- [Learn more about smart detection in Application Insights](./alerts-smart-detections-overview.md)
+- [Learn more about smart detection in Application Insights](../app/proactive-diagnostics.md)
