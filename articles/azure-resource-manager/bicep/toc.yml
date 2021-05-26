@@ -98,8 +98,6 @@
         href: deploy-github-actions.md
       - name: Tutorial - Continuous integration with Azure Pipelines
         href: deployment-tutorial-pipeline.md
-    - name: Deployment history deletions
-      href: deployment-history-deletions.md
   - name: Decompile Bicep
     items:
     - name: Compile/Decompile
