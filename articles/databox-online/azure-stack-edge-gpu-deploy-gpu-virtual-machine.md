@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 05/26/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro GPU device using APIs so that I can efficiently manage my VMs.
 ---
@@ -169,6 +169,8 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 
 To deploy Nvidia GPU drivers for an existing VM, edit the parameters file and then deploy the template `addGPUextensiontoVM.json`. There are specific parameters files for Ubuntu and Red Hat Enterprise Linux (RHEL).
 
+#### Ubuntu
+
 If using Ubuntu, the `addGPUExtLinuxVM.parameters.json` file takes the following parameters:
 
 ```powershell
@@ -198,6 +200,50 @@ If using Ubuntu, the `addGPUExtLinuxVM.parameters.json` file takes the following
 	}
 	}
 ```
+
+Here is a sample Ubuntu parameter file that was used in this article:
+
+```powershell
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "value": "VM1" 
+        },
+        "extensionName": {
+            "value": "gpuLinux" 
+        },
+        "publisher": {
+            "value": "Microsoft.HpcCompute" 
+        },
+        "type": {
+            "value": "NvidiaGpuDriverLinux" 
+        },
+        "typeHandlerVersion": {
+            "value": "1.3" 
+        },
+        "settings": {
+            "value": {
+            "DRIVER_URL": "https://go.microsoft.com/fwlink/?linkid=874271",
+            "PUBKEY_URL": "http://download.microsoft.com/download/F/F/A/FFAC979D-AD9C-4684-A6CE-C92BB9372A3B/7fa2af80.pub",
+            "CUDA_ver": "10.0.130",
+            "InstallCUDA": "true"
+            }
+        }
+    }
+}
+```
+
+#### RHEL and RHEL BYOS
+
+If you used a Red Hat Enterprise Linux bring-your-own-subscription (RHEL BYOS) image to create your VM and want to install the GPU extension, follow these steps: 
+
+1. Enable your Red Hat subscription for Cloud Access at Red Hat Subscription-Manager. Subscribe the VM with the Red Hat Cloud portal. This enables the VM to access RHUI fees that hosts the RedHat packages. See detailed instructions in [How to register and subscribe a system to the Red Hat Customer Portal using Red Hat Subscription-Manager - Red Hat Customer Portal](https://access.redhat.com/solutions/253273)
+1. The GPU extension depends on vulkan-filesystem package that is on CentOS7 repo (for RHEL7). You need to either manually install the vulkan-filesystempackage or add CentOS7 repo to your yum repo list.
+
+You can then deploy the extension. 
+
 If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.json` file takes the following parameters:
 
 ```powershell
@@ -229,40 +275,6 @@ If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.
                     "DKMS_URL":"https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm",
                     "LIS_URL":"https://aka.ms/lis",
                     "LIS_RHEL_ver":"3.10.0-1062.9.1.el7"
-            }
-        }
-    }
-}
-```
-
-Here is a sample Ubuntu parameter file that was used in this article:
-
-```powershell
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "value": "VM1" 
-        },
-        "extensionName": {
-            "value": "gpuLinux" 
-        },
-        "publisher": {
-            "value": "Microsoft.HpcCompute" 
-        },
-        "type": {
-            "value": "NvidiaGpuDriverLinux" 
-        },
-        "typeHandlerVersion": {
-            "value": "1.3" 
-        },
-        "settings": {
-            "value": {
-            "DRIVER_URL": "https://go.microsoft.com/fwlink/?linkid=874271",
-            "PUBKEY_URL": "http://download.microsoft.com/download/F/F/A/FFAC979D-AD9C-4684-A6CE-C92BB9372A3B/7fa2af80.pub",
-            "CUDA_ver": "10.0.130",
-            "InstallCUDA": "true"
             }
         }
     }
