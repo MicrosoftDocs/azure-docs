@@ -42,7 +42,7 @@ The **RestartModule** method allows for remote management of modules running on 
 The RestartModule method is available in IoT Edge version 1.0.9 and later.
 
 >[!TIP]
->The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for restarting modules. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](how-to-monitor-azure-portal.md).
+>The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for restarting modules. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 You can use the RestartModule direct method on any module running on an IoT Edge device, including the edgeAgent module itself. However, if you use this direct method to shut down the edgeAgent, you won't receive a success result since the connection is disrupted while the module restarts.
 

@@ -270,7 +270,7 @@ You can retrieve the container logs from several places:
   iotedge logs <container name>
   ```
 
-* On the Azure portal, use the built-in troubleshoot tool. [Monitor and troubleshoot IoT Edge devices from the Azure portal](how-to-monitor-azure-portal.md)
+* On the Azure portal, use the built-in troubleshoot tool. [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md)
 
 * Use the [UploadModuleLogs direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) to upload the logs of a module to Azure Blob Storage.
 
@@ -372,7 +372,7 @@ Restart the IoT Edge runtime containers:
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
 
-You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](how-to-monitor-azure-portal.md).
+You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 ## Check your firewall and port configuration rules
 
