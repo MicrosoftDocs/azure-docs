@@ -212,7 +212,7 @@ To analyze identity documents from a URL use the `beginRecognizeIdDocumentsFromU
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
-> You can also train models with a graphical user interface (GUI) such as the [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md).
+> You can also train models with a graphical user interface (GUI) such as the [Form Recognizer sample labeling tool](../../label-tool.md).
 
 ### Train a model without labels
 

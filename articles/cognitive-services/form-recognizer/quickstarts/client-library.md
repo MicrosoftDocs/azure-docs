@@ -30,7 +30,7 @@ You'll use the following APIs to extract structured data from forms and document
 * [Analyze identity documents](#analyze-identity-documents)
 * [Train a custom model](#train-a-custom-model)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage your custom models](#manage-your-custom-models)
+* [Manage custom models](#manage-custom-models)
 
 ::: zone pivot="programming-language-csharp"
 
