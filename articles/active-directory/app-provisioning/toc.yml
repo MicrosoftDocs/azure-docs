@@ -48,6 +48,10 @@
         href: on-prem-ecma-configure.md
       - name: Generic SQL connector configureation
         href: on-prem-sql-connector-configure.md
+      - name: On-premises app provisioning to SCIM-enabled apps
+        href: on-prem-scim-provisioning.md
+      - name: Migrate connector from MIM Sync
+        href: on-prem-migrate-mim.md
     - name: Include or exclude users and groups from scope
       items:
       - name: Scoping users or groups to be provisioned 

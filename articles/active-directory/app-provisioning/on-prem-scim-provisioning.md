@@ -29,13 +29,32 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.mi
 ## Steps
  1. Add an application from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
  2. Navigate to your app > Provisioning > Download the provisioning agent.
- 3. Install the agent on-prem (provide admin credentials).
- 4. . Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.  
- 5. Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
- 6. Test provisioning a few users [on-demand](provision-on-demand.md).
- 7. Add additional users into scope by assigning them to your application.
- 8. Navigate to the provisioning blade and hit start provisioning.
- 9. Monitor using the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs).
+ 3. Click on on-premises connectivity and download the provisioning agent (during the private preview, you should skip this step and use the agent provided in the SharePoint site).
+ 4. Copy the agent onto the virtual machine or server that your SCIM endpoint is hosted on.
+ 5. Open the provisioning agent installer, agree to the terms of service, and click install.
+ 6. Open the provisioning agent wizard and select on-premises provisioning when prompted for the extension that you would like to enable.
+ 7. Provide credentials for an Azure AD Administrator when prompted to authorize (Hybrid administrator or Global administrator required).
+ 8. Click confirm to confirm the installation was successful.
+ 9. Navigate back to your application > on-premises connectivity.
+ 10. Select the agent that you installed from the dropdown list and click assign agent.
+ 11. Wait 10 minutes or restart the Azure AD Connect Provisioning agent service on your server / VM.
+ 12. Provide URL for your SCIM endpoint in the tenant URL field (e.g. Https://localhost:8585/scim).
+     ![assign agent](./media/on-prem-scim-provisioning/scim-2.png)
+ 13. Click test connection and save the credentials.
+ 14. Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.  
+ 15. Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users) to the application.
+ 16. Test provisioning a few users [on-demand](provision-on-demand.md).
+ 17. Add additional users into scope by assigning them to your application.
+ 18. Navigate to the provisioning blade and hit start provisioning.
+ 19. Monitor using the [provisioning logs](../../active-directory/reports-monitoring/concept-provisioning-logs).
+ 
+
+
+
+
+
+
+
 
 ## Things to be aware of
 * Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](use-scim-to-provision-users-and-groups.md).
