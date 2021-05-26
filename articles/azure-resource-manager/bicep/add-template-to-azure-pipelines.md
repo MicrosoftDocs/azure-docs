@@ -78,7 +78,13 @@ steps:
       az bicep build --file ./azuredeploy.bicep
 ```
 
-The Bicep file to transpile is called *azuredeploy.bicep* and exists in the root of the repo.
+For `azureSubscription`, provide the name of the service connection you created.
+
+For `scriptType`, use **bash**.
+
+For `scriptLocation`, use **inlineScript**, or **scriptPath**. If you specify **scriptPath**, you will also need to specify a `scriptPath` parameter.
+
+In `inlineScript`, specify your script lines.  The script provided in the sample builds a bicep file called *azuredeploy.bicep* and exists in the root of the repo.
 
 ## Azure PowerShell task
 
@@ -103,7 +109,7 @@ steps:
     azurePowerShellVersion: 'LatestVersion'
 ```
 
-When you set the task to `AzurePowerShell@5`, the pipeline uses the [Az module](/powershell/azure/new-azureps-module-az). If you're using the AzureRM module in your script, set the task to `AzurePowerShell@3`.
+When you set the task to `AzurePowerShell@5`, the pipeline uses the [Az module](/powershell/azure/new-azureps-module-az).
 
 ```yaml
 steps:
