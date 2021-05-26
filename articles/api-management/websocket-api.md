@@ -76,6 +76,10 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
  
 1. Click **Create**.
 
+## Test a WebSocket API
+
+## View WebSocket API metrics and logs
+
 ## Limitations
 
 WebSocket APIs are available and supported in public preview through Azure portal, Management API, and Azure Resource Manager. Below are the current restrictions of WebSocket support in API Management:
