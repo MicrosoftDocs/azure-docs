@@ -59,7 +59,7 @@ npm init
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.5
+npm install --save @azure/ai-text-analytics@5.1.0-beta.6
 ```
 
 > [!TIP]
