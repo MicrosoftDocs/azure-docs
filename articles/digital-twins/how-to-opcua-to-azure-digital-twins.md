@@ -401,7 +401,7 @@ There are three application settings you need to create:
 
 Lastly, create an event subscription to connect your function app and ProcessOPCPublisherEventsToADT function to your IoT Hub. The event subscription is needed so that data can flow from the gateway device into IoT Hub through the function, which then updates Azure Digital Twins.
 
-For instructions, follow the same steps used in [Connect the IoT hub to the Azure function](#connect-the-iot-hub-to-the-azure-function) from the Azure Digital Twins *Tutorial: Connect an end-to-end solution*.
+For instructions, follow the same steps used in [Connect the IoT hub to the Azure function](tutorial-end-to-end.md#connect-the-iot-hub-to-the-azure-function) from the Azure Digital Twins *Tutorial: Connect an end-to-end solution*.
 
 The event subscription will have an Endpoint type of **Azure function**, and an Endpoint of **ProcessOPCPublisherEventsToADT**.
 
@@ -413,7 +413,7 @@ The next section provides some Azure CLI commands that you can run to monitor th
 
 ### Verify and monitor
 
-The commands in this section can be run in the [Azure Cloud Shell](https://shell.azure.com), or in a [local Azure CLI window](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The commands in this section can be run in the [Azure Cloud Shell](https://shell.azure.com), or in a [local Azure CLI window](/cli/azure/install-azure-cli).
 
 Run this command to monitor IoT Hub events:
 ```azurecli-interactive
