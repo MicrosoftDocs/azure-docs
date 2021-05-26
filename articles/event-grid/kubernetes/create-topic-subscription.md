@@ -18,7 +18,7 @@ In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a 
 
 1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Install Event Grid extension on Kubernetes cluster](install-k8s-extension.md). This extension deploys Event Grid to a Kubernetes cluster. 
-1. [Create a custom location](../../azure-arc/kubernetes/custom-locations.md). A custom location represents a namespace in the cluster and it is the place where topics and event subscriptions are deployed.
+1. [Create a custom location](../../azure-arc/kubernetes/custom-locations.md). A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed.
 
 ## Create a topic
 
@@ -115,7 +115,7 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
     }]'
     ```
     
-    If the topic endpoint URL from step 1 is a private IP address, such as in the case when Event Grid broker's service type is ClusterIP, you can execute **Curl** from within another pod in the cluster in order to have access to that IP address. For example, you can perform the following steps:
+    If the topic endpoint URL from step 1 is a private IP address, such as in the case when Event Grid broker's service type is ClusterIP, you can execute **Curl** from within another pod in the cluster to have access to that IP address. For example, you can perform the following steps:
 
     1. Create a manifest file with the following configuration. You may want to adjust the ``dnsPolicy`` according to your needs. Consult [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) for more information.
     
