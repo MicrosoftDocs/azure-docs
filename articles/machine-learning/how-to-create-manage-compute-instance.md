@@ -158,8 +158,19 @@ Script arguments can be referred to in the script as $1, $2, etc.
 If your script was doing something specific to azureuser such as installing conda environment or jupyter kernel you will have to put it within *sudo -u azureuser* block like this
 
 ```shell
-sudo -u azureuser -i <<'EOF'
+#!/bin/bash
 
+set -e
+
+# This script installs a pip package in compute instance azureml_py38 environment
+
+sudo -u azureuser -i <<'EOF'
+# PARAMETERS
+PACKAGE=numpy
+ENVIRONMENT=azureml_py38 
+conda activate "$ENVIRONMENT"
+pip install "$PACKAGE"
+conda deactivate
 EOF
 ```
 Please note *sudo -u azureuser* does change the current working directory to */home/azureuser*. You also can't access the script arguments in this block.

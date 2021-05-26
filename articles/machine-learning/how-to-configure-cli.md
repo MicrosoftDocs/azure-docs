@@ -73,16 +73,16 @@ If it doesn't already exist, you can create the Azure resource group:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_group_create":::
 
-Similarly for the machine learning workspace:
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_workspace_create":::
-
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_configure_defaults":::
 
 > [!TIP]
 > Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
+
+Now create the machine learning workspace:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_workspace_create":::
 
 ## Hello world
 
@@ -109,5 +109,6 @@ Submit the job, streaming the logs to the console output, and opening the run in
 
 ## Next steps
 
+- [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train models using Machine Learning CLI extension (preview)](how-to-train-cli.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
