@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 05/26/2021
 ms.author: mbullwin
 ---
 
@@ -106,9 +106,9 @@ The following sections specify the parameters required for all authentication ty
     
     * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
     
-    You can create a managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader.
+        You can create a managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader.
     
-    ![MI blob](media/managed-identity-blob.png)
+        ![MI blob](media/managed-identity-blob.png)
     
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
@@ -338,23 +338,23 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     * **Managed Identity**: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
     
         To enable your managed entity, you can refer to following steps:
-      1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
-      2. In the Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give the managed identity access to specified users, and the suggested role type is: admin / viewer.
-      3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
-      4. The last step is to enable managed identity(MI) in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
+    1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
+    2. In the Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give the managed identity access to specified users, and the suggested role type is: admin / viewer.
+    3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
+    4. The last step is to enable managed identity(MI) in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
     
-    ```
-    CREATE USER [MI Name] FROM EXTERNAL PROVIDER
-    ALTER ROLE db_datareader ADD MEMBER [MI Name]
-    ```
+        ```
+        CREATE USER [MI Name] FROM EXTERNAL PROVIDER
+        ALTER ROLE db_datareader ADD MEMBER [MI Name]
+        ```
        
-     Note: The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+         Note: The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
         
-   Here's an example of connection string: 
+       Here's an example of connection string: 
    
-     ```
-     Data Source=<Server>;Initial Catalog=<Database>
-     ```
+         ```
+         Data Source=<Server>;Initial Catalog=<Database>
+         ```
         
 
     
@@ -405,7 +405,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 * **Connection String**: Create an SAS (shared access signature) URL and fill in here. The most straightforward way to generate a SAS URL is using the Azure portal. By using the Azure portal, you can navigate graphically. To create an SAS URL via the Azure portal, first, navigate to the storage account you’d like to access under the **Settings section** then click **Shared access signature**. 
 Check allowed services and allowed resource types checkboxes, then click the **Generate SAS and connection string** button at the bottom. Table service SAS URL is what you need to copy and fill in the text box in the Metrics Advisor.
 
-![azure table generate sas](media/azure-table-generate-sas.png)
+    ![azure table generate sas](media/azure-table-generate-sas.png)
 
 * **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
 
@@ -431,7 +431,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ``` -->
-    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
+
 
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
