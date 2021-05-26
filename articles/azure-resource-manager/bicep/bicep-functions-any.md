@@ -2,10 +2,6 @@
 title: Bicep functions - any
 description: Describes the any function that is available in Bicep to convert types.
 ms.topic: conceptual
-author: mumian
-ms.author: jgao
-ms.service: azure-resource-manager
-ms.subservice: bicep
 ms.date: 06/01/2021
 ---
 

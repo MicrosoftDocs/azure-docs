@@ -1,10 +1,8 @@
 ---
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 06/01/2021
 ---
 
 # Outputs in Bicep
@@ -64,10 +62,28 @@ output endpoint string = deployStorage ? myStorageAccount.properties.primaryEndp
 
 In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using iterative output.
 
-> [!NOTE]
-> Iterative output isn't currently available for Bicep.
+In Bicep, add a `for` expression that defines the conditions for the dynamic output. The following example iterates over an array.
 
-For more information, see [Output iteration in Bicep](loop-outputs.md).
+```bicep
+param nsgLocation string = resourceGroup().location
+param nsgNames array = [
+  'nsg1'
+  'nsg2'
+  'nsg3'
+]
+
+resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in nsgNames: {
+  name: name
+  location: nsgLocation
+}]
+
+output nsgs array = [for (name, i) in nsgNames: {
+  name: nsg[i].name
+  resourceId: nsg[i].id
+}]
+```
+
+You can also iterate over a range of integers. For more information, see [Output iteration in Bicep](loop-outputs.md).
 
 ## Modules
 
