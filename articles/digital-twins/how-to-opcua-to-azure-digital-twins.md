@@ -74,7 +74,6 @@ If you already have a physical OPC UA device or another OPC UA simulation server
 #### Create Windows 10 virtual machine
 
 The Prosys Software requires a simple virtual resource. Using the [Azure portal](https://portal.azure.com), [create a Windows 10 virtual machine (VM)](../virtual-machines/windows/quick-create-portal.md) with the following specifications:
-* **Availability options**: No infrastructure redundancy required
 * **Image**: Windows 10 Pro, Version 2004 - Gen2
 * **Size**: Standard_B1s - 1 vcpu, 1 GiB memory
 
@@ -155,7 +154,6 @@ In order to get your OPC UA Server data into IoT Hub, you need a device that run
 #### Create Ubuntu Server virtual machine
 
 Using the [Azure portal](https://portal.azure.com), create an Ubuntu Server virtual machine with the following specifications:
-* **Availability options**: No infrastructure redundancy required
 * **Image**: Ubuntu Server 18.04 LTS - Gen1
 * **Size**: Standard_B1ms - 1 vcpu, 2 GiB memory
     - The default size (Standard_b1s – vcpu, 1GiB memory) is too slow for RDP. Updating it to the 2 GiB memory will provide a better RDP experience.
@@ -300,7 +298,7 @@ Next, add a model and twin to your instance. The model file that you'll upload t
 
 You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to upload the Simulation model, and create a new twin called **simulation-1**.
 
-:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/azure-digital-twins-explorer.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing the Simulation model and simulation-1 twin.":::
+:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/azure-digital-twins-explorer-1.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing the Simulation model and simulation-1 twin.":::
 
 ### Verify completion
 
@@ -411,7 +409,16 @@ After this step, all required components should be installed and running. Data s
 
 The next section provides some Azure CLI commands that you can run to monitor the events and verify everything is working successfully.
 
-### Verify and monitor
+### Verify completion
+
+In this section, you set up an Azure function to connect the OPC UA data to Azure Digital Twins. Verify that you've completed the following checklist:
+> [!div class="checklist"]
+> * Created and imported *opcua-mapping.json* file into a blob storage container. 
+> * Published the sample function ProcessOPCPublisherEventsToADT to a function app in Azure.
+> * Added three new application settings to the Azure Functions app.
+> * Created an event subscription to send IoT Hub events to the function app.
+
+## Verify and monitor
 
 The commands in this section can be run in the [Azure Cloud Shell](https://shell.azure.com), or in a [local Azure CLI window](/cli/azure/install-azure-cli).
 
@@ -425,19 +432,9 @@ Run this command to monitor Azure function event processing:
 az webapp log tail –name <function-name> --resource-group <resource-group-name>
 ```
 
-Finally, you can use Azure Digital Twins Explorer to manually monitor twin property updates. 
+Finally, you can use Azure Digital Twins Explorer to monitor twin property updates and verify that the twin is updating. For more information on using Azure Digital Twins Explorer to monitor your instance, see [Concepts: Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)
 
-:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/adt-explorer-2.png" alt-text="Screenshot of using azure digital twins explorer to monitor twin property updates":::
-
-### Verify completion
-
-In this section, you set up an Azure function to connect the OPC UA data to Azure Digital Twins. Verify that you've completed the following checklist:
-> [!div class="checklist"]
-> * Created and imported *opcua-mapping.json* file into a blob storage container. 
-> * Published the sample function ProcessOPCPublisherEventsToADT to a function app in Azure.
-> * Added three new application settings to the Azure Functions app.
-> * Created an event subscription to send IoT Hub events to the function app.
-> * Used Azure CLI commands to verify the final data flow
+:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/azure-digital-twins-explorer-2.png" alt-text="Screenshot of using Azure Digital Twins Explorer to monitor twin property updates.":::
 
 ## Next steps
 
