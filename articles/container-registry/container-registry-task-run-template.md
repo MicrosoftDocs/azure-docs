@@ -45,8 +45,7 @@ For this example, provide values for the following template parameters:
 
 Deploy the template with the [az deployment group create][az-deployment-group-create] command. This example builds and pushes the *helloworld-node:testrun* image to a registry named *mycontainerregistry*.
 
-> [!NOTE]
-> [!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)] See also [Example: Task run with managed identity](#example--task-run-with-managed-identity), later in this artice.
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)] See also [Example: Task run with managed identity](#example--task-run-with-managed-identity), later in this artice.
 
 ```azurecli
 az deployment group create \
