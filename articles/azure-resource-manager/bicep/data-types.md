@@ -26,12 +26,37 @@ Within a Bicep, you can use these data types:
 Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, an array must be declared in multiple lines. Don't use commas between values.
 
 ```bicep
-param exampleArray array = [
+var index = 1
+
+var exampleArray = [
   1
   2
   3
 ]
 ```
+
+Arrays in Bicep are 0-based. The expression exampleArray[0] evaluates to 1 and exampleArray[2] evaluates to 3. The index of the indexer may itself be another expression. In the above example, exampleArray[index] would evaluate to 2. Integer indexers are only allowed on expression of array types.
+
+String-based indexers are allowed in Bicep.
+
+```bicep
+param environment string = 'prod'
+
+var environmentSettings = {
+  dev: {
+    name: 'dev'
+  }
+  prod: {
+    name: 'prod'
+  }
+}
+```
+
+The expression environmentSettings['dev'] evaluates to the following object:
+
+{
+  name: 'dev'
+}
 
 The elements of an array can be the same type or different types.
 

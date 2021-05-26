@@ -104,7 +104,7 @@
   items:
   - name: Template reference
     href: /azure/templates/
-  - name: Template functions
+  - name: Bicep functions
     items:
     - name: All functions
       href: bicep-functions.md
