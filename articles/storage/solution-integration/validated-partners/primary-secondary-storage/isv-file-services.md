@@ -117,7 +117,7 @@ This article compares several ISV solutions that provide files services in Azure
 | **Global file locking**                             | Yes                  | Yes (NetApp Global File Cache) | Yes                       | Yes                   | Yes                   |
 | **Namespace aggregation over backend sources**      | Yes                  | Yes                            | No                        | Yes                   | Yes                   |
 | **Caching of active data**                          | Yes                  | Yes                            | Yes                       | yes                   | Yes                   |
-| **Supported caching modes**                         | LRU, Manually Pinned | LRU                            |                           | LRU                   | LRU                   |
+| **Supported caching modes**                         | LRU, manually pinned | LRU                            | LRU, manually pinned      | LRU                   | LRU                   |
 | **Encryption at rest**                              | Yes                  | Yes                            | Yes                       | Yes                   | No                    |
 | **De-duplication**                                  | Yes                  | Yes                            | Yes                       | No                    | No                    |
 | **Compression**                                     | Yes                  | Yes                            | Yes                       | No                    | No                    |
