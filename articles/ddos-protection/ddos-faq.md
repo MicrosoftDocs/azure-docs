@@ -1,5 +1,5 @@
 ---
-title: Azure DDoS Protection Standard frequent asked questions
+title: Azure DDoS Protection Standard frequently asked questions
 description: Frequently asked questions about the Azure DDoS Protection Standard, which helps provide defense against DDoS attacks.
 services: virtual-network
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.date: 10/28/2020
 ms.author: yitoh
 
 ---
-# Azure DDoS Protection Standard frequent asked questions
+# Azure DDoS Protection Standard frequently asked questions
 
 This article answers common questions about Azure DDoS Protection Standard. 
 

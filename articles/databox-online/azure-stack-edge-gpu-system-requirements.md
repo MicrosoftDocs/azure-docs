@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/26/2021
 ms.author: alkohli
-ms.custom: "contperf-fy21q3"
+ms.custom: "contperf-fy21q4"
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
 
@@ -102,6 +102,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
 | https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
 | https://\*.azure-devices.net              | IoT Hub access (required)                             | 
+| https://\*.docker.com              | StorageClass (required)                             | 
 
 ### URL patterns for monitoring
 

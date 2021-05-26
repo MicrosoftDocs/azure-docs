@@ -1,11 +1,13 @@
 ---
-title: Playback of recordings - Azure
-description: You can use Live Video Analytics on IoT Edge for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback recordings.
+title: Playback of recordings with Live Video Analytics - Azure
+description: You can use Azure Live Video Analytics on IoT Edge for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback recordings.
 ms.topic: how-to
 ms.date: 04/27/2020
 
 ---
-# Playback of recordings 
+# Playback of recordings with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Pre-read  
 

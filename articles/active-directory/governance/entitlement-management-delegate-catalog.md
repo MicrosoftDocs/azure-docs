@@ -32,7 +32,7 @@ To delegate to users who aren't administrators, so that they can create their ow
 
 Follow these steps to assign a user to the catalog creator role.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

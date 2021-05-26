@@ -1,12 +1,12 @@
 ---
-title: 'Azure VPN Gateway: configuration settings'
-description: Learn about VPN Gateway resources and settings for a virtual network created in the Resource Manager deployment model.
+title: 'Azure VPN Gateway configuration settings'
+description: Learn about VPN Gateway resources and configuration settings.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 
 ---

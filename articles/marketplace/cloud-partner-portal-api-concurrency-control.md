@@ -25,12 +25,9 @@ offer two strategies for concurrency control.
     regardless of whether another application has modified it since the
     last read time.
 
-Optimistic concurrency workflow
--------------------------------
+## Optimistic concurrency workflow
 
-We recommend using the optimistic concurrency strategy, with the
-following workflow, to guarantee that no unexpected edits are made to your
-resources.
+We recommend using the optimistic concurrency strategy, with the following workflow, to guarantee that no unexpected edits are made to your resources.
 
 1.  Retrieve an entity using the APIs. The response includes an ETag
     value that identifies the currently stored version of the entity (at

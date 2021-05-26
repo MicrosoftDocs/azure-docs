@@ -60,7 +60,7 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Value name: **TenantId**
       1. Value type: **REG_SZ**
-      1. Value data: The GUID or **Directory ID** of your Azure AD instance (This value can be found in the **Azure portal** > **Azure Active Directory** > **Properties** > **Directory ID**)
+      1. Value data: The GUID or **Tenant ID** of your Azure AD instance (This value can be found in the **Azure portal** > **Azure Active Directory** > **Properties** > **Tenant ID**)
    1. Click **OK**
 1. Right-click on the Registry and select **New** > **Registry Item**
    1. On the **General** tab, configure the following

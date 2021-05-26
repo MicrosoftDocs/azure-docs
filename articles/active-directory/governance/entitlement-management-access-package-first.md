@@ -76,7 +76,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 An *access package* is a bundle of resources that a team or project needs and is governed with policies. Access packages are defined in containers called *catalogs*. In this step, you create a **Marketing Campaign** access package in the **General** catalog.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 ![Create an access package](./media/entitlement-management-access-package-first/elm-access-package.png)
 
