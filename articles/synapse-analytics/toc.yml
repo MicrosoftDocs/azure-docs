@@ -730,6 +730,8 @@ items:
       href: quickstart-copy-activity-load-sql-pool.md
     - name: Transform data using mapping data flows
       href: quickstart-data-flow.md
+    - name: Transform data using Apache Spark job definition
+      href: quickstart-transform-data-using-spark-job-definition.md
   - name: Concepts
     items:
     - name: Pipeline and activity
@@ -1013,6 +1015,8 @@ items:
       items:
       - name: Execute Data Flow activity
         href: ../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Synapse Notebook Activity
+        href: synapse-notebook-activity.md
       - name: Synapse SQL Pool Stored Procedure Activity
         href: ./data-integration/sql-pool-stored-procedure-activity.md
       - name: Azure Function Activity
