@@ -144,11 +144,11 @@ Configure the project settings fill in the fields with the following values:
 * **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 
 * **Source connection** - The sample labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers. Create a new connection, click the **Add Connection** button. Fill in the fields with the following values:
-   * **Display Name** - The connection display name.
-   * **Description** - Your project description.
-   * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
+  * **Display Name** - The connection display name.
+  * **Description** - Your project description.
+  * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container.
 
-   [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+  * [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
    :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
 
