@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/26/2021
 
 ms.author: justinha
 author: mjsantani
@@ -25,7 +25,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 ## Prerequisites 
 
 - Your organization must have enabled Azure MFA. 
-- Users can't have Microsoft Authenticator set up for push notifications on their account. 
+- User must not have already set up the Microsoft Authenticator set for push notifications on their account. 
 - Admins need to enable users for Microsoft Authenticator using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
   - Authentication Methods Policy: Users will need to be enabled for the Microsoft Authenticator and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user will not be eligible for the nudge. 
