@@ -15,27 +15,25 @@ ms.custom: "monitoring"
 
 Intro goes here.
 
-## Enable logs and metrics
+## Get started with metrics and logs
 
-Both metrics and the activity logs are collected automatically.
-
-Enable diagnostic logs by creating a diagnostic setting. For guidance, see any of these articles:
+To get started with metrics and logs, see any of these articles.
 
 - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
 - [Monitoring Azure Files](../files/storage-files-monitoring.md)
 - [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
 - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
 
-You can also create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](policy-reference.md).
-
 ## Configure a policy definition
+
+You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](policy-reference.md).
 
 Is this in scope for this article? 
 
 - Generate logs for different targets and scenarios?
 - Set up validation rules to govern edits and data use?
 
-## Audit data plane activities
+## Audit diagnostic logs
 
 Identify the key elements for auditing (`what`, `when`, `how`, and `who`). 
 
@@ -59,7 +57,7 @@ Put something here.
 
 Put something here.
 
-### Scenarios and example queries
+## Audit data plane activities
 
 This section shows example queries that you can use for common scenarios.
 
@@ -129,10 +127,6 @@ StorageBlobLogs
 ## Audit control plane activities
 
 Put something here.
-
-### Scenarios and examples
-
-Put scenarios here.
 
 ## Receive real-time alerts of account activity
 
