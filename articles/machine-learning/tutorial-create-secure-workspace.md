@@ -327,6 +327,12 @@ Use the following steps create a network security group (NSG) and add rules requ
     * Set the __Network security group__ to the one you created previously.
     * Leave the other fields at the default value.
 
+1. Select __Review + create__. Verify that the information is correct, and then select __Create__.
+
+### Connect to the jump box
+
+1. Once the workspace has been created, select __Go to resource__.
+1. From the top of the page, select __Connect__, __Bastion__, and then __Use Bastion__. Provide your authentication information for the virtual machine, and a connection will be established in your browser.
 ## Configure image builds
 
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use an Azure Machine Learning compute cluster to build images. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
