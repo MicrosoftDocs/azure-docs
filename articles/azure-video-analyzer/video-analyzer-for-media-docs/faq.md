@@ -102,6 +102,8 @@ If there are multiple audio streams, Video Analyzer for Media takes the first on
 Your paid Video Analyzer for Media account uses the specified Media Services that is connected to a storage account. Currently, the connected storage account 
 cannot be behind a firewall.
 
+When calling [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video), you can provide a URL to a video for Video Analyzer for Media to download from. If the URL is based on a storage account in the same region as the Video Analyzer for Media account and it has a firewall, it will not work.<br/>If the storage account is in another region, you can whitelist Video Analyzer for Media IPs and it will work.
+
 ### What is the SLA for Video Analyzer for Media?
 
 Azure Media Service’s SLA covers Video Analyzer for Media and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Video Analyzer for Media paid accounts and does not apply to the free trial.
