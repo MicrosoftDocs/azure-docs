@@ -121,7 +121,7 @@ To generate a benign Microsoft Defender for Endpoint test alert:
     > [!TIP]
     > The alert is triggered with **Informational** severity.
 
-## FAQ for Security Center's integrated Microsoft Defender for Endpoint
+## FAQ - Security Center's integration with Microsoft Defender for Endpoint
 
 - [What's this "MDE.Windows" extension running on my machine?](#whats-this-mdewindows-extension-running-on-my-machine)
 - [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
