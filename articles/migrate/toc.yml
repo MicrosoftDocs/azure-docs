@@ -135,12 +135,10 @@
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
   - name: Use Azure Migrate with private link
-  items:
-  - name: Use Azure Migrate with private link
     href: how-to-use-azure-migrate-with-private-endpoints.md
     items:
-    - name: Troubleshoot network connectivity
-      href: troubleshoot-network-connectivity.md
+      - name: Troubleshoot network connectivity
+        href: troubleshoot-network-connectivity.md
   - name: Prepare to work with ISV tools/Movere
     href: prepare-isv-movere.md
   - name: Discover
