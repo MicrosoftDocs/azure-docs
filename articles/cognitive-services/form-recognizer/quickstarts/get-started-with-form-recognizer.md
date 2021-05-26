@@ -27,8 +27,6 @@ Use Form Recognizer to:
 * Analyze using a Prebuilt model (invoices, receipts, ID documents)
 * Train & Analyze a custom Form
 
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
-
 ## Prerequisites
 
 To complete this quickstart, you must have:
@@ -215,13 +213,15 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
-    :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Training view.":::
+    :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
+
+    
 
 #### Analyze a custom form
 
 Select the Analyze (light bulb) icon on the left to test your model. Select source 'Local file'. Browse for a file and select a file from the sample dataset that you unzipped in the test folder. Then choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
-:::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
+   :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="Training view.":::
 
 ## Next steps
 

@@ -266,7 +266,19 @@
       - name: Functional validation
         href: dynamics-365-operations-validation.md
     - name: Create a Business Central offer
-      href: partner-center-portal/create-new-business-central-offer.md
+      items: 
+      - name: Create the offer
+        href: dynamics-365-business-central-offer-setup.md
+      - name: Properties
+        href: dynamics-365-business-central-properties.md
+      - name: Offer listing
+        href: dynamics-365-business-central-offer-listing.md
+      - name: Availability
+        href: dynamics-365-business-central-availability.md
+      - name: Technical configuration
+        href: dynamics-365-business-central-technical-configuration.md
+      - name: Supplemental content
+        href: dynamics-365-business-central-supplemental-content.md
     - name: Review and publish
       href: dynamics-365-review-publish.md
   - name: IoT Edge Module offer
