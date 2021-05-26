@@ -1,0 +1,30 @@
+---
+title: Customer-Managed Keys for Applied AI Services
+titleSuffix: Applied AI Services
+description: Learn how to use the Azure portal to configure customer-managed keys with Azure Key Vault. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
+services: applied-ai-services
+author: jeffme
+
+ms.service: applied-ai-services
+ms.topic: include
+ms.date: 05/26/2021
+ms.author: jeffme
+---
+
+# Configure customer-managed keys with Azure Key Vault for Applied AI Services
+
+The process to enable Customer-Managed Keys with Azure Key Vault for Applied AI Services varies by product. Use these links for service-specific instructions:
+
+* [Cognitive Search encryption of data at rest](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
+
+* [Form Recognizer encryption of data at rest](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/encrypt-data-at-rest)
+
+* [Metrics Advisor encryption of data at rest](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/encryption#customer-managed-keys-with-azure-key-vault)
+
+* [Video Analyzer encryption of data at rest](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/customer-managed-keys)
+
+
+## Next steps
+
+* [What is Azure Key Vault](../../key-vault/general/overview.md)?
+* [Applied AI Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
