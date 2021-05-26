@@ -25,7 +25,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 ## Prerequisites 
 
 - Your organization must have enabled Azure MFA. 
-- User must not have already set up the Microsoft Authenticator set for push notifications on their account. 
+- User must not have already set up Microsoft Authenticator for push notifications on their account. 
 - Admins need to enable users for Microsoft Authenticator using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
   - Authentication Methods Policy: Users will need to be enabled for the Microsoft Authenticator and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user will not be eligible for the nudge. 
@@ -91,7 +91,7 @@ The following table lists **authenticationMethodsRegistrationCampaign** properti
 
 | Name | Possible values | Description |
 |------|-----------------|-------------|
-| state |	"enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>"default" means disabled. Default value is used when the configuration hasn't been explicitly set and will use Azure AD default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
+| state |	"enabled"<br>"disabled"<br>"default" | Allows you to enable or disable the feature.<br>Default value is used when the configuration hasn't been explicitly set and will use Azure AD default value for this setting. Currently maps to disabled.<br>Change states to either enabled or disabled as needed.  |
 | snoozeDurationInDays | Range: 0 – 14 | Defines after how many days the user will see the nudge again.<br>If the value is 0, the user is nudged during every MFA attempt.<br>Default: 1 day |
 | includeTargets | N/A | Allows you to include different users and groups that you want the feature to target. |
 | excludeTargets | N/A | Allows you to exclude different users and groups that you want omitted from the feature. If a user is in a group that is excluded and a group that is included, the user will be excluded from the feature.|
@@ -143,22 +143,26 @@ Here are a few sample JSONs you can use to get started!
   If you want to include certain users or groups in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes.json) and update it with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
-  {
+{
   "registrationEnforcement": {
-          "authenticationMethodsRegistrationCampaign": {
-              "snoozeDurationInDays": 0,
-              "state": "enabled",
-              "excludeTargets": [],
-              "includeTargets": [
-                  {
-                      "id": "all_users",
-                      "targetType": "group",
-                      "targetedAuthenticationMethod": "microsoftAuthenticator"
-                  }
-              ]
-          }
-      }
-  }
+        "authenticationMethodsRegistrationCampaign": {
+            "snoozeDurationInDays": 0,
+            "state": "enabled",
+            "excludeTargets": [],
+            "includeTargets": [
+                {
+                    "id": "*********PLEASE ENTER GUID***********",
+                    "targetType": "group",
+                    "targetedAuthenticationMethod": "microsoftAuthenticator"
+                },
+		{
+                    "id": "*********PLEASE ENTER GUID***********",
+                    "targetType": "user",
+                    "targetedAuthenticationMethod": "microsoftAuthenticator"
+                }
+            ]
+        }
+    }
   ```
 
 - Include and exclude specific users/groups of users
@@ -218,6 +222,8 @@ Here are a few sample JSONs you can use to get started!
 
    ![Nudge group](./media/how-to-nudge-authenticator-app/group.png)
 
+<!---comment out PS until ready>
+
 ### PowerShell
 
 1. Install the module.
@@ -229,6 +235,8 @@ Here are a few sample JSONs you can use to get started!
 
 1. Select the beta profile.
 1. Call `Update-MgPolicyAuthenticationMethod`.
+
+<---->
 
 ## Limitations
 
