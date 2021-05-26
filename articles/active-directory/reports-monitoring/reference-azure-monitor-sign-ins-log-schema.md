@@ -148,7 +148,7 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | OperationVersion | - | The REST API version that's requested by the client. |
 | Category | - | For sign-ins, this value is always *SignIn*. | 
 | TenantId | - | The tenant GUID that's associated with the logs. |
-| ResultType | - | The result of the sign-in operation can be *Success* or *Failure*. | 
+| ResultType | - | The result of the sign-in operation can be *0* for success or an *error code* for failure or interrupted. | 
 | ResultSignature | - | Contains the error code, if any, for the sign-in operation. |
 | ResultDescription | N/A or blank | Provides the error description for the sign-in operation. |
 | riskDetail | riskDetail | Provides the 'reason' behind a specific state of a risky user, sign-in or a risk detection. The possible values are: `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. The value `none` means that no action has been performed on the user or sign-in so far. <br>**Note:** Details for this property require an Azure AD Premium P2 license. Other licenses return the value `hidden`. |

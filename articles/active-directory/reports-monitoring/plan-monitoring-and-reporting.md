@@ -153,7 +153,6 @@ Learn More About [Azure AD Administrative Roles](../roles/permissions-reference.
 
 *Always apply the concept of least privileges to reduce the risk of an account compromise*. Consider implementing [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to further secure your organization.
 
-##  
 
 ## Deploy Azure AD reporting and monitoring
 

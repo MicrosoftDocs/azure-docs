@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/18/2020
+ms.date: 04/19/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
@@ -95,6 +95,17 @@ The Data Box includes the following components:
 * **Local web user interface** – a web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the Data Box service. Use the local web UI also to shut down and restart the Data Box device, view copy logs, and contact Microsoft Support to file a service request.
 
     ![The Data Box local web UI](media/data-box-overview/data-box-local-web-ui.png)
+
+    The local web UI on the device currently supports the following languages with their corresponding language codes:
+
+    | Language             | Code | Language                | Code   | Language                | Code         |
+    |----------------------|------|-------------------------|--------|-------------------------|--------------|
+    | English {default}    | en   |  Czech                  | cs     | German                  | de           |
+    | Spanish              | es   | French                  | fr     | Hungarian               | hu           |
+    | Italian              | it   | Japanese                | ja     | Korean                  | ko           |
+    | Dutch                | nl   | Polish                  | pl     | Portuguese - Brazil     | pt-br        |
+    | Portuguese - Portugal| pt-pt| Russian                 | ru     | Swedish                 | sv           |
+    | Turkish              | tr   | Chinese - simplified    | zh-hans|    |       |    
 
     For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-portal-ui-admin.md).
 

@@ -197,14 +197,11 @@ Currently, speaking style adjustments are supported for the following neural voi
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
-* `zh-CN-YunxiNeural` (Preview)
-* `zh-CN-XiaohanNeural` (Preview)
-* `zh-CN-XiaomoNeural` (Preview)
-* `zh-CN-XiaoxuanNeural` (Preview)
-* `zh-CN-XiaoruiNeural` (Preview)
-
-> [!NOTE]
-> Voices in preview are only available in these 3 regions: East US, West Europe and Southeast Asia.
+* `zh-CN-YunxiNeural` 
+* `zh-CN-XiaohanNeural` 
+* `zh-CN-XiaomoNeural` 
+* `zh-CN-XiaoxuanNeural` 
+* `zh-CN-XiaoruiNeural`
 
 The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Currently, speaking style adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
@@ -371,6 +368,65 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
 </speak>
 ```
 
+## Adjust speaking languages
+
+You can adjust speaking languages for neural voices.
+Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) using the `<lang xml:lang>` element. This is an optional element unique to the Speech service. Without this element, the voice will speak its primary language.
+Currently, speaking language adjustments are supported for these neural voices: `en-US-JennyMultilingualNeural`. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
+
+> [!NOTE]
+> Currently, the `<lang xml:lang>` element is incompatible with `prosody` and `break` element, you cannot adjust pause and prosody like pitch, contour, rate, duration, volume in this element.
+
+**Syntax**
+
+```xml
+<lang xml:lang="string"></lang>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `lang` | Specifies the speaking languages. Currently, speaking different languages are voice-specific. | Required if adjusting the speaking language for a neural voice. If using `lang xml:lang`, then locale must be provided. |
+
+Use this table to determine which speaking languages are supported for each neural voice.
+
+| Voice                            | Locale language           | Description                                                 |
+|----------------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Speak en-US locale, which is the primary locale of this voice |
+|                                  | `lang="en-CA"`            | Speak en-CA locale language                                  |
+|                                  | `lang="en-AU"`            | Speak en-AU locale language                                  |
+|                                  | `lang="en-GB"`            | Speak en-GB locale language                                  |
+|                                  | `lang="de-DE"`            | Speak de-DE locale language                                  |
+|                                  | `lang="fr-FR"`            | Speak fr-FR locale language                                  |
+|                                  | `lang="fr-CA"`            | Speak fr-CA locale language                                  |
+|                                  | `lang="es-ES"`            | Speak es-ES locale language                                  |
+|                                  | `lang="es-MX"`            | Speak es-MX locale language                                  |
+|                                  | `lang="zh-CN"`            | Speak zh-CN locale language                                  |
+|                                  | `lang="ko-KR"`            | Speak ko-KR locale language                                  |
+|                                  | `lang="ja-JP"`            | Speak ja-JP locale language                                  |
+|                                  | `lang="it-IT"`            | Speak it-IT locale language                                  |
+|                                  | `lang="pt-BR"`            | Speak pt-BR locale language                                  |
+
+**Example**
+
+This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX` and `de-DE`.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        I am looking forward to the exciting things.
+        <lang xml:lang="es-MX">
+            Estoy deseando que lleguen las cosas emocionantes.
+        </lang>
+        <lang xml:lang="de-DE">
+            Ich freue mich auf die spannenden Dinge.
+        </lang>
+    </voice>
+</speak>
+```
+
 ## Add or remove a break/pause
 
 Use the `break` element to insert pauses (or breaks) between words, or prevent pauses automatically added by the text-to-speech service.
@@ -502,7 +558,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
-        <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
+        <phoneme alphabet="ipa" ph="təˈmeɪtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
@@ -525,7 +581,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ## Use custom lexicon to improve pronunciation
 
-Sometimes the text-to-speech service cannot accurately pronounce a word. For example, the name of a company, or a medical term. Developers can define how single entities are read in SSML using the `phoneme` and `sub` tags. However, if you need to define how multiple entities are read, you can create a custom lexicon using the `lexicon` tag.
+Sometimes the text-to-speech service cannot accurately pronounce a word. For example, the name of a company, a medical term or an emoji. Developers can define how single entities are read in SSML using the `phoneme` and `sub` tags. However, if you need to define how multiple entities are read, you can create a custom lexicon using the `lexicon` tag.
 
 > [!NOTE]
 > Custom lexicon currently supports UTF-8 encoding.
@@ -566,10 +622,16 @@ To define how multiple entities are read, you can create a custom lexicon, which
     <grapheme> Benigni </grapheme>
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
+  <lexeme>
+    <grapheme>😀</grapheme> 
+    <alias>test emoji</alias> 
+  </lexeme>
 </lexicon>
 ```
 
-The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
+The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced. When `alias` and `phoneme` element are provided with the same `grapheme` element, `alias` has higher priority.
+
+Lexicon contains necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so apply it for a different locale it won't work.
 
 It's important to note, that you cannot directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
@@ -628,7 +690,7 @@ In the sample above, we're using the International Phonetic Alphabet, also known
 
 Considering that the IPA is not easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
 
-You can use the `sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated below:
+You can use the `x-microsoft-sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated below:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -637,7 +699,7 @@ You can use the `sapi` as the value for the `alphabet` attribute with custom lex
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
-      alphabet="sapi" xml:lang="en-US">
+      alphabet="x-microsoft-sapi" xml:lang="en-US">
   <lexeme>
     <grapheme>BTW</grapheme>
     <alias> By the way </alias>
@@ -902,7 +964,7 @@ As an example, you might want to know the time offset of each flower word as fol
 You can subscribe to the `BookmarkReached` event in Speech SDK to get the bookmark offsets.
 
 > [!NOTE]
-> `BookmarkReached` event is only available since Speech SDK version 1.16.0.
+> `BookmarkReached` event is only available since Speech SDK version 1.16.
 
 `BookmarkReached` events are raised as the output audio data becomes available, which will be faster than playback to an output device.
 

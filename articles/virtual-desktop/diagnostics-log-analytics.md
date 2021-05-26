@@ -128,7 +128,7 @@ Access example queries through the Azure Monitor Log Analytics UI:
 1. Select **Windows Virtual Desktop** to review available queries.
 1. Select **Run** to run the selected query.
 
-Learn more about the sample query interface in [Saved queries in Azure Monitor Log Analytics](../azure-monitor/logs/example-queries.md).
+Learn more about the sample query interface in [Saved queries in Azure Monitor Log Analytics](../azure-monitor/logs/queries.md).
 
 The following query list lets you review connection information or issues for a single user. You can run these queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). For each query, replace `userupn` with the UPN of the user you want to look up.
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 05/11/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -124,7 +124,6 @@ Follow these steps to enable compute and configure compute network.
 This is an optional configuration.
 
 > [!IMPORTANT]
-> * If you enable compute and use IoT Edge module on your Azure Stack Edge Pro device, we recommend you set web proxy authentication as **None**. NTLM is not supported.
 > * Proxy-auto config (PAC) files are not supported. A PAC file defines how web browsers and other user agents can automatically choose the appropriate proxy server (access method) for fetching a given URL. 
 > * Transparent proxies work well with Azure Stack Edge Pro. For non-transparent proxies that intercept and read all the traffic (via their own certificates installed on the proxy server), upload the public key of the proxy's certificate as the signing chain on your Azure Stack Edge Pro device. You can then configure the proxy server settings on your Azure Stack Edge device. For more information, see [Bring your own certificates and upload through the local UI](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).  
 
@@ -135,15 +134,11 @@ This is an optional configuration.
 
 1. On the **Web proxy settings** page, take the following steps:
 
-    1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
+   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
 
-    2. Under **Authentication**, select **None** or **NTLM**. If you enable compute and use IoT Edge module on your Azure Stack Edge Pro device, we recommend you set web proxy authentication to **None**. **NTLM** is not supported.
+   2. To validate and apply the configured web proxy settings, select **Apply**.
 
-    3. If you're using authentication, enter a username and password.
-
-    4. To validate and apply the configured web proxy settings, select **Apply**.
-    
-   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
+   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)<!--UI text update for instruction text is needed.-->
 
 2. After the settings are applied, select **Next: Device**.
 

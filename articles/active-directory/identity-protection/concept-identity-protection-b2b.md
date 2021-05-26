@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 04/19/2021
+ms.date: 05/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Identity Protection detects compromised credentials for Azure AD users. If your credential is detected as compromised, it means that someone else may have your password and be using it illegitimately. To prevent further risk to your account, it is important to securely reset your password so that the bad actor can no longer use your compromised password. Identity Protection marks accounts that may be compromised as "at risk."
 
-You can use your organizational credentials to sign-in to another organization as a guest; this process is referred to B2B authentication. Organizations can configure policies to block users from signing-in if their credentials are at risk. If your account is at risk and you are blocked from signing-in to another organization as a guest, you may be able to self-remediate your account using the steps below. If your organization has not enabled self-service password reset, your administrator will need to manually remediate your account.
+You can use your organizational credentials to sign-in to another organization as a guest. This process is referred to [business-to-business or B2B collaboration](../external-identities/what-is-b2b.md). Organizations can configure policies to block users from signing-in if their credentials are considered [at risk](concept-identity-protection-risks.md). If your account is at risk and you are blocked from signing-in to another organization as a guest, you may be able to self-remediate your account using the following steps. If your organization has not enabled self-service password reset, your administrator will need to manually remediate your account.
 
 ## How to unblock your account 
 

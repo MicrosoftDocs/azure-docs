@@ -1,8 +1,8 @@
 ---
 title: Copy and transform data in Snowflake
 description: Learn how to copy and transform data in Snowflake by using Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -30,7 +30,7 @@ For the Copy activity, this Snowflake connector supports the following functions
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that define Data Factory entities specific to a Snowflake connector.
 

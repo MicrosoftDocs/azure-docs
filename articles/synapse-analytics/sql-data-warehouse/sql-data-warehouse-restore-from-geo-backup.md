@@ -53,7 +53,7 @@ $TargetServiceObjective="<YourTargetServiceObjective-DWXXXc>"
 Connect-AzAccount
 Get-AzSubscription
 Select-AzSubscription -SubscriptionName $SubscriptionName
-Get-AzureSqlDatabase -ServerName $ServerName
+Get-AzSqlDatabase -ServerName $ServerName -ResourceGroupName $ResourceGroupName
 
 # Get the data warehouse you want to recover
 $GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
