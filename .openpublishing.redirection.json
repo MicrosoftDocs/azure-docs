@@ -8454,6 +8454,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation.md",
+      "redirect_url": "/azure/marketplace/marketplace-iot-edge",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/appsource-offer-publishing-guide.md",
       "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
       "redirect_document_id": false
