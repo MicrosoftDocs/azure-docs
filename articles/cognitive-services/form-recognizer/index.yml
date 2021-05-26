@@ -41,7 +41,7 @@ landingContent:
           - text: Newest features and updates
             url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
 
-   - title: Extract layout and structure from documents
+  - title: Extract layout and structure from documents
     linkLists:
       - linkListType: concept
         links:
