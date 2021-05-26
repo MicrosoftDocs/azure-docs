@@ -70,11 +70,11 @@ Creator inherits Azure Maps Access Control (IAM) settings. All API calls for dat
 Creator usage data is incorporated in your Azure Maps usage charts and activity log.  For more information, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 >[!Important]
->It's recommended to make use of:
+>We recommend using:
 >
-> * Azure Active Directory (Azure AD) in all solutions built with an Azure Maps account using Creator services. For more information, on Azure AD, see [Azure AD authentication](azure-maps-authentication.md#azure-ad-authentication)
+> * Azure Active Directory (Azure AD) in all solutions that are built with an Azure Maps account using Creator services. For more information, on Azure AD, see [Azure AD authentication](azure-maps-authentication.md#azure-ad-authentication).
 >
->* Role-based access control settings (RBAC), to allow map makers to act as the Azure Maps Data Contributor role, and Creator map data users to act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
+>* Role-based access control settings (RBAC). Using these settings, map makers can act as the Azure Maps Data Contributor role, and Creator map data users can act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
 
 ## Access to Creator services
 

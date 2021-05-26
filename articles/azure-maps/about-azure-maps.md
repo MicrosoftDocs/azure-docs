@@ -181,7 +181,7 @@ Maps Creator service is a suite of web services that developers can use to creat
 
 Maps Creator provides three core services:
 
-* [Dataset service](/rest/api/maps/v2/dataset). Use the Dataset service to create a dataset from a converted Drawing package data. For information on Drawing package requirements, see Drawing package requirements.
+* [Dataset service](/rest/api/maps/v2/dataset). Use the Dataset service to create a dataset from a converted Drawing package data. For information about Drawing package requirements, see Drawing package requirements.
 
 * [Conversion service](/rest/api/maps/v2/dataset). Use the Conversion service to convert a DWG design file into Drawing package data for indoor maps.
 
