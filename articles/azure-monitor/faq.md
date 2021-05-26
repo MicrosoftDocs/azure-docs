@@ -164,7 +164,7 @@ Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [E
 
 ### How can I confirm that the Log Analytics agent is able to communicate with Azure Monitor?
 
-From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
+From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
 
 ### How do I stop the Log Analytics agent from communicating with Azure Monitor?
 
@@ -229,7 +229,7 @@ Here's how AMA impacts the two SCOM related monitor scenarios:
 - **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
 
 > [!NOTE] 
-> You can run both scenarios above with MMA and AMA side-by-side without any impact*
+> You can run both scenarios above with MMA and AMA side-by-side without any impact.
 
 
 ### Will the new Azure Monitor agent support data collection for the various Log Analytics solutions?
