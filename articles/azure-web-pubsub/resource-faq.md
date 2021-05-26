@@ -16,6 +16,30 @@ This is the FAQ of Azure Web PubSub service.
 
 The Azure Web PubSub service is in public preview state and not committed SLA. 
 
+## How do I choose between Azure SignalR Service and Azure Web PubSub service?
+
+Both [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) and [Azure Web PubSub service](https://azure.microsoft.com/services/web-pubsub) help customers build real-time web applications easily with large scale and high availability and enable customers to focus on their business logic instead of managing the messaging infrastructure. In general, you may choose Azure SignalR Service if you already use SignalR library to build real-time application. Alternatively, if you are looking for a generic solution to build real-time application based on WebSocket and publish-subscribe pattern pattern, you may choose Azure Web PubSub service. The Azure Web PubSub service is **not** a replacement for Azure SignalR Service. They are targeting different scenarios.
+
+Azure SignalR Service is more suitable if:  
+
+- You are already using ASP.NET or ASP.NET Core SignalR, or primarily using .NET. 
+- There is a SignalR client available for your platform. 
+- You need an established protocol that supports a wide variety of calling patterns (RPC and streaming) and transports, (WebSocket, server sent events, and long polling) and with a client that manages the connection lifetime on your behalf. 
+
+Azure Web PubSub service is more suitable for situations where:  
+
+- You need to build real-time applications based on WebSocket technology or publish-subscribe over WebSocket.- You want to build your own subprotocol or use existing advanced protocols over WebSocket (e.g. MQTT, AMQP over WebSocket). 
+- You are looking for a lightweight server, e.g., send messages to client going to without configured backend.  
+
+## What's the major feature differences between Azure SignalR Service and Azure Web PubSub service? 
+
+| | Azure SignalR Service | Azure Web PubSub service |
+|:-------------------|:-------------------|:-------------------|
+| **Protocol** | <ul><li>Support automatic fallback</li><li>Support a wide variety of calling patterns (RPC and streaming)</li></ul> | <ul><li>Support the WebSocket protocol</li><li>Provide predefined subprotocol</li><li>Support custom WebSocket subprotocols</li></ul> |
+| **Messaging** | <ul><li>Support Bi-directional messaging</li><li>Support `Group`, `User` and `Connection`</li></ul> | <ul><li>Support Bi-directional messaging</li><li>Support `Group`, `User` and `Connection`</li><li>Support PubSub client based on predefined subprotocol to simplify the messaging routing between clients</li></ul> |
+| **Connection Management** | <ul><li>The SignalR protocol manages the connection lifetime., e.g. making sure connection stays alive by sending pings back and forth</li></ul> | <ul><li>You manage the connection lifetime.</li></ul> |
+| **Client Platform** | <ul><li>C#, Java, JavaScript and Python</li><li>3rd party library from community, like Swift </li></ul> | <ul><li>Supports any programming languages with WebSocket support</li></ul> |
+
 ##  Where does my data reside?
 
 Azure Web PubSub service works as a data processor service. It won't store any customer content, and data residency is included by design. If you use Azure Web PubSub service together with other Azure services, like Azure Storage for diagnostics, see [this white paper](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
