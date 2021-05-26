@@ -29,7 +29,6 @@ Following is a list of the types of logs available for each resource type.
 Some categories may only be supported for specific types of resources. See the resource-specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 If you think there is something is missing, you can open a GitHub comment at the bottom of this article.
-
 ## Microsoft.AAD/DomainServices
 
 |Category|Category Display Name|Costs To Export|
@@ -150,23 +149,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |BotRequest|Requests from the channels to the bot|No|
 
 
-## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|WebApplicationFirewallLogs|Web Appliation Firewall Logs|No|
-
-
-## Microsoft.Cdn/profiles
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|AzureCdnAccessLog|Azure Cdn Access Log|No|
-|FrontDoorAccessLog|FrontDoor Access Log|Yes|
-|FrontDoorHealthProbeLog|FrontDoor Health Probe Log|Yes|
-|FrontDoorWebApplicationFirewallLog|FrontDoor WebApplicationFirewall Log|Yes|
-
-
 ## Microsoft.Cdn/profiles/endpoints
 
 |Category|Category Display Name|Costs To Export|
@@ -185,9 +167,9 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|Yes|
-|RequestResponse|Request and Response Logs|Yes|
-|Trace|Trace Logs|Yes|
+|Audit|Audit Logs|No|
+|RequestResponse|Request and Response Logs|No|
+|Trace|Trace Logs|No|
 
 
 ## Microsoft.Communication/CommunicationServices
@@ -211,8 +193,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ContainerRegistryLoginEvents|Login Events|Yes|
-|ContainerRegistryRepositoryEvents|RepositoryEvent logs|Yes|
+|ContainerRegistryLoginEvents|Login Events|No|
+|ContainerRegistryRepositoryEvents|RepositoryEvent logs|No|
 
 
 ## Microsoft.ContainerService/managedClusters
@@ -617,16 +599,16 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|KeyDeliveryRequests|Key Delivery Requests|Yes|
+|KeyDeliveryRequests|Key Delivery Requests|No|
 
 
 ## Microsoft.Network/applicationgateways
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ApplicationGatewayAccessLog|Application Gateway Access Log|Yes|
-|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|Yes|
-|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|Yes|
+|ApplicationGatewayAccessLog|Application Gateway Access Log|No|
+|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|No|
+|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|No|
 
 
 ## Microsoft.Network/azurefirewalls
@@ -818,7 +800,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AllLogs|Azure SignalR Service Logs.|Yes|
+|AllLogs|Azure SignalR Service Logs.|No|
 
 
 ## Microsoft.SignalRService/WebPubSub
@@ -832,10 +814,40 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DevOpsOperationsAudit|Devops operations Audit Logs|Yes|
-|ResourceUsageStats|Resource Usage Statistics|Yes|
-|SQLSecurityAuditEvents|SQL Security Audit Event|Yes|
+|DevOpsOperationsAudit|Devops operations Audit Logs|No|
+|ResourceUsageStats|Resource Usage Statistics|No|
+|SQLSecurityAuditEvents|SQL Security Audit Event|No|
 
+## Microsoft.Sql/managedInstances/databases
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Errors|Errors|No|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
+|SQLInsights|SQL Insights|No|
+
+
+## Microsoft.Sql/servers/databases
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AutomaticTuning|Automatic tuning|No|
+|Blocks|Blocks|No|
+|DatabaseWaitStatistics|Database Wait Statistics|No|
+|Deadlocks|Deadlocks|No|
+|DevOpsOperationsAudit|Devops operations Audit Logs|No|
+|DmsWorkers|Dms Workers|No|
+|Errors|Errors|No|
+|ExecRequests|Exec Requests|No|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
+|RequestSteps|Request Steps|No|
+|SQLInsights|SQL Insights|No|
+|SqlRequests|Sql Requests|No|
+|SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|Timeouts|Timeouts|No|
+|Waits|Waits|No|
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
@@ -885,13 +897,13 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|Yes|
-|GatewayApiRequests|Synapse Gateway Api Requests|Yes|
+|BuiltinSqlReqsEnded|Built-in Sql Pool Requests Ended|No|
+|GatewayApiRequests|Synapse Gateway Api Requests|No|
 |IntegrationActivityRuns|Integration Activity Runs|Yes|
 |IntegrationPipelineRuns|Integration Pipeline Runs|Yes|
 |IntegrationTriggerRuns|Integration Trigger Runs|Yes|
-|SQLSecurityAuditEvents|SQL Security Audit Event|Yes|
-|SynapseRbacOperations|Synapse RBAC Operations|Yes|
+|SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|SynapseRbacOperations|Synapse RBAC Operations|No|
 
 
 ## Microsoft.Synapse/workspaces/bigDataPools
