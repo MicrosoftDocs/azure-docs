@@ -1,9 +1,9 @@
 ---
 title: Learn about Azure Image Builder (preview)
 description: Learn more about Azure Image Builder for virtual machines in Azure.
-author: danielsollondon
-ms.author: danis
-ms.date: 03/05/2021
+author: kof-f
+ms.author: kofiforson
+ms.date: 05/24/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -37,14 +37,7 @@ For the preview, these features are supported:
  
 
 ## Regions
-The Azure Image Builder Service will be available for preview in these regions. Images can be distributed outside of these regions.
-- East US
-- East US 2
-- West Central US
-- West US
-- West US 2
-- North Europe
-- West Europe
+The Azure Image Builder Service will be available for preview in [these](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#location) regions. Images can be distributed outside of these regions.
 
 ## OS support
 AIB will support Azure Marketplace base OS images:

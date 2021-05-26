@@ -450,8 +450,6 @@
       href: manage/review-enterprise-billing.md
     - name: Review subscription use
       href: manage/review-subscription-billing.md
-    - name: Review resource usage
-      href: manage/review-service-usage-api.md
 - name: Cloudyn
   items:
   - name: Overview
