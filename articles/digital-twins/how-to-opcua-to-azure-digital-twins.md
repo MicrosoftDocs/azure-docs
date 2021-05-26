@@ -97,7 +97,7 @@ From your new Windows virtual machine, install the [Prosys OPC UA Simulation Ser
 
 Once the download and install are completed, launch the server. It may take a few moments for the OPC UA Server to start. Once it's ready, the Server Status should show as **Running**.
 
-:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/prosys-server-1.png" alt-text="Screenshot of Prosys O P C  U A Simulation Server.":::
+:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/prosys-server-1.png" alt-text="Screenshot of Prosys OPC UA Simulation Server.":::
 
 Copy the value of **Connection Address (UA TCP)**. Paste it somewhere safe to use later. In the pasted value, replace the machine name part of the address with with the **Public IP** of your VM from earlier, like this: 
 
@@ -109,7 +109,10 @@ Next, view the simulation nodes provided by default with the server by selecting
 
 Capture the `NodeId` values for the simulated nodes that you want to publish. You'll need these IDs later in the article to simulate data from these nodes.
 
-:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/prosys-server-2.png" alt-text="Screenshot of Prosys O P C  U A Simulation Server, showing O P C  U A nodes. One node is selected and the NodeId value is highlighted.":::
+:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/prosys-server-2.png" alt-text="Screenshot of Prosys OPC UA Simulation Server, showing OPC UA nodes. One node is selected and the NodeId value is highlighted.":::
+
+> [!TIP]
+> Verify the OPC UA Server is accessible by follow the "Verify the OPC UA Service is running and reachable" steps in the [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher).
 
 #### Verify completion
 
@@ -180,7 +183,7 @@ Next, install the OPC Publisher module on your gateway device.
 
 Start by getting the module from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.iotedge-opc-publisher).
 
-:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/opc-publisher-1.png" alt-text="Screenshot of O P C publisher in Azure marketplace.":::
+:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/opc-publisher-1.png" alt-text="Screenshot of OPC publisher in Azure marketplace.":::
 
 Then, follow the installation steps documented in the [OPC Publisher GitHub Repo](https://github.com/Azure/iot-edge-opc-publisher) to install the module on your Ubuntu VM.
 
@@ -190,7 +193,7 @@ In the step for [specifying container create options](https://github.com/Azure/i
 {
     "Hostname": "opcpublisher",
     "Cmd": [
-        "--pf=./publishednodes.json",
+        "--pf=/appdata/publishednodes.json",
         "--aa"
     ],
     "HostConfig": {
@@ -201,7 +204,7 @@ In the step for [specifying container create options](https://github.com/Azure/i
 }
 ```
 
-:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/opc-publisher-2.png" alt-text="Screenshot of O P C publisher container create options.":::
+:::image type="content" source="media/how-to-opcua-to-azure-digital-twins/opc-publisher-2.png" alt-text="Screenshot of OPC publisher container create options.":::
 
 >[!NOTE]
 >The create options above should work in most cases without any changes, but if you're using your own gateway device that's different from the article guidance so far, you may need to adjust the settings to your situation.
@@ -254,9 +257,6 @@ sudo iotedge logs OPCPublisher -f
 The command will result in the output of the OPC Publisher logs. If everything is configured and running correctly, you will see something like the following:
 
 :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/iotedge-logs.png" alt-text="Screenshot of the iotedge logs in terminal. There is a column of diagnostics information fields on the left, and a column of values on the right.":::
-
-> [!TIP]
-> if you have trouble getting OPC Publisher to connect to your OPC UA Server, follow the "Verify the OPC UA Service is running and reachable" steps in the [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher).
 
 Data should now be flowing from an OPC UA Server into your IoT Hub.
 
@@ -327,10 +327,10 @@ First, create your *opcua-mapping.json* file. Start with a blank JSON file and f
 ```JSON
 [
     {
-        "NodeId": "1025",
-        "TwinId": "grinding",
-        "Property": "ChasisTemperature",
-        "ModelId": "dtmi:com:microsoft:iot:e2e:digital_factory:production_step_grinding;1"
+        "NodeId": "1001",
+        "TwinId": "simulation",
+        "Property": "Counter",
+        "ModelId": "dtmi:com:microsoft:iot:opcua:simulation;1"
     },
     ...
 ]
