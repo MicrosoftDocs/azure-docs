@@ -23,6 +23,8 @@ This tutorial covers the following tasks:
 * View completed Apache Spark Application
 * View canceled Apache Spark Application
 * Debug failed Apache Spark Application
+* View input and output for Apache Spark Application
+* Compare Apache Spark Applications
 
 ## Prerequisites
 
@@ -44,23 +46,27 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 1. Check the **Completed tasks**, **Status**, and **Total duration**.
 
-2. Refresh Log query.
+2. Refresh the job.
 
-3. Open Apache Spark history server link by clicking **Spark history server**.
+3. Click on **Compare applications** to use the comparison feature, for more information on this feature, see the [**Compare Apache Spark applications**](#compare-apache-spark-applications).
 
-4. Check the **Summary** info.
+4. Click on **Spark history server** to open the History Server page.
 
-5. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
+5. Check the **Summary** info.
 
-6. You can see an overview of your job in the generated job graph. By default, the graph shows all jobs. You can filter this view by **Job ID**.
+6. Check the diagnostics in **Diagnostic** tab.
 
-7. By default, the **Progress** display is selected. You can check the data flow by selecting **Progress**/**Read**/**Written**/**Duration** in the **Display** dropdown list.
+7. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
 
-8. To playback the job, click on **Playback** button. You can click on **Stop** button at any time to stop.
+8. You can see an overview of your job in the generated job graph. By default, the graph shows all jobs. You can filter this view by **Job ID**.
 
-9. Use mouse scroll or scroll bar to zoom in and zoom out the job graph, you can also select **Zoom to Fit** to make it fit the screen.
+9. By default, the **Progress** display is selected. You can check the data flow by selecting **Progress**/**Read**/**Written**/**Duration** in the **Display** dropdown list.
 
-10. The job graph node displays the following information of each stage:
+10. To playback the job, click on **Playback** button. You can click on **Stop** button at any time to stop.
+
+11. Use mouse scroll or scroll bar to zoom in and zoom out the job graph, you can also select **Zoom to Fit** to make it fit the screen.
+
+12. The job graph node displays the following information of each stage:
 
     * ID.
 
@@ -80,9 +86,10 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
      ![view completed job](./media/how-to-monitor-spark-applications/view-completed-job.png)
     
-11. Click on **View details** in the graph, then the details for stage will show out.
+13. Click on **View details** in the graph, then the details for stage will show out.
 
     ![details for stage](./media/how-to-monitor-spark-applications/details-for-stage.png)
+           
 
 
 ## Monitor running Apache Spark application
@@ -151,7 +158,44 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
-## Compare Apache Spark applications
+
+## View input and output for Apache Spark Application
+
+Select an Apache Spark application, and click on Input/Output tab to view input and output for Apache Spark application. The Input/Output function can better help you debug the Spark job. And the data source supports three storage methods : gen1, gen2 and blob.
+    
+**Input tab**
+     
+1. Click on the **Copy input** button to paste the input file to the local.
+
+2. Click the **Export to CSV** button to export the input file in CSV format.
+
+3. You can search files by input keywords in **Search box** (keywords include file name, read format and path).
+
+4. You can sort the input files by clicking **Name**, **Read format**, and **path**.
+
+5. Use the mouse hover on a input file, the icon of the **Download/Copy path/More** button will show out.
+
+   ![input tab](./media/how-to-monitor-spark-applications/input-tab.png)
+
+6. Click on **More** button, the **Copy path/Show in explorer/Properties** show the context menu.
+      
+    ![input more](./media/how-to-monitor-spark-applications/input-more.png)
+
+   * Copy path: can copy **Full path** and **Relative path**.
+   * Show in explorer: can jump to the linked storage account (Data->Linked).
+   * Properties: show the basic properties of the file (File name/File path/Read format/Size/Modified).
+
+     ![properties image](./media/how-to-monitor-spark-applications/properties.png)
+
+
+
+**Output tab**
+
+   Have the same features as the input.
+
+   ![output-image](./media/how-to-monitor-spark-applications/output.png)
+
+## Compare Apache Spark Applications
 
 There are two ways to compare applications. You can compare by choose a **Compare Application**, or click the **Compare in notebook** button to view it in the notebook.
 
