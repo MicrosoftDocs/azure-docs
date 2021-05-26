@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 04/29/2021
 ms.author: victorh
 ---
 
@@ -83,7 +83,6 @@ Azure Firewall Manager has the following known issues:
 |Bulk IP address addition fails|The secure hub firewall goes into a failed state if you add multiple public IP addresses.|Add smaller public IP address increments. For example, add 10 at a time.|
 |DDoS Protection Standard not supported with secured virtual hubs|DDoS Protection Standard is not integrated with vWANs.|Investigating|
 |Activity logs not fully supported|Firewall policy does not currently support Activity logs.|Investigating|
-|Some firewall settings are not migrated when the firewall is migrated to use Firewall Policy|Availability Zones and SNAT private addresses are not migrated when you migrate to Azure Firewall Policy.|Investigating| 
 
 ## Next steps
 

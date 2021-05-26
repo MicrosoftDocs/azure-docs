@@ -28,7 +28,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: If I want to use a customized voice model, is the API the same as the one that's used for standard voices?**
 
-**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint).
+**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-neural-voice-endpoint).
 
 **Q: Do I need to prepare the training data to create custom voice models on my own?**
 

@@ -140,7 +140,7 @@ To change email notifications after Start/Stop VMs during off-hours is deployed,
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot of the Email/SMS message/Push/Voice page showing an example email address updated.":::
 
-    You can add additional actions to the action group. To learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
+    You can add additional actions to the action group. To learn more about action groups, see [action groups](../azure-monitor/alerts/action-groups.md)
 
 The following is an example email that is sent when the feature shuts down virtual machines.
 

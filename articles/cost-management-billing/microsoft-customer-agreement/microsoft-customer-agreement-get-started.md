@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 05/21/2021
 ms.author: banders
 ms.reviewer: baolcsva
 ---
@@ -40,7 +40,7 @@ If you're a new customer, Azure automatically creates a default subscription for
 
 After your subscriptions are moved, access to the subscriptions is unchanged for your users. All consumption against the subscriptions route invoices under your new contract.
 
-When you start consuming Azure services, your new invoice under the Microsoft Customer Agreement is generated on the fifth day of every month – ensure you [update your PO number in your billing profile](../manage/change-azure-account-profile.md). Your default payment method is wire transfer. To learn how to set up your payment method to avoid delays, see [How to pay for your subscription](../understand/pay-bill.md#wire-bank-details). The article explains how to get the required bank payment information.
+When you start consuming Azure services, your new invoice under the Microsoft Customer Agreement is generated on the fifth day of every month. Your default payment method is wire transfer. To learn how to set up your payment method to avoid delays, see [How to pay for your subscription](../understand/pay-bill.md#wire-bank-details). The article explains how to get the required bank payment information.
 
 ## Confirm payment details
 
@@ -63,6 +63,22 @@ When you move from a pay-as-you-go or an enterprise agreement to a Microsoft Cus
 
 Make sure that you complete any outstanding payments for your older [pay-as-you-go](../understand/download-azure-invoice.md) or [EA](../manage/ea-portal-enrollment-invoices.md) contract subscription invoices. For more information, see [Understand your Microsoft Customer Agreement Invoice in Azure](../understand/mca-understand-your-invoice.md#billing-period).
 
+## Update a PO number
+
+By default, an invoice for billing profile doesn't have an associated PO number. After you add a PO number for a billing profile, it appears on invoices for the billing profile.
+
+To add or change the PO number for a billing profile, use the following steps.
+
+1.	Sign in to the Azure portal.
+1.	Search for **Cost Management + Billing** and then select **Billing scopes**.
+1.	Select your billing scope.
+1.	In the left menu under **Billing**, select **Billing profiles**.
+1.	Select the appropriate billing profile.
+1.	In the left menu under **Settings**, select **Properties**.
+1.	Select **Update PO number**.
+1.	Enter a PO number and then select **Update**.
+
+
 ## Update your tax ID
 
 Ensure you update your tax ID after moving your subscriptions. The tax ID is used for tax exemption calculations and appears on your invoice.
@@ -75,6 +91,10 @@ Ensure you update your tax ID after moving your subscriptions. The tax ID is use
 1. Make your updates, and then select **Save**.
 
 [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
+## Cancel support plan
+
+Learn how to [cancel a previous support plan](../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json#cancel-a-prior-support-plan).
 
 ## Need help? Contact us
 

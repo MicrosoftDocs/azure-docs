@@ -121,6 +121,9 @@ Perform the following steps to validate that the project settings are correct.
 
     ![Unity editor project validation](./media/remote-render-unity-validation.png)
 
+> [!NOTE]
+> If you use MRTK in your project and you enable the camera subsystem, MRTK will override manual changes that you apply to the camera. This includes fixes from the ValidateProject tool.
+
 ## Create a script to coordinate Azure Remote Rendering connection and state
 
 There are four basic stages to show remotely rendered models, outlined in the flowchart below. Each stage must be performed in order. The next step is to create a script which will manage the application state and proceed through each required stage.
@@ -566,11 +569,21 @@ public async void InitializeSessionService()
     if (ARRCredentialGetter == null)
         ARRCredentialGetter = GetDevelopmentCredentials;
 
-    var accountInfo = await ARRCredentialGetter.Invoke();
+    var sessionConfiguration = await ARRCredentialGetter.Invoke();
 
     ARRSessionService.OnSessionStatusChanged += OnRemoteSessionStatusChanged;
 
-    ARRSessionService.Initialize(accountInfo);
+    try
+    {
+        ARRSessionService.Initialize(sessionConfiguration);
+    }
+    catch (ArgumentException argumentException)
+    {
+        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
+        Debug.LogError(argumentException.Message);
+        CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
+        return;
+    }
 
     CurrentCoordinatorState = RemoteRenderingState.NoSession;
 }

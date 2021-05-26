@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 05/26/2021
 ms.author: helohr
 manager: femila
 ---
@@ -16,7 +16,7 @@ In this article, we'll give you a brief overview of what kinds of authentication
 
 ## Session host authentication
 
-Windows Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for session host authentication. However, to use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. To get tickets, the client needs a direct line of sight to the domain controller. You can get a direct line of sight by using your corporate network. You can also use a VPN connection to your corporate network or set up a [KDC Proxy server](key-distribution-center-proxy.md).
+Windows Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for session host authentication. However, to use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. To get tickets, the client needs a direct line-of-sight to the domain controller. You can get a direct line of sight by using your corporate network. You can also use a VPN connection to your corporate network or set up a [KDC Proxy server](key-distribution-center-proxy.md).
 
 These are the currently supported sign-in methods:
 
@@ -36,7 +36,7 @@ These are the currently supported sign-in methods:
     - Username and password
 
 >[!NOTE]
->Smartcard and Windows Hello for Business can only use Kerberos to sign in. Signing in with Kerberos requires line of sight to the domain controller or a [KDC Proxy server](key-distribution-center-proxy.md).
+>Smartcard and Windows Hello for Business can only use Kerberos to sign in. Signing in with Kerberos requires line-of-sight to the domain controller or a [KDC Proxy server](key-distribution-center-proxy.md).
 
 ## Hybrid identity
 
@@ -44,9 +44,9 @@ Windows Virtual Desktop supports [hybrid identities](../active-directory/hybrid/
 
 ## Single sign-on (SSO)
 
-Windows Virtual Desktop currently doesn't support Active Directory Federation Services (ADFS) for SSO.
+Windows Virtual Desktop supports [SSO using Active Directory Federation Services (ADFS)](configure-adfs-sso.md) for the Windows and web clients.
 
-The only way to avoid being prompted for your credentials for the session host is to save them in the client. We recommend you only do this with secure devices to prevent other users from accessing your resources.
+Otherwise, the only way to avoid being prompted for your credentials for the session host is to save them in the client. We recommend you only do this with secure devices to prevent other users from accessing your resources.
 
 ## Next steps
 

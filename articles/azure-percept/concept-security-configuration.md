@@ -23,7 +23,7 @@ This checklist is a starting point for firewall rules:
 |*.auth.azureperceptdk.azure.net|443|Azure DK SOM Authentication and Authorization|
 |*.auth.projectsantacruz.azure.net|443|Azure DK SOM Authentication and Authorization|
 
-Additionally, review the list of [connections used by Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/production-checklist#allow-connections-from-iot-edge-devices).
+Additionally, review the list of [connections used by Azure IoT Edge](../iot-edge/production-checklist.md#allow-connections-from-iot-edge-devices).
 
 ## Additional recommendations for deployment to production
 

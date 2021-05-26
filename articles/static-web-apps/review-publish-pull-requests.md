@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: yolasors
 ---
 
-# Review pull requests in pre-production environments in Azure Static Web Apps Preview
+# Review pull requests in pre-production environments in Azure Static Web Apps
 
 This article demonstrates how to use pre-production environments to review changes to applications deployed with [Azure Static Web Apps](overview.md).
 
@@ -28,7 +28,7 @@ There are many benefits of using pre-production environments. For example, you c
 - Perform sanity checks before deploying to production.
 
 > [!NOTE]
-> During preview, a [maximum of three staging environments](quotas.md) are allowed at a time.
+> There is [maximum of three staging environments](quotas.md) allowed at a time.
 
 ## Prerequisites
 

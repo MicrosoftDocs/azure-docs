@@ -40,9 +40,12 @@ The redirect URIs to use in a desktop application depend on the flow you want to
 Specify the redirect URI for your app by [configuring the platform settings](quickstart-register-app.md#add-a-redirect-uri) for the app in **App registrations** in the Azure portal.
 
 - For apps that use interactive authentication:
-  - Apps that use embedded browsers: `https://login.microsoftonline.com/common/oauth2/nativeclient`
-  - Apps that use system browsers: `http://localhost`
 
+  - Apps that use embedded browsers: `https://login.microsoftonline.com/common/oauth2/nativeclient`
+    (Note: If your app would pop up a window which typically contains no address bar, it is using the "embedded browser".)
+  - Apps that use system browsers: `http://localhost`
+    (Note: If your app would bring your system's default browser (such as Edge, Chrome, Firefox, etc.) to visit Microsoft login portal, it is using the "system browser".)
+  
   > [!IMPORTANT]
   > As a security best practice, we recommend explicitly setting `https://login.microsoftonline.com/common/oauth2/nativeclient` or `http://localhost` as the redirect URI. Some authentication libraries like MSAL.NET use a default value of `urn:ietf:wg:oauth:2.0:oob` when no other redirect URI is specified, which is not recommended. This default will be updated as a breaking change in the next major release.
 

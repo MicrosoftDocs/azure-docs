@@ -121,7 +121,7 @@ az extension add --name db-up
 
 If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#1-set-up-your-initial-environment).
 
-Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command:
+Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/postgres#az_postgres_up) command:
 
 ```azurecli
 az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
@@ -230,7 +230,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     cd $APP_PATH
     
     # Activate the venv
-    source /antenv/bin/activate
+    source antenv/bin/activate
 
     # Install requirements
     pip install -r requirements.txt
@@ -390,7 +390,7 @@ Open an SSH session again in the browser by navigating to `https://<app-name>.sc
 
 ```
 cd $APP_PATH
-source /antenv/bin/activate
+source antenv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
 ```

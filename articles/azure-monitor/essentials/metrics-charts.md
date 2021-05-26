@@ -67,13 +67,17 @@ To view multiple metrics on the same chart, first [create a new chart](./metrics
 > [!NOTE]
 > Typically, your charts shouldn't mix metrics that use different units of measure. For example, avoid mixing one metric that uses milliseconds with another that uses kilobytes. Also avoid mixing metrics whose scales differ significantly. 
 >
-> In these cases, consider using multiple charts instead. In the metrics explorer, select **Add chart** to create a new chart.
+> In these cases, consider using multiple charts instead. In the metrics explorer, select **New chart** to create a new chart.
+
+![Screenshot showing multiple metrics.](./media/metrics-charts/multiple-metrics-chart.png)
 
 ### Multiple charts
 
-To create another chart that uses a different metric, select **Add chart**.
+To create another chart that uses a different metric, select **New chart**.
 
 To reorder or delete multiple charts, select the ellipsis (**...**) button to open the chart menu. Then choose **Move up**, **Move down**, or **Delete**.
+
+![Screenshot showing multiple charts.](./media/metrics-charts/multiple-charts.png)
 
 ## Time range controls
 
