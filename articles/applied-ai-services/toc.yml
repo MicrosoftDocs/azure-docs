@@ -26,7 +26,7 @@
   - name: Partner spotlight
     href: applied-ai-services-customer-spotlight-use-cases.md
   - name: Configure customer-managed keys
-    href: applied-ai-services-encryption.md
+    href: applied-ai-services-encryption-keys-portal.md
   - name: Microsoft Q&A
     href: https://aka.ms/AppliedAI
   - name: StackOverflow
