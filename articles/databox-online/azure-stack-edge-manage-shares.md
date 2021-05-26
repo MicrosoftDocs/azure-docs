@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge Pro - FPGA share management | Microsoft Docs 
+title: Azure Stack Edge Pro FPGA share management
 description: Describes how to use the Azure portal to manage shares on your Azure Stack Edge Pro - FPGA.
 services: databox
 author: alkohli
