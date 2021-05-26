@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Form Recognizer client library for .NET"
+title: "Reference: Form Recognizer 3.1.0 client library for .NET"
 description: Use the Form Recognizer client library for .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: laujan
@@ -11,15 +11,8 @@ ms.date: 05/25/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
 ---
-
 <!-- markdownlint-disable MD024 -->
-
 <!-- markdownlint-disable MD033 -->
-> [!IMPORTANT]
->
-> * This quickstart uses SDK version **3.1.0** and targets API version **2.1**.
->
->* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
@@ -61,8 +54,11 @@ Build succeeded.
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.1.0
+dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
+
+> [!NOTE]
+> The Form Recognizer 3.0.0 SDK targets API v2.0
 
 From the project directory, open the *Program.cs* file in your preferred editor or IDE. Add the following `using` directives:
 
@@ -77,13 +73,13 @@ In the application's **Program** class, create variables for your resource's key
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
-In the application's **Main** method, add a call to the asynchronous tasks used in this quickstart. You will implement them later:
+In the application's **Main** method, add a call to the asynchronous tasks used in this quickstart. You will implement them later.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and Manage custom models that you can use to improve recognition.
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and manage custom models that you can use to improve recognition.
 
 ### FormRecognizerClient
 
@@ -107,6 +103,18 @@ See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Model
 > [!NOTE]
 > Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../label-tool.md).
 
+## Code examples
+
+These code snippets show you how to do the following tasks with the Form Recognizer client library for .NET:
+<!-- markdownlint-disable MD001 -->
+
+* [Authenticate the client](#authenticate-the-client)
+* [Analyze layout](#analyze-layout)
+* [Analyze receipts](#analyze-receipts)
+* [Train a custom model](#train-a-custom-model)
+* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Manage your custom models](#manage-your-custom-models)
+
 ## Authenticate the client
 
 Below **Main**, create a new method named `AuthenticateClient`. You'll use this in other tasks to authenticate your requests to the Form Recognizer service. This method uses the `AzureKeyCredential` object, so that if needed, you can update the API key without creating new client objects.
@@ -126,13 +134,14 @@ Repeat the steps above for a new method that authenticates a training client.
 
 You'll also need to add references to the URLs for your training and testing data. Add these to the root of your **Program** class.
 
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+
 * Then, repeat the above steps to get the SAS URL of an individual document in blob storage container. Save it to a temporary location as well.
 * Finally, save the URL of the sample image(s) included below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
 
 ## Analyze layout
 
@@ -242,51 +251,6 @@ Item:
     Total Price: '99.99', with confidence 0.386
 Total: '1203.39', with confidence '0.774'
 ```
-
-## Analyze business cards
-
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
-
-To analyze business cards from a URL, use the `StartRecognizeBusinessCardsFromUriAsync` method.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
-
-> [!TIP]
-> You can also analyze local receipt images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **StartRecognizeBusinessCards**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
-
-The following code processes the business card at the given URI and prints the major fields and values to the console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
-
-## Analyze invoices
-
-This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
-
-To analyze invoices from a URL, use the `StartRecognizeInvoicesFromUriAsync` method.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
-
-> [!TIP]
-> You can also analyze local invoice images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **StartRecognizeInvoices**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
-
-The following code processes the invoice at the given URI and prints the major fields and values to the console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
-
-## Analyze identity documents
-
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about identity document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
-
-To analyze identity documents from a URI use the `StartRecognizeIdentityDocumentsFromUriAsync` method.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_id_call)]
-
-> [!TIP]
-> You can also analyze local identity document images. See the [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) methods, such as **StartRecognizeIdentityDocumentsAsync**. Also, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) for scenarios involving local images.
-
-The following code processes the identity document at the given URI and prints the major fields and values to the console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_id_print)]
 
 ## Train a custom model
 
@@ -618,7 +582,7 @@ catch (RequestFailedException e)
 
 You'll notice that additional information, like the client request ID of the operation, is logged.
 
-```console
+```
 
 Message:
     Azure.RequestFailedException: Service request failed.
