@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/05/2021
-ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'ms.custom:contperf-fy21q4']
+ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support', 'contperf-fy21q4']
 ---
 
 # Reference - IoT Hub quotas and throttling

@@ -2,7 +2,7 @@
 title: Azure Communication Services - Web calling sample
 titleSuffix: An Azure Communication Services sample
 description: Learn about the Communication Services web calling sample
-author: chriswhilar
+author: mariusu-msft
 manager: mariusu-msft
 services: azure-communication-services
 

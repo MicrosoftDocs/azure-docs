@@ -849,6 +849,8 @@
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
     - name: JavaScript
       href: https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6
+    - name: C++
+      href: https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake
     - name: REST
       href: /rest/api/storageservices/data-lake-storage-gen2
     - name: Azure CLI
