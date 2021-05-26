@@ -237,6 +237,10 @@ Select the account -> **Settings** -> **Delete this account**.
 
 The account will be permanently deleted in 90 days.
 
+## Firewall
+
+See [Storage account that is behind a firewall](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
+
 ## Next steps
 
 You can programmatically interact with your trial account and/or with your Video Analyzer for Media accounts that are connected to Azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).

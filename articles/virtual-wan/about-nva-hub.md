@@ -1,6 +1,6 @@
 ---
 title: 'Azure Virtual WAN: About Network Virtual Appliance in the hub'
-description: In this article, you will learn about Network Virtual Appliances in the Virtual WAN hub.
+description: Learn about Network Virtual Appliances in the Virtual WAN hub.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -100,11 +100,11 @@ No. You must use a Standard hub if you want to deploy an NVA.
 
 ### Can I deploy an NVA into a Secure hub?
 
-Yes. Partner NVA's can be deployed into a hub with Azure Firewall.
+Yes. Partner NVAs can be deployed into a hub with Azure Firewall.
 
 ### Can I connect any CPE device in my branch office to Barracuda CloudGen WAN NVA in the hub?
 
-No. Barracuda CloudGen WAN is only compatible with Barracuda CPE devices. To learn more about CloudGen WAN requirements, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). For Cisco, there a several SD-WAN CPE devices that are compatable. Please see [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documenation for compatable CPEs.
+No. Barracuda CloudGen WAN is only compatible with Barracuda CPE devices. To learn more about CloudGen WAN requirements, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). For Cisco, there are several SD-WAN CPE devices that are compatible. Please see [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) documentation for compatible CPEs.
 
 ### What routing scenarios are supported with NVA in the hub?
 
