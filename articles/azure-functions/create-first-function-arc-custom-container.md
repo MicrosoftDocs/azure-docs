@@ -88,7 +88,10 @@ In Azure Functions, a function project is the context for one or more individual
     ```
     ---
 
-    The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime. 
+    The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
+
+> [!NOTE]
+> The generated `Dockerfile` references the 3.0 tag for the base image. Deploying a custom Functions image in Arc requires the base image to have a set of changes not yet assigned the 3.0 tag. For now, it is recommended that the base image reference the **3.0.15885** tag. For example, in a JavaScript application, the Docker file should be modified have `FROM mcr.microsoft.com/azure-functions/node:3.0.15885`.
 
 1. Navigate into the project folder:
 
