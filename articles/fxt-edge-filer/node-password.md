@@ -35,7 +35,7 @@ This tutorial takes approximately 15 minutes to complete.
 
 Before starting this tutorial, complete these steps:
 
-* [Install](fxt-install.md) each Azure FXT Edge Filer node in an equipment rack, and attach power cables and network access as described in the [earlier tutorial](fxt-network-power.md).
+* [Install](install.md) each Azure FXT Edge Filer node in an equipment rack, and attach power cables and network access as described in the [earlier tutorial](network-power.md).
 * Find a USB-connected keyboard and a VGA-connected monitor that you can attach to the hardware nodes. (The node's serial port is inactive before you set the password.)
 
 ## Connect a keyboard and monitor to the node
@@ -129,7 +129,7 @@ After you sign in as root, the network ports are active and will contact the DHC
 
 ## Next steps
 
-The node is ready to be part of a cluster. You can use it to create the Azure FXT Edge Filer cluster, or you can [add it to an existing cluster](fxt-add-nodes.md).
+The node is ready to be part of a cluster. You can use it to create the Azure FXT Edge Filer cluster, or you can [add it to an existing cluster](add-nodes.md).
 
 > [!div class="nextstepaction"]
-> [Create a cluster](fxt-cluster-create.md)
+> [Create a cluster](cluster-create.md)

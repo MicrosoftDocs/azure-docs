@@ -105,7 +105,7 @@ VServers are virtual file servers that control how data flows between the client
 * VServers enforce file access controls, including core filer export policies and user authentication systems
 * VServers provide SMB infrastructure
 
-Before starting to configure a cluster vserver, read the linked documentation and consult your Microsoft representative for help understanding namespace and vservers. If using VLANs, [create them](fxt-configure-network.md#adjust-network-settings) before creating the vserver.
+Before starting to configure a cluster vserver, read the linked documentation and consult your Microsoft representative for help understanding namespace and vservers. If using VLANs, [create them](configure-network.md#adjust-network-settings) before creating the vserver.
 
 These sections of the Cluster Configuration Guide will help you familiarize yourself with the FXT vserver and global namespace features:
 
@@ -153,7 +153,7 @@ Read the Cluster Configuration Guide article [Controlling Access to Core Filer E
 
 ## Next steps
 
-After adding storage and configuring the client-facing namespace, complete your cluster's initial setup: 
+After adding storage and configuring the client-facing namespace, complete your cluster's initial setup:
 
 > [!div class="nextstepaction"]
-> [Configure the cluster's network settings](fxt-configure-network.md)
+> [Configure the cluster's network settings](configure-network.md)

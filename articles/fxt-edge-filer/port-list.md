@@ -5,7 +5,7 @@ author: ekpgh
 ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 05/26/2021
 ---
 
 # Required network ports
@@ -61,7 +61,7 @@ Some outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traf
 | Outbound  | TCP  | 445         | SMB      |
 -->
 
-## General Traffic Ports
+## General traffic ports
 
 | Direction | Type    | Port number | Protocol |
 |-----------|---------|-------------|----------|
@@ -71,10 +71,15 @@ Some outbound NFS traffic from FXT nodes uses ephemeral ports. Outbound FXT traf
 | Outbound  | TCP/UDP | 389         | LDAP     |
 | Outbound  | TCP     | 686         | LDAPS    |
 
-## Additional Port Requirements
+## Additional port requirements
 
 Your core filers might require access on additional ports. This requirement varies depending on the type of storage used.
 
 You can use the `rpcinfo` command to learn which ports are used by a particular server. Issue this command from a client system that is not firewalled:
 
 `rpcinfo -p <server_IP_address>`
+
+## Next steps
+
+* Learn how to [add storage](add-storage.md) to the Azure FXT Edge Filer cluster
+* [Contact support](support-ticket.md) to learn more about port configuration

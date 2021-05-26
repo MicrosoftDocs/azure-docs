@@ -74,10 +74,10 @@ If you need to upload certificates to the cluster, use the **Cluster** > **Certi
 
 To encrypt cluster management communication, use the **Cluster** > **General Setup** settings page to select which certificate to use for administrative TLS.
 
-Make sure your administrative machines meet the cluster's [encryption standards](fxt-supported-ciphers.md).
+Make sure your administrative machines meet the cluster's [encryption standards](supported-ciphers.md).
 
 > [!Note]
-> Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](fxt-add-storage.md#add-a-core-filer) section above shows an example; read the Cluster Configuration Guide [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details.
+> Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](add-storage.md#add-a-core-filer) section above shows an example; read the Cluster Configuration Guide [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details.
 
 ## Configure DNS for load balancing
 
@@ -85,7 +85,7 @@ This section explains the basics of configuring a round-robin DNS (RRDNS) system
 
 ### Decide whether or not to use DNS
 
-Load balancing is always recommended, but you don't have to always use DNS. For example, with some types of client workflows it might make more sense to use a script to assign cluster IP addresses evenly among clients when they mount the cluster. Some methods are described in [Mount the cluster](fxt-mount-clients.md).
+Load balancing is always recommended, but you don't have to always use DNS. For example, with some types of client workflows it might make more sense to use a script to assign cluster IP addresses evenly among clients when they mount the cluster. Some methods are described in [Mount the cluster](mount-clients.md).
 
 Keep these things in mind when deciding whether or not to use a DNS server:
 
@@ -148,6 +148,6 @@ For more details, read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_
 
 This is the last basic configuration step for the Azure FXT Edge Filer cluster.
 
-* Learn about the system's LEDs and other indicators in [Monitor hardware status](fxt-monitor.md).
-* Learn more about how clients should mount the FXT Edge Filer cluster in [Mount the cluster](fxt-mount-clients.md).
+* Learn about the system's LEDs and other indicators in [Monitor hardware status](monitor.md).
+* Learn more about how clients should mount the FXT Edge Filer cluster in [Mount the cluster](mount-clients.md).
 * For more information about operating and managing an FXT Edge Filer cluster, see the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html).

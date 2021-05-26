@@ -5,7 +5,7 @@ author: ekpgh
 ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 05/26/2021
 ---
 
 # Tutorial: Add cluster nodes to an Azure FXT Edge Filer cluster
@@ -23,13 +23,13 @@ In this tutorial, you will learn:
 
 The steps in this tutorial take approximately 45 minutes to complete.
 
-Before you start this tutorial, power on the nodes that you want to add and [set their initial passwords](fxt-node-password.md).
+Before you start this tutorial, power on the nodes that you want to add and [set their initial passwords](node-password.md).
 
 ## 1. Load the Cluster Nodes page
 
-Open the cluster's Control Panel in a web browser, and sign in as an administrator. (Detailed instructions are in the overview article, under [Open the Settings pages](fxt-cluster-create.md#open-the-settings-pages).)
+Open the cluster's Control Panel in a web browser, and sign in as an administrator. (Detailed instructions are in the overview article, under [Open the Settings pages](cluster-create.md#open-the-settings-pages).)
 
-The Control Panel shows the **Dashboard** tab when it opens. 
+The Control Panel shows the **Dashboard** tab when it opens.
 
 ![Control Panel Dashboard (first tab)](media/fxt-cluster-config/dashboard-1-node.png)
 
@@ -46,7 +46,7 @@ The **FXT Nodes - Unjoined** list shows all unassigned FXT nodes (most data cent
 > [!Tip]
 > If you cannot find the node you want on the **Unjoined** list, check that it meets these requirements:
 >
-> * It is powered on and has had a [root password set](fxt-node-password.md).
+> * It is powered on and has had a [root password set](node-password.md).
 > * It is connected to a network you can access. If you use VLANs , it must be on the same VLAN as the cluster.
 > * It can be detected with the Bonjour protocol.
 >
@@ -108,4 +108,4 @@ An alert appears on the **Dashboard** to confirm that HA is enabled.
 After adding all of the nodes in your cluster, continue the setup by configuring your cluster's long-term storage.
 
 > [!div class="nextstepaction"]
-> [Add back-end storage and set up the virtual namespace](fxt-add-storage.md)
+> [Add back-end storage and set up the virtual namespace](add-storage.md)

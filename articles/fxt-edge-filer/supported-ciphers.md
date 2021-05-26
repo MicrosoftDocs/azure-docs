@@ -55,3 +55,10 @@ The following SSH cipher suites are available on the cluster SSH server. Make su
 | Ciphers | aes256-gcm@openssh.com</br> aes128-gcm@openssh.com</br> aes256-ctr</br> aes128-ctr |
 | MACs | hmac-sha2-512-etm@openssh.com</br> hmac-sha2-256-etm@openssh.com</br> hmac-sha2-512</br> hmac-sha2-256 |
 | KEX algorithms | ecdh-sha2-nistp521</br> ecdh-sha2-nistp384</br> ecdh-sha2-nistp256</br> diffie-hellman-group-exchange-sha256 |
+
+## Next steps
+
+* Learn how to [add storage](add-storage.md) to the Azure FXT Edge Filer cluster
+* [Connect to the control panel](cluster-create.md#open-the-settings-pages) to administer the cluster
+* [Mount clients](mount-clients.md) to access data from the cluster
+* [Contact support](support-ticket.md) to learn more about encryption standards

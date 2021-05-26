@@ -5669,6 +5669,86 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
+      "redirect_url": "/articles/fxt-edge-filer/add-nodes.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-storage.md",
+      "redirect_url": "/articles/fxt-edge-filer/add-storage.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-additional-doc.md",
+      "redirect_url": "/articles/fxt-edge-filer/additional-doc.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-cluster-create.md",
+      "redirect_url": "/articles/fxt-edge-filer/cluster-create.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-configure-network.md",
+      "redirect_url": "/articles/fxt-edge-filer/configure-network.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-install.md",
+      "redirect_url": "/articles/fxt-edge-filer/install.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-monitor.md",
+      "redirect_url": "/articles/fxt-edge-filer/monitor.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-mount-clients.md",
+      "redirect_url": "/articles/fxt-edge-filer/mount-clients.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-network-power.md",
+      "redirect_url": "/articles/fxt-edge-filer/network-power.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-node-password.md",
+      "redirect_url": "/articles/fxt-edge-filer/node-password.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-overview.md",
+      "redirect_url": "/articles/fxt-edge-filer/overview.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-port-list.md",
+      "redirect_url": "/articles/fxt-edge-filer/port-list.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-power-off.md",
+      "redirect_url": "/articles/fxt-edge-filer/power-off.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-specs.md",
+      "redirect_url": "/articles/fxt-edge-filer/specs.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-support-ticket.md",
+      "redirect_url": "/articles/fxt-edge-filer/support-ticket.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-supported-ciphers.md",
+      "redirect_url": "/articles/fxt-edge-filer/supported-ciphers.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
