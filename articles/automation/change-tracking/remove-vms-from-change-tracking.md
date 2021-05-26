@@ -35,10 +35,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 7. In the query editor, review the query and find the UUID for the VM. Remove the UUID for the VM and repeat the steps for any other VMs you want to remove.
 
-8. Save the saved search when you're finished editing it by selecting **Save** from the top bar. When prompted, specify the following:
+8. Save the saved search when you're finished editing it by selecting **Save > Save as function** from the top bar. When prompted, specify the following:
 
     * **Name**: ChangeTracking__MicrosoftDefaultComputerGroup
-    * **Save as**: Function
     * **Save as computer Group**: Selected
     * **Legacy category**: ChangeTracking
 
