@@ -97,7 +97,7 @@ Azure AD B2C page layout uses the following version of the [jQuery library](http
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
 **2.1.5**
-- Fixed an issue on tab order when idpselector template is used on sign in page.
+- Fixed an issue on tab order when idp selector template is used on sign in page.
 - Fixed an encoding issue on sign-in link text.
 
 **2.1.4**
