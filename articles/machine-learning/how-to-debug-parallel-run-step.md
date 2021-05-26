@@ -112,6 +112,14 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you will change these values when you resubmit another run. 
 
+#### CUDA Devices Visibility
+For compute target with GPU, the environment variable `CUDA_VISIBLE_DEVICES` will be set in worker processes. In AmlCompute, the total number of GPU devices is in environment variable `AZ_BATCHAI_GPU_COUNT_FOUND`, which will be set automatically. If users want each worker process has a dedicated GPU, set `process_count_per_node same` to the number of GPUs on a machine. Each worker process will assign a unique index to `CUDA_VISIBLE_DEVICES`. If a worker process stops for any reason, the next worker process will use the released GPU index.
+
+If the total number of GPU devices is less than `process_count_per_node`, the worker processes will be assigned GPU index until all have been used. 
+Given the total GPU devices is 2 and `process_count_per_node` = 4 as an example, process 0 and process 1 will have index 0 and 1. Process 2 and 3 won't have such environment variable. For a library using this environment variable for GPU assignment, process 2 and 3 won't have GPU. They won't try to acquire 0. If process 0 stops, it will release GPU index 0. The new one process 4 will have GPU index 0 assigned.
+
+More details, see: [CUDA Pro Tip: Control GPU Visibility with CUDA_VISIBLE_DEVICES](https://developer.nvidia.com/blog/cuda-pro-tip-control-gpu-visibility-cuda_visible_devices/)
+
 ### Parameters for creating the ParallelRunStep
 
 Create the ParallelRunStep by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for your inference script. Use `ParallelRunStep` to create the batch inference pipeline step, which takes all the following parameters:
