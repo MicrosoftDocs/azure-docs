@@ -231,8 +231,6 @@ az logicapp delete --name MyLogicAppName --resource-group MyResourceGroupName --
 
 You can create, deploy, and monitor your logic app workflows from end to end in Visual Studio Code. There is no change or difference in the designer experience between developing logic app workflows that run in single-tenant Azure Logic Apps versus Azure Arc enabled Logic Apps.
 
-#### Create and deploy logic app workflows
-
 1. To create a logic app project, follow the prerequisites and steps in the [Create integration workflows in single-tenant Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md) documentation.
 
 1. When you're ready to deploy to Azure, use the **Deploy to Logic App** experience to create your logic app resource in your previously created custom location and deploying your workflows to the same location.
@@ -265,16 +263,14 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
 
 ### [Azure portal](#tab/azure-portal)
 
-#### Create and deploy logic app workflows
-
 The portal-based designer's editing capability is currently under development for Azure Arc enabled Logic Apps. You can create, deploy, and view your logic apps using the portal-based designer, but you can't edit them in the portal after deployment. For now, you can create and edit a logic app project locally in Visual Studio Code, and then deploy using Visual Studio Code, Azure CLI, or automated deployments.
 
-1. In the Azure portal, [create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md), but when you choose the **Publish** destination, select **Docker Container**. You can then select your previously created custom location as your app's location.
+1. In the Azure portal, [create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md). However, for the **Publish** destination, select **Docker Container**. For **Region**, select your previously created custom location as your app's location.
+
+   By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, you don't need to create an App Service plan, which is created for you.
 
    > [!IMPORTANT]
    > The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
-
-   By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, You don't need to create an App Service plan, which is created for you.
 
 1. [Edit and deploy the logic app using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
