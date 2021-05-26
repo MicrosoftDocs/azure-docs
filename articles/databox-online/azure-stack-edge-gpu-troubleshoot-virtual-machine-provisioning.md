@@ -62,21 +62,25 @@ When VM provisioning times out, you see the following error:
 
 ![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
-<!--1) Is it intended that the customer will work through these issues in linear fashion, from the most common cause to the less common ones? If so, should troubleshooting be set up as a series of steps? 3) To come: To make the information easier to navigate, we probably will convert this discussion to a table.-->
+*Queries: 1) Is it intended that the customer will work through these issues in linear fashion, from the most common cause to the less common ones? If so, should troubleshooting be set up as a series of steps? 3) To come: To make the information easier to navigate, we probably will convert this discussion to a table.*
+
 This section provides troubleshooting guidance for some of the most common causes of a VM provisioning timeout.
 
 
 #### IP assigned to the VM is already in use
 
-**Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed.<!--1) Does this error apply to both portal and CLI procedures? Doesn't the portal check for duplicate IP addresses, and prevent them deploying if they have one? 2) Can issues other than an existing VM with an IP address produce this error? For example, address pool/subnet issue?-->
+**Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed.  
+*Queries: 1) Does this error apply to both portal and CLI procedures? Doesn't the portal check for duplicate IP addresses, and prevent them deploying if they have one? 2) Can issues other than an existing VM with an IP address produce this error? For example, address pool/subnet issue?*
 
 **Suggested solution:** Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.
 
 To check for a duplicate IP address: 
 
-1. Stop the VM from the portal (if it is running).<!--1) How can the VM be running if provisioning timed out? 2) Is there a reason why they are stopping the VM from the portal? Can they do this step, as well as the next, in PowerShell?-->
+1. Stop the VM from the portal (if it is running).
 
-1. Run the following `ping` and Test-NetConnection (`tnc`) commands:<!--Ping from the device?-->
+   *Queries: 1) How can the VM be running if provisioning timed out? 2) Is there a reason why they are stopping the VM from the portal? Can they do this step, as well as the next, in PowerShell?*
+
+1. Run the following `ping` and Test-NetConnection (`tnc`) commands: *Query: Ping from the device*
 
    ```powershell
    ping <IP address>
@@ -116,7 +120,7 @@ To verify that the default gateway and DNS server can be reached, do the followi
 
 #### `cloud init` issues (Linux VMs)
 
-<!--Error applies to Linux VMs only? Has the use of cloud init with Windows VMs been tested?-->
+*Query: Linux VMs only? Has cloud init been tested on Windows VMs?*
 
 **Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
 
@@ -134,7 +138,9 @@ For help resolving `cloud init` issues, see [Troubleshooting VM provisioning wit
 
 **Error description:** To successfully deploy a Linux VM in Azure, instance creation must be disabled on the image, and provisioning using `cloud init' must be enabled. 
 
-**Suggested solution:** Make sure the Provisioning flags in the `/etc/waagent.conf` file have the following values:<!--Where is this file discussed in relationship to Azure VM provisioning?-->
+**Suggested solution:** Make sure the Provisioning flags in the `/etc/waagent.conf` file have the following values: 
+
+*Query: Where is this file discussed in relationship to Azure VM provisioning?*
 
    | Capability                      | Required value                |
    |---------------------------------|-------------------------------|
@@ -143,7 +149,9 @@ For help resolving `cloud init` issues, see [Troubleshooting VM provisioning wit
 
 #### Contact Support for these log entries
 
-If you see one of the errors highlighted (in bold) in the following log entries, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for help.<!--Please provide a brief explanation of the errors they are to contact support for, so readers will know what the issue is. Thanks.-->
+If you see one of the errors highlighted (in bold) in the following log entries, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for help.
+
+*Query: Please provide a brief explanation of the errors they are to contact Support for, so readers will know what the issue is. Thanks.*
 
 **Windows VM**
 
@@ -151,7 +159,7 @@ Log file: C:\Windows\Azure\Panther\WaSetup.xml
 
 Error entries:
 
-![Log entries for a Windows VM that require a Support call](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-02.png) 
+![Log entries for a Windows VM that require a Support call](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-02.png)<!--Resize to match the other PNG.-->
 
 <!--FORMATTING ISSUES IN MARKUP. CONVERTING TO A PNG. - `<Event time="2021-03-26T20:08:54.648Z" category="INFO" source="WireServer"><HttpRequest verb="GET" url="http://168.63.129.16/?comp=Versions"/></Event>`
 
@@ -212,7 +220,7 @@ To use a VM image used to provision virtual machines on an Azure Stack Edge Pro 
 * The VM image must be a fixed-size VHD for a Generation 1 VM. 
 * The image must be uploaded as a page blob to your Azure Storage account. 
 
-For guidance on resolving VM image issues, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu- troubleshoot-virtual-machine-image-upload.md).
+For guidance on resolving VM image issues, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).
 
 ## VM creation issues
 
@@ -226,28 +234,37 @@ This section covers common issues that occur during VM creation.
 
 **Suggested solution:** Check the available memory on the device, and choose the VM size accordingly. For more information, see [Supported virtual machine sizes on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
 
-<!--BETTER SOLUTION - Reference existing sizing/memory usage guidelines in each of these errors. Compute and memory specs are available for Azure Stack Edge Pro GPU (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-technical-specifications-compliance#compute-and-memory-specifications) and Mini R (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-mini-r-technical-specifications-compliance#compute-memory), but I'm not finding guidance for the Kubernetes calculations.-->
-
 #### Calculate memory available for VMs
-<!--These calculations shouldn't be introduced in troubleshooting. No one will think to look for them there, and they should be available for VM deployment planning. If we keep the calculations here for now, we should move them as quickly as possible to a new "VM sizing best practices" article.-->
+
+*Recommendation: Introduce calculations in a planning article. No one will think to look for them there, and they should be available for VM deployment planning. If we keep the calculations here for now, we should move them as quickly as possible to a new "VM sizing best practices" article.*
 
 - **Memory available for compute:**
 
    - An Azure Stack Edge Pro GPU device has a total memory of 128 Gbs.
 
      Total memory = 128 Gbs
-     Memory available for compute = 85% of 128 = 108.8 Gbs<!--Device specs for Pro GPU state total usable memory as 102 Gbs. See https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-technical-specifications-compliance#compute-and-memory-specifications.-->
+     Memory available for compute = 85% of 128 = 108.8 Gbs 
+
+     *Query: Device specs for Pro GPU state total usable memory as 102 Gbs. See https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-technical-specifications-compliance#compute-and-memory-specifications.*
 
    - An Azure Stack Edge Mini device has total memory of 48 Gbs.
 
      Total memory = 48 Gbs
-     Memory available for compute = 75% of 48 = 36 Gbs<!--Device specs for Mini R state total usable memory as 32 Gbs. See https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-mini-r-technical-specifications-compliance#compute-memory.-->
+     Memory available for compute = 75% of 48 = 36 Gbs 
 
-- **Compute memory includes Kubernetes + VMs.** If you have enabled Kubernetes, Kubernetes requires 25 percent of the memory for the master VM, plus 4 Gb of memory for each worker VM - which is also expandable.<!--1) What is expandable? 2) Is there a public-facing source where we can send customers for this calculation?-->
+     *Query: Device specs for Mini R state total usable memory as 32 Gbs. See https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-mini-r-technical-specifications-compliance#compute-memory.*
 
-   Memory available for VMs = Memory available for compute – Memory used by K8s<!--Meaning of "K8s"?-->
+- **Compute memory includes Kubernetes + VMs.** If you have enabled Kubernetes, Kubernetes requires 25 percent of the memory for the master VM, plus 4 Gb of memory for each worker VM - which is also expandable. 
 
-- **Hyper-V has some overhead memory for each VM.** So you may see new VM creations fail with the above error if there is not enough memory to create that VM.<!--"Some overhead" is too general to be very helpful in VM memory usage calculations. Can you be more specific?-->
+  *Queries: 1) What is expandable? 2) Is there a source where we can send customers for this calculation?*
+
+   Memory available for VMs = Memory available for compute – Memory used by K8s 
+
+   *Query: "K8s" is shortcut for what?*
+
+- **Hyper-V has some overhead memory for each VM.** So you may see new VM creations fail with the above error if there is not enough memory to create that VM. 
+
+  *Query: Can we be more specific than "some overhead"? How to work "too general" into VM memory usage calculations?*
 
 **Suggested solutions:**
 
@@ -256,7 +273,7 @@ This section covers common issues that occur during VM creation.
 - Delete any VMs that are no longer in use.
 
 ### Insufficient number of GPUs to create GPU VM
-<!--Note to reviewers. I updated this section on 05/26 a.m. These changes: 1) Added lead sentence. 2) Wrote around "SKU". 3) Targeted solution to a specific section of the GPU article.-->
+*Note to reviewers: Section updated 05/26 a.m.*
 
 If you try to deploy a VM on a GPU device that already has Kubernetes enabled, no GPUs will be available, and VM provisioning will fail with the following error:
 
@@ -265,10 +282,12 @@ If you try to deploy a VM on a GPU device that already has Kubernetes enabled, n
 **Possible causes:**
 If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs, and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of available GPUs. Your Azure Stack Edge device can be equipped with 1 or 2 GPUs.
 
-**Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](/azure-stack-edge-gpu-deploy-gpu-virtual-machine?tabs=windows#gpu-vms-and-kubernetes)<!--REPLACES THIS REFERENCE - [Overview and deployment of GPU VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).-->
+**Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](/azure-stack-edge-gpu-deploy-gpu-virtual-machine?tabs=windows#gpu-vms-and-kubernetes).<!--REPLACES THIS REFERENCE - [Overview and deployment of GPU VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).-->
 
 ## GPU extension failed to be deployed
-Debugging steps:<!--NOTE TO ME: What happened here? Steps were in place yesterday?-->
+Debugging steps:
+ 
+*Query: They should make these checks in sequence? Numbered steps? Will write the intro and revise issues accordingly.* 
 
 ### VM size is not GPU VM size
 
@@ -290,7 +309,7 @@ Debugging steps:<!--NOTE TO ME: What happened here? Steps were in place yesterda
 
 ### Extension parameter is incorrect
 
-**Error description:** Incorrect extension settings were used when deploying the GPU extension on a Linux VM.<!--Verify: Does this apply only to a Linux VM? All supporting materials seem to be for a Linux VM.--> 
+**Error description:** Incorrect extension settings were used when deploying the GPU extension on a Linux VM. 
 
 **Suggested solution:** Edit the parameters file before deploying the GPU extension. There are specific parameters files for the Ubuntu and Red Hat Enterprise Linux (RHEL) operating systems. For more information, see [Install GPU extension](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension).
 
