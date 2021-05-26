@@ -24,7 +24,7 @@ This configuration uses a flow table to route traffic from an external (host) IP
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagram showing architecture.":::
    
-In order to use NAT, VPN devices need use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors are not supported in conjunction with NAT configuration.
+In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors are not supported in conjunction with NAT configuration.
 
 ## <a name="rules"></a>Configure NAT rules
 

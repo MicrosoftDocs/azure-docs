@@ -34,4 +34,6 @@
   items:
   - name: Overview of validated partners
     href: .\validated-partners\primary-secondary-storage\partner-overview.md
+  - name: ISV file services
+    href: .\validated-partners\primary-secondary-storage\isv-file-services.md
   expanded: false

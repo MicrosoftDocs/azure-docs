@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -81,7 +81,7 @@ For every language pair, it's recommended to have 2 GB of memory. By default, th
 ## Request approval to run container
 
 Complete and submit the [**Azure Cognitive Services
-Application for Gated Services**](https://aka.ms/csgate) to request access to the container.
+Application for Gated Services**](https://aka.ms/csgate-translator) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 
