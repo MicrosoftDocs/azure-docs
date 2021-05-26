@@ -37,11 +37,12 @@ This section describes the common prerequisites across all the approaches and to
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A Kubernetes environment with an Azure Arc enabled Kubernetes cluster and *custom location* where you can host and run Azure Logic Apps, Azure App Service, and Azure Functions. Make sure that you use the same resource location for your Kubernetes environment, custom location, and logic app.
+- A Kubernetes environment with an Azure Arc enabled Kubernetes cluster and *custom location* where you can host and run Azure Logic Apps, Azure App Service, and Azure Functions.
 
-  For example, to deploy and run in West Europe, use West Europe as the location for all three resources.
+  > [!IMPORTANT]
+  > Make sure that you use the same resource location for your Kubernetes environment, custom location, and logic app.
 
-  Also, when you create the App Service bundle extension on your Kubernetes cluster, you can [change the default scaling behavior](#change-scaling) for running your logic app workflows. When you create the extension by using the Azure CLI command, [**`az k8s-extension create`**](/cli/azure/k8s-extension), make sure to include the configuration setting, `keda.enabled=true`:
+  When you create the App Service bundle extension on your Kubernetes cluster, you can [change the default scaling behavior](#change-scaling) for running your logic app workflows. When you create the extension by using the Azure CLI command, [**`az k8s-extension create`**](/cli/azure/k8s-extension), make sure to include the configuration setting, `keda.enabled=true`:
 
   `az k8s-extension create {other-command-options} --configuration-settings "keda.enabled=true"`
 
@@ -270,8 +271,8 @@ The portal-based designer's editing capability is currently under development fo
 
 1. In the Azure portal, [create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md), but when you choose the **Publish** destination, select **Docker Container**. You can then select your previously created custom location as your app's location.
 
-  > [!IMPORTANT]
-  > The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
+   > [!IMPORTANT]
+   > The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
 
    By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, You don't need to create an App Service plan, which is created for you.
 
