@@ -10,7 +10,7 @@ ms.date: 05/25/2021
 
 # HDInsight Ubuntu 18.04 OS update
 
-This article provides more details for HDInsight Ubuntu 18.04 OS update and script actions changes that are needed.
+This article provides more details for HDInsight Ubuntu 18.04 OS update and potential changes that are needed.
 
 ## Update overview
 
