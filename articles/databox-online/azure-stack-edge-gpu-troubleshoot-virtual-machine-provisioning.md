@@ -214,7 +214,7 @@ To verify whether the network interface was created successfully, do these steps
 
 To use a VM image used to provision virtual machines on an Azure Stack Edge Pro GPU device, the image must meet the following requirements:
 
-* The VM image VM must be a fixed-size VHD for a Generation 1 VM. 
+* The VM image must be a fixed-size VHD for a Generation 1 VM. 
 * The image must be uploaded as a page blob to your Azure Storage account. 
 
 For guidance on resolving VM image issues, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu- troubleshoot-virtual-machine-image-upload.md).
