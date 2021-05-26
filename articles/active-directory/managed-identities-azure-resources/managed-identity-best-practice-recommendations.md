@@ -20,7 +20,7 @@ ms.author: barclayn
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-## When to use system-assigned or user-assigned managed identities
+## Choosing system or user-assigned managed identities
 
 User-assigned managed identities are more efficient in a broader range of scenarios than system-assigned managed identities. See the table below for some scenarios and the recommendations for user-assigned or system-assigned.
 
@@ -44,7 +44,7 @@ Access required before a resource is deployed |User-assigned identity| Some reso
 Audit Logging|System-assigned identity|If you need to log which specific resource carried out an action, rather than which identity, use a system-assigned identity.|
 Permissions Lifecycle Management|System-assigned identity|If you require that the permissions for a resource be removed along with the resource, use a system-assigned identity.
 
-**Using user-assigned identities to reduce administration**
+### Using user-assigned identities to reduce administration
 
 The diagrams demonstrate the difference between system-assigned and user-assigned identities, when used to allow several virtual machines to access two storage accounts. 
 
@@ -60,7 +60,7 @@ Security groups can also be used to reduce the number of role assignments that a
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/system-assigned-identities-in-a-group.png" alt-text="Four virtual machines with their system-assigned identities added to a security group that has role assignments.":::
 
-**Multiple Managed Identities**
+### Multiple managed identities
 
 Resources that support managed identities can have both a system-assigned identity and one or more user-assigned identities. 
 
@@ -68,18 +68,18 @@ This model provides the flexibility to both use a shared user-assigned identity 
 
 In the example below, “Virtual Machine 3” and “Virtual Machine 4” can access both storage accounts and key vaults, depending on which user-assigned identity they use while authenticating.
 
-:::image type="content" source="media/managed-identity-best-practice-recommendations/multiple-user-assigned-identities.png" alt-text="Four virtual machines, two with multiple user-assigned identities":::
+:::image type="content" source="media/managed-identity-best-practice-recommendations/multiple-user-assigned-identities.png" alt-text="Four virtual machines, two with multiple user-assigned identities.":::
 
 In the example below, “Virtual Machine 4” has both a user-assigned identity, giving it access to both storage accounts and key vaults, depending on which identity is used while authenticating. The role assignments for the system-assigned identity are specific to that virtual machine.
 
 :::image type="content" source="media/managed-identity-best-practice-recommendations/system-and-user-assigned-identities.png" alt-text="Four virtual machines, one with both system-assigned and user-assigned identities.":::
 
-**Limits**
+## Limits 
 
 View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits)
 and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits).
 
-**Maintenance**
+## Maintenance
 
 System-assigned identities are automatically deleted when the resource is deleted, while the lifecycle of a user-assigned identity is independent of any resources with which it's associated.
 
@@ -90,4 +90,4 @@ Role assignments aren't automatically deleted when either system-assigned or use
 Role assignments that are associated with deleted managed identities
 will be displayed with “Identity not found” when viewed in the portal. [Read more](../../role-based-access-control/troubleshooting.md#role-assignments-with-identity-not-found).
 
-:::image type="content" source="media/managed-identity-best-practice-recommendations/identity-not-found.png" alt-text="Identity not found for role assignment":::
+:::image type="content" source="media/managed-identity-best-practice-recommendations/identity-not-found.png" alt-text="Identity not found for role assignment.":::

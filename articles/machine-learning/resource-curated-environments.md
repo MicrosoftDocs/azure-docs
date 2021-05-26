@@ -45,3 +45,6 @@ This article lists the curated environments in Azure Machine Learning. Curated e
      - Base image: mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04
      - CUDA version: 11.0.3
      - OpenMPI: 4.1.0
+
+## Inference only curated environments and prebuilt docker images
+- Read about inference only curated environments and MCR path for prebuilt docker images, [see](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference)

@@ -144,7 +144,7 @@ Helm release deployment succeeded
 Run the following command:  
 
 ```azurecli-interactive
-az connectedk8s list -resource-group AzureArcTest -output table
+az connectedk8s list --resource-group AzureArcTest --output table
 ```
 
 Output:
