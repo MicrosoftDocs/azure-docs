@@ -103,7 +103,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 15. Click on **View details** in a stage graph,then the details for stage will show out.
 
-    ![hover a job](./media/how-to-monitor-spark-applications/expand-all-the-stages.png)
+    ![expand all the stages](./media/how-to-monitor-spark-applications/expand-all-the-stages.png)
     
       
 
