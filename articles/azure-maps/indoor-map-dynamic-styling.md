@@ -83,7 +83,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 9. In the **KEY** field, select `Content-Type`. In the **VALUE** field select `application/json`.
 
-     :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Header tab information for stateset creation.":::
+     :::image type="content" source="./media/indoor-map-dynamic-styling/stateset-header.png"alt-text="Header tab information for stateset creation.":::
 
 10. Select the **Body** tab.
 
