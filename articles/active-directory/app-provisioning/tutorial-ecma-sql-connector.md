@@ -41,7 +41,7 @@ On a server running SQL Server, run the SQL script found in [Appendix A](#append
 The Generic SQL Connector is a DSN file to connect to the SQL server. First we need to create a file with the ODBC connection information.
 
 1. Start the ODBC management utility on your server:  
-     ![ODBC](./media/tutorial-ecma-sql-connector/odbc.png)
+     ![ODBC management](./media/tutorial-ecma-sql-connector/odbc.png)
 2. Select the tab **File DSN**. Click **Add...**.  
      ![Add file dsn](./media/tutorial-ecma-sql-connector/dsn-2.png)
 3. Select SQL Server Native Client 11.0 and click **Next**.  
@@ -248,7 +248,7 @@ Now we need to map attributes between the on-premises application and our SQL se
      ![Add a mapping](.\media\on-prem-ecma-configure\configure-11.png)
  6. Specify the source and target attributes and  and add all of the mappings in the table below.
      |Mapping Type|Source attribute|Target attribute|
-     |-----|-----|----|
+     |-----|-----|-----|
      |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
      |Direct|objectID|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:AzureID|
      |Direct|mail|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email|
