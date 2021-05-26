@@ -58,7 +58,7 @@ By default, all users, including guests, can invite guest users.
    - **Only users assigned to specific admin roles can invite guest users**: To allow only those users with certain administrator roles to invite guests, select this radio button.
    - **No one in the organization can invite guest users including admins (most restrictive)**: To deny everyone in the organization from inviting guests, select this radio button.
      > [!NOTE]
-   > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
+     > If **Members can invite** is set to **No** and **Admins and users in the guest inviter role can invite** is set to **Yes**, users in the **Guest Inviter** role will still be able to invite guests.
 
 6. Under **Email one-time passcode for guests**, choose the appropriate settings (for more information, see [Email one-time passcode authentication](one-time-passcode.md)):
 

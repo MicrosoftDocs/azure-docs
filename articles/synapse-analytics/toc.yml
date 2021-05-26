@@ -525,6 +525,8 @@ items:
         href: sql/query-json-files.md
       - name: Query nested types
         href: sql/query-parquet-nested-types.md
+      - name: Query Delta Lake (preview)
+        href: sql/query-delta-lake-format.md
       - name: Query folders and multiple files
         href: sql/query-folders-multiple-csv-files.md
         displayname: csv
@@ -588,12 +590,6 @@ items:
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: Submit Spark job definitions
       href: ./spark/apache-spark-job-definitions.md
-    - name: Connect and monitor Azure Synapse Spark Application level metrics
-      href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
-    - name: Monitor Apache Spark Application-level metrics with Prometheus and Grafana
-      href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-    - name: Use Azure Log Analytics to collect and visualize metrics and logs (Preview)
-      href: ./spark/apache-spark-azure-log-analytics.md
   - name: Concepts
     items:
     - name: Apache Spark 
@@ -604,8 +600,14 @@ items:
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
-    - name: Synapse runtimes
-      href: ./spark/apache-spark-version-support.md
+    - name: Azure Synapse runtimes
+      items:
+        - name: Runtime overview
+          href: ./spark/apache-spark-version-support.md
+        - name: Azure Synapse Apache Spark 2.4 runtime
+          href: ./spark/apache-spark-24-runtime.md
+        - name: Azure Synapse Apache Spark 3.0 runtime
+          href: ./spark/apache-spark-3-runtime.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
@@ -654,21 +656,25 @@ items:
           href: ./spark/apache-spark-performance-hyperspace.md
     - name: Manage and monitor
       items:
-      - name: Spark pool history server
+      - name: Navigate the Apache Spark pool history server
         href: ./spark/apache-spark-history-server.md
       - name: Monitor Spark applications
         href: monitoring/apache-spark-applications.md
-      - name: Apache Spark pools
+      - name: Monitor Spark pools
         href: monitoring/how-to-monitor-spark-pools.md
-      - name: Analyze JSON with Apache Spark
-        href: how-to-analyze-complex-schema.md
+      - name: Connect and monitor Azure Synapse Spark Application level metrics
+        href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+      - name: Monitor Apache Spark application level metrics with Prometheus and Grafana
+        href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
+      - name: Use Azure Log Analytics to collect and visualize metrics and logs (preview)
+        href: ./spark/apache-spark-azure-log-analytics.md      
     - name: Data sources
       items:
         - name: Azure Cosmos DB
           href: ./synapse-link/how-to-query-analytical-store-spark.md
         - name: Azure Data Explorer (Kusto)
           href: ./spark/data-sources/apache-spark-kusto-connector.md
-        - name: Azure SQL Data Warehouse
+        - name: Azure SQL Dedicated
           href: ./spark/synapse-spark-sql-pool-import-export.md
         - name: Azure SQL and SQL Server 
           href: ./spark/data-sources/apache-spark-sql-connector.md
@@ -724,6 +730,8 @@ items:
       href: quickstart-copy-activity-load-sql-pool.md
     - name: Transform data using mapping data flows
       href: quickstart-data-flow.md
+    - name: Transform data using Apache Spark job definition
+      href: quickstart-transform-data-using-spark-job-definition.md
   - name: Concepts
     items:
     - name: Pipeline and activity
@@ -1007,6 +1015,8 @@ items:
       items:
       - name: Execute Data Flow activity
         href: ../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Synapse Notebook Activity
+        href: synapse-notebook-activity.md
       - name: Synapse SQL Pool Stored Procedure Activity
         href: ./data-integration/sql-pool-stored-procedure-activity.md
       - name: Azure Function Activity
