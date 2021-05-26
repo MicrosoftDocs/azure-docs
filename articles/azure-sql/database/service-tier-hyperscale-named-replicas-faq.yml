@@ -20,7 +20,7 @@ summary: |
   This article provides answers to frequently asked questions for customers considering a database in the Azure SQL Database Hyperscale service tier, referred to as just Hyperscale in the remainder of this FAQ. This article describes the scenarios that Hyperscale supports and the features that are compatible with Hyperscale.
   
   - This FAQ is intended for readers who have a brief understanding of the Hyperscale service tier named replicas and are looking to have their specific questions and concerns answered.
-  - For complete information on Hyperscale named replicas, see [Hyperscale Replicas named replicas](service-tier-hyperscale-replicas.md#named-replicas). 
+  - For complete information on Hyperscale named replicas, see [Hyperscale Replicas named replica](service-tier-hyperscale-replicas.md#named-replica). 
   
 sections:
   - name: General questions
