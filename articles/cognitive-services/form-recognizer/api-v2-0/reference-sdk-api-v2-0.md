@@ -18,11 +18,12 @@ keywords: forms processing, automated data processing
 # Reference: Azure Form Recognizer client library v3.0.0 and REST API v2.0
 
 >[!IMPORTANT]
-> * This guide is based on the v3.0.0 Azure Form Recognizer SDK and the v2.0 REST API. Documentation for the current version is located in our **[Quickstarts](../quickstarts/client-library.md)** article.
-> 
->*  The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
+>
+> * This guide is based on Azure Form Recognizer SDK v3.0.0  and  REST API v2.0. Documentation and code samples for the latest version can be found in our **[Quickstarts](../quickstarts/client-library.md)** article.
+>
+>* For simplicity, the code in this article uses synchronous methods and unsecured credentials storage. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](/azure/cognitive-services/cognitive-services-security) article for more information.
 
-Get started with Azure Form Recognizer using the development language of your choice. Azure Form Recognizer is a cognitive service that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. Follow these steps to install the SDK package and try out the example code for basic tasks.
+Get started with Azure Form Recognizer using the programming language of your choice. Azure Form Recognizer is a [Azure Applied AI Service](https://aka.ms/applied-ai-services-hub) that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data, and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. Follow these steps to install the SDK package and try out the example code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
 

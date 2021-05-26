@@ -79,22 +79,6 @@ With Form Recognizer, you can create two different client types. The first, `for
 > [!NOTE]
 > Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../label-tool.md).
 
-## Code examples
-
-These code snippets show you how to do the following tasks with the Form Recognizer client library for Python:
-<!-- markdownlint-disable MD001 -->
-<!-- markdownlint-disable MD024 -->
-
-* [Authenticate the client](#authenticate-the-client)
-* [Analyze layout](#analyze-layout)
-* [Analyze receipts](#analyze-receipts)
-* [Analyze business cards](#analyze-business-cards)
-* [Analyze invoices](#analyze-invoices)
-* [Analyze identity documents](#analyze-identity-documents)
-* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Train a custom model](#train-a-custom-model)
-* [Manage custom models](#manage-custom-models)
-
 ## Authenticate the client
 
 Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
