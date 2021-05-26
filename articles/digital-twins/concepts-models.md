@@ -46,7 +46,7 @@ For a DTDL model to be compatible with Azure Digital Twins, it must meet these r
 
 Azure Digital Twins also does not observe the `writable` attribute on properties or relationships. Although this can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these are always treated as writable by external clients that have general write permissions to the Azure Digital Twins service.
 
-## Modeling overview
+## Model overview
 
 ### Elements of a model
 
@@ -54,7 +54,7 @@ Within a model definition, the top-level code item is an **interface**. This enc
 
 A DTDL model interface may contain zero, one, or many of each of the following fields:
 * **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Properties have backing storage and can be read at any time.
-* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur. For more on the differences between property and telemetry, see the [Properties vs. telemetry](#properties-vs-telemetry) section below.
+* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur. For more on the differences between property and telemetry, see [Difference between properties and telemetry](#difference-between-properties-and-telemetry) below.
 * **Component** - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a model for a *phone*. You must first define an interface for *frontCamera* as though it were its own model, and then you can reference it when defining *Phone*.
 
     Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by *relationships* (see next bullet).
@@ -84,9 +84,9 @@ The fields of the model are:
 
 This section contains an example of a basic model, written as a DTDL interface. 
 
-This model describes a **home**, with properties for a display name and ID. The home model also defines a relationship to a **floor** model, which can be used to indicate that a home twin is connected to certain floor twins.
+This model describes a **home**, with one property for an ID. The home model also defines a relationship to a **floor** model, which can be used to indicate that a home twin is connected to certain floor twins.
 
-:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json":::
 
 ## Modeling properties and telemetry
 
@@ -123,21 +123,21 @@ You can also publish a telemetry event from the Azure Digital Twins API. As with
 
 In this example, both humidity and temperature are semantic type.
 
-:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="8-16,17-25":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="8-16,17-25":::
 
 ### Complex (object) properties
 
 Added a new address complex type to collect address information on the home model from earlier.
 
-:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
 
 ## Modeling relationships
 
-## Non-targeted relationships
+### Non-targeted relationships
 
 In the following example, removed the target property on the `dtmi:com:adt:dtsample:room:rel_has_sensors;1` on the IRoom model.
 
-:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="26-31":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="26-31":::
 
 ### Properties of relationships
 
@@ -145,14 +145,14 @@ DTDL also allows for **relationships** to have properties of their own. When def
 
 In the following example, relationship `dtmi:com:adt:dtsample:home:rel_has_floors;1` on the IHome model has a newly added property.
 
-:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="39-45":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="39-45":::
 
 ## Modeling components
 
 > [!NOTE]
 > Note that the component interface is defined in the same array as the interface that uses it . Components must be defined this way in API calls in order for the interface to be found.
 
-## Model inheritance
+## Inheritance
 
 Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
 
@@ -160,13 +160,13 @@ The `extends` section is an interface name, or an array of interface names (allo
 
 The following example re-imagines the home model from the earlier DTDL example as a subtype of a larger "core" model. The parent model (ICore) is defined first, and then the child model (IHome) builds on it by using `extends`.
 
-:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ICore.json":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ICore.json":::
 
-:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" range="1-8" highlight="6":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" range="1-8" highlight="6":::
 
 In this case, ICore contributes an ID and name to IHome. Other models can also extend the ICore model to get these properties as well.
 
-:::code language="sql" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="1-8" highlight="6":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="1-8" highlight="6":::
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
