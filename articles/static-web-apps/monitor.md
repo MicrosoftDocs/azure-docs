@@ -72,7 +72,7 @@ Using the following steps to view traces in your application.
 
 ## Limit logging
 
-In some cases you may want to limit logging while still capturing details on errors and warnings by making the following changes to your _host.json_ file.
+In some cases you may want to limit logging while still capturing details on errors and warnings by making the following changes to your _host.json_ file of the Azure Functions app.
 
 ```json
 {
