@@ -38,27 +38,27 @@ This document describes the steps to perform an operating system file level back
 
 To perform a manual backup:
 
-* Install the backup tool 
+1. Install the backup tool 
    ```
    zypper in xfsdump
    ```
 
-* Create a complete backup 
+2. Create a complete backup 
    ```
    xfsdump -l 0 -f /data1/xfs_dump /
    ```
 
    The following screen show shows the sample manual backup:
    
-   ![dump capture](media/HowToHLI/OSBackupTypeIISKUs/dump_capture.PNG)
+    [![dump capture](media/HowToHLI/OSBackupTypeIISKUs/dump-capture.PNG)](media/HowToHLI/OSBackupTypeIISKUs/dump-capture.PNG#lightbox)
 
 
-* Important: Save a copy of backup in NFS volumes as well, in the scenario where data1 partition also gets corrupted.
+3. Important: Save a copy of backup in NFS volumes as well, in the scenario where data1 partition also gets corrupted.
    ```
    cp /data1/xfs_dump /osbackup/
    ```
 
-* For excluding regular directories and files from dump, please tag files with chattr
+4. For excluding regular directories and files from dump, please tag files with chattr
    * chattr -R +d directory
    * chattr +d file
    * Run xfsdump with “-e” option
@@ -74,24 +74,24 @@ To perform a manual backup:
 > * To complete an OS restore with this process, Microsoft assistance is required since the recovery requires console access. Please create a support ticket with Microsoft to assist in recovery.
 > * We will be restoring the complete filesystem:
 
-* Mount OS iso on the system.
+1. Mount OS iso on the system.
 
-* Enter rescue mode.
+2. Enter rescue mode.
 
-* Mount data1 (or nfs volume, wherever the dump is stored) partition in read/write mode.
+3. Mount data1 (or nfs volume, wherever the dump is stored) partition in read/write mode.
    ```
    mount -o rw /dev/md126p4 /mnt1
    ```
-* Mount Root in read/write mode.
+4. Mount Root in read/write mode.
    ```
    mount -o rw /dev/md126p2 /mnt2
    ```
-* Restore Filesystem.
+5. Restore Filesystem.
    ```
    xfsrestore -f /mnt1/xfs_dump /mnt2
    ```
-   ![restore screenshot](media/HowToHLI/OSBackupTypeIISKUs/restore_screenshot.PNG)
-* Reboot the system.
+   [![restore screenshot](media/HowToHLI/OSBackupTypeIISKUs/restore-screenshot.PNG)](media/HowToHLI/OSBackupTypeIISKUs/restore-screenshot.PNG#lightbox)
+6. Reboot the system.
    ```
    reboot
    ```
@@ -107,7 +107,7 @@ To perform a manual backup:
    ```
    mdadm -D /dev/md126
    ```
-   ![raid status](media/HowToHLI/OSBackupTypeIISKUs/RAID_status.PNG)
+   [![raid status](media/HowToHLI/OSBackupTypeIISKUs/raid-status.PNG)](media/HowToHLI/OSBackupTypeIISKUs/raid-status.PNG#lightbox)
 
 * Ensure that RAID disks are synced and the configuration is in a clean state.
    * RAID disks take sometime in syncing; sync may continue for a few minutes before it is 100% synced.
@@ -118,6 +118,6 @@ To perform a manual backup:
    ```
    hdbinfo
    ```
-   ![hana status](media/HowToHLI/OSBackupTypeIISKUs/hana_status.PNG)
+   [![hana status](media/HowToHLI/OSBackupTypeIISKUs/hana-status.PNG)](media/HowToHLI/OSBackupTypeIISKUs/hana-status.PNG#lightbox)
 
 * If any post checks fail, please engage OS vendor and Microsoft for console access.
