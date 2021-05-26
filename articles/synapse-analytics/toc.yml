@@ -1017,6 +1017,8 @@ items:
         href: ../data-factory/control-flow-execute-data-flow-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Synapse SQL Pool Stored Procedure Activity
         href: ./data-integration/sql-pool-stored-procedure-activity.md
+      - name: Synapse Notebook Activity
+        href: synapse-notebook-activity.md
       - name: Azure Function Activity
         href: ../data-factory/control-flow-azure-function-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Custom Activity
