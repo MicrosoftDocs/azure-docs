@@ -77,7 +77,7 @@ For a full list of Azure Marketplace images that could work (presently not teste
 
 ### Using RHEL BYOS image
 
-You could use Red Hat Linux Enterprise bring-your-own-subscription image (Red Hat gold image) to create your VM image. In that case, you'll need to follow these steps:
+You could use Red Hat Enterprise Linux Bring Your Own Subscription image (Red Hat gold image) to create your VM image. In that case, you'll need to follow these steps:
 
 1. Log in to the [Red Hat Subscription Management](https://access.redhat.com/management). Navigate to the [Cloud Access Dashboard](https://access.redhat.com/management/cloud) from the top menu bar.
 1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access#proc_enabling-sub-new-ccsp_cloud-access). This will allow you to access the Red Hat Gold Images. 
