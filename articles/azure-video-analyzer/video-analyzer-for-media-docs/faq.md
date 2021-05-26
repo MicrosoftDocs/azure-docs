@@ -97,7 +97,7 @@ If you want to get insights on your new video, index it with Video Analyzer for 
 
 If there are multiple audio streams, Video Analyzer for Media takes the first one it encounters and will process only this stream. In any audio stream Video Analyzer for Media processes, it takes the different channels (if present) and processes them together as mono. For streams/channels manipulation you can use ffmpeg commands on the file before indexing it.
 
-### Can storage accounts connected to the Media Services account used by my Video Analyzer for Media account be behind a firewall?
+### Can a storage account connected to the Media Services account be behind a firewall?
 
 Your paid Video Analyzer for Media account uses the specified Media Services account that is connected to a storage account. Currently, when using the website to manage your Video Analyzer for Media account, the connected storage account cannot be behind a firewall.
 
