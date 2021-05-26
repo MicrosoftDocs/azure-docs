@@ -268,7 +268,7 @@ If Kubernetes is enabled before the VM is created, Kubernetes will use all the a
 **Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](/azure-stack-edge-gpu-deploy-gpu-virtual-machine?tabs=windows#gpu-vms-and-kubernetes).<!--REPLACES THIS REFERENCE - [Overview and deployment of GPU VMs on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).-->
 
 ## GPU extension failed to be deployed
-Debugging steps:
+Debugging steps:<!--NOTE TO ME: What happened here? Steps were in place yesterday?-->
 
 ### VM size is not GPU VM size
 
