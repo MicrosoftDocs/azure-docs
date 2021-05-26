@@ -2,7 +2,7 @@
 title: DHCP and DNS in Azure VMware Solution description
 description: Azure VMware Solution DHCP and DNS description.
 ms.topic: include
-ms.date: 05/25/2021
+ms.date: 05/28/2021
 ---
 
 <!-- Used in tutorial-network-checklist.md and configure-dhcp-azure-vmware-solution.md -->
