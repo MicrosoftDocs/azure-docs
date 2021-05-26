@@ -3,7 +3,7 @@ title: Work with indoor maps in Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/21/2021
+ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -116,6 +116,10 @@ The Render V2 service-Get Map State Tile API allows applications to request tile
 ### Web Feature Service API
 
 You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+
+### Alias API
+
+Creator services such as Conversion, Dataset, Tileset, and Feature State return an identifier for each resource that's created from the APIs. The [Alias API](/rest/api/maps/v2/alias) allows you to assign an alias to reference a resource identifier.
 
 ### Indoor Maps module
 

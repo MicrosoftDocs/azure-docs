@@ -3,7 +3,7 @@ title: Use Azure Maps Drawing Error Visualizer
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -40,7 +40,6 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
         "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Failed",
-        "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
         "properties": {
             "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
         }
