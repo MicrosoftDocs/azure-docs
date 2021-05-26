@@ -14,39 +14,39 @@ ms.custom: devx-track-python
 
 # Transform data by running a Synapse notebook
 
-The Azure Synapse Notebook Activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook in your Azure Synapse workspace. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
+The Azure Synapse notebook activity in a [Synapse pipeline](../data-factory/concepts-pipelines-activities.md) runs a Synapse notebook in your Azure Synapse workspace. This article builds on the [data transformation activities](../data-factory/transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. 
 
 ## Create a Synapse notebook activity
 
 You can create a Synapse notebook activity directly from the Synapse pipeline canvas or from the notebook editor. The Synapse notebook activity runs on the Spark pool that gets chosen in the Synapse notebook. 
 
-### Create a Synapse notebook activity
+### Add a Synapse notebook activity from pipeline canvas
 
-Drag and drop **Synapse Notebook** under **Activities** to the Synapse pipeline canvas. Select on the Synapse notebook activity box and config the notebook content for current activity in the **settings**. You can select an existing notebook from current workspace or add a new one. 
+Drag and drop **Synapse notebook** under **Activities** to the Synapse pipeline canvas. Select on the Synapse notebook activity box and config the notebook content for current activity in the **settings**. You can select an existing notebook from current workspace or add a new one. 
 
-![create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
+![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
 
 ### Add a notebook to Synapse pipeline
 
 Select the **Add to pipeline** button on the upper right corner to add a notebook to an existing pipeline or create a new pipeline.
 
-![Add notebook to pipeline](./media/synapse-notebook-activity/add-to-pipeline.png)
+![screenshot-showing-add-notebook-to-pipeline](./media/synapse-notebook-activity/add-to-pipeline.png)
 
-## Passing parameters between notebooks and Synapse pipeline
+## Passing parameters
 
 ### Designate a parameters cell
 
-# [Classical Notebook](#tab/classical)
+# [Classical notebook](#tab/classical)
 
 To parameterize your notebook, select the ellipses (...) to access the other cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
-![toggle-parameter](./media/synapse-notebook-activity/toggle-parameter-cell.png)
+[![screenshot-showing-toggle-parameter](./media/synapse-notebook-activity/toggle-parameter-cell.png)](./media/synapse-notebook-activity/toggle-parameter-cell.png#lightbox)
 
-# [Preview Notebook](#tab/preview)
+# [Preview notebook](#tab/preview)
 
 To parameterize your notebook, select the ellipses (...) to access the **more commands** at the cell toolbar. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
-![azure-notebook-toggle-parameter](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png)
+[![screenshot-showing-azure-notebook-toggle-parameter](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png)](./media/synapse-notebook-activity/azure-notebook-toggle-parameter-cell.png#lightbox)
 
 ---
 
@@ -55,28 +55,28 @@ Azure Data Factory looks for the parameters cell and treats this cell as default
 
 ### Assign parameters values from a pipeline
 
-Once you've created a notebook with parameters, you can execute it from a pipeline with the Synapse Notebook activity. After you add the activity to your pipeline canvas, you will be able to set the parameters values under **Base parameters** section on the **Settings** tab. 
+Once you've created a notebook with parameters, you can execute it from a pipeline with the Synapse notebook activity. After you add the activity to your pipeline canvas, you will be able to set the parameters values under **Base parameters** section on the **Settings** tab. 
 
-![Assign a parameter](./media/synapse-notebook-activity/assign-parameter.png)
+[![screenshot-showing-assign-a-parameter](./media/synapse-notebook-activity/assign-parameter.png)](./media/synapse-notebook-activity/assign-parameter.png#lightbox)
 
 When assigning parameter values, you can use the [pipeline expression language](../data-factory/control-flow-expression-language-functions.md) or [system variables](../data-factory/control-flow-system-variables.md).
 
 
-## Read Synapse notebook cell output value in subsequent activities
+## Read Synapse notebook cell output value
 
 You can read notebook cell output value in subsequent activities follow steps below:
 1. Call [mssparkutils.notebook.exit](./spark/microsoft-spark-utilities.md#exit-a-notebook) API in your Synapse notebook activity to return the value that you want to show in activity output, for example:  
 
-```python
-mssparkutils.notebook.exit("hello world") 
-```
-
+    ```python
+    mssparkutils.notebook.exit("hello world") 
+    ```
+    
 Saving the notebook content and retrigger the pipeline, the notebook activity output will contain the exitValue that can be consumed for subsequent activities in step 2. 
 
 2.	Read exitValue property from notebook activity output. 
 Here is a sample expression that is used to check whether the exitValue fetched from the notebook activity output equals to “hello world” or not: 
 
-![Read exit value](./media/synapse-notebook-activity/synapse-read-exit-value.png)
+    [![screenshot-showing-read-exit-value](./media/synapse-notebook-activity/synapse-read-exit-value.png)](./media/synapse-notebook-activity/synapse-read-exit-value.png#lightbox)
 
 
 ## Run another Synapse notebook 
@@ -99,14 +99,14 @@ You can see the latest notebook run snapshot including both cells input and outp
 
 You can see the notebook activity input or output via clicking the **input** or **Output** button. If your pipeline failed with user error, you can click the **output** to check the **result** field to see the detailed user error traceback.
 
-![see-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
+![screenshot-showing-see-output-user-error](./media/synapse-notebook-activity/notebook-output-user-error.png)
 
 
 
-## Synapse Notebook activity definition
+## Synapse notebook activity definition
 
 
-Here is the sample JSON definition of a Synapse Notebook Activity:
+Here is the sample JSON definition of a Synapse notebook activity:
 
 ```json
 {
@@ -140,9 +140,9 @@ Here is the sample JSON definition of a Synapse Notebook Activity:
 ```
 
 
-## Synapse Notebook activity output
+## Synapse notebook activity output
 
-Here is the sample JSON of a Synapse Notebook Activity output:
+Here is the sample JSON of a Synapse notebook activity output:
 
 ```json
 
