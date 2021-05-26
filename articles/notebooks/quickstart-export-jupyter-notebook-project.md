@@ -9,7 +9,7 @@ ms.date: 05/21/2021
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-## Recreate a notebook environments
+## Recreate a notebook environment
 
 If you'd like to create an environment that matches that of the retired Azure Notebooks Preview, you can use the script file provided in GitHub.
 
