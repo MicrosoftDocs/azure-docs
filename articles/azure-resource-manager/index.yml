@@ -66,7 +66,7 @@ conceptualContent:
         url: templates/index.yml
         text: See more
     # Card
-    - title: Bicep
+    - title: Deploy Bicep files
       links:
         - url: bicep/overview.md
           itemType: overview
