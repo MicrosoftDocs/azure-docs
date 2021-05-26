@@ -247,15 +247,11 @@ Now we need to map attributes between the on-premises application and our SQL se
  5. Click **Add new mapping**
      ![Add a mapping](.\media\on-prem-ecma-configure\configure-11.png)
  6. Specify the source and target attributes and  and add all of the mappings in the table below.
-      |Mapping Type|Source attribute|Target attribute|
+
+      |Attribute name in Azure AD|Attribute name in SCIM|Attribute name in target application|
       |-----|-----|-----|
-      |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
-      |Direct|objectID|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:AzureID|
-      |Direct|mail|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email|
-      |Direct|givenName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:FirstName|
-      |Direct|surName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:LastName|
-      |Direct|mailNickname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID|
-     
+      |mail|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email|Email|
+      |objectId|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:InternalGUID|InternalGUID|
 
  7. Click **Save**
      ![Save the mapping](.\media\tutorial-ecma-sql-connector\app-6.png)
