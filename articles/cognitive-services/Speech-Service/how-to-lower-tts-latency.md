@@ -322,7 +322,7 @@ Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to 
 ### Caching CRL files
 
 The Speech SDK uses CRL files to check the certification.
-Caching the CRL files until expired help you avoid download `CRL` files every time.
+Caching the CRL files until expired helps you avoid downloading `CRL` files every time.
 See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certificate-revocation-checks) for details.
 
 ### Use latest Speech SDK
