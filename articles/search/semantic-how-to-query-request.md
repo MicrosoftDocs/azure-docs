@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ---
 # Create a query that invokes semantic ranking and returns semantic captions
 
@@ -53,7 +53,7 @@ As with all queries in Cognitive Search, the request targets the documents colle
 
 The difference lies in relevance and scoring. As defined in this preview release, a semantic query is one whose *results* are reranked using a semantic language model, providing a way to surface the matches deemed most relevant by the semantic ranker, rather than the scores assigned by the default similarity ranking algorithm.
 
-Only the top 50 matches from the initial results can be semantically ranked, and all include captions in the response. Optionally, you can specify an **`answer`** parameter on the request to extract a potential answer. For more information, see [Semantic answers](semantic-answers.md).
+Only the top 50 matches from the initial results can be semantically ranked, and all results include captions in the response. Optionally, you can specify an **`answer`** parameter on the request to extract a potential answer. For more information, see [Semantic answers](semantic-answers.md).
 
 ## Query with Search explorer
 
@@ -73,7 +73,7 @@ Use the [Search Documents (REST preview)](/rest/api/searchservice/preview-api/se
 
 A response includes captions and highlighting automatically. If you want the response to include spelling correction or answers, add an optional **`speller`** or **`answers`** parameter on the request.
 
-The following example uses the hotels-sample-index to create a semantic query request with semantic answers and captions:
+The following example uses the [hotels-sample-index](search-get-started-portal.md) to create a semantic query request with semantic answers and captions:
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview      
@@ -124,13 +124,21 @@ While content in a search index can be composed in multiple languages, the query
 
 #### Step 2: Set searchFields
 
+Add searchFields to the request. It's optional but highly recommended.
+
+```json
+"searchFields": "HotelName,Category,Description",
+```
+
 The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to what fields are the most important to process.
 
-The order of the searchFields is critical. If you already use searchFields in existing code for simple or full Lucene queries, revisit this parameter to check for field order when switching to a semantic query type.
+In contrast with other parameters, searchFields is not new. You might already be using searchFields in existing code for simple or full Lucene queries. If so, revisit how the parameter is used so that you can check for field order when switching to a semantic query type.
 
-For two or more searchFields:
+Choose only fields of type edm.string and top-level string fields in collections. Avoid numerica fields, complex fields, and complex field collections. If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
 
-+ Include only string fields and top-level string fields in collections. If you happen to include non-string fields or lower-level fields in a collection, there is no error, but those fields won't be used in semantic ranking.
+Field order is critical. For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
+
+For two or more fields:
 
 + First field should always be concise (such as a title or name), ideally under 25 words.
 
@@ -138,21 +146,33 @@ For two or more searchFields:
 
 + Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
 
-If only one field specified, use a descriptive field where the answer to semantic queries may be found, such as the main content of a document. 
-
 #### Step 3: Remove orderBy clauses
 
 Remove any orderBy clauses, if they exist in an existing request. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
 
 #### Step 4: Add answers
 
-Optionally, add "answers" if you want to include additional processing that provides an answer. Answers (and captions) are extracted from passages found in fields listed in searchFields. Be sure to include content-rich fields in searchFields to get the best answers in a response. For more information, see [How to return semantic answers](semantic-answers.md).
+Optionally, add "answers" if you want to include additional processing that provides an answer. 
+
+```json
+"answers": "extractive|count-3",
+```
+
+Answers (and captions) are extracted from passages found in fields listed in searchFields. This is why you want to include content-rich fields in searchFields to get the best answers in a response. Answers are not guaranteed on every request. Your content must include text that has the characteristics of an answer. For more information, see [How to return semantic answers](semantic-answers.md).
 
 #### Step 5: Add other parameters
 
 Set any other parameters that you want in the request. Parameters such as [speller](speller-how-to-add.md), [select](search-query-odata-select.md), and count improve the quality of the request and readability of the response.
 
-Optionally, you can customize the highlight style applied to captions. Captions apply highlight formatting over key passages in the document that summarize the response. The default is `<em>`. If you want to specify the type of formatting (for example, yellow background), you can set the highlightPreTag and highlightPostTag.
+```json
+"speller": "lexicon",
+"select": "HotelId,HotelName,Description,Category",
+"count": true,
+"highlightPreTag": "<mark>",
+"highlightPostTag": "</mark>",
+```
+
+Highlight styling is applied to captions in the response. You can use the default style, or optionally customize the highlight style applied to captions. Captions apply highlight formatting over key passages in the document that summarize the response. The default is `<em>`. If you want to specify the type of formatting (for example, yellow background), you can set the highlightPreTag and highlightPostTag.
 
 ## Evaluate the response
 
