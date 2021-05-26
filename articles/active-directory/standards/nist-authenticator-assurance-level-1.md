@@ -33,7 +33,7 @@ Before you attempt to achieve authenticator assurance level 1 (AAL1), you might 
 | - | - |
 | Password |Memorized Secret |
 | Phone (SMS)|  Out-of-Band |
-|  FIDO 2 security key <br>Microsoft Authenticator app for iOS (Passwordless)<br>Windows Hello for Business with software TPM <br>Smartcard (ADFS) |  Multi-factor Crypto software |
+|  FIDO 2 security key <br>Microsoft Authenticator app for iOS (Passwordless)<br>Windows Hello for Business with software TPM <br>Smartcard (Active Directory Federation Services) |  Multi-factor Crypto software |
 
 > [!TIP]
 > We recommend that you meet at least AAL2. Meet AAL3 if necessary for business reasons, industry standards, or compliance requirements.
@@ -44,9 +44,9 @@ Before you attempt to achieve authenticator assurance level 1 (AAL1), you might 
 
 Azure AD uses the Windows FIPS 140 Level 1 overall validated cryptographic ‎module for all its authentication related cryptographic operations. It's therefore a FIPS 140 compliant verifier as required by government agencies.
 
-## Man-in-the-middle (MitM) resistance 
+## Man-in-the-middle resistance 
 
-All communications between the claimant and Azure AD are performed over an authenticated, protected channel, to provide resistance to MitM attacks. This satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
+All communications between the claimant and Azure AD are performed over an authenticated, protected channel, to provide resistance to man-in-the-middle (MitM) attacks. This satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
 
 ## Next steps 
 

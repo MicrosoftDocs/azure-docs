@@ -34,7 +34,7 @@ The following table provides details about the authenticator types permitted for
 | - | - |
 | **Recommended methods** |   | 
 | Microsoft Authenticator app for iOS (Passwordless)<br>Windows Hello for Business with software trusted platform module (TPM) | Multifactor crypto software |
-| FIDO 2 security key<br>Microsoft Authenticator app for Android (Passwordless)<br>Windows Hello for Business with hardware TPM<br>Smartcard (ADFS) | Multifactor crypto hardware |
+| FIDO 2 security key<br>Microsoft Authenticator app for Android (Passwordless)<br>Windows Hello for Business with hardware TPM<br>Smartcard (Active Directory Federation Services) | Multifactor crypto hardware |
 | **Additional methods** |  |
 | Password + Phone (SMS) | Memorized Secret + Out-of-Band |
 | Password + Microsoft Authenticator App (OTP)<br>Password + SF OTP | Memorized Secret +  â€ŽSingle-factor one-time password |
@@ -70,7 +70,7 @@ The cryptographic authenticators of government agencies are required to be valid
 
 * Windows Hello for Business with software or with hardware TPM
 
-* Smartcard (ADFS) 
+* Smartcard (Active Directory Federation Services) 
 
 FIDO2 security keys don't meet government agencies' requirement for FIPS 140 Level 1 overall validation as of this writing. The Microsoft Authenticator app doesn't meet this requirement either. This is true no matter which mode of the Microsoft Authenticator app you're using.
 
@@ -86,9 +86,9 @@ NIST also allows the use of compensating controls for confirming the subscriberâ
 
 * Timeout regardless of activity can be achieved by running a scheduled task (using Configuration Manager, GPO, or Intune) that locks the machine after 12 hours, regardless of activity.
 
-## Man-in-the-middle (MitM) resistance 
+## Man-in-the-middle resistance 
 
-All communications between the claimant and Azure AD are performed over an authenticated, protected channel, to provide resistance to MitM attacks. This satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
+All communications between the claimant and Azure AD are performed over an authenticated, protected channel, to provide resistance to man-in-the-middle (MitM) attacks. This satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
 
 ## Replay resistance
 

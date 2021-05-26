@@ -31,7 +31,7 @@ CSPs, governmental agencies, and those who work with them must often meet string
 
 CSPs and organizations in industries such as healthcare and finance must also meet industry standards, such as: 
 * [HIPPA](https://docs.microsoft.com/azure/compliance/offerings/offering-hipaa-us)
-* [Sorbanes-Oxley (Sox)](https://docs.microsoft.com/azure/compliance/offerings/offering-sox-us)
+* [Sorbanes-Oxley (SOX)](https://docs.microsoft.com/azure/compliance/offerings/offering-sox-us)
 
 To learn more about supported compliance frameworks, see [Azure compliance offerings](https://docs.microsoft.com/azure/compliance/offerings/).
 
