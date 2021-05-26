@@ -135,7 +135,7 @@ Repeat the steps above for a new method that authenticates a training client.
 
 You'll also need to add references to the URLs for your training and testing data. Add these to the root of your **Program** class.
 
-* [!INCLUDE [get SAS URL](../sas-instructions.md)]
+* [!INCLUDE [get SAS URL](sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
 * Then, repeat the above steps to get the SAS URL of an individual document in blob storage container. Save it to a temporary location as well.
