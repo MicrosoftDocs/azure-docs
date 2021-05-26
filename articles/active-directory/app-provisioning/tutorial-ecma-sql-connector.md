@@ -82,7 +82,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
  13.  On the **Agent Configuration** screen, click **Confirm**.
      ![Confirm installation](media/on-prem-ecma-install/install-5.png)</br>
  14.  Once the installation is complete, you should see a message at the bottom of the wizard.  Click **Finish**.
-     ![Click finish](media/on-prem-ecma-install/install-6.png)</br>
+     ![Finish button](media/on-prem-ecma-install/install-6.png)</br>
  15. Click **Close**.
  
 ## Step 4 - Configure the Azure AD ECMA Connector Host
@@ -199,7 +199,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 2. Click **get started**.
      ![get started](.\media\on-prem-ecma-configure\configure-6.png)
 3. On the **Provisioning page**, change the mode to **Automatic**
-     ![Add new application](.\media\on-prem-ecma-configure\configure-7.png)
+     ![Mode to automatic](.\media\on-prem-ecma-configure\configure-7.png)
 4. In the on-premises connectivity section, select the agent that you just deployed and click **assign agent(s)**.
      >[!NOTE]
      >After adding the agent, you need to wait 10 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
@@ -255,7 +255,7 @@ Now we need to map attributes between the on-premises application and our SQL se
      |Direct|mailNickname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID|
      ![Edit attributes](.\media\on-prem-ecma-configure\configure-12.png)
  7. Click **Save**
-     ![Add a mapping](.\media\tutorial-ecma-sql-connector\app-6.png)
+     ![Save the mapping](.\media\tutorial-ecma-sql-connector\app-6.png)
 
 ## Step 11 - Test provisioning
 Now that our attributes are mapped we can test on-demand provisioning with one of our users.
