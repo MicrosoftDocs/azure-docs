@@ -27,12 +27,118 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This a
 - An Azure account with a valid subscription
 - [Azure CLI](/cli/azure/) with the `azure-iot` CLI extension installed. For more information, see [the Azure IoT extension installation steps for Azure Azure CLI](/cli/azure/azure-cli-reference-for-iot).
 - An **IoT Hub** of SKU either F1, S1, S2, or S3.
-- Have an **IoT Edge device with version 1.2 or above**. Since IoT Edge MQTT broker is currently in public preview, set the following environment variables to true on the edgeHub container to enable the MQTT broker:
+- Have an **IoT Edge device with version 1.2 or above, including edgeAgent and edgeHub modules version 1.2 or above deployed, with the MQTT broker feature turned on and the edgeHub port 1883 bound to the host to enable non TLS connections**. You can deploy IoT Edge 1.2 automatically in an Azure VM using this [iotedge-vm-deploy script](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0). Since IoT Edge MQTT broker is currently in public preview, you need to also set the following environment variables to true on the edgeHub module to enable the MQTT broker:
 
    | Name | Value |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
+
+   To quickly create a deployment that includes the the edgeAgent and edgeHub versions 1.2 with the MQTT broker enabled, and edgeHub port 1883 enabled along with an open authorization policy on the `test_topic`:
+
+   - Save the following JSON deployment file in your working folder:
+
+```json
+{
+   "modulesContent":{
+      "$edgeAgent":{
+         "properties.desired":{
+            "schemaVersion":"1.1",
+            "runtime":{
+               "type":"docker",
+               "settings":{
+                  "minDockerVersion":"v1.25",
+                  "loggingOptions":"",
+                  "registryCredentials":{
+                     
+                  }
+               }
+            },
+            "systemModules":{
+               "edgeAgent":{
+                  "type":"docker",
+                  "settings":{
+                     "image":"mcr.microsoft.com/azureiotedge-agent:1.2",
+                     "createOptions":"{}"
+                  }
+               },
+               "edgeHub":{
+                  "type":"docker",
+                  "status":"running",
+                  "restartPolicy":"always",
+                  "settings":{
+                     "image":"mcr.microsoft.com/azureiotedge-hub:1.2",
+                     "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"1883/tcp\":[{\"HostPort\":\"1883\"}]}}}"
+                  },
+                  "env":{
+                     "experimentalFeatures__mqttBrokerEnabled":{
+                        "value":"true"
+                     },
+                     "experimentalFeatures__enabled":{
+                        "value":"true"
+                     },
+                     "RuntimeLogLevel":{
+                        "value":"debug"
+                     }
+                  }
+               }
+            },
+            "modules":{
+               
+            }
+         }
+      },
+      "$edgeHub":{
+         "properties.desired":{
+            "schemaVersion":"1.2",
+            "routes":{
+               "Upstream":"FROM /messages/* INTO $upstream"
+            },
+            "storeAndForwardConfiguration":{
+               "timeToLiveSecs":7200
+            },
+            "mqttBroker":{
+               "authorizations":[
+                  {
+                     "identities":[
+                        "{{iot:identity}}"
+                     ],
+                     "allow":[
+                        {
+                           "operations":[
+                              "mqtt:connect"
+                           ]
+                        }
+                     ]
+                  },
+                  {
+                     "identities":[
+                        "{{iot:identity}}"
+                     ],
+                     "allow":[
+                        {
+                           "operations":[
+                              "mqtt:publish",
+                              "mqtt:subscribe"
+                           ],
+                           "resources":[
+                              "test_topic"
+                           ]
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   }
+}
+```
+   - Apply this deployment to your IoT Edge device using the following Azure CLI command. For more info about this command, please see [Deploy Azure IoT Edge modules with Azure CLI](how-to-deploy-modules-cli.md).
+
+```azurecli
+az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [deployment file path]
+```
 
 - **Mosquitto clients** installed on the IoT Edge device. This article uses the popular Mosquitto clients [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) and [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html). Other MQTT clients could be used instead. To install the Mosquitto clients on an Ubuntu device, run the following command:
 
@@ -330,7 +436,7 @@ mosquitto_sub \
 
 where `<edge_device_address>` = `localhost` in this example since the client is running on the same device as IoT Edge.
 
-Note that port 1883 (MQTT), without TLS, is used in this first example. Another example with port 8883 (MQTTS), with TLS enabled, is shown in next section.
+Note that port 1883 (MQTT), without TLS, is used in this first example. For this to work, edgeHub port 1883 needs to be bound to the host via its create options. An example is given in the pre-requisite section. Another example with port 8883 (MQTTS), with TLS enabled, is shown in next section.
 
 The **sub_client** MQTT client is now started and is waiting for incoming messages on `test_topic`.
 
@@ -358,7 +464,10 @@ Executing the command, the **sub_client** MQTT client receives the "hello" messa
 
 To enable TLS, the port must be changed from 1883(MQTT) to 8883(MQTTS) and clients must have the root certificate of the MQTT broker to be able to validate the certificate chain sent by the MQTT broker. This can be done by following the steps provided in section [Secure connection (TLS)](#secure-connection-tls).
 
-Because the clients are running on the same device as the MQTT broker in the example above, the same steps apply to enable TLS just by changing the port number from 1883 (MQTT) to 8883 (MQTTS).
+Because the clients are running on the same device as the MQTT broker in the example above, the same steps apply to enable TLS by:
+    - Changing the port number from 1883 (MQTT) to 8883 (MQTTS)
+    - Passing the CA root certificate to the mosquitto_pub and mosquitto_sub clients using a parameter similar to `--cafile /certs/certs/azure-iot-test-only.root.ca.cert.pem`
+    - The hostname parameter passed to the mosquitto_pub and mosquitto_sub clients needs to be replaced by the actual hostname set up in IoT Edge (instead of `localhost`) to enable validation of the certificate chain
 
 ## Publish and subscribe on IoT Hub topics
 
