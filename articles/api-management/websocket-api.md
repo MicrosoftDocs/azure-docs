@@ -82,7 +82,7 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 1. Within your WebSocket API, select the onHandshake operation.
 1. Select the **Test** tab to access the Test console. 
 
-    :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="onHandshake screen example":::
+    :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="test API example":::
 
 1. Verify the query, payload fields are correct.
 1. Click **Connect**.
