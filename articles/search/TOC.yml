@@ -588,13 +588,15 @@
     href: https://azure.microsoft.com/support/community/?product=search
   - name: Partner spotlight
     href: resource-partners-knowledge-mining.md
+  - name: Partner data sources (Terms of Use)
+    href: search-data-sources-terms-of-use.md
   - name: Azure Updates
     href: https://azure.microsoft.com/updates/?product=search
   - name: Feedback Forum (UserVoice)
     href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Compliance and certifications
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
-  - name: Documentation links (knowledge mining)
+  - name: Documentation links (AI enrichment)
     href: cognitive-search-resources-documentation.md
   - name: Demo sites
     items:

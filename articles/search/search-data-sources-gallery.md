@@ -370,6 +370,8 @@ Extract searchable data and metadata from a Snowflake database and populate an i
 
 ## Data sources from our Partners
 
+Data source connectors are also provided by third-party Microsoft partners. See our [Terms of Use statement](search-data-sources-terms-of-use.md) and check the partner licensing and usage instructions before using a data source.
+
 :::row:::
 :::column span="":::
 
