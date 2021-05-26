@@ -20,7 +20,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | **Error Message**      | <span style="font-weight:normal">Azure Backup does not have required role  privileges to carry out Backup and Restore operations</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Possible causes**    | All operations will fail with this error when the Backup user (AZUREWLBACKUPHANAUSER) doesn’t have the **SAP_INTERNAL_HANA_SUPPORT** role assigned or the role may have been overwritten.                          |
-| **Recommended action** | <br>Download and run the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana), or manually assign the **SAP_INTERNAL_HANA_SUPPORT** role to the Backup user (AZUREWLBACKUPHANAUSER).<br><br>**Note**<br><br>If you are using **HANA 2.0 SPS04 Rev 46** and later, this error doesn’t occur as the use of the **SAP_INTERNAL_HANA_SUPPORT** role is deprecated in these HANA versions.<br> |
+| **Recommended action** | Download and run the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana), or manually assign the **SAP_INTERNAL_HANA_SUPPORT** role to the Backup user (AZUREWLBACKUPHANAUSER).<br><br>**Note**<br><br>If you are using **HANA 2.0 SPS04 Rev 46** and later, this error doesn’t occur as the use of the **SAP_INTERNAL_HANA_SUPPORT** role is deprecated in these HANA versions. |
 
 ### UserErrorInOpeningHanaOdbcConnection
 
@@ -153,7 +153,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error** | <span style="font-weight:normal">RecoverySys.py could not be run successfully to restore System DB.</span>
 -------- | ---------
-**Possible causes** | <br>Possible causes for System DB restore to fail are:</br><ul><li>Azure Backup is unable to find **Recoverysys.py** on the HANA machine. This happens when the HANA environment isn’t set up properly.</li><li>**Recoverysys.py** is present, but triggering this script has failed to invoke HANA to perform the restore.</li><li>Recoverysys.py has successfully invoked HANA to perform the restore, but HANA fails to restore.</li></ul>
+**Possible causes** | Possible causes for System DB restore to fail are:<ul><li>Azure Backup is unable to find **Recoverysys.py** on the HANA machine. This happens when the HANA environment isn’t set up properly.</li><li>**Recoverysys.py** is present, but triggering this script has failed to invoke HANA to perform the restore.</li><li>Recoverysys.py has successfully invoked HANA to perform the restore, but HANA fails to restore.</li></ul>
 **Recommended action** | <ul><li>For issue 1, work with the SAP HANA team to fix the issue.</li><li>For 2 and 3, see the log trace by running the HDSetting.sh command in sid-adm prompt. For example, **/usr/sap/SID/HDB00/HDBSetting.sh**.</li></ul><br>Share these findings with the SAP HANA team to get the issue fixed.</br>
 
 ### UserErrorDBNameNotInCorrectFormat
@@ -175,7 +175,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 *Error** | <span style="font-weight:normal">HDBSetting.sh file cannot be found.</span>
 --------- | -------
 **Possible causes** | System databases restore failed as the **&lt;sid&gt;adm** user environment couldn't find the **HDBsettings.sh** file to trigger restore.
-**Recommended action** | <br>Work with the SAP HANA team to fix this issue.</br><br>If HXE is the SID, ensure that environment variable HOME is set to **/usr/sap/HXE/home** as **sid-adm** user.</br>
+**Recommended action** | Work with the SAP HANA team to fix this issue.<br><br>If HXE is the SID, ensure that environment variable HOME is set to _/usr/sap/HXE/home_ as **sid-adm** user.
 
 ## Restore checks
 
