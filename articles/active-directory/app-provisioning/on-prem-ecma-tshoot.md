@@ -18,43 +18,37 @@ ms.collection: M365-identity-device-management
 ## Troubleshoot test connection issues. 
 After configuring the ECMA Host and Provisioning Agent, it's time to test connectivity from the Azure AD Provisioning service to the Provisioning Agent > ECMA Host > Application. This end to end test can be performed by clicking test connection in the application in the Azure Portal. When test connection fails, try the following troubleshooting steps:
 
-1. Verify that the agent and ECMA host are running:
-   1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
-   1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
+ 1. Verify that the agent and ECMA host are running:
+     1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
+     2. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
 ![ECMA service running](./media/on-prem-ecma-tshoot/tshoot-1.png)
 
-1. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection
-   1. This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
+ 2. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection
+   - This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
     It should be run on the same computer as the ECMA Connector Host service itself.
-
-1. Ensure that the agent is active by navigating to your application in the azure portal > click on admin connectivity > click on the agent dropdown and ensure your agent is active.
-
-1. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
-
-1. Ensure that you have assigned one or more agents to the application in the Azure Portal.  
-
-1. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate. 
-
-1. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
-
-1. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.   
-```
-https://localhost:8585/ecma2host_connectorName/scim
-```
+ 3. Ensure that the agent is active by navigating to your application in the azure portal, click on admin connectivity, click on the agent dropdown, and ensure your agent is active.
+ 4. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
+ 5. Ensure that you have assigned one or more agents to the application in the Azure Portal.
+ 6. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate.
+ 7. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
+ 8. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.
+    ```
+    https://localhost:8585/ecma2host_connectorName/scim
+    ```
 
 ## Unable to configure ECMA host, view logs in event viewer, or start ECMA host service
 
 #### The following issues can be resolved by running the ECMA host as an admin:
 
 * I get an error when opening the ECMA host wizard 
-![ECMA wizard error](./media/on-prem-ecma-tshoot/tshoot-2.png)
+   ![ECMA wizard error](./media/on-prem-ecma-tshoot/tshoot-2.png)
 
 * I've been able to configure the ECMA host wizard, but am not able to see the ECMA host logs. In this case you will need to open the host as an admin and setup a connector end to end. This can be simplified by exporting an existing connector and importing it again. 
 
-![Host logs](./media/on-prem-ecma-tshoot/tshoot-3.png)
+   ![Host logs](./media/on-prem-ecma-tshoot/tshoot-3.png)
 
 * I've been able to configure the ECMA host wizard, but am not able to start the ECMA host service
-![Host service](./media/on-prem-ecma-tshoot/tshoot-4.png)
+   ![Host service](./media/on-prem-ecma-tshoot/tshoot-4.png)
 
 
 ## Turning on verbose logging 
@@ -62,18 +56,33 @@ https://localhost:8585/ecma2host_connectorName/scim
 Enable verbose logging for the ECMA host service and / or Wizar. Set the "switchValue" to verbose in both locations as shown below.
 
 File location for verbose service logging: c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config
-```
-<?xml version="1.0" encoding="utf-8"?> 
-<configuration> 
-    <startup>  
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" /> 
-    </startup> 
-    <appSettings> 
-      <add key="Debug" value="true" /> 
-    </appSettings> 
-    <system.diagnostics> 
-      <sources> 
-    <source name="ConnectorsLog" switchValue="Verbose"> 
+  ```
+  <?xml version="1.0" encoding="utf-8"?> 
+  <configuration> 
+      <startup>  
+          <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" /> 
+      </startup> 
+      <appSettings> 
+        <add key="Debug" value="true" /> 
+      </appSettings> 
+      <system.diagnostics> 
+        <sources> 
+      <source name="ConnectorsLog" switchValue="Verbose"> 
+            <listeners> 
+              <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
+                <filter type=""/> 
+              </add> 
+            </listeners> 
+          </source> 
+          <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
+          <source name="ECMA2Host" switchValue="Verbose"> 
+            <listeners>  
+              <add initializeData="ECMA2Host" type="System.Diagnos
+  ```
+
+File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config
+  ```
+        <source name="ConnectorsLog" switchValue="Verbose"> 
           <listeners> 
             <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
               <filter type=""/> 
@@ -82,31 +91,16 @@ File location for verbose service logging: c:\program files\Microsoft ECMA2Host\
         </source> 
         <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
         <source name="ECMA2Host" switchValue="Verbose"> 
-          <listeners>  
-            <add initializeData="ECMA2Host" type="System.Diagnos
-```
-
-File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config
-```
-      <source name="ConnectorsLog" switchValue="Verbose"> 
-        <listeners> 
-          <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
-            <filter type=""/> 
-          </add> 
-        </listeners> 
-      </source> 
-      <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-      <source name="ECMA2Host" switchValue="Verbose"> 
-        <listeners> 
-          <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
-```
+          <listeners> 
+            <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
+  ```
 
 ## Target attribute missing 
 The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list in the Azure Portal, perform the following troubleshooting step:
 
-1. Review the "Select Attributes" page of your ECMA host configuration to verify that the attribute has been selected to be exposed to the Azure Portal.
-1. Ensure that the ECMA host service is turned on. 
-1. Review the ECMA host logs to verify that a /schemas request was made and review the attributes in the response. This information will be valuable for support to troubleshoot the issue. 
+ 1. Review the "Select Attributes" page of your ECMA host configuration to verify that the attribute has been selected to be exposed to the Azure Portal.
+ 2. Ensure that the ECMA host service is turned on. 
+ 3. Review the ECMA host logs to verify that a /schemas request was made and review the attributes in the response. This information will be valuable for support to troubleshoot the issue. 
 
 ## Collect logs from event viewer as a zip file
 Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts. Run the `CollectTroubleshootingInfo` script as an admin. It allows you to capture the logs in a zip file and export them.  
