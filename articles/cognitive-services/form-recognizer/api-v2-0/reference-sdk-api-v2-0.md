@@ -24,25 +24,25 @@ Get started with Azure Form Recognizer using the development language of your ch
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# SDK v2.0 (includes/csharp-v3-0-0.md)]
+[!INCLUDE [C# SDK v3.0.0](includes/csharp-v3-0-0.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java SDK v3.1.0](includes/java-v3-0-0.md)]
+[!INCLUDE [Java SDK v3.0.0](includes/java-v3-0-0.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS SDK v3.1.0](includes/javascript-v3-0-0.md)]
+[!INCLUDE [NodeJS SDK v3.0.0](includes/javascript-v3-0-0.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python SDK v3.1.0](includes/python-v3-0-0.md)]
+[!INCLUDE [Python SDK v3.0.0](includes/python-v3-0-0.md)]
 
 ::: zone-end
 
