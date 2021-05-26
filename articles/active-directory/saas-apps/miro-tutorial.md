@@ -121,7 +121,7 @@ To configure single sign-on on Miro side, use the certificate you previously dow
 1. Open the certificate file with a text editor and copy the certificate sequence. Paste the sequence in the **Key x509 Certificate** field.
 ![Miro settings](./media/miro-tutorial/security.png "Miro settings")
 
-1. In the **Domains** field type in your domain address, click **Add** and follow the verification procedure. Repeat for your other domain addresses if you have any. The Miro SSO feature will be working for the end-users which domains are on the list. 
+1. In the **Domains** field type in your domain address, click **Add** and follow the verification procedure. Repeat for your other domain addresses if you have any. The Miro SSO feature will be working for the end users which domains are on the list. 
 ![Domain](./media/miro-tutorial/add-domain.png "Domain")
 
 1. Decide if you will be using Just in Time provisioning (pulling your users into your subscription during their registration in Miro) and click **Save** to complete the SSO configuration on the Miro side.
