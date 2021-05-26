@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 05/26/2021
 ---
 
 # Use Azure Active Directory for authentication with PostgreSQL
@@ -43,7 +43,7 @@ We've designed the Azure AD integration to work with common PostgreSQL tools lik
 
 We currently have tested the following clients:
 
-- psql commandline (utilize the PGPASSWORD variable to pass the token, see step 3 for mor information)
+- psql commandline (utilize the PGPASSWORD variable to pass the token, see step 3 for more information)
 - Azure Data Studio (using the PostgreSQL extension)
 - Other libpq based clients (e.g. common application frameworks and ORMs)
 - PgAdmin (uncheck connect now at server creation. See step 4 for more information)
