@@ -189,10 +189,6 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#train-a-custom-model
           - text: Using the REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#train-a-custom-model
-      - linkListType: tutorial
-        links:
-          - text: Extract form data in bulk
-            url: tutorial-bulk-processing.md
       - linkListType: get-started
         links:
           - text: Try Form Recognizer (train a model)
