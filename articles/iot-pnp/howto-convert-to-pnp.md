@@ -13,6 +13,8 @@ services: iot-pnp
 
 This article outlines the steps you should follow to convert an existing device to an IoT Plug and Play device. It describes how to create the model that every IoT Plug and Play device requires, and the necessary code changes to enable the device to function as an IoT Plug and Play device.
 
+For the code samples, this article shows C code that uses an MQTT library to connect to an IoT hub. You can apply the changes described in this article to devices implemented with other languages and SDKs.
+
 To convert your existing device to be an IoT Plug and Play device:
 
 1. Review your device code to understand the telemetry, properties, and commands it implements.
@@ -27,7 +29,7 @@ Before you create a model for your device, you need to understand the existing c
 - The read-only and writable properties the device synchronizes with your service.
 - The commands invoked from the service that the device responds to.
 
-For example, review the following device code snippets that implement various device capabilities. These examples are based in the [IoT MQTT Samples](https://docs.microsoft.com/samples/azure-samples/iotmqttsample/iotmqttsample/):
+For example, review the following device code snippets that implement various device capabilities. These examples are based on the sample in the [PnPMQTTWin32-Before](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32-Before) before:
 
 The following snippet shows the device sending temperature telemetry:
 
@@ -48,7 +50,19 @@ void Thermostat_SendCurrentTemperature()
 }
 ```
 
-The name of the telemetry field is `temperature` and its type is float or a double.
+The name of the telemetry field is `temperature` and its type is float or a double. The model definition for this telemetry type looks like the following JSON. To learn mode, see [Design a model](#design-a-model) below:
+
+```json
+{
+  "@type": [
+    "Telemetry"
+  ],
+  "name": "temperature",
+  "displayName": "Temperature",
+  "description": "Temperature in degrees Celsius.",
+  "schema": "double"
+}
+```
 
 The following snippet shows the device reporting a property value:
 
@@ -67,7 +81,19 @@ static void SendMaxTemperatureSinceReboot()
 }
 ```
 
-The name of the property is `maxTempSinceLastReboot` and its type is float or double. This property is reported by the device, the device never receives an update for this value from the service.
+The name of the property is `maxTempSinceLastReboot` and its type is float or double. This property is reported by the device, the device never receives an update for this value from the service. The model definition for this property looks like the following JSON. To learn mode, see [Design a model](#design-a-model) below:
+
+```json
+{
+  "@type": [
+    "Property"
+  ],
+  "name": "maxTempSinceLastReboot",
+  "schema": "double",
+  "displayName": "Max temperature since last reboot.",
+  "description": "Returns the max temperature since last device reboot."
+}
+```
 
 The following snippet shows the device responding to messages from the service:
 
@@ -129,7 +155,7 @@ void message_callback(struct mosquitto* mosq, void* obj, const struct mosquitto_
 }
 ```
 
-The `$iothub/methods/POST/getMaxMinReport/` topic receives a command called `getMaxMinReport` from the service and responds with a payload that includes `maxTemp` and `minTemp` values.
+The `$iothub/methods/POST/getMaxMinReport/` topic receives a request for command called `getMaxMinReport` from the service, this request could include a payload with command parameters. The device sends a response with a payload that includes `maxTemp` and `minTemp` values.
 
 The `$iothub/twin/PATCH/properties/desired/` topic receives property updates from the service. This example assumes the property update is for the `targetTemperature` property. It responds with an acknowledgment that looks like `{\"targetTemperature\":{\"value\":46,\"ac\":200,\"av\":12,\"ad\":\"success\"}}`.
 
@@ -146,7 +172,7 @@ In summary, the sample implements the following capabilities:
 
 Every IoT Plug and Play device has a model that describes the features and capabilities of the device. The model uses the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) to describe the device capabilities.
 
-IoT Plug and Play uses the following DTDL elements to describe devices: *Interface*, *Telemetry*, *Property*, *Command*, *Relationship*, and *Component*. For a simple model that maps the existing capabilities of your device, use *Interface*, *Telemetry*, *Property*, and *Command*.
+For a simple model that maps the existing capabilities of your device, use the *Telemetry*, *Property*, and *Command* DTDL elements.
 
 A DTDL model for the sample described in the previous section looks like the following example:
 
@@ -234,7 +260,7 @@ To learn more, see [IoT Plug and Play conventions](concepts-convention.md) and [
 
 ## Update the code
 
-If your device is already working with IoT Hub or IoT Central, you don't need to make any changes to the implementation of its telemetry, property, and command capabilities. You do need to modify the way that the device connects to your service so that it announces the ID of the model you created. The service can then use the model to understand the device capabilities. For example, IoT Central can use the model ID to automatically retrieve the model from a repository and generate a device template for your device.
+If your device is already working with IoT Hub or IoT Central, you don't need to make any changes to the implementation of its telemetry, property, and command capabilities. To make the device follow the IoT Plug and Play conventions, modify the way that the device connects to your service so that it announces the ID of the model you created. The service can then use the model to understand the device capabilities. For example, IoT Central can use the model ID to automatically retrieve the model from a repository and generate a device template for your device.
 
 IoT devices connect to your IoT service either through the Device Provisioning Service (DPS) or directly with a connection string.
 
@@ -246,12 +272,12 @@ If your device uses DPS to connect, include the model ID in the payload you send
 }
 ```
 
-To learn more, see [Runtime Registration - Register Device](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice).
+To learn more, see [Runtime Registration - Register Device](/rest/api/iot-dps/runtimeregistration/registerdevice).
 
 If your device uses DPS to connect or connects directly with a connection string, include the model ID when your code connects to IoT Hub. For example:
 
 ```c
-#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2020-05-31-preview&model-id=dtmi:com:example:ConvertSample;1"
+#define USERNAME IOTHUBNAME ".azure-devices.net/" DEVICEID "/?api-version=2020-09-30&model-id=dtmi:com:example:ConvertSample;1"
 
 // ...
 

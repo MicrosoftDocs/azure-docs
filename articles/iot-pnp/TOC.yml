@@ -59,7 +59,7 @@
     href: howto-use-dtdl-authoring-tools.md
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
-  - name: Convert an device to IoT Plug and Play
+  - name: Convert a device to IoT Plug and Play
     href: howto-convert-to-pnp.md
   - name: How to connect an IoT Plug and Play bridge sample
     href: howto-use-iot-pnp-bridge.md
