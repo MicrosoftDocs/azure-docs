@@ -112,7 +112,7 @@ Disable delta property : false
 Single vip registry refresh property : null
 ```
 
-> The defualt format being used is
+> The default format being used is
 > ```
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
