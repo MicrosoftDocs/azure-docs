@@ -18,7 +18,7 @@ Continue to build your Search-enabled website by:
 * Creating a Search resource with the VS Code extension
 * Creating a new index and importing data with Python using the sample script and Azure SDK [azure-search-documents](https://pypi.org/project/azure-search-documents/).
 
-## Create an Azure Search resource 
+## Create an Azure Cognitive Search resource 
 
 Create a new Search resource with the [Azure Cognitive Search](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) extension for Visual Studio Code.
 
@@ -34,7 +34,7 @@ Create a new Search resource with the [Azure Cognitive Search](https://marketpla
     |--|--|
     |Enter a globally unique name for the new Search Service.|**Remember this name**. This resource name becomes part of your resource endpoint.|
     |Select a resource group for new resources|Use the resource group you created for this tutorial.|
-    |Select the SKU for your Search service.|Select **Free** for this tutorial. You can't change a SKU pricing tier after the service is created.|
+    |Select the SKU for your Search service.|Select **Free** for this tutorial. You can't change a pricing tier after the service is created.|
     |Select a location for new resources.|Select a region close to you.|
 
 1. After you complete the prompts, your new Search resource is created. 
@@ -47,7 +47,7 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
     :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-admin-key.png" alt-text="In the Side bar, right-click on your Search resource and select **Copy Admin Key**.":::
 
-1. Keep this admin key, you will need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
+1. Keep this admin key, you will need to use it to create objects in [a later section](#prepare-the-bulk-import-script-for-search). 
 
 ## Prepare the bulk import script for Search
 
@@ -65,24 +65,41 @@ The script uses the Azure SDK for Cognitive Search:
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-upload`, and run the following command to install the dependencies. 
 
+    # [macOS/Linux](#tab/linux-install)
+    
     ```bash
-    pip install -r requirements.txt 
+    python3 -m pip install -r requirements.txt 
+    ```
+    
+    # [Windows](#tab/windows-install)
+
+    ```bash
+    py -m pip install -r requirements.txt 
     ```
 
 ## Run the bulk import script for Search
 
 1. Continue using the integrated terminal in Visual Studio for the project directory's subdirectory, `search-website/bulk-upload`, to run the following bash command to run the `bulk_upload.py` script:
 
+    # [macOS/Linux](#tab/linux-run)
+    
     ```bash
-    python bulk-upload.py
+    python3 bulk-upload.py
     ```
+    
+    # [Windows](#tab/windows-run)
+
+    ```bash
+    py bulk-upload.py
+    ```
+
 
 1. As the code runs, the console displays progress. 
 1. When the upload is complete, the last statement printed to the console is "Done. Press any key to close the terminal.".
 
 ## Review the new Search Index
 
-Once the upload completes, the Search Index is ready to use. Review your new Index.
+Once the upload completes, the search index is ready to use. Review your new index.
 
 1. In Visual Studio Code, open the Azure Cognitive Search extension and select your Search resource.  
 

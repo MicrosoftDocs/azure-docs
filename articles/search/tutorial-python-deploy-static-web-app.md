@@ -29,16 +29,13 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     |Prompt|Enter|
     |--|--|
-    |How do you want to create a Static Web App?|Use existing GitHub repository|
-    |Choose organization|Select your _own_ GitHub alias as the organization.|
-    |Choose repository|Select **azure-search-python-samples** from the list. |
-    |Choose branch of repository|Select **master** from the list. |
-    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-python-samples`. |
+    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
+    |Select a SKU| Select the free SKU for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
-    |Select the location of your application code|`search-website`|
-    |Select the location of your Azure Function code|`search-website/api`|
-    |Enter the path of your build output...|build|
+    |Select the location of your application code|`search-website`<br><br>This is the path, from the root of the repository, to your Azure Static web app. |
+    |Select the location of your Azure Function code|`search-website/api`<br><br>This is the path, from the root of the repository, to your Azure Function app. |
+    |Enter the path of your build output...|`build`<br><br>This is the path, from your Azure Static web app, to your generated files.|
     |Select a location for new resources.|Select a region close to you.|
 
 1. The resource is created, select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
@@ -47,19 +44,19 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     Wait until the build and deployment complete before continuing. This may take a minute or two to finish.
 
-## Get Cognitive Search query key in Visual Studio Code
+## Get Cognitive Search query key in VS Code
 
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
+1. In VS Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
 
 1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**. 
 
     :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**.":::
 
-1. Keep this query key, you will need to use it in the next section. The query key is able to query your Index. 
+1. Keep this query key, you will need to use it in the next section. The query key is able to query your index. 
 
 ## Add configuration settings in Azure portal
 
-The Azure Function app won't return Search data until the Search secrets are in settings. 
+The Azure Function app won't return search data until the search secrets are in settings. 
 
 1. Select **Azure** from the Activity Bar. 
 1. Right-click on your Static web app resource then select **Open in Portal**.
@@ -74,27 +71,27 @@ The Azure Function app won't return Search data until the Search secrets are in 
 
     |Setting|Your Search resource value|
     |--|--|
-    |SearchApiKey|Your Search query key|
-    |SearchServiceName|Your Search resource name|
+    |SearchApiKey|Your search query key|
+    |SearchServiceName|Your search resource name|
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
 
-    Azure Cognitive Search requires different syntax for filtering collections than it does for strings. Add a `*` after a field name to denote that the field is of type `Collection(Edm.String)`. This allows the Azure Function to add filters correctly to queries.
+    Azure Cognitive Search requires different syntax for filtering collections than it does for strings. For the authors* facet, adding a * after a field name denotes that the field is of type Collection(Edm.String). This allows the Azure Function to add filters correctly to queries.
 
 1. Select **Save** to save the settings. 
 
     :::image type="content" source="media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Select Save to save the settings.":::
 
 1. Return to VS Code. 
-1. Refresh your Static web app to see the Static web app's application settings. 
+1. Refresh your static web app to see the static web app's application settings. 
 
     :::image type="content" source="media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Refresh your Static web app to see the Static web app's application settings.":::
 
 ## Use search in your Static web app
 
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon.
-1. In the Side bar, **right-click on your Azure subscription** under the `Static web apps` area and find the Static web app you created for this tutorial.
-1. Right-click the Static Web App name and select **Browse site**.
+1. In VS Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon.
+1. In the Side Bar, **right-click on your Azure subscription** under the `Static web apps` area and find the static web app you created for this tutorial.
+1. Right-click your static web app name and select **Browse site**.
     
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Right-click the Static Web App name and select **Browse site**.":::    
 
@@ -106,7 +103,7 @@ The Azure Function app won't return Search data until the Search secrets are in 
 
 To clean up the resources created in this tutorial, delete the resource group.
 
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
+1. In VS Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
 
 1. In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and find the resource group you created for this tutorial.
 1. Right-click the resource group name then select **Delete**.
