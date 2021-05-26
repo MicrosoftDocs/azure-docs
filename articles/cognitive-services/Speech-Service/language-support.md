@@ -281,8 +281,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Slovenian (Slovenia) | `sl-SI` | Male | `sl-SI-RokNeural` | General |
 | Spanish (Argentina) | `es-AR` | Female | `es-AR-ElenaNeural` <sup>New</sup> | General |
 | Spanish (Argentina) | `es-AR` | Male | `es-AR-TomasNeural` <sup>New</sup> | General |
-| Spanish (Columbia) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>New</sup> | General |
-| Spanish (Columbia) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>New</sup> | General |
+| Spanish (Colombia) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>New</sup> | General |
+| Spanish (Colombia) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>New</sup> | General |
 | Spanish (Mexico) | `es-MX` | Female | `es-MX-DaliaNeural` | General |
 | Spanish (Mexico) | `es-MX` | Male | `es-MX-JorgeNeural` | General |
 | Spanish (Spain) | `es-ES` | Female | `es-ES-ElviraNeural` | General |

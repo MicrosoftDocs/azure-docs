@@ -61,7 +61,7 @@ Below is a high-level diagram of the components and benefits of protecting your 
 
 
 
-## FAQ for Azure Container Registry image scanning
+## FAQ - Azure Container Registry image scanning
 
 ### How does Security Center scan an image?
 Security Center pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner. The scanner extracts a list of known vulnerabilities.
