@@ -883,6 +883,8 @@
         href: ./interactive-query/hdinsight-security-options-for-hive.md
       - name: Apache Hive LLAP Workload Management
         href: ./interactive-query/troubleshoot-workload-management-issues.md
+      - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
+        href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
   - name: Reference
     items:
     - name: Hive LLAP Workload Management commands

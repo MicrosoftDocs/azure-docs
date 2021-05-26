@@ -101,7 +101,7 @@ The status of items that appear in this tables will change over time as support 
 
 | Storage feature | Premium | Standard |Storage Feature | Premium | Standard |
 |-----------------|---------|----------|----------------|---------|----------|
-| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | 	✔️ | [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2) | ⛔ | 	⛔ |
+| [Blob service REST API](/rest/api/storageservices/blob-service-rest-api)	| ✔️ | 	✔️ | [Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2) | ✔️ | 	✔️ |
 | [Access tiers for Azure Blob storage](storage-blob-storage-tiers.md) |	✔️ | 	✔️ | [Blob index tags](storage-blob-index-how-to.md) |	⛔ | ⛔ |
 | [Azure Blob Storage lifecycle management](storage-lifecycle-management-concepts.md) | ✔️  |	✔️ | [Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | ⛔ |	⛔ |
 |  [Azure Storage blob inventory](blob-inventory.md) |	✔️  |	✔️ | [Change Feed](storage-blob-change-feed.md) |	⛔ |	⛔ |

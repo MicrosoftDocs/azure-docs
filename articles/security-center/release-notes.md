@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ms.author: memildin
 
 ---
@@ -27,6 +27,8 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 Updates in May include:
 
 - [Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
+- [Azure Defender for open-source relational databases released for General Availability (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
+- [New alerts for Azure Defender for Resource Manager](#new-alerts-for-azure-defender-for-resource-manager)
 - [More Resource Graph queries available for some recommendations](#more-resource-graph-queries-available-for-some-recommendations)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
 - [New recommendations to enable trusted launch capabilities (in preview)](#new-recommendations-to-enable-trusted-launch-capabilities-in-preview)
@@ -58,6 +60,40 @@ To simplify the process of enabling these plans, use the recommendations:
 
 > [!NOTE]
 > Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
+
+
+### Azure Defender for open-source relational databases released for General Availability (GA)
+
+Azure Security Center expands its offer for SQL  protection with a new bundle to cover your open-source relational databases:
+
+- **Azure Defender for Azure SQL database servers** - defends your Azure-native SQL Servers
+- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multi-cloud, and on-premises environments
+- **Azure Defender for open-source relational databases** - defends your Azure Databases for MySQL, PostgreSQL, and MariaDB single servers
+
+Azure Defender for open-source relational databases constantly monitors your servers for security threats and detects anomalous database activities indicating potential threats to Azure Database for MySQL, PostgreSQL, and MariaDB. Some examples are:
+
+- **Granular detection of brute force attacks** -  Azure Defender for open-source relational databases provides detailed information on attempted and successful brute force attacks. This lets you investigate and respond with a more complete understanding of the nature and status of the attack on your environment.
+- **Behavioral alerts detection** - Azure Defender for open-source relational databases alerts you to suspicious and unexpected behaviors on your servers, such as changes in the access pattern to your database.
+- **Threat intelligence-based detection** - Azure Defender leverages Microsoft’s threat intelligence and vast knowledge base to surface threat alerts so you can act against them.
+
+Learn more in [Introduction to Azure Defender for open-source relational databases](defender-for-databases-introduction.md).
+
+### New alerts for Azure Defender for Resource Manager
+
+To expand the threat protections provided by Azure Defender for Resource Manager, we've added the following alerts:
+
+| Alert (alert type)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE tactics | Severity |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
+|**Permissions granted for an RBAC role in an unusual way for your Azure environment (Preview)**<br>(ARM_AnomalousRBACRoleAssignment)|Azure Defender for Resource Manager detected an RBAC role assignment that's unusual when compared with other assignments performed by the same assigner /  performed for the same assignee / in your tenant due to the following anomalies: assignment time, assigner location, assigner, authentication method, assigned entities, client software used, assignment extent. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to grant permissions to an additional user account they own.|Lateral Movement, Defense Evasion|Medium|
+|**Privileged custom role created for your subscription in a suspicious way (Preview)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Azure Defender for Resource Manager detected a suspicious creation of privileged custom role definition in your subscription. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to create a privileged role to use in the future to evade detection.|Lateral Movement, Defense Evasion|Low|
+|**Azure Resource Manager operation from suspicious IP address (Preview)**<br>(ARM_OperationFromSuspiciousIP)|Azure Defender for Resource Manager detected an operation from an IP address that has been marked as suspicious in threat intelligence feeds.|Execution|Medium|
+|**Azure Resource Manager operation from suspicious proxy IP address (Preview)**<br>(ARM_OperationFromSuspiciousProxyIP)|Azure Defender for Resource Manager detected a resource management operation from an IP address that is associated with proxy services, such as TOR. While this behavior can be legitimate, it's often seen in malicious activities, when threat actors try to hide their source IP.|Defense Evasion|Medium|
+||||
+
+For more information, see:
+- [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+- [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
 
 
 ### More Resource Graph queries available for some recommendations

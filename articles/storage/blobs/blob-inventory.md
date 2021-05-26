@@ -26,14 +26,7 @@ Blob inventory is supported for both general purpose version 2 (GPv2) and premiu
 
 ### Preview regions
 
-The blob inventory preview is available on storage accounts in the following regions:
-
-- France Central
-- Canada Central
-- Canada East
-- East US
-- East US2
-- West Europe
+The blob inventory preview is available on storage accounts in all public regions.
 
 ### Pricing and billing
 

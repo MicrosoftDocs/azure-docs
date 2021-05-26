@@ -40,9 +40,9 @@ If your query fails with the error 'File cannot be opened because it does not ex
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
-#### Alternative to Storage Blog Data Contributer 
+#### Alternative to Storage Blob Data Contributor role
 
-Instead of granting Storage Blob Data Contributer, you can also grant more granular permissions on a subset of files. 
+Instead of granting Storage Blob Data Contributor, you can also grant more granular permissions on a subset of files. 
 
 * All users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). 
 Learn more about [how to set ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-explorer-acl.md). 
@@ -82,36 +82,6 @@ If your query fails with the error message 'This query can't be executed due to 
 - If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
-
-### CREATE STATEMENT is not supported in master database
-
-If your query fails with the error message:
-
-> 'Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' 
-
-it means that master database in serverless SQL pool does not support creation of:
-  - External tables
-  - External data sources
-  - Database scoped credentials
-  - External file formats
-
-Solution:
-
-  1. Create a user database:
-
-```sql
-CREATE DATABASE <DATABASE_NAME>
-```
-
-  2. Execute create statement in the context of <DATABASE_NAME>, which failed earlier for master database. 
-  
-  Example for creation of External file format:
-    
-```sql
-USE <DATABASE_NAME>
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
-WITH ( FORMAT_TYPE = PARQUET)
-```
 
 ### Query fails with error while handling an external file. 
 
@@ -448,6 +418,36 @@ CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 
 > [!NOTE]
 > Replace 'password' with a different secret here. 
+
+### CREATE STATEMENT is not supported in master database
+
+If your query fails with the error message:
+
+> 'Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' 
+
+it means that master database in serverless SQL pool does not support creation of:
+  - External tables
+  - External data sources
+  - Database scoped credentials
+  - External file formats
+
+Solution:
+
+  1. Create a user database:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Execute create statement in the context of <DATABASE_NAME>, which failed earlier for master database. 
+  
+  Example for creation of External file format:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
 
 ### Operation [[operation name]] is not allowed for a replicated database.
    

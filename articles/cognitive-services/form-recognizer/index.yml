@@ -20,28 +20,28 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Form Recognizer
+  - title: About Azure Form Recognizer
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Form Recognizer?
+          - text: What is Azure Form Recognizer?
             url: overview.md
           - text: What are Azure Applied AI Services?
             url: https://aka.ms/applied-ai-services-hub
       - linkListType: whats-new
         links:
-          - text: What's new in Form Recognizer?
+          - text: What's new in Azure Form Recognizer?
             url: whats-new.md
       - linkListType: video
         links:
-          - text: Extracting data from documents and forms
+          - text: Extracting Data From Documents and Forms with OCR and Form Recognizer
             url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
           - text: AI-powered process automation
             url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
           - text: Newest features and updates
             url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
 
-  - title: Extract data from form layout
+  - title: Extract layout and structure from documents
     linkLists:
       - linkListType: concept
         links:
@@ -189,10 +189,6 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#train-a-custom-model
           - text: Using the REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#train-a-custom-model
-      - linkListType: tutorial
-        links:
-          - text: Extract form data in bulk
-            url: tutorial-bulk-processing.md
       - linkListType: get-started
         links:
           - text: Try Form Recognizer (train a model)
