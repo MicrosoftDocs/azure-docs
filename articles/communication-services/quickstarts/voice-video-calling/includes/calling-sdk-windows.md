@@ -177,7 +177,7 @@ The following code should be added inside `HangupHandler`.
 
 ```csharp
 HangupOptions hangupOptions = new HangupOptions();
-call_.Hangup(hangupOptions).Completed +=
+call_.HangupAsync(hangupOptions).Completed +=
 (IAsyncAction asyncInfo, AsyncStatus asyncStatus) =>
 {
 };
