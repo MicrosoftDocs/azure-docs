@@ -75,7 +75,7 @@ Add following options when `AddAzureSignalR`:
 ```C#
 services.AddSignalR().AddAzureSignalR(option =>
 {
-    option.ConnectionString = "Endpoint=https://<name>.service.signalr.net;AuthType=aad;";
+    option.ConnectionString = "Endpoint=https://<name>.service.signalr.net;AuthType=aad;Version=1.0;";
 });
 ```
 
@@ -87,7 +87,7 @@ On local, in your `local.appsettings.json` file, add in the `Values` section:
 ```json
 {
     "Values": {
-        "AzureSignalRConnectionString": "Endpoint=https://<name>.service.signalr.net;AuthType=aad;"
+        "AzureSignalRConnectionString": "Endpoint=https://<name>.service.signalr.net;AuthType=aad;Version=1.0;"
     }
 }
 ```
