@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 05/21/2021
 ms.author: cavoeg
 ---
 
@@ -17,7 +17,7 @@ Below are some examples of using FHIR search operations, including search parame
 
 ### _include
 
-`_include` searches across resources for the ones that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`:
+`_include` searches across resources for the ones that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`. In the example below, this will pull all the `MedicationRequests` and all patients that are referenced from the `MedicationRequests`:
 
 ```rest
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
@@ -29,10 +29,10 @@ Below are some examples of using FHIR search operations, including search parame
 
 ### _revinclude
 
-`_revinclude` is an additional search on top of `_include`, searching across the resources that reference the search results from `_include`. For example, you can search `MedicationRequest` resources. For each resource returned, search for `DetectedIssue` resources that show the clinical issues with the `patient`:
+`_revinclude` allows you to search the opposite direction as `_include`. For example, you can search for patients and then reverse include all encounters that reference the patients:
 
 ```rest
-GET [your-fhir-server]/MedicationRequest?_revinclude=DetectedIssue:patient
+GET [your-fhir-server]/Patient?_revinclude=Encounter:subject
 
 ```
 ### _elements
@@ -64,7 +64,7 @@ As a return value, you would get all patient entries where the gender is not fem
 `:missing` returns all resources that don't have a value for the specified element when the value is `true`, and returns all the resources that contain the specified element when the value is `false`. For simple data type elements, `:missing=true` will match on all resources where the element is present with extensions but has an empty value. For example, if you want to find all `Patient` resources that are missing information on birth date, you can do:
 
 ```rest
-GET [your-fhir-server]/Patient?birthDate:missing=true
+GET [your-fhir-server]/Patient?birthdate:missing=true
 
 ```
 
@@ -99,7 +99,7 @@ To perform a series of search operations that cover multiple reference parameter
 
 This request would return all the resources with the patient subject named "Sarah". The period `.` after the field `Patient` performs the chained search on the reference parameter of the `subject` parameter.
 
-Another common use of chained search is finding all encounters for a specific patient. `Patient`s will often have one or more `Encounter`s with a subject. To search for all `Encounter` resources for a `Patient` with the provided `id`:
+Another common use of a regular search (not a chained search) is finding all encounters for a specific patient. `Patient`s will often have one or more `Encounter`s with a subject. To search for all `Encounter` resources for a `Patient` with the provided `id`:
 
 ```rest
 GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
@@ -109,7 +109,7 @@ GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e661
 Using chained search, you can find all the `Encounter` resources that matches a particular piece of `Patient` information, such as the `birthdate`:
 
 ```rest
-GET [your-fhir-server]/Encounter?subject:Patient.birthDate=1987-02-20
+GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
 
 ```
 
