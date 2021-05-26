@@ -71,7 +71,6 @@ Add following options when `AddAzureSignalR`:
 services.AddSignalR().AddAzureSignalR(option =>
 {
     option.ConnectionString = "Endpoint=https://<name>.service.signalr.net;AuthType=aad;Version=1.0;";
-
 });
 ```
 
