@@ -49,28 +49,6 @@ If you want to use NSX-T to host your DHCP server, you'll create a DHCP server a
 
 1. Select **Save** again and then select **Close Editing**.
 
-### Create DHCP relay service
-
-1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add Server**.
-
-1. Select **DHCP Relay** for the **Server Type**, provide the server name and IP address, and then select **Save**.
-
-   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="create dhcp relay service" border="true":::
-
-1. Select **Tier 1 Gateways**, select the vertical ellipsis on the Tier-1 gateway, and then select **Edit**.
-
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="edit tier 1 gateway" border="true":::
-
-1. Select **No IP Allocation Set** to define the IP address allocation.
-
-   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="edit ip address allocation" border="true":::
-
-1. For **Type**, select **DHCP Server**. 
-   
-1. For the **DHCP Server**, select **DHCP Relay**, and then select **Save**.
-
-1. Select **Save** again and then select **Close Editing**.
-
 ### Add a network segment
 
 [!INCLUDE [add-network-segment-steps](includes/add-network-segment-steps.md)]
