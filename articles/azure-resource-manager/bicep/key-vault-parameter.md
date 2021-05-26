@@ -1,22 +1,22 @@
 ---
-title: Key Vault secret with template (Bicep)
-description: Shows how to pass a secret from a key vault as a parameter during deployment. (Bicep)
+title: Key Vault secret with Bicep
+description: Shows how to pass a secret from a key vault as a parameter during Bicep deployment.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 06/01/2021
 ---
 
-# Use Azure Key Vault to pass secure parameter value during deployment (Bicep)
+# Use Azure Key Vault to pass secure parameter value during Bicep deployment
 
-Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
+Instead of putting a secure value (like a password) directly in your Bicep file or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. When a [module](./modules.md) expects a `string` parameter with `secure:ture` modifier, you can use the `getSecret` method to obtain a key vault secret. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
 
-This article's focus is how to pass a sensitive value as a template parameter. The article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault.
+This article's focus is how to pass a sensitive value as a Bicep parameter. The article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault.
 For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
 ## Deploy key vaults and secrets
 
-To access a key vault during template deployment, set `enabledForTemplateDeployment` on the key vault to `true`.
+To access a key vault during Bicep deployment, set `enabledForTemplateDeployment` on the key vault to `true`.
 
 If you already have a key vault, make sure it allows template deployments.
 
@@ -97,7 +97,7 @@ For more information about creating key vaults and adding secrets, see:
 
 ## Grant access to the secrets
 
-The user who deploys the template must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
+The user who deploys the Bicep file must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the scope of the resource group and key vault. The [Owner](../../role-based-access-control/built-in-roles.md#owner) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles both grant this access. If you created the key vault, you're the owner and have the permission.
 
 The following procedure shows how to create a role with the minimum permission, and how to assign the user.
 
@@ -105,9 +105,9 @@ The following procedure shows how to create a role with the minimum permission, 
 
     ```json
     {
-      "Name": "Key Vault resource manager template deployment operator",
+      "Name": "Key Vault Bicep deployment operator",
       "IsCustom": true,
-      "Description": "Lets you deploy a resource manager template with the access to the secrets in the Key Vault.",
+      "Description": "Lets you deploy a Bicep file with the access to the secrets in the Key Vault.",
       "Actions": [
         "Microsoft.KeyVault/vaults/deploy/action"
       ],
@@ -148,55 +148,66 @@ The following procedure shows how to create a role with the minimum permission, 
 
     The samples assign the custom role to the user on the resource group level.
 
-When using a key vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
+When using a key vault with the Bicep file for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
-## Reference secrets with static ID
+## Use getSecret
 
-With this approach, you reference the key vault in the parameter file, not the template. The following image shows how the parameter file references the secret and passes that value to the template.
+You can use the `getSecret` method to obtain a key vault secret and pass the value to a `string` parameter of a module. The `getSecret` method can only be called on a     `Microsoft.KeyVault/vaults` resource and can be used only with parameter with @secure() decorator.
 
-![Resource Manager key vault integration Static ID diagram](./media/key-vault-parameter/statickeyvault.png)
+The following Bicep file creates an Azure SQL server. The `adminPassword` parameter has a `@secure()` decorator.
 
-[Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](../templates/template-tutorial-use-key-vault.md) uses this method.
+```bicep
+param sqlServerName string
+param adminLogin string
 
-The following template deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But the template doesn't specify where that value comes from.
+@secure()
+param adminPassword string
 
-# [JSON](#tab/json)
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "adminLogin": {
-      "type": "string"
-    },
-    "adminPassword": {
-      "type": "securestring"
-    },
-    "sqlServerName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Sql/servers",
-      "apiVersion": "2015-05-01-preview",
-      "name": "[parameters('sqlServerName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-        "administratorLogin": "[parameters('adminLogin')]",
-        "administratorLoginPassword": "[parameters('adminPassword')]",
-        "version": "12.0"
-      }
-    }
-  ],
-  "outputs": {
+resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
+  name: sqlServerName
+  location: resourceGroup().location
+  properties: {
+    administratorLogin: adminLogin
+    administratorLoginPassword: adminPassword
+    version: '12.0'
   }
 }
 ```
 
-# [Bicep](#tab/bicep)
+Let's use the preceding Bicep file as a module given the file name is *sql.bicep* in the same directory as the main Bicep file.
+
+The following Bicep file consumes the sql.bicep as a module.  The Bicep file references an existing key vault, and calls the `getSecret` method to retrieve the key vault secret, and then passes the value as a parameter to the module.
+
+```bicep
+param sqlServerName string
+param adminLogin string
+
+param subscriptionId string
+param kvResourceGroup string
+param kvName string
+
+resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+  name: kvName
+  scope: resourceGroup(subscriptionId, kvResourceGroup )
+}
+
+module sql './sql.bicep' = {
+  name: 'deploySQL'
+  params: {
+    sqlServerName: sqlServerName
+    adminLogin: adminLogin
+    adminPassword: kv.getSecret('vmAdminPassword')
+  }
+}
+```
+
+## Reference secrets in parameter file
+
+With this approach, you reference the key vault in the parameter file, not the Bicep. The following image shows how the parameter file references the secret and passes that value to the Bicep file.
+
+![Resource Manager key vault integration diagram](./media/key-vault-parameter/statickeyvault.png)
+
+The following Bicep file deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But the Bicep doesn't specify where that value comes from.
 
 ```bicep
 param adminLogin string
@@ -219,7 +230,7 @@ resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
 
 ---
 
-Now, create a parameter file for the preceding template. In the parameter file, specify a parameter that matches the name of the parameter in the template. For the parameter value, reference the secret from the key vault. You reference the secret by passing the resource identifier of the key vault and the name of the secret:
+Now, create a parameter file for the preceding Bicep file. In the parameter file, specify a parameter that matches the name of the parameter in the Bicep file. For the parameter value, reference the secret from the key vault. You reference the secret by passing the resource identifier of the key vault and the name of the secret:
 
 In the following parameter file, the key vault secret must already exist, and you provide a static value for its resource ID.
 
@@ -261,7 +272,7 @@ Deploy the template and pass in the parameter file:
 az group create --name SqlGroup --location westus2
 az deployment group create \
   --resource-group SqlGroup \
-  --template-uri <template-file-URI> \
+  --template-file <Bicep-file> \
   --parameters <parameter-file>
 ```
 
@@ -271,134 +282,11 @@ az deployment group create \
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroupName `
-  -TemplateUri <template-file-URI> `
+  -TemplateFile <Bicep-file> `
   -TemplateParameterFile <parameter-file>
 ```
 
 ---
-
-## Reference secrets with dynamic ID
-
-The previous section showed how to pass a static resource ID for the key vault secret from the parameter. In some scenarios, you need to reference a key vault secret that varies based on the current deployment. Or you may want to pass parameter values to the template rather than create a reference parameter in the parameter file. The solution is to dynamically generate the resource ID for a key vault secret by using a linked template.
-
-You can't dynamically generate the resource ID in the parameters file because template expressions aren't allowed in the parameters file.
-
-In your parent template, you add the nested template and pass in a parameter that contains the dynamically generated resource ID. The following image shows how a parameter in the linked template references the secret.
-
-![Dynamic ID](./media/key-vault-parameter/dynamickeyvault.png)
-
-The following template dynamically creates the key vault ID and passes it as a parameter.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "location": {
-        "type": "string",
-        "defaultValue": "[resourceGroup().location]",
-        "metadata": {
-          "description": "The location where the resources will be deployed."
-        }
-      },
-      "vaultName": {
-        "type": "string",
-        "metadata": {
-          "description": "The name of the keyvault that contains the secret."
-        }
-      },
-      "secretName": {
-        "type": "string",
-        "metadata": {
-          "description": "The name of the secret."
-        }
-      },
-      "vaultResourceGroupName": {
-        "type": "string",
-        "metadata": {
-          "description": "The name of the resource group that contains the keyvault."
-        }
-      },
-      "vaultSubscription": {
-        "type": "string",
-        "defaultValue": "[subscription().subscriptionId]",
-        "metadata": {
-          "description": "The name of the subscription that contains the keyvault."
-        }
-      }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
-      "name": "dynamicSecret",
-      "properties": {
-        "mode": "Incremental",
-        "expressionEvaluationOptions": {
-          "scope": "inner"
-        },
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {
-            "adminLogin": {
-              "type": "string"
-            },
-            "adminPassword": {
-              "type": "securestring"
-            },
-            "location": {
-              "type": "string"
-            }
-          },
-          "variables": {
-            "sqlServerName": "[concat('sql-', uniqueString(resourceGroup().id, 'sql'))]"
-          },
-          "resources": [
-            {
-              "type": "Microsoft.Sql/servers",
-              "apiVersion": "2018-06-01-preview",
-              "name": "[variables('sqlServerName')]",
-              "location": "[parameters('location')]",
-              "properties": {
-                "administratorLogin": "[parameters('adminLogin')]",
-                "administratorLoginPassword": "[parameters('adminPassword')]"
-              }
-            }
-          ],
-          "outputs": {
-            "sqlFQDN": {
-              "type": "string",
-              "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
-            }
-          }
-        },
-        "parameters": {
-          "location": {
-            "value": "[parameters('location')]"
-          },
-          "adminLogin": {
-            "value": "ghuser"
-          },
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
-            }
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-> [!NOTE]
-> As of Bicep version 0.3.255, a parameter file is needed to retrieve a key vault secret because the `reference` keyword isn't supported. There's work in progress to add support and for more information, see [GitHub issue 1028](https://github.com/Azure/bicep/issues/1028).
 
 ## Next steps
 
