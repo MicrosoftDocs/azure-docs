@@ -370,7 +370,7 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
 
 ## Adjust speaking languages
 
-You can only adjust speaking languages for neural voices.
+You can adjust speaking languages for neural voices.
 Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) using the `<lang xml:lang>` element. This is an optional element unique to the Speech service. Without this element, the voice will speak its primary language.
 Currently, speaking language adjustments are supported for these neural voices: `en-US-JennyMultilingualNeural`. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
 
