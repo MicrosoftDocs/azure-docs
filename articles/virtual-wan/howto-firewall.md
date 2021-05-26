@@ -38,7 +38,7 @@ The **Overview** page for your virtual WAN shows a list of virtual hubs and secu
 
 1. After you select one of the options, you see the **Convert to secure hub** page. Select a hub to convert, and then select **Next: Azure Firewall** at the bottom of the page.
 
-   :::image type="content" source="./media/howto-firewall/select-hub.png" alt-text="Screenshot of Select Hub." lightbox="./media/howto-firewall/select-hub.png":::
+   :::image type="content" source="./media/howto-firewall/select-hub.png" alt-text="Screenshot of Convert to secure hub with a hub selected." lightbox="./media/howto-firewall/select-hub.png":::
 1. After completing the workflow, select **Confirm**.
 
    :::image type="content" source="./media/howto-firewall/confirm.png" alt-text="Screenshot shows the Convert to secure hub pane with Confirm selected." lightbox="./media/howto-firewall/confirm.png":::
@@ -52,17 +52,17 @@ From the virtual WAN **Overview** page, select the secured hub. On the hub page,
 
 To view Azure Firewall settings from the secured hub, under **Security**, select **Secured virtual hub settings**.
 
-:::image type="content" source="./media/howto-firewall/hub-settings.png" alt-text="Screenshot of view hub settings." lightbox="./media/howto-firewall/hub-settings.png":::
+:::image type="content" source="./media/howto-firewall/hub-settings.png" alt-text="Screenshot of Secured virtual hub settings." lightbox="./media/howto-firewall/hub-settings.png":::
 
 ## Configure additional settings
 
 To configure additional Azure Firewall settings for the virtual hub, select the link to **Azure Firewall Manager**. For information about firewall policies, see [Azure Firewall Manager](../firewall-manager/secure-cloud-network.md#create-a-firewall-policy-and-secure-your-hub).
 
-:::image type="content" source="./media/howto-firewall/additional-settings.png" alt-text="Screenshot of additional settings." lightbox="./media/howto-firewall/additional-settings.png":::
+:::image type="content" source="./media/howto-firewall/additional-settings.png" alt-text="Screenshot of Overview with Manage security provider route settings for this Secured virtual hub in Azure Firewall Manager selected." lightbox="./media/howto-firewall/additional-settings.png":::
 
 To return to the hub **Overview** page, you can navigate back by clicking the path, as shown by the arrow in the following figure.
 
-:::image type="content" source="./media/howto-firewall/arrow.png" alt-text="Screenshot of return to overview." lightbox="./media/howto-firewall/arrow.png":::
+:::image type="content" source="./media/howto-firewall/arrow.png" alt-text="Screenshot showing how to return to the overview page." lightbox="./media/howto-firewall/arrow.png":::
 
 ## Next steps
 
