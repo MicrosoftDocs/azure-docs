@@ -10,7 +10,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 05/26/2021
 ms.author: apimpm
 ms.custom: devx-track-azurepowershell
 
@@ -20,12 +20,12 @@ With Azure Virtual Networks (VNETs), Azure API Management can manage internet-in
 
 When API Management deploys in internal VNET mode, you can only view the following service endpoints within a VNET whose access you control.
 * The proxy gateway
-* The Developer portal
+* The developer portal
 * Direct management
 * Git 
 
 > [!NOTE]
-> None of the service endpoints are registered on the public DNS server. The service endpoints will remain inaccessible until you [configure DNS](#apim-dns-configuration) for the VNET.
+> None of the service endpoints are registered on the public DNS. The service endpoints will remain inaccessible until you [configure DNS](#apim-dns-configuration) for the VNET.
 
 Use API Management in internal mode to:
 
@@ -76,7 +76,7 @@ After successful deployment, you should see your API Management service's **priv
 ![API Management dashboard with an internal VNET configured][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> Since the Gateway URL is not registered on the public DNS, the Test console available on the Azure portal will not work for **Internal** VNET deployed service. Instead, use the Test Console provided on the **Developer portal**.
+> Since the Gateway URL is not registered on the public DNS, the test console available on the Azure portal will not work for **Internal** VNET deployed service. Instead, use the test console provided on the **Developer portal**.
 
 ### <a name="deploy-apim-internal-vnet"> </a>Deploy API Management into VNET
 
@@ -102,7 +102,7 @@ Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-
 > API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include:
 > * Gateway
 > * The Azure portal
-> * The Developer portal
+> * The developer portal
 > * Direct management endpoint
 > * Git.
 
@@ -113,7 +113,7 @@ When you create an API Management service (`contosointernalvnet`, for example), 
 | ----- | ----- |
 | Gateway or proxy | `contosointernalvnet.azure-api.net` |
 | Developer portal | `contosointernalvnet.portal.azure-api.net` |
-| The new Developer portal | `contosointernalvnet.developer.azure-api.net` |
+| The new developer portal | `contosointernalvnet.developer.azure-api.net` |
 | Direct management endpoint | `contosointernalvnet.management.azure-api.net` |
 | Git | `contosointernalvnet.scm.azure-api.net` |
 
@@ -128,7 +128,7 @@ To access these API Management service endpoints, you can create a virtual machi
 | 10.1.0.5 | `contosointernalvnet.scm.azure-api.net` |
 
 You can then access all the service endpoints from the virtual machine you created.
-If you use a custom DNS server in a VNET, you can also create A DNS records and access these endpoints from anywhere in your VNET.
+If you use a custom DNS server in a VNET, you can also create DNS A-records and access these endpoints from anywhere in your VNET.
 
 ### Access on custom domain names
 
