@@ -34,7 +34,7 @@ For more information, see [Azure Sentinel SAP solution detailed SAP requirements
 
 Create an Azure key vault that you can dedicate to your Azure Sentinel SAP data connector.
 
-Run the following command to create your Azure key vault and grant access to an AZ SP : 
+Run the following command to create your Azure key vault and grant access to an Azure service principal: 
 
 ``` azurecli
 kvgp=<KVResourceGroup>
