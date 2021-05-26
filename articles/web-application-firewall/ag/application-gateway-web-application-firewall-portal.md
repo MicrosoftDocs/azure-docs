@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 05/19/2021
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with Web Application Firewall so I can protect my applications.
 ---
@@ -147,19 +147,22 @@ To do this, you'll:
 ### Create a virtual machine
 
 1. On the Azure portal, select **Create a resource**. The **New** window appears.
-2. Select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
+2. Select **Windows Server 2019 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2019 Datacenter.
 3. Enter these values in the **Basics** tab for the following virtual machine settings:
 
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
     - **Username**: Enter a name for the administrator user name.
     - **Password**: Enter a password for the administrator password.
+    - **Public inbound ports**: Select **None**.
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
-7. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
-8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
-9. Wait for the virtual machine creation to complete before continuing.
+6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**.
+1. For **Public IP**, select **None**.
+1. Accept the other defaults and then select **Next: Management**.
+1. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
+1. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
+1. Wait for the virtual machine creation to complete before continuing.
 
 ### Install IIS for testing
 
@@ -221,21 +224,17 @@ Create a basic WAF policy with a managed Default Rule Set (DRS).
    |Subscription     |Select your subscription name|
    |Resource group     |Select **myResourceGroupAG**|
    |Policy name     |Type a unique name for your WAF policy.|
-1. Select **Next : Policy settings**.
-1. Accept the defaults and then select **Next : Managed rules**.
+1. Select **Next : Managed rules**.
+1. Accept the defaults and then select **Next : Policy settings**.
 1. Accept the default, and then select **Next : Custom rules**.
 1. Select **Next : Association**.
 1. Select **Add association** and then select **Application Gateway**.
 1. Select the checkbox for **Apply the Web Application Firewall policy configuration even if it is different from the current configuration**.
 1. Select **Add**.
-1. On the **Association** tab, select **Add association**, and select **Application Gateway**.
 
    > [!NOTE]
    > If you assign a policy to your Application Gateway (or listener) that already has a policy in place, the original policy is overwritten and replaced by the new policy.
 4. Select **Review + create**, then select **Create**.
-1. Select **Next : Tags**.
-1. Select **Review + create**.
-1. Select **Create**.
 
 ## Test the application gateway
 
