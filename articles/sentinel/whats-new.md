@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 05/26/2021
 ---
 
 # What's new in Azure Sentinel
@@ -30,6 +30,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## May 2021
 
+- [Azure Sentinel PowerShell module](#azure-sentinel-powershell-module)
 - [Alert grouping enhancements](#alert-grouping-enhancements)
 - [Azure Sentinel solutions (Public preview)](#azure-sentinel-solutions-public-preview)
 - [Continuous Threat Monitoring for SAP solution (Public preview)](#continuous-threat-monitoring-for-sap-solution-public-preview)
@@ -41,6 +42,15 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [Hunting dashboard (Public preview)](#hunting-dashboard-public-preview)
 - [Incident teams - collaborate in Microsoft Teams (Public preview)](#azure-sentinel-incident-team---collaborate-in-microsoft-teams-public-preview)
 - [Zero Trust (TIC3.0) workbook](#zero-trust-tic30-workbook)
+
+
+### Azure Sentinel PowerShell module
+
+The official Azure Sentinel PowerShell module to automate daily operational tasks has been released as GA!
+
+You can download it here: [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.SecurityInsights/).
+
+For more information, see the PowerShell documentation: [Az.SecurityInsights](/powershell/module/az.securityinsights/)
 
 ### Alert grouping enhancements
 
