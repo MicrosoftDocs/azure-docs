@@ -186,7 +186,7 @@ This tutorial uses a newly created or dedicated [Azure Key Vault](/azure/key-vau
 
 The Azure Sentinel SAP data connector deployment script installs [required software](#automatically-installed-software) and then installs the connector on your [newly created VM](#deploy-a-linux-vm-for-your-sap-data-connector), storing credentials in your [dedicated key vault](#create-key-vault-for-your-sap-credentials).
 
-The SAP data connector deployment script is stored in the [Azure Sentinel GitHub repository > DataConnectors > SAP](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/SAP/) directory.
+The SAP data connector deployment script is stored in the [Azure Sentinel GitHub repository > DataConnectors > SAP](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh).
 
 To run the SAP data connector deployment script, you'll need the following details:
 
