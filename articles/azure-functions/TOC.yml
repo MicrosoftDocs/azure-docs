@@ -58,8 +58,10 @@
         - name: Azure Arc (preview)
           items:
           - name: Publish code project
+            displayName: Arc, container, Kubernetes
             href: create-first-function-arc-cli.md
           - name: Publish Linux container
+            displayName: Arc, container, Kubernetes
             href: create-first-function-arc-custom-container.md
     - name: Connect to a database
       items:

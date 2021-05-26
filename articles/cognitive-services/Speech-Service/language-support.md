@@ -281,8 +281,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Slovenian (Slovenia) | `sl-SI` | Male | `sl-SI-RokNeural` | General |
 | Spanish (Argentina) | `es-AR` | Female | `es-AR-ElenaNeural` <sup>New</sup> | General |
 | Spanish (Argentina) | `es-AR` | Male | `es-AR-TomasNeural` <sup>New</sup> | General |
-| Spanish (Columbia) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>New</sup> | General |
-| Spanish (Columbia) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>New</sup> | General |
+| Spanish (Colombia) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>New</sup> | General |
+| Spanish (Colombia) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>New</sup> | General |
 | Spanish (Mexico) | `es-MX` | Female | `es-MX-DaliaNeural` | General |
 | Spanish (Mexico) | `es-MX` | Male | `es-MX-JorgeNeural` | General |
 | Spanish (Spain) | `es-ES` | Female | `es-ES-ElviraNeural` | General |
@@ -309,8 +309,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Urdu (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` | General | 
 | Vietnamese (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | General |
 | Vietnamese (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | General |
-| Welsh (UK) | `cy-GB` | Female | `cy-GB-NiaNeural` | General | 
-| Welsh (UK) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
+| Welsh (United Kingdom) | `cy-GB` | Female | `cy-GB-NiaNeural` | General | 
+| Welsh (United Kingdom) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 
 #### Neural voices in preview
 
