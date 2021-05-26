@@ -52,7 +52,7 @@ Create an environment by specifying one of the following:
 > * Docker [image](https://hub.docker.com/search?q=&type=image)
 > * [Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
-:::image type="content" source="media/how-to-manage-environments-in-studio/createpage.png" alt-text="Environment creation wizard":::
+:::image type="content" source="media/how-to-manage-environments-in-studio/createpage.jpg" alt-text="Environment creation wizard":::
 
 You can customize the configuration file, add tags and descriptions, and review the properties before creating the entity. 
 
