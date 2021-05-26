@@ -55,7 +55,7 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 
 #### Symptoms
 
-If you use the copy activity to generate some JSON files, and then try to read these files in data flows, you fail with the error message:`JSON parsing error, unsupported encoding or multiline`
+If you use the copy activity to generate some JSON files, and then try to read these files in data flows, you fail with the error message: `JSON parsing error, unsupported encoding or multiline`
 
 #### Cause
 
@@ -64,7 +64,7 @@ There are following limitations on JSON for copy and data flows respectively:
 - For Unicode encodings (utf-8, utf-16, utf-32) JSON files, copy activities always generate the JSON files with BOM.
 - The data flow JSON source with "Single document" enabled doesn't support Unicode encoding with BOM.
 
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/enabled-single-document.png" alt-text="Screenshot that shows the enabled 'Single document'"::: 
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/enabled-single-document.png" alt-text="Screenshot that shows the enabled 'Single document'."::: 
 
 
 So you will experience issues if the following criteria are met:
@@ -72,7 +72,7 @@ So you will experience issues if the following criteria are met:
 - The sink dataset used by the copy activity is set to Unicode encoding (utf-8, utf-16, utf-16be, utf-32, utf-32be) or the default is used.
 - The copy sink is set to use "Array of objects" file pattern as shown in the following picture, no matter whether "Single document" is enabled or not in the data flow JSON source. 
 
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/array-of-objects-pattern.png" alt-text="Screenshot that shows the set 'Array of objects' pattern"::: 
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/array-of-objects-pattern.png" alt-text="Screenshot that shows the set 'Array of objects' pattern."::: 
    
 #### Recommendation
 
@@ -437,7 +437,7 @@ For Cause 3, work around it with one of the following options:
 - Option-1: Rename the folder and avoid using special characters in the folder name.
 - Option-2: Remove the property `allowCopyCommand:true` in the data flow script, for example:
 
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-copy-command-true.png" alt-text="Screenshot that shows how to remove 'allowcopycommand:true'."::: 
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/remove-allow-copy-command-true.png" alt-text="Screenshot that shows how to remove 'allowcopycommand:true'."::: 
 
 
 ### Failed with an error: "This operation is not permitted on a non-empty directory"
@@ -552,7 +552,7 @@ The Azure Data Factory data flow does not support the use of fixed IP ranges, an
 
 #### Recommendation
 
-To solve this issue, you can change the Snowflake account firewall settings with the following steps:
+To solve this issue, you can change the Snowflake account firewall settings with the following options:
 
 - **Option-1**: If your Snowflake account has similar settings like "Azure SQL Database", you can directly set **Allow access to Azure services** to be **ON** rather than set the fixed IP range, for example:
 
@@ -607,8 +607,8 @@ If you meet up error with the Snowflake query, check whether some identifiers (t
 1. Login the Snowflake server (`https://{accountName}.azure.snowflakecomputing.com/`, replace {accountName} with your account name) to check the identifier (table name, schema name, column name, etc.).
 
 1. Create worksheets to test and validate the query:
-    - Use database {databaseName}
-    - Run query with table, for example: `select "movieId", "title" from Public."testQuotedTable2"`
+    - Run `Use database {databaseName}`, replace {databaseName} with your database name.
+    - Run a query with table, for example: `select "movieId", "title" from Public."testQuotedTable2"`
     
 1. After the SQL query of Snowflake is tested and validated, you can use it in the data flow Snowflake source directly.
 
