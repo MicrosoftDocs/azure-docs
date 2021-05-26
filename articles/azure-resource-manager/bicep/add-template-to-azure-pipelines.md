@@ -1,18 +1,20 @@
 ---
-title: CI/CD with Azure Pipelines and templates (Bicep)
-description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there. (Bicep)
+title: CI/CD with Azure Pipelines and Bicep files
+description: Describes how to configure continuous integration in Azure Pipelines by using Bicep files. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there. (Bicep)
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 03/09/2021
+ms.date: 06/01/2021
 ---
-# Integrate ARM templates with Azure Pipelines (Bicep)
+# Integrate Bicep with Azure Pipelines
 
-You can integrate Azure Resource Manager templates (ARM templates) with Azure Pipelines for continuous integration and continuous deployment (CI/CD). In this article, you learn two more advanced ways to deploy templates with Azure Pipelines.
+You can integrate Bicep file with Azure Pipelines for continuous integration and continuous deployment (CI/CD). In this article, you learn how to build a Bicep file into a JSON template and then use two advanced ways to deploy templates with Azure Pipelines.
 
 ## Select your option
 
 Before proceeding with this article, let's consider the different options for deploying an ARM template from a pipeline.
+
+* **Use Azure CLI task**. Use this task to run `az bicep build` to build your Bicep files before deploying the JSON templates.
 
 * **Use ARM template deployment task**. This option is the easiest option. This approach works when you want to deploy a template directly from a repository. This option isn't covered in this article but instead is covered in the tutorial [Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md). It shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repo.
 
@@ -51,6 +53,32 @@ This article assumes your ARM template and Azure DevOps organization are ready f
    ![Select pipeline](./media/add-template-to-azure-pipelines/select-pipeline.png)
 
 You're ready to either add an Azure PowerShell task or the copy file and deploy tasks.
+
+## Azure CLI task
+
+This section shows how to build a Bicep file into a JSON template before the JSON template is deployed.
+
+The following YML file builds a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli):
+
+```yml
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'script-connection'
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az bicep build --file ./azuredeploy.bicep
+```
+
+The Bicep file to transpile is called *azuredeploy.bicep* and exists in the root of the repo.
 
 ## Azure PowerShell task
 
@@ -174,20 +202,20 @@ The following YAML shows the [Azure Resource Manager template deployment task](h
 
 There are several parts of this task to review in greater detail.
 
-- `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription`, and `Resource Group`. 
+* `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription`, and `Resource Group`.
 
-- `azureResourceManagerConnection`: Provide the name of the service connection you created.
+* `azureResourceManagerConnection`: Provide the name of the service connection you created.
 
-- `subscriptionId`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scope.
+* `subscriptionId`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scope.
 
-- `resourceGroupName` and `location`: provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
+* `resourceGroupName` and `location`: provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
 
    ```yml
    resourceGroupName: '<resource-group-name>'
    location: '<location>'
    ```
 
-- `csmFileLink`: Provide the link for the staged template. When setting the value, use variables returned from the file copy task. The following example links to a template named mainTemplate.json. The folder named **templates** is included because that where the file copy task copied the file to. In your pipeline, provide the path to your template and the name of your template.
+* `csmFileLink`: Provide the link for the staged template. When setting the value, use variables returned from the file copy task. The following example links to a template named mainTemplate.json. The folder named **templates** is included because that where the file copy task copied the file to. In your pipeline, provide the path to your template and the name of your template.
 
    ```yml
    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
@@ -231,4 +259,4 @@ When you select **Save**, the build pipeline is automatically run. Go back to th
 ## Next steps
 
 * To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
-* To learn about using ARM templates with GitHub Actions, see [Deploy Azure Resource Manager templates by using GitHub Actions](deploy-github-actions.md).
+* To learn about using Bicep file with GitHub Actions, see [Deploy Bicep files by using GitHub Actions](./deploy-github-actions.md).
