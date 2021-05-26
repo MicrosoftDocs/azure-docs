@@ -337,7 +337,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
     * **Managed Identity**: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
     
-     To enable your managed entity, you can refer to following steps:
+        To enable your managed entity, you can refer to following steps:
       1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
       2. In the Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give the managed identity access to specified users, and the suggested role type is: admin / viewer.
       3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
