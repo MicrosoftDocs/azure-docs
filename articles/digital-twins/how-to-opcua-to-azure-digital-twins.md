@@ -315,7 +315,7 @@ Now that you have the OPC UA nodes sending data into IoT Hub, and an Azure Digit
 The data flow in this section involves these steps:
 
 1. An Azure function uses an event subscription to receive messages coming from IoT Hub.
-1. The Azure function processes each telemetry event that arrives. It extracts the `NodeId` from the event, and looks it up against the items in the *opcua-mapping.json file*. The file maps each `NodeId` to a certain `twinId` and property in Azure Digital Twins where the node's value should be saved.
+1. The Azure function processes each telemetry event that arrives. It extracts the `NodeId` from the event, and looks it up against the items in the *opcua-mapping.json file*. The file maps each `NodeId` to a specific `TwinId` and `Property` value in Azure Digital Twins.
 1. The Azure function generates the appropriate patch document to update the corresponding digital twin, and runs the twin property update command.
 
 ### Create opcua-mapping.json file
@@ -432,7 +432,7 @@ Run this command to monitor Azure function event processing:
 az webapp log tail –name <function-name> --resource-group <resource-group-name>
 ```
 
-Finally, you can use Azure Digital Twins Explorer to monitor twin property updates and verify that the twin is updating. For more information on using Azure Digital Twins Explorer to monitor your instance, see [Concepts: Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)
+Finally, use Azure Digital Twins Explorer to monitor twin property updates and verify that the twin is updating. For more information on using Azure Digital Twins Explorer to monitor your instance, see [Concepts: Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)
 
 :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/azure-digital-twins-explorer-2.png" alt-text="Screenshot of using Azure Digital Twins Explorer to monitor twin property updates.":::
 
