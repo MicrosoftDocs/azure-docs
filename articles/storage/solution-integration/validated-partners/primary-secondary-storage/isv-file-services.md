@@ -12,8 +12,6 @@ ms.subservice: common
 
 # Running ISV file services in Azure
 
-## Overview
-
 Azure offers various options for storing file data. Azure native services are:
 - [Azure Files](https://azure.microsoft.com/services/storage/files/) – Fully managed file shares in the cloud that are accessible via the industry-standard SMB and NFS protocols. Azure files offer two different types (standard and premium) with different performance characteristics.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) – Fully managed file shares in the cloud designed to meet the performance requirements for enterprise line-of-business applications. Azure NetApp Files offer multiple service levels with different performance limitations (standard, premium, and ultra).
@@ -86,7 +84,6 @@ This article compares several ISV solutions that provide files services in Azure
 | **SMB 3.1**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   |
 | **NFS v3**                                          | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   |
 | **NFS v4.1**                                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   |
-| **S3**                                              | Yes (backend)        | No                             | backend                   | Yes                   | No                    |
 | **iSCSI**                                           | No                   | Yes                            | No                        | Yes                   | No                    |
 
 ### Supported services for persistent storage
@@ -119,9 +116,9 @@ This article compares several ISV solutions that provide files services in Azure
 | **Automatic tiering**                               | Yes                  | Yes                            | No                        | Yes                   | Yes                   |
 | **Global file locking**                             | Yes                  | Yes (NetApp Global File Cache) | Yes                       | Yes                   | Yes                   |
 | **Namespace aggregation over backend sources**      | Yes                  | Yes                            | No                        | Yes                   | Yes                   |
-| **Caching of active data**              | Yes                  | Yes                            | Yes                       | yes                   | Yes                   |
-| **Supported caching modes**              | LRU, Manually Pinned | LRU via Fabric Pool            | Yes                       | LRU                   | LRU                   |
-| **Encryption**                                      | Yes                  | Yes                            | Yes                       | Yes                   |                       |
+| **Caching of active data**                          | Yes                  | Yes                            | Yes                       | yes                   | Yes                   |
+| **Supported caching modes**                         | LRU, Manually Pinned | LRU                            |                           | LRU                   | LRU                   |
+| **Encryption at rest**                              | Yes                  | Yes                            | Yes                       | Yes                   | No                    |
 | **De-duplication**                                  | Yes                  | Yes                            | Yes                       | No                    | No                    |
 | **Compression**                                     | Yes                  | Yes                            | Yes                       | No                    | No                    |
 
@@ -144,10 +141,10 @@ This article compares several ISV solutions that provide files services in Azure
 
 |                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Tiger Technology      | XenData               |
 |-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|
-| **Maximum number of nodes in a single cluster**     | N / A                | 2 (HA)                         | Tested for up to 60 nodes | N / A                 | N / A                 |
+| **Maximum number of nodes in a single cluster**     | 100                  | 2 (HA)                         | Tested  up to 60 nodes    | N / A                 | N / A                 |
 | **Maximum number of volumes**                       | 800                  | 1024                           | Unlimited                 | N / A                 | 1                     |
 | **Maximum number of snapshots**                     | Unlimited            | Unlimited                      | Unlimited                 | N / A                 | N / A                 |
-| **Maximum size of a single namespace**              | Unlimited            | Depends on Azure               | Unlimited                 | N / A                 | N / A                 |
+| **Maximum size of a single namespace**              | Unlimited            | Depends on infrastructure      | Unlimited                 | N / A                 | N / A                 |
 
 ### Licensing
 
@@ -195,6 +192,7 @@ This article compares several ISV solutions that provide files services in Azure
 - Each gateway has highly granular control of locally cached content
 - Supports video streaming and partial file restores
 - Supports Azure Data Box uploads
+- Encryption provided by Azure Blob Storage
 
 ## Next steps
 

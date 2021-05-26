@@ -70,5 +70,5 @@ landingContent:
           - text: Validated partners for primary and secondary storage
             url: .\validated-partners\primary-secondary-storage\partner-overview.md
           - text: ISV file services
-            url: .\validated-partners\primary-secondary-storage\isv-nas-comparison.md
+            url: .\validated-partners\primary-secondary-storage\isv-file-services.md
       
