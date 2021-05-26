@@ -97,12 +97,11 @@ If you want to get insights on your new video, index it with Video Analyzer for 
 
 If there are multiple audio streams, Video Analyzer for Media takes the first one it encounters and will process only this stream. In any audio stream Video Analyzer for Media processes, it takes the different channels (if present) and processes them together as mono. For streams/channels manipulation you can use ffmpeg commands on the file before indexing it.
 
-### Can the storage account connected to the Media Services account used by my Video Analyzer for Media account be behind a firewall?
+### Can storage accounts connected to the Media Services account used by my Video Analyzer for Media account be behind a firewall?
 
-Your paid Video Analyzer for Media account uses the specified Media Services that is connected to a storage account. Currently, the connected storage account 
-cannot be behind a firewall.
+Your paid Video Analyzer for Media account uses the specified Media Services account that is connected to a storage account. Currently, when using the website to manage your Video Analyzer for Media account, the connected storage account cannot be behind a firewall.
 
-When calling [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video), you can provide a URL to a video for Video Analyzer for Media to download from. If the URL is based on a storage account in the same region as the Video Analyzer for Media account and it has a firewall, it will not work.<br/>If the storage account is in another region, you can whitelist Video Analyzer for Media IPs and it will work.
+When calling the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API, you can provide a URL to a video for Video Analyzer for Media to download from. If the URL is based on a storage account in the same region as the Video Analyzer for Media account and it has a firewall, it will not work.<br/>If the storage account is in another region, you can whitelist Video Analyzer for Media IPs and it will work.
 
 ### What is the SLA for Video Analyzer for Media?
 
