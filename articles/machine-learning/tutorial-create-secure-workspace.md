@@ -49,7 +49,7 @@ To create a virtual network, use the following steps:
     1. Make note of the the default __IPv4 address space__. In the screenshot, the value is __172.17.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the 172.17.0.0/16 value.
     1. Select the __Default__ subnet and then select __Remove subnet__.
     
-        :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Delete default subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet":::
 
     1. To create a subnet to contain the workspace, dependency services, and resources used for training, select __+ Add subnet__ and use the following values for the subnet:
         * __Subnet name__: Training
@@ -59,7 +59,7 @@ To create a virtual network, use the following steps:
             * __Microsoft.KeyVault__
             * __Microsoft.ContainerRegistry__
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Create a Training subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet":::
 
     1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and use the follow values:
         * __Subnet name__: Scoring
@@ -69,7 +69,7 @@ To create a virtual network, use the following steps:
             * __Microsoft.KeyVault__
             * __Microsoft.ContainerRegistry__
 
-        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Create a Scoring subnet":::
+        :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
 
 1. Select __Security__. For __BastionHost__, select __Enable__. [Azure Bastion] provides a secure way to access the VM jump box you will create inside the VNet in a later step. Use the following values for the remaining fields:
 
@@ -79,16 +79,15 @@ To create a virtual network, use the following steps:
 
     Leave the other fields at the default values.
 
-    > [!TIP]
-    > While this tutorial uses a VM jump box inside the VNet, another method you might use is a [Network gateway (VPN)].
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-bastion.png" alt-text="Screenshot of Bastion config":::
 
 1. Select __Review + create__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ipaddress-final.png" alt-text="Review + create button":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-ipaddress-final.png" alt-text="Screenshot showing the review + create button":::
 
 1. Verify that the information is correct, and then select __Create__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-review.png" alt-text="Review image":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace/create-vnet-review.png" alt-text="Screenshot of the review page":::
 
 ## Create network security groups
 
@@ -312,9 +311,6 @@ Use the following steps create a network security group (NSG) and add rules requ
 1. Search for __Data science virtual machine__. Select the Windows 2019 version. Create.
 1. Networking tab. Put it in the the training subnet and set public IP to none.
 
-## Configure storage access
-
-1. Select the workspace that you created previously. From __
 ## Configure image builds
 
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, configure the workspace to use an Azure Machine Learning compute cluster to build images. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
