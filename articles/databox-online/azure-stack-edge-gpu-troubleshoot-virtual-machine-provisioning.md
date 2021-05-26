@@ -88,16 +88,16 @@ To check for a duplicate IP address:
 
 ### VM image not prepared correctly
 
-**Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow:
+**Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. If any steps are left out, VM provisioning on your device will fail when you use that VM image.
 
-1. Prepare the source VM from a fixed-size Windows VHD. The source VM must be a Gen1 VM.
-1. Start the VM, and install the Windows operating system.
+1. Prepare the source VM from a gen1 VHD with a Fixed size.
+1. Start the VM, and install the operating system. 
 1. Generalize the VHD using the *sysprep* utility.
 1. Copy the generalized image to Blob storage.
 
-If any steps are left out, VM provisioning on your device will fail when you use that VM image. 
+For more information, see [Create custom VM images for an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md).  
 
-**Suggested solution:** Complete the workflow for preparing a VM image for use on Azure Stack Edge Pro GPU. For instructions, see one of the following articles:
+**Suggested solution:** Complete the workflow for preparing your VM image. For instructions, see one of the following articles:<!--Pick one?-->
 
 * [Create custom VM images for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md) (Workflow for creating a VM image)
 * [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
@@ -126,7 +126,7 @@ To verify that the default gateway and DNS server can be reached, do the followi
 **Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
 
 **Suggested solution:** To find issues that occurred when `cloud init` was run:
-1. [Connect to the VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-vm), and open PowerShell.
+1. [Connect to the VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-vm).
 1. Check for `cloud init` errors in the following log files:
 
    /var/log/cloud-init-output.log
@@ -137,7 +137,7 @@ For help resolving `cloud init` issues, see [Troubleshooting VM provisioning wit
 
 ### Provisioning flags set incorrectly (Linux VMs)
 
-**Error description:** To successfully deploy a Linux VM in Azure, provisioning must be enabled on the image, and provisioning using `cloud init' must be enabled. 
+**Error description:** To successfully deploy a Linux VM in Azure, instance creation must be disabled on the image, and provisioning using `cloud init' must be enabled. 
 
 **Suggested solution:** Make sure the Provisioning flags in the `/etc/waagent.conf` file have the following values:<!--Where is this file discussed in relationship to Azure VM provisioning?-->
 
