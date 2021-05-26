@@ -1147,22 +1147,20 @@
           href: virtual-machines/windows/failover-cluster-instance-overview.md
       - name: Best practices
         items:
+        - name: Quick checklist
+          href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+        - name: VM size
+          href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+        - name: Storage
+          href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
         - name: Cluster configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
-        - name: Performance
-          items: 
-          - name: Quick checklist
-            href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
-          - name: VM size
-            href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
-          - name: Storage
-            href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
-          - name: Collect baseline 
-            href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
+        - name: Collect baseline 
+          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
@@ -1202,8 +1200,6 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Enable SQL vulnerability assessments
-          href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
         - name: Install SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:

@@ -27,7 +27,17 @@ Azure complies with several industry regulations and standards that can enable y
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-## Control access to the SQL virtual machine
+## Manage in the portal
+
+You can configure a number of security settings using the [SQL virtual machines resource in the Azure portal](manage-sql-vm-portal.md), such as enabling Azure Key Vault integration, or viewing Security Center recommendations. 
+
+## Azure Defender for SQL 
+
+## Azure Key Vault integration 
+
+
+
+## Access control 
 
 When you create your SQL Server virtual machine, consider how to carefully control who has access to the machine and to SQL Server. In general, you should do the following:
 
