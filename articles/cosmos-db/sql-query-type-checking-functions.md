@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 05/26/2021
 ms.author: tisande
 ms.custom: query-reference
 ---
@@ -16,7 +16,7 @@ The type-checking functions let you check the type of an expression within a SQL
 
 ## Functions
 
-The following functions support type checking against input values, and each return a Boolean value:
+The following functions support type checking against input values, and each return a Boolean value. The **index usage** column assumes, where applicable, that you're comparing the type checking functions to another value with an equality filter.
 
 | System function                           | Index usage | [Index usage in queries with scalar aggregate functions](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks |
 | ----------------------------------------- | ----------- | ------------------------------------------------------------ | ------- |
