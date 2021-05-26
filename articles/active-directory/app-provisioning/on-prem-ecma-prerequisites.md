@@ -31,34 +31,7 @@ This article provides guidance on the prerequisites that are needed for using th
  - The tenant must be located in Microsoft Azure.
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). You can get a free developer test tenant here. The tenant where the preview is being configured cannot be located in one of the European Union , European Economic Area , candidate for inclusion in the European Union, China , or **Switzerland ** country/regions. Tenants that are deployed in Azure Government, China, or other specialized cloud are not currently available for use in this preview. A list of country/regions that are not currently available for use in this preview as well as instructions to check the country or region that your tenant is in, is included in Appendix C. (This restriction will be removed at a later date.) The ECMA connector host preview is not intended for use with production target systems, this tenant should hold only simulated/test data.
 
-## Known limitations
-The following information is a current list of known limitations with  the Azure AD ECMA Connector Host
 
-### AD DS - (user / group writeback from Azure AD, using the on-prem provisioning preview)
-   - When a user is managed by Azure AD Connect, the source of authority is on-prem Active Directory. Therefore, user attributes cannot be changed in Azure AD. This preview does not change the source of authority for users managed by Azure AD Connect.
-   - Attempting to use Azure AD Connect and the on-prem provisioning to provision groups / users into AD DS can lead to creation of a loop, where Azure AD Connect can overwrite a change that was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group / user writeback.  Upvote the  UserVoice feedback [here](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure) to track the status of the preview. Alternatively, you can use [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) for user / group writeback from Azure AD to AD.
-
-### Connectors other than generic LDAP and SQL
-   - The Azure AD ECMA Connector Host is officially supported for the generic LDAP (GLDAP) and generic SQL (GSQL) connectors. While it is possible to use other connectors such as the web services connector or custom ECMA connectors, it is **not yet supported**.
-
-### Azure Active Directory
-   - On-prem provisioning allows you to take a user already in Azure AD and provision them into a third-party application. **It does not allow you to bring a user into the directory from a third-party application.** Customers will need to rely on our native HR integrations, Azure AD Connect, MIM, or Microsoft Graph to bring users into the directory.
-
-### Attributes and objects not supported:
-   - Multi-valued attributes
-   - Reference attributes (for example, manager).
-   - Groups
-   - Complex anchors (for example, ObjectTypeName+UserName).
-   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview **does not support provisioning one-time passwords or synchronizing passwords** between Azure AD and third-party applications.
-
-### SSL certificates
-   - The Azure AD ECMA Connector Host currently requires either SSL certificate to be trusted by Azure or the Provisioning Agent to be used. Certificate subject must match the host name the Azure AD ECMA Connector Host is installed on.
-
-### Anchor attributes
-   - The Azure AD ECMA Connector Host currently does not support anchor attribute changes (renames) or target systems, which require multiple attributes to form an anchor. 
-
-### Attribute discovery and mapping
-   - The attributes that the target application supports are discovered and surfaced in the Azure portal in Attribute Mappings. Newly added attributes will continue to be discovered. However, if an attribute type has changed (for example, string to boolean), and the attribute is part of the mappings, the type will not change automatically in the Azure portal. Customers will need to go into advanced settings in mappings and manually update the attribute type.
 
 
 

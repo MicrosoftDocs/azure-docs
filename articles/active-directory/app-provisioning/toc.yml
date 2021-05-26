@@ -80,6 +80,8 @@
         href: application-provisioning-config-problem-no-users-provisioned.md
       - name: Missing source attribute
         href: user-provisioning-sync-attributes-for-mapping.md
+      - name: Troubleshooting ECMA Connector Host
+        href: on-prem-ecma-tshoot.md
       - name: Provisioning logs
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
   - name: Reference
