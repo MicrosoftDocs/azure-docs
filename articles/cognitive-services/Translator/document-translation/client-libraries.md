@@ -68,7 +68,7 @@ Next, explore our [**Azure Document Translation client library for .NET**](/dotn
 <!-- LINKS -->
 [documenttranslation_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/src
 <!--TODO: remove /overview -->
-[documenttranslation_docs]: https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview
+[documenttranslation_docs]: /azure/cognitive-services/translator/document-translation/overview
 <!-- TODO: Add correct link when available -->
 [documenttranslation_refdocs]: https://aka.ms/azsdk/net/translation/docs
 <!-- TODO: Add correct link when available -->
@@ -91,24 +91,24 @@ To get started, you'll need:
 
 ## Get started
 
-Next, explore our [**Azure Document Translation client library for Python**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview) documentation. There you will find code samples for the following operations:
+Next, explore our [**Azure Document Translation client library for Python**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview&preserve-view=true) documentation. There you will find code samples for the following operations:
 
-* [**Translate documents**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview#translate-your-documents)
+* [**Translate documents**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview&preserve-view=true#translate-your-documents)
 
-* [**Check status on individual documents**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview#check-status-on-individual-documents)
+* [**Check status on individual documents**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview&preserve-view=true#check-status-on-individual-documents)
 
-* [**List translation jobs**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview#list-translation-jobs)
+* [**List translation jobs**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview&preserve-view=true#list-translation-jobs)
 
 <!-- LINKS -->
 
 [python-dt-src]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/azure/ai/translation/document
 [python-dt-pypi]: https://aka.ms/azsdk/python/texttranslation/pypi
-[python-dt-product-docs]: https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview
+[python-dt-product-docs]: /azure/cognitive-services/translator/document-translation/overview
 [python-dt-ref-docs]: https://aka.ms/azsdk/python/documenttranslation/docs
 [python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
 
 ---
 
 > [!div class="nextstepaction"]
-> [Translate documents with HTTP REST methods](document-translation/get-started-with-document-translation.md)
+> [Translate documents with HTTP REST methods](get-started-with-document-translation.md)
 
