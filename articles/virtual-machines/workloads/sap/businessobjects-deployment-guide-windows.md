@@ -18,7 +18,7 @@ ms.author: depadia
 
 # SAP BusinessObjects BI platform deployment guide for Windows on Azure
 
-This article describes the strategy to deploy the SAP BusinessObjects Business Intelligence (BOBI) platform on Azure for Windows. In this example, two virtual machines (VMs) with Azure Premium SSD managed disks as their installation directory are configured. Azure SQL Database, a platform as a service (PaaS) offering, is used for the central management server (CMS) and audit databases. Azure Premium Files, an SMB protocol, is used as a file store that's shared across both VMs. The default Tomcat Java web application and business intelligence (BI) platform application are installed together on both VMs. To load balance the user requests, Azure Application Gateway is used, which has native TLS/SSL offloading capabilities.
+This article describes the strategy to deploy the SAP BusinessObjects Business Intelligence (SAP BOBI) platform on Azure for Windows. In this example, two virtual machines (VMs) with Azure Premium SSD managed disks as their installation directory are configured. Azure SQL Database, a platform as a service (PaaS) offering, is used for the central management server (CMS) and audit databases. Azure Premium Files, an SMB protocol, is used as a file store that's shared across both VMs. The default Tomcat Java web application and business intelligence (BI) platform application are installed together on both VMs. To load balance the user requests, Azure Application Gateway is used, which has native TLS/SSL offloading capabilities.
 
 This type of architecture is effective for small deployment or nonproduction environments. For production or large-scale deployment, you should separate hosts for web applications, and you can have multiple SAP BOBI application hosts, which allows the server to process more information.
 
@@ -34,8 +34,8 @@ In this example, the following product versions and file system layout are used:
 | File system        | Description                                                                                                               | Size (GB)             | Required access  | Storage                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|---------------|----------------------------|
 | F:          | The  file system for installation of an SAP BOBI instance, default Tomcat web application, and database drivers (if necessary). | SAP sizing guidelines | Local administrative privileges | Azure  Premium SSD managed disks|
-| \\\azusbobi.file.core.windows.net\frsinput  | The mount directory is for the shared files across all BOBI hosts that will be used as the Input Filestore directory. | Business need         | Local administrative privileges | Azure NetApp Files         |
-| \\\azusbobi.file.core.windows.net\frsoutput | The mount directory is for the shared files across all BOBI hosts that will be used as the Output Filestore directory. | Business need         | Local administrative privileges | Azure NetApp Files         |
+| \\\azusbobi.file.core.windows.net\frsinput  | The mount directory is for the shared files across all SAP BOBI hosts that will be used as the Input Filestore directory. | Business need         | Local administrative privileges | Azure NetApp Files         |
+| \\\azusbobi.file.core.windows.net\frsoutput | The mount directory is for the shared files across all SAP BOBI hosts that will be used as the Output Filestore directory. | Business need         | Local administrative privileges | Azure NetApp Files         |
 
 ## Deploy a Windows virtual machine via the Azure portal
 
@@ -70,7 +70,7 @@ Azure Files offers standard file shares hosted on HDD-based hardware and premium
 
 Azure premium file shares are available with local and zone redundancy in a subset of regions. To find out if premium file shares are currently available in your region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage). For information about regions that support zone-redundant storage (ZRS), see [Azure Storage redundancy](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### Deploy Azure files storage account and NFS shares
+### Deploy an Azure files storage account and NFS shares
 
 Azure file shares are deployed into storage accounts, which are top-level objects that represent a shared pool of storage. This pool of storage can be used to deploy multiple file shares. Azure supports multiple types of storage accounts for different storage scenarios customers might have. For SAP BusinessObjects file storage, you need to create a FileStorage account. You use it to deploy Azure file shares on Premium SSD-based hardware.
 
@@ -260,7 +260,7 @@ Follow the instructions in the [SAP Business Intelligence Platform Installation 
 
 - On the **Configure Destination Folder** screen, provide the destination folder where you want to install the BI platform. For example, enter **F:\SAP BusinessObjects\***. 
 - On the **Configure Product Registration** screen, you can either use a temporary license key for SAP BusinessObjects Solutions from SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121) or generate a license key in SAP Service Marketplace.
-- On the **Select Install Type** screen, select **Full** installation on the first server (azuswinboap1). For the other server (azuswinboap2), select **Custom / Expand**, which expands the existing BOBI setup.
+- On the **Select Install Type** screen, select **Full** installation on the first server (azuswinboap1). For the other server (azuswinboap2), select **Custom / Expand**, which expands the existing SAP BOBI setup.
 - On the **Select Default or Existing Database** screen, select **configure an existing database**, which prompts you to select the CMS and the audit database. Select **Microsoft SQL Server using ODBC** for the **CMS Database** type and the **Audit Database** type.
 
   You can also select **No auditing database** if you don't want to configure auditing during installation.
@@ -275,7 +275,7 @@ Follow the instructions in the [SAP Business Intelligence Platform Installation 
 
 - Follow the instructions, and enter the required inputs to finish the installation.
 
-For a multi-instance deployment, run the installation setup on the second host (azuswinboap2). In the **Select Install Type** screen, select **Custom / Expand**, which expands the existing BOBI setup. For more information, see the SAP blog [SAP BusinessObjects Business Intelligence platform setup with Azure SQL Database](https://blogs.sap.com/2020/06/19/sap-on-azure-sap-businessobjects-business-intelligence-platform-setup-with-azure-sql-db-managed-paas-database/).
+For a multi-instance deployment, run the installation setup on the second host (azuswinboap2). In the **Select Install Type** screen, select **Custom / Expand**, which expands the existing SAP BOBI setup. For more information, see the SAP blog [SAP BusinessObjects Business Intelligence platform setup with Azure SQL Database](https://blogs.sap.com/2020/06/19/sap-on-azure-sap-businessobjects-business-intelligence-platform-setup-with-azure-sql-db-managed-paas-database/).
 
 > [!IMPORTANT]
 > The database engine version numbers for SQL Server and SQL Database aren't comparable with each other. They're internal build numbers for these separate products. The database engine for SQL Database is based on the same code base as the SQL Server database engine. Most importantly, the database engine in SQL Database always has the newest SQL Database engine bits. Version 12 of SQL Database is newer than version 15 of SQL Server.
@@ -318,7 +318,7 @@ To configure the cluster name on Windows, follow the instructions in the [SAP Bu
 
 ### Configure the input and output filestore location to Azure Premium Files
 
-Filestore refers to the disk directories where the actual SAP BusinessObjects files are located. The default location of the file repository server for the SAP BOBI platform is located in the local installation directory. In a multi-instance deployment, it's important to set up a filestore on shared storage like Azure Premium Files or Azure NetApp Files so that it can be accessed from all storage tier servers.
+Filestore refers to the disk directories where the actual SAP BusinessObjects BI files are located. The default location of the file repository server for the SAP BOBI platform is located in the local installation directory. In a multi-instance deployment, it's important to set up a filestore on shared storage like Azure Premium Files or Azure NetApp Files so that it can be accessed from all storage tier servers.
 
 1. If not created, follow the instructions provided in the preceding section, "Provision Azure Premium Files," to create and mount Azure Premium Files.
 
@@ -331,7 +331,7 @@ Filestore refers to the disk directories where the actual SAP BusinessObjects fi
 
 Tomcat supports clustering of two or more application servers for session replication and failover. If SAP BOBI platform sessions are serialized, a user session can fail over seamlessly to another instance of Tomcat, even when an application server fails. For example, a user might be connected to a web server that fails while the user is navigating a folder hierarchy in an SAP BI application. On a correctly configured cluster, the user can continue navigating the folder hierarchy without being redirected to a sign-in page.
 
-In SAP Note [2808640](https://launchpad.support.sap.com/#/notes/2808640), steps to configure Tomcat clustering are provided by using multicast. But multicast isn't supported in Azure. To make a Tomcat cluster work in Azure, you must use [StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (SAP Note [2764907](https://launchpad.support.sap.com/#/notes/2764907)). To set up a Tomcat cluster in Azure, see [Tomcat clustering using Static Membership for the SAP BusinessObjects BI platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/) on the SAP blog.
+In SAP Note [2808640](https://launchpad.support.sap.com/#/notes/2808640), steps to configure Tomcat clustering are provided by using multicast. But multicast isn't supported in Azure. To make a Tomcat cluster work in Azure, you must use [StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (SAP Note [2764907](https://launchpad.support.sap.com/#/notes/2764907)). To set up a Tomcat cluster in Azure, see [Tomcat clustering using static membership for the SAP BusinessObjects BI platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/) on the SAP blog.
 
 ### Load balance a web tier of an SAP BI platform
 
@@ -398,7 +398,7 @@ If you've created a separate NFS server, make sure you implement the backup and 
 
 ### Backup and restore for the CMS and audit database
 
-For an SAP BOBI platform running on Windows VMs, the CMS and audit database can run on any of the supported databases as described in the [support matrix](businessobjects-deployment-guide.md#support-matrix) of the SAP BusinessObjects BI platform planning and implementation guide on Azure. So it's important that you adopt the backup and restore strategy based on the database you used for CMS and audit data storage.
+For an SAP BOBI platform running on Windows VMs, the CMS and audit database can run on any of the supported databases as described in the [support matrix](businessobjects-deployment-guide.md#support-matrix) of the SAP BOBI platform planning and implementation guide on Azure. So it's important that you adopt the backup and restore strategy based on the database you used for CMS and audit data storage.
 
 * **SQL Database** uses SQL Server technology to create [full backups](/sql/relational-databases/backup-restore/full-database-backups-sql-server?preserve-view=true&view=sql-server-ver15) every week, [differential backups](/sql/relational-databases/backup-restore/differential-backups-sql-server?preserve-view=true&view=sql-server-ver15) every 12 to 24 hours, and [transaction log](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server?preserve-view=true&view=sql-server-ver15) backups every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity.
  
@@ -406,7 +406,7 @@ For an SAP BOBI platform running on Windows VMs, the CMS and audit database can 
 
 * **Azure Database for MySQL** automatically creates server backups and stores in user-configured LRS or GRS. Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, it either takes full and differential backups (4-TB max storage servers) or snapshot backups (up to 16-TB max storage servers). These backups allow you to restore a server at any point in time within your configured backup retention period. The default backup retention period is 7 days, which you can [optionally configure](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted by using AES 256-bit encryption. These backup files aren't user exposed and can't be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](../../../mysql/concepts-migrate-dump-restore.md) to copy a database. For more information, see [Backup and restore in Azure Database for MySQL](../../../mysql/concepts-backup.md).
 
-* **For a database installed on an Azure VM,** you can use standard backup tools or [Backup](../../../backup/sap-hana-db-about.md) for supported databases. Also, if the Azure services and tools don't meet your requirements, you can use supported third-party backup tools that provide an agent for backup and recovery of all SAP BOBI platform components.
+* **For a database installed on an Azure VM**, you can use standard backup tools or [Backup](../../../backup/sap-hana-db-about.md) for supported databases. Also, if the Azure services and tools don't meet your requirements, you can use supported third-party backup tools that provide an agent for backup and recovery of all SAP BOBI platform components.
 
 ## High availability
 
