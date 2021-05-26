@@ -141,9 +141,8 @@ The following table describes the expected behavior for delete and write operati
 |**REST API operation**|**Soft Delete enabled**|
 |---|---|
 |[Path - Delete](/rest/api/storageservices/datalakestoragegen2/path/delete) |A soft deleted blob or directory is created. The soft deleted object is deleted after the retention period.|
-|[Delete Blob](/rest/api/storageservices/delete-blob)|A soft deleted object is created. The soft deleted object is deleted after the retention period.
-Soft delete will not be supported for blobs with snapshots and snapshots.|
-|Rename with Overwrite|Existing destination blob or empty directory will get soft deleted and the source will replace it. The soft deleted object is deleted after the retention period.|
+|[Delete Blob](/rest/api/storageservices/delete-blob)|A soft deleted object is created. The soft deleted object is deleted after the retention period. Soft delete will not be supported for blobs with snapshots and snapshots.|
+|[Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create) that renames a blob or directory | Existing destination blob or empty directory will get soft deleted and the source will replace it. The soft deleted object is deleted after the retention period.|
 
 ## Pricing and billing
 
