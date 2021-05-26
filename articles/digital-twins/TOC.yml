@@ -159,7 +159,7 @@
         href: troubleshoot-error-404.md
       - name: Azure Digital Twins Explorer authentication
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
-  - name: Other
+  - name: Connect input
     items:
     - name: OPC UA data to Azure Digital Twins
       href: how-to-opcua-to-azure-digital-twins.md
