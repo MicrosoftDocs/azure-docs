@@ -47,25 +47,26 @@ During the preview, ZRS for managed disks has the following restrictions:
 - Currently available only in the West US 2, West Europe, North Europe, and France Central regions.
 - ZRS disks can only be created with Azure Resource Manager templates using the `2020-12-01` API in the public preview. 
 
-### Prerequisites
+
+### Create ZRS managed disks
+
+# [Azure CLI](#tab/azure-cli)
+
+#### Prerequisites
 
 You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
 
 1.	Execute the following command to register the feature for your subscription
 
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
+    ```azurecli
+    az feature register --namespace Microsoft.Compute --name SsdZrsManagedDisks
     ```
-
+ 
 2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
 
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
+    ```azurecli
+    az feature show --namespace Microsoft.Compute --name SsdZrsManagedDisks
     ```
-    
-### Create ZRS managed disks
-
-# [Azure CLI](#tab/azure-cli)
 
 #### Create a VM with ZRS disks
 
@@ -160,6 +161,22 @@ az vmss create -g $rgName \
 
 Use the `2020-12-01` API with your Azure Resource Manager template to create a ZRS disk.
 
+#### Prerequisites
+
+You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
+    ```
+    
 #### Create a VM with ZRS disks
 
 ```

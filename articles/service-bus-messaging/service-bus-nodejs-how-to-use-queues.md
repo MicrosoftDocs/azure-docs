@@ -203,6 +203,6 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 See the following documentation and samples: 
 
 - [Azure Service Bus client library for JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [JavaScript samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [TypeScript samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/v7/javascript)
+- [TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/v7/typescript)
 - [API reference documentation](/javascript/api/overview/azure/service-bus)
