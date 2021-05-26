@@ -75,8 +75,7 @@ Next, explore our [**Azure Document Translation client library for .NET**](/dotn
 [documenttranslation_nuget_package]: https://www.nuget.org/
 [documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/samples/README.md
 
-> [!div class="nextstepaction"]
-> [Translate documents with HTTP REST methods](get-started-with-document-translation.md)
+
 
 ### [Python](#tab/python)
 
