@@ -72,7 +72,7 @@
     - name: Drawing conversion errors and warnings
       href: drawing-conversion-error-codes.md  
   - name: Encryption of data at rest
-    href: ../security/fundamentals/encryption-atrest.md
+    href: azure-maps-data-encryption-at-rest.md
   - name: Coverage
     items:
     - name: Coverage
