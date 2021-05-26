@@ -153,7 +153,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --release-train stable \
         --auto-upgrade-minor-version true \
         --scope cluster \
-        --release-namespace '${namespace}' \
+        --release-namespace ${namespace} \
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${namespace}" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
