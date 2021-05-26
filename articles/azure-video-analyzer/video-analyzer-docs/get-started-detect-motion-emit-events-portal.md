@@ -6,10 +6,15 @@ ms.topic: quickstart
 ms.date: 05/25/2021
 ---
 
-# How-To: Set up Azure Video Analyzer for development
-In this how-to guide, you will learn how to set up Azure Video Analyzer piece-by-piece. You will create an Azure Video Analyzer account and its accompanying resources using the Azure portal.
-In addition to creating your Video Analyzer account, you will be creating managed identities, a storage account, an IoT hub.
-You will also be deploying the Video Analyzer edge module.
+# Quickstart: Get Started with Azure Video Analyzer
+This quickstart walks you through the steps to get started with Azure Video Analyzer. You will create an Azure Video Analyzer account and its accompanying resources using the Azure portal.
+In addition to creating your Video Analyzer account, you will be creating managed identities, a storage account, and an IoT hub.
+You will also be deploying the Video Analyzer edge module.  
+
+After completing the setup steps, you'll be able to run the simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/get-started-detect-motion-emit-events/motion-detection.svg" alt-text="Detect motion":::
 
 ## Prerequisites
 
