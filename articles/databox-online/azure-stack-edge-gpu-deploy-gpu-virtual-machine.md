@@ -224,12 +224,6 @@ Here is a sample Ubuntu parameter file that was used in this article:
             "value": "1.3" 
         },
         "settings": {
-            "value": {
-            "DRIVER_URL": "https://go.microsoft.com/fwlink/?linkid=874271",
-            "PUBKEY_URL": "http://download.microsoft.com/download/F/F/A/FFAC979D-AD9C-4684-A6CE-C92BB9372A3B/7fa2af80.pub",
-            "CUDA_ver": "10.0.130",
-            "InstallCUDA": "true"
-            }
         }
     }
 }
@@ -237,10 +231,12 @@ Here is a sample Ubuntu parameter file that was used in this article:
 
 #### RHEL and RHEL BYOS
 
-If you used a Red Hat Enterprise Linux bring-your-own-subscription (RHEL BYOS) image to create your VM and want to install the GPU extension, follow these steps: 
+If you used a Red Hat Enterprise Linux bring-your-own-subscription (RHEL BYOS) image (also known as Red Hat Gold image) to create your VM and want to install the GPU extension, follow these steps: 
 
-1. Enable your Red Hat subscription for Cloud Access at Red Hat Subscription-Manager. Subscribe the VM with the Red Hat Cloud portal. This enables the VM to access RHUI fees that hosts the RedHat packages. See detailed instructions in [How to register and subscribe a system to the Red Hat Customer Portal using Red Hat Subscription-Manager - Red Hat Customer Portal](https://access.redhat.com/solutions/253273)
-1. The GPU extension depends on vulkan-filesystem package that is on CentOS7 repo (for RHEL7). You need to either manually install the vulkan-filesystempackage or add CentOS7 repo to your yum repo list.
+1. Enable your Red Hat subscription for Cloud Access. See [instructions]().
+1. Enable your Azure subscription. See [instructions](). This will allow you access to Red Hat Gold Images.  
+1. Register and subscribe your VM with the Red Hat Customer portal. This step allows you to access the Red Hat Update Infrastructure (RHUI) that hosts the Red Hat packages. For more information, see [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273)
+1. When you install the GPU extension, the installation script may look for a vulkan-filesystem package that is on CentOS7 repo (for RHEL7). You need to either manually install the vulkan-filesystempackage or add CentOS7 repo to your yum repo list.
 
 You can then deploy the extension. 
 
@@ -267,15 +263,6 @@ If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.
             "value": "1.3" 
         },
         "settings": {
-            "value": {
-                    "isCustomInstall":true,
-                    "DRIVER_URL":"https://go.microsoft.com/fwlink/?linkid=874273",
-                    "CUDA_ver":"10.0.130",
-                    "PUBKEY_URL":"http://download.microsoft.com/download/F/F/A/FFAC979D-AD9C-4684-A6CE-C92BB9372A3B/7fa2af80.pub",
-                    "DKMS_URL":"https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm",
-                    "LIS_URL":"https://aka.ms/lis",
-                    "LIS_RHEL_ver":"3.10.0-1062.9.1.el7"
-            }
         }
     }
 }
