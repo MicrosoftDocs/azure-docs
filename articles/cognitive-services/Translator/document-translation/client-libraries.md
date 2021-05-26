@@ -16,18 +16,12 @@ ms.author: lajanuar
 
 Use the Document Translation cloud-based batch document translation service via the C#/.NET or Python SDKs. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide. You can translate large files and whole documents asynchronously to and from 90 languages and dialects while preserving the original layout and data formats.
 
-Use Document Translation to
-
-* [**Create a Document Translation job**](#create-a-document-translation-job)
-* [**Check the status of submitted documents**](#check-the-status-of-submitted-documents)
-* [**Check the status of all submitted translation jobs**](#check-the-status-of-all-submitted-translation-jobs)
-
 >[!IMPORTANT]
 > The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
 ### [C#/.NET](#tab/csharp)
 
-[Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](/samples/azure/azure-sdk-for-python/documenttranslation-samples/)
+[Source code][documenttranslation_client_src] | [Package (NuGet)][documenttranslation_nuget_package] | [API reference documentation][documenttranslation_refdocs] | [Product documentation][documenttranslation_docs] | [Samples][documenttranslation_samples]
 
 ## Prerequisites
 
@@ -71,15 +65,28 @@ Within the application directory, install the Form Recognizer client library for
 dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 ```
 
-## Create a Document Translation job
+Next, explore our Azure Document Translation client library for .NET kit. There you will find code samples for the following operations:
 
-## Check the status of submitted documents
+* [**Translate documents**](/dotnet/api/overview/azure/ai.translation.document-readme-pre?branch=main#start-translation)
 
-## Check the status of all submitted translation jobs
+* [**Translate documents asynchronously**](/dotnet/api/overview/azure/ai.translation.document-readme-pre?branch=main#start-translation-asynchronously)
+
+* [**Get history for all submitted translation operations**](/dotnet/api/overview/azure/ai.translation.document-readme-pre?branch=main#get-operations-history-asynchronously)
+
+
+<!-- LINKS -->
+[documenttranslation_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/src
+<!--TODO: remove /overview -->
+[documenttranslation_docs]: https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview
+<!-- TODO: Add correct link when available -->
+[documenttranslation_refdocs]: https://aka.ms/azsdk/net/translation/docs
+<!-- TODO: Add correct link when available -->
+[documenttranslation_nuget_package]: https://www.nuget.org/
+[documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/samples/README.md
 
 ### [Python](#tab/python)
 
-[Reference documentation](/python/api/azure-ai-translation-document/azure.ai.translation.document.documenttranslationclient?view=azure-python-preview&preserve-view=true) | [Package (PyPi)](https://pypi.org/project/azure-ai-translation-document/) | [Samples](/samples/azure/azure-sdk-for-net/azure-document-translation-client-sdk-samples/)
+[Source code][python-dt-src] | [Package (PyPI)][python-dt-pypi] | [API reference documentation][python-dt-ref-docs] | [Product documentation][python-dt-product-docs] | [Samples][python-dt-samples]
 
 ## Prerequisites
 
@@ -87,7 +94,7 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) service resource (**not** a Cognitive Services resource).
+* A [**single-service access Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource (**not** a Cognitive Services resource).
 
 * An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
 
@@ -98,13 +105,25 @@ To get started, you'll need:
 After installing Python, you can install the latest version of the Form Recognizer client library with:
 
 ```console
-pip install azure-ai-translation-document
+pip install azure-ai-translation-document --pre
 ```
+Next, explore our Azure Document Translation client library for Python kit. There you will find code samples for the following operations:
 
-## Create a Document Translation job
+* [**Translate documents**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview#translate-your-documents)
 
-## Check  the status of submitted documents
+* [**Check status on individual documents**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview#check-status-on-individual-documents)
 
-## Check the status of all submitted translation jobs
+* [**List translation jobs**](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview#list-translation-jobs)
 
+<!-- LINKS -->
+
+[python-dt-src]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/azure/ai/translation/document
+[python-dt-pypi]: https://aka.ms/azsdk/python/texttranslation/pypi
+[python-dt-product-docs]: https://docs.microsoft.com/azure/cognitive-services/translator/document-translation/overview
+[python-dt-ref-docs]: https://aka.ms/azsdk/python/documenttranslation/docs
+[python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
 ---
+
+> [!div class="nextstepaction"]
+> [Translate documents with HTTP REST methods](document-translation/get-started-with-document-translation.md)
+
