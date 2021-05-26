@@ -1,7 +1,7 @@
 ---
 title: Xamarin Android system browser considerations (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about considerations for using system browsers on Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about considerations for using system browsers on Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 #  Xamarin Android system browser considerations for using MSAL.NET
 
-This article discusses what you should consider when you use the system browser on Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET).
+This article discusses what you should consider when you use the system browser on Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 
 Starting with MSAL.NET 2.4.0 Preview, MSAL.NET supports browsers other than Chrome. It no longer requires Chrome be installed on the Android device for authentication.
 

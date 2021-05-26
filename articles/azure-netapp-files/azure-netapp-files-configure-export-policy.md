@@ -1,5 +1,5 @@
 ---
-title: Configure export policy for NFS volume - Azure NetApp Files
+title: Configure export policy for Azure NetApp Files NFS or dual-protocol volumes - Azure NetApp Files
 description: Describes how to configure export policy to control access to an NFS volume using Azure NetApp Files
 services: azure-netapp-files
 author: b-juche
@@ -7,11 +7,11 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 05/07/2021
 ---
-# Configure export policy for an NFS volume
+# Configure export policy for NFS or dual-protocol volumes
 
-You can configure export policy to control access to an Azure NetApp Files volume. Azure NetApp Files export policy supports volumes that use the NFS protocol (both NFSv3 and NFSv4.1) and the dual protocol (NFSv3 and SMB). 
+You can configure export policy to control access to an Azure NetApp Files volume that uses the NFS protocol (NFSv3 and NFSv4.1) or the dual protocol (NFSv3 and SMB). 
 
 You can create up to five export policy rules.
 
@@ -27,14 +27,14 @@ You can create up to five export policy rules.
     * **Allowed Clients**: Specify the value in one of the following formats:  
       * IPv4 address. Example: `10.1.12.24`
       * IPv4 address with a subnet mask expressed as a number of bits. Example: `10.1.12.10/4`
-      * Comma-separated IP addresses. You can enter multiple host IPs in a single rule by separating them with commas. Example: `10.1.12.25,10.1.12.28,10.1.12.29`
+      * Comma-separated IP addresses. You can enter multiple host IPs in a single rule by separating them with commas. The length limit is 4096 characters. Example: `10.1.12.25,10.1.12.28,10.1.12.29`
 
     * **Access**: Select one of the following access types:  
       * No Access 
       * Read & Write
       * Read Only
 
-    * **Read-only** and **Read/Write**: If you use Kerberos encryption with NFSv4.1, follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).  For performance impact of Kerberos, see [Performance impact of Kerberos on NFSv4.1](configure-kerberos-encryption.md#kerberos_performance). 
+    * **Read-only** and **Read/Write**: If you use Kerberos encryption with NFSv4.1, follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).  For performance impact of Kerberos, see [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md). 
 
       ![Kerberos security options](../media/azure-netapp-files/kerberos-security-options.png) 
 
@@ -43,5 +43,5 @@ You can create up to five export policy rules.
       ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 ## Next steps 
-* [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Manage snapshots](azure-netapp-files-manage-snapshots.md)

@@ -45,15 +45,15 @@ Use the information in the following table to complete the **Custom deployment**
 | Subscription | Select your Azure subscription. |
 | Resource group | *lva-rg* - the resource group you created in the previous tutorial. |
 | Region       | *East US* |
-| DNS Label Prefix | Choose a unique DNS prefix for the VM. |
+| DNS Label Prefix | Choose a unique DNS prefix for the VM. Must be all alphabetic characters, no digits or special characters. |
 | Admin Username | *AzureUser* |
 | Admin Password | Enter a password. Make a note of the password in the *scratchpad.txt* file, you use it later. |
 | Scope ID | The **Scope ID** you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
 | Device ID | *gateway-001* - the gateway device you created in the previous tutorial. |
-| Device Key | The device primary key you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
+| Device Key | The **device primary key** you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
 | Iot Central App Host | The **Application URL** you made a note of in the *scratchpad.txt* file in the previous tutorial. For example, *traders.azureiotcentral.com*. |
-| Iot Central App Api Token | The operator API token you made a note of in the previous tutorial. |
-| Iot Central Device Provisioning Key | The primary group shared access signature token you made a note of in the *scratchpad.txt* file in the previous tutorial. |
+| Iot Central App Api Token | The **operator API token** you made a note of in the *scratchpad.txt* file in the previous tutorial. |
+| Iot Central Device Provisioning Key | The **SAS-IoT-Devices group primary key** you made a note of in the *scratchpad.txt* file in the previous tutorial. |
 | VM Size | *Standard_DS1_v2* |
 | Ubuntu OS Version | *18.04-LTS* |
 | Location | *[resourceGroup().location]* |
@@ -112,6 +112,14 @@ sudo docker ps
 ```
 
 The list includes a container called **live555**.
+
+## Clean up resources
+
+If you've finished with the application, you can remove all the resources you created as follows:
+
+1. In the IoT Central application, navigate to the **Your application** page in the **Administration** section. Then select **Delete**.
+1. In the Azure portal, delete the **lva-rg** resource group.
+1. On your local machine, stop the **amp-viewer** Docker container.
 
 ## Next steps
 

@@ -3,7 +3,6 @@ title: About Azure Key Vault Certificates - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and certificates.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -88,7 +87,7 @@ A certificate policy contains information on how to create and manage lifecycle 
 
 When a Key Vault certificate is created from scratch, a policy needs to be supplied. The policy specifies how to create this Key Vault certificate version, or the next Key Vault certificate version. Once a policy has been established, it isn't required with successive create operations for future  versions. There's only one instance of a policy for all the versions of a Key Vault certificate.  
 
-At a high level, a certificate policy contains the following information (their definitions can be found [here](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
+At a high level, a certificate policy contains the following information (their definitions can be found [here](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy)):  
 
 -   X509 certificate properties: Contains subject name, subject alternate names, and other properties used to create an x509 certificate request.  
 -   Key Properties: contains key type, key length, exportable, and ReuseKeyOnRenewal fields. These fields instruct key vault on how to generate a key. 

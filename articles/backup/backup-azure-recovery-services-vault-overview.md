@@ -16,7 +16,7 @@ This article describes the features of a Recovery Services vault. A Recovery Ser
 
 - **Soft Delete**:  With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the "soft delete" state don't incur any cost to you. [Learn more](backup-azure-security-feature-cloud.md).
 
-- **Cross Region Restore**:  Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region. If Azure declares a disaster in the primary region, the data replicated in the secondary region is available to restore in the secondary region to mitigate real downtime disaster in the primary region for their environment. [Learn more](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **Cross Region Restore**:  Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region. By enabling this feature at the [vault level](backup-create-rs-vault.md#set-cross-region-restore), you can restore the replicated data in the secondary region any time, when you choose. This enables you to restore the secondary region data for audit-compliance, and during outage scenarios, without waiting for Azure to declare a disaster (unlike the GRS settings of the vault). [Learn more](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## Storage settings in the Recovery Services vault
 
@@ -51,7 +51,7 @@ Azure Advisor provides hourly [recommendations](../advisor/advisor-high-availabi
 ## Additional resources
 
 - [Vault supported and unsupported scenarios](backup-support-matrix.md#vault-support)
-- [Vault frequently asked questions](backup-azure-backup-faq.md)
+- [Vault frequently asked questions](backup-azure-backup-faq.yml)
 
 ## Next steps
 

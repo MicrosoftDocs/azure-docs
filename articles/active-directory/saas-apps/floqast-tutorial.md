@@ -47,7 +47,6 @@ To configure the integration of FloQast into Azure AD, you need to add FloQast f
 1. In the **Add from the gallery** section, type **FloQast** in the search box.
 1. Select **FloQast** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for FloQast
 
 Configure and test Azure AD SSO with FloQast using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in FloQast.
@@ -83,33 +82,33 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. FloQast application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+    ![image](common/default-attributes.png)
 
 1. In addition to above, FloQast application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
-	| Name | Source Attribute|
-	| ------------- | -------------- |
-	| FirstName 		  | user.givenname |
-	| LastName 		  	  | user.surname |
-	| Email       		  | user.mail    |
+    | Name | Source Attribute|
+    | ------------- | -------------- |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | Email | user.mail    |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 9. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog and perform the following step.
 
-	![Edit SAML Signing Certificate](common/edit-certificate.png)
+    ![Edit SAML Signing Certificate](common/edit-certificate.png)
 
-	a. Select **Sign SAML response and assertion** from the **Signing Option**.
-	
-	b. Click **Save**
+    1. Select **Sign SAML response and assertion** from the **Signing Option**.
 
-	![Communifire Signing option](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
+    1. Click **Save**
+
+        ![Communifire Signing option](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
 
 1. On the **Set up FloQast** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -135,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -157,9 +156,9 @@ When you click the FloQast tile in the Access Panel, you should be automatically
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 

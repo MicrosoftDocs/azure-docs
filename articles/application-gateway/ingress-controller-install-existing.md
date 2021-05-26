@@ -342,7 +342,7 @@ Broaden AGIC permissions with:
 
 ### Enable for an existing AGIC installation
 Let's assume that we already have a working AKS, Application Gateway, and configured AGIC in our cluster. We have an Ingress for
-`prod.contosor.com` and are successfully serving traffic for it from AKS. We want to add `staging.contoso.com` to our
+`prod.contoso.com` and are successfully serving traffic for it from AKS. We want to add `staging.contoso.com` to our
 existing Application Gateway, but need to host it on a [VM](https://azure.microsoft.com/services/virtual-machines/). We
 are going to reuse the existing Application Gateway and manually configure a listener and backend pools for
 `staging.contoso.com`. But manually tweaking Application Gateway config (via

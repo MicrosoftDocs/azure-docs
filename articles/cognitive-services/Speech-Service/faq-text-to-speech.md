@@ -14,7 +14,7 @@ ms.author: panosper
 
 # Text to Speech frequently asked questions
 
-If you can't find answers to your questions in this FAQ, check out [other support options](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+If you can't find answers to your questions in this FAQ, check out [other support options](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## General
 
@@ -28,7 +28,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: If I want to use a customized voice model, is the API the same as the one that's used for standard voices?**
 
-**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint).
+**A**: When a custom voice model is created and deployed, you get a unique endpoint for your model. To use the voice to speak in your apps, you must specify the endpoint in your HTTP requests. The same functionality that's available in the REST API for the Text to Speech service is available for your custom endpoint. Learn how to [create and use your custom endpoint](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-neural-voice-endpoint).
 
 **Q: Do I need to prepare the training data to create custom voice models on my own?**
 

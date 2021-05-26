@@ -8,9 +8,10 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 
@@ -72,6 +73,8 @@ Save your settings by selecting **PUT**. This setting can take several minutes t
 
 Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters. Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-identity-web/), the web app gets an access token for authentication with Microsoft Graph. In version 1.2.0 and later, the Microsoft.Identity.Web library integrates with and can run alongside the App Service authentication/authorization module. Microsoft.Identity.Web detects that the web app is hosted in App Service and gets the access token from the App Service authentication/authorization module. The access token is then passed along to authenticated requests with the Microsoft Graph API.
 
+To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
+
 > [!NOTE]
 > The Microsoft.Identity.Web library isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](tutorial-auth-aad.md#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
 > 
@@ -79,7 +82,7 @@ Your web app now has the required permissions and also adds Microsoft Graph's cl
 
 ### Install client library packages
 
-Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 # [Command line](#tab/command-line)
 
@@ -88,7 +91,7 @@ Open a command line, and switch to the directory that contains your project file
 Run the install commands.
 
 ```dotnetcli
-dotnet add package Microsoft.Graph
+dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 
 dotnet add package Microsoft.Identity.Web
 ```
@@ -99,7 +102,7 @@ Open the project/solution in Visual Studio, and open the console by using the **
 
 Run the install commands.
 ```powershell
-Install-Package Microsoft.Graph
+Install-Package Microsoft.Identity.Web.MicrosoftGraph
 
 Install-Package Microsoft.Identity.Web
 ```

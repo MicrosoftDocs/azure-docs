@@ -1,14 +1,9 @@
 ---
 title: Copy data from MongoDB Atlas
 description: Learn how to copy data from MongoDB Atlas to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 09/28/2020
@@ -32,7 +27,7 @@ If you use Azure Integration Runtime for copy, make sure you add the effective r
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MongoDB Atlas connector.
 

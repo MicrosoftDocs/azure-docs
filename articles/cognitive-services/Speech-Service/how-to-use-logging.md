@@ -15,7 +15,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 # Enable logging in the Speech SDK
 
-Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speech SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging will be activated globally once a recognizer is created from that configuration and can't be disabled afterwards. You can't change the name of a log file during a running logging session.
+Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speech SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging is handled by a static class in Speech SDK’s native library. You can turn on logging for any Speech SDK recognizer or synthesizer instance. All instances in the same process write log entries to the same log file.
 
 > [!NOTE]
 > Logging is available since Speech SDK version 1.4.0 in all supported Speech SDK programming languages, with the exception of JavaScript.
@@ -63,7 +63,15 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-More about file access permission for UWP applications is available [here](/windows/uwp/files/file-access-permissions).
+Within a Unity UWP application, a log file can be created using the application persistent data path folder as follows:
+
+```csharp
+#if ENABLE_WINMD_SUPPORT
+    string logFile = Application.persistentDataPath + "/logFile.txt";
+    config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+#endif
+```
+For more about file access permissions in UWP applications, see [File access permissions](/windows/uwp/files/file-access-permissions).
 
 ### Android
 
@@ -86,6 +94,16 @@ You also need to request `WRITE_EXTERNAL_STORAGE` permission in the manifest fil
   ...
 </manifest>
 ```
+
+Within a Unity Android application, the log file can be created using the application persistent data path folder as follows:
+
+```csharp
+string logFile = Application.persistentDataPath + "/logFile.txt";
+config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+```
+In addition, you need to also set write permission in your Unity Player settings for Android to "External (SDCard)". The log will be written 
+to a directory you can get using a tool such as AndroidStudio Device File Explorer. The exact directory path may vary between Android devices, 
+location is typically the `sdcard/Android/data/your-app-packagename/files` directory.
 
 More about data and file storage for Android applications is available [here](https://developer.android.com/guide/topics/data/data-storage.html).
 

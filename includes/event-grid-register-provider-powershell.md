@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: event-grid
- author: tfitzmac
+ author: spelluru
  ms.service: event-grid
  ms.topic: include
  ms.date: 07/05/2018
- ms.author: tomfitz
+ ms.author: spelluru
  ms.custom: include file
 ---
 

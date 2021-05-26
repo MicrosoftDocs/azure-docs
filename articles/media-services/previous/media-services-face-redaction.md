@@ -6,16 +6,14 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Redact faces with Azure Media Analytics
 
@@ -32,6 +30,9 @@ This article gives details about **Azure Media Redactor** and shows how to use i
 Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process is complex and does not always produce 100% of desired output, for this reason Media Analytics provides you with a couple of ways to modify the final output.
 
 In addition to a fully automatic mode, there is a two-pass workflow, which allows the selection/de-selection of found faces via a list of IDs. Also, to make arbitrary per frame adjustments the MP uses a metadata file in JSON format. This workflow is split into **Analyze** and **Redact** modes. You can combine the two modes in a single pass that runs both tasks in one job; this mode is called **Combined**.
+
+   > [!NOTE]
+   > Face Detector Media Processor has been deprecated as of June 2020, [Azure Media Services legacy components](./legacy-components.md). Consider using Azure Media Services v3 API.
 
 ### Combined mode
 
@@ -381,4 +382,4 @@ namespace FaceRedaction
 
 [Azure Media Services Analytics Overview](./legacy-components.md)
 
-[Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](http://amslabs.azurewebsites.net/demos/Analytics.html)

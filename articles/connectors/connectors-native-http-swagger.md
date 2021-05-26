@@ -51,7 +51,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Screenshot that shows the Logic App Designer with the"H T T P + Swagger" trigger and the "Swagger Endpoint U R L" property set to a U R L value.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Screenshot that shows the Logic App Designer with the "H T T P + Swagger" trigger and the "Swagger Endpoint U R L" property set to a U R L value.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. When the designer shows the operations described by the Swagger file, select the operation that you want to use.
 
@@ -145,9 +145,9 @@ Here is more information about the outputs from an HTTP + Swagger trigger or act
 | Property name | Type | Description |
 |---------------|------|-------------|
 | headers | object | The headers from the request |
-| body | object | JSON object | The object with the body content from the request |
+| body | object | The object with the body content from the request |
 | status code | int | The status code from the request |
-|||
+||||
 
 | Status code | Description |
 |-------------|-------------|

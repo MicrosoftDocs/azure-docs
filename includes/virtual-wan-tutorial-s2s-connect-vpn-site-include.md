@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/08/2020
+ ms.date: 02/04/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -20,13 +20,13 @@
    * Select the appropriate option for **Propagate Default Route**. The **Enable** option allows the virtual hub to propagate a learned default route to this connection. This flag enables default route propagation to a connection only if the default route is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced tunneling enabled. The default route does not originate in the Virtual WAN hub.
 
 2. Select **Connect**.
-3. In a few minutes, the site will show the connection and connectivity status.
+3. After a few minutes, the site will show the connection and connectivity status.
 
-   ![Screenshot shows a V P N site to site connection and connectivity status.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![Screenshot shows a site to site connection and connectivity status.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
-   **Connection Status:** This is the status of the Azure resource for the connection that connects the VPN Site to the Azure hub’s VPN gateway. Once this control plane operation is successful, Azure VPN gateway and the on-premises VPN device will proceed to establish connectivity.
+   **Connection Status:** This is the status of the Azure resource for the connection that connects the VPN site to the Azure hub’s VPN gateway. Once this control plane operation is successful, Azure VPN gateway and the on-premises VPN device will proceed to establish connectivity.
 
-   **Connectivity Status:** This is the actual connectivity (data path) status between Azure’s VPN gateway in the hub and VPN Site. It can show any of the following states:
+   **Connectivity Status:** This is the actual connectivity (data path) status between Azure’s VPN gateway in the hub and VPN site. It can show any of the following states:
 
     * **Unknown**: This state is typically seen if the backend systems are working to transition to another status.
     * **Connecting**: Azure VPN gateway is trying to reach out to the actual on-premises VPN site.

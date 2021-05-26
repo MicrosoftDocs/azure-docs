@@ -24,7 +24,7 @@ This article outlines the differences between the Bing Speech APIs and the Speec
 A single Speech service subscription key grants access to the following features. Each is metered separately, so you're charged only for the features you use.
 
 * [Speech-to-text](speech-to-text.md)
-* [Custom speech-to-text](https://cris.ai)
+* [Custom speech-to-text](./custom-speech-overview.md)
 * [Text-to-speech](text-to-speech.md)
 * [Custom text-to-speech voices](./how-to-custom-voice-create-voice.md)
 * [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview.md))
@@ -77,7 +77,7 @@ To get started with the Speech SDK:
 
 Bing Speech customers should contact customer support by opening a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also contact us if your support need requires a [technical support plan](https://azure.microsoft.com/support/plans/).
 
-For Speech service, SDK, and API support, visit the Speech service [support page](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+For Speech service, SDK, and API support, visit the Speech service [support page](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Next steps
 

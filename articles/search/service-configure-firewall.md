@@ -4,19 +4,18 @@ titleSuffix: Azure Cognitive Search
 description: Configure IP control policies to restrict access to your Azure Cognitive Search service.
 
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 02/16/2021
 ---
 
 # Configure IP firewall for Azure Cognitive Search
 
 Azure Cognitive Search supports IP rules for inbound firewall support. This model provides an additional layer of security for your search service similar to the IP rules you'll find in an Azure virtual network security group. With these IP rules, you can configure your search service to be accessible only from an approved set of machines and/or cloud services. Access to data stored in your search service from these approved sets of machines and services will still require the caller to present a valid authorization token.
 
-> [!Important]
-> IP rules on your Azure Cognitive Search service can be configured using the Azure portal or the [Management REST API version 2020-03-13](/rest/api/searchmanagement/).
+You can set IP rules in the Azure portal, as described in this article. Alternatively, you can use the [Management REST API version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
 
 ## <a id="configure-ip-policy"></a> Configure an IP firewall using the Azure portal
 
@@ -27,7 +26,7 @@ To set the IP access control policy in the Azure portal, go to your Azure Cognit
 The Azure portal provides the ability to specify IP addresses and IP address ranges in the CIDR format. An example of CIDR notation is 8.8.8.0/24, which represents the IPs that range from 8.8.8.0 to 8.8.8.255.
 
 > [!NOTE]
-> After you enable the IP access control policy for your Azure Cognitive Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. When IP rules are configured, some features of the Azure portal are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
+> After you enable the IP access control policy for your Azure Cognitive Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. When IP rules are configured, some features of the Azure portal are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons. As an alternative to the portal, you can use the [VS Code Extension](https://aka.ms/vscode-search) to interact with the various components in the service.
 
 ### Requests from your current IP
 

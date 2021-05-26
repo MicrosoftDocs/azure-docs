@@ -221,10 +221,10 @@ Geo-replication settings can also be changed in the Azure portal, by selecting y
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
                 System.out.print(i + ": insert on primary " +
-                   (insertData((highWaterMark + i))?"successful":"failed"));
+                   (insertData((highWaterMark + i)) ? "successful" : "failed"));
                 TimeUnit.SECONDS.sleep(1);
                 System.out.print(", read from secondary " +
-                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                   (selectData((highWaterMark + i)) ? "successful" : "failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {

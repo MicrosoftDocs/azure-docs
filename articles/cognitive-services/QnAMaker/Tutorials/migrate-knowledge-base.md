@@ -21,14 +21,25 @@ Migrating a knowledge base requires exporting from an existing knowledge base, t
 
 ## Prerequisites
 
-* Create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-* Set up a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+> * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * Set up a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+
+# [Custom question answering (preview release)](#tab/v2)
+
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+> * Set up a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
+
+---
 
 ## Migrate a knowledge base from QnA Maker
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).
-1. Select the origin knowledge base you want to migrate.
+1. Select the knowledge base you want to migrate.
 
-1. On the **Settings** page, select **Export knowledge base** to download a .tsv file that contains the content of your origin knowledge base - questions, answers, metadata, follow-up prompts, and the data source names from which they were extracted. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
+1. On the **Settings** page, select **Export knowledge base** to download a .tsv file that contains the content of your origin knowledge base - questions, answers, metadata, follow-up prompts, and the data source names from which they were extracted. The QnA IDs that are exported with the questions and answers may be used to update a specific QnA pair using the [update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The QnA ID for a specific QnA pair remains unchanged across multiple export operations.
 
 1. Select **Create a knowledge base** from the top menu then create an _empty_ knowledge base. It is empty because when you create it, you are not going to add any URLs or files. Those are added during the import step, after creation.
 
@@ -53,16 +64,16 @@ The migration process is programmatically available using the following REST API
 
 **Export**
 
-* [Download knowledge base API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [Download knowledge base API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **Import**
 
-* [Replace API (reload with same knowledge base ID)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [Create API (load with new knowledge base ID)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [Replace API (reload with same knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [Create API (load with new knowledge base ID)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## Chat logs and alterations
-Case-insensitive alterations (synonyms) are not imported automatically. Use the [V4 APIs](https://go.microsoft.com/fwlink/?linkid=2092179) to move the alterations in the new knowledge base.
+Case-insensitive alterations (synonyms) are not imported automatically. Use the [V4 APIs](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) to move the alterations in the new knowledge base.
 
 There is no way to migrate chat logs, since the new knowledge base uses Application Insights for storing chat logs.
 

@@ -5,7 +5,7 @@ description: The Anomaly Detector API offers client libraries to detect abnormal
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-zone_pivot_groups: ad-quickstart-one
+zone_pivot_groups: anomaly-detector-quickstart
 
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
@@ -35,3 +35,10 @@ ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-au
 [!INCLUDE [Python quickstart](../includes/quickstarts/anomaly-detector-client-library-python.md)]
 
 ::: zone-end
+
+::: zone pivot="rest-api"
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/anomaly-detector-rest-api.md)]
+
+::: zone-end
+

@@ -1,6 +1,6 @@
 ---
-title: Secure a database
-description: Tips for securing a dedicated SQL pool and developing solutions in Azure Synapse Analytics.
+title: Secure a dedicated SQL pool (formerly SQL DW)
+description: Tips for securing a dedicated SQL pool (formerly SQL DW) and developing solutions in Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 tags: azure-synapse
 ---
 
-# Secure a dedicated SQL pool in Azure Synapse Analytics
+# Secure a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -22,7 +22,7 @@ tags: azure-synapse
 > * [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-This article will walk you through the basics of securing your dedicated SQL pool. In particular, this article gets you started with resources for limiting access, protecting data, and monitoring activities using dedicated SQL pool.
+This article will walk you through the basics of securing your dedicated SQL pool (formerly SQL DW). In particular, this article gets you started with resources for limiting access, protecting data, and monitoring activities using dedicated SQL pool (formerly SQL DW).
 
 ## Connection security
 
@@ -30,15 +30,15 @@ Connection Security refers to how you restrict and secure connections to your da
 
 Firewall rules are used by both the [logical SQL server](../../azure-sql/database/logical-servers.md) and its databases to reject connection attempts from IP addresses that haven't been explicitly approved. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure portal, REST API, or PowerShell.
 
-As a best practice, you should restrict the IP address ranges allowed through your server-level firewall as much as possible.  To access your dedicated SQL pool from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
+As a best practice, you should restrict the IP address ranges allowed through your server-level firewall as much as possible.  To access your dedicated SQL pool (formerly SQL DW) from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
 
-Azure Synapse Analytics uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see see [Azure SQL Database firewall rules](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Dedicated SQL pool (formerly SQL DW) uses server-level IP firewall rules. It doesn't support database-level IP firewall rules. For more information, see see [Azure SQL Database firewall rules](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-Connections to your dedicated SQL pool are encrypted by default.  Modifying connection settings to disable encryption are ignored.
+Connections to your dedicated SQL pool (formerly SQL DW) are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 
 ## Authentication
 
-Authentication refers to how you prove your identity when connecting to the database. Dedicated SQL pool currently supports SQL Server Authentication with a username and password, and with Azure Active Directory.
+Authentication refers to how you prove your identity when connecting to the database. Dedicated SQL pool (formerly SQL DW) currently supports SQL Server Authentication with a username and password, and with Azure Active Directory.
 
 When you created the server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
@@ -52,7 +52,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Then, connect to your **dedicated SQL pool database** with your server admin login and create a database user based on the server login you created.
+Then, connect to your **dedicated SQL pool (formerly SQL DW)** with your server admin login and create a database user based on the server login you created.
 
 ```sql
 -- Connect to the database and create a database user
@@ -76,9 +76,9 @@ The server admin account you are connecting with is a member of db_owner, which 
 
 There are ways to further limit what a user can do within the database:
 
-* Granular [Permissions](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) let you control which operations you can do on individual columns, tables, views, schemas, procedures, and other objects in the database. Use granular permissions to have the most control and grant the minimum permissions necessary.
-* [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
-* [Stored procedures](/sql/relational-databases/stored-procedures/stored-procedures-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) can be used to limit the actions that can be taken on the database.
+* Granular [Permissions](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) let you control which operations you can do on individual columns, tables, views, schemas, procedures, and other objects in the database. Use granular permissions to have the most control and grant the minimum permissions necessary.
+* [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) other than db_datareader and db_datawriter can be used to create more powerful application user accounts or less powerful management accounts. The built-in fixed database roles provide an easy way to grant permissions, but can result in granting more permissions than are necessary.
+* [Stored procedures](/sql/relational-databases/stored-procedures/stored-procedures-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) can be used to limit the actions that can be taken on the database.
 
 The following example grants read access to a user-defined schema.
 
@@ -87,16 +87,16 @@ The following example grants read access to a user-defined schema.
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-Managing databases and servers from the Azure portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Managing databases and servers from the Azure portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## Encryption
 
 Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by encrypting and decrypting your data at rest. When you encrypt your database, associated backups and transaction log files are encrypted without requiring any changes to your applications. TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key.
 
-In SQL Database, the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used is AES-256. For a general description of TDE, see [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+In SQL Database, the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used is AES-256. For a general description of TDE, see [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 You can encrypt your database using the [Azure portal](sql-data-warehouse-encryption-tde.md) or [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## Next steps
 
-For details and examples on connecting to your warehouse with different protocols, see [Connect to dedicated SQL pool](../sql/connect-overview.md).
+For details and examples on connecting to your warehouse with different protocols, see [Connect to dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-connect-overview.md).

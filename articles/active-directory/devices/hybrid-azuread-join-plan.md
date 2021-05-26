@@ -79,6 +79,8 @@ As a first planning step, you should review your environment and determine wheth
 
 - Server Core OS doesn't support any type of device registration.
 
+- User State Migration Tool (USMT) doesn't work with device registration.  
+
 ### OS imaging considerations
 - If you are relying on the System Preparation Tool (Sysprep) and if you are using a **pre-Windows 10 1809** image for installation, make sure that image is not from a device that is already registered with Azure AD as Hybrid Azure AD join.
 
@@ -90,6 +92,7 @@ As a first planning step, you should review your environment and determine wheth
 If your Windows 10 domain joined devices are [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state for a user would be automatically removed <i>after the device is Hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. In addition to removing the Azure AD registered state, Windows 10 will also unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
+- Azure AD registered state on any local accounts on the device is not impacted by this change. It is only applicable to domain accounts. So Azure AD registered state on local accounts is not removed automatically even after user logon, since the user is not a domain user. 
 - You can prevent your domain joined device from being Azure AD registered by adding the following registry value to HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to re-setup Windows Hello for Business after the dual state clean up.This issue has been addressed with KB4512509
 
@@ -102,6 +105,8 @@ If your Windows 10 domain joined devices are [Azure AD registered](overview.md#g
 - Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. 
 
 - Starting from Windows 10 1903 release, TPMs 1.2 are not used with hybrid Azure AD join and devices with those TPMs will be considered as if they don't have a TPM.
+
+- UPN changes are only supported starting Windows 10 2004 update. For devices prior to Windows 10 2004 update, users would have SSO and Conditional Access issues on their devices. To resolve this issue, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically). However, users signing in with Windows Hello for Business do not face this issue.
 
 ## Review controlled validation of hybrid Azure AD join
 
@@ -165,7 +170,7 @@ The table below provides details on support for these on-premises AD UPNs in Win
 | ----- | ----- | ----- | ----- |
 | Routable | Federated | From 1703 release | Generally available |
 | Non-routable | Federated | From 1803 release | Generally available |
-| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lockscreen is not supported |
+| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lockscreen is not supported. The on-premises UPN must be synced to the     `onPremisesUserPrincipalName` attribute in Azure AD |
 | Non-routable | Managed | Not supported | |
 
 ## Next steps

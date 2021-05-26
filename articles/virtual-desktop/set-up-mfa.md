@@ -3,9 +3,9 @@ title: Set up Azure multifactor authentication for Windows Virtual Desktop - Azu
 description: How to set up Azure multifactor authentication for increased security in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/10/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Enable Azure multifactor authentication for Windows Virtual Desktop
 
@@ -61,7 +61,7 @@ Here's how to create a Conditional Access policy that requires multifactor authe
    > 
    > If you're using Windows Virtual Desktop (classic), if the Conditional Access policy blocks all access and only excludes Windows Virtual Desktop app IDs, you can fix this by adding the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 to the policy. Not adding this app ID will block feed discovery of Windows Virtual Desktop (classic) resources.
 
-10. Go to **Conditions** > **Client apps**, then select where you want to apply the policy to:
+10. Go to **Conditions** > **Client apps**. In **Configure**, select **Yes**, and then select where to apply the policy:
     
     - Select **Browser** if you want the policy to apply to the web client.
     - Select **Mobile apps and desktop clients** if you want to apply the policy to other clients.
@@ -82,6 +82,9 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 13. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to the time you want between prompts, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, will require multifactor authentication if a connection is launched an hour after the last one.
 14. Confirm your settings and set **Enable policy** to **On**.
 15. Select **Create** to enable your policy.
+
+>[!NOTE]
+>When you use the web client to sign in to Windows Virtual Desktop through your browser, the log will list the client app ID as a85cf173-4192-42f8-81fa-777a763e6e2c (Windows Virtual Desktop client). This is because the client app is internally linked to the server app ID where the conditional access policy was set. 
 
 ## Next steps
 

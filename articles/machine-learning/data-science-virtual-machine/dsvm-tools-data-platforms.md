@@ -4,13 +4,12 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn about the supported data platforms and tools for the Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
-author: lobrien
-ms.author: laobri
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 04/29/2021
 
 ---
 
@@ -25,16 +24,23 @@ The following data platform tools are supported on the DSVM.
 | Category | Value |
 | ------------- | ------------- |
 | What is it?   | A local relational database instance      |
-| Supported DSVM editions      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
+| Supported DSVM editions      | Windows 2019, Ubuntu 18.04 (SQL Server 2019)   |
 | Typical uses      | <ul><li>Rapid development locally with smaller dataset</li><li>Run In-database R</li></ul> |
 | Links to samples      | <ul><li>A small sample of a New York City dataset is loaded into the SQL database:<br/>  `nyctaxi`</li><li>Jupyter sample showing Microsoft Machine Learning Server and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
-| Related tools on the DSVM       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC drivers</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
+| Related tools on the DSVM       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC drivers</li><li>pyodbc, RODBC</li></ul> |
 
 > [!NOTE]
 > SQL Server Developer Edition can be used only for development and test purposes. You need a license or one of the SQL Server VMs to run it in production.
 
+> [!NOTE]
+> Support for Machine Learning Server Standalone will end July 1, 2021. We will remove it from the DSVM images after
+> June, 30. Existing deployments will continue to have access to the software but due to the reached support end date,
+> there will be no support for it after July 1, 2021.
 
-### Setup
+
+### Windows
+
+#### Setup
 
 The database server is already preconfigured and the Windows services related to SQL Server (like `SQL Server (MSSQLSERVER)`) are set to run automatically. The only manual step involves enabling In-database analytics by using Microsoft Machine Learning Server. You can enable analytics by running the following command as a one-time action in SQL Server Management Studio (SSMS). Run this command after you log in as the machine administrator, open a new query in SSMS, and make sure the selected database is `master`:
 
@@ -46,15 +52,21 @@ CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS
 
 To run SQL Server Management Studio, you can search for "SQL Server Management Studio" on the program list, or use Windows Search to find and run it. When prompted for credentials, select **Windows Authentication** and use the machine name or ```localhost``` in the **SQL Server Name** field.
 
-### How to use and run it
+#### How to use and run it
 
 By default, the database server with the default database instance runs automatically. You can use tools like SQL Server Management Studio on the VM to access the SQL Server database locally. Local administrator accounts have admin access on the database.
 
 Also, the DSVM comes with ODBC and JDBC drivers to talk to SQL Server, Azure SQL databases, and Azure Synapse Analytics from applications written in multiple languages, including Python and Machine Learning Server.
 
-### How is it configured and installed on the DSVM? 
+#### How is it configured and installed on the DSVM? 
 
  SQL Server is installed in the standard way. It can be found at `C:\Program Files\Microsoft SQL Server`. The In-database Machine Learning Server instance is found at `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. The DSVM also has a separate standalone Machine Learning Server instance, which is installed at `C:\Program Files\Microsoft\R Server\R_SERVER`. These two Machine Learning Server instances don't share libraries.
+
+
+### Ubuntu
+
+To use SQL Server Developer Edition on an Ubuntu DSVM, you need to install it first. [Quickstart: Install SQL Server and create a database on Ubuntu](/sql/linux/quickstart-install-connect-ubuntu) tells you how.
+
 
 
 ## Apache Spark 2.x (Standalone)

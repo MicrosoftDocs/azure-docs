@@ -42,7 +42,7 @@ landingContent:
           - text: Get started with U-SQL
             url: data-lake-analytics-u-sql-get-started.md
           - text: U-SQL language reference
-            url: /u-sql/
+            url: /u-sql
           - text: Get started with the U-SQL Catalog
             url: data-lake-analytics-u-sql-catalog.md
           - text: Use user-defined operators

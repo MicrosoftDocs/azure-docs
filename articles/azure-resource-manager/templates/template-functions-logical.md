@@ -1,12 +1,12 @@
 ---
 title: Template functions - logical
-description: Describes the functions to use in an Azure Resource Manager template to determine logical values.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 05/05/2021
 ---
 # Logical functions for ARM templates
 
-Resource Manager provides several functions for making comparisons in your Azure Resource Manager (ARM) templates.
+Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
 
 * [and](#and)
 * [bool](#bool)
@@ -221,7 +221,7 @@ Returns second parameter when first parameter is **True**; otherwise, returns th
 
 ### Remarks
 
-When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. With the **if** function, you can include expressions that are only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition. An example of conditionally evaluating expressions is shown in the following section.
+When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. With the `if` function, you can include expressions that are only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition. An example of conditionally evaluating expressions is shown in the following section.
 
 ### Examples
 
@@ -322,8 +322,30 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 # [Bicep](#tab/bicep)
 
-> [!NOTE]
-> `Conditions` are not yet implemented in Bicep. See [Conditions](https://github.com/Azure/bicep/issues/186).
+```bicep
+param vmName string
+param location string
+param logAnalytics string = ''
+
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = if (!empty(logAnalytics)) {
+  name: '${vmName}/omsOnboarding'
+  location: location
+  properties: {
+    publisher: 'Microsoft.EnterpriseCloud.Monitoring'
+    type: 'MicrosoftMonitoringAgent'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {
+      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : json('null'))
+    }
+    protectedSettings: {
+      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : json('null'))
+    }
+  }
+}
+
+output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
+```
 
 ---
 
@@ -536,4 +558,4 @@ The output from the preceding example is:
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

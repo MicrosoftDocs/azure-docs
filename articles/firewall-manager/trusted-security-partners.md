@@ -5,19 +5,19 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 03/30/2021
 ms.author: victorh
 ---
 
 # What are security partner providers?
 
-*Security partner providers* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
+*Security partner providers* in Azure Firewall Manager allow you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
 
 With a quick configuration, you can secure a hub with a supported security partner, and route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. You can do this with automated route management, without setting up and managing User Defined Routes (UDRs).
 
 You can deploy secured hubs configured with the security partner of your choice in multiple Azure regions to get connectivity and security for your users anywhere across the globe in those regions. With the ability to use the security partner’s offering for Internet/SaaS application traffic, and Azure Firewall for private traffic in the secured hubs, you can now start building your security edge on Azure that is close to your globally distributed users and applications.
 
-The supported security partners are **ZScaler**, **Check Point** (preview), and **iboss** (preview).
+The supported security partners are **Zscaler**, **[Check Point](check-point-overview.md)**, and **iboss**.
 
 ![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
 
@@ -25,17 +25,23 @@ The supported security partners are **ZScaler**, **Check Point** (preview), and 
 
 You can use the security partners to filter Internet traffic in following scenarios:
 
-- Virtual Network (VNet) to Internet
+- Virtual Network (VNet)-to-Internet
 
-   Leverage advanced user-aware Internet protection for your cloud workloads running on Azure.
+   Use advanced user-aware Internet protection for your cloud workloads running on Azure.
 
-- Branch to Internet
+- Branch-to-Internet
 
-   Leverage your Azure connectivity and global distribution to easily add third-party NSaaS filtering for branch to Internet scenarios. You can build your global transit network and security edge using Azure Virtual WAN.
+   Use your Azure connectivity and global distribution to easily add third-party NSaaS filtering for branch to Internet scenarios. You can build your global transit network and security edge using Azure Virtual WAN.
 
 The following scenarios are supported:
-- VNet/Branch to Internet via a security partner provider and the other traffic (spoke to spoke, spoke to branch, branch to spoke) via Azure Firewall.
-- VNet/Branch to Internet via security partner provider
+- Two security providers in the hub
+
+   VNet/Branch-to-Internet via a security partner provider and the other traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke) via Azure Firewall.
+- Single provider in the hub
+
+   - All traffic (spoke-to-spoke, spoke-to-branch, branch-to-spoke, VNet/Branch-to-Internet) secured by Azure Firewall<br>
+      or
+   - VNet/Branch-to-Internet via security partner provider
 
 ## Best practices for Internet traffic filtering in secured virtual hubs
 

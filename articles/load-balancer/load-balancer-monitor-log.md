@@ -1,7 +1,7 @@
 ---
-title: Monitor operations, events, and counters for public Basic Load Balancer
+title: Monitor operations, events, and counters for a public load balancer
 titleSuffix: Azure Load Balancer
-description: Learn how to enable alert events, and probe health status logging for public Basic Load Balancer
+description: Learn how to enable logging for Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,159 +15,97 @@ ms.date: 05/05/2020
 ms.author: allensu
 ---
 
-# Azure Monitor logs for public Basic Load Balancer
+# Azure Monitor logs for Azure Standard Load Balancer
 
-You can use different types of logs in Azure to manage and troubleshoot Basic Load Balancers. Some of these logs can be accessed through the portal. Logs can be streamed to an event hub or a Log Analytics workspace. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI.  You can learn more about the different types of logs from the list below.
+You can use different types of Azure Monitor logs to manage and troubleshoot Azure Standard Load Balancer. Logs can be streamed to an event hub or a Log Analytics workspace. You can extract all logs from Azure Blob Storage and view them in tools like Excel and Power BI. 
 
-* **Activity logs:** You can use [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md) to view all activity being submitted to your Azure subscription(s), and their status. Activity logs are enabled by default, and can be viewed in the Azure portal.
-* **Alert event logs:** You can use this log to view alerts raised by the load balancer. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.
-* **Health probe logs:** You can use this log to view problems detected by your health probe, such as the number of instances in your backend-pool that are not receiving requests from the load balancer because of health probe failures. This log is written to when there is a change in the health probe status.
+The types of logs are:
+
+* **Activity logs:** You can view all activity being submitted to your Azure subscriptions, along with their status. For more information, see [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md). Activity logs are enabled by default and can be viewed in the Azure portal. These logs are available for both Azure Basic Load Balancer and Standard Load Balancer.
+* **Standard Load Balancer metrics:** You can use this log to query the metrics exported as logs for Standard Load Balancer. These logs are available only for Standard Load Balancer.
 
 > [!IMPORTANT]
-> **Health probe event logs are not currently functional and are listed in the [known issues for the Azure Load Balancer](whats-new.md#known-issues).** Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md).
+> Health probe and Load Balancer alert event logs are not currently functional and are listed in the [known issues for Azure Load Balancer](whats-new.md#known-issues). 
+
+> [!IMPORTANT]
+> Logs are available only for resources deployed in the Azure Resource Manager deployment model. You can't use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 ## Enable logging
 
-Activity logging is automatically enabled for every Resource Manager resource. Enable event and health probe logging to start collecting the data available through those logs. Use the following steps to enable logging.
+Activity logging is automatically enabled for every Resource Manager resource. Enable event and health probe logging to start collecting the data available through those logs. Use the following steps:
 
-Sign in to the [Azure portal](https://portal.azure.com). If you don't already have a load balancer, [create a load balancer](./quickstart-load-balancer-standard-public-portal.md) before you continue.
-
-1. In the portal, click **Resource groups**.
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't already have a load balancer, [create a load balancer](./quickstart-load-balancer-standard-public-portal.md) before you continue.
+1. In the portal, select **Resource groups**.
 2. Select **\<resource-group-name>** where your load balancer is.
 3. Select your load balancer.
 4. Select **Activity log** > **Diagnostic settings**.
 5. In the **Diagnostics settings** pane, under **Diagnostics settings**, select **+ Add diagnostic setting**.
-6. In the **Diagnostics settings** creation pane, enter **myLBDiagnostics** in the **Name** field.
-7. You have three options for the **Diagnostics settings**.  You can choose one, two or all three and configure each for your requirements:
-   * **Archive to a storage account**
-   * **Stream to an event hub**
-   * **Send to Log Analytics**
+6. In the **Diagnostics settings** creation pane, enter **myLBDiagnostics** in the **Name** box.
+7. You have three options for the **Diagnostics settings**. You can choose one, two, or all three and configure each for your requirements:
 
-    ### Archive to a storage account
-    You'll need a storage account already created for this process.  To create a storage account, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal)
+   * **Archive to a storage account**. You'll need a storage account already created for this process. To create a storage account, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+     1. Select the **Archive to a storage account** check box.
+     2. Select **Configure** to open the **Select a storage account** pane.
+     3. In the **Subscription** drop-down list, select the subscription where your storage account was created.
+     4. In the **Storage account** drop-down list, select the name of your storage account.
+     5. Select **OK**.
 
-    1. Select the checkbox next to **Archive to a storage account**.
-    2. Select **Configure** to open the **Select a storage account** pane.
-    3. Select the **Subscription** where your storage account was created in the pull-down box.
-    4. Select the name of your storage account under **Storage account** in the pull-down box.
-    5. Select OK.
+   * **Stream to an event hub**. You'll need an event hub already created for this process. To create an event hub, see [Quickstart: Create an event hub by using the Azure portal](../event-hubs/event-hubs-create.md).
+     1. Select the **Stream to an event hub** check box.
+     2. Select **Configure** to open the **Select event hub** pane.
+     3. In the **Subscription** drop-down list, select the subscription where your event hub was created.
+     4. In the **Select event hub namespace** drop-down list, select the namespace.
+     5. In the **Select event hub policy name** drop-down list, select the name.
+     6. Select **OK**.
 
-    ### Stream to an event hub
-    You'll need an event hub already created for this process.  To create an event hub, see [Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)
+   * **Send to Log Analytics**. You'll need to already have a log analytics workspace created and configured for this process. To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+     1. Select the **Send to Log Analytics** check box.
+     2. In the **Subscription** drop-down list, select the subscription where your Log Analytics workspace is.
+     3. In the **Log Analytics Workspace** drop-down list, select the workspace.
 
-    1. Select the checkbox next to **Stream to an event hub**
-    2. Select **Configure** to open the **Select event hub** pane.
-    3. Select the **Subscription** where your event hub was created in the pull-down box.
-    4. **Select event hub namespace** in the pull-down box.
-    5. **Select event hub policy name** in the pull-down box.
-    6. Select OK.
+8. In the **METRIC** section of the **Diagnostics settings** pane, select the **AllMetrics** check box.
 
-    ### Send to Log Analytics
-    You'll need to already have a log analytics workspace created and configured for this process.  To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md)
+9. Verify that everything looks correct, and then select **Save** at the top of the **Diagnostic settings** creation pane.
 
-    1. Select the checkbox next to **Send to Log Analytics**.
-    2. Select the **Subscription** where your Log Analytics workspace is in the pull-down box.
-    3. Select the **Log Analytics Workspace** in the pull-down box.
+## View and analyze the activity log
 
+The activity log is generated by default. You can configure it to be exported on a subscription level by [following instructions in this article](../azure-monitor/essentials/activity-log.md). Learn more about these logs by reading the [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md) article.
 
-8. Beneath the **LOG** section in the **Diagnostics settings** pane, select the check box next to both:
-   * **LoadBalancerAlertEvent**
-   * **LoadBalancerProbeHealthStatus**
+You can view and analyze activity log data by using either of the following methods:
 
-9.  Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to:
-   * **AllMetrics**
+* **Azure tools:** Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. The [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) article provides step-by-step instructions for each method.
+* **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Azure Audit Logs integration for Power BI](https://powerbi.microsoft.com/integrations/azure-audit-logs/), you can analyze your data with preconfigured dashboards. Or you can customize views to suit your requirements.
 
-11. Verify everything looks correct and click **Save** at the top of the create **Diagnostic settings** pane.
+## View and analyze metrics as logs
+By using the export functionality in Azure Monitor, you can export your Load Balancer metrics. These metrics will generate a log entry for each one-minute sampling interval.
 
-## Activity log
+Metrics-to-logs export is enabled on a per-resource level. To enable these logs:
 
-The activity log is generated by default. The logs are preserved for 90 days in Azure's Event Logs store. Learn more about these logs by reading the [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md) article.
+1. Go to the **Diagnostic Settings** pane.
+1. Filter by resource group, and then select the Load Balancer instance that you want to enable metrics export for. 
+1. When the diagnostic settings page for Load Balancer is up, select **AllMetrics** to export eligible metrics as logs.
 
-## Archive to storage account logs
+For metric export limitations, see the [Limitations](#limitations) section of this article.
 
-### Alert event log
+After you enable **AllMetrics** in the diagnostic settings of Standard Load Balancer, if you're using an event hub or Log Analytics workspace, these logs will be populated in the **AzureMonitor** table. 
 
-This log is only generated if you've enabled it on a per load balancer basis. The events are logged in JSON format and stored in the storage account you specified when you enabled the logging. The following example is of an event.
-
-```json
-{
-    "time": "2016-01-26T10:37:46.6024215Z",
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-    "category": "LoadBalancerAlertEvent",
-    "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-    "operationName": "LoadBalancerProbeHealthStatus",
-    "properties": {
-        "eventName": "Resource Limits Hit",
-        "eventDescription": "Ports exhausted",
-        "eventProperties": {
-            "public ip address": "40.117.227.32"
-        }
-    }
-}
-```
-
-The JSON output shows the *eventname* property, which will describe the reason for the load balancer created an alert. In this case, the alert generated was because of TCP port exhaustion caused by source IP NAT limits (SNAT).
-
-### Health probe log
-
-This log is only generated if you've enabled it on a per load balancer basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. A container named 'insights-logs-loadbalancerprobehealthstatus' is created and the following data is logged:
-
-```json
-{
-    "records":[
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 1,
-            "healthPercentage": 50.000000
-        }
-    },
-    {
-        "time": "2016-01-26T10:37:46.6024215Z",
-        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-        "category": "LoadBalancerProbeHealthStatus",
-        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-        "operationName": "LoadBalancerProbeHealthStatus",
-        "properties": {
-            "publicIpAddress": "40.83.190.158",
-            "port": "81",
-            "totalDipCount": 2,
-            "dipDownCount": 0,
-            "healthPercentage": 100.000000
-        }
-    }]
-}
-```
-
-The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end, which are not receiving network traffic because of failed probe responses.
-
-### View and analyze the activity log
-
-You can view and analyze activity log data using any of the following methods:
-
-* **Azure tools:** Retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) article.
-* **Power BI:** If you don't already have a [Power BI](https:// .microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), you can analyze your data with pre-configured dashboards, or you can customize views to suit your requirements.
-
-### View and analyze the health probe and event log
-
-Connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, Power BI, or any other data visualization tool.
+If you're exporting to storage, connect to your storage account and retrieve the JSON log entries for event and health probe logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data visualization tool. 
 
 > [!TIP]
-> If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
+> If you're familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 ## Stream to an event hub
-When diagnostic information is streamed to an event hub, it can be used for centralized log analysis in a third-party SIEM tool with Azure Monitor Integration. For more information, see [Stream Azure monitoring data to an event hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
+When diagnostic information is streamed to an event hub, you can use it for centralized log analysis in a partner SIEM tool with Azure Monitor integration. For more information, see [Stream Azure monitoring data to an event hub](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## Send to Log Analytics
-Resources in Azure can have their diagnostic information sent directly to a Log Analytics workspace where complex queries can be run against the information for troubleshooting and analysis.  For more information, see [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+You can send diagnostic information for resources in Azure directly to a Log Analytics workspace. In that workspace, you can run complex queries against the information for troubleshooting and analysis. For more information, see [Collect Azure resource logs in a Log Analytics workspace in Azure Monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+
+## Limitations
+The metrics-to-logs export feature for Azure Load Balancer has the following limitations:
+* Metrics are currently displayed through internal names when exported as logs. You can find the mapping in the below table.
+* The dimensionality of metrics is not preserved. For example, with metrics such as **DipAvailability** (health probe status), you won't be able to split or view by back-end IP address.
+* Metrics for used SNAT ports and allocated SNAT ports aren't currently available for export as logs.
 
 ## Next steps
-
-[Understand load balancer probes](load-balancer-custom-probe-overview.md)
+* [Review the available metrics for your load balancer](./load-balancer-standard-diagnostics.md)
+* [Create and test queries by following Azure Monitor instructions](../azure-monitor/logs/log-query-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Access files on storage in serverless SQL pool (preview)
-description: Describes querying storage files using serverless SQL pool (preview) in Azure Synapse Analytics.
+title: Access files on storage in serverless SQL pool
+description: Describes querying storage files using serverless SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,9 +10,9 @@ ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick 
 ---
-# Access external storage using serverless SQL pool (preview) in Azure Synapse Analytics
+# Access external storage using serverless SQL pool in Azure Synapse Analytics
 
-This document describes how can users can read data from the files stored on Azure Storage in serverless SQL pool. Users have the following options to access storage:
+This article describes how users can read data from the files stored on Azure Storage in serverless SQL pool. Users have the following options to access storage:
 
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
@@ -43,7 +43,7 @@ EXECUTE AS somepoweruser
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
 
-GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
+GRANT REFERENCES ON CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
 If there's no server-level CREDENTIAL that matches the URL, or the SQL user doesn't have references permission for this credential, the error will be returned. SQL principals can't impersonate using some Azure AD identity.
@@ -110,7 +110,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 User with the permissions to read table can access external files using an EXTERNAL TABLE created on top of set of Azure Storage folders and files.
 
-User that has [permissions to create external table](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (for example CREATE TABLE and ALTER ANY CREDENTIAL or REFERENCES DATABASE SCOPED CREDENTIAL) can use the following script to create a table on top of Azure Storage data source:
+User that has [permissions to create external table](/sql/t-sql/statements/create-external-table-transact-sql?preserve-view=true&view=sql-server-ver15#permissions) (for example CREATE TABLE and ALTER ANY CREDENTIAL or REFERENCES DATABASE SCOPED CREDENTIAL) can use the following script to create a table on top of Azure Storage data source:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]

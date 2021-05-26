@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Virtual WAN documentation
-summary: Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.
+summary: Learn how to configure, create, and manage an Azure Virtual WAN. Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface.
 
 metadata:
   title: Virtual WAN documentation 
@@ -11,7 +11,8 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/19/2020
+  ms.date: 01/15/2020
+  ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,6 +34,13 @@ landingContent:
             url: virtual-wan-locations-partners.md
           - text: FAQ
             url: virtual-wan-faq.md
+      - linkListType: video
+        links:
+          - text: Remote user connectivity with Azure Virtual WAN
+            url: https://www.youtube.com/watch?v=nP5XntjA7OQ
+          - text: Architect hybrid networking with Azure Virtual WAN and SD-WAN 
+            url: https://www.youtube.com/watch?v=2g-_empU0GU&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=6
+
   # Card
   - title: Get started
     linkLists:
@@ -80,12 +88,14 @@ landingContent:
             url: about-virtual-hub-routing.md
           - text: Scenario - Route traffic through an NVA
             url: scenario-route-through-nva.md
-          - text: Scenario - Any-to-any
+          - text: Scenario - Any spoke to any spoke
             url: scenario-any-to-any.md
-          - text: Scenario -  Isolate VNets
+          - text: Scenario - Isolate a VNet
             url: scenario-isolate-vnets.md
-          - text: Scenario - Shared Services VNets
+          - text: Scenario - Route to a shared services VNet
             url: scenario-shared-services-vnet.md
+          - text: Scenario - Custom routing via Azure Firewall
+            url: scenario-route-between-vnets-firewall.md
       - linkListType: how-to-guide
         links:
           - text: Configure virtual hub routing
@@ -107,7 +117,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: /cli/azure/ext/virtual-wan/network
+            url: /cli/azure/
           - text: Azure PowerShell
             url: /powershell/module/az.network#networking
           - text: REST

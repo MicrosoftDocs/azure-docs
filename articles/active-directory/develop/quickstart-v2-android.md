@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-#Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform endpoint.
+#Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform.
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
@@ -32,7 +32,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### Step 1: Configure your application in the Azure portal
->  For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
+> For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -109,12 +109,6 @@ We'll now look at these files in more detail and call out the MSAL-specific code
 
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
-```gradle
-implementation 'com.microsoft.identity.client:msal:2.+'
-```
-
-You can see this in the sample project in build.gradle (Module: app):
-
 ```java
 dependencies {
     ...
@@ -124,6 +118,30 @@ dependencies {
 ```
 
 This instructs Gradle to download and build MSAL from maven central.
+
+You must also add references to maven to the **allprojects** > **repositories** portion of the **build.gradle (Module: app)** like so:
+
+```java
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        mavenLocal()
+        maven {
+            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+        }
+        maven {
+            name "vsts-maven-adal-android"
+            url "https://identitydivision.pkgs.visualstudio.com/_packaging/AndroidADAL/maven/v1"
+            credentials {
+                username System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") : project.findProperty("vstsUsername")
+                password System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") : project.findProperty("vstsMavenAccessToken")
+            }
+        }
+        jcenter()
+    }
+}
+```
 
 ### MSAL imports
 

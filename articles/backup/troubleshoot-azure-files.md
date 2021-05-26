@@ -318,4 +318,4 @@ Check if the backed-up file share is permanently deleted. If yes, stop the backu
 For more information about backing up Azure file shares, see:
 
 - [Back up Azure file shares](backup-afs.md)
-- [Back up Azure file share FAQ](backup-azure-files-faq.md)
+- [Back up Azure file share FAQ](backup-azure-files-faq.yml)

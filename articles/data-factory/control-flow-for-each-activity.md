@@ -1,14 +1,10 @@
 ---
 title: ForEach activity in Azure Data Factory 
 description: The For Each Activity defines a repeating control flow in your pipeline. It is used for iterating over a collection and execute specified activities.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ---
@@ -78,7 +74,7 @@ Activities | The activities to be executed. | List of Activities | Yes
 If **isSequential** is set to false, the activity iterates in parallel with a maximum of 20 concurrent iterations. This setting should be used with caution. If the concurrent iterations are writing to the same folder but to different files, this approach is fine. If the concurrent iterations are writing concurrently to the exact same file, this approach most likely causes an error. 
 
 ## Iteration expression language
-In the ForEach activity, provide an array to be iterated over for the property **items**." Use `@item()` to iterate over a single enumeration in ForEach activity. For example, if **items** is an array: [1, 2, 3], `@item()` returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration.
+In the ForEach activity, provide an array to be iterated over for the property **items**." Use `@item()` to iterate over a single enumeration in ForEach activity. For example, if **items** is an array: [1, 2, 3], `@item()` returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration. You can also use `@range(0,10)` like expression to iterate ten times starting with 0 ending with 9.
 
 ## Iterating over a single activity
 **Scenario:** Copy from the same source file in Azure Blob to multiple destination files in Azure Blob.
@@ -482,6 +478,7 @@ Here are some limitations of the ForEach activity and suggested workarounds.
 |---|---|
 | You can't nest a ForEach loop inside another ForEach loop (or an Until loop). | Design a two-level pipeline where the outer pipeline with the outer ForEach loop iterates over an inner pipeline with the nested loop. |
 | The ForEach activity has a maximum `batchCount` of 50 for parallel processing, and a maximum of 100,000 items. | Design a two-level pipeline where the outer pipeline with the ForEach activity iterates over an inner pipeline. |
+| SetVariable can't be used inside a ForEach activity that runs in parallel as the variables are global to the whole pipeline, they are not scoped to a ForEach or any other activity. | Consider using sequential ForEach or use Execute Pipeline inside ForEach (Variable/Parameter handled in child Pipeline).|
 | | |
 
 ## Next steps

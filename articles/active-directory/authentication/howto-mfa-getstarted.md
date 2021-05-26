@@ -6,10 +6,10 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 05/03/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
@@ -142,6 +142,9 @@ A text message that contains a verification code is sent to the user, the user i
 1. Click on **Save**.
 1. Close the **service settings** tab.
 
+> [!WARNING]
+> Do not disable methods for your organization if you are using [Security Defaults](../fundamentals/concept-fundamentals-security-defaults.md). Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the MFA service settings portal.
+
 ## Plan registration policy
 
 Administrators must determine how users will register their methods. Organizations should [enable the new combined registration experience](howto-registration-mfa-sspr-combined.md) for Azure AD MFA and self-service password reset (SSPR). SSPR allows users to reset their password in a secure way using the same methods they use for multi-factor authentication. We recommend this combined registration because it's a great experience for users, with the ability to register once for both services. Enabling the same methods for SSPR and Azure AD MFA will allow your users to be registered to use both features.
@@ -162,7 +165,7 @@ Using the following steps a Conditional Access policy can force users to registe
 2. Using Conditional Access, enforce multi-factor authentication for this group for access to all resources.
 3. Periodically, reevaluate the group membership, and remove users who have registered from the group.
 
-You may identify registered and non-registered Azure AD MFA users with PowerShell commands that rely on the [MSOnline PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+You may identify registered and non-registered Azure AD MFA users with PowerShell commands that rely on the [MSOnline PowerShell module](/powershell/azure/active-directory/install-msonlinev1).
 
 #### Identify registered users
 

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
@@ -168,4 +168,4 @@ To help with troubleshooting issues with the MFA Server AD FS Adapter use the st
 
 ## Related topics
 
-For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.md)
+For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.yml)

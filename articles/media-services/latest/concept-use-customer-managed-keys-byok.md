@@ -1,11 +1,11 @@
 ---
-title: Bring your own key (customer managed keys) with Media Services
+title: Bring your own key (customer managed keys)
 description: You can use a customer managed key (that is, bring your own key) with Media Services.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 1/28/2020
 ---
 
 # Bring your own key (customer-managed keys) with Media Services
@@ -32,11 +32,18 @@ You can specify a key name and key version, or just a key name. When you use onl
 > [!WARNING]
 > Media Services monitors access to the customer key. If the customer key becomes inaccessible (for example, the key has been deleted or the Key Vault has been deleted or the access grant has been removed), Media Services will transition the account to the Customer Key Inaccessible State (effectively disabling the account). However, the account can be deleted in this state. The only supported operations are account GET, LIST and DELETE; all other requests (encoding, streaming, and so on) will fail until access to the account key is restored.
 
+## Double encryption
+
+Media Services automatically supports double encryption. For data at rest, the first layer of encryption uses a customer managed key or a Microsoft managed key depending on the `AccountEncryption` setting on the account.  The second layer of encryption for data at rest is provided automatically using a separate Microsoft managed key. To learn more about double encryption, see [Azure double encryption](../../security/fundamentals/double-encryption.md).
+
+> [!NOTE]
+> Double encryption is enabled automatically on the Media Services account. However, you need to configure the customer managed key and double encryption on your storage account separately. To learn more, see [Storage encryption](../../storage/common/storage-service-encryption.md).
+
 ## Tutorials
 
-- [Use the Azure portal to use customer-managed keys or BYOK with Media Services](tutorial-byok-portal.md)
-- [Use customer-managed keys or BYOK with Media Services REST API](tutorial-byok-postman.md).
+- [Use the Azure portal to use customer-managed keys or BYOK with Media Services](security-customer-managed-keys-portal-tutorial.md)
+- [Use customer-managed keys or BYOK with Media Services REST API](security-customer-managed-keys-rest-postman-tutorial.md).
 
 ## Next steps
 
-[Protect your content with Media Services dynamic encryption](content-protection-overview.md)
+[Protect your content with Media Services dynamic encryption](drm-content-protection-concept.md)

@@ -48,7 +48,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
 The **Azure AD app ID** is associated to your publisher ID, so make sure that the same *app ID* is used in all your offers.
 
 >[!Note]
->If a publisher has two different accounts in Partner Center, two different Azure AD app IDs should be used.  Each partner account in Partner Center should use a unique Azure AD app ID for all the SaaS offers that are published through this account.
+>If the publisher has two or more different accounts in Partner Center, the Azure AD app registration details can be used in one account only. Using the same tenant ID, app ID pair for an offer under a different publisher account is not supported.
 
 ## How to get the publisher's authorization token
 

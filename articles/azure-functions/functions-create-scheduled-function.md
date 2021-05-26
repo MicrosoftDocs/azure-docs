@@ -1,15 +1,15 @@
 ---
-title: Create a function that runs on a schedule in Azure 
-description: Learn how to create a function in Azure that runs based on a schedule that you define.
+title: Create a function in Azure that runs on a schedule
+description: Learn how to use the Azure portal to create a function that runs based on a schedule that you define.
 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
 ---
-# Create a function in Azure that is triggered by a timer
+# Create a function in the Azure portal that runs on a schedule
 
-Learn how to use Azure Functions to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function that runs based on a schedule that you define.
+Learn how to use the Azure portal to create a function that runs [serverless](https://azure.microsoft.com/solutions/serverless/) on Azure based on a schedule that you define.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ To complete this tutorial:
 
 + If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create an Azure Function app
+## Create a function app
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -68,7 +68,7 @@ Now, you change the function's schedule so that it runs once every hour instead 
 
 1. Update the **Schedule** value to `0 0 */1 * * *`, and then select **Save**.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Functions update timer schedule in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Update function timer schedule in the Azure portal." border="true":::
 
 You now have a function that runs once every hour, on the hour.
 

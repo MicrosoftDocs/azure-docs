@@ -4,13 +4,13 @@ description: Create a single database in Azure SQL Database using the Azure port
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.devlang:
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 09/03/2020
+ms.date: 01/27/2021
 ---
 # Quickstart: Create an Azure SQL Database single database
 
@@ -64,6 +64,8 @@ To create a single database in the Azure portal this quickstart starts at the Az
   
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
+1. Optionally, enable [Azure Defender for SQL](../database/azure-defender-for-sql.md).
+1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
 1. Select **Review + create** at the bottom of the page:
 
    ![Additional settings tab](./media/single-database-create-quickstart/additional-settings.png)
@@ -135,7 +137,7 @@ az sql server firewall-rule create \
 ```
 
 
-## Create a single database
+## Create a single database with Azure CLI
 
 Create a database with the [az sql db create](/cli/azure/sql/db) command. The following code creates
 
@@ -224,7 +226,7 @@ Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell
 ```
 
 
-## Create a single database
+## Create a single database with PowerShell
 
 Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 

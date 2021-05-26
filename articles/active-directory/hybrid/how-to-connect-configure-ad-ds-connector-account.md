@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 04/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -48,7 +48,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ![Configure](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
->You can also copy the file **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.
+>You can also copy the file **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.  Be aware that some of the cmdlets can only be run on the computer that is hosting Azure AD Connect.
 
 To start using the ADSyncConfig you need to load the module in a Windows PowerShell window: 
 
@@ -145,7 +145,7 @@ This cmdlet will set the following permissions:
 
  
 ### Configure MS-DS-Consistency-Guid Permissions 
-To set permissions for the AD DS Connector account when using the ms-Ds-Consistency-Guid attribute as the source anchor (also known as “Let Azure manage the source anchor for me” option) , run: 
+To set permissions for the AD DS Connector account when using the ms-Ds-Consistency-Guid attribute as the source anchor (also known as “Let Azure manage the source anchor for me” option), run: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

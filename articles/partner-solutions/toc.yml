@@ -1,0 +1,46 @@
+- name: Azure partner solutions documentation
+  href: overview.md
+- name: Partner solutions
+  items:
+  - name: Apache Kafka on Confluent Cloud
+    items:
+    - name: Overview
+      displayName: Apache, Kafka, Confluent
+      href: ./apache-kafka-confluent-cloud/overview.md
+    - name: Create
+      href: ./apache-kafka-confluent-cloud/create.md
+    - name: Manage
+      href: ./apache-kafka-confluent-cloud/manage.md
+    - name: Troubleshoot
+      href: ./apache-kafka-confluent-cloud/troubleshoot.md
+  - name: Datadog
+    items:
+    - name: Overview
+      displayName: Datadog, Monitoring
+      href: ./datadog/overview.md
+    - name: Create
+      href: ./datadog/create.md
+    - name: Manage
+      href: ./datadog/manage.md
+    - name: Troubleshoot
+      href: ./datadog/troubleshoot.md
+  - name: Elastic
+    items:
+    - name: Overview
+      items:
+      - name: What is Elastic?
+        href: ./elastic/overview.md
+    - name: Quickstarts
+      items:
+      - name: Create Elastic resource
+        href: ./elastic/create.md
+    - name: How to
+      items:
+      - name: Manage integration
+        href: ./elastic/manage.md
+      - name: Troubleshoot
+        href: ./elastic/troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/confluent
