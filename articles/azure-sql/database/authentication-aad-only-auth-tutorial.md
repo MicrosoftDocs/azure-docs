@@ -170,7 +170,7 @@ Check whether Azure AD-only authentication is enabled for your server or instanc
 
 # [Portal](#tab/azure-portal)
 
-Go to your SQL server resource in the [Azure portal](https://portal.zure.com). Select **Azure Active Directory** under the **Settings** menu. Portal support for Azure AD-only authentication is only available for Azure SQL Database.
+Go to your **SQL server** resource in the [Azure portal](https://portal.zure.com). Select **Azure Active Directory** under the **Settings** menu. Portal support for Azure AD-only authentication is only available for Azure SQL Database.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -270,7 +270,7 @@ After enabling Azure AD-only authentication, test with [SQL Server Management St
 
 You should see a login failed message similar to the following output:
 
-<pre><code overflow-wrap: break-word>
+<pre><code>
 Cannot connect to <myserver>.database.windows.net.
 <b>Additional information:</b>
   Login failed for user 'username'. Reason: Azure Active Directory only authentication is enabled. <br />  Please contact your system administrator. (Microsoft SQL Server, Error: 18456)

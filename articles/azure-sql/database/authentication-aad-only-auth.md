@@ -17,16 +17,18 @@ ms.date: 06/01/2021
 > [!NOTE]
 > The **Azure AD-only authentication** feature discussed in this article is in **public preview**. 
 
-Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for Azure SQL Database and Azure SQL Managed Instance. SQL authentication is disabled when enabling Azure AD-only authentication in the Azure SQL environment, including connections from SQL server administrators, logins, and users. Only Azure AD authentication is authorized to connect to the server or database.
+Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). SQL authentication is disabled when enabling Azure AD-only authentication in the Azure SQL environment, including connections from SQL server administrators, logins, and users. Only users using [Azure AD authentication](authentication-aad-overview.md) is authorized to connect to the server or database.
 
 Azure AD-only authentication can be enabled or disabled using the Azure portal, Azure CLI, PowerShell, or REST API. Azure AD-only authentication can also be configured during server creation with an ARM template.
 
-> [!NOTE]
-> Currently, you cannot manage Azure AD-only authentication in the Azure portal for Azure SQL Managed Instance.
+For more information on Azure SQL authentication, see [Authentication and authorization](logins-create-manage.md#authentication-and-authorization).
+
+> [!IMPORTANT]
+> Currently, you cannot manage Azure AD-only authentication in the Azure portal for Azure SQL Managed Instance. For a tutorial on different methods to enable Azure AD-only authentication, see [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-aad-only-auth-tutorial.md).
 
 ## Feature description
 
-When enabling Azure AD-only authentication, SQL authentication is disabled at the server level and prevents any authentication based on any SQL authentication credentials. SQL authentication users won't be able to connect to the Azure SQL logical server, including all of its databases. Although SQL authentication is disabled, new SQL authentication logins and users can still be created by Azure AD accounts with proper permissions. Newly created SQL authentication accounts won't be allowed to connect to the server. Enabling Azure AD-only authentication doesn't remove existing SQL authentication login and user accounts. The feature only prevents these accounts from connecting to the server, and any database created for this server.
+When enabling Azure AD-only authentication, [SQL authentication]((logins-create-manage.md#authentication-and-authorization)) is disabled at the server level and prevents any authentication based on any SQL authentication credentials. SQL authentication users won't be able to connect to the Azure SQL logical server, including all of its databases. Although SQL authentication is disabled, new SQL authentication logins and users can still be created by Azure AD accounts with proper permissions. Newly created SQL authentication accounts won't be allowed to connect to the server. Enabling Azure AD-only authentication doesn't remove existing SQL authentication login and user accounts. The feature only prevents these accounts from connecting to the server, and any database created for this server.
 
 :::image type="content" source="media/authentication-aad-only-auth/aad-only-auth-portal.png" alt-text="Enable Azure AD only auth menu":::
 
@@ -104,7 +106,7 @@ az sql mi ad-only-auth get --resource-group myresource --name myserver
 **Enable**
 
 ```powershell
-Enable-AzSqlServerActiveDirectoryOnlyAuthentication -ServerName myserver  -ResourceGroupName myresource
+Enable-AzSqlServerActiveDirectoryOnlyAuthentication -ServerName myserver -ResourceGroupName myresource
 ```
 
 You can also use the following command:
@@ -118,7 +120,7 @@ For more information on these PowerShell commands, run `get-help  Enable-AzSqlSe
 **Disable**
 
 ```powershell
-Disable-AzSqlServerActiveDirectoryOnlyAuthentication -ServerName myserver  -ResourceGroupName myresource
+Disable-AzSqlServerActiveDirectoryOnlyAuthentication -ServerName myserver -ResourceGroupName myresource
 ```
 
 ### Check the status in SQL Database
@@ -173,7 +175,7 @@ Get-AzSqlInstance -InstanceName myinstance | Get-AzSqlInstanceActiveDirectoryOnl
 
 The following parameters will need to be defined:
 
-- `<tenantId>` can be found by going to the [Azure portal](https://portal.azure.com), and selecting to your **Azure Active Directory** resource. In the **Overview** pane, you should see your **Tenant ID**.
+- `<tenantId>` can be found by going to the [Azure portal](https://portal.azure.com), and selecting your **Azure Active Directory** resource. In the **Overview** pane, you should see your **Tenant ID**.
 - `<clientId>` is the **Object ID** of the Azure AD account. You can find this by going to the user's **Profile** page in the Azure portal.
 - `<subscriptionId>` can be found by navigating to **Subscriptions** in the Azure portal.
 - `<myserver>` correspond to the prefix of the server or instance name (for example, `myserver`).
