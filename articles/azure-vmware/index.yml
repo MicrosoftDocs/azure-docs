@@ -122,11 +122,11 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
-          - text: Configure DHCP for Azure VMware Solution
+          - text: Configure DHCP 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched VMware HCX networks
             url: configure-l2-stretched-vmware-hcx-networks.md
-          - text: Configure NSX network components
+          - text: Configure NSX components using Azure portal
             url: configure-nsx-network-components-azure-portal.md
           - text: Configure GitHub Enterprise Server
             url: github-enterprise-server.md
