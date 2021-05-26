@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
+ms.custom: references_region
 
 ---
 
@@ -46,6 +47,10 @@ Each data source has a data source type. Each type defines a unique set of prope
 ## Limits
 For limits that apply to each data collection rule, see [Azure Monitor service limits](../service-limits.md#data-collection-rules).
 
+## Data residency 
+Data Collection Rules as a service is deployed regionally. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../best-practices-availability-paired-regions.md#azure-regional-pairs) within the same Geo.  
+
+**Single region data residency**: The previewed feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Single region residency is enabled by default in these regions.
 
 ## Create a DCR
 You can currently use any of the following methods to create a DCR:
