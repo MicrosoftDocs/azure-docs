@@ -51,7 +51,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az login
     ```
 
-2. Next, use the [az account get-access-token](/cli/azure/account#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
+2. Next, use the [az account get-access-token](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
     The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](concepts-apis-sdks.md#overview-data-plane-apis) and [control plane](concepts-apis-sdks.md#overview-control-plane-apis) APIs.
 
@@ -271,7 +271,7 @@ To make a Postman request to one of the Azure Digital Twins APIs, you'll need th
 
 To proceed with an example query, this article will use the Query API (and its [reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)) to query for all the digital twins in an instance.
 
-1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST `https://digitaltwins-host-name/query?api-version=2020-10-31`*.
+1. Get the request URL and type from the reference documentation. For the Query API, this is currently *POST* `https://digitaltwins-host-name/query?api-version=2020-10-31`.
 1. In Postman, set the type for the request and enter the request URL, filling in placeholders in the URL as required. This is where you will use your instance's **host name** from the [Prerequisites](#prerequisites) section.
     
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::

@@ -28,7 +28,7 @@ The recommended location for the _staticwebapp.config.json_ is in the folder set
 See the [example configuration](#example-configuration-file) file for details.
 
 > [!IMPORTANT]
-> The [_routes.json_ file](./routes.md) is ignored if a _staticwebapp.config.json_ exists.
+> The deprecated [_routes.json_ file](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) is ignored if a _staticwebapp.config.json_ exists.
 
 ## Routes
 

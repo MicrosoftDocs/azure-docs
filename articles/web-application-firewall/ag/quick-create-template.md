@@ -33,7 +33,7 @@ This template creates a simple Web Application Firewall v2 on Azure Application 
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
-:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/demos/ag-docs-wafv2/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 

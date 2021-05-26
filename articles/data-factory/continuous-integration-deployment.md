@@ -6,7 +6,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 05/12/2021
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -156,9 +156,15 @@ The Azure Key Vault task might fail with an Access Denied error if the correct p
 
 ### Updating active triggers
 
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
+>
+
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and then restart them after the deployment. You can do this by using an Azure PowerShell task:
 
-1.  On the **Tasks** tab of the release, add an **Azure PowerShell** task. Choose task version 4.*. 
+1.  On the **Tasks** tab of the release, add an **Azure PowerShell** task. Choose task version the latest Azure Powershell version. 
 
 1.  Select the subscription your factory is in.
 
@@ -682,7 +688,14 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 ## <a name="script"></a> Sample pre- and post-deployment script
 
-The following sample script can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. Save the script in an Azure DevOps  git repository and reference it via an Azure PowerShell task using version 4.*.
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+
+>[!WARNING]
+>If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
+>
+
+The following sample script can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. Save the script in an Azure DevOps  git repository and reference it via an Azure PowerShell task the latest Azure Powershell version.
+
 
 When running a pre-deployment script, you will need to specify a variation of the following parameters in the **Script Arguments** field.
 

@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/21/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---
 

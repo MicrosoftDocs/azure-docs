@@ -17,6 +17,16 @@ ms.service: azure-communication-services
 
 ## Teams Embed Events
 
+Add the following code to your `MainActivity.java`.
+
+```java
+import androidx.core.content.ContextCompat;
+import com.azure.android.communication.ui.meetings.MeetingUIClientCallState;
+import com.azure.android.communication.ui.meetings.MeetingUIClientEventListener;
+import com.azure.android.communication.ui.meetings.MeetingUIClientIdentityProvider;
+import com.azure.android.communication.ui.meetings.MeetingUIClientIdentityProviderCallback;
+```
+
 Add the `MeetingUIClientEventListener` to your class.
 
 ```java

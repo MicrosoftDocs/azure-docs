@@ -58,16 +58,6 @@ Azure Cosmos DB has five different API types that support binding. The following
       </dependency>
       ```
 
-    * API type: Gremlin (graph)
-
-      ```xml
-      <dependency>
-          <groupId>com.microsoft.spring.data.gremlin</groupId>
-          <artifactId>spring-data-gremlin</artifactId>
-          <version>2.1.7</version>
-      </dependency>
-      ```
-
     * API type: Azure Table
 
       ```xml

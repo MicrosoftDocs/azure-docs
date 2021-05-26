@@ -25,7 +25,7 @@ This Azure Database for PostgreSQL connector is supported for the following acti
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-Currently, data flow supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus).
+Currently, data flow in Azure Data Factory supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus); data flow in Azure Synapse Analytics supports all PostgreSQL flavors.
 
 ## Getting started
 

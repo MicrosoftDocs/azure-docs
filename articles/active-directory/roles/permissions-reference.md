@@ -1629,16 +1629,16 @@ Windows Defender ATP and EDR | Assign roles<br>Manage machine groups<br>Configur
 
 Users with this role can manage alerts and have global read-only access on security-related features, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
-In | Can do
---- | ---
-[Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
-Azure AD Identity Protection | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords and configuring alert e-mails.
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role
-[Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-[Intune](/intune/role-based-access-control) | All permissions of the Security Reader role
-[Cloud App Security](/cloud-app-security/manage-admins) | All permissions of the Security Reader role
-[Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
+| In | Can do |
+| --- | --- |
+| [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br/>View, investigate, and respond to security threats alerts<br/>Manage security settings in security center |
+| [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords and configuring alert e-mails. |
+| [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | All permissions of the Security Reader role |
+| [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
+| Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts |
+| [Intune](/intune/role-based-access-control) | All permissions of the Security Reader role |
+| [Cloud App Security](/cloud-app-security/manage-admins) | All permissions of the Security Reader role |
+| [Microsoft 365 service health](/microsoft-365/enterprise/view-service-health) | View the health of Microsoft 365 services |
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

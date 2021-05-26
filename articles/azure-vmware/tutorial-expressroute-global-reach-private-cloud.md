@@ -3,7 +3,7 @@ title: Peer on-premises environments to Azure VMware Solution
 description: Learn how to create ExpressRoute Global Reach peering to a private cloud in Azure VMware Solution.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
+ms.date: 05/14/2021
 ---
 
 # Peer on-premises environments to Azure VMware Solution
@@ -28,7 +28,7 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 - Ensure that all gateways, including the ExpressRoute provider's service, supports 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
 
-## Create an ExpressRoute authorization key in the on-premises ExpressRoute circuit.
+## Create an ExpressRoute auth key in the on-premises ExpressRoute circuit
 
 1. From the **ExpressRoute circuits** blade, under Settings, select **Authorizations**.
 
