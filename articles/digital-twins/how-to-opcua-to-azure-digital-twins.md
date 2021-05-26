@@ -69,7 +69,7 @@ For more detailed information on installing each of these pieces, see the follow
 
 For this article, you do not need access to physical devices running a real OPC UA Server. Instead, you can install the free [Prosys OPC UA Simulation Server](https://www.prosysopc.com/products/opc-ua-simulation-server/) on a Windows VM to generate the OPC UA data. This section walks through this setup.
 
-If you already have a physical OPC UA device or another OPC UA simulation server you'd like to use, you can ahead to the next section, [Set up IoT Edge device](#set-up-iot-edge-device).(#set-up-iot-edge-device).
+If you already have a physical OPC UA device or another OPC UA simulation server you'd like to use, you can ahead to the next section, [Set up IoT Edge device](#set-up-iot-edge-device).
 
 #### Create Windows 10 virtual machine
 
@@ -104,14 +104,14 @@ Copy the value of **Connection Address (UA TCP)**. Paste it somewhere safe to us
 
 You will use this updated value later in this article.
 
-Next, view the simulation nodes provided by default with the server by selecting the **Objects** tab and expanding the Objects::FolderType and Simulation::FolderType folders. You'll see the simulation nodes, each with its own unique `NodeId` value. 
+Next, view the simulation nodes provided by default with the server by selecting the **Objects** tab and expanding the **Objects::FolderType** and **Simulation::FolderType** folders. You'll see the simulation nodes, each with its own unique `NodeId` value. 
 
 Capture the `NodeId` values for the simulated nodes that you want to publish. You'll need these IDs later in the article to simulate data from these nodes.
 
 :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/prosys-server-2.png" alt-text="Screenshot of Prosys OPC UA Simulation Server, showing OPC UA nodes. One node is selected and the NodeId value is highlighted.":::
 
 > [!TIP]
-> Verify the OPC UA Server is accessible by follow the "Verify the OPC UA Service is running and reachable" steps in the [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher).
+> Verify the OPC UA Server is accessible by following the "Verify the OPC UA Service is running and reachable" steps in the [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher).
 
 #### Verify completion
 
@@ -213,7 +213,7 @@ After about 15 seconds, you can run the `iotedge list` command on your gateway d
 
 :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/iotedge-list.png" alt-text="Screenshot of iotedge list results.":::
 
-Finally, go to the `/iiotedge` directory and create a *publishednodes.json* file. The IDs in the file need to match the `NodeId` values that you [gathered earlier from the OPC Server](#install-opc-ua-simulation-software). Your file should look like something like this:
+Finally, from the gateweay device, go to the `/iiotedge` directory and create a *publishednodes.json* file. The IDs in the file need to match the `NodeId` values that you [gathered earlier from the OPC Server](#install-opc-ua-simulation-software). Your file should look like something like this:
 
 ```JSON
 [
@@ -320,7 +320,7 @@ The data flow in this section involves these steps:
 
 ### Create opcua-mapping.json file
 
-First, create your *opcua-mapping.json* file. Start with a blank JSON file and fill in entries that map `NodeId` values to `twinId` values and properties in Azure Digital Twins, according to the example and schema below. You will need to create a mapping entry for every `NodeId`.
+First, create your *opcua-mapping.json* file. Start with a blank JSON file and fill in entries that map `NodeId` values to `TwinId` and `Property` values in Azure Digital Twins, according to the example and schema below. You will need to create a mapping entry for every `NodeId`.
 
 ```JSON
 [
