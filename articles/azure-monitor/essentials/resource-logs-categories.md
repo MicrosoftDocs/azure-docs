@@ -454,6 +454,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |EventRoutesOperation|EventRoutesOperation|No|
 |ModelsOperation|ModelsOperation|No|
 |QueryOperation|QueryOperation|No|
+|ResourceProviderOperation|ResourceProviderOperation|Yes|
 
 
 ## Microsoft.DocumentDB/databaseAccounts
@@ -827,6 +828,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |AllLogs|Azure Web PubSub Service Logs.|Yes|
 
+
 ## Microsoft.Sql/managedInstances
 
 |Category|Category Display Name|Costs To Export|
@@ -834,6 +836,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |DevOpsOperationsAudit|Devops operations Audit Logs|No|
 |ResourceUsageStats|Resource Usage Statistics|No|
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
+
 
 ## Microsoft.Sql/managedInstances/databases
 
@@ -865,6 +868,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
 |Timeouts|Timeouts|No|
 |Waits|Waits|No|
+
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
@@ -978,7 +982,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|No|
 
 
-## microsoft.web/sites
+## Microsoft.Web/sites
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
@@ -1006,6 +1010,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServiceIPSecAuditLogs|IPSecurity Audit Logs|No|
 |AppServicePlatformLogs|App Service Platform logs|No|
 |FunctionAppLogs|Function Application Logs|No|
+
 
 ## Next Steps
 
