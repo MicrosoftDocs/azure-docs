@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 
 ---
-
 # Degradation in trace severity ratio (preview)
 
 >[!NOTE]
