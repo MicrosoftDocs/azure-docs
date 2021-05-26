@@ -152,9 +152,9 @@ When using a key vault with the Bicep file for a [Managed Application](../manage
 
 ## Use getSecret
 
-When a [module](./modules.md) expects a `string` parameter with `secure: true` modifier, you can use `getSecret` to obtain a key vault secret. The `getSecret` method can only be called on a     `Microsoft.KeyVault/vaults` resource and can be used only with parameter with @secure() decorator.
+You can use the `getSecret` method to obtain a key vault secret and pass the value to a `string` parameter of a module. The `getSecret` method can only be called on a     `Microsoft.KeyVault/vaults` resource and can be used only with parameter with @secure() decorator.
 
-The following module is called *sql.bicep*:
+The following Bicep file creates an Azure SQL server. The `adminPassword` parameter has a `@secure()` decorator.
 
 ```bicep
 param sqlServerName string
@@ -174,9 +174,9 @@ resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
 }
 ```
 
-The `adminPassword` parameter has a `@secure()` decorator.
+Let's use the preceding Bicep file as a module given the file name is *sql.bicep* in the same directory as the main Bicep file.
 
-The following main Bicep file calls the `getSecret` method:
+The following Bicep file consumes the sql.bicep as a module.  The Bicep file references an existing key vault, and calls the `getSecret` method to retrieve the key vault secret, and then passes the value as a parameter to the module.
 
 ```bicep
 param sqlServerName string
