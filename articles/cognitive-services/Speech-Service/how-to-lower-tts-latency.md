@@ -18,19 +18,18 @@ zone_pivot_groups: programming-languages-set-nineteen
 
 > [!NOTE]
 > This article requires Speech SDK 1.17.0 or later.
-
 The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to you and your end users.
 Normally, we measure the latency by _`first byte latency`_ and _`finish latency`_, as follows:
 
 ::: zone pivot="programming-language-csharp"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) |
+| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
 
-The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). Refer following codes to get them.
+The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). The following sample code shows these values.
 
 ```csharp
 var result = await synthesizer.SpeakTextAsync(text);
@@ -120,14 +119,14 @@ NSString *resultId = result.resultId;
 ::: zone-end
 
 The `first byte latency` is much lower than `finish latency` in most cases.
-And the `first byte latency` is almost independent with the text length, while `finish latency` increases with the text length.
+And the first byte latency is almost independent with the text length, while finish latency increases with the text length.
 
 Ideally, we want to minimum the user-experienced latency (the latency before user hears the sound) to one network route trip time plus the first audio chunk latency of the speech synthesis service.
 
 ## Streaming
 
-Streaming is critical to lower the latency,
-In client side, the playback could be started when the first audio chunk is received.
+Streaming is critical to lowering latency,
+Client code can start playback when the first audio chunk is received.
 In service scenario, you can forward the audio chunks immediately to your clients instead of waiting for the whole audio.
 
 ::: zone pivot="programming-language-csharp"
@@ -145,7 +144,6 @@ using (var synthesizer = new SpeechSynthesizer(config, null as AudioConfig))
         {
             byte[] buffer = new byte[16000];
             uint filledSize = 0;
-
             while ((filledSize = audioDataStream.ReadData(buffer)) > 0)
             {
                 Console.WriteLine($"{filledSize} bytes received.");
@@ -169,7 +167,6 @@ auto result = synthesizer->SpeakTextAsync(text).get();
 auto audioDataStream = AudioDataStream::FromResult(result);
 uint8_t buffer[16000];
 uint32_t filledSize = 0;
-
 while ((filledSize = audioDataStream->ReadData(buffer, sizeof(buffer))) > 0)
 {
     cout << filledSize << " bytes received." << endl;
@@ -237,15 +234,15 @@ while ([stream readData:data length:16000] > 0) {
 
 ## Pre-connect and reuse SpeechSynthesizer
 
-The Speech SDK uses websocket to communicate with the service.
+The Speech SDK uses a websocket to communicate with the service.
 Ideally, the network latency should be one route trip time (RTT).
 If the connection is newly established, the network latency will contain extra connection establishment time.
-The establishment of websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduce time delay.
-To avoid the connection latency, we recommend pre-connection and reusing the `SpeechSynthesizer`.
+The establishment of a websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduces time delay.
+To avoid the connection latency, we recommend pre-connecting and reusing the `SpeechSynthesizer`.
 
 ### Pre-connect
 
-For example, if you are building a speech bot in client, you can per-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
+To pre-connect, establish a connection to the Speech service when you know the connection will be needed soon. For example, if you are building a speech bot in client, you can per-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -303,11 +300,10 @@ SPXConnection* connection = [[SPXConnection alloc]initFromSpeechSynthesizer:synt
 ::: zone-end
 
 > [!NOTE]
-> If the synthesize text is available, just call `SpeakTextAsync` to synthesize the audio, the SDK will handle the connection.
-
+> If the synthesize text is available, just call `SpeakTextAsync` to synthesize the audio. The SDK will handle the connection.
 ### Reuse SpeechSynthesizer
 
-Another way to reduce the connection latency is to reuse the `SpeechSynthesizer` so you don't need to create a new `SpeechSynthesizer` every synthesis.
+Another way to reduce the connection latency is to reuse the `SpeechSynthesizer` so you don't need to create a new `SpeechSynthesizer` for each synthesis.
 We recommend using object pool in service scenario, see our sample code for [C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java).
 
 
