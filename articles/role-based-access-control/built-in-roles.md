@@ -262,7 +262,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Desktop Virtualization Reader](#desktop-virtualization-reader) | Reader of Desktop Virtualization. | 49a72310-ab8d-41df-bbb0-79b649203868 |
 > | [Desktop Virtualization Session Host Operator](#desktop-virtualization-session-host-operator) | Operator of the Desktop Virtualization Session Host. | 2ad6aaab-ead9-4eaa-8ac5-da422f562408 |
 > | [Desktop Virtualization User](#desktop-virtualization-user) | Allows user to use the applications in an application group. | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
-> | [Desktop Virtualization User Session Operator](#desktop-virtualization-user-session-operator) | Operator of the Desktop Virtualization Uesr Session. | ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6 |
+> | [Desktop Virtualization User Session Operator](#desktop-virtualization-user-session-operator) | Operator of the Desktop Virtualization User Session. | ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6 |
 > | [Desktop Virtualization Workspace Contributor](#desktop-virtualization-workspace-contributor) | Contributor of the Desktop Virtualization Workspace. | 21efdde3-836f-432b-bf3d-3e8e734d4b2b |
 > | [Desktop Virtualization Workspace Reader](#desktop-virtualization-workspace-reader) | Reader of the Desktop Virtualization Workspace. | 0fa44ee9-7a7d-466b-9bb2-2bf446b1204d |
 > | [Disk Backup Reader](#disk-backup-reader) | Provides permission to backup vault to perform disk backup. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
