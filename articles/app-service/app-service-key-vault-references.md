@@ -158,8 +158,8 @@ An example pseudo-template for a function app might look like the following:
                 //...
                 "accessPolicies": [
                     {
-                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2015-08-31-PREVIEW', 'Full').identity.tenantId]",
-                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2015-08-31-PREVIEW', 'Full').identity.principalId]",
+                        "tenantId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.tenantId]",
+                        "objectId": "[reference(resourceId('Microsoft.Web/sites/', variables('functionAppName')), '2020-12-01', 'Full').identity.principalId]",
                         "permissions": {
                             "secrets": [ "get" ]
                         }
@@ -176,7 +176,7 @@ An example pseudo-template for a function app might look like the following:
                         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
                     ],
                     "properties": {
-                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2015-05-01-preview').key1)]"
+                        "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountResourceId'),'2019-09-01').key1)]"
                     }
                 },
                 {
@@ -188,7 +188,7 @@ An example pseudo-template for a function app might look like the following:
                         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
                     ],
                     "properties": {
-                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2019-09-01').InstrumentationKey]"
                     }
                 }
             ]
