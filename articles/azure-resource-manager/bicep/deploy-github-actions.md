@@ -1,25 +1,25 @@
 ---
-title: Deploy Resource Manager templates by using GitHub Actions (Bicep)
-description: Describes how to deploy Azure Resource Manager templates (ARM templates) by using GitHub Actions. (Bicep)
+title: Deploy Bicep files by using GitHub Actions
+description: Describes how to deploy Bicep files by using GitHub Actions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 06/01/2021
 ms.custom: github-actions-azure
 ---
 
-# Deploy ARM templates by using GitHub Actions (Bicep)
+# Deploy Bicep files by using GitHub Actions
 
 [GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
-Use the [Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying an Azure Resource Manager template (ARM template) to Azure.
+Use the [Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
-    - A GitHub repository to store your Resource Manager templates and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
+  - A GitHub repository to store your Bicep files and your workflow files. To create one, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 ## Workflow file overview
 
@@ -30,10 +30,9 @@ The file has two sections:
 |Section  |Tasks  |
 |---------|---------|
 |**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
-|**Deploy** | 1. Deploy the Resource Manager template. |
+|**Deploy** | 1. Deploy the Bicep file. |
 
 ## Generate deployment credentials
-
 
 You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
@@ -64,8 +63,6 @@ In the example above, replace the placeholders with your subscription ID and res
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. The scope in the previous example is limited to the resource group.
 
-
-
 ## Configure the GitHub secrets
 
 You need to create secrets for your Azure credentials, resource group, and subscriptions.
@@ -80,15 +77,17 @@ You need to create secrets for your Azure credentials, resource group, and subsc
 
 1. Create an additional secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
 
-## Add Resource Manager template
+## Add a Bicep file
 
-Add a Resource Manager template to your GitHub repository. This template creates a storage account.
+Add a Bicep file to your GitHub repository. The following Bicep file creates a storage account:
 
 ```url
-https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+https://raw.githubusercontent.com/mumian/azure-docs-json-samples/master/get-started-with-templates/add-variable/azuredeploy.bicep
 ```
 
-You can put the file anywhere in the repository. The workflow sample in the next section assumes the template file is named **azuredeploy.json**, and it is stored at the root of your repository.
+The Bicep file takes one parameter called **storagePrefix** with 3 to 11 characters.
+
+You can put the file anywhere in the repository. The workflow sample in the next section assumes the Bicep file is named **azuredeploy.bicep**, and it is stored at the root of your repository.
 
 ## Create workflow
 
@@ -97,7 +96,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
 1. From your GitHub repository, select **Actions** from the top menu.
 1. Select **New workflow**.
 1. Select **set up a workflow yourself**.
-1. Rename the workflow file if you prefer a different name other than **main.yml**. For example: **deployStorageAccount.yml**.
+1. Rename the workflow file if you prefer a different name other than **main.yml**. For example: **deployBicepFile.yml**.
 1. Replace the content of the yml file with the following:
 
     ```yml
@@ -116,31 +115,31 @@ The workflow file must be stored in the **.github/workflows** folder at the root
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-          # Deploy ARM template
-        - name: Run ARM deploy
+          # Deploy Bicep file
+        - name: deploy
           uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
-            template: ./azuredeploy.json
-            parameters: storageAccountType=Standard_LRS
-
-          # output containerName variable from template
-        - run: echo ${{ steps.deploy.outputs.containerName }}
+            template: ./azuredeploy.bicep
+            parameters: storagePrefix=mystore
     ```
+
+    Replace **mystore** with your own storage account name prefix.
+
     > [!NOTE]
     > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
 
     The first section of the workflow file includes:
 
     - **name**: The name of the workflow.
-    - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
+    - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the Bicep file.
 
 1. Select **Start commit**.
 1. Select **Commit directly to the main branch**.
 1. Select **Commit new file** (or **Commit changes**).
 
-Because the workflow is configured to be triggered by either the workflow file or the template file being updated, the workflow starts right after you commit the changes.
+Because the workflow is configured to be triggered by either the workflow file or the Bicep file being updated, the workflow starts right after you commit the changes.
 
 ## Check workflow status
 
@@ -149,12 +148,10 @@ Because the workflow is configured to be triggered by either the workflow file o
 1. Select **Run ARM deploy** from the menu to verify the deployment.
 
 ## Clean up resources
+
 When your resource group and repository are no longer needed, clean up the resources you deployed by deleting the resource group and your GitHub repository.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Create your first ARM template](../templates/template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Learn module: Automate the deployment of ARM templates by using GitHub Actions](/learn/modules/deploy-templates-command-line-github-actions/)
