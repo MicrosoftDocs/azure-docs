@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 05/22/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 
