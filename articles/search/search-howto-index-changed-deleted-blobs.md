@@ -13,7 +13,7 @@ ms.date: 01/29/2021
 
 # Change and deletion detection in blob indexing (Azure Cognitive Search)
 
-After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure Blob storage, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp. In contrast with other data sources supported by search indexers, blobs always have a timestamp, which eliminates the need to set up a change detection policy manually.
+After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure Blob storage or Azure Data Lake Storage Gen2, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed blobs, as determined by the blob's `LastModified` timestamp. In contrast with other data sources supported by search indexers, blobs always have a timestamp, which eliminates the need to set up a change detection policy manually.
 
 Although change detection is a given, deletion detection is not. If you want to detect deleted documents, make sure to use a "soft delete" approach. If you delete the blobs outright, corresponding documents will not be removed from the search index.
 
@@ -21,6 +21,9 @@ There are two ways to implement the soft delete approach:
 
 + Native blob soft delete (preview), described next
 + [Soft delete using custom metadata](#soft-delete-using-custom-metadata)
+
+> [!NOTE] 
+> Azure Data Lake Storage Gen2 allows directories to be renamed. When a directory is renamed the timestamps for the blobs in that directory do not get updated. As a result, the indexer will not reindex those blobs. If you need the blobs in a directory to be reindexed after a directory rename because they now have new URLs, you will need to update the `LastModified` timestamp for all the blobs in the directory so that the indexer knows to reindex them during a future run. The virtual directories in Azure blob storage cannot be changed so they do not have this issue.
 
 ## Native blob soft delete (preview)
 

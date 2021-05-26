@@ -33,7 +33,7 @@ This command lets you transfer data without using the cache. For example, to pre
 The destination is an empty Azure Storage Container. When the transfer is complete, the destination container can be used with an Azure HPC Cache instance or Avere vFXT for Azure cluster.
 
 > [!NOTE] 
-> This is a preview release of the load command. Please report any issues on the AzCopy Github repo.
+> This is a preview release of the load command. Please report any issues on the AzCopy GitHub repo.
 
 ```
 azcopy load clfs [local dir] [container URL] [flags]

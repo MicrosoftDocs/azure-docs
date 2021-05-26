@@ -103,7 +103,7 @@ Similarly, you can use private endpoints for your Azure Digital Twin instance to
 
 The private endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Azure Digital Twins instance traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure to the public internet. Here is a visual representation of this system:
 
-:::image type="content" source="media/concepts-security/private-link.png" alt-text="A diagram showing a network for a PowerGrid company that is a protected VNET with no internet/public cloud access, connecting through Private Link to an Azure Digital Twins instance called CityOfTwins.":::
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Diagram showing a network that is a protected VNET with no public cloud access, connecting through Private Link to an Azure Digital Twins instance.":::
 
 Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your VNet.
 
