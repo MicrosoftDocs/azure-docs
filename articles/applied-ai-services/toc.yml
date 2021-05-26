@@ -25,7 +25,9 @@
   items:
   - name: Partner spotlight
     href: applied-ai-services-customer-spotlight-use-cases.md
-  - name: UserVoice
-    href: https://aka.ms/AppliedAIUserVoice
+  - name: Configure customer-managed keys
+    href: applied-ai-services-encryption.md
+  - name: Microsoft Q&A
+    href: https://aka.ms/AppliedAI
   - name: StackOverflow
     href: https://aka.ms/AppliedAIStackOverflow
