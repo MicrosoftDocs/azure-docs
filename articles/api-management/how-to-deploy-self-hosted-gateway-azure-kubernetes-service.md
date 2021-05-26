@@ -10,14 +10,17 @@ editor: ''
 ms.service: api-management
 
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 05/25/2021
 ms.author: apimpm
 
 ---
 
 # Deploy to Azure Kubernetes Service
 
-This article provides the steps for deploying self-hosted gateway component of Azure API Management to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). For deploying self-hosted gateway to a Kubernetes cluster see this[document](how-to-deploy-self-hosted-gateway-kubernetes.md).
+This article provides the steps for deploying self-hosted gateway component of Azure API Management to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). 
+
+> [!NOTE]
+> You can also deploy self-hosted gateway to an [Azure Arc enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
 
 ## Prerequisites
 
@@ -60,7 +63,8 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 
 ## Next steps
 
-* To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn more about [Azure Kubernetes Service](../aks/intro-kubernetes.md)
-* Learn [how to configure and persist logs in the cloud](how-to-configure-cloud-metrics-logs.md)
-* * Learn [how to configure and persist logs locally](how-to-configure-local-metrics-logs.md)
+* To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
+* Learn [how to deploy API Management self-hosted gateway to Azure Arc enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).
+* Learn more about [Azure Kubernetes Service](../aks/intro-kubernetes.md).
+* Learn [how to configure and persist logs in the cloud](how-to-configure-cloud-metrics-logs.md).
+* Learn [how to configure and persist logs locally](how-to-configure-local-metrics-logs.md).
