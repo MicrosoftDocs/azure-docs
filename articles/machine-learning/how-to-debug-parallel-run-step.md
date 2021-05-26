@@ -310,7 +310,7 @@ You can go into `~/logs/sys/errror` to see if there's any exception. If there is
 ### When will a job stop?
 if not canceled, the job will stop with status:
 - Completed. If all mini-batches have been processed and output has been generated for `append_row` mode.
-- Failed. If `error_threshold` in [`Parameters for ParallelRunConfig`](#parameters-for-parallelrunronfig)  is exceeded, or system error occurred during the job.
+- Failed. If `error_threshold` in [`Parameters for ParallelRunConfig`](#parameters-for-parallelrunconfig)  is exceeded, or system error occurred during the job.
 
 ### Where to find the root cause of failure?
 You can follow the lead in `~logs/job_result.txt` to find the cause and detailed error log.
