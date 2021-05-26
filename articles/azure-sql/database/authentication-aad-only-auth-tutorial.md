@@ -270,11 +270,12 @@ After enabling Azure AD-only authentication, test with [SQL Server Management St
 
 You should see a login failed message similar to the following output:
 
-   <pre><code>
-   Cannot connect to <myserver>.database.windows.net.
-   <b>Additional information:</b>
-   Login failed for user 'username'. Reason: Azure Active Directory only authentication is enabled. <br />   Please contact your system administrator. (Microsoft SQL Server, Error: 18456)
-   </code></pre>
+```output
+Cannot connect to <myserver>.database.windows.net.
+Additional information:
+  Login failed for user 'username'. Reason: Azure Active Directory only authentication is enabled.
+  Please contact your system administrator. (Microsoft SQL Server, Error: 18456)
+```
 
 ## Disable Azure AD-only authentication
 
