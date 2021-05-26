@@ -16,8 +16,8 @@
 | VPN (branch) connections per hub | 1,000 |
 | Aggregate throughput per Virtual WAN Site-to-site VPN gateway | 20 Gbps |
 | Throughput per Virtual WAN VPN connection (2 tunnels) | 2 Gbps with 1 Gbps/IPsec tunnel |
-| Point-to-Site users per hub| 10,000 |
-| Aggregate throughput per Virtual WAN User VPN (Point-to-site) gateway | 20 Gbps |
+| Point-to-Site users per hub| 100,000 |
+| Aggregate throughput per Virtual WAN User VPN (Point-to-site) gateway | 200 Gbps |
 | Aggregate throughput per Virtual WAN ExpressRoute gateway | 20 Gbps |
 | ExpressRoute Circuit connections per hub | 8 |
 | VNet connections per hub  | 500 minus total number of hubs in Virtual WAN |
