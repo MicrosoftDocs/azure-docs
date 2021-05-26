@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Monitoring scenarios and best practices
+title: Scenarios and best practices for Azure Storage monitoring
 description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Storage account resources. 
 author: normesta
 ms.service: storage
@@ -11,7 +11,7 @@ ms.subservice: common
 ms.custom: "monitoring"
 ---
 
-# Azure Storage Monitoring scenarios and best practices
+# Scenarios and best practices for Azure Storage monitoring
 
 Intro goes here.
 
@@ -130,7 +130,7 @@ StorageBlobLogs
 
 Put something here.
 
-## Scenarios and examples
+### Scenarios and examples
 
 Put scenarios here.
 
