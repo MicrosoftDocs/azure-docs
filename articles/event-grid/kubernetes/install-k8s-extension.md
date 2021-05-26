@@ -4,7 +4,7 @@ description: This article provides steps to install Event Grid on Azure Arc enab
 author: jfggdl
 ms.author: jafernan
 ms.subservice: kubernetes
-ms.date: 05/11/2021
+ms.date: 05/26/2021
 ms.topic: how-to
 ---
 
@@ -134,5 +134,5 @@ In order to establish a secure HTTPS communication with the Event Grid broker an
 
 
 ## Next steps
-See the quick start [Route cloud events to Webhooks with Azure Event Grid on Kubernetes](create-topic-subscription.md).
+[Create a custom location](../../azure-arc/kubernetes/custom-locations.md) and then follow instructions in the quick start [Route cloud events to Webhooks with Azure Event Grid on Kubernetes](create-topic-subscription.md).
 
