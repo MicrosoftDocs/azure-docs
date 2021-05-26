@@ -322,7 +322,7 @@ Not if there are other available nodes in the designated compute cluster. The or
 ParallelRunStep has mechanism to retry for a certain times to give chance for recovery from transient issues without delaying the job failure for too long, the mechanism is as follows:
 1. If after a node starts, `init` on all agents keeps failing, we will stop trying after `3 * process_count_per_node` failures.
 2. If after job starts, `init` on all agents of all nodes keeps failing, we will stop trying if job runs more than 2 minutes and there're `2 * node_count * process_count_per_node` failures.
-3. If all agents stucks on `init` for more than `3 * run_invocation_timeout + 30` seconds, the job would fail because of no progress for too long.
+3. If all agents are stuck on `init` for more than `3 * run_invocation_timeout + 30` seconds, the job would fail because of no progress for too long.
 
 ### What will happen on OutOfMemory? How can I check the cause?
 ParallelRunStep will set the current attempt to process the mini-batch to failure status and try to restart the failed process. You can check `~logs/perf/<node_id>` to find the memory-consuming process.
