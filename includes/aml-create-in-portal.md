@@ -8,18 +8,21 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 11/04/2019
+ms.date: 05/11/2021
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for your Azure subscription.
 
-1. In the upper-left corner of the Azure portal, select **+ Create a resource**.
+1. In the upper-left corner of the Azure portal, select the three bars, then **+ Create a resource**.
 
-    ![Screenshot that shows the Create a resource option.](media/aml-create-in-portal/create-workspace.gif)
+    :::image type="content" source="media/aml-create-in-portal/create-resource.png" alt-text="Screenshot showing + Create a resource.":::
 
 1. Use the search bar to find **Machine Learning**.
 
 1. Select **Machine Learning**.
+
+   :::image type="content" source="media/aml-create-in-portal/machine-learning.png" alt-text="Screenshot shows search results to select Machine Learning.":::
+
 
 1. In the **Machine Learning** pane, select **Create** to begin.
 

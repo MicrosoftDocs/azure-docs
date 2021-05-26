@@ -8,7 +8,7 @@ ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: daveba
+manager: mtillman
 ---
 
 # Azure Active Directory application provisioning: What's new

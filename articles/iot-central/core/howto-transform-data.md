@@ -36,9 +36,9 @@ The following table shows three example transformation types:
 
 ## Prerequisites
 
-To complete the steps in this article, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete the steps in this how-to guide, you need:
 
-To set up the solution, you need an IoT Central application. To learn how to create an IoT Central application, see [Create an Azure IoT Central application](quick-deploy-iot-central.md).
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## Data transformation at ingress
 

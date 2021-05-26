@@ -33,6 +33,7 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 
 - Amazon Redshift
 - Amazon S3
+- Amazon S3 Compatible Storage
 - Azure Blob Storage
 - Azure Cosmos DB (SQL API)
 - Azure Data Lake Storage Gen2
@@ -47,6 +48,7 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 - Generic REST
 - MySQL
 - Oracle
+- Oracle Cloud Storage
 - SQL Server
 
 For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:

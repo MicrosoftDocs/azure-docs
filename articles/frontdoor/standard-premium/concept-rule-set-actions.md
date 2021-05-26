@@ -327,6 +327,54 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 ---
 
+## <a name="OriginGroupOverride"></a> Origin group override
+
+Use the **Origin group override** action to change the origin group that the request should be routed to.
+
+### Properties
+
+| Property | Supported values |
+|----------|------------------|
+| Origin group | The origin group that the request should be routed to. This overrides the configuration specified in the Front Door endpoint route. |
+
+### Example
+
+In this example, we route all matched requests to an origin group named `SecondOriginGroup`, regardless of the configuration in the Front Door endpoint route.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "OriginGroupOverride",
+  "parameters": {
+    "originGroup": {
+      "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
+    },
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleOriginGroupOverrideActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'OriginGroupOverride'
+  parameters: {
+    originGroup: {
+      id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
+    }
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleOriginGroupOverrideActionParameters'
+  }
+}
+```
+
+---
+
 ## Server variables
 
 Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.

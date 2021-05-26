@@ -10,7 +10,7 @@ metadata:
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 12/08/2020
+  ms.date: 05/07/2021
 
 landingContent:
   - title: About Static Web Apps
@@ -61,6 +61,8 @@ landingContent:
             url: deploy-nuxtjs.md
           - text: Deploy with Azure DevOps
             url: publish-devops.md
+          - text: Deploy with an ARM template
+            url: publish-azure-resource-manager.md
       - linkListType: learn
         links:
           - text: Publish a static web app with Gatsby

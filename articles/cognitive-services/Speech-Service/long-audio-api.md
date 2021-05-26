@@ -22,7 +22,7 @@ More benefits of the Long Audio API:
 * There's no need to deploy a voice endpoint.
 
 > [!NOTE]
-> The Long Audio API supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md#custom-neural-voices).
+> The Long Audio API supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md).
 
 ## Workflow
 

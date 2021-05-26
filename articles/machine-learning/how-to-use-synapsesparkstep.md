@@ -39,7 +39,7 @@ You may also attach an Apache Spark pool via SDK (as elaborated below) or via an
 
 You can use the command line to follow the ARM template, add the linked service, and attach the Apache Spark pool with the following code:
 
-```bash
+```azurecli
 az deployment group create --name --resource-group <rg_name> --template-file "azuredeploy.json" --parameters @"azuredeploy.parameters.json"
 ```
 

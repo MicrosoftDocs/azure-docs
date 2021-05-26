@@ -77,7 +77,7 @@ To enable a test drive, select the **Enable a test drive** check box and select 
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](partner-center-portal/includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](includes/customer-leads.md)]
 
 For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
