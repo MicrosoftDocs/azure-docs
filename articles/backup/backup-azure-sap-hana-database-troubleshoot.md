@@ -47,8 +47,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 | Error Message      | <span style="font-weight:normal">Backup log chain is broken</span>                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <br>HANA LSN Log chain break can be triggered for various reasons, including:</br><ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog is not yet updated with success in Hana system.</li><li>Backup failed from Azure Backup perspective, but success from HANA's perspective - the log backup/catalog destination may have been updated from backint to file system, or the backint executable may have been changed.</li></ul> |
-| **Recommended action** | <br>To resolve this issue, Azure Backup triggers an auto-heal Full backup. While this auto-heal backup is in progress, all log backups are triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Once the auto-heal Full backup is complete, logs and all other backups will start working as expected.</br><br>If you do not see an auto-heal full backup triggered or any successful backup (Full/Differential/ Incremental) in 24 hours, contact Microsoft support.</br> |
+| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog is not yet updated with success in Hana system.</li><li>Backup failed from Azure Backup perspective, but success from HANA's perspective - the log backup/catalog destination may have been updated from backint to file system, or the backint executable may have been changed.</li></ul> |
+| **Recommended action** | To resolve this issue, Azure Backup triggers an auto-heal Full backup. While this auto-heal backup is in progress, all log backups are triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Once the auto-heal Full backup is complete, logs and all other backups will start working as expected.<br>If you do not see an auto-heal full backup triggered or any successful backup (Full/Differential/ Incremental) in 24 hours, contact Microsoft support.</br> |
 
 ### UserErrorSDCtoMDCUpgradeDetected
 
@@ -69,7 +69,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 |Error Message  | <span style="font-weight:normal">The source and target systems for restore are incompatible.</span>  |
 |---------|---------|
 |Possible causes   | The restore flow fails with this error when the source and target HANA databases, and systems are incompatible. |
-|Recommended action   |   Ensure that your restore scenario isn't in the following list of possible incompatible restores: <br><br>   **Case 1:** SYSTEMDB cannot be renamed during restore.  <br><br> **Case 2:** Source - SDC and target - MDC: The source database cannot be restored as SYSTEMDB or tenant DB on the target. <br><br> **Case 3:** Source - MDC and target - SDC: The source database (SYSTEMDB or tenant DB) cannot be restored to the target. <br><br>  To learn more, see the note **1642148** in the [SAP support launchpad](https://launchpad.support.sap.com). |
+|Recommended action   |   Ensure that your restore scenario isn't in the following list of possible incompatible restores:<br>   **Case 1:** SYSTEMDB cannot be renamed during restore.<br><br>**Case 2:** Source - SDC and target - MDC: The source database cannot be restored as SYSTEMDB or tenant DB on the target. <br><br> **Case 3:** Source - MDC and target - SDC: The source database (SYSTEMDB or tenant DB) cannot be restored to the target.<br><br>To learn more, see the note **1642148** in the [SAP support launchpad](https://launchpad.support.sap.com). |
 
 ### UserErrorHANAPODoesNotExist
 
@@ -82,7 +82,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error** |	<span style="font-weight:normal">Azure Backup does not have enough privileges to carry out Backup and Restore operations.</span>
 ---------- | ---------
-**Possible causes** | <br>Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn’t have one or more of the following roles assigned:</br><ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for **HANA 2.0 SPS05** and later) to create new databases during restore.</li><li>For SDC, BACKUP ADMIN to create new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>**SAP_INTERNAL_HANA_SUPPORT** to access a few private tables. Only required for SDC and MDC versions prior to **HANA 2.0 SPS04 Rev 46**. This is not required for **HANA 2.0 SPS04 Rev 46** and later as we are getting the required information from public tables now with the fix from HANA team.</li></ul>
+**Possible causes** | Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn’t have one or more of the following roles assigned:<ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for **HANA 2.0 SPS05** and later) to create new databases during restore.</li><li>For SDC, BACKUP ADMIN to create new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>**SAP_INTERNAL_HANA_SUPPORT** to access a few private tables. Only required for SDC and MDC versions prior to **HANA 2.0 SPS04 Rev 46**. This is not required for **HANA 2.0 SPS04 Rev 46** and later as we are getting the required information from public tables now with the fix from HANA team.</li></ul>
 **Recommended action** | To resolve the issue, add the required roles and permissions manually to the Backup user (AZUREWLBACKUPHANAUSER), or download and run the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana).
 
 ### UserErrorDatabaseUserPasswordExpired
@@ -131,7 +131,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error** | <span style="font-weight:normal">Auto-heal Full backup in progress.</span>
 ------- | -------
-**Possible causes** | <br>Azure Backup triggers an auto-heal Full backup to resolve **UserErrorHANALSNValidationFailure**. While this auto-heal backup is in progress, all the log backups triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**.</br><br>Once the auto-heal Full backup is complete, logs and all other backups will start working as expected.</br>
+**Possible causes** | Azure Backup triggers an auto-heal Full backup to resolve **UserErrorHANALSNValidationFailure**. While this auto-heal backup is in progress, all the log backups triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**.<br>Once the auto-heal Full backup is complete, logs and all other backups will start working as expected.</br>
 **Recommended action** | Wait for the auto-heal Full backup to complete.
 
 ### UserErrorHanaPreScriptNotRun
@@ -168,7 +168,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 **Error** | <span style="font-weight:normal">Default sid-adm directory changed.</span>
 ------- | -------
 **Possible causes** | The default **sid-adm** directory was changed, and **HDBSetting.sh** is not available in this default directory.
-**Recommended action** | If HXE is the SID, ensure that environment variable HOME is set to **/usr/sap/HXE/home** as **sid-adm** user.
+**Recommended action** | If HXE is the SID, ensure that environment variable HOME is set to _/usr/sap/HXE/home_ as **sid-adm** user.
 
 ### UserErrorHDBsettingsScriptNotFound
 
