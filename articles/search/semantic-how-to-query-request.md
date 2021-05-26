@@ -69,11 +69,9 @@ Query options include switches to enable semantic queries, searchFields, and spe
 
 ## Query using REST
 
-Use the [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents) to formulate the request programmatically.
+Use the [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents) to formulate the request programmatically. A response includes captions and highlighting automatically. If you want spelling correction or answers in the response, add **`speller`** or **`answers`** to the request.
 
-A response includes captions and highlighting automatically. If you want the response to include spelling correction or answers, add an optional **`speller`** or **`answers`** parameter on the request.
-
-The following example uses the [hotels-sample-index](search-get-started-portal.md) to create a semantic query request with semantic answers and captions:
+The following example uses the [hotels-sample-index](search-get-started-portal.md) to create a semantic query request with spell check, semantic answers, and captions:
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview      
@@ -91,7 +89,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-The following table summarizes the query parameters used in a semantic query so that you can see them holistically. For a list of all parameters, see [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents)
+The following table summarizes the parameters used in a semantic query. For a list of all parameters in a request, see [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents)
 
 | Parameter | Type | Description |
 |-----------|-------|-------------|
@@ -103,7 +101,7 @@ The following table summarizes the query parameters used in a semantic query so 
 
 ### Formulate the request
 
-This section steps through the query parameters necessary for semantic search.
+This section steps through query formulation.
 
 #### Step 1: Set queryType and queryLanguage
 
@@ -134,7 +132,7 @@ The searchFields parameter is used to identify passages to be evaluated for "sem
 
 In contrast with other parameters, searchFields is not new. You might already be using searchFields in existing code for simple or full Lucene queries. If so, revisit how the parameter is used so that you can check for field order when switching to a semantic query type.
 
-Choose only fields of type edm.string and top-level string fields in collections. Avoid numerica fields, complex fields, and complex field collections. If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
+Choose only fields of type edm.string and top-level string fields in collections. Avoid numeric fields, complex fields, and complex field collections. If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
 
 Field order is critical. For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
 
