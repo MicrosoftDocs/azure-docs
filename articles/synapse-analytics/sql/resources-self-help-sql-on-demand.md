@@ -40,9 +40,9 @@ If your query fails with the error 'File cannot be opened because it does not ex
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
-#### Alternative to Storage Blog Data Contributer 
+#### Alternative to Storage Blob Data Contributor role
 
-Instead of granting Storage Blob Data Contributer, you can also grant more granular permissions on a subset of files. 
+Instead of granting Storage Blob Data Contributor, you can also grant more granular permissions on a subset of files. 
 
 * All users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). 
 Learn more about [how to set ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-explorer-acl.md). 
