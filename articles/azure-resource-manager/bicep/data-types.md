@@ -54,9 +54,11 @@ var environmentSettings = {
 
 The expression environmentSettings['dev'] evaluates to the following object:
 
+```bicep
 {
   name: 'dev'
 }
+```
 
 The elements of an array can be the same type or different types.
 
