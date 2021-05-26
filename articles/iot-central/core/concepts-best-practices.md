@@ -79,6 +79,8 @@ Command group 'iot central device' is in preview and under development. Referenc
 }
 ```
 
+To learn more about the CLI command, see [az iot central device manual-failover](/cli/azure/iot/central/device#az_iot_central_device_manual_failover).
+
 You can now check to see that telemetry from the device is still reaching your IoT Central application.
 
 To see sample device code that handles failovers in various programing languages, see [IoT high availability clients](https://github.com/iot-for-all/iot-central-high-availability-clients).
