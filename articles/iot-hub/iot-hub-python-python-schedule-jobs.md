@@ -168,7 +168,7 @@ To create a shared access policy that grants **service connect**, **registry rea
 
     ![Show how to retrieve the connection string](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](./iot-hub-devguide-security.md#access-control-and-permissions).
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
 

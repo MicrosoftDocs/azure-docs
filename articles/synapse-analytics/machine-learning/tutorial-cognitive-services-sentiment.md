@@ -105,6 +105,6 @@ The sentiments are returned as **positive**, **negative**, **neutral**, or **mix
 ![Screenshot that shows sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 
 ## Next steps
-- [Tutorial: Anomaly detection with Azure Cognitive Services](tutorial-cognitive-services-sentiment.md)
+- [Tutorial: Anomaly detection with Azure Cognitive Services](tutorial-cognitive-services-anomaly.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

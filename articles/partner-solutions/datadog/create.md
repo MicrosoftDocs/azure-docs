@@ -3,7 +3,7 @@ title: Create Datadog - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of Datadog.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 02/19/2021
+ms.date: 05/05/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
@@ -11,9 +11,9 @@ ms.custom: references_regions
 
 # QuickStart: Get started with Datadog
 
-In this quickstart, you'll create an instance of Datadog. You can either create a new Datadog organization or link to an existing Datadog organization.
+In this quickstart, you'll create an instance of Datadog. You can either create a new Datadog organization or link to an existing Datadog organization. Azure only links to existing Datadog organizations in **US3**.
 
-## Pre-requisites
+## Prerequisites
 
 To set up the Azure Datadog integration, you must have **Owner** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
 
@@ -80,7 +80,7 @@ If you're linking to an existing Datadog organization, see the next section. Oth
 
 ## Link to existing Datadog organization
 
-You can link your new Datadog resource in Azure to an existing Datadog organization.
+You can link your new Datadog resource in Azure to an existing Datadog organization in **US3**.
 
 Select **Existing** for Data organization, and then select **Link to Datadog org**.
 
@@ -122,7 +122,7 @@ There are two types of logs that can be emitted from Azure to Datadog.
 
 To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
 
-To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).  To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.  
+To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).  To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
 
 The logs sent to Datadog will be charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 

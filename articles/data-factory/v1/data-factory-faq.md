@@ -88,13 +88,19 @@ Pipelines are supposed to bundle related activities. If the datasets that connec
 ### What are the supported data stores?
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the following data stores. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
 
 ### What are the supported file formats?
-[!INCLUDE [data-factory-file-format](../../../includes/data-factory-file-format.md)]
+Azure Data Factory supports the following file format types:
+
+* [Text format](data-factory-supported-file-and-compression-formats.md#text-format)
+* [JSON format](data-factory-supported-file-and-compression-formats.md#json-format)
+* [Avro format](data-factory-supported-file-and-compression-formats.md#avro-format)
+* [ORC format](data-factory-supported-file-and-compression-formats.md#orc-format)
+* [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format)
 
 ### Where is the copy operation performed?
 See [Globally available data movement](data-factory-data-movement-activities.md#global) section for details. In short, when an on-premises data store is involved, the copy operation is performed by the Data Management Gateway in your on-premises environment. And, when the data movement is between two cloud stores, the copy operation is performed in the region closest to the sink location in the same geography.

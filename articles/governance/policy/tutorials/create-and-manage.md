@@ -7,7 +7,7 @@ ms.topic: tutorial
 # Tutorial: Create and manage policies to enforce compliance
 
 Understanding how to create and manage policies in Azure is important for staying compliant with
-your corporate standards and service level agreements. In this tutorial, you learn to use Azure
+your corporate standards and service-level agreements. In this tutorial, you learn to use Azure
 Policy to do some of the more common tasks related to creating, assigning, and managing policies
 across your organization, such as:
 
@@ -130,15 +130,15 @@ create a virtual machine in the G series, the request is denied.
      > for an initiative definition.
 
    - The name of the policy definition - _Require VM SKUs not in the G series_
-   - The description of what the policy definition is intended to do – _This policy definition
+   - The description of what the policy definition is intended to do - _This policy definition
      enforces that all virtual machines created in this scope have SKUs other than the G series to
      reduce cost._
    - Choose from existing options (such as _Compute_), or create a new category for this policy
      definition.
    - Copy the following JSON code and then update it for your needs with:
       - The policy parameters.
-      - The policy rules/conditions, in this case – VM SKU size equal to G series
-      - The policy effect, in this case – **Deny**.
+      - The policy rules/conditions, in this case - VM SKU size equal to G series
+      - The policy effect, in this case - **Deny**.
 
    Here's what the JSON should look like. Paste your revised code into the Azure portal.
 
@@ -462,9 +462,9 @@ overview](../overview.md).
 1. Policy definitions added to the initiative that have parameters are displayed in a grid. The
    _value type_ can be 'Default value', 'Set value', or 'Use Initiative Parameter'. If 'Set value'
    is selected, the related value is entered under _Value(s)_. If the parameter on the policy
-   definition has a list of allowed values, the entry box is a drop-down selector. If 'Use
-   Initiative Parameter' is selected, a drop-down select is provided with the names of initiative
-   parameters created on the **Initiative parameters** tab.
+   definition has a list of allowed values, the entry box is a dropdown list selector. If 'Use
+   Initiative Parameter' is selected, a dropdown list select is provided with the names of
+   initiative parameters created on the **Initiative parameters** tab.
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Screenshot of the options for allowed values for the allowed locations definition parameter on the policy parameters tab of the initiative definition page.":::
 
@@ -476,13 +476,13 @@ overview](../overview.md).
    > creation of the initiative definition and has no impact on policy evaluation or the scope of
    > the initiative when assigned.
 
-   Set the 'Allowed locations' _value type_ to 'Set value' and select 'East US 2' from the
-   drop-down. For the two instances of the _Add or replace a tag on resources_ policy definitions,
-   set the **Tag Name** parameters to 'Env' and 'CostCenter and the **Tag Value** parameters to
-   'Test' and 'Lab' as shown below. Leave the others as 'Default value'. Using the same definition
-   twice in the initiative but with different parameters, this configuration adds or replace an
-   'Env' tag with the value 'Test' and a 'CostCenter' tag with the value of 'Lab' on resources in
-   scope of the assignment.
+   Set the 'Allowed locations' _value type_ to 'Set value' and select 'East US 2' from the dropdown
+   list. For the two instances of the _Add or replace a tag on resources_ policy definitions, set
+   the **Tag Name** parameters to 'Env' and 'CostCenter and the **Tag Value** parameters to 'Test'
+   and 'Lab' as shown below. Leave the others as 'Default value'. Using the same definition twice in
+   the initiative but with different parameters, this configuration adds or replace an 'Env' tag
+   with the value 'Test' and a 'CostCenter' tag with the value of 'Lab' on resources in scope of the
+   assignment.
 
    :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="Screenshot of the entered options for allowed values for the allowed locations definition parameter and values for both tag parameter sets on the policy parameters tab of the initiative definition page.":::
 
@@ -544,8 +544,8 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
    :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Screenshot of the 'Assign' button on the initiative definition page." border="false":::
 
-   You can also right-click on the selected row or select the ellipsis at the end of the row for a
-   contextual menu. Then select **Assign**.
+   You can also select and hold (or right-click) on the selected row or select the ellipsis at the
+   end of the row for a contextual menu. Then select **Assign**.
 
    :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Screenshot of the context menu for an initiative to select the Assign functionality." border="false":::
 
@@ -559,7 +559,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
      being applied to them.
    - Initiative definition and Assignment name: Get Secure (pre-populated as name of initiative
      being assigned).
-   - Description: This initiative assignment is tailored to enforce this group of policy 
+   - Description: This initiative assignment is tailored to enforce this group of policy
      definitions.
    - Policy enforcement: Leave as the default _Enabled_.
    - Assigned by: Automatically filled based on who is logged in. This field is optional, so custom

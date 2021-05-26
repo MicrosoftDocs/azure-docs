@@ -3,7 +3,7 @@ title: HANA backup and restore on SAP HANA on Azure (Large Instances) | Microsof
 description: How to perform HANA backup and restore on SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
-author: saghorpa
+author: Ajayan1008
 manager: gwallace
 editor:
 ms.service: virtual-machines-sap
@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
-ms.author: saghorpa
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---

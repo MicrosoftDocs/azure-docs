@@ -48,9 +48,9 @@ The standard includes AAL requirements for 11 requirement categories:
 > [!TIP]
 > We recommend that you meet at least AAL 2, unless business reasons, industry standards, or compliance requirements dictate that you meet AAL3.
 
-In general, AAL1 isn't recommended because it accepts password-only solutions, and passwords are the most easily compromised form of authentication. See [Your Pa$$word doesn’t matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
+In general, AAL1 isn't recommended because it accepts password-only solutions, and passwords are the most easily compromised form of authentication. See [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
 
-While NIST doesn't require verifier impersonation (also known as credential phishing) resistance until AAL3, we highly advise that  you address this threat at all levels. You can select authenticators that provide verifier impersonation resistance, such as requiring Azure AD joined or hybrid Azure AD joined devices. If you're using Office 365 you can address use Office 365 Advanced Threat Protection, and specifically [Anti-phishing policies](https://docs.microsoft.com/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide).
+While NIST doesn't require verifier impersonation (also known as credential phishing) resistance until AAL3, we highly advise that  you address this threat at all levels. You can select authenticators that provide verifier impersonation resistance, such as requiring Azure AD joined or hybrid Azure AD joined devices. If you're using Office 365 you can address use Office 365 Advanced Threat Protection, and specifically [Anti-phishing policies](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies).
 
 As you evaluate the appropriate NIST AAL for your organization, you can consider whether your entire organization must meet NIST standards, or if there are specific groups of users and resources that can be segregated, and the NIST AAL configurations applied to only a specific group of users and resources. 
 

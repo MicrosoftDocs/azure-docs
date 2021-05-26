@@ -40,7 +40,9 @@ Here are some recommendations for using the Delete activity:
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md)
 -   [Google Cloud Storage](connector-google-cloud-storage.md)
+-   [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
 -   [HDFS](connector-hdfs.md)
 
 ## Syntax

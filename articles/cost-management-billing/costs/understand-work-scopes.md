@@ -3,7 +3,7 @@ title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/19/2021
+ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -182,7 +182,7 @@ Microsoft Customer Agreement billing accounts have the following scopes:
 
 - **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by partner. This scope is specific to Cloud Solution Providers (CSP).
 
-Unlike EA billing scopes, Customer Agreement billing accounts _are_ bound to a single directory and can't have subscriptions across multiple Azure AD directories.
+Unlike EA billing scopes, Customer Agreement billing accounts _are_ managed by a single directory. Microsoft Customer Agreement billing accounts can have *linked* subscriptions that could be in different Azure AD directories.
 
 Customer Agreement billing scopes don't apply to partners. Partner roles and permissions are documented at [Assign users roles and permissions](/partner-center/permissions-overview).
 

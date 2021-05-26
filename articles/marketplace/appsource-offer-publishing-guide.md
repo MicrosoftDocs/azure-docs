@@ -27,7 +27,7 @@ For links to publishing processes and guidelines for each offer type, see the fo
 | Dynamics 365 for Customer Engagement & Power Apps | Review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>To publish an offer in Partner Center, see [Create a Dynamics 365 for Customer Engagement & Power Apps offer](dynamics-365-customer-engage-offer-setup.md).  |
 | Power Apps | Learn how to [let customers test drive your app on AppSource](https://powerapps.microsoft.com/blog/appsource-test-drive/). |
 | Power BI | Review the [publishing process and guidelines](/power-bi/developer/office-store). |
-
+|
 ---
 
 ## Next steps

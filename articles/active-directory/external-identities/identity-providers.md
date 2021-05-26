@@ -33,9 +33,9 @@ In addition to Azure AD accounts, External Identities offers a variety of identi
 
 - **Facebook**: When building an app, you can configure self-service sign-up and enable Facebook federation so that users can sign up for your app using their own Facebook accounts. Facebook can only be used for self-service sign-up user flows and isn't available as a sign-in option when users are redeeming  invitations from you. See how to [add Facebook as an identity provider](facebook-federation.md).
 
-- **Direct federation**: You can also set up direct federation with any external identity provider that supports the SAML or WS-Fed protocols. Direct federation allows external users to redeem invitations from you by signing in to your apps with their existing social or enterprise accounts. See how to [set up direct federation](direct-federation.md).
+- **SAML/WS-Fed identity provider federation**: You can also set up federation with any external IdP that supports the SAML or WS-Fed protocols. SAML/WS-Fed IdP federation allows external users to redeem invitations from you by signing in to your apps with their existing social or enterprise accounts. See how to [set up SAML/WS-Fed IdP federation](direct-federation.md).
    > [!NOTE]
-   > Direct federation identity providers can't be used in your self-service sign-up user flows.
+   > Federated SAML/WS-Fed IdPs can't be used in your self-service sign-up user flows.
 
 ## Adding social identity providers
 
@@ -57,4 +57,4 @@ To learn how to add identity providers for sign-in to your applications, refer t
 - [Add email one-time passcode authentication](one-time-passcode.md)
 - [Add Google](google-federation.md) as an allowed social identity provider
 - [Add Facebook](facebook-federation.md) as an allowed social identity provider
-- [Set up direct federation](direct-federation.md) with any organization whose identity provider supports the SAML 2.0 or WS-Fed protocol. Note that direct federation is not an option for self-service sign-up user flows.
+- [Set up SAML/WS-Fed IdP federation](direct-federation.md) with any organization whose identity provider supports the SAML 2.0 or WS-Fed protocol. Note that SAML/WS-Fed IdP federation is not an option for self-service sign-up user flows.

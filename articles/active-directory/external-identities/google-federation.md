@@ -26,7 +26,7 @@ After you've added Google as one of your application's sign-in options, on the *
 ![Sign in options for Google users](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
-> Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [direct federation](direct-federation.md).
+> Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [SAML/WS-Fed identity provider federation](direct-federation.md).
 
 > [!IMPORTANT]
 > **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](#deprecation-of-web-view-sign-in-support).
@@ -69,7 +69,7 @@ This change does not affect:
 - Microsoft apps on Windows
 - Web apps
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
-- G Suite identities, for example when you’re using SAML-based [direct federation](direct-federation.md) with G Suite
+- G Suite identities, for example when you’re using [SAML-based federation](direct-federation.md) with G Suite
 
 We’re confirming with Google whether this change affects the following:
 - Windows apps that use the Web Account Manager (WAM) or Web Authentication Broker (WAB).  

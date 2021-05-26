@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/17/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,17 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## May 2021
+
+* [Custom question answering](../qnamaker/custom-question-answering.md) (previously QnA maker) can now be accessed using a Text Analytics resource. 
+
+### General API updates
+
+* Release of the new API v3.1-preview.5 which includes 
+  * Asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) now supports Sentiment Analysis (SA) and Opinion Mining (OM).
+  * A new query parameter, `LoggingOptOut`, is now available for customers who wish to opt out of logging input text for incident reports.  Learn more about this parameter in the [data privacy](/legal/cognitive-services/text-analytics/data-privacy?context=/azure/cognitive-services/text-analytics/context/context) article.
+* Text Analytics for health and the Analyze asynchronous operations are now available in all regions
 
 ## March 2021
 

@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 05/18/2021
 ms.author: duau
 ---
 
@@ -64,11 +64,11 @@ Origin group can be composed of Storage, Web App, Kubernetes instances, or any o
 
 ### What regions is the service available in?
 
-Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all the POPs (Point of Presence). 
+Azure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is for the resource group. That location is basically specifying where the metadata for the resource group will be stored. Front Door resource itself is created as a global resource and the configuration is deployed globally to all edge locations. 
 
-### What are the POP locations for Azure Front Door?
+### Where are the edge locations for Azure Front Door?
 
-Azure Front Door has the same list of POP (Point of Presence) locations as Azure CDN from Microsoft. For the complete list of our POPs, kindly refer [Azure CDN POP locations from Microsoft](../../cdn/cdn-pop-locations.md).
+For the complete list of Azure Front Door edge locations, see [Azure Front Door edge locations](edge-locations.md).
 
 ### Is Azure Front Door a dedicated deployment for my application or is it shared across customers?
 
@@ -133,9 +133,10 @@ Yes, Azure Front Door supports the X-Forwarded-For, X-Forwarded-Host, and X-Forw
 
 ### How long does it take to deploy an Azure Front Door? Does my Front Door still work when being updated?
 
-A new Front Door creation or any updates to an existing Front Door takes about 3 to 5 minutes for global deployment. That means in about 3 to 5 minutes, your Front Door configuration will be deployed across all of our POPs globally.
+Most Rules Engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
-Note - Custom TLS/SSL certificate updates take about 30 minutes to be deployed globally.
+ > [!Note]  
+  > Most custom TLS/SSL certificate updates take about 30 minutes to be deployed globally.
 
 Any updates to routes or backend pools are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates won't cause any outage, unless you're switching from 'Azure Front Door Managed' to 'Use your own cert' or the other way around.
 
@@ -152,7 +153,7 @@ Learn about all the documented [timeouts and limits for Azure Front Door](../../
 
 ### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
 
-The Rules Engine configuration takes about 10 to 15 minutes to complete an update. You can expect the rule to take effect as soon as the update is completed. 
+Most rules engine configuration updates complete under 20 minutes. You can expect the rule to take effect as soon as the update is completed. 
 
 ### Can I configure Azure CDN behind my Front Door profile or Front Door behind my Azure CDN?
 
