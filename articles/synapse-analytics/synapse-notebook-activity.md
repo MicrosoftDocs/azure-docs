@@ -71,7 +71,7 @@ You can read notebook cell output value in subsequent activities follow steps be
     mssparkutils.notebook.exit("hello world") 
     ```
     
-Saving the notebook content and retrigger the pipeline, the notebook activity output will contain the exitValue that can be consumed for subsequent activities in step 2. 
+    Saving the notebook content and retrigger the pipeline, the notebook activity output will contain the exitValue that can be consumed for subsequent activities in step 2. 
 
 2.	Read exitValue property from notebook activity output. 
 Here is a sample expression that is used to check whether the exitValue fetched from the notebook activity output equals to “hello world” or not: 
