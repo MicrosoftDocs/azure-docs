@@ -30,7 +30,7 @@ Prebuilt Docker container images for inference [(preview)](https://azure.microso
 
 ## How can I use prebuilt images?
 
-Refer to our sample notebook.
+For an example of using prebuilt images, see [https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/deploy-with-prebuilt-docker-images](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/deploy-with-prebuilt-docker-images).
 
 ## List of prebuilt Docker images for inference 
 

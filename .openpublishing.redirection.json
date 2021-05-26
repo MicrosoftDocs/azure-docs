@@ -232,11 +232,11 @@
     },
     {
       "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
-      "redirect_url": "/azure/container-registry/monitor-service",
+      "redirect_url": "/azure/container-registry/monitor-service"
     },
     {
       "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
-      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
+      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent"
     },
     {
       "source_path": "articles/azure-percept/advanced-development-cloud.md",
@@ -5209,6 +5209,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/batch/tutorial-rendering-cli.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/tutorial-rendering-batchexplorer-blender.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/tutorial-r-doazureparallel.md",
+      "redirect_url": "/azure/batch/tutorial-parallel-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/batch-rendering-render-managers.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/high-performance-computing.md",
       "redirect_url": "/azure/architecture/topics/high-performance-computing/",
       "redirect_document_id": false
@@ -8434,6 +8454,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/appsource-offer-publishing-guide.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/dynamics-365-finance-operations-functional-validation.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-validation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log-alerts",
       "redirect_document_id": true
@@ -9841,11 +9876,6 @@
     {
       "source_path_from_root": "/articles/managed-applications/create-uidefinition-functions.md",
       "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-functions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-resource-manager/managed-application-createuidefinition-overview.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/create-uidefinition-overview",
       "redirect_document_id": false
     },
     {
@@ -17054,6 +17084,12 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/manage/review-service-usage-api.md",
+      "redirect_url": "/azure/cost-management-billing/costs/ingest-azure-usage-at-scale",
+      "redirect_document_id": true
+    },
+
+    {
       "source_path_from_root": "/articles/databox-family/index.md",
       "redirect_url": "/azure/databox/index",
       "redirect_document_id": false
@@ -17471,6 +17507,11 @@
     {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-certificates.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-certificates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-troubleshoot-virtual-machine-image-upload.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload",
       "redirect_document_id": false
     },
     {
@@ -19669,6 +19710,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/concepts-integration.md",
+      "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-create-twin-level-role-based-access-control.md",
       "redirect_url": "/azure/digital-twins/how-to-use-tags",
       "redirect_document_id": false
@@ -19861,6 +19907,11 @@
     {
       "source_path_from_root": "/articles/event-grid/event-sources.md",
       "redirect_url": "/azure/event-grid/overview#event-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/move-partner-namespaces-across-regions.md",
+      "redirect_url": "/azure/event-grid/move-system-topics-across-regions",
       "redirect_document_id": false
     },
     {
@@ -27524,6 +27575,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/promote-your-business-with-microsoft.md",
+      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/publishing-checklist-appsource.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-create-attach-compute-sdk.md",
       "redirect_url": "/azure/machine-learning/how-to-attach-compute-targets",
       "redirect_document_id": false
@@ -27542,6 +27603,11 @@
       "source_path_from_root": "/articles/machine-learning/service/how-to-change-storage-access-key.md",
       "redirect_url": "/azure/machine-learning/how-to-change-storage-access-key",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/dynamics-365-solution-preparation.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/how-to-configure-auto-train.md",
@@ -28704,16 +28770,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/dynamics-365-solution-preparation.md",
-      "redirect_url": "/azure/marketplace/appsource-offer-publishing-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/publishing-checklist-appsource.md",
-      "redirect_url": "/azure/marketplace/appsource-offer-publishing-guide",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/marketplace/enable-appsource-marketplace-using-azure-ad.md",
       "redirect_url": "/azure/marketplace/azure-ad-saas",
       "redirect_document_id": true
@@ -29162,11 +29218,6 @@
       "source_path_from_root": "/articles/marketplace/gtm-benefits.md",
       "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/promote-your-business-with-microsoft.md",
-      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/insights-dashboard.md",
@@ -29749,6 +29800,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/dynamics-365-customer-engage-review-publish.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-review-publish",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/dyn365ce/cpp-contacts-tab.md",
       "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": false
@@ -29817,41 +29873,6 @@
       "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-customer-engagement-offer.md",
       "redirect_url": "/azure/marketplace/dynamics-365-customer-engage-offer-setup",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/bpm-and-methodologies.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/code-upgrade.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/data-entities.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/help-wiki.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/lcs-subscription.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-operations-offer",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-channel-info-tab.md",
@@ -33234,8 +33255,28 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/sql-vulnerability-assessment-enable.md",
+      "redirect_url": "/azure/security-center/articles/defender-for-sql-on-machines-vulnerability-assessment.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/security-center-powerbi.md",
       "redirect_url": "/azure/security-center",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/articles/mysql/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariadb/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
       "redirect_document_id": false
     },
     {
@@ -33727,7 +33768,7 @@
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-metrics-azure-monitor.md",
       "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
@@ -33851,6 +33892,16 @@
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-shared-access-signature-authentication.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-queues.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
       "redirect_document_id": false
     },
     {
@@ -50127,7 +50178,7 @@
       "source_path_from_root": "/articles/active-directory/external-identities/add-guest-to-role.md",
       "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
       "redirect_document_id": false
-      },
+    },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-external-identities.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-compare-b2c",
@@ -61081,7 +61132,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract.md",
       "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#train-a-custom-model",
-       "redirect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
@@ -63814,6 +63865,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/kube-advisor-tool.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
@@ -63939,6 +63995,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-automate.md",
       "redirect_url": "/azure/azure-monitor/visualize/workbooks-automate",
       "redirect_document_id": false
@@ -63951,6 +64017,36 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-composite-bar.md",
       "redirect_url": "/azure/azure-monitor/visualize/workbooks-composite-bar",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/lcs-subscription.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/code-upgrade.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/data-entities.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/bpm-and-methodologies.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/help-wiki.md",
+      "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-new-operations-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -65284,6 +65380,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/logs/example-queries.md",
+      "redirect_url": "/azure/azure-monitor/logs/queries",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -66327,6 +66428,17 @@
       "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
       "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/media-services/video-indexer/",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/tutorial-bulk-processing.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/tutorial-ai-builder",
+      "redirect_document_id": false
     }
+
   ]
 }

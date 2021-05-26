@@ -1,6 +1,6 @@
 ---
 title: Customer spotlight
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Highlight customer stories with Form Recognizer.
 services: cognitive-services
 author: laujan
