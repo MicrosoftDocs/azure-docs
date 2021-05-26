@@ -1,0 +1,44 @@
+---
+title: Collect guest logs for failed VMs on Azure Stack Edge Pro GPU 
+description: Describes how to create a Support package with guest logs for a VM running on an Azure Stack Edge Pro GPU device.
+services: databox
+author: v-dalc
+
+ms.service: databox
+ms.subservice: edge
+ms.topic: how-to
+ms.date: 05/26/2021
+ms.author: alkohli
+---
+# Collect guest logs for failed VMs on an Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
+To diagnose any VM provisioning failure, you'll review guest logs on the failed virtual machine. This article describes how to collect guest logs for virtual machines that failed to deploy successfully and include those guest logs in a Support package.
+
+To collect guest logs for failed virtual machines on an Azure Stack Edge GPU device, do these steps:
+
+1. [Connect to the PowerShell interface of your device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
+
+2. Collect in-guest logs for failed VMs, and include these logs in a support package, by running the following commands:<!--Should we make two steps, so we can reference saving guest logs and rolling them into a Support packet separately? They don't always need to contact Support, but the packet might contain useful information.-->
+
+   ```powershell
+   Get-VMInGuestLogs -FailedVM
+   Get-HcsNodeSupportPackage -Path “\\<network path>” -Include InGuestVMLogFiles -Credential “domain_name\user”
+   ```
+
+   You'll find the logs in the `hcslogs\VmGuestLogs` folder.
+
+3. To get VM provisioning history details, review the following logs:
+
+   **Linux VMs:**
+   /var/log/cloud-init-output.log
+   /var/log/cloud-init.log
+   /var/log/waagent.log
+
+   **Windows VMs:**
+   C:\Windows\Azure\Panther\WaSetup.xml
+
+## Next steps
+
+- [Troubleshoot VM provisioning on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)

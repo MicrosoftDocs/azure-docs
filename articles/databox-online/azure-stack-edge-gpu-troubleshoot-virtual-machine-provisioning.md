@@ -17,6 +17,7 @@ ms.author: alkohli
 This article describes how to troubleshoot common errors when deploying virtual machines on an Azure Stack Edge Pro GPU device. It explains how to collect guest logs for failed VMs, and provides guidance for investigating VM provisioning timeouts and issues with network interface creation, VM images, VM creation, and GPU VMs.  
 
 ## Collect guest logs for a failed VM
+*05/26: Make this a separate article. Suggested by Niharika and Rajesh: Add to existing Connect to VM console" topic.*
 
 To diagnose any VM provisioning failure, you'll review guest logs on the failed virtual machine.
 
@@ -62,15 +63,20 @@ When VM provisioning times out, you see the following error:
 
 ![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
-*Queries: 1) Is it intended that the customer will work through these issues in linear fashion, from the most common cause to the less common ones? If so, should troubleshooting be set up as a series of steps? 3) To come: To make the information easier to navigate, we probably will convert this discussion to a table.*
+*Queries: 1) Is it intended that the customer will work through these issues in linear fashion, from the most common cause to the less common ones? If so, should troubleshooting be set up as a series of steps? 3) To come: To make the information easier to navigate, we probably will convert this discussion to a table. 
+
+05/26: YES to sequential troubleshooting. Separating out some content to other articles will make the need for a table go away.*
 
 This section provides troubleshooting guidance for some of the most common causes of a VM provisioning timeout.
 
 
-#### IP assigned to the VM is already in use
+### IP assigned to the VM is already in use
 
 **Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed.  
 *Queries: 1) Does this error apply to both portal and CLI procedures? Doesn't the portal check for duplicate IP addresses, and prevent them deploying if they have one? 2) Can issues other than an existing VM with an IP address produce this error? For example, address pool/subnet issue?*
+
+*05/26: Applies to portal and cli. Doesn't check if IP is taken by other VM or service on customer's network (only checks within our appliance).*
+ 
 
 **Suggested solution:** Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.
 
@@ -79,6 +85,8 @@ To check for a duplicate IP address:
 1. Stop the VM from the portal (if it is running).
 
    *Queries: 1) How can the VM be running if provisioning timed out? 2) Is there a reason why they are stopping the VM from the portal? Can they do this step, as well as the next, in PowerShell?*
+
+   *05/26: Cannot stop the VM since it did not complete provisioning. Remove Step 1.* 
 
 1. Run the following `ping` and Test-NetConnection (`tnc`) commands: *Query: Ping from the device*
 
@@ -90,7 +98,7 @@ To check for a duplicate IP address:
 
    If you get a response, the IP address that you assigned to the new VM is already in use.
 
-#### VM image not prepared correctly
+### VM image not prepared correctly
 
 **Error description:** To prepare a VM image for use on an Azure Stack Edge Pro GPU device, you must follow a specific workflow. You must create a gen1 virtual machine in Azure, customize the VM, generalize the VHD, and then download the OS VHD for that virtual machine. The prepared image must be a gen1 VHD of Fixed size.
 
@@ -103,7 +111,7 @@ For an overview of requirements, see [Create custom VM images for an Azure Stack
 * [Prepare generalized image from ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
 * [Use a specialized image to deploy VMs](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)<!--Article not yet available?-->
 
-#### Gateway, DNS server couldn't be reached from guest VM
+### Gateway, DNS server couldn't be reached from guest VM
 
 **Error description:** If the default gateway and DNS server can't be reached during VM deployment, VM provisioning will time out, and the VM deployment will fail.
 
@@ -117,10 +125,13 @@ To verify that the default gateway and DNS server can be reached, do the followi
    ping <default gateway IP address>
    ping <DNS server IP address>
    ```
+   *Requires another step after they verify they can't ping from the device. Rajesh to provide.*
 
-#### `cloud init` issues (Linux VMs)
 
-*Query: Linux VMs only? Has cloud init been tested on Windows VMs?*
+### `cloud init` issues (Linux VMs)
+
+*Query: Linux VMs only? Has cloud init been tested on Windows VMs?* 
+*05/26: Linux only.*
 
 **Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
 
@@ -132,9 +143,11 @@ To verify that the default gateway and DNS server can be reached, do the followi
    /var/log/cloud-init.log
    /var/log/waagent/log 
 
-For help resolving `cloud init` issues, see [Troubleshooting VM provisioning with cloud-init](/azure/virtual-machines/linux/cloud-init-troubleshooting).
+For help resolving `cloud init` issues, see [Troubleshooting VM provisioning with cloud-init](/azure/virtual-machines/linux/cloud-init-troubleshooting). 
 
-#### Provisioning flags set incorrectly (Linux VMs)
+*05/26: Niharika and Rajesh to find a better resolution for cloud init issues. (Troubleshooting cloud init article discusses Gen2 VMs, which aren't supported.)*
+
+### Provisioning flags set incorrectly (Linux VMs)
 
 **Error description:** To successfully deploy a Linux VM in Azure, instance creation must be disabled on the image, and provisioning using `cloud init' must be enabled. 
 
@@ -147,13 +160,14 @@ For help resolving `cloud init` issues, see [Troubleshooting VM provisioning wit
    | Enable instance creation        | `Provisioning.Enabled=n`      |
    | Rely on cloud-init to provision | `Provisioning.UseCloudInit=y` |
 
-#### Contact Support for these log entries
+### Contact Support for these log entries
 
 If you see one of the errors highlighted (in bold) in the following log entries, [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for help.
 
 *Query: Please provide a brief explanation of the errors they are to contact Support for, so readers will know what the issue is. Thanks.*
+*05/26: Error relates to being unable to reach the goal state for the device for a Linux or Windows VM. Rejesh will draft a brief explanation.*
 
-**Windows VM**
+#### Windows VM
 
 Log file: C:\Windows\Azure\Panther\WaSetup.xml
 
@@ -167,7 +181,7 @@ Error entries:
 
 `<Event time="2021-03-26T20:08:54.929Z" category="ERROR" source="WireServer"><UnhandledError><Message>GetGoalState: RefreshGoalState failed with ErrNo -2147221503</Message><Number>-2147221503</Number><Description>Not initialized</Description><Source>WireServer.wsf</Source></UnhandledError></Event>`-->
 
-**Linux VM**
+#### Linux VM
 
 Log files: 
 * /var/log/cloud-init-output.log
@@ -236,7 +250,7 @@ This section covers common issues that occur during VM creation.
 
 #### Calculate memory available for VMs
 
-*Recommendation: Introduce calculations in a planning article. No one will think to look for them there, and they should be available for VM deployment planning. If we keep the calculations here for now, we should move them as quickly as possible to a new "VM sizing best practices" article.*
+*Recommendation: Introduce calculations in a planning article. No one will think to look for them there, and they should be available for VM deployment planning. If we keep the calculations here for now, we should move them as quickly as possible to a new "VM sizing best practices" article.* **05/26 decision: @Niharika and Rajesh Balwani to discuss internally.**
 
 - **Memory available for compute:**
 
@@ -288,6 +302,7 @@ If Kubernetes is enabled before the VM is created, Kubernetes will use all the a
 Debugging steps:
  
 *Query: They should make these checks in sequence? Numbered steps? Will write the intro and revise issues accordingly.* 
+*05/26: 1) Yes. 2) "GPU extension failed" will move to a separate troubleshooting article.*
 
 ### VM size is not GPU VM size
 
