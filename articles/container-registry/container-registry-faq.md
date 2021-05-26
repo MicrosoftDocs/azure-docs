@@ -139,6 +139,8 @@ This situation can happen if the underlying layers are still being referenced by
 
 Create an image with a 1GB layer using the following docker file. This ensures that the image has a layer that is not shared by any other image in the registry.
 
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
+
 ```dockerfile
 FROM alpine
 RUN dd if=/dev/urandom of=1GB.bin  bs=32M  count=32

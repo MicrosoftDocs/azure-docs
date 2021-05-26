@@ -70,7 +70,9 @@ To make executing the sample commands easier, the tutorials in this series use s
 ACR_NAME=<registry-name>
 ```
 
-With the container registry environment variable populated, you should now be able to copy and paste the remainder of the commands in the tutorial without editing any values. Execute the following commands to create a resource group and container registry:
+With the container registry environment variable populated, you should now be able to copy and paste the remainder of the commands in the tutorial without editing any values. Execute the following commands to create a resource group and container registry.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)] Also see later examples in this tutorial series.
 
 ```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
