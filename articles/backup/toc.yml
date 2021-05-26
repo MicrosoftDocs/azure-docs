@@ -424,6 +424,8 @@
         href: backup-azure-sql-automation.md
       - name: Azure PowerShell Samples
         href: powershell-backup-samples.md
+    - name: Use Azure CLI
+      href: create-manage-azure-services-using-azure-command-line-interface.md
     - name: Use Azure Backup REST API
       items:
       - name: Create Recovery Services vault
@@ -438,6 +440,8 @@
         href: backup-azure-arm-userestapi-restoreazurevms.md
       - name: Manage Azure Backup jobs
         href: backup-azure-arm-userestapi-managejobs.md
+    - name: Query backup information using ARG
+      href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
       href: backup-rm-template-samples.md
   - name: Security
