@@ -1,13 +1,13 @@
 ---
 title: 'Install Azure Firewall in a Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
-description: Steps to configure Azure Firewall in a Virtual WAN hub
+description: Learn how to configure Azure Firewall in a Virtual WAN hub.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
 
 ---
