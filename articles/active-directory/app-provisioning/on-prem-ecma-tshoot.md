@@ -21,7 +21,7 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
 1. Verify that the agent and ECMA host are running:
    1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
    1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
-![image](./media/on-prem-ecma-tshoot/tshoot-1.png)
+![ECMA service running](./media/on-prem-ecma-tshoot/tshoot-1.png)
 
 1. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection
    1. This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
@@ -47,14 +47,14 @@ https://localhost:8585/ecma2host_connectorName/scim
 #### The following issues can be resolved by running the ECMA host as an admin:
 
 * I get an error when opening the ECMA host wizard 
-![image](./media/on-prem-ecma-tshoot/tshoot-2.png)
+![ECMA wizard error](./media/on-prem-ecma-tshoot/tshoot-2.png)
 
 * I've been able to configure the ECMA host wizard, but am not able to see the ECMA host logs. In this case you will need to open the host as an admin and setup a connector end to end. This can be simplified by exporting an existing connector and importing it again. 
 
-![image](./media/on-prem-ecma-tshoot/tshoot-3.png)
+![Host logs](./media/on-prem-ecma-tshoot/tshoot-3.png)
 
 * I've been able to configure the ECMA host wizard, but am not able to start the ECMA host service
-![image](./media/on-prem-ecma-tshoot/tshoot-4.png)
+![Host service](./media/on-prem-ecma-tshoot/tshoot-4.png)
 
 
 ## Turning on verbose logging 
@@ -127,9 +127,9 @@ Once the ECMA Connector host schema mapping has been configured, start the servi
 
 ## Understanding incoming SCIM requests 
 
-Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app support and the requests from the host to agent to azure ad rely on SCIM. You can learn more about our SCIM implementation [here](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).  
+Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app support and the requests from the host to agent to azure ad rely on SCIM. You can learn more about our SCIM implementation [here](use-scim-to-provision-users-and-groups.md).  
 
-Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a [dummy user](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3) to ensure the target endpoint is available and returning SCIM compliant responses. 
+Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a [dummy user](use-scim-to-provision-users-and-groups.md#request-3) to ensure the target endpoint is available and returning SCIM compliant responses. 
 
 
 ## How do I troubleshoot the provisioning agent?
@@ -154,7 +154,7 @@ This test verifies that your agents can communicate with Azure over port 443. Op
 
 You might get the following error message when you attempt to register the agent.
 
-![image](./media/on-prem-ecma-tshoot/tshoot-5.png)
+![Agent times out](./media/on-prem-ecma-tshoot/tshoot-5.png)
 
 This problem is usually caused by the agent being unable to connect to the Hybrid Identity Service and requires you to configure an HTTP proxy. To resolve this problem, configure an outbound proxy. 
 
@@ -187,7 +187,7 @@ By default, the agent emits minimal error messages and stack trace information. 
 
 To gather additional details for troubleshooting agent-related problems, follow these steps.
 
-1.  Install the AADCloudSyncTools PowerShell module as described [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
+1.  Install the AADCloudSyncTools PowerShell module as described [here](../../active-directory/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
 2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information.  You can use the following switches to fine tune your data collection.
       - SkipVerboseTrace to only export current logs without capturing verbose logs (default = false)
       - TracingDurationMins to specify a different capture duration (default = 3 mins)
