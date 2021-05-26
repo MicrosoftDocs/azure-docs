@@ -33256,7 +33256,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/sql-vulnerability-assessment-enable.md",
-      "redirect_url": "/azure/security-center/articles/defender-for-sql-on-machines-vulnerability-assessment.md",
+      "redirect_url": "/azure/security-center/articles/defender-for-sql-on-machines-vulnerability-assessment",
       "redirect_document_id": false
     },
     {
@@ -33266,17 +33266,17 @@
     },
     {
       "source_path_from_root": "/articles/articles/mysql/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mariadb/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
       "redirect_document_id": false
     },
     {
