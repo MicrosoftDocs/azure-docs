@@ -84,6 +84,8 @@ Yes. If you have an organizational need to ignore a finding, rather than remedia
 ### Why is Security Center alerting me to vulnerabilities about an image that isn’t in my registry?
 Security Center provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
 
+### What to do when scan result of an image is not shown?
+Please try to wait a few minutes, as this may be transient issue. Re-pushing the image will trigger a new scan.
 
 ## Next steps
 
