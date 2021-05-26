@@ -310,6 +310,8 @@
       href: geofence-geojson.md
     - name: Supported search categories
       href: supported-search-categories.md
+    - name: Facility Ontology
+      href: creator-facility-ontology.md
   - name: REST
     items:
     - name: Data service
