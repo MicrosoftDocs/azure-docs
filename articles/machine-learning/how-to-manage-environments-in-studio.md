@@ -23,7 +23,7 @@ The examples in this article show how to:
 * Edit an existing environment specification and its properties.
 * Rebuild an environment and view image build logs.
 
-For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information about configuring development environments, see [here](how-to-configure-environment.md).
+For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information, see [How to set up a development environment for Azure Machine Learning](how-to-configure-environment.md).
 
 ## Prerequisites
 
@@ -73,4 +73,3 @@ Click on the **Build log** tab within the details page to view the image build l
 ## Rebuild an environment
 
 In the details page, click on the **rebuild** button to rebuild the environment. Any unpinned package versions in your configuration files may be updated to the most recent version with this action. 
-
