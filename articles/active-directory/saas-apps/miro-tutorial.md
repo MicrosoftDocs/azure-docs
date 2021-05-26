@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://miro.com/`
 
 5. If you wish to configure the application in **SP** initiated mode then in the **Sign-on URL** text box, type the URL:
-    `https://miro.com/sso/login/`:
+    `https://miro.com/sso/login/`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer. You will need it to configure SSO on the Miro side.
 
