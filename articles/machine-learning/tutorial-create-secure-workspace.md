@@ -308,8 +308,24 @@ Use the following steps create a network security group (NSG) and add rules requ
 
 ## Create a jump box (VM)
 
-1. Search for __Data science virtual machine__. Select the Windows 2019 version. Create.
-1. Networking tab. Put it in the the training subnet and set public IP to none.
+1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Data science virtual machine__. Select either the Data science virtual machine __Windows__ or __Linux__ entry, and then select __Create__.
+1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide a unique __Virtual machine name__, and use the following values for other fields:
+
+    * For a __Windows__ Data Science Virtual Machine, provide a __Username__ and __Password__.
+    * For a __Linux__ Data Science Virtual Machine, select to use either an __SSH public key__ (recommended), or a __Password__ and provide a __Username__. 
+
+        If you select __SSH public key__, provide or create an __SSH public key__.
+
+        If you select __Password__, provide a __Password__.
+
+    * Leave other fields at the default values.
+
+1. Select __Networking__, and then select the __Virtual network__ you created earlier. Use the following information to set the remaining fields:
+
+    * Select the __Training__ subnet.
+    * Set the __Public IP__ to __None__.
+    * Set the __Network security group__ to the one you created previously.
+    * Leave the other fields at the default value.
 
 ## Configure image builds
 
