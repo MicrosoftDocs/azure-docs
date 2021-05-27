@@ -38,32 +38,28 @@ The following table contrasts the differences between using managed and existing
 
 ## Configuration
 
-API endpoints are available to the web app through the _api_ route. While this route is fixed, you have control over the folder and project where you locate the associated Azure Functions app. You can change this location by [editing the workflow YAML file](github-actions-workflow.md#build-and-deploy) located in your repository's _.github/workflows_ folder.
+API endpoints are available to the web app through the _api_ route.
+
+| Managed functions | Bring your own functions |
+| --- | --- |
+| While the _api_ route is fixed, you have control over the folder location of the managed functions app. You can change this location by [editing the workflow YAML file](github-actions-workflow.md#build-and-deploy) located in your repository's _.github/workflows_ folder. | Requests to the _api_ route are sent to your existing Azure Functions app. |
 
 ## Troubleshooting and logs
 
-Logs are only available if you add [Application Insights](monitor.md) to your static web app.
+Logs are only available if you add [Application Insights](monitor.md).
+
+| Managed functions | Bring your own functions |
+| --- | --- |
+| Turn on logging by enabling Application Insights on your static web app. | Turn on logging by enabling Application Insights on your Azure Functions app. |
 
 ## Constraints
 
 - The API route prefix must be _api_.
-
 - Route rules for API functions only support [redirects](configuration.md#defining-routes) and [securing routes with roles](configuration.md#securing-routes-with-roles).
 
-- Some application settings are managed by the service, therefore the following prefixes are reserved by the runtime:
-
-  - *APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*
-
-- Managed identity and Azure Key Vault references require the [Standard plan](plans.md).
-
-Managed functions and bring your own functions each come with a different set of constraints.
-
-- For managed functions:
-  - Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
-
-- For bring you own functions:
-  - The Azure Functions app must either be in Node.js 12, .NET Core 3.1, or Python 3.8.
-  - You are responsible to manage deployment of the Functions app.
+| Managed functions | Bring your own functions |
+| --- | --- |
+| <ul><li>Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>Managed identity and Azure Key Vault references require the [Standard plan](plans.md).</li><li>Some application settings are managed by the service, therefore the following prefixes are reserved by the runtime:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>The Azure Functions app must either be in Node.js 12, .NET Core 3.1, or Python 3.8.</li><li>You are responsible to manage the Functions app deployment.</li></ul> |
 
 ## Next steps
 
