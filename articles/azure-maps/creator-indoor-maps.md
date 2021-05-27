@@ -153,7 +153,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 2. Use the [Dataset Create API](/rest/api/maps/v2/dataset/createpreview) to append the converted data to the existing dataset.
 3. Use the [Tileset Create API](/rest/api/maps/v2/tileset/createpreview) to generate a new tileset out of the updated dataset.
 4. Save the new **tilesetId** for the next step.
-5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer in use, you can delete it.
+5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer used, you can delete it.
 
 ## Next steps
 
