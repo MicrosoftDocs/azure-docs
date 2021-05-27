@@ -11,7 +11,7 @@ This article provides instructions for configuring processing units (PUs) for a 
 ## Configure processing units when creating a namespace
 When creating a **premium** tier namespace in the Azure portal, the auto-inflate feature is automatically enabled. You can configure the number of processing units (PUs) for your namespace (1, 2, 4, 8, or 16), which you can update after creating the namespace. 
 
-:::image type="content" source="./media/configure-processing-units-premium-namespace/event-hubs-auto-inflate-prem.png" alt-text="Enable when creating a premium namespace":::
+:::image type="content" source="./media/configure-processing-units-premium-namespace/event-hubs-auto-inflate-prem.png" alt-text="Screenshot of enabling when creating a premium namespace":::
 
 ## Configure processing units for an existing namespace
 To update the number of PUs for an existing premium namespace, follow these steps: 
@@ -19,7 +19,7 @@ To update the number of PUs for an existing premium namespace, follow these step
 1. On the **Event Hubs Namespace** page for your namespace, select **Scale** under **Settings** on the left menu. 
 1. Update the value for **processing units**, and select **Save**. 
 
-    :::image type="content" source="./media/configure-processing-units-premium-namespace/scale-settings-prem.png" alt-text="Enable auto-inflate for an existing premium namespace":::
+    :::image type="content" source="./media/configure-processing-units-premium-namespace/scale-settings-prem.png" alt-text="Screenshot of enabling auto-inflate for an existing premium namespace":::
 
 ## Next steps
 To learn more about processing units and Event Hubs premium tier, see the following articles.

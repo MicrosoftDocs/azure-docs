@@ -36,7 +36,7 @@ In the Azure portal, you can enable the feature when creating a standard Event H
 
 You can enable the Auto-inflate feature **when creating an Event Hubs namespace**. The follow image shows you how to enable the auto-inflate feature for a standard tier namespace and configure TUs to start with and the maximum number of TUs. 
 
-:::image type="content" source="./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png" alt-text="Enable auto inflate at the time event hub creation for a standard tier namespace":::
+:::image type="content" source="./media/event-hubs-auto-inflate/event-hubs-auto-inflate.png" alt-text="Screenshot of enabling auto inflate at the time event hub creation for a standard tier namespace":::
 
 With this option enabled, you can start small with your TUs and scale up as your usage needs increase. The upper limit for inflation doesn't immediately affect pricing, which depends on the number of TUs used per hour.
 
@@ -45,7 +45,7 @@ To enable the Auto-inflate feature and modify its settings for an existing, foll
 1. On the **Event Hubs Namespace** page, select **Scale** under **Settings** on the left menu.
 2. In the **Scale Settings** page, select the checkbox for **Enable** (if the autoscale feature wasn't enabled).
 
-    :::image type="content" source="./media/event-hubs-auto-inflate/scale-settings.png" alt-text="Enable auto-inflate for an existing standard namespace":::
+    :::image type="content" source="./media/event-hubs-auto-inflate/scale-settings.png" alt-text="Screenshot of enabling auto-inflate for an existing standard namespace":::
 3. Enter the **maximum** number of throughput units or use the scrollbar to set the value.
 4. (optional) Update the **minimum** number of throughput units at the top of this page.
 
