@@ -148,7 +148,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-	    MAC address: C8:93:46:8A:4C:43
+	    MAC address: ***
 	    Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
