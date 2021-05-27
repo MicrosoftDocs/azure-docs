@@ -132,17 +132,31 @@ The searchFields parameter is used to identify passages to be evaluated for "sem
 
 In contrast with other parameters, searchFields is not new. You might already be using searchFields in existing code for simple or full Lucene queries. If so, revisit how the parameter is used so that you can check for field order when switching to a semantic query type.
 
-When setting searchFields, choose only fields of type edm.string, collections of type edm.string (such as "Tags" in hotels-sample-index), or a complex collection with string subfields all at the same level (such as "Address"). Avoid numeric fields and complex field collections with nested structures ("Rooms"). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
+##### Allowed data types
 
-Field order is critical. For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
+When setting searchFields, choose only fields of the following data types.
 
-For two or more fields:
+| Data type | Example |
+|-----------|----------|
+| Edm.String | HotelName, Category, Description |
+| Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
+| Collection(Edm.String) | Tags (a comma-delimited list of strings) |
 
-+ First field should always be concise (such as a title or name), ideally under 25 words.
+If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
 
-+ If the index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details`, and not machine focused such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
+##### Order of fields in searchFields
 
-+ Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
+Field order is critical because it determines the order in which fields are processed, where the values are subject to a maximum string length.
+
++ For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
+
++ For two or more fields:
+
+  + First field should always be concise (such as a title or name), ideally under 25 words.
+
+  + If the index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details`, and not machine focused such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
+
+  + Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
 
 #### Step 3: Remove orderBy clauses
 
