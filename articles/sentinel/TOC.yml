@@ -82,6 +82,8 @@
   - name: Connect data sources
     href: connect-data-sources.md
     items:
+    - name: Partner data connectors
+      href: partner-data-connectors.md
     - name: Connect service-to-service
       items:
       - name: AWS CloudTrail

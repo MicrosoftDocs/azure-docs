@@ -13,7 +13,7 @@ ms.author: bagol
 
 # Azure Sentinel partner data connectors
 
-Microsoft and other organizations author Azure Sentinel data connectors. This article lists the Azure Sentinel data connectors that Partner organizations author, in alphabetical order. For information about Microsoft-authored and service-to-service data connectors, see [Service to service integration](connect-data-sources.md#service-to-service-integration).
+Microsoft and other organizations author Azure Sentinel data connectors. This article lists the Azure Sentinel data connectors that non-Microsoft, partner organizations author, in alphabetical order. For information about Microsoft-authored and service-to-service data connectors, see [Service to service integration](connect-data-sources.md#service-to-service-integration).
 
 For information about Azure Sentinel support models and the **Supported by** data in this article, see [Data connector support](connect-data-sources.md#data-connector-support).
 
@@ -74,7 +74,7 @@ The Alsid for Active Directory connector lets you export Alsid Indicators of Exp
 
 The Alsid data connector ingests logs into Azure Sentinel over the [Log Analytics Agent](connect-data-sources.md#data-connection-methods). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Alsid for Active Directory to Azure Sentinel](connect-alsid-active-directory.md)
+For more information about connecting to Azure Sentinel, see [Connect Alsid for Active Directory to Azure Sentinel](connect-alsid-active-directory.md).
 
 **Supported by:** [Alsid](https://www.alsid.com/contact-us/)
 
@@ -104,7 +104,7 @@ The Apache Tomcat data connector ingests data into Azure Sentinel using the **Lo
 
 ## Aruba ClearPass (Preview)
 
-The Aruba ClearPass connector easily connects Aruba ClearPass Audit, Session, System, and Insight logs to Azure Sentinel. For more information on configuring the Aruba ClearPass solution to forward Syslog, see [Adding a Syslog Export Filter](https://www.arubanetworks.com/techdocs/ClearPass/6.7/PolicyManager/Content/CPPM_UserGuide/Admin/syslogExportFilters_add_syslog_filter_general.htm) .
+The Aruba ClearPass connector easily connects Aruba ClearPass Audit, Session, System, and Insight logs to Azure Sentinel. For more information on configuring the Aruba ClearPass solution to forward syslog, see [Adding a Syslog Export Filter](https://www.arubanetworks.com/techdocs/ClearPass/6.7/PolicyManager/Content/CPPM_UserGuide/Admin/syslogExportFilters_add_syslog_filter_general.htm) .
 
 The Aruba data connector ingests logs into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
 
@@ -114,7 +114,7 @@ For more information about connecting to Azure Sentinel, see [Connect Aruba Clea
 
 ## Atlassian Confluence Audit (Preview)
 
-The [Atlassian Confluence](https://www.atlassian.com/software/confluence) Audit data connector lets you ingest Confluence Audit Records. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. For more information, see the [View the audit log](https://support.atlassian.com/confluence-cloud/docs/view-the-audit-log/).
+The [Atlassian Confluence](https://www.atlassian.com/software/confluence) Audit data connector lets you ingest Confluence Audit Records. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. For more information, see [View the audit log](https://support.atlassian.com/confluence-cloud/docs/view-the-audit-log/).
 
 The Atlassian Confluence data connector ingests data into Azure Sentinel using **Azure Functions and the REST API**.
 
@@ -122,7 +122,7 @@ The Atlassian Confluence data connector ingests data into Azure Sentinel using *
 
 ## Atlassian Jira Audit (Preview)
 
-The Atlassian Jira Audit data connector lets you ingest Jira Audit Records events into Azure Sentinel. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. For more information, see the [Audit records](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/).
+The Atlassian Jira Audit data connector lets you ingest Jira Audit Records events into Azure Sentinel. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. For more information, see [Audit records](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/).
 
 The Atlassian Jira Audit data connector ingests logs into Azure Sentinel using **Azure Functions and the REST API**.
 
@@ -202,7 +202,7 @@ The Cisco ASA firewall connector easily connects your Cisco ASA logs to Azure Se
 
 The Cisco ASA data connector ingests logs into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Cisco ASA to Azure Sentinel](connect-cisco.md)
+For more information about connecting to Azure Sentinel, see [Connect Cisco ASA to Azure Sentinel](connect-cisco.md).
 
 **Supported by:** Microsoft
 
@@ -263,7 +263,7 @@ The Citrix WAF data connector easily connects your Citrix WAF logs to Azure Sent
 
 The Citrix WAF data connector ingests logs into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Citrix WAF to Azure Sentinel](connect-citrix-waf.md)
+For more information about connecting to Azure Sentinel, see [Connect Citrix WAF to Azure Sentinel](connect-citrix-waf.md).
 
 **Supported by:** [Citrix](https://www.citrix.com/support/)
 
@@ -281,7 +281,7 @@ The CyberArk data connector lets you ingest CyberArk EPV XML Syslog messages for
 
 The CyberArk data connector ingests data into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect CyberArk Enterprise Password Vault to Azure Sentinel](connect-cyberark.md)
+For more information about connecting to Azure Sentinel, see [Connect CyberArk Enterprise Password Vault to Azure Sentinel](connect-cyberark.md).
 
 **Supported by:** [CyberArk](https://www.cyberark.com/customer-support/)
 
@@ -323,7 +323,7 @@ The ExtraHop Reveal(x) data connector lets you easily connect your Reveal(x) sys
 
 The ExtraHop data connector ingests data into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect ExtraHop Reveal(x) to Azure Sentinel](connect-extrahop.md)
+For more information about connecting to Azure Sentinel, see [Connect ExtraHop Reveal(x) to Azure Sentinel](connect-extrahop.md).
 
 **Supported by:** [ExtraHop](https://www.extrahop.com/support/)
 
@@ -343,7 +343,7 @@ The F5 firewall connector connects your F5 Application Security Events to Azure 
 
 The F5 firewall data connector ingests data into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect F5 ASM to Azure Sentinel](connect-f5.md)
+For more information about connecting to Azure Sentinel, see [Connect F5 ASM to Azure Sentinel](connect-f5.md).
 
 **Supported by:** Microsoft
 
@@ -353,7 +353,7 @@ The Forcepoint CASB data connector lets you automatically export CASB logs and e
 
 The Forcepoint CASB data connector ingests data into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Forcepoint products to Azure Sentinel](connect-forcepoint-casb-ngfw.md)
+For more information about connecting to Azure Sentinel, see [Connect Forcepoint products to Azure Sentinel](connect-forcepoint-casb-ngfw.md).
 
 **Supported by:** [Forcepoint](https://support.forcepoint.com/)
 
@@ -363,7 +363,7 @@ The Forcepoint CSG data connector lets you automatically export CSG logs into Az
 
 The Forcepoint CSG data connector ingests logs into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Forcepoint products to Azure Sentinel](connect-forcepoint-casb-ngfw.md)
+For more information about connecting to Azure Sentinel, see [Connect Forcepoint products to Azure Sentinel](connect-forcepoint-casb-ngfw.md).
 
 **Supported by:** [Forcepoint](https://support.forcepoint.com/)
 
@@ -383,7 +383,7 @@ The Forcepoint NGFW data connector lets you automatically export user-defined Fo
 
 The Forcepoint NGFW data connector ingests logs into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Forcepoint products to Azure Sentinel](connect-forcepoint-casb-ngfw.md)
+For more information about connecting to Azure Sentinel, see [Connect Forcepoint products to Azure Sentinel](connect-forcepoint-casb-ngfw.md).
 
 **Supported by:** [Forcepoint](https://support.forcepoint.com/)
 
@@ -401,7 +401,7 @@ The Fortinet firewall connector connects Fortinet logs to Azure Sentinel. For mo
 
 The Fortinet data connector ingests logs into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Fortinet to Azure Sentinel](connect-fortinet.md)
+For more information about connecting to Azure Sentinel, see [Connect Fortinet to Azure Sentinel](connect-fortinet.md).
 
 **Supported by:** [Fortinet](https://support.fortinet.com/)
 
@@ -430,7 +430,7 @@ The Illusive AMS connector lets you share Illusive attack surface analysis data 
 
 The Illusive Network data connector ingests data into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Illusive Networks AMS to Azure Sentinel](connect-illusive-attack-management-system.md)
+For more information about connecting to Azure Sentinel, see [Connect Illusive Networks AMS to Azure Sentinel](connect-illusive-attack-management-system.md).
 
 **Supported by:** [Illusive Networks](https://www.illusivenetworks.com/technical-support/)
 
@@ -440,7 +440,7 @@ The Imperva connector lets you quickly connect your Imperva WAF Gateway alerts t
 
 The Imperva data connector ingests data into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Imperva WAF Gateway to Azure Sentinel](connect-imperva-waf-gateway.md)
+For more information about connecting to Azure Sentinel, see [Connect Imperva WAF Gateway to Azure Sentinel](connect-imperva-waf-gateway.md).
 
 **Supported by:** [Imperva](https://www.imperva.com/support/technical-support/)
 
@@ -450,7 +450,7 @@ The Infoblox NIOS connector connects your Infoblox NIOS logs to Azure Sentinel. 
 
 The Infoblox data connector ingests logs into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Infoblox NIOS to Azure Sentinel](connect-infoblox.md)
+For more information about connecting to Azure Sentinel, see [Connect Infoblox NIOS to Azure Sentinel](connect-infoblox.md).
 
 **Supported by:** Microsoft
 
@@ -460,13 +460,13 @@ The Juniper SRX connector connects Juniper SRX logs to Azure Sentinel. To forwar
 
 The Juniper data connector ingests logs into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Juniper SRX to Azure Sentinel](connect-juniper-srx.md)
+For more information about connecting to Azure Sentinel, see [Connect Juniper SRX to Azure Sentinel](connect-juniper-srx.md).
 
 **Supported by:** [Juniper Networks](https://support.juniper.net/support/)
 
 ## Morphisec UTPP (Preview)
 
-The Morphisec Data Connector for Azure Sentinel integrates vital insights from your security products. You can expand your analytical capabilities with search and correlation, threat intelligence, and customized alerts. THe Morphisec data connector provides visibility into advanced threats like sophisticated fileless attacks, in-memory exploits, and zero days. With a single, cross-product view, you can make real-time, data-backed decisions to protect your most important assets.
+The Morphisec Data Connector for Azure Sentinel integrates vital insights from your security products. You can expand your analytical capabilities with search and correlation, threat intelligence, and customized alerts. The Morphisec data connector provides visibility into advanced threats like sophisticated fileless attacks, in-memory exploits, and zero days. With a single, cross-product view, you can make real-time, data-backed decisions to protect your most important assets.
 
 The Morphisec data connector ingests data into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
 
@@ -540,7 +540,7 @@ The One Identity Safeguard CEF Sentinel data connector enhances the standard CEF
 
 The One Identity Safeguard data connector ingests data into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect One Identity Safeguard to Azure Sentinel](connect-one-identity.md)
+For more information about connecting to Azure Sentinel, see [Connect One Identity Safeguard to Azure Sentinel](connect-one-identity.md).
 
 **Supported by:** [One Identity](https://support.oneidentity.com/)
 
@@ -576,7 +576,7 @@ The Palo Alto Networks firewall data connector connects Palo Alto Networks logs 
 
 The Palo Alto Networks data connector ingests logs into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Palo Alto Networks to Azure Sentinel](connect-paloalto.md)
+For more information about connecting to Azure Sentinel, see [Connect Palo Alto Networks to Azure Sentinel](connect-paloalto.md).
 
 **Supported by:** [Palo Alto Networks](https://www.paloaltonetworks.com/company/contact-support)
 
@@ -616,7 +616,7 @@ The Pulse Connect Secure connector connects your Pulse Connect Secure logs to Az
 
 The Pulse Connect Secure data connector ingests logs into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Pulse Connect Secure to Azure Sentinel](connect-pulse-connect-secure.md)
+For more information about connecting to Azure Sentinel, see [Connect Pulse Connect Secure to Azure Sentinel](connect-pulse-connect-secure.md).
 
 **Supported by:** Microsoft
 
@@ -680,7 +680,7 @@ The Sophos XG Firewall connects Sophos XG Firewall logs to Azure Sentinel. For m
 
 Sophos' XG data connector ingests logs into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Sophos XG to Azure Sentinel](connect-sophos-xg-firewall.md)
+For more information about connecting to Azure Sentinel, see [Connect Sophos XG to Azure Sentinel](connect-sophos-xg-firewall.md).
 
 **Supported by:** Microsoft
 
@@ -700,7 +700,7 @@ The [Squid Proxy](http://www.squid-cache.org/) data connector connects Squid Pro
 
 The Squid Proxy data connector ingests logs into Azure Sentinel using the **Log Analytics agent**. The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Squid Proxy to Azure Sentinel](connect-squid-proxy.md)
+For more information about connecting to Azure Sentinel, see [Connect Squid Proxy to Azure Sentinel](connect-squid-proxy.md).
 
 **Supported by:** Microsoft
 
@@ -720,7 +720,7 @@ The Symantec ProxySG data connector connects Symantec ProxySG logs to Azure Sent
 
 Symantec's ProxySG data connector ingests logs into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Symantec Proxy SG to Azure Sentinel](connect-symantec-proxy-sg.md)
+For more information about connecting to Azure Sentinel, see [Connect Symantec Proxy SG to Azure Sentinel](connect-symantec-proxy-sg.md).
 
 **Supported by:** Microsoft
 
@@ -730,7 +730,7 @@ The Symantec VIP data connector connects Symantec VIP logs to Azure Sentinel. Fo
 
 Symantec's VIP data connector ingests logs into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Symantec VIP to Azure Sentinel](connect-symantec-vip.md)
+For more information about connecting to Azure Sentinel, see [Connect Symantec VIP to Azure Sentinel](connect-symantec-vip.md).
 
 **Supported by:** Microsoft
 
@@ -740,7 +740,7 @@ The Thycotic Secret Server data connector connects Secret Server logs to Azure S
 
 The Thycotic data connector ingests logs into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Thycotic Secret Server to Azure Sentinel](connect-thycotic-secret-server.md)
+For more information about connecting to Azure Sentinel, see [Connect Thycotic Secret Server to Azure Sentinel](connect-thycotic-secret-server.md).
 
 **Supported by:** [Thycotic](https://thycotic.force.com/support/s/)
 
@@ -750,7 +750,7 @@ The Trend Micro Deep Security data connector connects Deep Security logs to Azur
 
 The Trend Micro Deep Security data connector ingests logs into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Trend Micro Deep Security to Azure Sentinel](connect-trend-micro.md)
+For more information about connecting to Azure Sentinel, see [Connect Trend Micro Deep Security to Azure Sentinel](connect-trend-micro.md).
 
 **Supported by:** [Trend Micro](https://success.trendmicro.com/technical-support)
 
@@ -760,7 +760,7 @@ The Trend Micro TippingPoint data connector connects TippingPoint SMS IPS events
 
 The Trend Micro TippingPoint data connector ingests data into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Trend Micro TippingPoint to Azure Sentinel](connect-trend-micro-tippingpoint.md)
+For more information about connecting to Azure Sentinel, see [Connect Trend Micro TippingPoint to Azure Sentinel](connect-trend-micro-tippingpoint.md).
 
 **Supported by:** [Trend Micro](https://success.trendmicro.com/technical-support)
 
@@ -788,7 +788,7 @@ The VMware ESXi data connector connects VMware ESXi logs to Azure Sentinel. To c
 
 The VMware ESXi data connector ingests logs into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect VMware ESXi to Azure Sentinel](connect-vmware-esxi.md)
+For more information about connecting to Azure Sentinel, see [Connect VMware ESXi to Azure Sentinel](connect-vmware-esxi.md).
 
 **Supported by:** Microsoft
 
@@ -806,7 +806,7 @@ The WireX Systems data connector lets security professionals integrate with Azur
 
 The WireX data connector ingests data into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect WireX Network Forensics Platform to Azure Sentinel](connect-wirex-systems.md)
+For more information about connecting to Azure Sentinel, see [Connect WireX Network Forensics Platform to Azure Sentinel](connect-wirex-systems.md).
 
 **Supported by:** WireX
 
@@ -838,11 +838,11 @@ The Zoom data connector ingests data into Azure Sentinel over the **REST API**.
 
 ## Zscaler 
 
-The Zscaler data connector connects Zscaler Internet Access (ZIA) logs to Azure Sentinel. Using Zscaler on Azure Sentinel gives you insights into your organization's internet usage and enhances your security operations capabilities.​ For more information, see the Zscaler [Zscaler and Microsoft Azure Sentinel Deployment Guide](https://aka.ms/ZscalerCEFInstructions).
+The Zscaler data connector connects Zscaler Internet Access (ZIA) logs to Azure Sentinel. Using Zscaler on Azure Sentinel gives you insights into your organization's internet usage and enhances your security operations capabilities.​ For more information, see the [Zscaler and Microsoft Azure Sentinel Deployment Guide](https://aka.ms/ZscalerCEFInstructions).
 
 The Zscaler ZIA data connector ingests logs into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Zscaler to Azure Sentinel](connect-zscaler.md)
+For more information about connecting to Azure Sentinel, see [Connect Zscaler to Azure Sentinel](connect-zscaler.md).
 
 **Supported by:** [Zscaler](https://help.zscaler.com/submit-ticket-links)
 
