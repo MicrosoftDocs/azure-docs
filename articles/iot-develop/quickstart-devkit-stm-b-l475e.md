@@ -146,7 +146,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     * **Baud rate**: 115,200
     * **Port**: The port that your STM DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Confirm settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/termite-settings.png" alt-text="Confirm settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is black and is labeled on the device.
