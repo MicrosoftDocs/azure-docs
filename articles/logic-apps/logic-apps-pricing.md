@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/26/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -67,16 +67,32 @@ When you create the **Logic App (Standard)** resource in the Azure portal or dep
 
 <a name="hosting-plans"></a>
 
-### Hosting plans and pricing tiers
+### Hosting plans, pricing tiers, and billing rates
 
-For single-tenant based logic apps, use the **Workflow Standard** hosting plan. The following list shows the available pricing tiers that you can select:
+For single-tenant based logic apps, you must use the **Workflow Standard** hosting plan, and choose a pricing tier. Each tier includes a specific amount of compute, memory, and storage resources. For more information, review the following table, which lists each pricing tier, including the monthly rate (US$) and the included resources. After the table, you can find the hourly rates and an example that breaks down the monthly cost per resource.
 
-| Pricing tier | Cores | Memory | Storage |
-|--------------|-------|--------|---------|
-| **WS1** | 1 | 3.5 GB | 250 GB |
-| **WS2** | 2 | 7 GB | 250 GB |
-| **WS3** | 2 | 14 GB | 250 GB |
-|||||
+| Pricing tier | Monthly (US$) | Virtual CPU (core) | [Azure Compute Unit (ACU)](../virtual-machines/acu.md) | Memory (GB) | Storage (GB) |
+|--------------|---------------|--------------------|--------------------------------------------------------|-------------|--------------|
+| **WS1** | $175.20 | 1 | 210 | 3.5 | 250 |
+| **WS2** | $350.40 | 2 | 420 | 7 | 250 |
+| **WS3** | $700.80 | 4 | 840 | 14 | 250 |
+|||||||
+
+The following table lists the hourly rate (US$) that was used to calculate the monthly rate:
+
+| Resource | Hourly (US$) |
+|----------|--------------|
+| **Virtual CPU** | $0.1920 per core |
+| **Memory** | $0.0137 per GB |
+|||
+
+For example, the **WS1** pricing tier has US$175.20 as the monthly rate. Using the hourly rate, the following table breaks down this monthly rate by resource:
+
+| Resource | Amount | Monthly (US$) |
+|----------|--------|---------------|
+| **Virtual CPU** | 1 core | $140.16 |
+| **Memory** | 3.5 GB | $35.04 |
+||||
 
 <a name="storage-transactions"></a>
 
