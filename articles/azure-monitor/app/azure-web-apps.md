@@ -384,7 +384,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
-    * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~3".
+    * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Ensure that the application meets the requirements to be monitored.
     * Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 

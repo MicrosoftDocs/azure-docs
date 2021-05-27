@@ -250,7 +250,7 @@ az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
-  --parameters @storage.parameters.json
+  --parameters '@storage.parameters.json'
 ```
 
 ## Handle extended JSON format

@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Explore a sample scenario
+  - name: Get started with Azure Digital Twins Explorer
     href: quickstart-azure-digital-twins-explorer.md
 - name: Tutorials
   items:
@@ -43,12 +43,14 @@
     href: concepts-query-units.md
   - name: Developer interfaces
     items:
+    - name: Azure Digital Twins Explorer
+      href: concepts-azure-digital-twins-explorer.md
     - name: APIs and SDKs
       href: concepts-apis-sdks.md
     - name: CLI command set
       href: concepts-cli.md
-  - name: Integration with other services
-    href: concepts-integration.md
+  - name: Data ingress and egress
+    href: concepts-data-ingress-egress.md
   - name: Event notifications
     href: concepts-event-notifications.md
   - name: Event routes
@@ -93,6 +95,8 @@
       href: how-to-use-tags.md
   - name: Use live execution environment
     items:
+    - name: Use Azure Digital Twins Explorer
+      href: how-to-use-azure-digital-twins-explorer.md  
     - name: Manage digital twins
       href: how-to-manage-twin.md
     - name: Manage the twin graph with relationships
@@ -101,8 +105,6 @@
       href: how-to-create-azure-function.md
     - name: Query the twin graph
       href: how-to-query-graph.md
-    - name: Create twin-level RBAC with marker tags
-      href: how-to-create-twin-level-role-based-access-control.md
   - name: Develop client apps
     items:
     - name: Make requests with Postman
@@ -279,12 +281,12 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
+      - name: Azure Digital Twins Explorer
+        href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: Azure Digital Twins Postman Collection
         href: https://github.com/microsoft/azure-digital-twins-postman-samples
       - name: Azure Digital Twins end-to-end samples
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
-      - name: Azure Digital Twins explorer (sample)
-        href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: DTDL Validator (sample)
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: Model Uploader (sample)

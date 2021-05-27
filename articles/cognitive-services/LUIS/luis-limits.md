@@ -4,7 +4,7 @@ description: This article contains the known limits of Azure Cognitive Services 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 06/04/2020
+ms.date: 05/26/2021
 ---
 # Limits for your LUIS model and keys
 LUIS has several limit areas. The first is the [model limit](#model-limits), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of limits is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs.
@@ -74,7 +74,6 @@ Use the _kind_, `LUIS.Authoring`, when filtering resources in the Azure portal. 
 
 |Authoring resource|Authoring TPS|
 |--|--|
-|Starter|1 million/month, 5/second|
 |F0 - Free tier |1 million/month, 5/second|
 
 * TPS = Transactions per second
