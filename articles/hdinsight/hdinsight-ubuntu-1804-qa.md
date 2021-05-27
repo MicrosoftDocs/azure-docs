@@ -49,10 +49,10 @@ If your scripts rely on an older version package in Ubuntu 16.04, it may not wor
 **In general Ubuntu 18.04 has stricter rules than 16.04.**
 
 ## Custom Applications
-Some [third party applications](./hdinsight-apps-install-applications.md) can be installed to the HDInsight cluster. Those applications may not work well with Ubuntu 18.04. To reduce the risk of breaking changes, HDInsight won't roll out the new image for subscriptions that had installed custom Applications since 25 Febeury 2021. If you want to try the new image with your test subscriptions, open a support ticket to enable your subscription.
+Some [third party applications](./hdinsight-apps-install-applications.md) can be installed to the HDInsight cluster. Those applications may not work well with Ubuntu 18.04. To reduce the risk of breaking changes, HDInsight won't roll out the new image for subscriptions that had installed custom applications since 25 February 2021. If you want to try the new image with your test subscriptions, open a support ticket to enable your subscription.
 
 ## Edge nodes
-With the new image, the OS for cluster edge nodes will also be updated to Ubuntu 18.04. Your existing clients need to be tested with the Ubuntu 18.04. To reduce the risk of breaking changes, HDInsight won't roll out the new image for subscriptions that had used edge nodes since 25 Febeury 2021. If you want to try the new image with your test subscriptions, open a support ticket to enable your subscription.
+With the new image, the OS for cluster edge nodes will also be updated to Ubuntu 18.04. Your existing clients need to be tested with the Ubuntu 18.04. To reduce the risk of breaking changes, HDInsight won't roll out the new image for subscriptions that had used edge nodes since 25 February 2021. If you want to try the new image with your test subscriptions, open a support ticket to enable your subscription.
 
 ## References
  - [Ubuntu 18.04 LTS release notes](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes/)
