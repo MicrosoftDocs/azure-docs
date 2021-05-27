@@ -57,7 +57,7 @@ For Azure CLI and Terraform deployments, see the [Azure Spring Cloud Reference A
 - **Resource Group:** select **Create new**, enter a unique name for the **resource group**, and then click **OK**.
 - **springCloudInstanceName:** Enter the name of the Azure Spring Cloud resource.
 - **appInsightsName:** Enter the name of the Application Insights instance for Azure Spring Cloud.
-- **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (For example: "/subscriptions/[your sub]/resourcegroups/[your log analytics rg]/providers/Microsoft.OperationalInsights/workspaces/[your log analytics workspace name]")
+- **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/<your subscription>/resourcegroups/<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/<your log analytics workspace name>*.)
 - **springCloudAppSubnetID:** Enter the resourceID of the Azure Spring Cloud App Subnet.
 - **springCloudRuntimeSubnetID:** Enter the resourceID of the Azure Spring Cloud Runtime Subnet.
 - **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (3 in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Cloud infrastructure, which should be 3 at least /16 unused IP ranges, must not overlap with any routable subnet IP ranges used within the network.
