@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the [Azure Digital Twins command set for the Azure CLI](concepts-cli.md). 
+In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the [Azure Digital Twins command set for the Azure CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
 You can use the CLI commands to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [reference documentation for az dt command set](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) to see the full set of CLI commands.
 
