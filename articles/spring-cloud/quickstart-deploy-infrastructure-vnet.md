@@ -63,7 +63,7 @@ For Azure CLI and Terraform deployments, see the [Azure Spring Cloud Reference A
 - **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (3 in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Cloud infrastructure, which should be 3 at least /16 unused IP ranges, must not overlap with any routable subnet IP ranges used within the network.
 - **tags:** Enter any custom tags.
 
-3. Click **Review + Create** and then **Create**
+3. Select **Review + Create** and then **Create**.
 
 ## Review deployed resources
 
