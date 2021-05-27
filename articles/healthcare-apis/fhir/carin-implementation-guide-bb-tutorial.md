@@ -75,5 +75,10 @@ The next test we'll review is the [EOB query test](https://touchstone.aegis.net/
 
 The final test we'll walk through is testing [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete an ExplanationOfBenefit resource from your database and use the ID of the delete ExplanationOfBenfit resource in the test.
 
-:::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB error handling results.":::      
+:::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB error handling results.":::
+
+
+## Next steps
+
+In this tutorial, we walked through how to pass the Carin IG for Blue Button tests in Touchstone. Next, you can review how to rest the Da Vinci formulary tests.       
  

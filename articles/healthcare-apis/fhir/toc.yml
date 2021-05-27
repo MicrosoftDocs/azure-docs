@@ -51,7 +51,7 @@
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md
-  - name: Interoperability and Patient Access Tutorials
+  - name: Interoperability and Patient Access
     expanded: false
     items:
     - name: CMS Interoperability and Patient Access rule introduction

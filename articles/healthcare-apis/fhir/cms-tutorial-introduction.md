@@ -67,8 +67,6 @@ This implementation guide defines a FHIR interface to a health insurer’s insur
 To test adherence to the various implementation guides, [touchstone](https://touchstone.aegis.net/touchstone/) is a great
 resource. Throughout the upcoming tutorials, we will focus on ensuring that the Azure API for FHIR is configured to successfully pass various touchstone tests. The touchstone site has a lot of great documentation to help you get up and running.
 
-## Next step
+## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the Carin Blue Button IG.   
-
-  
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the Carin Blue Button IG. 
