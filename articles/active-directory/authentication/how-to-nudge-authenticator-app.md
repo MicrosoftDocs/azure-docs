@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 05/27/2021
 
 ms.author: justinha
 author: mjsantani
@@ -204,7 +204,7 @@ Here are a few sample JSONs you can use to get started!
 
 ### Identify the GUIDs of users to insert in the JSONs
 
-1. Navigate to the Azure Portal.
+1. Navigate to the Azure portal.
 1. Tap **Azure Active Directory**.
 1. In the **Manage** blade, tap **Users**.
 1. In the **Users** page, identify the specific user you want to target.
@@ -214,7 +214,7 @@ Here are a few sample JSONs you can use to get started!
 
 ### Identify the GUIDs of users to insert in the JSONs
 
-1. Navigate to the Azure Portal.
+1. Navigate to the Azure portal.
 1. Tap **Azure Active Directory**.
 1. In the **Manage** blade, tap **Groups**.
 1. In the **Groups** page, identify the specific group you want to target.
