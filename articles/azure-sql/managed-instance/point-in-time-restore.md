@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: Restore a database on Azure SQL Managed Instance to a previous point in time.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, mathoma
+ms.reviewer: mathoma
 ms.date: 08/25/2019
 ---
 # Restore a database in Azure SQL Managed Instance to a previous point in time

@@ -3,12 +3,12 @@ title: PowerShell for VNet endpoints and rules for single and pooled databases
 description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database and Azure Synapse."
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: deployment-configuration
 ms.devlang: PowerShell
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1
 tags: azure-synapse

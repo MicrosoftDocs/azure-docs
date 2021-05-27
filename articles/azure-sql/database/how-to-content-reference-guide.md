@@ -3,13 +3,13 @@ title: Configure & manage content reference
 description: Find a reference of content that teaches you to configure and manage Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 01/14/2020
 ---
 # Configure and manage content reference - Azure SQL Database
