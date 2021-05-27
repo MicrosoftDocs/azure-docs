@@ -275,3 +275,7 @@ No. The Nudge will only work for users who are doing MFA using the Azure MFA ser
 Yes. If they have been scoped for the Nudge using the policy. 
 
 **What if the user closes the browser?** It's the same as snoozing.
+
+## Next steps
+
+[Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
