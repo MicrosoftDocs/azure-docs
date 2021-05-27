@@ -30,7 +30,7 @@ For general tips on troubleshooting a pipeline, see [Troubleshooting machine lea
 The script for a `ParallelRunStep` *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later processing. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
     > [!NOTE]
-    > Output dir creation in `init()` must be done with `exist_ok=True`. 
+    > If you are creating output directory in init method then you should do it with `exist_ok=True` since init method is called from each worker process on every node job is running. 
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
     -  `mini_batch`: `ParallelRunStep` will invoke run method and pass either a list or pandas `DataFrame` as an argument to the method. Each entry in mini_batch will be a file path if input is a `FileDataset` or a pandas `DataFrame` if input is a `TabularDataset`.
     -  `response`: run() method should return a pandas `DataFrame` or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
