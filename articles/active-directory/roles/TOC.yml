@@ -112,5 +112,5 @@
     href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
   - name:  Azure AD PowerShell
     href: /powershell/module/azuread/#directory-roles
-  - name: Graph API
+  - name: Microsoft Graph API
     href: /graph/api/resources/directoryrole
