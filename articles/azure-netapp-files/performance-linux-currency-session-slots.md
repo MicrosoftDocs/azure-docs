@@ -188,7 +188,7 @@ Example 1 is based on default setting of 64 `max_session_slots` and no `nconnect
 
 #### Example 2 – 64 `max_session_slots` and `nconnect=2` 
 
-Example 2 is based again on 64 max session_slots but with the added mount option of `nconnect=2`.  A concurrency of 64 is achievable but divided across two connections.  Although multiple connections bring no greater concurrency in this scenario, the decreased queue depth per connection has a positive impact on latency.
+Example 2 is based again on 64 max `session_slots` but with the added mount option of `nconnect=2`.  A concurrency of 64 is achievable but divided across two connections.  Although multiple connections bring no greater concurrency in this scenario, the decreased queue depth per connection has a positive impact on latency.
 
 With the `max_session_slots` still at 64 but `nconnect=2`, notice that maximum number of requests get divided across the connections.
 
