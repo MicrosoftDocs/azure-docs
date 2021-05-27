@@ -125,6 +125,14 @@ The portal retrieves the appropriate Datadog application from Azure Active Direc
  
 :::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Reconfigure single sign-on application." border="true":::
  
+## Change Plan
+
+To change the Datadog billing plan, go to **Overview** and select **Change Plan**.
+
+:::image type="content" source="media/manage/datadog-change-plan.png" alt-text="Change Datadog billing plan." border="true":::
+
+The portal retrieves all the available Datadog plans for your tenant. Select the appropriate plan and click on **Change Plan**.
+  
 ## Disable or enable integration
 
 You can stop sending logs and metrics from Azure to Datadog. You'll continue to be billed for other Datadog services that aren't related to monitoring metrics and logs.
