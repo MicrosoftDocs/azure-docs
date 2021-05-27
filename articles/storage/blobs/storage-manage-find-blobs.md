@@ -290,34 +290,13 @@ Blob index tags are currently available in all public regions.
 
 To get started, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
 
-> [!IMPORTANT]
-> You must register your subscription before you can use the blob index preview on your storage accounts. See the [Conditions and known issues](#conditions-and-known-issues) section of this article.
-
-### Register your subscription (preview)
-
-Because the blob index tags are only in public preview, you'll need to register your subscription before you can use the feature. To submit a request, run the following PowerShell or CLI commands.
-
-#### Register by using PowerShell
-
-```powershell
-Register-AzProviderFeature -FeatureName BlobIndex -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-#### Register by using Azure CLI
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name BlobIndex
-az provider register --namespace 'Microsoft.Storage'
-```
-
 ## Conditions and known issues
 
 This section describes known issues and conditions in the public preview of blob index tags. This feature shouldn't be used for production workloads until it reaches general availability (GA) as behavior may change.
 
-- For preview, you must first register your subscription before you can use blob index for your storage account in the preview regions.
 - Only general-purpose v2 accounts are supported in preview. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
+- Accounts with versioning enabled where the blob is deleted and undeleted will not have the index tags indexed after undeletion. Index tags should be removed and re-added after undelete.
 - When filtering is scoped to a single container, the `@container` can only be passed if all the index tags in the filter expression are equality checks (key=value).
 - When using the range operator with the `AND` condition, you can only specify the same index tag key name (`"Age" > '013' AND "Age" < '100'`).
 - Versioning and blob index aren't supported. Blob index tags are preserved for versions but aren't passed to the blob index engine.
