@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # QuickStart: Link to existing Datadog organization
 
-In this quickstart, you'll link to a existing instance of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
+In this quickstart, you'll link to a existing organization of Datadog. You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
 
 ## Prerequisites
 
@@ -35,17 +35,34 @@ Use the Azure portal to find Datadog.
 
 ## Link to existing Datadog organization
 
+The portal displays a selection asking whether you would like to create a Datadog organization or link Azure subscription to an existing Datadog organization.
+
+If you are linking to an existing Datadog organization, select **Create** under the **Link Azure subscription to an existing Datadog organization**
+
+:::image type="content" source="media/create/datadog-create-link-selection.png" alt-text="Create or link a Datadog organization" border="true":::
+
 You can link your new Datadog resource in Azure to an existing Datadog organization in **US3**.
 
-Select **Existing** for Data organization, and then select **Link to Datadog org**.
+The portal displays a form for creating the Datadog resource.
 
 :::image type="content" source="media/link-to-existing-organization/link-to-existing.png" alt-text="Link to existing Datadog organization." border="true":::
 
-The link opens a Datadog authentication window. Sign in to Datadog.
+Provide the following values.
+
+|Property | Description
+|:-----------|:-------- |
+| Subscription | Select the Azure subscription you want to use for creating the Datadog resource. You must have owner access. |
+| Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
+| Resource name | Specify a name for the Datadog resource. This name will be the name of the new Datadog organization, when creating a new Datadog organization. |
+| Location | Select West US 2. Currently, West US 2 is the only supported region. |
+
+Select **Link to Datadog organization**. The link opens a Datadog authentication window. Sign in to Datadog.
 
 By default, Azure links your current Datadog organization to your Datadog resource. If you would like to link to a different organization, select the appropriate organization in the authentication window, as shown below.
 
 :::image type="content" source="media/link-to-existing-organization/select-datadog-organization.png" alt-text="Select appropriate Datadog organization to link" border="true":::
+
+Select **Next: Metrics and logs** to configure metrics and logs.
 
 ## Configure metrics and logs
 
