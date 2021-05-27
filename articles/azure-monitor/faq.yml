@@ -822,7 +822,7 @@ sections:
   - name: Container insights
     questions:
       - question: |
-          What does *Other Processes* represent under the Node view?
+          What does 'Other Processe' represent under the Node view?
         answer: |
           **Other processes** are intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
           
@@ -908,7 +908,7 @@ sections:
           The ContainerInventory table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the containers (running and stopped), and forwards that data the Log Analytics workspace.
 
       - question: |
-          How do I resolve *Missing Subscription registration* error?
+          How do I resolve 'Missing Subscription registration' error?
         answer: |
           If you receive the error **Missing Subscription registration for Microsoft.OperationsManagement**, you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../azure-resource-manager/templates/error-register-resource-provider.md).
           
