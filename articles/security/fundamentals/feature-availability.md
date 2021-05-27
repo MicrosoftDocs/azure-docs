@@ -13,7 +13,6 @@ ms.date: 05/23/2021
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
-- [Azure Key Vault](#azure-key-vault)
 - [Azure Sentinel](#azure-sentinel)
 
 > [!NOTE]
@@ -45,20 +44,6 @@ For more information about Office 365 US Government environments, see:
 
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
-
-## Azure Key Vault
-
-Azure Key Vault is a cloud service for securely storing and accessing secrets (such as passwords), keys (such as API keys or cryptographic keys), and certificates. Azure Key Vault has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which allows you to protect keys with managed hardware security modules (Managed HSM). For more information, see the [Azure Key Vault product documentation](../../key-vault/general/overview.md).
-
-The following tables display the current Azure Key Vault feature availability in Azure and Azure Government.
-
-| Feature | Azure | Azure Government  |
-| ----- | ----- | ---- |
-| [Secrets](../../key-vault/secrets/about-secrets.md) | GA | GA |
-| [Keys](../../key-vault/keys/about-keys.md) | GA | GA |
-| [Certificates](../../key-vault/certificates/about-certificates.md) | GA | GA |
-| [Managed HSM](../../key-vault/managed-hsm/overview.md) | GA | Not Available |
-
 
 ## Azure Sentinel
 
