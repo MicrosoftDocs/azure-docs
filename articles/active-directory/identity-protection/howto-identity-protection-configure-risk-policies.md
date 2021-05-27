@@ -26,15 +26,13 @@ As we learned in the previous article, [Identity Protection policies](concept-id
 
 Both policies work to automate the response to risk detections in your environment and allow users to self-remediate when risk is detected. 
 
-> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
-
 ## Choosing acceptable risk levels
 
 Organizations must decide the level of risk they're willing to accept balancing user experience and security posture. 
 
 Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above** and allow self-remediation options. Choosing to block access rather than allowing self-remediation options, like password change and multi-factor authentication, will impact your users and administrators. Weigh this choice when configuring your policies.
 
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces more user interrupts, but increased security posture.
+Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces more user interrupts.
 
 Configured trusted [network locations](../conditional-access/location-condition.md) are used by Identity Protection in some risk detections to reduce false positives.
 
@@ -49,7 +47,8 @@ Organizations can choose to block access when risk is detected. Blocking sometim
 
 > [!WARNING]
 > Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
-> Password change (I know my password and want to change it to something new) does not meet the requirement for secure password reset.
+> 
+> Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password reset.
 
 ## Exclusions
 
@@ -63,6 +62,8 @@ There are two locations where these policies may be configured, Conditional Acce
    - Report-only mode integration
    - Graph API support
    - Use more Conditional Access attributes in policy
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 ### User risk with Conditional Access
 
