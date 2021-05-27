@@ -36,7 +36,7 @@ To create a private endpoint, a developer with Role-based access control (RBAC) 
 There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the FHIR resource to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the FHIR resource to request a private endpoint to be approved by owners of the FHIR resource.
 
 > [!NOTE]
-> When a private endpoint is created for Azure API for FHIR, public traffic to it is automatically disabled. 
+> When an approved private endpoint is created for Azure API for FHIR, public traffic to it is automatically disabled. 
 
 ### Auto approval
 
