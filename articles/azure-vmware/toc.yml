@@ -64,11 +64,11 @@
     items:
     - name: Move Azure VMware Solution subscriptions
       href: move-ea-csp-subscriptions.md
-  - name: Configure DHCP 
+  - name: Configure DHCP using NSX-T Manager 
     href: configure-dhcp-azure-vmware-solution.md
   - name: Configure DHCP on L2 stretched VMware HCX networks
     href: configure-l2-stretched-vmware-hcx-networks.md
-  - name: Configure NSX components using Azure portal
+  - name: Configure NSX components using Azure 
     href: configure-nsx-network-components-azure-portal.md
   - name: Configure GitHub Enterprise Server
     href: github-enterprise-server.md
