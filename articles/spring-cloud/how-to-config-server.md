@@ -242,22 +242,10 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 You can select the **Reset** button that appears in the **Config Server** tab to erase your existing settings completely. Delete the config server settings if you want to connect your Config Server instance to another source, such as moving from GitHub to Azure DevOps.
 
 ## Config Server Refresh
-If any property is changed, the related services need to be notified. The default solution for Spring Cloud Config is manually trigger the refresh event. It is not friendly to users.
-We provide a solution based on refresh endpoint and it will pull config changes automatically.
-Users need to import the dependency and add configurations.
-- Add snapshot repository in `repositories` section of your `pom.xml`
-```xml
-<repositories>
-    <repository>
-        <id>nexus-snapshots</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-    </repository>
-</repositories>
-```
-- Include spring-cloud-starter-azure-spring-cloud-client in your pom.xml as below.
+When properties are changed, services consuming those properties need to be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the [refresh event](https://spring.io/guides/gs/centralized-configuration/), which may not be feasible if there are lots of app instances. Alternatively, in Azure Spring Cloud you can automatically refresh values from the config server by letting the config client to poll for changes based on a refresh internal.
+
+- First include spring-cloud-starter-azure-spring-cloud-client in the dependency section of your pom.xml.
+
   ```xml
   <dependency>
       <groupId>com.microsoft.azure</groupId>
@@ -266,8 +254,8 @@ Users need to import the dependency and add configurations.
   </dependency>
   ```
 
-- Enable auto refresh and set the refresh interval in your application.yml. In the below sample, the client will pull config changes every 5 seconds. 
-By default the auto-refresh is false, refresh-interval is 60. The minimal refresh interval is 5 seconds.
+- Second enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 5 seconds, which is the minimum value you can set for refresh interval.
+By default auto-refresh is set to false and refresh-interval is set to 60 seconds.
 
   ``` yml
   spring:
@@ -277,10 +265,9 @@ By default the auto-refresh is false, refresh-interval is 60. The minimal refres
         refresh-interval: 5
   ```
 
-- Add @refreshScope in your code, in below sample, the variable connectTimeout will be automatically refresed with the time interval you set.
+- Finally add @refreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 5 seconds.
 
   ``` java
-
   @RestController
   @RefreshScope
   public class HelloController {
