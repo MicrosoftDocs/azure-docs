@@ -43,11 +43,11 @@ Microsoft and other organizations author Azure Sentinel data connectors. Each da
 
 | Support type| Description|
 |-------------|------------|
-|**Microsoft-supported**|Applies to:<br><br><ul><li>Data connectors for data sources where Microsoft is the data provider</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources</li></ul><br><br>Microsoft supports and maintains data connectors in this category in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community provide support and maintenance for data connectors authored by any party other than Microsoft.|
-|**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The Partner company provides support or maintenance for these data connectors. The Partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that data connector.<br><br>For any issues with a Partner-supported data connector, contact the specified data connector support contact.|
-|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the page for that data connector.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
+|**Microsoft-supported**|Applies to:<ul><li>Data connectors for data sources where Microsoft is the data provider.</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources.</li></ul>Microsoft supports and maintains data connectors in this category in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community provide support and maintenance for data connectors authored by any party other than Microsoft.|
+|**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The Partner company provides support or maintenance for these data connectors. The Partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided in the listing for that data connector at [Partner data connectors](partner-data-connectors.md).<br><br>For any issues with a Partner-supported data connector, contact the specified data connector support contact.|
+|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
 
-### Find the support contact
+<!-- ### Find the support contact
 
 To find the support contact information for a data connector:
 
@@ -60,16 +60,14 @@ To find the support contact information for a data connector:
    ![Screenshot showing the Supported by field for a data connector in Azure Sentinel.](./media/collect-data/connectors.png)
    
    The **Supported by** field has a support contact link you can use for support and maintenance of the selected data connector.
-
-Reach out to Microsoft for support for any data connector that doesn't display a **Supported by** field.
-
+-->
 ## Data connection methods
 
-The following data connection methods are supported by Azure Sentinel:
+Azure Sentinel supports the following data connection methods:
 
 ### Service to service integration
 
-Some services are connected natively, such as AWS and Microsoft services. These services use the Azure foundation for out-of-the box integration. The following solutions can be connected in a few clicks:
+Some services are connected natively, such as AWS and Microsoft services. These services use the Azure foundation for out-of-the box integration. You can connect the following solutions with a few clicks:
 
 - [Amazon Web Services - CloudTrail](connect-aws.md)
 - [Azure Active Directory](connect-azure-active-directory.md) - audit logs and sign-in logs
@@ -93,92 +91,35 @@ Some services are connected natively, such as AWS and Microsoft services. These 
 
 ### External solutions via API
 
-Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved. The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
-    
-- [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
-- [Alcide kAudit](connect-alcide-kaudit.md)
-- [Barracuda WAF](connect-barracuda.md)
-- [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
-- [BETTER Mobile Threat Defense](connect-better-mtd.md)
-- [Beyond Security beSECURE](connect-besecure.md)
-- [Cisco Umbrella](connect-cisco-umbrella.md)
-- [Citrix Analytics (Security)](connect-citrix-analytics.md)
-- [F5 BIG-IP](connect-f5-big-ip.md)
-- [Forcepoint DLP](connect-forcepoint-dlp.md)
-- [Google Workspace (formerly G Suite)](connect-google-workspace.md)
-- [NXLog (Windows) DNS Logs](connect-nxlog-dns.md)
-- [NXLog LinuxAudit](connect-nxlog-linuxaudit.md)
-- [Okta SSO](connect-okta-single-sign-on.md)
-- [Orca Security](connect-orca-security-alerts.md)
-- [Perimeter 81 logs](connect-perimeter-81-logs.md)
-- [Proofpoint On Demand (POD) Email Security](connect-proofpoint-pod.md)
-- [Proofpoint TAP](connect-proofpoint-tap.md)
-- [Qualys VM](connect-qualys-vm.md)
-- [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
-- [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
-- [Squadra Technologies secRMM](connect-squadra-secrmm.md)
-- [Symantec ICDX](connect-symantec.md)
-- [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
-- [Zimperium](connect-zimperium-mtd.md)
+Some data sources connect using APIs provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved. The APIs connect to Azure Sentinel to gather specific data types and send them to Azure Log Analytics. For a complete listing and more information about these connectors, see [Partner data connectors](partner-data-connectors.md).
 
 ### External solutions via agent
 
-Azure Sentinel can be connected via an agent to any other data source that can perform real-time log streaming using the Syslog protocol.
+Azure Sentinel can connect via an agent to any other data source that can perform real-time log streaming using the Syslog protocol.
 
-Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support CEF-based formatting for log data. 
+Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support CEF-based formatting for log data.
 
-The Azure Sentinel agent, which is actually the Log Analytics agent, converts CEF-formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux-based log forwarder. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
+The Azure Sentinel agent, which is actually the Log Analytics agent, converts CEF-formatted logs into a format that Log Analytics can ingest. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux-based log forwarder. The agent for Linux receives events from the Syslog daemon over UDP. However, if a Linux machine is expected to collect a high volume of Syslog events, it sends events over TCP from the Syslog daemon to the agent and from there to Log Analytics.
+
+External solutions connected via agent include:
 
 - [Apache HTTP Server](connect-apache-http-server.md)
 - DLP solutions
 - [Threat intelligence providers](connect-threat-intelligence.md)
 - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine
-- [Azure Stack VMs](connect-azure-stack.md)
+- [Azure Stack virtual machines (VMs)](connect-azure-stack.md)
 - Linux servers
 - Other clouds
 
-#### Firewalls, proxies, and endpoints - CEF
+For a complete listing and more information about firewalls, proxies, and endpoints that connect to Azure Sentinel through CEF or Syslog, see [Partner data connectors](partner-data-connectors.md).
 
-- [AI Vectra Detect](connect-ai-vectra-detect.md)
-- [Akamai Security Events](connect-akamai-security-events.md)
-- [Aruba ClearPass](connect-aruba-clearpass.md)
-- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
-- [Check Point](connect-checkpoint.md)
-- [Cisco ASA](connect-cisco.md)
-- [Citrix WAF](connect-citrix-waf.md)
-- [CyberArk Enterprise Password Vault](connect-cyberark.md)
-- [ExtraHop Reveal(x)](connect-extrahop.md)
-- [F5 ASM](connect-f5.md)
-- [Forcepoint products](connect-forcepoint-casb-ngfw.md)
-- [Fortinet](connect-fortinet.md)
-- [Illusive Networks AMS](connect-illusive-attack-management-system.md)
-- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
-- [One Identity Safeguard](connect-one-identity.md)
-- [Palo Alto Networks](connect-paloalto.md)
-- [Thycotic Secret Server](connect-thycotic-secret-server.md)
-- [Trend Micro Deep Security](connect-trend-micro.md)
-- [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
-- [WireX Network Forensics Platform](connect-wirex-systems.md)
-- [Zscaler](connect-zscaler.md)
-- [Other CEF-based appliances](connect-common-event-format.md)
+For general information about connecting CEF-based appliances, see [Connect CEF-based appliances to Azure Sentinel](connect-common-event-format.md).
 
-#### Firewalls, proxies, and endpoints - Syslog
-- [Alsid for Active Directory](connect-alsid-active-directory.md)
-- [Cisco Meraki](connect-cisco-meraki.md)
-- [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
-- [Infoblox NIOS](connect-infoblox.md)
-- [Juniper SRX](connect-juniper-srx.md)
-- [Pulse Connect Secure](connect-pulse-connect-secure.md)
-- [Sophos XG](connect-sophos-xg-firewall.md)
-- [Squid Proxy](connect-squid-proxy.md)
-- [Symantec Proxy SG](connect-symantec-proxy-sg.md)
-- [Symantec VIP](connect-symantec-vip.md)
-- [VMware ESXi](connect-vmware-esxi.md)
-- [Other Syslog-based appliances](connect-syslog.md)
+For general information about connecting Syslog-based appliances, see [Connect Syslog-based appliances to Azure Sentinel](connect-syslog.md).
 
 ## Agent connection options<a name="agent-options"></a>
 
-To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on-premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is available only if your dedicated machine is a new VM you are creating in Azure. 
 
 ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -187,7 +128,6 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
 
 ## Map data types with Azure Sentinel connection options
-
 
 | **Data type** | **How to connect** | **Data connector?** | **Comments** |
 |------|---------|-------------|------|
@@ -225,5 +165,5 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
 ## Next steps
 
-- To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](quickstart-get-visibility.md).
