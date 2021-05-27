@@ -12,54 +12,54 @@ manager: philmea
 
 # Manage Azure Maps Creator
 
-Azure Maps Creator lets you create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. For pricing information, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
+You can use Azure Maps Creator to create private indoor map data. Using the Azure Maps API and the Indoor Maps module, you can develop interactive and dynamic indoor map web applications. For pricing information, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
 
 This article takes you through the steps to create and delete a Creator resource in an Azure Maps account.
 
-## Create Creator Resource
+## Create Creator resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
-2. Select your Azure Maps account. If you can't see your Azure Maps account under the **Recent resources**, then navigate to the Azure portal menu. Select **All resources**. Find and select your Azure Maps account.
+2. Select your Azure Maps account. If you can't see your Azure Maps account under the **Recent resources**, navigate to the Azure portal menu. Select **All resources**, and then select your Azure Maps account.
 
       :::image type="content" border="true" source="./media/how-to-manage-creator/select-maps-account.png" alt-text="Select Azure Maps account":::
 
-3. Select **Creator overview** in the navigation menu. Select **Create**.
+3. In the navigation pane, select **Creator overview**, and then select **Create**.
 
     :::image type="content" border="true" source="./media/how-to-manage-creator/creator-blade-settings.png" alt-text="Create Azure Maps Creator page":::
 
-4. Enter the name, location, and map provisioning storage units for your Creator resource. Currently, Creator is only supported in the United States. Select **Review + create**.
+4. Enter the name, location, and map provisioning storage units for your Creator resource. Currently, Creator is supported only in the United States. Select **Review + create**.
 
    :::image type="content" source="./media/how-to-manage-creator/creator-creation-dialog.png" alt-text="Enter Creator account information page":::
 
-5. Review your settings and select **Create**.
+5. Review your settings, and then select **Create**.
 
     :::image type="content" source="./media/how-to-manage-creator/creator-create-dialog.png" alt-text="Confirm Creator account settings page":::
 
-6. When the deployment completes, you'll see a page with a success or a failure message.
+    After the deployment completes, you'll see a page with a success or a failure message.
 
     :::image type="content" source="./media/how-to-manage-creator/creator-resource-created.png" alt-text="Resource deployment status page":::
 
-7. Select **Go to resource**. Your Creator resource view page shows the status of your Creator resource and the chosen demographic region.
+6. Select **Go to resource**. Your Creator resource view page shows the status of your Creator resource and the chosen demographic region.
       :::image type="content" source="./media/how-to-manage-creator/creator-resource-view.png" alt-text="Creator status page":::
 
    >[!NOTE]
-   >From the Creator resource page, you can navigate back to the Azure Maps account it belongs to by selecting Azure Maps Account.
+   >To return to the Azure Maps account, select **Azure Maps Account** in the navigation pane.
 
-## Delete Creator Resource
+## Delete Creator resource
 
 To delete the Creator resource:
 
-1. Navigate to your Azure Maps account. Select **Overview** under **Creator**.
+1. In your Azure Maps account, select **Overview** under **Creator**.
 
 2. Select **Delete**.
 
     >[!WARNING]
-    >When you delete the Creator resource of your Azure Maps account, you'll also delete the conversions, datasets, tilesets, and feature statesets created using Creator services.
+    >When you delete the Creator resource of your Azure Maps account, you also delete the conversions, datasets, tilesets, and feature statesets that were created using Creator services.
 
      :::image type="content" source="./media/how-to-manage-creator/creator-delete.png" alt-text="Creator page with delete button":::
 
-3. You'll be asked to confirm deletion by typing in the name of your Creator resource. Once the resource is deleted, you'll see a confirmation page, as in the image below:
+3. You'll be asked to confirm deletion by typing in the name of your Creator resource. After the resource is deleted, you see a confirmation page that looks like the following:
 
      :::image type="content" source="./media/how-to-manage-creator/creator-confirm-delete.png" alt-text="Creator page with delete confirmation":::
 
@@ -80,17 +80,17 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 
 Creator services and services that use data hosted in Creator (for example, Render service), are accessible at a geographical URL. The geographical URL is determined by the location selected during creation. For example, if Creator is created in a region in the United States geographical location, all calls to the Conversion service must be submitted to `us.atlas.microsoft.com/conversions`. To view mappings of region to geographical location, [see Creator service geographic scope](creator-geographic-scope.md).
 
-Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. The For example, if Creator is provisioned in the United States, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
+Also, all data imported into Creator should be uploaded into the same geographical location as the Creator resource. For example, if Creator is provisioned in the United States, all raw data should be uploaded via `us.atlas.microsoft.com/mapData/upload`.
 
 ## Next steps
 
 Introduction to Creator services for indoor mapping:
 
 > [!div class="nextstepaction"]
-> [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)
+> [Data upload](creator-indoor-maps.md#upload-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](creator-indoor-maps.md#convert-a-drawing-package)
+> [Data conversion](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
 > [Dataset](creator-indoor-maps.md#datasets)

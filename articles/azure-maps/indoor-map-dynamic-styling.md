@@ -12,7 +12,7 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-Azure Maps Creator [Feature State service](/rest/api/maps/v2/featurestate) lets you apply styles based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
+You can use Azure Maps Creator [Feature State service](/rest/api/maps/v2/featurestate) to apply styles that are based on the dynamic properties of indoor map data features.  For example, you can render facility meeting rooms with a specific color to reflect occupancy status. This article describes how to dynamically render indoor map features with the [Feature State service](/rest/api/maps/v2/featurestate) and the [Indoor Web module](how-to-use-indoor-module.md).
 
 ## Prerequisites
 
@@ -27,17 +27,17 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Implement dynamic styling
 
-Once you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId`, and `statesetId`.
+After you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId`, and `statesetId`.
 
 ### Select features
 
-To implement dynamic styling, a feature, such as a meeting or conference room, must be referenced by its feature `id`. You'll use the feature `id` to update the dynamic property or *state* of that feature. To view the features defined in a dataset, you can use one of the following methods:
+To implement dynamic styling, a feature - such as a meeting or conference room - must be referenced by its feature `id`. You use the feature `id` to update the dynamic property or *state* of that feature. To view the features defined in a dataset, you can use one of the following methods:
 
-* WFS API (Web Feature Service). Datasets can be queried using the [WFS API](/rest/api/maps/v2/wfs). WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
+* WFS API (Web Feature service). You can use the [WFS API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). The WFS API is helpful for querying features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
-* Implement customized code that allows a user to select features on a map using your web application. In this article, we'll make use of this option.  
+* Implement customized code that a user can use to select features on a map using your web application. We use this option in this article.  
 
-The following script implements the mouse click event. The code retrieves the feature `id` based on the clicked point. In your application, you can insert the code below your Indoor Manager code block. Run your application and check the console to obtain the feature `id` of the clicked point.
+The following script implements the mouse-click event. The code retrieves the feature `id` based on the clicked point. In your application, you can insert the code after your Indoor Manager code block. Run your application, and then check the console to obtain the feature `id` of the clicked point.
 
 ```javascript
 /* Upon a mouse click, log the feature properties to the browser's console. */
@@ -55,7 +55,7 @@ map.events.add("click", function(e){
 
 The [Create an indoor map](tutorial-creator-indoor-maps.md) tutorial configured the feature stateset to accept state updates for `occupancy`.
 
-In the next section, we'll set the occupancy *state* of office `UNIT26` to `true`. while office `UNIT27` will be set to `false`.
+In the next section, we'll set the occupancy *state* of office `UNIT26` to `true` and  office `UNIT27` to `false`.
 
 ### Set occupancy status
 
@@ -81,15 +81,15 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 8. Select the **Headers** tab.
 
-9. In the **KEY** field, select `Content-Type`. In the **VALUE** field select `application/json`.
+9. In the **KEY** field, select `Content-Type`. In the **VALUE** field, select `application/json`.
 
      :::image type="content" source="./media/indoor-map-dynamic-styling/stateset-header.png"alt-text="Header tab information for stateset creation.":::
 
 10. Select the **Body** tab.
 
-11. Select **raw** and **JSON** in the dropdown lists.
+11. In the dropdown lists, select **raw** and **JSON**.
 
-12. Copy-paste the following JSON style into the **Body** window:
+12. Copy the following JSON style, and then paste it in the **Body** window:
 
     ```json
     {
@@ -112,7 +112,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-14. Copy-paste the following JSON style into the **Body** window:
+14. Copy the following JSON style, and then paste it in the **Body** window:
 
     ``` json
     {
@@ -128,7 +128,9 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 ### Visualize dynamic styles on a map
 
-The web application you previously opened in a browser should now reflect the updated state of the map features. `UNIT27`(142) should appear green and `UNIT26`(143) should appear red.
+The web application that you previously opened in a browser should now reflect the updated state of the map features:
+- Office `UNIT27`(142) should appear green.
+- Office `UNIT26`(143) should appear red.
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/room-state.png)
 
@@ -141,7 +143,7 @@ Learn more by reading:
 > [!div class="nextstepaction"]
 > [Creator for indoor mapping](creator-indoor-maps.md)
 
-See to the references for the APIs mentioned in this article:
+See the references for the APIs mentioned in this article:
 
 > [!div class="nextstepaction"]
 > [Data Upload](creator-indoor-maps.md#upload-a-drawing-package)

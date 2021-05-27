@@ -17,8 +17,8 @@ This article introduces concepts and tools that apply to Azure Maps Creator. We 
 
 You can use Creator to develop applications with map features that are based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data.  Typically, the workflow is completed by two different personas with distinct areas of expertise and responsibility:
 
-- The map maker is responsible for curating and preparing the map data.
-- The Creator map data user leverages customer map data in applications.
+- Map maker: responsible for curating and preparing the map data.
+- Creator map data user: leverages customer map data in applications.
 
 The following diagram illustrates the entire workflow.
 
@@ -37,40 +37,41 @@ Creator usage data is incorporated in your Azure Maps usage charts and activity 
 >[!Important]
 >We recommend using:
 >
-> * Azure Active Directory (Azure AD) in all solutions that are built with an Azure Maps account using Creator services. For more information, on Azure AD, see [Azure AD authentication](azure-maps-authentication.md#azure-ad-authentication).
+> - Azure Active Directory (Azure AD) in all solutions that are built with an Azure Maps account using Creator services. For more information about Azure AD, see [Azure AD authentication](azure-maps-authentication.md#azure-ad-authentication).
 >
->* Role-based access control settings. Using these settings, map makers can act as the Azure Maps Data Contributor role, and Creator map data users can act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
+>- Role-based access control settings. Using these settings, map makers can act as the Azure Maps Data Contributor role, and Creator map data users can act as the Azure Maps Data Reader role. For more information, see [Authorization with role-based access control](azure-maps-authentication.md#authorization-with-role-based-access-control).
 
 ## Creator data item types
 
 Creator services create, store, and use various data types that are defined and discussed in the following sections. A creator data item can be of the following types:
 
-* Converted data
-* Dataset
-* Tileset
-* Feature stateset
+- Converted data
+- Dataset
+- Tileset
+- Feature stateset
 
 ## Upload a Drawing package
 
 Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information about Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data Upload API](/rest/api/maps/data%20v2/uploadpreview) to upload a Drawing package. Upon a successful upload, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data Upload API](/rest/api/maps/data%20v2/uploadpreview) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
 
 ## Convert a Drawing package
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. If any warnings are detected, the conversion succeeds. However, we recommend that you review and resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in later processes. For more information, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
+The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types:
 
-When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](drawing-error-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. After you fix the errors, you can attempt to upload and convert the package.
+- Errors: If any errors are detected, the conversion process fails. When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](drawing-error-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. After you fix the errors, you can attempt to upload and convert the package.
+- Warnings: If any warnings are detected, the conversion succeeds. However, we recommend that you review and resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in later processes.
+For more information, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
 ## Create indoor map data
 
 Azure Maps Creator provides the following services that support map creation:
 
-* [Dataset service](/rest/api/maps/v2/dataset/createpreview).
-Use the Dataset service to create a dataset from a converted Drawing package data.
-* [Tileset service](/rest/api/maps/v2/tileset/createpreview).
+- [Dataset service](/rest/api/maps/v2/dataset/createpreview).
+- [Tileset service](/rest/api/maps/v2/tileset/createpreview).
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
-* [Feature State service](/rest/api/maps/v2/featurestate). Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
+- [Feature State service](/rest/api/maps/v2/featurestate). Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
 
 ### Datasets
 
@@ -91,7 +92,9 @@ After a tileset is created, it can be retrieved by the [Render V2 service](#rend
 If a tileset becomes outdated and is no longer useful, you can delete the tileset. For information about how to delete tilesets, see [Data maintenance](#data-maintenance).
 
 >[!NOTE]
->A tileset is independent of the dataset from which it was created. If you create tilesets from a dataset, and then subsequently update that dataset, the tilesets isn't updated. To reflect changes in a dataset, you must create new tilesets. Similarly, if you delete a tileset, the dataset isn't affected.
+>A tileset is independent of the dataset from which it was created. If you create tilesets from a dataset, and then subsequently update that dataset, the tilesets isn't updated. 
+>
+>To reflect changes in a dataset, you must create new tilesets. Similarly, if you delete a tileset, the dataset isn't affected.
 
 ### Feature statesets
 
@@ -112,7 +115,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 The Azure Maps [Render V2-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator tilesets.
 
-The Render V2-Get Map Tile API allows applications to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
+Applications can use the Render V2-Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
 
 ### Web Feature Service API
 
@@ -132,7 +135,7 @@ The Indoor Maps module also supports dynamic map styling. For a step-by-step wal
 
 ### Azure Maps integration
 
-As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Azure Maps Geofence API](/rest/api/maps/spatial/postgeofence) with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas. For more information about how to connect Azure Maps with IoT telemetry, see [this IoT spatial analytics tutorial] (tutorial-iot-hub-maps.md).
+As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Azure Maps Geofence API](/rest/api/maps/spatial/postgeofence) with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas. For more information about how to connect Azure Maps with IoT telemetry, see [this IoT spatial analytics tutorial](tutorial-iot-hub-maps.md).
 
 ### Data maintenance
 
@@ -149,7 +152,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 2. Use the [Dataset Create API](/rest/api/maps/v2/dataset/createpreview) to append the converted data to the existing dataset.
 3. Use the [Tileset Create API](/rest/api/maps/v2/tileset/createpreview) to generate a new tileset out of the updated dataset.
 4. Save the new **tilesetId** for the next step.
-5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer in use, you can delete it.
+5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer used, you can delete it.
 
 ## Next steps
 
