@@ -129,9 +129,11 @@ The portal retrieves the appropriate Datadog application from Azure Active Direc
 
 To change the Datadog billing plan, go to **Overview** and select **Change Plan**.
 
-:::image type="content" source="media/manage/datadog-change-plan.png" alt-text="Change Datadog billing plan." border="true":::
+:::image type="content" source="media/manage/datadog-select-change-plan.png" alt-text="Select change Datadog billing plan." border="true":::
 
 The portal retrieves all the available Datadog plans for your tenant. Select the appropriate plan and click on **Change Plan**.
+
+:::image type="content" source="media/manage/datadog-change-plan.png" alt-text="Select the Datadog billing plan to change." border="true":::
   
 ## Disable or enable integration
 

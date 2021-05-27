@@ -31,7 +31,7 @@ Use the Azure portal to find Datadog.
 
 1. In the plan overview screen, select **Set up + subscribe**.
 
-   :::image type="content" source="media/create/datadog-app.png" alt-text="Datadog application in Azure Marketplace.":::
+   :::image type="content" source="media/create/datadog-app2.png" alt-text="Datadog application in Azure Marketplace.":::
 
 ## Create a Datadog resource in Azure
 
@@ -95,10 +95,6 @@ Once you have completed configuring metrics and logs, select **Next: Single sign
 ## Configure single sign-on
 
 If your organization uses Azure Active Directory as its identity provider, you can establish single sign-on from the Azure portal to Datadog. If your organization uses a different identity provider or you don't want to establish single sign-on at this time, you can skip this section.
-
-If you're linking the Datadog resource to an existing Datadog organization, you can't set up single sign-on at this step. Instead, you set up single sign-on after creating the Datadog resource. For more information, see [Reconfigure single sign-on](manage.md#reconfigure-single-sign-on).
-
-:::image type="content" source="media/create/linking-sso.png" alt-text="Single sign-on for linking to existing Datadog organization." border="true":::
 
 To establish single sign-on through Azure Active directory, select the checkbox for **Enable single sign-on through Azure Active Directory**.
 

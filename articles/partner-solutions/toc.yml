@@ -22,9 +22,9 @@
         displayName: Datadog, Monitoring
     - name: Quickstarts
       items:
-      - name: Create new instance
+      - name: Create new Datadog org
         href: ./datadog/create.md
-      - name: Link to existing instance
+      - name: Link to an existing Datadog org
         href: ./datadog/link-to-existing-organization.md
     - name: How to
       items:
