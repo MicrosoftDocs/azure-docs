@@ -12,12 +12,10 @@ ms.date: 05/10/2021
 
 [Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. This article shows you how to **manually create** an Azure NetApp Files (ANF) volume to use for Read-Write-Many (RWX) workloads in AKS.
 
-You can also create ANF volumes **on-demand** using [Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes. To learn how that works, see [Dynamic Provisioning of ANF volumes with Trident][az-netapp-files-dynamic].
+You can also create ANF volumes **on-demand**. Users have two options:
 
-> [!NOTE]
-> In addition to provisioning ANF volumes, you can also consume a rich set of storage and application-aware data management services with NetApp Astra. [Astra](https://cloud.netapp.com/astra) is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning.
->
-> You can learn more about Astra and sign up for a free trial by visiting the [Astra product page](https://cloud.netapp.com/astra).
+* Dynamically create ANF volumes using [NetApp Astra](https://cloud.netapp.com/astra) and [Trident](https://netapp-trident.readthedocs.io/). Astra is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning. Trident is NetApp's dynamic storage orchestrator that contains a CSI driver for Azure NetApp Files. Trident provides access to reliable persistent storage on-demand and lets Kubernetes users consume storage directly through Kubernetes. Users can perform several data management operations such as take snapshots, clones, expansion, and so on. This is covered under [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netapp-files-dynamic].
+* Dynamically create ANF volumes using Trident's CSI driver. You can use Trident, NetApp's open-source storage provision to create volumes on-demand without requiring Astra. This is covered under [Use Container Storage Interface (CSI) driver for Azure NetApp Files on Azure Kubernetes Service (AKS)][az-netapp-files-csi].
 
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
@@ -281,6 +279,7 @@ Filesystem             Size  Used Avail Use% Mounted on
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
 [az-netapp-files-dynamic]: azure-netapp-files-dynamic.md
+[az-netapp-files-csi]: azure-netapp-files-csi.md
 [az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
 [az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create
 [az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az_netappfiles_volume_show

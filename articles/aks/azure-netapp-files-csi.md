@@ -23,7 +23,7 @@ If you would like to provision ANF volumes statically, read [Manually create and
 > [!NOTE]
 > In addition to provisioning ANF volumes, you can also consume a rich set of storage and application-aware data management services with NetApp Astra. [Astra](https://cloud.netapp.com/astra) is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning.
 >
-> You can learn more about Astra and sign up for a free trial by visiting the [Astra product page](https://cloud.netapp.com/astra).
+> Learn how you can discover AKS clusters and manage application workloads using Astra [here][az-netappfiles-dynamic]
 
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
@@ -360,6 +360,7 @@ For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf
 [anf-waitlist]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
+[az-netappfiles-dynamic]: azure-netapp-files-dynamic.md
 [az-netappfiles-static]: azure-netapp-files.md
 [az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
 [az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create

@@ -16,7 +16,7 @@ A persistent volume represents a piece of storage that has been provisioned for 
 
 * Create ANF volumes statically. In this scenario, the creation of ANF volumes is achieved external to AKS; ANF volumes are created using `az`/Azure UI and are then exposed to the Kubernetes plane by the creation of a `PersistentVolume`.
 * Create ANF volumes on-demand, orchestrating through Kubernetes. This is the preferred mode of operation for creating multiple ANF volumes directly through Kubernetes. Users can achieve this one of two ways:
-    * Using NetApp Astra. [Astra](https://cloud.netapp.com/astra) is a **fully managed** application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. This document explains the steps involved to connect AKS clusters with Astra and provision ANF volumes using [Trident](https://netapp-trident.readthedocs.io/). In addition, you can also implement data protection, disaster recovery, and migration plans for AKS workloads using Astra.
+    * Using NetApp Astra and Trident. [Astra](https://cloud.netapp.com/astra) is a **fully managed** application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. This document explains the steps involved to connect AKS clusters with Astra and provision ANF volumes using [Trident](https://netapp-trident.readthedocs.io/). In addition, you can also implement data protection, disaster recovery, and migration plans for AKS workloads using Astra.
     * Using [Trident](https://netapp-trident.readthedocs.io/). You can choose to install Trident in a standalone manner without requiring Astra. This is covered under [Use Container Storage Interface (CSI) driver for Azure NetApp Files on Azure Kubernetes Service (AKS)][az-netappfiles-csi].
 
 If you would like to provision ANF volumes statically, read [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netappfiles-static].
@@ -164,7 +164,7 @@ Now that you have a NetApp ANF account created and completed the AKS pre-flight 
 
 After completing the registration, you will be able to access the Astra control plane. Your dashboard should look like this:
 
-![Astra dashboard](media/az-netappfiles-dynamic/astra-dashboard-clear.png)
+![Astra dashboard](media/az-netappfiles-dynamic/astra-dashboard.png)
 
 ### Register AKS clusters with Astra
 
@@ -306,7 +306,7 @@ Once the app is managed, you will see Astra notifying about the app's status. Yo
 
 ## Next steps
 
-* To learn more about Trident and understand how ANF volumes can be provisioned dynamically, read [Use Container Storage Interface (CSI) driver for Azure NetApp Files on Azure Kubernetes Service (AKS)][azure-netapp-files-csi.md] and the [Trident documentation](https://netapp-trident.readthedocs.io/en/latest/kubernetes/index.html).
+* To learn more about Trident and understand how ANF volumes can be provisioned on-demand using its CSI driver, read [Use Container Storage Interface (CSI) driver for Azure NetApp Files on Azure Kubernetes Service (AKS)][az-netappfiles-csi] and the [Trident documentation](https://netapp-trident.readthedocs.io/en/latest/kubernetes/index.html).
 * For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
 * You can take a look at the Astra documentation [here](https://docs.netapp.com/us-en/astra/).
 
