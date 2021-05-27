@@ -49,6 +49,7 @@ Organizations can choose to block access when risk is detected. Blocking sometim
 
 > [!WARNING]
 > Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
+> Password change (I know my password and want to change it to something new) does not meet the requirement for secure password reset.
 
 ## Exclusions
 
