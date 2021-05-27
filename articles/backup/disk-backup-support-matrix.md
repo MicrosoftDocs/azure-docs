@@ -56,7 +56,7 @@ Azure Disk Backup is available in all public cloud regions, expect France South,
 
 - You can delete a backup instance, which will stop the backup, and also deletes all the backup data. Currently, you can’t disable a backup, as the option **stop backup and retain backup data** isn’t supported.
 
-- Azure Disk Backup limits are:
+- Azure Disk Backup limits are:<br>
     <span style="font-weight:normal">Number of Backup Policies per Backup Vault</span> | <span style="font-weight:normal">5000</span>
     ------------------------------------------ | ---- |
     Number of Backup Instances per Backup Vault | 5000

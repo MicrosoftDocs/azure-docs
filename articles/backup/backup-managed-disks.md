@@ -122,7 +122,7 @@ The following prerequisites are required to configure backup of managed disks:
      
      - Storage Account is used to store metadata for each recovery point. Azure Backup service creates a Blob container per disk backup instance. For each recovery point, a block blob will be created to store metadata describing the recovery point (such as subscription, disk ID, disk attributes, and so on) that occupies a small space (in a few KiBs).
      
-     - Storage Account is created as RA GZRS if the region supports zonal redundancy. If region doesn’t support Zonal redundancy, the Storage Account is created as RA GRS.<br><br>If any existing policy stops the creation of a Storage Account on the subscription or resource group with GRS redundancy, the Storage Account is created as LRS. The Storage Account that is created is **General Purpose v2**, with block blobs stored on the hot tier in the Blob container. 
+     - Storage Account is created as RA GZRS if the region supports zonal redundancy. If region doesn’t support Zonal redundancy, the Storage Account is created as RA GRS.<br>If any existing policy stops the creation of a Storage Account on the subscription or resource group with GRS redundancy, the Storage Account is created as LRS. The Storage Account that is created is **General Purpose v2**, with block blobs stored on the hot tier in the Blob container. 
      
      - The number of recovery points is determined by the Backup policy used to configure backup of the disk backup instance. Older block blobs are deleted according to the Garbage collection process, as the corresponding older recovery points are pruned.
    
