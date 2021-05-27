@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/25/2021
+ms.date: 05/27/2021
 ms.author: jeedes
 ---
 
@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to integrate Cornerstone Single Sign-On with 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Cornerstone Single Sign-On single sign-on (SSO) enabled subscription.
+* Cornerstone singlesign-on (SSO) enabled subscription.
 
 > [!NOTE]
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
@@ -36,18 +36,18 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cornerstone Single Sign-On supports **SP** initiated SSO.
-* Cornerstone Single Sign-On supports [Automated user provisioning](cornerstone-ondemand-provisioning-tutorial.md).
+
 * If you are integrating one or multiple products from this particular list then you should use this Cornerstone OnDemand Single Sign-On app from the Gallery.
 
     We offer solutions for :
 
-    1. Learning Management (LMS)
-    2. Performance Management (EPM)
-    3. Succession Planning
-    4. Recruiting (ATS)
-    5. Extended Enterprise
-    6. Human Resources
-    7. Employee Content
+    1. Recruiting
+    2. Learning
+    3. Development
+    4. Content
+    5. Performance
+    6. Career
+    7. HR
 
 ## Adding Cornerstone Single Sign-On from the gallery
 
@@ -70,7 +70,7 @@ To configure and test Azure AD SSO with Cornerstone Single Sign-On, perform the 
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 2. **[Configure Cornerstone Single Sign-On SSO](#configure-cornerstone-single-sign-on-sso)** - to configure the Single Sign-On settings on application side.
-    1. **[Create Cornerstone Single Sign-On test user](#create-cornerstone-single-sign-on-test-user)** - to have a counterpart of B.Simon in Cornerstone Single Sign-On that is linked to the Azure AD representation of user.
+    1. **[Create Cornerstone Single Sign-On test user](#create-cornerstone-single-sign-on-test-user)** - to have a counterpart of B.Simon in Cornerstone that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -95,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<PORTAL_NAME>.csod.com/samldefault.aspx?ouid=<OUID>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Reply URL, Identifier and Sign on URL. Contact [Cornerstone Single Sign-On Client support team](mailto:moreinfo@csod.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Reply URL, Identifier and Sign on URL. You need to reach out to your cornerstone consulting team or to your partner to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -131,11 +131,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Cornerstone Single Sign-On SSO
 
-To configure single sign-on on **Cornerstone Single Sign-On** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Cornerstone Single Sign-On support team](mailto:moreinfo@csod.com) or please contact your partner. They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Cornerstone Single Sign-On** side, you need to reach out to your cornerstone consulting team or to your partner. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Cornerstone Single Sign-On test user
 
-The objective of this section is to create a user called B.Simon in Cornerstone Single Sign-On. Cornerstone Single Sign-On supports automatic user provisioning, which is by default enabled. You can find more details [here](./cornerstone-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
+In this section, you create a user called Britta Simon in Cornerstone. Work with your cornerstone consulting team or reach out to your partner to add the users in the Cornerstone Single Sign-On platform. Users must be created and activated before you use single sign-on.
+
 
 ## Test SSO 
 
