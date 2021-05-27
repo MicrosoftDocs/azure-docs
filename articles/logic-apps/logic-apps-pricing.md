@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/26/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -30,7 +30,7 @@ For example, a request that a polling trigger makes is still metered as an execu
 | [Data retention and storage consumption](#data-retention) | Metered using the data retention price, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), under the **Pricing details** table. |
 |||
 
-For more information, see the following:
+For more information, review the following documentation:
 
 * [View metrics for executions and storage consumption](plan-manage-costs.md#monitor-billing-metrics)
 * [Limits in Azure Logic Apps](logic-apps-limits-and-config.md)
@@ -55,7 +55,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 * Consider the possible number of messages or events that might arrive on any given day, rather than base your calculations on only the polling interval.
 
-* When an event or message meets the trigger criteria, many triggers immediately try to read any and all other waiting events or messages that meet the criteria. This behavior means that even when you select a longer polling interval, the trigger fires based on the number of waiting events or messages that qualify for starting workflows. Triggers that follow this behavior include Azure Service Bus and Azure Event Hub.
+* When an event or message meets the trigger criteria, many triggers immediately try to read any other waiting events or messages that meet the criteria. This behavior means that even when you select a longer polling interval, the trigger fires based on the number of waiting events or messages that qualify for starting workflows. Triggers that follow this behavior include Azure Service Bus and Azure Event Hub.
 
   For example, suppose you set up trigger that checks an endpoint every day. When the trigger checks the endpoint and finds 15 events that meet the criteria, the trigger fires and runs the corresponding workflow 15 times. The Logic Apps service meters all the actions that those 15 workflows perform, including the trigger requests.
 
@@ -67,16 +67,32 @@ When you create the **Logic App (Standard)** resource in the Azure portal or dep
 
 <a name="hosting-plans"></a>
 
-### Hosting plans and pricing tiers
+### Hosting plans, pricing tiers, and billing rates
 
-For single-tenant based logic apps, use the **Workflow Standard** hosting plan. The following list shows the available pricing tiers that you can select:
+For single-tenant based logic apps, you must use the **Workflow Standard** hosting plan, and select a pricing tier. Each tier includes a specific amount of compute, memory, and storage resources. For more information, review the following table, which lists each pricing tier plus the included resources and the monthly rate, which uses *East US as an example region*. Below the table, you can find the hourly rates and an example that breaks down the monthly cost per resource.
 
-| Pricing tier | Cores | Memory | Storage |
-|--------------|-------|--------|---------|
-| **WS1** | 1 | 3.5 GB | 250 GB |
-| **WS2** | 2 | 7 GB | 250 GB |
-| **WS3** | 2 | 14 GB | 250 GB |
-|||||
+| Pricing tier | Monthly US$ (East US) | Virtual CPU (core) | [Azure Compute Unit (ACU)](../virtual-machines/acu.md) | Memory (GB) | Storage (GB) |
+|--------------|-----------------------|--------------------|--------------------------------------------------------|-------------|--------------|
+| **WS1** | $175.20 | 1 | 210 | 3.5 | 250 |
+| **WS2** | $350.40 | 2 | 420 | 7 | 250 |
+| **WS3** | $700.80 | 4 | 840 | 14 | 250 |
+|||||||
+
+The following table lists the hourly rate that's used to calculate the monthly rate:
+
+| Resource | Hourly US$ (East US) |
+|----------|----------------------|
+| **Virtual CPU** | $0.1920 per core |
+| **Memory** | $0.0137 per GB |
+|||
+
+Based on the preceding information, the following table breaks down the monthly rate for the **WS1** pricing tier by resource and hourly rate:
+
+| Resource | Amount | Monthly US$ (East US) |
+|----------|--------|-----------------------|
+| **Virtual CPU** | 1 core | $140.16 |
+| **Memory** | 3.5 GB | $35.04 |
+||||
 
 <a name="storage-transactions"></a>
 
@@ -125,7 +141,7 @@ For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-a
 
 ## Integration accounts
 
-An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps so that you can explore, build, and test B2B integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
+An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource, which you link create link to a logic app so that you can explore, build, and test B2B integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
 
 Azure Logic Apps offers these integration account levels or tiers that [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/) and [billing model](logic-apps-pricing.md#integration-accounts), based on whether your logic apps are consumption-based or ISE-based:
 
