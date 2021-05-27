@@ -55,6 +55,65 @@ Here's what's changed in the Windows Virtual Desktop Agent:
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
+## May 2021
+
+Here's what's new for May:
+
+### Smart card authentication
+
+We have released the KDC Proxy RDP properties. This will enable Kerberos authentication for the RDP portion of a Windows Virtual Desktop session, to include permitting Network Level Authentication without a password. More information is available in this [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/new-feature-smart-card-authentication-for-windows-virtual/m-p/2323226).
+
+### The web client now supports file transfer
+
+Beginning with web client version 1.0.24.7 (preview), users can transfer files between the remote session and local computer. To upload files to the remote session, simply click the upload icon in the top menu. To download files, search for Remote Desktop Virtual Drive in the remote session. Drop your files in the Downloads folder and the browser will begin downloading the files to your local computer.
+
+### Start VM on connect support updates
+
+Start VM on connect (preview) now supports pooled host pools and the Azure GOV cloud. More details are available in this [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/leverage-start-vm-on-connect-for-pooled-host-pools-and-azure-gov/m-p/2349866).
+
+### Latency improvement for the United Arab Emirates
+
+UAE customers can now experience improved latency as we have expanded our control plane presence to the UAE. More information is available at the [Windows Virtual Desktop roadmap](https://www.microsoft.com/en-gb/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop&searchterms=64545)
+
+### Ending Internet Explorer 11 support
+
+Beginning 30 September 2021, the Windows Virtual Desktop web client will no longer support Internet Explorer 11. We recommend that you transition to using the [Microsoft Edge](https://www.microsoft.com/edge?form=MY01R2&OCID=MY01R2&r=1) browser instead of Internet Explorer 11. Further information is available [here](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-web-client-to-end-support-for-internet/m-p/2369007).
+
+### Microsoft Endpoint Manager support for Windows 10 Enterprise multi-session public preview
+
+We have released support for Windows 10 multi session within Microsoft Endpoint Manager (MEM) allowing you to manage your Windows Virtual Desktop Windows 10 multi session VMs using the same tooling as your other devices. Further information is available [here](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+
+### FSLogix release 2105 public preview
+
+We have released the latest FSLogix agent into public preview. Please view [this article](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/public-preview-fslogix-release-2105-is-now-available-in-public/m-p/2380996/thread-id/7105) or the updates to this latest version and the form to complete to download.
+
+### May 2021 updates for Teams for Windows Virtual Desktop
+
+We have resolved a black screen video issue that also fixed a mismatch in video resolutions with the Teams Server. Teams on Windows Virtual Desktop now changes resolutions/bitrates in accordance to what the Teams Server expects.
+
+### Azure Portal deployment updates
+
+We have made the following updates to the deployment process within the Azure portal:
+
+- Added new images (including GEN2) to the drop-down list box of "image" when creating a new Windows Virtual Desktop session host VM.
+- Enable the configuration of boot diagnostics for virtual machines on host pool creation.
+- Added a tooltip to RDP proxy in the Advanced portion of the Host pool RDP properties tab.
+- Added an information bubble for the Icon path in Add application when the source is an MSIX package.
+- Disable doing managed boot diagnostics with an unmanaged disk.
+- Updated the CreateHostpool Azure Resource Manager template to support creating host pools with third-party marketplace images.
+
+### Single sign-on using Active Directory Federation Services public preview
+
+AD FS support for Single Sign-On per host pool has entered public preview. Further reading is available [here](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-adfs-sso). 
+
+### Enterprise-scale construction set for Windows Virtual Desktop
+
+We have released an updated section of the Cloud Adoption framework dedicated to enterprise scale support for Windows Virtual Desktop. This is available [here](../cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone.md).
+
+### Customer adoption kit
+
+We have released the Windows Virtual Desktop Customer adoption kit to assist customers and partners in the end user rollout of WVD. The kit includes various items for end user adoption of Windows Virtual Desktop and can be downloaded from this [link](https://www.microsoft.com/azure/partners/resources/customer-adoption-kit-windows-virtual-desktop).
+
 ## April 2021
 
 Here's what's new for April:
