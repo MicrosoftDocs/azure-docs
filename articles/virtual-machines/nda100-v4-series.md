@@ -11,11 +11,11 @@ ms.author: iafinder
 
 # ND A100 v4-series
 
-The ND A100 v4 series virtual machine is a new flagship addition to the Azure GPU family, specifically designed for high-end Deep Learning training and tightly-coupled scale-up and scale-out HPC workloads. 
+The ND A100 v4 series virtual machine is a new flagship addition to the Azure GPU family, designed for high-end Deep Learning training and tightly-coupled scale-up and scale-out HPC workloads. 
 
 The ND A100 v4 series starts with a single virtual machine (VM) and eight NVIDIA Ampere A100 Tensor Core GPUs. ND A100 v4-based deployments can scale up to thousands of GPUs with an 1.6 Tb/s of interconnect bandwidth per VM. Each GPU within the VM is provided with its own dedicated, topology-agnostic 200 Gb/s NVIDIA Mellanox HDR InfiniBand connection. These connections are automatically configured between VMs occupying the same virtual machine scale set, and support GPUDirect RDMA.
 
-Each GPU features NVLINK 3.0 connectivity for communication within the VM, and the instance is also backed by 96 physical 2nd-generation AMD Epyc CPU cores.
+Each GPU features NVLINK 3.0 connectivity for communication within the VM, and the instance is also backed by 96 physical 2nd-generation AMD Epyc™ CPU cores.
 
 These instances provide excellent performance for many AI, ML, and analytics tools that support GPU acceleration 'out-of-the-box,' such as TensorFlow, Pytorch, Caffe, RAPIDS, and other frameworks. Additionally, the scale-out InfiniBand interconnect is supported by a large set of existing AI and HPC tools built on NVIDIA's NCCL2 communication libraries for seamless clustering of GPUs.
 
@@ -28,7 +28,7 @@ These instances provide excellent performance for many AI, ML, and analytics too
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Ultra Disks](disks-types.md#ultra-disk): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
+[Ultra Disks](disks-types.md#ultra-disk): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage, and performance) <br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
@@ -40,7 +40,7 @@ Nvidia NVLink Interconnect: Supported<br>
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 A100 40 GB GPUs (NVLink 3.0) | 40 | 32 | 80000 / 800 | 24000 Mbps | 8 |
+| Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 A100 40 GB GPUs (NVLink 3.0) | 40 | 32 | 80,000 / 800 | 24,000 Mbps | 8 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
