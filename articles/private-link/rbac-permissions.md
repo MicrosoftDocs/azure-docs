@@ -46,6 +46,11 @@ This section lists the granular permissions required to deploy a private link se
 
 | Action | Description   |
 | --------- | ------------- |
+| Microsoft.Resources/deployments/*                                   | Create and manage a deployment                                                |
+| Microsoft.Resources/subscriptions/resourcegroups/resources/read     | Read the resources for the resource group                                     |
+| Microsoft.Network/virtualNetworks/read                              | Read the virtual network definition                                            |
+| Microsoft.Network/virtualNetworks/subnets/read                      | Read a virtual network subnet definition                                      |
+| Microsoft.Network/virtualNetworks/subnets/write                     | Creates a virtual network subnet or updates an existing virtual network subnet|
 | Microsoft.Network/privateLinkServices/read | Read a private link service resource|
 | Microsoft.Network/privateLinkServices/write | Creates a new private link service, or updates an existing private link service|
 | Microsoft.Network/privateLinkServices/privateEndpointConnections/read | Read a private endpoint connection definition |
