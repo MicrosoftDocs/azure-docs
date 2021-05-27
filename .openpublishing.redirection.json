@@ -29895,42 +29895,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/bpm-and-methodologies.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/code-upgrade.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
       "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/data-entities.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/help-wiki.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/lcs-subscription.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-operations-offer.md",
       "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
       "redirect_document_id": false
     },
@@ -64062,16 +64032,6 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-access-control.md",
       "redirect_url": "/azure/azure-monitor/visualize/workbooks-access-control",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
