@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: arvindshmicrosoft 
 ms.author: arvindsh
-ms.reviewer: mathoma, sstein
+ms.reviewer: mathoma
 ms.date: 12/9/2020
 ---
 # Elastic pools help you manage and scale multiple databases in Azure SQL Database
