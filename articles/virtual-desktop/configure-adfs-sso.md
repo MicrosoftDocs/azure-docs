@@ -34,6 +34,7 @@ Before configuring AD FS single sign-on, you must have the following setup runni
 * We recommend setting up the **Web Application Proxy** role to secure your environment's connection to the AD FS servers. All servers running this role must have the latest Windows updates installed, and be running Windows Server 2016 or later. See this [Web Application Proxy guide](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383662(v=ws.11)) to get started setting up this role.
 * You must deploy **Azure AD Connect** to sync users to Azure AD. Azure AD Connect must be configured in [federation mode](../active-directory/connect/active-directory-aadconnect-get-started-custom.md).
 * [Set up your PowerShell environment](powershell-module.md) for Windows Virtual Desktop on the AD FS server.
+* When using Windows 10 20H1 or 20H2 to connect to Windows Virtual Desktop, you must install the **2021-04 Cumulative Update for Windows 10 (KB5001330)** or later for single sign-on to function properly.
 
 > [!NOTE]
 > This solution is not supported with Azure AD Domain Services. You must use an Active Directory Domain Controller.
@@ -153,7 +154,9 @@ When configuring AD FS single sign-on you must choose shared key or certificate:
 
 The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](../key-vault/general/overview.md). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
 
-The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust.
+When using a certificate, you can use any general purpose certificate. While not required, it's recommended to create a certificate issued by a valid Certificate Authority. This certificate can be created directly in Azure Key Vault and needs to have an exportable private key. The public key can be exported and used to configure the AD FS server.
+
+The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust and install the certificate if needed.
 
 This script only has one required parameter, *ADFSAuthority*, which is the URL that resolves to your AD FS and uses "/adfs" as its suffix. For example, `https://adfs.contoso.com/adfs`.
 

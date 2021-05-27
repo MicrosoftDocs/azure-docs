@@ -8454,6 +8454,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation.md",
+      "redirect_url": "/azure/marketplace/marketplace-iot-edge",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/appsource-offer-publishing-guide.md",
       "redirect_url": "/azure/marketplace/marketplace-dynamics-365",
       "redirect_document_id": false
@@ -29465,63 +29470,68 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/iot-edge-module.md",
+      "redirect_url": "/azure/marketplace/marketplace-iot-edge",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-create-iot-edge-module-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -29726,12 +29736,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-iot-edge-module-asset",
+      "redirect_url": "/azure/marketplace/iot-edge-technical-asset",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-certification-process.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-iot-edge-module-asset",
+      "redirect_url": "/azure/marketplace/iot-edge-technical-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-iot-edge-module-asset.md",
+      "redirect_url": "/azure/marketplace/iot-edge-technical-asset",
       "redirect_document_id": false
     },
     {
@@ -29766,37 +29781,42 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cpp-business-central-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-app-publishing-process.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-create-new-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-create-offer-settings.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-create-offer-technical-details.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-create-storefront-details.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-business-central-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -33256,7 +33276,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/sql-vulnerability-assessment-enable.md",
-      "redirect_url": "/azure/security-center/articles/defender-for-sql-on-machines-vulnerability-assessment.md",
+      "redirect_url": "/azure/security-center/defender-for-sql-on-machines-vulnerability-assessment",
       "redirect_document_id": false
     },
     {
@@ -33266,17 +33286,17 @@
     },
     {
       "source_path_from_root": "/articles/articles/mysql/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/mariadb/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-threat-protection.md",
-      "redirect_url": "/azure/security-center/defender-for-databases-introduction.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
       "redirect_document_id": false
     },
     {

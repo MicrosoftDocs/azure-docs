@@ -2,7 +2,7 @@
 title: 'Set up Azure Arc for App Service, Functions, and Logic Apps'
 description: For your Azure Arc enabled Kubernetes clusters, learn how to enable App Service apps, function apps, and logic apps.
 ms.topic: article
-ms.date: 05/03/2021
+ms.date: 05/26/2021
 ---
 # Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
 
@@ -46,6 +46,7 @@ az extension add --upgrade --yes --name k8s-extension
 az extension add --upgrade --yes --name customlocation
 az provider register --namespace Microsoft.ExtendedLocation --wait
 az provider register --namespace Microsoft.Web --wait
+az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az extension remove --name appservice-kube
 az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
 ```
@@ -153,7 +154,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --release-train stable \
         --auto-upgrade-minor-version true \
         --scope cluster \
-        --release-namespace '${namespace}' \
+        --release-namespace "${namespace}" \
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${namespace}" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
