@@ -80,5 +80,5 @@ The final test we'll walk through is testing [error handling](https://touchstone
 
 ## Next steps
 
-In this tutorial, we walked through how to pass the Carin IG for Blue Button tests in Touchstone. Next, you can review how to rest the Da Vinci formulary tests.       
+In this tutorial, we walked through how to pass the Carin IG for Blue Button tests in Touchstone. Next, you can review how to test the Da Vinci formulary tests.       
  
