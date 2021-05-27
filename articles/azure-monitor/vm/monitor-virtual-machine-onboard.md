@@ -59,7 +59,6 @@ Multihoming refers to a virtual machine that connects to multiple workspaces. Th
 
 One reason for multihoming is an environment with Azure Security Center or Azure Sentinel stored in a separate workspace than Azure Monitor. A machine being monitored by each service would need to send data to each workspace. The Windows agent can send to up to four workspaces, so that’s not a problem. The Linux agent though can only send to a single workspace. So that would mean that if you wanted to use both Azure Monitor and Azure Security Center or Azure Sentinel with a single Linux VM, the services would need to share the same workspace.
 
-:::image type="content" source="" alt-text="Multihomed agent":::
 
 ### Prepare the workspace for VM insights
 You must prepare each workspace for VM insights. This only needs to be performed once for each workspace and installs required solutions that support data collection. 
