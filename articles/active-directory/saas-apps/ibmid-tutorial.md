@@ -77,18 +77,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Identifier |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20` |
-    | `https://ibmlogin.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
-    | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20` |
+    | `https://login.ibm.com/idaas/mtfim/sps/idaas/saml20` |
     |
 
     a. In the **Reply URL** text box, type one of the following URLs:
 
     | Reply URL |
     | ---------- |
-    | `https://idaas.iam.ibm.com/idaas/mtfim/sps/idaas/saml20/login` |
     | `https://login.ibm.com/saml/sps/saml20sp/saml20/login` |
-    | `https://prepiam.ice.ibmcloud.com/saml/sps/saml20sp/saml20/login` |
     |
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
@@ -110,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| country | user.country |
 	| firstName | user.givenname |
 	| lastName | user.surname |
-    | emailAddress | user.mail |
+        | emailAddress | user.mail |
 
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
