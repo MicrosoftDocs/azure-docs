@@ -192,9 +192,9 @@ An [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) is a 
 
 <a name="disabled-apps"></a>
 
-## Disabled logic apps
+## Disabled logic apps or workflows
 
-Disabled logic apps aren't charged because they can't create new instances while they're disabled. After you disable a logic app, any currently running instances might take some time before they completely stop.
+Disabled logic apps (multi-tenant) or workflows (single-tenant) aren't charged because they can't create new instances while they're disabled.
 
 ## Next steps
 
