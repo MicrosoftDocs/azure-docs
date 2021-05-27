@@ -22,19 +22,25 @@ Resource Manager provides the following functions for getting scope values in yo
 
 Returns an object used for setting the scope to a management group.
 
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| name |No |string |The unique identifier for the management group to deploy to. Don't use the display name for the management group. If you don't provide a value, the current management group is returned. |
+
 ### Return value
 
-An object used for setting the `scope` property on a [module](modules.md) or [extension resource type](scope-extension-resources.md).
+An object used for setting the `scope` property on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md).
 
 ### Remarks
 
 `managementGroup()` can only be used on a [management group deployments](deploy-to-management-group.md). It returns the current management group for the deployment operation.
 
-`managementGroup(name)` can be used for any deployment scope. Provide the unique identifier, not display name, for the management group to deploy to.
+`managementGroup(name)` can be used for any deployment scope.
 
 ### Management group example
 
-The following example scopes a module to a management group.
+The following example sets the scope for a module to a management group.
 
 ```bicep
 param managementGroupName string
@@ -49,7 +55,30 @@ module  'module.bicep' = {
 
 `resourceGroup()`
 
+`resourceGroup(resourceGroupName)`
+
+`resourceGroup(subscriptionId, resourceGroupName)`
+
+Returns an object used for setting the scope to a resource group.
+
+Or
+
 Returns an object that represents the current resource group.
+
+### Remarks
+
+The resourceGroup function has two distinct uses. One usage is for setting the scope on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md). The other usage is for getting details about the current resource group. The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
+
+`resourceGroup()` can be used for either setting scope or getting details about the resource group. It's only available for resource group deployments.
+
+`resourceGroup(resourceGroupName)` and `resourceGroup(subscriptionId, resourceGroupName)` can only be used for setting scope. They can be used for resource group or subscription deployments.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| resourceGroupName |No |string | The name of the resource group to deploy to. If you don't provide a value, the current resource group is returned. |
+| subscriptionId |No |string |The unique identifier for the subscription to deploy to. If you don't provide a value, the current subscription is returned. |
 
 ### Return value
 
@@ -72,27 +101,26 @@ The returned object is in the following format:
 
 The **managedBy** property is returned only for resource groups that contain resources that are managed by another service. For Managed Applications, Databricks, and AKS, the value of the property is the resource ID of the managing resource.
 
-### Remarks
-
-The `resourceGroup()` function can't be used in a Bicep file that is [deployed at the subscription level](./deploy-to-subscription.md). It can only be used in Bicep files that are deployed to a resource group.
-
-A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location for a default parameter value.
-
-```bicep
-param location string = resourceGroup().location
-```
-
-You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
-
 ### Resource group example
 
-The following example returns the properties of the resource group.
+The following example scopes a module to a resource group.
+
+```bicep
+param resourceGroupName string
+
+module exampleModule 'module.bicep' = {
+  name: 'exampleModule'
+  scope: resourceGroup(resourceGroupName)
+}
+```
+
+The next example returns the properties of the resource group.
 
 ```bicep
 output resourceGroupOutput object = resourceGroup()
 ```
 
-The preceding example returns an object in the following format:
+It returns an object in the following format:
 
 ```json
 {
@@ -106,6 +134,13 @@ The preceding example returns an object in the following format:
 }
 ```
 
+A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location for a default parameter value.
+
+```bicep
+param location string = resourceGroup().location
+```
+
+You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
 
 ## subscription
 
@@ -121,17 +156,23 @@ Returns details about the subscription for the current deployment.
 
 ### Remarks
 
-The subscription function has two distinct uses. One usage is for setting the scope on a module or extension resource type. The other usage is for getting details about the current subscription.
+The subscription function has two distinct uses. One usage is for setting the scope on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md). The other usage is for getting details about the current subscription. The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
 
-The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
+`subscription(subscriptionId)` can only be used for setting scope.
 
-`subscription()` and `subscription(subscriptionId)` can be used to set scope. They can be used only on deployments scoped to a subscription or resource group.
+`subscription()` can be used for setting scope or getting details about the subscription.
 
-`subscription()` can be used for getting details about the subscription.
+The subscription function is only available for deployments scoped to a subscription or resource group.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId |No |string |The unique identifier for the subscription to deploy to. If you don't provide a value, the current subscription is returned. |
 
 ### Return value
 
-When used for setting scope, the function returns an object that is valid for the `scope` property on a [module](modules.md) or [extension resource type](scope-extension-resources.md).
+When used for setting scope, the function returns an object that is valid for the `scope` property on a module or extension resource type.
 
 When used for getting details about the subscription, the function returns the following format:
 
@@ -169,7 +210,7 @@ Returns an object used for setting the scope to the tenant.
 
 ### Return value
 
-An object used for setting the `scope` property on a [module](modules.md) or [extension resource type](scope-extension-resources.md).
+An object used for setting the `scope` property on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md).
 
 ### Remarks
 
@@ -188,5 +229,9 @@ module exampleModule 'module.bicep' = {
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+To learn more about deployment scopes, see:
 
+* [Resource group deployments](deploy-to-resource-group.md)
+* [Subscription deployments](deploy-to-subscription.md)
+* [Management group deployments](deploy-to-management-group.md)
+* [Tenant deployments](deploy-to-tenant.md)
