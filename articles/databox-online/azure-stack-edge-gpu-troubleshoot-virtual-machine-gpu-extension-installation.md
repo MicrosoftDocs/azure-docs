@@ -84,4 +84,4 @@ For installation steps, see [Install GPU extension](azure-stack-edge-gpu-deploy-
 
 ## Next steps
 
-- [Collect guest logs for VMs on an Azure Stack Edge Pro device](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
+- [Collect guest logs, and create a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)

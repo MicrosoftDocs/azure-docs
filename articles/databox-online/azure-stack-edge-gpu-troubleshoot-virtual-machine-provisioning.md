@@ -99,7 +99,7 @@ To verify that the default gateway and DNS server can be reached, do the followi
 
 For help resolving `cloud init` issues, see [Troubleshooting VM provisioning with cloud-init](/azure/virtual-machines/linux/cloud-init-troubleshooting). Keep in mind that only Gen1 virtual machines are supported on Azure Stack Edge Pro GPU devices. The `cloud init` troubleshooting covers issues for both Gen1 and Gen2 virtual machines. 
 
-*05/27: Niharika and Rajesh: For now, I qualified the existing troubleshooting reference so they have access to some troubleshooting info for cloud init. I'll substitute/add the new info when you provide a more targeted resolution. Are there specific sections of the cloud init troubleshooting we can link to?*
+*05/27: Niharika and Rajesh: To be replaced by more targeted troubleshooting (with no extraneous issues for Gen2 VMs, etc). Niharika and Rajesh to provide. For now, I qualified the existing troubleshooting reference so they have access to some troubleshooting info for cloud init.*
 
 ### Provisioning flags set incorrectly (Linux VMs)
 
@@ -114,7 +114,7 @@ For help resolving `cloud init` issues, see [Troubleshooting VM provisioning wit
 
 
 ### Contact Support for these log entries
-*I will change the subsection title to the error description when it's available.*
+*05/27: I will change the subsection title to the error description when it's available.*
 
 **Error description:** If you see one the errors highlighted (in bold) in the log for a Windows or Linux VM, *Product team to provide error explanation*. 
 
@@ -139,7 +139,7 @@ Error entries:
 
 ![Log entries for a Linux VM that require a Support call](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-03.png) 
 
-**Suggested resolution:** [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for help. For steps to collect the guest logs and include them in a Support package, see [Collect guest logs on VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
+**Suggested resolution:** [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md) for help. For steps to collect the guest logs in a Support package, see [Collect guest logs for VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
 
 ##	Network interface creation issues
 
@@ -175,7 +175,7 @@ This section covers common issues that occur during VM creation.
 
 The memory available for the deployment of a VM is constrained by several factors:
 
-- The amount of available memory on the device. For more information, see compute and memory specifications in [Azure Stack Edge Pro GPU technical specifications](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) and [Azure Stack Edge Mini R technical specifications].(azure-stack-edge-mini-r-technical-specifications-compliance.md#compute-memory).
+- The amount of available memory on the device. For more information, see compute and memory specifications in [Azure Stack Edge Pro GPU technical specifications](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) and [Azure Stack Edge Mini R technical specifications](azure-stack-edge-mini-r-technical-specifications-compliance.md#compute-memory).
 
 - If Kubernetes is enabled, the compute memory required for Kubernetes and apps on the Kubernetes cluster.
 - The overhead for each virtual machine in Hyper-V.
@@ -188,7 +188,6 @@ The memory available for the deployment of a VM is constrained by several factor
 
 
 ### Insufficient number of GPUs to create GPU VM
-*Note to reviewers: Section updated 05/26 a.m.*
 
 If you try to deploy a VM on a GPU device that already has Kubernetes enabled, no GPUs will be available, and VM provisioning will fail with the following error:
 
@@ -197,7 +196,7 @@ If you try to deploy a VM on a GPU device that already has Kubernetes enabled, n
 **Possible causes:**
 If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs, and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of available GPUs. Your Azure Stack Edge device can be equipped with 1 or 2 GPUs.
 
-**Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](/azure-stack-edge-gpu-deploy-gpu-virtual-machine?tabs=windows#gpu-vms-and-kubernetes).
+**Suggested solution:** For VM deployment options on a 1-GPU or 2-GPU device with Kubernetes configured, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#gpu-vms-and-kubernetes).
 
 
 ## Next steps
