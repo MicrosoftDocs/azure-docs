@@ -58,8 +58,9 @@ Azure Disk Backup is available in all public cloud regions, expect France South,
 
 - Azure Disk Backup limits are:
     
-    | <span style="font-weight:normal">Number of Backup Policies per Backup Vault</span> | <span style="font-weight:normal">5000</span> |
+    | Setting | Maximum limit |
     | --- | --- |
+    | Number of Backup Policies per Backup Vault | 5000 |
     | Number of Backup Instances per Backup Vault | 5000 |
     | Number of on-demand backups allowed in a day per backup instance | 10 |
     | Number of restores allowed in a day per backup instance | 10 |
