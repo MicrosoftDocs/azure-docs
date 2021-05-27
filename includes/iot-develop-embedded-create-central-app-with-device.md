@@ -31,7 +31,7 @@ To create a new application:
     After IoT Central provisions the application, it redirects you automatically to the new application dashboard.
 
     > [!NOTE]
-    > If you have an existing IoT Central application, you can use it to complete the steps in this article rather than create a new application.
+    > If you have an existing IoT Central application, you can use it to complete the steps in this article rather than create a new application. In this case, we recommend that you either create a new device or delete and recreate the device if you want to use an existing device ID.
 
 ### Create a new device
 
