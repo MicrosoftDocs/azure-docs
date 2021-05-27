@@ -1,10 +1,8 @@
 ---
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
-author: mumian
-ms.date: 04/12/2021
+ms.date: 06/01/2021
 ms.topic: quickstart
-ms.author: jgao
 ms.custom: devx-track-azurepowershell
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files, so I can use them to deploy Azure resources.
@@ -13,95 +11,160 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
-The Bicep extension for Visual Studio Code provides language support and resource autocompletion. These tools help create and validate [Bicep](./overview.md) files. In this quickstart, you use the extension to create a Bicep file from scratch. While doing so you experience the extensions capabilities such as validation, and completions.
+This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio Code. You'll see how an extension simplifies development by providing type safety, syntax validation, and autocompletion.
 
-To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also need either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
+## Prerequisites
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create a Bicep file
+To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). You also have either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
-Create and open with Visual Studio Code a new file named *azuredeploy.bicep*.
+## Add parameter
 
-## Add an Azure resource
+Launch Visual Studio Code and create a new file named *main.bicep*.
 
-Add a basic storage account resource to the bicep file.
+Let's start with something simple. We'll add a parameter. In *main.bicep*, type:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: 'storageaccount1' // must be globally unique
-  location: 'eastus'
-  tags:{
-    diplayName: 'storageaccount1'
-  }
-  sku: {
-      name: 'Standard_LRS'
-      tier: 'Standard'
-  }
-  kind: 'Storage'
-}
+param storageName
 ```
 
-The resource declaration has four components:
+When you add a space after **storageName**, notice that intellisense offers the data types that are available for the parameter. 
 
-- **resource**: Keyword.
-- **symbolic name** (stg): Symbolic name is an identifier for referencing the resource throughout your bicep file. It is not what the name of the resource will be when it's deployed. The name of the resource is defined by the **name** property.  See the fourth component in this list.
-- **resource type** (Microsoft.Storage/storageAccounts@2019-06-01): It is composed of the resource provider (Microsoft.Storage), resource type (storageAccounts), and apiVersion (2019-06-01). Each resource provider publishes its own API versions, so this value is specific to the type. You can find more types and apiVersions for various Azure resources from [ARM template reference](/azure/templates/).
-- **properties** (everything inside = {...}): Specify the properties for the resource type. Every resource has a `name` property. Most resources also have a `location` property, which sets the region where the resource is deployed. The other properties vary by resource type and API version.
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-param.png" alt-text="Add string type to parameter":::
 
-For more information, see [Bicep structure](./file.md).
+Select **string** and Tab or Enter.
 
-There is a comment for the name property.  Use `//` for single-line comments or `/* ... */` for multi-line comments
+You have the following parameter:
 
-## Completion and validation
+```bicep
+param storageName string
+```
 
-One of the most powerful capabilities of the extension is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action.
+This parameter works fine, but storage accounts have limits on the length of the name. The name must have at least 3 characters and no more than 24 characters. You can specify those requirements by adding decorators to the parameter. 
 
-First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this action produces a warning indicating that `megaStorage` is not a valid value.
+Add a line above the parameter, and type **@**. You see the available decorators. Notice there are decorators for both **minLength** and **maxLength**.
 
-![Image showing an invalid storage configuration](./media/quickstart-create-bicep-use-visual-studio-code/azure-resource-manager-template-bicep-visual-studio-code-validation.png)
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-decorators.png" alt-text="Add decorators to parameter":::
 
-To use the completion capabilities, remove `megaStorage`, place the cursor inside of the single quotes, and press `ctrl` + `space`. This action presents a completion list of valid values.
-
-![Image showing extension auto-completion](./media/quickstart-create-bicep-use-visual-studio-code/azure-resource-manager-template-bicep-visual-studio-code-auto-completion.png)
-
-## Add parameters
-
-Now create and use a parameter to specify the storage account name.
-
-Add the following code to the beginning of the file:
+Add both decorators and specify the character limits, as shown below:
 
 ```bicep
 @minLength(3)
 @maxLength(24)
-@description('Specify a storage account name.')
-param storageAccountName string
+param storageName string
 ```
 
-Azure storage account names have a minimum length of 3 characters and a maximum of 24. Use `minLength` and `maxLength` to provide appropriate values.
+You can also add a description for the parameter. Include information that helps people deploying the Bicep file understand the value to provide. 
 
-Now, on the storage resource, update the name property to use the parameter. To do so, remove the current storage resource name including the single quotes. press `ctrl` + `space`. Select the **storageAccountName** parameter from the list. Notice the parameters can be referenced directly by using their names in Bicep. The JSON templates require a parameter() function.
+```bicep
+@minLength(3)
+@maxLength(24)
+@description('Provide a name for the storage account. Use only lower case letters and numbers. The name must be unique across Azure.')
+param storageName string
+```
 
-![Image showing auto-completion when using parameters in Bicep resources](./media/quickstart-create-bicep-use-visual-studio-code/azure-resource-manager-template-bicep-visual-studio-code-valid-param.png)
+Okay, your parameter is ready to use.
+
+## Add an Azure resource
+
+Now, we'll add a storage account. Intellisense makes this step much easier than having to manually type all of the values. 
+
+You define a resource with the `resource` keyword.  Below your parameter, type **resource exampleStorageAccount**:
+
+```bicep
+@minLength(3)
+@maxLength(24)
+@description('Provide a name for the storage account. Use only lower case letters and numbers. The name must be unique across Azure.')
+param storageName string
+
+resource exampleStorageAccount
+```
+
+**exampleStorageAccount** is a symbolic name for the resource you're deploying. It makes it easy to reference the resource in other parts of your Bicep file.
+
+When you add a space after the symbolic name, a list of resource types is displayed. Continue typing **storage** until you can select it from the available options.
+
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-resource-type.png" alt-text="Select storage accounts for resource type":::
+
+After selecting **Microsoft.Storage/storageAccounts**, you're presented with the available API versions. Select the latest version.
+
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-api-version.png" alt-text="Select API version for resource type":::
+
+You have the following syntax in your file, but you're not done defining the resource.
+
+```bicep
+@minLength(3)
+@maxLength(24)
+@description('Provide a name for the storage account. Use only lower case letters and numbers. The name must be unique across Azure.')
+param storageName string
+
+resource exampleStorageAccount 'Microsoft.Storage/storageAccounts@2021-02-01'
+```
+
+After the single quote for the resource type, add **=** and a space. You're presented with options for adding properties to the resource. Select **required-properties**.
+
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-required-properties.png" alt-text="Add required properties":::
+
+This option adds all of the properties for the resource type that are required for deployment. After selecting this option, you have:
+
+```bicep
+@minLength(3)
+@maxLength(24)
+@description('Provide a name for the storage account. Use only lower case letters and numbers. The name must be unique across Azure.')
+param storageName string
+
+resource exampleStorageAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 
+  location: 
+  sku: {
+    name: 
+  }
+  kind: 
+  
+}
+```
+
+You're almost done. Just provide values for those properties. 
+
+Again, intellisense helps you. For `name`, provide the parameter that contains a name for the storage account. For `location`, set it to `eastus`. When adding SKU name and kind, intellisense presents the valid options. When you've finished, you have:
+
+```bicep
+@minLength(3)
+@maxLength(24)
+@description('Provide a name for the storage account. Use only lower case letters and numbers. The name must be unique across Azure.')
+param storageName string
+
+resource exampleStorageAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: storageName
+  location: 'eastus'
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+}
+```
+
+For more information about the Bicep syntax, see [Bicep structure](./file.md).
 
 ## Deploy the Bicep file
 
-Open the integrated Visual Studio Code terminal using the `ctrl` + ```` ` ```` key combination, change the current directory to where the Bicep file is located, and then use either the Azure CLI or Azure PowerShell module to deploy the Bicep file.
+To deploy the file you've created, open PowerShell or Azure CLI. If you want to use the integrated Visual Studio Code terminal, select the `ctrl` + ```` ` ```` key combination. Change the current directory to where the Bicep file is located. 
 
 # [CLI](#tab/CLI)
 
 ```azurecli
-az group create --name arm-vscode --location eastus
+az group create --name exampleRG --location eastus
 
-az deployment group create --resource-group arm-vscode --template-file azuredeploy.bicep --parameters storageAccountName={your-unique-name}
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters storageName={your-unique-name}
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
-New-AzResourceGroup -Name arm-vscode -Location eastus
+New-AzResourceGroup -Name exampleRG -Location eastus
 
-New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.bicep -storageAccountName "{your-unique-name}"
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -storageName "{your-unique-name}"
 ```
 
 ---
@@ -113,13 +176,13 @@ When the Azure resources are no longer needed, use the Azure CLI or Azure PowerS
 # [CLI](#tab/CLI)
 
 ```azurecli
-az group delete --name arm-vscode
+az group delete --name exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name arm-vscode
+Remove-AzResourceGroup -Name exampleRG
 ```
 
 ---
