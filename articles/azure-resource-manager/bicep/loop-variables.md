@@ -16,7 +16,7 @@ You can also use copy with [resources](loop-resources.md), [properties in a reso
 
 ## Syntax
 
-Loops can be used to declare multiple properties by:
+Loops can be used to declare multiple variables by:
 
 - Iterating over an array.
 

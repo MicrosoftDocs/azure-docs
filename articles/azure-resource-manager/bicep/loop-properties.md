@@ -50,81 +50,39 @@ The Bicep file's loop iterations can't be a negative number or exceed 800 iterat
 
 ## Property iteration
 
-The following example shows how to apply a loop to the `dataDisks` property on a virtual machine:
+This example iterates through an array for the `subnets` property to create two subnets within a virtual network.
 
 ```bicep
-@minValue(0)
-@maxValue(16)
-@description('The number of dataDisks to be returned in the output array.')
-param numberOfDataDisks int = 16
+param rgLocation string = resourceGroup().location
 
-resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-  properties: {
-    storageProfile: {
-      ...
-      dataDisks: [for i in range(0, numberOfDataDisks): {
-        lun: i
-        createOption: 'Empty'
-        diskSizeGB: 1023
-      }]
-    }
-    ...
+var subnets = [
+  {
+    name: 'api'
+    subnetPrefix: '10.144.0.0/24'
   }
-}
-```
+  {
+    name: 'worker'
+    subnetPrefix: '10.144.1.0/24'
+  }
+]
 
-The `lun` property uses the range iterator `i` to create logical unit numbers (LUN) from 0-15.
-
-The deployed template becomes:
-
-```json
-{
-  "name": "examplevm",
-  "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2020-06-01",
-  "properties": {
-    "storageProfile": {
-      "dataDisks": [
-        {
-          "lun": 0,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        },
-        {
-          "lun": 1,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        },
-        {
-          "lun": 2,
-          "createOption": "Empty",
-          "diskSizeGB": 1023
-        }
-      ],
-      ...
-```
-
-You can use resource and property iteration together. Reference the property iteration by name.
-
-```bicep
-resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for i in range(0, 2): {
-  name: concat(vnetname, i)
-  location: resourceGroup().location
+resource vnet 'Microsoft.Network/virtualNetworks@2020-07-01' = {
+  name: 'vnet'
+  location: rgLocation
   properties: {
     addressSpace: {
       addressPrefixes: [
-        addressPrefix
+        '10.144.0.0/20'
       ]
     }
-    subnets: [for j in range(0, 2): {
-      name: 'subnet-${j}'
+    subnets: [for subnet in subnets: {
+      name: subnet.name
       properties: {
-        addressPrefix: subnetAddressPrefix[j]
+        addressPrefix: subnet.subnetPrefix
       }
     }]
   }
-}]
+}
 ```
 
 ## Next steps
