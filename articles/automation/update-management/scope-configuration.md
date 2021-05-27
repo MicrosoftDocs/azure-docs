@@ -46,7 +46,6 @@ To limit the scope for your Update Management deployment:
 
 8. On the **Edit scope configuration** page, click **OK** to save your changes.
 
-## Remove machine from 
 ## Next steps
 
 You can [query Azure Monitor logs](query-logs.md) to analyze update assessments, deployments, and other related management tasks. It includes pre-defined queries to help you get started.

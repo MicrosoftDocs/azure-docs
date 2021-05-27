@@ -34,6 +34,17 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 7. In the query editor, review the query and find the UUID for the VM. Remove the UUID for the VM and repeat the steps for any other VMs you want to remove.
 
+   > [!NOTE]
+   > For added protection, before making edits be sure to make a copy of the query. Then you can restore it if a problem occurs.
+
+   If you want to start with the original query and manually add machines to support your cleanup or maintenance effort, copy the following query:
+
+   ```kusto
+   Heartbeat
+   | where Computer in~ ("") or VMUUID in~ ("")
+   | distinct Computer
+   ```
+
 8. Save the saved search when you're finished editing it by selecting **Save > Save as function** from the top bar. When prompted, specify the following:
 
     * **Name**: Updates__MicrosoftDefaultComputerGroup
