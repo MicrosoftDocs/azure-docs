@@ -134,25 +134,23 @@ In contrast with other parameters, searchFields is not new. You might already be
 
 ##### Allowed data types
 
-When setting searchFields, choose only fields of the following data types.
+When setting searchFields, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
 
-| Data type | Example |
-|-----------|----------|
+| Data type | Example from hotels-sample-index |
+|-----------|----------------------------------|
 | Edm.String | HotelName, Category, Description |
 | Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
 | Collection(Edm.String) | Tags (a comma-delimited list of strings) |
 
-If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
-
 ##### Order of fields in searchFields
 
-Field order is critical because it determines the order in which fields are processed, where the values are subject to a maximum string length.
+Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Pre-processing during semantic ranking](semantic-ranking.md#pre-processing).
 
 + For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
 
 + For two or more fields:
 
-  + First field should always be concise (such as a title or name), ideally under 25 words.
+  + The first field should always be concise (such as a title or name), ideally under 25 words.
 
   + If the index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details`, and not machine focused such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
 
