@@ -132,7 +132,7 @@ The Indoor Maps module also supports dynamic map styling. For a step-by-step wal
 
 ### Azure Maps integration
 
-As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Azure Maps Geofence API](/rest/api/maps/spatial/postgeofence) with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas. For more information about how to connect Azure Maps with IoT telemetry, see [this IoT spatial analytics tutorial] (tutorial-iot-hub-maps.md).
+As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, you can implement asset tracking or safety scenarios by using the [Azure Maps Geofence API](/rest/api/maps/spatial/postgeofence) with Creator indoor maps. For example, you can use the Geofence API to determine whether a worker enters or leaves specific indoor areas. For more information about how to connect Azure Maps with IoT telemetry, see [this IoT spatial analytics tutorial](tutorial-iot-hub-maps.md).
 
 ### Data maintenance
 
