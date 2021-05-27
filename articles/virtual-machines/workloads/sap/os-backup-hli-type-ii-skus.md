@@ -50,7 +50,7 @@ To perform a manual backup:
 
    The following screen show shows the sample manual backup:
    
-    [![dump capture](media/HowToHLI/OSBackupTypeIISKUs/dump-capture.PNG)](media/HowToHLI/OSBackupTypeIISKUs/dump-capture.PNG#lightbox)
+    [![dump capture](media/HowToHLI/OSBackupTypeIISKUs/dump-capture.png)](media/HowToHLI/OSBackupTypeIISKUs/dump-capture.png#lightbox)
 
 
 3. Important: Save a copy of backup in NFS volumes as well, in the scenario where data1 partition also gets corrupted.
@@ -90,7 +90,7 @@ To perform a manual backup:
    ```
    xfsrestore -f /mnt1/xfs_dump /mnt2
    ```
-   [![restore screenshot](media/HowToHLI/OSBackupTypeIISKUs/restore-screenshot.PNG)](media/HowToHLI/OSBackupTypeIISKUs/restore-screenshot.PNG#lightbox)
+   [![restore screenshot](media/HowToHLI/OSBackupTypeIISKUs/restore-screenshot.png)](media/HowToHLI/OSBackupTypeIISKUs/restore-screenshot.png#lightbox)
 6. Reboot the system.
    ```
    reboot
@@ -107,7 +107,7 @@ If any post checks fail, please engage the OS vendor and Microsoft for console a
    ```
    mdadm -D /dev/md126
    ```
-   [![raid status](media/HowToHLI/OSBackupTypeIISKUs/raid-status.PNG)](media/HowToHLI/OSBackupTypeIISKUs/raid-status.PNG#lightbox)
+   [![raid status](media/HowToHLI/OSBackupTypeIISKUs/raid-status.png)](media/HowToHLI/OSBackupTypeIISKUs/raid-status.png#lightbox)
 
 3. Ensure that RAID disks are synced and the configuration is in a clean state.
    * RAID disks take sometime in syncing; sync may continue for a few minutes before it is 100% synced.
@@ -118,6 +118,6 @@ If any post checks fail, please engage the OS vendor and Microsoft for console a
    ```
    hdbinfo
    ```
-   [![hana status](media/HowToHLI/OSBackupTypeIISKUs/hana-status.PNG)](media/HowToHLI/OSBackupTypeIISKUs/hana-status.PNG#lightbox)
+   [![hana status](media/HowToHLI/OSBackupTypeIISKUs/hana-status.png)](media/HowToHLI/OSBackupTypeIISKUs/hana-status.png#lightbox)
 
 6. If any post checks fail, please engage OS vendor and Microsoft for console access.
