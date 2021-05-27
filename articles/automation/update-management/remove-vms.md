@@ -28,7 +28,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 4. In your Log Analytics workspace, select **Computer Groups** from the left-hand menu.
 
-5. From **Computer Groups** in the right-hand pane, the **Saved groups** tab is shown by default..
+5. From **Computer Groups** in the right-hand pane, the **Saved groups** tab is shown by default.
 
 6. From the table, click the icon **Run query** to the right of the item **MicrosoftDefaultComputerGroup** with the **Legacy category** value **Updates**.
 
