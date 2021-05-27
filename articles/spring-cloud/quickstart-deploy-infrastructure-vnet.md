@@ -10,7 +10,7 @@ ms.author: rhudson
 ms.date: 05/23/2021
 ---
 
-# Quickstart: Deploy an Azure Spring Cloud Cluster into an existing Virtual Network by using an ARM Template
+# Quickstart: Provision Azure Spring Cloud using an ARM template
 
 
 
