@@ -98,7 +98,7 @@ In this quickstart, you created an Azure Spring Cloud instance into an existing 
 - Deploy one of the following sample applications from the locations below:
     * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (Microservices with MySQL backend).
     * [Simple Hello World](/azure/spring-cloud/spring-cloud-quickstart?tabs=Azure-CLI&pivots=programming-language-java).
-- Use [custom domains](/azure/spring-cloud/tutorial-custom-domain) with Azure Spring Cloud.
+- Use [custom domains](tutorial-custom-domain.md) with Azure Spring Cloud.
 - Expose Azure Spring Cloud applications to the internet using [Azure Application Gateway](/azure/spring-cloud/expose-apps-gateway-azure-firewall).
 - View a secure end-to-end [Reference Architecture](/azure/spring-cloud/reference-architecture) for Azure Spring Cloud that is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
