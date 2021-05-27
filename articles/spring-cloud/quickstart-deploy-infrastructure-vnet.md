@@ -93,7 +93,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Azure Spring Cloud instance into an existing Virtual Network using an ARM template and validated the deployment. To learn more about Azure Spring Cloud and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you deployed an Azure Spring Cloud instance into an existing virtual network using an ARM template, and then validated the deployment. To learn more about Azure Spring Cloud and Azure Resource Manager, continue on to the resources below.
 
 - Deploy one of the following sample applications from the locations below:
    * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (Microservices with MySQL backend).
