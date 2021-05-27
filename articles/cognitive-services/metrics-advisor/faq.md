@@ -90,11 +90,11 @@ Note that these queries only return data at a single timestamp, and contain all 
 ### How do I detect spikes & dips as anomalies?
 
 If you have hard thresholds predefined, you could actually manually set "hard threshold" in [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods).
-If there's no thresholds, you could use "smart detection" which is powered by AI. Please refer to [tune the detecting configuration](how-tos/configure-metrics.md#tune-the-detecting-configuration) for details.
+If there's no thresholds, you could use "smart detection" which is powered by AI. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detecting-configuration) for details.
 
 ### How do I detect inconformity with regular (seasonal) patterns as anomalies?
 
-"Smart detection" is able to learn the pattern of your data including seasonal patterns. It then detects those data points that don't conform to the regular patterns as anomalies. Please refer to [tune the detecting configuration](how-tos/configure-metrics.md#tune-the-detecting-configuration) for details.
+"Smart detection" is able to learn the pattern of your data including seasonal patterns. It then detects those data points that don't conform to the regular patterns as anomalies. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detecting-configuration) for details.
 
 ### How do I detect flat lines as anomalies?
 
@@ -117,7 +117,7 @@ Please refer to [anomaly detection configurations](how-tos/configure-metrics.md#
 
 ## Advanced concepts
 
-### How does Metric Advisor build an incident tree for multi-dimensional metrics?
+### How does Metric Advisor build an "Diagnostic tree" for multi-dimensional metrics?
 
 A metric can be split into multiple time series by dimensions. For example, the metric `Response latency` is monitored for all services owned by the team. The `Service` category could be used as a dimension to enrich the metric, so we get `Response latency` split by `Service1`, `Service2`, and so on. Each service could be deployed on different machines in multiple data centers, so the metric could be further split by `Machine` and `Data center`.
 
@@ -143,9 +143,9 @@ In theory, if the dimension `Service` has `Ls` distinct values, dimension `Data 
 
 But usually not all dimension combinations are valid, which can significantly reduce the complexity. Currently if users aggregate the metric themselves, we don't limit the number of dimensions. If you need to use the rollup functionality provided by Metrics Advisor, the number of dimensions shouldn't be more than 6. However, we limit the number of time series expanded by dimensions for a metric to less than 10,000.
 
-The **Incident tree** tool in the diagnostics page only shows nodes where an anomaly has been detected, rather than the whole topology. This is to help you focus on the current issue. It also may not show all anomalies within the metric, and instead will display the top anomalies based on contribution. In this way, we can quickly find out the impact, scope, and the spread path of the abnormal data. Which significantly reduces the number of anomalies we need to focus on, and helps users to understand and locate their key issues. 
+The **Diagnostic tree** tool in the diagnostics page only shows nodes where an anomaly has been detected, rather than the whole topology. This is to help you focus on the current issue. It also may not show all anomalies within the metric, and instead will display the top anomalies based on contribution. In this way, we can quickly find out the impact, scope, and the spread path of the abnormal data. Which significantly reduces the number of anomalies we need to focus on, and helps users to understand and locate their key issues. 
  
-For example, when an anomaly occurs on `Service = S2 | Data Center = DC2 | Machine = M5`, the deviation of the anomaly impacts the parent node `Service= S2` which also has detected the anomaly, but the anomaly doesn't affect the entire data center at `DC2` and all services on `M5`. The incident tree would be built as in the below screenshot, the top anomaly is captured on `Service = S2`, and root cause could be analyzed in two paths which both lead to `Service = S2 | Data Center = DC2 | Machine = M5`.
+For example, when an anomaly occurs on `Service = S2 | Data Center = DC2 | Machine = M5`, the deviation of the anomaly impacts the parent node `Service= S2` which also has detected the anomaly, but the anomaly doesn't affect the entire data center at `DC2` and all services on `M5`. The diagnostic tree would be built as in the below screenshot, the top anomaly is captured on `Service = S2`, and root cause could be analyzed in two paths which both lead to `Service = S2 | Data Center = DC2 | Machine = M5`.
 
  :::image type="content" source="media/root-cause-paths.png" alt-text="5 labeled vertices with two distinct paths connected by edges with a common node labeled S2. The top anomaly is captured on Service = S2, and root cause can be analyzed by the two paths which both lead to Service = S2 | Data Center = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
 

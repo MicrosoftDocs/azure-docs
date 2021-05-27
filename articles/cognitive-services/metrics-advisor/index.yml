@@ -41,12 +41,12 @@ landingContent:
           url: data-feeds-from-different-sources.md
         - text: Manage data feeds
           url: how-tos/manage-data-feeds.md
-        - text: Configure metrics and fine tune detecting configuration
+        - text: Configure metrics and fine tune detection configuration
           url: how-tos/configure-metrics.md
         - text: Configure alerts and get notifications using a hook
           url: how-tos/alerts.md
         - text: Diagnose an incident
-          url: how-tos/diagnose-incident.md
+          url: how-tos/diagnose-an-incident.md
         - text: Adjust anomaly detection using feedback
           url: how-tos/anomaly-feedback.md
         - text: Build a metrics graph

@@ -103,7 +103,7 @@ Action link templates are used to predefine actionable HTTP urls, which consist 
 
 :::image type="content" source="../media/action-link-template.png" alt-text="Action link template" lightbox="../media/action-link-template.png":::
 
-Once you've filled in the action link, click **Go to action link** on the incident list's action option, and incident tree's right-click menu. Replace the placeholders in the action link template with the corresponding values of the anomaly or incident.
+Once you've filled in the action link, click **Go to action link** on the incident list's action option, and diagnostic tree's right-click menu. Replace the placeholders in the action link template with the corresponding values of the anomaly or incident.
 
 | Placeholder | Examples | Comment |
 | ---------- | -------- | ------- |
@@ -137,6 +137,6 @@ To configure an alert, you need to [create a hook](alerts.md#create-a-hook) firs
 * **Auto snooze**: When this option is set to zero, each timestamp with *Not Available* triggers an alert. When a setting other than zero is specified, continuous timestamps after the first timestamp with *not available* are not triggered according to the the setting specified.
 
 ## Next steps
-- [Configure metrics and fine tune detecting configuration](configure-metrics.md)
+- [Configure metrics and fine tune detection configuration](configure-metrics.md)
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose an incident](diagnose-incident.md).
+- [Diagnose an incident](diagnose-an-incident.md).

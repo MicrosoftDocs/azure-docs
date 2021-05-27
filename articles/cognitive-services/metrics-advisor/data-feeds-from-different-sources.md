@@ -261,4 +261,4 @@ You can use the `@StartTime` in your query. `@StartTime` is replaced with a yyyy
 ## Next steps
 
 * While waiting for your metric data to be ingested into the system, read about [how to manage data feed configurations](how-tos/manage-data-feeds.md).
-* When your metric data is ingested, you can [Configure metrics and fine tune detecting configuration](how-tos/configure-metrics.md).
+* When your metric data is ingested, you can [Configure metrics and fine tune detection configuration](how-tos/configure-metrics.md).
