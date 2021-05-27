@@ -60,7 +60,7 @@ To upload the Drawing package:
 8. Enter the following URL to the [Data Upload API](/rest/api/maps/data%20v2/uploadpreview):
 
     ```http
-    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=dwgzippackage&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     >[!Important]
