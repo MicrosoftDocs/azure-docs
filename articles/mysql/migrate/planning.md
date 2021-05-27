@@ -1,21 +1,21 @@
 ---
-title: "planning"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Planning"
 description: "an azure landing zone is the target environment defined as the final resting place of a cloud migration project."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
+author: arunkumarthiags 
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/25/2021
 ---
 
-# Planning
+# MySQL on-premises to Azure Database for MySQL migration guide Planning
 
 ### Landing Zone
 
-An [Azure Landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) is the target environment defined as the final resting place of a cloud migration project. In most projects, the landing zone should be scripted via ARM templates for its initial setup. Finally, it should be customized with PowerShell or the Azure Portal to fit the workloads needs.
+An [Azure Landing zone](/azure/cloud-adoption-framework/ready/landing-zone/) is the target environment defined as the final resting place of a cloud migration project. In most projects, the landing zone should be scripted via ARM templates for its initial setup. Finally, it should be customized with PowerShell or the Azure portal to fit the workloads needs.
 
 Since WWI is based in San Francisco, all resources for the Azure landing zone were created in the `US West 2` region. The following resources were created to support the migration:
 
@@ -38,11 +38,11 @@ Since WWI is based in San Francisco, all resources for the Azure landing zone we
 
 ### Networking
 
-Getting data from the source system to Azure Database for MySQL in a fast and optimal way is a vital component to consider in a migration project. Small unreliable connections may require administrators to restart the migration several times until a successful result is achieved. Restarting migrations due to network issues can lead to wasted effort.
+Getting data from the source system to Azure Database for MySQL in a fast and optimal way is a vital component to consider in a migration project. Small unreliable connections may require administrators to restart the migration several times until a successful result is achieved. Restarting migrations because of network issues can lead to wasted effort.
 
 Take the time to understand and evaluate the network connectivity between the source, tool, and destination environments. In some cases, it may be appropriate to upgrade the internet connectivity or configure an ExpressRoute connection from the on-premises environment to Azure. Once on-premises to Azure connectivity has been created, the next step is to validate that the selected migration tool can connect from the source to the destination.
 
-The migration tool location will determine the network connectivity requirements. As shown in the table below, the selected migration tool must be able to connect to both the on-premises machine and to Azure. Azure should be configured to only accept network traffic from the migration tool location.
+The migration tool location determines the network connectivity requirements. As shown in the table below, the selected migration tool must be able to connect to both the on-premises machine and to Azure. Azure should be configured to only accept network traffic from the migration tool location.
 
 | Migration Tool                             | Type              | Location        | Inbound Network Requirements                                    | Outbound Network Requirements                          |
 |--------------------------------------------|-------------------|-----------------|-----------------------------------------------------------------|--------------------------------------------------------|
@@ -55,9 +55,7 @@ The migration tool location will determine the network connectivity requirements
 
 Other networking considerations include:
 
-  - DMS located in a VNET will be assigned a [dynamic public IP](/azure/dms/faq#setup) to the service. At creation time, you will be able to place the service inside a virtual network that has connectivity vi[a ExpressRoute](/azure/expressroute/expressroute-introduction) or over [a site to site VPN. ](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
-
-  - DMS can be configured in a [hybrid-mode w](/azure/dms/quickstart-create-data-migration-service-hybrid-portal)ith a worker installed on-premises to proxy the data to DMS.
+  - DMS located in a VNET is assigned a [dynamic public IP](/azure/dms/faq#setup) to the service. At creation time, you can place the service inside a virtual network that has connectivity via a [ExpressRoute](/azure/expressroute/expressroute-introduction) or over [a site to site VPN. ](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 
   - When using an Azure Virtual Machine to run the migration tools, assign it a public IP address and then only allow it to connect to the on-premises MySQL instance.
 
@@ -65,16 +63,16 @@ Other networking considerations include:
 
 ### SSL/TLS Connectivity
 
-In addition to the application implications of migrating to SSL based communication, the SSL/TLS connection types are also something that needs to be considered. After creating the Azure Database for MySQL database, review the SSL settings, and read the [SSL/TLS connectivity in Azure Database for MySQL](/azure/mysql/concepts-ssl-connection-security) article to understand how the TLS settings can affect the security posture.
+In addition to the application implications of migrating to SSL-based communication, the SSL/TLS connection types are also something that needs to be considered. After creating the Azure Database for MySQL database, review the SSL settings, and read the [SSL/TLS connectivity in Azure Database for MySQL](/azure/mysql/concepts-ssl-connection-security) article to understand how the TLS settings can affect the security posture.
 
-> [!NOTE]
-> Pay attention to the disclaimer on the page. Enforcement of TLS version will not be enabled by default. Once TLS is enabled, the only way to disable it is to re-enable SSL.
+> [!Important]
+> Pay attention to the disclaimer on the page. Enforcement of TLS version is not be enabled by default. Once TLS is enabled, the only way to disable it is to re-enable SSL.
 
 ### WWI Scenario
 
-WWI’s cloud team has created the necessary Azure landing zone resources in a specific resource group for the Azure Database for MySQL. Additional resources will be included to support the applications. To create the landing zone, WWI decided to script the setup and deployment using ARM templates. By using ARM templates, they would be able to quickly tear down and re-setup the environment, if needed.
+WWI’s cloud team has created the necessary Azure landing zone resources in a specific resource group for the Azure Database for MySQL. To create the landing zone, WWI decided to script the setup and deployment using ARM templates. By using ARM templates, they would be able to quickly tear down and resetup the environment, if needed.
 
-As part of the ARM template, all connections between virtual networks will be configured with peering in a hub and spoke architecture. The database and application will be placed into separate virtual networks. An Azure App Gateway will be placed in front of the app service to allow the app service to be isolated from the Internet. The Azure App Service will connect to the Azure Database for MySQL using a private endpoint.
+As part of the ARM template, all connections between virtual networks are configured with peering in a hub and spoke architecture. The database and application are placed into separate virtual networks. An Azure App Gateway is placed in front of the app service to allow the app service to be isolated from the Internet. The Azure App Service connects to the Azure Database for MySQL using a private endpoint.
 
 WWI originally wanted to test an online migration, but the required network setup for DMS to connect to their on-premises environment made this infeasible. WWI chose to do an offline migration instead. The MySQL Workbench tool was used to export the on-premises data and then was used to import the data into the Azure Database for MySQL instance.
 
@@ -82,9 +80,9 @@ WWI originally wanted to test an online migration, but the required network setu
 
   - Prepare the Azure landing zone. Consider using ARM template deployment in case the environment must be torn down and rebuilt quickly.
 
-  - Verify the networking setup. Verification should include: connectivity, bandwidth, latency and firewall configurations.
+  - Verify the networking setup. Verification should include: connectivity, bandwidth, latency, and firewall configurations.
 
-  - Determine if you are going to use the online or offline data migration strategy.
+  - Determine if you're going to use the online or offline data migration strategy.
 
   - Decide on the SSL certificate strategy.  
 

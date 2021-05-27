@@ -1,17 +1,17 @@
 ---
-title: "Appendix B: ARM Templates"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Appendix B: ARM Templates"
 description: "This template will deploy all resources with private endpoints."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
+author: arunkumarthiags
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/26/2021
 ---
 
-# Appendix B: ARM Templates
+# MySQL on-premises to Azure Database for MySQL migration guide Appendix B: ARM Templates
 
 ### Secure
 
@@ -23,8 +23,4 @@ This template will deploy all resources with private endpoints. This effectively
 
 This template will deploy resources using standard deployment where all resources are available from the internet.
 
-[ARM Template ](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigrationSecure)  
-
-
-> [!div class="nextstepaction"]
-> [Appendix C: Default server parameters](./appendix-c-default-server-parameters-mysql-55-and-azure-database-for-mysql.md)
+[ARM Template ](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/arm-templates/ExampleWithMigrationSecure)

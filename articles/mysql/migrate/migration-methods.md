@@ -1,21 +1,21 @@
 ---
-title: "Migration Methods"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Migration Methods"
 description: "Getting the data from the source to target will require using tools or features of MySQL to accomplish the migration."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
+author: arunkumarthiags 
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/26/2021
 ---
 
-# Migration Methods
+# MySQL on-premises to Azure Database for MySQL migration guide Migration Methods
 
-Getting the data from the source to target will require using tools or features of MySQL to accomplish the migration.
+Getting the data from the source to target requires using tools or features of MySQL to accomplish the migration.
 
-It is important to complete the entire assessment and planning stages before starting the next stages. The decisions and data collected are migration path and tool selection dependencies.
+It's important to complete the entire assessment and planning stages before starting the next stages. The decisions and data collected are migration path and tool selection dependencies.
 
 We explore the following commonly used tools in this section:
 
@@ -39,7 +39,7 @@ MySQL Workbench provides a wizard-based UI to do full or partial export and impo
 
 ### Dump and restore (mysqldump)
 
-`mysqldump` is typically provided as part of the MySQL installation. It is a [client utility](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) that can be run to create logical backups that equate to a set of SQL statements that can be replayed to rebuild the database to a point in time. `mysqldump` is not intended as a fast or scalable solution for backing up or migrating very large amounts of data. Executing a large set of SQL insert statements can perform poorly due to the disk I/O required to update indexes. However, when combined with other tools that require the original schema, `mysqldump` is a great tool for generating the database and table schemas. The schemas can create the target landing zone environment.
+`mysqldump` is typically provided as part of the MySQL installation. It's a [client utility](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) that can be run to create logical backups that equate to a set of SQL statements that can be replayed to rebuild the database to a point in time. `mysqldump` is not intended as a fast or scalable solution for backing up or migrating large amounts of data. Executing a large set of SQL insert statements can perform poorly due to the disk I/O required to update indexes. However, when combined with other tools that require the original schema, `mysqldump` is a great tool for generating the database and table schemas. The schemas can create the target landing zone environment.
 
 The `mysqldump` utility provides useful features during the data migration phase. Performance considerations need to be evaluated before running the utility. See [Performance considerations.](/azure/mysql/concepts-migrate-dump-restore#performance-considerations)
 
@@ -47,17 +47,17 @@ The `mysqldump` utility provides useful features during the data migration pha
 
 Environments with large databases requiring fast migration should use [mydumper and myloader.](https://github.com/maxbube/mydumper) These tools are written in C++ and utilize multi-threaded techniques to send the data as fast as possible to the target MySQL instance. `mydumper` and `myloader` take advantage of parallelism and can speed up the migration by a factor of 10x or more.
 
-The tools’ binary releases available for public download have been compiled for Linux. To run these tools on Windows, the open source projects would need to be recompiled. Compiling source code and creating releases is not a trivial task for most users.
+The tools’ binary releases available for public download have been compiled for Linux. To run these tools on Windows, the open-source projects would need to be recompiled. Compiling source code and creating releases is not a trivial task for most users.
 
 ### Data-in replication (binlog)
 
 Similar to other database management systems, MySQL provides for a log replication feature called [binlog replication.](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) The `binlog` replication feature helps with data migration and the creation of read replicas.
 
-Utilize binlog replication to [migrate your data  to Azure Database for MySQL](/azure/mysql/concepts-data-in-replication) in an online scenario. The data replication will help to reduce the downtime required to make the final target data changes.
+Utilize binlog replication to [migrate your data  to Azure Database for MySQL](/azure/mysql/concepts-data-in-replication) in an online scenario. The data replication helps to reduce the downtime required to make the final target data changes.
 
 In order to use the `binlog` replication feature there are some setup [requirements:](/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication)
 
-  - Then master server is recommended to use the MySQL InnoDB engine. If you are using a storage engine other than InnoDB, you will need to migrate those tables to InnoDB.
+  - Then master server is recommended to use the MySQL InnoDB engine. If you're using a storage engine other than InnoDB, you need to migrate those tables to InnoDB.
 
   - Migration users must have permissions to configure binary logging and create new users on the master server.
 
@@ -71,11 +71,11 @@ In order to use the `binlog` replication feature there are some setup [requireme
 
 To perform a migration using replication, review [How to configure Azure Database for MySQL Data-in Replication](/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) for details.
 
-The `binlog` replication method has high CPU and extra storage requirements. Migration users should test the load placed on the source system during online migrations and determine if it is acceptable.
+The `binlog` replication method has high CPU and extra storage requirements. Migration users should test the load placed on the source system during online migrations and determine if It's acceptable.
 
-### Azure Data Migration Service (DMS)
+### Azure Database Migration Service (DMS)
 
-The [Azure Database Migration Services (DMS)](https://azure.microsoft.com/en-us/services/database-migration/) is an Azure cloud-based tool that allows administrators to keep track of the various settings for migration and reuse them if necessary. DMS works by creating migration projects with settings that point to various sources and destinations. It supports both online and offline migrations, with the [online option](/azure/mysql/howto-migrate-online) allowing for significantly minimized downtime. Additionally, it supports [on-premises data workloads](/azure/dms/tutorial-mysql-azure-mysql-online) and cloud-based workloads such as [Amazon Relational Database Service (RDS) MySQL. ](/azure/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online)
+The [Azure Database Migration Services (DMS)](https://azure.microsoft.com/en-us/services/database-migration/) is an Azure cloud-based tool that allows administrators to keep track of the various settings for migration and reuse them if necessary. DMS works by creating migration projects with settings that point to various sources and destinations. It supports [offline migrations](/azure/dms/tutorial-mysql-azure-mysql-offline-portal). Additionally, it supports on-premises data workloads and cloud-based workloads such as Amazon Relational Database Service (RDS) MySQL.
 
 Although the DMS service is an online tool, it does rely on the `binlog` replication feature of MySQL to complete its tasks. Currently, DMS partially automates the offline migration process. DMS requires the generation and application of the matching schema in the target Azure Database for MySQL instance. Schemas can be exported using the `mysqldump` client utility.
 
@@ -87,22 +87,19 @@ The fastest and most complete path is to use `binlog` replication (either direct
 
 ### Decision Table
 
-There are many paths WWI can take to migrate their MySQL workloads. We have provided a table of the potential paths and the advantages and disadvantages of each:
+There are many paths WWI can take to migrate their MySQL workloads. We've provided a table of the potential paths and the advantages and disadvantages of each:
 
 | Objective                           | Description                                | Tool                             | Prerequisites        | Advantages          | Disadvantages                                   |
 |-------------------------------------|--------------------------------------------|----------------------------------|----------------------|---------------------|-------------------------------------------------|
 | **Fastest migration possible**          | Parallel approach                          | mydumper and myloader            | Linux                | Highly parallelized | Target throttling                               |
 | **Online migration**                    | Keep the source up for as long as possible | binlog                           | None                 | Seamless            | Extra processing and storage                    |
-| **Online migration**                    | Keep the source up for as long as possible | Database Migration Service (DMS) | None                 | Repeatable process  | Limited to data only, supports only 5.5 and 5.7 |
+| **Offline migration**                    | Keep the source up for as long as possible | Database Migration Service (DMS) | None                 | Repeatable process  | Limited to data only, supports all MySQL versions |
 | **Highly Customized Offline Migration** | Selectively export objects                 | mysqldump                        | None                 | Highly customizable | Manual                                          |
-| **Offline Migration Semi-automated**    | UI based export and import                 | MySQL Workbench                  | Download and Install | Semi-automated      | Only common sets of switches are supported      |
-
-> [!NOTE]
-> Let’s use Azure terms. This is data-in replication or binlog replication.
+| **Offline Migration Semi-automated**    | UI-based export and import                 | MySQL Workbench                  | Download and Install | Semi-automated      | Only common sets of switches are supported      |
 
 ### WWI Scenario
 
-WWI has selected their conference database as their first migration workload. The workload was selected because it had the least risk and the most available downtime due to the gap in the annual conference schedule. Based on the migration team’s assessment, they determined that they will attempt to perform an offline migration using MySQL Workbench.
+WWI has selected its conference database as its first migration workload. The workload was chosen because it had the least risk and the most available downtime due to the gap in the annual conference schedule. In addition, based on the migration team’s assessment, they determined that they attempted to perform an offline migration using MySQL Workbench.
 
 ### Migration Methods Checklist
 
@@ -110,7 +107,7 @@ WWI has selected their conference database as their first migration workload. Th
 
   - Ensure the method can meet the business requirements.
 
-  - Always verify if the data workload will support the method.  
+  - Always verify if the data workload supports the method.  
 
 
 > [!div class="nextstepaction"]

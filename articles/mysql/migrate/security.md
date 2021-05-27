@@ -1,17 +1,17 @@
 ---
-title: "Security"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Security"
 description: "Moving to a cloud-based service doesn’t mean the entire internet will have access to it at all times."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
+author: arunkumarthiags 
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/26/2021
 ---
 
-# Security
+# MySQL on-premises to Azure Database for MySQL migration guide Security
 
 Moving to a cloud-based service doesn’t mean the entire internet will have access to it at all times. Azure provides best in class security that ensures data workloads are continually protected from bad actors and rouge programs.
 

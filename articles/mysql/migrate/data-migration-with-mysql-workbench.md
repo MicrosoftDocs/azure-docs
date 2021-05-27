@@ -1,17 +1,17 @@
 ---
-title: "Data Migration with MySQL Workbench"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Data Migration with MySQL Workbench"
 description: "Follow all the steps in the Setup guide to create an environment to support the following steps."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
+author: arunkumarthiags
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/26/2021
 ---
 
-# Data Migration with MySQL Workbench
+# MySQL on-premises to Azure Database for MySQL migration guide Data Migration with MySQL Workbench
 
 ### Setup
 
