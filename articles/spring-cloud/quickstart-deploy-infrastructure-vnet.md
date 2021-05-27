@@ -44,7 +44,7 @@ Two Azure resources are defined in the template:
 * [Microsoft.AppPlatform/Spring](/azure/templates/microsoft.appplatform/spring): Create an Azure Spring Cloud instance.
 * [Microsoft.Insights/components](/azure/templates/microsoft.insights/components): Create an Application Insights workspace.
 
-For Azure CLI and Terraform deployments, see the [Azure Spring Cloud Reference Architecture](https://github.com/Azure/azure-spring-cloud-reference-architecture)repository on GitHub.
+For Azure CLI and Terraform deployments, see the [Azure Spring Cloud Reference Architecture](https://github.com/Azure/azure-spring-cloud-reference-architecture) repository on GitHub.
 
 ## Deploy the template
 
