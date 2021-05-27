@@ -8,8 +8,8 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
+author: cawrites
+ms.author: chadam
 ms.reviewer:
 ms.date: 06/25/2019
 ---

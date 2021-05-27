@@ -3,8 +3,8 @@ title: Migrate a SQL Server database to SQL Server on a virtual machine | Micros
 description: Learn about how to migrate an on-premises user database to SQL Server on an Azure virtual machine.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
-editor: ''
+author: cawrites
+ms.author: chadams
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql 

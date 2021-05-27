@@ -8,8 +8,8 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author:  mathoma
+author: cawrites    
+ms.author:  chadam
 ms.reviewer: sstein
 ms.date: 05/10/2020
 ---

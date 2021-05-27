@@ -7,8 +7,8 @@ ms.subservice: migrate
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
+author: cawrites
+ms.author: chadam
 ms.reviewer: 
 ms.date: 10/29/2020
 ---

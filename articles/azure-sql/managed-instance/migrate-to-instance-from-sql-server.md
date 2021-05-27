@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer:
+ms.reviewer: cawrites
 ms.date: 07/11/2019
 ---
 # SQL Server instance migration to Azure SQL Managed Instance
