@@ -5,8 +5,7 @@ ms.service: time-series-insights
 services: time-series-insights
 author: shreyasharmamsft
 ms.author: shresha
-manager: cnovak
-ms.reviewer: orspodek
+manager: dpalled
 ms.workload: big-data
 ms.topic: overview
 ms.date: 12/16/2020
@@ -72,7 +71,7 @@ The following diagram shows the high-level data flow.
 
 Azure Time Series Insights Gen2 provides a scalable pay-as-you-go pricing model for data processing, storage (data and metadata), and query, enabling customers to tune their usage to suit their business demands.
 
-With the introduction of these key industrial IoT capabilities, Azure Time Series Insights Gen2 also provides the following key benefits:
+With the introduction of these key industrial IoT capabilities, Azure Time Series Insights Gen2 also provides the following key benefits:  
 
 | Capability | Benefit |
 | ---| ---|
