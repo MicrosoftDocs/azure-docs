@@ -46,6 +46,10 @@ Deletion detection is also supported by default. This means that if a document i
 ## Setting up SharePoint Online indexing
 To set up the SharePoint Online Indexer, you will need to perform some actions in the Azure portal and some actions using the preview REST API. This preview isn’t supported by the SDK.
 
+ The following video shows how to set up the SharePoint Online indexer.
+ 
+> [!VIDEO https://youtu.be/QmG65Vgl0JI]
+
 ### Step 1: Enable system assigned managed identity
 When a system-assigned managed identity is enabled, Azure creates an identity for your search service that can be used by the indexer.
 
