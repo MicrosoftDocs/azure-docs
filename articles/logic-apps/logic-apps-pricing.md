@@ -30,7 +30,7 @@ For example, a request that a polling trigger makes is still metered as an execu
 | [Data retention and storage consumption](#data-retention) | Metered using the data retention price, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), under the **Pricing details** table. |
 |||
 
-For more information, see the following:
+For more information, review the following documentation:
 
 * [View metrics for executions and storage consumption](plan-manage-costs.md#monitor-billing-metrics)
 * [Limits in Azure Logic Apps](logic-apps-limits-and-config.md)
@@ -55,7 +55,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 * Consider the possible number of messages or events that might arrive on any given day, rather than base your calculations on only the polling interval.
 
-* When an event or message meets the trigger criteria, many triggers immediately try to read any and all other waiting events or messages that meet the criteria. This behavior means that even when you select a longer polling interval, the trigger fires based on the number of waiting events or messages that qualify for starting workflows. Triggers that follow this behavior include Azure Service Bus and Azure Event Hub.
+* When an event or message meets the trigger criteria, many triggers immediately try to read any other waiting events or messages that meet the criteria. This behavior means that even when you select a longer polling interval, the trigger fires based on the number of waiting events or messages that qualify for starting workflows. Triggers that follow this behavior include Azure Service Bus and Azure Event Hub.
 
   For example, suppose you set up trigger that checks an endpoint every day. When the trigger checks the endpoint and finds 15 events that meet the criteria, the trigger fires and runs the corresponding workflow 15 times. The Logic Apps service meters all the actions that those 15 workflows perform, including the trigger requests.
 
@@ -141,7 +141,7 @@ For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-a
 
 ## Integration accounts
 
-An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps so that you can explore, build, and test B2B integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
+An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource, which you link create link to a logic app so that you can explore, build, and test B2B integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
 
 Azure Logic Apps offers these integration account levels or tiers that [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/) and [billing model](logic-apps-pricing.md#integration-accounts), based on whether your logic apps are consumption-based or ISE-based:
 
