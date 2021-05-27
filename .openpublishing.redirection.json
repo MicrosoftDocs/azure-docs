@@ -7199,6 +7199,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/reference-entity-composite.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/reference-entity-machine-learned-entity",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-batch-test.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
       "redirect_document_id": false
@@ -28736,8 +28741,13 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-deploy-model-cli.md",
-      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-model-cli",
+      "redirect_url": "/azure/machine-learning/how-to-train-cli",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-model-cli.md",
+      "redirect_url": "/azure/machine-learning/how-to-train-cli",
+      "redirect_document_id": "false"
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-models-with-aml.md",
