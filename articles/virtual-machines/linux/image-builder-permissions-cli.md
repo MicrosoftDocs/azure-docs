@@ -212,7 +212,7 @@ In the Image Builder template, you need to provide the user-assigned managed ide
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2019-05-01-preview",
+    "apiVersion": "2020-02-14",
     "location": "<Region>",
     ..
     "identity": {

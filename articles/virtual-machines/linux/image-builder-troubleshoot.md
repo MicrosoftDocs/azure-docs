@@ -322,7 +322,7 @@ Image Builder timed out waiting for the image to be added and replicated to the 
 $runOutputName=<distributionRunOutput>
 az resource show \
     --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/runOutputs/$runOutputName"  \
-    --api-version=2019-05-01-preview
+    --api-version=2020-02-14
 ```
 
 #### Solution
