@@ -576,7 +576,7 @@ source(allowSchemaDrift: true,
     validateSchema: false,
     isolationLevel: 'READ_UNCOMMITTED',
     query: 'select * from MYTABLE',
-    format: 'query') ~> SQLMISource
+    format: 'query') ~> SQLSource
 ```
 
 ### Sink transformation
@@ -606,7 +606,7 @@ IncomingStream sink(allowSchemaDrift: true,
     keys:['keyColumn'],
     format: 'table',
     skipDuplicateMapInputs: true,
-    skipDuplicateMapOutputs: true) ~> SQLMISink
+    skipDuplicateMapOutputs: true) ~> SQLSink
 ```
 
 ## Data type mapping for SQL Server
