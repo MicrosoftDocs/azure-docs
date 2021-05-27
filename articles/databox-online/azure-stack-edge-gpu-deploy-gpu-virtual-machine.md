@@ -105,9 +105,6 @@ Follow these steps when deploying GPU VMs on your device:
 
 1. After the VM is created, you can deploy GPU extension using the extension template. For more information, see .
 
-1. To verify GPU extension install, connect to the GPU VM:
-    1. If using a Windows VM, follow the steps in [Connect to a Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Verify the installation](#verify-driver-installation).
-    1. If using a Linux VM, follow the steps in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Verify the installation](#verify-driver-installation).
 
 1. If needed, you could switch the compute network back to whatever you need. 
 
