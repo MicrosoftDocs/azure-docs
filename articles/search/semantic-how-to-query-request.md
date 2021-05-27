@@ -35,7 +35,7 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 ## What's a semantic query type?
 
-In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* ([has parameters](#query-using-rest)) that invoke the semantic reranking model that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
+In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* [has parameters](#query-using-rest) that invoke the semantic reranking model that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
 
 The following request is representative of a minimal semantic query (without answers).
 
@@ -59,11 +59,13 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 
 [Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after completing the following steps:
 
-1. Complete the [preview sign up](https://aka.ms/SemanticSearchPreviewSignup). Support for semantic query types must be enabled internally for your service.
+1. Open the portal with this syntax: `https://portal.azure.com/?feature.semanticSearch=true`, on a search service for which the preview is enabled.
 
-1. Open the portal with this syntax: `https://portal.azure.com/?feature.semanticSearch=true`
+1. Click **Search explorer** at the top of the overview page.
 
-Query options include switches to enable semantic queries, searchFields, and spell correction. You can also paste the required query parameters into the query string.
+1. Choose an index that has content in a [supported language](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
+
+1. In Search explorer, set query options that enable semantic queries, searchFields, and spell correction. You can also paste the required query parameters into the query string.
 
 :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Query options in Search explorer" border="true":::
 
