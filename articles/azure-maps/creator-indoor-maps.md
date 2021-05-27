@@ -18,7 +18,7 @@ This article introduces concepts and tools that apply to Azure Maps Creator. We 
 You can use Creator to develop applications with map features that are based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data.  Typically, the workflow is completed by two different personas with distinct areas of expertise and responsibility:
 
 - Map maker: responsible for curating and preparing the map data.
-- The Creator map data user leverages customer map data in applications.
+- Creator map data user: leverages customer map data in applications.
 
 The following diagram illustrates the entire workflow.
 
