@@ -122,27 +122,39 @@ While content in a search index can be composed in multiple languages, the query
 
 #### Step 2: Set searchFields
 
-Add searchFields to the request. It's optional but highly recommended.
+Add searchFields to the request. It's optional but strongly recommended.
 
 ```json
 "searchFields": "HotelName,Category,Description",
 ```
 
-The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to what fields are the most important to process.
+The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to which fields are the most important to process.
 
 In contrast with other parameters, searchFields is not new. You might already be using searchFields in existing code for simple or full Lucene queries. If so, revisit how the parameter is used so that you can check for field order when switching to a semantic query type.
 
-Choose only fields of type edm.string and top-level string fields in collections. Avoid numeric fields, complex fields, and complex field collections. If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
+##### Allowed data types
 
-Field order is critical. For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
+When setting searchFields, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
 
-For two or more fields:
+| Data type | Example from hotels-sample-index |
+|-----------|----------------------------------|
+| Edm.String | HotelName, Category, Description |
+| Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
+| Collection(Edm.String) | Tags (a comma-delimited list of strings) |
 
-+ First field should always be concise (such as a title or name), ideally under 25 words.
+##### Order of fields in searchFields
 
-+ If the index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details`, and not machine focused such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
+Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Pre-processing during semantic ranking](semantic-ranking.md#pre-processing).
 
-+ Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
++ For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
+
++ For two or more fields:
+
+  + The first field should always be concise (such as a title or name), ideally under 25 words.
+
+  + If the index has a URL field that is textual (human readable such as `www.domain.com/name-of-the-document-and-other-details`, and not machine focused such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
+
+  + Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
 
 #### Step 3: Remove orderBy clauses
 
