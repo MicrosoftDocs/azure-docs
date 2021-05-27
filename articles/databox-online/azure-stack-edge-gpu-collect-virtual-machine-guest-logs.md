@@ -14,7 +14,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-To diagnose any VM provisioning failure, you'll review guest logs on the failed virtual machine. This article describes how to collect guest logs for virtual machines that failed to deploy successfully and include those guest logs in a Support package.
+To diagnose any VM provisioning failure, you'll review guest logs for the failed virtual machine. This article describes how to the collect guest logs for the VMs and include those guest logs in a Support package.
 
 To collect guest logs for failed virtual machines on an Azure Stack Edge GPU device, do these steps:
 
