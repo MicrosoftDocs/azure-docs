@@ -559,7 +559,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
-    href: faq.yml
+    href: /azure/active-directory/external-identities/faq
   - name: Getting help
     href: ../active-directory/develop/developer-support-help-options.md
   - name: Pricing
