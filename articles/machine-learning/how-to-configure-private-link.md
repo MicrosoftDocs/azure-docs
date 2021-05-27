@@ -24,7 +24,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 >
 > You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge or Google Chrome as a workaround.
 
-[!INCLUDE [cli-version-info](../../include/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 ## Prerequisites
 
