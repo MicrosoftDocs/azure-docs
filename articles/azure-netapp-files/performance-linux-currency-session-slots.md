@@ -22,7 +22,7 @@ This article helps you understand best practices about session slots and slot ta
 
 ## NFSv3
 
-NFSv3 does not have a mechanism to negotiate concurrency between the client and server. The client and the server each defines its limit without consulting the other.  For the best performance, it is a best practice to line up the maximum number of client-side sunrpc slot table entries with that supported without pushback on the server.  When a client overwhelms the server network stack’s ability to process a workload, the server responds by decreasing the window size for the connection, which is not an ideal performance scenario.
+NFSv3 does not have a mechanism to negotiate concurrency between the client and server. The client and the server each defines its limit without consulting the other.  For the best performance, you should line up the maximum number of client-side sunrpc slot table entries with that supported without pushback on the server.  When a client overwhelms the server network stack’s ability to process a workload, the server responds by decreasing the window size for the connection, which is not an ideal performance scenario.
 
 By default, modern Linux kernels define the per-connection sunrpc slot table entry size `sunrpc.max_tcp_slot_table_entries` as supporting 65,536 outstanding operations as shown in the following table. 
 
@@ -30,7 +30,7 @@ By default, modern Linux kernels define the per-connection sunrpc slot table ent
 |-|-|
 | 128 | 65,536 |
 
-These slot table entries define the limits of concurrency. Values this high are unnecessary.  For example, using a queueing theory known as *Littles Law*, you will find that the I/O rate is determined by concurrency (that is, outstanding I/O) and latency. As such, the algorithm proves that 65,536 slots are orders of magnitude higher than what is needed to drive even extremely demanding workloads.
+These slot table entries define the limits of concurrency. Values this high are unnecessary.  For example, using a queueing theory *Littles Law*, you will find that the I/O rate is determined by concurrency (that is, outstanding I/O) and latency. As such, the algorithm proves that 65,536 slots are orders of magnitude higher than what is needed to drive even extremely demanding workloads.
 
 `Littles Law: (concurrency = operation rate × latency in seconds)`
 
@@ -134,7 +134,7 @@ Which The calculation translates to a concurrency of 160:
  
 `(160 = 16,000 × 0.010)`
 
-Given the need for 200 clients, you could safely set `sunrpc.max_tcp_slot_table_entries` to 2 per client to reach the 4,000 MiB/s.  However, you might decide to build in additional headroom by setting the number per client to 4 or even 8, keeping under the 2000 recommended slot ceiling. 
+Given the need for 200 clients, you could safely set `sunrpc.max_tcp_slot_table_entries` to 2 per client to reach the 4,000 MiB/s.  However, you might decide to build in extra headroom by setting the number per client to 4 or even 8, keeping under the 2000 recommended slot ceiling. 
 
 ### How to set `sunrpc.max_tcp_slot_table_entries` on the client
 
