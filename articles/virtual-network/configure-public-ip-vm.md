@@ -88,39 +88,82 @@ In this section, you'll create a virtual machine. You'll select the IP address y
 
 In this section, you'll change the public IP address associated with the default public IP configuration of the virtual machine.
 
-1. In the search box at the top of the portal, enter **Firewall**.
+1. In the search box at the top of the portal, enter **Virtual machine**.
 
-2. In the search results, select **Firewalls**.
+2. In the search results, select **Virtual machines**.
 
-3. Select **myFirewall** in **Firewalls**.
+3. Select **myVM** in **Virtual machines**.
 
-4. Select **Public IP configuration** in **Settings** in **myFirewall**.
+4. Select **Networking** in **Settings** in **myVM**.
 
-5. In **Public IP configuration**, select **myStandardPublicIP-1** or your IP address.
+5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example it is **myvm793**.
 
-6. Select **myStandardPublicIP-2** in **Public IP address** of **Edit public IP configuration**.
+    :::image type="content" source="./media/configure-public-ip-vm/network-interface.png" alt-text="Select network interface." border="true":::
+
+6. In **Settings** of the network interface, select **IP configurations**.
+
+7. Select **ipconfig1** in **IP configurations**.  
+
+    :::image type="content" source="./media/configure-public-ip-vm/change-ipconfig.png" alt-text="Select the ipconfig to change the IP address." border="true":::
+
+1. Select **myStandardPublicIP-2** in **Public IP address** of **ipconfig1**.
 
 7. Select **Save**.
 
 ## Add public IP configuration
 
-In this section, you'll add a public IP configuration to the Azure Firewall.
+In this section, you'll add a public IP configuration to the virtual machine.
 
-1. In the search box at the top of the portal, enter **Firewall**.
+1. In the search box at the top of the portal, enter **Virtual machine**.
 
-2. In the search results, select **Firewalls**.
+2. In the search results, select **Virtual machines**.
 
-3. Select **myFirewall** in **Firewalls**.
+3. Select **myVM** in **Virtual machines**.
 
-4. Select **Public IP configuration** in **Settings** in **myFirewall**.
+4. Select **Networking** in **Settings** in **myVM**.
 
-5. Select **+ Add public IP configuration**.
+5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example it is **myvm793**.
 
-6. Enter **myNewPublicIPconfig** in **Name**.
+    :::image type="content" source="./media/configure-public-ip-vm/network-interface.png" alt-text="Select network interface." border="true":::
 
-7. Select **myStandardPublicIP-3** in **Public IP address**.
+6. In **Settings** of the network interface, select **IP configurations**.
 
-8. Select **Add**.
+7. In **IP configurations**, select **+ Add**.
+
+8. Enter **ipconfig2** in **Name**.
+
+9. In **Public IP address**, select **Associate**.
+
+10. Select **myStandardPublicIP-3** in **Public IP address**.
+
+11. Select **OK**.
+
+## Remove public IP address association
+
+In this section, you'll remove the public IP address from the network interface. The virtual machine after this process will be unavailable to external connections.
+
+1. In the search box at the top of the portal, enter **Virtual machine**.
+
+2. In the search results, select **Virtual machines**.
+
+3. Select **myVM** in **Virtual machines**.
+
+4. Select **Networking** in **Settings** in **myVM**.
+
+5. In **Networking**, select the **Network interface** of the VM. The name of the NIC will be prefixed with the name of the VM and end with a random number.  In this example it is **myvm793**.
+
+    :::image type="content" source="./media/configure-public-ip-vm/network-interface.png" alt-text="Select network interface." border="true":::
+
+6. In **Settings** of the network interface, select **IP configurations**.
+
+7. Select **ipconfig1** in **IP configurations**.  
+
+    :::image type="content" source="./media/configure-public-ip-vm/change-ipconfig.png" alt-text="Select the ipconfig to change the IP address." border="true":::
+
+8. Select **Disassociate** in **Public IP address settings**.
+
+9. Select **Save**.
+
 ## Next steps
 
 In this article, you learned how to create a Azure Firewall and use an existing public IP. You changed the public IP of the default IP configuration. Finally, you added a public IP configuration to the firewall.
