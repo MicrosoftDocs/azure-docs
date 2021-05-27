@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit
 
 # Scenario: Route traffic through NVAs by using custom settings
 
-When you're working with Azure Virtual WAN virtual hub routing, you have a number of options available to you. The focus of this article is when you want to route traffic through a network virtual appliance (NVA) for communication between virtual networks and branches, and use a different NVA for internet-bound traffic. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
+When you're working with Azure Virtual WAN virtual hub routing, you have many options available to you. The focus of this article is when you want to route traffic through a network virtual appliance (NVA) for communication between virtual networks and branches, and use a different NVA for internet-bound traffic. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 ## Design
 
