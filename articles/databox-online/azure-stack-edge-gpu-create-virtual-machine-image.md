@@ -62,7 +62,7 @@ Do the following steps to create a Windows VM image:
         * `<source URI>` is the download URL that you generated in step 3b.
         * `<target URI>` tells where to copy the new image to in your Azure Storage account. It's a good idea to use the same storage account used for the device where the virtual machines will be deployed.
 
-          1. To get the target URI, generate a shared access signature (SAS) for the Blob container where you'll store the image. Display **Containers** for the storage account, and select the container. Then right-click the container name, and select Generate SAS. Select Read and Write **Permissions**. Then select **Generate SAS token and URL**. Copy the **Blob SAS URL**.
+ <!--   1. To get the target URI, generate a shared access signature (SAS) for the Blob container where you'll store the image. Display **Containers** for the storage account, and select the container. Then right-click the container name, and select Generate SAS. Select Read and Write **Permissions**. Then select **Generate SAS token and URL**. Copy the **Blob SAS URL**.
            
           ![Portal option for generating a shared access signature for a container](media/azure-stack-edge-gpu-deploy-virtual-machine-cli-python/create-image-01.png) 
 
@@ -109,7 +109,7 @@ Do the following steps to create a Windows VM image:
             PS C:\azcopy\azcopy_windows_amd64_10.10.0>
             ```
 
-You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro device.
+You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro device.-->
 
 
 ## Create a Linux custom VM image
