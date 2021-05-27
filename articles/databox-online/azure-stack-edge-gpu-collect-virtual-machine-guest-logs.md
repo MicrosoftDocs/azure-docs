@@ -32,12 +32,12 @@ To collect guest logs for failed virtual machines on an Azure Stack Edge GPU dev
 3. To get VM provisioning history details, review the following logs:
 
    **Linux VMs:**
-   /var/log/cloud-init-output.log
-   /var/log/cloud-init.log
-   /var/log/waagent.log
+   - /var/log/cloud-init-output.log
+   - /var/log/cloud-init.log
+   - /var/log/waagent.log
 
    **Windows VMs:**
-   C:\Windows\Azure\Panther\WaSetup.xml
+   - C:\Windows\Azure\Panther\WaSetup.xml
 
 ## Next steps
 
