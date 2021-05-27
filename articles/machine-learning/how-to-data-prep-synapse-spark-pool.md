@@ -55,9 +55,9 @@ The Azure Synapse Analytics integration with Azure Machine Learning (preview) al
 
 ## Launch Synapse Spark pool for data wrangling tasks
 
-To begin data preparation with the Apache Spark pool, specify the attached Spark Synapse compute name. This name can be found via the Azure Machine Learning studio under the Attached computes tab. 
+To begin data preparation with the Apache Spark pool, specify the attached Spark Synapse compute name. This name can be found via the Azure Machine Learning studio under the **Attached computes** tab. 
 
-
+![get attached compute name](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
 > To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. 
