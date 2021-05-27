@@ -188,7 +188,7 @@ Example 1 is based on default setting of 64 `max_session_slots` and no `nconnect
 
 #### Example 2 – 64 `max_session_slots` and `nconnect=2` 
 
-Example 2 is based again on 64 max `session_slots` but with the added mount option of `nconnect=2`.  A concurrency of 64 is achievable but divided across two connections.  Although multiple connections bring no greater concurrency in this scenario, the decreased queue depth per connection has a positive impact on latency.
+Example 2 is based on 64 max `session_slots` but with the added mount option of `nconnect=2`.  A concurrency of 64 is achievable but divided across two connections.  Although multiple connections bring no greater concurrency in this scenario, the decreased queue depth per connection has a positive impact on latency.
 
 With the `max_session_slots` still at 64 but `nconnect=2`, notice that maximum number of requests get divided across the connections.
 
@@ -203,7 +203,7 @@ With the `max_session_slots` still at 64 but `nconnect=2`, notice that maximum n
 
 #### Example 3 – 180 `max_session_slots` and no `nconnect`
 
-Example 3 drops the `nconnect` mount option and sets the `max_session_slots` value to 180, matching the server’s maximum NFSv4.1 session concurrency.  In this scenario, with only one connection and given Azure NetApp File’s 128 maximum outstanding operation per NFS connection, the session is limited to 128 operations in flight.
+Example 3 drops the `nconnect` mount option and sets the `max_session_slots` value to 180, matching the server’s maximum NFSv4.1 session concurrency.  In this scenario, with only one connection and given the Azure NetApp Files 128 maximum outstanding operation per NFS connection, the session is limited to 128 operations in flight.
 
 Although `max_session_slots` has been set to 180, the single network connection is limited to 128 maximum requests as such: 
 
@@ -239,7 +239,7 @@ Use the following `tcpdump` command to capture the mount command:
 
 `$ tcpdump -i eth0 -s 900 -w /tmp/write.trc port 2049`
 
-Using Wireshark, the packets of interest are shown as follows:
+Using Wireshark, the packets of interest are as follows:
 
 ![Screenshot that shows packets of interest.](../media/azure-netapp-files/performance-packets-interest.png)  
 
