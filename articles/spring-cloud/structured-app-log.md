@@ -15,7 +15,10 @@ This article explains how to generate and collect structured application log dat
 
 ## Log schema requirements
 
-To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Cloud uses this schema to parse your application and stream to Log Analytics. 
+To improve log query experience, an application log is required to be in JSON format and conform to a schema. Azure Spring Cloud uses this schema to parse your application and stream to Log Analytics.
+
+> [!NOTE]
+> Enabling the JSON log format makes it difficult to read the log streaming output from console. To get human readable output, append the `--format-json` argument to the `az spring-cloud app logs` CLI command. See [Format JSON structured logs](./how-to-log-streaming.md#format-json-structured-logs).
 
 **JSON schema requirements:**
 

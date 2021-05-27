@@ -22,6 +22,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The VMware ESXi connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your VMware ESXi appliance to Azure Sentinel. The VMware ESXi data connector allows you to easily ingest your VMware ESXi logs into Azure Sentinel, giving you more insight into your organization's ESXi activities and helping improve your Security Operations capabilities. Integration between VMware ESXi and Azure Sentinel makes use of a Syslog server with the Log Analytics agent installed. It also uses a custom-built log parser based on a Kusto function.
 
 > [!NOTE]
