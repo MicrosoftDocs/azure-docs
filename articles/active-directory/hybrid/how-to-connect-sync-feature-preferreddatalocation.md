@@ -39,19 +39,22 @@ The geos in Microsoft 365 available for Multi-Geo are:
 | --- | --- |
 | Asia Pacific | APC |
 | Australia | AUS |
+| Brazil | BRA |
 | Canada | CAN |
 | European Union | EUR |
 | France | FRA |
+| Germany | DEU |
 | India | IND |
 | Japan | JPN |
 | Korea | KOR |
+| Norway | NOR |
 | South Africa | ZAF |
 | Switzerland | CHE |
 | United Arab Emirates | ARE |
 | United Kingdom | GBR |
 | United States | NAM |
 
-* If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
+* If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo and a customer tenant homed in that geo is not eligible to purchase Multi-Geo.
 
 * Not all Microsoft 365 workloads support the use of setting a user's geo.
 
