@@ -7,9 +7,11 @@ ms.author: larryfr
 ---
 
 > [!IMPORTANT]
-> The Azure CLI commands in this article __require__ the `azure-cli-ml` extension for Azure Machine Learning (__CLI 1.0__).
-
-There is also a CLI 2.0 preview, which uses a different extension (`ml`); it won't work for the steps in this article. To find which extension you have, use the `az --version` command. Use the list of __Extensions__ returned to determine the CLI extension version:
+> The Azure CLI commands in this article __require__ the `azure-cli-ml` extension for Azure Machine Learning. There is also a CLI 2.0 preview, which uses a different extension (`ml`). The CLI 2.0 won't work for the steps in this article.
 >
-> * `azure-cli-ml` - Indicates that you have the __1.0_ extension.
-> * `ml` - Indicates that you have the __2.0__ extension.
+> To find which extension you have, use the `az --version` command. If the list of __Extensions__ contains `azure-cli-ml`, you have the correct extension for the steps in this article.
+>
+> For more information on installing and using the different extensions, see the following articles:
+> 
+> * `azure-cli-ml` - [Install and use the Azure CLI](reference-azure-machine-learning-cli.md)
+> * `ml` - [Install and setup the 2.0 CLI](how-to-configure-cli.md)
