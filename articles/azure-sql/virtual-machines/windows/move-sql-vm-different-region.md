@@ -3,8 +3,7 @@ title: Move a virtual machine to another region (Azure Site Recovery)
 description: Learn how you can migrate your SQL Server virtual machine from one region to another within Azure.  
 services: virtual-machines-windows
 documentationcenter: na
-author: cawrites
-ms.author: chadam
+author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
