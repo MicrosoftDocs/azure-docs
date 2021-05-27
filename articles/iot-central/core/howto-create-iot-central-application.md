@@ -34,7 +34,7 @@ The *standard* plans:
 
 - Do require an Azure subscription. You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md).
 - Let you create and manage IoT Central applications using any of the available methods.
-- Let you connect as many devices as you need. You're billed by device. To learn more, see [Azure IoT Central pricing](/pricing/details/iot-central/).
+- Let you connect as many devices as you need. You're billed by device. To learn more, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/).
 - Cannot be downgraded to a free plan, but can be upgraded or downgraded to other standard plans.
 
 The following table summarizes the differences between the three standard plans:

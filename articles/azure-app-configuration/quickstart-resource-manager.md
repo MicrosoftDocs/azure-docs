@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
 author: GrantMeStrength
 ms.author: jken
-ms.date: 10/16/2020
+ms.date: 05/26/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
@@ -108,5 +108,5 @@ Write-Host "Press [ENTER] to continue..."
 
 To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
 
-- [101-app-configuration-store-ff](https://azure.microsoft.com/resources/templates/101-app-configuration-store-ff/)
-- [101-app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/101-app-configuration-store-keyvaultref/)
+- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
+- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)
