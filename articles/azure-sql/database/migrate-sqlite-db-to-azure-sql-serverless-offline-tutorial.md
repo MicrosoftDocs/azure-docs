@@ -5,6 +5,7 @@ services: sql-database
 author: joplum
 ms.author: joplum
 ms.service: sql-database
+ms.subservice: migration
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/08/2020

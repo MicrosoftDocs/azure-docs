@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: In this quickstart, learn to restore a database backup to Azure SQL Managed Instance using SQL Server Management Studio (SSMS). 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
