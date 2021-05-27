@@ -93,7 +93,7 @@ Azure Defender for IoT uses SSL/TLS certificates to:
 
 - Allow validation between the management console and connected sensors, and between a management console and a High Availability management console. Validations is evaluated against a Certificate Revocation List, and the certificate expiration date. *If validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console*. This option is enabled by default after installation.
 
-    - The appliance should establish a connection to the CRL server as declared by the certificate when validation is set to `ON`.
+    The appliance should establish a connection to the CRL server as declared by the certificate when *validation* is set to `ON`.
 
  Third party Forwarding rules, for example alert information sent to SYSLOG, Splunk or ServiceNow; or communications with Active Directory are not validated.
 
