@@ -87,12 +87,7 @@ The Receipt API also returns the following information:
 ## Supported locales
 
 * **Pre-built receipt v2.0** supports sales receipts in the **en-us** locale
-* **Pre-built receipt v2.1** adds additional support for the following English receipt locales:
-
-* **en-au**
-* **en-ca**
-* **en-gb**
-* **en-in**
+* **Pre-built receipt v2.1** adds additional support for the following English receipt locales: **en-au**, **en-ca**, **en-gb**, **en-in**
 
   > [!NOTE]
   > Language input
@@ -126,7 +121,7 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 The response to the Get Analyze Receipt Result operation will be the structured representation of the receipt with all the information extracted.  See here for a [sample receipt file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) and its structured output [sample receipt output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
 
-See the following example of a successful JSON response:
+See the following example of a successful JSON response (the output has been shortened for simplicity):
 * The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words.
 * The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the first name, last name, company name and more.
 

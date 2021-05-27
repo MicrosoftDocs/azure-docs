@@ -125,7 +125,7 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 ### Sample JSON output
 
-See the following example of a successful JSON response:
+See the following example of a successful JSON response (the output has been shortened for simplicity):
 The `readResults` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `documentResults` node contains the ID values that the model discovered. This node is also where you'll find useful key/value pairs like the first name, last name, document number, and more.
 
 ```json
