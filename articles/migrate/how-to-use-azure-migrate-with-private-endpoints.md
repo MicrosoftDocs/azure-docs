@@ -170,7 +170,7 @@ After the prerequisites check has completed, follow the steps to register the ap
 
 
 >[!Note]
-> If you get a DNS resolution issues during appliance registration or at the time of starting discovery, ensure that Azure Migrate resources created during the **Generate key** step on portal are reachable from the on-premises server hosting the Azure Migrate appliance. [Learn more on how to verify network connectivity](#troubleshoot-network-connectivity).
+> If you get a DNS resolution issues during appliance registration or at the time of starting discovery, ensure that Azure Migrate resources created during the **Generate key** step on portal are reachable from the on-premises server hosting the Azure Migrate appliance. [Learn more on how to verify network connectivity](./troubleshoot-network-connectivity.md).
 
 ### Assess your servers for migration to Azure
 After the discovery is complete, assess your servers ([VMware VMs](./tutorial-assess-vmware-azure-vm.md), [Hyper-V VMs](./tutorial-assess-hyper-v.md), [physical servers](./tutorial-assess-vmware-azure-vm.md), [AWS VMs](./tutorial-assess-aws.md), [GCP VMs](./tutorial-assess-gcp.md)) for migration to Azure VMs or Azure VMware Solution (AVS), using the Azure Migrate: Discovery and Assessment tool.
@@ -204,7 +204,7 @@ After you set up the replication appliance, use the following instructions to cr
     - The five domain names are formatted in this pattern: <br/> _{Vault-ID}-asr-pod01-{type}-.{target-geo-code}_.privatelink.siterecovery.windowsazure.com  
     - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS zone links to the private endpoint virtual network and allows the on-premises replication appliance to resolve the fully qualified domain names to their private IP addresses.
 
-4. Before you register the replication appliance, ensure that the vault's private link FQDNs are reachable from the machine hosting the replication appliance. [Learn more on how to verify network connectivity.](#troubleshoot-network-connectivity)
+4. Before you register the replication appliance, ensure that the vault's private link FQDNs are reachable from the machine hosting the replication appliance. [Learn more on how to verify network connectivity.](./troubleshoot-network-connectivity.md)
 
 5. Once you verify the connectivity, download the appliance setup and key file, run the installation process, and register the appliance to Azure Migrate. Review the [detailed steps here](./tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). After you set up the replication appliance, follow these instructions to [install the mobility service](./tutorial-migrate-physical-virtual-machines.md#install-the-mobility-service) on the machines you want to migrate.
 
@@ -289,120 +289,14 @@ Review the status of the private endpoint connection state before proceeding.
 
 After you've created the private endpoint, use the drop-down in **Replicate** > **Target settings** > **Cache storage account**  to select the storage account for replicating over a private link.  
 
-Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. [Learn more on how to verify network connectivity.](#troubleshoot-network-connectivity)
+Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. [Learn more on how to verify network connectivity.](./troubleshoot-network-connectivity.md)
 
 >[!Note]
 >
 > - For Hyper-V VM migrations to Azure, if the replication storage account is of _Premium_ type, you must select another storage account of _Standard_ type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.  
 
-Next, follow these instructions to [review and start replication](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) and [perform migrations](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).  
+Next, follow these instructions to [review and start replication](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) and [perform migrations](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
 
-## Troubleshoot network connectivity
-
-### Validate private endpoints configuration
-
-Make sure the private endpoint is an approved state.  
-
-1. Go to Azure Migrate: Discovery and Assessment and Server Migration properties page.
-
-2. The properties page contains the list of private endpoints and private link FQDNs that were automatically created by Azure Migrate.  
-
-3. Select the private endpoint you want to diagnose.  
-   a. Validate that the connection state is Approved.           
-   b. If the connection is in a Pending state, you need to get it  approved.                         
-   c. You may also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.                                                        
-
-     ![View Private Endpoint connection](./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png)
-
-
-### Validate the Data flow through the private endpoints
-Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Migrate: Server Assessment and Server Migration Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
-
-### Verify DNS resolution
-
-The on-premises appliance (or replication provider) will access the Azure Migrate resources using their fully qualified private link domain names (FQDNs). You may require additional DNS settings to resolve the private IP address of the private endpoints from the source environment. [See this article](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration scenarios that can help troubleshoot any network connectivity issues.  
-
-To validate the private link connection, perform a DNS resolution of the Azure Migrate resource endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address.
-The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** to view the list.   
-
- ![Azure Migrate: Discovery and Assessment Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png)
-
- ![Azure Migrate: Server Migration Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png)
-
-An illustrative example for DNS resolution of the storage account private link FQDN.  
-
-- Enter _nslookup<storage-account-name>_.blob.core.windows.net.  Replace <storage-account-name> with the name of the storage account used for Azure Migrate.  
-
-    You'll receive a message like this:  
-
-   ![DNS resolution example](./media/how-to-use-azure-migrate-with-private-endpoints/dns-resolution-example.png)
-
-- A private IP address of 10.1.0.5 is returned for the storage account. This address belongs to the private endpoint virtual network subnet.   
-
-You can verify the DNS resolution for other Azure Migrate artifacts using a similar approach.   
-
-If the DNS resolution is incorrect, follow these steps:  
-
-- If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
-- If you use Azure-provided DNS servers, refer to the below section for further troubleshooting.  
-
-> [!Tip]
-> You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the private link resource FQDNs and their associated private IP addresses. This option is recommended only for testing. <br/>  
-
-
-### Validate the Private DNS Zone   
-If the DNS resolution is not working as described in the previous section, there might be an issue with your Private DNS Zone.  
-
-#### Confirm that the required Private DNS Zone resource exists  
-By default, Azure Migrate also creates a private DNS zone corresponding to the *privatelink* subdomain for each resource type. The private DNS zone will be created in the same Azure resource group as the private endpoint resource group. The Azure resource group should contain private DNS zone resources with the following format:
-- privatelink.vaultcore.azure.net for the key vault
-- privatelink.blob.core.windows.net for the storage account
-- privatelink.siterecovery.windowsazure.com for the recovery services vault (for Hyper-V and agent-based replications)
-- privatelink.prod.migration.windowsazure.com - migrate project, assessment project, and discovery site.   
-
-Azure Migrate automatically creates the private DNS zone (except for the cache/replication storage account selected by the user). You can locate the linked private DNS zone by navigating to the private endpoint page and selecting DNS configurations. Here, you should see the private DNS zone under the private DNS integration section.
-
-![DNS configuration screenshot](./media/how-to-use-azure-migrate-with-private-endpoints/dns-configuration.png)  
-
-If the DNS zone is not present (as shown below), [create a new Private DNS Zone resource.](../dns/private-dns-getstarted-portal.md)  
-
-![Create a Private DNS Zone](./media/how-to-use-azure-migrate-with-private-endpoints/create-dns-zone.png)
-
-#### Confirm that the Private DNS Zone is linked to the virtual network  
-The private DNS zone should be linked to the virtual network that contains the private endpoint for the DNS query to resolve the private IP address of the resource endpoint. If the private DNS zone is not linked to the correct Virtual Network, any DNS resolution from that virtual network will ignore the private DNS zone.   
-
-Navigate to the private DNS zone resource in the Azure portal and select the virtual network links from the left menu. You should see the virtual networks linked.
-
-![View virtual network links](./media/how-to-use-azure-migrate-with-private-endpoints/virtual-network-links.png)
-
-This will show a list of links, each with the name of a virtual network in your subscription. The virtual network that contains the Private Endpoint resource must be listed here. Else, [follow this article](../dns/private-dns-getstarted-portal.md#link-the-virtual-network) to link the private DNS zone to a virtual network.    
-
-Once the private DNS zone is linked to the virtual network, DNS requests originating from the virtual network will look for DNS records in the private DNS zone. This is required for correct address resolution to the virtual network where the private endpoint was created.   
-
-#### Confirm that the private DNS zone contains the right A records
-
-Go to the private DNS zone you want to troubleshoot. The Overview page shows all DNS records for that private DNS zone. Verify that a DNS A record exists for the resource. The value of the A record (the IP address) must be the resources’ private IP address. If you find the A record with the wrong IP address, you must remove the wrong IP address and add a new one. It's recommended that you remove the entire A record and add a new one, and do a DNS flush on the on-premises source appliance.   
-
-An illustrative example for the storage account DNS A record in the private DNS zone:
-
-![DNS records](./media/how-to-use-azure-migrate-with-private-endpoints/dns-a-records.png)   
-
-An illustrative example for the Recovery Services vault microservices DNS A records in the private DNS zone:
-
-![DNS records for Recovery Services vault](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records.png)   
-
->[!Note]
-> When you remove or modify an A record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not have expired yet.  
-
-#### Other things that may affect private link connectivity  
-
-This is a non-exhaustive list of items that can be found in advanced or complex scenarios:
-
-- Firewall settings, either the Azure Firewall connected to the Virtual network or a custom firewall solution deploying in the appliance machine.  
-- Network peering, which may impact which DNS servers are used and how traffic is routed.  
-- Custom gateway (NAT) solutions may impact how traffic is routed, including traffic from DNS queries.
-
-For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](../private-link/troubleshoot-private-endpoint-connectivity.md)  
 
 ## Next steps
 - [Complete the migration process](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration) and review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).

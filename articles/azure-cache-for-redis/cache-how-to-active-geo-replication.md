@@ -11,7 +11,10 @@ ms.author: yegu
 
 In this article, you'll learn how to configure an active geo-replicated Azure Cache using the Azure portal.
 
-Active geo-replication groups two or more Enterprise Azure Cache for Redis instances into a single cache that spans across Azure regions. All instance act as the local primaries. An application decides which instance(s) to use for read and write requests.
+Active geo-replication groups two Enterprise Azure Cache for Redis instances into a single cache that spans across Azure regions. Both instances act as the local primaries. An application decides which instance(s) to use for read and write requests.
+
+> [!NOTE]
+> Data transfer between Azure regions will be charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## Create or join an active geo-replication group
 

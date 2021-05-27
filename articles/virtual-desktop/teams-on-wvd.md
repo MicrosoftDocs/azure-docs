@@ -118,7 +118,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 4. Select your user profile image, then select **Settings**.
 
-      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions** the setting **Allow apps to access your microphone** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
+      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions - Microphone** the setting **"Allow apps to access your microphone"** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
 
       If optimizations do not load, uninstall then reinstall Teams and check again.
 
@@ -130,7 +130,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 - With per-machine installation, Teams on VDI isn't automatically updated the same way non-VDI Teams clients are. To update the client, you'll need to update the VM image by installing a new MSI.
 - Media optimization for Teams is only supported for the Windows Desktop client on machines running Windows 10.
-- Use of explicit HTTP proxies defined on an endpoint is not supported.
+- Use of explicit HTTP proxies defined on the client endpoint device is not supported.
 
 ### Calls and meetings
 

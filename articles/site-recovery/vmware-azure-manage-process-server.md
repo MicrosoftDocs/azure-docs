@@ -1,12 +1,12 @@
 ---
 title: Manage a process server for VMware VMs/physical server disaster recovery in Azure Site Recovery
 description: This article describes manage a process server for disaster recovery of VMware VMs/physical servers using Azure Site Recovery.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
-ms.author: ramamill
+ms.author: sharrai
+ms.date: 05/27/2021
 
 ---
 
