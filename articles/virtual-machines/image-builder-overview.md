@@ -34,7 +34,7 @@ Azure Image Builder supports the following features:
 
 ## Regions
 
-The Azure Image Builder Service is available in [these](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#location) regions. Images can be distributed outside of these regions.
+The Azure Image Builder Service is available in [these](./linux/image-builder-json.md#location) regions. Images can be distributed outside of these regions.
 
 ## OS support
 AIB will support Azure Marketplace base OS images:
