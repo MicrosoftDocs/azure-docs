@@ -71,8 +71,8 @@
       href: creator-indoor-maps.md
     - name: Drawing conversion errors and warnings
       href: drawing-conversion-error-codes.md  
-  - name: Encryption of data at rest
-    href: ../security/azure-maps-data-encryption-at-rest.md
+    - name: Encryption of data at rest
+      href: ../security/fundamentals/encryption-atrest.md
   - name: Coverage
     items:
     - name: Coverage
