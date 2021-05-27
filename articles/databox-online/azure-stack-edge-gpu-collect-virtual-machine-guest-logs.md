@@ -1,16 +1,16 @@
 ---
-title: Collect guest logs for failed VMs on Azure Stack Edge Pro GPU 
-description: Describes how to create a Support package with guest logs for a VM running on an Azure Stack Edge Pro GPU device.
+title: Collect guest logs for virtual machines on Azure Stack Edge Pro GPU 
+description: Describes how to create a Support package with guest logs for VMs on an Azure Stack Edge Pro GPU device.
 services: databox
 author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 05/27/2021
 ms.author: alkohli
 ---
-# Collect guest logs for failed VMs on an Azure Stack Edge Pro GPU device
+# Collect guest logs for VMs on an Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -20,7 +20,7 @@ To collect guest logs for failed virtual machines on an Azure Stack Edge GPU dev
 
 1. [Connect to the PowerShell interface of your device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-2. Collect in-guest logs for failed VMs, and include these logs in a support package, by running the following commands:<!--Should we make two steps, so we can reference saving guest logs and rolling them into a Support packet separately? They don't always need to contact Support, but the packet might contain useful information.-->
+2. Collect in-guest logs for failed VMs, and include these logs in a support package, by running the following commands:
 
    ```powershell
    Get-VMInGuestLogs -FailedVM
