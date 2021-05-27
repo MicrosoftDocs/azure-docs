@@ -28,23 +28,29 @@ Both policies work to automate the response to risk detections in your environme
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## Prerequisites 
-
-If your organization wants to allow users to self-remediate when risks are detected, users must be registered for both self-service password reset and Azure AD Multi-Factor Authentication. We recommend [enabling the combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md) for the best experience. Allowing users to self-remediate gets them back to a productive state more quickly without requiring administrator intervention. Administrators can still see these events and investigate them after the fact. 
-
 ## Choosing acceptable risk levels
 
 Organizations must decide the level of risk they are willing to accept balancing user experience and security posture. 
 
 Microsoft's recommendation is to set the user risk policy threshold to **High** and the sign-in risk policy to **Medium and above** and allow self-remediation options. Choosing to block access rather than allowing self-remediation options, like password change and multi-factor authentication, will impact your users and administrators. Weigh this choice when configuring your policies.
 
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces extra user interrupts, but increased security posture.
+Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users. However, it excludes **Low** and **Medium** risk detections from the policy, which may not block an attacker from exploiting a compromised identity. Selecting a **Low** threshold introduces more user interrupts, but increased security posture.
 
 Configured trusted [network locations](../conditional-access/location-condition.md) are used by Identity Protection in some risk detections to reduce false positives.
 
+### Risk remediation
+
+Organizations can choose to block access when risk is detected, but that stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR). 
+
+- When a user triggers a user risk policy a secure password reset through SSPR can trigger, requiring Azure AD Multi-Factor Authentication be performed prior to the user creating a new password, and resetting the user risk. 
+- When a user triggers a sign in risk policy Azure AD MFA can be triggered, allowing to user to prove it is them by using one of their registered authentication methods, and resetting the sign in risk. 
+
+> [!WARNING]
+> Users must be registered for Azure AD MFA and SSPR before they get into a situation requiring remediation or will be blocked and require administrator intervention.
+
 ## Exclusions
 
-All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../roles/security-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
+Policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../roles/security-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
 
 ## Enable policies
 
