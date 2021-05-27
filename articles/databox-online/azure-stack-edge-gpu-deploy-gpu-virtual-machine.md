@@ -118,4 +118,4 @@ Follow these steps when deploying GPU VMs on your device:
 
 Learn how to:
 
-- [Install GPU extension](azure-stack-edge-deploy-virtual-machine-install-gpu-extension.md) on the GPU VMs running on your device.
+- [Install GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md) on the GPU VMs running on your device.
