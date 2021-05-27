@@ -198,7 +198,7 @@ To view telemetry in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
-1. The telemetry is the temperature of the i.MX RT1060 MCU wafer in degrees Celsius. You can place a finger on U1 and watch the reported temperature change.
+1. The temperature is measured from the MCU wafer.
 
     :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
 
