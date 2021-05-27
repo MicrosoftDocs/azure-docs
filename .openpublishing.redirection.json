@@ -7199,6 +7199,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/reference-entity-composite.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/reference-entity-machine-learned-entity",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-batch-test.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
       "redirect_document_id": false
@@ -28736,8 +28741,13 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-deploy-model-cli.md",
-      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-model-cli",
+      "redirect_url": "/azure/machine-learning/how-to-train-cli",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-model-cli.md",
+      "redirect_url": "/azure/machine-learning/how-to-train-cli",
+      "redirect_document_id": "false"
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-models-with-aml.md",
@@ -29895,6 +29905,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-channel-info-tab.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
       "redirect_document_id": false
@@ -29961,52 +29981,62 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-contacts-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-power-bi-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-storefront-details-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-technical-info-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-power-bi-app-overview.md",
+      "redirect_url": "/azure/marketplace/marketplace-power-bi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-power-bi-app-offer.md",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -64012,16 +64042,6 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-access-control.md",
       "redirect_url": "/azure/azure-monitor/visualize/workbooks-access-control",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
