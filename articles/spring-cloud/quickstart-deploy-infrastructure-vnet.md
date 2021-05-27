@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Provision Azure Spring Cloud using an Azure Resource Manager (ARM) template
+title: Quickstart - Provision Azure Spring Cloud using an Azure Resource Manager template (ARM template)
 description: This quickstart shows you how to deploy a Spring Cloud cluster into an existing virtual network.
 services: azure-resource-manager
 author: ryhud
@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 * An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Two dedicated subnets for the Azure Spring Cloud Cluster, one for the service runtime and another for the Spring Boot micro-service applications. For subnet and virtual network requirements, see the [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements) section of [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * An existing Log Analytics workspace for Azure Spring Cloud diagnostics settings and a workspace-based Application Insights resource. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md) and [Use distributed tracing with Azure Spring Cloud](how-to-distributed-tracing.md).
-* Three internal CIDR ranges (at least */16* each) that you've identified for use by the Azure Spring Cloud cluster. These CIDR ranges will not be directly routable and will be used only internally by the Azure Spring Cloud Cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring Cloud CIDR ranges, or any IP ranges included within the cluster virtual network address range.
+* Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Cloud cluster. These CIDR ranges will not be directly routable and will be used only internally by the Azure Spring Cloud Cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring Cloud CIDR ranges, or any IP ranges included within the cluster virtual network address range.
 * Service permission granted to the virtual network. The Azure Spring Cloud Resource Provider requires Owner permission to your virtual network in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance. For instructions and more information, see the [Grant service permission to the virtual network](how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * If you're using Azure Firewall or a Network Virtual Appliance (NVA), you'll also need to satisfy the following prerequisites:
    * Network and fully qualified domain name (FQDN) rules. For more information, see [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements).
@@ -62,7 +62,7 @@ To deploy the template, follow these steps:
 - **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/<your subscription>/resourcegroups/<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/<your log analytics workspace name>*.)
 - **springCloudAppSubnetID:** Enter the resourceID of the Azure Spring Cloud App Subnet.
 - **springCloudRuntimeSubnetID:** Enter the resourceID of the Azure Spring Cloud Runtime Subnet.
-- **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (3 in total) in Classless Inter-Domain Routing (CIDR) format. The IP ranges are reserved to host underlying Azure Spring Cloud infrastructure, which should be 3 at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
+- **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (3 in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Cloud infrastructure. These 3 ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
 - **tags:** Enter any custom tags.
 
 3. Select **Review + Create** and then **Create**.
