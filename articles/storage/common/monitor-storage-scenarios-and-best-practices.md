@@ -61,6 +61,8 @@ Put something here.
 
 This section shows example queries that you can use for common scenarios.
 
+### All storage services
+
 ##### Number of bytes read per request by a specific service principal
 
 Put query here
@@ -68,6 +70,8 @@ Put query here
 ##### Number of bytes read per request as part of a particular connection  
 
 Put query here
+
+### Blob Storage
 
 ##### 10 most common errors over the last three days
 
@@ -123,6 +127,57 @@ StorageBlobLogs
 | sort by count_ desc 
 | render piechart
 ```
+
+### Azure Files
+
+##### SMB errors over the last week
+
+```Kusto
+StorageFileLogs
+| where Protocol == "SMB" and TimeGenerated >= ago(7d) and StatusCode contains "-"
+| sort by StatusCode
+```
+##### SMB operations over the last week
+
+This output appears in a pie chart.
+
+```Kusto
+StorageFileLogs
+| where Protocol == "SMB" and TimeGenerated >= ago(7d) 
+| summarize count() by OperationName
+| sort by count_ desc
+| render piechart
+```
+
+##### REST errors over the last week
+
+```Kusto
+StorageFileLogs
+| where Protocol == "HTTPS" and TimeGenerated >= ago(7d) and StatusText !contains "Success"
+| sort by StatusText asc
+```
+
+##### REST operations over the last week
+ 
+This output appears in a pie chart.
+
+```Kusto
+StorageFileLogs
+| where Protocol == "HTTPS" and TimeGenerated >= ago(7d) 
+| summarize count() by OperationName
+| sort by count_ desc
+| render piechart
+```
+
+### Queue Storage
+
+Need queries here.
+
+### Table Storage
+
+##### Calculate table storage capacity
+
+Put something here.
 
 ## Audit control plane activities
 
