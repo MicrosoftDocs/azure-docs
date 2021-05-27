@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/26/2021
+ms.date: 05/27/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -17,7 +17,7 @@ ms.author: alkohli
 This article describes how to troubleshoot common errors when deploying virtual machines on an Azure Stack Edge Pro GPU device. It explains how to collect guest logs for failed VMs, and provides guidance for investigating VM provisioning timeouts and issues with network interface creation, VM images, VM creation, and GPU VMs.  
 
 ## Collect guest logs for a failed VM
-*05/26: Make this a separate article. Suggested by Niharika and Rajesh: Add to existing Connect to VM console" topic.*
+<!--This will become a separate article.-->
 
 To diagnose any VM provisioning failure, you'll review guest logs on the failed virtual machine.
 
@@ -49,7 +49,7 @@ To collect guest logs for failed virtual machines, do these steps:
 
 ## Troubleshoot VM deployment issues
 
-The following sections provide common causes for the following issues, which occur during VM deployment on an Azure Stack Edge Pro GPU device:
+The following sections provide common causes for these issues, which occur during VM deployment on an Azure Stack Edge Pro GPU device:
  
 * [VM provisioning timeout](#vm-provisioning-timeout)
 * [Network interface creation issues](#network-interface-creation-issues)
@@ -59,44 +59,36 @@ The following sections provide common causes for the following issues, which occ
 
 ## VM provisioning timeout
 
-When VM provisioning times out, you see the following error:
+This section provides troubleshooting for the most common causes of a VM provisioning timeout.
+
+When VM provisioning times out, you see the following error: 
 
 ![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
-*Queries: 1) Is it intended that the customer will work through these issues in linear fashion, from the most common cause to the less common ones? If so, should troubleshooting be set up as a series of steps? 3) To come: To make the information easier to navigate, we probably will convert this discussion to a table. 
-
-05/26: YES to sequential troubleshooting. Separating out some content to other articles will make the need for a table go away.*
-
-This section provides troubleshooting guidance for some of the most common causes of a VM provisioning timeout.
-
+To troubleshoot a VM provisioning timeout, check for the following issues:
+1. [The IP address assigned to the VM is already in use.](#vm-provisioning-timeout)
+1. [The VM image was not prepared correctly.](#vm-image-not-prepared-correctly)
+1. [The default gateway and DNS server couldn't be reached from guest VM.](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
+1. [`cloud init` didn't run, or there were issues while `cloud init` was running.](#cloud-init-issues-linux-vms) (Linux VMs only)
+1. [Provisioning flags were set incorrectly.](#provisioning-flags-set-incorrectly-linux-vms) (Linux VMs only)
 
 ### IP assigned to the VM is already in use
 
-**Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed.  
-*Queries: 1) Does this error apply to both portal and CLI procedures? Doesn't the portal check for duplicate IP addresses, and prevent them deploying if they have one? 2) Can issues other than an existing VM with an IP address produce this error? For example, address pool/subnet issue?*
-
-*05/26: Applies to portal and cli. Doesn't check if IP is taken by other VM or service on customer's network (only checks within our appliance).*
- 
+**Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed. This error happens when the IP address is in use in the subnet on which the VM is deployed. When you deploy a VM via the Azure portal, the process checks for an existing IP address within your device but can't check IP addresses of other services or virtual machines that might also be on your subnet. 
 
 **Suggested solution:** Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.
 
-To check for a duplicate IP address: 
+To check for a duplicate IP address:
 
-1. Stop the VM from the portal (if it is running).
+- Run the following `ping` and Test-NetConnection (`tnc`) commands:<!--Do they run these commands from their device?-->
 
-   *Queries: 1) How can the VM be running if provisioning timed out? 2) Is there a reason why they are stopping the VM from the portal? Can they do this step, as well as the next, in PowerShell?*
+  ```powershell
+  ping <IP address>
+  tnc <IP address>
+  tnc <IP address> -CommonTCPPort “RDP”
+  ```
 
-   *05/26: Cannot stop the VM since it did not complete provisioning. Remove Step 1.* 
-
-1. Run the following `ping` and Test-NetConnection (`tnc`) commands: *Query: Ping from the device*
-
-   ```powershell
-   ping <IP address>
-   tnc <IP address>
-   tnc <IP address> -CommonTCPPort “RDP”
-   ```
-
-   If you get a response, the IP address that you assigned to the new VM is already in use.
+  If you get a response, the IP address that you assigned to the new VM is already in use.
 
 ### VM image not prepared correctly
 
@@ -106,10 +98,10 @@ For an overview of requirements, see [Create custom VM images for an Azure Stack
 
 **Suggested solution:** Complete the workflow for preparing your VM image. For instructions, see one of the following articles:
 
-* [Create custom VM images for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md) (Workflow for creating a VM images for Linux and Windows virtual machines)
-* [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
-* [Prepare generalized image from ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
-* [Use a specialized image to deploy VMs](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)<!--Article not yet available?-->
+* [VM image workflow for Windows and Linux VMs](azure-stack-edge-gpu-create-virtual-machine-image.md)
+* [Prepare a generalized image from a Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+* [Prepare a generalized image using an ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
+* [Use a specialized image to deploy VMs](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)<!--When will this be available? How long do we want to keep linking to a non-existent article?-->
 
 ### Gateway, DNS server couldn't be reached from guest VM
 
@@ -130,9 +122,6 @@ To verify that the default gateway and DNS server can be reached, do the followi
 
 ### `cloud init` issues (Linux VMs)
 
-*Query: Linux VMs only? Has cloud init been tested on Windows VMs?* 
-*05/26: Linux only.*
-
 **Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
 
 **Suggested solution:** To find issues that occurred when `cloud init` was run:
@@ -149,11 +138,9 @@ For help resolving `cloud init` issues, see [Troubleshooting VM provisioning wit
 
 ### Provisioning flags set incorrectly (Linux VMs)
 
-**Error description:** To successfully deploy a Linux VM in Azure, instance creation must be disabled on the image, and provisioning using `cloud init' must be enabled. 
+**Error description:** To successfully deploy a Linux VM in Azure, instance creation must be disabled on the image, and provisioning using `cloud init' must be enabled. These flags are set correctly when a standard VM image is used. When you create a custom VM image, you need to make sure they're set.
 
 **Suggested solution:** Make sure the Provisioning flags in the `/etc/waagent.conf` file have the following values: 
-
-*Query: Where is this file discussed in relationship to Azure VM provisioning?*
 
    | Capability                      | Required value                |
    |---------------------------------|-------------------------------|

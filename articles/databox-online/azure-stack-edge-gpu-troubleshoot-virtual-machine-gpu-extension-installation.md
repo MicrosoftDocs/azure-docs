@@ -1,30 +1,30 @@
 ---
-title: Troubleshoot GPU extension failures when provisioning GPU VMs on Azure Stack Edge Pro GPU 
-description: Describes how to troubleshoot GPU extension installation failures when provisioning GPU VMs on Azure Stack Edge Pro GPU.
+title: Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU 
+description: Describes how to troubleshoot GPU extension installation issues for GPU VMs on Azure Stack Edge Pro GPU.
 services: databox
 author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 05/27/2021
 ms.author: alkohli
 ---
-# Troubleshoot GPU extension failures when provisioning GPU VMs on Azure Stack Edge Pro GPU
+# Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [applies-to-gpu-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article gives guidance for resolving the most common issues that cause installation of the GPU extension to fail when provisioning a GPU VM on an Azure Stack Edge Pro GPU device. CUSTOMER WILL WORK THROUGH POSSIBLE CAUSES STEPWISE.
+This article gives guidance for resolving the most common issues that cause installation of the GPU extension on a GPU VM to fail on an Azure Stack Edge Pro GPU device.
 
 
-### VM size is not GPU VM size
+## VM size is not GPU VM size
 
 **Error description:** A GPU VM must be either Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 size. If any other VM size is used, the GPU extension will fail to be attached.
 
 **Suggested solution:** Create a VM with the Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 VM size. For more information, see [Supported VM sizes for GPU VMs](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
 
 
-### Image OS is not supported
+## Image OS is not supported
 
 **Error description:** The GPU extension doesn't support the operating system that's installed on the VM image. 
 
@@ -35,14 +35,14 @@ This article gives guidance for resolving the most common issues that cause inst
 * For image preparation requirements for a GPU VM, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
 
-### Extension parameter is incorrect
+## Extension parameter is incorrect
 
 **Error description:** Incorrect extension settings were used when deploying the GPU extension on a Linux VM. 
 
 **Suggested solution:** Edit the parameters file before deploying the GPU extension. There are specific parameters files for the Ubuntu and Red Hat Enterprise Linux (RHEL) operating systems. For more information, see [Install GPU extension](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension).
 
 
-### VM extension installation failed in downloading package
+## VM extension installation failed in downloading package
 
 **Error description:** Extension provisioning failed during extension installation or while in the Enable state.
 
@@ -55,18 +55,18 @@ This article gives guidance for resolving the most common issues that cause inst
    * Find out the error status in `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status`.
    * Review the complete execution log: `C:\WindowsAzure\Logs\WaAppAgent.txt`.
 
-1.	If installation failed during the package download, that indicates the VM couldn't access the public network to download the driver.
+   If installation failed during the package download, that indicates the VM couldn't access the public network to download the driver.
 
 **Suggested solution:**
 
 1.	Enable compute on a port that's connected to the Internet. For guidance, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
-2.	De-allocate the VM by stopping the VM in the portal. To stop the VM, go to **Virtual machines** > **Overview**, and select the VM. Then, on the VM properties page, select **Stop**.<!--Follow-up (formatting): Create an include file for stopping a VM. Use it here and in prerequisites for "Use the Azure portal to manage network interfaces on the VMs" (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal#prerequisites).-->
+1.	De-allocate the VM by stopping the VM in the portal. To stop the VM, go to **Virtual machines** > **Overview**, and select the VM. Then, on the VM properties page, select **Stop**.<!--Follow-up (formatting): Create an include file for stopping a VM. Use it here and in prerequisites for "Use the Azure portal to manage network interfaces on the VMs" (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal#prerequisites).-->
  
-3.	Create a new VM.
+1.	Create a new VM.
 
 
-### VM Extension failed with error `dpkg is used/yum lock is used` (Linux VM)
+## VM Extension failed with error `dpkg is used/yum lock is used` (Linux VM)
 
 **Error description:** GPU extension deployment on a Linux VM failed because another process was using `dpkg` or another process has created a `yum lock`. 
 
@@ -80,6 +80,7 @@ This article gives guidance for resolving the most common issues that cause inst
 
 1.	If extension deployment fails again, create a new VM and make sure the lock isn't present before you install the GPU extension.
 
+
 ## Next steps
 
-- Troubleshoot [Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md) in Azure portal.<!--Legacy entry. List not yet updated.-->
+- [Collect guest error logs for VMs on an Azure Stack Edge Pro device](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)

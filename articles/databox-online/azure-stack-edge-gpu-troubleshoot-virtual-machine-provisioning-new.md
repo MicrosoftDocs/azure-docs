@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 05/26/2021
+ms.date: 05/27/2021
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU - NEW
@@ -65,26 +65,28 @@ When VM provisioning times out, you see the following error:
 
 ![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
-To troubleshoot a VM provisioning timeout, check for the following issues:<!--Stopped here. Add section links tomorrow a.m.-->
-1. The IP address assigned to the VM is already in use.
-1. The VM image was not prepared correctly.
-1. The default gateway and DNS server couldn't be reached from guest VM.
-1. `cloud init` didn't run, or there were issues while `cloud init` was running. (Linux VMs only)
-1. Provisioning flags were set incorrectly. (Linux VMs only)
+To troubleshoot a VM provisioning timeout, check for the following issues:
+1. [The IP address assigned to the VM is already in use.](#vm-provisioning-timeout)
+1. [The VM image was not prepared correctly.](#vm-image-not-prepared-correctly)
+1. [The default gateway and DNS server couldn't be reached from guest VM.](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
+1. [`cloud init` didn't run, or there were issues while `cloud init` was running.](#cloud-init-issues-linux-vms) (Linux VMs only)
+1. [Provisioning flags were set incorrectly.](#provisioning-flags-set-incorrectly-linux-vms) (Linux VMs only)
 
 ### IP assigned to the VM is already in use
 
-**Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed. This error happens when the IP address is in use in the subnet on which the VM is deployed. When you deploy a VM via the Azure portal, XX checks for an existing IP address within your device but can't check IP addresses of other services or virtual machines that might also be on your subnet. 
+**Error description:**  The VM was assigned a static IP address that is already in use, and VM provisioning failed. This error happens when the IP address is in use in the subnet on which the VM is deployed. When you deploy a VM via the Azure portal, the process checks for an existing IP address within your device but can't check IP addresses of other services or virtual machines that might also be on your subnet. 
 
 **Suggested solution:** Use a static IP address that is not in use, or use a dynamic IP address provided by the DHCP server.
 
-To check for a duplicate IP address, run the following `ping` and Test-NetConnection (`tnc`) commands:<!--From where?-->
+To check for a duplicate IP address:
 
-```powershell
-ping <IP address>
-tnc <IP address>
-tnc <IP address> -CommonTCPPort “RDP”
-```
+- Run the following `ping` and Test-NetConnection (`tnc`) commands:<!--From where?-->
+
+  ```powershell
+  ping <IP address>
+  tnc <IP address>
+  tnc <IP address> -CommonTCPPort “RDP”
+  ```
 
 If you get a response, the IP address that you assigned to the new VM is already in use.
 
@@ -96,10 +98,10 @@ For an overview of requirements, see [Create custom VM images for an Azure Stack
 
 **Suggested solution:** Complete the workflow for preparing your VM image. For instructions, see one of the following articles:
 
-* [Create custom VM images for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md) (Workflow for creating a VM images for Linux and Windows virtual machines)
-* [Prepare generalized image from Windows VHD to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
-* [Prepare generalized image from ISO to deploy VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
-* [Use a specialized image to deploy VMs](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)<!--Article not yet available?-->
+* [VM image workflow for Windows and Linux VMs](azure-stack-edge-gpu-create-virtual-machine-image.md)
+* [Prepare a generalized image from a Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
+* [Prepare a generalized image using an ISO](azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md)
+* [Use a specialized image to deploy VMs](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)<!--When will this be available? How long do we want to keep linking to a non-existent article?-->
 
 ### Gateway, DNS server couldn't be reached from guest VM
 
@@ -119,9 +121,6 @@ To verify that the default gateway and DNS server can be reached, do the followi
 
 
 ### `cloud init` issues (Linux VMs)
-
-*Query: Linux VMs only? Has cloud init been tested on Windows VMs?* 
-*05/26: Linux only.*
 
 **Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
 
