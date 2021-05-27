@@ -69,27 +69,27 @@ When you create the **Logic App (Standard)** resource in the Azure portal or dep
 
 ### Hosting plans, pricing tiers, and billing rates
 
-For single-tenant based logic apps, you must use the **Workflow Standard** hosting plan, and select a pricing tier. Each tier includes a specific amount of compute, memory, and storage resources. For more information, review the following table, which lists each pricing tier plus the included resources and the monthly rate in US$, based on the East US as the example datacenter region. After the table, you can find the hourly rates and an example that breaks down the monthly cost per resource.
+For single-tenant based logic apps, you must use the **Workflow Standard** hosting plan, and select a pricing tier. Each tier includes a specific amount of compute, memory, and storage resources. For more information, review the following table, which lists each pricing tier plus the included resources and the monthly rate, which uses *East US as an example region*. Below the table, you can find the hourly rates and an example that breaks down the monthly cost per resource.
 
-| Pricing tier | Monthly rate in US$ (East US) | Virtual CPU (core) | [Azure Compute Unit (ACU)](../virtual-machines/acu.md) | Memory (GB) | Storage (GB) |
-|--------------|-------------------------------|--------------------|--------------------------------------------------------|-------------|--------------|
+| Pricing tier | Monthly US$ (East US) | Virtual CPU (core) | [Azure Compute Unit (ACU)](../virtual-machines/acu.md) | Memory (GB) | Storage (GB) |
+|--------------|-----------------------|--------------------|--------------------------------------------------------|-------------|--------------|
 | **WS1** | $175.20 | 1 | 210 | 3.5 | 250 |
 | **WS2** | $350.40 | 2 | 420 | 7 | 250 |
 | **WS3** | $700.80 | 4 | 840 | 14 | 250 |
 |||||||
 
-Using the East US as the example region, the following table lists the hourly rate (US$) that's used to calculate the monthly rate:
+The following table lists the hourly rate that's used to calculate the monthly rate:
 
-| Resource | Hourly (US$) |
-|----------|--------------|
+| Resource | Hourly US$ (East US) |
+|----------|----------------------|
 | **Virtual CPU** | $0.1920 per core |
 | **Memory** | $0.0137 per GB |
 |||
 
-For example, the **WS1** pricing tier has US$175.20 as the monthly rate. The following table breaks down this monthly rate based on the resource and hourly rate for that resource:
+Based on the preceding information, the following table breaks down the monthly rate for the **WS1** pricing tier by resource and hourly rate:
 
-| Resource | Amount | Monthly (US$) |
-|----------|--------|---------------|
+| Resource | Amount | Monthly US$ (East US) |
+|----------|--------|-----------------------|
 | **Virtual CPU** | 1 core | $140.16 |
 | **Memory** | 3.5 GB | $35.04 |
 ||||
