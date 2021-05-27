@@ -48,23 +48,17 @@ The following sections identify when a service has an integration with Microsoft
 
 ## Azure Key Vault
 
-Azure Key Vault helps solve the following problems:
-
-- Secrets Management - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets.
-- Key Management - Azure Key Vault can be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data.
-- Certificate Management - Azure Key Vault lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
-- Managed HSM - Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs.
-
-For more information, see the [Azure Key Vault product documentation](../../key-vault/general/overview.md).
+Azure Key Vault is a cloud service for securely storing and accessing secrets (such as passwords), keys (such as API keys or cryptographic keys), and certificates. Azure Key Vault has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which allows you to protect keys with managed hardware security modules (Managed HSM). For more information, see the [Azure Key Vault product documentation](../../key-vault/general/overview.md).
 
 The following tables display the current Azure Key Vault feature availability in Azure and Azure Government.
 
 | Feature | Azure | Azure Government  |
 | ----- | ----- | ---- |
-| [Certificates](../../key-vault/certificates/about-certificates.md) | GA | GA |
-| [Keys](../../key-vault/keys/about-keys.md) | GA | GA |
-| [Managed HSM](../../key-vault/managed-hsm/overview.md) | GA | GA |
 | [Secrets](../../key-vault/secrets/about-secrets.md) | GA | GA |
+| [Keys](../../key-vault/keys/about-keys.md) | GA | GA |
+| [Certificates](../../key-vault/certificates/about-certificates.md) | GA | GA |
+| [Managed HSM](../../key-vault/managed-hsm/overview.md) | GA | Not Available |
+
 
 ## Azure Sentinel
 
