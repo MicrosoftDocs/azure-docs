@@ -101,7 +101,7 @@ You can set up autoscale via
 | Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| Virtual Machines: Autoscale with Spot VM Try & restore |[Try & restore (preview)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot#try--restore-preview) |
+| Virtual Machines: Autoscale behavior with Spot VM Try & restore |[Try & restore (preview)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot#try--restore-preview) |
 | API Management service|[Automatically scale an Azure API Management instance](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 | Azure Data Explorer Clusters|[Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)|
 | Azure App Service |[Scale up an app in Azure App service](../../app-service/manage-scale-up.md)|
