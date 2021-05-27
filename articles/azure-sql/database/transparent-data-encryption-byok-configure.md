@@ -237,7 +237,7 @@ Check the following if an issue occurs:
 
    # [The Azure CLI](#tab/azure-cli)
 
-   ```powershell
+   ```azurecli
    az account show - s <SubscriptionId>
    ```
 

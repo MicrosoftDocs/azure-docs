@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 02/16/2021
+ms.date: 05/13/2021
 ms.author: memildin
 ---
 
@@ -120,6 +120,7 @@ For information about when recommendations are generated for each of these prote
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender for container registries](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |[Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender for open-source relational databases](defender-for-databases-introduction.md)|-|-|
 |[Kubernetes workload protection](kubernetes-workload-protections.md)|✔|✔|
 |||
 

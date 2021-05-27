@@ -13,13 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 05/19/2021
 ms.author: phjensen
 ---
 
 # Install Azure Application Consistent Snapshot tool
 
-This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
+This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files or Azure Large Instance.
+
+> [!IMPORTANT]
+> Distributed installations are the only option for **Azure Large Instance** systems as they are deployed in a private network.  Therefore AzAcSnap installations must be done on each system to ensure connectivity.
 
 ## Introduction
 
@@ -40,8 +43,13 @@ tools.
     set up SSH with a private/public key pair, and provide the public key for each node where the
     snapshot tools are planned to be executed to Microsoft Operations for setup on the storage
     back-end.
-   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the
-      service principal authentication file.
+   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the service principal authentication file.
+      
+      > [!IMPORTANT]
+      > When validating communication with Azure NetApp Files, communication might fail or time-out. Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
+      > - (https://)management.azure.com:443
+      > - (https://)login.microsoftonline.com:443
+      
    1. **For Azure Large Instance (refer separate section for details)**: Customer must set up SSH with a
       private/public key pair, and provide the public key for each node where the snapshot tools are
       planned to be executed to Microsoft Operations for setup on the storage back-end.

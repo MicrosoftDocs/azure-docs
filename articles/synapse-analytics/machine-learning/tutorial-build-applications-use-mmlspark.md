@@ -52,18 +52,12 @@ from mmlspark.cognitive import *
 from notebookutils import mssparkutils
 
 # A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
-service_key =  "ADD_YOUR_SUBSCRIPION_KEY" 
+cognitive_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
 # A Bing Search v7 subscription key
-bing_search_key = "ADD_YOUR_SUBSCRIPION_KEY" 
+bingsearch_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_BING_SEARCH_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 # An Anomaly Dectector subscription key
-anomaly_key =  "ADD_YOUR_SUBSCRIPION_KEY" 
-# Your linked key vault for Synapse workspace
-key_vault = "YOUR_KEY_VAULT_NAME"
+anomalydetector_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_ANOMALY_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 
-
-cognitive_service_key = mssparkutils.credentials.getSecret(key_vault, service_key)
-bingsearch_service_key = mssparkutils.credentials.getSecret(key_vault, bing_search_key)
-anomalydetector_key = mssparkutils.credentials.getSecret(key_vault, anomaly_key)
 
 ```
 

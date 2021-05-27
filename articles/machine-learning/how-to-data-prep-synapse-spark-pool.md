@@ -18,7 +18,7 @@ ms.custom: devx-track-python, data4ml, synapse-azureml
 
 # Attach Apache Spark pools (powered by Azure Synapse Analytics) for data wrangling (preview)
 
-In this article, you learn how to attach an Apache Spark pool powered by [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) to your Azure Machine learning workspace, so you can launch it and perform data wrangling at scale. 
+In this article, you learn how to attach an Apache Spark pool powered by [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) to your [Azure Machine learning workspace](concept-workspace.md), so you can launch it and perform data wrangling at scale. 
 
 This article contains guidance for performing data wrangling tasks interactively within a dedicated Synapse session in a Jupyter notebook using the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/). If you prefer to use Azure Machine Learning pipelines, see [How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)](how-to-use-synapsesparkstep.md).
 
@@ -305,7 +305,7 @@ The following code example,
 * Assumes you already created a datastore that connects to the storage service where you saved your prepared data.  
 * Gets that existing datastore, `mydatastore`, from the workspace, `ws` with the get() method.
 * Creates a [FileDataset](how-to-create-register-datasets.md#filedataset), `train_ds`, that references the prepared data files located in the `training_data` directory in `mydatastore`.  
-* Creates the variable `input1`, which can be used at a later time to make the data files of the `train_ds` dataset available to a compute target.
+* Creates the variable `input1`, which can be used at a later time to make the data files of the `train_ds` dataset available to a compute target for your training tasks.
 
 ```python
 from azureml.core import Datastore, Dataset
@@ -317,14 +317,36 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
+
 ## Use a `ScriptRunConfig` to submit an experiment run to a Synapse Spark pool
 
-You can also [leverage the Synapse spark cluster you attached previously](#attach-a-pool-with-the-python-sdk) as a compute target for submitting an experiment run with a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.
+If you are ready to automate and productionize your data wrangling tasks, you can submit an experiment run to [the Synapse Spark pool you attached previously](#attach-a-pool-with-the-python-sdk) with the [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object.  
+
+Similarly, if you have an Azure Machine Learning pipeline, you can use the [SynapseSparkStep to specify your Synapse Spark pool as the compute target for the data preparation step in your pipeline](how-to-use-synapsesparkstep.md).
+
+Making your data available to the Synapse Spark pool depends on your dataset type. 
+
+* For a FileDataset, you can use the [`as_hdfs()`](/python/api/azureml-core/azureml.data.filedataset#as-hdfs--) method. When the run is submitted, the dataset is made available to the Synapse Spark pool as a Hadoop distributed file system (HFDS). 
+* For a [TabularDataset](how-to-create-register-datasets.md#tabulardataset), you can use the [`as_named_input()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#as-named-input-name-) method. 
+
+The following code, 
+
+* Creates the variable `input2` from the FileDataset `train_ds` that was created in the previous code example.
+* Creates the variable `output` with the HDFSOutputDatasetConfiguration class. After the run is complete, this class allows us to save the output of the run as the dataset, `test` in the datastore, `mydatastore`. In the Azure Machine Learning workspace, the `test` dataset is registered under the name `registered_dataset`. 
+* Configures settings the run should use in order to perform on the Synapse Spark pool. 
+* Defines the ScriptRunConfig parameters to, 
+  * Use the `dataprep.py`, for the run. 
+  * Specify which data to use as input and how to make it available to the Synapse Spark pool.
+  * Specify where to store output data, `output`.  
 
 ```Python
+from azureml.core import Dataset, HDFSOutputDatasetConfig
 from azureml.core import RunConfiguration
 from azureml.core import ScriptRunConfig 
 from azureml.core import Experiment
+
+input2 = train_ds.as_hdfs()
+output = HDFSOutputDatasetConfig(destination=(datastore, "test").register_on_complete(name="registered_dataset")
 
 run_config = RunConfiguration(framework="pyspark")
 run_config.target = synapse_compute_name
@@ -339,8 +361,7 @@ run_config.environment.python.conda_dependencies = conda_dep
 
 script_run_config = ScriptRunConfig(source_directory = './code',
                                     script= 'dataprep.py',
-                                    arguments = ["--tabular_input", input1, 
-                                                 "--file_input", input2,
+                                    arguments = ["--file_input", input2,
                                                  "--output_dir", output],
                                     run_config = run_config)
 ```
@@ -354,11 +375,16 @@ exp = Experiment(workspace=ws, name="synapse-spark")
 run = exp.submit(config=script_run_config) 
 run
 ```
-For additional details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb).
+
+For additional details, like the `dataprep.py` script used in this example, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
+
+After your data is prepared, you can then use it as input for your training jobs. In the aforementioned code example, the `registered_dataset` is what you would specify as your input data for training jobs. 
 
 ## Example notebooks
 
-See this [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb) for more concepts and demonstrations of the Azure Synapse Analytics and Azure Machine Learning integration capabilities.
+See the example notebooks for more concepts and demonstrations of the Azure Synapse Analytics and Azure Machine Learning integration capabilities.
+* [Run an interactive Spark session from a notebook in your Azure Machine Learning workspace](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb).
+* [Submit an Azure Machine Learning experiment run with a Synapse Spark pool as your compute target](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
 
 ## Next steps
 

@@ -33,7 +33,7 @@ This article discusses the technical details regarding the migration tool as per
 ### Service Configuration and Service Definition files
 - The .cscfg and .csdef files needs to be updated for Cloud Services (extended support) with minor changes. 
 - The names of resources like virtual network and VM SKU are different. See [Translation of resources and naming convention post migration](#translation-of-resources-and-naming-convention-post-migration)
-- Customers can retrieve their new deployments through [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) and [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/get). 
+- Customers can retrieve their new deployments through [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) and [Rest API](/rest/api/compute/cloudservices/get). 
 
 ### Cloud Service and deployments
 - Each Cloud Services (extended support) deployment is an independent Cloud Service. Deployment are no longer grouped into a cloud service using slots.
@@ -97,4 +97,4 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 - Customers can use PowerShell or Rest API to abort or commit. 
 
 ### How much time can the operations take?<br>
-Validate is designed to be quick. Prepare is longest running and takes some time depending on total number of role instances being migrated. Abort and commit can also take time but will take less time compared to prepare. All operations will time out after 24 hrs. 
+Validate is designed to be quick. Prepare is longest running and takes some time depending on total number of role instances being migrated. Abort and commit can also take time but will take less time compared to prepare. All operations will time out after 24 hrs.

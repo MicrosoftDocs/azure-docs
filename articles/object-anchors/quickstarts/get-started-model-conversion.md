@@ -121,6 +121,9 @@ Now, you can go ahead and convert your 3D model.
 
 4. Once the job is completed successfully, you should see a file with the format `<Model-Filename-Without-Extension>_<JobID>.ou` in the specified output location. For example, if your 3D model filename is `chair.ply` and your job ID is `00000000-0000-0000-0000-000000000000` then the filename the service outputs will be `chair_00000000-0000-0000-0000-000000000000.ou`.
 
+## Error Codes
+For details on the different error codes that can result from a failed asset conversion job and how to handle each, refer to the [conversion error codes page](..\model-conversion-error-codes.md).
+
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps

@@ -13,6 +13,9 @@ This article lists resources by resource provider namespace. For a list of how r
 
 Resource names are case-insensitive unless noted in the valid characters column.
 
+> [!NOTE]
+> When retrieving resource names using various APIs, returned values may display different case values than what is listed in the valid characters table.
+
 In the following tables, the term alphanumeric refers to:
 
 * **a** through **z** (lowercase letters)
