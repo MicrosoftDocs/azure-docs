@@ -36,7 +36,7 @@ As mentioned above, FHIR version R4 is required to meet this mandate. In additio
 
 ## Patient Access API Implementation Guides
 
-The Patient Access API describes adherence to four FHIR implementation guides. Within these guides, there're extra FHIR details.
+The Patient Access API describes adherence to four FHIR implementation guides.
 
 ## [CARIN IG for Blue Button®](http://hl7.org/fhir/us/carin-bb/STU1/index.html)
 
@@ -52,7 +52,7 @@ The HL7 US Core Implementation Guide (US Core IG) is the backbone for the PDex I
 
 ## [HL7 FHIR Da Vinci - PDex US Drug Formulary IG](http://hl7.org/fhir/us/Davinci-drug-formulary/index.html)
 
-Under the Interoperability and Patient Access final rule, Part D Medicare Advantage plans have to make formulary information available via the Patient API. They do this using the PDex US Drug Formulary Implementation Guide (USDF IG). The USDF IG defines a FHIR interface to a health insurer’s drug formulary information, which is a list of brand-name and generic prescription drugs that a health insurer agrees to pay for. The main use case of this is so that patients can understand if there are alternative drug available to one that has been prescribed to them and to compare drug costs.
+Part D Medicare Advantage plans have to make formulary information available via the Patient API. They do this using the PDex US Drug Formulary Implementation Guide (USDF IG). The USDF IG defines a FHIR interface to a health insurer’s drug formulary information, which is a list of brand-name and generic prescription drugs that a health insurer agrees to pay for. The main use case of this is so that patients can understand if there are alternative drug available to one that has been prescribed to them and to compare drug costs.
 
 ## Provider Directory API Implementation Guide
 
@@ -64,9 +64,9 @@ This implementation guide defines a FHIR interface to a health insurer’s insur
 
 ## Touchstone
 
-To test adherence to the various implementation guides, [touchstone](https://touchstone.aegis.net/touchstone/) is a great
-resource. Throughout the upcoming tutorials, we will focus on ensuring that the Azure API for FHIR is configured to successfully pass various touchstone tests. The touchstone site has a lot of great documentation to help you get up and running.
+To test adherence to the various implementation guides, [Touchstone](https://touchstone.aegis.net/touchstone/) is a great
+resource. Throughout the upcoming tutorials, we'll focus on ensuring that the Azure API for FHIR is configured to successfully pass various Touchstone tests. The Touchstone site has a lot of great documentation to help you get up and running.
 
 ## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the Carin Blue Button IG. 
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the Carin Blue Button IG. For more information, see [C4BB Organization](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html).
