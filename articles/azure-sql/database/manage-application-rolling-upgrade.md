@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: scott-kim-sql
+ms.author: scottkim
+ms.reviewer: mathoma
 ms.date: 02/13/2019
 ---
 
