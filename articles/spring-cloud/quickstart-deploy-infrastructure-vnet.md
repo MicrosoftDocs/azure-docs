@@ -62,7 +62,7 @@ To deploy the template, follow these steps:
 - **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/<your subscription>/resourcegroups/<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/<your log analytics workspace name>*.)
 - **springCloudAppSubnetID:** Enter the resourceID of the Azure Spring Cloud App Subnet.
 - **springCloudRuntimeSubnetID:** Enter the resourceID of the Azure Spring Cloud Runtime Subnet.
-- **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (3 in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Cloud infrastructure, which should be 3 at least /16 unused IP ranges, must not overlap with any routable subnet IP ranges used within the network.
+- **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (3 in total) in Classless Inter-Domain Routing (CIDR) format. The IP ranges are reserved to host underlying Azure Spring Cloud infrastructure, which should be 3 at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
 - **tags:** Enter any custom tags.
 
 3. Select **Review + Create** and then **Create**.
