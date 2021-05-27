@@ -154,7 +154,9 @@ When configuring AD FS single sign-on you must choose shared key or certificate:
 
 The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](../key-vault/general/overview.md). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
 
-The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust.
+When using a certificate, you can use any general purpose certificate. While not required, it's recommended to create a certificate issued by a valid Certificate Authority. This certificate can be created directly in Azure Key Vault and needs to have an exportable private key. The public key can be exported and used to configure the AD FS server.
+
+The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust and install the certificate if needed.
 
 This script only has one required parameter, *ADFSAuthority*, which is the URL that resolves to your AD FS and uses "/adfs" as its suffix. For example, `https://adfs.contoso.com/adfs`.
 
