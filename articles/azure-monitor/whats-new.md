@@ -9,18 +9,6 @@ ms.date: 05/01/2021
 
 Welcome to what's new in the Azure Monitor docs for April 2021. This article lists some of the significant changes to docs during this period.
 
-<<<<<<< HEAD
-## General
-
-**Updated articles**
-
-- [Azure Monitor Frequently Asked Questions](faq.yml)
-- [Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)
-- [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
-- [Deploy Azure Monitor](deploy.md)
-   
-=======
->>>>>>> 7ec01e3895a29e7d19deb952fb9f67786d95c2ad
 ## Agents
 
 **Updated articles**
@@ -88,11 +76,12 @@ Welcome to what's new in the Azure Monitor docs for April 2021. This article lis
 - [Application Insights log-based metrics](/azure/azure-monitoressentials/app-insights-metrics.md)
 - [Getting started with Azure Metrics Explorer](/azure/azure-monitoressentials/metrics-getting-started.md)
 
+
 ## General
 
 **Updated articles**
 
-- [Azure Monitor Frequently Asked Questions](faq.md)
+- [Azure Monitor Frequently Asked Questions](faq.yml)
 - [Azure Monitor docs: What's new for February 1, 2021 - February 28, 2021](whats-new.md)
 - [Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)
 - [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
@@ -122,22 +111,6 @@ Welcome to what's new in the Azure Monitor docs for April 2021. This article lis
 
 **Updated articles**
 
-<<<<<<< HEAD
-- [Create interactive reports VM insights with workbooks](vm/vminsights-workbooks.md)
-- [Enable VM insights overview](vm/vminsights-enable-overview.md)
-- [Troubleshoot Azure Monitor for VMs guest health (preview)](vm/vminsights-health-troubleshoot.md)
-- [Monitoring Azure virtual machines with Azure Monitor](vm/monitor-vm-azure.md)
-- [Integrate System Center Operations Manager with VM insights Map feature](vm/service-map-scom.md)
-- [How to create alerts from VM insights](vm/vminsights-alerts.md)
-- [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md)
-- [Enable VM insights by using Azure Policy](vm/vminsights-enable-policy.md)
-- [Enable VM insights using Resource Manager templates](vm/vminsights-enable-resource-manager.md)
-- [VM insights Generally Available (GA) Frequently Asked Questions](vm/vminsights-ga-release-faq.yml)
-- [Enable VM insights guest health (preview)](vm/vminsights-health-enable.md)
-- [Disable monitoring of your VMs in VM insights](vm/vminsights-optout.md)
-- [Overview of VM insights](vm/vminsights-overview.md)
-- [How to chart performance with VM insights](vm/vminsights-performance.md)
-=======
 - [Create interactive reports VM insights with workbooks](/azure/azure-monitorvm/vminsights-workbooks.md)
 - [Enable VM insights overview](/azure/azure-monitorvm/vminsights-enable-overview.md)
 - [Troubleshoot Azure Monitor for VMs guest health (preview)](/azure/azure-monitorvm/vminsights-health-troubleshoot.md)
@@ -152,7 +125,6 @@ Welcome to what's new in the Azure Monitor docs for April 2021. This article lis
 - [Disable monitoring of your VMs in VM insights](/azure/azure-monitorvm/vminsights-optout.md)
 - [Overview of VM insights](/azure/azure-monitorvm/vminsights-overview.md)
 - [How to chart performance with VM insights](/azure/azure-monitorvm/vminsights-performance.md)
->>>>>>> 7ec01e3895a29e7d19deb952fb9f67786d95c2ad
 
 ## Visualizations
 
