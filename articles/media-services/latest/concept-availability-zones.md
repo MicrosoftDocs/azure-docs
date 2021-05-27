@@ -11,7 +11,7 @@ ms.author: johndeu
 ---
 # Availability Zones
 
-Azure Media Services supports [Availability Zones](../../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Media Services is zone redundant by default and there are no additional settings or configuration changes required to be made to enable the capability. Support is limited to the [Azure regions that have Availability Zones](../../availability-zones/az-region.md#azure-regions-with-availability-zones.md).
+Azure Media Services supports [Availability Zones](../../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Media Services is zone redundant by default and there are no additional settings or configuration changes required to be made to enable the capability. Support is limited to the [Azure regions that have Availability Zones](../../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 ## High Availability Streaming and Encoding for VOD
 
@@ -20,7 +20,7 @@ The article and sample code provides a solution for how individual regional Medi
 
 ## Media Services support for Availability Zones by region
 
-Availability Zones are currently only supported in certain Azure regions. To learn more about Availability Zones region support, see [Azure Regions with Availability Zones](../../availability-zones/az-region.md#azure-regions-with-availability-zones.md)
+Availability Zones are currently only supported in certain Azure regions. To learn more about Availability Zones region support, see [Azure Regions with Availability Zones](../../availability-zones/az-region.md#azure-regions-with-availability-zones)
 
 ## Further reading
 
