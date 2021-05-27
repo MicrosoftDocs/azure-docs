@@ -51,7 +51,7 @@ Pipeline expression parameters allow you to reference system variables, function
 
 ![Screenshot shows the expression builder pane.](media/data-flow/parameter-pipeline.png "Setting a Data Flow parameter")
 
-When referenced, [pipeline parameters](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/pipelines#property-values) are evaluated and then their value is used in the data flow expression language. The pipeline expression type doesn't need to match the data flow parameter type. 
+When referenced, pipeline parameters are evaluated and then their value is used in the data flow expression language. The pipeline expression type doesn't need to match the data flow parameter type. 
 
 #### String literals vs expressions
 
