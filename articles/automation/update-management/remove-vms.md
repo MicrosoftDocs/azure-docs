@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    > [!NOTE]
    > For added protection, before making edits be sure to make a copy of the query. Then you can restore it if a problem occurs.
 
-   If you want to start with the original query and manually add machines to support your cleanup or maintenance effort, copy the following query:
+   If you want to start with the original query and re-add machines in support of a cleanup or maintenance activity, copy the following query:
 
    ```kusto
    Heartbeat
