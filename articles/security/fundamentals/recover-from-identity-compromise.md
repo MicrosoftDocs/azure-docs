@@ -162,25 +162,47 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 
 Detecting attacker behavior includes several methods, and depends on the security tools your organization has available for responding to the attack.
 
-For example, the following Microsoft security services may have specific resources and guidance that is relevant to the attack:
-
-- **Azure Sentinel** may have built-in resources to help in your investigation, such as [hunting workbooks](/azure/sentinel/quickstart-get-visibility)
-
-- **Microsoft Defender for Endpoint** and **Microsoft Defender Antivirus** may have specific guidance relevant to your attack
-
-- **Azure Active Directory** sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs from directly from the Azure Active Directory area in the Azure portal, or use the **Get-AzureADAuditSignInLogs** cmdlet.
-
-    For example, search or filter the results for when the **MFA results** field has a value of **MFA requirement satisfied by claim in the token**. If your organization uses ADFS and the claims logged are not included in the ADFS configuration, these claims may indicate attacker activity.
-
-    Search or filter your results further to exclude extra noise. For example, you may want to include results only from federated domains. If you find suspicious sign-ins, drill down even further based on IP addresses, user accounts, and so on.
-
-    For more information, see [Monitoring with Azure Active Directory](#monitoring-with-azure-active-directory).
+For example, Microsoft security services may have specific resources and guidance that's relevant to the attack, as described in the sections below.
 
 > [!IMPORTANT]
 > If your investigation finds evidence of administrative permissions acquired through the compromise on your system, which have provided access to your organization's global administrator account and/or trusted SAML token-signing certificate, we recommend taking action to [remediate and retain administrative control](#remediate-and-retain-administrative-control).
 > 
 
+### Monitoring with Azure Sentinel
+
+Azure Sentinel has many built-in resources to help in your investigation, such as [hunting workbooks](/azure/sentinel/quickstart-get-visibility) and analytics rules.
+
+For example, you might want to use the following analytics rules to trigger incidents in your Azure Sentinel workspace:
+
+- **AD FS Local Named Pipe Connection**
+- **Mail.Read Permissions Granted to Application**
+- **New access credential added to Application or Service Principal**
+- **First access credential added to Application or Service Principal where no credential was present**
+- **Exchange workflow MailItemsAccessed operation anomaly**
+
+You can find more in the **Analytics** area in Azure Sentinel. For more information, see [Detect threats out of the box](/azure/sentinel/tutorial-detect-threats-built-in.md).
+
+### Monitoring with Microsoft Defender
+
+We recommend that you check Microsoft Defender for Endpoint and Microsoft Defender Antivirus for have specific guidance relevant to your attack.
+
+The following examples are more resources available for you in the Microsoft security center:
+
+- In Microsoft 365 Defender for Identity and Microsoft Cloud App Security, detect attacker events such as a **Suspected DCSync attack (replication of directory services)**.
+- In Microsoft 365 Defender, use hunting queries such as **Mail.Read or Mail.ReadWrite permissions added to OAuth application (CloudAppEvents)** or **Credentials were added to an Azure AD application after 'Admin Consent' permissions granted** to find out more information.
+
+For more information about threat analytics in Microsoft 365 Defender, see:
+
+- [Track and respond to emerging threats with threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics)
+- [Understand the analyst report in threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics-analyst-reports)
+
 ### Monitoring with Azure Active Directory
+
+Azure Active Directory sign-in logs can show whether multi-factor authentication is being used correctly. Access sign-in logs directly from the Azure Active Directory area in the Azure portal, use the **Get-AzureADAuditSignInLogs** cmdlet, or view them in the **Logs** area of Azure Sentinel.
+
+For example, search or filter the results for when the **MFA results** field has a value of **MFA requirement satisfied by claim in the token**. If your organization uses ADFS and the claims logged are not included in the ADFS configuration, these claims may indicate attacker activity.
+
+Search or filter your results further to exclude extra noise. For example, you may want to include results only from federated domains. If you find suspicious sign-ins, drill down even further based on IP addresses, user accounts, and so on.
 
 The following table describes more methods for using Azure Active directory logs in your investigation:
 
