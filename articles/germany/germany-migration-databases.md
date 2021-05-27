@@ -44,6 +44,9 @@ For databases that are too large for BACPAC files, or to migrate from one cloud 
 > [!IMPORTANT]
 > Configuring active geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and prior to migrating you must request enablement of your subscription to support migrating to global Azure. To submit a request, you must use [this support request link](#requesting-access). 
 
+> [!Note]
+> Azure global cloud regions, Germany West Central and Germany North, are the supported regions for active geo-replication with the Azure Germany cloud. If an alternative global Azure region is desired as the final database(s) destination, the recommendation after completion of the migration to global Azure is to configure an additional geo-replication link from Germany West Central or Germany North to the required Azure global cloud region.
+
 For details about active geo-replication costs, see the section titled **Active geo-replication** in [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 Migrating databases with active geo-replication requires an Azure SQL logical server in global Azure. You can create the server using the portal, Azure PowerShell, Azure CLI, etc., but configuring active geo-replication to migrate from Azure Germany to global Azure is only supported using Transact-SQL (T-SQL).

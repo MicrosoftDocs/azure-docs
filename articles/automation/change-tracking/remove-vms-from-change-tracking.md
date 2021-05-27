@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 8. Save the saved search when you're finished editing it by selecting **Save > Save as function** from the top bar. When prompted, specify the following:
 
     * **Name**: ChangeTracking__MicrosoftDefaultComputerGroup
-    * **Save as computer Group**: Selected
+    * **Save as computer Group** is selected
     * **Legacy category**: ChangeTracking
 
 >[!NOTE]

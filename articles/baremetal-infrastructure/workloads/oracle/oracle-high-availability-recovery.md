@@ -2,7 +2,7 @@
 title: Recover your Oracle database on Azure BareMetal Infrastructure
 description: Learn how you can recover your Oracle database on the Azure BareMetal Infrastructure.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/15/2021
 ---
 
