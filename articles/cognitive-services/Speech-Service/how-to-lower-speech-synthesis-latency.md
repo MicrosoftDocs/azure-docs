@@ -335,7 +335,7 @@ For example, we fix a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#sp
 You may use load test to test the speech synthesis service capacity and latency.
 Here are some guidelines.
 
- - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test.
+ - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. Refer [this](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details.
  - The service has quota limitation based on the real traffic, therefore, if you want to perform load test with the concurrency much higher than your real traffic, connect us before your test.
 
 ## Next steps
