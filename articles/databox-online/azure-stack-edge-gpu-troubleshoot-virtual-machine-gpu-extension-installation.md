@@ -47,7 +47,7 @@ For installation steps, see [Install GPU extension](azure-stack-edge-gpu-deploy-
 
 **Error description:** Extension provisioning failed during extension installation or while in the Enable state.
 
-1. Check the guest log for the associated error. To collect the guest logs, see [Collect guest logs for VMs on an Azure Stack Edge Pro](azure-stack-edge-pro-gpu-collect-virtual-machine-guest-logs.md).
+1. Check the guest log for the associated error. To collect the guest logs, see [Collect guest logs for VMs on an Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
 
    On a Linux VM:
    * Look in `/var/log/waagent.log` or `/var/log/azure/nvidia-vmext-status`.
