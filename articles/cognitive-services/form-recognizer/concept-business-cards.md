@@ -149,8 +149,9 @@ See the following example of a successful JSON response (the output has been sho
 						}
 					},
                     ...
-			}
-		],
+                ]
+            }
+        ],   
 		"documentResults": [
 			{
 				"docType": "prebuilt:businesscard",
