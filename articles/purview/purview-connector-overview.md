@@ -27,7 +27,8 @@ details.
 ||[Azure SQL Database](register-scan-azure-sql-database.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[Azure Synapse Analytics (formerly SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| No| Yes| Yes| Yes|
-|Database|[Oracle DB](register-scan-oracle-source.md)|Yes| Yes| No| No| No| Yes|
+|Database|[Hive Metastore DB](register-scan-oracle-source.md)|Yes| Yes| No| No| No| Yes|
+||[Oracle DB](register-scan-oracle-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SQL Server](register-scan-on-premises-sql-server.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[Teradata](register-scan-teradata-source.md)|Yes| Yes| No| No| No| Yes|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Yes| Yes| No| No| No| Yes|

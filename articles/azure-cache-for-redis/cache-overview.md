@@ -52,10 +52,10 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
 | Data encryption |✔|✔|✔|✔|✔|
 | [Network isolation](cache-how-to-premium-vnet.md) |✔|✔|✔|✔|✔|
-| [Scaling](cache-how-to-scale.md) |✔|✔|✔|✔|✔|
-| [OSS cluster](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
+| [Scaling](cache-how-to-scale.md) |✔|✔|✔|-|-|
+| [OSS clustering](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|
-| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|Preview|✔|✔|
+| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
 | [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|Preview|Preview|
 | [Modules](https://redis.io/modules) |-|-|-|✔|✔|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|

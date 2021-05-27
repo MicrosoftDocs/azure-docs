@@ -55,6 +55,8 @@ As you progress, you'll complete these high-level tasks:
 
 * If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
+<a name="create-logic-app-resource"></a>
+
 ## Create the logic app resource
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
@@ -74,11 +76,11 @@ As you progress, you'll complete these high-level tasks:
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by Azure Functions, which uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. <p><p>- **Workflow**: Deploy to single-tenant Azure Logic Apps in the portal. <p><p>**Note**: Azure creates an empty logic app resource where you have to add your first workflow. |
-   | **Region** | Yes | <*Azure-region*> | The Azure region to use when creating your resource group and resources. <p><p>This example uses **West US**. |
+   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Preview)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
+   | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. If you selected **Docker Container**, select your custom location. <p><p>This example deploys the sample logic app to Azure and uses **West US**. |
    |||||
 
-   Here's an example:
+   The following example shows the **Create Logic App (Standard)** page:
 
    ![Screenshot that shows the Azure portal and "Create Logic App" page.](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 
@@ -608,6 +610,57 @@ Deleting a workflow affects workflow instances in the following ways:
 
 1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
+<a name="recover-deleted"></a>
+
+## Recover deleted logic apps
+
+If you use source control, you can seamlessly redeploy a deleted **Logic App (Standard)** resource to single-tenant Azure Logic Apps. However, if you're not using source control, try the following steps to recover your deleted logic app.
+
+> [!NOTE]
+> Before you try to recover your deleted logic app, review these considerations:
+>
+> * You can recover only deleted **Logic App (Standard)** resources that use the **Workflow Standard** hosting plan. 
+> You can't recover deleted **Logic App (Consumption)** resources.
+>
+> * If your workflow starts with the Request trigger, the callback URL for the recovered logic app differs from the URL for the deleted logic app.
+>
+> * The run history from the deleted logic app is unavailable in the recovered logic app.>
+
+1. Confirm that your logic app's storage account still exists. If the storage account was deleted, you have to [first recover the deleted storage account](../storage/common/storage-account-recover.md).
+
+1. On the storage account menu, under **Security + networking**, select **Access keys**.
+
+1. On the **Access keys** page, copy the account's primary connection string, and save for later use, for example:
+
+   `DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<accesskey>;EndpointSuffix=core.windows.net`
+
+1. On the storage account menu, under **Data storage**, select **File shares**, copy the name for the file share associated with your logic app, and save for later use.
+
+1. Create a new **Logic App (Standard)** resource using the same hosting plan and pricing tier. You can either use a new name or reuse the name from the deleted logic app.
+
+1. Before you continue, stop the logic app. From the logic app menu, select **Overview**. On the **Overview** page toolbar, select **Stop**.
+
+1. From the logic app menu, under **Settings**, select **Configuration**.
+
+1. On the **Configuration** page, update the following application setting values, and remember to save your changes when finished.
+
+   | App setting | Replacement value |
+   |-------------|-------------------|
+   | `AzureWebJobsStorage` | Replace the existing value with the previously copied connection string from your storage account. |
+   | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Replace the existing value with the previously copied string from your storage account. |
+   | `WEBSITE_CONTENTSHARE` | Replace the existing value with the previously copied file share name. |
+   |||
+
+1. On your logic app menu, under **Workflows**, select **Connections**.
+
+1. Open each connection and under **Settings**, select **Access policies**.
+
+1. Delete the access policy for the deleted logic app, and then add a new access policy for the replacement logic app.
+
+1. Return to the logic app's **Configuration** page, and add any custom settings that existed on the deleted logic app.
+
+1. When you're done, restart your logic app.
+
 <a name="troubleshoot"></a>
 
 ## Troubleshoot problems and errors
@@ -635,9 +688,9 @@ To fix this problem, follow these steps to delete the outdated version so that t
 
 1. On the **Advanced Tools** pane, select **Go**, which opens the Kudu environment for your logic app.
 
-1. On the Kudu toolbar, open the **Debug console** menu, and select **CMD**. 
+1. On the Kudu toolbar, open the **Debug console** menu, and select **CMD**.
 
-   A console window opens so that you can browse to the bundle folder using the command prompt. Or, you can browse the directory structure that appears the console window.
+   A console window opens so that you can browse to the bundle folder using the command prompt. Or, you can browse the directory structure that appears above the console window.
 
 1. Browse to the following folder, which contains versioned folders for the existing bundle:
 
