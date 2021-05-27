@@ -46,10 +46,20 @@ Note that, if you configured a **required parameter** to have a **Default value*
 ### Type
 Custom Commands supports the following parameter types:
 
+* Age
+* Currency
 * DateTime
+* Dimension
+* Email
 * Geography
 * Number
+* Ordinal
+* Percentage
+* PersonName
+* PhoneNumber
 * String
+* Temperature
+* Url
 
 All these parameter types except for Geography, support default value configuration, which you can configure from the portal.
 
