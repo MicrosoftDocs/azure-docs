@@ -93,7 +93,9 @@ After a tileset is created, it can be retrieved by the [Render V2 service](#rend
 If a tileset becomes outdated and is no longer useful, you can delete the tileset. For information about how to delete tilesets, see [Data maintenance](#data-maintenance).
 
 >[!NOTE]
->A tileset is independent of the dataset from which it was created. If you create tilesets from a dataset, and then subsequently update that dataset, the tilesets isn't updated. To reflect changes in a dataset, you must create new tilesets. Similarly, if you delete a tileset, the dataset isn't affected.
+>A tileset is independent of the dataset from which it was created. If you create tilesets from a dataset, and then subsequently update that dataset, the tilesets isn't updated. 
+>
+>To reflect changes in a dataset, you must create new tilesets. Similarly, if you delete a tileset, the dataset isn't affected.
 
 ### Feature statesets
 
