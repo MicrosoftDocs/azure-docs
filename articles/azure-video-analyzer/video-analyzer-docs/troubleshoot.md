@@ -24,7 +24,7 @@ As part of your Video Analyzer deployment, you set up Azure resources such as Io
 
 ### Issues when using ARM template
 
-If you encounter issues when using the ARM template [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy), use the steps in this [quickstart](get-started-detect-motion-emit-events-portal.md) to manually deploy the necessary resources. 
+If you encounter issues when using the ARM template (the Deploy to Azure button), use the steps in this [quickstart](get-started-detect-motion-emit-events-portal.md) to manually deploy the necessary resources. 
 
 ### Pre-deployment issues
 
