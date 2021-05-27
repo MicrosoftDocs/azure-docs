@@ -12,7 +12,7 @@ ms.date: 05/27/2021
 
 # Quickstart: Provision Azure Spring Cloud using an ARM template
 
-
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to deploy an Azure Spring Cloud cluster into an existing virtual network.
 
 Azure Spring Cloud makes it easy to deploy Spring Boot microservice applications to Azure without any code changes. The service manages the infrastructure of Spring Cloud applications so developers can focus on their code. Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
