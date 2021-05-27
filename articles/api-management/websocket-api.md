@@ -86,10 +86,12 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 
     :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="test API example":::
 
-1. Verify the query, payload, and WebSocket URL fields are correct.
 1. Click **Connect**.
-1. Verify connection via the **Output**.
+1. View response in **Output**.
+1. Enter value in **Payload**. 
 1. Click **Send**.
+1. Repeat preceding steps to test different payloads.
+1. When testing is complete, select **Disconnect**.
 
 ## View WebSocket API metrics and logs
 
