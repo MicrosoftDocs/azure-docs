@@ -172,7 +172,7 @@ For example, Microsoft security services may have specific resources and guidanc
 
 Azure Sentinel has many built-in resources to help in your investigation, such as [hunting workbooks](/azure/sentinel/quickstart-get-visibility) and analytics rules.
 
-For example, you might want to use the following analytics rules to trigger incidents in your Azure Sentinel workspace:
+For example, you might want to use the following built-in analytics rule templates to create rules that would trigger incidents in your Azure Sentinel workspace:
 
 - **AD FS Local Named Pipe Connection**
 - **Mail.Read Permissions Granted to Application**
@@ -186,10 +186,7 @@ You can find more in the **Analytics** area in Azure Sentinel. For more informat
 
 We recommend that you check Microsoft Defender for Endpoint and Microsoft Defender Antivirus for have specific guidance relevant to your attack.
 
-The following examples are more resources available for you in the Microsoft security center:
-
-- In Microsoft 365 Defender for Identity and Microsoft Cloud App Security, detect attacker events such as a **Suspected DCSync attack (replication of directory services)**.
-- In Microsoft 365 Defender, use hunting queries such as **Mail.Read or Mail.ReadWrite permissions added to OAuth application (CloudAppEvents)** or **Credentials were added to an Azure AD application after 'Admin Consent' permissions granted** to find out more information.
+Check for other examples of detections, hunting queries, and threat analytics reports in the Microsoft security center, such as in Microsoft 365 Defender, Microsoft 365 Defender for Identity, and Microsoft Cloud App Security.
 
 For more information about threat analytics in Microsoft 365 Defender, see:
 
