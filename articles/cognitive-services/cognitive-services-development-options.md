@@ -84,7 +84,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 
 Power automate is a service in the [Power Platform](/power-platform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
 
-* **Target user(s)**: Business users (analysts) and Sharepoint administrators
+* **Target user(s)**: Business users (analysts) and SharePoint administrators
 * **Benefits**: Automate repetitive manual tasks simply by recording mouse clicks, keystrokes and copy paste steps from your desktop!
 * **UI tools**: Yes - UI only
 * **Subscription(s)**: Azure account + Cognitive Services resource + Power Automate Subscription + Office 365 Subscription
@@ -93,7 +93,7 @@ Power automate is a service in the [Power Platform](/power-platform/) that helps
 
 [AI Builder](/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as Form Recognizer, Text Analytics, and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
 
-* **Target user(s)**: Business users (analysts) and Sharepoint administrators
+* **Target user(s)**: Business users (analysts) and SharePoint administrators
 * **Benefits**: A turnkey solution that brings the power of AI through a point-and-click experience. No coding or data science skills required.
 * **UI tools**: Yes - UI only
 * **Subscription(s)**: AI Builder
@@ -120,7 +120,7 @@ The tools that you will use to train and configure models are different than tho
 | Pillar | Service | Customization UI | Quickstart |
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [Quickstart](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Vision | Form Recognizer | [Sample labeling tool](https://fott-preview.azurewebsites.net/) | [Quickstart](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Vision | Form Recognizer | [Sample labeling tool](https://aka.ms/fott-2.1-ga) | [How-to article](./form-recognizer/label-tool.md?tabs=v2-0) |
 | Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decision | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Quickstart](./metrics-advisor/quickstarts/web-portal.md) |
 | Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](./personalizer/quickstart-personalizer-sdk.md) |

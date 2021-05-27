@@ -55,6 +55,14 @@ Yes. MSIX app attach doesn't support auto-update for MSIX applications.
 
 All virtual machines (VMs) in a host pool that uses MSIX app attach must have read permissions on the file share where the MSIX images are stored. If it also uses Azure Files, they'll need to be granted both role-based access control (RBAC) and New Technology File System (NTFS) permissions.
 
+## How many users can use an MSIX image handle?
+
+MSIX app attach mounts MSIX images on a per-machine basis, not a per-user basis. The amount of users who can use an MSIX image handle is based on the size of the machine's file system and throughput of the network. Also, Azure Files has a limit of 2,000 open handles per file. 
+
+## Can I use Azure Active Directory Domain Services (Azure AD DS) with MSIX app attach?
+
+MSIX app attach doesn't currently support Azure AD DS. Because Azure AD DS computer objects aren't synchronized to Azure Active Directory (Azure AD), the administrator can't provide the required role-based access control (RBAC) permissions for Azure Files.
+
 ## Can I use MSIX app attach for HTTP or HTTPs?
 
 Using MSIX app attach over HTTP or HTTPs is currently not supported.
@@ -65,8 +73,18 @@ Yes. You can restage applications you've already restaged, and this shouldn't ca
 
 ## Does MSIX app attach support self-signed certificates?
 
-Yes. You need to install the self-signed certificate on all the session host VMs where MSIX app attach is used to host the self-signed application.
+Yes. You need to install the self-signed certificate on all the session host VMs where MSIX app attach is used to host the self-signed application. Learn how to create a self-signed certificate at [Create a certificate for package signing](/windows/msix/package/create-certificate-package-signing).
 
+## What applications can I repackage to MSIX?
+
+Each application uses different features of the OS, programming languages, and frameworks. To repackage your application, follow the directions in [How to move your existing installers to MSIX](/windows/msix/packaging-tool/create-an-msix-overview#how-to-move-your-existing-installers-to-msix). You can find a list of the things you need in order to repackage an application at [Prepare to package a desktop application](/windows/msix/desktop/desktop-to-uwp-prepare). 
+
+Certain applications can't be application layered, which means they can't be repackaged into an MSIX file. Here's a list of the applications that can't be repackaged:
+
+- Drivers 
+- Active-X or Silverlight
+- VPN clients
+- Antivirus programs
 
 ## Next steps
 

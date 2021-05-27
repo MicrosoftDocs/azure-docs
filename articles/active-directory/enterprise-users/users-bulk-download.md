@@ -71,7 +71,7 @@ You can see the status of your pending bulk requests in the **Bulk operation res
 
 ## Bulk download service limits
 
-Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of at least 500,000 users.
+Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of up to 500,000 users.
 
 ## Next steps
 

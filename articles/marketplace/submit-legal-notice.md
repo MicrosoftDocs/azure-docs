@@ -40,4 +40,4 @@ Use a support ticket to submit legal notices to Microsoft regarding the Microsof
 ## Next steps
 
 - A support agent will contact you if we have questions.
-- Review the [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) (PDF).
+- Review the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement) (PDF).

@@ -50,7 +50,7 @@ To use the Microsoft Enterprise SSO plug-in for Apple devices:
 
 ### iOS requirements:
 - iOS 13.0 or higher must be installed on the device.
-- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](/azure/active-directory/user-help/user-help-auth-app-overview).
+- A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md).
 
 
 ### macOS requirements:
@@ -71,7 +71,7 @@ The profile settings that enable the SSO plug-in are automatically applied to th
 
 ### Manual configuration for other MDM services
 
-If you don't use Intune for MDM, use the following parameters to configure the Microsoft Enterprise SSO plug-in for Apple devices.
+If you don't use Intune for MDM, you can configure an Extensible Single Sign On profile payload for Apple devices. Use the following parameters to configure the Microsoft Enterprise SSO plug-in and its configuration options.
 
 iOS settings:
 

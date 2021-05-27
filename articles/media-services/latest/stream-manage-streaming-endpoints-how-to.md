@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-azurecli, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Manage streaming endpoints with  Media Services v3
@@ -68,7 +68,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-For more information, see [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint#az-ams-streaming-endpoint-start).
+For more information, see [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint#az_ams_streaming_endpointstart).
 
 ## Use SDKs
 

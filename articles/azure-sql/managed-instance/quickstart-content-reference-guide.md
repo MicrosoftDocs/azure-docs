@@ -38,7 +38,7 @@ As a first step, you would need to create your first SQL Managed Instance with t
   > - You can also use express route or site-to-site connection from your local network, but these approaches are out of the scope of these quickstarts.
   > - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled).
 
-As an alternative to manual creation of SQL Managed Instance, you can use [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell with Resource Manager template](./create-template-quickstart.md), or [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create) to script and automate this process.
+As an alternative to manual creation of SQL Managed Instance, you can use [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell with Resource Manager template](./create-template-quickstart.md), or [Azure CLI](/cli/azure/sql/mi#az_sql_mi_create) to script and automate this process.
 
 ### Migrate your databases
 
