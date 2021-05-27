@@ -122,7 +122,7 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
-          - text: Configure DHCP using NSX-T Manager
+          - text: Configure DHCP 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched VMware HCX networks
             url: configure-l2-stretched-vmware-hcx-networks.md
