@@ -37,7 +37,8 @@ Access to protected data requires [consent](../develop/application-consent-exper
 
 ## Overprivileged and least privileged applications
 
-An overprivileged application may have the following characteristic:
+An overprivileged application may have one of the following characteristics:
+- **Unused permissions**: An application could end up with unused permissions when it fails to make API calls that utilize all the permissions granted to it. For example in [MS Graph](/graph/overview), an app might only be reading OneDrive Files (using the "*Files.Read.All*" permission) but has also been granted “*Calendar.Read.All*” permission, despite not integrating with any Calendar APIs.
 - **Reducible permissions**: An app has reducible permission when the granted permission has a lesser privileged replacement that can complete the desired API call. For example, an app that is only reading User profiles, but has been granted "*User.ReadWrite.All*" might be considered overprivileged. In this case, the app should be granted "*User.Read.All*" instead, which is the least privileged permission needed to satisfy the request.
 
 For an application to be considered as least privileged, it should have:
