@@ -1,11 +1,11 @@
 ---
 title: Manage the configuration server for disaster recovery with Azure Site Recovery
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.author: ramamill
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Manage the configuration server for VMware VM/physical server disaster recovery
