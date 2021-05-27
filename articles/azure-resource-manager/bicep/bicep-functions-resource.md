@@ -15,9 +15,7 @@ Resource Manager provides the following functions for getting resource values in
 * [list*](#list)
 * [pickZones](#pickzones)
 * [reference](#reference)
-* [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
-* [subscription](#subscription)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
@@ -29,18 +27,7 @@ To get values from the current deployment, see [Deployment value functions](./bi
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
 
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| resourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
-| resourceType |Yes |string |Type of resource including resource provider namespace. |
-| resourceName1 |Yes |string |Name of resource. |
-| resourceName2 |No |string |Next resource name segment, if needed. |
-
-Continue adding resource names as parameters when the resource type includes more segments.
-
-### Return value
+The extensionResourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
 
 The basic format of the resource ID returned by this function is:
 
@@ -74,54 +61,42 @@ When the extension resource is applied to a **management group**, the format is:
 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-### extensionResourceId example
-
-The following example returns the resource ID for a resource group lock.
-
-```bicep
-param lockName string
-
-output lockResourceId string = extensionResourceId(resourceGroup().Id, 'Microsoft.Authorization/locks', lockName)
-```
-
 A custom policy definition deployed to a management group is implemented as an extension resource. To create and assign a policy, deploy the following Bicep file to a management group.
 
 ```bicep
-param targetMG string
+targetScope = 'managementGroup'
+
+@description('An array of the allowed locations, all other locations will be denied by the created policy.')
 param allowedLocations array = [
   'australiaeast'
   'australiasoutheast'
   'australiacentral'
 ]
 
-var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
-var policyDefinition = 'LocationRestriction'
-
-resource myDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
-  name: policyDefinition
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01' = {
+  name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
     mode: 'All'
     parameters: {}
     policyRule: {
-      'if': {
-        'not': {
-          'field': 'location'
-          'in': allowedLocations
+      if: {
+        not: {
+          field: 'location'
+          in: allowedLocations
         }
       }
-      'then': {
-        'effect': 'deny'
+      then: {
+        effect: 'deny'
       }
     }
   }
 }
 
-resource myAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
-  name: 'location-lock'
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
+  name: 'locationAssignment'
   properties: {
-    scope: mgScope
-    policyDefinitionId: extensionResourceId(mgScope, 'Microsoft.Authorization/policyDefinitions', policyDefinition)
+    policyDefinitionId: policyDefinition.id
   }
 }
 ```
@@ -370,7 +345,7 @@ Determines whether a resource type supports zones for a region.
 | providerNamespace | Yes | string | The resource provider namespace for the resource type to check for zone support. |
 | resourceType | Yes | string | The resource type to check for zone support. |
 | location | Yes | string | The region to check for zone support. |
-| numberOfZones | No | integer | The number of logical zones to return. The default is 1. The number must a positive integer from 1 to 3.  Use 1 for single-zoned resources. For multi-zoned resources, the value must be less than or equal to the number of supported zones. |
+| numberOfZones | No | integer | The number of logical zones to return. The default is 1. The number must be a positive integer from 1 to 3.  Use 1 for single-zoned resources. For multi-zoned resources, the value must be less than or equal to the number of supported zones. |
 | offset | No | integer | The offset from the starting logical zone. The function returns an error if offset plus numberOfZones exceeds the number of supported zones. |
 
 ### Return value
@@ -426,129 +401,81 @@ You can use the response from pickZones to determine whether to provide null for
 
 Returns an object representing a resource's runtime state.
 
-When referencing a resource that is deployed in the same Bicep file, use the symbolic name of the resource to get the properties from the resource. For example:
+The reference function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource. 
+
+The following example deploys a storage account. It uses the symbolic name `stg` for the storage account to return a property.
 
 ```bicep
-output storageEndpoint object = myStorageAccount.properties.primaryEndpoints
+param storageAccountName string
+
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageAccountName
+  location: 'eastus'
+  kind: 'Storage'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+To get a property from an existing resource that isn't deployed in the template, use the `existing` keyword:
+
+```bicep
+param storageAccountName string
+
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+  name: storageAccountName
+}
+
+// use later in template as often as needed
+output blobAddress string = stg.properties.primaryEndpoints.blob
+```
 
 For more information, see [Reference resources](./compare-template-syntax.md#reference-resources) and the [JSON template reference function](../templates/template-functions-resource.md#reference).
 
-## resourceGroup
-
-`resourceGroup()`
-
-Returns an object that represents the current resource group.
-
-### Return value
-
-The returned object is in the following format:
-
-```json
-{
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-  "name": "{resourceGroupName}",
-  "type":"Microsoft.Resources/resourceGroups",
-  "location": "{resourceGroupLocation}",
-  "managedBy": "{identifier-of-managing-resource}",
-  "tags": {
-  },
-  "properties": {
-    "provisioningState": "{status}"
-  }
-}
-```
-
-The **managedBy** property is returned only for resource groups that contain resources that are managed by another service. For Managed Applications, Databricks, and AKS, the value of the property is the resource ID of the managing resource.
-
-### Remarks
-
-The `resourceGroup()` function can't be used in a Bicep file that is [deployed at the subscription level](./deploy-to-subscription.md). It can only be used in Bicep files that are deployed to a resource group.
-
-A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location for a default parameter value.
-
-```bicep
-param location string = resourceGroup().location
-```
-
-You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
-
-### Resource group example
-
-The following example returns the properties of the resource group.
-
-```bicep
-output resourceGroupOutput object = resourceGroup()
-```
-
-The preceding example returns an object in the following format:
-
-```json
-{
-  "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
-  "name": "examplegroup",
-  "type":"Microsoft.Resources/resourceGroups",
-  "location": "southcentralus",
-  "properties": {
-    "provisioningState": "Succeeded"
-  }
-}
-```
 
 ## resourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
-Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same Bicep file. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
+Returns the unique identifier of a resource. 
 
-In Bicep, you can often use the `id` property instead of using the resourceId function. To get the id property, use the symbolic name for a new or existing resource. For example:
+The resourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
+
+You use this function when the resource name is ambiguous or not provisioned within the same Bicep file. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
+
+For example:
 
 ```bicep
-myStorageAccount.id
-```
+param storageAccountName string
 
-In the preceding example, *myStorageAccount* is the symbolic name of the storage account resource.
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageAccountName
+  location: 'eastus'
+  kind: 'Storage'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+output storageID string = stg.id
+```
 
 To get the resource ID for a resource that isn't deployed in the Bicep file, use the existing keyword.
 
 ```bicep
+param storageAccountName string
+
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
     name: storageAccountName
 }
 
-stg.id
+output storageID string = stg.id
 ```
 
 For more information, see the [JSON template resourceId function](../templates/template-functions-resource.md#resourceid)
-
-## subscription
-
-`subscription()`
-
-Returns details about the subscription for the current deployment.
-
-### Return value
-
-The function returns the following format:
-
-```json
-{
-  "id": "/subscriptions/{subscription-id}",
-  "subscriptionId": "{subscription-id}",
-  "tenantId": "{tenant-id}",
-  "displayName": "{name-of-subscription}"
-}
-```
-
-### Subscription example
-
-The following example shows the subscription function called in the outputs section.
-
-```bicep
-output subscriptionOutput object = subscription()
-```
 
 ## subscriptionResourceId
 
@@ -556,18 +483,7 @@ output subscriptionOutput object = subscription()
 
 Returns the unique identifier for a resource deployed at the subscription level.
 
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| subscriptionId |No |string (in GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. |
-| resourceType |Yes |string |Type of resource including resource provider namespace. |
-| resourceName1 |Yes |string |Name of resource. |
-| resourceName2 |No |string |Next resource name segment, if needed. |
-
-Continue adding resource names as parameters when the resource type includes more segments.
-
-### Return value
+The subscriptionResourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
 
 The identifier is returned in the following format:
 
@@ -633,29 +549,13 @@ resource myRoleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-pr
 
 Returns the unique identifier for a resource deployed at the tenant level.
 
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| resourceType |Yes |string |Type of resource including resource provider namespace. |
-| resourceName1 |Yes |string |Name of resource. |
-| resourceName2 |No |string |Next resource name segment, if needed. |
-
-Continue adding resource names as parameters when the resource type includes more segments.
-
-### Return value
+The tenantResourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
 
 The identifier is returned in the following format:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
-
-### Remarks
-
-You use this function to get the resource ID for a resource that is deployed to the tenant. The returned ID differs from the values returned by other resource ID functions by not including resource group or subscription values.
-
-### tenantResourceId example
 
 Built-in policy definitions are tenant level resources. To deploy a policy assignment that references a built-in policy definition, use the tenantResourceId function.
 

@@ -34,26 +34,6 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-When deployed to a resource group, it locks the resource group.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az deployment group create \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scope/locktargetscope.bicep"
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
- New-AzResourceGroupDeployment `
-  -ResourceGroupName ExampleGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scope/locktargetscope.bicep"
-```
-
----
-
 The next example assigns a role.
 
 ```bicep
@@ -87,28 +67,6 @@ resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2020-04-01-previ
   }
 }
 ```
-
-When deployed to a subscription, it assigns the role to the subscription.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az deployment sub create \
-  --name demoSubDeployment \
-  --location centralus \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scope/roletargetscope.json"
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-New-AzSubscriptionDeployment `
-  -Name demoSubDeployment `
-  -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scope/roletargetscope.json"
-```
-
----
 
 ## Apply to resource
 
