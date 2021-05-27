@@ -84,7 +84,7 @@ az iot dps create --name <Device-Provisioning-Service-name> --resource-group <re
 
 ### Add a function to use with Device Provisioning Service
 
-Inside your function app project that you created in the [prerequisites section](#prerequisites), you'll create a new function to use with the Device Provisioning Service. This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device.
+Inside your function app project that you created in the [Prerequisites section](#prerequisites), you'll create a new function to use with the Device Provisioning Service. This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device.
 
 Start by opening the function app project in Visual Studio on your machine and follow the steps below.
 
@@ -229,7 +229,7 @@ To do this,
 
 #### Configure event hub with function app
 
-Next, configure the Azure function app that you set up in the [prerequisites section](#prerequisites) to work with your new event hub. You'll do this by setting an environment variable inside the function app with the event hub's connection string.
+Next, configure the Azure function app that you set up in the [Prerequisites section](#prerequisites) to work with your new event hub. You'll do this by setting an environment variable inside the function app with the event hub's connection string.
 
 1. Open the policy that you just created and copy the **Connection string-primary key** value.
 
@@ -243,7 +243,7 @@ Next, configure the Azure function app that you set up in the [prerequisites sec
 
 ### Add a function to retire with IoT Hub lifecycle events
 
-Inside your function app project that you created in the [prerequisites section](#prerequisites), you'll create a new function to retire an existing device using IoT Hub lifecycle events.
+Inside your function app project that you created in the [Prerequisites section](#prerequisites), you'll create a new function to retire an existing device using IoT Hub lifecycle events.
 
 For more about lifecycle events, see [IoT Hub Non-telemetry events](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [Azure Event Hubs trigger for Azure Functions](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
@@ -274,7 +274,7 @@ Now you'll set up an IoT Hub route, to route device lifecycle events. In this ca
 First, you'll need to create an event hub endpoint in your IoT hub. Then, you'll add a route in IoT hub to send lifecycle events to this event hub endpoint.
 Follow these steps to create an event hub endpoint:
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to the IoT hub you created in the [prerequisites section](#prerequisites) and select **Message routing** in the menu options on the left.
+1. In the [Azure portal](https://portal.azure.com/), navigate to the IoT hub you created in the [Prerequisites section](#prerequisites) and select **Message routing** in the menu options on the left.
 2. Select the **Custom endpoints** tab.
 3. Select **+ Add** and choose **Event hubs** to add an event hubs type endpoint.
 
