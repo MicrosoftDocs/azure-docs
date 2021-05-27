@@ -7,8 +7,7 @@ ms.date: 05/25/2021
 
 # Quickstart: Get Started with Azure Video Analyzer
 This quickstart walks you through the steps to get started with Azure Video Analyzer. You will create an Azure Video Analyzer account and its accompanying resources using the Azure portal.
-In addition to creating your Video Analyzer account, you will be creating managed identities, a storage account, and an IoT hub.
-You will also be deploying the Video Analyzer edge module.  
+After creating your Video Analyzer account, you will be deploying the Video Analyzer edge module and an RTSP camera simulator module to your IoT Edge device
 
 After completing the setup steps, you'll be able to run the simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.
 
@@ -19,7 +18,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 * An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).  
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](./includes/note-account-storage-same-subscription.md)]
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems)
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems), on which you have an administrative privileges.
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
@@ -30,7 +29,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 > [!TIP] 
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
 
-## Creating resources on IoT Edge device
+## Preparing your IoT Edge device
 Azure Video Analyzer module should be configured to run on the IoT Edge device with a non-privileged local user account. The module needs certain local folders for storing application configuration data.
 
 https://aka.ms/ava/prepare-device  
@@ -798,58 +797,15 @@ A status code of 200 indicates that the topology was successfully deleted.
 
 You can try to invoke `pipelineTopologyList` and observe that the module contains no topologies.
 
-    
-## Creating files needed for running sample code
-There are 2 files that you will need when running our sample code in our quickstarts or tutorials.  
+## Clean up resources
 
-### Getting values for appsettings.json
-This file contains the settings needed to run the program that is used in the quickstarts and tutorials. This file will look like this:
-   ```JSON
-   {
-       "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",
-       "deviceId" : "avasample-iot-edge-device",
-       "moduleId" : "avaedge"
-   }
-   ```
-* To acquire your **IoThubConnectionString**
-    1. Navigate to your **IoT Hub** and select **Shared access policies** under the **Settings** blade
-    1. Select **iothubowner** and view the **Primary connection string**
-* To acquire your **deviceId**
-    1. Navigate to your **IoT Hub** and select **IoT Edge** under the **Automatic Device Management** blade
-    1. The **Device ID** that you selected for your IoT Edge Device will be listed
-* Your **moduleId** will be the name you entered for **IoT Edge Module Name** when creating the new IoT Edge Module, which should be **avaedge**
-
-### Getting values for .env
-This file contains properties that Visual Studio Code uses to deploy modules to an edge device. This file will look like this:  
-    ```
-        SUBSCRIPTION_ID="<Subscription ID>"  
-        RESOURCE_GROUP="<Resource Group>"  
-        AVA_PROVISIONING_TOKEN="<Provisioning token>"
-        VIDEO_INPUT_FOLDER_ON_DEVICE="/home/localedgeuser/samples/input"
-        VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
-        APPDATA_FOLDER_ON_DEVICE="/var/lib/videoAnalyzer"
-        CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"
-        CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"
-    ```
-* To acquire your **SUBSCRIPTION_ID**
-    * Navigate to your **Resource Group** and the **Subscription ID** will be listed at the top of your screen under **Essentials**
-
-* Your **RESOURCE_GROUP** is just the name of your **resource group**
-
-* To acquire your **AVA_PROVISIONING_TOKEN**
-    1. Navigate to your **Video Analyzer** account and select **Edge modules** under the **Edge** blade
-    1. Select **Generate token** for **avaedge** and click **Generate**
-    1. The provisioning token will be at the top of the **Copy the provisioning token** screen
-    
-* Your **VIDEO_INPUT_FOLDER_ON_DEVICE**, **VIDEO_OUTPUT_FOLDER_ON_DEVICE**, and **APPDATA_FOLDER_ON_DEVICE** will remain tbe same as above
-
-* To acquire your **CONTAINER_REGISTRY_USERNAME_myacr** and **CONTAINER_REGISTRY_PASSWORD_myacr**
-    1. Navigate to your **Container Registry** and select **Access keys** under the **Settings** blade
-    1. Your username and password will be listed ***(Use password not password2)***
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
     
 ## Next steps
 
-Try [Quickstart: Get started - Azure Video Analyzer](get-started-detect-motion-emit-events.md)
+* Try the [quickstart for recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md)
+* Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
+* Learn more about [diagnostic messages](monitor-log-edge.md) 
 
 > [!TIP]
 > If you proceed with the above quickstart, when invoking the direct methods using Visual Studio Code, you will use the device that was added to the IoT Hub via this article, instead of the default `avasample-iot-edge-device`.
