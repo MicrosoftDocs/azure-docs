@@ -27,7 +27,7 @@ Following are the high level view of the steps involved in enabling AAD authenti
 
 1. The first step depends on the type of authentication used by the user. 
     -   If using System assigned managed identity or User assigned managed identity, follow these [steps](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to configure managed identities for Azure resources on a VM using azure portal. 
-    -   If using service principal, follow these [steps](/azure/active-directory/develop/howto-create-service-principal-portal) to create and Azure AD application and service principal that can access resources. We recomment to use this type of authentication only during development.
+    -   If using service principal, follow these [steps](/azure/active-directory/develop/howto-create-service-principal-portal) to create an Azure AD application and service principal that can access resources. We recommend to use this type of authentication only during development.
 2. Follow these [steps](/azure/role-based-access-control/role-assignments-portal?tabs=current) to add `"Monitoring Metrics Publisher"` role from the Application Insights resource to the Azure resource from which the telemetry is sent.
 3. Add the authentication related [configuration](#supported-types-of-authentication) to the ApplicationInsights.json configuration file.
 
