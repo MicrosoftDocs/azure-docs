@@ -8,21 +8,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/09/2021
+ms.date: 05/26/2021
 ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
 
-Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers APIs and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. 
+Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers an architecture, APIs, and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. 
 
-Search is foundational to any app that surfaces content to users, with common scenarios including catalog or document search, e-commerce site search, or knowledge mining for data science. The APIs and architecture of Cognitive Search simplify the task of adding sophisticated information retrieval to any solution.
+Search is foundational to any app that surfaces content to users, with common scenarios including catalog or document search, e-commerce site search, or knowledge mining for data science.
 
-A search service has the following components:
+When you create a search service, you'll work with the following capabilities:
 
-+ Search engine for full text search
-+ Persistent storage of user-owned indexed content
-+ APIs for indexing and querying content
-+ Optional [AI-based enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw unstructured text, application files
++ A search engine for full text search
++ Persistent storage of searchable, user-owned indexed content
++ An indexing layer that supports text analysis
++ APIs for indexing and querying content using simple or rich query syntax
++ Optional [AI enrichment](cognitive-search-concept-intro.md) that creates text-searchable content out of images, raw unstructured text, application files
 + Optional integration with other Azure services for data, machine learning/AI, monitoring, and security
 + Optional implementation of [semantic search (preview)](semantic-search-overview.md) for improved relevance
 

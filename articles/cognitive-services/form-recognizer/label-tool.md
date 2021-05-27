@@ -1,6 +1,6 @@
 ---
 title: "How-to: Analyze documents, Label forms, train a model, and analyze forms with Form Recognizer"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key value pairs from documents.
 author: laujan
 manager: nitinme

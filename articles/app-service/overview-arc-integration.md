@@ -21,19 +21,19 @@ In most cases, app developers need to know nothing more than how to deploy to th
 
 ## Public preview limitations
 
-The following public preview limitations apply to App Service Kubernetes environments. They will be updated when additional distributions are validated and more regions are supported.
+The following public preview limitations apply to App Service Kubernetes environments. They will be updated as changes are made available.
 
-| Limitation                                              | Details                                                                          |
-|---------------------------------------------------------|----------------------------------------------------------------------------------|
-| Supported Azure regions                                 | East US, West Europe                                                             |
-| Validated Kubernetes distributions                      | Azure Kubernetes Service                                                         |
-| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported) |
-| Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                               |
-| Feature: Key vault references                           | Not available (depends on managed identities)                                    |
-| Feature: Pull images from ACR with managed identity     | Not available (depends on managed identities)                                    |
-| Feature: In-portal editing for Functions and Logic Apps | Not available                                                                    |
-| Feature: FTP publishing                                 | Not available                                                                    |
-| Logs                                                    | Log Analytics must be configured with cluster extension; not per-site            |
+| Limitation                                              | Details                                                                               |
+|---------------------------------------------------------|---------------------------------------------------------------------------------------|
+| Supported Azure regions                                 | East US, West Europe                                                                  |
+| Cluster networking requirement                          | Must support `LoadBalancer` service type and provide a publicly addressable static IP |
+| Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported)      |
+| Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
+| Feature: Key vault references                           | Not available (depends on managed identities)                                         |
+| Feature: Pull images from ACR with managed identity     | Not available (depends on managed identities)                                         |
+| Feature: In-portal editing for Functions and Logic Apps | Not available                                                                         |
+| Feature: FTP publishing                                 | Not available                                                                         |
+| Logs                                                    | Log Analytics must be configured with cluster extension; not per-site                 |
 
 ## Pods created by the App Service extension
 
@@ -69,6 +69,7 @@ Only one Kubernetes environment resource may created in a custom location. In mo
 - [Are networking features supported?](#are-networking-features-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
 - [What logs are collected?](#what-logs-are-collected)
+- [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
 
 ### How much does it cost?
 
@@ -103,6 +104,10 @@ No. Apps cannot be assigned managed identities when running in Azure Arc. If you
 Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it will send all logs to that workspace.
 
 By default, logs from system components are sent to the Azure team. Application logs are not sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor may impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
+
+### What do I do if I see a provider registration error?
+
+When creating a Kubernetes environment resource, some subscriptions may see a "No registered resource provider found" error. The error details may include a set of locations and api versions that are considered valid. If this happens, it may be that the subscription needs to be re-registered with the Microsoft.Web provider, an operation which has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then re-attempt the Kubernetes environment command.
 
 ## Next steps
 
