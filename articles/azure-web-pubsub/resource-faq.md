@@ -22,7 +22,7 @@ Both [Azure SignalR Service](https://azure.microsoft.com/services/signalr-servic
 
 Azure SignalR Service is more suitable if:  
 
-- You're using ASP.NET or ASP.NET Core SignalR, or primarily using .NET. 
+- You're using ASP.NET or ASP.NET Core SignalR, primarily using .NET or need to integrate with .NET ecosystem (like Blazor).
 - There's a SignalR client available for your platform. 
 - You need an established protocol that supports a wide variety of calling patterns (RPC and streaming), transports (WebSocket, server sent events, and long polling) and with a client that manages the connection lifetime on your behalf. 
 
@@ -36,10 +36,9 @@ Azure Web PubSub service is more suitable for situations where:
 
 | | Azure SignalR Service | Azure Web PubSub service |
 |:-------------------|:-------------------|:-------------------|
-| **Protocol** | <ul><li>Support automatic fallback</li><li>Support a wide variety of calling patterns (RPC and streaming)</li></ul> | <ul><li>Support the WebSocket protocol</li><li>Support custom WebSocket subprotocols</li></ul> |
+| **Protocol** | <ul><li>Support automatic fallback</li><li>Support a wide variety of calling patterns (RPC and streaming)</li><li>The SignalR protocol manages the connection lifetime, for example auto reconnect</li></ul> | <ul><li>Support the WebSocket protocol</li><li>Support custom WebSocket subprotocols</li><li>You manage the connection lifetime.</li></ul> |
 | **Messaging** | <ul><li>Support Bi-directional messaging</li><li>Support `Group`, `User`, and `Connection`</li></ul> | <ul><li>Support Bi-directional messaging</li><li>Support `Group`, `User`, and `Connection`</li><li>Support PubSub client based on [json.webpubsub.azure.v1 subprotocol](https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol) to simplify the messaging routing between clients</li></ul> |
-| **Connection Management** | <ul><li>The SignalR protocol manages the connection lifetime, for example, making sure connection stays alive by sending pings back and forth</li></ul> | <ul><li>You manage the connection lifetime.</li></ul> |
-| **Client Platform** | <ul><li>C#, Java, JavaScript, and Python</li><li>Third-party library from community, like Swift </li></ul> | <ul><li>Supports any programming languages with WebSocket support</li></ul> |
+| **Client Platform** | <ul><li>C#, Java, JavaScript, and Python</li><li>Third-party library from community, like Swift</li></ul> | <ul><li>Supports any programming languages with WebSocket support</li></ul> |
 
 ##  Where does my data reside?
 
