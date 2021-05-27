@@ -1,6 +1,6 @@
 ---
 title: Create a test offer
-description: How to create a separate development offer for testing your production offer in the commercial marketplace program in Microsoft Partner Center. 
+description: Create a separate development offer for testing your production offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
