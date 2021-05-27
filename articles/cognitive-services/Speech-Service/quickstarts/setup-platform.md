@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Set up dev platform'
+title: 'Quickstart: Set up development environment'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to install the Speech SDK for your preferred platform and programming language combination.
 services: cognitive-services

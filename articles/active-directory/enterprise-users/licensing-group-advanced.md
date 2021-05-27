@@ -7,9 +7,10 @@ documentationcenter: ''
 author: curtand
 manager: daveba  
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/15/2020
+ms.date: 04/05/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -22,12 +23,12 @@ Use the following information and examples to gain a more advanced understanding
 
 ## Usage location
 
-Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify usage location in **User** &gt; **Profile** &gt; **Settings**.
+Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify usage location in **User** &gt; **Profile** &gt; **Settings**.
 
 For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses.
 
 > [!NOTE]
-> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (e.g. via AAD Connect configuration) - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via AAD Connect configuration) - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use group-based licensing with dynamic groups
 
@@ -57,18 +58,14 @@ For this example, modify one user and set their extensionAttribute1 to the value
 
 > [!WARNING]
 > Use caution when modifying an existing group’s membership rule. When a rule is changed, the membership of the group will be re-evaluated and users who no longer match the new rule will be removed (users who still match the new rule will not be affected during this process). Those users will have their licenses removed during the process which may result in loss of service, or in some cases, loss of data.
-> 
+>
 > If you have a large dynamic group you depend on for license assignment, consider validating any major changes on a smaller test group before applying them to the main group.
 
 ## Multiple groups and multiple licenses
 
 A user can be a member of multiple groups with licenses. Here are some things to consider:
 
-- Multiple licenses for the same product can overlap, and they result in all enabled services being applied to the user. The following example shows two licensing groups: *E3 base services* contains the foundation services to deploy first, to all users. And *E3 extended services* contains additional services (Sway and Planner) to deploy only to some users. In this example, the user was added to both groups:
-
-  ![Screenshot of enabled services](./media/licensing-group-advanced/view-enabled-services.png)
-
-  As a result, the user has 7 of the 12 services in the product enabled, while using only one license for this product.
+- Multiple licenses for the same product can overlap, and they result in all enabled services being applied to the user. An example could be that *E3 base services* contains the foundation services to deploy first, to all users, and *E3 extended services* contains additional services (Sway and Planner) to deploy only to some users. You can add the user to both groups. As a result, the user has 7 of the 12 services in the product enabled, while using only one license for this product.
 
 - Selecting the *E3* license shows more details, including information about which services are enabled for the user by by the group license assignment.
 
@@ -132,7 +129,7 @@ You can use a PowerShell script to check if users have a license assigned direct
 
 ## Use Audit logs to monitor group-based licensing activity
 
-You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md#audit-logs) to see all activity related to group-based licensing, including:
+You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md) to see all activity related to group-based licensing, including:
 - who changed licenses on groups
 - when the system started processing a group license change, and when it finished
 - what license changes were made to a user as a result of a group license assignment.

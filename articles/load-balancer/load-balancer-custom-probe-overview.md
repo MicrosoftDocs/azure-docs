@@ -32,7 +32,7 @@ Health probes support multiple protocols. The availability of a specific health 
 >Review this document in its entirety, including important [design guidance](#design) below to create a reliable service.
 
 >[!IMPORTANT]
->Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details.
+>Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details. To see this probe traffic within your backend instance, review [this FAQ](load-balancer-faqs.md#probes).
 
 >[!IMPORTANT]
 >Regardless of configured time-out threshold, HTTP(S) Load Balancer health probes will automatically probe down an instance if the server returns any status code that is not HTTP 200 OK or if the connection is terminated via TCP reset.
@@ -61,7 +61,7 @@ The timeout and interval values specified determine whether an instance will be 
 
 We can illustrate the behavior further with an example. If you have set the number of probe responses to 2 and the interval to 5 seconds, this means 2 probe time-out failures must be observed within a 10 second interval.  Because the time at which a probe is sent is not synchronized when your application may change state, we can bound the time to detect by two scenarios:
 
-1. If your application starts producing a time-out probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the the application starting to signal a time-out to when the the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
+1. If your application starts producing a time-out probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the application starting to signal a time-out to when the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
 2. If your application starts producing a time-out probe response just after the first probe arrives, the detection of these events will not begin until the next probe arrives (and times out) plus another 10 seconds (2 x 5 second intervals).  You can assume this detection to take just under 15 seconds.
 
 For this example, once detection has occurred, the platform will then take a small amount of time to react to this change.  This means a depending on 

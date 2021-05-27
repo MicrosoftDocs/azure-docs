@@ -7,12 +7,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 09/02/2020
+ms.date: 03/25/2021
 ---
 
 # How to test and publish a SaaS offer to the commercial marketplace
 
 This article explains how to use Partner Center to submit your SaaS offer for publishing, preview your offer, test it, and then publish it live to the commercial marketplace. You must have already created an offer that you want to publish.
+
+> [!NOTE]
+> We recommend that you create a separate test and development (DEV) offer as a low-risk way to test before you publish your production (PROD) offer. Follow these steps to create and test the DEV offer before you publish your (PROD) offer.
 
 ## Submit your offer for publishing
 
@@ -37,31 +40,33 @@ When the offer is ready for your sign off, we’ll send you an email to request 
 
 The following screenshot shows the **Offer overview** page for a SaaS offer, with two preview links under the **Go live** button. The validation steps you’ll see on this page vary depending on the selections you made when you created the offer.
 
-![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](media/publish-status-publisher-signoff.png)
+![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png)
 
 Use the following steps to preview your offer.
 
-1. On the **Offer overview** page, select a preview link under the **Go live** button. 
+1. On the **Offer overview** page, select a preview link under the **Go live** button.
 
-1. To validate the end-to-end purchase and setup flow, purchase your offer while it's in preview. First, notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
+1. To validate the end-to-end purchase and setup flow, purchase the plans in your offer while it's in preview. First, notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
 1. If your SaaS offer supports [metered billing using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md), review and follow the testing best practices detailed in [Marketplace metered billing APIs](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
 1. Review and follow the testing instructions in [SaaS fulfillment APIs version 2 in the Microsoft commercial marketplace](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) to ensure your offer is successfully integrated with the APIs before you publish your offer live.
 
+1. If the Offer validation step resulted in warnings, a **View validation report** link appears on the **Offer overview** page. Be sure to review the report and address the issues before you select the **Go live** button. Otherwise certification will most likely fail and delay your offer from going Live.
+
 1. If you need to make changes after previewing and testing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
 
 ## Publish your offer live
 
-After completing all tests on your preview, select **Go live** to publish your offer live to the commercial marketplace.
+After completing all tests on your preview, select **Go live** to publish your offer live to the commercial marketplace. If your offer is already live in the commercial marketplace, any updates you make won't go live until you select **Go live**.
 
-   > [!TIP]
-   > If your offer is already live in the commercial marketplace, any updates you make won't go live until you select **Go live**.
+> [!IMPORTANT]
+> Don’t ever select **Go live** for a [development/test offer](create-saas-dev-test-offer.md).
 
 Now that you’ve chosen to make your offer available in the commercial marketplace, we perform a series of final validation checks to ensure the live offer is configured just like the preview version of the offer. For details about these validation checks, see [Publish phase](review-publish-offer.md#publish-phase).
 
 After these validation checks are complete, your offer will be live in the marketplace.
 
-## Next step
+## Next steps
 
-[Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md)
+- [Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md)

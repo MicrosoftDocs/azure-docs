@@ -2,14 +2,14 @@
 title: Quickstart for Azure App Configuration with ASP.NET Core | Microsoft Docs
 description: Create an ASP.NET Core app with Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core application.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: "devx-track-csharp, contperfq1"
+ms.custom: "devx-track-csharp, contperf-fy21q1"
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.author: lcozzens
+ms.author: alkemper
 
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
@@ -67,7 +67,7 @@ dotnet new mvc --no-https --output TestAppConfig
     ```
 
     > [!IMPORTANT]
-    > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
+    > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
     Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), use the **Connection Strings** application setting in App Service instead of Secret Manager to store the connection string.
 
@@ -84,6 +84,19 @@ dotnet new mvc --no-https --output TestAppConfig
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
 
+     #### [.NET 5.x](#tab/core5x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(connection);
+                }).UseStartup<Startup>());
+    ```
     #### [.NET Core 3.x](#tab/core3x)
 
     ```csharp

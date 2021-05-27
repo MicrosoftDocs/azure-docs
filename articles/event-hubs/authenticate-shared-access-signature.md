@@ -197,7 +197,7 @@ For example, to define authorization rules scoped down to only sending/publishin
 
 
 > [!NOTE]
-> Although it's not recommended, it is possible to equip devices with tokens that grant access to an event hub or a namespace. Any device that holds this token can send messages directly to that event hub. Furthermore, the device cannot be blacklisted from sending to that event hub.
+> Although it's not recommended, it is possible to equip devices with tokens that grant access to an event hub or a namespace. Any device that holds this token can send messages directly to that event hub. Furthermore, the device cannot be blocklisted from sending to that event hub.
 > 
 > It's always recommended to give specific and granular scopes.
 
@@ -206,7 +206,7 @@ For example, to define authorization rules scoped down to only sending/publishin
 >
 > When the client sends data into an event hub, it tags its request with the token. To prevent an attacker from eavesdropping and stealing the token, the communication between the client and the event hub must occur over an encrypted channel.
 > 
-> If a token is stolen by an attacker, the attacker can impersonate the client whose token has been stolen. Blacklisting a publisher, renders that client unusable until it receives a new token that uses a different publisher.
+> If a token is stolen by an attacker, the attacker can impersonate the client whose token has been stolen. Blocklisting a publisher, renders that client unusable until it receives a new token that uses a different publisher.
 
 
 ## Authenticating Event Hubs consumers with SAS 

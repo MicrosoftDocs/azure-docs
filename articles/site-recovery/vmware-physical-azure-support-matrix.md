@@ -53,6 +53,9 @@ NIC type | VMXNET3 (when deployed as a VMware VM)
 IP address type | Static
 Ports | 443 used for control channel orchestration<br/>9443 for data transport
 
+> [!NOTE]
+Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
+
 ## Replicated machines
 
 Site Recovery supports replication of any workload running on a supported machine.
@@ -70,10 +73,10 @@ Machine name | Ensure that the display name of machine does not fall into [Azure
 Windows Server 2019 | Supported from [Update rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards.
 Windows Server 2016 64-bit | Supported for Server Core, Server with Desktop Experience.
 Windows Server 2012 R2 / Windows Server 2012 | Supported.
-Windows Server 2008 R2 with SP1 onwards. | Supported.<br/><br/> From version [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) of the Mobility service agent, you need [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) installed on machines running Windows 2008 R2 with SP1 or later. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
-Windows Server 2008 with SP2 or later (64-bit/32-bit) |  Supported for migration only. [Learn more](migrate-tutorial-windows-server-2008.md).<br/><br/> From version [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) of the Mobility service agent, you need [servicing stack update (SSU)](https://support.microsoft.com/help/4493730) and [SHA-2 update](https://support.microsoft.com/help/4474419) installed on Windows 2008 SP2 machines. ISHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
+Windows Server 2008 R2 with SP1 onwards. | Supported.<br/><br/> From version [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) of the Mobility service agent, you need [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) installed on machines running Windows 2008 R2 with SP1 or later. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://support.microsoft.com/topic/sha-2-code-signing-support-update-for-windows-server-2008-r2-windows-7-and-windows-server-2008-september-23-2019-84a8aad5-d8d9-2d5c-6d78-34f9aa5f8339).
+Windows Server 2008 with SP2 or later (64-bit/32-bit) |  Supported for migration only. [Learn more](migrate-tutorial-windows-server-2008.md).<br/><br/> From version [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) of the Mobility service agent, you need [servicing stack update (SSU)](https://support.microsoft.com/help/4493730) and [SHA-2 update](https://support.microsoft.com/help/4474419) installed on Windows 2008 SP2 machines. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://support.microsoft.com/topic/sha-2-code-signing-support-update-for-windows-server-2008-r2-windows-7-and-windows-server-2008-september-23-2019-84a8aad5-d8d9-2d5c-6d78-34f9aa5f8339).
 Windows 10, Windows 8.1, Windows 8 | Only 64-bit system is supported. 32-bit system isn't supported.
-Windows 7 with SP1 64-bit | Supported from [Update rollup 36](https://support.microsoft.com/help/4503156) (version 9.22 of the Mobility service) onwards. </br></br> From [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) of the Mobility service agent, you need [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) installed on Windows 7 SP1 machines.  SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
+Windows 7 with SP1 64-bit | Supported from [Update rollup 36](https://support.microsoft.com/help/4503156) (version 9.22 of the Mobility service) onwards. </br></br> From [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) of the Mobility service agent, you need [servicing stack update (SSU)](https://support.microsoft.com/help/4490628) and [SHA-2 update](https://support.microsoft.com/help/4474419) installed on Windows 7 SP1 machines.  SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected. Learn more about [SHA-2 upgrade and requirements](https://support.microsoft.com/topic/sha-2-code-signing-support-update-for-windows-server-2008-r2-windows-7-and-windows-server-2008-september-23-2019-84a8aad5-d8d9-2d5c-6d78-34f9aa5f8339).
 
 ### For Linux
 
@@ -85,7 +88,7 @@ Linux: CentOS | 5.2 to 5.11</b><br/> 6.1 to 6.10</b><br/> </br> 7.0, 7.1, 7.2, 7
 Ubuntu | Ubuntu 14.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> (*includes support for all 14.04.*x*, 16.04.*x*, 18.04.*x*, 20.04.*x* versions)
 Debian | Debian 7/Debian 8 (includes support for all 7. *x*, 8. *x* versions); Debian 9 (includes support for 9.1 to 9.13. Debian 9.0 is not supported.), Debian 10 [(Review supported kernel versions)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(review supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(review supported kernel versions)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Note**: Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 is not supported. To upgrade, disable replication and re-enable after the upgrade. <br/>|
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/help/4573888/), [8.3](https://support.microsoft.com/help/4597409/)  <br/> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.3](https://support.microsoft.com/help/4597409/)  <br/> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- For each of the Windows versions, Azure Site Recovery only supports [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) builds.  [Semi-Annual Channel](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) releases are currently unsupported at this time.
@@ -227,6 +230,7 @@ Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
 Guest/server VMDK | Yes
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
+FIPS encryption | No
 Guest/server NFS | No
 Guest/server iSCSI | For Migration - Yes<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
@@ -243,7 +247,8 @@ Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for all [Azure marketplace UEFI OSes](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) with Site Recovery mobility agent version 9.30 onwards. <br/> - Secure UEFI boot type is not supported. [Learn more.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) with Site Recovery mobility agent version 9.30 onwards. <br/> - Secure UEFI boot type is not supported. [Learn more.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+RAID disk| No
 
 ## Replication channels
 
@@ -265,7 +270,7 @@ Hot storage| No
 Block blobs | No
 Encryption-at-rest (SSE)| Yes
 Encryption-at-rest (CMK)| Yes (via PowerShell Az 3.3.0 module onwards)
-Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). Learn more on supported regions for [Windows](../virtual-machines/windows/disk-encryption.md) and [Linux](../virtual-machines/linux/disk-encryption.md).
+Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md).
 Premium storage | Yes
 Secure transfer option | Yes
 Import/export service | No
@@ -289,10 +294,10 @@ On-premises VMs replicated to Azure must meet the Azure VM requirements summariz
 --- | --- | ---
 Guest operating system | Verify [supported operating systems](#replicated-machines) for replicated machines. | Check fails if unsupported.
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
-Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
+Operating system disk size | Up to 2,048 GB for Generation 1 machines. <br> Up to 4,095 GB for Generation 2 machines. | Check fails if unsupported.
 Operating system disk count | 1 </br> boot and system partition on different disks is not supported | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 8,192 GB when replicating to managed disk (9.26 version onwards)<br> Up to 4,095 GB when replicating to storage account </br> Minimum disk size requirement - at least 1024 MB| Check fails if unsupported.
+Data disk size | Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br> Up to 4,095 GB when replicating to storage account </br> Minimum disk size requirement - at least 1024 MB| Check fails if unsupported.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.
@@ -328,6 +333,17 @@ Maximum data churn per day supported by a Process Server | 2 TB
 - These are average numbers assuming a 30 percent I/O overlap.
 - Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior.
 - These numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
+
+## Storage account limits
+
+As average churn on the disks increases, the number of disks that a storage account can support decreases. The below table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
+ 
+**Storage account type**    |    **Churn = 4 MBps per disk**    |    **Churn = 8 MBps per disk**
+---    |    ---    |    ---
+V1 storage account    |    600 disks    |    300 disks
+V2 storage account    |    1500 disks    |    750 disks
+
+Please note that the above limits are applicable to hybrid DR scenarios only.
 
 ## Vault tasks
 

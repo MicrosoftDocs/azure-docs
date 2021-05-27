@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
@@ -41,7 +41,7 @@ To create a one-time bypass, complete the following steps:
 1. Search for and select **Azure Active Directory**, then browse to **Security** > **MFA** > **One-time bypass**.
 1. Select **Add**.
 1. If necessary, select the replication group for the bypass.
-1. Enter the username as `username\@domain.com`. Enter the number of seconds that the bypass should last and the reason for the bypass.
+1. Enter the username as `username@domain.com`. Enter the number of seconds that the bypass should last and the reason for the bypass.
 1. Select **Add**. The time limit goes into effect immediately. The user needs to sign in before the one-time bypass expires.
 
 You can also view the one-time bypass report from this same window.

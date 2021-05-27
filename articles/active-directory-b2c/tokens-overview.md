@@ -93,7 +93,7 @@ The following properties are used to [manage token compatibility](configure-toke
 
 ## Pass-through
 
-When a user journey starts, Azure AD B2C receives an access token from an identity provider. Azure AD B2C uses that token to retrieve information about the user. You [enable a claim in your user flow](idp-pass-through-user-flow.md) or [define a claim in your custom policy](idp-pass-through-custom.md) to pass the token through to the applications that you register in Azure AD B2C. Your application must be using a [recommended user flow](user-flow-versions.md) to take advantage of passing the token as a claim.
+When a user journey starts, Azure AD B2C receives an access token from an identity provider. Azure AD B2C uses that token to retrieve information about the user. You enable a claim in your user flow to [pass the token through](idp-pass-through-user-flow.md) to the applications that you register in Azure AD B2C. Your application must be using a [recommended user flow](user-flow-versions.md) to take advantage of passing the token as a claim.
 
 Azure AD B2C currently only supports passing the access token of OAuth 2.0 identity providers, which include Facebook and Google. For all other identity providers, the claim is returned blank.
 

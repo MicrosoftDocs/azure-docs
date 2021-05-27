@@ -49,7 +49,7 @@ Here's an overview of the steps to connect an agent in Power Virtual Agents to a
 * In the [Power Automate](https://us.flow.microsoft.com/) portal:
     * Search for _Generate answer using QnA Maker_ template
     * Use template to configure flow to use [QnA
-    Maker's GenerateAnswer](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/).
+    Maker's GenerateAnswer](/connectors/cognitiveservicesqnamaker/).
         * QnA Maker published knowledge base information:
             * Knowledge base ID
             * QnA Maker resource endpoint host
@@ -254,6 +254,6 @@ When you are done with the knowledge base, remove the QnA Maker resources in the
 [Get analytics on your knowledge base](../How-To/get-analytics-knowledge-base.md)
 
 Learn more about:
-* [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
-* [Power Automate](https://docs.microsoft.com/power-automate/)
-* [QnA Maker connector](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) and the [settings for the connector](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)
+* [Power Virtual Agents](/power-virtual-agents/)
+* [Power Automate](/power-automate/)
+* [QnA Maker connector](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) and the [settings for the connector](/connectors/cognitiveservicesqnamaker/)

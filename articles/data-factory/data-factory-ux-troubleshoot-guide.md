@@ -1,13 +1,12 @@
 ---
 title: Troubleshoot Azure Data Factory UX
 description: Learn how to troubleshoot Azure Data Factory UX issues.
-services: data-factory
 author: ceespino
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
-ms.reviewer: daperlov
+ms.reviewer: susabat
 ---
 
 # Troubleshoot Azure Data Factory UX Issues
@@ -24,7 +23,7 @@ This article explores common troubleshooting methods for Azure Data Factory UX.
 ### Third-party cookies blocked
 
 ADF UX uses browser cookies to persist user session and enable interactive development and monitoring experiences. 
-It is possible your browser blocks third-party cookies  because you are using an incognito session or have an ad blocker enabled. Blocking third-party cookies can cause issues when loading the portal, such as being redirected to a blank page, https://adf.azure.com/accesstoken.html, or getting a warning message saying that third-party cookies are blocked. To solve this problem, enable third-party cookies options on your browser using the following steps:
+It is possible your browser blocks third-party cookies  because you are using an incognito session or have an ad blocker enabled. Blocking third-party cookies can cause issues when loading the portal, such as being redirected to a blank page, 'https://adf.azure.com/accesstoken.html', or getting a warning message saying that third-party cookies are blocked. To solve this problem, enable third-party cookies options on your browser using the following steps:
 
 ### Google Chrome
 
@@ -106,6 +105,18 @@ On ADF authoring UI, when you use a file format dataset in an activity - includi
 To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
 
 ![Warning message](media/data-factory-ux-troubleshoot-guide/warning-message.png)
+
+## Could not load resource while opening pipeline 
+
+When the user accesses pipeline using ADF GUI authoring tool, the  error message says, "Could not load resource 'xxxxxx'. Please ensure no mistakes in the JSON and that referenced resources exist. Status: TypeError: Cannot read property 'xxxxx' of undefined, Possible reason: TypeError: Cannot read property 'xxxxxxx' of undefined."
+
+The source of the error message is JSON file that describes the pipeline. It happens when customer uses Git integration and pipeline JSON files get corrupted for some reason. You will see an error (red dot with x) left to pipeline name as shown below.
+
+![Pipeline JSON error](media/data-factory-ux-troubleshoot-guide/pipeline-json-error.png)
+
+Solution is to fix JSON files at first and then reopen the pipeline using Authoring tool.
+
+
 
 ## Next steps
 

@@ -1299,7 +1299,7 @@ The following cell shows an example with HTML. The highlighted section represent
 
 ```scala
 spark.conf.set("spark.hyperspace.explain.displayMode", "html")
-hyperspace.explain(eqJoin) { displayHTML }
+hyperspace.explain(eqJoin)(displayHTML(_))
 ```
 
 ::: zone-end
@@ -2234,4 +2234,4 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 ## Next steps
 
 * [Project Hyperspace](https://microsoft.github.io/hyperspace/)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Azure Synapse Analytics](../index.yml)

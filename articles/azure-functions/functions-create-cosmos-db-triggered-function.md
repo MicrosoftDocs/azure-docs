@@ -23,6 +23,7 @@ To complete this tutorial:
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## Sign in to Azure
+
 Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 ## Create an Azure Cosmos DB account
@@ -31,7 +32,7 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## Create an Azure Function app
+## Create a function app in Azure
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 

@@ -89,10 +89,10 @@ In this request, the values that need to be customized are:
 +	`resources/properties/virtualNetworkSubnetId` - Specify the Azure identifier of the subnet in VNet where Azure MySQL server should be placed. 
 +	`tags(optional)` - Specify optional tags are key value pairs that you would use to categorize the resources for billing etc.
 
-If you are looking to build an Azure Resource Manager template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) in Azure Quickstart GitHub Gallery first and build on top of it. 
+If you are looking to build an Azure Resource Manager template to automate Azure Database for MySQL deployments for your organization, the recommendation would be to start from the sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) in Azure Quickstart GitHub Gallery first and build on top of it. 
 
 If you are new to Azure Resource Manager templates and would like to try it, you can start by following these steps:
-+	Clone or download the Sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) from Azure Quickstart gallery.  
++	Clone or download the Sample [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json) from Azure Quickstart gallery.  
 +	Modify the azuredeploy.parameters.json to update the parameter values based on your preference and save the file. 
 +	Use Azure CLI to create the Azure MySQL server using the following commands
 
@@ -103,7 +103,7 @@ You may use the Azure Cloud Shell in the browser, or Install Azure CLI on your o
 ```azurecli-interactive
 az login
 az group create -n ExampleResourceGroup  -l "West US2"
-az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
+az deployment group create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 
 ## Get the connection information

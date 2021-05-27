@@ -1,20 +1,11 @@
 ---
 title: Invoke stored procedure from Azure Data Factory Copy Activity 
 description: 'Learn how to invoke a stored procedure in Azure SQL Database, or SQL Server from an Azure Data Factory copy activity.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: 
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 

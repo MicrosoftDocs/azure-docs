@@ -36,7 +36,7 @@ Encryption does not impact the performance of managed disks. There is no additio
 
 You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all data in managed disks. 
 
-To learn more about server-side encryption, refer to either the articles for [Windows](windows/disk-encryption.md) or [Linux](linux/disk-encryption.md).
+To learn more about server-side encryption, refer to either the articles for [Windows](./disk-encryption.md) or [Linux](./disk-encryption.md).
 
 ### Azure Disk Encryption
 
@@ -48,7 +48,7 @@ There is no charge for encrypting virtual disks in Azure. Cryptographic keys are
 
 Secrets and certificates can be modeled as resources and provided by [Key Vault](../key-vault/general/basic-concepts.md). You can use Azure PowerShell to create key vaults for [Windows VMs](windows/key-vault-setup.md) and the Azure CLI for [Linux VMs](linux/key-vault-setup.md). You can also create keys for encryption.
 
-Key vault access policies grant permissions to keys, secrets, and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, [key vault access policy](../key-vault/general/secure-your-key-vault.md) does not support object level permissions.
+Key vault access policies grant permissions to keys, secrets, and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, [key vault access policy](../key-vault/general/security-features.md) does not support object level permissions.
 
 When you connect to VMs, you should use public-key cryptography to provide a more secure way to sign in to them. This process involves a public and private key exchange using the secure shell (SSH) command to authenticate yourself rather than a username and password. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. With a secure shell (SSH) key pair, you can create a [Linux VM](linux/mac-create-ssh-keys.md) that uses SSH keys for authentication, eliminating the need for passwords to sign-in. You can also use SSH keys to connect from a [Windows VM](linux/ssh-from-windows.md) to a Linux VM.
 
@@ -68,4 +68,4 @@ Using [Azure role-based access control (Azure RBAC)](../role-based-access-contro
 
 
 ## Next steps
-- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](windows/tutorial-azure-security.md).
+- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).

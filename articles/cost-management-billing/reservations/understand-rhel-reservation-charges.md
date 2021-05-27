@@ -40,7 +40,7 @@ Azure portal marketplace names:
 - Red Hat Enterprise Linux 7.6
 - Red Hat Enterprise Linux 8.2
 
-[Check Red Hat Enterprise Linux meters that the plan applies to](https://isfratio.blob.core.windows.net/isfratio/RHELRatios.csv)
+[Check Red Hat Enterprise Linux meters that the plan applies to](https://phoenixnap.com/kb/how-to-check-redhat-version)
 
 ## Next steps
 
@@ -48,7 +48,7 @@ To learn more about reservations, see the following articles:
 
 - [What are reservations for Azure](save-compute-costs-reservations.md)
 - [Prepay for Red Hat software plans with Azure reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Manage reservations for Azure](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

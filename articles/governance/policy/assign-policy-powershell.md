@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with PowerShell"
 description: In this quickstart, you use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
@@ -60,7 +60,7 @@ The preceding commands use the following information:
 - **Name** - The actual name of the assignment. For this example, _audit-vm-manageddisks_ was used.
 - **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **Definition** – The policy definition, based on which you're using to create the assignment. In
+- **Definition** - The policy definition, based on which you're using to create the assignment. In
   this case, it's the ID of policy definition _Audit VMs that do not use managed disks_.
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
   enforced on. It could range from a subscription to resource groups. Be sure to replace

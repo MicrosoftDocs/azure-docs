@@ -1,21 +1,11 @@
 ---
 title: Copy Activity performance and tuning guide 
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use Copy Activity.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Copy Activity performance and tuning guide
@@ -27,11 +17,11 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy activity performance and tuning guide for Data Factory](../copy-activity-performance.md).
 
-Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core “big data” problem: building advanced analytics solutions and getting deep insights from all that data.
+Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core "big data" problem: building advanced analytics solutions and getting deep insights from all that data.
 
 Azure provides a set of enterprise-grade data storage and data warehouse solutions, and Copy Activity offers a highly optimized data loading experience that is easy to configure and set up. With just a single copy activity, you can achieve:
 
-* Loading data into **Azure Synapse Analytics** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics (formerly SQL Data Warehouse) under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+* Loading data into **Azure Synapse Analytics** at **1.2 GBps**. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Loading data into **Azure Blob storage** at **1.0 GBps**
 * Loading data into **Azure Data Lake Store** at **1.0 GBps**
 
@@ -202,7 +192,7 @@ When you activate data movement by using a staging store, you can specify whethe
 Currently, you can't copy data between two on-premises data stores by using a staging store. We expect this option to be available soon.
 
 ### Configuration
-Configure the **enableStaging** setting in Copy Activity to specify whether you want the data to be staged in Blob storage before you load it into a destination data store. When you set **enableStaging** to TRUE, specify the additional properties listed in the next table. If you don’t have one, you also need to create an Azure Storage or Storage shared access signature-linked service for staging.
+Configure the **enableStaging** setting in Copy Activity to specify whether you want the data to be staged in Blob storage before you load it into a destination data store. When you set **enableStaging** to TRUE, specify the additional properties listed in the next table. If you don't have one, you also need to create an Azure Storage or Storage shared access signature-linked service for staging.
 
 | Property | Description | Default value | Required |
 | --- | --- | --- | --- |
@@ -253,7 +243,7 @@ We suggest that you take these steps to tune the performance of your Data Factor
 
    ![Activity run details](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
-   Later in the article, you can compare the performance and configuration of your scenario to Copy Activity’s [performance reference](#performance-reference) from our tests.
+   Later in the article, you can compare the performance and configuration of your scenario to Copy Activity's [performance reference](#performance-reference) from our tests.
 2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. A full description of performance diagnosis is beyond the scope of this article, but here are some common considerations:
 
    * Performance features:
@@ -371,7 +361,7 @@ Be cautious about the number of data sets and copy activities requiring Data Fac
 **Test and analysis**: The throughput of Copy Activity is less than 2 MBps, which is much slower than the performance benchmark.
 
 **Performance analysis and tuning**:
-To troubleshoot the performance issue, let’s look at how the data is processed and moved.
+To troubleshoot the performance issue, let's look at how the data is processed and moved.
 
 1. **Read data**: Gateway opens a connection to SQL Server and sends the query. SQL Server responds by sending the data stream to Gateway via the intranet.
 2. **Serialize and compress data**: Gateway serializes the data stream to CSV format, and compresses the data to a bzip2 stream.

@@ -45,7 +45,7 @@ The information in this section helps us categorize your offer so that customers
 Select up to three competencies that are relevant to the service area of your offer. Your selection will be displayed to customers in the offer listing.
 
 > [!IMPORTANT]
-> Having at least one competency may be a requirement to publish your offer, depending on its primary product. See the [certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) for details.
+> Having at least one competency may be a requirement to publish your offer, depending on its primary product. See the [certification policies](/legal/marketplace/certification-policies#800-consulting-services) for details.
 
 Save the draft before continuing.
 

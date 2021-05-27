@@ -120,7 +120,7 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Use [Azure Monitor to gather and export data](../../azure-monitor/overview.md#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
 
 **Best practice**: Speed up your investigation and hunting processes and reduce false positives by integrating Endpoint Detection and Response (EDR) capabilities into your attack investigation.   
-**Detail**: [Enabling the Microsoft Defender for Endpoint integration](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
+**Detail**: [Enable the Microsoft Defender for Endpoint integration](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
 
 ## Monitor end-to-end scenario-based network monitoring
 Customers build an end-to-end network in Azure by combining network resources like a virtual network, ExpressRoute, Application Gateway, and load balancers. Monitoring is available on each of the network resources.
@@ -193,7 +193,7 @@ Using [service endpoints](../../virtual-network/virtual-network-service-endpoint
 
 We often see customers' on-premises resources getting attacked along with their resources in Azure. If you're connecting an on-premises environment to Azure, minimize exposure of on-premises resources to the public internet.
 
-Azure has two DDoS [service offerings](../../virtual-network/ddos-protection-overview.md) that provide protection from network attacks:
+Azure has two DDoS [service offerings](../../ddos-protection/ddos-protection-overview.md) that provide protection from network attacks:
 
 - Basic protection is integrated into Azure by default at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. Basic requires no user configuration or application changes and helps protect all Azure services, including PaaS services like Azure DNS.
 - Standard protection provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of virtual networks. It can also be done after creation and requires no application or resource changes.

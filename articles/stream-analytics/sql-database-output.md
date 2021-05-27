@@ -1,9 +1,8 @@
 ---
 title: Azure SQL Database output from Azure Stream Analytics
 description: This article describes Azure SQL Database as output for Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
@@ -30,7 +29,7 @@ The following table lists the property names and their description for creating 
 |Inherit partition scheme| An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max batch count| The recommended upper limit on the number of records sent with every bulk insert transaction.|
 
-There are two adapters that enable output from Azure Stream Analytics to Azure Synapse Analytics (formerly SQL Data Warehouse): SQL Database and Azure Synapse. We recommend that you choose the Azure Synapse Analytics adapter instead of the SQL Database adapter if any of the following conditions are true:
+There are two adapters that enable output from Azure Stream Analytics to Azure Synapse Analytics: SQL Database and Azure Synapse. We recommend that you choose the Azure Synapse Analytics adapter instead of the SQL Database adapter if any of the following conditions are true:
 
 * **Throughput**: If your expected throughput now or in the future is greater than 10MB/sec, use the Azure Synapse output option for better performance.
 
@@ -46,9 +45,5 @@ You can configure the max message size by using **Max batch count**. The default
 
 ## Next steps
 
+* [Use managed identities to access Azure SQL Database or Azure Synapse Analytics from an Azure Stream Analytics job (Preview)](sql-database-output-managed-identity.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
-* [Quickstart: Create an Azure Stream Analytics job using the Azure CLI](quick-create-azure-cli.md)
-* [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
-* [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)

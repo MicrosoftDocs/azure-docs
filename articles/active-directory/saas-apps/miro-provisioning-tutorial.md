@@ -74,7 +74,7 @@ Before configuring Miro for automatic user provisioning with Azure AD, you need 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Miro based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Miro , following the instructions provided in the [Miro Single sign-on tutorial](./miro-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Miro, following the instructions provided in the [Miro Single sign-on tutorial](./miro-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 > [!NOTE]
 > To learn more about Miro's SCIM endpoint, refer [this](https://help.miro.com/hc/en-us/articles/360036777814).

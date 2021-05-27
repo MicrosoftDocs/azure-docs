@@ -54,4 +54,26 @@
     tocHref: /azure/cosmos-db
     topicHref: /azure/synapse-analytics/index
 
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /azure/synapse-analytics/sql-data-warehouse
+    topicHref: /azure/synapse-analytics/index
 
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /powerapps/maker/
+    topicHref: /azure/synapse-analytics/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /dynamics365/customer-insights/
+    topicHref: /azure/synapse-analytics/index

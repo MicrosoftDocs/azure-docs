@@ -15,9 +15,9 @@ ms.custom: seodec2018, devx-track-js
 # Tutorial: Create a single-page web app
 
 > [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
@@ -45,7 +45,7 @@ The tutorial page is entirely self-contained; it does not use any external frame
 To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have these, you'll need to create them:
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:

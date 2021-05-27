@@ -6,9 +6,10 @@ author: rolyon
 manager: daveba
 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/20/2020
+ms.date: 05/04/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -39,7 +40,7 @@ Before you can close your account, you should confirm the following items:
 
 To close an unmanaged work or school account, follow these steps:
 
-1. Sign in to [close your account](https://go.microsoft.com/fwlink/?linkid=873123), using the account that you want to close.
+1. Sign in to [close your account](https://portal.azure.com/#blade/Microsoft_AAD_IAM/PrivacyDataRequests), using the account that you want to close.
 
 1. On **My data requests**, select **Close account**.
 

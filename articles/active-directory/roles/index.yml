@@ -25,12 +25,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Custom roles overview
+          - text: Azure AD role-based access control overview
             url: custom-overview.md
       - linkListType: concept
         links:
-          - text: Delegate administration
-            url: concept-delegation.md
+          - text: Understand Azure AD roles
+            url: concept-understand-roles.md
           - text: Understand administrative units in Azure AD
             url: administrative-units.md
           - text: Use cloud groups to manage role assignments

@@ -1,14 +1,11 @@
 ---
 title: 'Quickstart: Apache HBase & Apache Phoenix - Azure HDInsight'
 description: In this quickstart, you learn how to use Apache Phoenix in HDInsight. Also, learn how to install and set up SQLLine on your computer to connect to an HBase cluster in HDInsight.
-author: hrasheed-msft
-ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.author: hrasheed
 #Customer intent: As a HBase user, I want learn Apache Phoenix so that I can run HBase queries in Azure HDInsight.
 ---
 
@@ -36,11 +33,11 @@ A portion of the output will look similar to:
 
 ```output
     {
-      "href" : "http://hn1-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net:8080/api/v1/clusters/myCluster/hosts/zk0-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net/host_components/ZOOKEEPER_SERVER",
+      "href" : "http://hn*.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net:8080/api/v1/clusters/myCluster/hosts/<zookeepername1>.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net/host_components/ZOOKEEPER_SERVER",
       "HostRoles" : {
         "cluster_name" : "myCluster",
         "component_name" : "ZOOKEEPER_SERVER",
-        "host_name" : "zk0-brim.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net"
+        "host_name" : "<zookeepername1>.432dc3rlshou3ocf251eycoapa.bx.internal.cloudapp.net"
       }
 ```
 

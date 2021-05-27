@@ -6,15 +6,15 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 04/13/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ---
 # Configure Azure AD Multi-Factor Authentication settings
 
@@ -54,7 +54,7 @@ To configure account lockout settings, complete the following settings:
 
 ## Block and unblock users
 
-If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device has been lost or stolen, you can block Azure AD Multi-Factor Authentication attempts for the associated account. Any Azure AD Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. We have published a video on [how to block and unblock users in your tenant](https://www.youtube.com/watch?v=WdeE1On4S1o) to show you how to do this.
 
 ### Block a user
 
@@ -62,9 +62,7 @@ To block a user, complete the following steps:
 
 1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 1. Select **Add** to block a user.
-1. Select the **Replication Group**, then choose *Azure Default*.
-
-    Enter the username for the blocked user as `username\@domain.com`, then provide a comment in the *Reason* field.
+1. Enter the username for the blocked user as `username@domain.com`, then provide a comment in the *Reason* field.
 1. When ready, select **OK** to block the user.
 
 ### Unblock a user
@@ -120,7 +118,7 @@ OATH TOTP hardware tokens typically come with a secret key, or seed, pre-program
 
 Programmable OATH TOTP hardware tokens that can be reseeded can also be set up with Azure AD in the software token setup flow.
 
-OATH hardware tokens are supported as part of a public preview. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+OATH hardware tokens are supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ![Uploading OATH tokens to the MFA OATH tokens blade](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
@@ -153,7 +151,7 @@ In the United States, if you haven't configured MFA Caller ID, voice calls from 
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and to text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
+> When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and to text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-)
 
 To configure your own caller ID number, complete the following steps:
 
@@ -230,12 +228,12 @@ Service settings can be accessed from the Azure portal by browsing to **Azure Ac
 
 ## Trusted IPs
 
-The _Trusted IPs_ feature of Azure AD Multi-Factor Authentication bypasses multi-factor authentication prompts for users who sign in from a defined IP address range. You can set trusted IP ranges for your on-premises environments to when users are in one of those locations, there's no Azure AD Multi-Factor Authentication prompt.
+The _Trusted IPs_ feature of Azure AD Multi-Factor Authentication bypasses multi-factor authentication prompts for users who sign in from a defined IP address range. You can set trusted IP ranges for your on-premises environments so when users are in one of those locations, there's no Azure AD Multi-Factor Authentication prompt. The _Trusted IPs_ feature of Azure AD Multi-Factor Authentication requires Azure AD Premium P1 edition. 
 
 > [!NOTE]
 > The trusted IPs can include private IP ranges only when you use MFA Server. For cloud-based Azure AD Multi-Factor Authentication, you can only use public IP address ranges.
 >
-> IPv6 ranges are only supported in the [Named location (preview)](../conditional-access/location-condition.md#preview-features) interface.
+> IPv6 ranges are only supported in the [Named location (preview)](../conditional-access/location-condition.md) interface.
 
 If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
 
@@ -346,7 +344,7 @@ The remember Multi-Factor Authentication feature sets a persistent cookie on the
 
 The **Don't ask again for X days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last multi-factor authentication occurred within the specified number of days.
 
-The feature reduces the number of authentications on web apps, which normally prompt every time. The feature can increase the number of authentications for modern authentication clients that normally prompt every 90 days, if a lower duration is configured. May also increase the number of authentications when combined with Conditional Access policies.
+The feature reduces the number of authentications on web apps, which normally prompt every time. The feature can increase the number of authentications for modern authentication clients that normally prompt every 180 days, if a lower duration is configured. May also increase the number of authentications when combined with Conditional Access policies.
 
 > [!IMPORTANT]
 > The **remember Multi-Factor Authentication** feature isn't compatible with the **keep me signed in** feature of AD FS, when users perform multi-factor authentication for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.

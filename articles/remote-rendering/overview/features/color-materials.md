@@ -57,9 +57,9 @@ The following properties are specific to color materials:
 ## API documentation
 
 * [C# ColorMaterial class](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
-* [C# RemoteManager.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C# RenderingConnection.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [C++ ColorMaterial class](/cpp/api/remote-rendering/colormaterial)
-* [C++ RemoteManager::CreateMaterial()](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C++ RenderingConnection::CreateMaterial()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## Next steps
 

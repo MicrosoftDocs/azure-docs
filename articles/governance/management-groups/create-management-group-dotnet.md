@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with .NET Core"
 description: In this quickstart, you use .NET Core to create a management group to organize your resources into a resource hierarchy.
-ms.date: 09/30/2020
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
@@ -76,7 +76,7 @@ required packages.
    using Microsoft.Rest;
    using Microsoft.Azure.Management.ManagementGroups;
    using Microsoft.Azure.Management.ManagementGroups.Models;
-   
+
    namespace mgCreate
    {
        class Program
@@ -88,12 +88,12 @@ required packages.
                string strClientSecret = args[2];
                string strGroupId = args[3];
                string strDisplayName = args[4];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                       "https://management.core.windows.net",
                       new ClientCredential(strClientId, strClientSecret));
-   
+
                using (var client = new ManagementGroupsAPIClient(new TokenCredentials(authResult.AccessToken)))
                {
                    var mgRequest = new CreateManagementGroupRequest

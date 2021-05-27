@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/04/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla, dawoo
 
@@ -70,7 +70,7 @@ Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
 Create a mobile phone authentication method for a specific user.
 
 ```powershell
-New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType "mobile" -phoneNumber "+1 7748933135"
 ```
 
 Remove a specific phone method for a user

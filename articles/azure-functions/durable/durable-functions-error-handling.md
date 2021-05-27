@@ -119,6 +119,21 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+$transferDetails = $Context.Input
+
+Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
+
+try {
+    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.destinationAccount; amount = transferDetails.amount }
+} catch {
+    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
+}
+```
+
 
 ---
 
@@ -182,6 +197,18 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$retryOptions = New-DurableRetryOptions `
+                    -FirstRetryInterval (New-Timespan -Seconds 5) `
+                    -MaxNumberOfAttempts 3
+
+Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
+```
+
 ---
 
 The activity function call in the previous example takes a parameter for configuring an automatic retry policy. There are several options for customizing the automatic retry policy:
@@ -191,7 +218,11 @@ The activity function call in the previous example takes a parameter for configu
 * **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
 * **Max retry interval**: The maximum amount of time to wait in between retry attempts.
 * **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
-* **Handle**: A user-defined callback can be specified to determine whether a function should be retried.
+* **Handle**: A user-defined callback can be specified to determine whether a function should be retried. 
+
+> [!NOTE]
+> User-defined callbacks aren't currently supported by Durable Functions in JavaScript (`context.df.RetryOptions`).
+
 
 ## Function timeouts
 
@@ -274,6 +305,27 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
         return False
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$expiryTime =  New-TimeSpan -Seconds 30
+
+$activityTask = Invoke-DurableActivity -FunctionName 'FlakyFunction'-NoWait
+$timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
+
+$winner = Wait-DurableTask -Task @($activityTask, $timerTask) -NoWait
+
+if ($winner -eq $activityTask) {
+    Stop-DurableTimerTask -Task $timerTask
+    return $True
+}
+else {
+    return $False
+}
 ```
 
 ---

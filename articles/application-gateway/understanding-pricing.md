@@ -256,9 +256,19 @@ If processing capacity equivalent to 10 additional CUs was available for use wit
 
 Fixed Price = $0.246  * 730 (Hours) =  $179.58
 
-Variable Costs = $0.008 * ( 3(Instance Units) * 10(capacity units) + 5 (additional capacity units) ) * 730 (Hours) = $204.4
+Variable Costs = $0.008 * ( 3(Instance Units) * 10(capacity units) + 10 (additional capacity units) ) * 730 (Hours) = $233.6
 
-Total Costs = $179.58 + $204.4 = $383.98
+Total Costs = $179.58 + $233.6 = $413.18
+
+However, if processing capacity equivalent to only say 7 additional CUs was available for use within the 3 reserved instances.
+In this scenario the Application Gateway resource is under scaled and could potentially lead to increase in latency or requests getting dropped.
+
+Fixed Price = $0.246  * 730 (Hours) =  $179.58
+
+Variable Costs = $0.008 * ( 3(Instance Units) * 10(capacity units) + 7 (additional capacity units) ) * 730 (Hours) = $216.08
+
+Total Costs = $179.58 + $216.08 = $395.66
+
 
 ![Diagram of Manual-scale 2.](./media/pricing/manual-scale-2.png)
 

@@ -1,9 +1,6 @@
 ---
 title: Apache Hive & Data Lake tools for Visual Studio - Azure HDInsight
 description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -47,11 +44,11 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
 5. Select **Execute**. The execution mode defaults to **Interactive**.
 
-    ![Execute interactive Hive query, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png" alt-text="Execute interactive Hive query, Visual Studio" border="true":::
 
 6. To run the same query in **Batch** mode, toggle the drop-down list from **Interactive** to **Batch**. The execution button changes from **Execute** to **Submit**.
 
-    ![Submit batch Hive query, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png" alt-text="Submit batch Hive query, Visual Studio" border="true":::
 
     The Hive editor supports IntelliSense. Data Lake Tools for Visual Studio supports loading remote metadata when you edit your Hive script. For example, if you type `SELECT * FROM`, IntelliSense lists all the suggested table names. When a table name is specified, IntelliSense lists the column names. The tools support most Hive DML statements, subqueries, and built-in UDFs. IntelliSense suggests only the metadata of the cluster that is selected in the HDInsight toolbar.
 
@@ -59,7 +56,7 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
 8. If you selected the advanced submit option, configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** in the **Submit Script** dialog box. Then select **Submit**.
 
-    ![Submit Script dialog box, HDInsight Hadoop Hive query](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png" alt-text="Submit Script dialog box, HDInsight Hadoop Hive query" border="true":::
 
 ### Create a Hive application
 
@@ -107,7 +104,7 @@ To run a Hive query by creating a Hive application, follow these steps:
 
    The **Hive Job Summary** appears and displays information about the running job. Use the **Refresh** link to refresh the job information, until the **Job Status** changes to **Completed**.
 
-   ![Completed Hive job summary, Hive application, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
+   :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png" alt-text="Completed Hive job summary, Hive application, Visual Studio" border="true":::
 
 7. Select **Job Output** to view the output of this job. It displays `[ERROR] 3`, which is the value returned by this query.
 

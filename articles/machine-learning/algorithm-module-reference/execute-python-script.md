@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
+ms.date: 01/02/2021
 ---
 # Execute Python Script module
 
@@ -55,8 +55,40 @@ if spec is None:
 > [!WARNING]
 > Excute Python Script module does not support installing packages that depend on extra native libraries with command like "apt-get", such as Java, PyODBC and etc. This is because this module is executed in a simple environment with Python pre-installed only and with non-admin permission.  
 
+## Access to current workspace and registered datasets
+
+You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
+
+```Python
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    #access to current workspace
+    ws = run.experiment.workspace
+
+    #access to registered dataset of current workspace
+    from azureml.core import Dataset
+    dataset = Dataset.get_by_name(ws, name='test-register-tabular-in-designer')
+    dataframe1 = dataset.to_pandas_dataframe()
+     
+    # If a zip file is connected to the third input port,
+    # it is unzipped under "./Script Bundle". This directory is added
+    # to sys.path. Therefore, if your zip file contains a Python file
+    # mymodule.py you can import it using:
+    # import mymodule
+
+    # Return value must be of a sequence of pandas.DataFrame
+    # E.g.
+    #   -  Single return value: return dataframe1,
+    #   -  Two return values: return dataframe1, dataframe2
+    return dataframe1,
+```
+
 ## Upload files
-The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
+The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29#upload-file-name--path-or-stream-).
 
 The following example shows how to upload an image file in the Execute Python Script module:
 
@@ -121,7 +153,7 @@ The Execute Python Script module contains sample Python code that you can use as
     1. Bundle the script and other custom resources to a zip file.
     1. Upload the zip file as a **File Dataset** to the studio. 
     1. Drag the dataset module from the *Datasets* list in the left module pane in the designer authoring page. 
-    1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
+    1. Connect the dataset module to the **Script Bundle** port of **Execute Python Script** module.
     
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved.
  
@@ -184,7 +216,9 @@ The Execute Python Script module contains sample Python code that you can use as
 
 6. Submit the pipeline.
 
-    All of the data and code is loaded into a virtual machine, and run using the specified Python environment.
+    If the module is completed, check the output if as expected.
+
+    If the module is failed, you need to do some troubleshooting. Select the module, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.
 
 ## Results
 

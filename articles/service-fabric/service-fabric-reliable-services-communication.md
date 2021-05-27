@@ -1,11 +1,8 @@
 ---
 title: Reliable Services communication overview 
 description: Overview of the Reliable Services communication model, including opening listeners on services, resolving endpoints, and communicating between services.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 # How to use the Reliable Services communication APIs
@@ -285,7 +282,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-The client factory is primarily responsible for creating communication clients. For clients that don't maintain a persistent connection, such as an HTTP client, the factory only needs to create and return the client. Other protocols that maintain a persistent connection, such as some binary protocols, should also be validated by the factory to determine whether the connection needs to be re-created.  
+The client factory is primarily responsible for creating communication clients. For clients that don't maintain a persistent connection, such as an HTTP client, the factory only needs to create and return the client. Other protocols that maintain a persistent connection, such as some binary protocols, should also be validated (`ValidateClient(string endpoint, MyCommunicationClient client)`) by the factory to determine whether the connection needs to be re-created.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>

@@ -190,31 +190,31 @@ The write-optimized engine provided by Azure Cosmos DB supports automatic indexi
 
 * **Index utilization for Gremlin queries with mid-traversal `.V()` steps**: Currently, only the first `.V()` call of a traversal will make use of the index to resolve any filters or predicates attached to it. Subsequent calls will not consult the index, which might increase the latency and cost of the query.
     
-    Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
+Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 
-    ```java
-    g.V().has('category', 'A')
-    ```
+```java
+g.V().has('category', 'A')
+```
 
-    However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
+However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
 
-    ```java
-    g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
-    ```
+```java
+g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
+```
 
-    This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
+This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
 
-    A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
+A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
 
-    ```java
-    // Query workaround using .map()
-    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
+```java
+// Query workaround using .map()
+g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
 
-    // Query workaround using .union()
-    g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
-    ```
+// Query workaround using .union()
+g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
+```
 
-    You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
+You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
 
 ## Next steps
 

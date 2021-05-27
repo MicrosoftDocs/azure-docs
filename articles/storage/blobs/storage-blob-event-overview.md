@@ -53,7 +53,7 @@ See the [Blob storage events schema](../../event-grid/event-schema-blob-storage.
 
 ## Filtering events
 
-Blob [events can be filtered](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) by the event type, container name, or name of the object that was created/deleted. Filters in Event Grid match the beginning or end of the subject so events with a matching subject go to the subscriber.
+Blob [events can be filtered](/cli/azure/eventgrid/event-subscription) by the event type, container name, or name of the object that was created/deleted. Filters in Event Grid match the beginning or end of the subject so events with a matching subject go to the subscriber.
 
 To learn more about how to apply filters, see [Filter events for Event Grid](../../event-grid/how-to-filter-events.md).
 
@@ -91,9 +91,9 @@ Applications that handle Blob storage events should follow a few recommended pra
 > [!div class="checklist"]
 > * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
 > * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
-> * As messages can arrive after some delay, use the etag fields to understand if your information about objects is still up-to-date. To learn how to use the etag field, see [Managing concurrency in Blob storage](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * As messages can arrive after some delay, use the etag fields to understand if your information about objects is still up-to-date. To learn how to use the etag field, see [Managing concurrency in Blob storage](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * As messages can arrive out of order, use the sequencer fields to understand the order of events on any particular object. The sequencer field is a string value that represents the logical sequence of events for any particular blob name. You can use standard string comparison to understand the relative sequence of two events on the same blob name.
-> * Storage events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries or availability of subscriptions, duplicate messages may occasionally occur. To learn more about message delivery and retry, see [Event Grid message delivery and retry](../../event-grid/delivery-and-retry.md).
+> * Storage events guarantees at-least-once delivery to subscribers, which ensures that all messages are outputted. However due to retries between backend nodes and services or availability of subscriptions, duplicate messages may occur. To learn more about message delivery and retry, see [Event Grid message delivery and retry](../../event-grid/delivery-and-retry.md).
 > * Use the blobType field to understand what type of operations are allowed on the blob, and which client library types you should use to access the blob. Valid values are either `BlockBlob` or `PageBlob`. 
 > * Use the url field with the `CloudBlockBlob` and `CloudAppendBlob` constructors to access the blob.
 > * Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.

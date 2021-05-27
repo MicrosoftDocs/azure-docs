@@ -3,14 +3,14 @@ title: Assign and list roles with administrative unit scope - Azure Active Direc
 description: Use administrative units to restrict the scope of role assignments in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
-ms.author: curtand
+ms.date: 05/14/2021
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
@@ -20,7 +20,16 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), for more granular administrative control, you can assign users to an Azure AD role with a scope that's limited to one or more administrative units.
 
-To prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](admin-units-manage.md#get-started).
+## Prerequisites
+
+- Azure AD Premium P1 or P2 license for each administrative unit administrator
+- Azure AD Free licenses for administrative unit members
+- Privileged Role Administrator or Global Administrator
+- AzureAD module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
+
 
 ## Available roles
 
@@ -45,7 +54,7 @@ The following security principals can be assigned to a role with an administrati
 
 You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft Graph.
 
-### Use the Azure portal
+### Azure portal
 
 1. In the Azure portal, go to **Azure AD**.
 
@@ -64,26 +73,30 @@ You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft
 > [!Note]
 > To assign a role on an administrative unit by using Azure AD Privileged Identity Management (PIM), see [Assign Azure AD roles in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### Use PowerShell
+### PowerShell
 
 ```powershell
-$AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
-$Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-$RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
-$RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+$adminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
+$role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Administrator"
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$roleMember = New-Object -TypeName Microsoft.Open.MSGraph.Model.MsRoleMemberInfo
+$roleMember.Id = $adminUser.ObjectId
+Add-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id -RoleId $role.ObjectId -RoleMemberInfo $roleMember
 ```
 
 You can change the highlighted section as required for the specific environment.
 
-### Use Microsoft Graph
+### Microsoft Graph API
+
+Request
 
 ```http
-Http request
-POST /directory/administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{admin-unit-id}/scopedRoleMembers
+```
     
-Request body
+Body
+
+```http
 {
   "roleId": "roleId-value",
   "roleMemberInfo": {
@@ -96,7 +109,7 @@ Request body
 
 You can view a list of scoped admins by using the Azure portal, PowerShell, or Microsoft Graph.
 
-### Use the Azure portal
+### Azure portal
 
 You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
@@ -106,21 +119,26 @@ You can view all the role assignments created with an administrative unit scope 
 
 1. Select **Roles and administrators**, and then open a role to view the assignments in the administrative unit.
 
-### Use PowerShell
+### PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -Id $adminUnitObj.Id | fl *
 ```
 
 You can change the highlighted section as required for your specific environment.
 
-### Use Microsoft Graph
+### Microsoft Graph API
+
+Request
 
 ```http
-Http request
-GET /directory/administrativeUnits/{id}/scopedRoleMembers
-Request body
+GET /directory/administrativeUnits/{admin-unit-id}/scopedRoleMembers
+```
+
+Body
+
+```http
 {}
 ```
 

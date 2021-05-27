@@ -144,6 +144,27 @@ Here's the retry policy in the *function.json* file:
     }
 }
 ```
+
+# [PowerShell](#tab/powershell)
+
+Here's the retry policy in the *function.json* file:
+
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
 ---
 
 #### Exponential backoff retry
@@ -225,6 +246,27 @@ Here's the retry policy in the *function.json* file:
 ```
 
 # [Java](#tab/java)
+
+Here's the retry policy in the *function.json* file:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "exponentialBackoff",
+        "maxRetryCount": 5,
+        "minimumInterval": "00:00:10",
+        "maximumInterval": "00:15:00"
+    }
+}
+```
+
+# [PowerShell](#tab/powershell)
 
 Here's the retry policy in the *function.json* file:
 

@@ -35,6 +35,8 @@ Another important attribute of the X.509 CA authentication is simplification of 
 
 This article offers an end-to-end view of using the X.509 CA authentication, from supply chain setup to device connection, while making use of a real world example to solidify understanding.
 
+You can also use enrollment groups with the Azure IoT Hub Device Provisioning Service (DPS) to handle provisioning of devices to hubs. For more information on using DPS to provision X.509 certificate devices, see [Tutorial: Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
+
 ## Introduction
 
 The X.509 CA certificate is a digital certificate whose holder can sign other certificates. This digital certificate is X.509 because it conforms to a certificate formatting standard prescribed by IETF's RFC 5280 standard, and is a certificate authority (CA) because its holder can sign other certificates.
@@ -69,7 +71,7 @@ The process to create a Self-Signed X.509 CA certificate is similar to purchasin
 
 ## Register the X.509 certificate to IoT Hub
 
-Company-X needs to register the X.509 CA to IoT Hub where it will serve to authenticate Smart-X-Widgets as they connect. This is a one-time process that enables the ability to authenticate and manage any number of Smart-X-Widget devices. This process is one-time because of a one-to-many relationship between authority certificate and devices and also constitutes one of the main advantages of using the X.509 CA authentication method. The alternative is to upload individual certificate thumbprints for each and every Smart-X-Widget device thereby adding to operational costs.
+Company-X needs to register the X.509 CA to IoT Hub where it will serve to authenticate Smart-X-Widgets as they connect. This is a one-time process that enables the ability to authenticate and manage any number of Smart-X-Widget devices. This is a one-time process because of a one-to-many relationship between CA certificate and device certificates that are signed by the CA certificate or an intermediate certificate. This relationship constitutes one of the main advantages of using the X.509 CA authentication method. The alternative is to upload individual certificate thumbprints for each and every Smart-X-Widget device thereby adding to operational costs.
 
 Registering the X.509 CA certificate is a two-step process, the certificate upload and certificate proof-of-possession.
 

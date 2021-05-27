@@ -7,7 +7,7 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog 
-ms.custom: devx-track-azurecli
+
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
@@ -330,7 +330,7 @@ You can see results of the executed stored procedure in your Cosmos DB document.
 
 ## Use the Azure CLI
 
-Instead of using the [Azure portal](https://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
+Instead of using the [Azure portal](https://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create).
 
 ## Clean up resources
 

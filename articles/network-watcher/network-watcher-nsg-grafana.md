@@ -101,11 +101,11 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
           "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
           "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
           "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-	  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
-	  "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
-	  "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
-	  "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
-	  "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
+    "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+    "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+    "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+    "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+    "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
         }
         add_field => {
           "time" => "%{[records][time]}"

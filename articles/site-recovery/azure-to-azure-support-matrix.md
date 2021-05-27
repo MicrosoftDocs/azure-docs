@@ -3,7 +3,7 @@ title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
 ms.date: 11/29/2020
-ms.author: raynew
+
 ---
 
 # Support matrix for Azure VM disaster recovery between Azure regions
@@ -30,6 +30,7 @@ This article summarizes support and prerequisites for disaster recovery of Azure
 **Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs across regions within supported geographical clusters (within and across subscriptions)** | Supported within the same Azure Active Directory tenant.
 **Migrate VMs within the same region** | Not supported.
+**Azure Dedicated Hosts** | Not supported.
 
 ## Region support
 
@@ -39,23 +40,29 @@ You can replicate and recover VMs between any two regions within the same geogra
 **Geographic cluster** | **Azure regions**
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
-Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, Norway West, France Central, Switzerland North
+Europe | UK West, UK South, North Europe, West Europe, South Africa West, South Africa North, Norway East, France Central, Switzerland North, Germany West Central
 Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
+JIO | JIO India West
 Australia    | Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germany    | Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
-Restricted Regions reserved for in-country disaster recovery |Germany North reserved for Germany West Central, Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers
+Brazil | Brazil South
+Restricted Regions reserved for in-country disaster recovery |Switzerland West reserved for Switzerland North, France South reserved for France Central, UAE Central restricted for UAE North customers, Norway West for Norway East customers, JIO India Central for JIO India West customers, Brazil Southeast for Brazil South customers, South Africa West for South Africa North customers, Germany North for Germany West Central customers.
+
+Replication and recovery of VMs between two regions in different continents is limited to the following region pairs:
+
+* Southeast Asia and Australia East
+* Southeast Asia and Australia Southeast
+* West Europe and South Central US.
 
 >[!NOTE]
 >
-> - For **Brazil South**, you can replicate and fail over to these regions: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
-> - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. This is because of latency issues due to geographical distances. Note that if you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported.
+> - For **Brazil South**, you can replicate and fail over to these regions: Brazil Southeast, South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US.
+> - Brazil South can only be used as a source region from which VMs can replicate using Site Recovery. It can't act as a target region. This is because of latency issues due to geographical distances. Note that if you fail over from Brazil South as a source region to a target, failback to Brazil South from the target region is supported. Brazil Southeast can only be used as a target region.
 > - You can work within regions for which you have appropriate access.
 > - If the region in which you want to create a vault doesn't show, make sure your subscription has access to create resources in that region.
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region.
-
-
 
 ## Cache storage
 
@@ -65,12 +72,22 @@ This table summarizes support for the cache storage account used by Site Recover
 --- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of GPv2 is not recommended because transaction costs for V2 are substantially higher than V1 storage accounts.
 Premium storage | Not supported | Standard storage accounts are used for cache storage, to help optimize costs.
-Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.
+Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for ASR. You should allow access from 'All networks'. 
 
+The table below lists the limits in terms of number of disks that can replicate to a single storage account.
+
+**Storage account type**    |    **Churn = 4 MBps per disk**    |    **Churn = 8 MBps per disk**
+---    |    ---    |    ---
+V1 storage account    |    300 disks    |    150 disks
+V2 storage account    |    750 disks    |    375 disks
+
+As average churn on the disks increases, the number of disks that a storage account can support decreases. The above table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
+
+Please note that the above limits are specific to Azure to Azure and zone to zone DR scenarios. 
 
 ## Replicated machine operating systems
 
-Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Please note that if an already replicating machine is subsequently upgraded (or downgraded) to a different major kernel, you need to disable replication and re-enable replication after the upgrade.
+Site Recovery supports replication of Azure VMs running the operating systems listed in this section. Note that if an already replicating machine is subsequently upgraded (or downgraded) to a different major kernel, you need to disable replication and re-enable replication after the upgrade.
 
 ### Windows
 
@@ -97,7 +114,7 @@ Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10 </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, [7.8](https://support.microsoft.com/help/4564347/), [7.9 pre-GA version](https://support.microsoft.com/help/4578241/), 7.9 GA version is supported from 9.37 hot fix patch** </br> 8.0, 8.1, [8.2](https://support.microsoft.com/en-us/help/4570609), [8.3](https://support.microsoft.com/help/4597409/)
 Ubuntu 14.04 LTS Server | Includes support for all 14.04.*x* versions; [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-virtual-machines); 
 Ubuntu 16.04 LTS Server | Includes support for all 16.04.*x* versions; [Supported kernel version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu servers using password-based authentication and sign in, and the cloud-init package to configure cloud VMs, might have password-based sign in disabled on failover (depending on the cloudinit configuration). Password-based sign in can be re-enabled on the virtual machine by resetting the password from the Support > Troubleshooting > Settings menu (of the failed over VM in the Azure portal.
-Ubuntu 18.04 LTS Server | Includes support for all 18.04.*x* versions; [Supported kernel version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) |
+Ubuntu 18.04 LTS Server | Includes support for all 18.04.*x* versions; [Supported kernel version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu servers using password-based authentication and sign in, and the cloud-init package to configure cloud VMs, might have password-based sign in disabled on failover (depending on the cloudinit configuration). Password-based sign in can be re-enabled on the virtual machine by resetting the password from the Support > Troubleshooting > Settings menu (of the failed over VM in the Azure portal.
 Ubuntu 20.04 LTS server | Includes support for all 20.04.*x* versions; [Supported kernel version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Includes support for all 7. *x* versions [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | Includes support for all 8. *x* versions [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines)
@@ -209,6 +226,7 @@ VMs migrated using Site Recovery | Supported | If a VMware VM or physical machin
 Azure RBAC policies | Not supported | Azure role-based access control (Azure RBAC) policies on VMs are not replicated to the failover VM in target region.
 Extensions | Not supported | Extensions are not replicated to the failover VM in target region. It needs to be installed manually after failover.
 Proximity Placement Groups | Supported | Virtual machines located inside a Proximity Placement Group can be protected using Site Recovery.
+Tags  | Supported | User generated tags applied on source virtual machines are carried over to target virtual machines post test failover or failover. Tags on the VM(s) are replicated once every 24 hours for as long as the VM(s) is/are present in the target region.
 
 
 ## Replicated machines - disk actions
@@ -223,7 +241,7 @@ Offline changes to protected disks | Disconnecting disks and making offline modi
 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk.
 
-- It's important to observe the VM disk limits and targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) and [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs to avoid any performance issues.
+- It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
 - If you deploy with the default settings, Site Recovery automatically creates disks and storage accounts based on the source settings.
 - If you customize, ensure you follow the guidelines.
 
@@ -244,12 +262,15 @@ Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 NVMe storage interface | Not supported
+Encryption at host | Supported | [Click here](https://docs.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal) to create a VM with end-to-end encryption using Encryption at host.
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.
 Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks
-Double Encryption at rest | Supported | Learn more on supported regions for [Windows](../virtual-machines/windows/disk-encryption.md) and [Linux](../virtual-machines/linux/disk-encryption.md)
+Double Encryption at rest | Supported | Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md)
+FIPS encryption | Not supported
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks are not supported. <br/><br/> HSM-protected keys are not supported. <br/><br/> Encryption of individual volumes on a single disk is not supported. |
 Azure Disk Encryption (ADE) for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks are not supported. <br/><br/> HSM-protected keys are not supported. <br/><br/> Encryption of individual volumes on a single disk is not supported. <br><br> Known issue with enabling replication. [Learn more.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 SAS key rotation | Not Supported | If the SAS key for storage accounts is rotated, customer needs to disable and re-enable replication. |
+Host Caching | Supported
 Hot add    | Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Only one disk can be hot added to an Azure VM at a time. Parallel addition of multiple disks is not supported. |
 Hot remove disk    | Not supported | If you  remove data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Support. You must use [PowerShell](azure-to-azure-exclude-disks.md) to configure. |    Temporary disks are excluded by default.
@@ -268,9 +289,10 @@ NVMe disks | Not supported
 Azure shared disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
+Tags  | Supported | User generated tags are replicated every 24 hours.
 
 >[!IMPORTANT]
-> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
+> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](../virtual-machines/disks-scalability-targets.md). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
 
 ## Limits and data change rates
 
@@ -314,6 +336,7 @@ Accelerated networking | Supported | Accelerated networking must be enabled on s
 Palo Alto Network Appliance | Not supported | With third party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions and outbound connectivity to be available. But the appliance does not let any outbound activity to be configured inside the Virtual Machine.
 IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are also not supported. Please free up the subnet of the IPv6 range before any Site Recovery operation.
 Private link access to Site Recovery service | Supported | [Learn more](azure-to-azure-how-to-enable-replication-private-endpoints.md)
+Tags  | Supported | User generated tags on NICs are replicated every 24 hours.
 
 
 

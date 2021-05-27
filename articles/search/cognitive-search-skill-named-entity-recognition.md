@@ -146,8 +146,8 @@ Parameters are case-sensitive.
 ```
 
 
-## Error cases
-If the language code for the document is unsupported, an error is returned and no entities are extracted.
+## Warning cases
+If the language code for the document is unsupported, a warning is returned and no entities are extracted.
 
 ## See also
 

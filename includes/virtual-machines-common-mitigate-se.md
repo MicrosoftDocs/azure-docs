@@ -17,7 +17,7 @@ The disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.micro
 
 Microsoft has deployed mitigations across all our cloud services. The infrastructure that runs Azure and isolates customer workloads from each other is protected. This means that a potential attacker using the same infrastructure can’t attack your application using these vulnerabilities.
 
-Azure is using [memory preserving maintenance](../articles/virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#maintenance-that-doesnt-require-a-reboot) whenever possible, to minimize customer impact and eliminate the need for reboots. Azure will continue utilizing these methods when making systemwide updates to the host and protect our customers.
+Azure is using [memory preserving maintenance](../articles/virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot) whenever possible, to minimize customer impact and eliminate the need for reboots. Azure will continue utilizing these methods when making systemwide updates to the host and protect our customers.
 
 More information about how security is integrated into every aspect of Azure is available on the [Azure Security Documentation](../articles/security/index.yml) site. 
 
@@ -104,7 +104,7 @@ If the output shows `MDS mitigation is enabled: False`, please [contact Azure Su
 **Step 3**: To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
 
 
-**Step 4**: For deployments that are using [nested virtualization](../articles/virtual-machines/windows/nested-virtualization.md) (D3 and E3 only): These instructions apply inside the VM you are using as a Hyper-V host.
+**Step 4**: For deployments that are using [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you are using as a Hyper-V host.
 
 1.	Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `MinVmVersionForCpuBasedMitigations` registry keys.
 2.	Set the hypervisor scheduler type to `Core` by following the instructions [here](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).

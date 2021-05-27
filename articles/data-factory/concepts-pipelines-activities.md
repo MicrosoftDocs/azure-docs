@@ -1,12 +1,9 @@
 ---
 title: Pipelines and activities in Azure Data Factory 
 description: 'Learn about pipelines and activities in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ---
@@ -35,7 +32,7 @@ An input dataset represents the input for an activity in the pipeline, and an ou
 
 Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
 For more information, see [Copy Activity - Overview](copy-activity-overview.md) article.
 
@@ -52,7 +49,7 @@ Data transformation activity | Compute environment
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Azure Machine Learning Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) | Azure VM
-[Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (formerly SQL Data Warehouse), or SQL Server
+[Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics, or SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Custom Activity](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks

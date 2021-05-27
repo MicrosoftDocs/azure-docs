@@ -23,7 +23,7 @@ ms.author: yelevin
 
 ## Terminology
 
-The following terminology is used in Sentinel’s schemas:
+The following terminology is used in Azure Sentinel schemas:
 
 | Term | Definition |
 | ---- | ---------- |
@@ -79,7 +79,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | EventStartTime | Date/Time | See “data types” | The time in which the event stated | Event |
 | TimeGenerated | Date/Time | See “data types” | The time the event occurred, as reported by reporting source. | Custom field |
 | EventTimeIngested | Date/Time | See “data types” | The time the event was ingested to Azure Sentinel. Will be added by Azure Sentinel. | Event |
-| EventUid | Guid (String) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Unique identifier used by Sentinel to mark a row. | Event |
+| EventUid | Guid (String) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Unique identifier used by Azure Sentinel to mark a row. | Event |
 | NetworkApplicationProtocol | String | HTTPS | The application layer protocol used by the connection or session. | Network |
 | DstBytes | int | 32455 | The number of bytes sent from the destination to the source for the connection or session. | Destination |
 | SrcBytes | int | 46536 | The number of bytes sent from the source to the destination for the connection or session. | Source |

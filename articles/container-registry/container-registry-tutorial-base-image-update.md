@@ -4,9 +4,7 @@ description: In this tutorial, you learn how to configure an Azure Container Reg
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: "seodec18, mvc, devx-track-js, devx-track-azurecli"
-# Customer intent: As a developer or devops engineer, I want container
-# images to be built automatically when the base image of a container is
-# updated in the registry.
+# Customer intent: As a developer or devops engineer, I want container images to be built automatically when the base image of a container is updated in the registry.
 ---
 
 # Tutorial: Automate container image builds when a base image is updated in an Azure container registry 
@@ -30,10 +28,10 @@ In this tutorial:
 
 This tutorial assumes you've already configured your environment and completed the steps in the first two tutorials in the series, in which you:
 
-* Create Azure container registry
-* Fork sample repository
-* Clone sample repository
-* Create GitHub personal access token
+- Create Azure container registry
+- Fork sample repository
+- Clone sample repository
+- Create GitHub personal access token
 
 If you haven't already done so, complete the following tutorials before proceeding:
 
@@ -42,6 +40,9 @@ If you haven't already done so, complete the following tutorials before proceedi
 [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md)
 
 ### Configure the environment
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 Populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
 
@@ -84,7 +85,7 @@ az acr task create \
     --name baseexample1 \
     --image helloworld:{{.Run.ID}} \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
     --file Dockerfile-app \
     --git-access-token $GIT_PAT
 ```
@@ -230,10 +231,10 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-update]: /cli/azure/acr/task#az_acr_task_update
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr

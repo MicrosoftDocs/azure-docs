@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Multi-factor authentication (MFA) is a process where a user is prompted during a sign-in event for additional forms of identification. This prompt could be to enter a code on their cellphone or to provide a fingerprint scan. When you require a second form of authentication, security is increased as this additional factor isn't something that's easy for an attacker to obtain or duplicate.
 
-Azure AD Multi-Factor Authentication and Conditional Access policies give the flexibility to enable MFA for users during specific sign-in events.
+Azure AD Multi-Factor Authentication and Conditional Access policies give the flexibility to enable MFA for users during specific sign-in events. Here's a [video on How to configure and enforce multi-factor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM) (**Recommended**)
 
 > [!IMPORTANT]
 > This tutorial shows an administrator how to enable Azure AD Multi-Factor Authentication.

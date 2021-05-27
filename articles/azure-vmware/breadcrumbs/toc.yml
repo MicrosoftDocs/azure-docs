@@ -1,0 +1,17 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure VMware Solution
+    tocHref: /azure/
+    topicHref: /azure/azure-vmware/index
+    items: 
+     - name: Migrate workloads
+       tocHref: /azure/migrate/
+       topicHref: /azure/azure-vmware/
+     - name: Azure Site Recovery
+       tocHref: /azure/site-recovery/
+       topicHref: /azure/azure-vmware/
+     - name: Azure Backup Server
+       tocHref: /azure/backup/
+       topicHref: /azure/azure-vmware/

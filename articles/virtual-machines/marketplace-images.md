@@ -3,13 +3,13 @@ title: Specify Marketplace purchase plan information using Azure PowerShell
 description: Learn how to specify Azure Marketplace purchase plan details when creating images in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-
+ 
 ---
 
 # Supply Azure Marketplace purchase plan information when creating images
@@ -20,15 +20,13 @@ For more information about finding and using Marketplace images, see [Find and u
 
 
 ## Get the source VM information
-If you still have the original VM, you can get the plan, publisher, and sku information from it using Get-AzVM. This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information.
+If you still have the original VM, you can get the plan name, publisher, and product information from it using Get-AzVM. This example gets a VM named *myVM* in the *myResourceGroup* resource group and then displays the purchase plan information for the VM.
 
 ```azurepowershell-interactive
 $vm = Get-azvm `
    -ResourceGroupName myResourceGroup `
    -Name myVM
-$vm.Plan.Publisher
-$vm.Plan.Name
-$vm.Plan.Product
+$vm.Plan
 ```
 
 ## Create the image definition

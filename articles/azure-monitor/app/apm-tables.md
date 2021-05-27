@@ -6,9 +6,9 @@ ms.date: 05/09/2020
 
 ---
 
-# Workspace-based resource changes (preview)
+# Workspace-based resource changes
 
-Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). This is described in [Logs in Azure Monitor](../platform/data-platform-logs.md).
+Prior to the introduction of [workspace-based Application Insights resources](create-workspace-resource.md), Application Insights data was stored separate from other log data in Azure Monitor. Both are based on Azure Data Explorer and use the same Kusto Query Language (KQL). This is described in [Logs in Azure Monitor](../logs/data-platform-logs.md).
 
 With workspace-based Application Insights resources data is stored in a Log Analytics workspace with other monitoring data and application data. This simplifies your configuration by allowing you to more easily analyze data across multiple solutions and to leverage the capabilities of workspaces.
 
@@ -460,6 +460,6 @@ Legacy table: traces
 
 ## Next steps
 
-* [Explore metrics](../platform/metrics-charts.md)
-* [Write Analytics queries](../log-query/log-query-overview.md)
+* [Explore metrics](../essentials/metrics-charts.md)
+* [Write Analytics queries](../logs/log-query-overview.md)
 

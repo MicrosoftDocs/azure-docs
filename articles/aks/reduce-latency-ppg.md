@@ -12,7 +12,7 @@ ms.date: 10/19/2020
 > [!Note]
 > When using proximity placement groups on AKS, colocation only applies to the agent nodes. Node to node and the corresponding hosted pod to pod latency is improved. The colocation does not affect the placement of a cluster's control plane.
 
-When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to each other. Some applications like gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that complete quickly. For high-performance computing (HPC) scenarios such as these, consider using [proximity placement groups](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) for your cluster's node pools.
+When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to each other. Some applications like gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that complete quickly. For high-performance computing (HPC) scenarios such as these, consider using [proximity placement groups](../virtual-machines/co-location.md#proximity-placement-groups) (PPG) for your cluster's node pools.
 
 ## Before you begin
 
@@ -122,16 +122,16 @@ az group delete --name myResourceGroup --yes --no-wait
 [azure-ad-rbac]: azure-ad-rbac.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-get-upgrades]: /cli/azure/aks#az_aks_get_upgrades
+[az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[proximity-placement-groups]: ../virtual-machines/linux/co-location.md#proximity-placement-groups
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[proximity-placement-groups]: ../virtual-machines/co-location.md#proximity-placement-groups
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [system-pool]: ./use-system-pools.md
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
