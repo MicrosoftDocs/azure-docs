@@ -48,6 +48,8 @@ For Azure CLI and Terraform deployments, see the [Azure Spring Cloud Reference A
 
 ## Deploy the template
 
+To deploy the template, follow these steps:
+
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Spring Cloud instance into an existing Virtual Network and a workspace-based Application Insights instance into an existing Azure Monitor Log Analytics Workspace.
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploy.json)
