@@ -45,7 +45,7 @@ public void myConfigurationRefreshCheck() {
 
 To use automated refresh, start with a Spring Boot app that uses App Configuration, such as the app you create by following the [Spring Boot quickstart for App Configuration](quickstart-java-spring-app.md).
 
-Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `azure-spring-cloud-appconfiguration-config-web`.
+Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azure-spring-cloud-appconfiguration-config-web` using the following code.
 
 **Spring Boot 2.4**
 
@@ -60,14 +60,14 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `az
 > [!NOTE]
 > If you need to support an older version of Spring Boot see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
 
-1. Update bootstrap.properties to enable refresh
+1. Update `bootstrap.properties` to enable refresh
 
-```properties
-spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
-spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
-```
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
+    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
+    ```
 
-1. Open the Azure App Configuration portal associated with your application. Select **Configuration Explorer**, select **+ Create** > **Key-value** to add the following key-value pairs:
+1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and create a  new key-value pair by selecting **+ Create** > **Key-value** to adding the following parameters:
 
     | Key | Value |
     |---|---|
@@ -77,7 +77,7 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentine
 
 1. Select **Apply**.
 
-1. 1. Build your Spring Boot application with Maven and run it.
+1. Build your Spring Boot application with Maven and run it.
 
     ```shell
     mvn clean package
@@ -98,7 +98,7 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentine
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update your sentinel key.
+1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the the refresh interval has passed.
 
     | Key | Value |
     |---|---|
