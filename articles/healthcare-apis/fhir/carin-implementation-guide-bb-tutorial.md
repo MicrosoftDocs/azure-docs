@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Carin Implementation Guide for Blue Button  
+title: Tutorial - Sarin Implementation Guide for Blue Button  
 description: This tutorial walks through the steps of setting up the Azure API for FHIR to pass the Touchstone tests for the Carin Implementation Guide for Blue Button (C4BB IG). 
 services: healthcare-apis
 ms.service: healthcare-apis
