@@ -3,7 +3,7 @@ title: 'Upcoming changes to the ingestion and flattening rules in Azure Time Ser
 description: Ingestion rule changes
 ms.service: time-series-insights
 services: time-series-insights
-author: jatinas
+author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
