@@ -12,7 +12,16 @@ ms.author: midesa
 
 # Azure Synapse Runtime for Apache Spark 3.0 (preview)
 
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.0 (preview).
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.0 (preview).  The runtime engine will be periodically updated with the latest features and libraries during the preview period.  Check here to see the latest updates to the libraries and their versions.
+
+## Known Issues in Preview
+* Synapse Pipeline/Dataflows support is coming soon.
+* Library Management to add libraries is coming soon.
+* Connectors : the following connector support are coming soon.
+  * Azure Data Explorer connector
+  * CosmosDB
+  * SQL Server
+* Hyperspace, Spark Cruise, and Dynamic Allocation Executors are coming soon.
 
 ## Component versions
 |  Component   | Version   |  
