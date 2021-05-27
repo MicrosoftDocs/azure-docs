@@ -6,14 +6,14 @@ localization_priority: Normal
 
 # Store step-by-step submission guide
 
-This article is a step-by-step guide that will detail how to submit your app to the Microsoft 365 Stores.
+This article is a step-by-step guide that will detail how to submit your app to Microsoft 365 Stores.
 
 >[!TIP]
 >We recommend reading our [pre-submission checklist](./checklist.md) before reading this store submission guide, so you have all information ready to go for submission.
 
 ## Step 1: Select the type of app you are submitting
 
-For this guide, we will create an Office Add-in as our app. From the Overview tab in the Microsoft Partner Center, select **Create a new** and select the Office Add-in option.
+From the Overview tab in the Microsoft Partner Center, select **Create a new** and select the type of app you're submitting. The example screenshots in this article show an Office Add-in, but the steps apply to Teams apps, SharePoint solutions, etc.
 
 ![Overview tab selected in the Microsoft Partner Center menu](./images/new/step-select-type-of-add-in.png)
 
