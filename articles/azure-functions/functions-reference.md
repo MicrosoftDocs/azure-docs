@@ -193,7 +193,7 @@ Azure Functions by default uses the `AzureWebJobsStorage` connection for core be
 
 To configure the connection in this way, make sure the app's identity has the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in order to support the core host functionality. You may need additional permissions if you use "AzureWebJobsStorage" for any other purposes.
 
-If using a storage account that uses the default DNS suffix and service name for public Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can set `AzureWebJobsStorage__accountName` to the name of your storage account. 
+If using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can set `AzureWebJobsStorage__accountName` to the name of your storage account. 
 
 If instead using a storage account in a sovereign cloud or with custom DNS, set `AzureWebJobsStorage__serviceUri` to the URI for your blob service. If "AzureWebJobsStorage" will be used for any other service, you may instead specify `AzureWebJobsStorage__blobServiceUri`, `AzureWebJobsStorage__queueServiceUri`, and `AzureWebJobsStorage__tableServiceUri` separately.
 
