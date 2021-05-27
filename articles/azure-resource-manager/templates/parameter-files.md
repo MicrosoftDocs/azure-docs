@@ -2,7 +2,8 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 04/15/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create Resource Manager parameter file

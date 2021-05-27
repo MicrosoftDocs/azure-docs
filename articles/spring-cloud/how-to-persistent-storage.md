@@ -81,5 +81,5 @@ Other operations:
 
 ## Next steps
 
-* Learn about [application and service quotas](spring-cloud-quotas.md).
-* Learn how to [manually scale your application](spring-cloud-howto-scale-manual.md).
+* Learn about [application and service quotas](./quotas.md).
+* Learn how to [manually scale your application](./how-to-scale-manual.md).

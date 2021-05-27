@@ -53,7 +53,7 @@ Read all configuration | Global reader |
 Read B2C audit logs | Global reader ([see documentation](../../active-directory-b2c/faq.yml)) | 
 
 > [!NOTE]
-> Azure AD B2C Global readers do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
+> Azure AD B2C Global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
 
 ## Company branding
 

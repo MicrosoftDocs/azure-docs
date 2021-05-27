@@ -3,7 +3,7 @@ title: What's new in Windows Virtual Desktop? - Azure
 description: New features and product updates for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 04/08/2021
+ms.date: 05/03/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -36,7 +36,8 @@ The Windows Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Windows Virtual Desktop Agent:
 
-- Version 1.0.2990.800: This update was released April 13 2021, and has the following changes:
+- Version 1.0.2944.1400 for production and version 1.0.2990.800 for all validation host pools: This update was released April 27, 2021.
+- Version 1.0.2990.800: This update was released April 13, 2021 and has the following changes:
     - Updated agent error messages.
     - Adds an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
     - Has updated heartbeat service logic.
@@ -53,6 +54,45 @@ Here's what's changed in the Windows Virtual Desktop Agent:
 ## FSLogix updates
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## April 2021
+
+Here's what's new for April:
+
+### Use the Start VM on Connect feature (preview) in the Azure portal
+
+You can now configure Start VM on Connect (preview) in the Azure portal. With this update, users can access their VMs from the Android and macOS clients. To learn more, see [Start VM on Connect](start-virtual-machine-connect.md#use-the-azure-portal).
+
+### Required URL Check tool 
+
+The Windows Virtual Desktop agent, version 1.0.2944.400 includes a tool that validates URLs and displays whether the virtual machine can access the URLs it needs to function. If any required URLs are accessible, the tool will list them so you can unblock them, if needed. Learn more at our [Safe URL list](safe-url-list.md#required-url-check-tool).
+
+### Updates to the Azure portal UI for Windows Virtual Desktop
+
+Here's what changed in the latest update of the Azure portal UI for Windows Virtual Desktop:
+
+- Fixed an issue that caused an error to appear when retrieving the session host while drain mode is enabled.
+- Upgraded the Portal SDK to version 7.161.0.
+- Fixed an issue that caused the resource ID missing error message to appear in the User Sessions tab.
+- The Azure portal now shows detailed sub-status messages for session hosts.
+
+### April 2021 updates for Teams on Windows Virtual Desktop
+
+Here's what's new for Teams on Windows Virtual Desktop:
+
+- Added hardware acceleration for video processing of outgoing video streams for Windows 10-based clients.
+- When joining a meeting with both a front facing camera and a rear facing or external camera, the front facing camera will be selected by default.
+- Resolved an issue that made Teams crash on x86-based machines.
+- Resolved an issue that caused striations during screen sharing.
+- Resolved an issue that prevented meeting members from seeing incoming video or screen sharing.
+
+### MSIX app attach is now generally available
+
+MSIX app attach for Windows Virtual Desktop has now come out of public preview and is available to all users. Learn more about MSIX app attach at [our TechCommunity announcement](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-is-now-generally-available/m-p/2270468).
+
+### The macOS client now supports Apple Silicon and Big Sur
+
+The macOS Windows Virtual Desktop client now supports Apple Silicon and Big Sur. The full list of updates is available in [What's new in the macOS client](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew).
 
 ## March 2021
 
@@ -309,7 +349,7 @@ Here's what changed in August 2020:
 
 - Azure Advisor is now a part of Windows Virtual Desktop. When you access Windows Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Windows Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
 
-- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/ext/desktopvirtualization/) for a list of extension commands.
+- Azure CLI now supports Windows Virtual Desktop (`az desktopvirtualization`) to help you automate your Windows Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/desktopvirtualization) for a list of extension commands.
 
 - We've updated our deployment templates to make them fully compatible with the Windows Virtual Desktop Azure Resource Manager interfaces. You can find the templates on [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
 

@@ -34,7 +34,7 @@ For template resource information specific to logic apps, integration accounts, 
 For sample logic app templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
-* [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
+* [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) in GitHub
 
 For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview](/rest/api/logic).
 
@@ -1119,7 +1119,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          "defaultValue": "",
          "metadata": {
             "description": "Name of the storage account the connector should use."
-         },
+         }
 
       },
       "azureblob_1_accountName": {
@@ -1162,7 +1162,7 @@ Here is the parameterized sample template that's used by this topic's examples:
                            "connection": {
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
-                        },
+                        }
                      },
                      "method": "post",
                      "body": "@triggerBody()?['Body']",

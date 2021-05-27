@@ -2,7 +2,7 @@
 title: 'Quickstart: Getting started'
 description: In this quickstart, learn how to get started with understanding the basic workflow for Defender for IoT deployment.
 ms.topic: quickstart
-ms.date: 04/17/2021
+ms.date: 05/10/2021
 ---
 
 # Quickstart: Get started with Defender for IoT
@@ -15,9 +15,12 @@ This article provides an overview of the steps you'll take to set up Azure Defen
 
 ## Permission requirements
 
+### For sensors and on-premises management consoles
+
 Some of the setup steps require specific user permissions.
 
 Administrative user permissions are required to activate the sensor and management console, upload SSL/TLS certificates, and generate new passwords.
+### For the Defender for IoT portal
 
 The following table describes user access permissions to Azure Defender for IoT portal tools:
 

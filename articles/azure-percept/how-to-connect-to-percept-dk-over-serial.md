@@ -1,8 +1,8 @@
 ---
 title: Connect to your Azure Percept DK over serial
-description: Learn how to set up a serial connection to your Azure Percept DK with PuTTY and a USB to TTL serial cable
-author: elqu20
-ms.author: v-elqu
+description: How to set up a serial connection to your Azure Percept DK with a USB to TTL serial cable
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
@@ -25,7 +25,7 @@ Follow the steps below to set up a serial connection to your Azure Percept DK th
 
     :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/usb-serial-cable.png" alt-text="USB to TTL serial cable.":::
 
-## Initiate the serial connection
+## Start the serial connection
 
 1. If your carrier board is connected to an 80/20 rail, remove it from the rail using the hex key (included in the devkit welcome card).
 
@@ -41,7 +41,7 @@ Follow the steps below to set up a serial connection to your Azure Percept DK th
     > [!TIP]
     > Note the orientation of the jumper board prior to removing it. For example, draw an arrow on or attach a sticker to the jumper board pointing towards the circuitry for reference. The jumper board is not keyed and may be accidentally connected backwards when reassembling your carrier board.
 
-1. Connect the [USB to TTL serial cable](https://www.adafruit.com/product/954) to the GPIO pins on the motherboard as shown below. Please note that the red wire is not connected.
+1. Connect the [USB to TTL serial cable](https://www.adafruit.com/product/954) to the GPIO pins on the motherboard as shown below.
 
     - Connect the black cable (GND) to pin 6.
     - Connect the white cable (RX) to pin 8.
@@ -51,22 +51,16 @@ Follow the steps below to set up a serial connection to your Azure Percept DK th
 
 1. Power on your devkit and connect the USB side of the serial cable to your PC.
 
-1. In Windows, go to **Start** -> **Windows Update settings** -> **View optional updates** -> **Driver updates**. Look for a Serial to USB update in the list, check the box next to it, and click **Download and Install**.  
+1. In Windows, go to **Start** -> **Windows Update settings** -> **View optional updates** -> **Driver updates**. Look for a Serial to USB update in the list, check the box next to it, and select **Download and Install**.  
 
-1. Next, open the Windows Device Manager (**Start** -> **Device Manager**). Go to **Ports** and click **USB to UART** to open **Properties**. Note which COM port your device is connected to.
+1. Next, open the Windows Device Manager (**Start** -> **Device Manager**). Go to **Ports** and select **USB to UART** to open **Properties**. Note which COM port your device is connected to.
 
-1. Click the **Port Settings** tab. Make sure **Bits per second** is set to 115200.
+1. Select the **Port Settings** tab. Make sure **Bits per second** is set to 115200.
 
-1. Open PuTTY. Enter the following and click **Open** to connect to your devkit via serial:
+1. Open PuTTY. Enter the following and select **Open** to connect to your devkit via serial:
 
     1. Serial line: COM[port #]
     1. Speed: 115200
     1. Connection Type: Serial
 
     :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/putty-serial-session.png" alt-text="PuTTY session window with serial parameters selected.":::
-
-## Next steps
-
-To update an unbootable device over serial with the [USB to TTL serial cable](https://www.adafruit.com/product/954), please see the USB update guide for non-standard situations.
-
-[comment]: # (Add link to USB update guide when available.)

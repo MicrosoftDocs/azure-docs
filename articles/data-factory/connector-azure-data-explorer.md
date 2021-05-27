@@ -2,7 +2,7 @@
 title: Copy data to or from Azure Data Explorer
 description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory pipeline.
 ms.author: orspodek
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -41,7 +41,7 @@ With the Azure Data Explorer connector, you can do the following:
 >[!TIP]
 >For a walkthrough of Azure Data Explorer connector, see [Copy data to/from Azure Data Explorer using Azure Data Factory](/azure/data-explorer/data-factory-load-data) and [Bulk copy from a database to Azure Data Explorer](/azure/data-explorer/data-factory-template).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Data Explorer connector.
 

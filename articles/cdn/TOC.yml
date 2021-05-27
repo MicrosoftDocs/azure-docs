@@ -41,7 +41,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/cdn/TOC.json
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery
@@ -194,7 +194,11 @@
     - name: POP locations by region
       href: cdn-pop-locations.md
     - name: POP locations by abbreviation
-      href: cdn-pop-abbreviations.md
+      items:
+      - name: Microsoft
+        href: microsoft-pop-abbreviations.md
+      - name: Verizon
+        href: cdn-pop-abbreviations.md
   - name: Azure Content Delivery Network billing
     href: cdn-billing.md
   - name: Azure Roadmap
