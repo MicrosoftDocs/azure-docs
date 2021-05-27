@@ -1,11 +1,11 @@
 ---
-title: Monitor Azure virtual machines with Azure Monitor
-description: Describes how to collect and analyze monitoring data from virtual machines in Azure using Azure Monitor.
+title: Monitor Azure virtual machines with Azure Monitor - Alerts
+description: Describes how to create alerts from virtual machines and their guest workloads using Azure Monitor.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/05/2020
+ms.date: 05/26/2021
 
 ---
 
@@ -14,6 +14,59 @@ ms.date: 05/05/2020
 
 > [!IMPORTANT]
 > The alerts described in this article do not include alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md) which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
+
+
+## Alerts
+[Alerts](../alerts/alerts-overview.md) in Azure Monitor proactively notify you when important conditions are found in your monitoring data and potentially launch an action such as starting a Logic App or calling a webhook. Alert rules define the logic used to determine when an alert should be created. Azure Monitor collects the data used by alert rules, but you need to create rules to define alerting conditions in your Azure subscription.
+
+The following sections describe the types of alert rules and recommendations on when you should use each. This recommendation is based on the functionality and cost of the alert rule type. For details pricing of alerts, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+
+### Activity log alert rules
+[Activity log alert rules](../alerts/alerts-activity-log.md) fire when an entry matching particular criteria is created in the activity log. They have no cost so they should be your first choice if the logic you require is in the activity log. 
+
+The target resource for activity log alerts can be a specific virtual machine, all virtual machines in a resource group, or all virtual machines in a subscription.
+
+For example, create an alert if a critical virtual machine is stopped by selecting the *Power Off Virtual Machine* for the signal name.
+
+![Activity log alert](media/monitor-vm-azure/activity-log-alert.png)
+
+
+### Metric alert rules
+[Metric alert rules](../alerts/alerts-metric.md) fire when a metric value exceeds a threshold. You can define a specific threshold value or allow Azure Monitor to dynamically determine a threshold based on historical data.  Use metric alerts whenever possible with metric data since they cost less and are more responsive than log alert rules. They are also stateful meaning they will resolve themselves when the metric drops below the threshold.
+
+The target resource for activity log alerts can be a specific virtual machine or all virtual machines in a resource group.
+
+For example, to create an alert when the processor of a virtual machine exceeds a particular value, create a metric alert rule using *Percentage CPU* as the signal type. Set either a specific threshold value or allow Azure Monitor to set a dynamic threshold. 
+
+![Metric alert](media/monitor-vm-azure/metric-alert.png)
+
+### Log alerts
+[Log alert rules](../alerts/alerts-log.md) fire when the results of a scheduled log query match certain criteria. Log query alerts are the most expensive and least responsive of the alert rules, but they have access to the most diverse data and can perform complex logic that can't be performed by the other alert rules. 
+
+The target resource for a log query is a Log Analytics workspace. Filter for specific computers in the query.
+
+For example, to create an alert that checks if any virtual machines in a particular resource group are offline, use the following query which returns a record for each computer that's missed a heartbeat in the last ten minutes. Use a threshold of 1 which fires if at least one computer has a missed heartbeat.
+
+```kusto
+Heartbeat
+| where TimeGenerated > ago(10m)
+| where ResourceGroup == "my-resource-group"
+| summarize max(TimeGenerated) by Computer
+```
+
+![Log alert for missed heartbeat](media/monitor-vm-azure/log-alert-01.png)
+
+To create an alert if an excessive number of failed logons have occurred on any Windows virtual machines in the subscription, use the following query which returns a record for each failed logon event in the past hour. Use a threshold set to the number of failed logons that you'll allow. 
+
+```kusto
+Event
+| where TimeGenerated > ago(1hr)
+| where EventID == 4625
+```
+
+![Log alert for failed logons](media/monitor-vm-azure/log-alert-02.png)
+
 
 
 ## Alert rule types

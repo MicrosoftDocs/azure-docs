@@ -5,7 +5,7 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/01/2021
+ms.date: 05/26/2021
 
 ---
 
@@ -81,108 +81,6 @@ az monitor diagnostic-settings create \
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace
 ```
 
-## Monitoring in the Azure portal 
-Once you configure collection of monitoring data for a virtual machine, you have multiple options for accessing it in the Azure portal:
-
-- Use the **Azure Monitor** menu to access data from all monitored resources. 
-- Use VM insights for monitoring sets of virtual machines at scale.
-- Analyze data for a single virtual machine from its menu in the Azure portal. The table below lists different options for monitoring the virtual machines menu.
-
-![Monitoring in the Azure portal](media/monitor-vm-azure/monitor-menu.png)
-
-| Menu option | Description |
-|:---|:---|
-| Overview | Displays [platform metrics](../essentials/data-platform-metrics.md) for the virtual machine host. Click on a graph to work with this data in [metrics explorer](../essentials/metrics-getting-started.md). |
-| Activity log | [Activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. |
-| Insights | Opens [VM insights](../vm/vminsights-overview.md) with the map for the current virtual machine selected. |
-| Alerts | Views [alerts](../alerts/alerts-overview.md) for the current virtual machine.  |
-| Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with the scope set to the current virtual machine. |
-| Diagnostic settings | Enable and configure [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. |
-| Advisor recommendations | Recommendations for the current virtual machine from [Azure Advisor](../../advisor/index.yml). |
-| Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the current virtual machine. |
-| Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-overview.md) to monitor connections between the current virtual machine and other virtual machines. |
-
-
-## Analyzing metric data
-You can analyze metrics for virtual machines using metrics explorer by opening **Metrics** from the virtual machine's menu. See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool. 
-
-There are three namespaces used by virtual machines for metrics:
-
-| Namespace | Description | Requirement |
-|:---|:---|:---|
-| Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
-| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
-| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../essentials/collect-custom-metrics-linux-telegraf.md). |
-
-![Metrics explorer in the Azure portal](media/monitor-vm-azure/metrics.png)
-
-## Analyzing log data
-Azure virtual machines will collect the following data to Azure Monitor Logs. 
-
-VM insights enables the collection of a predetermined set of performance counters that are written to the *InsightsMetrics* table. This is the same table used by [Container insights](../containers/container-insights-overview.md). 
-
-| Data source | Requirements | Tables |
-|:---|:---|:---|
-| VM insights | Enable on each virtual machine. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>See [How to query logs from VM insights](../vm/vminsights-log-search.md) for details. |
-| Activity log | Diagnostic setting for the subscription. | AzureActivity |
-| Host metrics | Diagnostic setting for the virtual machine. | AzureMetrics |
-| Data sources from the guest operating system | Enable Log Analytics agent and configure data sources. | See documentation for each data source. |
-
-
-> [!NOTE]
-> Performance data collected by the Log Analytics agent writes to the *Perf* table while VM insights will collect it to the *InsightsMetrics* table. This is the same data, but the tables have a different structure. If you have existing queries based on *Perf*, the will need to be rewritten to use *InsightsMetrics*.
-
-
-## Alerts
-[Alerts](../alerts/alerts-overview.md) in Azure Monitor proactively notify you when important conditions are found in your monitoring data and potentially launch an action such as starting a Logic App or calling a webhook. Alert rules define the logic used to determine when an alert should be created. Azure Monitor collects the data used by alert rules, but you need to create rules to define alerting conditions in your Azure subscription.
-
-The following sections describe the types of alert rules and recommendations on when you should use each. This recommendation is based on the functionality and cost of the alert rule type. For details pricing of alerts, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
-
-### Activity log alert rules
-[Activity log alert rules](../alerts/alerts-activity-log.md) fire when an entry matching particular criteria is created in the activity log. They have no cost so they should be your first choice if the logic you require is in the activity log. 
-
-The target resource for activity log alerts can be a specific virtual machine, all virtual machines in a resource group, or all virtual machines in a subscription.
-
-For example, create an alert if a critical virtual machine is stopped by selecting the *Power Off Virtual Machine* for the signal name.
-
-![Activity log alert](media/monitor-vm-azure/activity-log-alert.png)
-
-
-### Metric alert rules
-[Metric alert rules](../alerts/alerts-metric.md) fire when a metric value exceeds a threshold. You can define a specific threshold value or allow Azure Monitor to dynamically determine a threshold based on historical data.  Use metric alerts whenever possible with metric data since they cost less and are more responsive than log alert rules. They are also stateful meaning they will resolve themselves when the metric drops below the threshold.
-
-The target resource for activity log alerts can be a specific virtual machine or all virtual machines in a resource group.
-
-For example, to create an alert when the processor of a virtual machine exceeds a particular value, create a metric alert rule using *Percentage CPU* as the signal type. Set either a specific threshold value or allow Azure Monitor to set a dynamic threshold. 
-
-![Metric alert](media/monitor-vm-azure/metric-alert.png)
-
-### Log alerts
-[Log alert rules](../alerts/alerts-log.md) fire when the results of a scheduled log query match certain criteria. Log query alerts are the most expensive and least responsive of the alert rules, but they have access to the most diverse data and can perform complex logic that can't be performed by the other alert rules. 
-
-The target resource for a log query is a Log Analytics workspace. Filter for specific computers in the query.
-
-For example, to create an alert that checks if any virtual machines in a particular resource group are offline, use the following query which returns a record for each computer that's missed a heartbeat in the last ten minutes. Use a threshold of 1 which fires if at least one computer has a missed heartbeat.
-
-```kusto
-Heartbeat
-| where TimeGenerated > ago(10m)
-| where ResourceGroup == "my-resource-group"
-| summarize max(TimeGenerated) by Computer
-```
-
-![Log alert for missed heartbeat](media/monitor-vm-azure/log-alert-01.png)
-
-To create an alert if an excessive number of failed logons have occurred on any Windows virtual machines in the subscription, use the following query which returns a record for each failed logon event in the past hour. Use a threshold set to the number of failed logons that you'll allow. 
-
-```kusto
-Event
-| where TimeGenerated > ago(1hr)
-| where EventID == 4625
-```
-
-![Log alert for failed logons](media/monitor-vm-azure/log-alert-02.png)
 
 
 ## Enable VM insights

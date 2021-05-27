@@ -1,11 +1,11 @@
 ---
-title: Monitor Azure virtual machines with Azure Monitor
-description: Describes how to collect and analyze monitoring data from virtual machines in Azure using Azure Monitor.
+title: Monitor Azure virtual machines with Azure Monitor - Configure
+description: Describes how to configure virtual machines for monitoring in Azure Monitor.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/05/2020
+ms.date: 05/26/2021
 
 ---
 

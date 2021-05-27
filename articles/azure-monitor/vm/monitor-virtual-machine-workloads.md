@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure virtual machines with Azure Monitor
-description: Describes how to collect and analyze monitoring data from virtual machines in Azure using Azure Monitor.
+title: Monitor Azure virtual machines with Azure Monitor - Workloads
+description: Describes how to monitor the guest workloads of virtual machines in Azure Monitor.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
