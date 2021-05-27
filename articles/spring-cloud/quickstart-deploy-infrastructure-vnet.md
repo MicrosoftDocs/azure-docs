@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy Azure Spring Cloud into an existing Virtual Network using Azure Resource Manager template (ARM template)
+title: Quickstart - Provision Azure Spring Cloud using an Azure Resource Manager (ARM) template
 description: In this quickstart, we deploy a Spring Cloud cluster into an existing Virtual Network.
 services: azure-resource-manager
 author: ryhud
@@ -109,4 +109,3 @@ In this quickstart, you created an Azure Spring Cloud instance into an existing 
 - Expose Azure Spring Cloud applications to the internet using [Azure Application Gateway](/azure/spring-cloud/expose-apps-gateway-azure-firewall).
 - View a secure end-to-end [Reference Architecture](/azure/spring-cloud/reference-architecture) for Azure Spring Cloud that is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-
