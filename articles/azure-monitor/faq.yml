@@ -424,7 +424,7 @@ sections:
           * Open the **Usage and estimated costs page** in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
           * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
           
-      - question: <a name="q14"></a>What does Application Insights modify in my project?
+      - question: What does Application Insights modify in my project?
         answer: |
           The details depend on the type of project. For a web application:
           
@@ -441,14 +441,14 @@ sections:
           * Inserts items into:
             * Web.config
             * packages.config
-          * (New projects only - if you [add Application Insights to an existing project][start], you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/\_Layout.cshtml
+          * (New projects only - if you [add Application Insights to an existing project](app/app-insights-overview.md), you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/\_Layout.cshtml
           
       - question: |
           How do I upgrade from older SDK versions?
         answer: |
           See the [release notes](app/release-notes.md) for the SDK appropriate to your type of application.
           
-      - question: <a name="update"></a>How can I change which Azure resource my project sends data to?
+      - question: How can I change which Azure resource my project sends data to?
         answer: |
           In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
 
@@ -524,9 +524,9 @@ sections:
           
           You can [use Power BI](app/export-power-bi.md ) to display your request telemetry on a map.
           
-      - question: <a name="data"></a>How long is data retained in the portal? Is it secure?
+      - question: How long is data retained in the portal? Is it secure?
         answer: |
-          Take a look at [Data Retention and Privacy][data].
+          Take a look at [Data Retention and Privacy](app/data-retention-privacy.md).
           
       - question: |
           What happens to Application Insight's telemetry when a server or device loses connection with Azure?
@@ -555,7 +555,7 @@ sections:
           * Use two separate Instrumentation Keys (separate Application Insights resources), for client and server data. Or
           * Write a proxy that runs in your server, and have the web client send data through that proxy.
           
-      - question: <a name="post"></a>How do I see POST data in Diagnostic search?
+      - question: How do I see POST data in Diagnostic search?
         answer: |
           We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. This has a longer size limit than the limits on string properties, though you can't filter on it.
           
@@ -588,7 +588,7 @@ sections:
           
           Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. Additionally, the [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) may not include all device information or Application Insights may not have adopted the latest updates.
           
-      - question: <a name="q17"></a> Have I enabled everything in Application Insights?
+      - question:  Have I enabled everything in Application Insights?
         answer: |
           | What you should see | How to get it | Why you want it |
           | --- | --- | --- |
@@ -640,7 +640,7 @@ sections:
       - question: |
           Automation
         answer: |
-          **Configuring Application Insights**
+          ### Configuring Application Insights
           
           You can [write PowerShell scripts](app/powershell.md) using Azure Resource Monitor to:
           
@@ -652,7 +652,7 @@ sections:
           
           You can't set up a Metric Explorer report or set up continuous export.
           
-          **Querying the telemetry**
+          ### Querying the telemetry
           
           Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](./logs/log-query-overview.md) queries.
           
@@ -684,17 +684,17 @@ sections:
           
           Review our full list of services and IP addresses [here](app/ip-addresses.md).
           
-          **Firewall exception**
+          ### Firewall exception
           
           Allow your web server to send telemetry to our endpoints.
           
-          **Gateway redirect**
+          ### Gateway redirect
           
           Route traffic from your server to a gateway on your intranet by overwriting Endpoints in your configuration. If these "Endpoint" properties are not present in your config, these classes will use the default values shown below in the example ApplicationInsights.config.
           
           Your gateway should route traffic to our endpoint's base address. In your configuration, replace the default values with `http://<your.gateway.address>/<relative path>`.
           
-          **Example ApplicationInsights.config with default endpoints:**
+          ### Example ApplicationInsights.config with default endpoints:
           
           ```xml
           <ApplicationInsights>
@@ -719,7 +719,7 @@ sections:
           > [!NOTE]
           > ApplicationIdProvider is available starting in v2.6.0.
           
-          **Proxy passthrough**
+          ### Proxy passthrough
           
           Proxy passthrough can be achieved by configuring either a machine level or application level proxy.
           For more information see dotnet's article on [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
@@ -851,7 +851,7 @@ sections:
         answer: |
           For agent version ciprod12042019 and later, by default these two properties are not populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
           
-          **Option 1**
+          ### Option 1
           
           Join other tables to include these property values in the results.
           
@@ -878,7 +878,7 @@ sections:
           ) on $left.ContainerID == $right.ContainerID2 | project-away ContainerID1, ContainerID2, Name, Image, ImageTag | project-rename Name = Name1, Image=Image1, ImageTag=ImageTag1
           ```
           
-          **Option 2**
+          ### Option 2
           
           Re-enable collection for these properties for every container log line.
           
@@ -1006,7 +1006,7 @@ sections:
       - question: |
           I don't see some or any data in the performance charts for my VM
         answer: |
-          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.md) for additional information.
+          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for additional information.
           
           If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./vm/vminsights-enable-powershell.md).
           
