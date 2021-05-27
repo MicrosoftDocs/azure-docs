@@ -56,7 +56,7 @@ The prebuilt Receipt service extracts the contents of sales receipts&mdash;the t
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | string | Type of sales receipt | Itemized |  |
+| ReceiptType | string | Type of sales receipt |  | Itemized |
 | MerchantName | string | Name of the merchant issuing the receipt | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | 987-654-3210 | +19876543210 |
 | MerchantAddress | string | Listed address of merchant | 123 Main St Redmond WA 98052 |  |
@@ -68,7 +68,7 @@ The prebuilt Receipt service extracts the contents of sales receipts&mdash;the t
 | Tip | number | Tip included by buyer | $1.00 | 1.00 |
 | Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
 | Name | string | Item name | Surface Pro 6 | |
-| Quantity | number | Quantity of each item | 1 | |
+| Quantity | number | Quantity of each item | 1 | 1 |
 | Price | number | Individual price of each item unit | $999.00 | 999.00 |
 | Total Price | number | Total price of line item | $999.00 | 999.00 |
 
@@ -97,7 +97,7 @@ The Receipt API also returns the following information:
   > [!NOTE]
   > Language input
   >
-  > Prebuilt Receipt v2.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (en-au), Canada (en-ca), Great Britain (en-gb), and India (en-in), you can specify the locale to get improved results. If no locale is specified in v2.1, the model will default to the en-us model.
+  > Prebuilt Receipt v2.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (en-au), Canada (en-ca), Great Britain (en-gb), and India (en-in), you can specify the locale to get improved results. If no locale is specified in v2.1, the model will automatically detect the locale.
 
 ## The Analyze Receipt operation
 
