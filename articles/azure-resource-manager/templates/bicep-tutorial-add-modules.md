@@ -4,7 +4,8 @@ description: Use modules to encapsulate complex details of the raw resource decl
 author: mumian
 ms.date: 03/25/2021
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Add modules to Azure Resource Manager Bicep file

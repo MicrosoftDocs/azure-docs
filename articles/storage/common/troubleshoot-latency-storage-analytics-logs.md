@@ -26,7 +26,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
 2. Use the following PowerShell script to convert the raw format logs into tabular format:
 
-   ```Powershell
+   ```powershell
    $Columns = 
         (   "version-number",
             "request-start-time",
@@ -60,7 +60,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
             "client-request-id"
         )
 
-   $logs = Import-Csv “REPLACE THIS WITH FILE PATH” -Delimiter ";" -Header $Columns
+   $logs = Import-Csv "REPLACE THIS WITH FILE PATH" -Delimiter ";" -Header $Columns
 
    $logs | Out-GridView -Title "Storage Analytic Log Parser"
    ```
@@ -68,8 +68,8 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 3. The script will launch a GUI window where you can filter the information by columns, as shown below.
 
    ![Storage Analytic Log Parser Window](media/troubleshoot-latency-storage-analytics-logs/storage-analytic-log-parser-window.png)
- 
-4. Narrow down the log entries based on “operation-type”, and look for the log entry created during the issue's time frame.
+
+4. Narrow down the log entries based on "operation-type", and look for the log entry created during the issue's time frame.
 
    ![Operation-type log entries](media/troubleshoot-latency-storage-analytics-logs/operation-type.png)
 
@@ -114,7 +114,7 @@ In a **GetBlob Operation** with **RequestStatus = Success**, if **Max Time** is 
 **Recommendation:**
 
 * Investigate the code in your client.
-* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
 
 ### GetBlob Operation: RequestStatus = (SAS)NetworkError
 
@@ -129,7 +129,7 @@ In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, if **Max 
 **Recommendation:**
 
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
-* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
 
 ### Put Operation: RequestStatus = Success
 
@@ -144,7 +144,7 @@ In a **Put Operation** with **RequestStatus = Success**, if **Max Time** is spen
 **Recommendation:**
 
 * Investigate the code in your client.
-* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
+* Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client.
 
 ### Put Operation: RequestStatus = (SAS)NetworkError
 

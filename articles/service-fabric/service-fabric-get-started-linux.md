@@ -26,17 +26,13 @@ You can manage Service Fabric entities hosted in the cloud or on-premises with t
 
 ## Prerequisites
 
-These operating system versions are supported for development.
+- Ensure you are using a supported [Linux version](service-fabric-versions.md#supported-linux-versions-and-support-end-date).
 
-* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
-
-    Make sure that the `apt-transport-https` package is installed.
+- Install the `apt-transport-https` package:
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
 
 ## Installation methods
 

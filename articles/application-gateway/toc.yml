@@ -83,7 +83,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/application-gateway-security-baseline
+      href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
   - name: SSL
     items:
     - name: SSL termination and end to end SSL

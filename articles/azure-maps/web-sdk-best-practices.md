@@ -20,7 +20,7 @@ Generally, when looking to improve performance of the map, look for ways to redu
 
 ## Security basics
 
-The single most important part of your application is its security. If your application isn’t secure a hacker can ruin any application, no matter how good the user experience might be. The following are some tips to keep your Azure Maps application secure. When using Azure, be sure to familiarize yourself with the security tools available to you. See this document for an [introduction to Azure security](https://docs.microsoft.com/azure/security/fundamentals/overview).
+The single most important part of your application is its security. If your application isn’t secure a hacker can ruin any application, no matter how good the user experience might be. The following are some tips to keep your Azure Maps application secure. When using Azure, be sure to familiarize yourself with the security tools available to you. See this document for an [introduction to Azure security](../security/fundamentals/overview.md).
 
 > [!IMPORTANT]
 > Azure Maps provides two methods of authentication.
@@ -37,7 +37,7 @@ When data is added to the Azure Maps interactive map SDKs, it is rendered locall
 
 If your application is loading data that should not be publicly accessible, make sure that the data is stored in a secure location, is accessed in a secure manner, and that the application itself is locked down and only available to your desired users. If any of these steps are skipped, an unauthorized person has the potential to access this data. Azure Active Directory can assist you with locking this down.
 
-See this tutorial on [adding authentication to your web app running on Azure App Service](https://docs.microsoft.com/azure/app-service/scenario-secure-app-authentication-app-service)
+See this tutorial on [adding authentication to your web app running on Azure App Service](../app-service/scenario-secure-app-authentication-app-service.md)
 
 ### Use the latest versions of Azure Maps
 

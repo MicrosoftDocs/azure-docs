@@ -112,15 +112,6 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * Currently we do not support Azure Synapse Spark reading column names that contain blanks (white spaces).
 
-* Expect different behavior in regard to explicit `null` values:
-  * Spark pools in Azure Synapse will read these values as `0` (zero).
-  * SQL serverless pools in Azure Synapse will read these values as `NULL` if the first document of the collection has, for the same property, a value with a `non-numeric` datatype.
-  * SQL serverless pools in Azure Synapse will read these values as `0` (zero) if the first document of the collection has, for the same property, a value with a `numeric` datatype.
-
-* Expect different behavior in regard to missing columns:
-  * Spark pools in Azure Synapse will represent these columns as `undefined`.
-  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
-
 ### Schema representation
 
 There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
@@ -152,6 +143,14 @@ The well-defined schema representation creates a simple tabular representation o
 * Expect different behavior in regard to different types in well defined schema:
   * Spark pools in Azure Synapse will represent these values as `undefined`.
   * SQL serverless pools in Azure Synapse will represent these values as `NULL`.
+
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero). And it will change to `undefined` as soon as the column has a non-null value.
+  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+    
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
 
 **Full fidelity schema representation**
@@ -196,6 +195,14 @@ Here is a map of all the property data types and their suffix representations in
 |DateTime	|".date"	| ISODate("2020-08-21T07:43:07.375Z")|
 |ObjectId	|".objectId"	| ObjectId("5f3f7b59330ec25c132623a2")|
 |Document	|".object" |	{"a": "a"}|
+
+* Expect different behavior in regard to explicit `null` values:
+  * Spark pools in Azure Synapse will read these values as `0` (zero).
+  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+  
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
 ## Cost-effective archival of historical data
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 05/17/2021
 ms.author: b-juche
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -161,8 +161,10 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
     * **AES Encryption**   
-        Select this checkbox if you want to enable AES encryption for an SMB volume. See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements. 
-
+        Select this checkbox if you want to enable AES encryption for AD authentication or if you require [encryption for SMB volumes](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume).   
+        
+        See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.  
+  
         ![Active Directory AES encryption](../media/azure-netapp-files/active-directory-aes-encryption.png)
 
         The **AES Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 

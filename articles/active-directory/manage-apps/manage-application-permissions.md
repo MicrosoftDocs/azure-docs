@@ -14,6 +14,7 @@ ms.reviewer: luleonpla
 
 ms.collection: M365-identity-device-management
 ---
+
 # Take action on overprivileged or suspicious applications in Azure Active Directory
 
 Learn how to review and manage application permissions. This article provides different actions you can take to secure your application according to the scenario. These actions apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent.
@@ -27,14 +28,13 @@ To do the following actions, you must sign in as a global administrator, an appl
 To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
 You can access the Azure AD portal to get contextual PowerShell scripts to perform the actions.
- 
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select the application that you want to restrict access to.
 4. Select **Permissions**. In the command bar, select **Review permissions**.
 
 ![Screenshot of the review permissions window.](./media/manage-application-permissions/review-permissions.png)
-
 
 ## Control access to an application
 
@@ -81,8 +81,7 @@ Optionally, by using PowerShell, you can:
 
 Or you can disable the application to block users' access and stop the application's access to your data.
 
-
-## Disable a malicious application 
+## Disable a malicious application
 
 We recommend that you disable the application to block users' access and to keep the application from accessing your data. If you delete the application instead, then users can re-consent to the application and grant access to your data.
 
@@ -93,7 +92,6 @@ We recommend that you disable the application to block users' access and to keep
 
 ### PowerShell commands
 
-
 Retrieve the service principal object ID.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
@@ -101,12 +99,14 @@ Retrieve the service principal object ID.
 3. Select the application that you want to restrict access to.
 4. Select **Properties**, and then copy the object ID.
 
-```powershell
-$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-$sp.ObjectId
-```
+   ```powershell
+   $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+   $sp.ObjectId
+   ```
+
 Remove all users who are assigned to the application.
- ```powershell
+
+```powershell
 Connect-AzureAD
 
 # Get Service Principal using objectId
@@ -123,7 +123,7 @@ $assignments | ForEach-Object {
         Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
     }
 }
- ```
+```
 
 Revoke permissions granted to the application.
 
@@ -149,7 +149,9 @@ $spApplicationPermissions | ForEach-Object {
     Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
 }
 ```
+
 Invalidate the refresh tokens.
+
 ```powershell
 Connect-AzureAD
 
@@ -164,7 +166,9 @@ $assignments | ForEach-Object {
     Revoke-AzureADUserAllRefreshToken -ObjectId $_.PrincipalId
 }
 ```
+
 ## Next steps
+
 - [Manage consent to applications and evaluate consent request](manage-consent-requests.md)
 - [Configure user consent](configure-user-consent.md)
 - [Configure admin consent workflow](configure-admin-consent-workflow.md)
