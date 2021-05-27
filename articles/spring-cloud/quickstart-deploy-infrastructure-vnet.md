@@ -56,7 +56,7 @@ To deploy the template, follow these steps:
 
 2. Enter Values for the following fields:
 
-- **Resource Group:** select **Create new**, enter a unique name for the **resource group**, and then click **OK**.
+- **Resource Group:** select **Create new**, enter a unique name for the **resource group**, and then select **OK**.
 - **springCloudInstanceName:** Enter the name of the Azure Spring Cloud resource.
 - **appInsightsName:** Enter the name of the Application Insights instance for Azure Spring Cloud.
 - **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/<your subscription>/resourcegroups/<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/<your log analytics workspace name>*.)
