@@ -1,33 +1,15 @@
 ---
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
 ms.date: 06/01/2021
 ---
 
 # Bicep functions
 
-This article describes all the functions you can use in an Bicep file. For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+This article describes all the functions you can use in a Bicep file. For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
 
 Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
-
-<a id="array" aria-hidden="true"></a>
-<a id="concatarray" aria-hidden="true"></a>
-<a id="contains" aria-hidden="true"></a>
-<a id="createarray" aria-hidden="true"></a>
-<a id="empty" aria-hidden="true"></a>
-<a id="first" aria-hidden="true"></a>
-<a id="intersection" aria-hidden="true"></a>
-<a id="last" aria-hidden="true"></a>
-<a id="length" aria-hidden="true"></a>
-<a id="min" aria-hidden="true"></a>
-<a id="max" aria-hidden="true"></a>
-<a id="range" aria-hidden="true"></a>
-<a id="skip" aria-hidden="true"></a>
-<a id="take" aria-hidden="true"></a>
-<a id="union" aria-hidden="true"></a>
 
 ## Any function
 
@@ -35,7 +17,7 @@ The [any function](./bicep-functions-any.md) is available in Bicep to help resol
 
 ## Array functions
 
-Resource Manager provides several functions for working with arrays.
+The following functions are available for working with arrays.
 
 * [array](./bicep-functions-array.md#array)
 * [concat](./bicep-functions-array.md#concat)
@@ -52,60 +34,37 @@ Resource Manager provides several functions for working with arrays.
 * [take](./bicep-functions-array.md#take)
 * [union](./bicep-functions-array.md#union)
 
-<a id="deployment" aria-hidden="true"></a>
-<a id="parameters" aria-hidden="true"></a>
-<a id="variables" aria-hidden="true"></a>
-
 ## Date functions
 
-Resource Manager provides the following functions for working with dates.
+The following functions are available for working with dates.
 
 * [dateTimeAdd](./bicep-functions-date.md#datetimeadd)
 * [utcNow](./bicep-functions-date.md#utcnow)
 
 ## Deployment value functions
 
-Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
+The following functions are available for getting values related to the deployment:
 
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)
 
-<a id="and" aria-hidden="true"></a>
-<a id="bool" aria-hidden="true"></a>
-<a id="if" aria-hidden="true"></a>
-<a id="not" aria-hidden="true"></a>
-<a id="or" aria-hidden="true"></a>
-
 ## Logical functions
 
-Resource Manager provides the following functions for working with logical conditions:
+The following function is available for working with logical conditions:
 
 * [bool](./bicep-functions-logical.md#bool)
 
-<a id="add" aria-hidden="true"></a>
-<a id="copyindex" aria-hidden="true"></a>
-<a id="div" aria-hidden="true"></a>
-<a id="float" aria-hidden="true"></a>
-<a id="int" aria-hidden="true"></a>
-<a id="minint" aria-hidden="true"></a>
-<a id="maxint" aria-hidden="true"></a>
-<a id="mod" aria-hidden="true"></a>
-<a id="mul" aria-hidden="true"></a>
-<a id="sub" aria-hidden="true"></a>
-
 ## Numeric functions
 
-Resource Manager provides the following functions for working with integers:
+The following functions are available for working with integers:
 
 * [int](./bicep-functions-numeric.md#int)
 * [min](./bicep-functions-numeric.md#min)
 * [max](./bicep-functions-numeric.md#max)
 
-<a id="json" aria-hidden="true"></a>
-
 ## Object functions
 
-Resource Manager provides several functions for working with objects.
+The following functions are available for working with objects.
 
 * [contains](./bicep-functions-object.md#contains)
 * [empty](./bicep-functions-object.md#empty)
@@ -114,20 +73,9 @@ Resource Manager provides several functions for working with objects.
 * [length](./bicep-functions-object.md#length)
 * [union](./bicep-functions-object.md#union)
 
-<a id="extensionResourceId" aria-hidden="true"></a>
-<a id="listkeys" aria-hidden="true"></a>
-<a id="list" aria-hidden="true"></a>
-<a id="providers" aria-hidden="true"></a>
-<a id="reference" aria-hidden="true"></a>
-<a id="resourcegroup" aria-hidden="true"></a>
-<a id="resourceid" aria-hidden="true"></a>
-<a id="subscription" aria-hidden="true"></a>
-<a id="subscriptionResourceId" aria-hidden="true"></a>
-<a id="tenantResourceId" aria-hidden="true"></a>
-
 ## Resource functions
 
-Resource Manager provides the following functions for getting resource values:
+The following functions are available for getting resource values:
 
 * [extensionResourceId](./bicep-functions-resource.md#extensionresourceid)
 * [listAccountSas](./bicep-functions-resource.md#list)
@@ -136,46 +84,22 @@ Resource Manager provides the following functions for getting resource values:
 * [list*](./bicep-functions-resource.md#list)
 * [pickZones](./bicep-functions-resource.md#pickzones)
 * [reference](./bicep-functions-resource.md#reference)
-* [resourceGroup](./bicep-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
 * [resourceId](./bicep-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
-* [subscription](./bicep-functions-resource.md#subscription) - can only be used in deployments to a resource group or subscription.
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](./bicep-functions-resource.md#tenantresourceid)
 
-<a id="base64" aria-hidden="true"></a>
-<a id="base64tojson" aria-hidden="true"></a>
-<a id="base64tostring" aria-hidden="true"></a>
-<a id="concat" aria-hidden="true"></a>
-<a id="containsstring" aria-hidden="true"></a>
-<a id="datauri" aria-hidden="true"></a>
-<a id="datauritostring" aria-hidden="true"></a>
-<a id="emptystring" aria-hidden="true"></a>
-<a id="endswith" aria-hidden="true"></a>
-<a id="firststring" aria-hidden="true"></a>
-<a id="guid" aria-hidden="true"></a>
-<a id="indexof" aria-hidden="true"></a>
-<a id="laststring" aria-hidden="true"></a>
-<a id="lastindexof" aria-hidden="true"></a>
-<a id="lengthstring" aria-hidden="true"></a>
-<a id="padleft" aria-hidden="true"></a>
-<a id="replace" aria-hidden="true"></a>
-<a id="skipstring" aria-hidden="true"></a>
-<a id="split" aria-hidden="true"></a>
-<a id="startswith" aria-hidden="true"></a>
-<a id="string" aria-hidden="true"></a>
-<a id="substring" aria-hidden="true"></a>
-<a id="takestring" aria-hidden="true"></a>
-<a id="tolower" aria-hidden="true"></a>
-<a id="toupper" aria-hidden="true"></a>
-<a id="trim" aria-hidden="true"></a>
-<a id="uniquestring" aria-hidden="true"></a>
-<a id="uri" aria-hidden="true"></a>
-<a id="uricomponent" aria-hidden="true"></a>
-<a id="uricomponenttostring" aria-hidden="true"></a>
+## Scope functions
+
+The following functions are available for getting scope values.
+
+* [managementGroup](./bicep-functions-scope.md#managementgroup)
+* [resourceGroup](./bicep-functions-scope.md#resourcegroup) - can only be used in deployments to a resource group.
+* [subscription](./bicep-functions-scope.md#subscription) - can only be used in deployments to a resource group or subscription.
+* [tenant](./bicep-functions-scope.md#tenant)
 
 ## String functions
 
-Resource Manager provides the following functions for working with strings:
+Bicep provides the following functions for working with strings:
 
 * [base64](./bicep-functions-string.md#base64)
 * [base64ToJson](./bicep-functions-string.md#base64tojson)

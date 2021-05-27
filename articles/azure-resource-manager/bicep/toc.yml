@@ -124,6 +124,8 @@
       href: bicep-functions-object.md
     - name: Resource functions
       href: bicep-functions-resource.md
+    - name: Scope functions
+      href: bicep-functions-scope.md
     - name: String functions
       href: bicep-functions-string.md
   - name: Operators
