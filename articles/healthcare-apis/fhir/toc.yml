@@ -51,6 +51,13 @@
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md
+  - name: Interoperability and Patient Access Tutorials
+    expanded: false
+    items:
+    - name: CMS Interoperability and Patient Access rule introduction
+      href: cms-tutorial-introduction.md
+    - name: Carin Implementation Guide for Blue Button (C4BB IG)
+      href: carin-implementation-guide-bb-tutorial.md
 - name: How-to guides
   expanded: false
   items:
