@@ -36,15 +36,11 @@ Before you install GPU extension on the GPU VMs running on your device, make sur
 1. Make sure that the client you'll use to access your device is connected to the Azure Resource Manager over Azure PowerShell. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
 
 
-## Install GPU extension
+
+## Edit parameters file
 
 Depending on the operating system for your VM, you could install GPU extension for Windows or for Linux.
 
-> [!NOTE]
-> Before you install the GPU extension, make sure that the port enabled for compute network on your device is connected to Internet and has access. The GPU drivers are downloaded through the internet access.
-
-
-### Edit parameters file
 
 ### [Windows](#tab/windows)
 
@@ -136,7 +132,7 @@ Here is a sample Ubuntu parameter file that was used in this article:
 }
 ```
 
-#### GPU VMs from RHEL BYOS images
+### GPU VMs from RHEL BYOS images
 
 If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscription image (RHEL BYOS), make sure that:
 
@@ -146,7 +142,7 @@ If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscript
 
 ---
 
-### Deploy template 
+## Deploy template 
 
 ### [Windows](#tab/windows)
 
@@ -249,7 +245,7 @@ PS C:\WINDOWS\system32>
 ```
 ---
 
-### Track deployment
+## Track deployment
 
 ### [Windows](#tab/windows)
 
@@ -349,9 +345,9 @@ The extension execution output is logged to the following file: `/var/log/azure/
 
 ---
 
-### Verify driver installation
+## Verify driver installation
 
-#### [Windows](#tab/windows)
+### [Windows](#tab/windows)
 
 Sign in to the VM and run the nvidia-smi command-line utility installed with the driver. The `nvidia-smi.exe` is located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
 
