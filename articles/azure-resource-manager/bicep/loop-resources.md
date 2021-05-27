@@ -53,16 +53,16 @@ The Bicep file's loop iterations can't be a negative number or exceed 800 iterat
 The following example creates the number of storage accounts specified in the `storageCount` parameter.
 
 ```bicep
+param rgLocation string = resourceGroup().location
 param storageCount int = 2
 
-resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
+  location: rgLocation
   sku: {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
-  properties: {}
 }]
 ```
 
@@ -71,20 +71,20 @@ Notice the index `i` is used in creating the storage account resource name.
 The following example creates one storage account for each name provided in the `storageNames` parameter.
 
 ```bicep
+param rgLocation string = resourceGroup().location
 param storageNames array = [
   'contoso'
   'fabrikam'
   'coho'
 ]
 
-resource storageNames_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for name in storageNames: {
-  name: concat(name, uniqueString(resourceGroup().id))
-  location: resourceGroup().location
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name in storageNames: {
+  name: '${name}${uniqueString(resourceGroup().id)}'
+  location: rgLocation
   sku: {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
-  properties: {}
 }]
 ```
 
@@ -99,15 +99,16 @@ You may want to specify that the resources are deployed in sequence. For example
 To serially deploy more than one instance of a resource, set the `batchSize` [decorator](./file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
+param rgLocation string = resourceGroup().location
+
 @batchSize(2)
-resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, 4): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, 4): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
+  location: rgLocation
   sku: {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
-  properties: {}
 }]
 ```
 

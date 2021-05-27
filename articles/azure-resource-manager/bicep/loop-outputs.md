@@ -52,21 +52,21 @@ The Bicep file's loop iterations can't be a negative number or exceed 800 iterat
 The following example creates a variable number of storage accounts and returns an endpoint for each storage account.
 
 ```bicep
+param rgLocation string = resourceGroup().location
 param storageCount int = 2
 
-var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
+var baseNameVar = 'storage${uniqueString(resourceGroup().id)}'
 
 resource baseName 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, storageCount): {
-  name: '${i}${baseName_var}'
-  location: resourceGroup().location
+  name: '${i}${baseNameVar}'
+  location: rgLocation
   sku: {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
-  properties: {}
 }]
 
-output storageEndpoints array = [for i in range(0, storageCount): reference(${i}${baseName_var}).primaryEndpoints.blob]
+output storageEndpoints array = [for i in range(0, storageCount): reference('${i}${baseNameVar}').primaryEndpoints.blob]
 ```
 
 The output returns an array with the following values:
@@ -81,24 +81,24 @@ The output returns an array with the following values:
 This example returns three properties from the new storage accounts.
 
 ```bicep
+param rgLocation string = resourceGroup().location
 param storageCount int = 2
 
-var baseName_var = 'storage${uniqueString(resourceGroup().id)}'
+var baseNameVar = 'storage${uniqueString(resourceGroup().id)}'
 
 resource baseName 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, storageCount): {
-  name: '${i}${baseName_var}'
-  location: resourceGroup().location
+  name: '${i}${baseNameVar}'
+  location: rgLocation
   sku: {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
-  properties: {}
 }]
 
 output storageInfo array = [for i in range(0, storageCount): {
-  id: reference(concat(i, baseName_var), '2019-04-01', 'Full').resourceId
-  blobEndpoint: reference(concat(i, baseName_var)).primaryEndpoints.blob
-  status: reference(concat(i, baseName_var)).statusOfPrimary
+  id: reference('${i}${baseNameVar}', '2021-02-01', 'Full').resourceId
+  blobEndpoint: reference('${i}${baseNameVar}').primaryEndpoints.blob
+  status: reference('${i}${baseNameVar}').statusOfPrimary
 }]
 ```
 
@@ -122,6 +122,8 @@ The output returns an array with the following values:
 This example uses an array index because direct references to a resource module or module collection aren't supported in output loops.
 
 ```bicep
+param rgLocation string = resourceGroup().location
+
 var stgNames = [
   'demostg1'
   'demostg2'
@@ -130,7 +132,7 @@ var stgNames = [
 
 resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name in stgNames: {
   name: name
-  location: resourceGroup().location
+  location: rgLocation
   kind: 'Storage'
   sku: {
     name: 'Standard_LRS'

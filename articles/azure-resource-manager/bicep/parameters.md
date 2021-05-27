@@ -17,7 +17,7 @@ Each parameter must be set to one of the [data types](data-types.md).
 
 ## Minimal declaration
 
-At a minimum, every parameter needs a name and type. In Bicep, a parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
+Each parameter needs a name and type. A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
 
 ```bicep
 param demoString string
@@ -78,7 +78,7 @@ To specify a default value along with other properties for the parameter, use th
 param demoParam string = 'Contoso'
 ```
 
-You can use expressions with the default value. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the runtime state of a resource, and can't be executed before deployment when parameters are resolved.
+You can use expressions with the default value. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the resource's runtime state, and can't be executed before deployment when parameters are resolved.
 
 Expressions aren't allowed with other parameter properties.
 
@@ -121,7 +121,7 @@ param month int
 
 ## Description
 
-You can add a description to a parameter to help users of your template understand the value to provide. When deploying the template through the portal, the text you provide in the description is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
+To help users understand the value to provide, add a description to the parameter. When deploying the template through the portal, the description's text is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
 
 ```bicep
 @description('Must be at least Standard_A3 to support 2 NICs.')
@@ -130,7 +130,7 @@ param virtualMachineSize string = 'Standard_DS1_v2'
 
 ## Use parameter
 
-To reference the value for a parameter you use the parameter name. The following example uses a parameter value for a key vault name.
+To reference the value for a parameter, use the parameter name. The following example uses a parameter value for a key vault name.
 
 ```bicep
 param vaultName string = 'keyVault${uniqueString(resourceGroup().id)}'
