@@ -8,7 +8,7 @@ editor: monicar
 tags: azure-service-management
 
 ms.service: virtual-machines-sql
-
+ms.subservice: hadr
 ms.custom: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
