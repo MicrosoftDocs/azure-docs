@@ -41,6 +41,8 @@
       items:
       - name: Mount option best practices
         href: performance-linux-mount-options.md
+      - name: Concurrency best practices - Session slots and slot table entries
+        href: performance-linux-currency-session-slots.md
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Understand volume quota

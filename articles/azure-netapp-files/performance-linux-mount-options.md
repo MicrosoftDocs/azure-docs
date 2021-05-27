@@ -130,5 +130,5 @@ When no close-to-open consistency (`nocto`) is used, the client will trust the f
 
 ## Next steps  
 
-* [Concurrency best practices for Azure NetApp Files: Session slots and slot table entries](performance-linux-currency-session-slots.md)
+* [Concurrency best practices - Session slots and slot table entries](performance-linux-currency-session-slots.md)
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 
