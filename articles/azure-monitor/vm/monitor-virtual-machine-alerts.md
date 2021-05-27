@@ -21,6 +21,13 @@ ms.date: 05/26/2021
 
 The following sections describe the types of alert rules and recommendations on when you should use each. This recommendation is based on the functionality and cost of the alert rule type. For details pricing of alerts, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
+## Alert rule types
+
+| Type | Cost | Stateful | Description  |
+|:---|:--|:---|:---|
+| Activity log | Free | No | Creates an alert when an event matching certain criteria is created in the Activity log. You could create an alert, for example, when a virtual machine is stopped, but metric and log alerts are typically going to provide more reliable alerting for virtual machines. |
+| Metric | Lower cost | Yes | Fire an alert when a metric value exceeds a threshold. A single metric alert rule can be applied to multiple machines and create a separate alert for each. As a general rule, you should use a metric alert instead of a log alert if you're collecting the required data in Metrics, and you can define the required logic. More complex logic will require a log alert rule. |
+| Log query | Higher cost | No | Fire an alert when the result of a log query matches certain criteria. Use a metric measurement alert rule to create a separate alert for each computer. Use log query alerts for any data that isn't stored in Metrics or if you require more complex logic than you can implement with a metric alert rule. |
 
 ### Activity log alert rules
 [Activity log alert rules](../alerts/alerts-activity-log.md) fire when an entry matching particular criteria is created in the activity log. They have no cost so they should be your first choice if the logic you require is in the activity log. 
@@ -29,8 +36,6 @@ The target resource for activity log alerts can be a specific virtual machine, a
 
 For example, create an alert if a critical virtual machine is stopped by selecting the *Power Off Virtual Machine* for the signal name.
 
-![Activity log alert](media/monitor-vm-azure/activity-log-alert.png)
-
 
 ### Metric alert rules
 [Metric alert rules](../alerts/alerts-metric.md) fire when a metric value exceeds a threshold. You can define a specific threshold value or allow Azure Monitor to dynamically determine a threshold based on historical data.  Use metric alerts whenever possible with metric data since they cost less and are more responsive than log alert rules. They are also stateful meaning they will resolve themselves when the metric drops below the threshold.
@@ -38,9 +43,7 @@ For example, create an alert if a critical virtual machine is stopped by selecti
 The target resource for activity log alerts can be a specific virtual machine or all virtual machines in a resource group.
 
 For example, to create an alert when the processor of a virtual machine exceeds a particular value, create a metric alert rule using *Percentage CPU* as the signal type. Set either a specific threshold value or allow Azure Monitor to set a dynamic threshold. 
-
-![Metric alert](media/monitor-vm-azure/metric-alert.png)
-
+l
 ### Log alerts
 [Log alert rules](../alerts/alerts-log.md) fire when the results of a scheduled log query match certain criteria. Log query alerts are the most expensive and least responsive of the alert rules, but they have access to the most diverse data and can perform complex logic that can't be performed by the other alert rules. 
 
@@ -69,7 +72,7 @@ Event
 
 
 
-## Alert rule types
+
 
 ### Log alert rules
 Azure Monitor has [different types of alert rules](../alerts/alerts-overview.md#what-you-can-alert-on) based on the data being used to create the alert. All data collected by VM insights is stored in Azure Monitor Logs which supports [log alerts](../alerts/alerts-log.md). You cannot currently use [metric alerts](../alerts/alerts-log.md) with performance data collected from VM insights because the data is not collected into Azure Monitor Metrics. To collect data for metric alerts, install the [diagnostics extension](../agents/diagnostics-extension-overview.md) for Windows VMs or the [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md) for Linux VMs to collect performance data into Metrics.
