@@ -1,6 +1,6 @@
 ---
 title: Authentication (preview) - Azure Monitor Application Insights for Java
-description: Learn to configure configure agent to generate token credentials that are required for AAD authentication.
+description: Learn to configure agent to generate token credentials that are required for AAD authentication.
 ms.topic: conceptual
 ms.date: 5/19/2021
 author: kryalama
