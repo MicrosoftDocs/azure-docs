@@ -26,6 +26,11 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## May 2021
+
+### Availability Zones support in Media Servics
+Media Services now supports [Availability Zones](concept-availabilty-zones.md), providing fault-isolated locations within the same Azure region.  Media Services accounts are zone redundant by default now and there is no additional configuration or settings required.
+
 ## March 2021
 
 ### New language support added to the AudioAnalyzer preset
