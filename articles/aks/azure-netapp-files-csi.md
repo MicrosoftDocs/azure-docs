@@ -15,7 +15,9 @@ Azure NetApp Files (ANF) provides a production-ready CSI driver for Kubernetes u
 To understand how you can install Trident and provision ANF volumes using the CSI driver, please refer to [Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netapp-files-dynamic]. The article walks you through all the steps involved in deploying Trident and provisioning ANF volumes using the `azure-netapp-files` CSI storage driver.
 
 > [!NOTE]
-> In addition to provisioning ANF volumes, you can also consume a rich set of storage and application-aware data management services with Astra. [Astra](https://cloud.netapp.com/astra) is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads in both public clouds and on-premises. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning.
+> In addition to provisioning ANF volumes, you can also consume a rich set of storage and application-aware data management services with NetApp Astra. [Astra](https://cloud.netapp.com/astra) is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning.
+>
+> You can learn more about Astra and sign up for a free trial by visiting the [Astra product page](https://cloud.netapp.com/astra).
 
 ## Next steps
 

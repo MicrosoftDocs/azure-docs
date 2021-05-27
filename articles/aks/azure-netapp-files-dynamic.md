@@ -20,8 +20,9 @@ A persistent volume represents a piece of storage that has been provisioned for 
 If you would like to provision ANF volumes statically, read [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netappfiles-static].
 
 > [!NOTE]
-> In addition to provisioning ANF volumes, you can also consume a rich set of storage and application-aware data management services with Astra. [Astra](https://cloud.netapp.com/astra) is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads in both public clouds and on-premises. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning.
-
+> In addition to provisioning ANF volumes, you can also consume a rich set of storage and application-aware data management services with NetApp Astra. [Astra](https://cloud.netapp.com/astra) is a fully managed application-aware data management service that manages, protects, and moves data-rich Kubernetes workloads across AKS clusters. Astra enables data protection, disaster recovery, and migration for your Kubernetes workloads leveraging NetApp’s industry-leading data management technology for snapshots, backups, replication, and cloning.
+>
+> You can learn more about Astra and sign up for a free trial by visiting the [Astra product page](https://cloud.netapp.com/astra).
 
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
