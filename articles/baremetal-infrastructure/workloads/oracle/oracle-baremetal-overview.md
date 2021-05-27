@@ -2,7 +2,7 @@
 title: What is BareMetal Infrastructure for Oracle?
 description: Learn about the features BareMetal Infrastructure offers for Oracle workloads. 
 ms.topic: conceptual
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
 ---
 
