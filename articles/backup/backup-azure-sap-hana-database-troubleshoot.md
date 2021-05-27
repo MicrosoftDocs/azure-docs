@@ -127,7 +127,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 **Possible causes** | A Full/Differential/Incremental backup triggered through portal/CLI/native HANA clients, while another Full/Differential/Incremental backup is already in progress.
 **Recommended action** | Wait for the active backup job to complete before triggering a new Full/delta backup.
 
-###### OperationCancelledBecauseConflictingAutohealOperationRunningUserError
+###### OperationCancelledBecauseConflictingAutohealOperationRunning UserError
 
 **Error message** | <span style="font-weight:normal">Auto-heal Full backup in progress.</span>
 ------- | -------
