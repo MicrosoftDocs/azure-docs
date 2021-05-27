@@ -11,7 +11,6 @@
 ---
 | Resource |  Limit |
 | --- | --- |
-| Virtual WAN hubs per region | 1  |
 | Virtual WAN hubs per virtual wan |Azure regions |
 | VPN (branch) connections per hub | 1,000 |
 | Aggregate throughput per Virtual WAN Site-to-site VPN gateway | 20 Gbps |
@@ -22,4 +21,4 @@
 | ExpressRoute Circuit connections per hub | 8 |
 | VNet connections per hub  | 500 minus total number of hubs in Virtual WAN |
 | Aggregate throughput per Virtual WAN Hub Router | 50 Gbps for VNet to VNet transit |
-| VM workload across all VNets connected to a single Virtual WAN hub | 2000 
+| VM workload across all VNets connected to a single Virtual WAN hub | 2000 (If you want to raise the limit or quota above the default limit, open an online customer support request.)
