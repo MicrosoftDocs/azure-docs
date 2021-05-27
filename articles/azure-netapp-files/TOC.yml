@@ -42,7 +42,7 @@
       - name: Linux NFS mount options best practices
         href: performance-linux-mount-options.md
       - name: Linux concurrency best practices
-        href: performance-linux-currency-session-slots.md
+        href: performance-linux-concurrency-session-slots.md
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Understand volume quota

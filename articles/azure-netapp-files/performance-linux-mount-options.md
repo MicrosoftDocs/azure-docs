@@ -64,7 +64,7 @@ When you use `nconnect`, keep the following rules in mind:
 
 * `nconnect` may be used to increase storage concurrency from any given client. 
 
-For details, see [Linux concurrency best practices for Azure NetApp Files](performance-linux-currency-session-slots.md).
+For details, see [Linux concurrency best practices for Azure NetApp Files](performance-linux-concurrency-session-slots.md).
 
 ## `Rsize` and `Wsize`
  
@@ -130,5 +130,5 @@ When no close-to-open consistency (`nocto`) is used, the client will trust the f
 
 ## Next steps  
 
-* [Linux concurrency best practices for Azure NetApp Files](performance-linux-currency-session-slots.md)
+* [Linux concurrency best practices for Azure NetApp Files](performance-linux-concurrency-session-slots.md)
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 
