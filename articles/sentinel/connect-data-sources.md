@@ -22,7 +22,7 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Once you have enabled Azure Sentinel, the first thing you need to do is connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel.
+Once you have enabled Azure Sentinel, the first thing you need to do is connect your data sources. Azure Sentinel comes with many connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel.
 
 1. On the menu, select **Data connectors**. This page lets you see the full list of connectors that Azure Sentinel provides and their status. Select the connector you want to connect and select **Open connector page**. 
 
@@ -43,9 +43,9 @@ Microsoft and other organizations author Azure Sentinel data connectors. Each da
 
 | Support type| Description|
 |-------------|------------|
-|**Microsoft-supported**|Applies to:<br><br><ul>li>Data connectors for data sources where Microsoft is the data provider</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources</li></ul><br><br>Data connectors in this category are supported and maintained by Microsoft in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community provide support and maintenance for data connectors authored by any party other than Microsoft.|
-|**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The Partner company provides support or maintenance for these data connectors. The Partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel data connector page.<br><br>In case of any issues with a Partner-supported data connector, contact the specified data connector support contact.|
-|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the data connector page.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
+|**Microsoft-supported**|Applies to:<br><br><ul><li>Data connectors for data sources where Microsoft is the data provider</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources</li></ul><br><br>Microsoft supports and maintains data connectors in this category in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community provide support and maintenance for data connectors authored by any party other than Microsoft.|
+|**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The Partner company provides support or maintenance for these data connectors. The Partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that data connector.<br><br>For any issues with a Partner-supported data connector, contact the specified data connector support contact.|
+|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the page for that data connector.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
 
 ### Find the support contact
 
@@ -59,7 +59,7 @@ To find the support contact information for a data connector:
    
    ![Screenshot showing the Supported by field for a data connector in Azure Sentinel.](./media/collect-data/connectors.png)
    
-   The **Supported by** field has the the support contact name you can reach out to for support and maintenance of the selected data connector.
+   The **Supported by** field has a support contact link you can use for support and maintenance of the selected data connector.
 
 Reach out to Microsoft for support for any data connector that doesn't display a **Supported by** field.
 
@@ -69,7 +69,7 @@ The following data connection methods are supported by Azure Sentinel:
 
 ### Service to service integration
 
-Some services are connected natively, such as AWS and Microsoft services. These services leverage the Azure foundation for out-of-the box integration. The following solutions can be connected in a few clicks:
+Some services are connected natively, such as AWS and Microsoft services. These services use the Azure foundation for out-of-the box integration. The following solutions can be connected in a few clicks:
 
 - [Amazon Web Services - CloudTrail](connect-aws.md)
 - [Azure Active Directory](connect-azure-active-directory.md) - audit logs and sign-in logs
@@ -93,7 +93,7 @@ Some services are connected natively, such as AWS and Microsoft services. These 
 
 ### External solutions via API
 
-Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
+Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved. The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
     
 - [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
 - [Alcide kAudit](connect-alcide-kaudit.md)
@@ -196,7 +196,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | AzureFirewall |[Azure Diagnostics](../firewall/firewall-diagnostics.md) | &#10003; | |
-| InformationProtectionLogs_CL  | [Azure Information Protection reports](/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| InformationProtectionLogs_CL  | [Azure Information Protection reports](/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | Usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | &#10003; | |
 | OfficeActivity | [Connect Office 365](connect-office-365.md) | &#10003; | |
