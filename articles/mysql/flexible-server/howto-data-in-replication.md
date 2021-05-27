@@ -42,10 +42,10 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
     * Ensure that the source server allows both inbound and outbound traffic on port 3306, and that it has a **public IP address**, the DNS is publicly accessible, or that it has a fully qualified domain name (FQDN).
 
     * If private access is in use, make sure that you have connectivity between Source server and the Vnet in which the replica server is hosted. 
-    * Make sure we provide site-to-site connectivity to your on-premises source servers by using either  [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
-    * If private access is used in replica server and your source is Azure VM make sure that VNet to VNet connectivity is established. VNet-Vnet peering within regions is supported.**Global peering is not currently supported.** You would have to use other connectivity methods to communicate between VNets across different regions like VNet to VNet Connection. For more information you can, see [VNet-to-VNet VPN gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-    * Ensure that your virtual network Network Security Group rules don't block the outbound port 3306.(Also inbound if the MySQL is running on Azure VM).For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-    * Configure your source server's firewall rules to allow the replica server IP address on port 3306.
+    * Make sure we provide site-to-site connectivity to your on-premises source servers by using either  [ExpressRoute](../../expressroute/expressroute-introduction.md) or [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
+    * If private access is used in replica server and your source is Azure VM make sure that VNet to VNet connectivity is established. VNet-Vnet peering within regions is supported.**Global peering is not currently supported.** You would have to use other connectivity methods to communicate between VNets across different regions like VNet to VNet Connection. For more information you can, see [VNet-to-VNet VPN gateway](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+    * Ensure that your virtual network Network Security Group rules don't block the outbound port 3306.(Also inbound if the MySQL is running on Azure VM).For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
+    * Configure your source server's firewall rules to allow the replica server IP address.
 
   
 3. Turn on binary logging.
@@ -67,7 +67,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
        log-bin=mysql-bin.log
        ```
 
-   4. Restart the MySQL service on source server for the changes to take effect.
+   4. Restart the MySQL service on source server (or Restart) for the changes to take effect.
    5. After the server is restarted, verify that binary logging is enabled by running the same query as before:
 
       ```sql
@@ -155,7 +155,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 1. Determine which databases and tables you want to replicate into Azure Database for MySQL Flexible Server and perform the dump from the source server.
 
-    You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
+    You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](../concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
 2. **Optional** - If you wish to use [gtid-based replication](https://dev.mysql.com/doc/mysql-replication-excerpt/5.7/en/replication-gtids-concepts.html), you'll need to identify the GTID of the last transaction executed at the primary. You can use the following command to note the GTID of the last transaction executed on the master server.
 
@@ -174,7 +174,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 4. Restore dump file to new server.
 
-   Restore the dump file to the server created in the Azure Database for MySQL Flexible Server service. Refer to [Dump & Restore](concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL Flexible Server server from the virtual machine.
+   Restore the dump file to the server created in the Azure Database for MySQL Flexible Server service. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL Flexible Server server from the virtual machine.
 
 5. **Optional** - Note the GTID of the restored server on Azure Database for MySQL Flexible Server to ensure it is same as the primary server. You can use the following command to note the GTID of the GTID purged value on the Azure Database for MySQL Flexible Server replica server. The value of gtid_purged should be same as gtid_executed on master noted in step 2 for GTID-based replication to work.
 
@@ -186,7 +186,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 1. Set the source server.
 
-   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](./reference-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench.
+   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](../reference-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench.
 
    To link two servers and start replication, login to the target replica server in the Azure DB for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure DB for MySQL server.
 
@@ -211,7 +211,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
      It's recommended to pass this parameter in as a variable. For more information, see the following examples.
 
    > [!NOTE]
-   > If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](howto-manage-firewall-using-portal.md) .
+   > If the source server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the source and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. For more information, see [Manage firewall rules using the portal](how-to-manage-firewall-portal.md) .
 
    **Examples**
 
@@ -245,7 +245,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    Review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) to learn more about this parameter.
 
-   To update the parameter, you can use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
+   To update the parameter, you can use the [Azure portal](how-to-configure-server-parameters-portal.md) or [Azure CLI](how-to-configure-server-parameters-cli.md).
 
 3. Start replication.
 

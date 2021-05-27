@@ -29,7 +29,7 @@ The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-sch
 
 ### Filtering
 
-To skip replicating tables from your source server (hosted on-premises, in virtual machines, or a database service hosted by other cloud providers), the `replicate_wild_ignore_table` parameter is supported. Optionally, update this parameter on the replica server hosted in Azure using the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
+To skip replicating tables from your source server (hosted on-premises, in virtual machines, or a database service hosted by other cloud providers), the `replicate_wild_ignore_table` parameter is supported. Optionally, update this parameter on the replica server hosted in Azure using the [Azure portal](how-to-configure-server-parameters-portal.md) or [Azure CLI](how-to-configure-server-parameters-cli.md).
 
 To learn more about this parameter, review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table).
 
@@ -48,4 +48,3 @@ To learn more about this parameter, review the [MySQL documentation](https://dev
 
 - Learn how to [set up data-in replication](howto-data-in-replication.md)
 - Learn about [replicating in Azure with read replicas](concepts-read-replicas.md)
-- Learn about how to [migrate data with minimal downtime using DMS](howto-migrate-online.md)
