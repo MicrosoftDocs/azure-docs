@@ -11,7 +11,7 @@ ms.author: johndeu
 ---
 # Availability Zones
 
-Azure Media Services supports [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview), providing fault-isolated locations within the same Azure region. Media Services is zone redundant by default and there are no additional settings or configuration changes required to be made to enable the capability. Support is limited to the [Azure regions that have Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones).
+Azure Media Services supports [Availability Zones](../../availability-zones/az-overview), providing fault-isolated locations within the same Azure region. Media Services is zone redundant by default and there are no additional settings or configuration changes required to be made to enable the capability. Support is limited to the [Azure regions that have Availability Zones](../../availability-zones/az-region#azure-regions-with-availability-zones.md).
 
 ## High Availability Streaming and Encoding for VOD
 
@@ -20,10 +20,10 @@ The article and sample code provides a solution for how individual regional Medi
 
 ## Media Services support for Availability Zones by region
 
-Availability Zones are currently only supported in certain Azure regions. To learn more about Availability Zones region support, see [Azure Regions with Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones)
+Availability Zones are currently only supported in certain Azure regions. To learn more about Availability Zones region support, see [Azure Regions with Availability Zones](../../availability-zones/az-region#azure-regions-with-availability-zones.md)
 
 ## Further reading
 
-To learn more about Availability Zones, see [Regions and Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+To learn more about Availability Zones, see [Regions and Availability Zones in Azure](../../availability-zones/az-overview).
 
 To learn more about High Availability encoding and streaming, see [High Availability with Media Services Video on Demand](architecture-high-availability-encoding-concept.md).
