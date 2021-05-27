@@ -35,7 +35,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Spring Cloud Reference Architecture](https://github.com/Azure/azure-spring-cloud-reference-architecture/).
+The template used in this quickstart is from [Azure Spring Cloud reference architecture](reference-architecture.md).
 
 :::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploy.json":::
 
