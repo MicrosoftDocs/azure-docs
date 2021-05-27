@@ -31,7 +31,7 @@ For a premium Event Hubs namespace, the feature is automatically enabled. You ca
 > [!NOTE]
 > Basic tier Event Hubs namespaces do not support Auto-inflate.
 
-## Enable the feature for a standard namespace using Azure portal
+## Use Azure portal
 In the Azure portal, you can enable the feature when creating a standard Event Hubs namespace or after the namespace is created. You can also set TUs for the namespace and specify maximum limit of TUs 
 
 You can enable the Auto-inflate feature **when creating an Event Hubs namespace**. The follow image shows you how to enable the auto-inflate feature for a standard tier namespace and configure TUs to start with and the maximum number of TUs. 
@@ -53,7 +53,7 @@ To enable the Auto-inflate feature and modify its settings for an existing, foll
 > When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. To enable diagnostic logging for an event hub, select **Diagnostic settings** on the left menu on the Event Hub page in the Azure portal. For more information, see [Set up diagnostic logs for an Azure event hub](event-hubs-diagnostic-logs.md).
 
 
-## Enable the feature for a standard tier namespace using a Resource Manager template
+## Use an Azure Resource Manager template
 
 You can enable Auto-inflate during an Azure Resource Manager template deployment. For example, set the
 `isAutoInflateEnabled` property to **true** and set `maximumThroughputUnits` to 10. For example:
