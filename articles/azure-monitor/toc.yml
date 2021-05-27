@@ -166,7 +166,9 @@
         href: vm/monitor-virtual-machine-analyze.md
       - name: Alert
         href: vm/monitor-virtual-machine-alerts.md
-      - name: Migrate from Operations Manager
+      - name: Monitor workloads
+        href: vm/monitor-virtual-machine-workloads.md
+      - name: Convert management packs
         href: vm/monitor-virtual-machine-scom.md
       displayname: VM
   - name: Deploy

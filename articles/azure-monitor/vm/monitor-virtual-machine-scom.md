@@ -24,6 +24,28 @@ Features of Azure Monitor that augment an existing Operations Manager features i
 See [Connect Operations Manager to Azure Monitor](../agents/om-agents.md) for details on connecting your existing Operations Manager management group to your Log Analytics workspace.
 
 
+## Converting from management packs
+A significant number of customers implementing Azure Monitor currently monitor their virtual machine workloads using management packs in System Center Operations Manager. There are no migration tools to convert assets from Operations Manager to Azure Monitor since the platforms are fundamentally different. Your migration will instead constitute a standard Azure Monitor implementation while you continue to use Operations Manager. As you customize Azure Monitor to meet your requirements for different applications and components and as it gains more features, then you can start to retire different management packs and agents in Operations Manager.
+
+In many cases, you can configure data collection and alert rules in Azure Monitor that will replicate enough functionality that you can retire a particular management pack. Management packs can often include hundreds and even thousands of rules and monitors. Rather than attempting to replicate the entire functionality of a management pack, analyze the critical monitoring provided by the management pack and whether you can replicate those monitoring requirements using on the methods described in the previous sections.
+
+You must configure data collection and an alert rule for any alerting scenarios. In most scenarios SCOM combines data collection and alerting conditions in the same rule or monitor. 
+
+One strategy is to focus on those monitors and rules that have triggered alerts in your environment. Run the following query on the Operations Database to evaluate the most common alerts in your environment. Evaluate the output to identify specific alerts for migration. Ignore any alerts that have been tuned out or known to be problematic. Review your management packs to identify any additional critical alerts of interest that have never fired. Identify 25-50 alerts for a pilot migration.
+
+
+
+```sql
+select AlertName, COUNT(AlertName) as 'Total Alerts' from
+Alert.vAlertResolutionState ars
+inner join Alert.vAlertDetail adt on ars.AlertGuid = adt.AlertGuid
+inner join Alert.vAlert alt on ars.AlertGuid = alt.AlertGuid
+group by AlertName
+order by 'Total Alerts' DESC
+```
+
+
+
 ## Next steps
 
 * [Learn how to analyze data in Azure Monitor logs using log queries.](../logs/get-started-queries.md)

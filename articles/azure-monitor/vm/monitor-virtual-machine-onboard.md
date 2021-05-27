@@ -123,9 +123,11 @@ See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a
 
 
 ## Enable change tracking solution (optional)
+The Change Tracking solution in Azure Automation is required to alert when a Windows service or Linux daemon on your virtual machine stops.
 
-[Create an Azure Automation account](../../automation/automation-quickstart-create-account.md)
-[Enable Change Tracking and Inventory](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory)
+To enable the Change Tracking solution, you must [Create an Azure Automation account](../../automation/automation-quickstart-create-account.md).
+
+See [Enable Change Tracking and Inventory](../../automation/change-tracking/overview.md#enable-change-tracking-and-inventory) for different options to enable the Change Tracking solution on your virtual machines. This includes methods to configure virtual machines at scale.
 
 
 ## Send performance data to Metrics (optional)

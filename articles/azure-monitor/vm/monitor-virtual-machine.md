@@ -36,6 +36,10 @@ There are fundamentally three layers to a virtual machine that require monitorin
 | Guest operating system | Agent installed on guest operating system | Performance data | Performance metrics from the guest operating system such as CPU, memory, and disk. |
 | Applications | Agent installed on guest operating system<br>Application Insights for synthetic transactions | | These are the workloads running on the VM that support your business applications. For customer using SCOM, these workloads are typically being monitored by packaged or custom management packs. There are a variety of different alerting strategies that can be used to alert on these workloads such as service up/down, events, and synthetic transactions. |
 
+
+Application monitoring in Azure Monitor is provided by [Application insights](../app/app-insights-overview.md). This will measure the performance and availability of the application regardless of the platform that it's running on. 
+
+
 ### Virtual machine host
 Virtual machines in Azure generate the following data for the virtual machine host the same as other Azure resources as described in [Monitoring data](../essentials/monitor-azure-resource.md#monitoring-data).
 
