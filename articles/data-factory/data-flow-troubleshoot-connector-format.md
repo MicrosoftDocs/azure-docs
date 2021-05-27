@@ -446,7 +446,8 @@ For Cause 3, work around it with one of the following options:
 
 When you use Azure Synapse Analytics as a sink in the data flow to preview data, debug/trigger run or do other activities and the enable staging is set to true, your job may fail with the following error message:
 
-`DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage. org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: This operation is not permitted on a non-empty directory.`
+`DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage.`<br/>
+`org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: This operation is not permitted on a non-empty directory.`
 
 #### Cause
 You use the Azure Blob Storage as the staging linked service to link to a storage account that has the enabled hierarchical namespace, and that account uses key authentication in the linked service.
