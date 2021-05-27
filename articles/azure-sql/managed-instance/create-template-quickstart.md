@@ -7,9 +7,9 @@ ms.subservice: operations
 ms.custom: subject-armqs
 ms.devlang:
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: srbozovi
+ms.author: srdan-bozovic-msft
+ms.reviewer: mathoma
 ms.date: 06/22/2020
 ---
 
