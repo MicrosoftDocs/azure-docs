@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Video Analyzer using the Portal - Azure
-description: This quickstart walks you through the steps to get started with Azure Video Analyzer using the Portal.
+title: Get started with Azure Video Analyzer using the Azure Portal - Azure
+description: This quickstart walks you through the steps to get started with Azure Video Analyzer using the Azure Portal.
 ms.topic: quickstart
 ms.date: 05/25/2021
 ---
