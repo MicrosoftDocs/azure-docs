@@ -28,7 +28,7 @@ Checks that one date and time claim (string data type) is later than a second da
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
 | InputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
-| InputParameter | AssertIfEqualTo | boolean | Specifies whether this assertion should throw an error if the left operand is equal to the right operand. The default value is `true`. |
+| InputParameter | AssertIfEqualTo | boolean | Specifies whether this assertion should throw an error if the left operand is equal to the right operand. An error will be thrown if the left operand is equal to the right operand and the value is set to `true`. Possible values: `true` (default), or `false`. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |
 
@@ -36,7 +36,7 @@ The **AssertDateTimeIsGreaterThan** claims transformation is always executed fro
 
 ![AssertStringClaimsAreEqual execution](./media/date-transformations/assert-execution.png)
 
-The following example compares the `currentDateTime` claim with the `approvedDateTime` claim. An error is thrown if `currentDateTime` is later than `approvedDateTime`. The transformation treats values as equal if they are within 5 minutes (30000 milliseconds) difference. It will not throw an error if the values are equal because `AssertIfEqualTo` is set to `false`.
+The following example compares the `currentDateTime` claim with the `approvedDateTime` claim. An error is thrown if `currentDateTime` is later than `approvedDateTime`. The transformation treats values as equal if they are within 5 minutes (30000 milliseconds) difference. It won't throw an error if the values are equal because `AssertIfEqualTo` is set to `false`.
 
 ```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -51,9 +51,20 @@ The following example compares the `currentDateTime` claim with the `approvedDat
   </InputParameters>
 </ClaimsTransformation>
 ```
+
 > [!NOTE]
-> If you remove the claim type `AssertIfEqualTo` in the example above, an error is thrown if `currentDateTime` is equal to `approvedDateTime` because `AssertIfEqualTo` is set to `true` by **default**.
+> In the example above, if you remove the `AssertIfEqualTo` input parameter, and the `currentDateTime` is equal to`approvedDateTime`, an error will be thrown. The `AssertIfEqualTo` default value is `true`.
 >
+
+The `login-NonInteractive` validation technical profile calls the `AssertApprovedDateTimeLaterThanCurrentDateTime` claims transformation.
+```xml
+<TechnicalProfile Id="login-NonInteractive">
+  ...
+  <OutputClaimsTransformations>
+    <OutputClaimsTransformation ReferenceId="AssertApprovedDateTimeLaterThanCurrentDateTime" />
+  </OutputClaimsTransformations>
+</TechnicalProfile>
+```
 
 The self-asserted technical profile calls the validation **login-NonInteractive** technical profile.
 
