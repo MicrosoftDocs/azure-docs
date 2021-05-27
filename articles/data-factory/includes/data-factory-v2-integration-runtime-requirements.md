@@ -12,6 +12,6 @@ If your data store is located inside an on-premises network, an Azure virtual ne
 
 If your data store is a managed cloud data service, you can use Azure integration runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](../azure-integration-runtime-ip-addresses.md) into the allow list. 
 
-Alternatively, you can also use the the [managed VNET IR](https://docs.microsoft.com/azure/data-factory/tutorial-managed-virtual-network-on-premise-sql-server) feature in data fatcory to access the on premise network without the need of installing and configuring a self-hosted integration runtime.
+Alternatively, you can also use the the [managed VNET IR](../tutorial-managed-virtual-network-on-premise-sql-server.md) feature in data fatcory to access the on premise network without the need of installing and configuring a self-hosted integration runtime.
 
 For more information about the network security mechanisms and options supported by Data Factory, see [Data access strategies](../data-access-strategies.md).
