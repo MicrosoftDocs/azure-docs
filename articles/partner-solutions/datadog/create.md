@@ -35,6 +35,12 @@ Use the Azure portal to find Datadog.
 
 ## Create a Datadog resource in Azure
 
+The portal displays a selection asking whether you would like to create a Datadog organization or link Azure subscription to an existing Datadog organization.
+
+If you are creating a new Datadog organization, select **Create** under the **Create a new Datadog organization**
+
+:::image type="content" source="media/create/datadog-create-link-selection.png" alt-text="Create or link a Datadog organization" border="true":::
+
 The portal displays a form for creating the Datadog resource.
 
 :::image type="content" source="media/create/datadog-create-resource.png" alt-text="Create Datadog resource" border="true":::
@@ -47,11 +53,8 @@ Provide the following values.
 | Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
 | Resource name | Specify a name for the Datadog resource. This name will be the name of the new Datadog organization, when creating a new Datadog organization. |
 | Location | Select West US 2. Currently, West US 2 is the only supported region. |
-| Datadog organization | To create a new Datadog organization, select **New**. To link to an existing Datadog organization, select **Existing**. |
 | Pricing plan | When creating a new organization, select from the list of available Datadog plans. |
 | Billing Term | Monthly. |
-
-If you're linking to an existing Datadog organization, see the next section. Otherwise, select **Next: Metrics and logs** and skip the next section.
 
 ## Configure metrics and logs
 
