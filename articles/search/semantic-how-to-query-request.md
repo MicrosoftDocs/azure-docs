@@ -122,17 +122,17 @@ While content in a search index can be composed in multiple languages, the query
 
 #### Step 2: Set searchFields
 
-Add searchFields to the request. It's optional but highly recommended.
+Add searchFields to the request. It's optional but strongly recommended.
 
 ```json
 "searchFields": "HotelName,Category,Description",
 ```
 
-The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to what fields are the most important to process.
+The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to which fields are the most important to process.
 
 In contrast with other parameters, searchFields is not new. You might already be using searchFields in existing code for simple or full Lucene queries. If so, revisit how the parameter is used so that you can check for field order when switching to a semantic query type.
 
-Choose only fields of type edm.string and top-level string fields in collections. Avoid numeric fields, complex fields, and complex field collections. If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
+When setting searchFields, choose only fields of type edm.string, collections of type edm.string (such as "Tags" in hotels-sample-index), or a complex collection with string subfields all at the same level (such as "Address"). Avoid numeric fields and complex field collections with nested structures ("Rooms"). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
 
 Field order is critical. For a single field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
 
