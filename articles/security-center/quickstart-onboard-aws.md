@@ -179,7 +179,7 @@ To view all the active recommendations for your resources by resource type, use 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the AWS options"::: 
 
 
-## AWS in Security Center FAQ
+## FAQ - AWS in Security Center
 
 ### What operating systems for my EC2 instances are supported?
 
