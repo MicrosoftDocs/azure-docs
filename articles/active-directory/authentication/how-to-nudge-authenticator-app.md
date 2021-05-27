@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # How to nudge users to set up Microsoft Authenticator (Preview) - Microsoft Authenticator app
 
-You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude sets of users to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to Microsoft Authenticator.  
+You can nudge users to set up Microsoft Authenticator during sign-in. Users will go through their regular sign-in, perform multifactor authentication as usual, and then be prompted to set up Microsoft Authenticator. You can include or exclude users or groups to control who gets nudged to set up the app. This allows targeted campaigns to move users from less secure authentication methods to Microsoft Authenticator.  
 
 In addition to choosing who can be nudged, you can define how many days a user can postpone, or "snooze", the nudge. If a user taps **Not now** to snooze the app setup, they will be nudged again on the next MFA attempt after the snooze duration has elapsed. 
 
@@ -34,7 +34,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 1. User successfully performs MFA using Azure MFA. 
 
-1. User sees prompt to set up the Microsoft Authenticator app to improve their sign-in experience. Note: Only users who are allowed for the Microsoft Authenticator and do not have it currently set up will see the prompt. 
+1. User sees prompt to set up the Microsoft Authenticator app to improve their sign-in experience. Note: Only users who are allowed for the Microsoft Authenticator push notifications and do not have it currently set up will see the prompt. 
 
    ![User performs multifactor authentication](./media/how-to-nudge-authenticator-app/user-mfa.png)
 
@@ -69,7 +69,7 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Enable the nudge policy
 
-To enable the nudge, you must use the Authentication Methods Policy using Graph APIs or PowerShell commands. Global administrators and Authentication Method Policy administrators can update the policy. 
+To enable the nudge, you must use the Authentication Methods Policy using Graph APIs or PowerShell commands. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 
@@ -143,7 +143,7 @@ Here are a few sample JSONs you can use to get started!
   If you want to include certain users or groups in your tenant, [download this JSON](https://download.microsoft.com/download/1/4/E/14E6151E-C40A-42FB-9F66-D8D374D13B40/Multiple%20Includes.json) and update it with the relevant GUIDs of your users and groups. Then paste the JSON in Graph Explorer and run `PATCH` on the endpoint. 
 
   ```json
-{
+  {
   "registrationEnforcement": {
         "authenticationMethodsRegistrationCampaign": {
             "snoozeDurationInDays": 0,
