@@ -1,26 +1,29 @@
 ---
-title: Configure your Service Fabric managed cluster (preview)
+title: Configure your Service Fabric managed cluster
 description: Learn how to configure your Service Fabric managed cluster for automatic OS upgrades, NSG rules, and more.
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 5/10/2021
 ---
-# Service Fabric managed cluster (preview) configuration options
+# Service Fabric managed cluster configuration options
 
-In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it. In the current preview, you can:
+In addition to selecting the [Service Fabric managed cluster SKU](overview-managed-cluster.md#service-fabric-managed-cluster-skus) when creating your cluster, there are a number of other ways to configure it, including:
 
-* Configure [networking options](how-to-managed-cluster-networking.md) for your cluster
-* Add a [virtual machine scale set extension](how-to-managed-cluster-vmss-extension.md) to a node type
-* Configure [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on your node types
-* Enable [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) for your nodes
-* Enable [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on your nodes
+* Adding a [virtual machine scale set extension](how-to-managed-cluster-vmss-extension.md) to a node type
+* Configuring cluster [availability zone spanning](how-to-managed-cluster-availability-zones.md)
+* Configuring cluster [NSG rules and other networking options](how-to-managed-cluster-networking.md)
+* Configuring [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on cluster node types
+* Enabling [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) for cluster nodes
+* Enabling [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on cluster nodes
+* Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
+* Configuring cluster [upgrade options](how-to-managed-cluster-upgrades.md) for the runtime updates
 
 ## Enable automatic OS image upgrades
 
-You can choose to enable automatic OS image upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS image upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#azure-virtual-machine-operating-system-automatic-upgrade-configuration) clusters, managed cluster nodes are not upgraded by default, in order to prevent unintended disruptions to your cluster.
+You can choose to enable automatic OS image upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS image upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#virtual-machine-os-automatic-upgrade-configuration) clusters, managed cluster nodes are not upgraded by default, in order to prevent unintended disruptions to your cluster.
 
 To enable automatic OS upgrades:
 
-* Use the `2021-01-01-preview` (or later) version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
+* Use the `2021-05-01` (or later) version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
 * Set the cluster's property `enableAutoOSUpgrade` to *true*
 * Set the cluster nodeTypes' resource property `vmImageVersion` to *latest*
 
@@ -28,7 +31,7 @@ For example:
 
 ```json
     {
-      "apiVersion": "2021-01-01-preview",
+      "apiVersion": "2021-05-01",
       "type": "Microsoft.ServiceFabric/managedclusters",
       ...
       "properties": {
@@ -37,7 +40,7 @@ For example:
       },
     },
     {
-      "apiVersion": "2021-01-01-preview",
+      "apiVersion": "2021-05-01",
       "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
        ...
       "properties": {

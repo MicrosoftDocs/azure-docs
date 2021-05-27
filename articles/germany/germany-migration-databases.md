@@ -44,6 +44,9 @@ For databases that are too large for BACPAC files, or to migrate from one cloud 
 > [!IMPORTANT]
 > Configuring active geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and prior to migrating you must request enablement of your subscription to support migrating to global Azure. To submit a request, you must use [this support request link](#requesting-access). 
 
+> [!Note]
+> Azure global cloud regions, Germany West Central and Germany North, are the supported regions for active geo-replication with the Azure Germany cloud. If an alternative global Azure region is desired as the final database(s) destination, the recommendation after completion of the migration to global Azure is to configure an additional geo-replication link from Germany West Central or Germany North to the required Azure global cloud region.
+
 For details about active geo-replication costs, see the section titled **Active geo-replication** in [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 Migrating databases with active geo-replication requires an Azure SQL logical server in global Azure. You can create the server using the portal, Azure PowerShell, Azure CLI, etc., but configuring active geo-replication to migrate from Azure Germany to global Azure is only supported using Transact-SQL (T-SQL).
@@ -132,7 +135,7 @@ Migrating a database with geo-replication or BACPAC file does not copy over the 
 
 1. Target database where you are copying the LTR backups, in global Azure must exist before you start the copying the backups. It is recommended that you first migrate the source database using [active geo-replication](#migrate-sql-database-using-active-geo-replication) and then initiate the LTR backup copy. This will ensure that the database backups are copied to the correct destination database. This step is not required, if you are copying over LTR backups of a dropped database. When copying LTR backups of a dropped database, a dummy DatabaseID will be created in the target region. 
 2. Install this [PowerShell Az Module](https://www.powershellgallery.com/packages/Az.Sql/3.0.0-preview)
-3. Before you begin, ensure that required [Azure RBAC roles](https://docs.microsoft.com/azure/azure-sql/database/long-term-backup-retention-configure#azure-roles-to-manage-long-term-retention) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
+3. Before you begin, ensure that required [Azure RBAC roles](../azure-sql/database/long-term-backup-retention-configure.md#azure-roles-to-manage-long-term-retention) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
 
 
 ### Limitations  

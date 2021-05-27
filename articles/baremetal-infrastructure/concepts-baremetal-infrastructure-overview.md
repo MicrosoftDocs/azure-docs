@@ -3,7 +3,6 @@ title: What is BareMetal Infrastructure on Azure?
 description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.subservice: workloads
 ms.date: 04/14/2021
 ---
 

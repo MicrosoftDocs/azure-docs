@@ -451,9 +451,9 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 
 | Training resource  | Availability |
 |:-------------------|--------------|
-| [Microsoft Docs:  Data Scientist Role](https://docs.microsoft.com/learn/roles/data-scientist) | Public |
-| [Microsoft Docs:  AI Engineer Role](https://docs.microsoft.com/learn/roles/ai-engineer) | Public |
-| [Microsoft Docs:  Data Engineer Role](https://docs.microsoft.com/learn/roles/data-engineer) | Public |
+| [Microsoft Docs:  Data Scientist Role](/learn/roles/data-scientist) | Public |
+| [Microsoft Docs:  AI Engineer Role](/learn/roles/ai-engineer) | Public |
+| [Microsoft Docs:  Data Engineer Role](/learn/roles/data-engineer) | Public |
 | [Microsoft AI School](https://www.microsoft.com/ai/ai-school) | Public |
 | [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
 | [Microsoft: Playlists on YouTube for Artificial Intelligence and Analytics](https://www.youtube.com/c/MicrosoftAzure/playlists?view=50&sort=dd&shelf_id=7) | Public |

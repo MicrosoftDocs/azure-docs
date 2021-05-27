@@ -19,7 +19,7 @@ Spring Cloud Config provides server and client-side support for an externalized 
 
 ## Prerequisites
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](spring-cloud-quickstart.md).
+* An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](./quickstart.md).
 
 ## Restriction
 
@@ -245,4 +245,4 @@ You can select the **Reset** button that appears in the **Config Server** tab to
 
 ## Next steps
 
-In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](spring-cloud-howto-scale-manual.md).
+In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](./how-to-scale-manual.md).

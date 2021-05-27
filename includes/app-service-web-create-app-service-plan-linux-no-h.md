@@ -5,19 +5,36 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 02/02/2018
+ms.date: 05/02/2021
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: "include file", devx-track-azurecli
 ---
 
-[!INCLUDE [resource group intro text](resource-group.md)]
+In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan) command.
 
-In the Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *West Europe* location. To see all supported locations for App Service on Linux in **Basic** tier, run the [`az appservice list-locations --sku B1 --linux-workers-enabled`](/cli/azure/appservice#az_appservice_list_locations) command.
+<!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
+
+The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location "West Europe"
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE --is-linux
 ```
 
-You generally create your resource group and the resources in a region near you. 
+When the App Service plan has been created, the Azure CLI shows information similar to the following example:
 
-When the command finishes, a JSON output shows you the resource group properties.
+<pre>
+{ 
+  "freeOfferExpirationTime": null,
+  "geoRegion": "West Europe",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "kind": "linux",
+  "location": "West Europe",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  &lt; JSON data removed for brevity. &gt;
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+} 
+</pre>

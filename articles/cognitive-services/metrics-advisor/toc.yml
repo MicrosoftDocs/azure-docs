@@ -6,7 +6,7 @@
   - name: What is Metrics Advisor?
     href: overview.md
   - name: Pricing
-    href: http://go.microsoft.com/fwlink/?LinkID=761229
+    href: https://aka.ms/ma-pricing
   - name: What's new?
     href: whats-new.md
 - name: Quickstarts
@@ -16,7 +16,7 @@
   - name: REST API and client libraries
     href: quickstarts/rest-api-and-client-library.md
 - name: Samples
-  href: https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=metrics-advisor 
+  href: /samples/browse/?products=azure&terms=metrics-advisor
 - name: How-to guides
   items:
   - name: Onboard your data

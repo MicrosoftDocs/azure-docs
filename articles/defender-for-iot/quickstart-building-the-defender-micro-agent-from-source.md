@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Build the Defender micro agent from source code (Preview)'
 description: In this quickstart, learn about the Micro Agent which includes an infrastructure that can be used to customize your distribution.
-ms.date: 1/18/2021
+ms.date: 05/10/2021
 ms.topic: quickstart
 ---
 
@@ -98,4 +98,5 @@ If you require a different configuration for production scenarios, contact the D
 
 ## Next steps
 
-[Configure your Azure Defender for IoT solution](quickstart-configure-your-solution.md).
+> [!div class="nextstepaction"]
+> [Configure your Azure Defender for IoT solution](quickstart-configure-your-solution.md).

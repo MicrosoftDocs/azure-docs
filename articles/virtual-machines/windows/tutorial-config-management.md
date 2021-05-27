@@ -175,7 +175,7 @@ The available settings options for Windows are:
 * Windows Registry
 * Windows Files
 
-For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md).
+For detailed information on Change Tracking, see [Troubleshoot changes on a VM](../../automation/troubleshoot/change-tracking.md).
 
 ### View inventory
 

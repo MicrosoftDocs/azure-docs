@@ -89,7 +89,7 @@ Assigning the **Directory Readers** role to the server identity isn't required f
 ## Directory Readers role assignment using PowerShell
 
 > [!IMPORTANT]
-> A [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) will need to run these initial steps. In addition to PowerShell, Azure AD offers Microsoft Graph API to [Create a role-assignable group in Azure AD](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
+> A [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) will need to run these initial steps. In addition to PowerShell, Azure AD offers Microsoft Graph API to [Create a role-assignable group in Azure AD](../../active-directory/roles/groups-create-eligible.md#microsoft-graph-api).
 
 1. Download the Azure AD Preview PowerShell module using the following commands. You may need to run PowerShell as an administrator.
 
