@@ -170,17 +170,12 @@ For example, Microsoft security services may have specific resources and guidanc
 
 ### Monitoring with Azure Sentinel
 
-Azure Sentinel has many built-in resources to help in your investigation, such as [hunting workbooks](/azure/sentinel/quickstart-get-visibility) and analytics rules.
+Azure Sentinel has many built-in resources to help in your investigation, such as hunting workbooks and analytics rules that can help detect attacks in relevant areas of your environment.
 
-For example, you might want to use the following built-in analytics rule templates to create rules that would trigger incidents in your Azure Sentinel workspace:
+For more information, see:
 
-- **AD FS Local Named Pipe Connection**
-- **Mail.Read Permissions Granted to Application**
-- **New access credential added to Application or Service Principal**
-- **First access credential added to Application or Service Principal where no credential was present**
-- **Exchange workflow MailItemsAccessed operation anomaly**
-
-You can find more in the **Analytics** area in Azure Sentinel. For more information, see [Detect threats out of the box](/azure/sentinel/tutorial-detect-threats-built-in.md).
+- [Visualize and analyze your environment](/azure/sentinel/quickstart-get-visibility.md)
+- [Detect threats out of the box](/azure/sentinel/tutorial-detect-threats-built-in.md).
 
 ### Monitoring with Microsoft Defender
 
