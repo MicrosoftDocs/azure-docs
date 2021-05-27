@@ -444,12 +444,9 @@ For Cause 3, work around it with one of the following options:
 
 #### Symptoms
 
-The Synapse (Former SQL DW) sink fails with following error when staging is enabled:<br/>
+When you use Azure Synapse Analytics as a sink in the data flow to preview data, debug/trigger run or do other activities and the enable staging is set to true, your job may fail with the following error message:
 
-**Kusto query example**:<br/>
-cluster('azuredmprod.kusto.windows.net').database('AzureDataMovement').ExecutionApiCall | where * == "**activityRunId**"\
-**ErrorDetails**:<br/>
-*DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException:* ***This operation is not permitted on a non-empty directory.*** *at org.apache.hadoop.fs.azure.AzureNativeFileSystemStore.delete(AzureNativeFileSystemStore.java:2607) at org.apache.hadoop.fs.azure.AzureNativeFileSystemStore.delete(AzureNativeFileSystemStore.java:2617) at org.apache.hadoop.fs.azure.NativeAzureFileSystem.deleteFile(NativeAzureFileSystem.java:2657) at org.apache.hadoop.fs.azure.NativeAzureFileSystem$2.execute(NativeAzureFileSystem.java:2391) at org.apache.hadoop.fs.azure.AzureFileSystemThreadPoolExecutor.executeParallel(AzureFileSystemThreadPoolExecutor.java:223) at org.apache.hadoop.fs.azure.NativeAzureFileSystem.deleteWithoutAuth(NativeAzureFileSystem.java:2403) at org.apache.hadoop.fs.azure.NativeAzureFileSystem.delete(NativeAzureFileSystem.java:2453) at org.apache.hadoop.fs.azure.NativeAzureFileSyste*
+`DF-SYS-01 at Sink 'sink': Unable to stage data before write. Check configuration/credentials of storage. org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: This operation is not permitted on a non-empty directory.`
 
 #### Cause
 You use the Azure Blob Storage as the staging linked service to link to a storage account that has the enabled hierarchical namespace, and that account uses key authentication in the linked service.
@@ -457,7 +454,7 @@ You use the Azure Blob Storage as the staging linked service to link to a storag
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/storage-account-configuration.png" alt-text="Screenshot that shows the storage account configuration."::: 
 
 #### Recommendation
-Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in the "Execute Mapping Data flow" activity.
+Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in data flow activities.
 
 
 ## Azure Blob Storage
@@ -552,13 +549,7 @@ The Azure Data Factory data flow does not support the use of fixed IP ranges, an
 
 #### Recommendation
 
-To solve this issue, you can change the Snowflake account firewall settings with the following options:
-
-- **Option-1**: If your Snowflake account has similar settings like "Azure SQL Database", you can directly set **Allow access to Azure services** to be **ON** rather than set the fixed IP range, for example:
-
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Screenshot that shows how to allow access to Azure service in firewall settings."::: 
-
-- **Option-2**: 
+To solve this issue, you can change the Snowflake account firewall settings with the following steps:
 
 1. You can get the IP range list of service tags from the "service tags IP range download link": [Discover service tags by using downloadable JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
@@ -622,19 +613,13 @@ Your Azure SQL Database can work well in the data copy, dataset preview-data and
 
 #### Cause
 
-When you meet up this error, it may be caused by the following reasons:
-
-1. There is a quote in your database value, and the quote is imported by JSON serialization and deserialization (it has empty spaces in the original database value) during the activity payload transfer among different ADF micro-services and components.
-
-2. There are wrong firewall settings on your Azure SQL Database server, so that it cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks is used to build spark cluster to run the job, but it does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses).
+There are wrong firewall settings on your Azure SQL Database server, so that it cannot be connected by the data flow runtime. Currently, when you try to use the data flow to read/write Azure SQL Database, Azure Databricks is used to build spark cluster to run the job, but it does not support fixed IP ranges. For more details, please refer to [Azure Integration Runtime IP addresses](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses).
 
 #### Recommendation
 
-- For the Cause 1, use the copy activity to move the table data from database “Supplier TAR” to another database “xxxx” which does not contain spaces, and then use the data flow to set the transformation that you need based on “xxxx”.
+Check the firewall settings of your Azure SQL Database and set it as "Allow access to Azure services" rather than set the fixed IP range.
 
-- For the Cause 2, check the firewall settings of Azure SQL Database and set it as "Allow access to Azure services" rather than set the fixed IP range.
-
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Screenshot that shows how to allow access to Azure service in firewall settings."::: 
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/allow-access-to-azure-service.png" alt-text="Screenshot that shows how to allow access to Azure service in firewall settings."::: 
 
 ### Syntax error when using queries as input
 
