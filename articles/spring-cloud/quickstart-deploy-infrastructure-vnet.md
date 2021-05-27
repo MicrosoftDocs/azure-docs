@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Provision Azure Spring Cloud using an Azure Resource Manager (ARM) template
-description: In this quickstart, we deploy a Spring Cloud cluster into an existing Virtual Network.
+description: This quickstart shows you how to deploy a Spring Cloud cluster into an existing virtual network.
 services: azure-resource-manager
 author: ryhud
 ms.service: spring-cloud
