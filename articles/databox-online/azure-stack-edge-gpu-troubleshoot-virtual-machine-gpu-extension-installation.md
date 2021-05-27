@@ -16,6 +16,7 @@ ms.author: alkohli
 
 This article gives guidance for resolving the most common issues that cause installation of the GPU extension on a GPU VM to fail on an Azure Stack Edge Pro GPU device.
 
+For installation steps, see [Install GPU extension](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension)
 
 ## VM size is not GPU VM size
 
@@ -46,7 +47,7 @@ This article gives guidance for resolving the most common issues that cause inst
 
 **Error description:** Extension provisioning failed during extension installation or while in the Enable state.
 
-1. Check the guest log for the associated error:
+1. Check the guest log for the associated error. To collect the guest logs, see [Collect guest logs for VMs on an Azure Stack Edge Pro](azure-stack-edge-pro-gpu-collect-virtual-machine-guest-logs.md).
 
    On a Linux VM:
    * Look in `/var/log/waagent.log` or `/var/log/azure/nvidia-vmext-status`.
@@ -55,13 +56,13 @@ This article gives guidance for resolving the most common issues that cause inst
    * Find out the error status in `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status`.
    * Review the complete execution log: `C:\WindowsAzure\Logs\WaAppAgent.txt`.
 
-   If installation failed during the package download, that indicates the VM couldn't access the public network to download the driver.
+   If installation failed during the package download, that error indicates the VM couldn't access the public network to download the driver.
 
 **Suggested solution:**
 
 1.	Enable compute on a port that's connected to the Internet. For guidance, see [Create GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
-1.	De-allocate the VM by stopping the VM in the portal. To stop the VM, go to **Virtual machines** > **Overview**, and select the VM. Then, on the VM properties page, select **Stop**.<!--Follow-up (formatting): Create an include file for stopping a VM. Use it here and in prerequisites for "Use the Azure portal to manage network interfaces on the VMs" (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal#prerequisites).-->
+1.	Deallocate the VM by stopping the VM in the portal. To stop the VM, go to **Virtual machines** > **Overview**, and select the VM. Then, on the VM properties page, select **Stop**.<!--Follow-up (formatting): Create an include file for stopping a VM. Use it here and in prerequisites for "Use the Azure portal to manage network interfaces on the VMs" (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal#prerequisites).-->
  
 1.	Create a new VM.
 
@@ -83,4 +84,4 @@ This article gives guidance for resolving the most common issues that cause inst
 
 ## Next steps
 
-- [Collect guest error logs for VMs on an Azure Stack Edge Pro device](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
+- [Collect guest logs for VMs on an Azure Stack Edge Pro device](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
