@@ -1,5 +1,5 @@
 ---
-title: Mount option best practices for Azure NetApp Files | Microsoft Docs
+title: Linux NFS mount options best practices for Azure NetApp Files | Microsoft Docs
 description: Describes mount options and the best practices about using them with Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: b-juche
 ---
-# Mount option best practices for Azure NetApp Files
+# Linux NFS mount options best practices for Azure NetApp Files
 
 This article helps you understand mount options and the best practices about using them with Azure NetApp Files.
 
@@ -64,7 +64,7 @@ When you use `nconnect`, keep the following rules in mind:
 
 * `nconnect` may be used to increase storage concurrency from any given client. 
 
-For details, see [Concurrency best practices for Azure NetApp Files: Session slots and slot table entries](performance-linux-currency-session-slots.md).
+For details, see [Linux concurrency best practices for Azure NetApp Files](performance-linux-currency-session-slots.md).
 
 ## `Rsize` and `Wsize`
  
@@ -130,5 +130,5 @@ When no close-to-open consistency (`nocto`) is used, the client will trust the f
 
 ## Next steps  
 
-* [Concurrency best practices - Session slots and slot table entries](performance-linux-currency-session-slots.md)
+* [Linux concurrency best practices for Azure NetApp Files](performance-linux-currency-session-slots.md)
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 

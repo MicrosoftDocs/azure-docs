@@ -1,5 +1,5 @@
 ---
-title: Concurrency best practices for Azure NetApp Files - Session slots and slot table entries | Microsoft Docs
+title: Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries | Microsoft Docs
 description: Describes best practices about session slots and slot table entries for Azure NetApp Files NFS protocol.  
 services: azure-netapp-files
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: b-juche
 ---
-# Concurrency best practices for Azure NetApp Files: Session slots and slot table entries
+# Linux concurrency best practices for Azure NetApp Files: Session slots and slot table entries
 
 This article helps you understand best practices about session slots and slot table entries for Azure NetApp Files NFS protocol. 
 
@@ -261,5 +261,5 @@ The following example shows Packet 14 (server maximum requests):
 
 ## Next steps  
 
-* [Mount option best practices for Azure NetApp Files](performance-linux-mount-options.md)
+* [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 
