@@ -7,9 +7,9 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Use PowerShell to copy a database to a new server

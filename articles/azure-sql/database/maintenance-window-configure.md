@@ -5,9 +5,9 @@ services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/23/2021
 ---
 # Configure maintenance window (Preview)
