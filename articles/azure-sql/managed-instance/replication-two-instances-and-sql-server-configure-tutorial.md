@@ -3,12 +3,12 @@ title: "Configure transactional replication between Azure SQL Managed Instance a
 description: "A tutorial that configures replication between a publisher managed instance, a distributor managed instance, and a SQL Server subscriber on an Azure VM, along with necessary networking components such as private DNS zone and VNet peering." 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: security
+ms.subservice: replication
 ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: ferno-ms
+ms.author: ferno
+ms.reviewer: mathoma
 ms.date: 11/21/2019
 ---
 # Tutorial: Configure transactional replication between Azure SQL Managed Instance and SQL Server
