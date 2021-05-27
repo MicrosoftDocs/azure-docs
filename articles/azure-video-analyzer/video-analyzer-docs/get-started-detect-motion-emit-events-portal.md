@@ -806,6 +806,3 @@ You can try to invoke `pipelineTopologyList` and observe that the module contain
 * Try the [quickstart for recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md)
 * Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
 * Learn more about [diagnostic messages](monitor-log-edge.md) 
-
-> [!TIP]
-> If you proceed with the above quickstart, when invoking the direct methods using Visual Studio Code, you will use the device that was added to the IoT Hub via this article, instead of the default `avasample-iot-edge-device`.
