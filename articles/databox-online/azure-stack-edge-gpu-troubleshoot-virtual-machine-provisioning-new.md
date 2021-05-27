@@ -65,7 +65,7 @@ When VM provisioning times out, you see the following error:
 
 ![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
-To troubleshoot a VM provisioning timeout, check for the following issues:
+To troubleshoot a VM provisioning timeout, check for the following issues:<!--Stopped here. Add section links tomorrow a.m.-->
 1. The IP address assigned to the VM is already in use.
 1. The VM image was not prepared correctly.
 1. The default gateway and DNS server couldn't be reached from guest VM.
