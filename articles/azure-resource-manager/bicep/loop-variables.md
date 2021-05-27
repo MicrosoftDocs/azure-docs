@@ -16,7 +16,7 @@ You can also use copy with [resources](loop-resources.md), [properties in a reso
 
 ## Syntax
 
-Loops can be used to declare multiple properties by:
+Loops can be used to declare multiple variables by:
 
 - Iterating over an array.
 
@@ -43,9 +43,9 @@ Loops can be used to declare multiple properties by:
   }]
   ```
 
-## Copy limits
+## Loop limits
 
-The Bicep file builds a JSON template that uses the `copy` element and there are limitations that affect the `copy` element. For more information, see [Variable iteration in ARM templates](../templates/copy-variables.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
 
 ## Variable iteration
 
@@ -116,9 +116,6 @@ The output returns an array with the following values:
   }
 ]
 ```
-
-> [!NOTE]
-> The loop uses a range and the iterator represents the index of the current iteration. This functionality is similar to the JSON `copyIndex` function.
 
 ## Example templates
 

@@ -23,7 +23,6 @@ Loops can be used declare multiple resources by:
 - Iterating over an array.
 
   ```bicep
-  @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
     <resource-properties>
   }]
@@ -32,7 +31,6 @@ Loops can be used declare multiple resources by:
 - Iterating over the elements of an array.
 
   ```bicep
-  @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
     <resource-properties>
   }]
@@ -41,31 +39,30 @@ Loops can be used declare multiple resources by:
 - Using a loop index.
 
   ```bicep
-  @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
     <resource-properties>
   }]
   ```
 
-## Copy limits
+## Loop limits
 
-The Bicep file builds a JSON template that uses the `copy` element and there are limitations that affect the `copy` element. For more information, see [Resource iteration in ARM templates](../templates/copy-resources.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
 
 ## Resource iteration
 
 The following example creates the number of storage accounts specified in the `storageCount` parameter.
 
 ```bicep
+param rgLocation string = resourceGroup().location
 param storageCount int = 2
 
-resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
+  location: rgLocation
   sku: {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
-  properties: {}
 }]
 ```
 
@@ -74,20 +71,20 @@ Notice the index `i` is used in creating the storage account resource name.
 The following example creates one storage account for each name provided in the `storageNames` parameter.
 
 ```bicep
+param rgLocation string = resourceGroup().location
 param storageNames array = [
   'contoso'
   'fabrikam'
   'coho'
 ]
 
-resource storageNames_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for name in storageNames: {
-  name: concat(name, uniqueString(resourceGroup().id))
-  location: resourceGroup().location
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name in storageNames: {
+  name: '${name}${uniqueString(resourceGroup().id)}'
+  location: rgLocation
   sku: {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
-  properties: {}
 }]
 ```
 
@@ -102,15 +99,16 @@ You may want to specify that the resources are deployed in sequence. For example
 To serially deploy more than one instance of a resource, set the `batchSize` [decorator](./file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
+param rgLocation string = resourceGroup().location
+
 @batchSize(2)
-resource storage_id 'Microsoft.Storage/storageAccounts@2019-04-01' = [for i in range(0, 4): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, 4): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: resourceGroup().location
+  location: rgLocation
   sku: {
     name: 'Standard_LRS'
   }
   kind: 'Storage'
-  properties: {}
 }]
 ```
 
@@ -156,9 +154,9 @@ The following examples show common scenarios for creating more than one instance
 
 |Template  |Description  |
 |---------|---------|
-|[Copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Deploys more than one storage account with an index number in the name. |
-|[Serial copy storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Deploys several storage accounts one at time. The name includes the index number. |
-|[Copy storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Deploys several storage accounts. The name includes a value from an array. |
+|[Loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstorage.bicep) |Deploys more than one storage account with an index number in the name. |
+|[Serial loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopserialstorage.bicep) |Deploys several storage accounts one at time. The name includes the index number. |
+|[Loop storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstoragewitharray.bicep) |Deploys several storage accounts. The name includes a value from an array. |
 
 ## Next steps
 
