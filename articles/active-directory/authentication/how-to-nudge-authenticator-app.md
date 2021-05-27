@@ -266,13 +266,13 @@ No. To provide a good user experience, users will not be nudged to set up the Au
 No. The feature, for now, aims to nudge users to set up the Microsoft Authenticator app only. 
 
 **Is there a way for me to hide the snooze option and force my users to setup the Authenticator app?**  
-At this time, there is not a way to hide the snooze option on the Nudge. You can set the snoozeDuration to 0 which will ensure that users will see the Nudge during each MFA attempt.  
+At this time, there is not a way to hide the snooze option on the nudge. You can set the snoozeDuration to 0 which will ensure that users will see the nudge during each MFA attempt.  
 
-**Will I be able to Nudge my users if I am not using Azure MFA?** 
-No. The Nudge will only work for users who are doing MFA using the Azure MFA service. 
+**Will I be able to nudge my users if I am not using Azure MFA?** 
+No. The nudge will only work for users who are doing MFA using the Azure MFA service. 
 
-**Will Guest/B2B users in my tenant be Nudged?** 
-Yes. If they have been scoped for the Nudge using the policy. 
+**Will Guest/B2B users in my tenant be nudged?** 
+Yes. If they have been scoped for the nudge using the policy. 
 
 **What if the user closes the browser?** It's the same as snoozing.
 
