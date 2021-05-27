@@ -934,8 +934,8 @@ This error occurs if the directory used as the server endpoint path was renamed 
 
 If the directory was deleted, perform the following steps to remove the existing server endpoint and create a new server endpoint using a new path:
 
-1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint.md#remove-a-server-endpoint).
-2. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint.md#add-a-server-endpoint).
+1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
+2. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
@@ -1197,7 +1197,7 @@ If the above conditions are not met, restoring access is not possible as these t
 
 **Notes**
 - When tiered files are not accessible on the server, the full file should still be accessible if you access the Azure file share directly.
-- To prevent orphaned tiered files in the future, follow the steps documented in [Remove a server endpoint](file-sync-server-endpoint.md#remove-a-server-endpoint) when deleting a server endpoint.
+- To prevent orphaned tiered files in the future, follow the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md) when deleting a server endpoint.
 
 <a id="get-orphaned"></a>**How to get the list of orphaned tiered files** 
 
@@ -1218,7 +1218,7 @@ This option deletes the orphaned tiered files on the Windows Server but requires
 
 1. Verify Azure File Sync agent version v5.1 or later is installed.
 2. Backup the Azure file share and server endpoint location.
-3. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint.md#remove-a-server-endpoint).
+3. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
 
 > [!Warning]  
 > If the server endpoint is not removed prior to using the Remove-StorageSyncOrphanedTieredFiles cmdlet, deleting the orphaned tiered file on the server will delete the full file in the Azure file share. 
