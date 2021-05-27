@@ -26,7 +26,7 @@ This article uses the [Postman](https://www.postman.com/) application, but you c
 
 ## Request elevation data in raster tile format
 
-To request elevation data in raster tile format, use the [Render V2 - Get Map Tile API](/rest/api/maps/renderv2). If the tile can be found, the API returns the tile as a GeoTIFF. Otherwise, the API returns 0. All raster DEM tiles use the geoid (sea level) Earth mode. In this example, we'll request elevation data for Mt. Everest.
+To request elevation data in raster tile format, use the [Render V2-Get Map Tile API](/rest/api/maps/renderv2). If the tile can be found, the API returns the tile as a GeoTIFF. Otherwise, the API returns 0. All raster DEM tiles use the geoid (sea level) Earth mode. In this example, we'll request elevation data for Mt. Everest.
 
 >[!TIP]
 >To retrieve a tile at a specific area on the world map, find the correct tile at the appropriate zoom level. Also note that WorldDEM covers the entire global landmass but it doesn't cover oceans.  For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).

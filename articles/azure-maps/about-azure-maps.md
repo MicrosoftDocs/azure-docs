@@ -197,7 +197,7 @@ The Azure Maps Elevation service is a web service that developers can use to ret
 
 The Elevation service allows you to retrieve elevation data in two formats:
 
-* **GeoTIFF raster format**. Use the [Render V2 - Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format.
+* **GeoTIFF raster format**. Use the [Render V2-Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format.
 
 * **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. 
 
