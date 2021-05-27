@@ -66,7 +66,7 @@ param storageName string
 
 Okay, your parameter is ready to use.
 
-## Add an Azure resource
+## Add resource
 
 Now, we'll add a storage account. Intellisense makes this step much easier than having to manually type all of the values. 
 
@@ -102,7 +102,7 @@ param storageName string
 resource exampleStorageAccount 'Microsoft.Storage/storageAccounts@2021-02-01'
 ```
 
-After the single quote for the resource type, add **=** and a space. You're presented with options for adding properties to the resource. Select **required-properties**.
+After the single quote for the resource type, add `=` and a space. You're presented with options for adding properties to the resource. Select **required-properties**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-required-properties.png" alt-text="Add required properties":::
 
@@ -168,6 +168,8 @@ New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.
 ```
 
 ---
+
+When the deployment finishes, you should see a message indicating the deployment succeeded. If you get an error message indicating the storage account is already taken, the storage name you provided is in use. Provide a name that is more likely to be unique.
 
 ## Clean up resources
 
