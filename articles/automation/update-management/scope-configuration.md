@@ -15,14 +15,14 @@ This article describes how to work with scope configurations when using the [Upd
 
 A scope configuration is a group of one or more saved searches (queries) used to limit the scope of Update Management to specific computers. The scope configuration is used within the Log Analytics workspace to target the computers to enable. When you add a computer to receive updates from Update Management, the computer is also added to a saved search in the workspace. 
 
-By default, Update Management creates a computer group named **Updates__MicrosoftDefaultComputerGroup** depending on how you enable machines in the linked workspace with Update Management:
+By default, Update Management creates a computer group named **Updates__MicrosoftDefaultComputerGroup** depending on how you enabled machines with Update Management:
 
-* You select **Enable on all available machines**
-* You select **Enable on selected machines**
+* From the Automation account, you selected **+ Add Azure VMs**.
+* From the Automation account, you selected **Manage machines**, and then you selected the option **Enable on all available machines** or you selected **Enable on selected machines**.
 
-If either enable option above is selected, this computer group is added to the **MicrosoftDefaultScopeConfig-Updates** scope configuration. You can also add one or more custom computer groups to this scope to match your management needs and control how specific computers are enabled for management with Update Management.
+If one of the methods above is selected, this computer group is added to the **MicrosoftDefaultScopeConfig-Updates** scope configuration. You can also add one or more custom computer groups to this scope to match your management needs and control how specific computers are enabled for management with Update Management.
 
-To remove one or more machines from the **Updates__MicrosoftDefaultComputerGroup** in order to stop managing them with Update Management, see [Remove VMs from Update Management](remove-vms.md).
+To remove one or more machines from the **Updates__MicrosoftDefaultComputerGroup** to stop managing them with Update Management, see [Remove VMs from Update Management](remove-vms.md).
 
 ## Set the scope limit
 
