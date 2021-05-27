@@ -116,7 +116,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 The Azure Maps [Render V2 service-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator tilesets.
 
-The Render V2 service-Get Map State Tile API allows applications to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
+Applications can use the Render V2 service-Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
 
 ### Web Feature Service API
 
