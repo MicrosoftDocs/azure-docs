@@ -34,7 +34,7 @@ Data Factory contains a series of interconnected systems that provide a complete
 
 This visual guide provides a high level overview of of the Data Factory architecture:
 
-:::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="Image alt text" lightbox="media\introduction\data-factory-visual-guide.png":::
+:::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="A detailed visual guide to the complete system architecture for Azure Data Factory, presented in a single high resolution image." lightbox="media\introduction\data-factory-visual-guide.png":::
 
 ### Connect and collect
 
