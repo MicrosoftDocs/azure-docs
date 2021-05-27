@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/24/2021
+ms.date: 05/27/2021
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -57,7 +57,7 @@ To complete this article, you need the following resources:
 In addition to **Security settings**, Microsoft Azure Policy has a **Compliance** setting to enforce TLS 1.2 usage. The policy has no impact until it is assigned. When the policy is assigned, it appears in **Compliance**:
 
 - If the assignment is **Audit**, the compliance will report if the Azure AD DS instance is compliant.
-- If the assignment is **Deny**, the compliance will prevent an Azure AD DS instance from being created if TLS 1.2 is not enabled and prevent any update to an Azure AD DS instance until TLS 1.2 is enabled.
+- If the assignment is **Deny**, the compliance will prevent an Azure AD DS instance from being created if TLS 1.2 is not required and prevent any update to an Azure AD DS instance until TLS 1.2 is required.
 
 ![Screenshot of Compliance settings](media/secure-your-domain/policy-tls.png)
 
