@@ -334,7 +334,7 @@ By clicking on the job, you will see some details about the specific job. If you
  
  ## Clean up Resources
  
- When you're finished with the quickstart, delete the Resources created in the resource group.
+ When you're finished with the quickstart, delete the Resources created in the resource group. Additionally, you could delete the cloned repo.
  
  ## Next steps
  
