@@ -1,17 +1,17 @@
 ---
-title: "Data Migration"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Data Migration"
 description: "As a prudent step before upgrade or migrate data, export the database before the upgrade using MySQL Workbench or manually via the mysqldump command."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
+author: arunkumarthiags
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/26/2021
 ---
 
-# Data Migration
+# MySQL on-premises to Azure Database for MySQL migration guide Data Migration
 
 ### Back up the database
 

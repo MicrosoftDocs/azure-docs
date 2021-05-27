@@ -1,17 +1,17 @@
 ---
-title: "Optimization"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Optimization"
 description: "In addition to the audit and activity logs, server performance can also be monitored with Azure Metrics."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
+author: arunkumarthiags 
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/26/2021
 ---
 
-# Optimization
+# MySQL on-premises to Azure Database for MySQL migration guide Optimization
 
 ### Monitoring Hardware and Query Performance
 

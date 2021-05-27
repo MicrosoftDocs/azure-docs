@@ -1,45 +1,45 @@
 ---
-title: "Representative Use Case"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Representative Use Case"
 description: "The following use case is based on a real-world customer scenario of an enterprise who migrated their MySQL workload to Azure Database for MySQL."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
 author: markingmyname
 ms.author: maghan
-ms.reviewer: ""
+ms.reviewer: arthiaga
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/25/2021
 ---
 
-# Representative Use Case
+# MySQL on-premises to Azure Database for MySQL migration guide Representative Use Case
 
 ## Overview
 
-The following use case is based on a real-world customer scenario of an enterprise who migrated their MySQL workload to Azure Database for MySQL.
+The following use case is based on a real-world customer scenario of an enterprise that migrated their MySQL workload to Azure Database for MySQL.
 
-World Wide Importers (WWI) is a San Francisco, California-based manufacturer and wholesale distributor of novelty goods. They began operations in 2002 and developed an effective business-to-business (B2B) model, selling the items they produce directly to retail customers throughout the United States. Its customers include specialty stores, supermarkets, computing stores, tourist attraction shops, and some individuals. This B2B model enables a streamlined distribution system of their products, allowing them to reduce costs and offer more competitive pricing on the items they manufacture. They also sell to other wholesalers via a network of agents who promote their products on WWI’s behalf.
+World-Wide Importers (WWI) is a San Francisco, California-based manufacturer and wholesale distributor of novelty goods. They began operations in 2002 and developed an effective business-to-business (B2B) model, selling the items they produce directly to retail customers throughout the United States. Its customers include specialty stores, supermarkets, computing stores, tourist attraction shops, and some individuals. This B2B model enables a streamlined distribution system of their products, allowing them to reduce costs and offer more competitive pricing on their manufactured items. They also sell to other wholesalers via a network of agents who promote their products on WWI's behalf.
 
-Before launching into new areas, WWI wants to ensure its IT infrastructure can handle the expected growth. WWI currently hosts all its IT infrastructure on-premises at its corporate headquarters and believes moving these resources to the cloud enables future growth. They have tasked their CIO with overseeing the migration of their customer portal and the associated data workloads to the cloud.
+Before launching into new areas, WWI wants to ensure its IT infrastructure can handle the expected growth. WWI currently hosts all its IT infrastructure on-premises at its corporate headquarters and believes moving these resources to the cloud enables future growth. As a result, they've tasked their CIO with overseeing the migration of their customer portal and the associated data workloads to the cloud.
 
-WWI would like to continue to take advantage of the many advanced capabilities available in the cloud, and they are interested in migrating their databases and associated workloads into Azure. They want to do this quickly and without having to make any changes to their applications or databases. Initially, they plan on migrating their java-based customer portal web application and the associated MySQL databases and workloads to the cloud.
+WWI would like to continue to take advantage of the many advanced capabilities available in the cloud, and they're interested in migrating their databases and associated workloads into Azure. They want to do this quickly and without having to make any changes to their applications or databases. Initially, they plan on migrating their java-based customer portal web application and the associated MySQL databases and workloads to the cloud.
 
 #### Migration Goals
 
 The primary goals for migrating their databases and associated SQL workloads to the cloud include:
 
-  - Improve their overall security posture with data at rest and in-transit.
+  - Improve their overall security posture with data at rest and in transit.
 
   - Enhance the high availability and disaster recovery (HA/DR) capabilities.
 
-  - Position the organization to leverage cloud-native capabilities and technologies such as point in time restore.
+  - Position the organization to use cloud-native capabilities and technologies such as point-in-time restore.
 
-  - Take advantage of administrative and performance optimizations features of Azure Database for MySQL.
+  - Take advantage of administrative and performance optimization features of Azure Database for MySQL.
 
   - Create a scalable platform that they can use to expand their business into more geographic regions.
 
-  - Allow for enhanced compliance with various legal requirements where PII information is stored.
+  - Allow for enhanced compliance with various legal requirements where personal information is stored.
 
-WWI used the [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) to educate their team on following best practices guidelines for cloud migration. Using CAF as a higher-level migration guide, WWI customized their migration into three main stages. Within each stage, they defined activities that needed to be addressed to ensure a successful lift and shift cloud migration.
+WWI used the [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) to educate their team on following best practices guidelines for cloud migration. Then, using CAF as a higher-level migration guide, WWI customized their migration into three main stages. Finally, they defined activities that needed to be addressed within each stage to ensure a successful lift and shift cloud migration.
 
 These stages include:
 
@@ -49,12 +49,11 @@ These stages include:
 | 2     | Migration      | Execute Migration, Execute Test Plans                                                                          |
 | 3     | Post-migration | Business Continuity, Disaster Recovery, Management, Security, Performance Optimization, Platform modernization |
 
-WWI has several instances of MySQL running with varying versions ranging from 5.5 to 5.7. They would like to move their instances to the latest version as soon as possible but would like to ensure that their applications will still work if they move to the newer versions. They are comfortable with moving to the same version in the cloud and upgrading afterwards, but if they can accomplish two tasks at once, they would prefer that path.
+WWI has several instances of MySQL running with varying versions ranging from 5.5 to 5.7. They would like to move their instances to the latest version as soon as possible but would like to ensure that their applications will still work if they move to the newer versions. They're comfortable moving to the same version in the cloud and upgrading afterward, but they would prefer that path if they can accomplish two tasks at once.
 
-They would also like to ensure that their data workloads are safe and available across multiple geographic regions in case of failure and are looking at the available configuration options.
+They would also like to ensure that their data workloads are safe and available across multiple geographic regions if there is a failure and look at the available configuration options.
 
-WWI wants to start off with a simple application for the first migration, and then move to more business-critical applications in a later phase. This will provide the team with the knowledge and experience they need to prepare and plan for those future migrations.  
-
+WWI wants to start with a simple application for the first migration and then move to more business-critical applications in a later phase. This will provide the team with the knowledge and experience they need to prepare and plan for those future migrations.  
 
 > [!div class="nextstepaction"]
 > [Assessment](./assessment.md)

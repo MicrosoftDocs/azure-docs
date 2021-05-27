@@ -1,17 +1,17 @@
 ---
-title: "Business Continuity and Disaster Recovery (BCDR)"
+title: "MySQL on-premises to Azure Database for MySQL migration guide Business Continuity and Disaster Recovery (BCDR)"
 description: "As with any mission critical system, having a backup and restore as well as a disaster recovery (BCDR) strategy is an important part of your overall system design."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: markingmyname
-ms.author: maghan
-ms.reviewer: ""
+author: arunkumarthiags
+ms.author: arthiaga
+ms.reviewer: maghan
 ms.custom:
-ms.date: 05/05/2021
+ms.date: 05/26/2021
 ---
 
-# Business Continuity and Disaster Recovery (BCDR)
+# MySQL on-premises to Azure Database for MySQL migration guide Business Continuity and Disaster Recovery (BCDR)
 
 ### Backup and Restore
 
