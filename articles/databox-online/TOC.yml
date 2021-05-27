@@ -258,7 +258,7 @@
         - name: Via Azure PowerShell script
           href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md 
         - name: Via Azure CLI/Python
-          href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md 
+          href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
       - name: How-tos
         items: 
         - name: Manage network interfaces
@@ -273,6 +273,8 @@
           href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: Install custom script extension
           href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+        - name: Install GPU extension
+          href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
         - name: Back up VM disks 
           href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
         - name: Troubleshoot
