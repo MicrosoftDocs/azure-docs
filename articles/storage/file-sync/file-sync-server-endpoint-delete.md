@@ -62,7 +62,7 @@ If these files aren’t important, then you can delete your server endpoint. If 
 
 ## Scenario 2: You intend to delete your server endpoint and stop using this specific Azure file share
 
-The goal here is to ensure your data is up-to-date in your local server/VM. To have your complete set of files up-to-date in your cloud endpoint instead, see [Scenario 1: You intend to delete your server endpoint and stop using your local server/VM](#scenario-1-you-intend-to-delete-your-server-endpoint-and-stop-using-your-local-servervm).
+The goal here is to ensure your data is up-to-date in your local server/VM. To have your complete set of files up-to-date in your cloud endpoint instead, see [Scenario 1: You intend to delete your server endpoint and stop using your local server/VM](#scenario-1-you-intend-to-delete-your-server-endpoint-and-stop-using-your-local-server--vm).
 
 For this scenario, there are four steps to take before deleting your server endpoint: disable cloud tiering, recall tiered files, initiate cloud change detection, and wait for a final sync session to complete.
 

@@ -9,17 +9,7 @@ ms.author: fauhse
 ms.subservice: files
 ---
 
----
-# TO DO
-* Check lightbox image size and functionality
-* Files and File Sync ToCs, both need the offline data transfer doc replaced by this doc
-* Migration overview article needs this guide referenced in the table of migration guides
-* Offline data transfer doc must be removed
-* Authoritative Upload doc must be created in file sync branch + ToC update 
-* Remove this to do
----
-
-# Migrate bulk data to Azure File Sync with Azure Data Box
+# Migrate data offline to Azure File Sync with Azure Data Box
 
 This migration article is one of several that apply to the keywords Azure File Sync and Azure Data Box. Check if this article applies to your scenario:
 
@@ -54,7 +44,7 @@ This migration guide can only work, if you continue to use the on-premises, Dire
 
 You determine what syncs by setting up Azure File Sync *sync groups* that each determine where a set of files syncs between. Each sync group has at least one server location, called a *server endpoint* and one Azure file share, called the *cloud endpoint*. 
 
-You can sync sub-paths of a set of files to each their own Azure file share. This means setting up several sync groups to cover a set of files completely. The remainder of the section describes your options. If you need to restructure your data, you must do so as a first step, before you continue with this guide, order a Data Box or setup sync. 
+You can sync sub paths of a set of files to each their own Azure file share. This means setting up several sync groups to cover a set of files completely. The remainder of the section describes your options. If you need to restructure your data, you must do so as a first step, before you continue with this guide, order a Data Box or setup sync. 
 
 > [!CAUTION]
 > It's imperative that your file and folder structure is how you want it to be long-term, before you begin the migration. Avoid any unnecessary, folder restructuring during the migration. This will decrease positive effects of using Azure Data Box for initial, bulk transport of files to Azure.
@@ -134,10 +124,10 @@ Your registered on-premises Windows Server instance must be ready and connected 
 
 :::row:::
     :::column:::
-        [![Diagram that shows an example of a mapping table. Download the following file to experience and use the content of this image.](media/storage-files-migration-server-hybrid-databox/enable-authoritative-upload-top-checkbox.png)](media/storage-files-migration-server-hybrid-databox/enable-authoritative-upload-top-checkbox-large.png#lightbox)
+        [![An image showing an Azure portal section of the create server endpoint wizard. A checkbox is shown that corresponds to the scenario of seeding the Azure file share with data, then check this box to connect AFS to the same on-prem location of the data.](media/storage-files-migration-server-hybrid-databox/enable-authoritative-upload-top-checkbox.png)](media/storage-files-migration-server-hybrid-databox/enable-authoritative-upload-top-checkbox-large.png#lightbox)
     :::column-end:::
     :::column:::
-        Once you are in the **Create server endpoint** wizard, utilize the provided checkbox if you have entered a path that points to the same file and folder structure as can be found in the Azure file share (where Data Box moved the files and folders into for this namespace). </br> </br> If there is a mismatch of folder hierarchy. Then it will present itself as different folders exist in the root of the Azure file share as compared to the path you entered in the **Create server endpoint** wizard. You must avoid a mismatch or any investment in the Data Box process will result in zero benefit to you. All data will be deleted in the Azure file share. All data will need to be uploaded from the local server. The directory structures must match to gain the benefit of a bulk-migration with Azure Data Box and a seamless update of the cloud share with the latest changes from the server.
+        Once you are in the **Create server endpoint** wizard, utilize the provided checkbox underneath the folder path. Only make this selection if you have entered a path that points to the same file and folder structure as can be found in the Azure file share (where Data Box moved the files and folders into for this namespace). </br> </br> If there is a mismatch of folder hierarchy, then that will present itself as differences that cannot be automatically resolved. You must avoid a mismatch or any investment in the Data Box process will result in zero benefit to you. All data will be deleted in the Azure file share. All data will need to be uploaded from the local server. The directory structures must match to gain the benefit of a bulk-migration with Azure Data Box and a seamless update of the cloud share with the latest changes from the server.
 :::column-end:::
 :::row-end:::
 
@@ -146,13 +136,13 @@ Your registered on-premises Windows Server instance must be ready and connected 
 
 Once you configured authoritative upload for this new server endpoint, you can optionally enable cloud tiering.
 
-Cloud tiering is the Azure File Sync feature that allows the local server to have less storage capacity than is stored in the cloud but have the full namespace available. Locally interesting data is also cached locally for fast access performance. Cloud tiering is optional. You can set it individually for each Azure File Sync server endpoint. Use this feature to achieve a fixed storage footprint on-premises, yet still give users a local performance cache and store cooler data in the cloud.
+Cloud tiering is the Azure File Sync feature that allows the local server to have less storage capacity than is stored in the cloud but have the full namespace available. Locally interesting data is also cached locally for fast access performance. Cloud tiering is optional. You can set it individually for each Azure File Sync server endpoint. Use this feature to achieve a fixed storage footprint on-premises, yet still give users a local performance cache, and store cooler data in the cloud.
 
-Learn more by checking out the [cloud tiering overview](../file-sync/file-sync-cloud-tiering-overview.md) or take a closer look at the different [cloud tiering policies](../file-sync/file-sync-cloud-tiering-policy.md) you can use to fine tune what is cached / tiered on a the local server.
+Learn more by checking out the [cloud tiering overview](../file-sync/file-sync-cloud-tiering-overview.md) or take a closer look at the different [cloud tiering policies](../file-sync/file-sync-cloud-tiering-policy.md) you can use to fine-tune what is cached / tiered on the local server.
 
 ## Wrapping up your migration
 
-After you create a server endpoint, sync is working. But sync needs to enumerate (discover) the files and folders you moved via Azure Data Box into the Azure file share. Depending on the size of the namespace, it can take a long time before the latest server changes are synced to the cloud. Your users are not impacted and can continue to wor with the data on the server. This strategy achieves a zero-downtime cloud migration.
+After you create a server endpoint, sync is working. But sync needs to enumerate (discover) the files and folders you moved via Azure Data Box into the Azure file share. Depending on the size of the namespace, it can take a long time before the latest server changes are synced to the cloud. Your users are not impacted and can continue to work with the data on the server. This strategy achieves a zero-downtime cloud migration.
 
 For all Azure file shares / server locations that you need to configure for sync, repeat the steps to create sync groups and to add the matching server folders as server endpoints. You used Azure Data Box to move your files into several Azure file shares. Your migration is complete once you have created all the server endpoints that connect your on-premises data to these Azure file shares.
 

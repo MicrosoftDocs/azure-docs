@@ -1,6 +1,6 @@
 ---
-title: Migrate data into Azure File Sync with Azure Data Box
-description: Migrate bulk data offline that's compatible with Azure File Sync. Avoid file conflicts, and catch up your file share with the latest changes on the server for a zero downtime cloud migration.
+title: Create an Azure File Sync server endpoint
+description: Understand the options during server endpoint creation and how to best apply them to your situation.
 author: fauhse
 ms.service: storage
 ms.topic: how-to
@@ -99,9 +99,9 @@ Once you selected an initial download option, you cannot change it after you con
 
 ## Next steps
 
-There's more to discover about Azure file shares and Azure File Sync. The following articles will help you understand advanced options and best practices. They also provide help with troubleshooting. These articles contain links to the [Azure file share documentation](storage-files-introduction.md) where appropriate.
+There's more to discover about Azure file shares and Azure File Sync. The following articles will help you understand advanced options and best practices. They also provide help with troubleshooting. These articles contain links to the [Azure file share documentation](../files/storage-files-introduction.md) where appropriate.
 
-* [Migration overview](storage-files-migration-overview.md)
+* [Migration overview](../files/storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
-* [Create a file share](storage-how-to-create-file-share.md)
+* [Create a file share](../files/storage-how-to-create-file-share.md)
 * [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)

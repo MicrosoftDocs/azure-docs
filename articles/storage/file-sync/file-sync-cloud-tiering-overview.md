@@ -26,8 +26,6 @@ The **volume free space policy** tells Azure File Sync to tier cool files to the
 
 For example, if your local disk capacity is 200 GB and you want at least 40 GB of your local disk capacity to always remain free, you should set the volume free space policy to 20%. Volume free space applies at the volume level rather than at the level of individual directories or server endpoints. 
 
-To learn how the volume free space policy affects files initially downloaded when a new server endpoint is added, (see the [Sync policies that affect cloud tiering](#sync-policies-that-affect-cloud-tiering)) section.
-
 #### Date policy
 With the **date policy**, cool files are tiered to the cloud if they haven't been accessed (that is, read or written to) for x number of days. For example, if you noticed that files that have gone more than 15 days without being accessed are typically archival files, you should set your date policy to 15 days. 
 
