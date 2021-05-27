@@ -31,7 +31,7 @@ Metrics need to be monitored at a certain granularity according to business requ
 
 Metrics Advisor continuously grabs metrics data at each time interval, **the interval is equal to the granularity of the metrics.** Every time, Metrics Advisor runs the query you have written ingests data at this specific interval. Based on this data ingestion mechanism, the query script **should not return all metric data that exists in the database, but needs to limit the result to a single interval.**
 
-![What is interval](media/tutorial/what-is-interval.png)
+<!-- ![What is interval](media/tutorial/what-is-interval.png) -->
 
 ## Metric
 
