@@ -66144,7 +66144,7 @@
     },
     {
       "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
-      "redirect_url": "/articles/virtual-desktop/teams-on-avd.md",
+      "redirect_url": "/articles/virtual-desktop/teams-on-avd",
       "redirect_document_id": false
     }
   ]
