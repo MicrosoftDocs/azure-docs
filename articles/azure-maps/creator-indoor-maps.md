@@ -63,7 +63,6 @@ The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts an up
 - Warnings: If any warnings are detected, the conversion succeeds. However, we recommend that you review and resolve all warnings. A warning means that part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in later processes. 
 For more information, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
-When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](drawing-error-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. After you fix the errors, you can attempt to upload and convert the package.
 
 ## Create indoor map data
 
