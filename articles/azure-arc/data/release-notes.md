@@ -18,31 +18,28 @@ This article highlights capabilities, features, and enhancements recently releas
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## April 2021
+## May 2021
 
-This preview release is published on April 29, 2021.
+This is the latest preview release. 
 
 ### What's new
 
-This section describes the new features introduced or enabled for this release. 
-
 #### Platform
 
-- Direct connected clusters automatically upload telemetry information automatically Azure. 
+- 	You can delete Azure Arc enabled SQL Managed Instances or PostgreSQL Hyperscale groups from the portal on a data controller that is directly connected to Azure.
 
 #### 	Azure Arc enabled PostgreSQL Hyperscale
 
-- Azure Arc enabled PostgreSQL Hyperscale is now supported in Direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure portal. 
-- Azure Arc enabled PostgreSQL Hyperscale ships with the Citus 10.0 extension which features columnar table storage
-- Azure Arc enabled PostgreSQL Hyperscale  now supports full user/role management.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports additional extensions with `Tdigest` and  `pg_partman`.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
+- Supports direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure Portal. 
+- Ships with the Citus 10.0 extension which features columnar table storage
+- Supports full user/role management.
+- Supports additional extensions with `Tdigest` and  `pg_partman`.
+- Supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
+- Supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
 
 #### Azure Arc enabled SQL Managed Instance
 
-- Restore a database to SQL Managed Instance with three replicas and it will be automatically added to the availability group. 
-- Connect to a secondary read-only endpoint on SQL Managed Instances deployed with three replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
+`<Add release specific information>`
 
 ### Known issues
 
@@ -84,6 +81,32 @@ This section describes the new features introduced or enabled for this release.
    If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
 
 - Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
+
+## April 2021
+
+This preview release is published on April 29, 2021.
+
+### What's new
+
+This section describes the new features introduced or enabled for this release. 
+
+#### Platform
+
+- Direct connected clusters automatically upload telemetry information automatically Azure. 
+
+#### 	Azure Arc enabled PostgreSQL Hyperscale
+
+- Azure Arc enabled PostgreSQL Hyperscale is now supported in Direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure portal. 
+- Azure Arc enabled PostgreSQL Hyperscale ships with the Citus 10.0 extension which features columnar table storage
+- Azure Arc enabled PostgreSQL Hyperscale  now supports full user/role management.
+- Azure Arc enabled PostgreSQL Hyperscale  now supports additional extensions with `Tdigest` and  `pg_partman`.
+- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
+- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
+
+#### Azure Arc enabled SQL Managed Instance
+
+- Restore a database to SQL Managed Instance with three replicas and it will be automatically added to the availability group. 
+- Connect to a secondary read-only endpoint on SQL Managed Instances deployed with three replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
 
 ## March 2021
 
