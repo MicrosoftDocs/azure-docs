@@ -7,9 +7,9 @@ ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.reviewer: 
-ms.author: sstein
+author: arvindshmicrosoft 
+ms.author: arvindsh
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 

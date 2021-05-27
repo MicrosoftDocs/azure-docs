@@ -7,8 +7,9 @@ ms.subservice: elastic-pools
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
+author: arvindshmicrosoft 
+ms.author: arvindsh
+ms.reviewer: mathoma
 ms.reviewer:
 ms.date: 06/25/2019
 ---

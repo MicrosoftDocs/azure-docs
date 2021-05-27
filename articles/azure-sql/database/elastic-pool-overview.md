@@ -7,9 +7,9 @@ ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: ninarn, sstein
+author: arvindshmicrosoft 
+ms.author: arvindsh
+ms.reviewer: mathoma, sstein
 ms.date: 12/9/2020
 ---
 # Elastic pools help you manage and scale multiple databases in Azure SQL Database
