@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/29/2020
+ ms.date: 05/26/2021
  ms.author: cherylmc
  ms.custom: include file
 
@@ -28,7 +28,7 @@ Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificat
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
 
-1. Leave the PowerShell console open and proceed with the next steps to generate a client certificates.
+1. Leave the PowerShell console open and proceed with the next steps to generate a client certificate.
 
 ## <a name="clientcert"></a>Generate a client certificate
 

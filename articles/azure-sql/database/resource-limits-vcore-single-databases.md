@@ -4,13 +4,13 @@ description: This page describes some common vCore resource limits for a single 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: 
 ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 04/09/2021
+ms.date: 04/16/2021
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -473,6 +473,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size (GB)|307|307|307|307|307|307|
 |TempDB max data size (GB)|32|64|96|128|160|192|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|1356|1356|1356|1356|1356|1356|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS *|4,000|8,000|12,000|16,000|20,000|24,000|
 |Max log rate (MBps)|8|16|24|32|40|48|
@@ -499,6 +500,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size (GB)|307|307|307|307|307|307|
 |TempDB max data size (GB)|224|256|288|320|512|768|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|1356|1356|1356|1356|1356|1356|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS |28,000|32,000|36,000|40,000|64,000|76,800|
 |Max log rate (MBps)|56|64|64|64|64|64|
@@ -526,6 +528,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max data size (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Max log size (GB)|307|307|461|461|461|922|922|
 |TempDB max data size (GB)|64|128|192|256|320|384|448|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|4829|4829|4829|4829|4829|4829|4829|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS *|8000|16,000|24,000|32,000|40,000|48,000|56,000|
@@ -552,6 +555,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Max log size (GB)|922|922|922|1024|1024|1024|1024|
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|4829|4829|4829|4829|4829|4829|4829|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS *|64,000|72,000|80,000|96,000|128,000|160,000|204,800|
@@ -580,6 +584,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max data size (GB)|512|640|768|896|1024|1152|
 |Max log size (GB)|171|213|256|299|341|384|
 |TempDB max data size (GB)|256|320|384|448|512|576|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|13836|13836|13836|13836|13836|13836|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS *|12,499|15,624|18,748|21,873|24,998|28,123|
@@ -609,6 +614,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max data size (GB)|1280|1536|2048|4096|4096|
 |Max log size (GB)|427|512|683|1024|1024|
 |TempDB max data size (GB)|4096|2048|1024|768|640|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|13836|13836|13836|13836|13836|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS *|31,248|37,497|49,996|99,993|160,000|
@@ -638,6 +644,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max data size (GB)|768|768|768|768|
 |Max log size (GB)|230|230|230|230|
 |TempDB max data size (GB)|64|128|192|256|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|1406|1406|1406|1406|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS *|14000|28000|42000|44800|

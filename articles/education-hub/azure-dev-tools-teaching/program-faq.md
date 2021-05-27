@@ -17,7 +17,7 @@ This article addresses frequent questions about Azure for Students, Azure for St
 
 ### What happens after I use my $100 credit or I'm at the end of 12 months?
 
-After you exhaust your available credit or reach the end of 12 months, your Azure subscription becomes disabled. To continue using [Azure](https://account.azure.com/), you may upgrade to a pay-as-you-go subscription in the Azure Account portal. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
+After you exhaust your available credit or reach the end of 12 months, your Azure subscription becomes disabled. To continue using Azure, you may upgrade to a pay-as-you-go subscription in the Azure portal. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
 
 ### Can I get Azure for Students again next year?
 
