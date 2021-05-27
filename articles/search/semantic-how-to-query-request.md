@@ -158,7 +158,7 @@ Field order is critical because the semantic ranker limits the amount of content
 
 #### Step 3: Remove orderBy clauses
 
-Remove any orderBy clauses, if they exist in an existing request. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
+Remove any orderBy clauses from existing query code. The semantic score is used to order results, and if you include explicit sort logic, an HTTP 400 error is returned.
 
 #### Step 4: Add answers
 
@@ -168,7 +168,7 @@ Optionally, add "answers" if you want to include additional processing that prov
 "answers": "extractive|count-3",
 ```
 
-Answers (and captions) are extracted from passages found in fields listed in searchFields. This is why you want to include content-rich fields in searchFields to get the best answers in a response. Answers are not guaranteed on every request. Your content must include text that has the characteristics of an answer. For more information, see [How to return semantic answers](semantic-answers.md).
+Answers (and captions) are extracted from passages found in fields listed in searchFields. This is why you want to include content-rich fields in searchFields to get the best answers in a response. Answers are not guaranteed on every request. The query must look like a question, and the content must include text that looks like an answer. For more information, see [How to return semantic answers](semantic-answers.md).
 
 #### Step 5: Add other parameters
 
