@@ -2,7 +2,7 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 05/27/2021
 ms.custom: references_regions 
 ---
 
@@ -12,9 +12,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Disks. This ar
 
 ## Supported regions
 
-Azure Disk Backup is available in the following regions: West US, West US 2, West Central US, East US, East US2, Central US, South Central US, North Central US, Canada Central, Brazil South, South Africa North, UK South, UK West, West Europe, North Europe, Switzerland North, Switzerland West, Germany West Central, France Central, Norway East, UAE North, Australia Central, Australia Central 2, Australia East, Korea Central, Korea South, Japan East, Japan West, East Asia, Southeast Asia, Central India. 
-
-More regions will be announced when they become available.
+Azure Disk Backup is available in all public cloud regions, expect France South, South Africa West, and is currently not available in Sovereign cloud regions. These regions will be announced when they become available.
 
 ## Limitations
 
@@ -58,6 +56,12 @@ More regions will be announced when they become available.
 
 - You can delete a backup instance, which will stop the backup, and also deletes all the backup data. Currently, you can’t disable a backup, as the option **stop backup and retain backup data** isn’t supported.
 
+- Azure Disk Backup limits are:
+    <span style="font-weight:normal">Number of Backup Policies per Backup Vault</span> | <span style="font-weight:normal">5000</span>
+    ------------------------------------------ | ---- |
+    Number of Backup Instances per Backup Vault | 5000
+    Number of on-demand backups allowed in a day per backup instance | 10
+    Number of restores allowed in a day per backup instance | 10
 ## Next steps
 
 - [Back up Azure Managed Disks](backup-managed-disks.md)
