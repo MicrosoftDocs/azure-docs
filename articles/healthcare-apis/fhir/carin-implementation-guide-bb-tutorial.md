@@ -55,7 +55,7 @@ Outside of defining search parameters, the only other update you need to make to
 
 ### Sample rest file
 
-To assist with creation of these search parameters and profiles, we have a [sample http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/CB44/C4BB.http) on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone. You should get a successful run with two small warnings in the results:
+To assist with creation of these search parameters and profiles, we have a [sample http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB.http) on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone. You should get a successful run with two small warnings in the results:
 
 :::image type="content" source="media/cms-tutorials/capability-test-script-execution-results.png" alt-text="Capability test script execution results.":::
 
