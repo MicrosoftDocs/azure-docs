@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 05/27/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -17,10 +17,43 @@ ms.subservice: disks
 
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-restrictions](../../includes/virtual-machines-disks-incremental-snapshots-restrictions.md)]
 
+# [Azure CLI](#tab/azure-cli)
 
-# [PowerShell](#tab/azure-powershell)
+You can use the Azure CLI to create an incremental snapshot. You will need the latest version of the Azure CLI. See the following articles to learn how to either [install](/cli/azure/install-azure-cli) or [update](/cli/azure/update-azure-cli) the Azure CLI.
 
-You can use Azure PowerShell to create an incremental snapshot. You will need the latest version of Azure PowerShell, the following command will either install it or update your existing installation to latest:
+The following script will create an incremental snapshot of a particular disk:
+
+```azurecli
+diskName = "yourDiskNameHere"
+resourceGroupName = "yourResourceGroupNameHere"
+snapshotName = "desiredSnapshotNameHere"
+
+# get the disk you need to backup
+yourDisk = az disk show -n $diskName -g $resourceGroupName
+
+az snapshot create -g resourceGroupName -n snapshotName --source yourDisk --incremental true
+
+```
+
+
+
+$snapshots = Get-AzSnapshot -ResourceGroupName $resourceGroupName
+
+$incrementalSnapshots = New-Object System.Collections.ArrayList
+foreach ($snapshot in $snapshots)
+{
+    
+    if($snapshot.Incremental -and $snapshot.CreationData.SourceResourceId -eq $yourDisk.Id -and $snapshot.CreationData.SourceUniqueId -eq $yourDisk.UniqueId){
+
+        $incrementalSnapshots.Add($snapshot)
+    }
+}
+
+$incrementalSnapshots
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+You can use the Azure PowerShell module to create an incremental snapshot. You will need the latest version of the Azure PowerShell module. The following command will either install it or update your existing installation to latest:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
