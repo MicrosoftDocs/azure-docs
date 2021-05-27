@@ -2,10 +2,10 @@
 title: Configure Data-in Replication - Azure Database for MySQL Flexible Server
 description: This article describes how to set up Data-in Replication for Azure Database for MySQL Flexible Server.
 author: SudheeshGH
-ms.author: sunaray
+ms.author: sunaray 
 ms.service: mysql
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 05/26/2021 
 ---
 
 # How to configure Azure Database for MySQL Flexible Server Data-in Replication
@@ -41,9 +41,9 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 2. Networking Requirements 
     * Ensure that the source server allows both inbound and outbound traffic on port 3306, and that it has a **public IP address**, the DNS is publicly accessible, or that it has a fully qualified domain name (FQDN).
 
-    * If you are using private access, make sure that you have connectivity between Source server and the Vnet in which the replica server is hosted. 
+    * If private access is in use, make sure that you have connectivity between Source server and the Vnet in which the replica server is hosted. 
     * Make sure we provide site-to-site connectivity to your on-premises source servers by using either  [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
-    * If you are using private access in replica server and your source is Azure VM make sure that VNet to VNet connectivity is established. VNet-Vnet peering within regions is supported.**Global peering is not currently supported.** You would have to use other connectivity methods to communicate between VNets across different regions like VNet to VNet Connection. For more details you can refer to [VNet-to-VNet VPN gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+    * If private access is used in replica server and your source is Azure VM make sure that VNet to VNet connectivity is established. VNet-Vnet peering within regions is supported.**Global peering is not currently supported.** You would have to use other connectivity methods to communicate between VNets across different regions like VNet to VNet Connection. For more information you can, see [VNet-to-VNet VPN gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
     * Ensure that your virtual network Network Security Group rules don't block the outbound port 3306.(Also inbound if the MySQL is running on Azure VM).For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
     * Configure your source server's firewall rules to allow the replica server IP address on port 3306.
 
