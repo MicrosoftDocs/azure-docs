@@ -34,6 +34,9 @@ The ability to search for existing guest users in the SharePoint Online (SPO) pe
 
 You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. You can set the feature using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.
 
+## My guest invite settings and domain restrictions aren't being respected by SharePoint Online/OneDrive
+
+By default, SharePoint Online and OneDrive have their own set of external user options and do not use the settings from Azure AD.  You need to enable [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview) to ensure the options are consistent among those applications.
 ## Invitations have been disabled for directory
 
 If you are notified that you do not have permissions to invite users, verify that your user account is authorized to invite external users under Azure Active Directory > User settings > External users > Manage external collaboration settings:
@@ -57,6 +60,14 @@ When inviting users whose organization is using Azure Active Directory, but wher
 If you are using federation authentication and the user does not already exist in Azure Active Directory, the user cannot be invited.
 
 To resolve this issue, the external user’s admin must synchronize the user’s account to Azure Active Directory.
+
+## I can't invite an email address because of a conflict in proxyAddresses
+
+This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) object, and also delete the associated [contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) object before trying to invite this email again.
+
+## The guest user object doesn't have a proxyAddress
+
+When inviting an external guest user, sometimes this will conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true). When this occurs, the guest user is created without a proxyAddress. This means that the user will not be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
 
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 

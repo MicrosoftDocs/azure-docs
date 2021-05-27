@@ -50,7 +50,7 @@ Create, read, update, and delete sign-up user flow |External ID User Flow Admini
 Create, read, update, and delete user attributes | External ID User Flow Attribute Administrator | 
 Create, read, update, and delete users | User Administrator
 Read all configuration | Global reader | 
-Read B2C audit logs | Global reader ([see documentation](../../active-directory-b2c/faq.md)) | 
+Read B2C audit logs | Global reader ([see documentation](../../active-directory-b2c/faq.yml)) | 
 
 > [!NOTE]
 > Azure AD B2C Global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
