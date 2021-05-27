@@ -22,6 +22,12 @@ Resource Manager provides the following functions for getting scope values in yo
 
 Returns an object used for setting the scope to a management group.
 
+### Remarks
+
+`managementGroup()` can only be used on a [management group deployments](deploy-to-management-group.md). It returns the current management group for the deployment operation.
+
+`managementGroup(name)` can be used for any deployment scope.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -31,12 +37,6 @@ Returns an object used for setting the scope to a management group.
 ### Return value
 
 An object used for setting the `scope` property on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md).
-
-### Remarks
-
-`managementGroup()` can only be used on a [management group deployments](deploy-to-management-group.md). It returns the current management group for the deployment operation.
-
-`managementGroup(name)` can be used for any deployment scope.
 
 ### Management group example
 
@@ -82,7 +82,9 @@ The resourceGroup function has two distinct uses. One usage is for setting the s
 
 ### Return value
 
-The returned object is in the following format:
+When used for setting scope, the function returns an object that is valid for the `scope` property on a module or extension resource type.
+
+When used for getting details about the resource group, the function returns the following format:
 
 ```json
 {
@@ -208,13 +210,13 @@ output subscriptionOutput object = subscription()
 
 Returns an object used for setting the scope to the tenant.
 
-### Return value
-
-An object used for setting the `scope` property on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md).
-
 ### Remarks
 
 `tenant()` can be used with any deployment scope. It always returns the current tenant.
+
+### Return value
+
+An object used for setting the `scope` property on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md).
 
 ### Tenant example
 
