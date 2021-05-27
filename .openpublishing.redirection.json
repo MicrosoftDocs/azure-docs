@@ -66141,6 +66141,11 @@
       "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
       "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
+      "redirect_url": "/articles/virtual-desktop/teams-on-avd.md",
+      "redirect_document_id": false
     }
   ]
 }
