@@ -45,4 +45,4 @@ To enable this solution, you need to understand the following key aspects:
 Learn about available SKUs for HANA Large Instances.
 
 > [!div class="nextstepaction"]
-> [Available SKUs for HLI](hana-available-skus.md?context=/azure/baremetal-infrastructure/workloads/sap/context/context)
+> [Available SKUs for HLI](hana-available-skus.md)

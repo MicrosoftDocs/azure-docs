@@ -122,4 +122,4 @@ There are significant differences between running SAP HANA on HANA Large Instanc
 Learn about sizing for HANA Large Instances.
 
 > [!div class="nextstepaction"]
-> [HLI Sizing](hana-sizing.md?toc=/azure/baremetal-infrastructure/toc.json&bc=/azure/baremetal-infrastructure/breadcrumbs/toc.json)
+> [HLI Sizing](hana-sizing.md)
