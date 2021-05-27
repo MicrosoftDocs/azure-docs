@@ -1,0 +1,59 @@
+---
+title: ND A100 v4-series 
+description: Specifications for the ND A100 v4-series VMs.
+author: iafinder
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.topic: conceptual
+ms.date: 02/03/2020
+ms.author: iafinder
+---
+
+# ND A100 v4-series
+
+The ND A100 v4 Series virtual machine is a new addition to the Azure GPU family specifically designed for high-end Deep Learning Training, traditional ML and analytics, and tightly-coupled scale-up and scale-out GPU-accelerated HPC workloads. 
+
+The series starts with a single virtual machine (VM) and eight NVIDIA Ampere A100 Tensor Core GPUs, but ND A100 v4-based clusters can scale up to thousands of GPUs with an 1.6 Tb/s of interconnect bandwidth per VM, as each GPU within the VM is provided with its own dedicated topology-agnostic 200 Gb/s NVIDIA Mellanox HDR InfiniBand connection, which are automatically connected between VMs occupying the same Virtual Machine Scale Set (VMSS).
+
+Each ND A100 v4 is powered by 8 NVIDIA A100 NVLINK 3.0-connected GPUs, each with 40 GB of GPU memory. Each ND A100 v4 VM also has 96 non-HyperThreaded 2nd-Generation AMD Epyc CPU cores.
+
+These instances provide excellent performance for HPC and AI workloads utilizing CUDA GPU-optimized computation kernels, and the many AI, ML, and analytics tools that support GPU acceleration 'out-of-box,' such as TensorFlow, Pytorch, Caffe, RAPIDS, and other frameworks. Additionally, the scale-out InfiniBand interconnect is supported by the large set of existing GPU and HPC tools built on NVIDIA's NCCL2 (NVIDIA Collective Communication Library) for seamless clustering of GPUs.
+
+> [!IMPORTANT]
+> To get started with ND A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](./workloads/hpc/configure.md) for steps including driver and network configuration.
+> Due to increased GPU memory I/O footprint, the ND A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9 images are supported.
+> 
+
+<br>
+
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disk): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+InfiniBand: Supported, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
+Nvidia NVLink Interconnect: Supported<br>
+<br>
+
+| Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 A100 40 GB GPUs (NVLink 3.0) | 40 | 32 | 80000 / 800 | 24000 Mbps | 8 |
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+
+## Other sizes
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+## Next steps
+
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
