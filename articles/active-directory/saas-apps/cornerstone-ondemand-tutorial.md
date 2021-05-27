@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to integrate Cornerstone Single Sign-On with 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Cornerstone singlesign-on (SSO) enabled subscription.
+* Cornerstone single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
