@@ -13,5 +13,5 @@ ms.author: larryfr
 >
 > For more information on installing and using the different extensions, see the following articles:
 > 
-> * `azure-cli-ml` - [Install and use the Azure CLI](reference-azure-machine-learning-cli.md)
-> * `ml` - [Install and setup the 2.0 CLI](how-to-configure-cli.md)
+> * `azure-cli-ml` - [Install and use the Azure CLI](../../articles/machine-learning/reference-azure-machine-learning-cli.md)
+> * `ml` - [Install and setup the 2.0 CLI](../../articles/machine-learning/how-to-configure-cli.md)
