@@ -50,4 +50,4 @@ This article lists the curated environments in Azure Machine Learning. Curated e
      - Ubuntu version: 18.04
 
 ## Inference only curated environments and prebuilt docker images
-- Read about inference only curated environments and MCR path for prebuilt docker images, see this [article](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference).
+- Read about inference only curated environments and MCR path for prebuilt docker images, see [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference).
