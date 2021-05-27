@@ -18,25 +18,26 @@ The Azure Web PubSub service is in public preview state and not committed SLA.
 
 ## How do I choose between Azure SignalR Service and Azure Web PubSub service?
 
-Both [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) and [Azure Web PubSub service](https://azure.microsoft.com/services/web-pubsub) help customers build real-time web applications easily with large scale and high availability and enable customers to focus on their business logic instead of managing the messaging infrastructure. In general, you may choose Azure SignalR Service if you already use SignalR library to build real-time application. Instead, if you're looking for a generic solution to build real-time application based on WebSocket and publish-subscribe pattern, you may choose Azure Web PubSub service. The Azure Web PubSub service is **not** a replacement for Azure SignalR Service. They're targeting different scenarios.
+Both [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) and [Azure Web PubSub service](https://azure.microsoft.com/services/web-pubsub) help customers build real-time web applications easily with large scale and high availability and enable customers to focus on their business logic instead of managing the messaging infrastructure. In general, you may choose Azure SignalR Service if you use SignalR library to build real-time application. Instead, if you're looking for a generic solution to build real-time application based on WebSocket and publish-subscribe pattern, you may choose Azure Web PubSub service. The Azure Web PubSub service is **not** a replacement for Azure SignalR Service. They're targeting different scenarios.
 
 Azure SignalR Service is more suitable if:  
 
-- You're already using ASP.NET or ASP.NET Core SignalR, or primarily using .NET. 
+- You're using ASP.NET or ASP.NET Core SignalR, or primarily using .NET. 
 - There's a SignalR client available for your platform. 
 - You need an established protocol that supports a wide variety of calling patterns (RPC and streaming), transports (WebSocket, server sent events, and long polling) and with a client that manages the connection lifetime on your behalf. 
 
 Azure Web PubSub service is more suitable for situations where:  
 
-- You need to build real-time applications based on WebSocket technology or publish-subscribe over WebSocket.- You want to build your own subprotocol or use existing advanced protocols over WebSocket (for example, MQTT, AMQP over WebSocket). 
-- You're looking for a lightweight server, for example, send messages to client going to without configured backend.  
+- You need to build real-time applications based on WebSocket technology or publish-subscribe over WebSocket.
+- You want to build your own subprotocol or use existing advanced protocols over WebSocket (for example, MQTT, AMQP over WebSocket). 
+- You're looking for a lightweight server, for example, sending messages to client without going through the configured backend.  
 
 ## What's the major feature differences between Azure SignalR Service and Azure Web PubSub service? 
 
 | | Azure SignalR Service | Azure Web PubSub service |
 |:-------------------|:-------------------|:-------------------|
-| **Protocol** | <ul><li>Support automatic fallback</li><li>Support a wide variety of calling patterns (RPC and streaming)</li></ul> | <ul><li>Support the WebSocket protocol</li><li>Provide predefined subprotocol</li><li>Support custom WebSocket subprotocols</li></ul> |
-| **Messaging** | <ul><li>Support Bi-directional messaging</li><li>Support `Group`, `User`, and `Connection`</li></ul> | <ul><li>Support Bi-directional messaging</li><li>Support `Group`, `User`, and `Connection`</li><li>Support PubSub client based on predefined subprotocol to simplify the messaging routing between clients</li></ul> |
+| **Protocol** | <ul><li>Support automatic fallback</li><li>Support a wide variety of calling patterns (RPC and streaming)</li></ul> | <ul><li>Support the WebSocket protocol</li><li>Support custom WebSocket subprotocols</li></ul> |
+| **Messaging** | <ul><li>Support Bi-directional messaging</li><li>Support `Group`, `User`, and `Connection`</li></ul> | <ul><li>Support Bi-directional messaging</li><li>Support `Group`, `User`, and `Connection`</li><li>Support PubSub client based on [json.webpubsub.azure.v1 subprotocol](https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol) to simplify the messaging routing between clients</li></ul> |
 | **Connection Management** | <ul><li>The SignalR protocol manages the connection lifetime, for example, making sure connection stays alive by sending pings back and forth</li></ul> | <ul><li>You manage the connection lifetime.</li></ul> |
 | **Client Platform** | <ul><li>C#, Java, JavaScript, and Python</li><li>Third-party library from community, like Swift </li></ul> | <ul><li>Supports any programming languages with WebSocket support</li></ul> |
 
