@@ -24,7 +24,7 @@ Server Trust Group is a concept used for managing trust between Azure SQL Manage
 
 ## Server Trust Group setup
 
-Server Trust Group can be setup via [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservertrustgroup) or [Azure CLI](https://docs.microsoft.com/cli/azure/sql/stg). 
+Server Trust Group can be setup via [Azure PowerShell](/powershell/module/az.sql/new-azsqlservertrustgroup) or [Azure CLI](https://docs.microsoft.com/cli/azure/sql/stg). 
 The following section describes setup of Server Trust Group using Azure portal.
 
 1. Go to the [Azure portal](https://portal.azure.com/).
