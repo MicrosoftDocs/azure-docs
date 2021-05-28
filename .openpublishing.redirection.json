@@ -5699,6 +5699,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/scale-out-postgresql-hyperscale-server-group.md",
+      "redirect_url": "/azure/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/known-issues.md",
       "redirect_url": "/azure/azure-arc/data/release-notes",
       "redirect_document_id": false
