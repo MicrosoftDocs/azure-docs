@@ -58,7 +58,7 @@ For other application stacks (Node.js, PHP, etc.), the client cert is available 
 
 ## ASP.NET 5+, ASP.NET Core 3.1 sample
 
-For ASP.NET Core, a middleware is provided to parse forwarded certificates. A seperate middleware is provided to use the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. Custom certificate validation logic can be placed in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth).
+For ASP.NET Core, middleware is provided to parse forwarded certificates. Separate middleware is provided to use the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. You can place custom certificate validation logic in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth).
 
 ```csharp
 public class Startup
