@@ -26,7 +26,11 @@ This is the latest preview release.
 
 #### Platform
 
-- 	You can delete Azure Arc enabled SQL Managed Instances or PostgreSQL Hyperscale groups from the portal on a data controller that is directly connected to Azure.
+- All create, read, update, & delete (CRUD) operations for data Controller, Managed Instance, and PostgreSQL group in direct connected mode are only available from Azure portal, for this release. CRUD operations using `azdata` are blocked. You can still use `kubectl` to create resources directly on the kubernetes cluster, however 
+- Validation rules when deleting Azure Arc data services. For instance, alerting when attempting to delete the data controller when there are SQL managed instances deployed using the Data controller
+- Support for custom configuration profiles to support custom configuration settings when deploying Arc data controller
+- Upload your logs to Azure Log analytics workspace
+
 
 #### 	Azure Arc enabled PostgreSQL Hyperscale
 
@@ -39,7 +43,7 @@ This release introduces the following features or capabilities:
 
 #### Azure Arc enabled SQL Managed Instance
 
-`<Add release specific information>`
+- Configure an Arc enabled SQL managed instance as a DEV instance that doesn’t incur billing.
 
 ### Known issues
 
