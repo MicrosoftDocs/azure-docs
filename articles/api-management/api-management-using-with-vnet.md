@@ -6,7 +6,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 05/28/2021
 ms.author: apimpm
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -256,6 +256,7 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 | Azure Public| Central US| 13.86.102.66|
 | Azure Public| Australia East| 20.40.125.155|
 | Azure Public| West US 2| 51.143.127.203|
+| Azure Public| West US 3| 20.150.167.160|
 | Azure Public| East US 2 EUAP| 52.253.229.253|
 | Azure Public| Central US EUAP| 52.253.159.160|
 | Azure Public| South Central US| 20.188.77.119|
