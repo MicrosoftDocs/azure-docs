@@ -122,11 +122,25 @@ Property accessors can be used with any object. This includes parameters and var
 
 ## Strings
 
-In Bicep, strings are marked with singled quotes.
+In Bicep, strings are marked with singled quotes,and must be declared on a single line. All Unicode characters with codepoints between 0 and 10FFFF are allowed.
 
 ```bicep
 param exampleString string = 'test value'
 ```
+
+The following table lists the set of reserved characters which must be escaped by a backslash (`\`) character:
+| Escape Sequence | Represented value | Notes |
+|:-|:-|:-|
+| `\\` | `\` ||
+| `\'` | `'` ||
+| `\n` | line feed (LF) ||
+| `\r` | carriage return (CR) ||
+| `\t` | tab character ||
+| `\u{x}` | Unicode code point `x` | `x` represents a hexadecimal codepoint value between `0` and `10FFFF` (both inclusive). Leading zeros are allowed. Codepoints above `FFFF` are emitted as a surrogate pair.
+| `\$` | `$` | Only needs to be escaped if it is followed by `{` |
+
+All strings in Bicep support interpolation. To inject an expression, surround it by `${` and `}`. Expressions that are referenced cannot span multiple lines.
+
 
 ## Secure strings and objects
 
