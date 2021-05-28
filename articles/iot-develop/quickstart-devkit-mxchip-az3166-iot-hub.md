@@ -95,7 +95,7 @@ To create an IoT hub:
     > [!NOTE] 
     > You can optionally set an alternate `location`. To see available locations, run [az account list-locations](/cli/azure/account#az-account-list-locations). For this tutorial we recommend using `centralus` as in the example CLI command. The IoT Plug and Play feature that you use later in the tutorial, is currently only available in three regions, including `centralus`.
 
-    ```shell
+    ```azurecli-interactive
     az group create --name MyResourceGroup --location centralus
     ```
 
@@ -103,7 +103,7 @@ To create an IoT hub:
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this tutorial to represent your unique IoT hub name.
 
-    ```shell
+    ```azurecli-interactive
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
 
@@ -123,7 +123,7 @@ To register a device:
 
     *MyMXCHIPDevice*. You can use this name directly for the device in CLI commands in this tutorial. Optionally, use a different name.
 
-    ```shell
+    ```azurecli-interactive
     az iot hub device-identity create --device-id MyMXCHIPDevice --hub-name {YourIoTHubName}
     ```
 
@@ -258,7 +258,7 @@ To add a connection to your IoT hub:
 
 1. In your CLI app, run the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string for your IoT hub.
 
-    ```shell
+    ```azurecli-interactive
     az iot hub show-connection-string --name {YourIoTHubName}
     ```
 
@@ -284,7 +284,7 @@ To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show) command.
 
-    ```shell
+    ```azurecli-interactive
     az iot hub device-identity show --device-id MyMXCHIPDevice --hub-name {YourIoTHubName}
     ```
 
@@ -311,7 +311,7 @@ To use Azure CLI to view device telemetry:
 
 1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
-    ```shell
+    ```azurecli-interactive
     az iot hub monitor-events --device-id MyMXCHIPDevice --hub-name {YourIoTHubName}
     ```
 
@@ -350,10 +350,9 @@ To use Azure CLI to call a method:
 
 1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az_iot_hub_invoke_device_method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
 
-    <!-- Inline code tag and CSS to wrap long code lines. -->
-    <code style="white-space : pre-wrap !important;">
+    ```azurecli-interactive
     az iot hub invoke-device-method --device-id MyMXCHIPDevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
-    </code>
+    ```
 
     The CLI console shows the status of your method call on the device, where `204` indicates success.
 
@@ -397,13 +396,15 @@ To delete a resource group by name:
 
 1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This removes the resource group, the IoT Hub, and the device registration you created.
 
-    ```shell
+    ```azurecli-interactive
+    
+    ```
     az group delete --name MyResourceGroup
     ```
 
 1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
 
-    ```shell
+    ```azurecli-interactive
     az group list
     ```
 
