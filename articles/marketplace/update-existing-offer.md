@@ -136,7 +136,7 @@ After you stop selling an offer or plan, you'll still see it in Partner Center w
 
 To remove offers from existing customers, [log a support request](https://aka.ms/marketplacepublishersupport). In the support topic list, select **Commercial Marketplace** > **Offer or App Delisting, Removal, or Termination** and submit the request. The support team will guide you through the offer removal process.
 
-When the offer removal is initiated by the ISV, the ISV owns communication of the removal to the customer.
+When the offer removal is initiated by the publisher, the publisher owns communication of the removal to the customer.
 
 ## Next steps
 

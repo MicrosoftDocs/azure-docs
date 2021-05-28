@@ -117,7 +117,7 @@ Depending on your product's delivery model, a subscription to Azure Cloud Servic
 
 Commercial marketplace publishers are responsible for supporting their software, and Microsoft is responsible for supporting the purchase, billing, payments, and subscription management experiences.
 
-When the offer removal is initiated by the ISV, the ISV owns communication of the removal to the customer.
+When the offer removal is initiated by the publisher, the publisher owns communication of the removal to the customer.
 
 ### What's the process of validating the end-to-end purchase and setup flow?
 
