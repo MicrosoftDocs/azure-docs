@@ -10,7 +10,8 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.author: ambapat
+ms.author: ambapat 
+ms.custom: devx-track-azurepowershell
 
 ---
 
