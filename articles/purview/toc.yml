@@ -20,7 +20,7 @@ items:
     href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
-- name: Onboarding Data Sources at scale
+- name: Onboarding Azure Data Sources at scale
     items:
     - name: Data Sources Readiness Check at Scale
       href: tutorial-data-sources-readiness.md
