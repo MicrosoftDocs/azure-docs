@@ -7,7 +7,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 07/17/2020
+ms.date: 05/28/2021
 ---
 # What's new in Personalizer
 
