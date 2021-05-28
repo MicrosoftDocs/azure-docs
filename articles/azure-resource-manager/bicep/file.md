@@ -1,10 +1,8 @@
 ---
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 06/01/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -63,7 +61,21 @@ module <module-symbolic-name> '<path-to-file>' = [for <item> in <collection>: {
   }
 }]
 
+// deploy to different scope
+module <module-symbolic-name> '<path-to-file>' = {
+  name: '<linked-deployment-name>'
+  scope: <scope-object>
+  params: {
+    <parameter-names-and-values>
+  }
+}
+
 output <output-name> <output-data-type> = <output-value>
+
+// iterative output
+output <output-name> array = [for <item> in <collection>: {
+  <output-properties>
+}]
 ```
 
 The following example shows an implementation of these elements.
@@ -111,6 +123,8 @@ The allowed values are:
 * **subscription** - used for [subscription deployments](deploy-to-subscription.md).
 * **managementGroup** - used for [management group deployments](deploy-to-management-group.md).
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
+
+In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#configure-module-scopes)
 
 ## Parameters
 
