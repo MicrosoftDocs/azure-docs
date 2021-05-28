@@ -115,6 +115,30 @@ In this case, you can use the [Reset Skills](/rest/api/searchservice/preview-api
 
 [Reset of an indexer](/rest/api/searchservice/reset-indexer) will result in all documents in the search corpus being reprocessed. In scenarios where only a few documents need to be reprocessed, and the data source cannot be updated, use [Reset Documents (preview)](/rest/api/searchservice/preview-api/reset-documents) to force reprocessing of specific documents. When a document is reset, the indexer invalidates the cache for that document and the document is reprocessed by reading it from the data source. For more information, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
 
+To reset specific documents, the request payload contains a list of document keys as read from the index. Depending on how you call the API, the request will either append, overwrite, or queue up the key list:
+
++ Calling the API multiple times with different keys appends the new keys to the list of document keys reset. 
+
++ Calling the API with the `overwrite` querystring parameter set to true will overwrite the current list of document keys to be reset with the request's payload.
+
++ Calling the API only results in the document keys being added to the queue of work the indexer performs. When the indexer is next invoked, either as scheduled or on demand, it will prioritize processing the reset document keys before any other changes from the data source.
+
+The following example illustrates a reset document request:
+
+```http
+POST https://[search service name].search.windows.net/indexers/[indexer name]/resetdocs?api-version=2020-06-30-Preview
+Content-Type: application/json
+api-key: [admin key]
+
+{
+    "documentKeys" : [
+        "key1",
+        "key2",
+        "key3"
+    ]
+}
+```
+
 ## Change detection
 
 Once you enable a cache, the indexer evaluates changes in your pipeline composition to determine which content can be reused and which needs reprocessing. This section enumerates changes that invalidate the cache outright, followed by changes that trigger incremental processing. 
