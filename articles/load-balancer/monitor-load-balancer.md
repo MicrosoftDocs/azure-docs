@@ -277,9 +277,6 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 ## Analyzing logs
 
-<!-- REQUIRED. Please keep headings in this order
-If you don't support resource logs, say so. Some services may be only onboarded to metrics and the activity log. -->
-
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for [service name] resource logs is found in the [Load Balancer Data Reference](monitor-load-balancer-reference.md#schemas) 
@@ -290,30 +287,14 @@ For a list of the types of resource logs collected for Load Balancer, see [Monit
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md##azure-monitor-logs-tables)  
 
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
-
 ### Sample Kusto queries
 
-<!-- REQUIRED if you support logs. Please keep headings in this order -->
-<!-- Add sample Log Analytics Kusto queries for your service. -->
+> [!NOTE]
+> There is currently an issue with Kusto queries that prevents data from being retrieved from load balancer logs.
 
-> [!IMPORTANT]
-> When you select **Logs** from the Load Balancer menu, Log Analytics is opened with the query scope set to the current [Service resource]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
-<!-- REQUIRED: Include queries that are helpful for figuring out the health and state of your service. Ideally, use some of these queries in the alerts section. It's possible that some of your queries may be in the Log Analytics UI (sample or example queries). Check if so.  -->
-
-Following are queries that you can use to help you monitor your Load Balancer resource. 
-
-<!-- Put in a code section here. -->  
-```Kusto
-   
-```
 
 ## Alerts
-
-<!-- SUGGESTED: Include useful alerts on metrics, logs, log conditions or activity log. Ask your PMs if you don't know. 
-This information is the BIGGEST request we get in Azure Monitor so do not avoid it long term. People don't know what to monitor for best results. Be prescriptive  
--->
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks
 
@@ -322,14 +303,14 @@ If you are creating or running an application which run on Load Balancer [Azure 
 
 The following table lists common and recommended alert rules for Load Balancer.
 
-<!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| | | |
-| | | |
+| Load balancing rule unavailable due to unavailable VMs | If data path availability split by Frontend IP address and Frontend Port (all known and future values) is equal to zero and health probe status is equal to zero then fire alerts | This alert determines if the data path availability for any configured load balancing rules is not servicing traffic due to all VMs in the associated backend pool being probed down by the configured health probe. Review load balancer [troubleshooting guide](load-balancer-troubleshoot.md) to investigate the potential root cause. |
+| VM availability significantly low | If health probe status split by Backend IP and Backend Port is equal to user defined probed-up percentage of total pool size (i.e. 25% are probed up) then fire alert | This alert determines if there are less than needed VMs available to serve traffic |
+| Outbound connections to internet endpoint failing | If SNAT Connection Count filtered to Connection State = Failed is greater than zero then fire alert | This alert fires when SNAT ports are exhausted and VMs are failing to initiate outbound connections. |
+| Approaching SNAT exhaustion | If Used SNAT Ports is greater than user defined number then fire alert | This alert requires a static outbound configuration where the same number of ports are always allocated. It then fires when a percentage of the allocated ports are used. |
 
 ## Next steps
 
-- See [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
-*>.
+- See [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md) for a reference of the metrics, logs, and other important values created by load balancer.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
