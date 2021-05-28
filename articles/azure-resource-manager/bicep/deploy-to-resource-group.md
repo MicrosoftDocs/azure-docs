@@ -89,9 +89,9 @@ For an example template, see [Deploy to target resource group](#deploy-to-target
 
 ### Scope to different resource group
 
-To deploy resources to a resource group that isn't the target resource group, add a [module](modules.md). Use the resourceGroup function to set the `scope` property for that module. 
+To deploy resources to a resource group that isn't the target resource group, add a [module](modules.md). Use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set the `scope` property for that module. 
 
-If the resource group is in a different subscription, provide the subscription ID and the name of the resource group. If the resource group is in the same subscription as the current deployment, provide only the name of the resource group. If you don't specify a subscription in the resourceGroup function, the current subscription is used. 
+If the resource group is in a different subscription, provide the subscription ID and the name of the resource group. If the resource group is in the same subscription as the current deployment, provide only the name of the resource group. If you don't specify a subscription in the [resourceGroup function](bicep-functions-scope.md#resourcegroup), the current subscription is used. 
 
 The following example shows a module that targets a resource group in a different subscription.
 
@@ -122,7 +122,7 @@ For an example template, see [Deploy to multiple resource groups](#deploy-to-mul
 
 ### Scope to subscription
 
-To deploy resources to a subscription, add a module. Use the subscription function to set its `scope` property. 
+To deploy resources to a subscription, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set its `scope` property. 
 
 To deploy to the current subscription, use the subscription function without a parameter. 
 
@@ -151,7 +151,7 @@ For an example template, see [Create resource group](#create-resource-group).
 
 ### Scope to tenant
 
-To create resources at the tenant, add a module. Use the tenant function to set its `scope` property.
+To create resources at the tenant, add a module. Use the [tenant function](bicep-functions-scope.md#tenant) to set its `scope` property.
 
 The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
@@ -299,6 +299,6 @@ resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
 
 To learn about other scopes, see:
 
-* [subscription deployments](deploy-to-subscription.md)
-* [management group deployments](deploy-to-management-group.md)
-* [tenant deployments](deploy-to-tenant.md)
+* [Subscription deployments](deploy-to-subscription.md)
+* [Management group deployments](deploy-to-management-group.md)
+* [Tenant deployments](deploy-to-tenant.md)
