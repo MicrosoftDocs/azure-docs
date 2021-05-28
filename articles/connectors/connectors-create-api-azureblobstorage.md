@@ -179,6 +179,9 @@ You can put the storage account in an Azure virtual network that you manage, and
 
 To give Microsoft trusted services access to a storage account through a firewall, you can set up an exception on that storage account for those services. This solution permits Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts behind firewalls as trusted services. Specifically, for a logic app in global multi-tenant Azure to access these storage accounts, you first [enable managed identity support](../logic-apps/create-managed-service-identity.md) on the logic app. Then, you use the HTTP action or trigger in your logic app and [set their authentication type to use your logic app's managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). For this scenario, you can use *only* the HTTP action or trigger.
 
+> [!NOTE]
+> If you choose to use managed identity to connect to your storage account, then you will not be able to use the built-in Azure Blob Storage connector. You will have to use an HTTP action with the managed identity configured as the authentication for this scenario to work. 
+
 To set up the exception and managed identity support, follow these general steps:
 
 1. On your storage account, under **Settings**, select **Firewalls and virtual networks**. Under **Allow access from**, select the **Selected networks** option so that the related settings appear.
