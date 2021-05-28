@@ -6,7 +6,7 @@ services: sql-database
 ms.service: sql-db-mi
 ms.subservice: data-movement
 author: stevestein
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-azurepowershell
 ms.author: sstein
 ms.reviewer: 
 ms.date: 01/11/2021

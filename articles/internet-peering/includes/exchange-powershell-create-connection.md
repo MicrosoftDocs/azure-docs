@@ -7,7 +7,8 @@ author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: prmitiki 
+ms.custom: devx-track-azurepowershell
 ---
 
 The following example shows how to create an Exchange connection at Equinix Internet Exchange in Seattle. If you're using a different provider and different settings, substitute that information when you make your request.
