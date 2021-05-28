@@ -281,7 +281,7 @@ Though passwordless authentication is a lightweight feature with minimal impact 
 Rolling back requires the administrator to sign in to the Azure Active Directory portal, select the desired strong authentication methods, and change the enable option to **No**. This process turns off the passwordless functionality for all users.
 
 Users that have already registered FIDO2 security devices are prompted to use the security device at their next sign-in, and then see the following error:
-
+  
 ![choose a different way to sign in](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
 ## Deploy and troubleshoot passwordless authentication

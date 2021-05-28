@@ -78,6 +78,8 @@
       href: ha-setup-with-stonith.md
     - name: OS Backup
       href: large-instance-os-backup.md
+    - name: OS Backup HLI TYPE - 2
+      href: os-backup-hli-type-ii-skus.md
     - name: Azure Large Instances high availability for SAP on RHEL
       href: large-instance-high-availability-rhel.md
     - name: Enable Kdump for HANA Large Instances

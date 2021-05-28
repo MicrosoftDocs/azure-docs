@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 05/28/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -18,9 +18,6 @@ zone_pivot_groups: b2c-policy-type
 # Set up a force password reset flow in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
-
-> [!IMPORTANT]
-> Force password reset is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Overview
 As an administrator, you can [reset a user's password](manage-users-portal.md#reset-a-users-password) if the user forgets their password. Or you would like to force them to reset the password. In this article, you'll learn how to force a password reset in these scenarios.
@@ -53,7 +50,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 1. Select **User flows**.
 1. Select the sign-up and sign-in, or sign-in user flow (of type **Recommended**) that you want to customize.
 1. In the left menu under **Settings**, select **Properties**.
-1. Under **Password complexity**, select **Forced password reset**.
+1. Under **Password configuration**, select **Forced password reset**.
 1. Select **Save**.
 
 ### Test the user flow
@@ -75,7 +72,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ::: zone pivot="b2c-custom-policy"
 
-This feature is currently only available for User Flows. For setup steps, choose **User Flow** above.
+This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon).
 
 ::: zone-end
 

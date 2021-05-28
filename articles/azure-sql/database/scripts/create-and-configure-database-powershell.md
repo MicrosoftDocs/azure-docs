@@ -4,7 +4,7 @@ description: Use an Azure PowerShell example script to create a single database 
 services: sql-database
 ms.service: sql-database
 ms.subservice: deployment-configuration
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: MashaMSFT

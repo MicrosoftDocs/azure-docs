@@ -1,6 +1,6 @@
 ---
-title: How to sell your SaaS offer in Microsoft Partner Center
-description: Learn about the co-sell with Microsoft and resell through Cloud Solution Providers (CSP) program options for your software as a service (SaaS) offer in the Microsoft commercial marketplace.
+title: Sell a SaaS offer in Azure Marketplace
+description: Learn about the co-sell with Microsoft and resell through Cloud Solution Providers (CSP) program options for your software as a service (SaaS) offer in Azure Marketplace.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ---
 
-# How to sell your SaaS offer
+# Sell a SaaS offer through Microsoft
 
 This article describes additional options you can choose if you’re selling your software as a service (SaaS) offer through Microsoft. You can co-sell your offer with Microsoft, resell it through the [Cloud Solution Providers (CSP) program](cloud-solution-providers.md), or both.
 
