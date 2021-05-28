@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: paolamvhz
+author: pvicencio
 manager: ankita
 
 ms.service: azure-communication-services
@@ -54,15 +54,17 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 </dependency>
 ```
 
-### Set up the app framework
-
+In this quick start, NettyAsyncHttpClient is used as default HttpClient. Add the following dependency element to the group of dependencies.
+  
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
-    <artifactId>azure-core</artifactId>
-    <version>1.16.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
+    <artifactId>azure-core-http-netty</artifactId>
+    <version>1.8.0</version>
 </dependency>
 ```
+
+### Set up the app framework
 
 Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, add import directives and remove the `System.out.println("Hello world!");` statement:
 
@@ -116,7 +118,7 @@ SmsClient smsClient = new SmsClientBuilder()
 You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key.
 ```java
 // You can find your connection string from your resource in the Azure portal
-String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
+String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
 
 SmsClient smsClient = new SmsClientBuilder()
             .connectionString(connectionString)
