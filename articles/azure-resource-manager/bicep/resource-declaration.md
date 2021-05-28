@@ -171,6 +171,12 @@ While you may be inclined to use `dependsOn` to map relationships between your r
 
 Even though explicit dependencies are sometimes required, the need for them is rare. In most cases you have a symbolic reference available to imply the dependency between resources. If you find yourself using dependsOn you should consider if there is a way to get rid of it.
 
+### Visualize dependencies
+
+Visual Studio Code provides a tool for visualizing the dependencies. Open a Bicep file in Visual Studio Code, and then select the visualizer button on the upper left corner.  The following screenshot shows the dependencies of a visual machine resource that are defined in the Bicep file.
+
+:::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Screenshot of Visual Studio Code Bicep resource visualizer":::
+
 ## Reference existing resources
 
 You can add references and access runtime properties from resources outside of the current file by using the `existing` keyword in a resource declaration. This is equivalent to using the ARM Template [reference() function](../templates/template-functions-resource.md#reference).
