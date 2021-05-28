@@ -4,7 +4,7 @@ description: A brief overview of which locations Windows Virtual Desktop's data 
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 05/20/2021
+ms.date: 05/28/2021
 ms.author: helohr
 manager: femila
 ---
@@ -32,14 +32,14 @@ The service doesn't directly store any user or app-related information, but it d
 
 Windows Virtual Desktop gathers service-generated diagnostic data whenever the customer or user interacts with the service. This data is only used for troubleshooting, support, and checking the health of the service in aggregate form. For example, from the session host side, when a VM registers to the service, we generate information that includes the virtual machine (VM) name, which host pool the VM belongs to, and so on. This information is stored in the geography associated with the region the host pool is created in. Also, when a user connects to the service and launches a remote desktop, we generate diagnostic information that includes the user principal name, client location, client IP address, which host pool the user is connecting to, and so on. This information is sent to two different locations:
 
-- The location closest to the user where the service infrastructure (client traces, user traces, diagnostic data) is stored.
+- The location closest to the user where the service infrastructure (client traces, user traces, diagnostic data) is present.
 - The location where the host pool is located.
 
 ## Service-generated data
 
 To keep Windows Virtual Desktop reliable and scalable, we aggregate traffic patterns and usage to check the health and performance of the infrastructure control plane. For example, to understand how to ramp up regional infrastructure capacity as service usage increases, we process service usage log data. We then review the logs for peak times and decide which data centers to add to meet this capacity. We aggregate this information from all locations where the service infrastructure is, then send it to the US region. The data sent to the US region includes scrubbed data, but not customer data.
 
-We currently support storing metadata in the following locations:
+We currently support storing the aforementioned data in the following locations:
 
 - United States (US) (generally available)
 - Europe (EU) (generally available)
