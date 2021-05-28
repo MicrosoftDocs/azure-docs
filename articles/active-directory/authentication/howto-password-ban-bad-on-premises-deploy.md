@@ -125,7 +125,7 @@ The following requirements apply to the Azure AD Password Protection proxy servi
 * All machines that host the Azure AD Password Protection proxy service must be configured to grant domain controllers the ability to log on to the proxy service. This ability is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the Azure AD Password Protection proxy service must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A *Global Administrator* account is required to register the Azure AD Password Protection proxy service for the first time in a given tenant. Subsequent proxy and forest registrations with Azure AD may use an account with either *Global Administrator* or *Security Administrator* credentials.
-* Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
+* Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](../app-proxy/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). This is in addition to the two endpoints described above.
 
 ### Microsoft Azure AD Connect Agent Updater prerequisites
 

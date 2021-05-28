@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 05/26/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro GPU device using APIs so that I can efficiently manage my VMs.
 ---
@@ -169,6 +169,8 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 
 To deploy Nvidia GPU drivers for an existing VM, edit the parameters file and then deploy the template `addGPUextensiontoVM.json`. There are specific parameters files for Ubuntu and Red Hat Enterprise Linux (RHEL).
 
+#### Ubuntu
+
 If using Ubuntu, the `addGPUExtLinuxVM.parameters.json` file takes the following parameters:
 
 ```powershell
@@ -198,42 +200,6 @@ If using Ubuntu, the `addGPUExtLinuxVM.parameters.json` file takes the following
 	}
 	}
 ```
-If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.json` file takes the following parameters:
-
-```powershell
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "value": "<name of the VM>" 
-        },
-        "extensionName": {
-            "value": "<name for the extension. Example: linuxGpu>" 
-        },
-        "publisher": {
-            "value": "Microsoft.HpcCompute" 
-        },
-        "type": {
-            "value": "NvidiaGpuDriverLinux" 
-        },
-        "typeHandlerVersion": {
-            "value": "1.3" 
-        },
-        "settings": {
-            "value": {
-                    "isCustomInstall":true,
-                    "DRIVER_URL":"https://go.microsoft.com/fwlink/?linkid=874273",
-                    "CUDA_ver":"10.0.130",
-                    "PUBKEY_URL":"http://download.microsoft.com/download/F/F/A/FFAC979D-AD9C-4684-A6CE-C92BB9372A3B/7fa2af80.pub",
-                    "DKMS_URL":"https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm",
-                    "LIS_URL":"https://aka.ms/lis",
-                    "LIS_RHEL_ver":"3.10.0-1062.9.1.el7"
-            }
-        }
-    }
-}
-```
 
 Here is a sample Ubuntu parameter file that was used in this article:
 
@@ -258,16 +224,45 @@ Here is a sample Ubuntu parameter file that was used in this article:
             "value": "1.3" 
         },
         "settings": {
-            "value": {
-            "DRIVER_URL": "https://go.microsoft.com/fwlink/?linkid=874271",
-            "PUBKEY_URL": "http://download.microsoft.com/download/F/F/A/FFAC979D-AD9C-4684-A6CE-C92BB9372A3B/7fa2af80.pub",
-            "CUDA_ver": "10.0.130",
-            "InstallCUDA": "true"
-            }
         }
     }
 }
 ```
+
+#### RHEL and RHEL BYOS
+
+
+If using Red Hat Enterprise Linux (RHEL), the `addGPUExtensionRHELVM.parameters.json` file takes the following parameters:
+
+```powershell
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "value": "<name of the VM>" 
+        },
+        "extensionName": {
+            "value": "<name for the extension. Example: linuxGpu>" 
+        },
+        "publisher": {
+            "value": "Microsoft.HpcCompute" 
+        },
+        "type": {
+            "value": "NvidiaGpuDriverLinux" 
+        },
+        "typeHandlerVersion": {
+            "value": "1.3" 
+        },
+        "settings": {
+        }
+    }
+}
+```
+
+> [!NOTE]
+> If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscription image, make sure that you followed the steps in [using RHEL BYOS image](azure-stack-edge-gpu-create-virtual-machine-image.md). When you install the GPU extension, the installation script may look for a `vulkan-filesystem` package that is on CentOS7 repo (for RHEL7). Before you deploy the extension, you need to either manually install the `vulkan-filesystem` package or add CentOS7 repo to your yum repo list. 
+
 ---
 
 ### Deploy template 
