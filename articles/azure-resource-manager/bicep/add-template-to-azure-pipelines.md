@@ -262,6 +262,12 @@ steps:
 
 When you select **Save**, the build pipeline is automatically run. Go back to the summary for your build pipeline, and watch the status.
 
+## Example
+
+The following pipeline shows how to build a Bicep file and how to deploy the compiled template:
+
+:::code language="yml" source="~/resourcemanager-templates/bicep/azure-pipeline/deploy-bicep.yml":::
+
 ## Next steps
 
 * To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
