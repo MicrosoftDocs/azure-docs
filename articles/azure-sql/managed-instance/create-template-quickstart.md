@@ -7,8 +7,8 @@ ms.subservice: operations
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.devlang:
 ms.topic: quickstart
-author: srbozovi
-ms.author: srdan-bozovic-msft
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: mathoma
 ms.date: 06/22/2020
 ---
