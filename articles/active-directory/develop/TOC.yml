@@ -151,8 +151,8 @@
   - name: App security
     displayName: least privilege, secure app configuration
     items:
-    - name: Best practices for least privilege
-      href: least-privilege-guidance.md
+    - name: Best practices for least privileged access for apps
+      href: secure-least-privileged-access.md
   - name: Permissions and consent
     displayName: Scopes
     href: v2-permissions-and-consent.md
