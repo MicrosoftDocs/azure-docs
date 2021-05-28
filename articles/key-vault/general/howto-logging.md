@@ -9,7 +9,8 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
 # Enable Key Vault logging

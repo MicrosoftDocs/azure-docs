@@ -5,7 +5,7 @@ author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 08/19/2020
 ---
 
