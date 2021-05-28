@@ -30,12 +30,12 @@ This is the latest preview release.
 
 #### 	Azure Arc enabled PostgreSQL Hyperscale
 
-- Supports direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure Portal. 
-- Ships with the Citus 10.0 extension which features columnar table storage
-- Supports full user/role management.
-- Supports additional extensions with `Tdigest` and  `pg_partman`.
-- Supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
-- Supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
+This release introduces the following features or capabilities:
+
+- Delete an Azure Arc PostgreSQL Hyperscale from the Azure Portal when its Data Controller was configured for Direct connectivity mode.
+- Deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure Portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
+- Specify storage classes and Postgres extensions when deploying Azure Arc enabled PostgreSQL Hyperscale from the Azure Portal.
+- Reduce the number of worker nodes in your Azure Arc enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from command line or from Azure Data Studio.
 
 #### Azure Arc enabled SQL Managed Instance
 
