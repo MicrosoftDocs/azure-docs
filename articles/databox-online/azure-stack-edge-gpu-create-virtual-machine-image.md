@@ -85,7 +85,7 @@ To create a VM image using the RHEL BYOS image, follow these steps:
 1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access#proc_enabling-sub-new-ccsp_cloud-access). This will allow you to access the Red Hat Gold Images. 
 1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access). 
 
-You can now use this image as described in [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
+You can now use the VM that you provisioned to [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
  
  
 ## Next steps
