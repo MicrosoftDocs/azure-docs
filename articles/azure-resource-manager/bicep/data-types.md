@@ -89,6 +89,8 @@ param exampleInt int = 1
 
 For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
 
+Floating point, decimal or binary formats are not currently supported.
+
 ## Objects
 
 Objects start with a left brace (`{`) and end with a right brace (`}`). Each property in an object consists of key and value. The key and value are separated by a colon (`:`).
@@ -122,10 +124,74 @@ Property accessors can be used with any object. This includes parameters and var
 
 ## Strings
 
-In Bicep, strings are marked with singled quotes.
+In Bicep, strings are marked with singled quotes,and must be declared on a single line. All Unicode characters with codepoints between *0* and *10FFFF* are allowed.
 
 ```bicep
 param exampleString string = 'test value'
+```
+
+The following table lists the set of reserved characters which must be escaped by a backslash (`\`) character:
+
+| Escape Sequence | Represented value | Notes |
+|:-|:-|:-|
+| \\ | \ ||
+| \' | ' ||
+| \n | line feed (LF) ||
+| \r | carriage return (CR) ||
+| \t | tab character ||
+| \u{x} | Unicode code point *x* | *x* represents a hexadecimal codepoint value between *0* and *10FFFF* (both inclusive). Leading zeros are allowed. Codepoints above *FFFF* are emitted as a surrogate pair.
+| \$ | $ | Only needs to be escaped if it is followed by *{*. |
+
+```bicep
+// evaluates to "what's up?"
+var myVar = 'what\'s up?'
+```
+
+All strings in Bicep support interpolation. To inject an expression, surround it by *${* and *}`. Expressions that are referenced cannot span multiple lines.
+
+```bicep
+var storageName = 'storage${uniqueString(resourceGroup().id)}
+```
+
+## Multi-line strings
+
+In Bicep, multi-line strings are defined between 3 single quote characters (`'''`) followed optionally by a newline (the opening sequence), and 3 single quote characters (`'''` - the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim, and no escaping is necessary or possible.
+
+> [!NOTE]
+> Because the Bicep parser reads all characters as is, depending on the line endings of your Bicep file, newlines can be interpreted as either `\r\n` or `\n`.
+> Interpolation is not currently supported in multi-line strings.
+> Multi-line strings containing `'''` are not supported.
+
+```bicep
+// evaluates to "hello!"
+var myVar = '''hello!'''
+
+// evaluates to "hello!" because the first newline is skipped
+var myVar2 = '''
+hello!'''
+
+// evaluates to "hello!\n" because the final newline is included
+var myVar3 = '''
+hello!
+'''
+
+// evaluates to "  this\n    is\n      indented\n"
+var myVar4 = '''
+  this
+    is
+      indented
+'''
+
+// evaluates to "comments // are included\n/* because everything is read as-is */\n"
+var myVar5 = '''
+comments // are included
+/* because everything is read as-is */
+'''
+
+// evaluates to "interpolation\nis ${blocked}"
+// note ${blocked} is part of the string, and is not evaluated as an expression
+myVar6 = '''interpolation
+is ${blocked}'''
 ```
 
 ## Secure strings and objects
@@ -143,7 +209,6 @@ param password string
 @secure()
 param configValues object
 ```
-
 
 ## Next steps
 
