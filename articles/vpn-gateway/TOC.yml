@@ -39,14 +39,14 @@
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md
+  - name: VPN Gateway FAQ
+    href: vpn-gateway-vpn-faq.md
   - name: About VPN Gateway design
     href: design.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices
     href: vpn-gateway-about-vpn-devices.md
-  - name: VPN Gateway FAQ
-    href: vpn-gateway-vpn-faq.md
   - name: About cryptographic requirements
     href: vpn-gateway-about-compliance-crypto.md
   - name: About BGP and VPN Gateway
