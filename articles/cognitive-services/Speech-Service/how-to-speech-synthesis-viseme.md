@@ -41,7 +41,7 @@ A neural voice turns input text or SSML (Speech Synthesis Markup Language) into 
 
 The overall workflow of viseme is depicted in the flowchart below.
 
-    ![The overall workflow of viseme.](media/text-to-speech/viseme-structure.png)
+![The overall workflow of viseme](media/text-to-speech/viseme-structure.png)
 
 | Parameter | Description |
 |-----------|-------------|
@@ -174,7 +174,6 @@ For 2D characters, you can design a character that suits your scenario and use S
 
 For 3D characters, think of the characters as string puppets. The puppet master pulls the strings from one state to another and the laws of physics do the rest and drive the puppet to move fluidly. The viseme output acts as a puppet master to provide an action timeline. The animation engine defines the physical laws of action. By interpolating frames with easing algorithms, the engine can further generate high-quality animations.
 
-    ![3D render example](media/text-to-speech/viseme-demo-3D.png)
 ## Map phonemes to visemes
 
 Visemes vary by language. Each language has a set of visemes that correspond to its specific phonemes. The following table shows the correspondence between International Phonetic Alphabet (IPA) phonemes and viseme IDs for English (United States).
