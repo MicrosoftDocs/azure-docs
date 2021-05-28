@@ -327,7 +327,7 @@ First, create your *opcua-mapping.json* file. Start with a blank JSON file and f
 [
     {
         "NodeId": "1001",
-        "TwinId": "simulation",
+        "TwinId": "simulation-1",
         "Property": "Counter",
         "ModelId": "dtmi:com:microsoft:iot:opcua:simulation;1"
     },
