@@ -72,7 +72,7 @@ Add another parameter for getting the virtual network name:
 param vnetName string
 ```
 
-## Add resource
+## Add resources
 
 Now, we'll add a storage account. Intellisense makes this step much easier than having to manually type all of the values.
 
@@ -112,7 +112,7 @@ param vnetName string
 resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01'
 ```
 
-After the single quote for the resource type, add `=` and a space. You're presented with options for adding properties to the resource. Select **required-properties**.
+After the single quote for the resource type, add **=** and a space. You're presented with options for adding properties to the resource. Select **required-properties**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/select-required-properties.png" alt-text="Add required properties":::
 
@@ -161,12 +161,13 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 For more information about the Bicep syntax, see [Bicep structure](./file.md).
 
-Now, let's add another virtual network resource by using the resource snippet.
+Now, let's add another virtual network resource by using resource snippets.
 
-After the `exampleStorage` account, type **vnet**, select **res-vnet** from the list, and then Tab.
+After the *exampleStorage* storage account, type **vnet**, select **res-vnet** from the list, and then Tab.
 
-The default name for the virtual machine resource is **virtualNetwork**. Change the name to **exampleVnet**.
-Replace the **name** property of the virtual network resource to **vnetName**.
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-vnet.png" alt-text="Add virtual network resource":::
+
+Change the virtual machine resource identifier from **virtualNetwork** to **exampleVnet**. And replace the **name** property of the virtual network resource to **vnetName**.
 
 The completed template looks like:
 
@@ -218,7 +219,7 @@ From the upper left corner, select the visualizer button to open the Bicep Visua
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer.png" alt-text="Bicep Visualizer":::
 
-The visualizer shows the resources defined in the Bicep file with the resource dependency information.  The two resources defined in this quickstart doesn't have dependency relationship.
+The visualizer shows the resources defined in the Bicep file with the resource dependency information.  The two resources defined in this quickstart doesn't have dependency relationship. So you don't see a connector between the two resources. 
 
 ## Deploy the Bicep file
 
