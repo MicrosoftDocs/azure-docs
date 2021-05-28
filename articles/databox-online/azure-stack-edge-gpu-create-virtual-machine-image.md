@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 05/28/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -84,7 +84,8 @@ To create a VM image using the RHEL BYOS image, follow these steps:
 1. Log in to the [Red Hat Subscription Management](https://access.redhat.com/management). Navigate to the [Cloud Access Dashboard](https://access.redhat.com/management/cloud) from the top menu bar.
 1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access#proc_enabling-sub-new-ccsp_cloud-access). This will allow you to access the Red Hat Gold Images. 
 1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access). 
-1. Create a VHD from the image and [Upload it to an Azure Storage account](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#use-storage-explorer-for-upload) that you will use with your device. You can then [Create a VM image](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm-image) and create a VM.
+
+You can now use this image as described in [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
  
  
 ## Next steps

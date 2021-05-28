@@ -27,13 +27,11 @@ Before you install GPU extension on the GPU VMs running on your device, make sur
 
     - Make sure that the port enabled for compute network on your device is connected to Internet and has access. The GPU drivers are downloaded through the internet access.
 
-    - While configuring compute network on the device, enable the port that is connected to the Internet, for compute. This allows you to download the GPU drivers required for GPU extensions for your GPU VMs.
-
-        Here is an example where Port 2 was connected to the internet and was used to enable the compute network. If you've identified that Kubernetes is not needed in the earlier step, you can skip the Kubernetes node IP and external service IP assignment.
+        Here is an example where Port 2 was connected to the internet and was used to enable the compute network. If Kubernetes is not deployed on your environment, you can skip the Kubernetes node IP and external service IP assignment.
 
         ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 1. [Download the GPU extension templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
-1. Make sure that the client you'll use to access your device is connected to the Azure Resource Manager over Azure PowerShell. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
+1. Verify that the client you'll use to access your device is still connected to the Azure Resource Manager over Azure PowerShell. The connection expires after a set duration and you need to log in again. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
 
 
 
@@ -137,7 +135,7 @@ Here is a sample Ubuntu parameter file that was used in this article:
 If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscription image (RHEL BYOS), make sure that:
 
 - You've followed the steps in [using RHEL BYOS image](azure-stack-edge-gpu-create-virtual-machine-image.md). 
-- After you created the GPU VM, register and subscribe the VM with the Red Hat Customer portal. If your VM is not properly registered, installation does not proceed as the VM is not entitled. See [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273). This step allows you to access the Red Hat Update Infrastructure (RHUI) that hosts the Red Hat packages.
+- After you created the GPU VM, register and subscribe the VM with the Red Hat Customer portal. If your VM is not properly registered, installation does not proceed as the VM is not entitled. See [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273). This step allows the installation script to download relevant packages for the GPU driver.
 - You either manually install the `vulkan-filesystem` package or add CentOS7 repo to your yum repo list. When you install the GPU extension, the installation script looks for a `vulkan-filesystem` package that is on CentOS7 repo (for RHEL7). 
 
 ---
