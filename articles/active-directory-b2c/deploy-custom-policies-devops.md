@@ -16,13 +16,7 @@ ms.subservice: B2C
 
 # Deploy custom policies with Azure Pipelines
 
-[Azure Pipelines](/azure/devops/pipelines.md) supports continuous integration (CI) and continuous delivery (CD) to constantly and consistently test, build, and ship it to any target. This article describes how to automate the deployment process of the Azure Active Directory B2C (Azure AD B2C) [custom policies](user-flow-overview.md) using Azure Pipelines.
-
-To enable Azure Pipelines to deploy custom policies:
-
-1. Create a web application registration in your Azure AD B2C tenant
-1. Configure an Azure Repo
-1. Configure Azure Pipelines
+[Azure Pipelines](/azure/devops/pipelines.md) supports continuous integration (CI) and continuous delivery (CD) to constantly and consistently test, build, and ship a code to any target. This article describes how to automate the deployment process of the Azure Active Directory B2C (Azure AD B2C) [custom policies](user-flow-overview.md) using Azure Pipelines.
 
 > [!IMPORTANT]
 > Managing Azure AD B2C custom policies with Azure Pipelines currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta&preserve-view=true).
@@ -34,22 +28,23 @@ To enable Azure Pipelines to deploy custom policies:
 
 ## Register an application for management tasks
 
-You use PowerShell script to deploy the Azure AD B2C policies. Before the PowerShell script can interact with the [Microsoft Graph API][ms-graph-api], create an application registration in your Azure AD B2C tenant. If you haven't already done so, [register an application](microsoft-graph-get-started.md).
+You use PowerShell script to deploy the Azure AD B2C policies. Before the PowerShell script can interact with the [Microsoft Graph API](microsoft-graph-operations.md), create an application registration in your Azure AD B2C tenant. If you haven't already done so, [register a Microsoft Graph application](microsoft-graph-get-started.md).
 
 For the PowerShell script to access data in MS Graph, grant the registered application the relevant [application permissions](/graph/permissions-reference). Granted the **Microsoft Graph** > **Policy** > **Policy.ReadWrite.TrustFramework** permission within the **API Permissions** of the app registration.
 
 ## Configure an Azure Repo
 
-With a management application registered, you're ready to configure a repository for your policy files.
+With a Microsoft Graph application registered, you're ready to configure a repository for your policy files.
 
 1. Sign in to your [Azure DevOps organization](https://azure.microsoft.com/services/devops/).
 1. [Create a new project][devops-create-project], or select an existing project.
-1. In your project, navigate to **Repos**, and select **Files**. Select an existing repository or create one for this exercise.
+1. In your project, navigate to **Repos**, and select **Files**. 
+1. Select an existing repository or create one.
 1. In the root directory of your repository, create a folder named `B2CAssets`. Add your Azure AD B2C custom policy files to the *B2CAssets* folder.
-1. In the root directory of your repository, create a folder named `Scripts`. Create a PowerShell file *DeployToB2C.ps1*. Paste the following PowerShell script into *DeployToB2C.ps1*, 
+1. In the root directory of your repository, create a folder named `Scripts`. Create a PowerShell file *DeployToB2C.ps1*. Paste the following PowerShell script into *DeployToB2C.ps1*. 
 1. **Commit** and **Push** the changes.
 
-The following script acquires an access token from Azure AD. With the token, the script calls the MS Graph API to upload the policies in the *B2CAssets* folder.
+The following script acquires an access token from Azure AD. With the token, the script calls the MS Graph API to upload the policies in the *B2CAssets* folder. You can also change the content of the policy before uploading it. For example, replace the `tenant-name.onmicrosoft.com` with your tenant name.
 
 ```PowerShell
 [Cmdletbinding()]
@@ -75,7 +70,7 @@ try {
     $policycontent = Get-Content $PathToFile
 
     # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
-    # $policycontent = $policycontent.Replace("your-tenant.b2clogin.com", "contoso.b2clogin.com")     
+    # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     
 
     $response = Invoke-RestMethod -Uri $graphuri -Method Put -Body $policycontent -Headers $headers
 
@@ -102,9 +97,7 @@ exit 0
 
 ## Configure Azure Pipelines
 
-With your repository initialized and populated with your custom policy files, you're ready to set up the release pipeline.
-
-### Create pipeline
+With your repository initialized and populated with your custom policy files, you're ready to set up the release pipeline. To create a pipeline, follow these steps:
 
 1. In your project, select **Pipelines** > **Releases** > **New pipeline**.
 1. Under **Select a template**, select **Empty job**, and then select **Apply**.
@@ -114,14 +107,14 @@ With your repository initialized and populated with your custom policy files, yo
     1. Select the **Source (repository)** that contains the *Scripts* folder.
     1. Select a **Default branch**, for example *master*.
     1. Leave the **Default version** setting of *Latest from the default branch*.
-    1. Enter a **Source alias** for the repository. For example, *policyRepo*. Do not include any spaces in the alias name.
+    1. Enter a **Source alias** for the repository. For example, *policyRepo*. 
 1. Select **Add**
 1. Rename the pipeline to reflect its intent. For example, *Deploy Custom Policy Pipeline*.
 1. Select **Save** to save the pipeline configuration.
 
 ### Configure pipeline variables
 
-The pipeline variables give you a convenient way to get key bits of data into various parts of the pipeline. Add the following variables, and set their values as specified:
+The pipeline variables give you a convenient way to get key bits of data into various parts of the pipeline. The following variables provide information about your Azure AD B2C environment.
 
 | Name | Value |
 | ---- | ----- |
@@ -150,7 +143,7 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
     * **Script Path**: Select the ellipsis (***...***), navigate to the *Scripts* folder, and then select the *DeployToB2C.ps1* file.
     * **Arguments:**
 
-        Enter the following values for **Arguments**. Replace `{alias-name}` with the alias you specified in the previous section. Replace the `{policy-id}` with the policy name. Replace the `{policy-file-name}` with the policy file name.
+        Enter the following values for **Arguments**. Replace the `{alias-name}` with the alias you specified in the previous section. Replace the `{policy-id}` with the policy name. Replace the `{policy-file-name}` with the policy file name.
 
         The first policy your upload must be the *TrustFrameworkBase.xml*.
 
@@ -166,9 +159,9 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
         PolicySchemaVersion="0.3.0.0"
-        TenantId="contoso.onmicrosoft.com"
+        TenantId="your-tenant.onmicrosoft.com"
         PolicyId= "B2C_1A_TrustFrameworkBase"
-        PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+        PublicPolicyUri="http://your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
         ```
 
         Your final arguments should look like the following example:
