@@ -16,7 +16,7 @@ Before proceeding with this article, let's consider the different options for de
 
 * **Use Azure CLI task**. Use this task to run `az bicep build` to build your Bicep files before deploying the JSON templates.
 
-* **Use ARM template deployment task**. This option is the easiest option. This approach works when you want to deploy a template directly from a repository. This option isn't covered in this article but instead is covered in the tutorial [Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md). It shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repo.
+* **Use ARM template deployment task**. This option is the easiest option. This approach works when you want to deploy a template directly from a repository. This option isn't covered in this article but instead is covered in the tutorial [Continuous integration of ARM templates with Azure Pipelines](../templates/deployment-tutorial-pipeline.md). It shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repo.
 
 * **Add task that runs an Azure PowerShell script**. This option has the advantage of providing consistency throughout the development life cycle because you can use the same script that you used when running local tests. Your script deploys the template but can also perform other operations such as getting values to use as parameters. This option is shown in this article. See [Azure PowerShell task](#azure-powershell-task).
 

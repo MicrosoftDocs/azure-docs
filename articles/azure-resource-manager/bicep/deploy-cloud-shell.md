@@ -17,7 +17,7 @@ You can deploy to any scope. This article shows deploying to a resource group.
 
 To deploy a local Bicep file, you must first upload your Bicep file to your Cloud Shell session.
 
-1. Sign in to the [Cloud shell](https://shell.azure.com).
+1. Sign in to the [Cloud Shell](https://shell.azure.com).
 1. Select either **PowerShell** or **Bash**.
 
     :::image type="content" source="./media/deploy-cloud-shell/bicep-cloud-shell-bash-powershell.png" alt-text="Select Bash or PowerShell":::
