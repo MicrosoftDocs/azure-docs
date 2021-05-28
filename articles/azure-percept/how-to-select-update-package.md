@@ -40,14 +40,14 @@ Option 2:
 1. Scroll through the device twin properties and locate **"model"** and **"swVersion"** under **"deviceInformation"** and make a note of their values.
 
 ## Determine the correct update package
-Using the **model** and **swVersion** identified in the previous section, check the table below to determine which update package to download.
+Using the **model** and **swVersion** identified in the previous section, check the table below to determine which update package to download. View the [Release Note](https://docs.microsoft.com/en-us/azure/azure-percept/devkit-release-note) for details about updates.
 
 
 |model  |swVersion  |Update method  |Download links  |Note  |
 |---------|---------|---------|---------|---------|
-|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB only**         |[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)         |Monthly release (May 2021)         |
-|PE-101     |2021.102.108.112, <br>         |OTA or USB        | [2021.105.111.112 OTA manifest (PE-101)](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |Monthly release (May 2021)         |
-|APDK-101     |All swVersions        |OTA or USB       | [2021.105.111.112 OTA manifest (APDK-101)](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |Monthly release (May 2021)         |
+|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB only**         |[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)         |May release (2105)         |
+|PE-101     |2021.102.108.112, <br>         |OTA or USB        | [2021.105.111.112 OTA manifest (PE-101)](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |May release (2105)         |
+|APDK-101     |All swVersions        |OTA or USB       | [2021.105.111.112 OTA manifest (APDK-101)](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |May release (2105)         |
 
 
 ## Next steps
