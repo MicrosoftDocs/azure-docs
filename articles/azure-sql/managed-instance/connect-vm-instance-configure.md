@@ -8,8 +8,8 @@ ms.subservice: connect
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
+author: zoran-rilak-msft
+ms.author: zoranrilak
 ms.reviewer: mathoma, srbozovi, bonova
 ms.date: 02/18/2019
 ---

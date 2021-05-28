@@ -7,8 +7,8 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: how-to
-author: bonova
-ms.author: bonova
+author: MladjoA
+ms.author: mlandzic
 ms.reviewer: mathoma
 ms.date: 06/26/2019
 ---

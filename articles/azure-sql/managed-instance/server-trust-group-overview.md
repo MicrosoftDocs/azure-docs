@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: sasapopo
 ms.author: sasapopo
-ms.reviewer: sstein, bonova
+ms.reviewer: mathoma
 ms.date: 10/08/2020
 ---
 # Use Server Trust Groups to set up and manage trust between SQL Managed Instances

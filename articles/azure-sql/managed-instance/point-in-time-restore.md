@@ -8,8 +8,8 @@ ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: jovanpop-msft
-ms.author: jovanpop
+author: Misliplavo
+ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 08/25/2019
 ---

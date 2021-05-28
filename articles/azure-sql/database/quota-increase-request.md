@@ -7,7 +7,7 @@ ms.subservice: deployment-configuration
 ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/04/2020
 ---
 
@@ -49,7 +49,7 @@ Use the following steps to create a new support request from the Azure portal fo
 
    ![Enter details link](./media/quota-increase-request/provide-details-link.png)
 
-Clicking **Enter details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Database Managed Instance** quota types.
+Clicking **Enter details** displays the **Quota details** window that allows you to add additional information. The following sections describe the different options for **SQL Database** and **SQL Managed Instance** quota types.
 
 ## <a id="sqldbquota"></a> SQL Database quota types
 

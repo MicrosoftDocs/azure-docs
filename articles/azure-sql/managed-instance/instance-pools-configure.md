@@ -8,8 +8,8 @@ ms.subservice: deployment-configuration
 ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: bonova
-ms.author: bonova
+author: urosmil
+ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 09/05/2019
 ---
