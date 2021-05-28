@@ -163,6 +163,8 @@
         href: assetbank-tutorial.md
       - name: AssetSonar
         href: assetsonar-tutorial.md
+      - name: Astra Schedule
+        href: astra-schedule-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-tutorial.md
       - name: Atlassian Jira and Confluence
