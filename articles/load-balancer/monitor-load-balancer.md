@@ -1,6 +1,6 @@
 ---
 title: Monitoring Azure Load Balancer
-description: Start here to learn how to monitor [TODO-service-name] #Required; 
+description: Start here to learn how to monitor load balancer.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
