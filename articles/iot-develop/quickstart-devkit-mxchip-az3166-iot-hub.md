@@ -86,7 +86,11 @@ You can use Azure CLI to create an IoT hub that handles events and messaging for
 
 To create an IoT hub:
 
-1. From your console window, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *centralus* region.
+1. Launch your CLI app.  To run the CLI commands in the rest of this quickstart, copy the command syntax, paste it into your CLI app, edit variable values, and press Enter.
+    - If you prefer to use Cloud Shell, you can select the **Try It** button on the CLI commands to launch Cloud Shell in a split browser window. Or to open Cloud Shell in a separate window, right-click the link for [Cloud Shell](https://shell.azure.com/bash) and select the option to open in a new tab.
+    - If you're using Azure CLI locally, start your CLI console app and log in to Azure CLI.
+
+1. From your CLI app, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *centralus* region.
 
     > [!NOTE] 
     > You can optionally set an alternate `location`. To see available locations, run [az account list-locations](/cli/azure/account#az-account-list-locations). For this tutorial we recommend using `centralus` as in the example CLI command. The IoT Plug and Play feature that you use later in the tutorial, is currently only available in three regions, including `centralus`.
@@ -113,7 +117,7 @@ In this section, you create a new device instance and register it with the IoT h
 
 To register a device:
 
-1. In your console, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This creates the simulated device identity.
+1. In your CLI app, run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This creates the simulated device identity.
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -252,7 +256,7 @@ You can use the Azure IoT Explorer to view and manage the properties of your dev
 
 To add a connection to your IoT hub:
 
-1. In your console window, run the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string for your IoT hub.
+1. In your CLI app, run the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string for your IoT hub.
 
     ```shell
     az iot hub show-connection-string --name {YourIoTHubName}
@@ -305,7 +309,7 @@ To view telemetry in Azure IoT Explorer:
 
 To use Azure CLI to view device telemetry:
 
-1. In your CLI console, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```shell
     az iot hub monitor-events --device-id MyMXCHIPDevice --hub-name {YourIoTHubName}
@@ -378,15 +382,35 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 ## Clean up resources
 
-If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal. Optionally, if you continue to another tutorial in this Getting Started guide, you can keep the resources you've already created and reuse them.
+If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal.
 
 To remove the entire Azure IoT Central sample application and all its devices and resources:
 1. Select **Administration** > **Your application**.
 1. Select **Delete**.
 
+If you no longer need the Azure resources created in this tutorial, you can use the Azure CLI to delete the resource group and all of its resources.
+
+> [!IMPORTANT] 
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
+
+To delete a resource group by name:
+
+1. Run the [az group delete](cli/azure/group#az-group-delete) command. This removes the resource group, the IoT Hub, and the device registration you created.
+
+    ```shell
+    az group delete --name MyResourceGroup
+    ```
+
+1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
+
+    ```shell
+    az group list
+    ```
+
+
 ## Next steps
 
-In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the IoT Central portal to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
+In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
 * For device developers, the suggested next step is to see the other tutorials in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
 * If you have issues getting your device to initialize or connect after following the steps in this guide, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
