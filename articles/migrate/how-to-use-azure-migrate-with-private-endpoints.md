@@ -218,7 +218,7 @@ If your Azure Migrate project has private endpoint connectivity, you must  [gran
 
 Additionally, to enable replications over a private link, [create a private endpoint for the storage account.](#create-a-private-endpoint-for-the-storage-account-optional)
 
-#### Access permissions to the Recovery Services vault
+#### Grant access permissions to the Recovery Services vault
 
 You must grant the permissions to the recovery Services vault for authenticated access to the cache/replication storage account.
 
