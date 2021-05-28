@@ -3,13 +3,13 @@ title: Import a BACPAC file to create a database in Azure SQL Database
 description: Create a new database in Azure SQL Database or Azure SQL Managed Instance from a BACPAC file.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: migrate
+ms.subservice: backup-restore
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 10/29/2020
 ---
 # Quickstart: Import a BACPAC file to a database in Azure SQL Database or Azure SQL Managed Instance
@@ -122,7 +122,7 @@ $importStatus
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) command to submit an import database request to Azure. Depending on database size, the import may take some time to complete. The DTU based provisioning model supports select database max size values for each tier. When importing a database [use one of these supported values](/sql/t-sql/statements/create-database-transact-sql). 
+Use the [az-sql-db-import](/cli/azure/sql/db#az_sql_db_import) command to submit an import database request to Azure. Depending on database size, the import may take some time to complete. The DTU based provisioning model supports select database max size values for each tier. When importing a database [use one of these supported values](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: bobbytreed
 ms.author: robreed
 ms.collection: windows
-ms.date: 05/02/2018
+ms.date: 05/02/2018 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Pass credentials to the Azure DSCExtension handler

@@ -43,7 +43,7 @@ Loops can be used declare multiple properties by:
   ```bicep
   <property-name>: [for <item> in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - Iterating over the elements of an array
@@ -51,7 +51,7 @@ Loops can be used declare multiple properties by:
   ```bicep
   <property-name>: [for (<item>, <index>) in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - Using loop index
@@ -59,7 +59,7 @@ Loops can be used declare multiple properties by:
   ```bicep
   <property-name>: [for <index> in range(<start>, <stop>): {
     <properties>
-  }
+  }]
   ```
 
 ---
@@ -366,7 +366,7 @@ The following example shows a common scenario for creating more than one value f
 
 |Template  |Description  |
 |---------|---------|
-|[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Deploys several data disks with a virtual machine. |
+|[VM deployment with a variable number of data disks](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-windows-copy-datadisks) |Deploys several data disks with a virtual machine. |
 
 ## Next steps
 

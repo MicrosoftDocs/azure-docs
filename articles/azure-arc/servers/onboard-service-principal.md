@@ -2,7 +2,8 @@
 title: Connect hybrid machines to Azure at scale
 description: In this article, you learn how to connect machines to Azure using Azure Arc enabled servers using a service principal.
 ms.date: 03/04/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Connect hybrid machines to Azure at scale

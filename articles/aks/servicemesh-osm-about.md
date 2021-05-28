@@ -4,7 +4,7 @@ description: Open Service Mesh (OSM) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
 ---
@@ -47,9 +47,15 @@ OSM can assist your AKS deployments with the following scenarios:
 
 - Collection and viewing of KPIs from application traffic
 
+## Prerequisites
+
+- The Azure CLI, version 2.20.0 or later
+- The `aks-preview` extension version 0.5.5 or later
+- OSM version v0.8.0 or later
+
 ## OSM Service Quotas and Limits (Preview)
 
-OSM preview limitations for service quotas and limits can be found on the AKS [Quotas and regional limits page](https://docs.microsoft.com/azure/aks/quotas-skus-regions).
+OSM preview limitations for service quotas and limits can be found on the AKS [Quotas and regional limits page](./quotas-skus-regions.md).
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -102,7 +108,7 @@ For a new AKS cluster deployment scenario, you will start with a brand new deplo
 
 ### Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
 
 ```azurecli-interactive
 az group create --name <myosmaksgroup> --location <eastus2>
@@ -113,7 +119,7 @@ az group create --name <myosmaksgroup> --location <eastus2>
 You'll now deploy a new AKS cluster with the OSM add-on enabled.
 
 > [!NOTE]
-> Please be aware the following AKS deployment command utilizes OS ephemeral disks. You can find more information here about [Ephemeral OS disks for AKS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os)
+> Please be aware the following AKS deployment command utilizes OS ephemeral disks. You can find more information here about [Ephemeral OS disks for AKS](./cluster-configuration.md#ephemeral-os)
 
 ```azurecli-interactive
 az aks create -n osm-addon-cluster -g <myosmaksgroup> --kubernetes-version 1.19.6 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
@@ -1539,7 +1545,7 @@ While the port forwarding session is in place, navigate to the following url fro
 #### Deploy a new Application Gateway
 
 > [!NOTE]
-> We are referencing existing documentation for enabling the Application Gateway Ingress Controller add-on for an existing AKS cluster. Some modifications have been made to suit the OSM materials. More detailed documentation on the subject can be found [here](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing).
+> We are referencing existing documentation for enabling the Application Gateway Ingress Controller add-on for an existing AKS cluster. Some modifications have been made to suit the OSM materials. More detailed documentation on the subject can be found [here](../application-gateway/tutorial-ingress-controller-add-on-existing.md).
 
 You'll now deploy a new Application Gateway, to simulate having an existing Application Gateway that you want to use to load balance traffic to your AKS cluster, _myCluster_. The name of the Application Gateway will be _myApplicationGateway_, but you will need to first create a public IP resource, named _myPublicIp_, and a new virtual network called _myVnet_ with address space 11.0.0.0/8, and a subnet with address space 11.1.0.0/16 called _mySubnet_, and deploy your Application Gateway in _mySubnet_ using _myPublicIp_.
 
@@ -1696,7 +1702,7 @@ You should see the following output
 
 ### Troubleshooting
 
-- [AGIC Troubleshooting Documentation](https://docs.microsoft.com/azure/application-gateway/ingress-controller-troubleshoot)
+- [AGIC Troubleshooting Documentation](../application-gateway/ingress-controller-troubleshoot.md)
 - [Additional troubleshooting tools are available on AGIC's GitHub repo](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)
 
 ## Open Service Mesh (OSM) Monitoring and Observability using Azure Monitor and Applications Insights
@@ -2145,7 +2151,7 @@ On the **Configure your Prometheus data source below** page, enter the Kubernete
 
 OSM Dashboards are available both through:
 
-- [Our repository](/charts/osm/grafana), and are importable as json blobs through the web admin portal
+- [Our repository](https://github.com/grafana/grafana), and are importable as json blobs through the web admin portal
 - or [online at Grafana.com](https://grafana.com/grafana/dashboards/14145)
 
 To import a dashboard, look for the `+` sign on the left menu and select `import`.

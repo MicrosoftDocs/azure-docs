@@ -8,7 +8,7 @@ tags: top-support-issue
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Troubleshoot domain and TLS/SSL certificate problems in Azure App Service
@@ -105,7 +105,7 @@ The custom domain that you configured is missing a CNAME or A record.
 
 **Solution for cause 1**
 
-- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#4-create-the-dns-records).
 - If you don't have to use the root domain for your app, we recommend that you use a CNAME record instead of an A record.
 - Don't use both a CNAME record and an A record for the same domain. This issue can cause a conflict and prevent the domain from being resolved. 
 

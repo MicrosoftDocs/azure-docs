@@ -7,7 +7,7 @@ ms.date: 04/02/2021
 
 # Configure Azure Alerts in Azure VMware Solution 
 
-In this article, you'll learn how to configure [Azure Action Groups](/azure/azure-monitor/alerts/action-groups) in [Microsoft Azure Alerts](/azure/azure-monitor/alerts/alerts-overvie) to receive notifications of triggered events that you define. You'll also learn about using [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) to gain deeper insights into your Azure VMware Solution private cloud.
+In this article, you'll learn how to configure [Azure Action Groups](../azure-monitor/alerts/action-groups.md) in [Microsoft Azure Alerts](../azure-monitor/alerts/alerts-overview.md) to receive notifications of triggered events that you define. You'll also learn about using [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md) to gain deeper insights into your Azure VMware Solution private cloud.
 
 
 ## Supported metrics and activities
@@ -121,13 +121,8 @@ The following metrics are visible through Azure Monitor Metrics.
 ## Next steps
 
 Now that you've configured an alert rule for your Azure VMware Solution private cloud, you may want to learn even more about:
-- [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics)
-- [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview)
-- [Azure Action Groups](/azure/azure-monitor/alerts/action-groups)
+- [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md)
+- [Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md)
+- [Azure Action Groups](../azure-monitor/alerts/action-groups.md)
 
 You can also continue with one of the other [Azure VMware Solution](index.yml) how-to guides.
-
-
-
-
-

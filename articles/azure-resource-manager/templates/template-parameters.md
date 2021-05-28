@@ -2,7 +2,7 @@
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 05/05/2021
 ---
 
 # Parameters in ARM templates
@@ -18,6 +18,8 @@ Each parameter must be set to one of the [data types](data-types.md).
 ## Minimal declaration
 
 At a minimum, every parameter needs a name and type. In Bicep, a parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
+
+When you deploy a template via the Azure portal, camel-cased parameter names are turned into space-separated names. For example, *demoString* in the following example is shown as *Demo String*. For more information, see [Use a deployment button to deploy templates from GitHub repository](./deploy-to-azure-button.md) and [Deploy resources with ARM templates and Azure portal](./deploy-portal.md).
 
 # [JSON](#tab/json)
 

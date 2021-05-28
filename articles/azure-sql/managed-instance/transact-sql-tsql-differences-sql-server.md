@@ -3,12 +3,12 @@ title: T-SQL differences between SQL Server & Azure SQL Managed Instance
 description: This article discusses the Transact-SQL (T-SQL) differences between an Azure SQL Managed Instance and SQL Server. 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.devlang: 
 ms.topic: reference
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, bonova, danil
+author: danimir
+ms.author: danil
+ms.reviewer: mathoma, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
@@ -349,9 +349,9 @@ Undocumented DBCC statements that are enabled in SQL Server aren't supported in 
 
 ### Distributed transactions
 
-Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Supported scenarios are:
-* Transactions where participants are only Azure SQL Managed Instances that are part of [Server trust group](./server-trust-group-overview.md).
-* Transactions initiated from .NET (TransactionScope class) and Transact-SQL.
+Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Distributed transactions are supported under following conditions (all of them must be met):
+* all transaction participants are Azure SQL Managed Instances that are part of the [Server trust group](./server-trust-group-overview.md).
+* transactions are initiated either from .NET (TransactionScope class) or Transact-SQL.
 
 Azure SQL Managed Instance currently does not support other scenarios which are regularly supported by MSDTC on-premises or in Azure Virtual Machines.
 
@@ -401,11 +401,12 @@ Operations:
 - The `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. Only the `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as a provider. An example is `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage, or a [linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Track this requests on [SQL Managed Instance Feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
+Linkeds servers on Azure SQL Managed Instance support only SQL authentication. AAD authentication is not supported yet.
+
 ### PolyBase
 
-The only available type of external source is RDBMS (in public preview) to Azure SQL database, Azure SQL managed instance, and Azure Synapse pool. You can use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) as a workaround for Polybase external tables that directly reads from the Azure storage. 
-In Azure SQL managed instance you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to read Azure storage data.
-For information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
+Work on enabling Polybase support in SQL Managed Instance is [in progress](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35698078-enable-polybase-on-sql-managed-instance). In the meantime, as a workaround you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to query data from files stored in Azure Data Lake or Azure Storage.   
+For general information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication
 

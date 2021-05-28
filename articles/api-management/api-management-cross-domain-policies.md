@@ -64,7 +64,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 CORS allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (i.e. XMLHttpRequests calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
 
-You need to apply the CORS policy to enable the interactive console in the developer portal. Refer to the [developer portal documentation](./api-management-howto-developer-portal.md#cors) for details.
+You need to apply the CORS policy to enable the interactive console in the developer portal. Refer to the [developer portal documentation](./developer-portal-faq.md#cors) for details.
 
 ### Policy statement
 

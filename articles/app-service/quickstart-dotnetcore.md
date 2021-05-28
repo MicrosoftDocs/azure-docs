@@ -124,7 +124,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET Core 3.1](#tab/netcore31)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Web Core App**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET Core 3.1 web app" border="true":::
@@ -141,7 +141,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET 5.0](#tab/net50)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Web Core App**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Visual Studio - Configure ASP.NET 5.0 web app." border="true":::
@@ -435,7 +435,7 @@ az webapp up --sku F1 --name <app-name> --os-type <os>
 - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
 - Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
-- You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
+- You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
 
 The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. It then outputs a message with the app's URL:
 

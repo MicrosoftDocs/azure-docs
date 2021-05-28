@@ -3,6 +3,7 @@ title: Develop and publish .NET 5 functions using Azure Functions
 description: Learn how to create and debug C# functions using .NET 5.0, then deploy the local project to serverless hosting in Azure Functions.
 ms.date: 03/03/2021
 ms.topic: how-to
+recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
 zone_pivot_groups: development-environment-functions
 ---
@@ -20,7 +21,7 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [.NET SDK 5.0](https://www.microsoft.com/net/download)
++ [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3381, or a later version.
 

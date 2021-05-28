@@ -2,8 +2,8 @@
 title: Backup Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.custom: references_regions 
+ms.date: 04/12/2021
+ms.custom: references_regions , devx-track-azurecli
 ---
 
 # Azure Database for PostgreSQL backup with long-term retention (preview)
@@ -209,7 +209,7 @@ Follow this step-by-step guide to trigger a restore:
 
 ## Prerequisite permissions for configure backup and restore
 
-Azure Backup follows strict security guidelines. Even though it’s a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
+Azure Backup follows strict security guidelines. Even though it's a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
 
 [Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
 
@@ -250,7 +250,7 @@ This section provides troubleshooting information for backing up Azure PostgreSQ
 
 ### UserErrorMSIMissingPermissions
 
-Give Backup Vault MSI **Read** access on the PG server you want to back up or restore:
+Give Backup Vault MSI **Read** access on the PG server you want to back up or restore.
 
 To establish secure connection to the PostgreSQL database, Azure Backup uses the [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) authentication model. This means that the backup vault will have access to only those resources that have been explicitly granted permission by the user.
 
@@ -262,21 +262,17 @@ Steps:
 
     ![Access Control pane](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. Select **Add a role assignment**.
+1. Select **Add role assignments**.
 
     ![Add role assignment](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
 1. In the right context pane that opens, enter the following:<br>
 
-    **Role:** Reader<br>
-    **Assign access to:** Choose **Backup vault**<br>
-    If you can’t find the **Backup vault** option in the drop-down list, choose the **Azure AD user, group, or service principal option**<br>
+   - **Role:** Choose the **Reader** role in the drop-down list.<br>
+   - **Assign access to:** Choose the **User, group, or service principal** option in the drop-down list.<br>
+   - **Select:** Enter the Backup vault name to which you want to back up this server and its databases.<br>
 
-    ![Select role](./media/backup-azure-database-postgresql/select-role.png)
-
-    **Select:** Enter the Backup vault name to which you want to back up this server and its databases.<br>
-
-    ![Enter Backup vault name](./media/backup-azure-database-postgresql/enter-backup-vault-name.png)
+    ![Select role](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
 
 ### UserErrorBackupUserAuthFailed
 
@@ -333,4 +329,4 @@ Establish network line of sight by enabling the **Allow access to Azure services
 
 ## Next steps
 
-- [Backup vaults overview](backup-vault-overview.md)
+[Backup vaults overview](backup-vault-overview.md)

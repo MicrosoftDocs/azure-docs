@@ -55,6 +55,9 @@ Applications are connected to the primary server using the database server name.
 ## Failover process 
 For business continuity, you need to have a failover process for planned and unplanned events. 
 
+>[!NOTE]
+> Always use fully qualified domain name (FQDN) to connect to your primary server and avoid using IP address to connect. In case of failover, once primary and standby server role are switched, DNS A-record might change too which would prevent the application from connecting to the new primary server if IP address is used in the connection string. 
+
 ### Planned events
 
 Planned downtime events include activities scheduled by Azure such as periodic software updates, minor version upgrades or that are initiated by customers such as scale compute and scale storage operations. All these changes are first applied to the standby replica. During that time, the applications continue to access primary server. Once the standby replica is updated, primary server connections are drained, a failover is triggered which activates the standby replica to be the primary with the same database server name by updating the DNS record. Client connections are disconnected and they have to reconnect and can resume their operations. A new standby server is established in the same zone as the old primary. The overall failover time is expected to be 60-120 s. 
@@ -64,6 +67,9 @@ Planned downtime events include activities scheduled by Azure such as periodic s
 
 ### Failover process - unplanned events
 Unplanned service downtimes include software bugs that or infrastructure faults such as compute, network, storage failures, or power outages impacts the availability of the database. In the event of the database unavailability, the replication to the standby replica is severed and the standby replica is activated to be the primary database. DNS is updated, and clients then reconnect to the database server and resume their operations. The overall failover time is expected to take 60-120 s. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer.
+
+### Forced Failover
+Azure Database for MySQL forced failover enables you to manually force a failover, allowing you to test the functionality with your application scenarios, and helps you to be ready in case of any outages. Forced failover switches the standby server to become the primary server by triggering a failover which activates the standby replica to become the primary server with the same database server name by updating the DNS record. The original primary server will be restarted and switched to standby replica. Client connections are disconnected and have to be reconnected to resume their operations. Depending on the current workload and the last checkpoint the overall failover time will be measured. In general, it is expected to be between 60-120s.
 
 ## Schedule maintenance window 
 

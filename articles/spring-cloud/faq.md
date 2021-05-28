@@ -32,7 +32,7 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 ### In which regions is Azure Spring Cloud available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia and China East 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North and China East 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### Is any customer data stored outside of the specified region?
 
@@ -58,7 +58,7 @@ If you encounter any issues with Azure Spring Cloud, create an [Azure Support Re
 
 ### I am a Spring Cloud developer but new to Azure. What is the quickest way for me to learn how to develop an Azure Spring Cloud application?
 
-For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](spring-cloud-quickstart.md).
+For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](./quickstart.md).
 
 ::: zone pivot="programming-language-java"
 ### What Java runtime does Azure Spring Cloud support?
@@ -91,7 +91,7 @@ Azure Spring Cloud supports exporting Spring Cloud application logs and metrics 
 
 ### Does Azure Spring Cloud support distributed tracing?
 
-Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spring Cloud](spring-cloud-howto-distributed-tracing.md).
+Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spring Cloud](./how-to-distributed-tracing.md).
 
 ::: zone pivot="programming-language-java"
 ### What resource types does Service Binding support?
@@ -181,7 +181,7 @@ Critical security patches (CVE score >= 9) applicable to Azure Spring Cloud are 
 ## Deployment
 
 ### Does Azure Spring Cloud support blue-green deployment?
-Yes. For more information, see [Set up a staging environment](spring-cloud-howto-staging-environment.md).
+Yes. For more information, see [Set up a staging environment](./how-to-staging-environment.md).
 
 ### Can I access Kubernetes to manipulate my application containers?
 
@@ -189,11 +189,11 @@ No.  Azure Spring Cloud abstracts the developer from the underlying architecture
 
 ### Does Azure Spring Cloud support building containers from source?
 
-Yes. For more information, see [Launch your Spring Cloud application from source code](spring-cloud-quickstart.md).
+Yes. For more information, see [Launch your Spring Cloud application from source code](./quickstart.md).
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-Yes.  For more information, see [Setup autoscale](spring-cloud-tutorial-setup-autoscale.md).
+Yes.  For more information, see [Setup autoscale](./how-to-setup-autoscale.md).
 
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
@@ -238,4 +238,4 @@ We will enhance this part and avoid this error from users’ applications in sho
 
 ## Next steps
 
-If you have further questions, see the [Azure Spring Cloud troubleshooting guide](spring-cloud-troubleshoot.md).
+If you have further questions, see the [Azure Spring Cloud troubleshooting guide](./troubleshoot.md).

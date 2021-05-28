@@ -13,16 +13,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 05/20/2021
 ms.author: b-juche
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
 
-When you [create an NFS volume](azure-netapp-files-create-volumes.md), you have the option to enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume.  
+When you [create an NFS volume](azure-netapp-files-create-volumes.md), you have the option to enable the LDAP with extended groups feature (the **LDAP** option) for the volume. This feature enables Active Directory LDAP users and extended groups (up to 1024 groups) to access the volume. You can use the LDAP with extended groups feature with both NFSv4.1 and NFSv3 volumes. 
 
 This article explains the considerations and steps for enabling LDAP with extended groups when you create an NFS volume.  
 
 ## Considerations
+
+* LDAP with extended groups is supported only with Active Directory Domain Services (ADDS) or Azure Active Directory Domain services (AADDS). OpenLDAP or other third-party LDAP directory services are not supported. 
 
 * LDAP over TLS must *not* be enabled if you are using Azure Active Directory Domain Services (AADDS).  
 
@@ -64,11 +66,25 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 2. LDAP volumes require an Active Directory configuration for LDAP server settings. Follow instructions in [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) and [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection) to configure Active Directory connections on the Azure portal.  
 
-3. Ensure that the Active Directory LDAP server is up and running on the Active Directory. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
+    > [!NOTE]
+    > Ensure that you have configured the Active Directory connection settings. A machine account will be created in the organizational unit (OU) that is specified in the Active Directory connection settings. The settings are used by the LDAP client to authenticate with your Active Directory.
 
-4. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Follow [Manage LDAP POSIX Attributes](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) to set the required attributes.  
+3. Ensure that the Active Directory LDAP server is up and running on the Active Directory. 
 
-5. If you want to configure an LDAP-integrated Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
+4. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Set the attributes for LDAP users and LDAP groups as follows: 
+
+    * Required attributes for LDAP users:   
+        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user`
+    * Required attributes for LDAP groups:   
+        `objectClass: group`, `gidNumber: 555`
+
+    You can manage POSIX attributes by using the Active Directory Users and Computers MMC snap-in. The following example shows the Active Directory Attribute Editor:  
+
+    ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
+
+    See [Access Active Directory Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) for details.  
+
+5. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 
 6.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create an NFS volume. During the volume creation process, under the **Protocol** tab, enable the **LDAP** option.   
 

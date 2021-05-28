@@ -6,7 +6,7 @@ author: dearandyxu
 ms.reviewer: douglasl, jburchel
 ms.service: data-factory
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
+ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 02/18/2021
 ---
 
@@ -278,7 +278,7 @@ Note the following points:
 
 * For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, SQL Database, SQL Managed Instance, and so on) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
-[!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
+[!INCLUDE [data-factory-create-install-integration-runtime](includes/data-factory-create-install-integration-runtime.md)]
 
 ## Create linked services
 

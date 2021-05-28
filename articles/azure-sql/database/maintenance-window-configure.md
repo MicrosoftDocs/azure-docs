@@ -3,11 +3,11 @@ title: Configure maintenance window (Preview)
 description: Learn how to set the time when planned maintenance should be performed on your Azure SQL databases, elastic pools, and managed instance databases.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: scott-kim-sql
+ms.author: scottkim
+ms.reviewer: mathoma
 ms.date: 03/23/2021
 ---
 # Configure maintenance window (Preview)
@@ -173,7 +173,7 @@ When setting the maintenance window, each region has its own maintenance window 
 ### Discover SQL Database and elastic pool maintenance windows
 
 The following example returns the available maintenance windows for the *eastus2* region using the [az maintenance public-configuration list
-](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) command. For databases and elastic pools, set `maintenanceScope` to `SQLDB`.
+](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) command. For databases and elastic pools, set `maintenanceScope` to `SQLDB`.
 
    ```azurecli
    location="eastus2"
@@ -184,7 +184,7 @@ The following example returns the available maintenance windows for the *eastus2
 ### Discover SQL Managed Instance maintenance windows
 
 The following example returns the available maintenance windows for the *eastus2* region using the [az maintenance public-configuration list
-](/cli/azure/ext/maintenance/maintenance/public-configuration#ext_maintenance_az_maintenance_public_configuration_list) command. For managed instances, set `maintenanceScope` to `SQLManagedInstance`.
+](/cli/azure/maintenance/public-configuration#az_maintenance_public_configuration_list) command. For managed instances, set `maintenanceScope` to `SQLManagedInstance`.
 
    ```azurecli
    az maintenance public-configuration list --query "[?location=='eastus2'&&contains(maintenanceScope,'SQLManagedInstance')]"

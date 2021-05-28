@@ -56,7 +56,7 @@ A single dashboard can contain resources from multiple applications, resource gr
 5. Locate the **Markdown** tile and drag it on to your dashboard.  This tile allows you to add text formatted in markdown, which is ideal for adding descriptive text to your dashboard. To learn more, see [Use a markdown tile on Azure dashboards to show custom content](../../azure-portal/azure-portal-markdown-tile.md).
 6. Add text to the tile's properties and resize it on the dashboard canvas.
 
-    [![Edit markdown tile](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
+    [![Edit markdown tile](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/markdown.png#lightbox)
 
 7. Select **Done customizing** at the top of the screen to exit tile customization mode.
 

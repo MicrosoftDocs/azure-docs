@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -43,7 +43,7 @@ Organizations that use Azure AD B2C as their customer identity and access manage
 
 ## Prerequisites
 
-* Complete the steps in [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
+* Complete the steps in [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
 * Basic understanding of the SAML protocol and familiarity with the application's SAML implementation.
 * A web application configured as a SAML application. For this tutorial, you can use a [SAML test application][samltest] that we provide.
 
@@ -58,6 +58,8 @@ There are three main components required for this scenario:
 If you don't yet have a SAML application and an associated metadata endpoint, you can use this sample SAML application that we've made available for testing:
 
 [SAML Test Application][samltest]
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## Set up certificates
 

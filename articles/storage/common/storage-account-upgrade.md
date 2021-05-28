@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 04/29/2021
 ms.author: tamram   
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Upgrade to a general-purpose v2 storage account
@@ -34,12 +34,12 @@ To upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your storage account.
-3. In the **Settings** section, click **Configuration**.
-4. Under **Account kind**, click on **Upgrade**.
-5. Under **Confirm upgrade**, type in the name of your account.
-6. Click **Upgrade** at the bottom of the blade.
+3. In the **Settings** section, select **Configuration**.
+4. Under **Account kind**, select on **Upgrade**.
+5. Under **Confirm upgrade**, enter the name of your account.
+6. Select **Upgrade** at the bottom of the blade.
 
-    ![Upgrade Account Kind](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
+    :::image type="content" source="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png" alt-text="Screenshot of configuration blade, upgrade account kind highlighted." lightbox="../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png":::
 
 # [PowerShell](#tab/azure-powershell)
 

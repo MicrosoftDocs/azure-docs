@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 04/05/2021
 ms.author: duau
 ---
@@ -36,9 +36,9 @@ Multiple Azure resources have been defined in the template:
 
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks)
 * [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualNetworks/subnets) (two subnets, one named `routeserversubnet`)
-* [**Microsoft.Network/virtualHubs**](/azure.templates/microsoft.network/virtualhubs) (Route Server deployment)
-* [**Microsoft.Network/virtualHubs/ipConfigurations**](/azure.templates/microsoft.network/virtualhubs/ipConfigurations)
-* [**Microsoft.Network/virtualHubs/bgpConnections**](/azure.templates/microsoft.network/virtualhubs/bgpConnections) (Peer ASN and Peer IP configuration)
+* [**Microsoft.Network/virtualHubs**](/azure/templates/microsoft.network/virtualhubs) (Route Server deployment)
+* [**Microsoft.Network/virtualHubs/ipConfigurations**](/azure/templates/microsoft.network/virtualhubs/ipConfigurations)
+* [**Microsoft.Network/virtualHubs/bgpConnections**](/azure/templates/microsoft.network/virtualhubs/bgpconnections) (Peer ASN and Peer IP configuration)
 
 
 To find more templates that are related to ExpressRoute, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).

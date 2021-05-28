@@ -399,6 +399,6 @@ VerifyAzureConnectivityViaSpecificProxy Passed
 
 ## Next steps
 
-[Frequently asked questions for Azure AD Password Protection](howto-password-ban-bad-on-premises-faq.md)
+[Frequently asked questions for Azure AD Password Protection](howto-password-ban-bad-on-premises-faq.yml)
 
 For more information on the global and custom banned password lists, see the article [Ban bad passwords](concept-password-ban-bad.md)

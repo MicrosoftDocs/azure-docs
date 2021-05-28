@@ -82,7 +82,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
 - name: How-to guides
@@ -154,7 +154,7 @@
   - name: Azure CLI
     items:
     - name: Front Door
-      href: /cli/azure/ext/front-door/network
+      href: /cli/azure/network
     - name: Application Gateway
       href: /cli/azure/network/application-gateway
     - name: CDN

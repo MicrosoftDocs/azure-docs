@@ -2,7 +2,7 @@
 title: Quickstart - Azure Key Vault Key client library for Java
 description: Provides a quickstart for the Azure Key Vault Keys client library for Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 01/05/2021
 ms.service: key-vault
@@ -171,7 +171,7 @@ Now that your application is authenticated, you can create a key in your key vau
 keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
+You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) command:
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -196,7 +196,7 @@ SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
 ```
 
-You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
+You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az_keyvault_key_show) command:
 
 ```azurecli
 az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
@@ -264,6 +264,6 @@ public class App {
 In this quickstart you created a key vault, created a key, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Read the [Key Vault security overview](../general/security-overview.md)
+- Read the [Key Vault security overview](../general/security-features.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- How to [Secure access to a key vault](../general/secure-your-key-vault.md)
+- How to [Secure access to a key vault](../general/security-features.md)
