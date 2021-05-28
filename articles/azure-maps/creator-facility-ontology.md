@@ -312,7 +312,6 @@ The `lineElement` is a class feature that defines a line feature in a unit, such
 |`nameAlt` |    string |    false |   Alternate name used for the feature. Maximum length allowed is 1000. |
 |`anchorPoint` |  [Point](/rest/api/maps/wfs/getfeaturepreview#featuregeojson) | false | [GeoJSON Point geometry](/rest/api/maps/wfs/getfeaturepreview#featuregeojson) that represents the feature as a point. Can be used to position the label of the feature.|
 |`obstructionArea` |   [Polygon](/rest/api/maps/wfs/getfeaturepreview#featuregeojson)| false | A simplified geometry (when the line geometry is complicated) of the feature that is to be avoided during routing. Requires `isObstruction` set to true.|
-|`constraints` |  |  | |
 
 ## areaElement
 
@@ -332,7 +331,6 @@ The `areaElement` is a class feature that defines a polygon feature in a unit, s
 |`nameSubtitle` |    string |    false |   Subtitle that shows up under the `name` of the feature. Can be used to display the name in a different language, and so on.  Maximum length allowed is 1000.|
 |`nameAlt` |    string |    false |   Alternate name used for the feature.  Maximum length allowed is 1000.|
 |`anchorPoint` |  [Point](/rest/api/maps/wfs/getfeaturepreview#featuregeojson) | false | [GeoJSON Point geometry](/rest/api/maps/wfs/getfeaturepreview#featuregeojson)  that represents the feature as a point. Can be used to position the label of the feature.|
-|`constraints` |  |  | |
 
 ## category
 
