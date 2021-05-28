@@ -87,7 +87,7 @@ To reflect different content stages, you can create multiple tilesets from the s
 
 In addition to the vector data, the tileset provides metadata for map rendering optimization. For example, tileset metadata contains a minimum and maximum zoom level for the tileset. The metadata also provides a bounding box that defines the geographic extent of the tileset. An application can use a bounding box to programmatically set the correct center point. For more information about tileset metadata, see [Tileset List API](/rest/api/maps/v2/tileset/listpreview).
 
-After a tileset is created, it can be retrieved by the [Render V2 service](#render-v2-service).
+After a tileset is created, it can be retrieved by the [Render V2 service](#render-v2-get-map-tile-api).
 
 If a tileset becomes outdated and is no longer useful, you can delete the tileset. For information about how to delete tilesets, see [Data maintenance](#data-maintenance).
 
