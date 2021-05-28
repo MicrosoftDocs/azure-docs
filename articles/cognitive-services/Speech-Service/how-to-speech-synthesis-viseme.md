@@ -50,7 +50,7 @@ The overall workflow of viseme is depicted in the flowchart below.
 ## Get viseme events with the Speech SDK
 
 To get viseme events with your synthesized speech, subscribe to the `VisemeReceived` event in Speech SDK.
-The following snippets show how to subscribe the viseme event.
+The following snippet shows how to subscribe to the viseme event.
 
 ::: zone pivot="programming-language-csharp"
 
