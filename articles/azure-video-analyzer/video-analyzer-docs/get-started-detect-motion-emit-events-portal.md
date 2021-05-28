@@ -141,7 +141,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
     ```
 1. Select **Add** at the bottom of your screen
 1. Select **Routes**
-1. Under **NAME**, enter **AVAToHub**, and under **VALUE**, enter **FROM /messages/modules/avaedge/outputs/* INTO $upstream**
+1. Under **NAME**, enter **AVAToHub**, and under **VALUE**, enter FROM /messages/modules/avaedge/outputs/* INTO $upstream
 1. Select **Review + create**, then select **Create** and your **avaedge** edge module will be deployed
 
 ### Deploying RTSP camera simulator edge module
