@@ -124,7 +124,7 @@ Add-AzVmssDataDisk `
 # Update the scale set to apply the change
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 
@@ -161,7 +161,7 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
 # Update the scale set and apply the Custom Script Extension to the VM instances
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 
@@ -289,7 +289,7 @@ Remove-AzVmssDataDisk `
 # Update the scale set and detach the disk from the VM instances
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
-  -Name "myScaleSet" `
+  -VMScaleSetName "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 ```
 
