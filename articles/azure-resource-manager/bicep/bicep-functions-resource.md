@@ -109,7 +109,7 @@ Built-in policy definitions are tenant level resources. For an example of deploy
 
 `getSecret([secretName])`
 
-Returns the secret value stored in an Azure key vault. You can use the getSecret method to obtain a key vault secret and pass the value to a string parameter of a Bicep module. The getSecret method can only be called on a `Microsoft.KeyVault/vaults` resource and can be used only with parameter with `@secure()` decorator.
+Returns the secret value stored in Azure Key Vault. You can use the getSecret function to obtain a key vault secret and pass the return value to a string parameter of a Bicep module. The getSecret method can only be called on a `Microsoft.KeyVault/vaults` resource and can be used only with parameter with `@secure()` decorator.
 
 ### Parameters
 
