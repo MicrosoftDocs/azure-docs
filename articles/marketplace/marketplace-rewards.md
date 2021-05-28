@@ -1,6 +1,6 @@
 ---
 title: Marketplace rewards - your commercial marketplace benefits | Azure
-description: Marketplace Rewards is designed to support you at your specific stage of growth.
+description: Marketplace Rewards is designed to support you at your specific stage of growth in Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -26,7 +26,7 @@ The minimum requirement to publish in the online stores is an MPNID, so these be
 
 You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-To check your eligibility for the Marketplace Rewards program, see the [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) page in Partner Center .
+To check your eligibility for the Marketplace Rewards program, see the [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) page in Partner Center.
 
 Your steps to get started are easy:
 
