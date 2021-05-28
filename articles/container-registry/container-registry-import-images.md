@@ -172,21 +172,21 @@ az acr import \
 To access the source registry using an identity in the source tenant that has registry permissions, you can get an access token:
 
 ```azurecli
-# Login to Azure CLI with the identity, for example a managed identity
-az login --identity
+# Login to Azure CLI with the identity, for example a user-assigned managed identity
+az login --identity --username <identity_ID>
 
 # Get access token returned by `az account get-access-token`
 az account get-access-token 
 ```
 
-In the target tenant, pass the access token as a password to the `az acr import command`. The source registry is specified by login server name. Notice that no username is needed in this command:
+In the target tenant, pass the access token as a password to the `az acr import` command. The source registry is specified by login server name. Notice that no username is needed in this command:
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source sourceregistry.azurecr.io/sourcerrepo:tag \
   --image targetimage:tag \
-  --password <accesss-token>
+  --password <access-token>
 ```
 
 ## Import from a non-Azure private container registry
