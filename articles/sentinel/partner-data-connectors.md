@@ -13,9 +13,9 @@ ms.author: bagol
 
 # Azure Sentinel partner data connectors
 
-Microsoft and other organizations author Azure Sentinel data connectors. This article lists the Azure Sentinel data connectors that non-Microsoft, partner organizations author, in alphabetical order. For information about Microsoft-authored and service-to-service data connectors, see [Service to service integration](connect-data-sources.md#service-to-service-integration).
+Microsoft and other organizations author Azure Sentinel data connectors. This article lists the Azure Sentinel data connectors authored by non-Microsoft, partner organizations, in alphabetical order. For information about Microsoft-authored and service-to-service data connectors, see [Service to service integration](connect-data-sources.md#service-to-service-integration).
 
-For information about Azure Sentinel support models and the **Supported by** data in this article, see [Data connector support](connect-data-sources.md#data-connector-support).
+For details about Azure Sentinel support models and **Supported by** information, see [Data connector support](connect-data-sources.md#data-connector-support).
 
 > [!IMPORTANT]
 > Many of the following Azure Sentinel Partner data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -44,7 +44,7 @@ The AI Vectra Detect data connector lets you easily bring your AI Vectra Detect 
 
 The AI Vectra data connector ingests data into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect AI Vectra Detect to Azure Sentinel](connect-ai-vectra-detect.md)
+For more information about connecting to Azure Sentinel, see [Connect AI Vectra Detect to Azure Sentinel](connect-ai-vectra-detect.md).
 
 **Supported by:** [Vectra](https://www.vectra.ai/support)
 
@@ -54,7 +54,7 @@ The Akamai Security Events data connector lets you ingest [Akamai Security Even
 
 The Akamai data connector ingests data into Azure Sentinel [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Akamai Security Events to Azure Sentinel](connect-akamai-security-events.md)
+For more information about connecting to Azure Sentinel, see [Connect Akamai Security Events to Azure Sentinel](connect-akamai-security-events.md).
 
 **Supported by:** [Akamai](https://www.akamai.com/us/en/support/)
 
@@ -108,7 +108,7 @@ The Aruba ClearPass connector easily connects Aruba ClearPass Audit, Session, Sy
 
 The Aruba data connector ingests logs into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Aruba ClearPass to Azure Sentinel](connect-aruba-clearpass.md)
+For more information about connecting to Azure Sentinel, see [Connect Aruba ClearPass to Azure Sentinel](connect-aruba-clearpass.md).
 
 **Supported by:** Microsoft
 
@@ -182,7 +182,7 @@ The Broadcom Symantec DLP connector easily connects Symantec DLP Policy/Response
 
 The Broadcom Symantec DLP data connector ingests data into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog. The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Broadcom Symantec DLP to Azure Sentinel](connect-broadcom-symantec-dlp.md)
+For more information about connecting to Azure Sentinel, see [Connect Broadcom Symantec DLP to Azure Sentinel](connect-broadcom-symantec-dlp.md).
 
 **Supported by:** Microsoft
 
@@ -192,7 +192,7 @@ The Check Point firewalls connector easily connects your Check Point logs to Azu
 
 The Check Point data connector ingests logs into Azure Sentinel using [CEF](connect-common-event-format.md) over Syslog.
 
-For more information about connecting to Azure Sentinel, see [Connect Check Point to Azure Sentinel](connect-checkpoint.md)
+For more information about connecting to Azure Sentinel, see [Connect Check Point to Azure Sentinel](connect-checkpoint.md).
 
 **Supported by:** [Check Point](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.checkpoint.com%2Fsupport-services%2Fcontact-support%2F&data=04%7C01%7CNayef.Yassin%40microsoft.com%7C9965f53402ed44988a6c08d913fc51df%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637562796697084967%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Av1vTkeYoEXzRKO%2FotZLtMMexIQI%2FIKjJGnPQsbhqmE%3D&reserved=0)
 
@@ -220,7 +220,7 @@ The Cisco Meraki connector easily connects Cisco Meraki (MX/MR/MS) event logs, U
 
 The Cisco Meraki data connector ingests data into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Cisco Meraki to Azure Sentinel](connect-cisco-meraki.md)
+For more information about connecting to Azure Sentinel, see [Connect Cisco Meraki to Azure Sentinel](connect-cisco-meraki.md).
 
 **Supported by:** Microsoft
 
@@ -230,7 +230,7 @@ The Cisco UCS connector easily connects Cisco UCS audit, event, and fault logs t
 
 Cisco's UCS data connector ingests logs into Azure Sentinel over [Syslog](connect-syslog.md). The connector also uses a log parser based on a Kusto function.
 
-For more information about connecting to Azure Sentinel, see [Connect Cisco Unified Computing System (UCS) to Azure Sentinel](connect-cisco-ucs.md)
+For more information about connecting to Azure Sentinel, see [Connect Cisco Unified Computing System (UCS) to Azure Sentinel](connect-cisco-ucs.md).
 
 **Supported by:** Microsoft
 
