@@ -200,7 +200,7 @@ Then follow the instructions in [Pin a tile from a report](https://powerbi.micro
 
 You can also do ad hoc modifications to report before creating a dashboard. However, it's recommended that you use Power BI Desktop to perform the modifications and republish the report to PowerBI.com.
 
-<!-- ## Refresh data in PowerBI.com
+## Refresh data in PowerBI.com
 There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
