@@ -85,7 +85,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
    - [Restore VMs](https://documentation.commvault.com/commvault/v11_sp20/article?p=87275.htm).
 
-2. VM workload backup using [Veritas NetBackup solution](https://vox.veritas.com/t5/Protection/Migrating-VMware-workloads-to-Azure-NetBackup-keeps-your/ba-p/882644).
+2. VM workload backup using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
 
 >[!TIP]
 >You can use [Azure Resource Mover](/azure/resource-mover/move-region-within-resource-group?toc=/azure/azure-resource-manager/management/toc.json) to verify and migrate the list of supported resources to move across regions, which are dependent on Azure VMware Solution.
