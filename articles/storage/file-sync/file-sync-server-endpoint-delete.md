@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Deprovision your Azure File Sync server endpoint
 
-Removing a server endpoint means stopping sync to and from that server location with the cloud endpoint (Azure file share) in the same sync group. Before you deprovision your server endpoint, there are a few steps you should to take to maintain data integrity and availability. This article covers several methods of deprovisioning and the appropriate guidance, ordered by scenario. Follow the steps for the use case that best applies to you.
+Removing a server endpoint means stopping sync to and from that server location with the cloud endpoint (Azure file share) in the same sync group. Before you deprovision your server endpoint, there are a few steps you should take to maintain data integrity and availability. This article covers several methods of deprovisioning and the appropriate guidance, ordered by scenario. Follow the steps for the use case that best applies to you.
 
 If it is ok to permanently lose the data that you are currently syncing, you can skip to directly deprovisioning your server endpoint.
 
@@ -20,7 +20,7 @@ If it is ok to permanently lose the data that you are currently syncing, you can
 
 ## Scenario 1: You intend to delete your server endpoint and stop using your local server / VM
 
-The goal here is to ensure that your data is up-to-date in your cloud endpoint. To have your complete set of files up-to-date in your sever endpoints instead, see [Scenario 2: You intend to delete your server endpoint and stop using this specific Azure file share](#scenario-2-you-intend-to-delete-your-server-endpoint-and-stop-using-this-specific-azure-file-share).
+The goal here is to ensure that your data is up to date in your cloud endpoint. To have your complete set of files up to date in your server endpoints instead, see [Scenario 2: You intend to delete your server endpoint and stop using this specific Azure file share](#scenario-2-you-intend-to-delete-your-server-endpoint-and-stop-using-this-specific-azure-file-share).
 
 Some use cases that fall in this category include:
 -	Migrate to an Azure file share
@@ -31,7 +31,7 @@ For this scenario, there are three steps to take before deleting your server end
 
 ### Remove user access to your server endpoint
 
-Before you deprovision your server endpoint, you need to ensure that all changes from the server can sync to the cloud. The first step in allowing the cloud to catch up is to remove the opportunity for additional changes to files and folders on the server endpoint. 
+Before you deprovision your server endpoint, you need to ensure that all changes from the server can sync to the cloud. The first step in allowing the cloud to catch up is to remove the opportunity for more changes to files and folders on the server endpoint. 
 
 Removing access means downtime. To reduce downtime, you can also consider redirecting user access to your cloud endpoint. 
 
@@ -41,7 +41,7 @@ Record the date and time you removed user access for your own records and then m
 
 Each day, Azure File Sync creates a temporary VSS snapshot on the server to sync files with open handles. To ensure that your final sync session uploads the latest data and to reduce per-item errors, initiate a special session for VSS upload. This will also trigger a special sync upload session that begins once the snapshot is taken.  
 
-To do so, open **Task Scheduler** on your local server, navigate to **Microsoft\StorageSync**, right-click the **VssSyncScheduledTask** task and select **Run**.
+To do so, open **Task Scheduler** on your local server, navigate to **Microsoft\StorageSync**, right-click the `VssSyncScheduledTask` task and select **Run**.
 
 > [!Important]
 > Write down the date and time you complete this step. You will need it in the next section.
@@ -62,7 +62,7 @@ If these files aren’t important, then you can delete your server endpoint. If 
 
 ## Scenario 2: You intend to delete your server endpoint and stop using this specific Azure file share
 
-The goal here is to ensure your data is up-to-date in your local server/VM. To have your complete set of files up-to-date in your cloud endpoint instead, see [Scenario 1: You intend to delete your server endpoint and stop using your local server/VM](#scenario-1-you-intend-to-delete-your-server-endpoint-and-stop-using-your-local-server--vm).
+The goal here is to ensure your data is up to date in your local server/VM. To have your complete set of files up to date in your cloud endpoint instead, see [Scenario 1: You intend to delete your server endpoint and stop using your local server/VM](#scenario-1-you-intend-to-delete-your-server-endpoint-and-stop-using-your-local-server--vm).
 
 For this scenario, there are four steps to take before deleting your server endpoint: disable cloud tiering, recall tiered files, initiate cloud change detection, and wait for a final sync session to complete.
 
@@ -95,7 +95,7 @@ This step may take a while to complete.
 > Once this initiated cloud change detection scan has completed, note down the date and time it completed at. You will need it in the following section.
 
 ### Wait for a final sync session to complete
-To ensure that your data is up-to-date on your local server, you need to wait for a final sync upload session to complete. 
+To ensure that your data is up to date on your local server, you need to wait for a final sync upload session to complete. 
 
 To check this, go to **Event Viewer** on your local server. Navigate to the telemetry event log **(Applications and Services\Microsoft\FileSync\Agent)**. Ensure that you see a 9102 event with ‘sync direction’ = download, ‘HResult’ = 0 and ‘PerItemErrorCount’ = 0 that occurred after the date/time cloud change detection finished.
 
