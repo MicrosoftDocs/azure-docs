@@ -22,6 +22,22 @@ Another option to create near real-time reports is [Azure Synapse Link for Azure
 
 There are multiple ways to set up reporting dashboards on data stored in Azure Cosmos DB. Depending on the staleness requirements and the size of the data, the following table describes the reporting setup for each scenario:
 
+
+|Scenario |Setup |
+|---------|---------|
+|1. Generating ad-hoc reports (no refresh)    |  [Power BI Azure Cosmos DB connector with import mode](powerbi-visualize.md)       |
+|2. Generating ad-hoc reports with periodic refresh   |  [Power BI Azure Cosmos DB connector with import mode (Scheduled periodic refresh)](powerbi-visualize.md)       |
+|3. Reporting on large data sets (< 10 GB)     |  [Power BI Azure Cosmos DB connector with Azure Analysis Services incremental refresh](create-real-time-weather-dashboard-powerbi.md/#power-bi-with-incremental-refresh)       |
+|4. Reporting on live large data sets    |  **Option 1:** [Power BI Azure Analysis Services connector with direct query + Azure Analysis Services] (create-real-time-weather-dashboard-powerbi.md/#power-bi-azure-analysis-connector--azure-analysis-services)
+**Option 2:** [Power BI Azure Analysis Services connector with direct query + Azure Analysis Services] (create-real-time-weather-dashboard-powerbi.md/#power-bi-azure-analysis-connector--azure-analysis-services)       |
+|5. Reporting on live data with aggregates     |  [Power BI Spark connector with direct query + Azure Databricks + Cosmos DB Spark connector.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)       |
+|6. Reporting on live data with aggregates on large data sets   |  Power BI Azure Analysis Services connector with direct query + Azure Analysis Services + Azure Databricks + Cosmos DB Spark connector.       |
+
+
+
+
+
+
 |Scenario |Setup |
 |---------|---------|
 |1. Generating ad-hoc transactional reports   |  [Power BI connecting to Azure Cosmos DB transactional store with oltp connector and import mode](powerbi-visualize.md)       |
