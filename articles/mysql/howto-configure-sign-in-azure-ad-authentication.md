@@ -5,7 +5,8 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 07/23/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use Azure Active Directory for authentication with MySQL

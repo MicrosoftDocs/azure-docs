@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 02/19/2020
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 

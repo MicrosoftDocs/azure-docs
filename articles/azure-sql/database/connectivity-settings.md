@@ -8,7 +8,8 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
-ms.date: 07/06/2020
+ms.date: 07/06/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure SQL connectivity settings
