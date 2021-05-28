@@ -45,6 +45,8 @@
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices
     href: vpn-gateway-about-vpn-devices.md
+  - name: VPN Gateway FAQ
+    href: vpn-gateway-vpn-faq.md
   - name: About cryptographic requirements
     href: vpn-gateway-about-compliance-crypto.md
   - name: About BGP and VPN Gateway
@@ -320,8 +322,6 @@
     href: /cli/azure/network/vnet-gateway
 - name: Resources
   items:
-  - name: VPN Gateway FAQ
-    href: vpn-gateway-vpn-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
