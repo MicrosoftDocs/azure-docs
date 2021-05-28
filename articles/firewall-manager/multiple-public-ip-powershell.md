@@ -6,7 +6,8 @@ author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy an Azure Firewall with multiple public IP addresses

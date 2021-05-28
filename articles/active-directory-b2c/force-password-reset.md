@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 05/28/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -50,7 +50,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 1. Select **User flows**.
 1. Select the sign-up and sign-in, or sign-in user flow (of type **Recommended**) that you want to customize.
 1. In the left menu under **Settings**, select **Properties**.
-1. Under **Password complexity**, select **Forced password reset**.
+1. Under **Password configuration**, select **Forced password reset**.
 1. Select **Save**.
 
 ### Test the user flow
@@ -72,7 +72,7 @@ To enable the **Forced password reset** setting in a sign-up or sign-in user flo
 
 ::: zone pivot="b2c-custom-policy"
 
-This feature is currently only available for User Flows. For setup steps, choose **User Flow** above.
+This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon).
 
 ::: zone-end
 

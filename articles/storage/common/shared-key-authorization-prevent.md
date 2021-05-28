@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/27/2021
 ms.author: tamram
-ms.reviewer: sohamnc
+ms.reviewer: sohamnc 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Prevent Shared Key authorization for an Azure Storage account
