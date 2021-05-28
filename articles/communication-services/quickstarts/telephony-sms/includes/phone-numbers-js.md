@@ -151,7 +151,7 @@ After a purchasing number, you can retrieve it from the client. Add the followin
  */
 
 const { capabilities } = await phoneNumbersClient.getPurchasedPhoneNumber(phoneNumber);
-console.log(`These capabilities: ${capabilities}, should be the same as these: ${updateRequest}.`);
+console.log("These capabilities:", capabilities, "should be the same as these:", updateRequest, ".");
 ```
 
 You can also retrieve all the purchased phone numbers.
