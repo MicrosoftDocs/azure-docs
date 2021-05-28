@@ -1,8 +1,9 @@
 ---
 title: Change feed in Azure Blob Storage | Microsoft Docs
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
-author: normesta
-ms.author: normesta
+author: tamram
+
+ms.author: tamram
 ms.date: 05/17/2021
 ms.topic: how-to
 ms.service: storage
