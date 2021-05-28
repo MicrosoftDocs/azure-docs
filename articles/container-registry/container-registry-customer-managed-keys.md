@@ -573,7 +573,8 @@ Re-enable the key vault firewall and ensure that the key vault is configured to 
 
 1. In the portal, navigate to your key vault.
 1. Select **Settings** > **Networking**.
-1. Confirm, update, or add virtual network settings. For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
+1. Select to allow access from **Private endpoint and selected networks**.
+1. Update or add virtual network settings. For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
 1. In **Allow Microsoft Trusted Services to bypass this firewall**, select **Yes**. Select **Save**.
 
 ## Troubleshoot
