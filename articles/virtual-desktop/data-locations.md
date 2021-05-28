@@ -4,7 +4,7 @@ description: A brief overview of which locations Windows Virtual Desktop's data 
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 05/28/2021
+ms.date: 06/01/2021
 ms.author: helohr
 manager: femila
 ---
