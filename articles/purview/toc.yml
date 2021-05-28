@@ -20,8 +20,14 @@ items:
     href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
-  - name: Starter kit
-    items: 
+- name: Onboarding Data Sources at scale
+    items:
+    - name: Data Sources Readiness Check at Scale
+      href: tutorial-data-sources-readiness.md
+    - name: MSI Configuration at scale
+      href: tutorial-msi-configuration.md    
+- name: Starter kit
+    items:
     - name: Scan data
       href: tutorial-scan-data.md
     - name: Navigate home page and search
