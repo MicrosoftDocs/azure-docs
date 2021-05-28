@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/12/2021
+ms.date: 05/27/2021
 ms.custom: seo-python-october2019, devx-track-python
 ---
 
