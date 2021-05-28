@@ -45,7 +45,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [quickstart](https://github.com/Azure-Samples/azure-search-java-samples/tree/java-rest-api/quickstart) | Source code for [Quickstart: Create a search index in Java and REST](search-get-started-java.md). This sample has not been updated for the Java SDK. It calls the REST APIs. |
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=java&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=java&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples
 
