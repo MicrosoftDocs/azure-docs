@@ -10,7 +10,7 @@ ms.date: 05/21/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-javascript
-zone_pivot_groups: acs-js-csharp-java-python
+zone_pivot_groups: acs-js-csharp
 ---
 # Quickstart: Get a network relay token
 
