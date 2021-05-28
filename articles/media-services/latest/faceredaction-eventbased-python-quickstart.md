@@ -18,7 +18,7 @@ ms.author: inhenkel
  
 This quickstart shows how to deploy an event-based solution on Azure. Videos uploaded to a storage account will be transformed using a Job in Azure Media Services. It uses the Media Service v3 API.
 
-The specific transformation that will be used is called [Face Redactor](https://docs.microsoft.com/en-us/azure/media-services/latest/analyze-face-redaction-concept). This is an Azure Media Analytics media processor, that allows you to modify your video by blurring faces of selected individuals.
+The specific transformation that will be used is called [Face Redactor](https://docs.microsoft.com/azure/media-services/latest/analyze-face-redaction-concept). This is an Azure Media Analytics media processor, that allows you to modify your video by blurring faces of selected individuals.
 
 By the end of the quickstart you will be able to redact faces in a video:
 
@@ -26,7 +26,7 @@ By the end of the quickstart you will be able to redact faces in a video:
 
 ## Solution Overview
 
-![Architecture](./media/faceredaction-eventbased-python-quickstart/architecture.png)
+![Architecture overview of solution](./media/faceredaction-eventbased-python-quickstart/architecture.png)
 
 
 This quickstart shows how to deploy the solution that can be found in the solution overview above. It starts with a storage account (Azure Data Lake Storage Gen2), with an Event Listener connected to it (Event Grid), that triggers an Azure Function when new .mp4 files are uploaded to the storage account. The Azure Function will submit a job to a pre-configured Transformation in Azure Media Services. The resulting Redacted video will be stored on a Blob Storage account.
@@ -300,14 +300,14 @@ az rest --method put --uri https://management.azure.com/subscriptions/${subscrip
  
  ![Enable workflow](./media/faceredaction-eventbased-python-quickstart/activate-workflow.png)
  
-After enabling the GitHub Actions, you can find the workload file here: [.github/workflows/main.yml](./.github/workflows/main.yml).  Aside from the triggers, there is a build job with a couple of steps. The following steps are included:
+After enabling the GitHub Actions, you can find the workload file here: [.github/workflows/main.yml](https://github.com/Azure-Samples/media-services-v3-python/blob/main/.github/workflows/main.yml).  Aside from the triggers, there is a build job with a couple of steps. The following steps are included:
 - **Env**: In here, multiple environment variables are defined, referring to the GitHub Secrets that we added earlier.
 - **Read Environment file**: The environment file is read for the build job.
 - **Resolve Project Dependencies using Pip**: The needed libraries in our Azure functions are loaded into the GitHub Actions environment
 - **Azure Login**: This step uses the GitHub Secret for logging into the Azure CLI using the Service Principal details.
 - **Deploy Azure Resources using Azure CLI script file**: runs the deployment script for provisioning the Azure Resources
 - **Deploy Azure Function code**: This step packages and deploys the Azure function in the directory './azure-function'. When the Azure Function is deployed successfully, it should be visible in the Azure portal under the name 'EventGrid_AMSJob':
-![AzureFunction](./media/faceredaction-eventbased-python-quickstart/azurefunction.png)
+![Azure Function visible in Azure Portal](./media/faceredaction-eventbased-python-quickstart/azurefunction.png)
 - **Configure Azure Resources using Azure CLI script file**:  If all correct, the last step is to configure the deployed Azure services to activate the event-listener.
 
 After enabling the workflows, select the 'Deploy Azure Media Service FaceRedaction solution' workflow and select 'Run workflow'. Now, the solution will be deployed using the variables added in the previous steps. Wait a couple of minutes and verify that it has run successfully.
@@ -338,4 +338,4 @@ By selecting the job, you'll see some details about the specific job. If you sel
  
  ## Next steps
  
- If you would like to modify this example, chances are you would like to run the code locally. For local development, the variables in the sample.env file are sufficient because the Service Principal is not needed when a user account is logged in to the locally installed Azure CLI. For guidance on working locally with your Azure Function, we refer to [these docs](https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-python).
+ If you would like to modify this example, chances are you would like to run the code locally. For local development, the variables in the sample.env file are sufficient because the Service Principal is not needed when a user account is logged in to the locally installed Azure CLI. For guidance on working locally with your Azure Function, we refer to [these docs](https://docs.microsoft.com/azure/azure-functions/create-first-function-vs-code-python).
