@@ -34,7 +34,7 @@ Workloads that fit the following characteristics should evaluate if the integrat
 -	Many repeated high RU queries
 -	Hot partition key for reads
 
-The biggest factor in expected savings is the degree to which reads repeat themselves. If your workload consistently executes the same point reads or queries within a short period of time, it is a great candidate for the integrated cache. When using the integrated cache for repeated reads, you only use RU's for the first read. Subsequent reads routed through the same dedicated gateway node (within the `MaxIntegratedCacheStaleness` window and provided that the data hasn't been evicted) won't use throughput.
+The biggest factor in expected savings is the degree to which reads repeat themselves. If your workload consistently executes the same point reads or queries within a short period of time, it is a great candidate for the integrated cache. When using the integrated cache for repeated reads, you only use RU's for the first read. Subsequent reads routed through the same dedicated gateway node (within the `MaxIntegratedCacheStaleness` window and if the data hasn't been evicted) won't use throughput.
 
 Some workloads should not consider the integrated cache, including:
 
@@ -73,7 +73,7 @@ The query cache can be used to cache queries. The query cache transforms a query
 
 You don't need special code when working with the query cache, even if your queries have multiple pages of results. The best practices and code for query pagination are the same, whether your query hits the integrated cache or is executed on the backend query engine.
 
-The query cache will automatically cache query continuation tokens, where applicable. If you have a query with multiple pages of results, any pages that are stored in the integrated cache will have an RU charge of 0. If you subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
+The query cache will automatically cache query continuation tokens, where applicable. If you have a query with multiple pages of results, any pages that are stored in the integrated cache will have an RU charge of 0. If your subsequent pages of query results require backend execution, they'll have a continuation token from the previous page so they can avoid duplicating previous work.
 
 > [!NOTE]
 > Integrated cache instances within different dedicated gateway nodes have independent caches from one another. If data is cached within one node, it is not necessarily cached in the others.
@@ -97,8 +97,8 @@ When using the integrated cache, it is helpful to monitor some key metrics. The 
 - `DedicatedGatewayAverageMemoryUsage` - Average memory usage across dedicated gateway nodes, which are used for both routing requests and caching data.
 - `DedicatedGatewayRequests` - Total number of dedicated gateway requests across all dedicated gateway instances.
 - `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted due to LRU from the integrated cache across dedicated gateway nodes. This value does not include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
-- `IntegratedCacheItemExpirationCount` - The number of items that are evicted from the integrated cache specifically due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
-- `IntegratedCacheQueryExpirationCount` - The  number of queries that are evicted from the integrated cache specifically due to cached queries exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
+- `IntegratedCacheItemExpirationCount` - The number of items that are evicted from the integrated cache due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
+- `IntegratedCacheQueryExpirationCount` - The  number of queries that are evicted from the integrated cache due to cached queries exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
 - `IntegratedCacheItemHitRate` – The proportion of point reads that used the integrated cache (out of all point reads routed through the dedicated gateway with eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
 - `IntegratedCacheQueryHitRate` – The proportion of queries that used the integrated cache (out of all queries routed through the dedicated gateway with eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
 
@@ -114,7 +114,7 @@ The below examples show how to debug some common scenarios:
 
 ### I can’t tell if my application is using the dedicated gateway
 
-Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application using the standard gateway or direct mode with your original connection string, you won't see an error message but the `DedicatedGatewayRequests` will be zero.
+Check the `DedicatedGatewayRequests`. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application uses the standard gateway or direct mode with your original connection string, you won't see an error message but the `DedicatedGatewayRequests` will be zero.
 
 ### I can’t tell if my requests are hitting the integrated cache
 
@@ -128,13 +128,13 @@ If the `IntegratedCacheItemHitRate` or `IntegratedCacheQueryHitRate`is low, look
 
 ### I want to understand if my dedicated gateway is too large
 
-This is tougher to measure. In general, you should start small and slowly increase the dedicated gateway size until the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate` stop improving. In some cases, only one of the two cache hit metrics will be important, not both. For example, if your workload is primiarily queries, rather than point reads, the `IntegratedCacheQueryHitRate` is much more important than the `IntegratedCacheItemHitRate`.
+It is more difficult to measure if a dedicated gateway is too large than it is to measure if a dedicated gateway is too small. In general, you should start small and slowly increase the dedicated gateway size until the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate` stop improving. In some cases, only one of the two cache hit metrics will be important, not both. For example, if your workload is primarily queries, rather than point reads, the `IntegratedCacheQueryHitRate` is much more important than the `IntegratedCacheItemHitRate`.
 
 If most data is evicted from the cache due to exceeding the `MaxIntegratedCacheStaleness`, rather than LRU, your cache might be larger than required. If `IntegratedCacheItemExpirationCount` and `IntegratedCacheQueryExpirationCount` combined are nearly as large as `IntegratedCacheEvictedEntriesSize`, you can experiment with a smaller dedicated gateway size and compare performance.
 
 ### I want to understand if I need to add more dedicated gateway nodes
 
-In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. You should check the `DedicatedGatewayMaxCpuUsage` and `DedicatedGatewayAverageMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway won't help reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
+In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. Check the `DedicatedGatewayMaxCpuUsage` and `DedicatedGatewayAverageMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway won't help reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
 
 ## Next steps
 
