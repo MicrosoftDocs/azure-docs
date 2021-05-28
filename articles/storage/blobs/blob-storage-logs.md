@@ -1,23 +1,22 @@
 ---
-title: Scenarios and best practices for Azure Storage monitoring
-description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Storage account resources. 
+title: Monitor Azure Blob Storage by using logs
+description: Use activity and diagnostic logs to audit Azure Blob Storage and diagnose issues.
 author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 05/26/2021
 ms.author: normesta
-ms.reviewer: fryu
-ms.subservice: common
+ms.date: 05/28/2021
 ms.custom: "monitoring"
 ---
 
-# Scenarios and best practices for Azure Storage monitoring
+# Monitor Azure Blob Storage by using logs
 
 Intro goes here.
 
-## Get started with metrics and logs
+## Get started with logs
 
-To get started with metrics and logs, see any of these articles.
+To get started with logs, see any of these articles.
 
 - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
 - [Monitoring Azure Files](../files/storage-files-monitoring.md)
@@ -196,7 +195,8 @@ Put something here.
 Put something here.
 
 ## Next steps
-* [Monitor a storage account](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
-* [Storage Analytics logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
-* [Storage Analytics logging](storage-analytics-logging.md)
+
+- [Monitor Azure Blob Storage by using metrics](blob-storage-metrics.md).
+
+  
+
