@@ -26,7 +26,7 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
 
-    :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of Manage users":::
+    :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of Manage users.":::
 
 1. To add a user, on the **Users** page, choose **+ Assign user**.
 
@@ -55,7 +55,7 @@ To delete users, select one or more check boxes on the **Users** page. Then sele
 
 Roles enable you to control who within your organization is allowed to do various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](#create-a-custom-role) if you require finer-grained control.
 
-:::image type="content" source="media/howto-manage-users-roles/manage-roles-pnp.png" alt-text="Screenshot to Manage roles selection":::
+:::image type="content" source="media/howto-manage-users-roles/manage-roles-pnp.png" alt-text="Screenshot to Manage roles selection.":::
 
 
 ### Administrator
@@ -78,7 +78,7 @@ If your solution requires finer-grained access controls, you can create roles wi
 
 You can add users to your custom role in the same way that you add users to a built-in role.
 
-:::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Screenshot to build a custom role":::
+:::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Screenshot to build a custom role.":::
 
 
 ### Custom role options
