@@ -22,9 +22,7 @@ In this tutorial, learn how to:
 
 ## Create a RemoteApp group
 
-If you've already created a host pool and session host VMs using the Azure
-portal or PowerShell, you can add application groups from the Azure portal with
-the following process:
+If you've already created a host pool and session host VMs using the Azure portal or PowerShell, you can add application groups from the Azure portal with the following process:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com/).
    
@@ -123,6 +121,8 @@ The deployment process will do the following things for you:
 >You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Windows Virtual Desktop (classic).
 
 ## Edit or remove an app
+
+To edit or remove an app from an app group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
    
