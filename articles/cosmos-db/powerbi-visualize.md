@@ -203,23 +203,15 @@ You can also do ad hoc modifications to report before creating a dashboard. Howe
 ## Refresh data in PowerBI.com
 There are two ways to refresh data, ad hoc and scheduled.
 
-For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
-
-:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Screenshot of Refresh Now in PowerBI.com":::
+For an ad hoc refresh, simply click **Refresh Now** to refresh the data.
 
 For a scheduled refresh, do the following.
 
-1. Click **Schedule Refresh** in the action list. 
+1. Go to **Settings** and open the **Datasets** tab.
 
-    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Screenshot of the Schedule Refresh in PowerBI.com":::
-2. In the **Settings** page, expand **Data source credentials**. 
-3. Click on **Edit credentials**. 
-   
-    The Configure popup appears. 
-4. Enter the key to connect to the Azure Cosmos DB account for that data set, then click **Sign in**. 
-5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
-6. Click **Apply** and you are done setting up the scheduled refresh.
--->
+2. Click on **Scheduled Refresh** and set your schedule.
+
+
 ## Next steps
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * To learn more about Azure Cosmos DB, see the [Azure Cosmos DB documentation landing page](https://azure.microsoft.com/documentation/services/cosmos-db/).
