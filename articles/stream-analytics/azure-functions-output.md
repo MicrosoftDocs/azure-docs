@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 05/28/2021
 ---
 
 # Azure Functions output from Azure Stream Analytics
@@ -43,7 +43,7 @@ The default batch size is 262,144 bytes (256 KB). The default event count per ba
 
 ## Limitation
 
-Azure Function should complete its request in under 100 seconds as the HTTP client times our after 100 seconds. If it takes more than 100 seconds for Azure  Functions to process a batch of data,  there is a timeout that will trigger a retry. This retry can result in duplicate data because Azure Function will process the data again and potentially produce the same output since it may have been outputted partially in the previous request
+Azure Functions should complete its request in under 100 seconds as the HTTP client times out after 100 seconds. If it takes more than 100 seconds for Azure  Functions to process a batch of data,  there is a timeout that will trigger a retry. This retry can result in duplicate data because Azure Functions will process the data again and potentially produce the same output since it may have been outputted partially in the previous request
 
 
 ## Next steps
