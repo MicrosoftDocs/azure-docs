@@ -54,16 +54,6 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 </dependency>
 ```
 
-In this quick start, NettyAsyncHttpClient is used as default HttpClient. Add the following dependency element to the group of dependencies.
-  
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-core-http-netty</artifactId>
-    <version>1.8.0</version>
-</dependency>
-```
-
 ### Set up the app framework
 
 Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, add import directives and remove the `System.out.println("Hello world!");` statement:
