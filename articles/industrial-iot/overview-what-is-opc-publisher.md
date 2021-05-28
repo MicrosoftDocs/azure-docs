@@ -23,6 +23,9 @@ The reference implementation includes the following.
 
 - An OPC UA *client* for connecting to existing OPC UA servers you have on your network.
 - An OPC UA *server* on port 62222 that you can use to manage what's published and offers IoT Hub direct methods to do the same.
+> [!NOTE]
+> The build-in OPC UA Server is only available in version 2.5 or below.
+
 
 You can download the [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher) from GitHub.
 
