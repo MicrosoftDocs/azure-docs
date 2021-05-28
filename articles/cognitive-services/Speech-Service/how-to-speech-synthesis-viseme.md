@@ -40,8 +40,7 @@ See [the introduction video](https://youtu.be/ui9XT47uwxs) of the viseme.
 A neural voice turns input text or SSML (Speech Synthesis Markup Language) into synthesized speech. Speech audio output can be accompanied by viseme IDs and their offset timestamps. Each viseme ID specifies a specific pose in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme. Using a 2D or 3D rendering engine, you can use these viseme events to animate your avatar.
 
 The overall workflow of viseme is depicted in the flowchart below.
-
-    ![The overall workflow of viseme.](media/text-to-speech/viseme-structure.png)
+    :::image type="content" source="media/text-to-speech/viseme-structure.png" The overall workflow of viseme. ":::
 
 | Parameter | Description |
 |-----------|-------------|
@@ -50,7 +49,7 @@ The overall workflow of viseme is depicted in the flowchart below.
 
 ## Get viseme events with the Speech SDK
 
-To get viseme events with your synthesized speech, subscribe to the `VisemeReceived` event in Speech SDK.
+To get viseme with your synthesized speech, subscribe to the `VisemeReceived` event in Speech SDK.
 The following snippet shows how to subscribe to the viseme event.
 
 ::: zone pivot="programming-language-csharp"
@@ -168,13 +167,13 @@ Here is an example of the viseme output.
 
 After obtaining the viseme output, you can use these events to drive character animation. You can build your own characters and automatically animate the characters.
 
-For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.  With temporal tags provided by viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, below illustration shows a red lip character designed for language learning.
+For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position. With temporal tags provided in viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, below illustration shows a red lip character designed for language learning.
 
-![2D render example](media/text-to-speech/viseme-demo-2D.png)
+:::image type="content" source="media/text-to-speech/viseme-demo-2D.png" alt-text="2D render example":::
 
 For 3D characters, think of the characters as string puppets. The puppet master pulls the strings from one state to another and the laws of physics do the rest and drive the puppet to move fluidly. The viseme output acts as a puppet master to provide an action timeline. The animation engine defines the physical laws of action. By interpolating frames with easing algorithms, the engine can further generate high-quality animations.
 
-![3D render example](media/text-to-speech/viseme-demo-3D.png)
+:::image type="content" source="media/text-to-speech/viseme-demo-3D.png" alt-text="3D render example":::
 
 ## Map phonemes to visemes
 
