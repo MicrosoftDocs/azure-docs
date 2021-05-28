@@ -35,7 +35,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Draup, Inc supports **SP** initiated SSO.
 * Draup, Inc supports **Just In Time** user provisioning.
-* Draup, Inc supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial).
 
 ## Add Draup, Inc from the gallery
 
@@ -57,8 +56,8 @@ To configure and test Azure AD SSO with Draup, Inc, perform the following steps:
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Draup, Inc SSO](#configure-draup,-inc-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Draup, Inc test user](#create-draup,-inc-test-user)** - to have a counterpart of B.Simon in Draup, Inc that is linked to the Azure AD representation of user.
+1. **[Configure Draup, Inc SSO](#configure-draup-inc-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Draup, Inc test user](#create-draup-inc-test-user)** - to have a counterpart of B.Simon in Draup, Inc that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -67,7 +66,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Draup, Inc** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -124,8 +123,6 @@ To configure single sign-on on **Draup, Inc** side, you need to send the downloa
 ### Create Draup, Inc test user
 
 In this section, a user called B.Simon is created in Draup, Inc. Draup, Inc supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Draup, Inc, a new one is created when you attempt to access Draup, Inc.
-
-Draup, Inc also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
