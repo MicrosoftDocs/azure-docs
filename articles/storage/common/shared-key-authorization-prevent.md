@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/18/2021
+ms.date: 05/27/2021
 ms.author: tamram
-ms.reviewer: fryu
+ms.reviewer: sohamnc
 ---
 
 # Prevent Shared Key authorization for an Azure Storage account
@@ -26,7 +26,7 @@ When you disallow Shared Key authorization for a storage account, requests from 
 
 Use metrics to determine how many requests the storage account is receiving that are authorized with Shared Key or a shared access signature (SAS). Use logs to determine which clients are sending those requests.
 
-For more information about interpreting requests made with a shared access signature during the preview, see [About the preview](#about-the-preview).
+A SAS may be authorized with either Shared Key or Azure AD. For more information about interpreting requests made with a shared access signature, see [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ### Monitor how many requests are authorized with Shared Key
 
@@ -150,6 +150,8 @@ az storage account update \
 
 After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage returns error indicating that key-based authorization is not permitted on the storage account.
 
+The **AllowSharedKeyAccess** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
+
 ### Verify that Shared Key access is not allowed
 
 To verify that Shared Key authorization is no longer permitted, you can attempt to call a data operation with the account access key. The following example attempts to create a container using the access key. This call will fail when Shared Key authorization is disallowed for the storage account. Remember to replace the placeholder values in brackets with your own values:
@@ -205,6 +207,13 @@ When Shared Key access is disallowed for the storage account, Azure Storage hand
 | Service SAS | Shared Key | Request is denied for all Azure Storage services. |
 | Account SAS | Shared Key | Request is denied for all Azure Storage services. |
 
+Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently, and behave differently when Shared Key access is disallowed:
+
+- A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
+- A user delegation SAS is authorized with Azure AD and will be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
+
+When you are evaluating traffic to your storage account, keep in mind that metrics and logs as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) may include requests made with a user delegation SAS.
+
 For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
 
 ## Consider compatibility with other Azure tools and services
@@ -230,21 +239,6 @@ Azure Storage supports Azure AD authorization for requests to Blob and Queue sto
 Microsoft recommends that you either migrate any Azure Files or Table storage data to a separate storage account before you disallow access to the account via Shared Key, or that you do not apply this setting to storage accounts that support Azure Files or Table storage workloads.
 
 Disallowing Shared Key access for a storage account does not affect SMB connections to Azure Files.
-
-## About the preview
-
-The preview for disallowing Shared Key authorization is available in the Azure public cloud. It is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).
-
-The preview includes the limitations described in the following sections.
-
-### Metrics and logging report all requests made with a SAS regardless of how they are authorized
-
-Azure metrics and logging in Azure Monitor do not distinguish between different types of shared access signatures in the preview. The **SAS** filter in Azure Metrics Explorer and the **SAS** field in Azure Storage logging in Azure Monitor both report requests that are authorized with any type of SAS. However, different types of shared access signatures are authorized differently, and behave differently when Shared Key access is disallowed:
-
-- A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
-- A user delegation SAS is authorized with Azure AD and will be permitted on a request to Blob storage when the **AllowSharedKeyAccess** property is set to **false**.
-
-When you are evaluating traffic to your storage account, keep in mind that metrics and logs as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) may include requests made with a user delegation SAS. For more information about how Azure Storage responds to a SAS when the **AllowSharedKeyAccess** property is set to **false**, see [Understand how disallowing Shared Key affects SAS tokens](#understand-how-disallowing-shared-key-affects-sas-tokens).
 
 ## Next steps
 
