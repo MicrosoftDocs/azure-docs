@@ -213,4 +213,4 @@ When you activate a role in Privileged Identity Management, your activation migh
 
 ## Next steps
 
-- [Audit role activation activity](pim-how-to-use-audit-log.md)
+- [View audit history for Azure AD roles](pim-how-to-use-audit-log.md)
