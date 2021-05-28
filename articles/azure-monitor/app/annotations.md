@@ -14,7 +14,7 @@ Annotations show where you deployed a new build, or other significant events. An
 
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
-If your subscription has an Application Insights resource linked to it and if you use one of the following deployment tasks, then you do not need to configure anything else. If you’re still using the Application Insights annotation deployment task, you should delete it.  
+If your subscription has an Application Insights resource linked to it and you use one of the following deployment tasks, then you don't need to configure anything else.
 
 | Task code                 | Task name                     | Versions     |
 |---------------------------|-------------------------------|--------------|
@@ -25,9 +25,12 @@ If your subscription has an Application Insights resource linked to it and if yo
 | AzureWebAppContainer      | Azure Web App for Containers  | Any          |
 | AzureWebApp               | Azure Web App                 | Any          |
 
+> [!NOTE]
+> If you’re still using the Application Insights annotation deployment task, you should delete it.
+
 ### Configure release annotations
 
-If you cannot use one the deployment tasks in the pervious section, then you need to add an inline script task in your deployment pipeline.
+If you can't use one the deployment tasks in the pervious section, then you need to add an inline script task in your deployment pipeline.
 
 1. Navigate to a new or existing pipeline and select a task.
     :::image type="content" source="./media/annotations/task.png" alt-text="Screenshot of task in stages selected." lightbox="./media/annotations/task.png":::
@@ -35,7 +38,7 @@ If you cannot use one the deployment tasks in the pervious section, then you nee
     :::image type="content" source="./media/annotations/add-azure-cli.png" alt-text="Screenshot of adding a new task and selecting Azure CLI." lightbox="./media/annotations/add-azure-cli.png":::
 1. Specify the relevant Azure subscription.  Change the **Script Type** to *PowerShell* and **Script Location** to *Inline*.
 1. Add the [PowerShell script from step 2 in the next section](#create-release-annotations-with-azure-cli) to **Inline Script** and save.
-1. Add the arguments below replacing the angle-bracketed placeholders with your values to **Script Arguments**.
+1. Add the arguments below, replacing the angle-bracketed placeholders with your values to **Script Arguments**. The -releaseProperties are optional.
 
     ```powershell
         -aiResourceId "<aiResourceId>" `
@@ -108,13 +111,15 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
 Now, whenever you use the release template to deploy a new release, an annotation is sent to Application Insights. The annotations can be viewed in the following locations:
 
 - Performance
-    :::image type="content" source="./media/annotations/performance.png" alt-text="Screenshot of the Performance tab with a release annotation selected(blue arrow) to show the Release Properties tab." lightbox="./media/annotations/inline-script.png":::
+
+    :::image type="content" source="./media/annotations/performance.png" alt-text="Screenshot of the Performance tab with a release annotation selected(blue arrow) to show the Release Properties tab." lightbox="./media/annotations/performance.png":::
 
 - Failures
-    :::image type="content" source="./media/annotations/failures.png" alt-text="Screenshot of the Failures tab with a release annotation (blue arrow) selected to show the Release Properties tab." lightbox="./media/annotations/inline-script.png":::
+
+    :::image type="content" source="./media/annotations/failures.png" alt-text="Screenshot of the Failures tab with a release annotation (blue arrow) selected to show the Release Properties tab." lightbox="./media/annotations/failures.png":::
 - Usage
 
-    :::image type="content" source="./media/annotations/usage-pane.png" alt-text="Screenshot of bar chart with number of user visits displayed over a period of hours. Release annotations appear as blue arrows above the chart indicating the moment in time that a release occurred." border="false" lightbox="./media/annotations/usage-pane.png":::
+    :::image type="content" source="./media/annotations/usage-pane.png" alt-text="Screenshot of the Users tab bar with release annotations selected. Release annotations appear as blue arrows above the chart indicating the moment in time that a release occurred." lightbox="./media/annotations/usage-pane.png":::
 
 - Workbooks
 
@@ -124,7 +129,7 @@ Now, whenever you use the release template to deploy a new release, an annotatio
     
     To enable annotations in your workbook, go to **Advanced Settings** and select **Show annotations**.
     
-    :::image type="content" source="./media/annotations/workbook-show-annotations.png" alt-text="Screenshot of Advanced Settings menu with the words show annotations highlighted with a checkmark next to the setting to enable it." border="false" lightbox="./media/annotations/workbook-show-annotations.png":::
+    :::image type="content" source="./media/annotations/workbook-show-annotations.png" alt-text="Screenshot of Advanced Settings menu with the show annotations checkbox highlighted.":::
 
 Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
