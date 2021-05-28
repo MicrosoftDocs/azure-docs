@@ -94,7 +94,7 @@ Once an MQTT client is authenticated to IoT Edge hub, it needs to be authorized 
 
 Each authorization policy statement consists of the combination of `identities`, `allow` or `deny` effects, `operations`, and `resources`:
 
-- `identities` describe the subject of the policy. It must map to the `client identifier` sent by clients in their CONNECT packet.
+- `identities` describe the subject of the policy. It must map to the `username` sent by clients in their CONNECT packet and be in the format of `<iot_hub_name>.azure-devices.net/<device_name>` or `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>`.
 - `allow` or `deny` effects define whether to allow or deny operations.
 - `operations` define the actions to authorize. `mqtt:connect`, `mqtt:publish` and `mqtt:subscribe` are the three supported actions today.
 - `resources` define the object of the policy. It can be a topic or a topic pattern defined with [MQTT wildcards](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107).
@@ -116,7 +116,7 @@ Below is an example of an authorization policy that explicitly does not allow "r
             "authorizations":[
                {
                   "identities":[
-                     "rogue_client"
+                     "<iot_hub_name>.azure-devices.net/rogue_client"
                   ],
                   "deny":[
                      {
@@ -140,7 +140,7 @@ Below is an example of an authorization policy that explicitly does not allow "r
                },
                {
                   "identities":[
-                     "sensor_1"
+                     "<iot_hub_name>.azure-devices.net/sensor_1"
                   ],
                   "allow":[
                      {
@@ -167,7 +167,7 @@ A couple of things to keep in mind when writing your authorization policy:
 - Authorization statements are evaluated in the order that they appear in the JSON definition. It starts by looking at `identities` and then select the first allow or deny statements that match the request. In case of conflicts between allow and deny statements, the deny statement wins.
 - Several variables (for example, substitutions) can be used in the authorization policy:
 
-  - `{{iot:identity}}` represents the identity of the currently connected client. For example, a device identity like `myDevice` or a module identity like `myEdgeDevice/SampleModule`.
+  - `{{iot:identity}}` represents the identity of the currently connected client. For example, a device identity like `<iot_hub_name>.azure-devices.net/myDevice` or a module identity like `<iot_hub_name>.azure-devices.net/myEdgeDevice/SampleModule`.
   - `{{iot:device_id}}` represents the identity of the currently connected device. For example, a device identity like `myDevice` or the device identity where a module is running like `myEdgeDevice`.
   - `{{iot:module_id}}` represents the identity of the currently connected module. This variable is blank for connected devices, or a module identity like `SampleModule`.
   - `{{iot:this_device_id}}` represents the identity of the IoT Edge device running the authorization policy. For example, `myIoTEdgeDevice`.
