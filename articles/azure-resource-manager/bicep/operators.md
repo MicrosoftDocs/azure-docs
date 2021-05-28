@@ -4,7 +4,7 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 06/01/2021
 ---
 
 # Bicep operators

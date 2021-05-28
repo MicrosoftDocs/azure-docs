@@ -4,7 +4,7 @@ description: Use Azure Resource Manager and Azure Cloud Shell to deploy resource
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/01/2021
 ---
 
 # Deploy Bicep files from Azure Cloud Shell

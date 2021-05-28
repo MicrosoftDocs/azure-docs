@@ -4,7 +4,7 @@ description: Create parameter file for passing in values during deployment of a 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/01/2021
 ---
 
 # Create Bicep parameter file
