@@ -38,17 +38,7 @@ The project you create runs on .NET Core 3.1. If you instead want to create a pr
 
 Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends an HTTP response that includes a value from the request body or query string. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. 
 
-## Rename the function
-
-The `FunctionName` method attribute sets the name of the function, which by default is generated as `Function1`. Since the tooling doesn't let you override the default function name when you create your project, take a minute to create a better name for the function class, file, and metadata.
-
-1. In **File Explorer**, right-click the Function1.cs file and rename it to `HttpExample.cs`.
-
-1. In the code, rename the Function1 class to `HttpExample`.
-
-1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`.
-
-Your function definition should now look like the following code:
+[!INCLUDE [functions-vstools-rename](../../includes/functions-vstools-rename.md)]
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
  
@@ -68,23 +58,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## Test your function in Azure
-
-1. In Cloud Explorer, your new function app should be selected. If not, expand your subscription > **App Services**, and select your new function app.
-
-1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running. 
-
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Function app running":::
-
-1. In the address bar in the browser, append the string `/api/HttpExample?name=Functions` to the base URL and run the request.
-
-    The URL that calls your HTTP trigger function is in the following format:
-
-    `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
-
-2. Go to this URL and you see a response in the browser to the remote GET request returned by the function, which looks like the following example:
-
-    :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Function response in the browser":::
+[!INCLUDE [functions-vstools-run-remote](../../includes/functions-vstools-run-remote.md)]
 
 ## Clean up resources
 
@@ -92,19 +66,9 @@ Other quickstarts in this collection build upon this quickstart. If you plan to 
 
 *Resources* in Azure refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group. 
 
-You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
+You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). 
 
-1. In the Cloud Explorer, expand your subscription > **App Services**, right-click your function app, and choose **Open in Portal**. 
-
-1. In the function app page, select the **Overview** tab and then select the link under **Resource group**.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Select the resource group to delete from the function app page":::
-
-2. In the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
- 
-3. Select **Delete resource group**, and follow the instructions.
-
-   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
 ## Next steps
 
