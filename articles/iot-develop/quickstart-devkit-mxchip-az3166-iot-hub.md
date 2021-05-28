@@ -381,12 +381,6 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 ## Clean up resources
 
-If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal.
-
-To remove the entire Azure IoT Central sample application and all its devices and resources:
-1. Select **Administration** > **Your application**.
-1. Select **Delete**.
-
 If you no longer need the Azure resources created in this tutorial, you can use the Azure CLI to delete the resource group and all of its resources.
 
 > [!IMPORTANT] 
