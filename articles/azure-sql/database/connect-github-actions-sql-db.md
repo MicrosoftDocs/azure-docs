@@ -4,10 +4,12 @@ description: Use Azure SQL from a GitHub Actions workflow
 author: juliakm
 services: sql-database
 ms.service: sql-database
+ms.subservice: connect
 ms.topic: quickstart
 ms.author: jukullam
 ms.date: 05/05/2021
 ms.custom: github-actions-azure
+ms.reviewer: mathoma
 
 ---
 
