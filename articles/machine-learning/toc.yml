@@ -288,6 +288,9 @@
           href: how-to-configure-environment.md
         - name: Set up studio environment
           items:
+            - name: Manage environments in studio
+              href: how-to-manage-environments-in-studio.md
+              displayName: environments, studio, create, edit
             - name: Create and manage files
               href: how-to-manage-files.md
               displayName: Jupyter, notebooks, clone, samples
