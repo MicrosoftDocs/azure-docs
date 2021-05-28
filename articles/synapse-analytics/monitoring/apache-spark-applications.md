@@ -103,10 +103,8 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 15. Click on **View details** in a stage graph,then the details for stage will show out.
 
-    [ ![expand all the stages](./media/how-to-monitor-spark-applications/expand-all-the-stages.png) ](expand-all-the-stages.png#lightbox)
+    [![expand all the stages](./media/how-to-monitor-spark-applications/expand-all-the-stages.png)](./media/how-to-monitor-spark-applications/expand-all-the-stages.png#lightbox)
     
-      
-
 ## Monitor running Apache Spark application
 
 Open **Monitor**, then select **Apache Spark applications**. To view the details about the Apache Spark applications that are running, select the submitting Apache Spark application and view the details. If the Apache Spark application is still running, you can monitor the progress.
@@ -129,7 +127,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 8. Check the **Logs** in this tab. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
 
-    [ ![view running job](./media/how-to-monitor-spark-applications/view-running-job.png) ](view-running-job.png#lightbox)
+    [![view running job](./media/how-to-monitor-spark-applications/view-running-job.png)](./media/how-to-monitor-spark-applications/view-running-job.png#lightbox)
 
 ## View canceled Apache Spark application
 
