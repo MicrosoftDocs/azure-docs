@@ -34,9 +34,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 
 Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. 
 
-Click on an environment to see detailed information about its contents.
-
-:::image type="content" source="media/how-to-manage-environments-in-studio/curatedenv.jpg" alt-text="Browse curated environments":::
+Click on an environment to see detailed information about its contents. For more information, see [Azure Machine Learning curated environments](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments). 
 
 ## Create an environment
 
@@ -52,7 +50,7 @@ Create an environment by specifying one of the following:
 * Docker [image](https://hub.docker.com/search?q=&type=image)
 * [Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
-:::image type="content" source="media/how-to-manage-environments-in-studio/createpage.jpg" alt-text="Environment creation wizard":::
+:::image type="content" source="media/how-to-manage-environments-in-studio/create-page.jpg" alt-text="Environment creation wizard":::
 
 You can customize the configuration file, add tags and descriptions, and review the properties before creating the entity. 
 
@@ -64,7 +62,7 @@ Once an environment has been created, view its details by clicking on the name. 
 
 Click on the pencil icons to edit tags and descriptions as well as the configuration files or image. Keep in mind that any changes to the Docker or Conda sections will create a new version of the environment. 
 
-:::image type="content" source="media/how-to-manage-environments-in-studio/detailspage.jpg" alt-text="Environments details page":::
+:::image type="content" source="media/how-to-manage-environments-in-studio/details-page.jpg" alt-text="Environments details page":::
 
 ## View image build logs
 
