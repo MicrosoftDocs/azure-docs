@@ -49,6 +49,4 @@ You do not need to open inbound connections to the corporate network. The provis
 - [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisties.md)
 - [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
 - [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
-
-
-- App provisioning](user-provisioning.md)
+- [Generic SQL Connector](on-prem-sql-connector-configure.md)

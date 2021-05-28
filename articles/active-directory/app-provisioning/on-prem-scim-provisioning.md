@@ -26,8 +26,10 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.mi
 - Administator role for installing the agent.  This is a one time effort and should be an Azure account that is either a hybrid admin or global admin. 
 - Administrator role for configuring the application in the cloud (Application admin, Cloud application admin, Global Administrator, Custom role with perms)
 
-## Steps
- 1. Add an application from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
+## Steps for on-premises app provisioning to SCIM-enabled apps
+Use the steps below to provision to SCIM-enabled apps. 
+
+ 1. Add the ""Agent based SCIM provisioning" app from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
  2. Navigate to your app > Provisioning > Download the provisioning agent.
  3. Click on on-premises connectivity and download the provisioning agent (during the private preview, you should skip this step and use the agent provided in the SharePoint site).
  4. Copy the agent onto the virtual machine or server that your SCIM endpoint is hosted on.
@@ -49,13 +51,6 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.mi
  19. Monitor using the [provisioning logs](../../active-directory/reports-monitoring/concept-provisioning-logs.md).
  
 
-
-
-
-
-
-
-
 ## Things to be aware of
 * Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](use-scim-to-provision-users-and-groups.md).
   * Azure AD offers open source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation (the code is as-is)
@@ -64,3 +59,7 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.mi
 Next Steps
 
 - [App provisioning](user-provisioning.md)
+- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
+- [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
+- [Generic SQL Connector](on-prem-sql-connector-configure.md)
+- [Tutorial:  ECMA Connector Host Generic SQL Connector](tutorial-ecma-sql-connector.md)

@@ -29,9 +29,9 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
  4. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
  5. Ensure that you have assigned one or more agents to the application in the Azure Portal.
  6. After assigning an agent, you need to wait 10-20 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
- 6. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate.
- 7. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
- 8. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.
+ 7. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate.
+ 8. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
+ 9. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.
     ```
     https://localhost:8585/ecma2host_connectorName/scim
     ```
@@ -199,4 +199,8 @@ Message: Could not load file or assembly 'file:///C:\Program Files\Microsoft ECM
 
 ## Next Steps
 
-- App provisioning](user-provisioning.md)
+- [App provisioning](user-provisioning.md)
+- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
+- [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
+- [Generic SQL Connector](on-prem-sql-connector-configure.md)
+- [Tutorial:  ECMA Connector Host Generic SQL Connector](tutorial-ecma-sql-connector.md)

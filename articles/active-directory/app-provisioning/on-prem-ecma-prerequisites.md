@@ -48,3 +48,4 @@ For more installation and configuration information see:
 - [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
 - [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
 - [Generic SQL Connector](on-prem-sql-connector-configure.md)
+- [Tutorial:  ECMA Connector Host Generic SQL Connector](tutorial-ecma-sql-connector.md)
