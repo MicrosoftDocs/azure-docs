@@ -122,7 +122,7 @@ Visual Studio creates a project and class that contains boilerplate code for the
 
 [!INCLUDE [functions-vstools-rename](../../includes/functions-vstools-rename.md)]
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="19-3":::
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="9-13":::
  
 Now that you've renamed the function, you can test it on your local computer.
 
