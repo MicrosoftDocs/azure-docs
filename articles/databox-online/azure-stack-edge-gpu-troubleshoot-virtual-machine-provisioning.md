@@ -27,14 +27,14 @@ This section provides troubleshooting for most common causes of a VM provisionin
 
 When VM provisioning times out, you see the following error: 
 
-![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
+![Screenshot of Azure portal error displayed when VM provisioning times out.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
 These are the top causes of VM provisioning timeouts. When you receive this error message, check for these issues.
-1. The IP address that you assigned to the VM is already in use. [Learn more](#vm-provisioning-timeout)
-1. The VM image that you used to deploy the VM wasn't prepared correctly. [Learn more](#vm-image-not-prepared-correctly)
-1. The default gateway and DNS server couldn't be reached from guest VM. [Learn more](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
-1. During a `cloud init` installation, `cloud init` either didn't run or there were issues while it was running. (Linux VMs only) [Learn more](#cloud-init-issues-linux-vms)
-1. For a Linux VM deployed using a custom VM image, the Provisioning flags in the /etc/waagent.conf file are not correct. (Linux VMs only) [Learn more](#provisioning-flags-set-incorrectly-linux-vms)
+- The IP address that you assigned to the VM is already in use. [Learn more](#vm-provisioning-timeout)
+- The VM image that you used to deploy the VM wasn't prepared correctly. [Learn more](#vm-image-not-prepared-correctly)
+- The default gateway and DNS server couldn't be reached from guest VM. [Learn more](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
+- During a `cloud init` installation, `cloud init` either didn't run or there were issues while it was running. (Linux VMs only) [Learn more](#cloud-init-issues-linux-vms)
+- For a Linux VM deployed using a custom VM image, the Provisioning flags in the /etc/waagent.conf file are not correct. (Linux VMs only) [Learn more](#provisioning-flags-set-incorrectly-linux-vms)
 
 ### IP assigned to the VM is already in use
 
@@ -85,7 +85,7 @@ To verify that the default gateway and DNS server can be reached, do the followi
 
    To find out the IP addresses for the default gateway and DNS servers, go to the local UI for your device. Select the port you're interested in, and view the network settings.
 
-   ![Default gateway and DNS server settings for a port on an Azure Stack Edge Pro GPU device](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
+   ![Screenshot of default gateway and DNS server settings for a port on an Azure Stack Edge Pro GPU device.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
 
 
 ### `cloud init` issues (Linux VMs)
@@ -118,7 +118,7 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
    When the data source is set to *Azure*, the entry in the *cloud init* logs looks similar to the following one.
 
-   ![Cloud init log entry with Data Source set to Azure](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
+   ![Picture of a cloud-init log entry for a VM image with Data Source set to Azure.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
 
    If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](/azure/virtual-machines/linux/cloud-init-deep-dive).
 
@@ -150,7 +150,7 @@ To verify whether the network interface was created successfully, do these steps
 
 1. If a network interface was not created successfully, you'll see the following error.
 
-   ![Portal error displayed when network interface creation fails](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
+   ![Screenshot of the error displayed in the Portal when network interface creation fails.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
 
 **Suggested solution:** Create the VM again, and assign it a static IP address.
 
@@ -163,7 +163,7 @@ This section covers common issues that occur during VM creation.
 
 **Error description:** When VM creation fails because of insufficient memory, you'll see the following error.
  
-![Portal error displayed when VM creation fails](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
+![Screenshot of the error displayed in the Portal when VM creation fails.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
 
 **Suggested solution:** Check the available memory on the device, and choose the VM size accordingly. For more information, see [Supported virtual machine sizes on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
 
@@ -185,7 +185,7 @@ The memory available for the deployment of a VM is constrained by several factor
 
 If you try to deploy a VM on a GPU device that already has Kubernetes enabled, no GPUs will be available, and VM provisioning will fail with the following error:
 
-![Portal error displayed when creation of a GPU VM fails because of not enough GPUs](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
+![Screenshot of error displayed in the Portal when creation of a GPU VM fails because of no available GPUs.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
 
 **Possible causes:**
 If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs, and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of available GPUs. Your Azure Stack Edge device can be equipped with 1 or 2 GPUs.
