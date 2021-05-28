@@ -25,6 +25,8 @@
     - name: Bicep file structure
       displayName: parameters,variables,resources,outputs,condition
       href: file.md
+    - name: Best practices
+      href: best-practices.md
     - name: Data types
       href: data-types.md
     - name: Parameters
