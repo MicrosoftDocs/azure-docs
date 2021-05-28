@@ -134,7 +134,7 @@ If most data is evicted from the cache due to exceeding the `MaxIntegratedCacheS
 
 ### I want to understand if I need to add more dedicated gateway nodes
 
-In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. Check the `DedicatedGatewayMaxCpuUsage` and `DedicatedGatewayAverageMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway won't help reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
+In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. Check the `DedicatedGatewayMaxCpuUsage` and `DedicatedGatewayAverageMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway nodes won't reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
 
 ## Next steps
 
