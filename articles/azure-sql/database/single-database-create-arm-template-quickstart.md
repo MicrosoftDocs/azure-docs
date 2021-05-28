@@ -7,9 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: subject-armqs sqldbrb=1
 ms.devlang:
 ms.topic: quickstart
-author: mumian
-ms.author: jgao
-ms.reviewer: mathoma
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 06/24/2020
 ---
 
