@@ -6,7 +6,8 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 01/22/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Build your first Azure data factory using Azure Resource Manager template

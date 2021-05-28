@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.author: cynthn
-ms.reviewer: zivr
+ms.reviewer: zivr 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy VMs to proximity placement groups using Azure PowerShell
