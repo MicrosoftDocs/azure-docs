@@ -25,11 +25,11 @@ Use these steps to update an offer that's been successfully published to Preview
 1. When you're ready to publish your updated offer, select **Review and publish** from any page. The **Review and publish** page will open. On this page you'll see the completion status for the sections of the offer that you updated: 
     - **Unpublished changes**: The section has been updated and is complete. All required data has been provided and there were no errors introduced in the updates.
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
-2. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](../review-publish-offer.md#validation-and-publishing-steps).
+2. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 
 ## Changing offer type
 
-[!INCLUDE [change-offer-type](../includes/change-offer-type.md)]
+[!INCLUDE [change-offer-type](includes/change-offer-type.md)]
 
 > [!IMPORTANT]
 > You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
@@ -39,9 +39,9 @@ Use these steps to update an offer that's been successfully published to Preview
 Complete these steps to add a new plan to an offer that you've already published.
 
 1. With the **Offer overview** page for your existing offer open, go to the **Plan overview** page, and then select **Create new plan**.
-1. Create a new plan according to the [guidelines](../plans-pricing.md) by using the **existing plans Pricing model**.
+1. Create a new plan according to the [guidelines](plans-pricing.md) by using the **existing plans Pricing model**.
 1. Select **Save draft** after you change the plan name.
-1. Select **Publish** when you're ready to publish your updates. The **[Review and publish](../review-publish-offer.md)** page opens and provides a completion status for your updates.
+1. Select **Publish** when you're ready to publish your updates. The **[Review and publish](review-publish-offer.md)** page opens and provides a completion status for your updates.
 
 ## Update a plan for an existing offer
 
@@ -50,7 +50,7 @@ Complete these steps to make changes to a plan for an offer that you've already 
 1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
 1. Select the plan **Name**, **Pricing model**, or **Availability**. *Currently, plans are available only in English (United States)*.
 1. Select **Save draft** after making any changes to the plan name, description, or audience availability.
-1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](../review-publish-offer.md)** page opens and provides a completion status for your updates.
+1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](review-publish-offer.md)** page opens and provides a completion status for your updates.
 1. Select **Publish** to submit the updated plan for publishing. We'll email you when a preview version of the updated offer is available for you to review and approve.
 
 ## Offer a virtual machine plan at a new price
@@ -64,12 +64,12 @@ Now that you have hidden the plan with the old price, create a copy of that plan
 
 1. In Partner Center, go back to **Plan overview**.
 2. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
-1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](../azure-vm-create-plans.md) to learn more.
+1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](azure-vm-create-plans.md) to learn more.
     > [!IMPORTANT]
     > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop selling the parent plan later. Don’t use this option if you want to stop selling the parent plan.
 3. Complete all the required sections for the new plan, including the new price.
 1. Select **Save draft**.
-1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](../review-publish-offer.md) for more details.
+1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](review-publish-offer.md) for more details.
 
 ## Sync private plan audiences
 
@@ -98,7 +98,7 @@ Before you publish updates to your live or [preview](#compare-changes-to-a-previ
 
 - To see only values that haven't been updated, select the **Unchanged fields** filter. The field values shown for the published and draft version will be the same.
 
-  ![Filters for comparing updates to your published or preview offer](./media/compare-changes-marketplace.png)
+  ![Filters for comparing updates to your published or preview offer](media/compare-changes-marketplace.png)
 
 >[!NOTE]
 > The following pages don't currently support **Compare**:
@@ -140,4 +140,4 @@ When the offer removal is initiated by the ISV, the ISV owns communication of th
 
 ## Next steps
 
-- [Check the publishing status of your commercial marketplace offer](../review-publish-offer.md)
+- [Check the publishing status of your commercial marketplace offer](review-publish-offer.md)
