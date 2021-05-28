@@ -137,8 +137,11 @@ The deployment process will do the following things for you:
     - To edit an app group in an existing host pool, select **Host pools** in the menu on the left side of the screen, select the name of the host pool, then select **Application groups** in the menu that appears on the left side of the screen, and then select the app group you want to edit.
 
 4. Select **Applications** in the menu on the left side of the page.
+
 5. If you want to remove an application, select the check box next to the application, then select **Remove** from the menu on the top of the page.
+
 6. If you want to edit the details of an application, select the application name. This will open up the editing menu.
+
 7. When you're done making changes, select **Save**.
 
 ## Next steps
