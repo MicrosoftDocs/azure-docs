@@ -25,6 +25,9 @@ This article describes the steps required to connect Azure Cosmos DB account to 
 > [!NOTE]
 > Connecting to Azure Cosmos DB with the Power BI connector is currently supported for Azure Cosmos DB SQL API and Gremlin API accounts only.
 
+> [!NOTE]
+> Creating near real-time Power BI dashboards using Azure Synapse Link is currently supported for Azure Cosmos DB SQL API and Azure Cosmos DB API for MongoDB.
+
 ## Prerequisites
 Before following the instructions in this Power BI tutorial, ensure that you have access to the following resources:
 
