@@ -4,7 +4,7 @@ description: This article describes how to add a reference data set to augment d
 ms.service: time-series-insights
 services: time-series-insights
 author: esung22
-ms.author: elsugn
+ms.author: elsung
 manager: cnovak
 ms.reviewer: orspodek
 ms.workload: big-data
