@@ -8,7 +8,7 @@ ms.date: 06/01/2021
 ---
 # Best practices for Bicep
 
-This article recommends practices to follow when developing your Bicep files. These practices will help make your Bicep file easy-to-understand.
+This article recommends practices to follow when developing your Bicep files. These practices make your Bicep file easier to understand and use.
 
 ## Parameters
 
