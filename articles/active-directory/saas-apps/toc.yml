@@ -545,6 +545,8 @@
         href: dowjones-factiva-tutorial.md
       - name: Darwinbox
         href: darwinbox-tutorial.md
+      - name: Draup, Inc
+        href: draup-inc-tutorial.md  
       - name: Drift
         href: drift-tutorial.md
       - name: Dropbox Business
@@ -1296,6 +1298,8 @@
         href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
+      - name: Nexsure
+        href: nexsure-tutorial.md  
       - name: Nimblex
         href: nimblex-tutorial.md
       - name: Nintex Promapp
