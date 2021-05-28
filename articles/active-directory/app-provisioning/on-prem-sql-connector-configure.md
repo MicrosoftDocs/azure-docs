@@ -17,6 +17,10 @@ ms.reviewer: arvinh
 
 This document describes how to create a new SQL connector with the Azure AD ECMA Connector Host and how to configure it.  You will need to do this once you have successfully installed Azure AD ECMA Connector Host.  
 
+Installing and configuring the Azure AD ECMA Connector Host is a process. Use the flow below to guide you through the process.
+
+ ![Installation flow](./media/on-prem-sql-connector-configure/flow-1.png)  
+
 Depending on the options you select, some of the wizard screens may or may not be available and the information may be slightly different.  For purposes of this configuration, the user object type is used. Use the information below to guide you in your configuration.
 
 

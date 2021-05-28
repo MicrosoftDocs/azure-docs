@@ -14,14 +14,18 @@ ms.collection: M365-identity-device-management
 ---
 
 # Prerequisites for the Azure AD ECMA Connector Host
-This article provides guidance on the prerequisites that are needed for using the Azure AD ECMA Connector Host.
+This article provides guidance on the prerequisites that are needed for using the Azure AD ECMA Connector Host.  
+
+Installing and configuring the Azure AD ECMA Connector Host is a process. Use the flow below to guide you through the process.
+
+ ![Installation flow](./media/on-prem-ecma-prerequisites/flow-1.png)  
 
 
 ## On-premises pre-requisites
  - A target system, such as a SQL database, or LDAP directory (excluding AD DS), in which users can be created, updated, and deleted.
  - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations. If you do not have an ECMA Connector ready during configuration, then you can still validate the end-to-end flow if you have a SQL Server in your environment and use the Generic SQL Connector.
  - A Windows Server 2016 or later computer with an Internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com (for example, a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy). The server should have at least 3 GB of RAM.
- - A domian-joined computer with .NET Framework 4.7.1
+ - A computer with .NET Framework 4.7.1
 
 ## Cloud requirements
 

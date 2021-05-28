@@ -16,6 +16,9 @@ ms.collection: M365-identity-device-management
 # Configure the Azure AD ECMA Connector Host and the provisioning agent.
 This article provides guidance on how to configure the Azure AD ECMA Connector Host and the provisioning agent  once you have successfully installed them.
 
+Installing and configuring the Azure AD ECMA Connector Host is a process.  Use the flow below to guide you through the process.
+
+ ![Installation flow](./media/on-prem-ecma-configure/flow-1.png)  
 
 ## Configure the Azure AD ECMA Connector Host
 Configuring the Azure AD ECMA Connector Host occurs in 2 parts.
