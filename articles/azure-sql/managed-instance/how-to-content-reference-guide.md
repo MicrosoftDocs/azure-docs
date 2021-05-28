@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: A reference guide of content that teaches you how to configure and manage Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: guide
