@@ -200,9 +200,28 @@ To iterate over items in an array or count:
 
 ## Resource dependencies
 
-To set dependency between resources:
+For Bicep, you can set an explicit dependency but this approach is not recommended. Instead, rely on implicit dependencies. An implicit dependency is created when one resource declaration references the identifier of another resource.
 
-For Bicep, either rely on automatic detection of dependencies or manually set dependency.
+The following shows a network interface with an implicit dependency on a network security group. It references the network security group with `nsg.id`.
+
+```bicep
+resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = {
+  ...
+}
+
+resource nic1 'Microsoft.Network/networkInterfaces@2020-06-01' = {
+  name: nic1Name
+  location: location
+  properties: {
+    ...
+    networkSecurityGroup: {
+      id: nsg.id
+    }
+  }
+}
+```
+
+If you must set an explicit dependence, use:
 
 ```bicep
 dependsOn: [ stg ]
