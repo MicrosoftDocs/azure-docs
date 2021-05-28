@@ -32,6 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
   * Reader role on the virtual machine.
   * Reader role on the NIC with private IP of the virtual machine.
   * Reader role on the Azure Bastion resource.
+  * Reader role on the VNet containing the AzureBastionSubnet
 
 * Ports: To connect to the Windows VM, you must have the following ports open on your Windows VM:
   * Inbound ports: RDP (3389)
