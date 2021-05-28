@@ -99,8 +99,6 @@
       href: decompile.md
 - name: Reference
   items:
-  - name: Template reference
-    href: /azure/templates/
   - name: Bicep file structure
     displayName: parameters,variables,resources,outputs,condition
     href: file.md
@@ -140,6 +138,8 @@
       href: operators-logical.md
     - name: Numeric operators
       href: operators-numeric.md
+  - name: Template reference
+    href: /azure/templates/
   - name: Azure PowerShell
     href: /powershell/module/az.resources
   - name: Azure CLI
