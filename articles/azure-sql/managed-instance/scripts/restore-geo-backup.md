@@ -4,7 +4,7 @@ description: Azure PowerShell example script to restore an Azure SQL Managed Ins
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
