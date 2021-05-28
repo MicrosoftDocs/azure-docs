@@ -175,11 +175,16 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
      |Anchor|ContosoLogin|
      |Query attribute|AzureID|
      |DN|AzureID|
+      **Anchor** - this attribute should be uniqie in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.
  
+      **Query attribute** - used by the ECMA host to query the in-memory cache. This attribute should be unique.
+ 
+      **DN** - The autogenerate option should be selected in most cases. If deselected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType
  14. On the **Select Attributes** page, add all of the attributes in the drop-down and click **Next**. 
      ![Enter attributes](.\media\tutorial-ecma-sql-connector\conn-13.png)
 
-15. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Click **Finish**.
+      The set attribute dropdown will show any attribute that has been discovered in the target system and has **not been** chosen in the previous select attributes page. 
+ 15. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Click **Finish**.
      ![Enter deprovisioning information](.\media\tutorial-ecma-sql-connector\conn-14.png)
 
 ## Step 6 - Ensure ECMA2Host service is running

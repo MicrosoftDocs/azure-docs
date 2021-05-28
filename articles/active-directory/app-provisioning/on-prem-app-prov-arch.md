@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 08/31/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ There are three primary components to provisioning users into an on-premises app
 3.  The Azure AD provisioning service serves as the synchronization engine.
 
 >[!NOTE]
-> MIM Sync is not required. However, you can use MIM sync to build and test your ECMA connector before importing it into the ECMA host.
+> MIM Sync is not required. However, you can use MIM sync to build and test your ECMA connector before importing it into the ECMA host. For more information see, [Export a Microsoft Identity Manager connector for use with Azure AD ECMA Connector Host](on-prem-migrate-mim.md)
 
 
 ### Firewall requirements
@@ -43,12 +43,10 @@ You do not need to open inbound connections to the corporate network. The provis
 - Choosing the right network to traverse. For example, traversing a private network rather than the public Internet may be faster, due to dedicated links.
 
 
-
-
 ## Next Steps
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisites.md)
+- [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisties.md)
 - [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
 - [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
 
