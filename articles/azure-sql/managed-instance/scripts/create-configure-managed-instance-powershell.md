@@ -5,7 +5,7 @@ description: This article provides an Azure PowerShell example script to create 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
