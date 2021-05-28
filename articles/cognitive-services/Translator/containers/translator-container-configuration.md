@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/27/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -80,15 +80,6 @@ This setting can be found in the following place:
 ## Mount settings
 
 Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
-
-The Translator containers don't use input or output mounts to store training or service data.
-
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](translator-how-to-install-container.md#host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
-<!-- markdownlint-disable MD033 -->
-|Optional| Name | Data type | Description |
-|-------|------|-----------|-------------|
-|Not allowed| `Input` | String | Translator containers do not use this value.|
-|Optional| `Output` | String | The target of the output mount. The default value is `/output`. Here is where you'll find the location of the logs, including container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Next steps
 

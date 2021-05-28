@@ -456,25 +456,18 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://eventhubs.azure.net` | ![Available][check] |
-| Azure Government |  | Not Available |
-| Azure Germany |   | Not Available |
-| Azure China 21Vianet |  | Not Available |
+| Azure Government | `https://eventhubs.azure.net` | ![Available][check] |
+| Azure Germany | `https://eventhubs.azure.net` | ![Available][check] |
+| Azure China 21Vianet | `https://eventhubs.azure.net` | ![Available][check] |
 
 ### Azure Service Bus
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://servicebus.azure.net`  | ![Available][check] |
-| Azure Government |  | ![Available][check] |
-| Azure Germany |   | Not Available |
-| Azure China 21Vianet |  | Not Available |
-
-
-
-
-
-
-
+| Azure Government | `https://servicebus.azure.net`  | ![Available][check] |
+| Azure Germany |  `https://servicebus.azure.net`  | ![Available][check] |
+| Azure China 21Vianet | `https://servicebus.azure.net`  | ![Available][check] |
 
 
 ### Azure Storage blobs and queues
