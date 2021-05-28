@@ -16,7 +16,8 @@ ms.reviewer: sngun
 
 This article describes the steps required to create a live weather dashboard in Power BI using Azure Cosmos DB OLTP connector and Azure Analysis Services. The Power BI dashboard will display charts to show near real-time information about temperature and rainfall in a region.
 
-Another option is to create near real-time reports using [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) for [Azure Cosmos DB analytical store](analytical-store-introduction.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or costs impact to your transactional workloads. You can use either [DirectQuery](https://docs.microsoft.com/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](https://docs.microsoft.com/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](synapse-link-power-bi.md).
+Another option is to create near real-time reports with [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) for [Azure Cosmos DB analytical store](analytical-store-introduction.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or costs impact to your transactional workloads. You can use either [DirectQuery](https://docs.microsoft.com/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](https://docs.microsoft.com/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](synapse-link-power-bi.md).
+
 
 ## Reporting scenarios
 
@@ -27,8 +28,8 @@ There are multiple ways to set up reporting dashboards on data stored in Azure C
 |---------|---------|
 |1. Generating ad-hoc reports (no refresh)    |  [Power BI Azure Cosmos DB connector with import mode](powerbi-visualize.md)       |
 |2. Generating ad-hoc reports with periodic refresh   |  [Power BI Azure Cosmos DB connector with import mode (Scheduled periodic refresh)](powerbi-visualize.md)       |
-|3. Reporting on large data sets (< 10 GB)     |  [Power BI Azure Cosmos DB connector with import mode and incremental refresh](create-real-time-weather-dashboard-powerbi.md/#power-bi-with-incremental-refresh)       |
-|4. Reporting on large live data sets (>= 10 GB)    |  **Option 1:** [Power BI and Azure Synapse Link with DirectQuery](https://docs.microsoft.com/azure/cosmos-db/synapse-link-power-bi)<br />  **Option 2:** [Power BI and Azure Analysis Services connector with DirectQuery + Azure Analysis Services](create-real-time-weather-dashboard-powerbi.md/#power-bi-azure-analysis-connector--azure-analysis-services)       |
+|3. Reporting on large data sets (< 10 GB)     |  [Power BI Azure Cosmos DB connector with import mode and incremental refresh](create-real-time-weather-dashboard-powerbi.md)       |
+|4. Reporting on large live data sets (>= 10 GB)    |  **Option 1:** [Power BI and Azure Synapse Link with DirectQuery](https://docs.microsoft.com/azure/cosmos-db/synapse-link-power-bi)<br />  **Option 2:** [Power BI and Azure Analysis Services connector with DirectQuery + Azure Analysis Services](create-real-time-weather-dashboard-powerbi.md)       |
 |5. Reporting on large live data sets with aggregates     | **Option 1:** [Power BI and Azure Synapse Link with import mode and scheduled refresh](https://docs.microsoft.com/azure/cosmos-db/synapse-link-power-bi)<br />  **Option 2:** [Power BI and Spark connector with DirectQuery + Azure Databricks + Azure Cosmos DB Spark connector.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)<br />  **Option 3:** Power BI and Azure Analysis Services connector with direct query + Azure Analysis Services + Azure Databricks + Cosmos DB Spark connector.     |
 
 Scenarios 1 and 2 can be easily set up [using the Azure Cosmos DB Power BI connector](powerbi-visualize.md). This article describes below the setups for scenarios 3 and 4.
