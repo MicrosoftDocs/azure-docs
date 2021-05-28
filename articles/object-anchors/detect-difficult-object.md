@@ -13,8 +13,8 @@ ms.service: azure-object-anchors
 
 # How to detect a difficult object
 
-Sometimes, an object may turn out to be more difficult to detect. For example, when a large surface area is not accessible because the object is against a wall. Or when an object is too big and it takes too long to walk around it. Or when the object has darker spots.
+Sometimes, an object may turn out to be more difficult to detect. For example, when a large surface area isn't accessible because the object is against a wall. Or when an object is too large and it takes too long to walk around it. Or when the object has darker spots.
 
-One mechanism offered by the Azure Object Anchors SDK that can help alleviate these situations is the `MinSurfaceCoverage` property in the `ObjectQuery` class. It represents the minimum required surface coverage ratio to consider an object instance to be a true positive. It allows a range from 0% to 100%. The default setting, at 40%, works for most situations. But, when faced with difficult objects, the recommendation is to lower the value for this property, so that less surface coverage is required to detect the object.
+One mechanism offered by the Azure Object Anchors SDK that can help in these situations is the `MinSurfaceCoverage` property in the `ObjectQuery` class. It represents the minimum required surface coverage ratio to consider an object instance to be a true positive. It allows a range from 0% to 100%. The default setting, at 40%, works for most situations. But, when faced with difficult objects, the recommendation is to lower the value for this property, so that less surface coverage is required to detect the object.
 
-For more information, see the `ObjectQuery.MinSurfaceCoverage` property for [Unity](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage#Microsoft_Azure_ObjectAnchors_ObjectQuery_MinSurfaceCoverage) or [HoloLens C++/WinRT](https://docs.microsoft.com/en-us/cpp/api/object-anchors/winrt/objectquery)
+For more information, see the `ObjectQuery.MinSurfaceCoverage` property for [Unity](/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage#Microsoft_Azure_ObjectAnchors_ObjectQuery_MinSurfaceCoverage) or [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt/objectquery)

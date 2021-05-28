@@ -13,6 +13,6 @@ ms.service: azure-object-anchors
 
 # Model R]requirements
 
-Each dimension of a model should be between 1 to 10 meters, and the file size should be less than 150 MB.
+Each dimension of a model should be between 1 meter to 10 meters, and the file size should be less than 150 MB.
 
 Our currently supported formats are: `fbx`, `ply`, `obj`, `glb`, and `gltf`.

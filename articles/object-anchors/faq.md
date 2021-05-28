@@ -90,7 +90,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: Which version of the Mixed Reality Toolkit (MRTK) should my HoloLens Unity application use to be able to work with the Object Anchors Unity SDK?**
 
-**A:** Any version should work. For more information, see [Introducing MRTK for Unity](https://docs.microsoft.com/windows/mixed-reality/develop/unity/mrtk-getting-started).
+**A:** Any version should work. For more information, see [Introducing MRTK for Unity](/windows/mixed-reality/develop/unity/mrtk-getting-started).
 
 **Q: How accurate is an estimated pose?**
 
