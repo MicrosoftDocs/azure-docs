@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Use the Azure PowerShell module to enable end-to-end encryption using encryption at host

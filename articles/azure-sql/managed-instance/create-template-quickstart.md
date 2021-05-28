@@ -4,7 +4,7 @@ description: Learn how to create an Azure SQL Managed Instance by using an Azure
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.devlang:
 ms.topic: quickstart
 author: stevestein
