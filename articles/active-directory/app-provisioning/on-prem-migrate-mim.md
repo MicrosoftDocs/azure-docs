@@ -16,6 +16,9 @@ ms.collection: M365-identity-device-management
 
 # Export a Microsoft Identity Manager connector for use with Azure AD ECMA Connector Host
 
+>[!IMPORTANT]
+> The on-premises provisioning preview is currently in an invitation-only preview. You can request access to the capability [here](https://aka.ms/onpremprovisioningpublicpreviewaccess). We will open the preview to more customers and connectors over the next few months as we prepare for general availability.
+
 You can import into Azure AD ECMA Connector Host a configuration for a specific connector from a FIM Sync or MIM Sync installation.  Note that the MIM Sync installation is only used for configuration, not for the ongoing synchronization from Azure AD.
 
 >[!IMPORTANT]

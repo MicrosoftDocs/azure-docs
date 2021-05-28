@@ -14,6 +14,10 @@ ms.collection: M365-identity-device-management
 ---
 
 # Installation of the Azure AD ECMA Connector Host
+
+>[!IMPORTANT]
+> The on-premises provisioning preview is currently in an invitation-only preview. You can request access to the capability [here](https://aka.ms/onpremprovisioningpublicpreviewaccess). We will open the preview to more customers and connectors over the next few months as we prepare for general availability.
+
 The Azure AD ECMA Connector Host is included and part of the Azure AD Connect Provisioning Agent Package.  The provisioning agent and Azure AD ECMA Connector Host are two separate windows services that are installed using one installer, deployed on the same machine. 
 
 Installing and configuring the Azure AD ECMA Connector Host is a process.  Use the flow below to guide you through the process.

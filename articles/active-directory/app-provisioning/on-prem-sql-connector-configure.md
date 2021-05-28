@@ -15,6 +15,10 @@ ms.reviewer: arvinh
 
 # Azure AD ECMA Connector Host generic SQL connector configuration
 
+>[!IMPORTANT]
+> The on-premises provisioning preview is currently in an invitation-only preview. You can request access to the capability [here](https://aka.ms/onpremprovisioningpublicpreviewaccess). We will open the preview to more customers and connectors over the next few months as we prepare for general availability.
+
+
 This document describes how to create a new SQL connector with the Azure AD ECMA Connector Host and how to configure it.  You will need to do this once you have successfully installed Azure AD ECMA Connector Host.  
 
 >[!NOTE] 

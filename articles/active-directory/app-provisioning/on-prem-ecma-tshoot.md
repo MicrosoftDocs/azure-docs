@@ -15,6 +15,10 @@ ms.collection: M365-identity-device-management
 
 # Troubleshooting ECMA Connector Host issues
 
+>[!IMPORTANT]
+> The on-premises provisioning preview is currently in an invitation-only preview. You can request access to the capability [here](https://aka.ms/onpremprovisioningpublicpreviewaccess). We will open the preview to more customers and connectors over the next few months as we prepare for general availability.
+
+
 ## Troubleshoot test connection issues. 
 After configuring the ECMA Host and Provisioning Agent, it's time to test connectivity from the Azure AD Provisioning service to the Provisioning Agent > ECMA Host > Application. This end to end test can be performed by clicking test connection in the application in the Azure portal. When test connection fails, try the following troubleshooting steps:
 

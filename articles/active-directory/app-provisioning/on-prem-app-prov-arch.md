@@ -15,6 +15,9 @@ ms.collection: M365-identity-device-management
 
 # On-premises application provisioning architecture
 
+>[!IMPORTANT]
+> The on-premises provisioning preview is currently in an invitation-only preview. You can request access to the capability [here](https://aka.ms/onpremprovisioningpublicpreviewaccess). We will open the preview to more customers and connectors over the next few months as we prepare for general availability.
+
 ## Overview
 
 The following diagram shows an over view of how on-premises application provisioning works.

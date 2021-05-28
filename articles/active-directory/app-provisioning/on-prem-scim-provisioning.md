@@ -15,6 +15,9 @@ ms.reviewer: arvinh
 
 # On-premises app provisioning to SCIM-enabled apps
 
+>[!IMPORTANT]
+> The on-premises provisioning preview is currently in an invitation-only preview. You can request access to the capability [here](https://aka.ms/onpremprovisioningpublicpreviewaccess). We will open the preview to more customers and connectors over the next few months as we prepare for general availability.
+
 The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This document outlines how you can use the Azure AD provisioning service to provision users into an on-premises application that is SCIM enabled. If you're looking to provision users into non-SCIM on-premises applications, such as a non-AD LDAP directory or SQL DB, see here (link to new doc that we will need to create). If you're looking to provisioning users into cloud apps such as DropBox, Atlassian, etc. review the app specific [tutorials](../../active-directory/saas-apps/tutorial-list.md). 
 
 ![architecture](./media/on-prem-scim-provisioning/scim-1.png)
