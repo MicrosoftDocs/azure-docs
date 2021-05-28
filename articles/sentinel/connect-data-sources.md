@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/26/2021
+ms.date: 05/28/2021
 ms.author: yelevin
 
 ---
@@ -44,10 +44,10 @@ Microsoft and other organizations author Azure Sentinel data connectors. Each da
 | Support type| Description|
 |-------------|------------|
 |**Microsoft-supported**|Applies to:<ul><li>Data connectors for data sources where Microsoft is the data provider.</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources.</li></ul>Microsoft supports and maintains data connectors in this category in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community provide support and maintenance for data connectors authored by any party other than Microsoft.|
-|**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The Partner company provides support or maintenance for these data connectors. The Partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided in the listing for that data connector at [Azure Sentinel partner data connectors](partner-data-connectors.md).<br><br>For any issues with a Partner-supported data connector, contact the specified data connector support contact.|
-|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
+|**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The Partner company provides support or maintenance for these data connectors. The Partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for that data connector.<br><br>For any issues with a Partner-supported data connector, contact the specified data connector support contact.|
+|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the page for that data connector.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).|
 
-<!-- ### Find the support contact
+### Find the support contact
 
 To find the support contact information for a data connector:
 
@@ -60,7 +60,7 @@ To find the support contact information for a data connector:
    ![Screenshot showing the Supported by field for a data connector in Azure Sentinel.](./media/collect-data/connectors.png)
    
    The **Supported by** field has a support contact link you can use for support and maintenance of the selected data connector.
--->
+
 ## Data connection methods
 
 Azure Sentinel supports the following data connection methods:

@@ -6,7 +6,7 @@ documentationcenter: na
 author: batamig
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 05/28/2021
 ms.author: bagol
 
 ---
@@ -15,7 +15,7 @@ ms.author: bagol
 
 Microsoft and other organizations author Azure Sentinel data connectors. This article lists the Azure Sentinel data connectors authored by non-Microsoft, partner organizations, in alphabetical order. For information about Microsoft-authored and service-to-service data connectors, see [Service to service integration](connect-data-sources.md#service-to-service-integration).
 
-For details about Azure Sentinel support models and **Supported by** information, see [Data connector support](connect-data-sources.md#data-connector-support).
+For information about Azure Sentinel support models and the **Supported by** field, see [Data connector support](connect-data-sources.md#data-connector-support).
 
 > [!IMPORTANT]
 > Many of the following Azure Sentinel Partner data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
