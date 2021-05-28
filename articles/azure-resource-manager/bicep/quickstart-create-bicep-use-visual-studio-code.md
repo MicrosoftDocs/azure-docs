@@ -19,7 +19,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). You also have either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
-## Add parameter
+## Add parameters
 
 Launch Visual Studio Code and create a new file named *main.bicep*.
 
