@@ -3,7 +3,8 @@ author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
-ms.author: msmbaldwin
+ms.author: msmbaldwin 
+ms.custom: devx-track-azurepowershell
 
 # Used by Key Vault CLI quickstarts.
 

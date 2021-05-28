@@ -2,7 +2,8 @@
 title: Integrate Azure Event Hubs with Azure Private Link Service
 description: Learn how to integrate Azure Event Hubs with Azure Private Link Service
 ms.date: 05/10/2021
-ms.topic: article
+ms.topic: article 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Allow access to Azure Event Hubs namespaces via private endpoints 
