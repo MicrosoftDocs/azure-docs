@@ -335,7 +335,9 @@
         href: check-point-harmony-connect-tutorial.md
       - name: Check Point Identity Awareness
         href: check-point-identity-awareness-tutorial.md
-      - name: Check Point Remote Secure Access VPN
+      - name: CheckPoint Infinity Portal
+        href: checkpoint-infinity-portal-tutorial.md
+      - name: Check Point Remote Access VPN
         href: check-point-remote-access-vpn-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
