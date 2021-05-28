@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
-ms.custom: references_regions, synapse-cosmos-db
+ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB
