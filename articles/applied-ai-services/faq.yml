@@ -17,7 +17,7 @@ sections:
     questions:
       - question: Does Azure Applied AI Services support encryption of data at rest and Customer Managed Keys (CMK)?
         answer: |
-         Yes, to learn more select the individual services for detailed instructions.
+         Yes, the process to enable Customer-Managed Keys with Azure Key Vault for Applied AI Services varies by product. Use these links for service-specific instructions:
          - [Cognitive Search encryption of data at rest](../search/search-security-manage-encryption-keys.md)
          - [Form Recognizer encryption of data at rest](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)
          - [Metrics Advisor encryption of data at rest](../cognitive-services/metrics-advisor/encryption.md#customer-managed-keys-with-azure-key-vault)
