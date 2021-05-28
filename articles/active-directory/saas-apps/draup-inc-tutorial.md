@@ -72,17 +72,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.draup.technology/<INSTANCE NAME>`
+    a. In the **Identifier** box, type a URL using one of the following patterns:
 
-    b. In the **Identifier** box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.draup.technology/<INSTANCE NAME>`
+    | Identifier URL |
+    |---|
+    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
+    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
+    |
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.draup.technology/<INSTANCE NAME>`
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
+    | Reply URL |
+    |---|
+    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
+    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
+    |
+
+    c. In the **Sign-on URL** text box, type a URL using one of the following patterns:
+
+    | Sign-on URL |
+    |---|
+    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
+    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
+    |
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Draup, Inc Client support team](mailto:support@draup.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign-On URL. Contact [Draup, Inc Client support team](mailto:support@draup.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
