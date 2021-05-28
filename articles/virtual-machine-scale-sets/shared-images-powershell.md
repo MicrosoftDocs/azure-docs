@@ -7,7 +7,7 @@ ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: mimckitt
 ---
 # Create and use shared images for virtual machine scale sets with the Azure PowerShell
 

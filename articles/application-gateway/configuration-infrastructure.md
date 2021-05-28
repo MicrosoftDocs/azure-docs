@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 05/26/2021
 ms.author: surmb
 ---
 
@@ -30,7 +30,10 @@ Consider a subnet that has 27 application gateway instances and an IP address fo
 
 Application Gateway (Standard or WAF) SKU can support up to 32 instances (32 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a minimum subnet size of /26 is recommended
 
-Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a minimum subnet size of /24 is recommended
+Application Gateway (Standard_v2 or WAF_v2 SKU) can support up to 125 instances (125 instance IP addresses + 1 private front-end IP + 5 Azure reserved) – so a minimum subnet size of /24 is required.
+
+> [!IMPORTANT]
+> Starting mid-late May 2021, a minimum subnet size of /24 (256 IPs) per Application Gateway v2 SKU (Standard_v2 or WAF_v2) will be required for new deployments. Existing deployments will not be affected by this requirement but are encouraged to move to a subnet with at least 256 IPs per v2 gateway. This requirement will ensure the subnet has sufficient IP addresses for the gateway to undergo maintenance updates without impact on available capacity.  
 
 ## Network security groups
 

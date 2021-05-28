@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 04/14/2021
+ms.date: 04/29/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -64,7 +64,10 @@ To learn more about the Azure Resource Manager and Classic deployment models, se
 >[!NOTE]
 >Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-When you create an Automation account, the Run As account is created by default at the same time. If you chose not to create it along with the Automation account, it can be created individually at a later time. An Azure Classic Run As Account is optional, and is created separately if you need to manage classic resources.
+When you create an Automation account, the Run As account is created by default at the same time with a self-signed certificate. If you chose not to create it along with the Automation account, it can be created individually at a later time. An Azure Classic Run As Account is optional, and is created separately if you need to manage classic resources.
+
+If you want to use a certificate issued by your enterprise or third-party certification authority (CA) instead of the default self-signed certificate, can use the [PowerShell script to create a Run As account](create-run-as-account.md#powershell-script-to-create-a-run-as-account) option for your Run As and Classic Run As accounts.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 

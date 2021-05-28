@@ -32,52 +32,16 @@
       href: /azure/active-directory/saas-apps/
   - name: Samples
     items: 
-    - name: App Management PowerShell samples
-      items:
-      - name: Overview of App Management samples
-        href: app-management-powershell-samples.md
-      - name: Export secrets and certs (app registrations)
-        href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
-      - name: Export secrets and certs (enterprise apps)
-        href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
-      - name: Export expiring secrets and certs
-        href: ./scripts/powershell-export-apps-with-expriring-secrets.md
-      - name: Export secrets and certs expiring beyond required date
-        href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
-    - name: App Proxy PowerShell samples
-      items:
-      - name: Overview of App Proxy samples
-        href: application-proxy-powershell-samples.md
-      - name: List basic info about apps
-        href: ./scripts/powershell-get-all-app-proxy-apps-basic.md
-      - name: List extended info about apps
-        href: ./scripts/powershell-get-all-app-proxy-apps-extended.md
-      - name: List apps by connector group
-        href: ./scripts/powershell-get-all-app-proxy-apps-by-connector-group.md
-      - name: List apps with token lifetime policy
-        href: ./scripts/powershell-get-all-app-proxy-apps-with-policy.md
-      - name: List connector groups and connectors
-        href: ./scripts/powershell-get-all-connectors.md
-      - name: Move apps between connector groups
-        href: ./scripts/powershell-move-all-apps-to-connector-group.md
-      - name: List users and groups assigned to app
-        href: ./scripts/powershell-display-users-group-of-app.md
-      - name: Assign user to an app
-        href: ./scripts/powershell-assign-user-to-app.md
-      - name: Assign group to an app
-        href: ./scripts/powershell-assign-group-to-app.md
-      - name: List apps using default domains
-        href: ./scripts/powershell-get-all-default-domain-apps.md
-      - name: List apps using wildcard publishing
-        href: ./scripts/powershell-get-all-wildcard-apps.md
-      - name: List all custom domains and certs
-        href: ./scripts/powershell-get-all-custom-domains-and-certs.md
-      - name: List apps without certs
-        href: ./scripts/powershell-get-all-custom-domain-no-cert.md
-      - name: List apps with identical certs
-        href: ./scripts/powershell-get-custom-domain-identical-cert.md
-      - name: Replace identical certs
-        href: ./scripts/powershell-get-custom-domain-replace-cert.md
+    - name: Overview of App Management samples
+      href: app-management-powershell-samples.md
+    - name: Export secrets and certs (app registrations)
+      href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+    - name: Export secrets and certs (enterprise apps)
+      href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+    - name: Export expiring secrets and certs
+      href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+    - name: Export secrets and certs expiring beyond required date
+      href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
   - name: Concepts
     expanded: true
     items: 
@@ -125,10 +89,6 @@
         href: end-user-experiences.md
       - name: Cloud app visibility and control
         href: cloud-app-security.md
-    - name: Application Proxy for on-premises apps
-      items:
-      - name: Comparison of remote access solutions
-        href: application-proxy-migration.md
   - name: How-to guides
     expanded: false
     items:
@@ -180,18 +140,16 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
-    - name: Configure on-premises app access
+    - name: Secure legacy apps 
       items:
-      - name: Secure legacy apps 
-        items:
-        - name: Secure hybrid access with Azure AD 
-          href: secure-hybrid-access.md
-        - name: F5 and Azure AD integration
-          href: f5-aad-integration.md
-        - name: F5 BIG-IP VE deployment in Azure IaaS
-          href: f5-bigip-deployment-guide.md
-        - name: F5 Big-IP with Azure AD for passwordless VPN
-          href: f5-aad-password-less-vpn.md
+      - name: Secure hybrid access with Azure AD 
+        href: secure-hybrid-access.md
+      - name: F5 and Azure AD integration
+        href: f5-aad-integration.md
+      - name: F5 BIG-IP VE deployment in Azure IaaS
+        href: f5-bigip-deployment-guide.md
+      - name: F5 Big-IP with Azure AD for passwordless VPN
+        href: f5-aad-password-less-vpn.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot password-based single sign-on
@@ -200,18 +158,16 @@
         href: troubleshoot-saml-based-sso.md
       - name: Debug SAML-based single sign-on
         href: debug-saml-sso-issues.md
-      - name: Troubleshoot user sign-in
-        items:
-        - name: Unexpected consent prompt
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: User consent error
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problems signing in from My Apps
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Error on application sign-in page
-          href: application-sign-in-problem-application-error.md
-        - name: Problem signing into a Microsoft app
-          href: application-sign-in-problem-first-party-microsoft.md
+      - name: Unexpected consent prompt
+        href: application-sign-in-unexpected-user-consent-prompt.md
+      - name: User consent error
+        href: application-sign-in-unexpected-user-consent-error.md
+      - name: Problems signing in from My Apps
+        href: application-sign-in-other-problem-access-panel.md
+      - name: Error on application sign-in page
+        href: application-sign-in-problem-application-error.md
+      - name: Problem signing into a Microsoft app
+        href: application-sign-in-problem-first-party-microsoft.md
   - name: Reference
     items:
     - name: App Management certificates FAQ

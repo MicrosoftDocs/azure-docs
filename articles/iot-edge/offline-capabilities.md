@@ -13,7 +13,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on non-IoT Edge child devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, that device and any child devices can continue to function with intermittent or no internet connection.
+Azure IoT Edge supports extended offline operations on your IoT Edge devices, and enables offline operations on child devices too. As long as an IoT Edge device has had one opportunity to connect to IoT Hub, that device and any child devices can continue to function with intermittent or no internet connection.
 
 ## How it works
 
@@ -23,7 +23,7 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 1. **Configure devices**
 
-   IoT Edge devices automatically have offline capabilities enabled. To extend that capability to other IoT devices, you need to declare a parent-child relationship between the devices in IoT Hub. Then, you configure the child devices to trust their assigned parent device and route the device-to-cloud communications through the parent as a gateway.
+   IoT Edge devices automatically have offline capabilities enabled. To extend that capability to other devices, you need to configure the child devices to trust their assigned parent device and route the device-to-cloud communications through the parent as a gateway.
 
 2. **Sync with IoT Hub**
 
@@ -31,68 +31,57 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 3. **Go offline**
 
-   While disconnected from IoT Hub, the IoT Edge device, its deployed modules, and any children IoT devices can operate indefinitely. Modules and child devices can start and restart by authenticating with the IoT Edge hub while offline. Telemetry bound upstream to IoT Hub is stored locally. Communication between modules or between child IoT devices is maintained through direct methods or messages.
+   While disconnected from IoT Hub, the IoT Edge device, its deployed modules, and any child devices can operate indefinitely. Modules and child devices can start and restart by authenticating with the IoT Edge hub while offline. Telemetry bound upstream to IoT Hub is stored locally. Communication between modules or between child devices is maintained through direct methods or messages.
 
 4. **Reconnect and resync with IoT Hub**
 
    Once the connection with IoT Hub is restored, the IoT Edge device syncs again. Locally stored messages are delivered to the IoT Hub right away, but are dependent on the speed of the connection, IoT Hub latency, and related factors. They are delivered in the same order in which they were stored.
 
-   Any differences between the desired and reported properties of the modules and devices are reconciled. The IoT Edge device updates any changes to its set of assigned child IoT devices.
+   Any differences between the desired and reported properties of the modules and devices are reconciled. The IoT Edge device updates any changes to its set of assigned child devices.
 
 ## Restrictions and limits
 
 The extended offline capabilities described in this article are available in [IoT Edge version 1.0.7 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features. Existing IoT Edge devices that don't have extended offline capabilities can't be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 Only non-IoT Edge devices can be added as child devices.
+
+:::moniker-end
+<!-- end 1.1 -->
 
 IoT Edge devices and their assigned child devices can function indefinitely offline after the initial, one-time sync. However, storage of messages depends on the time to live (TTL) setting and the available disk space for storing the messages.
 
 ## Set up parent and child devices
 
-For an IoT Edge device to extend its extended offline capabilities to child IoT devices, you need to complete two steps. First, declare the parent-child relationships in the Azure portal. Second, create a trust relationship between the parent device and any child devices, then configure device-to-cloud communications to go through the parent as a gateway.
+Parent devices can have multiple child devices, but a child device only has one parent.
 
-### Assign child devices
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
-Child devices can be any non-IoT Edge device registered to the same IoT Hub. Parent devices can have multiple child devices, but a child device only has one parent. There are three options to set child devices to an edge device: through the Azure portal, using the Azure CLI, or using the IoT Hub service SDK.
+Child devices can be any non-IoT Edge device registered to the same IoT Hub.
 
-The following sections provide examples of how you can declare the parent/child relationship in IoT Hub for existing IoT devices. If you're creating new device identities for your child devices, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md) for more information.
+:::moniker-end
+<!-- end 1.1 -->
 
-#### Option 1: IoT Hub Portal
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
 
-You can declare the parent-child relationship when creating a new device. Or for existing devices, you can declare the relationship from the device details page of either the parent IoT Edge device or the child IoT device.
+Child devices can be any device, IoT Edge or non-IoT Edge, registered to the same IoT Hub.
 
-   ![Manage child devices from the IoT Edge device details page](./media/offline-capabilities/manage-child-devices.png)
+:::moniker-end
+<!-- end 1.2 -->
 
-#### Option 2: Use the `az` command-line tool
+If you're unfamiliar with creating a parent-child relationship between an IoT Edge device and an IoT device, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md). The symmetric key, self-signed X.509, and CA-signed X.509 sections show examples of how to use the Azure portal and Azure CLI to define the parent-child relationships when creating devices. For existing devices, you can declare the relationship from the device details page of either the parent or child device.
 
-Using the [Azure command-line interface](/cli/azure/) with [IoT extension](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 or newer), you can manage parent child relationships with the [device-identity](/cli/azure/iot/hub/device-identity/) subcommands. The example below uses a query to assign all non-IoT Edge devices in the hub to be child devices of an IoT Edge device.
+<!-- 1.2 -->
+:::moniker range="iotedge-2020-11"
 
-```azurecli
-# Set IoT Edge parent device
-egde_device="edge-device1"
+If you're unfamiliar with creating a parent-child relationship between two IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 
-# Get All IoT Devices
-device_list=$(az iot hub query \
-        --hub-name replace-with-hub-name \
-        --subscription replace-with-sub-name \
-        --resource-group replace-with-rg-name \
-        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
-        --query 'join(`, `, [].deviceId)' -o tsv)
-
-# Add all IoT devices to IoT Edge (as child)
-az iot hub device-identity add-children \
-  --device-id $egde_device \
-  --child-list $device_list \
-  --hub-name replace-with-hub-name \
-  --resource-group replace-with-rg-name \
-  --subscription replace-with-sub-name
-```
-
-You can modify the [query](../iot-hub/iot-hub-devguide-query-language.md) to select a different subset of devices. The command may take several seconds if you specify a large set of devices.
-
-#### Option 3: Use IoT Hub Service SDK
-
-Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK. Here is an [example of assigning a child device](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK.
+:::moniker-end
+<!-- end 1.2 -->
 
 ### Set up the parent device as a gateway
 

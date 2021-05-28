@@ -28,7 +28,7 @@ Throttling is of particular concern in that like sampling, throttling can lead t
 In summary `GetMetric()` is the recommended approach since it does pre-aggregation, it accumulates values from all the Track() calls and sends a summary/aggregate once every minute. This can significantly reduce the cost and performance overhead by sending fewer data points, while still collecting all relevant information.
 
 > [!NOTE]
-> Only the .NET and .NET Core SDKs have a GetMetric() method. If you are using Java you can use [Micrometer metrics](./micrometer-java.md) or `TrackMetric()`. For JavaScript and Node.js you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section. For Python you can use [OpenCensus.stats](./opencensus-python.md#metrics) to send custom metrics but the metrics implementation is different.
+> Only the .NET and .NET Core SDKs have a GetMetric() method. If you are using Java, see [sending custom metrics using micrometer](./java-in-process-agent.md#send-custom-metrics-using-micrometer). For JavaScript and Node.js you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section. For Python you can use [OpenCensus.stats](./opencensus-python.md#metrics) to send custom metrics but the metrics implementation is different.
 
 ## Getting started with GetMetric
 

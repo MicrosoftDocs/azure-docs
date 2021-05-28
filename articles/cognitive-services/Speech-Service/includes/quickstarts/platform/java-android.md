@@ -28,8 +28,6 @@ The Speech SDK is compatible with Android devices having 32/64-bit ARM and Intel
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
-You can now move on to [Next steps](#next-steps) below.
-
 ## Next steps
 
 [!INCLUDE [windows](../quickstart-list.md)]

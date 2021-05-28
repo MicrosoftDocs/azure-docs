@@ -3,7 +3,7 @@ title: Parameterize linked services in Azure Data Factory
 description: Learn how to parameterize linked services in Azure Data Factory and pass dynamic values at run time.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 05/26/2021
 author: chez-charlie
 ms.author: chez
 ---
@@ -17,7 +17,7 @@ You can now parameterize a linked service and pass dynamic values at run time. F
 You can use the Data Factory UI in the Azure portal or a programming interface to parameterize linked services.
 
 > [!TIP]
-> We recommend not to parameterize passwords or secrets. Store all connection strings in Azure Key Vault instead, and parameterize the *Secret Name*.
+> We recommend not to parameterize passwords or secrets. Store all secrets in Azure Key Vault instead, and parameterize the *Secret Name*.
 
 > [!Note]
 > There is open bug to use "-" in parameter names, we recommend to use names without "-" until the bug is resolved.
@@ -33,6 +33,7 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 
 - Amazon Redshift
 - Amazon S3
+- Amazon S3 Compatible Storage
 - Azure Blob Storage
 - Azure Cosmos DB (SQL API)
 - Azure Data Lake Storage Gen2
@@ -47,6 +48,7 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 - Generic REST
 - MySQL
 - Oracle
+- Oracle Cloud Storage
 - SQL Server
 
 For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:

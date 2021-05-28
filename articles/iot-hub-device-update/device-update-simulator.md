@@ -71,9 +71,9 @@ PS> wsl --list
 
 ## Download Device Update Ubuntu (18.04 x64) Simulator Reference Agent
 
-The Ubuntu update image can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
+The Ubuntu reference agent can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
 
-There are two versions of the agent. If you're exercising image-based scenario, use AducIotAgentSim-microsoft-swupdate and if you are exercising package-based scenario, use AducIotAgentSim-microsoft-apt.
+There are two versions of the agent. For this tutorial, since you're exercising the image-based scenario, use AducIotAgentSim-microsoft-swupdate. If you were going to exercise the package-based scenario instead, you would use AducIotAgentSim-microsoft-apt.
 
 ## Install Device Update Agent simulator
 
@@ -157,14 +157,14 @@ Agent running. [main]
 
 ## Import update
 
-1. Create an Import Manifest following these [instructions](import-update.md).
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 
 3. Select the Updates tab.
 
 4. Select "+ Import New Update".
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the Ubuntu update image that you downloaded earlier. 
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample image update_ that you downloaded in step 1 above. 
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 

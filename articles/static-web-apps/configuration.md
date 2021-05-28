@@ -21,6 +21,9 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 - Global HTTP header definitions
 - Custom MIME types
 
+> [!NOTE]
+> The this article details configuration that was once implemented in the deprecated [_routes.json_ file](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)).
+
 ## File location
 
 The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./github-actions-workflow.md). However, the file may be placed in any location within your application source code folder.
@@ -28,7 +31,7 @@ The recommended location for the _staticwebapp.config.json_ is in the folder set
 See the [example configuration](#example-configuration-file) file for details.
 
 > [!IMPORTANT]
-> The [_routes.json_ file](./routes.md) is ignored if a _staticwebapp.config.json_ exists.
+> The deprecated [_routes.json_ file](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) is ignored if a _staticwebapp.config.json_ exists.
 
 ## Routes
 

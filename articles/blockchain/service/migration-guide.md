@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Service retirement notification and guidance
 description: Migrate Azure Blockchain Service to a managed or self-managed blockchain offering
-ms.date: 04/28/2021
+ms.date: 05/10/2021
 ms.topic: how-to
 
 #Customer intent: As a network operator, I want to migrate Azure Blockchain Service to an alterative offering so that I can use blockchain after Azure Blockchain Service retirement.
@@ -9,11 +9,14 @@ ms.topic: how-to
 
 # Migrate Azure Blockchain Service
 
-You can migrate ledger data from Azure Blockchain Service to an alternate offering. Azure Blockchain Service public preview is being retired and you are advised to evaluate the following alternatives based on your development status of being in production or evaluation.
+You can migrate ledger data from Azure Blockchain Service to an alternate offering.
+
+> [!IMPORTANT]
+> On **September 10, 2021**, Azure Blockchain will be retired. Please migrate ledger data from Azure Blockchain Service to an alternative offering based on your development status in production or evaluation.
 
 ## Evaluate alternatives
 
-The first step when planning a migration is to evaluate alternative offerings. The following guidance is based on your development phase.
+The first step when planning a migration is to evaluate alternative offerings. Evaluate the following alternatives based on your development status of being in production or evaluation.
 
 ### Production or pilot phase
 
@@ -25,7 +28,7 @@ Quorum Blockchain Service is a managed offering by ConsenSys on Azure that suppo
 
 - **Managed offering** - Quorum Blockchain Service has no extra management overhead compared to Azure Blockchain Service.
 - **Ledger technology** - Based on ConsenSys Quorum which is an enhanced version of the GoQuorum Ledger technology used in Azure Blockchain Service. No new learning is required. For more information, see the [Consensys Quorum FAQ](https://consensys.net/quorum/faq).
-- **Continuity** - You can migrate your existing data on to Quorum Blockchain Service by ConsenSys. For more information, see [Migrate data from Azure Blockchain Service](#migrate-data-from-azure-blockchain-service)
+- **Continuity** - You can migrate your existing data on to Quorum Blockchain Service by ConsenSys. For more information, see [Export data from Azure Blockchain Service](#export-data-from-azure-blockchain-service)
 
 For more information, see [Quorum Blockchain Service](https://consensys.net/QBS).
 
@@ -40,21 +43,28 @@ There are several blockchain resource management templates you can use to deploy
 
 If you are starting to develop a new solution or are in an evaluation phase, consider the following alternatives based on your scenario requirements.
 
-- [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-dev-quickstart?tab=Overview) 
-- [Besu template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.hyperledger-besu-quickstart?tab=Overview)
+- [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-dev-quickstart)
+- [Besu template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.hyperledger-besu-quickstart)
 
-## Migrate data from Azure Blockchain Service
+### How to migrate to an alternative
+
+To migrate a production workload, first [export your data from Azure Blockchain Service](#export-data-from-azure-blockchain-service). Once you have a copy of your data, you can transition this data to your preferred alternative.
+
+The recommended migration destination is ConsenSys Quorum Blockchain Service. To onboard to this service, register at the [Quorum Blockchain Service](https://consensys.net/QBS) page.
+
+To self-manage your blockchain solution using virtual machines in Azure, see [Azure VM-based Quorum guidance](#azure-vm-based-quorum-guidance) to set up transaction and validator nodes.
+## Export data from Azure Blockchain Service
 
 Based on your current development state, you can either opt to use existing ledger data on Azure Blockchain Service or start a new network and use the solution of your choice. We recommend creating a new consortium based on a solution of your choice in all scenarios where you do not need or intend to use existing ledger data on Azure Blockchain Service.
 
 ### Open support case
 
-Open a Microsoft Support ticket to pause the consortium and export your blockchain data. 
+If you have a paid support plan, open a Microsoft Support ticket to pause the consortium and export your blockchain data.
 
 1. Use the Azure portal to open a support ticket. In *Problem description*, enter the following details:
 
     ![Support ticket problem description form in the Azure portal](./media/migration-guide/problem-description.png)
-    
+
     | Field | Response |
     |-------|--------- |
     | Issue type | Technical |
@@ -65,7 +75,7 @@ Open a Microsoft Support ticket to pause the consortium and export your blockcha
 1. In *Additional details*, include the following details:
 
     ![Support ticket additional details form in the Azure portal](./media/migration-guide/additional-details.png)
-    
+
     - Subscription ID or Azure Resource Manager resource ID
     - Tenant
     - Consortium name
@@ -79,7 +89,7 @@ If your consortium has multiple members, each member is required to open a separ
 
 You are required to coordinate with members of consortium to data export since the consortium will be paused for data export and transactions during this time will fail.
 
-Azure Blockchain Service team pauses the consortium, exports a snapshot of data, and makes the data available through SAS URL for download in an encrypted format. The consortium is resumed after taking the snapshot.
+Azure Blockchain Service team pauses the consortium, exports a snapshot of data, and makes the data available through short-lived SAS URL for download in an encrypted format. The consortium is resumed after taking the snapshot.
 
 > [!IMPORTANT]
 > You should stop all applications initiating new
@@ -87,7 +97,7 @@ Azure Blockchain Service team pauses the consortium, exports a snapshot of data,
 
 ### Download data
 
-Download the data using the Microsoft Support provided SAS URL link.
+Download the data using the Microsoft Support provided short-lived SAS URL link.
 
 > [!IMPORTANT]
 > You are required to download your data within seven days.
@@ -120,7 +130,7 @@ A transaction node has two components. Tessera is used for the private transacti
 #### Tessera
 
 1. Install Java 11. For example, `apt install default-jre`.
-1. Update paths in `tessera-config.json`. Change all references of `/working-dir/**` to `/opt/blockchain/data/working-dir/**`.
+1. Update paths in `tessera-config.json`. Change all references of `/working-dir/**` to `/opt/blockchain/data/working-dir/**`.
 1. Update the IP address of other transaction nodes as per new IP address. HTTPS won't work since it is not enabled in the Tessera configuration. For information on how to configure TLS, see the [Tessera configure TLS](https://docs.tessera.consensys.net/en/stable/HowTo/Configure/TLS/) article.
 1. Update NSG rules to allow inbound connections to port 9000.
 1. Run Tessera using the following command:
@@ -131,23 +141,23 @@ A transaction node has two components. Tessera is used for the private transacti
 
 #### Geth
 
-1. Update IPs in enode addresses in `/opt/blockchain/data/working-dir/dd/static-nodes.json`. Public IP address is allowed.
-1. Make the same IP address changes under StaticNodes key in `/geth/config.toml`.
+1. Update IPs in enode addresses in `/opt/blockchain/data/working-dir/dd/static-nodes.json`. Public IP address is allowed.
+1. Make the same IP address changes under StaticNodes key in `/geth/config.toml`.
 1. Update NSG rules to allow inbound connections to port 30303.
 1. Run Geth using the following commands:
 
     ```bash
     export NETWORK_ID='' # Get network ID from metadata. The network ID is the same for consortium.
-    
-    PRIVATE_CONFIG=tm.ipc geth --config /geth/config.toml --datadir /opt/blockchain/data/working-dir/dd --networkid $NETWORK_ID --istanbul.blockperiod 5 --nodiscover --nousb --allow-insecure-unlock --verbosity 3 --txpool.globalslots 80000 --txpool.globalqueue 80000 --txpool.accountqueue 50000 --txpool.accountslots 50000 --targetgaslimit 700000000 --miner.gaslimit 800000000 --syncmode full --rpc --rpcaddr 0.0.0.0 --rpcport 3100 --rpccorsdomain '*' --rpcapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul --ws --wsaddr 0.0.0.0 --wsport 3000 --wsorigins '*' --wsapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul 
+
+    PRIVATE_CONFIG=tm.ipc geth --config /geth/config.toml --datadir /opt/blockchain/data/working-dir/dd --networkid $NETWORK_ID --istanbul.blockperiod 5 --nodiscover --nousb --allow-insecure-unlock --verbosity 3 --txpool.globalslots 80000 --txpool.globalqueue 80000 --txpool.accountqueue 50000 --txpool.accountslots 50000 --targetgaslimit 700000000 --miner.gaslimit 800000000 --syncmode full --rpc --rpcaddr 0.0.0.0 --rpcport 3100 --rpccorsdomain '*' --rpcapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul --ws --wsaddr 0.0.0.0 --wsport 3000 --wsorigins '*' --wsapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul
     ```
 
 ### Validator Node
 
-Validator node steps are similar to the transaction node except that Geth startup command will have the additional flag `-mine`. Tessera is not started on a validator node. To run Geth without a paired Tessera, you pass `PRIVATE_CONFIG=ignore` in the Geth command. Run Geth using the following commands:
+Validator node steps are similar to the transaction node except that Geth startup command will have the additional flag `-mine`. Tessera is not started on a validator node. To run Geth without a paired Tessera, you pass `PRIVATE_CONFIG=ignore` in the Geth command. Run Geth using the following commands:
 
 ```bash
-export NETWORK_ID=`j q '.APP_SETTINGS | fromjson | ."network-id"' env.json` 
+export NETWORK_ID=`j q '.APP_SETTINGS | fromjson | ."network-id"' env.json`
 
 PRIVATE_CONFIG=ignore geth --config /geth/config.toml --datadir /opt/blockchain/data/working-dir/dd --networkid $NETWORK_ID --istanbul.blockperiod 5 --nodiscover --nousb --allow-insecure-unlock --verbosity 3 --txpool.globalslots 80000 --txpool.globalqueue 80000 --txpool.accountqueue 50000 --txpool.accountslots 50000 --targetgaslimit 700000000 --miner.gaslimit 800000000 --syncmode full --rpc --rpcaddr 0.0.0.0 --rpcport 3100 --rpccorsdomain '*' --rpcapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul --ws --wsaddr 0.0.0.0 --wsport 3000 --wsorigins '*' --wsapi admin,db,eth,debug,net,shh,txpool,personal,web3,quorum,istanbul –mine
 ```
@@ -170,11 +180,11 @@ For versions 2.5.0, there are some minor genesis file changes. Make the followin
 
 1. The value `byzantiumBlock` was set to 1 and it cannot be less than `constantinopleBlock` which is 0. Set the `byzantiumBlock` value to 0.
 1. Set `petersburgBlock`, `istanbulBlock` to a future block. This value should be same across all nodes.
-1. This step is optional. `ceil2Nby3Block` was incorrectly placed in Azure Blockchain Service Quorum 2.5.0 version. This needs to be inside the istanbul config and set the value future block. This value should be same across all nodes. 
+1. This step is optional. `ceil2Nby3Block` was incorrectly placed in Azure Blockchain Service Quorum 2.5.0 version. This needs to be inside the istanbul config and set the value future block. This value should be same across all nodes.
 1. Run geth to reinitialize genesis block using following command:
 
     ```bash
-    `geth --datadir "Data Directory Path" init "genesis file path"`
+    geth --datadir "Data Directory Path" init "genesis file path"
     ```
 
 1.  Run Geth.
@@ -230,16 +240,16 @@ Each node level folder contains a zip file that is encrypted using the encryptio
 
 ### What does service retirement mean for existing customers?
 
-The existing Azure Blockchain Service deployments cannot be continued beyond retirement of the service. Start evaluating alternatives suggested in this article before retirement based on your requirements.
+The existing Azure Blockchain Service deployments cannot be continued beyond September 10, 2021. Start evaluating alternatives suggested in this article before retirement based on your requirements.
 
 ### What happens to existing deployments after the announcement of retirement?
 
-Existing deployments are supported for 120 days from the day of the retirement announcement. Evaluate the suggested alternatives, migrate the data to the alternate offering, operate your requirement on the alternative offering, and start migrating from the deployment on Azure Blockchain Service.
+Existing deployments are supported until September 10, 2021. Evaluate the suggested alternatives, migrate the data to the alternate offering, operate your requirement on the alternative offering, and start migrating from the deployment on Azure Blockchain Service.
 
 ### How long will the existing deployments be supported on Azure Blockchain Service?
 
-Existing deployments are supported for 120 days from the day of retirement announcement.
+Existing deployments are supported until September 10, 2021.
 
 ### Will I be allowed to create new Azure Blockchain members while in retirement phase?
 
-While in retirement phase, no new member creation or deployments are supported.
+After May 10, 2021, no new member creation or deployments are supported.

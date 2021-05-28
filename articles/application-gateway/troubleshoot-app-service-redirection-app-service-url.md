@@ -7,7 +7,8 @@ author: jaesoni
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 04/15/2021
-ms.author: jaysoni
+ms.author: jaysoni 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot App Service issues in Application Gateway
