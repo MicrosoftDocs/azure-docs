@@ -3,7 +3,7 @@ title: Plan for Azure maintenance events
 description: Learn how to prepare for planned maintenance events in Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
