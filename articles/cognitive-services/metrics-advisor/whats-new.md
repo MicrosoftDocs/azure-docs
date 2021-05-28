@@ -34,8 +34,8 @@ If you want to learn about the latest updates to Metrics Advisor client SDKs see
 
 ### Updated articles
 
-* [Updated metrics onboarding flow](how-tos/onboard-your-data.md#start-by-adding-a-data-feed)
-* [Enriched guidance when adding data feeds from different sources](how-tos/data-feeds-from-different-sources.md)
+* [Updated metrics onboarding flow](how-tos/onboard-your-data.md#add-a-data-feed-using-the-web-based-workspace)
+* [Enriched guidance when adding data feeds from different sources](data-feeds-from-different-sources.md)
 * [Updated new notification channel using Microsoft Teams](how-tos/alerts.md#teams-hook)
 * [Updated incident diagnostic experience](how-tos/diagnose-an-incident.md)
 

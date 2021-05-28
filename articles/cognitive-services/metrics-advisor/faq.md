@@ -90,11 +90,11 @@ Note that these queries only return data at a single timestamp, and contain all 
 ### How do I detect spikes & dips as anomalies?
 
 If you have hard thresholds predefined, you could actually manually set "hard threshold" in [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods).
-If there's no thresholds, you could use "smart detection" which is powered by AI. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detecting-configuration) for details.
+If there's no thresholds, you could use "smart detection" which is powered by AI. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detection-configuration) for details.
 
 ### How do I detect inconformity with regular (seasonal) patterns as anomalies?
 
-"Smart detection" is able to learn the pattern of your data including seasonal patterns. It then detects those data points that don't conform to the regular patterns as anomalies. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detecting-configuration) for details.
+"Smart detection" is able to learn the pattern of your data including seasonal patterns. It then detects those data points that don't conform to the regular patterns as anomalies. Please refer to [tune the detection configuration](how-tos/configure-metrics.md#tune-the-detection-configuration) for details.
 
 ### How do I detect flat lines as anomalies?
 

@@ -43,12 +43,12 @@ After you select **OK**, an email hook will be created. You can use it in any al
 
 A Teams hook is the channel for anomaly alerts to be sent to a channel in Microsoft Teams. A Teams hook is implemented through an "Incoming webhook" connector. You may need to create an "Incoming webhook" connector ahead in your target Teams channel and get an URL of it. Then pivot back to your Metrics Advisor workspace. 
 
-Select "Hooks" tab in left nevigation bar, and select "Create hook" button at top right of the page. Choose hook type of "Teams", following parameters are provided: 
+Select "Hooks" tab in left navigation bar, and select "Create hook" button at top right of the page. Choose hook type of "Teams", following parameters are provided: 
 
 |Parameter |Description  |
 |---------|---------|
 | Name | Name of the Teams hook | 
-| Connecotr URL | The URL that just copied from "Incoming webhook" connector that created in target Teams channel. |
+| Connector URL | The URL that just copied from "Incoming webhook" connector that created in target Teams channel. |
 
 After you select **OK**, a Teams hook will be created. You can use it in any alert settings to notify anomaly alerts to target Teams channel. Refer to the tutorial of [enable anomaly notification in Metrics Advisor](../tutorials/enable-anomaly-notification.md#send-notifications-with-logic-apps-teams-and-smtp) for detailed steps.
 

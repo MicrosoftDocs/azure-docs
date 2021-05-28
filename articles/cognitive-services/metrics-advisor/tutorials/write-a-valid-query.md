@@ -4,7 +4,7 @@ description: Learn how to onboard your data to Metrics Advisor.
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+ms.topic: tutorial
 ms.date: 05/20/2021
 																		 
 ---
