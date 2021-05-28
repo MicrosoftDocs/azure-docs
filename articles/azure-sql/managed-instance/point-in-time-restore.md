@@ -8,9 +8,9 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, mathoma
+author: Misliplavo
+ms.author: mlazic
+ms.reviewer: mathoma
 ms.date: 08/25/2019
 ---
 # Restore a database in Azure SQL Managed Instance to a previous point in time

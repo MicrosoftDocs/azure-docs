@@ -8,9 +8,8 @@ ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: guide
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 04/16/2019
 ---
 # Azure SQL Managed Instance content reference
