@@ -127,27 +127,29 @@ You can also publish a telemetry event from the Azure Digital Twins API. As with
 
 As per DTDL, the schema for **property** and **telemetry** attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
 
-In addition to primitive types, property and telemetry fields can have these [complex types](#complex-object-properties):
+In addition to primitive types, property and telemetry fields can have these [complex types](#complex-object-types):
 * `Object`
 * `Map`
 * `Enum`
 * (**telemetry** only) `Array`
 
-They can also be [semantic types](#semantic-types), such as ... 
+They can also be [semantic types](#semantic-types), which allow you to annotate values with units.
 
-### Semantic types
+### Complex (object) types
 
-The following example shows a Room model, with two semantic-type properties. Both humidity and temperature are semantic type.
-
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="8-16,17-25":::
-
-### Complex (object) properties
-
-Properties can be of complex types, including an `Object` type.
+Properties and telemetry can be of complex types, including an `Object` type.
 
 The following example shows another version of the Home model, with a property for its address. `address` is an object, with its own fields for street, city, state, and zip.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
+
+### Semantic types
+
+Semantic types make it possible to express a value with a unit. Properties and telemetry can be represented with any of the semantic types that are supported by DTDL. For more information on semantic types in DTDL and what values are supported, see [Semantic types in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#semantic-types).
+
+The following example shows a Room model with a semantic-type property for Humidity.
+
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-27" highlight="9-14":::
 
 ## Relationships
 
@@ -167,7 +169,7 @@ Sometimes, you might want to define a relationship without a specific target, so
 
 Here is an example of a relationship on a DTDL model that does not have a target. In this example, the relationship is for defining what sensors a Room might have, and the relationship can connect to any type.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="26-31":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-27" highlight="20-25":::
 
 ### Properties of relationships
 
@@ -183,10 +185,12 @@ This section goes into more detail about **components** in DTDL models.
 
 ### Basic component example
 
-Here is a basic example of a component on a DTDL model. This example shows ...
+Here is a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat component.
+
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
 
 > [!NOTE]
-> Note that the component interface is defined in the same array as the interface that uses it. Components must be defined this way in API calls in order for the interface to be found.
+> Note that the component interface (thermostat component) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
 
 ## Model inheritance
 
@@ -202,7 +206,7 @@ The following example re-imagines the home model from the earlier DTDL example a
 
 In this case, ICore contributes an ID and name to IHome. Other models can also extend the ICore model to get these properties as well.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="1-8" highlight="6":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-9" highlight="7":::
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
