@@ -6,7 +6,8 @@ author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/22/2020
-ms.author: raynew
+ms.author: raynew 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an Azure admin,  I want remove resources I've added to a move collection.
 
 ---
