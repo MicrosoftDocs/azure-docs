@@ -43,6 +43,12 @@
   items:
     - name: Metrics Advisor key terms
       href:  glossary.md
+- name: Tutorials
+  items:
+  - name: Enable notifications through differnt channel
+    href: tutorials/enable-anomaly-notification.md
+  - name: Write a valid query
+    href: tutorials/write-a-valid-query.md
 - name: Reference
   items:
   - name: Metrics Advisor REST API

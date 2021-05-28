@@ -5,8 +5,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.topic: tutorial
-ms.date: 05/20/2021
-																		 
+ms.date: 05/20/2021	
 ---
 
 <!--

@@ -4,9 +4,8 @@ description: Learn how to automate sending e-mail alerts in response to Metric A
 author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
-ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 05/20/2021
-															 
+ms.topic: tutorial 
+ms.date: 05/20/2021													 
 ---
 
 # Tutorial: Enable anomaly notification in Metrics Advisor 
