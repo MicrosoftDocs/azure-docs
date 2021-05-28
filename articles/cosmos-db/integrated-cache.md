@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/26/2021
 ms.author: tisande
 ---
 
@@ -90,20 +90,23 @@ The cache retention time is the maximum retention for cached data. During the pr
 
 ## Metrics
 
-When using the integrated cache, it is helpful to monitor a few key metrics. The integrated cache metrics include:
+When using the integrated cache, it is helpful to monitor some key metrics. The integrated cache metrics include:
 
-- `DedicatedGatewayCpuUsage` - CPU usage by each dedicated gateway node
-- `DedicatedGatewayMemoryUsage` - Memory usage by each dedicated gateway node for both routing requests and caching
-- `DedicatedGatewayRequests` - The number of requests routed through each dedicated gateway node
-- `IntegratedCacheEvictedEntriesSize` – The amount of data evicted from the integrated cache
-- `IntegratedCacheTTLExpirationCount`  - The number of entries evicted from the integrated cache specifically due to cached data exceeding the `MaxIntegratedCacheStaleness` time.
-- `IntegratedCacheHitRate` – The ratio of point reads and queries that used the integrated cache (out of all dedicated gateway requests that tried to use the integrated cache).
+- `DedicatedGatewayAverageCpuUsage` - Average CPU usage across dedicated gateway nodes.
+- `DedicatedGatewayMaxCpuUsage` - Maximum CPU usage across dedicated gateway nodes.
+- `DedicatedGatewayAverageMemoryUsage` - Average memory usage across dedicated gateway nodes, which are used for both routing requests and caching data.
+- `DedicatedGatewayRequests` - Total number of dedicated gateway requests across all dedicated gateway instances.
+- `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted due to LRU from the integrated cache across dedicated gateway nodes. This value does not include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
+- `IntegratedCacheItemExpirationCount` - The number of items that are evicted from the integrated cache specifically due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
+- `IntegratedCacheQueryExpirationCount` - The  number of queries that are evicted from the integrated cache specifically due to cached queries exceeding the `MaxIntegratedCacheStaleness` time. This value is an average of integrated cache instances across all dedicated gateway nodes.
+- `IntegratedCacheItemHitRate` – The proportion of point reads that used the integrated cache (out of all point reads routed through the dedicated gateway with eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
+- `IntegratedCacheQueryHitRate` – The proportion of queries that used the integrated cache (out of all queries routed through the dedicated gateway with eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
 
 All existing metrics are available, by default, from the **Metrics** blade (not Metrics classic):
 
    :::image type="content" source="./media/integrated-cache/integrated-cache-metrics.png" alt-text="An image that shows the location of integrated cache metrics" border="false":::
 
-All metrics are exposed as an average across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the average value across all five nodes.
+Metrics are either an average, maximum, or sum across all dedicated gateway nodes. For example, if you provision a dedicated gateway cluster with five nodes, the metrics reflect the aggregated value across all five nodes. It isn't possible to determine the metric values for each individual nodes.
 
 ## Troubleshooting common issues
 
@@ -115,21 +118,23 @@ Check the `DedicatedGatewayRequests`. This metric includes all requests that use
 
 ### I can’t tell if my requests are hitting the integrated cache
 
-Check the `IntegratedCacheHitRate`. If this value is zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, connecting with gateway mode, and have set eventual consistency.
+Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, [connecting with gateway mode](sql-sdk-connection-modes.md), and [have set eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
 
 ### I want to understand if my dedicated gateway is too small
 
-Check the `IntegratedCacheHitRate`. If this value is high (for example, above 0.5-0.6), this is a good sign that the dedicated gateway is large enough.
+Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If these values are high (for example, above 0.7-0.8), this is a good sign that the dedicated gateway is large enough.
 
-If the `IntegratedCacheHitRate` is low, look at the `IntegratedCacheEvictedEntriesSize`. If the `IntegratedCacheEvictedEntriesSize` is high, it may mean that a larger dedicated gateway size would be beneficial.
+If the `IntegratedCacheItemHitRate` or `IntegratedCacheQueryHitRate`is low, look at the `IntegratedCacheEvictedEntriesSize`. If the `IntegratedCacheEvictedEntriesSize` is high, it may mean that a larger dedicated gateway size would be beneficial. You can experiment by increasing the dedicated gateway size and comparing the new `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If a larger dedicated gateway doesn't improve the `IntegratedCacheItemHitRate` or `IntegratedCacheQueryHitRate`, it's possible that reads simply don't repeat themselves enough for the integrated cache to be impactful.
 
 ### I want to understand if my dedicated gateway is too large
 
-This is tougher to measure. In general, you should start small and slowly increase the dedicated gateway size until the `IntegratedCacheHitRate` stops improving.
+This is tougher to measure. In general, you should start small and slowly increase the dedicated gateway size until the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate` stop improving. In some cases, only one of the two cache hit metrics will be important, not both. For example, if your workload is primiarily queries, rather than point reads, the `IntegratedCacheQueryHitRate` is much more important than the `IntegratedCacheItemHitRate`.
 
-If most data is evicted from the cache due to exceeding the `MaxIntegratedCacheStaleness`, rather than LRU, your cache might be larger than required. Check if `IntegratedCacheTTLExpirationCount` is nearly as large as `IntegratedCacheEvictedEntriesSize`. If so, you can experiment with a smaller dedicated gateway size and compare performance.
+If most data is evicted from the cache due to exceeding the `MaxIntegratedCacheStaleness`, rather than LRU, your cache might be larger than required. If `IntegratedCacheItemExpirationCount` and `IntegratedCacheQueryExpirationCount` combined are nearly as large as `IntegratedCacheEvictedEntriesSize`, you can experiment with a smaller dedicated gateway size and compare performance.
 
-Check the `DedicatedGatewayMemoryUsage` and compare to the dedicated gateway size. If the `DedicatedGatewayMemoryUsage` is less than the dedicated gateway size, then you should try a smaller dedicated gateway size.
+### I want to understand if I need to add more dedicated gateway nodes
+
+In some cases, if latency is unexpectedly high, you may need more dedicated gateway nodes rather than bigger nodes. You should check the `DedicatedGatewayMaxCpuUsage` and `DedicatedGatewayAverageMemoryUsage` to determine if adding more dedicated gateway nodes would reduce latency. It's good to keep in mind that since all instances of the integrated cache are independent from one another, adding more dedicated gateway won't help reduce the `IntegratedCacheEvictedEntriesSize`. Adding more nodes will improve the request volume that your dedicated gateway cluster can handle, though.
 
 ## Next steps
 
