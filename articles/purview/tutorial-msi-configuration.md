@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure access to data sources for Azure Purview MSI at scale (preview)'
-description: In this tutorial, you run a subset of tools to verify and configure your data sources before registering and scanning them in Azure Purview. 
+description: In this tutorial, you will run a subset of tools configure Azure MSI settings on  your Azure data sources subscriptions. 
 author: zeinam
 ms.author: zeinam
 ms.service: purview
@@ -66,7 +66,8 @@ Before running the script, create a csv file (e.g. "C:\temp\Subscriptions.csv) w
     
     :::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="Subscriptions List" border="true":::
 
-    > [!NOTE] You can update the file name and path in the code, if needed.
+    > [!NOTE] 
+    > You can update the file name and path in the code, if needed.
 
 <br>
 
@@ -105,13 +106,19 @@ Before you run the PowerShell script to verify data sources subscriptions readin
 
 1. `AzureDataType`: choose any of the following options as your data source type to run the readiness for the data type across your subscriptions: 
     
-        "BlobStorage"
-        "AzureSQLMI"
-        "AzureSQLDB"
-        "ADLSGen2"
-        "ADLSGen1"
-        "Synapse"
-        "All"
+    `BlobStorage`
+
+    `AzureSQLMI`
+
+    `AzureSQLDB`
+    
+    `ADLSGen2`
+    
+    `ADLSGen1`
+    
+    `Synapse`
+    
+    `All`
 
 2. `PurviewAccount`: Your existing Azure Purview Account resource name.
 
@@ -122,6 +129,7 @@ Before you run the PowerShell script to verify data sources subscriptions readin
 Make sure your user has the following roles and permissions:
 
 The following permissions (minimum) are needed run the script in your Azure environment:
+
 Role | Scope | Why is needed? |
 |-------|--------|--------|
 | Global Reader | Azure AD Tenant | To read Azure SQL Admin user group membership and Azure Purview MSI |

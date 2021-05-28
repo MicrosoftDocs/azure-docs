@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Check Data Sources Readiness at Scale (preview)'
-description: In this tutorial, you run a subset of tools to verify and configure your data sources before registering and scanning them in Azure Purview. 
+description: In this tutorial, you will run a subset of tools to verify readiness of your Azure data sources before registering and scanning them in Azure Purview. 
 author: zeinam
 ms.author: zeinam
 ms.service: purview
@@ -108,13 +108,19 @@ Before you run the PowerShell script to verify data sources subscriptions readin
 
 1. `AzureDataType`: choose any of the following options as your data source type to run the readiness for the data type across your subscriptions: 
     
-        "BlobStorage"
-        "AzureSQLMI"
-        "AzureSQLDB"
-        "ADLSGen2"
-        "ADLSGen1"
-        "Synapse"
-        "All"
+    `BlobStorage`
+
+    `AzureSQLMI`
+
+    `AzureSQLDB`
+    
+    `ADLSGen2`
+    
+    `ADLSGen1`
+    
+    `Synapse`
+    
+    `All`
 
 2. `PurviewAccount`: Your existing Azure Purview Account resource name.
 
