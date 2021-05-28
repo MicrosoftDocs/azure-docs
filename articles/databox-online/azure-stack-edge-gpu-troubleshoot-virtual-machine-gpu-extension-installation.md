@@ -16,7 +16,7 @@ ms.author: alkohli
 
 This article gives guidance for resolving the most common issues that cause installation of the GPU extension on a GPU VM to fail on an Azure Stack Edge Pro GPU device.
 
-For installation steps, see [Install GPU extension](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension)
+For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux)
 
 ## VM size is not GPU VM size
 
