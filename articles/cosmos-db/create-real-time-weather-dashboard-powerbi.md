@@ -16,7 +16,7 @@ ms.reviewer: sngun
 
 This article describes the steps required to create a live weather dashboard in Power BI using Azure Cosmos DB OLTP connector and Azure Analysis Services. The Power BI dashboard will display charts to show near real-time information about temperature and rainfall in a region.
 
-Another option to create near real-time reports is [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) for [Azure Cosmos DB analytical store](analytical-store-introduction.md). With Synapse Link, you can connect Power BI to [Azure Synapse Analytics serverless SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) and, **at no RUs or costs impact**, analyze your Azure Cosmos DB data. This option is currently supported for Azure Cosmos DB Core (SQL) API and [Azure Cosmos DB API for MongoDB](mongodb-introduction.md) accounts, and also allows you to perform data science and advanced analytics with [Azure Synapse Analytics serverless Spark pools](how-to-query-analytical-store-spark). This alternative allows you to use both direct query or import modes. For more information, click [here](synapse-link-power-bi.md)
+Another option to create near real-time reports is [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) for [Azure Cosmos DB analytical store](analytical-store-introduction.md). With Synapse Link, you can connect Power BI to [Azure Synapse Analytics serverless SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) and, **at no RUs or costs impact**, analyze your Azure Cosmos DB data. This option is currently supported for Azure Cosmos DB Core (SQL) API and [Azure Cosmos DB API for MongoDB](mongodb-introduction.md) accounts, and also allows you to perform data science and advanced analytics with [Azure Synapse Analytics serverless Spark pools](how-to-query-analytical-store-spark.md). This alternative allows you to use both direct query or import modes. For more information, click [here](synapse-link-power-bi.md)
 
 ## Reporting scenarios
 
@@ -25,9 +25,9 @@ There are multiple ways to set up reporting dashboards on data stored in Azure C
 |Scenario |Setup |
 |---------|---------|
 |1. Generating ad-hoc transactional reports   |  [Power BI connecting to Azure Cosmos DB transactional store with oltp connector and import mode](powerbi-visualize.md)       |
-|2. Generating ad-hoc transactional reports with periodic refresh   |  [Power BI connecting to Azure Cosmos DB transactional store with oltp connector, import mode, and scheduled periodic refresh](powerbi-visualize.md/#refresh-data-in-powerbicom)       |
+|2. Generating ad-hoc transactional reports with periodic refresh   |  [Power BI connecting to Azure Cosmos DB transactional store with oltp connector, import mode, and scheduled periodic refresh](powerbi-visualize.md)       |
 |3. Transactional reporting on < 10 GB data sets     |  [Power BI connecting to Azure Analysis Services with incremental refresh](create-real-time-weather-dashboard-powerbi.md)       |
-|4. Transactional reporting on >= 10 GB data sets    |  [Power BI connecting to Azure Analysis Services with incremental refresh per partition](create-real-time-weather-dashboard-powerbi.md/#power-bi-azure-analysis-connector--azure-analysis-services)       |
+|4. Transactional reporting on >= 10 GB data sets    |  [Power BI connecting to Azure Analysis Services with incremental refresh per partition](create-real-time-weather-dashboard-powerbi.md)       |
 |5. Near real time analytics with Azure Synapse Link and serverless SQL Pool   |  [Power BI connecting to Azure Cosmos DB analytical store using Azure Synapse Link Analytics serverless SQL Pool](synapse-link-power-bi.md) |
 
 
