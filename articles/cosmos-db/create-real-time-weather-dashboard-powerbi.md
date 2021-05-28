@@ -1,8 +1,8 @@
 ---
 title: Create a real-time dashboard using Azure Cosmos DB, Azure Analysis Services, and Power BI
 description: Learn how to create a live weather dashboard in Power BI using Azure Cosmos DB and Azure Analysis Services.
-author: SnehaGunda
-ms.author: sngun
+author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
