@@ -30175,6 +30175,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-rewards.md",
+      "redirect_url": "/azure/marketplace/marketplace-rewards",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-manage-users.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
       "redirect_document_id": false

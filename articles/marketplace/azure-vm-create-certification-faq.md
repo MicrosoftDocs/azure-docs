@@ -621,5 +621,5 @@ For more information, please visit [VM Extension](../virtual-machines/extensions
 ## Next steps
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
-- [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
+- [Active marketplace rewards](marketplace-rewards.md)
 - If you have questions or feedback for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).
