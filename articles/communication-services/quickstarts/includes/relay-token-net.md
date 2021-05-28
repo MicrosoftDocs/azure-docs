@@ -75,7 +75,7 @@ namespace RelayTokenQuickstart
 
 ### Authenticate the client
 
-Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from the environment variable created in the [Configure your storage connection string](#configure-your-connection-string) section. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+Initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 Add the following code to the `Main` method:
 
