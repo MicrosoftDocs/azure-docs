@@ -106,7 +106,7 @@ It might take up to a minute for PowerShell to install the required modules.
 
 Before you run the PowerShell script to verify data sources subscriptions readiness, get the values of the following arguments to use in the scripts:
 
-1. `AzureDataType`: choose any of the following options as your data source type to run the readiness for the data type across your subscriptions: 
+- `AzureDataType`: choose any of the following options as your data source type to run the readiness for the data type across your subscriptions: 
     
     - `BlobStorage`
 
@@ -122,9 +122,9 @@ Before you run the PowerShell script to verify data sources subscriptions readin
     
     - `All`
 
-2. `PurviewAccount`: Your existing Azure Purview Account resource name.
+- `PurviewAccount`: Your existing Azure Purview Account resource name.
 
-3. `PurviewSub`: Subscription ID where Azure Purview Account is deployed.
+- `PurviewSub`: Subscription ID where Azure Purview Account is deployed.
 
 ## Verify your permissions
 
