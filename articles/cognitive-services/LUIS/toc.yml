@@ -84,8 +84,6 @@
       href: migrate-from-composite-entity.md
     - name: Migrate to authoring resource
       href: luis-migration-authoring.md
-    - name: Migrate to V3 API
-      href: luis-migration-api-v3.md
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
@@ -352,8 +350,6 @@
       items:
       - name: Machine-learning entity
         href: reference-entity-machine-learned-entity.md
-      - name: Composite entity
-        href: reference-entity-composite.md
       - name: List entity
         href: reference-entity-list.md
       - name: Pattern.any entity
