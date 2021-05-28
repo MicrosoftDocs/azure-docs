@@ -29,7 +29,7 @@ Keys don't all need to be in the same key vault. A single search service can hos
 
 Double encryption is an extension of customer-managed keys (CMK). It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, as well as short-term  storage written to temporary disks. There is no configuration required. When you apply CMK to objects, double encryption is invoked automatically.
 
-Although double encryption is available in all regions, support was rolled out in two phases. The first roll out was in August 2020 and included the five regions listed below. The second roll out in May 2021 extended double encryption to all remaining regions. If you are using an older service and want double encryption, you will need to create a new search service in your region of choice.
+Although double encryption is available in all regions, support was rolled out in two phases. The first roll out was in August 2020 and included the five regions listed below. The second roll out in May 2021 extended double encryption to all remaining regions. If you are using CMK on an older service and want double encryption, you will need to create a new search service in your region of choice.
 
 | Region | Service creation date |
 |--------|-----------------------|
