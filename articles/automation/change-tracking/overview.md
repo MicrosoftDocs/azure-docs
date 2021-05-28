@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/22/2021
+ms.date: 05/06/2021
 ms.topic: conceptual
 ---
 
@@ -36,6 +36,8 @@ Machines connected to the Log Analytics workspace use the [Log Analytics agent](
 > [!NOTE]
 > Change Tracking and Inventory requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
+As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse allows you to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks like Change Tracking and Inventory more efficient across those tenants you're responsible for. Change Tracking and Inventory can manage machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](../../lighthouse/concepts/architecture.md).
+
 ## Current limitations
 
 Change Tracking and Inventory doesn't support or has the following limitations:
@@ -45,11 +47,16 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 - Different installation methods
 - ***.exe** files stored on Windows
 - The **Max File Size** column and values are unused in the current implementation.
+- If you are tracking file changes, it is limited to a file size of 5 MB or less. 
 - If you try to collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
 - Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written.
+
+## Limits
+
+For limits that apply to Change Tracking and Inventory, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#change-tracking-and-inventory).
 
 ## Supported operating systems
 

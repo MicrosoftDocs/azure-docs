@@ -1,14 +1,16 @@
 ---
-title: gRPC extension protocol - Azure
-description: In this article, you will learn about using gRPC extension protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
+title: gRPC extension protocol in Live Video Analytics - Azure
+description: In this article, you will learn about using gRPC extension protocol to send messages between Azure Live Video Analytics module and your AI or CV custom extension.
 ms.topic: overview
 ms.date: 09/14/2020
 
 ---
 
-# gRPC extension protocol
+# gRPC extension protocol in Live Video Analytics
 
-Live Video Analytics on IoT Edge allows you to extend the media graph processing capabilities through a [graph extension node](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). If you use the gRPC extension processor as the extension node, then the communication between Live Video Analytics module and your AI or CV module is over gRPC based, highly performant structured protocol.
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
+Live Video Analytics on IoT Edge allows you to extend the media graph processing capabilities through a [graph extension node](./media-graph-extension-concept.md). If you use the gRPC extension processor as the extension node, then the communication between Live Video Analytics module and your AI or CV module is over gRPC based, highly performant structured protocol.
 
 In this article, you will learn about using gRPC extension protocol to send messages between Live Video Analytics module and your AI or CV custom extension.
 
@@ -21,7 +23,7 @@ A gRPC session is a single connection from the gRPC client to the gRPC server ov
 
 In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message. 
 
-It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). This will better ensure interoperability with other components and possible future capabilities added to the Live Video Analytics module.
+It is highly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](./inference-metadata-schema.md). This will better ensure interoperability with other components and possible future capabilities added to the Live Video Analytics module.
 
 ![gRPC extension contract](./media/grpc-extension-protocol/grpc.png)
 

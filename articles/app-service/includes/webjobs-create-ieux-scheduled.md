@@ -1,4 +1,4 @@
-﻿---
+---
 author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: include
@@ -27,7 +27,7 @@ ROBOTS: NOINDEX,NOFOLLOW
     
     | Setting      | Sample value   |
     | ------------ | ----------------- | 
-    | <abbr title="A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than `-` and `_`.">Name</a> | myScheduledWebJob |  |
+    | <abbr title="A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than `-` and `_`.">Name</a> | myScheduledWebJob | 
     | <abbr title="A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script.">File Upload</abbr> | ConsoleApp.zip |
     | <abbr title="Types include continuous, triggered.">Type</abbr> | Triggered |
     | <abbr title="For the scheduling to work reliably, enable the Always On feature. Always On is available only in the Basic, Standard, and Premium pricing tiers.">Triggers</a> | Scheduled |

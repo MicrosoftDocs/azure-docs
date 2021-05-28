@@ -1,20 +1,21 @@
 ---
-title: 'VPN Gateway: Azure AD tenant for P2S VPN connections: Azure AD authentication'
-description: Learn how to set up an Azure AD tenant for P2S Open VPN authentication.
+title: 'Create an Azure AD tenant for P2S VPN connections: Azure AD authentication'
+titleSuffix: Azure VPN Gateway
+description: Learn how to set up an Azure AD tenant for P2S Azure AD authentication - OpenVPN protocol.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 05/10/2021
 ms.author: cherylmc
 
 ---
 # Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
 
-When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. This article helps you set up an Azure AD tenant for P2S Open VPN authentication.
+When you connect to your VNet using Point-to-Site, you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you want to use Azure Active Directory authentication, you can do so when using the OpenVPN protocol. This article helps you set up an Azure AD tenant. For more information about Point-to-Site protocols and authentication, see [About Point-to-Site VPN](point-to-site-about.md).
 
-[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="tenant"></a>1. Verify Azure AD tenant
 
@@ -92,7 +93,13 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 
    * **Tenant:** TenantID for the Azure AD tenant ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
-   * **Audience:** ApplicationID of the "Azure VPN" Azure AD Enterprise App ```{AppID of the "Azure VPN" AD Enterprise app}```
+   * **Audience:** Application ID of the "Azure VPN" Azure AD Enterprise App
+
+	   * Enter 41b23e61-6c1e-4545-b367-cd054e0ed4b4 for Azure Public
+	   * Enter 51bb15d4-3a4f-4ebf-9dca-40096fe32426 for Azure Government
+	   * Enter 538ee9e6-310a-468d-afef-ea97365856a9 for Azure Germany
+	   * Enter 49f817b6-84ae-4cc0-928c-73f27289b3aa for Azure China 21Vianet
+
 
    * **Issuer**: URL of the Secure Token Service ```https://sts.windows.net/{AzureAD TenantID}/```
 

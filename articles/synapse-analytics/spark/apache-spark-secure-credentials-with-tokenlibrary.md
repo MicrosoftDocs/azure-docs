@@ -135,7 +135,7 @@ display(df.limit(10))
 %%pyspark
 # Python code
 spark.conf.set("spark.storage.synapse.linkedServiceName", "<lINKED SERVICE NAME>")
-spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
+spark.conf.set("fs.azure.account.oauth.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
 
 df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>')
 

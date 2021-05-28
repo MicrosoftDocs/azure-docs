@@ -1,16 +1,11 @@
 ---
-title: Security agent authentication 
-titleSuffix: Azure Defender for IoT
+title: Security agent authentication (Preview)
 description: Perform micro agent authentication with two possible methods.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
 ---
 
-# Micro agent authentication methods 
+# Micro agent authentication methods (Preview)
 
 There are two options for authentication with the Defender for IoT Micro Agent: 
 

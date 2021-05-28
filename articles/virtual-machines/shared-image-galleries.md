@@ -3,7 +3,7 @@ title: Share VM images with Shared Galleries
 description: Learn how to use shared image galleries to share Linux VM images across your organization.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 10/14/2020
@@ -100,7 +100,7 @@ Specialized VMs have not been through a process to remove machine specific infor
 
 ## Regional Support
 
-All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription added to the allow list. To request that a subscriptions is added to the allow list, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
+All public regions can be target regions, but certain regions require that customers go through a request process in order to gain access. To request that a subscription is added to the allow list for a region such as Australia Central or Australia Central 2, submit [an access request](/troubleshoot/azure/general/region-access-request-process)
 
 ## Limits 
 
@@ -311,7 +311,7 @@ For VM and Virtual Machine Scale Set deployments using an image version, we reco
 
 ### Can I update my Virtual Machine Scale Set created using managed image to use Shared Image Gallery images?
 
-Yes, you can update the scale set image reference from a managed image to a shared image gallery image, as long as the the OS type, Hyper-V generation, and the data disk layout matches between the images.
+Yes, you can update the scale set image reference from a managed image to a shared image gallery image, as long as the OS type, Hyper-V generation, and the data disk layout matches between the images.
 
 ## Troubleshoot Shared Image Gallery issues
 If you have issues with performing any operations on the shared image gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
@@ -321,4 +321,3 @@ In addition, you can post and tag your question with `azure-virtual-machines-ima
 ## Next steps
 
 Learn how to deploy shared images using the [Azure CLI](shared-images-cli.md) or [PowerShell](shared-images-powershell.md).
-

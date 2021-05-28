@@ -1,12 +1,13 @@
 ---
- title: Confidential containers on Azure Kubernetes Service (AKS)
- description: Learn about unmodified container support on confidential containers.
- services: container-service
- author: agowdamsft
- ms.topic: article
- ms.date: 2/11/2020
- ms.author: amgowda
- ms.service: container-service
+title: Confidential containers on Azure Kubernetes Service (AKS)
+description: Learn about unmodified container support on confidential containers.
+services: container-service
+author: agowdamsft
+ms.topic: article
+ms.date: 2/11/2020
+ms.author: amgowda
+ms.service: container-service
+ms.subservice: confidential-computing
 ---
 
 # Confidential Containers

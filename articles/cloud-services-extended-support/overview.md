@@ -11,12 +11,7 @@ ms.custom:
 ---
 # About Azure Cloud Services (extended support)
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cloud Services (extended support) is a new [Azure Resource Manager](../azure-resource-manager/management/overview.md) based deployment model for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product and is currently in public preview. Cloud Services (extended support) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some ARM capabilities such as role-based access and control (RBAC), tags, policy and supports deployment templates.  
+Cloud Services (extended support) is a new [Azure Resource Manager](../azure-resource-manager/management/overview.md) based deployment model for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product and is now generally available. Cloud Services (extended support) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some ARM capabilities such as role-based access and control (RBAC), tags, policy, and supports deployment templates.  
 
 With this change, the Azure Service Manager based deployment model for Cloud Services will be renamed [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). You will retain the ability to build and rapidly deploy your web and cloud applications and services. You will be able to scale your cloud services infrastructure based on current demand and ensure that the performance of your applications can keep up while simultaneously reducing costs.  
 
@@ -43,16 +38,13 @@ The major differences between Cloud Services (classic) and Cloud Services (exten
 - All resources deployed through the [Azure Resource Manager](../azure-resource-manager/templates/overview.md) must be inside a virtual network. Virtual networks and subnets are created in Azure Resource Manager using existing Azure Resource Manager APIs and will need to be referenced within the NetworkConfiguration section of the .cscfg when deploying Cloud Services (extended support).   
 
 - Each cloud service (extended support) is a single independent deployment. Cloud services (extended support) does not support multiple slots within a single cloud service.  
-    - VIP Swap<sup>*</sup> capability may be used to swap between two cloud services (extended support). To test and stage a new release of a cloud service, deploy a cloud service (extended support) and tag it as VIP swappable with another cloud service (extended support)  
+    - VIP Swap capability may be used to swap between two cloud services (extended support). To test and stage a new release of a cloud service, deploy a cloud service (extended support) and tag it as VIP swappable with another cloud service (extended support)  
 
 - Domain Name Service (DNS) label is optional for a cloud service (extended support). In Azure Resource Manager, the DNS label is a property of the Public IP resource associated with the cloud service. 
 
-
-<sup>*</sup> VIP swap for Cloud Services (extended support) is not available during Public Preview.  
-
 ## Migration to Azure Resource Manager
 
-Cloud Services (extended support) provides two paths for you to migrate from [Azure Service Manager](/powershell/azure/servicemanagement/overview?preserve-view=true&view=azuresmps-4.0.0) to [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Cloud Services (extended support) provides two paths for you to migrate from [Azure Service Manager](/powershell/azure/servicemanagement/overview) to [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 1) Customers deploy cloud services directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager. 
 2) In-place migration supports the ability to migrate Cloud Services (classic) with minimal to no downtime to Cloud Services (extended support). 
 

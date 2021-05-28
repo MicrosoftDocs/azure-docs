@@ -1,16 +1,10 @@
 ---
 title: Platforms supported by Azure Security Center | Microsoft Docs
 description: This document provides a list of platforms supported by Azure Security Center.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
 ---
@@ -51,7 +45,7 @@ Virtual machines are also created in a customer subscription as part of some Azu
 
 Virtual machines that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-Protection for VMs residing in Azure Stack is also supported. For more information about Security Center's integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](quickstart-onboard-machines.md). 
+Protection for VMs residing in Azure Stack Hub is also supported. For more information about Security Center's integration with Azure Stack Hub, see [Onboard your Azure Stack Hub virtual machines to Security Center](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms). 
 
 ## Next steps
 

@@ -235,7 +235,7 @@ This error can be resolved in the following two ways:
 - If you had opted for "Automatically repair replication" by selecting "Yes" when you triggered replication of VM, the tool will try to repair it for you. Right click on the VM, and select "Repair Replication."
 - If you did not opt for "Automatically repair replication" or the above step did not work for you, then stop replication for the virtual machine, [reset changed block tracking](https://go.microsoft.com/fwlink/?linkid=2139203) on the virtual machine, and then reconfigure replication.
 
-One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 2048201: Changed Block Tracking](https://go.microsoft.com/fwlink/?linkid=2138888) is reset after a storage vMotion operation in vSphere 5.x . If you are on VMware vSphere 5.5 ensure that you apply the updates described in this KB.
+One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x . If you are on VMware vSphere 5.5 ensure that you apply the updates described in this KB.
 
 Alternatively, you can reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
 
@@ -287,7 +287,7 @@ This issue occurs when vCenter Server management agents stop working. To resolve
 
 ### Error Message: An internal error occurred. [Snapshot Disk size invalid]
 
-This is a known VMware issue in which the disk size indicated by snapshot becomes zero. Follow the resolution given in the [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
+This is a known VMware issue in which the disk size indicated by snapshot becomes zero. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/).
 
 ### Error Message: An internal error occurred. [Memory allocation failed. Out of memory.]
 

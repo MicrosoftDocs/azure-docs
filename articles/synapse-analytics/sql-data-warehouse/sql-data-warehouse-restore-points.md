@@ -27,7 +27,7 @@ To create a user-defined restore point, use the [New-AzSqlDatabaseRestorePoint](
 4. Select the subscription that contains the database to be restored.
 5. Create a restore point for an immediate copy of your data warehouse.
 
-```Powershell
+```powershell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -37,16 +37,15 @@ $Label = "<YourRestorePointLabel>"
 
 Connect-AzAccount
 Get-AzSubscription
-Select-AzSubscription -SubscriptionName $SubscriptionName
+Set-AzContext -SubscriptionName $SubscriptionName
 
 # Create a restore point of the original database
 New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -RestorePointLabel $Label
-
 ```
 
 6. See the list of all the existing restore points.
 
-```Powershell
+```powershell
 # List all restore points
 Get-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```

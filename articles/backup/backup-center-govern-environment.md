@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ---
 
-# Govern your backup estate using Backup Center (Preview)
+# Govern your backup estate using Backup Center
 
-Backup Center helps you govern your Azure environment to ensure that all your resources are compliant from a backup perspective. Below are some of the governance capabilities of Backup Center:
+Backup center helps you govern your Azure environment to ensure that all your resources are compliant from a backup perspective. Below are some of the governance capabilities of Backup center:
 
 * View and assign Azure Policies for backup
 

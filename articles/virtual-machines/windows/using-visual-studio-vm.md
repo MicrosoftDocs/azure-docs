@@ -1,14 +1,14 @@
 ---
 title: Using Visual Studio on an Azure virtual machine 
 description: Using Visual Studio on an Azure virtual machine.
-author: cathysull
-manager: cathys
-ms.service: virtual-machines-windows
+author: andysterland
+manager: andster
+ms.service: virtual-machines
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.author: cathys
+ms.author: andster
 keywords: visualstudio
 ---
 
@@ -39,7 +39,7 @@ For more information, see the [Visual Studio Servicing Policy](https://www.visua
 ## What features are installed?
 Each image contains the recommended feature set for that Visual Studio edition. Generally, the installation includes:
 
-* All available workloads, including each workload’s recommended optional components
+* All available workloads, including each workload’s recommended optional components. More details on the workloads, components, and SDKs included Visual Studio could be found in the [Visual Studio documentation](/visualstudio/install/workload-and-component-ids)
 * .NET 4.6.2 and .NET 4.7 SDKs, Targeting Packs, and Developer Tools
 * Visual F#
 * GitHub Extension for Visual Studio

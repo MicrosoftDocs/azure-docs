@@ -13,6 +13,8 @@ ms.author: duau
 
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
 
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." border="false":::
+
 > [!IMPORTANT]
 > Azure Route Server (Preview) is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -96,6 +98,12 @@ If you have an ExpressRoute gateway and/or VPN gateway and you want them to exch
 1. Select **Enable** for the **Branch-to-Branch** setting and then select **Save**.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/enable-route-exchange.png" alt-text="Screenshot of how to enable route exchange.":::
+
+## Clean up resources
+
+If you no longer need the Azure Route Server, select **Delete** from the overview page to deprovision the Route Server.
+
+:::image type="content" source="./media/quickstart-configure-route-server-portal/delete-route-server.png" alt-text="Screenshot of how to delete Route Server.":::
 
 ## Next steps
 

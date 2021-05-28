@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 05/11/2021
 ---
 
 # Indexer access to Azure Storage using the trusted service exception (Azure Cognitive Search)
@@ -21,6 +21,9 @@ Indexers in an Azure Cognitive Search service that access data in Azure Storage 
 ## Step 1: Configure a connection using a managed identity
 
 Follow the instructions in [Set up a connection to an Azure Storage account using a managed identity](search-howto-managed-identities-storage.md). When you are finished, you will have registered your search service with Azure Active Directory as a trusted service, and you will have granted permissions in Azure Storage that gives the search identity specific rights to access data or information.
+
+> [!NOTE]
+> The instructions guide you through a portal approach for configuring Cognitive Search as a trusted service. To accomplish this in code, you can use the [REST API](/rest/api/searchmanagement/services/createorupdate), [Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity), or [Azure CLI](search-manage-azure-cli.md#create-a-service-with-a-system-assigned-managed-identity).
 
 ## Step 2: Allow trusted Microsoft services to access the storage account
 

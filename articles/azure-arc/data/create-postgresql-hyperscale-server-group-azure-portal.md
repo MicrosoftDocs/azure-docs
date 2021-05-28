@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure Portal
-description: Create an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure Portal
+title: Create an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure portal
+description: Create an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure portal
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,9 @@ ms.date: 04/28/2021
 ms.topic: how-to
 ---
 
-# Create an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure Portal
+# Create an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure portal
 
-This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc from the Azure Portal.
+This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc from the Azure portal.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -32,8 +32,10 @@ If you prefer to try out things without provisioning a full environment yourself
 
 ## Deploy an Arc data controller configured to use the Direct connectivity mode
 
-Requirement: before you deploy an Azure Arc enabled PostgreSQL Hyperscale server group that you operate from the Azure Portal you must first deploy an Azure Arc data controller configured to use the *Direct* connectivity mode.
-To deploy such this Arc data controller please follow the steps [here](https://docs.microsoft.com/en-us/azure/azure-arc/data/deploy-data-controller-direct-mode-prerequisites) and then [here](https://docs.microsoft.com/en-us/azure/azure-arc/data/deploy-data-controller-direct-mode-prerequisites).
+Requirement: before you deploy an Azure Arc enabled PostgreSQL Hyperscale server group that you operate from the Azure portal you must first deploy an Azure Arc data controller configured to use the *Direct* connectivity mode.
+To deploy an Arc data controller, complete the instructions in these articles:
+1. [Deploy data controller - direct connect mode (prerequisites)](deploy-data-controller-direct-mode-prerequisites.md)
+1. [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md)
 
 
 ## Preliminary and temporary step for OpenShift users only
@@ -45,29 +47,31 @@ oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace 
 
 **Server-group-name is the name of the server group you will create during the next step.**
 
-For more details on SCCs in OpenShift, please refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). You may now implement the next step.
+For more details on SCCs in OpenShift, refer to the [OpenShift documentation](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html). 
 
-## Deploy an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure Portal
+Proceed to the next step.
+
+## Deploy an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure portal
+
+To deploy and operate an Azure Arc enabled Postgres Hyperscale server group from the Azure portal you must deploy it to an Arc data controller configured to use the *Direct* connectivity mode. 
 
 > [!IMPORTANT]
-> You can only view, and not operate, an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure Portal if you deployed it to an Azure Arc data controller this configured to use the *Indirect* connectivity mode. To deploy and operate an Azure Arc enabled Postgres Hyperscale server group from the Azure Portal you must deploy it to an Arc data controller configured to use the *Direct* connectivity mode. If you have not done so yet, please read the previous paragraph.
+> You can not operate an Azure Arc enabled PostgreSQL Hyperscale server group from the Azure portal if you deployed it to an Azure Arc data controller configured to use the *Indirect* connectivity mode. 
 
 After you deployed an Arc data controller enabled for Direct connectivity mode:
-1. Open a browser to following URL [https://ms.portal.azure.com](https://ms.portal.azure.com)
+1. Open a browser to following URL [https://portal.azure.com](https://portal.azure.com)
 2. In the search window at the top of the page search for "*azure arc postgres*" in the Azure Market Place and select **Azure Database for PostgreSQL server groups - Azure Arc**.
-3. In the page that opens, click "+ Create" at the top left corner. 
+3. In the page that opens, click **+ Create** at the top left corner. 
 4. Fill in the form like you deploy an other Azure resource.
 
 
 ### Important parameters you should consider are:
 
-- **the number of worker nodes** you want to deploy to scale out and potentially reach better performances. Before proceeding here, read the [concepts about Postgres Hyperscale](concepts-distributed-postgres-hyperscale.md). For example, if you want to deploy a server group with 2 worker nodes, this will create three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
-
-
+- **The number of worker nodes** you want to deploy to scale out and potentially reach better performance. Before proceeding, read the [concepts about Postgres Hyperscale](concepts-distributed-postgres-hyperscale.md). For example, if you deploy a server group with two worker nodes, the deployment creates three pods, one for the coordinator node/instance and two for the worker nodes/instances (one for each of the workers).
 
 ## Next steps
 
-- Connect to your Azure Arc enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](https://docs.microsoft.com/en-us/azure/azure-arc/data/get-connection-endpoints-and-connection-strings-postgres-hyperscale)
+- Connect to your Azure Arc enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
