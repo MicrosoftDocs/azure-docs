@@ -527,11 +527,11 @@ For this scenario, first create a new user-assigned identity, key vault, and con
 After registry creation, continue with the following steps. Details are in the following sections.
 
 1. Enable the registry's system-assigned identity.
-1. Grant the system-assigned identity permissions to access keys in the target key vault configured with a firewall.
-1. Temporarily disable the firewall in the target key vault while you rotate the encryption key.
-1. Rotate the customer-managed key by selecting one in the target key vault.
-1. Re-enable the Key Vault firewall in the target key vault and ensure that it allows bypass by trusted services. 
-1. When no longer needed, you may delete the temporary key vault that was created outside the firewall.
+1. Grant the system-assigned identity permissions to access keys in the key vault that's restricted with the Key Vault firewall.
+1. Ensure that the Key Vault firewall allows bypass by trusted services. Currently, an Azure container registry can only bypass the firewall when using its system-managed identity. 
+1. Rotate the customer-managed key by selecting one in the key vault that's restricted with the Key Vault firewall.
+1. When no longer needed, you may delete the key vault that was created outside the firewall.
+
 
 ### Step 1 - Enable registry's system-assigned identity
 
@@ -548,34 +548,25 @@ After registry creation, continue with the following steps. Details are in the f
 1. Choose **Select principal** and search for the object ID of your system-assigned managed identity, or the name of your registry.  
 1. Select **Add**, then select **Save**.
 
-### Step 3 - Temporarily disable Key Vault firewall
+### Step 3 - Enable key vault bypass
 
-Temporarily change networking settings in the target key vault to allow access from all networks. You will re-enable the firewall after rotating the registry's encryption key.
+To access a key vault configured with a Key Vault firewall, the registry must bypass the firewall. Ensure that the key vault is configured to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry is one of the trusted services.
 
 1. In the portal, navigate to your key vault.
 1. Select **Settings** > **Networking**.
-1. Select to allow access from **All networks**. Select **Save**.
+1. Confirm, update, or add virtual network settings. For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
+1. In **Allow Microsoft Trusted Services to bypass this firewall**, select **Yes**. 
 
 ### Step 4 - Rotate the customer-managed key
 
-After completing the preceding steps, rotate to an encryption key that's stored in the target key vault.
+After completing the preceding steps, rotate to a key that's stored in the key vault behind a firewall.
 
 1. In the portal, navigate to your registry.
 1. Under **Settings**, select **Encryption** > **Change key**.
 1. In **Identity**, select **System Assigned**.
-1. Select **Select from Key Vault**, and select the name of the target key vault.
+1. Select **Select from Key Vault**, and select the name of the key vault that's behind a firewall.
 1. Select an existing key, or **Create new**. The key you select is non-versioned and enables automatic key rotation.
 1. Complete the key selection and select **Save**.
-
-### Step 5 - Re-enable firewall and key vault bypass
-
-Re-enable the key vault firewall and ensure that the key vault is configured to allow access by any [trusted service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry is one of the trusted services.
-
-1. In the portal, navigate to your key vault.
-1. Select **Settings** > **Networking**.
-1. Select to allow access from **Private endpoint and selected networks**.
-1. Update or add virtual network settings. For detailed steps, see [Configure Azure Key Vault firewalls and virtual networks](../key-vault/general/network-security.md).
-1. In **Allow Microsoft Trusted Services to bypass this firewall**, select **Yes**. Select **Save**.
 
 ## Troubleshoot
 
