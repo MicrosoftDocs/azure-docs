@@ -8,9 +8,9 @@ ms.subservice: operations
 ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 09/05/2019
 ---
 # Deploy Azure SQL Managed Instance to an instance pool

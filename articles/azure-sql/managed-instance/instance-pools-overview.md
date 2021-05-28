@@ -8,9 +8,9 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 09/05/2019
 ---
 # What is an Azure SQL Managed Instance pool (preview)?

@@ -8,7 +8,7 @@ ms.subservice: deployment-configuration
 ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: urosmil
+author: urosmil 
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 03/25/2019

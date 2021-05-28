@@ -8,9 +8,9 @@ ms.subservice: operations
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, srbozovi, bonova
+author: zoran-rilak-msft
+ms.author: zoranrilak
+ms.reviewer: mathoma, srbozovi, bonova
 ms.date: 02/18/2019
 ---
 # Quickstart: Configure an Azure VM to connect to Azure SQL Managed Instance
