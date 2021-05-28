@@ -83,7 +83,7 @@ After the records for your domain name have propagated, use the browser to verif
 > 
 > 
 
-1. Once domain resolution succeeds, to back to your app page in the [Azure Portal](https://portal.azure.com)
+1. Once domain resolution succeeds, to back to your app page in the [Azure portal](https://portal.azure.com)
 2. From the left navigation, select **Custom domains** > **Add hostname**.
 4. Type the custom domain name that you mapped earlier and select **Validate**.
 5. Make sure that **Hostname record type** is set to **CNAME (www\.example.com or any subdomain)**.

@@ -25,7 +25,6 @@ In this tutorial, you learn how to:
 > * Map a [wildcard domain](https://en.wikipedia.org/wiki/Wildcard_DNS_record) by using a CNAME record.
 > * Redirect the default URL to a custom directory.
 
-<hr/> 
 
 ## 1. Prepare your environment
 
@@ -35,7 +34,6 @@ In this tutorial, you learn how to:
     > [!NOTE]
     > To edit DNS records, you need access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
 
-<hr/> 
 
 ## 2. Prepare the app
 
@@ -85,7 +83,6 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
 
    ![Screenshot that shows the scale operation confirmation.](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<hr/> 
 
 ## 3. Get a domain verification ID
 
@@ -105,14 +102,13 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 
    ![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-<hr/> 
 
 ## 4. Create the DNS records
 
 1. Sign in to the website of your domain provider.
 
     > [!NOTE]
-    > If you like, you can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see [Tutorial: Host your domain in Azure DNS>](../dns/dns-delegate-domain-azure-dns.md).
+    > If you like, you can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see [Tutorial: Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
 
 1. Find the page for managing DNS records. 
 
@@ -181,8 +177,6 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 > [!NOTE]
 > For certain providers, such as GoDaddy, changes to DNS records don't become effective until you select a separate **Save Changes** link.
-
-<hr/>
 
 <a name="a" aria-hidden="true"></a>
 
@@ -261,7 +255,6 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 -----
 
-<hr/> 
 
 ## 6. Test in a browser
 
@@ -276,7 +269,6 @@ If you receive an HTTP 404 (Not Found) error when you browse to the URL of your 
 * The custom domain configured is missing an A record or a CNAME record. You may have deleted the DNS record after you've enabled the mapping in your app.
 * The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
-<hr/> 
 
 ## Migrate an active domain
 
@@ -299,7 +291,6 @@ While this is a common scenario, it doesn't actually involve custom DNS mapping,
 
 1. After the operation finishes, verify by navigating to your app's root path in the browser (for example, `http://contoso.com` or `http://<app-name>.azurewebsites.net`).
 
-<hr/> 
 
 ## Automate with scripts
 
@@ -333,7 +324,6 @@ Set-AzWebApp `
 
 For more information, see [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md).
 
-<hr/> 
 
 ## Next steps
 
