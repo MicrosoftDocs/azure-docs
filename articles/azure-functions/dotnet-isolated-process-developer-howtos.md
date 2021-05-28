@@ -133,7 +133,11 @@ Now that you've renamed the function, you can test it on your local computer.
 
 Visual Studio integrates with Azure Functions Core Tools so that you can test your functions locally using the full Azure Functions runtime.  
 
-[!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
+1. To run your function, press <kbd>F5</kbd> in Visual Studio. You might need to enable a firewall exception so that the tools can handle HTTP requests. Authorization levels are never enforced when you run a function locally.
+
+1. Copy the URL of your function from the Azure Functions runtime output and run the request. A welcome to Functions message is displayed when the function runs successfully and logs are written to the runtime output. 
+
+1. To stop debugging, press <kbd>Shift</kbd>+<kbd>F5</kbd> in Visual Studio.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -208,7 +212,17 @@ Before you can publish your project, you must have a function app in your Azure 
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-[!INCLUDE [functions-vstools-run-remote](../../includes/functions-vstools-run-remote.md)]
+## Verify your function in Azure
+
+1. In Cloud Explorer, your new function app should be selected. If not, expand your subscription > **App Services**, and select your new function app.
+
+1. Right-click the function app and choose **Open in Browser**. This opens the root of your function app in your default web browser and displays the page that indicates your function app is running. 
+
+    :::image type="content" source="media/functions-create-your-first-function-visual-studio/function-app-running-azure.png" alt-text="Function app running":::
+
+1. In the address bar in the browser, append the path `/api/HttpExample` to the base URL and run the request.
+
+1. Go to this URL and you see the same response in the browser you had when running locally.
 
 :::zone-end
 
