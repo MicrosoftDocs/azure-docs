@@ -30,7 +30,7 @@ When VM provisioning times out, you see the following error:
 ![Portal error displayed when VM provisioning times out](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
 These are the top causes of VM provisioning timeouts. When you receive this error message, check for these issues.
-1. The IP address that you assigned to the VM is already in use.[Learn more](#vm-provisioning-timeout)
+1. The IP address that you assigned to the VM is already in use. [Learn more](#vm-provisioning-timeout)
 1. The VM image that you used to deploy the VM wasn't prepared correctly. [Learn more](#vm-image-not-prepared-correctly)
 1. The default gateway and DNS server couldn't be reached from guest VM. [Learn more](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
 1. During a `cloud init` installation, `cloud init` either didn't run or there were issues while it was running. (Linux VMs only) [Learn more](#cloud-init-issues-linux-vms)
@@ -44,9 +44,9 @@ These are the top causes of VM provisioning timeouts. When you receive this erro
 
 To check for a duplicate IP address:
 
-- Run the following `ping` and Test-NetConnection (`tnc`) commands:<!--From where?-->
+- Run the following `ping` and Test-NetConnection (`tnc`) commands from any appliance on the same network:
 
-  ```powershell
+  ```
   ping <IP address>
   tnc <IP address>
   tnc <IP address> -CommonTCPPort “RDP”
@@ -60,7 +60,7 @@ If you get a response, the IP address that you assigned to the new VM is already
 
 For an overview of requirements, see [Create custom VM images for an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-virtual-machine-image.md). For guidance on resolving VM image issues, see [Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).  
 
-**Suggested solution:** Complete the workflow for preparing your VM image. For instructions, see one of the following articles:
+**Suggested solution:** Complete the workflow for preparing your VM image. For guidance, see one of the following articles:
 
 * [Custom VM image workflows for Windows and Linux VMs](azure-stack-edge-gpu-create-virtual-machine-image.md)
 * [Prepare a generalized image from a Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md)
@@ -83,16 +83,16 @@ To verify that the default gateway and DNS server can be reached, do the followi
    ping <DNS server IP address>
    ```
 
-   To find out the IP addresses for the default gateway and DNS servers, look in the device properties.
+   To find out the IP addresses for the default gateway and DNS servers, go to the local UI for your device. Select the port you're interested in, and view the network settings.
 
-   ![Default gateway and DNS server settings for an Azure Stack Edge Pro GPU device](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
+   ![Default gateway and DNS server settings for a port on an Azure Stack Edge Pro GPU device](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
 
 
 ### `cloud init` issues (Linux VMs)
 
 **Error description:** `cloud init` did not run, or there were issues while `cloud init` was running. `cloud-init` is used to customize a Linux VM when the VM boots for the first time. For more information, see [cloud-init support for virtual machines in Azure](/azure/virtual-machines/linux/using-cloud-init).
 
-**Suggested solution:** To find issues that occurred when `cloud init` was run:
+**Suggested solutions:** To find issues that occurred when `cloud init` was run:
 1. [Connect to the VM](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#connect-to-a-vm).
 1. Check for `cloud init` errors in the following log files:
 
@@ -100,15 +100,34 @@ To verify that the default gateway and DNS server can be reached, do the followi
    - /var/log/cloud-init.log
    - /var/log/waagent/log 
 
-For help resolving `cloud init` issues, see [Troubleshooting VM provisioning with cloud-init](/azure/virtual-machines/linux/cloud-init-troubleshooting). Keep in mind that only Gen1 virtual machines are supported on Azure Stack Edge Pro GPU devices. The `cloud init` troubleshooting covers issues for both Gen1 and Gen2 virtual machines. 
+To check for some of the most common issues that prevent `cloud init` from running successfully, do these steps:
 
-*05/27: Niharika and Rajesh: To be replaced by more targeted troubleshooting (with no extraneous issues for Gen2 VMs, etc). Niharika and Rajesh to provide. For now, I qualified the existing troubleshooting reference so they have access to some troubleshooting info for cloud init.*
+1. Make sure the VM image is based on `cloud init`. Run the following command:
+
+   `cloud-init --version`
+
+   The command should return the cloud init version number. If the image is not `cloud init`-based, the command won't return version information.
+
+   To get help with `cloud init` options, run the following command:
+
+   `cloud-init --help` 
+
+   <!--You can also go to [CLI Interface](https://cloudinit.readthedocs.io/en/latest/topics/cli.html). - No additional guidance. They might as well just run the Help command.-->
+
+2. Make sure the `cloud init` instance can run successfully with the data source set to *Azure*. 
+
+   When the data source is set to *Azure*, the entry in the *cloud init* logs looks similar to the following one.
+
+   ![Cloud init log entry with Data Source set to Azure](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
+
+   If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](/azure/virtual-machines/linux/cloud-init-deep-dive).
+
 
 ### Provisioning flags set incorrectly (Linux VMs)
 
 **Error description:** To successfully deploy a Linux VM in Azure, provisioning must be disabled on the image, and provisioning using `cloud init' must be enabled. The Provisioning flags that set these values are configured correctly for standard VM images. If you use a custom VM image, you need to make sure they're correct. 
 
-**Suggested solution:** Make sure the Provisioning flags in the */etc/waagent.conf* file have the following values:<!--Details to move to "Create a custom VM image" article after the initial release, when the 2 active PRs against that topic have been merged. This article will link to that one. The other article has 2 PRs pending.-->
+**Suggested solution:** Make sure the Provisioning flags in the */etc/waagent.conf* file have the following values:<!--Move details to "Create a custom VM image" when the 2 active PRs against that article have been merged. Not before Friday release.-->
 
    | Capability                      | Required value                |
    |---------------------------------|-------------------------------|
