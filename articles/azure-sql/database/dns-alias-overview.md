@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
-ms.reviewer: mathoma jrasnick, vanto
+ms.reviewer: mathoma, jrasnick, vanto
 ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
