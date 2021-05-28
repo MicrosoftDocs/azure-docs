@@ -4,7 +4,7 @@ description: Learn how to use Azure SQL Database geo-replication to support roll
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: BustosMSFT

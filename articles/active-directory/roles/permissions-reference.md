@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 05/05/2021
+ms.date: 05/26/2021
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro, fasttrack-edit
+ms.custom: generated, it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
 
@@ -127,6 +127,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/applications/authentication/update | Update authentication on all types of applications |
 > | microsoft.directory/applications/basic/update | Update basic properties for applications |
 > | microsoft.directory/applications/credentials/update | Update application credentials |
+> | microsoft.directory/applications/extensionProperties/update | Update extension properties on applications |
 > | microsoft.directory/applications/owners/update | Update owners of applications |
 > | microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
@@ -140,6 +141,8 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/connectorGroups/delete | Delete application proxy connector groups |
 > | microsoft.directory/connectorGroups/allProperties/read | Read all properties of application proxy connector groups |
 > | microsoft.directory/connectorGroups/allProperties/update | Update all properties of application proxy connector groups |
+> | microsoft.directory/deletedItems.applications/delete | Permanently delete applications, which can no longer be restored |
+> | microsoft.directory/deletedItems.applications/restore | Restore soft deleted applications to original state |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
 > | microsoft.directory/applicationPolicies/create | Create application policies |
 > | microsoft.directory/applicationPolicies/delete | Delete application policies |
@@ -380,6 +383,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/applications/authentication/update | Update authentication on all types of applications |
 > | microsoft.directory/applications/basic/update | Update basic properties for applications |
 > | microsoft.directory/applications/credentials/update | Update application credentials |
+> | microsoft.directory/applications/extensionProperties/update | Update extension properties on applications |
 > | microsoft.directory/applications/owners/update | Update owners of applications |
 > | microsoft.directory/applications/permissions/update | Update exposed permissions and required permissions on all types of applications |
 > | microsoft.directory/applications/policies/update | Update policies of applications |
@@ -387,6 +391,8 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/applications/synchronization/standard/read | Read provisioning settings associated with the application object |
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
+> | microsoft.directory/deletedItems.applications/delete | Permanently delete applications, which can no longer be restored |
+> | microsoft.directory/deletedItems.applications/restore | Restore soft deleted applications to original state |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
 > | microsoft.directory/applicationPolicies/create | Create application policies |
 > | microsoft.directory/applicationPolicies/delete | Delete application policies |
@@ -435,7 +441,6 @@ Users in this role can enable, disable, and delete devices in Azure AD and read 
 > | microsoft.directory/devices/delete | Delete devices from Azure AD |
 > | microsoft.directory/devices/disable | Disable devices in Azure AD |
 > | microsoft.directory/devices/enable | Enable devices in Azure AD |
-> | microsoft.directory/devices/extensionAttributes/update | Update all values for devices.extensionAttributes property |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
@@ -563,11 +568,11 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/directoryRoles/eligibleMembers/read | Read the eligible members of Azure AD roles |
 > | microsoft.directory/directoryRoles/members/read | Read all members of Azure AD roles |
 > | microsoft.directory/domains/standard/read | Read basic properties on domains |
-> | microsoft.directory/groups/standard/read | Read basic properties on groups |
+> | microsoft.directory/groups/standard/read | Read standard properties of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groups/appRoleAssignments/read | Read application role assignments of groups |
-> | microsoft.directory/groups/memberOf/read | Read the groups of which a group is a member in Azure AD |
-> | microsoft.directory/groups/members/read | Read members of groups |
-> | microsoft.directory/groups/owners/read | Read owners of groups |
+> | microsoft.directory/groups/memberOf/read | Read the memberOf property on Security groups and Microsoft 365 groups, including role-assignable groups |
+> | microsoft.directory/groups/members/read | Read members of Security groups and Microsoft 365 groups, including role-assignable groups |
+> | microsoft.directory/groups/owners/read | Read owners of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groups/settings/read | Read settings of groups |
 > | microsoft.directory/groupSettings/standard/read | Read basic properties on group settings |
 > | microsoft.directory/groupSettingTemplates/standard/read | Read basic properties on group setting templates |
@@ -587,7 +592,7 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/servicePrincipals/policies/read | Read policies of service principals |
 > | microsoft.directory/subscribedSkus/standard/read | Read basic properties on subscriptions |
 > | microsoft.directory/users/standard/read | Read basic properties on users |
-> | microsoft.directory/users/appRoleAssignments/read | Read application role assignments of users |
+> | microsoft.directory/users/appRoleAssignments/read | Read application role assignments for users |
 > | microsoft.directory/users/directReports/read | Read the direct reports for users |
 > | microsoft.directory/users/manager/read | Read manager of users |
 > | microsoft.directory/users/memberOf/read | Read the group memberships of users |
@@ -653,18 +658,19 @@ Users in this role can read and update basic information of users, groups, and s
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/applications/extensionProperties/update | Update extension properties on applications |
 > | microsoft.directory/groups/assignLicense | Assign product licenses to groups for group-based licensing |
-> | microsoft.directory/groups/create | Create groups, excluding role-assignable groups |
+> | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/reprocessLicenseAssignment | Reprocess license assignments for group-based licensing |
-> | microsoft.directory/groups/basic/update | Update basic properties on groups, excluding role-assignable groups |
-> | microsoft.directory/groups/classification/update | Update the classification property of groups, excluding role-assignable groups |
-> | microsoft.directory/groups/dynamicMembershipRule/update | Update dynamic membership rule of groups, excluding role-assignable groups |
-> | microsoft.directory/groups/groupType/update | Update the groupType property for a group |
-> | microsoft.directory/groups/members/update | Update members of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/basic/update | Update basic properties on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/classification/update | Update the classification property on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/dynamicMembershipRule/update | Update the dynamic membership rule on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/groupType/update | Update properties that would affect the group type of Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/onPremWriteBack/update | Update Azure Active Directory groups to be written back to on-premises with Azure AD Connect |
-> | microsoft.directory/groups/owners/update | Update owners of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/settings/update | Update settings of groups |
-> | microsoft.directory/groups/visibility/update | Update the visibility property of groups |
+> | microsoft.directory/groups/visibility/update | Update the visibility property of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groupSettings/create | Create group settings |
 > | microsoft.directory/groupSettings/delete | Delete group settings |
 > | microsoft.directory/groupSettings/basic/update | Update basic properties on group settings |
@@ -694,6 +700,7 @@ Users with this role can manage (read, add, verify, update, and delete) domain n
 > | --- | --- |
 > | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Dynamics 365 Administrator
 
@@ -722,13 +729,13 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of a group |
-> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
+> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
-> | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.exchange/allEntities/basic/allTasks | Manage all aspects of Exchange Online |
@@ -807,6 +814,8 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/connectorGroups/allProperties/update | Update all properties of application proxy connector groups |
 > | microsoft.directory/contacts/allProperties/allTasks | Create and delete contacts, and read and update all properties |
 > | microsoft.directory/contracts/allProperties/allTasks | Create and delete partner contracts, and read and update all properties |
+> | microsoft.directory/deletedItems/delete | Permanently delete objects, which can no longer be restored |
+> | microsoft.directory/deletedItems/restore | Restore soft deleted objects to original state |
 > | microsoft.directory/devices/allProperties/allTasks | Create and delete devices, and read and update all properties |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceManagementPolicies/basic/update | Update basic properties on device management application policies |
@@ -826,7 +835,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/identityProtection/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Azure AD Identity Protection |
 > | microsoft.directory/loginOrganizationBranding/allProperties/allTasks | Create and delete loginTenantBranding, and read and update all properties |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
-> | microsoft.directory/organization/allProperties/allTasks | Create and delete organizations, and read and update all properties |
+> | microsoft.directory/organization/allProperties/allTasks | Read and update all properties for an organization |
 > | microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties |
 > | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of conditional access policies |
 > | microsoft.directory/crossTenantAccessPolicies/allProperties/allTasks |  |
@@ -896,6 +905,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.powerApps/allEntities/allTasks | Manage all aspects of Power Apps |
 > | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI |
 > | microsoft.windows.defenderAdvancedThreatProtection/allEntities/allTasks | Manage all aspects of Microsoft Defender for Endpoint |
+> | microsoft.windows.updatesDeployments/allEntities/allProperties/allTasks | Read and configure all aspects of Windows Update Service |
 
 ## Global Reader
 
@@ -926,7 +936,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
-> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of a group |
+> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/organization/strongAuthentication/read | Read the strong authentication property for an organization |
 > | microsoft.directory/policies/standard/read | Read basic properties on policies |
 > | microsoft.directory/policies/owners/read | Read owners of policies |
@@ -951,6 +961,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.office365.securityComplianceCenter/allEntities/read | Read standard properties in Microsoft 365 Security and Compliance Center |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.windows.updatesDeployments/allEntities/allProperties/read | Read all aspects of Windows Update Service |
 
 ## Groups Administrator
 
@@ -960,20 +971,20 @@ Users in this role can create/manage groups and its settings like naming and exp
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/groups/assignLicense | Assign product licenses to groups for group-based licensing |
-> | microsoft.directory/groups/create | Create groups, excluding role-assignable groups |
-> | microsoft.directory/groups/delete | Delete groups, excluding role-assignable group |
-> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of a group |
+> | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/delete | Delete Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groups/reprocessLicenseAssignment | Reprocess license assignments for group-based licensing |
 > | microsoft.directory/groups/restore | Restore deleted groups |
-> | microsoft.directory/groups/basic/update | Update basic properties on groups, excluding role-assignable groups |
-> | microsoft.directory/groups/classification/update | Update the classification property of groups, excluding role-assignable groups |
-> | microsoft.directory/groups/dynamicMembershipRule/update | Update dynamic membership rule of groups, excluding role-assignable groups |
-> | microsoft.directory/groups/groupType/update | Update the groupType property for a group |
-> | microsoft.directory/groups/members/update | Update members of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/basic/update | Update basic properties on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/classification/update | Update the classification property on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/dynamicMembershipRule/update | Update the dynamic membership rule on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/groupType/update | Update properties that would affect the group type of Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/onPremWriteBack/update | Update Azure Active Directory groups to be written back to on-premises with Azure AD Connect |
-> | microsoft.directory/groups/owners/update | Update owners of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/settings/update | Update settings of groups |
-> | microsoft.directory/groups/visibility/update | Update the visibility property of groups |
+> | microsoft.directory/groups/visibility/update | Update the visibility property of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service principal direct access to a group's data |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
@@ -990,7 +1001,7 @@ Users in this role can manage Azure Active Directory B2B guest user invitations 
 > | --- | --- |
 > | microsoft.directory/users/inviteGuest | Invite guest users |
 > | microsoft.directory/users/standard/read | Read basic properties on users |
-> | microsoft.directory/users/appRoleAssignments/read | Read application role assignments of users |
+> | microsoft.directory/users/appRoleAssignments/read | Read application role assignments for users |
 > | microsoft.directory/users/directReports/read | Read the direct reports for users |
 > | microsoft.directory/users/manager/read | Read manager of users |
 > | microsoft.directory/users/memberOf/read | Read the group memberships of users |
@@ -1049,6 +1060,8 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates |
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
 > | microsoft.directory/cloudProvisioning/allProperties/allTasks | Read and configure all properties of Azure AD Cloud Provisioning service. |
+> | microsoft.directory/deletedItems.applications/delete | Permanently delete applications, which can no longer be restored |
+> | microsoft.directory/deletedItems.applications/restore | Restore soft deleted applications to original state |
 > | microsoft.directory/domains/allProperties/read | Read all properties of domains |
 > | microsoft.directory/domains/federation/update | Update federation property of domains |
 > | microsoft.directory/organization/dirSync/update | Update the organization directory sync property |
@@ -1086,7 +1099,7 @@ Users with this role can manage Azure AD identity governance configuration, incl
 > | --- | --- |
 > | microsoft.directory/accessReviews/allProperties/allTasks | Create and delete access reviews, and read and update all properties of access reviews in Azure AD |
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
-> | microsoft.directory/groups/members/update | Update members of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 
 ## Insights Administrator
@@ -1134,20 +1147,22 @@ This role can create and manage all security groups. However, Intune Admin does 
 > | microsoft.directory/devices/disable | Disable devices in Azure AD |
 > | microsoft.directory/devices/enable | Enable devices in Azure AD |
 > | microsoft.directory/devices/basic/update | Update basic properties on devices |
-> | microsoft.directory/devices/extensionAttributes/update | Update all values for devices.extensionAttributes property |
+> | microsoft.directory/devices/extensionAttributeSet1/update | Update the extensionAttribute1 to extensionAttribute5 properties on devices |
+> | microsoft.directory/devices/extensionAttributeSet2/update | Update the extensionAttribute6 to extensionAttribute10 properties on devices |
+> | microsoft.directory/devices/extensionAttributeSet3/update | Update the extensionAttribute11 to extensionAttribute15 properties on devices |
 > | microsoft.directory/devices/registeredOwners/update | Update registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/update | Update registered users of devices |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
-> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of a group |
-> | microsoft.directory/groups.security/create | Create Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/delete | Delete Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/classification/update | Update classification property of the Security groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
+> | microsoft.directory/groups.security/create | Create Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/delete | Delete Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/classification/update | Update the classification property on Security groups, excluding role-assignable groups |
 > | microsoft.directory/groups.security/dynamicMembershipRule/update | Update dynamic membership rule of Security groups, excluding role-assignable groups |
-> | microsoft.directory/groups.security/members/update | Update members of Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/owners/update | Update owners of Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/visibility/update | Update visibility property of the Security groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups.security/members/update | Update members of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/owners/update | Update owners of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/visibility/update | Update the visibility property on Security groups, excluding role-assignable groups |
 > | microsoft.directory/users/basic/update | Update basic properties on users |
 > | microsoft.directory/users/manager/update | Update manager for users |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
@@ -1173,12 +1188,12 @@ Users in this role have full access to all knowledge, learning and intelligent f
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/groups.security/create | Create Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/createAsOwner | Create Security groups with the exclusion of role-assignable groups and creator is added as the first owner |
-> | microsoft.directory/groups.security/delete | Delete Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/members/update | Update members of Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/owners/update | Update owners of Security groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups.security/create | Create Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/createAsOwner | Create Security groups, excluding role-assignable groups. Creator is added as the first owner. |
+> | microsoft.directory/groups.security/delete | Delete Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/members/update | Update members of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/owners/update | Update owners of Security groups, excluding role-assignable groups |
 > | microsoft.office365.knowledge/contentUnderstanding/allProperties/allTasks | Read and update all properties of content understanding in Microsoft 365 admin center |
 > | microsoft.office365.knowledge/knowledgeNetwork/allProperties/allTasks | Read and update all properties of knowledge network in Microsoft 365 admin center |
 > | microsoft.office365.knowledge/learningSources/allProperties/allTasks | Manage learning sources and all their properties in Learning App. |
@@ -1194,12 +1209,12 @@ Users in this role can create and manage content, like topics, acronyms and lear
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/groups.security/create | Create Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/createAsOwner | Create Security groups with the exclusion of role-assignable groups and creator is added as the first owner |
-> | microsoft.directory/groups.security/delete | Delete Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/members/update | Update members of Security groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.security/owners/update | Update owners of Security groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups.security/create | Create Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/createAsOwner | Create Security groups, excluding role-assignable groups. Creator is added as the first owner. |
+> | microsoft.directory/groups.security/delete | Delete Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/members/update | Update members of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/owners/update | Update owners of Security groups, excluding role-assignable groups |
 > | microsoft.office365.knowledge/contentUnderstanding/analytics/allProperties/read | Read analytics reports of content understanding in Microsoft 365 admin center |
 > | microsoft.office365.knowledge/knowledgeNetwork/topicVisibility/allProperties/allTasks | Manage topic visibility of knowledge network in Microsoft 365 admin center |
 > | microsoft.office365.sharePoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in SharePoint |
@@ -1315,11 +1330,11 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 > | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
-> | microsoft.directory/groups/create | Create groups, excluding role-assignable groups |
-> | microsoft.directory/groups/delete | Delete groups, excluding role-assignable group |
+> | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/delete | Delete Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/restore | Restore deleted groups |
-> | microsoft.directory/groups/members/update | Update members of groups, excluding role-assignable groups |
-> | microsoft.directory/groups/owners/update | Update owners of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/users/assignLicense | Manage user licenses |
@@ -1361,11 +1376,11 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
 > | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties |
-> | microsoft.directory/groups/create | Create groups, excluding role-assignable groups |
-> | microsoft.directory/groups/delete | Delete groups, excluding role-assignable group |
+> | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/delete | Delete Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/restore | Restore deleted groups |
-> | microsoft.directory/groups/members/update | Update members of groups, excluding role-assignable groups |
-> | microsoft.directory/groups/owners/update | Update owners of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
 > | microsoft.directory/organization/basic/update | Update basic properties on organization |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete role assignments, and read and update all role assignment properties |
@@ -1726,12 +1741,12 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
-> | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |
@@ -1766,13 +1781,13 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of a group |
-> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
+> | microsoft.directory/groups.unified/create | Create Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
-> | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups with the exclusion of role-assignable groups |
-> | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups with the exclusion of role-assignable groups |
+> | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service principal direct access to a group's data |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
@@ -1880,20 +1895,20 @@ Users with this role can create users, and manage all aspects of users with some
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
 > | microsoft.directory/groups/assignLicense | Assign product licenses to groups for group-based licensing |
-> | microsoft.directory/groups/create | Create groups, excluding role-assignable groups |
-> | microsoft.directory/groups/delete | Delete groups, excluding role-assignable group |
-> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of a group |
+> | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/delete | Delete Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groups/reprocessLicenseAssignment | Reprocess license assignments for group-based licensing |
 > | microsoft.directory/groups/restore | Restore deleted groups |
-> | microsoft.directory/groups/basic/update | Update basic properties on groups, excluding role-assignable groups |
-> | microsoft.directory/groups/classification/update | Update the classification property of groups, excluding role-assignable groups |
-> | microsoft.directory/groups/dynamicMembershipRule/update | Update dynamic membership rule of groups, excluding role-assignable groups |
-> | microsoft.directory/groups/groupType/update | Update the groupType property for a group |
-> | microsoft.directory/groups/members/update | Update members of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/basic/update | Update basic properties on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/classification/update | Update the classification property on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/dynamicMembershipRule/update | Update the dynamic membership rule on Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/groupType/update | Update properties that would affect the group type of Security groups and Microsoft 365 groups, excluding role-assignable groups |
+> | microsoft.directory/groups/members/update | Update members of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/onPremWriteBack/update | Update Azure Active Directory groups to be written back to on-premises with Azure AD Connect |
-> | microsoft.directory/groups/owners/update | Update owners of groups, excluding role-assignable groups |
+> | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/settings/update | Update settings of groups |
-> | microsoft.directory/groups/visibility/update | Update the visibility property of groups |
+> | microsoft.directory/groups/visibility/update | Update the visibility property of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/users/assignLicense | Manage user licenses |

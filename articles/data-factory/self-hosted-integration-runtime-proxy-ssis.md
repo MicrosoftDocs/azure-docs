@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 05/19/2021
 ---
 

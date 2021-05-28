@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: how-to
 ms.date: 02/13/2021
-ms.author: albecker
+ms.author: albecker 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Update the storage type of a managed disk

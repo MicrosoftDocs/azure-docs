@@ -4,7 +4,7 @@ description: Azure PowerShell example script to create an Azure SQL Database ela
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: BustosMSFT

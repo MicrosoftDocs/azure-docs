@@ -18,18 +18,20 @@ zone_pivot_groups: programming-languages-set-nineteen
 
 > [!NOTE]
 > This article requires Speech SDK 1.17.0 or later.
+
 The synthesis latency is critical to your applications.
-In this article, we will introduce the best practices to lower the latency and bring the best performance to you and your end users.
-Normally, we measure the latency by _`first byte latency`_ and _`finish latency`_, as follows:
+In this article, we will introduce the best practices to lower the latency and bring the best performance to your end users.
+
+Normally, we measure the latency by `first byte latency` and `finish latency`, as follows:
 
 ::: zone pivot="programming-language-csharp"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) |
+| Latency | Description | [SpeechSynthesisResult](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) property key |
 |-----------|-------------|------------|
-| `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
-| `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
+| first byte latency | Indicates the time delay between the start of the synthesis task and receipt of the first chunk of audio data. | SpeechServiceResponse_SynthesisFirstByteLatencyMs |
+| finish latency | Indicates the time delay between the start of the synthesis task and the receipt of the whole synthesized audio data. | SpeechServiceResponse_SynthesisFinishLatencyMs |
 
-The Speech SDK measured the latencies and puts them in the property bag of [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). The following sample code shows these values.
+The Speech SDK puts the latency durations in the Properties collection of [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult). The following sample code shows these values.
 
 ```csharp
 var result = await synthesizer.SpeakTextAsync(text);
@@ -43,7 +45,7 @@ var resultId = result.ResultId;
 
 ::: zone pivot="programming-language-cpp"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/cpp/cognitive-services/speech/speechsynthesisresult) |
+| Latency | Description | [SpeechSynthesisResult](/cpp/cognitive-services/speech/speechsynthesisresult) property key |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
@@ -62,7 +64,7 @@ auto resultId = result->ResultId;
 
 ::: zone pivot="programming-language-java"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) |
+| Latency | Description | [SpeechSynthesisResult](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisresult) property key |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
@@ -82,7 +84,7 @@ String resultId = result.getResultId();
 
 ::: zone pivot="programming-language-python"
 
-| Latency | Description | Property in the property bag of [SpeechSynthesisResult](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult) |
+| Latency | Description | [SpeechSynthesisResult](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult) property key |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SpeechServiceResponse_SynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SpeechServiceResponse_SynthesisFinishLatencyMs` |
@@ -101,7 +103,7 @@ result_id = result.result_id
 
 ::: zone pivot="programming-language-objectivec"
 
-| Latency | Description | Property in the property bag of [SPXSpeechSynthesisResult](/objectivec/cognitive-services/speech/spxspeechsynthesisresult) |
+| Latency | Description | [SPXSpeechSynthesisResult](/objectivec/cognitive-services/speech/spxspeechsynthesisresult) property key |
 |-----------|-------------|------------|
 | `first byte latency` | Indicates the time delay between the synthesis starts and the first audio chunk is received. | `SPXSpeechServiceResponseSynthesisFirstByteLatencyMs` |
 | `finish latency` | Indicates the time delay between the synthesis starts and the whole synthesized audio is received. | `SPXSpeechServiceResponseSynthesisFinishLatencyMs` |
@@ -118,16 +120,16 @@ NSString *resultId = result.resultId;
 
 ::: zone-end
 
-The `first byte latency` is much lower than `finish latency` in most cases.
-And the first byte latency is almost independent with the text length, while finish latency increases with the text length.
+The first byte latency is much lower than finish latency in most cases.
+The first byte latency is independent from text length, while finish latency increases with text length.
 
-Ideally, we want to minimum the user-experienced latency (the latency before user hears the sound) to one network route trip time plus the first audio chunk latency of the speech synthesis service.
+Ideally, we want to minimize the user-experienced latency (the latency before user hears the sound) to one network route trip time plus the first audio chunk latency of the speech synthesis service.
 
 ## Streaming
 
-Streaming is critical to lowering latency,
+Streaming is critical to lowering latency.
 Client code can start playback when the first audio chunk is received.
-In service scenario, you can forward the audio chunks immediately to your clients instead of waiting for the whole audio.
+In a service scenario, you can forward the audio chunks immediately to your clients instead of waiting for the whole audio.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -157,7 +159,7 @@ using (var synthesizer = new SpeechSynthesizer(config, null as AudioConfig))
 
 ::: zone pivot="programming-language-cpp"
 
-You can use the [`PullAudioOutputStream`](/cpp/cognitive-services/speech/audio-pullaudiooutputstream), [`PushAudioOutputStream`](/cpp/cognitive-services/speech/audio-pushaudiooutputstream), [`Synthesizing` event](/cpp/cognitive-services/speech/speechsynthesizer#synthesizing), and [`AudioDateStream`](/cpp/cognitive-services/speech/audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/cpp/cognitive-services/speech/audio-pullaudiooutputstream), [`PushAudioOutputStream`](/cpp/cognitive-services/speech/audio-pushaudiooutputstream), the [`Synthesizing` event](/cpp/cognitive-services/speech/speechsynthesizer#synthesizing), and [`AudioDateStream`](/cpp/cognitive-services/speech/audiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
@@ -177,7 +179,7 @@ while ((filledSize = audioDataStream->ReadData(buffer, sizeof(buffer))) > 0)
 
 ::: zone pivot="programming-language-java"
 
-You can use the [`PullAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_Synthesizing), and [`AudioDateStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/java/api/com.microsoft.cognitiveservices.speech.audio.pushaudiooutputstream), the [`Synthesizing` event](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.synthesizing#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_Synthesizing), and [`AudioDateStream`](/java/api/com.microsoft.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
@@ -197,7 +199,7 @@ while (filledSize > 0) {
 
 ::: zone pivot="programming-language-python"
 
-You can use the [`PullAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pushaudiooutputstream), [`Synthesizing` event](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#synthesizing), and [`AudioDateStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
+You can use the [`PullAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pullaudiooutputstream), [`PushAudioOutputStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.pushaudiooutputstream), the [`Synthesizing` event](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#synthesizing), and [`AudioDateStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
@@ -216,7 +218,7 @@ while filled_size > 0:
 
 ::: zone pivot="programming-language-objectivec"
 
-You can use the [`SPXPullAudioOutputStream`](/objectivec/cognitive-services/speech/spxpullaudiooutputstream), [`SPXPushAudioOutputStream`](/objectivec/cognitive-services/speech/spxpushaudiooutputstream), [`Synthesizing` event](/objectivec/cognitive-services/speech/spxspeechsynthesizer#addsynthesizingeventhandler), and [`SPXAudioDataStream`](/objectivec/cognitive-services/speech/spxaudiodatastream) of the Speech SDK to enable streaming.
+You can use the [`SPXPullAudioOutputStream`](/objectivec/cognitive-services/speech/spxpullaudiooutputstream), [`SPXPushAudioOutputStream`](/objectivec/cognitive-services/speech/spxpushaudiooutputstream), the [`Synthesizing` event](/objectivec/cognitive-services/speech/spxspeechsynthesizer#addsynthesizingeventhandler), and [`SPXAudioDataStream`](/objectivec/cognitive-services/speech/spxaudiodatastream) of the Speech SDK to enable streaming.
 
 Taking `AudioDateStream` as an example:
 
@@ -236,13 +238,13 @@ while ([stream readData:data length:16000] > 0) {
 
 The Speech SDK uses a websocket to communicate with the service.
 Ideally, the network latency should be one route trip time (RTT).
-If the connection is newly established, the network latency will contain extra connection establishment time.
+If the connection is newly established, the network latency will include extra time to establish the connection.
 The establishment of a websocket connection needs the TCP handshake, SSL handshake, HTTP connection, and protocol upgrade, which introduces time delay.
 To avoid the connection latency, we recommend pre-connecting and reusing the `SpeechSynthesizer`.
 
 ### Pre-connect
 
-To pre-connect, establish a connection to the Speech service when you know the connection will be needed soon. For example, if you are building a speech bot in client, you can per-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
+To pre-connect, establish a connection to the Speech service when you know the connection will be needed soon. For example, if you are building a speech bot in client, you can pre-connect to the speech synthesis service when the user starts to talk, and call `SpeakTextAsync` when the bot reply text is ready.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -301,6 +303,7 @@ SPXConnection* connection = [[SPXConnection alloc]initFromSpeechSynthesizer:synt
 
 > [!NOTE]
 > If the synthesize text is available, just call `SpeakTextAsync` to synthesize the audio. The SDK will handle the connection.
+
 ### Reuse SpeechSynthesizer
 
 Another way to reduce the connection latency is to reuse the `SpeechSynthesizer` so you don't need to create a new `SpeechSynthesizer` for each synthesis.
@@ -310,34 +313,34 @@ We recommend using object pool in service scenario, see our sample code for [C#]
 ## Transmit compressed audio over the network
 
 When the network is unstable or with limited bandwidth, the payload size will also impact latency.
-Meanwhile, compressed audio format helps to save the users' precious network bandwidth especially for mobile users.
+Meanwhile, a compressed audio format helps to save the users' network bandwidth, which is especially valuable for mobile users.
 
-We support many compressed formats including `opus`, `webm`, `mp3`, `silk`, and so on, see the full list in `enum` of type [SpeechSynthesisOutputFormat](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
+We support many compressed formats including `opus`, `webm`, `mp3`, `silk`, and so on, see the full list in [SpeechSynthesisOutputFormat](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat).
 For example, the bitrate of `Riff24Khz16BitMonoPcm` format is 384 kbps, while `Audio24Khz48KBitRateMonoMp3` only costs 48 kbps.
 Our Speech SDK will automatically use a compressed format for transmission when a `pcm` output format is set and `GStreamer` is properly installed.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
 
 ## Others tips
 
-### Caching CRL files
+### Cache CRL files
 
 The Speech SDK uses CRL files to check the certification.
-Caching the CRL files until expired helps you avoid downloading `CRL` files every time.
+Caching the CRL files until expired helps you avoid downloading CRL files every time.
 See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certificate-revocation-checks) for details.
 
 ### Use latest Speech SDK
 
-We are keeping improving the Speech SDK's performance, ensure to use the latest Speech SDK in your application.
-For example, we fix a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#speech-sdk-1160-2021-march-release), which help to reduce extra one route trip time.
+We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application.
+For example, we fixed a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#speech-sdk-1160-2021-march-release), which reduced extra one route trip time.
 
 ## Load test guideline
 
 You may use load test to test the speech synthesis service capacity and latency.
 Here are some guidelines.
 
- - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. Refer [this](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details.
- - The service has quota limitation based on the real traffic, therefore, if you want to perform load test with the concurrency much higher than your real traffic, connect us before your test.
+ - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. [See this article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details.
+ - The service has quota limitation based on the real traffic, therefore, if you want to perform load test with the concurrency much higher than your real traffic, connect before your test.
 
 ## Next steps
 
-* See the [samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master) on GitHub
+* [See the samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master) on GitHub

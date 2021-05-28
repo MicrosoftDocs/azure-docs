@@ -5,7 +5,7 @@ description: Azure PowerShell example script to create a managed instance, add i
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: BustosMSFT

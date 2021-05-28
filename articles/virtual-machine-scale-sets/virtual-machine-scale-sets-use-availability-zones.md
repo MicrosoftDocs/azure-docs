@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 

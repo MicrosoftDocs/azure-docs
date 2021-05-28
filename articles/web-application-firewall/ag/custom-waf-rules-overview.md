@@ -6,7 +6,8 @@ ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway
