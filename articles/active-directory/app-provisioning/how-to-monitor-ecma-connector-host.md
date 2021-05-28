@@ -29,9 +29,9 @@ Once the ECMA Connector host schema mapping has been configured, start the servi
 
 ## Understanding incoming SCIM requests 
 
-Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app support and the requests from the host to agent to azure ad rely on SCIM. You can learn more about our SCIM implementation here.  
+Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app support and the requests from the host to agent to Azure AD rely on SCIM. You can learn more about our SCIM implementation here.  
 
-Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a dummy user to ensure the target endpoint is available and returning SCIM compliant responses. 
+Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a dummy user to ensure the target endpoint is available and returning SCIM-compliant responses. 
 
 The request generally looks like this:  
 
@@ -45,7 +45,7 @@ When querying for a user, we use the matching attribute. If the matching attribu
 
 ## Turning on verbose logging 
 
-If you wish to further debug the generic SQL or generic LDAP connectors, then you can enable the Connector specific log file, following the instructions in the PowerShell script https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1 and updating the system.diagnostics section of the file c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config as follows:
+If you wish to further debug the generic SQL or generic LDAP connectors, then you can enable the Connector-specific log file, following the instructions in the PowerShell script https://raw.githubusercontent.com/microsoft/MIMPowerShellConnectors/master/src/LyncConnector/EventLogConfig/Register-EventSource.ps1 and updating the system.diagnostics section of the file c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config as follows:
 
 ```
       <add key="WriteVerboseLog" value="true" /> 

@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 # On-premises app provisioning to SCIM-enabled apps
 
-The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This document outlines how you can use the Azure AD provisioning service to provision users into an on-premises application that is SCIM enabled. If you're looking to provision users into non-SCIM on-premises applications, please such as a non-AD LDAP directory or SQL DB, please see here (link to new doc that we will need to create). If you're looking to provisioning users into cloud apps such as DropBox, Atlassian, etc. please review the app specific [tutorials](../../active-directory/saas-apps/tutorial-list.md). 
+The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This document outlines how you can use the Azure AD provisioning service to provision users into an on-premises application that is SCIM enabled. If you're looking to provision users into non-SCIM on-premises applications, such as a non-AD LDAP directory or SQL DB, see here (link to new doc that we will need to create). If you're looking to provisioning users into cloud apps such as DropBox, Atlassian, etc. review the app specific [tutorials](../../active-directory/saas-apps/tutorial-list.md). 
 
 ![architecture](./media/on-prem-scim-provisioning/scim-1.png)
 
@@ -23,22 +23,22 @@ The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.mi
 ## Pre-requisites
 - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
     [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
-- Administator role for installing the agent.  This is a one time effort and should be an Azure account that is either a hybrid admin or global admin. 
+- Administrator role for installing the agent.  This is a one time effort and should be an Azure account that is either a hybrid admin or global admin. 
 - Administrator role for configuring the application in the cloud (Application admin, Cloud application admin, Global Administrator, Custom role with perms)
 
 ## Steps for on-premises app provisioning to SCIM-enabled apps
 Use the steps below to provision to SCIM-enabled apps. 
 
- 1. Add the ""Agent based SCIM provisioning" app from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
+ 1. Add the "Agent-based SCIM provisioning" app from the [gallery](../../active-directory/manage-apps/add-application-portal.md).
  2. Navigate to your app > Provisioning > Download the provisioning agent.
- 3. Click on on-premises connectivity and download the provisioning agent (during the private preview, you should skip this step and use the agent provided in the SharePoint site).
+ 3. Click on on-premises connectivity and download the provisioning agent.
  4. Copy the agent onto the virtual machine or server that your SCIM endpoint is hosted on.
  5. Open the provisioning agent installer, agree to the terms of service, and click install.
  6. Open the provisioning agent wizard and select on-premises provisioning when prompted for the extension that you would like to enable.
  7. Provide credentials for an Azure AD Administrator when prompted to authorize (Hybrid administrator or Global administrator required).
  8. Click confirm to confirm the installation was successful.
  9. Navigate back to your application > on-premises connectivity.
- 10. Select the agent that you installed from the dropdown list and click assign agent.
+ 10. Select the agent that you installed, from the dropdown list, and click assign agent.
  11. Wait 10 minutes or restart the Azure AD Connect Provisioning agent service on your server / VM.
  12. Provide URL for your SCIM endpoint in the tenant URL field (e.g. Https://localhost:8585/scim).
      ![assign agent](./media/on-prem-scim-provisioning/scim-2.png)
@@ -53,8 +53,8 @@ Use the steps below to provision to SCIM-enabled apps.
 
 ## Things to be aware of
 * Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](use-scim-to-provision-users-and-groups.md).
-  * Azure AD offers open source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation (the code is as-is)
-* Support the /schemaDiscovery endpoint to reduce configuration required in the Azure Portal. 
+  * Azure AD offers open-source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation (the code is as-is)
+* Support the /schemaDiscovery endpoint to reduce configuration required in the Azure portal. 
 
 Next Steps
 

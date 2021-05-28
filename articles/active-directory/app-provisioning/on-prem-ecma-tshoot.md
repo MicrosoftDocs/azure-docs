@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 # Troubleshooting ECMA Connector Host issues
 
 ## Troubleshoot test connection issues. 
-After configuring the ECMA Host and Provisioning Agent, it's time to test connectivity from the Azure AD Provisioning service to the Provisioning Agent > ECMA Host > Application. This end to end test can be performed by clicking test connection in the application in the Azure Portal. When test connection fails, try the following troubleshooting steps:
+After configuring the ECMA Host and Provisioning Agent, it's time to test connectivity from the Azure AD Provisioning service to the Provisioning Agent > ECMA Host > Application. This end to end test can be performed by clicking test connection in the application in the Azure portal. When test connection fails, try the following troubleshooting steps:
 
  1. Verify that the agent and ECMA host are running:
      1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
@@ -25,13 +25,13 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
 
  2. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection and run the script.  This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
     It should be run on the same computer as the ECMA Connector Host service itself.
- 3. Ensure that the agent is active by navigating to your application in the azure portal, click on admin connectivity, click on the agent dropdown, and ensure your agent is active.
- 4. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
- 5. Ensure that you have assigned one or more agents to the application in the Azure Portal.
+ 3. Ensure that the agent is active by navigating to your application in the Azure portal, click on admin connectivity, click on the agent dropdown, and ensure your agent is active.
+ 4. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure portal).
+ 5. Ensure that you have assigned one or more agents to the application in the Azure portal.
  6. After assigning an agent, you need to wait 10-20 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
  7. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate.
- 8. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
- 9. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.
+ 8. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right-click stop and then start.
+ 9. When providing the tenant URL in the Azure portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.
     ```
     https://localhost:8585/ecma2host_connectorName/scim
     ```
@@ -96,9 +96,9 @@ File location for verbose wizard logging: C:\Program Files\Microsoft ECMA2Host\W
   ```
 
 ## Target attribute missing 
-The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list in the Azure Portal, perform the following troubleshooting step:
+The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list in the Azure portal, perform the following troubleshooting step:
 
- 1. Review the "Select Attributes" page of your ECMA host configuration to verify that the attribute has been selected to be exposed to the Azure Portal.
+ 1. Review the "Select Attributes" page of your ECMA host configuration to verify that the attribute has been selected to be exposed to the Azure portal.
  2. Ensure that the ECMA host service is turned on. 
  3. Review the ECMA host logs to verify that a /schemas request was made and review the attributes in the response. This information will be valuable for support to troubleshoot the issue. 
 
@@ -119,7 +119,7 @@ Once the ECMA Connector host schema mapping has been configured, start the servi
 
 Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app support and the requests from the host to agent to azure ad rely on SCIM. You can learn more about our SCIM implementation [here](use-scim-to-provision-users-and-groups.md).  
 
-Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a [dummy user](use-scim-to-provision-users-and-groups.md#request-3) to ensure the target endpoint is available and returning SCIM compliant responses. 
+Be aware that at the beginning of each provisioning cycle, before performing on-demand provisioning, and when doing the test connection the Azure AD provisioning service generally makes a get user call for a [dummy user](use-scim-to-provision-users-and-groups.md#request-3) to ensure the target endpoint is available and returning SCIM-compliant responses. 
 
 
 ## How do I troubleshoot the provisioning agent?
@@ -178,18 +178,18 @@ By default, the agent emits minimal error messages and stack trace information. 
 To gather additional details for troubleshooting agent-related problems, follow these steps.
 
 1.  Install the AADCloudSyncTools PowerShell module as described [here](../../active-directory/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
-2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information.  You can use the following switches to fine tune your data collection.
+2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information.  You can use the following switches to fine-tune your data collection.
       - SkipVerboseTrace to only export current logs without capturing verbose logs (default = false)
       - TracingDurationMins to specify a different capture duration (default = 3 mins)
       - OutputPath to specify a different output path (default = User’s Documents)
 
 ---------------------
 
-Azure AD allows you monitor the provisioning service in the cloud as well as collect logs on-premises. The provisioning service emits logs for each user that was evaluated as part of the synchronization process. Those logs can be consumed through the [Azure Portal UI, APIs, and log analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#ways-of-interacting-with-the-provisioning-logs). In addition, the ECMA host generates logs on-premises, showing each provisioning request received and the response sent to Azure AD.
+Azure AD allows you to monitor the provisioning service in the cloud as well as collect logs on-premises. The provisioning service emits logs for each user that was evaluated as part of the synchronization process. Those logs can be consumed through the [Azure portal UI, APIs, and log analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#ways-of-interacting-with-the-provisioning-logs). In addition, the ECMA host generates logs on-premises, showing each provisioning request received and the response sent to Azure AD.
 
 ### Agent installation fails
 * The error `System.ComponentModel.Win32Exception: The specified service already exists` indicates that the previous ECMA Host was unsuccessfully uninstalled. Please uninstall the host application. Navigate to program files and remove the ECMA Host folder. You may want to store the configuration file for backup. 
-* The following error indicates a pre-req has not been fulfilled. Ensure that you have .Net 4.7.1 installed.
+* The following error indicates a pre-req has not been fulfilled. Ensure that you have .NET 4.7.1 installed.
 
 `Method Name : <>c__DisplayClass0_1 : RegisterNotLoadedAssemblies Error during load assembly: System.Management.Automation.resources.dll
 --------- Outer Exception Data ---------
