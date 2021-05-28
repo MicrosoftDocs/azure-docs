@@ -13,9 +13,6 @@ This article shows you how to work with C# functions using .NET 5.0, which run o
 
 If you don't need to support .NET 5.0 or run your functions out-of-process, you might want to instead [create a C# class library function](functions-create-your-first-function-visual-studio.md).
 
->[!NOTE]
->Developing .NET isolated process functions in the Azure portal isn't currently supported. You must use either the Azure CLI or Visual Studio Code publishing to create a function app in Azure that supports running .NET 5.0 apps out-of-process.   
-
 ## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -125,7 +122,7 @@ Visual Studio creates a project and class that contains boilerplate code for the
 
 [!INCLUDE [functions-vstools-rename](../../includes/functions-vstools-rename.md)]
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="19-3"::: 
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="19-3":::
  
 Now that you've renamed the function, you can test it on your local computer.
 
