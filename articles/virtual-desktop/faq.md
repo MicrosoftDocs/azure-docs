@@ -4,7 +4,8 @@ description: Frequently asked questions and best practices for Windows Virtual D
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 # Windows Virtual Desktop FAQ
