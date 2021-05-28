@@ -32,7 +32,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 * If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/cognitive-services).
-* To create an [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) or [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resources you must agree to the Responsible AI (RAI) terms. This only needs to be done once for a a specific subscription. To agree to the Responsible AI terms just follow the links above.
+* To create an [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) or [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resources you must agree to the Responsible AI (RAI) terms. This only needs to be done once for a specific subscription. To agree to the Responsible AI terms just follow the links above.
 
 ## Review the template
 
