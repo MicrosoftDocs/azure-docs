@@ -34,7 +34,7 @@ For a high-level overview of how environments work in Azure Machine Learning, se
 
 Curated environments contain collections of Python packages and are available in your workspace by default. These environments are backed by cached Docker images which reduces the run preparation cost. 
 
-Click on an environment to see detailed information about its contents. For more information, see [Azure Machine Learning curated environments](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments). 
+Click on an environment to see detailed information about its contents. For more information, see [Azure Machine Learning curated environments](resource-curated-environments.md). 
 
 ## Create an environment
 
