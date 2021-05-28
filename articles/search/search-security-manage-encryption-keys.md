@@ -9,7 +9,7 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/28/2021
-ms.custom: references_regions 
+ms.custom: references_regions, devx-track-azurepowershell 
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search

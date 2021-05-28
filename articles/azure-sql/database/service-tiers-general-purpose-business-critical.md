@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: The article discusses the general purpose and business critical service tiers in the vCore-based purchasing model used by Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan, moslake
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 12/14/2020
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers

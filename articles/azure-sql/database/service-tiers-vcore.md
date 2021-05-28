@@ -4,12 +4,12 @@ titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan, moslake
-ms.date: 05/01/2021 
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 05/01/2021
 ms.custom: devx-track-azurepowershell
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
