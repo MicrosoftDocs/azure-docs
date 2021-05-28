@@ -24,6 +24,7 @@ Azure Sentinel. This is accomplished on AWS by creating a role that gives permis
 
 > [!NOTE]
 > AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
+> Currently, you can only connect your AWS Commercial CloudTrail to Azure Sentinel and not AWS GovCloud CloudTrail.
 
 ## Prerequisites
 

@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: "mvc, devx-track-csharp, devx-track-azurepowershell"
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
 ---
 # Tutorial: Part 2 - View the routed messages

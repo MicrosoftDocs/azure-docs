@@ -13,7 +13,8 @@ ms.collection: windows
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Update the Network Watcher extension to the latest version

@@ -7,7 +7,8 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 ---
 # Ephemeral OS disks for Azure VMs
 

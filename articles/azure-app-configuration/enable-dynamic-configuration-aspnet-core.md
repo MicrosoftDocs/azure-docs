@@ -20,11 +20,7 @@ ms.custom: "devx-track-csharp, mvc"
 ---
 # Tutorial: Use dynamic configuration in an ASP.NET Core app
 
-ASP.NET Core has a pluggable configuration system that can read configuration data from a variety of sources. It can handle changes dynamically without causing an application to restart. ASP.NET Core supports the binding of configuration settings to strongly typed .NET classes. It injects them into your code by using the various `IOptions<T>` patterns. One of these patterns, specifically `IOptionsSnapshot<T>`, automatically reloads the application's configuration when the underlying data changes. You can inject `IOptionsSnapshot<T>` into controllers in your application to access the most recent configuration stored in Azure App Configuration.
-
-You also can set up the App Configuration ASP.NET Core client library to refresh a set of configuration settings dynamically using a middleware. The configuration settings get updated with the configuration store each time as long as the web app receives requests.
-
-App Configuration automatically caches each setting to avoid too many calls to the configuration store. The refresh operation waits until the cached value of a setting expires to update that setting, even when its value changes in the configuration store. The default cache expiration time is 30 seconds. You can override this expiration time, if necessary.
+ASP.NET Core has a pluggable configuration system that can read configuration data from a variety of sources. It can handle changes dynamically without causing an application to restart. ASP.NET Core supports the binding of configuration settings to strongly typed .NET classes. It injects them into your code by using `IOptionsSnapshot<T>`, which automatically reloads the application's configuration when the underlying data changes.
 
 This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
@@ -46,14 +42,14 @@ Before you continue, finish [Create an ASP.NET Core app with App Configuration](
 
 ## Add a sentinel key
 
-A *sentinel key* is a special key used to signal when configuration has changed. Your app monitors the sentinel key for changes. When a change is detected, you refresh all configuration values. This approach reduces the overall number of requests made by your app to App Configuration, compared to monitoring all keys for changes.
+A *sentinel key* is a special key that you update after you complete the change of all other keys. Your application monitors the sentinel key. When a change is detected, your application refreshes all configuration values. This approach helps to ensure the consistency of configuration in your application and reduces the overall number of requests made to App Configuration, compared to monitoring all keys for changes.
 
 1. In the Azure portal, select **Configuration Explorer > Create > Key-value**.
 1. For **Key**, enter *TestApp:Settings:Sentinel*. For **Value**, enter 1. Leave **Label** and **Content type** blank.
 1. Select **Apply**.
 
 > [!NOTE]
-> If you aren't using a sentinel key, you need to manually register every key you want to watch.
+> If you aren't using a sentinel key, you need to manually register every key you want to monitor.
 
 ## Reload data from App Configuration
 
@@ -130,16 +126,14 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     ```
     ---
 
-    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the sentinel key changes.
-
-    Also, the `SetCacheExpiration` method overrides the default cache expiration time of 30 seconds, specifying a time of 5 minutes instead. This reduces the number of requests made to App Configuration.
+    In the `ConfigureRefresh` method, you register keys within your App Configuration store that you want to monitor for changes. The `refreshAll` parameter to the `Register` method indicates that all configuration values should be refreshed if the registered key changes. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds specifying a time of 5 minutes instead. This reduces the potential number of requests made to your App Configuration store.
 
     > [!NOTE]
-    > For testing purposes, you may want to lower the cache expiration time.
+    > For testing purposes, you may want to lower the cache refresh expiration time.
 
-    To actually trigger a refresh operation, you'll need to configure a refresh middleware for the application to refresh the configuration data when any change occurs. You'll see how to do this in a later step.
+    To actually trigger a configuration refresh, you'll use the App Configuration middleware. You'll see how to do this in a later step.
 
-2. Add a *Settings.cs* file in the Controllers directory that defines and implements a new `Settings` class. Replace the namespace with the name of your project. 
+1. Add a *Settings.cs* file in the Controllers directory that defines and implements a new `Settings` class. Replace the namespace with the name of your project. 
 
     ```csharp
     namespace TestAppConfig
@@ -154,7 +148,7 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     }
     ```
 
-3. Open *Startup.cs*, and use `IServiceCollection.Configure<T>` in the `ConfigureServices` method to bind configuration data to the `Settings` class.
+1. Open *Startup.cs*, and update the `ConfigureServices` method. Call `Configure<Settings>` to bind configuration data to the `Settings` class. Call `AddAzureAppConfiguration` to add App Configuration components to the service collection of your application.
 
     #### [.NET 5.x](#tab/core5x)
 
@@ -187,11 +181,8 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     }
     ```
     ---
-    > [!Tip]
-    > To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
-4. Update the `Configure` method, adding the `UseAzureAppConfiguration` middleware to allow the configuration settings registered for refresh to be updated while the ASP.NET Core web app continues to receive requests.
-
+1. Update the `Configure` method, and add a call to `UseAzureAppConfiguration`. It enables your application to use the App Configuration middleware to handle the configuration updates for you automatically.
 
     #### [.NET 5.x](#tab/core5x)
 
@@ -281,10 +272,11 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     ```
     ---
     
-    The middleware uses the refresh configuration specified in the `AddAzureAppConfiguration` method in `Program.cs` to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired. If it's expired, it's refreshed.
-
     > [!NOTE]
-    > To ensure the configuration is refreshed, add the middleware as early as appropriate to your request pipeline so it will not be short-circuited by another middleware in your application.
+    > The App Configuration middleware monitors the sentinel key or any other keys you registered for refreshing in the `ConfigureRefresh` call in the previous step. The middleware is triggered upon every incoming request to your application. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed. When a change is detected, it will either update all the configuration if the sentinel key is used or update the registered keys' values only.
+    > - If a request to App Configuration for change detection fails, your application will continue to use the cached configuration. Another check will be made when the configured cache expiration time has passed again, and there are new incoming requests to your application.
+    > - The configuration refresh happens asynchronously to the processing of your application incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but subsequent requests will do.
+    > - To ensure the middleware is triggered, call `app.UseAzureAppConfiguration()` as early as appropriate in your request pipeline so another middleware will not short-circuit it in your application.
 
 ## Use the latest configuration data
 
@@ -296,9 +288,9 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
 2. Update the `HomeController` class to receive `Settings` through dependency injection, and make use of its values.
 
- #### [.NET 5.x](#tab/core5x)
+    #### [.NET 5.x](#tab/core5x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -322,10 +314,10 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
         // ...
     }
-```
-#### [.NET Core 3.x](#tab/core3x)
+    ```
+    #### [.NET Core 3.x](#tab/core3x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -349,10 +341,10 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
         // ...
     }
-```
-#### [.NET Core 2.x](#tab/core2x)
+    ```
+    #### [.NET Core 2.x](#tab/core2x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -371,10 +363,10 @@ A *sentinel key* is a special key used to signal when configuration has changed.
             return View();
         }
     }
-```
----
-
-
+    ```
+    ---
+    > [!Tip]
+    > To learn more about the options pattern when reading configuration values, see [Options Patterns in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
 
 3. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following script:
 
@@ -419,7 +411,7 @@ A *sentinel key* is a special key used to signal when configuration has changed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Configuration Explorer**, and update the values of the following keys:
+1. Select **Configuration Explorer**, and update the values of the following keys. Remember to update the sentinel key at last.
 
     | Key | Value |
     |---|---|
@@ -428,7 +420,7 @@ A *sentinel key* is a special key used to signal when configuration has changed.
     | TestApp:Settings:Message | Data from Azure App Configuration - now with live updates! |
     | TestApp:Settings:Sentinel | 2 |
 
-1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected, or change your automatic refresh rate to less than 5 minutes. 
+1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected, or change your cache expiration time to less than 5 minutes. 
 
     ![Launching updated quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
