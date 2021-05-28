@@ -529,7 +529,7 @@
         href: documo-tutorial.md
       - name: DocuSign
         href: docusign-tutorial.md
-      - name: Dome9 Arc
+      - name: Check Point CloudGuard Posture Management
         href: dome9arc-tutorial.md
       - name: Domo
         href: domo-tutorial.md
@@ -720,6 +720,8 @@
         href: fortigate-ssl-vpn-tutorial.md
       - name: FortiSASE SIA
         href: fortisase-sia-tutorial.md
+      - name: foundU
+        href: foundu-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
@@ -834,6 +836,8 @@
         href: honestly-tutorial.md
       - name: Hootsuite
         href: hootsuite-tutorial.md
+      - name: Hopsworks.ai
+        href: hopsworks-ai-tutorial.md  
       - name: Hornbill
         href: hornbill-tutorial.md
       - name: Hosted Graphite
@@ -1020,8 +1024,6 @@
         href: jostle-tutorial.md
       - name: Juno Journey
         href: juno-journey-tutorial.md
-      - name: JustLogin
-        href: justlogin-tutorial.md
       - name: JuriBlox
         href: juriblox-tutorial.md  
       - name: Kallidus
@@ -1498,7 +1500,7 @@
         href: pulse-secure-pcs-tutorial.md
       - name: Pulse Secure Virtual Traffic Manager
         href: pulse-secure-virtual-traffic-manager-tutorial.md
-      - name: PureCloud by Genesys
+      - name: Genesys Cloud for Azure
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
         href: purelyhr-tutorial.md
@@ -1816,6 +1818,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Standard for Success Accreditation
+        href: standard-for-success-accreditation-tutorial.md
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
@@ -1870,6 +1874,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: Teamgo
+        href: teamgo-tutorial.md
       - name: Teamphoria
         href: teamphoria-tutorial.md
       - name: TeamSeer
@@ -2084,8 +2090,6 @@
         href: workplacebyfacebook-tutorial.md
       - name: Workrite
         href: workrite-tutorial.md
-      - name: Workshop
-        href: workshop-tutorial.md
       - name: Workspot Control
         href: workspotcontrol-tutorial.md
       - name: Workstars
