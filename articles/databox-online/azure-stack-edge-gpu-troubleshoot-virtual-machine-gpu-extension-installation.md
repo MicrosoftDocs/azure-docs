@@ -40,7 +40,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 **Error description:** Incorrect extension settings were used when deploying the GPU extension on a Linux VM. 
 
-**Suggested solution:** Edit the parameters file before deploying the GPU extension. There are specific parameters files for the Ubuntu and Red Hat Enterprise Linux (RHEL) operating systems. For more information, see [Install GPU extension](./azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux).
+**Suggested solution:** Edit the parameters file before deploying the GPU extension. For more information, see [Install GPU extension](./azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux).
 
 
 ## VM extension installation failed in downloading package
