@@ -1,5 +1,5 @@
 ---
-title: "Application security guidance: applying the principle of least privilege | Azure"
+title: "App security with the principle of least privilege | Azure"
 titleSuffix: Microsoft identity platform
 description: Learn how the principle of least privilege can help increase the security of your application, its data, and the Microsoft identity platform features you can use to implement least privileged access.
 services: active-directory
@@ -15,10 +15,10 @@ ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: yuhko, saumadan, marsma
 
-# Customer intent: As a developer, I want to learn about the principle of least privilege and the features of the Microsoft identity platform that I can use to ensure my application and its users are restricted to actions and have access to only the data they need perform their job.
+# Customer intent: As a developer, I want to learn about the principle of least privilege and the features of the Microsoft identity platform that I can use to ensure my application and its users are restricted to actions and have access to only the data they need perform their tasks.
 ---
 
-# Increase application and data security by applying the principle of least privilege
+# Enhance security with the principle of least privilege
 
 The information security principle of *least privilege* specifies that users and applications should be granted access to only the data and operations they need to perform their jobs. You can reduce the risk of unauthorized access and limit the impact of a security breach (the "blast radius") by using the Microsoft identity platform features and guidance described here.
 
