@@ -12,7 +12,7 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install GPU extension on GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
 
-# GPU VMs for your Azure Stack Edge Pro GPU device
+# Install GPU extension on VMs for your Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
