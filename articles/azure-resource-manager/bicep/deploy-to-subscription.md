@@ -140,7 +140,7 @@ resource exampleResource 'Microsoft.Resources/resourceGroups@2020-10-01' = {
 
 For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
 
-To deploy resources to a subscription that is different than the subscription from the operation, add a module. Use the subscription function to set the `scope` property. Provide the `subscriptionId` property to the ID of the subscription you want to deploy to.
+To deploy resources to a subscription that is different than the subscription from the operation, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set the `scope` property. Provide the `subscriptionId` property to the ID of the subscription you want to deploy to.
 
 ```bicep
 targetScope = 'subscription'
@@ -156,7 +156,7 @@ module exampleModule 'module.bicep' = {
 
 ### Scope to resource group
 
-To deploy resources to a resource group within the subscription, add a module and set its `scope` property. If the resource group already exists, use the resourceGroup function to set the scope value.
+To deploy resources to a resource group within the subscription, add a module and set its `scope` property. If the resource group already exists, use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set the scope value.
 
 ```bicep
 targetScope = 'subscription'
@@ -173,7 +173,7 @@ If the resource group is created in the same Bicep file, use the symbolic name o
 
 ### Scope to tenant
 
-To create resources at the tenant, add a module. Use the tenant function to set its `scope` property.
+To create resources at the tenant, add a module. Use the [tenant function](bicep-functions-scope.md#tenant) to set its `scope` property.
 
 The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
@@ -410,6 +410,8 @@ resource roleNameGuid_resource 'Microsoft.Authorization/roleAssignments@2020-04-
 
 ## Next steps
 
-* For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Sample templates can be found at [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments).
-* You can also deploy templates at [management group level](deploy-to-management-group.md) and [tenant level](deploy-to-tenant.md).
+To learn about other scopes, see:
+
+* [Resource group deployments](deploy-to-resource-group.md)
+* [Management group deployments](deploy-to-management-group.md)
+* [Tenant deployments](deploy-to-tenant.md)

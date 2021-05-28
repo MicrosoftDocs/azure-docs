@@ -122,5 +122,9 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
 
 ## Next steps
 
-* To understand how to define parameters in your template, see [Understand the structure and syntax of Bicep files](file.md).
+To learn about deploying to scopes, see:
 
+* [Resource group deployments](deploy-to-resource-group.md)
+* [Subscription deployments](deploy-to-subscription.md)
+* [Management group deployments](deploy-to-management-group.md)
+* [Tenant deployments](deploy-to-tenant.md)
