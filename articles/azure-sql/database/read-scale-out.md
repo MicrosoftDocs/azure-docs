@@ -4,7 +4,7 @@ description: Azure SQL provides the ability to use the capacity of read-only rep
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
