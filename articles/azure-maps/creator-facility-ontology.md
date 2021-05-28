@@ -59,7 +59,7 @@ The `unit` feature class defines a physical and non-overlapping area that can be
 
 | Property           | Type                        | Required | Description                                                  |
 |--------------------|-----------------------------|----------|--------------------------------------------------------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)     |true      | The ID of a [`category`](#category) feature.|
 |`isOpenArea`        | boolean                     |false     | Represents whether the unit is an open area. If set to `true`, [structures](#structure) don't surround the unit boundary, and a navigating agent can enter the `unit` without the need of an [`opening`](#opening). By default, units are surrounded by physical barriers and are open only where an opening feature is placed on the boundary of the unit. If walls are needed in an open area unit, they can be represented as a [`lineElement`](#lineelement) or [`areaElement`](#areaelement) with an `isObstruction` property equal to `true`.|
@@ -82,7 +82,7 @@ The `unit` feature class defines a physical and non-overlapping area that can be
 
 | Property           | Type                        | Required | Description                                                  |
 |--------------------|-----------------------------|----------|--------------------------------------------------------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)     |true      | The ID of a [`category`](#category) feature.|
 |`isOpenArea`        | boolean                     |false     | Represents whether the unit is an open area. If set to `true`, [structures](#structure) don't surround the unit boundary, and a navigating agent can enter the `unit` without the need of an [`opening`](#opening). By default, units are surrounded by physical barriers and are open only where an opening feature is placed on the boundary of the unit. If walls are needed in an open area unit, they can be represented as a [`lineElement`](#lineelement) or [`areaElement`](#areaelement) with an `isObstruction` property equal to `true`.|
@@ -108,7 +108,7 @@ The `structure` feature class defines a physical and non-overlapping area that c
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `levelId`          |  [level.Id](#level)            | true     | The ID of a [`level`](#level) feature. |
@@ -127,7 +127,7 @@ The `zone` feature class defines a virtual area, like a WiFi zone or emergency a
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `setId`          | string         | true     |Required for zone features that represent multi-level zones. The `setId` is the unique ID for a zone that spans multiple levels. The `setId` enables a zone with varying coverage on different floors to be  represented with different geometry on different levels. The `setId` can be any string and is case-sensitive. It is recommended that the `setId` is a GUID.  Maximum length allowed is 1000.|
@@ -145,7 +145,7 @@ The `level` class feature defines aAn area of a building at a set elevation. For
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)    |true      | The ID of a [`category`](#category) feature.|
 | `ordinal`          | integer        | true     | The level number. Used by the [`verticalPenetration`](#verticalpenetration) feature to determine the relative order of the floors to help with travel direction. The general practice is to start with 0 for the ground floor. Add +1 for every floor upwards, and -1 for every floor going down. It can be modeled with any numbers, as long as the higher physical floors are represented by higher ordinal values. |
@@ -165,7 +165,7 @@ The `facility` feature class defines the area of the site, building footprint, a
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 |`occupants`         | array of [directoryInfo.Id](#directoryinfo) |    false |    The IDs of [directoryInfo](#directoryinfo) features. Used to represent one or many occupants in the feature. |
@@ -188,7 +188,7 @@ The `verticalPenetration` class feature defines an area that, when used in a set
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `setId`          | string       | true     | Vertical penetration features must be used in sets to connect multiple levels. Vertical penetration features in the same set are considered to be the same. The `setId` can be any string, and is case-sensitive. Using a GUID as a `setId` is recommended.  Maximum length allowed is 1000.|
@@ -207,7 +207,7 @@ The `verticalPenetration` class feature defines an area that, when used in a set
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `setId`          | string       | true     | Vertical penetration features must be used in sets to connect multiple levels. Vertical penetration features in the same set are connected. The `setId` can be any string, and is case-sensitive. Using a GUID as a `setId` is recommended. Maximum length allowed is 1000. |
@@ -230,7 +230,7 @@ The `opening` class feature defines a traversable boundary between two units, or
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        |[category.Id](#category)     |true      | The ID of a category feature.|
 | `levelId`          | [level.Id](#level)        | true     | The ID of a level feature. |
@@ -247,7 +247,7 @@ The `opening` class feature defines a traversable boundary between two units, or
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        |[category.Id](#category)     |true      | The ID of a category feature.|
 | `levelId`          | [level.Id](#level)        | true     | The ID of a level feature. |
@@ -263,7 +263,7 @@ The `directoryInfo` object class feature defines the name, address, phone number
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`streetAddress`        |string    |false    |Street address part of the address.  Maximum length allowed is 1000. |
 |`unit`        |string    |false    |Unit number part of the address.  Maximum length allowed is 1000. |
@@ -285,7 +285,7 @@ The `pointElement` is a class feature that defines a point feature in a unit, su
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        |[category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `unitId`          | string     | true     | The ID of a [`unit`](#unit) feature containing this feature.  Maximum length allowed is 1000.|
@@ -302,7 +302,7 @@ The `lineElement` is a class feature that defines a line feature in a unit, such
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        |[category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `unitId`          | string     | true     | The ID of a [`unit`](#unit) feature containing this feature. Maximum length allowed is 1000. |
@@ -322,7 +322,7 @@ The `areaElement` is a class feature that defines a polygon feature in a unit, s
 
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
-|`originalId`        | string     |true      | The feature's original ID derived from client data. Maximum length allowed is 1000.|
+|`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        |[category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `unitId`          | string     | true     | The ID of a [`unit`](#unit) feature containing this feature. Maximum length allowed is 1000. |
