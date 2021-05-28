@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/04/2021
+ms.date: 06/02/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -26,10 +26,10 @@ This is the latest preview release.
 
 #### Platform
 
-- All create, read, update, & delete (CRUD) operations for data Controller, Managed Instance, and PostgreSQL group in direct connected mode are only available from Azure portal, for this release. CRUD operations using `azdata` are blocked. You can still use `kubectl` to create resources directly on the kubernetes cluster, however 
-- Validation rules when deleting Azure Arc data services. For instance, alerting when attempting to delete the data controller when there are SQL managed instances deployed using the Data controller
-- Support for custom configuration profiles to support custom configuration settings when deploying Arc data controller
-- Upload your logs to Azure Log analytics workspace
+- All create, update, and delete operations for data controller, Managed Instance, and PostgreSQL groups in direct connected mode are only available from Azure portal, for the current release. Create, update, and delete operations using `azdata` are blocked. You can still use `kubectl` to create resources directly on the Kubernetes cluster, however they will not be reflected in the Azure portal.
+- Validation rules when deleting Azure Arc data services. For instance, alerting when attempting to delete the data controller when there are SQL Managed Instances deployed using the data controller.
+- Support for custom configuration profiles to support custom configuration settings when deploying Arc enabled data controller using the Azure portal.
+- Optionally, automatically upload your logs to Azure Log analytics workspace in the directly connected mode.
 
 
 #### 	Azure Arc enabled PostgreSQL Hyperscale
@@ -43,7 +43,7 @@ This release introduces the following features or capabilities:
 
 #### Azure Arc enabled SQL Managed Instance
 
-- Configure an Arc enabled SQL managed instance as a DEV instance that doesn’t incur billing.
+- `add relevant`
 
 ### Known issues
 
