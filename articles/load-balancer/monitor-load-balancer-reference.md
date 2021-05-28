@@ -11,7 +11,7 @@ ms.date: 4/22/2021
 
 # Monitoring Load Balancer data reference
 
-See [Monitoring Load Balancer](monitor-load-balancer-service.md) for details on collecting and analyzing monitoring data for Load Balancer.
+See [Monitoring Load Balancer](monitor-load-balancer.md) for details on collecting and analyzing monitoring data for Load Balancer.
 
 ## Metrics
 
@@ -28,10 +28,7 @@ See [Monitoring Load Balancer](monitor-load-balancer-service.md) for details on 
 | Byte count | Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes are not distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows. | Sum |
 | Packet count | Public and internal load balancer | Standard Load Balancer reports the packets processed per front end. | Sum |
 
-
-
-
-For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](./azure-monitor/platform/metrics-supported.md).
 
 ## Metric Dimensions
 
@@ -91,5 +88,5 @@ The following schemas are in use by Load Balancer
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure Load Balancer](monitor-service-name.md) for a description of monitoring Azure Load Balancer.
+- See [Monitoring Azure Load Balancer](monitor-load-balancer.md) for a description of monitoring Azure Load Balancer.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.

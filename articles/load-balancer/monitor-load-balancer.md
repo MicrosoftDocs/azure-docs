@@ -36,7 +36,7 @@ For more information on Load Balancer insights, see [Using Insights to monitor a
 
 Load Balancer collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). 
 
-See [Monitoring *Load Balancer* data reference](monitor-service-reference.md) for detailed information on the metrics and logs metrics created by Load Balancer.
+See [Monitoring *Load Balancer* data reference](monitor-load-balancer.md) for detailed information on the metrics and logs metrics created by Load Balancer.
 
 Load Balancer provides additional monitoring data through:
 
@@ -279,13 +279,13 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for [service name] resource logs is found in the [Load Balancer Data Reference](monitor-load-balancer-reference.md#schemas) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](./azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for [service name] resource logs is found in the [Load Balancer Data Reference](monitor-load-balancer-reference.md#schemas) 
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of the types of resource logs collected for Load Balancer, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md#resource-logs)  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md##azure-monitor-logs-tables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Load Balancer data reference](monitor-load-balancer-reference.md#azure-monitor-logs-tables)  
 
 ### Sample Kusto queries
 
