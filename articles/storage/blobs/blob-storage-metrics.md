@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Blob Storage by using metrics
-description: Use activity and diagnostic logs to audit Azure Blob Storage and diagnose issues.
+description: Use metrics monitor performance and diagnose issues.
 author: normesta
 ms.service: storage
 ms.subservice: blobs
@@ -10,7 +10,7 @@ ms.date: 05/28/2021
 ms.custom: "monitoring"
 ---
 
-# Monitor Azure Blob Storage by using Logs
+# Monitor Azure Blob Storage by using Metrics
 
 Put something here.
 

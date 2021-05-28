@@ -25,7 +25,7 @@ To get started with logs, see any of these articles.
 
 ## Configure a policy definition
 
-You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](policy-reference.md).
+You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
 
 Is this in scope for this article? 
 
