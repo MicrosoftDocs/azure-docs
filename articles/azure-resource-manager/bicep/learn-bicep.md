@@ -23,4 +23,4 @@ The following modules cover Bicep.
 ## Next steps
 
 * For short introduction to Bicep, see [Bicep quickstart](quickstart-create-bicep-use-visual-studio-code.md).
-* To learn about converting templates between the languages, see [Converting ARM templates between JSON and Bicep](decompile.md).
+* For suggestions about how to improve your Bicep files, see [Best practices for Bicep](best-practices.md).
