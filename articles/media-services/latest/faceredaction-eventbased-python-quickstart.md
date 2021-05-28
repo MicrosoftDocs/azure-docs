@@ -2,7 +2,7 @@
 title: Event-based Face Redaction
 description: This quickstart shows how to deploy an event-based solution on Azure, where incoming videos will be transformed using a Job in Azure Media Services.
 services: media-services
-author: harmke, dedvds
+author: harmke
 manager: ervandeh
 
 ms.service: media-services
@@ -16,9 +16,9 @@ ms.author: inhenkel
 
 ## Introduction
  
-This quickstart shows how to deploy an event-based solution on Azure, where incoming videos will be transformed using a Job in Azure Media Services. It uses the Media Service v3 API.
+This quickstart shows how to deploy an event-based solution on Azure. Videos uploaded to a storage account will be transformed using a Job in Azure Media Services. It uses the Media Service v3 API.
 
-The specific transformation that will be used is called [Face Redactor](https://docs.microsoft.com/en-us/azure/media-services/latest/analyze-face-redaction-concept), which is an Azure Media Analytics media processor, that allows you to modify your video in order to blur faces of selected individuals.
+The specific transformation that will be used is called [Face Redactor](https://docs.microsoft.com/en-us/azure/media-services/latest/analyze-face-redaction-concept). This is an Azure Media Analytics media processor, that allows you to modify your video by blurring faces of selected individuals.
 
 By the end of the quickstart you will be able to redact faces in a video:
 
@@ -40,11 +40,11 @@ This quickstart shows how to deploy the solution that can be found in the soluti
 
 Create a fork of the [Python samples repository](https://github.com/Azure-Samples/media-services-v3-python). For this quickstart, we're working with the FaceRedactorEventBased sample.
 
-The deployment of this sample consists of three seperate steps: deploying the Azure services to setup the overall solution, deploying the Function App that submits a job to Azure Media Services when a new file is uploaded, and configuring the Eventgrid trigger. We have created a GitHub Actions workflow that performs these steps. Therefore, this solution can be deployed by adding the necessary variables to your GitHub environment, which means that no local development tools are required.
+The deployment of this sample consists of three separate steps: deploying the Azure services to setup the overall solution, deploying the Function App that submits a job to Azure Media Services when a new file is uploaded, and configuring the Eventgrid trigger. We have created a GitHub Actions workflow that performs these steps. Therefore, this solution can be deployed by adding the necessary variables to your GitHub environment, which means that no local development tools are required.
 
 ## Create a Service Principal
 
-Before the Github Actions workflow can be run, a Service principal has to be created that has *Contributor* and *Storage Blob Data Reader* roles on the Resource Group. This Service Principal will be the app that will provision and configure all Azure services on behalf of Github Actions. The Service Principal is also used after the solution is deployed to generate a SAS token for videos that need to be processed.
+Before the GitHub Actions workflow can be run, a Service principal has to be created that has *Contributor* and *Storage Blob Data Reader* roles on the Resource Group. This Service Principal will be the app that will provision and configure all Azure services on behalf of GitHub Actions. The Service Principal is also used after the solution is deployed to generate a SAS token for videos that need to be processed.
 
 To create the Service Principal and give it the roles that are needed on the Resource Group, fill in the variables in the following bash command and running it in the Cloud Shell:
 ```bash
@@ -92,7 +92,7 @@ Copy the contents from the sample.env file that is in your forked repo in the Vi
 
 ## Examine the code for provisioning the Azure Resources
 
-The bash script below provisions the Azure services used in this solution. The bash script leverages the Azure CLI and executes the following actions:
+The bash script below provisions the Azure services used in this solution. The bash script uses the Azure CLI and executes the following actions:
 - Load environment variables into local variables.
 - Define names for ADLSgen2, a generic Azure Storage account, Azure Media Services, Azure Function App, and an Event Grid System Topic and Subscription.
 - Provision the Azure services defined.
@@ -227,8 +227,8 @@ def main(event: func.EventGridEvent):
 
 ## Examine the code for configuring the Azure Resources 
 
-The bash script below is used for configuring the Resources after they have been provisioned. This is the last step of the deployment of the solution, after deploying our Function code. The script executes the following steps:
-- Configure App Settings for the Function App .
+The bash script below is used for configuring the Resources after they have been provisioned. Executing this script is the last step of the deployment of the solution, after deploying our Function code. The script executes the following steps:
+- Configure App Settings for the Function App.
 - Create an Azure Event Grid System Topic.
 - Create the Event subscription, so that when a Blob is created in the ADLSg2 Raw folder, the Azure Function is triggered.
 - Create the Azure Media Services Transform using a REST API call. This transform will be called in the Azure Function.
@@ -296,30 +296,30 @@ az rest --method put --uri https://management.azure.com/subscriptions/${subscrip
 ```
  
 ## Enable Github Actions pipeline
- The Workflow file in this repository contains the steps to execute the deployment of this solution. To start the Workflow, it needs to be enabled for your own repo. In order to enable it, go to the Actions tab in your repo and click on 'I understand my workflows, go ahead and enable them'.
+ The Workflow file in this repository contains the steps to execute the deployment of this solution. To start the Workflow, it needs to be enabled for your own repo. In order to enable it, go to the Actions tab in your repo and select 'I understand my workflows, go ahead and enable them'.
  
  ![Enable workflow](./media/faceredaction-eventbased-python-quickstart/activate-workflow.png)
  
- When succesfully having enabled the Github Actions, you can find the workload file here: [.github/workflows/main.yml](./.github/workflows/main.yml).  Aside from the triggers, there is a build job with a couple of steps. The following steps are included:
+After enabling the GitHub Actions, you can find the workload file here: [.github/workflows/main.yml](./.github/workflows/main.yml).  Aside from the triggers, there is a build job with a couple of steps. The following steps are included:
 - **Env**: In here, multiple environment variables are defined, referring to the GitHub Secrets that we added earlier.
 - **Read Environment file**: The environment file is read for the build job.
-- **Resolve Project Dependencies using Pip**: The needed libraries in our Azure functions are loaded into the Github Actions environment
-- **Azure Login**: This step uses the Github Secret for logging into the Azure CLI using the Service Principal details.
+- **Resolve Project Dependencies using Pip**: The needed libraries in our Azure functions are loaded into the GitHub Actions environment
+- **Azure Login**: This step uses the GitHub Secret for logging into the Azure CLI using the Service Principal details.
 - **Deploy Azure Resources using Azure CLI script file**: runs the deployment script for provisioning the Azure Resources
-- **Deploy Azure Function code**: This step packages and deploys the azure function in the directory './azure-function'. When the Azure Function is succesfully deployed, it should be visible in the Azure portal under the name 'EventGrid_AMSJob':
+- **Deploy Azure Function code**: This step packages and deploys the Azure function in the directory './azure-function'. When the Azure Function is deployed successfully, it should be visible in the Azure portal under the name 'EventGrid_AMSJob':
 ![AzureFunction](./media/faceredaction-eventbased-python-quickstart/azurefunction.png)
-- **Configure Azure Resources using Azure CLI script file**:  If all correct, the last step is to configure the deployed Azure services to make one end-to-end solution. 
+- **Configure Azure Resources using Azure CLI script file**:  If all correct, the last step is to configure the deployed Azure services to activate the event-listener.
 
-After enabling the workflows, click on the 'Deploy Azure Media Service FaceRedaction solution' workflow and click on 'Run workflow'. This will deploy the solution using the variables added in the previous steps. Wait a couple of minutes and verify that is has run successfully.
+After enabling the workflows, select the 'Deploy Azure Media Service FaceRedaction solution' workflow and select 'Run workflow'. Now, the solution will be deployed using the variables added in the previous steps. Wait a couple of minutes and verify that it has run successfully.
 
 ![Run workflow](./media/faceredaction-eventbased-python-quickstart/run-workflow.png)
 
  ## Test your solution
- Go the the storage explorer of your ADLS Gen2 in the Azure Portal. Upload a video to the Raw container. If are looking for any test data, download one from [this website](https://www.pexels.com/search/videos/group/). See image below for guidance on uploading a video to the ADLS Gen2 storage account:
+ Go to the storage explorer of your ADLS Gen2 in the Azure portal. Upload a video to the Raw container. If you're looking for a test video, download one from [this website](https://www.pexels.com/search/videos/group/). See the image below for guidance on uploading a video to the ADLS Gen2 storage account:
  
  ![Uploading video](./media/faceredaction-eventbased-python-quickstart/upload-test-data.png)
  
- Verify in AMS that a job is created by going to your AMS account -> Transforms + Jobs and select the faceredact transform.
+ Verify in you Azure Media Services instance that a job is created by going to your Azure Media Services account and select Transforms + Jobs from the menu. Then select the face redactor transformation.
  
 ![AMS Transform](./media/faceredaction-eventbased-python-quickstart/ams-transform.png)
 
@@ -327,14 +327,14 @@ This page should show the job that was fired by the Azure Function. The job can 
  
 ![AMS Job](./media/faceredaction-eventbased-python-quickstart/ams-job.png)
 
-By clicking on the job, you will see some details about the specific job. If you click on the Output asset name and then use the link to the storage container that is linked to it, you should be able to see your processed video when the job is finished.
+By selecting the job, you'll see some details about the specific job. If you select the Output asset name and then use the link to the storage container that is linked to it, you can see your processed video when the job is finished.
 
 ![AMS Output](./media/faceredaction-eventbased-python-quickstart/ams-output.png)
 
  
  ## Clean up Resources
  
- When you're finished with the quickstart, delete the Resources created in the resource group. Additionally, you could delete the cloned repo.
+ When you're finished with the quickstart, delete the Resources created in the resource group. Additionally, you can delete the forked repo.
  
  ## Next steps
  
