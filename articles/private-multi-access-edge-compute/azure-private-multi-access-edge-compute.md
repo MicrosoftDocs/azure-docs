@@ -1,10 +1,10 @@
 ---
 title: 'Azure private multi-access edge compute'
 description: Learn how to bring cloud compute capabilities to the edge of your private mobile network.
-services: networking
+services: vnf-manager
 author: KumudD
 ms.service: networking
-ms.topic: overview
+ms.topic: vnf-manager
 ms.date: 05/26/2021
 ms.author: kumud
 

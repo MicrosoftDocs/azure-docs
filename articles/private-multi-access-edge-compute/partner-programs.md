@@ -1,11 +1,11 @@
 ---
 title: 'Azure private multi-access edge compute - Partner Programs'
 description: Learn about cloud solutions from Microsoft Azure, Affirmed Networks, and Metaswitch Networks that can help future-proof your network, drive down costs, and create new business models and revenue streams.
-services: virtual-network
+services: vnf-manager
 author: KumudD
-ms.service: virtual-network
+ms.service: vnf-manager
 ms.topic: article
-ms.date: 04/07/2021
+ms.date: 05/28/2021
 ms.author: kumud
 
 ---

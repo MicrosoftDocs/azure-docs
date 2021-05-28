@@ -1,9 +1,9 @@
 ---
 title: 'Deploy Metaswitch solution'
 description: Learn how to deploy cloud solutions from Microsoft Azure and Metaswitch Networks that can help future-proof your network, drive down costs, and create new business models and revenue streams.
-services: virtual-network
+services: vnf-manager
 author: KumudD
-ms.service: virtual-network
+ms.service: vnf-manager
 ms.topic: how-to
 ms.date: 05/26/2021
 ms.author: kumud
