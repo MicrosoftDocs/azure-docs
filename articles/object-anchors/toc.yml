@@ -40,6 +40,12 @@
     href: https://github.com/Azure/azure-object-anchors/releases
   - name: Azure Mixed Reality Resource Management REST API
     href: /rest/api/mixedreality/
+  - name: Model Requirements
+    href: model-requirements.md
+  - name: Visualize a Converted Model
+    href: visualize-converted-model.md
+  - name: Detect a Difficult Object
+    href: detect-difficult-object.md
   - name: Model Conversion Error Codes
     href: model-conversion-error-codes.md
   - name: FAQ

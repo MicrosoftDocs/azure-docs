@@ -32,15 +32,15 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: What are the maximum object dimensions that can be processed for model conversion?**
 
-**A:** Each dimension of a CAD model should be less than 10 meters.
+**A:** Each dimension of a CAD model should be less than 10 meters. For more information, see [Model Requirements](model-requirements.md).
 
 **Q: What is the maximum CAD model size that can be processed for conversion?**
 
-**A:** The model file size should be less than 150 MB.
+**A:** The model file size should be less than 150 MB. For more information, see [Model Requirements](model-requirements.md).
 
 **Q: What are the supported CAD formats?**
 
-**A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types.
+**A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types. For more information, see [Model Requirements](model-requirements.md).
 
 **Q: What is the gravity direction and unit required by the model conversion service? How can we figure them out?**
 
@@ -88,6 +88,10 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
  8. Start object detection and visualize the rendering based on estimated pose.
  9. Lock detected object or stop tracking once the pose is stable and accurate to preserve battery life.
 
+**Q: Which version of the Mixed Reality Toolkit (MRTK) should my HoloLens Unity application use to be able to work with the Object Anchors Unity SDK?**
+
+**A:** Any version should work. For more information, see [Introducing MRTK for Unity](https://docs.microsoft.com/windows/mixed-reality/develop/unity/mrtk-getting-started).
+
 **Q: How accurate is an estimated pose?**
 
 **A:** It depends on object size, material, environment, etc. For small objects, the estimated pose can be within 2 cm error. For large objects, like a car, the error can be up to 2-8 cm.
@@ -102,7 +106,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: How many different objects can Object Anchors detect at the same time?**
 
-**A:** We currently support detecting a single object model at a time. 
+**A:** We currently support detecting a single object model at a time.
 
 **Q: Can Object Anchors detect multiple instances of the same object model?**
 
@@ -118,6 +122,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 * Provide a tight bounding box as search area that includes all or most of the object.
 * Clear spatial mapping cache and rescan the object.
 * Capture diagnostics and send the data to us.
+* Adjust the `MinSurfaceCoverage` property from the `ObjectQuery` class. For more information, see [How to detect a difficult object](detect-difficult-object.md).
 
 **Q: How to choose object query parameters?**
 
