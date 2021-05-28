@@ -244,7 +244,7 @@
         - name: Generalized image from ISO
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
-          href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
+          href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
       - name: Deploy VMs
         items:
         - name: Via Azure portal
@@ -258,7 +258,7 @@
         - name: Via Azure PowerShell script
           href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md 
         - name: Via Azure CLI/Python
-          href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
+          href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md 
       - name: How-tos
         items: 
         - name: Manage network interfaces
