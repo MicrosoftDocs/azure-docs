@@ -4,7 +4,7 @@ description: Describes how to define and consume a module, and how to use module
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 06/01/2021
 ---
 
 # Use Bicep modules
@@ -115,7 +115,7 @@ module stgModule './storageAccount.bicep' = {
 }
 ```
 
-The _scope_ property can be omitted when the module's target scope and the parent's target scope are the same. When the scope property is not provided, the module is deployed at the parent's target scope.
+The _scope_ property can be omitted when the module's target scope and the parent's target scope are the same. When the scope property isn't provided, the module is deployed at the parent's target scope.
 
 The following Bicep file shows how to create a resource group and deploy a module to the resource group:
 
@@ -147,6 +147,15 @@ module stgModule './storageAccount.bicep' = {
 
 output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
+
+The scope property must be set to a valid scope object. If your Bicep file deploys a resource group, subscription, or management group, you can set the scope for a module to the symbolic name for that resource. This approach is shown in the previous example where a resource group is created and used for a module's scope. 
+
+Or, you can use the scope functions to get a valid scope. Those functions are:
+
+* [resourceGroup](bicep-functions-scope.md#resourcegroup)
+* [subscription](bicep-functions-scope.md#subscription)
+* [managementGroup](bicep-functions-scope.md#managementgroup)
+* [tenant](bicep-functions-scope.md#tenant)
 
 ## Next steps
 
