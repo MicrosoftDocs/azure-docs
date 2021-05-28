@@ -328,7 +328,7 @@ After successfully configuring an SMTP server, you're set to create an 'email ho
 
  Go and select one of the data feeds that you on-boarded, select a metric within the feed  and open the metrics detail page. You can create an 'alerting configuration' to subscribe to the anomalies that have been detected and sent through emails. 
 
-Select the '+' button and choose the hook that you created, fill in other fields and select 'Save'. You have now succesffully setup an email hook with a custom alert configuration and any new anomalies will be escalated through the hook using the SMTP server. 
+Select the '+' button and choose the hook that you created, fill in other fields and select 'Save'. You have now successfully setup an email hook with a custom alert configuration and any new anomalies will be escalated through the hook using the SMTP server. 
 
 ![Screenshot that applies an email hook to an alert configuration](../media/tutorial/apply-hook.png)
 
