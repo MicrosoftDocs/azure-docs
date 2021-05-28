@@ -4,7 +4,7 @@ description: Enabling service-aided subnet configuration for Azure SQL Managed I
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: srdan-bozovic-msft
