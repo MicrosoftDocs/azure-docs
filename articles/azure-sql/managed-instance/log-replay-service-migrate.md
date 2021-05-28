@@ -3,7 +3,7 @@ title: Migrate databases to SQL Managed Instance using Log Replay Service
 description: Learn how to migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 author: danimir
 ms.author: danil

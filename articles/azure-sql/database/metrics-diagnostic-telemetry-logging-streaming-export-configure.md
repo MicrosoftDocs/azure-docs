@@ -4,7 +4,7 @@ description: Learn how to configure streaming export of metrics and resource log
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
-ms.custom: seoapril2019
+ms.custom: seoapril2019, devx-track-azurepowershell
 ms.devlang: sqldbrb=2
 ms.topic: how-to
 author: danimir
