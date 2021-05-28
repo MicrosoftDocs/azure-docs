@@ -25,9 +25,9 @@ Least privilege adoption is more than just a good security practice. The concept
 
 This article describes a set of best practices that you can use to adopt the least privilege principle to make your applications more secure for end users. You'll get to understand the following aspects of least privilege:
 - How consent works with permissions
-- What it means to be overprivileged or least privileged
+- What it means for an app to be overprivileged or least privileged
 - How to approach least privilege as a developer
-- Benefits of the least privilege principle
+- How to approach least privilege as an organization
 
 ## Using consent to control access permissions to data
 
