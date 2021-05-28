@@ -7,9 +7,9 @@ ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2, devx-track-azurecli
 ms.devlang: 
-ms.topic: how-to
-author: stevestein
-ms.author: sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.reviewer:
 ms.date: 08/14/2019
 ---
