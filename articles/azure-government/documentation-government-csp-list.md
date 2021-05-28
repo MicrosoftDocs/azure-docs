@@ -204,6 +204,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Inforeliance LLC](https://www.inforeliance.com/)|
 |[Infosys Public Services, Inc.](https://www.infosyspublicservices.com/)|
 |[InnovaSystems International](https://www.innovasi.com/)|
+|[Innovia Consulting](https://www.innovia.com/)|
 |[Inquisit, LLC](https://www.inquisitllc.com)|
 |[InsITe Business Solutions Inc.](https://trustedinsite.com/)|
 |[Inspired Technologies](https://www.inspired-tech.net)|
