@@ -33,8 +33,6 @@ This article describes a set of best practices that you can use to adopt the lea
 
 Access to protected data requires [consent](../develop/application-consent-experience.md#consent-and-permissions) from the end user. Whenever an application that runs in your user's device requests access to protected data, the app should ask for the user's consent before granting access to the protected data. The end user is required to grant (or deny) consent for the requested permission before the application can progress. As an application developer, it's best to request access permission with the least privilege.
 
-
-
 :::image type="content" source="./media/least-privilege-best-practice/api-permissions.png" alt-text="Azure portal screenshot showing an app registration's API permissions pane":::
 
 ## Overprivileged and least privileged applications
