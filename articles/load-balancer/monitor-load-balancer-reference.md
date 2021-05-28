@@ -79,7 +79,7 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 ## Schemas
 <!-- REQUIRED. Please keep heading in this order -->
 
-**PM wasn't sure what this was.**
+**PM had no information on this one, wasn't sure what it was.**
 
 The following schemas are in use by Load Balancer
 
