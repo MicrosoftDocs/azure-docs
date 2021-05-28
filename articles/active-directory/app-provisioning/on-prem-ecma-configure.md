@@ -31,8 +31,8 @@ For more installation and configuration information see:
 ## Configure the Azure AD ECMA Connector Host
 Configuring the Azure AD ECMA Connector Host occurs in 2 parts.
     
-   - [Configure the settings](#configure-the-settings) - configure the port and certificate for the Azure AD ECMA Connector Host to use.  This is only done the first time the ECMA Connector Host is started.
-   - Create a connector - create a connector (for example, SQL or LDAP) to allow the Azure AD ECMA Connector Host to export or import data to a data source.
+   - **Configure the settings** - configure the port and certificate for the Azure AD ECMA Connector Host to use.  This is only done the first time the ECMA Connector Host is started.
+   - **Create a connector** - create a connector (for example, SQL or LDAP) to allow the Azure AD ECMA Connector Host to export or import data to a data source.
 
 ### Configure the Settings
 When you first start the Azure AD ECMA Connector Host you will see a port number which will already be filled out using the default 8585.  
@@ -158,7 +158,6 @@ After waiting, check your data source to see if new users are being provisioned.
 
 ## Next Steps
 
-- [App provisioning](user-provisioning.md)
 - [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisites.md)
 - [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
 - [Generic SQL Connector](on-prem-sql-connector-configure.md)

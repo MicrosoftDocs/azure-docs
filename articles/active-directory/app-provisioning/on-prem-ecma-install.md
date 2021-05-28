@@ -56,7 +56,7 @@ For more installation and configuration information see:
 Now that the agent package has been successfully installed, you will need to configure the Azure AD ECMA Connector Host and create or import connectors.  
 ## Next Steps
 
-- [App provisioning](user-provisioning.md)
+
 - [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisites.md)
 - [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
 - [Generic SQL Connector](on-prem-sql-connector-configure.md)

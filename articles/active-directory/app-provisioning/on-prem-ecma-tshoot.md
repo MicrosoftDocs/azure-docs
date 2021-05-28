@@ -203,7 +203,6 @@ Message: Could not load file or assembly 'file:///C:\Program Files\Microsoft ECM
 
 ## Next Steps
 
-- [App provisioning](user-provisioning.md)
 - [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
 - [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
 - [Generic SQL Connector](on-prem-sql-connector-configure.md)
