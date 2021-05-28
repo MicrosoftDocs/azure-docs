@@ -101,7 +101,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
     
 <a name="info"></a>
 
-3. **(A record only)** To map an <abbr title="An address record in DNS maps a hostname to an IP address.">A record</abbr>, you need the app's external IP address. In the **Custom domains** page, copy the value of **IP address**.
+3. **(A record only)** To map an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A), you need the app's external IP address. In the **Custom domains** page, copy the value of **IP address**.
 
    ![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
@@ -305,7 +305,7 @@ While this is a common scenario, it doesn't actually involve custom DNS mapping,
 
 You can automate management of custom domains with scripts by using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
-### Azure CLI
+#### Azure CLI
 
 The following command adds a configured custom DNS name to an App Service app.
 
@@ -318,7 +318,7 @@ az webapp config hostname add \
 
 For more information, see [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md).
 
-### Azure PowerShell
+#### Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
