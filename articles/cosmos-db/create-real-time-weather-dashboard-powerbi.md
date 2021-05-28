@@ -16,7 +16,7 @@ ms.reviewer: sngun
 
 This article describes the steps required to create a live weather dashboard in Power BI using Azure Cosmos DB OLTP connector and Azure Analysis Services. The Power BI dashboard will display charts to show near real-time information about temperature and rainfall in a region.
 
-Another option is to create near real-time reports with [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) for [Azure Cosmos DB analytical store](analytical-store-introduction.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or costs impact to your transactional workloads. You can use either [DirectQuery](https://docs.microsoft.com/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](https://docs.microsoft.com/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](synapse-link-power-bi.md).
+Another option is to create near real-time reports using [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) for [Azure Cosmos DB analytical store](analytical-store-introduction.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or costs impact to your transactional workloads. You can use either [DirectQuery](https://docs.microsoft.com/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](https://docs.microsoft.com/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](synapse-link-power-bi.md).
 
 
 ## Reporting scenarios
