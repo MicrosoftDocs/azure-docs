@@ -2,7 +2,8 @@
 title: Start machines using Automation runbooks in Azure DevTest Labs
 description: Learn how to start virtual machines in a lab in Azure DevTest Labs by using Azure Automation runbooks. 
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Start virtual machines in a lab in order by using Azure Automation runbooks

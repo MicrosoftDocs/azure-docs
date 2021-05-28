@@ -3,7 +3,8 @@ title: Scale up an Azure Service Fabric primary node type
 description: Vertically scale your Service Fabric cluster by adding a new node type and removing the previous one.
 ms.date: 12/11/2020
 ms.author: pepogors
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 # Scale up a Service Fabric cluster primary node type
 

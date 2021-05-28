@@ -4,7 +4,7 @@ description: Use an Azure PowerShell example script to sync data between Azure S
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein

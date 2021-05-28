@@ -4,7 +4,7 @@ description: This page describes how to manage file space with single and pooled
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: oslake
