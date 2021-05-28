@@ -10,7 +10,7 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, mathoma
 ms.date: 04/17/2019
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 tags: azure-synapse
 ---
 # PowerShell: Create a Virtual Service endpoint and VNet rule for Azure SQL Database

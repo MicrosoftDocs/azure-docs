@@ -7,7 +7,8 @@ ms.subservice: deployment-configuration
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.topic: how-to
-ms.date: 01/17/2021
+ms.date: 01/17/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Synchronize virtual network DNS servers setting on SQL Managed Instance virtual cluster

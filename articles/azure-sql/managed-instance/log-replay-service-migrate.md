@@ -4,7 +4,7 @@ description: Learn how to migrate databases from SQL Server to SQL Managed Insta
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: migration
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 author: danimir
 ms.author: danil

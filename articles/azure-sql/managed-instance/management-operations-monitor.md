@@ -5,7 +5,7 @@ description: Learn about different ways for monitoring of Azure SQL Managed Inst
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: urosmil

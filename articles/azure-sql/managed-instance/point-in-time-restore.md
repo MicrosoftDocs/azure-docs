@@ -5,7 +5,7 @@ description: Restore a database on Azure SQL Managed Instance to a previous poin
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: jovanpop-msft

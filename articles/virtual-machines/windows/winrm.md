@@ -7,7 +7,8 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
-ms.author: mimckitt
+ms.author: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
