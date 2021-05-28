@@ -50,7 +50,7 @@ If you cannot use one the deployment tasks in the pervious section, then you nee
 
 You can use the CreateReleaseAnnotation PowerShell script to create annotations from any process you like, without using Azure DevOps.
 
-1. Sign into [Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+1. Sign into [Azure CLI](/cli/azure/authenticate-azure-cli).
 
 2. Make a local copy of the script below and call it CreateReleaseAnnotation.ps1.
 
