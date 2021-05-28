@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 05/28/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -23,12 +23,13 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
      2. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
 ![ECMA service running](./media/on-prem-ecma-tshoot/tshoot-1.png)
 
- 2. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection
+ 2. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection and run the script.
    - This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
     It should be run on the same computer as the ECMA Connector Host service itself.
  3. Ensure that the agent is active by navigating to your application in the azure portal, click on admin connectivity, click on the agent dropdown, and ensure your agent is active.
  4. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
  5. Ensure that you have assigned one or more agents to the application in the Azure Portal.
+ 6. After assigning an agent, you need to wait 10-20 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
  6. Ensure that you are using a valid certificate. Navigating the settings tab of the ECMA host allows you to generate a new certificate.
  7. Restart the provisioning agent by navigating to the task bar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right click stop and then start.
  8. When providing the tenant URL in the Azure Portal, ensure that it follows the following pattern. You can replace localhost with your hostname, but it is not required. Replace "connectorName" with the name of the connector you specified in the ECMA host.
@@ -53,7 +54,7 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
 
 ## Turning on verbose logging 
 
-Enable verbose logging for the ECMA host service and / or Wizar. Set the "switchValue" to verbose in both locations as shown below.
+By default, the swithValue for the ECMA Connector Host is set to Error.  This means it will only log events that are errors.  To enable verbose logging for the ECMA host service and / or Wizard. Set the "switchValue" to Verbose in both locations as shown below.
 
 File location for verbose service logging: c:\program files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config
   ```
@@ -113,11 +114,7 @@ Once the ECMA Connector host schema mapping has been configured, start the servi
   2. In **Event Viewer**, expand **Applications and Services** Logs, and select **Microsoft ECMA2Host Logs**.     
   3. As changes are received by the connector host, events will be written to the application log. 
 
-|Xpath|Example|
-|-----|-----|
-|Xpath for an event that contains a particular user|input sample expression|
-|Xpath expression for filtering on a certain date-time range|input sample expression| 
-|Exporting the xpath events for support|input sample expression| 
+
 
 ## Understanding incoming SCIM requests 
 

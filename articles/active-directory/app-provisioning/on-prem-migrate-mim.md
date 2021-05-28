@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 05/28/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -17,6 +17,10 @@ ms.collection: M365-identity-device-management
 # Export a Microsoft Identity Manager connector for use with Azure AD ECMA Connector Host
 
 You can import into Azure AD ECMA Connector Host a configuration for a specific connector from a FIM Sync or MIM Sync installation.  Note that the MIM Sync installation is only used for configuration, not for the ongoing synchronization from Azure AD.
+
+>[!IMPORTANT]
+>Currently, only the Generic SQL (GSQL) and the Generic LDAP (GLDAP) connectors are support for use with the Azure AD ECMA Connector Host.
+
 
 ## Creating and exporting a connector configuration in MIM Sync
 If you already have MIM Sync with your ECMA connector already configured, then skip to step 10.
@@ -46,4 +50,9 @@ At this point, the MIM Sync server is no longer needed.
 
 ## Next Steps
 
-- App provisioning](user-provisioning.md)
+
+- [App provisioning](user-provisioning.md)
+- [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisites.md)
+- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
+- [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
+- [Generic SQL Connector](on-prem-sql-connector-configure.md)

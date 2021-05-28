@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 05/28/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -72,7 +72,7 @@ The following sections will guide you through establishing connectivity with the
    ![Change mode](.\media\on-prem-ecma-configure\configure-7.png)
  4. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
    >[!NOTE]
-   >After adding the agent, you need to wait 10 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
+   >After adding the agent, you need to wait 10-20 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
    >
    >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
    
@@ -89,6 +89,10 @@ The following sections will guide you through establishing connectivity with the
  6. Enter the secret token value that you defined when creating the connector.
  7. Click Test Connection and wait one minute.
   ![Test the connection](.\media\on-prem-ecma-configure\configure-5.png)
+
+   >[!NOTE]
+   >Be sure to wait 10-20 minutes after assigning the agent to test the connection.  The connection will fail if registration has not completed.
+
  9. Once connection test is successful, click **save**.
  ![Successful test](.\media\on-prem-ecma-configure\configure-9.png)
 
