@@ -107,7 +107,3 @@ az resource delete --name <data controller name> --resource-type Microsoft.Azure
 ### Delete a resource group using the Azure CLI
 
 You can also use the Azure CLI to [delete a resource group](../../azure-resource-manager/management/delete-resource-group.md).
-
-## See also
-
-[Delete Azure Arc enabled data service | Direct connect mode](delete-azure-resources-direct-mode.md)
