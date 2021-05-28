@@ -266,7 +266,7 @@ When you select **Save**, the build pipeline is automatically run. Go back to th
 
 The following pipeline shows how to build a Bicep file and how to deploy the compiled template:
 
-:::code language="json" source="~/resourcemanager-templates/bicep/azure-pipeline/deploy-bicep.yml":::
+:::code language="yml" source="~/resourcemanager-templates/bicep/azure-pipeline/deploy-bicep.yml":::
 
 ## Next steps
 
