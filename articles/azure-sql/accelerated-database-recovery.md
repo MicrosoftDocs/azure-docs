@@ -7,9 +7,9 @@ ms.subservice: backup-restore
 ms.custom: sqldbrb=4
 ms.devlang: 
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: mathoma 
+author: kfarlee
+ms.author: kfarlee
+ms.reviewer: mathoma
 ms.date: 05/19/2020
 ---
 # Accelerated Database Recovery in Azure SQL 
