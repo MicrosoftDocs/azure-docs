@@ -4,7 +4,7 @@ description: Describes Bicep numeric operators that calculate values.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 06/01/2021
 ---
 
 # Bicep numeric operators

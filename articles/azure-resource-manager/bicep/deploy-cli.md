@@ -4,7 +4,7 @@ description: Use Azure Resource Manager and Azure CLI to deploy resources to Azu
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 06/01/2021
 ---
 
 # Deploy resources with Bicep and Azure CLI

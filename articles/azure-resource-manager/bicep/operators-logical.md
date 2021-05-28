@@ -4,7 +4,7 @@ description: Describes Bicep logical operators that evaluate conditions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 06/01/2021
 ---
 
 # Bicep logical operators

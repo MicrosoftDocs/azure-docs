@@ -4,7 +4,7 @@ description: Describes how to define and consume a module, and how to use module
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 06/01/2021
 ---
 
 # Use Bicep modules
