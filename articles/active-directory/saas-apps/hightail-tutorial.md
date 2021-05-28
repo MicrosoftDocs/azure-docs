@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 05/13/2021
 ms.author: jeedes
 ---
 
@@ -32,10 +32,13 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Hightail supports **SP and IDP** initiated SSO
-* Hightail supports **Just In Time** user provisioning
+* Hightail supports **SP and IDP** initiated SSO.
+* Hightail supports **Just In Time** user provisioning.
 
-## Adding Hightail from the gallery
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+## Add Hightail from the gallery
 
 To configure the integration of Hightail into Azure AD, you need to add Hightail from the gallery to your list of managed SaaS apps.
 
@@ -46,17 +49,17 @@ To configure the integration of Hightail into Azure AD, you need to add Hightail
 1. In the **Add from the gallery** section, type **Hightail** in the search box.
 1. Select **Hightail** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Hightail
+## Configure and test Azure AD SSO for Hightail
 
 Configure and test Azure AD SSO with Hightail using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Hightail.
 
 To configure and test Azure AD SSO with Hightail, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Hightail SSO](#configure-hightail-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Hightail test user](#create-hightail-test-user)** - to have a counterpart of B.Simon in Hightail that is linked to the Azure AD representation of user.
+    1. **[Create Hightail test user](#create-hightail-test-user)** - to have a counterpart of B.Simon in Hightail that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -65,11 +68,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Hightail** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
 	a. In the **Identifier (Entity ID)** text box, type the URL:
     `https://api.spaces.hightail.com/api/v1/saml/consumer`
@@ -144,15 +147,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **User icon** from the top right corner of the page. 
 
-	![Screenshot shows the User icon.](./media/hightail-tutorial/configure1.png)
+	![Screenshot shows the User icon.](./media/hightail-tutorial/user.png)
 
 1. Click **View Admin Console** tab.
 
-	![Screenshot shows the View Admin Console button for the User.](./media/hightail-tutorial/configure2.png)
+	![Screenshot shows the View Admin Console button for the User.](./media/hightail-tutorial/admin.png)
 
 1. In the menu on the top, click the **SAML** tab and perform the following steps:
 
-	![Screenshot shows the SAML tab where you can enter the Login U R L and SAML Certificate.](./media/hightail-tutorial/configure3.png)
+	![Screenshot shows the SAML tab where you can enter the Login U R L and SAML Certificate.](./media/hightail-tutorial/configuration.png)
 
 	a. In the **Login URL** textbox, paste the value of **Login URL** copied from Azure portal.
 
@@ -166,9 +169,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called Britta Simon is created in Hightail. Hightail supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Hightail, a new one is created after authentication.
 
-> [!NOTE]
-> If you need to create a user manually, you need to contact the [Hightail support team](mailto:support@hightail.com).
-
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -181,11 +181,10 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Hightail for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Hightail for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Hightail tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Hightail for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
-
+You can also use Microsoft My Apps to test the application in any mode. When you click the Hightail tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Hightail for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Hightail you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Hightail you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

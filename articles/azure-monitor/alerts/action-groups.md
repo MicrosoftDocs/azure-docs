@@ -148,6 +148,8 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 2. The assignment needs to be done at the **subscription** level.
 3. The user needs to have an email configured in their **AAD profile**. 
 
+> [!NOTE]
+> It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
 
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.

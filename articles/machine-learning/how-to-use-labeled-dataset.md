@@ -115,5 +115,3 @@ imgplot = plt.imshow(gray_image)
 ```
 
 ## Next steps
-
-* See the [dataset with labels notebook](/azure/machine-learning/how-to-use-labeled-dataset) for complete training sample.

@@ -1,8 +1,8 @@
 ---
 title: Copy data to or from Azure Data Lake Storage Gen1
 description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, by using Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -44,7 +44,7 @@ Specifically, with this connector you can:
 > [!TIP]
 > For a walk-through of how to use the Azure Data Lake Store connector, see [Load data into Azure Data Lake Store](load-azure-data-lake-store.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide information about properties that are used to define Data Factory entities specific to Azure Data Lake Store.
 
@@ -149,7 +149,7 @@ In Azure Data Factory, you don't need to specify any properties besides the gene
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure Data Lake Store Gen1 under `location` settings in the format-based dataset:
 
@@ -191,7 +191,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Store as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy source:
 
@@ -257,7 +257,7 @@ The following properties are supported for Azure Data Lake Store Gen1 under `sto
 
 ### Azure Data Lake Store as sink
 
-[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
+[!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
 The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy sink:
 

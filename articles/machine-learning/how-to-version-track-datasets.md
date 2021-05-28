@@ -5,8 +5,8 @@ description: Learn how to version machine learning datasets and how versioning w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: sihhu
-author: MayMSFT
+ms.author: cgronlun
+author: cjgronlund
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: how-to

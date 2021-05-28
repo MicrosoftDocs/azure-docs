@@ -15,7 +15,7 @@ This article uses the Azure portal for demonstration, however the feature can al
 
 
 ## Create an Azure AD Application
-Register your Webhook with Azure AD by creating an Azure AD application for your protected endpoint. See [Scenario: Protected web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview). Configure your protected API to be called by a daemon app.
+Register your Webhook with Azure AD by creating an Azure AD application for your protected endpoint. See [Scenario: Protected web API](../active-directory/develop/scenario-protected-web-api-overview.md). Configure your protected API to be called by a daemon app.
     
 ## Enable Event Grid to use your Azure AD Application
 This section shows you how to enable Event Grid to use your Azure AD application. 

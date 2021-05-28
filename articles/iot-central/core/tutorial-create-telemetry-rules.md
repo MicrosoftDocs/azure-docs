@@ -11,8 +11,6 @@ services: iot-central
 
 # Tutorial: Create a rule and set up notifications in your Azure IoT Central application
 
-*This article applies to operators, builders, and administrators.*
-
 You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions, such as sending an email. This article explains how to create rules to monitor the telemetry your devices send.
 
 Devices use telemetry to send numerical data from the device. A  rule triggers when the selected telemetry crosses a specified threshold.

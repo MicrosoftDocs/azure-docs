@@ -18,7 +18,7 @@ Domain Name Service (DNS) is a technique for storing network node names througho
 Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault. 
 
 ## Prerequisites
-* An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart.md), or use an existing app).
+* An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./quickstart.md), or use an existing app).
 * A domain name with access to the DNS registry for domain provider such as GoDaddy.
 * A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 * A deployed instance of [Azure Key Vault](../key-vault/general/overview.md)
@@ -84,7 +84,7 @@ To upload your certificate to key vault:
 1. On the upper menu, click **Generate/import**.
 1. In the **Create a certificate** dialog under **Method of certificate creation**, select `Import`.
 1. Under **Upload Certificate File**, navigate to certificate location and select it.
-1. Under **Password**, enter the private key for your certificate.
+1. Under **Password**, if you are uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault will remove that password.
 1. Click **Create**.
 
     ![Import certificate 1](./media/custom-dns-tutorial/import-certificate-a.png)
@@ -160,7 +160,7 @@ After you add the CNAME, the DNS records page will resemble the following exampl
 ![DNS records page](./media/custom-dns-tutorial/dns-records.png)
 
 ## Map your custom domain to Azure Spring Cloud app
-If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./spring-cloud-quickstart.md).
+If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./quickstart.md).
 
 #### [Portal](#tab/Azure-portal)
 Go to application page.
@@ -230,4 +230,4 @@ When the operation is complete, navigate to any of the HTTPS URLs that point to 
 ## See also
 * [What is Azure Key Vault?](../key-vault/general/overview.md)
 * [Import a certificate](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
-* [Launch your Spring Cloud App by using the Azure CLI](./spring-cloud-quickstart.md)
+* [Launch your Spring Cloud App by using the Azure CLI](./quickstart.md)

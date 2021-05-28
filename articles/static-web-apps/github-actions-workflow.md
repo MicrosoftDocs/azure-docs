@@ -9,7 +9,7 @@ ms.date: 04/09/2021
 ms.author: cshoe
 ---
 
-# GitHub Actions workflows for Azure Static Web Apps Preview
+# GitHub Actions workflows for Azure Static Web Apps
 
 When you create a new Azure Static Web Apps resource, Azure generates a GitHub Actions workflow to control the app's continuous deployment. The workflow is driven by a YAML file. This article details the structure and options of the workflow file.
 
@@ -53,7 +53,7 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
@@ -71,7 +71,7 @@ jobs:
     steps:
       - name: Close Pull Request
         id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
           action: 'close'
@@ -175,19 +175,6 @@ with:
 > [!NOTE]
 > You can only skip the build for the front-end app. If your app has an API, it'll still be built by the Static Web Apps GitHub Action.
 
-## Route file location
-
-You can customize the workflow to look for the [routes.json](routes.md) in any folder in your repository. The following property can be defined under a job's `with` section.
-
-| Property          | Description                                                                                                                                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `routes_location` | Defines the directory location where the _routes.json_ file is found. This location is relative to the root of the repository. |
-
-Being explicit about the location of your _routes.json_ file is particularly important if your front-end framework build step does not move this file to the `output_location` by default.
-
-> [!IMPORTANT]
-> Functionality defined in the _routes.json_ file is now deprecated. See the Azure Static Web Apps [configuration file](./configuration.md) for information about _staticwebapp.config.json_.
-
 ## Environment variables
 
 You can set environment variables for your build via the `env` section of a job's configuration.
@@ -204,7 +191,7 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}

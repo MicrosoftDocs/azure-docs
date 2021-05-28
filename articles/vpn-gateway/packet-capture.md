@@ -1,5 +1,6 @@
 ---
-title: 'Azure VPN Gateway: Configure packet capture'
+title: 'Configure packet capture for VPN Gateway'
+titleSuffix: Azure VPN Gateway
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
 services: vpn-gateway
 author: anzaman
@@ -7,7 +8,8 @@ author: anzaman
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alzam
+ms.author: alzam 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure packet capture for VPN gateways
@@ -324,6 +326,12 @@ You can set up packet capture in the Azure portal.
 
 The following examples show PowerShell commands that start and stop packet captures. For more information on parameter options, see [Start-AzVirtualnetworkGatewayPacketCapture](/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
+>
+### Prerequisite
+
+* Packet capture data will need to be logged into a storage account on your subscription. See [create storage account](../storage/common/storage-account-create.md).
+* To stop the packet capture, you will need to generate the `SASUrl` for your storage account. See [create a user delegation SAS](../storage/blobs/storage-blob-user-delegation-sas-create-powershell.md).
+
 ### Start packet capture for a VPN gateway
 
 ```azurepowershell-interactive
@@ -338,6 +346,8 @@ You can use the optional parameter `-FilterData` to apply a filter.
 Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName" -SasUrl "YourSASURL"
 ```
 
+For more information on parameter options, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+
 ### Start packet capture for a VPN gateway connection
 
 ```azurepowershell-interactive
@@ -351,6 +361,8 @@ You can use the optional parameter `-FilterData` to apply a filter.
 ```azurepowershell-interactive
 Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName" -SasUrl "YourSASURL"
 ```
+
+For more information on parameter options, see [Stop-AzVirtualNetworkGatewayConnectionPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewayconnectionpacketcapture).
 
 ## Key considerations
 

@@ -6,8 +6,9 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.topic: conceptual
 ms.custom: sqldbrb=1
-author: stevestein
-ms.author: sstein
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Scaling out with Azure SQL Database

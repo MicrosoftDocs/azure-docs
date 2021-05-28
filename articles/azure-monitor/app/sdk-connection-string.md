@@ -20,6 +20,8 @@ The key value pairs provide an easy way for users to define a prefix suffix comb
 > [!IMPORTANT]
 > We don't recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
 
+> [!TIP]
+> We recommend the use of connection strings over instrumentation keys.
 
 ## Scenario overview 
 
@@ -81,7 +83,7 @@ Here's a list of valid suffixes
 - applicationinsights.us
 
 
-See also: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+See also: [Regions that require endpoint modification](./custom-endpoints.md#regions-that-require-endpoint-modification)
 
 
 ##### Valid prefixes
@@ -293,7 +295,7 @@ Get started at development time with:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 

@@ -3,12 +3,12 @@ title: Tutorial - Create and manage Azure budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/09/2021
+ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Tutorial: Create and manage Azure budgets
@@ -54,20 +54,19 @@ Budgets are supported for the following types of Azure account types and scopes:
     - External account
     - External subscription
 
-
 To view budgets, you need at least read access for your Azure account.
 
 If you have a new subscription, you can't immediately create a budget or use other Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
 For Azure EA subscriptions, you must have read access to view budgets. To create and manage budgets, you must have contributor permission.
 
-The following Azure permissions, or scopes, are supported per subscription for budgets by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+The following Azure permissions, or scopes, are supported per subscription for budgets by user and group.
 
 - Owner – Can create, modify, or delete budgets for a subscription.
 - Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
 - Reader and Cost Management reader – Can view budgets that they have permission to.
 
-For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
+**For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md)**. For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
 
 ## Sign in to Azure
 
@@ -194,7 +193,7 @@ You can create a budget using an Azure Resource Manager template. To use the tem
 
 ## Clean up resources
 
-If you created a budget and you no longer it, view its details and delete it.
+If you created a budget and you no longer need it, view its details and delete it.
 
 ## Next steps
 

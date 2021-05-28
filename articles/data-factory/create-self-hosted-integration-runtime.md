@@ -5,7 +5,8 @@ ms.service: data-factory
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 02/10/2021
+ms.date: 02/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -39,15 +40,13 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 
 ![The high-level overview of data flow](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
-1. A data developer creates a self-hosted integration runtime within an Azure data factory by using the Azure portal or the PowerShell cmdlet.
+1. A data developer first creates a self-hosted integration runtime within an Azure data factory by using the Azure portal or the PowerShell cmdlet.  Then the data developer creates a linked service for an on-premises data store, specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
 
-2. The data developer creates a linked service for an on-premises data store. The developer does so by specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
+2. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.
 
-3. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.
+3. Azure Data Factory communicates with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, Data Factory queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
 
-4. Azure Data Factory communicates with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, Data Factory queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
-
-5. The self-hosted integration runtime copies data between an on-premises store and cloud storage. The direction of the copy depends on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services like Azure Blob storage over a secure HTTPS channel.
+4. The self-hosted integration runtime copies data between an on-premises store and cloud storage. The direction of the copy depends on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services like Azure Blob storage over a secure HTTPS channel.
 
 ## Prerequisites
 
@@ -189,6 +188,9 @@ Here are details of the application's actions and arguments:
 
     3. Select **Register**.
 
+> [!NOTE]
+> Release Notes are available on the same [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
+
 ## Service account for Self-hosted integration runtime
 
 The default log on service account of Self-hosted integration runtime is **NT SERVICE\DIAHostService**. You can see it in **Services -> Integration Runtime Service -> Properties -> Log on**.
@@ -327,7 +329,7 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
 > [!IMPORTANT]
 > Don't forget to update both diahost.exe.config and diawp.exe.config.
 
-You also need to make sure that Microsoft Azure is in your company's allow list. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+You also need to make sure that Microsoft Azure is in your company's allowlist. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Possible symptoms for issues related to the firewall and proxy server
 
@@ -384,7 +386,7 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 
 ### Get URL of Azure Relay
 
-One required domain and port that need to be put in the allow list of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF portal. Follow these steps:
+One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF portal. Follow these steps:
 
 1. Go to ADF portal and select your self-hosted integration runtime.
 2. In Edit page, select **Nodes**.
@@ -392,7 +394,7 @@ One required domain and port that need to be put in the allow list of your firew
 
    ![Azure Relay URLs](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
 
-4. You can add these FQDNs in the allow list of firewall rules.
+4. You can add these FQDNs in the allowlist of firewall rules.
 
 ### Copy data from a source to a sink
 

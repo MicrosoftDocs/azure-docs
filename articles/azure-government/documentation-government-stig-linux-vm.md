@@ -5,7 +5,7 @@ author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 04/02/2021
+ms.date: 04/28/2021
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -134,6 +134,14 @@ To learn more about backup and restore options for virtual machines in Azure, co
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
+
+## Support
+
+Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). Use the following support paths when creating a ticket:
+
+Azure -> Virtual Machine running Linux -> Cannot create a VM -> Troubleshoot my ARM template error
+
+:::image type="content" source="./media/stig-linux-support.png" alt-text="New support request for Linux STIG solution template":::
 
 ## Next steps
 

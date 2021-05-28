@@ -3,13 +3,13 @@ title: Plan for Azure maintenance events
 description: Learn how to prepare for planned maintenance events in Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 3/23/2021
 ---
 
@@ -30,7 +30,7 @@ Maintenance event can produce single or multiple reconfigurations, depending on 
 
 ## How to simulate a planned maintenance event
 
-Ensuring that your client application is resilient to maintenance events prior to deploying to production will help mitigate the risk of application faults and will contribute to application availability for your end users.You can test behavior of your client application during planned maintenance events by [Testing Application Fault Resiliency](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla#testing-application-fault-resiliency) via PowerShell, CLI or REST API. Also see [initiating manual failover](https://aka.ms/mifailover-techblog) for Managed Instance. It will produce identical behavior as maintenance event bringing primary replica offline.
+Ensuring that your client application is resilient to maintenance events prior to deploying to production will help mitigate the risk of application faults and will contribute to application availability for your end users.You can test behavior of your client application during planned maintenance events by [Testing Application Fault Resiliency](./high-availability-sla.md#testing-application-fault-resiliency) via PowerShell, CLI or REST API. Also see [initiating manual failover](https://aka.ms/mifailover-techblog) for Managed Instance. It will produce identical behavior as maintenance event bringing primary replica offline.
 
 ## Retry logic
 

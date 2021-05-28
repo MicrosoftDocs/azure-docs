@@ -2,7 +2,7 @@
 title: Troubleshoot Start/Stop VMs (preview)
 description: This article tells how to troubleshoot issues encountered with the Start/Stop VMs (preview) feature for your Azure VMs.
 services: azure-functions
-ms.subservice: 
+ms.subservice: start-stop-vms
 ms.date: 03/31/2021
 ms.topic: conceptual
 ---

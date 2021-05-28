@@ -74,13 +74,13 @@ The search suggester, `sg`, is defined in the [schema file](https://github.com/A
 
 ## Client: Suggestions from the catalog
 
-Th Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
+The Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
 :::code language="javascript" source="~/azure-search-dotnet-samples/search-website/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
 
 ## Azure Function: Get specific document 
 
-The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotent-samples/blob/master/search-website/api/Lookup.cs) takes a ID and returns the document object from the Search Index. 
+The `Lookup` [API](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/search-website/api/Lookup.cs) takes a ID and returns the document object from the Search Index. 
 
 :::code language="csharp" source="~/azure-search-dotnet-samples/search-website/api/Lookup.cs" highlight="19-21, 42" :::
 
