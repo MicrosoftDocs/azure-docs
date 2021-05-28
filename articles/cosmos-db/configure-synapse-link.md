@@ -201,7 +201,7 @@ If you created an analytical store enabled container through the Azure portal, i
 1. Select an existing container that has analytical store enabled. Expand it and modify the following values:
 
   * Open the **Scale & Settings** window.
-  * Under **Setting** find,**Analytical Storage Time to Live**.
+  * Under **Setting** find, **Analytical Storage Time to Live**.
   * Select **On (no default)** or select **On** and set a TTL value
   * Click **Save** to save the changes.
 
