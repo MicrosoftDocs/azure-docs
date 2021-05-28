@@ -2,7 +2,7 @@
 title: Monitoring metrics for Azure Front Door Standard/Premium
 description: This article describes the Azure Front Door Standard/Premium monitoring metrics.
 services: frontdoor
-author: duau
+author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: how-to
