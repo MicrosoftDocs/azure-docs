@@ -94,7 +94,7 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
     
 8. When the account is successfully connected, the **Navigator** pane appears. The **Navigator** shows a list of databases under the account.
 
-9. Click and expand on the database where the data for the report comes from, select **volcanodb** (your database name can be different).   
+9. Click and expand on the database where the data for the report comes from, select ``volcanodb`` (your database name can be different).   
 
 10. Now, select a collection that contains the data to retrieve, select **volcano1** (your collection name can be different).
     
