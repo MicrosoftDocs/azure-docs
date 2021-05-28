@@ -165,7 +165,7 @@ Here is an example of the viseme output.
 (Viseme), Viseme ID: 13, Audio offset: 2350ms.
 ```
 
-After obtaining the viseme output, you can use these outputs to drive character animation. You can build your own characters and automatically animate the characters.
+After obtaining the viseme output, you can use these events to drive character animation. You can build your own characters and automatically animate the characters.
 
 For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.  With temporal tags provided by viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, below illustration shows a red lip character designed for language learning.
 
