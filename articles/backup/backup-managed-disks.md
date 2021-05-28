@@ -79,7 +79,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 - Azure Disk backup supports only the Operational Tier backup, copying of backups to the vault storage tier is currently not available. Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in Operational Tier.
 Incremental snapshots are stored in the Standard HDD storage, irrespective of the storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage](../storage/common/storage-redundancy.md) (ZRS) by default in regions that support ZRS.
 
-- Azure Disk Backup supports cross-subscription backup and restore, that is Backup vault and source Disk to be protected can be in the same or different subscriptions. However, both of them must be in the same region. Cross-region backups and restores are not supported. This allows you to back up the Backup vault and disk, and store them in the same or different subscriptions. However, both the backup vault and disk to be backed up must be in same region. 
+- Azure Disk backup supports Cross-subscription backup and restores with the backup vault in one subscription and the source disk in another. Cross-region backup and restores however are not supported. This allows the Backup vault and the disk to be backed to be in the same or different subscriptions. However, both the backup vault and disk to be backed up must be in same region.
 
 - You can’t change the Snapshot Resource Group that’s assigned to a backup instance when you configure the backup of a disk. 
 
