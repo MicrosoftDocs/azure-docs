@@ -445,7 +445,7 @@ If you don't have extra storage for initial onboarding and would like to attach 
 1. Once reconciliation is complete, you can open shares for changes.
  
 Currently, pre-seeding approach has a few limitations - 
-- Data changes on the server before sync topology is fully up and running can cause conflicts on the server endpoints.  
+- Data changes on the server before the sync topology is fully up and running can cause conflicts on the server endpoints.  
 - After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
 
 ## Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)
@@ -489,7 +489,7 @@ However, if you change the schedule in a way that will result in an available sn
 
 The default maximum number of VSS snapshots per volume (64) as well as the default schedule to take them, result in a maximum of 45 days of previous versions an information worker can restore from, depending on how many VSS snapshots you can store on your volume.
 
-If max. 64 VSS snapshots per volume is not the correct setting for you, you can [change that value via a registry key](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+If a maximum of 64 VSS snapshots per volume is not the correct setting for you, then [change that value via a registry key](/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 For the new limit to take effect, you need to re-run the cmdlet to enable previous version compatibility on every volume it was previously enabled, with the -Force flag to take the new maximum number of VSS snapshots per volume into account. This will result in a newly calculated number of compatible days. Please note that this change will only take effect on newly tiered files and overwrite any customizations on the VSS schedule you might have made.
 
 <a id="proactive-recall"></a>

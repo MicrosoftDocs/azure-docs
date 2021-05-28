@@ -35,17 +35,25 @@ Then, delete the sync group.
 
 Repeat these steps for all the sync groups in the Storage Sync Service you would like to delete. Once all the sync groups in that Storage Sync Service have been deleted, delete the Storage Sync Service resource.
 
-## Rename a server endpoint path or sync group
+## Change a server endpoint path
 
-Currently, this is not supported. 
+A server endpoint path is an immutable property. Choosing a different location on the server has consequences for the data in the old location, the Azure file share and the new location. Most of these behaviors are undefined if you were to simply change the path. You can only remove a server endpoint and then create a new server endpoint with the new path. Carefully consider the sync state of your server to find the right time to perform this large change.
+
+Deleting a server endpoint is not trivial and can lead to data loss if done in the wrong way. The [delete server endpoint article](file-sync-server-endpoint-delete.md) guides you through the process.
 
 If you are currently using the D drive and are planning on migrating to the cloud, see [Make the D: drive of a VM a data disk - Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/change-drive-letter).
+
+## Rename a sync group
+
+A sync group cannot be renamed. Its name is part of the URL with which the child resources cloud endpoint and server endpoints are stored and managed. Choose the name carefully when you create the resource.
 
 ## Deprovision all server endpoints associated with a registered server
 
 To ensure that your data is safe and fully updated before deprovisioning, see [Deprovision your Azure File Sync server endpoint](./file-sync-server-endpoint-delete.md).
 
-Navigate to your Storage Sync Service resource, and go to the Registered Servers tab. Select the server you would like to unregister and select **unregister server**. This will promptly deprovision all server endpoints associated with that server.
+Removing all server endpoints in bulk should not be done, unless this is a test deployment with disposable data on the server and in the cloud. Unregistering the server from the Azure File Sync *Storage Sync Service* causes a bulk removal of all server endpoints. Data loss is a likely consequence of using this method. 
+
+To unregister a server regardless of the negative implications, navigate to your Storage Sync Service resource, and go to the **Registered servers** tab. Select the server you would like to unregister and select **Unregister server**. All server endpoints associated with that server will be removed.
 
 ## Next steps
 * [Deprovision your Azure File Sync server endpoint](./file-sync-server-endpoint-delete.md)
