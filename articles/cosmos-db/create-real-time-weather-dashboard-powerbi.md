@@ -27,7 +27,7 @@ There are multiple ways to set up reporting dashboards on data stored in Azure C
 |---------|---------|
 |1. Generating ad-hoc reports (no refresh)    |  [Power BI Azure Cosmos DB connector with import mode](powerbi-visualize.md)       |
 |2. Generating ad-hoc reports with periodic refresh   |  [Power BI Azure Cosmos DB connector with import mode (Scheduled periodic refresh)](powerbi-visualize.md)       |
-|3. Reporting on large data sets (< 10 GB)     |  [Power BI Azure Cosmos DB connector with Azure Analysis Services incremental refresh](create-real-time-weather-dashboard-powerbi.md/#power-bi-with-incremental-refresh)       |
+|3. Reporting on large data sets (< 10 GB)     |  [Power BI Azure Cosmos DB connector with incremental refresh](create-real-time-weather-dashboard-powerbi.md/#power-bi-with-incremental-refresh)       |
 |4. Reporting on large and live data sets    |  **Option 1:** [Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link-power-bi)  **Option 2:** [Power BI Azure Analysis Services connector with direct query + Azure Analysis Services](create-real-time-weather-dashboard-powerbi.md/#power-bi-azure-analysis-connector--azure-analysis-services)       |
 |5. Reporting on live data with aggregates     | **Option 1:** [Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link-power-bi)  **Option 2:** [Power BI Spark connector with direct query + Azure Databricks + Cosmos DB Spark connector.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)       |
 
