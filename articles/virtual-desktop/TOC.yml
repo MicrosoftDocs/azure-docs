@@ -109,7 +109,7 @@
         - name: Set up the MSIXMGR tool
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
-    href: teams-on-wvd.md
+    href: teams-on-avd.md
   - name: Set up Azure AD Multi-Factor Authentication
     href: set-up-mfa.md
   - name: Configure automatic updates
