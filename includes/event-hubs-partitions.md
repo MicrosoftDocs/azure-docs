@@ -35,11 +35,11 @@ of events that are being sent into an event hub. It may be complex and
 requires substantial, scaled-out, parallel processing capacity. The capacity of a single process to handle events is limited, so you need several processes. Partitions are how your solution feeds those processes and yet ensures that each event has a clear processing owner. 
 
 ### Number of partitions
-The number of partitions is specified at creation and must be between 1 and the [maximum partition count allowed](../articles/event-hubs/event-hubs-quotas.md#) for each pricing tier. 
+The number of partitions is specified at creation and must be between 1 and the [maximum partition count allowed](../articles/event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) for each pricing tier. 
 
 We recommend that you choose at least as many partitions as you expect to
 require in sustained the [throughput units
-(TU)](../articles/event-hubs/event-hubs-scalability.md#throughput-units), [processing units (PU)](../articles/event-hubs/event-hubs-scalability.md#processing-units) or [capacity units (CU)](../articles/event-hubs/event-hubs-dedicated-overview) during the peak load of your application for that particular Event Hub.
+(TU)](../articles/event-hubs/event-hubs-scalability.md#throughput-units), [processing units (PU)](../articles/event-hubs/event-hubs-scalability.md#processing-units) or [capacity units (CU)](../articles/event-hubs/event-hubs-dedicated-overview.md) during the peak load of your application for that particular Event Hub.
 
 You should calculate with a single partition having a throughput capacity of pricing unit(TU, PU or CU) of each tier. You can scale the TUs or PUs on your namespace or the CUs of your dedicated cluster independent of the partition count. For example, an Event Hub of the standard tier with 32 partitions or an Event Hub with 1 partition incur the exact same cost when the
 namespace is set to 1 TU capacity. 
