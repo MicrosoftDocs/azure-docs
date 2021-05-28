@@ -84,10 +84,6 @@
       href: migrate-from-composite-entity.md
     - name: Migrate to authoring resource
       href: luis-migration-authoring.md
-    - name: Migrate to V3 Authoring APIs
-      href: luis-migration-authoring-entities.md
-    - name: Migrate to V3 Prediction APIs
-      href: luis-migration-api-v3.md
     - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
   - name: Manage app
