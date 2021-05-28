@@ -11,7 +11,7 @@ ms.topic: reference
 author: vladai78
 ms.author: vladiv 
 ms.reviewer: mathoma, jovanpop, sachinp
-ms.date: 09/14/2020`
+ms.date: 09/14/2020
 ---
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
