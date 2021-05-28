@@ -46,9 +46,10 @@ If you can't use one the deployment tasks in the pervious section, then you need
         -releaseProperties @{"ReleaseDescription"="<a description>";
              "TriggerBy"="<Your name>" }
     ```
-1. Save.
 
     :::image type="content" source="./media/annotations/inline-script.png" alt-text="Screenshot of Azure CLI task settings with Script Type, Script Location, Inline Script, and Script Arguments highlighted." lightbox="./media/annotations/inline-script.png":::
+
+1. Save.
 
 ## Create release annotations with Azure CLI
 
