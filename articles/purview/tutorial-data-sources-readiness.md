@@ -68,7 +68,8 @@ Before running the script, create a csv file (e.g. "C:\temp\Subscriptions.csv) w
     
     :::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="Subscriptions List" border="true":::
 
-    > [!NOTE] You can update the file name and path in the code, if needed.
+    > [!NOTE] 
+    > You can update the file name and path in the code, if needed.
 
 <br>
 
