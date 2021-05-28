@@ -12,6 +12,9 @@ ms.custom: include file
 ms.author: mikben
 ---
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat)
+
 ## Prerequisites
 Before you get started, make sure to:
 
