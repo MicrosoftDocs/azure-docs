@@ -60,7 +60,7 @@ The response will appear under the text of the original review in the product de
 
 #### Appsource
 
-![Appsource review response](./media/marketplace-publisher-guide-rating-reviews/review-reply.png)
+![Appsource review response](./media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png)
 
 #### Azure Marketplace online store
 
