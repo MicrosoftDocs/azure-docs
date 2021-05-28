@@ -179,9 +179,7 @@ The following tables list the operating systems that are supported by the Azure 
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.
 
-<sup>2</sup> Requires Python 2 to be installed on the machine.
-
-<sup>3</sup> Known issue collecting Syslog events. Only performance data is currently supported.
+<sup>3</sup> Known issue collecting Syslog events in versions prior to 1.9.0
 #### Dependency agent Linux kernel support
 
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.

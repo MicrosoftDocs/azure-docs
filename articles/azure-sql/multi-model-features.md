@@ -3,13 +3,13 @@ title: Multi-model capabilities
 description: Microsoft Azure SQL enables you to work with multiple data models in the same database.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 12/17/2018
 ---
 # Multi-model capabilities of Azure SQL Database & SQL Managed Instance
