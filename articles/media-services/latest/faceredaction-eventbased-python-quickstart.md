@@ -18,7 +18,7 @@ ms.author: inhenkel
  
 This quickstart shows how to deploy an event-based solution on Azure. Videos uploaded to a storage account will be transformed using a Job in Azure Media Services. It uses the Media Service v3 API.
 
-The specific transformation that will be used is called [Face Redactor](https://docs.microsoft.com/azure/media-services/latest/analyze-face-redaction-concept). This is an Azure Media Analytics media processor, that allows you to modify your video by blurring faces of selected individuals.
+The specific transformation that will be used is called [Face Redactor](./analyze-face-redaction-concept.md). This is an Azure Media Analytics media processor, that allows you to modify your video by blurring faces of selected individuals.
 
 By the end of the quickstart you will be able to redact faces in a video:
 
