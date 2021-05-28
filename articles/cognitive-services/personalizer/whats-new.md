@@ -18,7 +18,7 @@ Learn what's new in the service. These items may include release notes, videos, 
 ### May 2021  - //Build conference
 
 * Auto-Optimize (Preview) : You can configure a Personalizer loop that you are using to continuously improve over time with less work. Personalizer will automatically run offline evaluations, discover better machine learning settings, and apply them. To learn more, see [Personalizer Auto-Optimize (Preview)](concept-auto-optimization.md).
-* Multi-slot personalization (Preview): If you have tiled layouts, carrousels, and/or sidebars, it is easier to use Personalizer for each place that you recommend products or content on the same page. Personalizer now can now take a list of slots in the Rank API, assign an action to each, and learn from reward scores you send for each slot. To learn more, see [Multi-slot personalization (Preview)](concept-multi-slot-personalization.md).
+* Multi-slot personalization (Preview): If you have tiled layouts, carousels, and/or sidebars, it is easier to use Personalizer for each place that you recommend products or content on the same page. Personalizer now can now take a list of slots in the Rank API, assign an action to each, and learn from reward scores you send for each slot. To learn more, see [Multi-slot personalization (Preview)](concept-multi-slot-personalization.md).
 * Personalizer is now available in more regions.
 * Updated code samples (GitHub) and documentation. Use the links below to view updated samples:
   * [C#/.NET](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
