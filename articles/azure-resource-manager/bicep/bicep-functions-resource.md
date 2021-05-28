@@ -105,6 +105,63 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01'
 
 Built-in policy definitions are tenant level resources. For an example of deploying a built-in policy definition, see [tenantResourceId](#tenantresourceid).
 
+## getSecret
+
+`getSecret([secretName])`
+
+Returns the secret value stored in an Azure key vault. You can use the getSecret method to obtain a key vault secret and pass the value to a string parameter of a Bicep module. The getSecret method can only be called on a `Microsoft.KeyVault/vaults` resource and can be used only with parameter with `@secure()` decorator.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| secretName | Yes | string | The name of the secret stored in a key vault. |
+
+### Return value
+
+The secret value for the secret name.
+
+### Example
+
+The following Bicep file is used as a module.  It has an *adminPassword* parameter defined with the `@secure()` decorator.
+
+```bicep
+param sqlServerName string
+param adminLogin string
+
+@secure()
+param adminPassword string
+
+resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
+  ...
+}
+```
+
+The following Bicep file consumes the preceding Bicep file as a module. The Bicep file references an existing key vault, and calls the `getSecret` function to retrieve the key vault secret, and then passes the value as a parameter to the module.
+
+```bicep
+param sqlServerName string
+param adminLogin string
+
+param subscriptionId string
+param kvResourceGroup string
+param kvName string
+
+resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+  name: kvName
+  scope: resourceGroup(subscriptionId, kvResourceGroup )
+}
+
+module sql './sql.bicep' = {
+  name: 'deploySQL'
+  params: {
+    sqlServerName: sqlServerName
+    adminLogin: adminLogin
+    adminPassword: kv.getSecret('vmAdminPassword')
+  }
+}
+```
+
 <a id="listkeys"></a>
 <a id="list"></a>
 
@@ -401,7 +458,7 @@ You can use the response from pickZones to determine whether to provide null for
 
 Returns an object representing a resource's runtime state.
 
-The reference function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource. 
+The reference function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource.
 
 The following example deploys a storage account. It uses the symbolic name `stg` for the storage account to return a property.
 
@@ -440,7 +497,7 @@ For more information, see [Reference resources](./compare-template-syntax.md#ref
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
-Returns the unique identifier of a resource. 
+Returns the unique identifier of a resource.
 
 The resourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
 
