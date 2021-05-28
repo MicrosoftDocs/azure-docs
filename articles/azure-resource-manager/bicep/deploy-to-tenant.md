@@ -141,7 +141,7 @@ resource mgName_resource 'Microsoft.Management/managementGroups@2020-02-01' = {
 
 ### Scope to management group
 
-To target a management group within the tenant, add a module. Use the managementGroup function to set its `scope` property.
+To target a management group within the tenant, add a module. Use the [managementGroup function](bicep-functions-scope.md#managementgroup) to set its `scope` property.
 
 ```bicep
 targetScope = 'tenant'
@@ -157,7 +157,7 @@ module  'module.bicep' = {
 
 ### Scope to subscription
 
-To target a subscription within the tenant, add a module. Use the subscription function to set its `scope` property.
+To target a subscription within the tenant, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set its `scope` property.
 
 ```bicep
 targetScope = 'tenant'
@@ -173,7 +173,7 @@ module  'module.bicep' = {
 
 ### Scope to resource group
 
-To target a resource group within the tenant, add a module. Use the resourceGroup function to set its `scope` property. Provide the subscription ID and resource group name.
+To target a resource group within the tenant, add a module. Use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set its `scope` property. Provide the subscription ID and resource group name.
 
 ```bicep
 targetScope = 'tenant'
@@ -230,5 +230,8 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2020-03-01-prev
 
 ## Next steps
 
-* To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
-* You can also deploy templates at [subscription level](deploy-to-subscription.md) or [management group level](deploy-to-management-group.md).
+To learn about other scopes, see:
+
+* [Resource group deployments](deploy-to-resource-group.md)
+* [Subscription deployments](deploy-to-subscription.md)
+* [Management group deployments](deploy-to-management-group.md)

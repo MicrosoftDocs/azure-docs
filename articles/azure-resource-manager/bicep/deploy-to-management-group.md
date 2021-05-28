@@ -123,7 +123,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2019-09-01'
 }
 ```
 
-To target another management group, add a module. Use the managementGroup function to set the `scope` property.
+To target another management group, add a module. Use the [managementGroup function](bicep-functions-scope.md#managementgroup) to set the `scope` property.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -141,7 +141,7 @@ module exampleModule 'module.bicep' = {
 
 You can also target subscriptions within a management group. The user deploying the template must have access to the specified scope.
 
-To target a subscription within the management group, add a module. Use the subscription function to set the `scope` property.
+To target a subscription within the management group, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set the `scope` property.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -159,7 +159,7 @@ module exampleModule 'module.bicep' = {
 
 You can also target resource groups within the management group. The user deploying the template must have access to the specified scope.
 
-To target a resource group within the management group, add a module. Use the resourceGroup function to set the `scope` property.  Provide the subscription ID and resource group name.
+To target a resource group within the management group, add a module. Use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set the `scope` property.  Provide the subscription ID and resource group name.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -176,7 +176,7 @@ module exampleModule 'module.bicep' = {
 
 ### Scope to tenant
 
-To create resources at the tenant, add a module. Use the tenant function to set its `scope` property. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
+To create resources at the tenant, add a module. Use the [tenant function](bicep-functions-scope.md#tenant) to set its `scope` property. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
 ```bicep
 targetScope = 'managementGroup'
@@ -294,6 +294,8 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01'
 
 ## Next steps
 
-* To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
-* For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* You can also deploy templates at [subscription level](deploy-to-subscription.md) and [tenant level](deploy-to-tenant.md).
+To learn about other scopes, see:
+
+* [Resource group deployments](deploy-to-resource-group.md)
+* [Subscription deployments](deploy-to-subscription.md)
+* [Tenant deployments](deploy-to-tenant.md)

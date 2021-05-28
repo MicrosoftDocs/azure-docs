@@ -36,6 +36,8 @@ Parameters use decorators for constraints or metadata. The decorators are in the
 param stgAcctName string
 ```
 
+In the sections below, this article shows how to use the decorators that are available in a Bicep file.
+
 ## Secure parameters
 
 You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
