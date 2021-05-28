@@ -13,9 +13,12 @@ ms.author: billmath
 ms.reviewer: arvinh
 ---
 
-# Azure AD ECMA Connector Host generic SQL configuration
+# Azure AD ECMA Connector Host generic SQL connector configuration
 
 This document describes how to create a new SQL connector with the Azure AD ECMA Connector Host and how to configure it.  You will need to do this once you have successfully installed Azure AD ECMA Connector Host.  
+
+>[!NOTE] 
+> This document covers only the configuration of the Generic SQL connector.  For step-by-step example of setting up the Generic SQL connector, see [Tutorial:  ECMA Connector Host Generic SQL Connector](tutorial-ecma-sql-connector.md)
 
 Installing and configuring the Azure AD ECMA Connector Host is a process. Use the flow below to guide you through the process.
 
@@ -137,3 +140,4 @@ To create a generic SQL connector use the following steps:
 ## Next Steps
 
 - [App provisioning](user-provisioning.md)
+- [Tutorial:  ECMA Connector Host Generic SQL Connector](tutorial-ecma-sql-connector.md)

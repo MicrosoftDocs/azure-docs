@@ -25,33 +25,19 @@
     items: 
      - name: How application provisioning works
        href: how-provisioning-works.md
-     - name: On-premises application provisioning architecture
-       href: on-prem-app-prov-arch.md 
      - name: Plan an application provisioning deployment
        href: plan-auto-user-provisioning.md
      - name: Plan a cloud HR provisioning deployment
        href: plan-cloud-hr-provision.md
      - name: Understand logging with Azure Monitor
        href: application-provisioning-log-analytics.md
+    - name: On-premises application provisioning architecture
+       href: on-prem-app-prov-arch.md 
   - name: How-to guides
     expanded: true
     items:
     - name: Configure provisioning for a gallery app
       href: configure-automatic-user-provisioning-portal.md
-    - name: On-premises app provisioning
-      items:
-      - name: Azure AD ECMA Connector Host pre-requisites
-        href: on-prem-ecma-prerequisites.md
-      - name: Azure AD ECMA Connector Host installation
-        href: on-prem-ecma-install.md
-      - name: Azure AD ECMA Connector Host configuration
-        href: on-prem-ecma-configure.md
-      - name: Generic SQL connector configuration
-        href: on-prem-sql-connector-configure.md
-      - name: On-premises app provisioning to SCIM-enabled apps
-        href: on-prem-scim-provisioning.md
-      - name: Migrate connector from MIM Sync
-        href: on-prem-migrate-mim.md
     - name: Include or exclude users and groups from scope
       items:
       - name: Scoping users or groups to be provisioned 
@@ -90,6 +76,20 @@
         href: on-prem-ecma-tshoot.md
       - name: Provisioning logs
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: On-premises app provisioning
+      items:
+      - name: Azure AD ECMA Connector Host pre-requisites
+        href: on-prem-ecma-prerequisites.md
+      - name: Azure AD ECMA Connector Host installation
+        href: on-prem-ecma-install.md
+      - name: Azure AD ECMA Connector Host configuration
+        href: on-prem-ecma-configure.md
+      - name: Generic SQL connector configuration
+        href: on-prem-sql-connector-configure.md
+      - name: On-premises app provisioning to SCIM-enabled apps
+        href: on-prem-scim-provisioning.md
+      - name: Migrate connector from MIM Sync
+        href: on-prem-migrate-mim.md
   - name: Reference
     items:
     - name: SCIM 2.0 protocol compliance

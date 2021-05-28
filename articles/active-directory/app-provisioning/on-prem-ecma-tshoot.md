@@ -23,8 +23,7 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
      2. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
 ![ECMA service running](./media/on-prem-ecma-tshoot/tshoot-1.png)
 
- 2. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection and run the script.
-   - This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
+ 2. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection and run the script.  This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
     It should be run on the same computer as the ECMA Connector Host service itself.
  3. Ensure that the agent is active by navigating to your application in the azure portal, click on admin connectivity, click on the agent dropdown, and ensure your agent is active.
  4. Check if the secret token provided is the same as the secret token on-prem (you will need to go on-prem and provide the secret token again and then copy it into the Azure Portal).
