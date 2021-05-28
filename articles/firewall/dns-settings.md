@@ -6,7 +6,8 @@ author: vhorne
 ms.service: firewall
 ms.topic: how-to
 ms.date: 05/26/2021
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Firewall DNS settings

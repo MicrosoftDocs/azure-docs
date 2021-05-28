@@ -5,7 +5,8 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/05/2021
-ms.author: v-erkel
+ms.author: v-erkel 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure HPC Cache
