@@ -13,30 +13,30 @@ ms.date: 05/19/2021
 
 #    Entity Linking cognitive skill
 
-The **Entity Linking** skill extracts linked entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+The **Entity Linking** skill extracts linked entities from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 
 ## @odata.type  
 Microsoft.Skills.Text.V3.EntityLinkingSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the EntityLinking skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
-Parameters are case-sensitive and are all optional.
+Parameter names are case-sensitive and are all optional.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` |    Language code of the input text. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. Not all entity categories are supported for all languages; see note below.|
+| `defaultLanguageCode` |    Language code of the input text. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. For most up-to-date list of supported languages, view [TA Supported Languages](../cognitive-services/text-analytics/language-support.md). Not all entity categories are supported for all languages; see note below.|
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `entities` output) is lower than this value, the entity is not returned. The default is 0. |
-| `modelVersion` | A string representation of the API Version of choice. Set to "latest" in order to utilize the most recent API version. Otherwise, a specific available API version could be chosen. |
+| `modelVersion` | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details.|
 
 
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | Optional. Default is `"en"`.  |
+| `languageCode`    | Optional. Default is `"en"`. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. |
 | `text`          | The text to analyze.          |
 
 ## Skill outputs
@@ -52,12 +52,9 @@ Parameters are case-sensitive and are all optional.
 ```json
   {
     "@odata.type": "#Microsoft.Skills.Text.V3.EntityLinkingSkill",
-    "name": "customer defined name",
-    "description": "customer defined description",
     "context": "/document",
     "defaultLanguageCode": "en", 
     "minimumPrecision": 0.5, 
-    "modelVersion": "latest", 
     "inputs": [
         {
             "name": "text", 
