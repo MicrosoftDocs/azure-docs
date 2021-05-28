@@ -16274,6 +16274,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/spark-connector.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-spark",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md",
       "redirect_url": "/azure/cost-management/overview",
       "redirect_document_id": false
