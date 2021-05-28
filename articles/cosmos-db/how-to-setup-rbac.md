@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ms.author: thweiss
 ---
 
@@ -310,7 +310,7 @@ $principalId = "<aadPrincipalId>"
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
     -RoleDefinitionId $readOnlyRoleDefinitionId `
-    -Scope $accountName `
+    -Scope "/" `
     -PrincipalId $principalId
 ```
 
