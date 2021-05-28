@@ -219,7 +219,7 @@ From the upper left corner, select the visualizer button to open the Bicep Visua
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer.png" alt-text="Bicep Visualizer":::
 
-The visualizer shows the resources defined in the Bicep file with the resource dependency information.  The two resources defined in this quickstart doesn't have dependency relationship. So you don't see a connector between the two resources. 
+The visualizer shows the resources defined in the Bicep file with the resource dependency information.  The two resources defined in this quickstart don't have dependency relationship. So you don't see a connector between the two resources.
 
 ## Deploy the Bicep file
 
