@@ -43,9 +43,9 @@ In part 2 of this tutorial series, you will:
 Before running the script, create a csv file (e.g. "C:\temp\Subscriptions.csv) with 4 columns:
    
 1. Column name: `SubscriptionId`
-    This column must contain all your Azure subscription ids where your data sources reside.
+    This column must contain all your Azure subscription IDs where your data sources reside.
     
-    for example each column should have one subscription id: 12345678-aaaa-bbbb-cccc-1234567890ab
+    for example each column should have one subscription ID: 12345678-aaaa-bbbb-cccc-1234567890ab
 
 2. Column name: `KeyVaultName`
     Provide existing key vault name resource that is deployed in the same corresponding data source subscription.
@@ -64,7 +64,7 @@ Before running the script, create a csv file (e.g. "C:\temp\Subscriptions.csv) w
 
     **Sample csv file:**
     
-    :::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="Subscriptions List" border="true":::
+    :::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="Subscriptions List" lightbox="./media/tutorial-data-sources-readiness/subscriptions-input.png":::
 
     > [!NOTE] 
     > You can update the file name and path in the code, if needed.
@@ -106,19 +106,19 @@ Before you run the PowerShell script to verify data sources subscriptions readin
 
 1. `AzureDataType`: choose any of the following options as your data source type to run the readiness for the data type across your subscriptions: 
     
-    `BlobStorage`
+    - `BlobStorage`
 
-    `AzureSQLMI`
+    - `AzureSQLMI`
 
-    `AzureSQLDB`
+    - `AzureSQLDB`
     
-    `ADLSGen2`
+    - `ADLSGen2`
     
-    `ADLSGen1`
+    - `ADLSGen1`
     
-    `Synapse`
+    - `Synapse`
     
-    `All`
+    - `All`
 
 2. `PurviewAccount`: Your existing Azure Purview Account resource name.
 
@@ -180,7 +180,7 @@ After the process has finished, review the output report to review the changes.
 
 Currently, the following data sources are supported in the script:
 
-- Azure Blob Storage (BlobStorge)
+- Azure Blob Storage (BlobStorage)
 - Azure Data Lake Storage Gen 2 (ADLSGen2)
 - Azure Data Lake Storage Gen 1 (ADLSGen1)
 - Azure SQL Database (AzureSQLDB)
@@ -189,11 +189,11 @@ Currently, the following data sources are supported in the script:
 
 You can choose **all** or any of these data sources as input parameter when running the script.
 
-### What confogurations are included in the script?
+### What configurations are included in the script?
 
 This script can help you to automatically perform the following tasks:
 
-#### Azure Blob Storage (BlobStorge)
+#### Azure Blob Storage (BlobStorage)
 
 - RBAC: Verify and assign Azure RBAC 'Reader' role to Azure Purview MSI on selected scope.
 - RBAC: Verify and assign Azure RBAC 'Storage Blob Data Reader role' to Azure Purview MSI in each of the subscriptions below selected scope.
