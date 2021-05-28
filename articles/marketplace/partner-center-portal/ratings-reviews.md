@@ -4,7 +4,7 @@ description: Learn how to access a consolidated view of customer feedback for yo
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 author: mingshen-ms
 ms.author: mingshen
 ---
