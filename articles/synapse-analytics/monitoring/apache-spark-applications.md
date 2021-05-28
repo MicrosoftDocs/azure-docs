@@ -103,7 +103,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 15. Click on **View details** in a stage graph,then the details for stage will show out.
 
-    ![expand all the stages](./media/how-to-monitor-spark-applications/expand-all-the-stages.png)
+    [ ![expand all the stages](./media/how-to-monitor-spark-applications/expand-all-the-stages.png) ](expand-all-the-stages.png#lightbox)
     
       
 
@@ -129,7 +129,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 8. Check the **Logs** in this tab. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**, and check the checkbox of **Filter errors and warnings** to filter the errors and warnings you need.
 
-    ![view running job](./media/how-to-monitor-spark-applications/view-running-job.png)
+    [ ![view running job](./media/how-to-monitor-spark-applications/view-running-job.png) ](view-running-job.png#lightbox)
 
 ## View canceled Apache Spark application
 
@@ -177,9 +177,9 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
    ![failed job info](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
 
-## View input data and output data for Apache Spark Application
+## View input data/output data for Apache Spark Application
 
-Select an Apache Spark application, and click on Input data/Output data tab to view datas of the input and output for Apache Spark application. This function can better help you debug the Spark job. And the data source supports three storage methods : gen1, gen2 and blob.
+Select an Apache Spark application, and click on **Input data/Output data tab** to view dates of the input and output for Apache Spark application. This function can better help you debug the Spark job. And the data source supports three storage methods: gen1, gen2 and blob.
     
 **Input data tab**
      
@@ -191,7 +191,7 @@ Select an Apache Spark application, and click on Input data/Output data tab to v
 
 4. You can sort the input files by clicking **Name**, **Read format**, and **path**.
 
-5. Use the mouse hover on a input file, the icon of the **Download/Copy path/More** button will show out.
+5. Use the mouse hover on an input file, the icon of the **Download/Copy path/More** button will show out.
 
    ![input tab](./media/how-to-monitor-spark-applications/input-tab.png)
 
@@ -241,7 +241,7 @@ Click on **Compare applications** button and choose an application to compare pe
 
 ### Compare by Compare in notebook
 
-Click the **Compare in Notebook** button on the **Compare applications** page to open the notebook. The default name of the .ipynb file is **Recurrent Application Analytics**.
+Click the **Compare in Notebook** button on the **Compare applications** page to open the notebook. The default name of the *.ipynb* file is **Recurrent Application Analytics**.
 
 ![compare in notebook](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
 
