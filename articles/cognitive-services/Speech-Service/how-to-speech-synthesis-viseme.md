@@ -40,7 +40,8 @@ See [the introduction video](https://youtu.be/ui9XT47uwxs) of the viseme.
 A neural voice turns input text or SSML (Speech Synthesis Markup Language) into synthesized speech. Speech audio output can be accompanied by viseme IDs and their offset timestamps. Each viseme ID specifies a specific pose in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme. Using a 2D or 3D rendering engine, you can use these viseme events to animate your avatar.
 
 The overall workflow of viseme is depicted in the flowchart below.
-    :::image type="content" source="media/text-to-speech/viseme-structure.png" The overall workflow of viseme. ":::
+
+    ![The overall workflow of viseme.](media/text-to-speech/viseme-structure.png)
 
 | Parameter | Description |
 |-----------|-------------|
@@ -169,11 +170,11 @@ After obtaining the viseme output, you can use these events to drive character a
 
 For 2D characters, you can design a character that suits your scenario and use Scalable Vector Graphics (SVG) for each viseme ID to get a time-based face position.  With temporal tags provided by viseme event, these well-designed SVGs will be processed with smoothing modifications, and provide robust animation to the users. For example, below illustration shows a red lip character designed for language learning.
 
-:::image type="content" source="media/text-to-speech/viseme-demo-2D.png" alt-text="2D render example":::
+![2D render example](media/text-to-speech/viseme-demo-2D.png)
 
 For 3D characters, think of the characters as string puppets. The puppet master pulls the strings from one state to another and the laws of physics do the rest and drive the puppet to move fluidly. The viseme output acts as a puppet master to provide an action timeline. The animation engine defines the physical laws of action. By interpolating frames with easing algorithms, the engine can further generate high-quality animations.
 
-:::image type="content" source="media/text-to-speech/viseme-demo-3D.png" alt-text="3D render example":::
+![3D render example](media/text-to-speech/viseme-demo-3D.png)
 
 ## Map phonemes to visemes
 
