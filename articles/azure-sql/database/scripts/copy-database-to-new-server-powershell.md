@@ -4,7 +4,7 @@ description: Azure PowerShell example script to copy a database to a new server
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: shkale-msft
