@@ -41,6 +41,11 @@ The partition key is based on the PARTITION BY clause in the query. The number o
 
 The default batch size is 262,144 bytes (256 KB). The default event count per batch is 100. The batch size is configurable and can be increased or decreased in the Stream Analytics output options.
 
+## Limitation
+
+Azure Function should complete its request in under 100 seconds as the HTTP client times our after 100 seconds. If it takes more than 100 seconds for Azure  Functions to process a batch of data,  there is a timeout that will trigger a retry. This retry can result in duplicate data because Azure Function will process the data again and potentially produce the same output since it may have been outputted partially in the previous request
+
+
 ## Next steps
 
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
