@@ -10,7 +10,6 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 05/01/2021
-ms.date: 05/01/2021 
 ms.custom: devx-track-azurepowershell
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
