@@ -6,7 +6,7 @@ ms.date: 03/29/2021
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
 # Migrate database resources to global Azure
@@ -94,13 +94,17 @@ Its fully qualified domain name (FQDN) is `globalazureserver.database.windows.ne
     ALTER DATABASE [azuregermanydb] FAILOVER;
     ```
 
-5.	Use the following T-SQL to stop active geo-replication. If this command is run after the planned failover, it will terminate the geo-link with the database in global Azure being the read-write copy. This will complete the migration process. However, if the command is executed before the planned failover, it will stop the migration process and the database in Azure Germany will remain the read-write copy. This T-SQL command should be run on the current geo-primary database's logical server, for example, on the Azure Germany server before planned failover and the global Azure server after planned failover.
+5.	The active geo-replication link can be terminated before or after the failover process. Executing the following T-SQL command after the planned failover removes the geo-replication link with the database in global Azure being the read-write copy. It should be run on the current geo-primary database's logical server (i.e. on the global Azure server). This will complete the migration process.
 
+    ```sql
+    ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [azuregermanyserver];
+    ```
 
-    `ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [azuregermanyserver];`
-    or
-    `ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [globalazureserver];`
+    The following T-SQL command when executed before the planned failover also stops the migration process, but in this situation the database in Azure Germany will remain the read-write copy. This T-SQL command should also be run on the current geo-primary database's logical server, in this case on the Azure Germany server.
 
+    ```sql
+    ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [globalazureserver];
+    ```
 
 These steps to migrate Azure SQL databases from Azure Germany to global Azure can also be followed using active geo-replication.
 

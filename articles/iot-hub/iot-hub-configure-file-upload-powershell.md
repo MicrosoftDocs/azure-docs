@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use the Azure PowerShell to configure file upload | Microsoft Docs
 description: How to use the Azure PowerShell cmdlets to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
 author: robinsh
@@ -7,7 +7,8 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: robinsh
+ms.author: robinsh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure IoT Hub file uploads using PowerShell

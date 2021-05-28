@@ -44,7 +44,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 - [Add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)
 - [Reset redemption status for a guest user](reset-redemption-status.md)
 - [Use API connectors to customize and extend self-service sign-up](api-connectors-overview.md)
-- [Azure Active Directory B2B collaboration FAQs](faq.md)
+- [Azure Active Directory B2B collaboration FAQs](faq.yml)
 - [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
 - [Identity Providers for External Identities](identity-providers.md)
 - [Add a self-service sign-up user flow to an app (Preview)](self-service-sign-up-user-flow.md)
@@ -62,7 +62,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 
 - [Azure Active Directory B2B best practices](b2b-fundamentals.md)
 - [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md)
-- [Azure Active Directory B2B collaboration FAQs](faq.md)
+- [Azure Active Directory B2B collaboration FAQs](faq.yml)
 - [Email one-time passcode authentication](one-time-passcode.md)
 - [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
 - [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)

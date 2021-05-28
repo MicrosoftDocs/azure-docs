@@ -5,7 +5,7 @@ description: "Learn how to configure an Azure SQL Database and Azure Synapse Ana
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang:
 ms.topic: how-to
 author: shohamMSFT
