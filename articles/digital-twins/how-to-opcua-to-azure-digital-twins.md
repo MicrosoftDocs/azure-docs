@@ -39,7 +39,8 @@ Before completing this article, complete the following prerequisites:
 
 Here are the components that will be included in this solution.
 
-<TODO: Architecture diagram coming soon>
+ :::image type="content" source="media/how-to-opcua-to-azure-digital-twins/opca-to-adt-diagram-1.png" alt-text="architecture diagram showing how opc ua data flows into azure digital twins" lightbox="media/how-to-opcua-to-azure-digital-twins/opca-to-adt-diagram-1.png":::
+ 
 
 | Component | Description |
 | --- | --- |
