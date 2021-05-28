@@ -1,4 +1,3 @@
-  
 ### YamlMime:FAQ
 metadata:
   title: Azure Applied AI Services frequently asked questions
@@ -12,13 +11,13 @@ metadata:
 
 title: Frequently asked questions for Azure Applied AI Services
 summary: |
-  Here are some answers to common questions about using Azure Applied AI Services.
+  Here are answers to common questions about using Azure Applied AI Services.
 sections:
   - name: Single section - ignored
     questions:
-      - question: Do Azure Applied AI Services support encryption of data at rest and Customer Managed Keys (CMK) and Azure Key Vault?
+      - question: Does Azure Applied AI Services support encryption of data at rest and Customer Managed Keys (CMK)?
         answer: |
-         Yes, to learn more select the individual service for detailed instructions.
+         Yes, to learn more select the individual services for detailed instructions.
          [Cognitive Search encryption of data at rest](../search/search-security-manage-encryption-keys.md)
          [Form Recognizer encryption of data at rest](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)
          [Metrics Advisor encryption of data at rest](../cognitive-services/metrics-advisor/encryption.md#customer-managed-keys-with-azure-key-vault)
