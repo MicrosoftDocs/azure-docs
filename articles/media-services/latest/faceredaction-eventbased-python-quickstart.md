@@ -338,4 +338,4 @@ By selecting the job, you'll see some details about the specific job. If you sel
  
  ## Next steps
  
- If you would like to modify this example, chances are you would like to run the code locally. For local development, the variables in the sample.env file are sufficient because the Service Principal is not needed when a user account is logged in to the locally installed Azure CLI. For guidance on working locally with your Azure Function, we refer to [these docs](../azure-functions/create-first-function-vs-code-python.md).
+ If you would like to modify this example, chances are you would like to run the code locally. For local development, the variables in the sample.env file are sufficient because the Service Principal is not needed when a user account is logged in to the locally installed Azure CLI. For guidance on working locally with your Azure Function, we refer to [these docs](../../azure-functions/create-first-function-vs-code-python.md).
