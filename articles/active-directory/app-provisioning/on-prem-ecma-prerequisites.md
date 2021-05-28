@@ -40,7 +40,7 @@ For more installation and configuration information, see:
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
     [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
 
- - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). You can get a free developer test tenant here. The tenant where the preview is being configured cannot be located in one of the European Union , European Economic Area, candidate for inclusion in the European Union, China, or Switzerland country/regions. Tenants that are deployed in Azure Government, China, or other specialized cloud are not currently available for use in this preview.  The ECMA connector host preview is not intended for use with production target systems, this tenant should hold only simulated/test data.
+ - Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure Portal.
 
 
 ## Next Steps
