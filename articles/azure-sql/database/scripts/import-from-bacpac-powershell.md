@@ -4,7 +4,7 @@ description: Azure PowerShell example script to import a BACPAC file into a data
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: load & move data, sqldbrb=1
+ms.custom: load & move data, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein

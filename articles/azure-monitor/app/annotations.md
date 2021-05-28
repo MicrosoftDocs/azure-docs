@@ -37,7 +37,7 @@ If you can't use one the deployment tasks in the pervious section, then you need
 1. Add a new task and select **Azure CLI**.
     :::image type="content" source="./media/annotations/add-azure-cli.png" alt-text="Screenshot of adding a new task and selecting Azure CLI." lightbox="./media/annotations/add-azure-cli.png":::
 1. Specify the relevant Azure subscription.  Change the **Script Type** to *PowerShell* and **Script Location** to *Inline*.
-1. Add the [PowerShell script from step 2 in the next section](#create-release-annotations-with-azure-cli) to **Inline Script** and save.
+1. Add the [PowerShell script from step 2 in the next section](#create-release-annotations-with-azure-cli) to **Inline Script**.
 1. Add the arguments below, replacing the angle-bracketed placeholders with your values to **Script Arguments**. The -releaseProperties are optional.
 
     ```powershell
@@ -48,6 +48,8 @@ If you can't use one the deployment tasks in the pervious section, then you need
     ```
 
     :::image type="content" source="./media/annotations/inline-script.png" alt-text="Screenshot of Azure CLI task settings with Script Type, Script Location, Inline Script, and Script Arguments highlighted." lightbox="./media/annotations/inline-script.png":::
+
+1. Save.
 
 ## Create release annotations with Azure CLI
 
