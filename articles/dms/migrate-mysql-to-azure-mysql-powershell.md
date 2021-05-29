@@ -9,7 +9,7 @@ manager: "arthiaga"
 ms.reviewer: "arthiaga"
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 ms.topic: tutorial
 ms.date: 04/11/2021
 ---

@@ -8,15 +8,9 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: how-to
-author: cawrites
-ms.author: chadam
-ms.reviewer:
-ms.date: 06/25/2019
----
 
 # Move resources to new region - Azure SQL Database & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
 This article teaches you a generic workflow for how to move your database or managed instance to a new region.
 
 ## Overview
