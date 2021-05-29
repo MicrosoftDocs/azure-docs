@@ -137,7 +137,7 @@ Helm release deployment succeeded
 > The above command without the location parameter specified creates the Azure Arc enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
 
 > [!NOTE]
-> If you are logged into Azure CLI using a service principal, [additional permissions](troubleshooting.md#enable-custom-locations-using-service-principal) are required on the service principal for enabling the custom location feature when connecting the cluster to Azure Arc.
+> If you are logged into Azure CLI using a service principal, an [additional parameter](troubleshooting.md#enable-custom-locations-using-service-principal) needs to be set for enabling the custom location feature on the cluster.
 
 ## 4. Verify cluster connection
 
