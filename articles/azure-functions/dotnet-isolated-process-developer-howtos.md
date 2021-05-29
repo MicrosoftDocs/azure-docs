@@ -17,22 +17,23 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
+::: zone pivot="development-environment-vscode,development-environment-cli"  
 + [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3381, or a later version.
 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.20, or a later version.  
-::: zone pivot="development-environment-vscode"
+::: zone-end  
+::: zone pivot="development-environment-vscode"  
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
 
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.3.0 or newer.
-::: zone-end
-::: zone pivot="development-environment-vs"
+::: zone-end  
+::: zone pivot="development-environment-vs"  
 + [Visual Studio 2019](https://azure.microsoft.com/downloads/), including the **Azure development** workload.  
-.NET isolated function project templates and publishing aren't currently available in Visual Studio.
-::: zone-end
+::: zone-end  
 
 ## Create a local function project
 
