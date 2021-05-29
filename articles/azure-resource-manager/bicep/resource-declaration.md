@@ -30,11 +30,20 @@ You set a symbolic name for the resource. In the preceding example, the symbolic
 Each resource has a name. When setting the resource name, pay attention to the [rules and restrictions for resource names](../management/resource-name-rules.md).
 
 ```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'examplestorage'
+  ...
+}
+```
+
+Typically, you'd set the name to a parameter so you can pass in different values during deployment.
+
+```bicep
 @minLength(3)
 @maxLength(24)
 param storageAccountName string
 
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageAccountName
   ...
 }
@@ -45,13 +54,20 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 Many resources require a location. You can determine if the resource needs a location either through intellisense or [template reference](/azure/templates/). The following example adds a location parameter that is used for the storage account.
 
 ```bicep
-@minLength(3)
-@maxLength(24)
-param storageAccountName string
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'examplestorage'
+  location: 'eastus'
+  ...
+}
+```
+
+Typically, you'd set location to a parameter so you can deploy to different locations.
+
+```bicep
 param location string = resourceGroup().location
 
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageAccountName
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'examplestorage'
   location: location
   ...
 }
@@ -88,14 +104,9 @@ The preceding properties are generic to most resource types. After setting those
 Use intellisense or [template reference](/azure/templates/) to determine which properties are available and which ones are required. The following example sets the remaining properties for a storage account.
 
 ```bicep
-@minLength(3)
-@maxLength(24)
-param storageAccountName string
-param location string = resourceGroup().location
-
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageAccountName
-  location: location
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'examplestorage'
+  location: 'eastus'
   sku: {
     name: 'Standard_LRS'
     tier: 'Standard'
