@@ -15,11 +15,11 @@ ms.service: azure-object-anchors
 
 Although not required to use an Object Anchors model to detect an object, there's an easy way to visualize the model before using it if you want.
 
-Follow the steps in our [Unity app Quickstart](quickstarts/get-started-unity-hololens.md), with one minor change. When building the sample scene, instead of opening **AOASampleScene**, add **VisualizeScene** to the scene build list. Then, in **Build Settings**, ensure that *only* *VisualizeScene* has a checkmark next to it: all other scenes shouldn't be included.
+Follow the steps in our [Unity app Quickstart](quickstarts/get-started-unity-hololens.md), with one minor change. When building the sample scene, instead of opening **AOASampleScene**, add the **VisualizeScene** to the scene build list. Then, in **Build Settings**, ensure that *only* **VisualizeScene** has a checkmark next to it: all other scenes shouldn't be included.
 
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-build-settings-visualize.png" alt-text="build settings visualize":::
 
-Close the **Build Settings** dialog *instead* of clicking the **Build** button.
+Close the **Build Settings** dialog *instead* of selecting the **Build** button.
 
 In the **Hierarchy** panel, select the **Visualizer** GameObject.
 
@@ -29,7 +29,7 @@ In the **Inspector** panel, locate the **Model path** property under the **Mesh 
 
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-inspector.png" alt-text="inspector":::
 
-Click the **Play** button at the top of the Unity Editor, and then ensure the **Scene** view is selected.
+Select the **Play** button at the top of the Unity Editor, and then ensure the **Scene** view is selected.
 
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-editor.png" alt-text="play and scene view":::
 

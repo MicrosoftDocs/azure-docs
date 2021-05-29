@@ -11,8 +11,8 @@ ms.service: azure-object-anchors
 #Customer intent: Describe the model requirements for conversion.
 ---
 
-# Model R]requirements
+# Model requirements
 
 Each dimension of a model should be between 1 meter to 10 meters, and the file size should be less than 150 MB.
 
-Our currently supported formats are: `fbx`, `ply`, `obj`, `glb`, and `gltf`.
+The model formats currently supported are: `fbx`, `ply`, `obj`, `glb`, and `gltf`.
