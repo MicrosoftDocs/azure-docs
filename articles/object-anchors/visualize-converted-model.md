@@ -13,9 +13,9 @@ ms.service: azure-object-anchors
 
 # How to visualize an Object Anchors model
 
-Although not required in order to be able to use an Object Anchors model to detect an object, there is an easy way to visualize the model before using it if you want.
+Although not required to use an Object Anchors model to detect an object, there's an easy way to visualize the model before using it if you want.
 
-Follow the steps in our [Unity app Quickstart](quickstarts/get-started-unity-hololens.md), with one minor change. When building the sample scene, instead of opening **AOASampleScene**, add **VisualizeScene** to the scene build list. Then, in **Build Settings**, ensure that *only* *VisualizeScene* has a checkmark next to it: all other scenes should not be included.
+Follow the steps in our [Unity app Quickstart](quickstarts/get-started-unity-hololens.md), with one minor change. When building the sample scene, instead of opening **AOASampleScene**, add **VisualizeScene** to the scene build list. Then, in **Build Settings**, ensure that *only* *VisualizeScene* has a checkmark next to it: all other scenes shouldn't be included.
 
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-build-settings-visualize.png" alt-text="build settings visualize":::
 
@@ -33,4 +33,4 @@ Click the **Play** button at the top of the Unity Editor, and then ensure the **
 
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-editor.png" alt-text="play and scene view":::
 
-Using [Unity's scene view navigation controls](https://docs.unity3d.com/Manual/SceneViewNavigation.html), you are now able to inspect your Object Anchors model.
+Using [Unity's scene view navigation controls](https://docs.unity3d.com/Manual/SceneViewNavigation.html), you're now able to inspect your Object Anchors model.
