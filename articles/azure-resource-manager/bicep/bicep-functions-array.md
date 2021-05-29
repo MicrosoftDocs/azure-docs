@@ -82,7 +82,7 @@ Combines multiple arrays and returns the concatenated array.
 | arg1 |Yes |array |The first array for concatenation. |
 | additional arguments |No |array |Additional arrays in sequential order for concatenation. |
 
-This function can take any number of arrays and combines them.
+This function takes any number of arrays and combines them.
 
 ### Return value
 
