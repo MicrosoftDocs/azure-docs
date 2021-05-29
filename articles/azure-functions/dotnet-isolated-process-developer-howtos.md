@@ -32,7 +32,7 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.3.0 or newer.
 ::: zone-end  
 ::: zone pivot="development-environment-vs"  
-+ [Visual Studio 2019](https://azure.microsoft.com/downloads/), including the **Azure development** workload.  
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/) version 16.10 or later. Your install must include either the **Azure development** or the **ASP.NET and web development** workload.  
 ::: zone-end  
 
 ## Create a local function project
