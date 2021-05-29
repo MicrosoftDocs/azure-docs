@@ -90,7 +90,7 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Screenshot showing the added frameworks in Xcode.":::
 
-5. If it isn't already, add `$(PROJECT_DIR)/Frameworks` to `Framework Search Paths` under the project target build settings tab. To find the setting, you have change the filter from `basic` to `all`, you can also use the search bar on the right.
+5. If it isn't already, add `$(PROJECT_DIR)/Frameworks` to `Framework Search Paths` under the project target build settings tab. To find the setting, change the filter from `basic` to `all`. You can also use the search bar on the right.
 
 :::image type="content" source="../media/ios/xcode-add-framework-search-path.png" alt-text="Screenshot showing the framework search path in Xcode.":::
 
@@ -193,16 +193,16 @@ The following classes and interfaces handle some of the major features of the Az
 | MeetingUIClientGroupCallJoinOptions | MeetingUIClientMeetingJoinOptions are used for configurable options such as display name. |
 | MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
 | MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group ID to join. |
-| MeetingUIClientInCallScreenDelegate | MeetingUIClientInCallScreenDelegate ise used to provide customizations on main call screen in the UI. |
-| MeetingUIClientStagingScreenDelegate | MeetingUIClientStagingScreenDelegate ise used to provide customizations on staging call screen in the UI. |
-| MeetingUIClientConnectingScreenDelegate | MeetingUIClientConnectingScreenDelegate ise used to provide customizations on connecting call screen in the UI. |
-| MeetingUIClientIconType | MeetingUIClientIconType ise used to specify which icons could be replaced with app spefic icon. |
+| MeetingUIClientInCallScreenDelegate | MeetingUIClientInCallScreenDelegate is used to provide customizations on main call screen in the UI. |
+| MeetingUIClientStagingScreenDelegate | MeetingUIClientStagingScreenDelegate is used to provide customizations on staging call screen in the UI. |
+| MeetingUIClientConnectingScreenDelegate | MeetingUIClientConnectingScreenDelegate is used to provide customizations on connecting call screen in the UI. |
+| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app spefic icon. |
 | MeetingUIClientCall | MeetingUIClientCall describes the call and provides API's to control it. |
 | MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
 | MeetingUIClientUserRole | MeetingUIClientUserRole is used for setting the user roles in group call. |
 | MeetingUIClientAudioRoute | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`. |
-| MeetingUIClientLayoutMode | MeetingUIClientLayoutMode ise used to allow to select different in call UI modes. |
-| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize ise used notify what kind of size avatar is requested by a delegate. |
+| MeetingUIClientLayoutMode | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes. |
+| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is used notify what kind of size avatar is requested by a delegate. |
 | MeetingUIClientCallDelegate | The MeetingUIClientDelegate is used to receive events, such as changes in call state. |
 | MeetingUIClientCallIdentityProviderDelegate | The MeetingUIClientIdentityProviderDelegate is used to map user details to the users in a meeting. |
 | MeetingUIClientCallUserEventDelegate | The MeetingUIClientUserEventDelegate provides information about user actions in the UI. |

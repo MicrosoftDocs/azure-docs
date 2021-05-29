@@ -153,7 +153,7 @@ Import `TeamsAppSDK` to access Azure Communication Calling SDK from Teams Embed 
 import TeamsAppSDK
 ```
 
-Declare ACS related variables
+Declare variables for ACS usage
 ```swift
 class ViewController: UIViewController {
 
