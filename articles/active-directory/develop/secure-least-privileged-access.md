@@ -20,32 +20,30 @@ ms.reviewer: yuhko, saumadan, marsma
 
 # Enhance security with the principle of least privilege
 
-The information security principle of *least privilege* specifies that users and applications should be granted access to only the data and operations they need to perform their jobs. You can reduce the risk of unauthorized access and limit the impact of a security breach (the "blast radius") by using the Microsoft identity platform features and guidance described here.
+The information security principle of *least privilege* specifies that users and applications should be granted access to only the data and operations they need to perform their jobs. You can reduce the risk of unauthorized access and limit the impact of a security breach (the "blast radius") by following the guidance and using the Microsoft identity platform features described here.
 
-Consider implementing these least privilege measures as part of your organization's proactive [Zero Trust security strategy](/security/zero-trust/):
+Consider applying these least privilege measures as part of your organization's proactive [Zero Trust security strategy](/security/zero-trust/).
 
-- :heavy_check_mark: DO learn what makes an application **overprivileged**
-- :x: DON'T build an overprivileged application
-- :x: DON'T allow an application to become overprivileged over time
-- :heavy_check_mark: DO request a human's **consent** to grant the app permission to access only the data required for the app to function as intended
-- :heavy_check_mark: DO **build** applications with least privilege in mind during all stages of development
-- :heavy_check_mark: DO **audit** your organization's applications periodically to identify overprivileged apps and reduce the access granted to critical apps and decommission unused
+## Recommendations at a glance
+
+- Prevent **overprivileged** applications by revoking *unused* and *reducible* permissions
+- Use the identity platform's **consent** framework to require that a human grant the app permission to the minimum level of access
+- **Build** applications with least privilege in mind during all stages of development
+- **Audit** your organization's applications periodically to identify overprivileged apps
 
 ## What's an *overprivileged* application?
 
-An overprivileged application is any application that *could* access more data or *could* perform more operations than strictly required for that app or its features to function as designed.
-
-An application can be considered overprivileged if it has been granted one or more unused or reducible permissions.
+An application is considered overprivileged if it's been granted **unused** or **reducible** permissions that enable access to data or operations that aren't required for it to function as designed.
 
 - **Unused permissions**: An unused permission is a permission granted to an application whose API exposing that permission is never called by the application.
   - Example: An application displays a list of files stored in the signed-in user's OneDrive by calling the [Microsoft Graph API](/graph/overview) and leveraging the [Files.Read](/graph/permissions-reference) permission. However, the app has also been granted the [Calendars.Read](/graph/permissions-reference#calendars-permissions) permission, yet it provides no calendar features and doesn't call the Calendars API.
   - Risk: Unused permissions can provide unintended access to API functionality that could be abused by a bad actor who's exploited a security vulnerability in your application.
-  - Action: :warning: TODO - RESOLUTION HERE :warning:
+  - Action: Revoke all permissions not used by any of the API calls made by your application.
 
 - **Reducible permissions**: A reducible permission is a higher-privileged permission granted to an application when that permission has a lower-privileged alternative that would still allow the application feature to function as designed.
   - Example: An application that display user profile ii calls the Microsoft Graph API to retrieve information from the signed-in user's profile but does not provide profile editing capability has been granted the [User.ReadWrite.All] permission. The *User.ReadWrite.All* permission is considered reducible in this case because *User.Read.All* is sufficient for retrieving the user's profile information from Microsoft Graph.
-  - Risk: A bad actor that has exploited a security in your application could potentially perform more
-  - Action: :warning: TODO - RESOLUTION HERE :warning:
+  - Risk: Reducible permissions pose an escalation of privilege security risk. A bad actor that exploits a security vulnerability in your application could perform more powerful operations and access more data than their role normally allows.
+  - Action: Replace all reducible permissions with the lowest-privilege counterpart that's required for application functionality.
 
 Avoid the security risks posed by unused and reducible permissions by granting **just enough permissions**: the minimum permissions required by an application or user to perform their required tasks.
 
@@ -77,7 +75,7 @@ Organizations often hesitate to modify existing applications as it might affect 
 
 ## Next steps
 
-**Protect resource access and consent**
+**Protected resource access and consent**
 
 For more information about configuring access to protected resources and the user experience of providing consent to access those protected resources, see the following articles:
 
