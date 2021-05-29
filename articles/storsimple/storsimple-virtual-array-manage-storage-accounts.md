@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
@@ -26,7 +26,7 @@ The **Configuration** section of the StorSimple Device Manager service blade of 
   
   ![Device Manager Service dashboard](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-This tutorial explains how you can add, edit, or delete storage account credentials for your StorSimple Virtual Array. The information in this tutorial only applies to the StorSimple Virtual Array. For information on how to manage storage accounts in 8000 series, see [Use the StorSimple Manager service to manage your storage account](storsimple-manage-storage-accounts.md).
+This tutorial explains how you can add, edit, or delete storage account credentials for your StorSimple Virtual Array. The information in this tutorial only applies to the StorSimple Virtual Array. For information on how to manage storage accounts in 8000 series, see [Use the StorSimple Manager service to manage your storage account](./storsimple-8000-manage-storage-accounts.md).
 
 Storage account credentials contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key.
 
@@ -47,7 +47,7 @@ The most common tasks related to storage account credentials that can be perform
 There are three types of storage account credentials that can be used with your StorSimple device.
 
 * **Auto-generated storage account credentials** – As the name suggests, this type of storage account credential is automatically generated when the service is first created. To learn more about how this storage account credential is created, see [Create a new service](storsimple-virtual-array-manage-service.md#create-a-service).
-* **storage account credentials in the service subscription** – These are the Azure storage account credentials that are associated with the same subscription as that of the service. To learn more about how these storage account credentials are created, see [About Azure Storage Accounts](../storage/common/storage-create-storage-account.md).
+* **storage account credentials in the service subscription** – These are the Azure storage account credentials that are associated with the same subscription as that of the service. To learn more about how these storage account credentials are created, see [About Azure Storage Accounts](../storage/common/storage-account-create.md).
 * **storage account credentials outside of the service subscription** – These are the Azure storage account credentials that are not associated with your service and likely existed before the service was created.
 
 ## Add a storage account credential
@@ -147,4 +147,3 @@ To inform the StorSimple Device Manager service of the change, you need to acces
 
 ## Next steps
 * Learn how to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

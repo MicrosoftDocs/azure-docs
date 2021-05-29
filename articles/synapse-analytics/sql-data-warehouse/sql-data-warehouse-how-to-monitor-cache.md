@@ -2,34 +2,34 @@
 title: Optimize your Gen2 cache 
 description: Learn how to monitor your Gen2 cache using the Azure portal.
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.topic: conceptual
-ms.date: 09/06/2018
-ms.author: kevin
+ms.date: 11/20/2020
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
 
-# How to monitor the Gen2 cache
+# How to monitor the adaptive cache
 
-This article describes how to monitor and troubleshoot slow query performance by determining whether your workload is optimally leveraging the Gen2 cache.
+This article describes how to monitor and troubleshoot slow query performance by determining whether your workload is optimally leveraging the adaptive cache for dedicated SQL pools.
 
-The Gen2 storage architecture automatically tiers your most frequently queried columnstore segments in a cache residing on NVMe based SSDs designed for Gen2 data warehouses. Greater performance is realized when your queries retrieve segments that are residing in the cache.
+The dedicated SQL pool storage architecture automatically tiers your most frequently queried columnstore segments in a cache residing on NVMe based SSDs. You will have greater performance when your queries retrieve segments that are residing in the cache.
  
 ## Troubleshoot using the Azure portal
 
-You can use Azure Monitor to view Gen2 cache metrics to troubleshoot query performance. First go to the Azure portal and click on **Monitor**, **Metrics** and **+ Select a scope**:
+You can use Azure Monitor to view  cache metrics to troubleshoot query performance. First go to the Azure portal and click on **Monitor**, **Metrics** and **+ Select a scope**:
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![Screenshot shows Select a scope selected from Metrics in the Azure portal.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
-Use the search and drop down bars to locate your data warehouse. Then select apply.
+Use the search and drop down bars to locate your dedicated SQL pool. Then select apply.
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![Screenshot shows the Select a scope pane where you can select your data warehouse.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-The key metrics for troubleshooting the Gen2 cache are **Cache hit percentage** and **Cache used percentage**. Select **Cache hit percentage** then use the **add metric** button to add **Cache used percentage**. 
+The key metrics for troubleshooting the cache are **Cache hit percentage** and **Cache used percentage**. Select **Cache hit percentage** then use the **add metric** button to add **Cache used percentage**. 
 
 ![Cache Metrics](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

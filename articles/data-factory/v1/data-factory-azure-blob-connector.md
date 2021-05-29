@@ -1,21 +1,11 @@
 ---
 title: Copy data to/from Azure Blob Storage
 description: 'Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Copy data to or from Azure Blob Storage using Azure Data Factory
@@ -30,18 +20,18 @@ robots: noindex
 This article explains how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Blob Storage. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
 ## Overview
-You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. The following table provides a list of data stores supported as sources or sinks by the copy activity. For example, you can move data **from** a SQL Server database or an Azure SQL database **to** an Azure blob storage. And, you can copy data **from** Azure blob storage **to** an Azure SQL Data Warehouse or an Azure Cosmos DB collection.
+You can copy data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store. The following table provides a list of data stores supported as sources or sinks by the copy activity. For example, you can move data **from** a SQL Server database or a database in Azure SQL Database **to** an Azure blob storage. And, you can copy data **from** Azure blob storage **to** Azure Synapse Analytics or an Azure Cosmos DB collection.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Supported scenarios
 You can copy data **from Azure Blob Storage** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to Azure Blob Storage**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!IMPORTANT]
 > Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports **reading from block, append, or page blobs**, but supports **writing to only block blobs**. Azure Premium Storage is not supported as a sink because it is backed by page blobs.
@@ -58,8 +48,8 @@ You can also use the following tools to create a pipeline: **Visual Studio**, **
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create a **data factory**. A data factory may contain one or more pipelines.
-2. Create **linked services** to link input and output data stores to your data factory. For example, if you are copying data from an Azure blob storage to an Azure SQL database, you create two linked services to link your Azure storage account and Azure SQL database to your data factory. For linked service properties that are specific to Azure Blob Storage, see [linked service properties](#linked-service-properties) section.
-2. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the blob container and folder that contains the input data. And, you create another dataset to specify the SQL table in the Azure SQL database that holds the data copied from the blob storage. For dataset properties that are specific to Azure Blob Storage, see [dataset properties](#dataset-properties) section.
+2. Create **linked services** to link input and output data stores to your data factory. For example, if you are copying data from an Azure blob storage to Azure SQL Database, you create two linked services to link your Azure storage account and Azure SQL Database to your data factory. For linked service properties that are specific to Azure Blob Storage, see [linked service properties](#linked-service-properties) section.
+2. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the blob container and folder that contains the input data. And, you create another dataset to specify the SQL table in Azure SQL Database that holds the data copied from the blob storage. For dataset properties that are specific to Azure Blob Storage, see [dataset properties](#dataset-properties) section.
 3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. In the example mentioned earlier, you use BlobSource as a source and SqlSink as a sink for the copy activity. Similarly, if you are copying from Azure SQL Database to Azure Blob Storage, you use SqlSource and BlobSink in the copy activity. For copy activity properties that are specific to Azure Blob Storage, see [copy activity properties](#copy-activity-properties) section. For details on how to use a data store as a source or a sink, click the link in the previous section for your data store.
 
 When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For samples with JSON definitions for Data Factory entities that are used to copy data to/from an Azure Blob Storage, see [JSON examples](#json-examples-for-copying-data-to-and-from-blob-storage  ) section of this article.
@@ -69,14 +59,14 @@ The following sections provide details about JSON properties that are used to de
 ## Linked service properties
 There are two types of linked services you can use to link an Azure Storage to an Azure data factory. They are: **AzureStorage** linked service and **AzureStorageSas** linked service. The Azure Storage linked service provides the data factory with global access to the Azure Storage. Whereas, The Azure Storage SAS (Shared Access Signature) linked service provides the data factory with restricted/time-bound access to the Azure Storage. There are no other differences between these two linked services. Choose the linked service that suits your needs. The following sections provide more details on these two linked services.
 
-[!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
+[!INCLUDE [data-factory-azure-storage-linked-services](includes/data-factory-azure-storage-linked-services.md)]
 
 ## Dataset properties
 To specify a dataset to represent input or output data in an Azure Blob Storage, you set the type property of the dataset to: **AzureBlob**. Set the **linkedServiceName** property of the dataset to the name of the Azure Storage or Azure Storage SAS linked service.  The type properties of the dataset specify the **blob container** and the **folder** in the blob storage.
 
 For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-Data factory supports the following CLS-compliant .NET based type values for providing type information in “structure” for schema-on-read data sources like Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. Data Factory automatically performs type conversions when moving data from a source data store to a sink data store.
+Data factory supports the following CLS-compliant .NET based type values for providing type information in "structure" for schema-on-read data sources like Azure blob: Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. Data Factory automatically performs type conversions when moving data from a source data store to a sink data store.
 
 The **typeProperties** section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **AzureBlob** dataset has the following properties:
 
@@ -186,7 +176,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
 3. In the **New data factory** pane:  
-    1. Enter **ADFBlobConnectorDF** for the **name**. The name of the Azure data factory must be globally unique. If you receive the error: `*Data factory name “ADFBlobConnectorDF” is not available`, change the name of the data factory (for example, yournameADFBlobConnectorDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+    1. Enter **ADFBlobConnectorDF** for the **name**. The name of the Azure data factory must be globally unique. If you receive the error: `*Data factory name "ADFBlobConnectorDF" is not available`, change the name of the data factory (for example, yournameADFBlobConnectorDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
     2. Select your Azure **subscription**.
     3. For Resource Group, select **Use existing** to select an existing resource group (or) select **Create new** to enter a name for a resource group.
     4. Select a **location** for the data factory.
@@ -221,14 +211,14 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 5. On **Choose the input file or folder** page:
     1. Double-click **adfblobcontainer**.
     2. Select **input**, and click **Choose**. In this walkthrough, you select the input folder. You could also select the emp.txt file in the folder instead.
-        ![Copy Tool - Choose the input file or folder](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        ![Copy Tool - Choose the input file or folder 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. On the **Choose the input file or folder** page:
     1. Confirm that the **file or folder** is set to **adfblobconnector/input**. If the files are in sub folders, for example, 2017/04/01, 2017/04/02, and so on, enter adfblobconnector/input/{year}/{month}/{day} for file or folder. When you press TAB out of the text box, you see three drop-down lists to select formats for year (yyyy), month (MM), and day (dd).
     2. Do not set **Copy file recursively**. Select this option to recursively traverse through folders for files to be copied to the destination.
     3. Do not the **binary copy** option. Select this option to perform a binary copy of source file to the destination. Do not select for this walkthrough so that you can see more options in the next pages.
     4. Confirm that the **Compression type** is set to **None**. Select a value for this option if your source files are compressed in one of the supported formats.
     5. Click **Next**.
-    ![Copy Tool - Choose the input file or folder](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    ![Copy Tool - Choose the input file or folder 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. On the **File format settings** page, you see the delimiters and the schema that is auto-detected by the wizard by parsing the file.
     1. Confirm the following options:  
         a. The **file format** is set to **Text format**. You can see all the supported formats in the drop-down list. For example: JSON, Avro, ORC, Parquet.
@@ -509,7 +499,7 @@ Azure Data Factory supports two types of Azure Storage linked services: **AzureS
 
 **Azure Blob input dataset:**
 
-Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs Data Factory that the table is external to the data factory and is not produced by an activity in the data factory.
+Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. "external": "true" setting informs Data Factory that the table is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {
@@ -549,7 +539,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 ```
 **Azure SQL output dataset:**
 
-The sample copies data to a table named “MyTable” in an Azure SQL database. Create the table in your Azure SQL database with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
+The sample copies data to a table named "MyTable" in Azure SQL Database. Create the table in your SQL database with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
 ```json
 {
@@ -657,9 +647,9 @@ Azure Data Factory supports two types of Azure Storage linked services: **AzureS
 
 **Azure SQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data.
+The sample assumes you have created a table "MyTable" in Azure SQL and it contains a column called "timestampcolumn" for time series data.
 
-Setting “external”: ”true” informs Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {

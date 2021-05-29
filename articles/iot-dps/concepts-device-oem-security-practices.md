@@ -171,12 +171,12 @@ At this point in the process, install the DPS client along with the ID scope and
     > If you're using a software TPM, you can install it now.  Extract the EK_pub at the same time.
 
 #### Step 4: Device is packaged and sent to the warehouse
-A device can sit in a warehouse for 6-12 months before being deployed. 
+A device can sometimes sit in a warehouse for up to a year before being deployed and provisioned with DPS.  If a device sits in a warehouse for a long time before deployment, customers who deploy the device might need to update the firmware, software, or expired credentials.
 
 #### Step 5: Device is installed into the location
 After the device arrives at its final location, it goes through automated provisioning with DPS.
 
-For more information, see [Autoprovisioning concepts](concepts-auto-provisioning.md) and [TPM attestation](concepts-tpm-attestation.md). 
+For more information, see [provisioning](about-iot-dps.md#provisioning-process) and [TPM attestation](concepts-tpm-attestation.md). 
 
 ## Resources
 

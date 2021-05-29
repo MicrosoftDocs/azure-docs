@@ -12,7 +12,7 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
 ---
@@ -22,7 +22,7 @@ With the explosion of social media, electronic commerce, and the hyper-personali
 
 Standard content delivery network (CDN) capability includes the ability to cache files closer to end users to speed up delivery of static files. However, with dynamic web applications, caching that content in edge locations isn't possible because the server generates the content in response to user behavior. Speeding up the delivery of such content is more complex than traditional edge caching and requires an end-to-end solution that finely tunes each element along the entire data path from inception to delivery. With Azure CDN dynamic site acceleration (DSA) optimization, the performance of web pages with dynamic content is measurably improved.
 
-**Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation. Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+**Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation. Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md).
 
 > [!Important]
 > For **Azure CDN from Akamai** profiles, you are allowed to change the optimization of a CDN endpoint after it has been created.
@@ -160,7 +160,7 @@ To access caching rules:
 
 2. Create a global or custom caching rule to turn on caching for your DSA endpoint. 
 
-For **Azure CDN Premium from Verizon** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](cdn-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
+For **Azure CDN Premium from Verizon** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](./cdn-verizon-premium-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
 
 To access the rules engine:
     
@@ -179,7 +179,4 @@ To access the rules engine:
 Alternatively, you can use two CDN endpoints: one endpoint optimized with DSA to deliver dynamic assets and another endpoint optimized with a static optimization type, such as general web delivery, to delivery cacheable assets. Modify your webpage URLs to link directly to the asset on the CDN endpoint you plan to use. 
 
 For example: 
-`mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`. 
-
-
-
+`mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint.  The html page references multiple static assets such as JavaScript libraries or images that are loaded from the static CDN endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`.

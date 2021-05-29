@@ -5,8 +5,9 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 05/07/2021
 ms.author: robinsh
+ms.custom: devx-track-csharp
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing
@@ -146,11 +147,23 @@ This grouping query would return a result similar to the following example:
 
 In this example, three devices reported successful configuration, two are still applying the configuration, and one reported an error.
 
-Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time of all disconnected devices use the following query:
+Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time along with the device ID of all enabled devices that are disconnected, use the following query:
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+SELECT DeviceId, LastActivityTime FROM devices WHERE status = 'enabled' AND connectionState = 'Disconnected'
 ```
+
+Here is an example query result of that query in **Query Explorer** for an IoT Hub:
+
+```json
+[
+  {
+    "deviceId": "AZ3166Device",
+    "lastActivityTime": "2021-05-07T00:50:38.0543092Z"
+  }
+]
+```
+
 
 ### Module twin queries
 
@@ -228,7 +241,7 @@ The query object exposes multiple **Next** values, depending on the deserializat
 ### Limitations
 
 > [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 

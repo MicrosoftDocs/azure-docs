@@ -1,7 +1,9 @@
 ---
 title: Manage model and learning settings - Personalizer
 description: The machine-learned model and learning settings can be exported for backup in your own source control system.
-ms.topic: conceptual
+ms.service: cognitive-services
+ms.subservice: personalizer
+ms.topic: how-to
 ms.date: 02/20/2020
 ---
 
@@ -48,4 +50,4 @@ The [learning policy](concept-active-learning.md#understand-learning-policy-sett
 
 ## Next steps
 
-[Learn how to manage a learning policy](how-to-manage-model.md)
+[Analyze your learning loop with an offline evaluation](how-to-offline-evaluation.md)

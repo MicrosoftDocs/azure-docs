@@ -1,14 +1,13 @@
 ---
 title: Modify an Azure virtual machine scale set
 description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI
-author: mimckitt
-tags: azure-resource-manager
-
-ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
 ms.date: 03/10/2020
-ms.author: mimckitt
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Modify a virtual machine scale set
@@ -315,13 +314,13 @@ There is one type of modification to global scale set properties that does not f
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell with [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
+- Azure PowerShell with [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI with [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
+- Azure CLI with [az vmss reimage](/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -345,12 +344,12 @@ Some properties may be changed, with exceptions depending on the current value. 
 
 - **singlePlacementGroup** - If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it **may not** be modified to true.
 - **subnet** - The subnet of a scale set may be modified as long as the original subnet and the new subnet are in the same virtual network.
+- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
 
-- **SKU name**- If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/windows/resize-vm.md).
-
+- **SKU Name**- If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name. For more information, see [how to resize an Azure VM](../virtual-machines/windows/resize-vm.md). 
 
 ## VM-specific updates
 Certain modifications may be applied to specific VMs instead of the global scale set properties. Currently, the only VM-specific update that is supported is to attach/detach data disks to/from VMs in the scale set. This feature is in preview. For more information, see the [preview documentation](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
@@ -364,12 +363,12 @@ If an application is deployed to a scale set through extensions, an update to th
 It's also common for applications to be deployed through a custom image. This scenario is covered in the following section.
 
 ### OS Updates
-If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+If you use Azure platform images, you can update the image by modifying the *imageReference* (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > With platform images, it is common to specify "latest" for the image reference version. When you create, scale out, and reimage, VMs are created with the latest available version. However, it **does not** mean that the OS image is automatically updated over time as new image versions are released. A separate feature is currently in preview that provides automatic OS upgrades. For more information, see the [Automatic OS Upgrades documentation](virtual-machine-scale-sets-automatic-upgrade.md).
 
-If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## Examples
 
@@ -412,7 +411,7 @@ Alternatively, you may want to change the image your scale set uses. For example
 ### Update the load balancer for your scale set
 Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and Application Gateway properties for a scale set are part of a list, so you can use the commands to remove or add list elements instead of modifying the properties directly:
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

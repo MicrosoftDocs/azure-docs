@@ -1,14 +1,10 @@
 ---
 title: Build your first data factory (PowerShell) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Azure PowerShell.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ---
@@ -20,8 +16,6 @@ ms.date: 01/22/2018
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
->
->
 
 
 > [!NOTE]
@@ -41,7 +35,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
-* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer.
+* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/) article to install latest version of Azure PowerShell on your computer.
 * (optional) This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](/powershell/module/az.datafactory) for comprehensive documentation on Data Factory cmdlets.
 
 ## Create data factory
@@ -112,7 +106,7 @@ In this step, you link your Azure Storage account to your data factory. You use 
         }
     }
     ```
-    Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
+    Replace **account name** with the name of your Azure Storage account and **account key** with the access key of the Azure Storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 2. In Azure PowerShell, switch to the ADFGetStarted folder.
 3. You can use the **New-AzDataFactoryLinkedService** cmdlet that creates a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial requires you to pass values for the *ResourceGroupName* and *DataFactoryName* parameters. Alternatively, you can use **Get-AzDataFactory** to get a **DataFactory** object and pass the object without typing *ResourceGroupName* and *DataFactoryName* each time you run a cmdlet. Run the following command to assign the output of the **Get-AzDataFactory** cmdlet to a **$df** variable.
 
@@ -165,7 +159,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
    * You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.
    * The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice is processed unless there is an existing live cluster (**timeToLive**). The cluster is automatically deleted when the processing is done.
 
-       As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
+       As more slices are processed, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to delete containers in your Azure blob storage.
 
      See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.
 2. Run the **New-AzDataFactoryLinkedService** cmdlet that creates the linked service called HDInsightOnDemandLinkedService.
@@ -310,7 +304,7 @@ In this step, you create your first pipeline with a **HDInsightHive** activity. 
     ```
     In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process Data on an HDInsight cluster.
 
-    The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
+    The Hive script file, **partitionweblogs.hql**, is stored in the Azure Storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
 
     The **defines** section is used to specify the runtime settings that be passed to the hive script as Hive configuration values (e.g ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 

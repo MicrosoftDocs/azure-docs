@@ -18,7 +18,7 @@ These steps show you how to use the [Azure IoT Samples for C#](https://github.co
 
 The sample code uses the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device. 
 
-If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 
@@ -32,7 +32,7 @@ This article will demonstrate individual enrollments.
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
 
-1. Make sure you have the [.NET Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows) installed on your machine. 
+1. Make sure you have the [.NET Core 2.1 SDK or later](https://dotnet.microsoft.com/download) installed on your machine. 
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 

@@ -1,14 +1,15 @@
 ---
 title: FedRAMP High blueprint sample overview
 description: Overview of the FedRAMP High blueprint sample. This blueprint sample helps customers assess specific FedRAMP High controls.
-ms.date: 01/31/2020
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Overview of the FedRAMP High blueprint sample
 
-The FedRAMP High blueprint sample provides governance guard-rails using [Azure Policy](../../../policy/overview.md)
-that help you assess specific FedRAMP High controls. This blueprint helps customers deploy a core
-set of policies for any Azure-deployed architecture that must implement FedRAMP High controls.
+The FedRAMP High blueprint sample provides governance guardrails using
+[Azure Policy](../../../policy/overview.md) that help you assess specific FedRAMP High controls.
+This blueprint helps customers deploy a core set of policies for any Azure-deployed architecture
+that must implement FedRAMP High controls.
 
 ## Control mapping
 
@@ -26,7 +27,7 @@ articles to learn about the control mapping and how to deploy this sample:
 > [FedRAMP High blueprint - Control mapping](./control-mapping.md)
 > [FedRamp High blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

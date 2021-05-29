@@ -1,46 +1,50 @@
 ---
-title: 'Export your provisioning configuration and roll back to a known good state for disaster recovery.| Microsoft Docs'
-description: Learn how to export your provisioning configuration and roll back to a known good state for disaster recovery.
+title: Export Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory
+description: Learn how to export your Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory.
 services: active-directory
-author: cmmdesai
-documentationcenter: na
-manager: daveba
-
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+author: kenwith
+manager: mtillman
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.subservice: app-provisioning
+ms.topic: how-to
 ms.workload: identity
-ms.date: 03/19/2020
-ms.author: chmutali
-
-ms.collection: M365-identity-device-management
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: arvinh
 ---
-# Export your provisioning configuration and roll back to a known good state
+
+# How-to: Export provisioning configuration and roll back to a known good state
+
+In this article, you'll learn how to:
+
+- Export and import your provisioning configuration from the Azure portal
+- Export and import your provisioning configuration by using the Microsoft Graph API
 
 ## Export and import your provisioning configuration from the Azure portal
 
-### How can I export my provisioning configuration?
+### Export your provisioning configuration
+
 To export your configuration:
+
 1. In the [Azure portal](https://portal.azure.com/), on the left navigation panel, select **Azure Active Directory**.
-2. In the **Azure Active Directory** pane, select **Enterprise applications** and choose your application.
-3. In the left navigation pane, select **provisioning**. From the provisioning configuration page, click on **attribute mappings**, then **show advanced options**, and finally **review your schema**. This will take you to the schema editor. 
-5. Click on download in the command bar at the top of the page to download your schema.
+1. In the **Azure Active Directory** pane, select **Enterprise applications** and choose your application.
+1. In the left navigation pane, select **provisioning**. From the provisioning configuration page, click on **attribute mappings**, then **show advanced options**, and finally **review your schema**. This will take you to the schema editor.
+1. Click on download in the command bar at the top of the page to download your schema.
 
 ### Disaster recovery - roll back to a known good state
-Exporting and saving your configuration allows you to roll back to a previous version of your configuration. We recommend exporting your provisioning configuration and saving it for later use anytime you make a change to your attribute mappings or scoping filters. All you need to do is open up the JSON file that you downloaded in the steps above, copy the entire contents of the JSON file, replace the entire contents of the JSON payload in the schema editor, and then save. If there is an active provisioning cycle, it will complete and the next cycle will use the updated schema. The next cycle will also be an initial cycle, which reevaluates every user and group based on the new configuration. Consider the following when rolling back to a previous configuration:
-* Users will be evaluated again to determine if they should be in scope. If the scoping filters have changed a user is not in scope any more they will be disabled. While this is the desired behavior in most cases, there are times where you may want to prevent this and can use the [skip out of scope deletions](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) functionality. 
-* Changing your provisioning configuration restarts the service and triggers an [initial cycle](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
+Exporting and saving your configuration allows you to roll back to a previous version of your configuration. We recommend exporting your provisioning configuration and saving it for later use anytime you make a change to your attribute mappings or scoping filters. All you need to do is open up the JSON file that you downloaded in the steps above, copy the entire contents of the JSON file, replace the entire contents of the JSON payload in the schema editor, and then save. If there is an active provisioning cycle, it will complete and the next cycle will use the updated schema. The next cycle will also be an initial cycle, which reevaluates every user and group based on the new configuration. Consider the following when rolling back to a previous configuration:
+
+- Users will be evaluated again to determine if they should be in scope. If the scoping filters have changed a user is not in scope any more they will be disabled. While this is the desired behavior in most cases, there are times where you may want to prevent this and can use the [skip out of scope deletions](./skip-out-of-scope-deletions.md) functionality. 
+- Changing your provisioning configuration restarts the service and triggers an [initial cycle](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## Export and import your provisioning configuration by using the Microsoft Graph API
-You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration. 
+
+You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration.
 
 ### Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
-1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
+1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app.
 1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Microsoft Graph Explorer operations.
 
    ![Workday App Service Principal ID](./media/export-import-provisioning-configuration/wd_export_01.png)
@@ -95,4 +99,4 @@ In the "Request Headers" tab, add the Content-Type header attribute with value â
 
    [![Request Headers](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-Click on the "Run Query" button to import the new schema.
+Select **Run Query** to import the new schema.

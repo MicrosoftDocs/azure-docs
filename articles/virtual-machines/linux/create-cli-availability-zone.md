@@ -1,24 +1,24 @@
 ---
-title: Create a zoned Linux VM with the Azure CLI 
-description: Create a Linux VM in an availability zone with the Azure CLI
+title: Create a zoned VM with the Azure CLI 
+description: Create a virtual machine in an availability zone with the Azure CLI
 author: cynthn
-ms.service: virtual-machines-linux
-ms.topic: article
+ms.service: virtual-machines
+ms.topic: how-to
 ms.date: 04/05/2018
 ms.author: cynthn
 ---
 
-# Create a Linux virtual machine in an availability zone with the Azure CLI
+# Create a virtual machine in an availability zone using Azure CLI
 
 This article steps through using the Azure CLI to create a Linux VM in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#services-support-by-region).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
 
 Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index).
 
 
 ## Check VM SKU availability
-The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](sizes.md).
+The availability of VM sizes, or SKUs, may vary by region and zone. To help you plan for the use of Availability Zones, you can list the available VM SKUs by Azure region and zone. This ability makes sure that you choose an appropriate VM size, and obtain the desired resiliency across zones. For more information on the different VM types and sizes, see [VM Sizes overview](../sizes.md).
 
 You can view the available VM SKUs with the [az vm list-skus](/cli/azure/vm) command. The following example lists available VM SKUs in the *eastus2* region:
 
@@ -183,8 +183,4 @@ The output shows that the IP address is in the same availability zone as the VM:
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.
-
-
-
-
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.

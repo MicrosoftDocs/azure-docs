@@ -30,7 +30,7 @@ To get started with Logic Apps, start with [creating your first logic app](quick
 
 Azure Functions is a service for easily running pieces of code or "functions" in the cloud. You can write only the code necessary for the current problem, without worrying about an entire app or the infrastructure required. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Python, or PHP. You pay only for the time your code runs and Azure scales as necessary.
 
-To get started with Azure Functions, start with [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md). For more technical information about Functions, see the [developer reference](../azure-functions/functions-reference.md).
+To get started with Azure Functions, start with [Create your first Azure Function](../azure-functions/functions-get-started.md). For more technical information about Functions, see the [developer reference](../azure-functions/functions-reference.md).
 
 ## How can I build and deploy serverless apps in Azure?
 

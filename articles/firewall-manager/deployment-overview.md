@@ -1,19 +1,17 @@
 ---
-title: Azure Firewall Manager Preview deployment overview
-description: Learn the high-level deployment steps required for Azure Firewall Manager Preview
+title: Azure Firewall Manager deployment overview
+description: Learn the high-level deployment steps required for Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
-ms.topic: overview
-ms.date: 02/18/2020
+ms.topic: conceptual
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 
-# Azure Firewall Manager Preview deployment overview
+# Azure Firewall Manager deployment overview
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-There's more than one way to deploy Azure Firewall Manager Preview, but the following general process is recommended.
+There's more than one way to deploy Azure Firewall Manager, but the following general process is recommended.
 
 ## General deployment process
 
@@ -62,7 +60,16 @@ There's more than one way to deploy Azure Firewall Manager Preview, but the foll
 > - You can't have more than one hub per virtual wan per region. But you can add multiple virtual WANs in the region to achieve this.
 > - You can't have overlapping IP spaces for hubs in a vWAN.
 > - Your hub VNet connections must be in the same region as the hub.
+>
+> For more known issues, see [What is Azure Firewall Manager?](overview.md#known-issues)
+
+## Convert virtual networks
+
+The following information applies if you convert an existing virtual network to a hub virtual network:
+
+- If the virtual network has an existing Azure Firewall, you select a Firewall Policy to associate with the existing firewall. The firewall provisioning status will be updating while the firewall policy replaces firewall rules. During the provisioning state, the firewall continues processing traffic and has no downtime. You can import existing rules to a Firewall Policy using Firewall Manager or Azure PowerShell.
+- If the virtual network doesn't have an associated Azure Firewall, a firewall is deployed and the Firewall Policy is associated with the new firewall.
 
 ## Next steps
 
-- [Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal](secure-cloud-network.md)
+- [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)

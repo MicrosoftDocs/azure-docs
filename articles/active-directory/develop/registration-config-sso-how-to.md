@@ -7,12 +7,12 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
+ms.custom: aaddev
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-
+ROBOTS: NOINDEX
 ---
 
 # How to configure single sign-on for an application
@@ -23,20 +23,20 @@ Enabling federated single sign-on (SSO) in your app is automatically enabled whe
 
 * If you’re building a mobile app, you may need additional configurations to enable brokered or non-brokered SSO.
 
-For Android, see [Enabling Cross App SSO in Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android).<br>
+For Android, see [Enabling Cross App SSO in Android](../azuread-dev/howto-v1-enable-sso-android.md).<br>
 
-For iOS, see [Enabling Cross App SSO in iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
+For iOS, see [Enabling Cross App SSO in iOS](../azuread-dev/howto-v1-enable-sso-ios.md).
 
 ## Next steps
 
-[Azure AD SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[Azure AD SSO](../manage-apps/what-is-single-sign-on.md)<br>
 
-[Enabling Cross App SSO in Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[Enabling Cross App SSO in Android](../azuread-dev/howto-v1-enable-sso-android.md)<br>
 
-[Enabling Cross App SSO in iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[Enabling Cross App SSO in iOS](../azuread-dev/howto-v1-enable-sso-ios.md)<br>
 
-[Integrating Apps to AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Integrating Apps to AzureAD](./quickstart-register-app.md)<br>
 
-[Consent and Permissioning for AzureAD v2.0 converged Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md)<br>
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

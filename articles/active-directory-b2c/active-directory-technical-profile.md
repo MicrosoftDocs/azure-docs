@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the Azure Active 
 
 The **Name** attribute of the **Protocol** element needs to be set to `Proprietary`. The **handler** attribute must contain the fully qualified name of the protocol handler assembly `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
-Following [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack) Azure AD technical profiles include the **AAD-Common** technical profile. The Azure AD technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
+Following [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) Azure AD technical profiles include the **AAD-Common** technical profile. The Azure AD technical profiles don't specify the protocol because the protocol is configured in the **AAD-Common** technical profile:
  
 - **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingAlternativeSecurityId-NoError** - Look up a social account in the directory.
 - **AAD-UserWriteUsingAlternativeSecurityId** - Create a new social account.
@@ -37,7 +37,7 @@ Following [custom policy starter pack](custom-policy-get-started.md#custom-polic
 
 The following example shows the **AAD-Common** technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -60,13 +60,13 @@ To read, update, or delete an existing user account, the input claim is a key th
 
 To create a new user account, the input claim is a key that uniquely identifies a local or federated account. For example, local account: **signInNames.emailAddress**, or **signInNames.userName**. For a federated account: the **alternativeSecurityId**.
 
-The [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) element may contain a collection of input claims transformation elements that are used to modify the input claim or generate new one.
+The [InputClaimsTransformations](technicalprofiles.md#input-claims-transformations) element may contain a collection of input claims transformation elements that are used to modify the input claim or generate new one.
 
 ## OutputClaims
 
 The **OutputClaims** element contains a list of claims returned by the Azure AD technical profile. You may need to map the name of the claim defined in your policy to the name defined in Azure Active Directory. You can also include claims that aren't returned by the Azure Active Directory, as long as you set the `DefaultValue` attribute.
 
-The [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
+The [OutputClaimsTransformations](technicalprofiles.md#output-claims-transformations) element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
 For example, the **AAD-UserWriteUsingLogonEmail** technical profile creates a local account and returns the following claims:
 
@@ -92,7 +92,7 @@ The **PersistedClaims** element contains all of the values that should be persis
 
 The **AAD-UserWriteUsingLogonEmail** technical profile, which creates new local account, persists following claims:
 
-```XML
+```xml
   <PersistedClaims>
     <!-- Required claims -->
     <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
@@ -122,7 +122,7 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 
 The **Read** operation reads data about a single user account. The following technical profile reads data about a user account using the user's objectId:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -152,7 +152,7 @@ The **Read** operation reads data about a single user account. The following tec
 
 The **Write** operation creates or updates a single user account. The following technical profile creates new social account:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Write</Item>
@@ -192,7 +192,7 @@ The **Write** operation creates or updates a single user account. The following 
 
 The **DeleteClaims** operation clears the information from a provided list of claims. The following technical profile deletes claims:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaims</Item>
@@ -213,7 +213,7 @@ The **DeleteClaims** operation clears the information from a provided list of cl
 
 The **DeleteClaimsPrincipal** operation deletes a single user account from the directory. The following technical profile deletes a user account from the directory using the user principal name:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -228,7 +228,7 @@ The **DeleteClaimsPrincipal** operation deletes a single user account from the d
 
 The following technical profile deletes a social user account using **alternativeSecurityId**:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -247,8 +247,8 @@ The following technical profile deletes a social user account using **alternativ
 | Operation | Yes | The operation to be performed. Possible values: `Read`, `Write`, `DeleteClaims`, or `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | No | Raise an error if the user object does not exist in the directory. Possible values: `true` or `false`. |
 | RaiseErrorIfClaimsPrincipalAlreadyExists | No | Raise an error if the user object already exists. Possible values: `true` or `false`.|
-| ApplicationObjectId | No | The application object identifier for extension attributes. Value: ObjectId of an application. For more information, see [Use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md). |
-| ClientId | No | The client identifier for accessing the tenant as a third party. For more information, see [Use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md) |
+| ApplicationObjectId | No | The application object identifier for extension attributes. Value: ObjectId of an application. For more information, see [Use custom attributes](user-flow-custom-attributes.md?pivots=b2c-custom-policy). |
+| ClientId | No | The client identifier for accessing the tenant as a third party. For more information, see [Use custom attributes in a custom profile edit policy](user-flow-custom-attributes.md?pivots=b2c-custom-policy) |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
 ### UI elements
@@ -265,7 +265,7 @@ The following settings can be used to configure the error message displayed upon
 
 See the following article, for example of using Azure AD technical profile:
 
-- [Add claims and customize user input using custom policies in Azure Active Directory B2C](custom-policy-configure-user-input.md)
+- [Add claims and customize user input using custom policies in Azure Active Directory B2C](configure-user-input.md)
 
 
 

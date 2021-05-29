@@ -16,7 +16,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* [Python 2.7 or 3.4](https://www.python.org/) and higher.
+* [Python 2.7 or 3.6+](https://www.python.org/).
 
 * The [Azure Image Search client library](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) for Python
     * Install using `pip install azure-cognitiveservices-search-imagesearch`
@@ -72,13 +72,12 @@ else:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Bing Image Search single-page app tutorial](../../tutorial-bing-image-search-single-page-app.md)
 
 ## See also
 
-* [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [What is Bing Image Search?](../../overview.md)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Python samples for the Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
-* [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure Cognitive Services Documentation](../../../index.yml)
+* [Bing Image Search API reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

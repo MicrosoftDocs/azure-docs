@@ -1,13 +1,14 @@
 ---
 title: Encrypt disks for Azure scale sets with Azure PowerShell
 description: Learn how to use Azure PowerShell to encrypt VM instances and attached disks in a Windows virtual machine scale set
-author: msmbaldwin
-manager: rkarlin
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: disks
 ms.date: 10/15/2019
-ms.author: mbaldwin
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
@@ -46,7 +47,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 ## Create a scale set
 
-First, set an administrator username and password for the VM instances with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+First, set an administrator username and password for the VM instances with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

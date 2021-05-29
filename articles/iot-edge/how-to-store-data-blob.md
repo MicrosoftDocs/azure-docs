@@ -12,7 +12,9 @@ services: iot-edge
 
 # Store data at the edge with Azure Blob Storage on IoT Edge
 
-Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Azure Blob Storage on IoT Edge provides a [block blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
 This module is useful in scenarios:
 
@@ -76,7 +78,7 @@ The name of this setting is `deviceToCloudUploadProperties`. If you are using th
 | ----- | ----- | ---- |
 | uploadOn | true, false | Set to `false` by default. If you want to turn the feature on, set this field to `true`. <br><br> Environment variable: `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Allows you to choose the order in which the data is copied to Azure. Set to `OldestFirst` by default. The order is determined by last modified time of Blob. <br><br> Environment variable: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. <br><br> You can choose to specify Azure Storage SAS connection string here. But you have to update this property when it expires. <br><br> Environment variable: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. <br><br> You can choose to specify Azure Storage SAS connection string here. But you have to update this property when it expires. SAS permissions may include create access for containers and create, write, and add access for blobs.  <br><br> Environment variable: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. <br><br> Environment variable: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | Set to `false` by default. When it is set to `true`, it will automatically delete the data when upload to cloud storage is finished. <br><br> **CAUTION**: If you are using append blobs, this setting will delete append blobs from local storage after a successful upload, and any future Append Block operations to those blobs will fail. Use this setting with caution, do not enable this if your application does infrequent append operations or does not support continuous append operations<br><br> Environment variable: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`. |
 
@@ -87,7 +89,7 @@ The name of this setting is `deviceAutoDeleteProperties`. If you are using the I
 | Property | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | deleteOn | true, false | Set to `false` by default. If you want to turn the feature on, set this field to `true`. <br><br> Environment variable: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires. <br><br> Environment variable: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires. Current maximum minutes allowed is 35791. <br><br> Environment variable: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true.  <br><br> **CAUTION**: If you are using append blobs, this setting will delete append blobs from local storage when the value expires, and any future Append Block operations to those blobs will fail. You may want to make sure the expiry value is large enough for the expected frequency of append operations performed by your application.<br><br> Environment variable: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## Using SMB share as your local storage
@@ -155,7 +157,7 @@ sudo chmod -R 700 <blob-dir>
 
 ## Configure log files
 
-For information on configuring log files for your module, see these [production best practices](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics).
+For information on configuring log files for your module, see these [production best practices](./production-checklist.md#set-up-logs-and-diagnostics).
 
 ## Connect to your blob storage module
 
@@ -168,7 +170,10 @@ Specify your IoT Edge device as the blob endpoint for any storage requests that 
   * `http://<device IP >:11002/<account name>`
   * `http://<IoT Edge device hostname>:11002/<account name>`
   * `http://<fully qualified domain name>:11002/<account name>`
-
+ 
+ > [!IMPORTANT]
+ > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
+ 
 ## Azure Blob Storage quickstart samples
 
 The Azure Blob Storage documentation includes quickstart sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to connect to your local blob storage module.
@@ -176,6 +181,7 @@ The Azure Blob Storage documentation includes quickstart sample code in several 
 The following quickstart samples use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+  * The Azure Blob Storage on Iot Edge module v1.4.0 and earlier are compatible with WindowsAzure.Storage 9.3.3 SDK and v1.4.1 also supports Azure.Storage.Blobs 12.8.0 SDK.
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Versions before V2.1 of the Python SDK have a known issue where the module does not return blob creation time. Because of that issue, some methods like list blobs does not work. As a workaround, explicitly set the API version on the blob client to '2017-04-17'. Example:  `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Append Blob Sample](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
@@ -284,9 +290,9 @@ This Azure Blob Storage on IoT Edge module now provides integration with Event G
 
 ## Release Notes
 
-Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module
+Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module. You might be able to find more information related to bug fixes and remediation in the release notes of a specific version.
 
-## Feedback
+## Suggestions
 
 Your feedback is important to us to make this module and its features useful and easy to use. Please share your feedback and let us know how we can improve.
 

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Virtual Machine Scale Sets documentation
-summary: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs.
+summary: Azure virtual machine scale sets let you create and manage a group of load balanced and autoscaling VMs.
 
 metadata:
   title: Virtual Machine Scale Sets documentation
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: ju-shim
   ms.author: jushiman
-  manager: gwallace
+  ms.reviewer: mimckitt
   ms.date: 03/16/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -26,7 +26,7 @@ landingContent:
           - text: What are virtual machine scale sets?
             url: overview.md
           - text: Frequently asked questions (FAQ)
-            url: virtual-machine-scale-sets-faq.md
+            url: virtual-machine-scale-sets-faq.yml
 
   # Card
   - title: Get started
@@ -45,6 +45,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Orchestration modes
+            url: virtual-machine-scale-sets-orchestration-modes.md
           - text: Scale-in policy
             url: virtual-machine-scale-sets-scale-in-policy.md
           - text: Terminate notification
@@ -78,15 +80,6 @@ landingContent:
           - text: Autoscale a scale set with Azure PowerShell
             url: tutorial-autoscale-powershell.md
  
- # Card
-  - title: Samples
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: Example deployment for virtual machine scale sets with the Azure CLI
-            url: cli-samples.md
-          - text: Example deployment for virtual machine scale sets with Azure PowerShell
-            url: powershell-samples.md
   
 # Card
   - title: Self-paced training
@@ -94,6 +87,6 @@ landingContent:
       - linkListType: learn
         links:
           - text: Build a scalable application with virtual machine scale sets
-            url: https://docs.microsoft.com/learn/modules/build-app-with-scale-sets/
+            url: /learn/modules/build-app-with-scale-sets/
           - text:  Create a Windows virtual machine in Azure
-            url: https://docs.microsoft.com/learn/modules/create-windows-virtual-machine-in-azure/
+            url: /learn/modules/create-windows-virtual-machine-in-azure/

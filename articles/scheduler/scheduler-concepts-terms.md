@@ -43,7 +43,7 @@ At a high-level, the Scheduler REST API exposes these operations for managing en
 Supports operations for creating and editing jobs. 
 All jobs must belong to an existing job collection, 
 so there's no implicit creation. For more information, see 
-[Scheduler REST API - Jobs](https://docs.microsoft.com/rest/api/scheduler/jobs). 
+[Scheduler REST API - Jobs](/rest/api/scheduler/jobs). 
 Here's the URI address for these operations:
 
 ```
@@ -55,7 +55,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 Supports operations for creating and editing jobs and job collections, 
 which map to quotas and shared settings. For example, quotas specify 
 the maximum number of jobs and smallest recurrence interval. 
-For more information, see [Scheduler REST API - Job Collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections). 
+For more information, see [Scheduler REST API - Job Collections](/rest/api/scheduler/jobcollections). 
 Here's the URI address for these operations:
 
 ```
@@ -67,7 +67,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 Supports the GET operation for fetching 60 days of job execution history, 
 for example, job elapsed time and job execution results. 
 Includes query string parameter support for filtering based on state and status. 
-For more information, see [Scheduler REST API - Jobs - List Job History](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). 
+For more information, see [Scheduler REST API - Jobs - List Job History](/rest/api/scheduler/jobs/listjobhistory). 
 Here's the URI address for this operation:
 
 ```
@@ -238,7 +238,7 @@ Here's an example for a Service Bus topic action:
 ```
 
 For more information about Shared Access Signature (SAS) tokens, see 
-[Authorize with Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+[Authorize with Shared Access Signatures](../storage/common/storage-sas-overview.md).
 
 <a name="error-action"></a>
 

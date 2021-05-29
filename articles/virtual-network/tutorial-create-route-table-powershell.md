@@ -4,25 +4,23 @@ description: In this article, learn how to route network traffic with a route ta
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Route network traffic with a route table using PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure automatically routes traffic between all subnets within a virtual network, by default. You can create your own routes to override Azure's default routing. The ability to create custom routes is helpful if, for example, you want to route traffic between subnets through a network virtual appliance (NVA). In this article, you learn how to:
 
@@ -117,7 +115,7 @@ Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork `
   -Name 'Public' `
   -AddressPrefix 10.0.0.0/24 `
-  -RouteTable $routeTablePublic | `
+  -RouteTable $myRouteTablePublic | `
 Set-AzVirtualNetwork
 ```
 

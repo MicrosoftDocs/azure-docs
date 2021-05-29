@@ -3,9 +3,7 @@ title: 'Reference: Known issues & troubleshooting'
 titleSuffix: Azure Data Science Virtual  Machine
 description: Get a list of the known issues, workarounds, and troubleshooting for Azure Data Science Virtual Machine
 services: machine-learning
-
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: gvashishtha
 ms.author: gopalv
@@ -19,6 +17,13 @@ ms.date: 10/10/2019
 
 This article helps you find and correct errors or failures you might come across when using the Azure Data Science Virtual Machine.
 
+## Accessing SQL Server (Windows)
+
+When you try to connect to the pre-installed SQL Server instance, you might encounter a "login failed" error. To
+successfully connect to the SQL Server instance, you need to run the program you are connecting with, eg. SQL Server
+Management Studio (SSMS), in administrator mode. The administrator mode is required because by DSVM's default, only
+administrators are allowed to connect.
+
 ## Python package installation issues
 
 ### Installing packages with pip breaks dependencies on Linux
@@ -29,7 +34,7 @@ Use `sudo pip install` instead of `pip install` when installing packages.
 
 ### Disk encryption fails on the Ubuntu DSVM
 
-Azure Disk Encryption (ADE) isn't currently supported on the Ubuntu DSVM. As a workaround, consider configuring [Server Side Encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md).
+Azure Disk Encryption (ADE) isn't currently supported on the Ubuntu DSVM. As a workaround, consider configuring [Server Side Encryption of Azure managed disks](../../virtual-machines/disk-encryption.md).
 
 ## Tool appears disabled
 
@@ -45,4 +50,3 @@ That Hyper-V initially doesn't work on Windows is expected behavior. For boot pe
 Your final screen should look like this:
 
    ![Enable Hyper-V](./media/workaround/hyperv-enable-dsvm.png)
-

@@ -4,23 +4,23 @@ description: Learn how to create an application gateway with URL path-based redi
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 03/19/2020
+ms.date: 03/24/2021
 ms.author: victorh
-ms.topic: conceptual
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
 # Create an application gateway with URL path-based redirection using Azure PowerShell
 
-You can use Azure PowerShell to configure [URL-based routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this article, you create backend pools using  [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
+You can use Azure PowerShell to configure [URL-based routing rules](./url-route-overview.md) when you create an [application gateway](./overview.md). In this article, you create backend pools using  [virtual machine scale sets](../virtual-machine-scale-sets/overview.md). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and routing rules
-> * Create virtual machine scale sets for backend pools
+* Set up the network
+* Create an application gateway
+* Add listeners and routing rules
+* Create virtual machine scale sets for backend pools
 
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 
@@ -389,6 +389,8 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 In this example, you create three virtual machine scale sets that support the three backend pools that you created. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS. You assign the scale set to the backend pool when you configure the IP settings.
 
+Replace \<username> and \<password> with your own values before you run the script.
+
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
@@ -444,8 +446,8 @@ for ($i=1; $i -le 3; $i++)
     -OsDiskCreateOption FromImage
 
   Set-AzVmssOsProfile $vmssConfig `
-    -AdminUsername azureuser `
-    -AdminPassword "Azure123456!" `
+    -AdminUsername <username> `
+    -AdminPassword "<password>" `
     -ComputerNamePrefix myvmss$i
 
   Add-AzVmssNetworkInterfaceConfiguration `
@@ -515,4 +517,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about what you can do with application gateway](application-gateway-introduction.md)
+> [Learn more about what you can do with application gateway](./overview.md)

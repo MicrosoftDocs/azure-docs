@@ -6,22 +6,20 @@ documentationcenter: android
 keywords: push notifications,push notification,android push notification
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ---
 
-# Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging (deprecated)
+# Tutorial: Send push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging (deprecated)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -39,7 +37,7 @@ You create a blank Android app that receives push notifications by using Google 
 > [!IMPORTANT]
 > This topic demonstrates push notifications with Google Cloud Messaging (GCM). If you are using Google's Firebase Cloud Messaging (FCM), see [Sending push notifications to Android with Azure Notification Hubs and FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
-The completed code for this tutorial can be downloaded from GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
+The completed code for this tutorial can be downloaded from GitHub [here](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp).
 
 In this tutorial, you do the following actions:
 
@@ -96,6 +94,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
+
 2. Add the following repository after the **dependencies** section.
 
     ```gradle
@@ -119,6 +118,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         </intent-filter>
     </service>
     ```
+
 2. Once the application receives the GCM registration token from the Instance ID API, it uses the token to [register with the Azure Notification Hub](notification-hubs-push-notification-registration-management.md). The registration in the background is done using an `IntentService` named `RegistrationIntentService`. This service is responsible for [refreshing the GCM registration token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens).
 
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag. Replace the `<your package>` placeholder with your actual package name shown at the top of the `AndroidManifest.xml` file.
@@ -129,6 +129,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         android:exported="false">
     </service>
     ```
+
 3. Define a receiver to receive notifications. Add the following receiver definition to the AndroidManifest.xml file, inside the `<application>` tag. Replace the `<your package>` placeholder with your actual package name shown at the top of the `AndroidManifest.xml` file.
 
     ```xml
@@ -140,9 +141,10 @@ Your notification hub is now configured to work with GCM, and you have the conne
         </intent-filter>
     </receiver>
     ```
-4. Add the following necessary GCM permissions below the  `</application>` tag. Replace `<your package>` with the package name shown at the top of the `AndroidManifest.xml` file.
 
-    For more information on these permissions, see [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/).
+4. Add the following necessary GCM permissions below the  `<application>` tag. Replace `<your package>` with the package name shown at the top of the `AndroidManifest.xml` file.
+
+    For more information on these permissions, see [Set up a GCM Client app for Android](https://developers.google.com/cloud-messaging/).
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -163,7 +165,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
     Update the three placeholders in the following code for the `NotificationSettings` class:
 
    * `SenderId`: The project number you obtained earlier in the [Google Cloud Console](https://cloud.google.com/console).
-   * `HubListenConnectionString`: The `DefaultListenAccessSignature` connection string for your hub. You can copy that connection string by clicking **Access Policies** on the **Settings** page of your hub on the [Azure portal].
+   * `HubListenConnectionString`: The **DefaultListenAccessSignature** connection string for your hub. You can copy that connection string by clicking **Access Policies** on the **Settings** page of your hub on the [Azure portal].
    * `HubName`: Use the name of your notification hub that appears in the hub page in the [Azure portal].
 
      `NotificationSettings` code:
@@ -175,6 +177,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         public static String HubListenConnectionString = "<Your default listen connection string>";
      }
      ```
+
 2. Add another new class named `MyInstanceIDService`. This class is the Instance ID listener service implementation.
 
     The code for this class calls `IntentService` to [refresh the GCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.
@@ -198,7 +201,8 @@ Your notification hub is now configured to work with GCM, and you have the conne
         }
     };
     ```
-3. Add another new class to your project named, `RegistrationIntentService`. This class implements `IntentService` that handles [refreshing the GCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) and [registering with the notification hub](notification-hubs-push-notification-registration-management.md).
+
+3. Add another new class to your project, named `RegistrationIntentService`. This class implements `IntentService` that handles [refreshing the GCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) and [registering with the notification hub](notification-hubs-push-notification-registration-management.md).
 
     Use the following code for this class.
 
@@ -268,6 +272,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         }
     }
     ```
+
 4. In your `MainActivity` class, add the following `import` statements at the beginning of the class.
 
     ```java
@@ -280,6 +285,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
     import android.widget.Toast;
     import android.content.Intent;
     ```
+
 5. Add the following private members at the top of the class. This code [checks the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
     ```java
@@ -289,6 +295,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     private static final String TAG = "MainActivity";
     ```
+
 6. In your `MainActivity` class, add the following method to the availability of Google Play Services.
 
     ```java
@@ -314,6 +321,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         return true;
     }
     ```
+
 7. In your `MainActivity` class, add the following code that checks for Google Play Services before calling your `IntentService` to get your GCM registration token and register with your notification hub.
 
     ```java
@@ -328,6 +336,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         }
     }
     ```
+
 8. In the `OnCreate` method of the `MainActivity` class, add the following code to start the registration process when activity is created.
 
     ```java
@@ -341,6 +350,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         registerWithNotificationHubs();
     }
     ```
+
 9. Add these additional methods to the `MainActivity` to verify app state and report status in your app.
 
     ```java
@@ -379,12 +389,15 @@ Your notification hub is now configured to work with GCM, and you have the conne
         });
     }
     ```
+
 10. The `ToastNotify` method uses the *"Hello World"* `TextView` control to report status and notifications persistently in the app. In your activity_main.xml layout, add the following ID for that control.
 
     ```xml
     android:id="@+id/text_hello"
     ```
+
 11. Add a subclass for the receiver that's defined in the AndroidManifest.xml. Add another new class to your project named `MyHandler`.
+
 12. Add the following import statements at the top of `MyHandler.java`:
 
     ```java
@@ -398,7 +411,8 @@ Your notification hub is now configured to work with GCM, and you have the conne
     import android.net.Uri;
     import android.media.RingtoneManager;
     ```
-13. Add the following code for the `MyHandler` class making it a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler`.
+
+13. Add the following code for the `MyHandler` class, making it a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler`.
 
     This code overrides the `OnReceive` method, so the handler reports notifications that are received. The handler also sends the push notification to the Android notification manager by using the `sendNotification()` method. The `sendNotification()` method should be executed when the app is not running and a notification is received.
 
@@ -445,6 +459,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
         }
     }
     ```
+
 14. In Android Studio on the menu bar, click **Build** > **Rebuild Project** to make sure that no errors are present in your code.
 
 ## Testing your app
@@ -483,7 +498,7 @@ In addition, ensure that you have added your Google account to your running emul
 
 ## (Optional) Send push notifications directly from the app
 
-Normally, you would send notifications using a backend server. For some cases, you might want to be able to send push notifications directly from the client application. This section explains how to send notifications from the client using the [Azure Notification Hub REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx).
+Normally, you would send notifications using a backend server. For some cases, you might want to be able to send push notifications directly from the client application. This section explains how to send notifications from the client using the [Azure Notification Hub REST API](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
 1. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **layout**. Open the `activity_main.xml` layout file and click the **Text** tab to update the text contents of the file. Update it with the code below, which adds new `Button` and `EditText` controls for sending push notification messages to the notification hub. Add this code at the bottom, just before `</RelativeLayout>`.
 
@@ -506,12 +521,14 @@ Normally, you would send notifications using a backend server. For some cases, y
     android:layout_marginBottom="42dp"
     android:hint="@string/notification_message_hint" />
     ```
+
 2. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **values**. Open the `strings.xml` file and add the string values that are referenced by the new `Button` and `EditText` controls. Add the following lines at the bottom of the file, just before `</resources>`.
 
     ```xml
     <string name="send_button">Send Notification</string>
     <string name="notification_message_hint">Enter notification message text</string>
     ```
+
 3. In your `NotificationSetting.java` file, add the following setting to the `NotificationSettings` class.
 
     Update `HubFullAccess` with the **DefaultFullSharedAccessSignature** connection string for your hub. This connection string can be copied from the [Azure portal] by clicking **Access Policies** on the **Settings** page for your notification hub.
@@ -519,6 +536,7 @@ Normally, you would send notifications using a backend server. For some cases, y
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
     ```
+
 4. In your `MainActivity.java` file, add the following `import` statements at the beginning of the file.
 
     ```java
@@ -535,6 +553,7 @@ Normally, you would send notifications using a backend server. For some cases, y
     import android.view.View;
     import android.widget.EditText;
     ```
+
 5. In your `MainActivity.java` file, add the following members at the top of the `MainActivity` class.
 
     ```java
@@ -542,7 +561,8 @@ Normally, you would send notifications using a backend server. For some cases, y
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. Parse the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](https://msdn.microsoft.com/library/azure/dn495627.aspx) REST API reference. The following code is an example implementation.
+
+6. Create a Shared Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. Parse the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](/previous-versions/azure/reference/dn495627(v=azure.100)) REST API reference. The following code is an example implementation.
 
     In `MainActivity.java`, add the following method to the `MainActivity` class to parse your connection string.
 
@@ -573,6 +593,7 @@ Normally, you would send notifications using a backend server. For some cases, y
         }
     }
     ```
+
 7. In `MainActivity.java`, add the following method to the `MainActivity` class to create a SaS authentication token.
 
     ```java
@@ -628,6 +649,7 @@ Normally, you would send notifications using a backend server. For some cases, y
         return token;
     }
     ```
+
 8. In `MainActivity.java`, add the following method to the `MainActivity` class to handle the **Send Notification** button click and send the push notification message to the hub by using the built-in REST API.
 
     ```java
@@ -736,10 +758,10 @@ In this tutorial, you sent broadcast notifications to all your Android devices r
 [31]: ./media/notification-hubs-android-get-started/notification-hubs-android-studio-add-ui.png
 
 <!-- URLs. -->
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md 
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure portal]: https://portal.azure.com

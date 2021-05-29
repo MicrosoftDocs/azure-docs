@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
@@ -17,14 +17,20 @@ ms.collection: M365-identity-device-management
 ---
 # Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
 
-Often, Remote Desktop (RD) Gateway uses the local [Network Policy Services (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) to authenticate users. This article describes how to route RADIUS requests out from the Remote Desktop Gateway (through the local NPS) to the Multi-Factor Authentication Server. The combination of Azure MFA and RD Gateway means that your users can access their work environments from anywhere while performing strong authentication.
+Often, Remote Desktop (RD) Gateway uses the local [Network Policy Services (NPS)](/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) to authenticate users. This article describes how to route RADIUS requests out from the Remote Desktop Gateway (through the local NPS) to the Multi-Factor Authentication Server. The combination of Azure MFA and RD Gateway means that your users can access their work environments from anywhere while performing strong authentication.
 
 Since Windows Authentication for terminal services is not supported for Server 2012 R2, use RD Gateway and RADIUS to integrate with MFA Server.
 
 Install the Azure Multi-Factor Authentication Server on a separate server, which proxies the RADIUS request back to the NPS on the Remote Desktop Gateway Server. After NPS validates the username and password, it returns a response to the Multi-Factor Authentication Server. Then, the MFA Server performs the second factor of authentication and returns a result to the gateway.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
+>
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> If you use cloud-based MFA, see how to [integrate with RADIUS authentication for Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
+>
+> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 ## Prerequisites
 
@@ -85,4 +91,4 @@ The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy bet
 
 - Integrate Azure MFA and [IIS web apps](howto-mfaserver-iis.md)
 
-- Get answers in the [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
+- Get answers in the [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.yml)

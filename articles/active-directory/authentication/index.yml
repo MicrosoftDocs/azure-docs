@@ -10,8 +10,8 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: iainfoulds
-  ms.author: iainfou
+  author: justinha
+  ms.author: justinha
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
 
@@ -57,21 +57,21 @@ landingContent:
             url: howto-sspr-windows.md
 
   # Card
-  - title: Enable Azure Multi-Factor Authentication
+  - title: Enable Azure AD Multi-Factor Authentication
     linkLists:
       - linkListType: concept
         links:
-          - text: How Azure Multi-Factor Authentication works
+          - text: How Azure AD Multi-Factor Authentication works
             url: concept-mfa-howitworks.md
       - linkListType: tutorial
         links:
-          - text: Enable Azure Multi-Factor Authentication
+          - text: Enable Azure AD Multi-Factor Authentication
             url: tutorial-enable-azure-mfa.md
-          - text: Enable risk-based Azure Multi-Factor Authentication
+          - text: Enable risk-based Azure AD Multi-Factor Authentication
             url: tutorial-risk-based-sspr-mfa.md
       - linkListType: deploy
         links:
-          - text: Deployment guide for Azure Multi-Factor Authentication
+          - text: Deployment guide for Azure AD Multi-Factor Authentication
             url: howto-mfa-getstarted.md
           - text: Use NPS extension to integrate on-premises applications
             url: howto-mfa-nps-extension.md
@@ -88,7 +88,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Configure the banned password list
-            url: howto-password-ban-bad-configure.md
+            url: ./tutorial-configure-custom-password-protection.md
       - linkListType: how-to-guide
         links:
           - text: Deploy Azure AD password protection

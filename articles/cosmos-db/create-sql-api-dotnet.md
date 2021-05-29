@@ -1,34 +1,39 @@
 ---
 title: Quickstart - Build a .NET console app to manage Azure Cosmos DB SQL API resources
 description: Learn how to build a .NET console app to manage Azure Cosmos DB SQL API account resources in this quickstart.
-author: SnehaGunda
-ms.author: sngun
+author: anfeldma-ms
+ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 03/07/2021
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ---
+
 # Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 Get started with the Azure Cosmos DB SQL API client library for .NET. Follow the steps in this doc to install the .NET package, build an app, and try out the example code for basic CRUD operations on the data stored in Azure Cosmos DB. 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value, document, and graph databases. Use the Azure Cosmos DB SQL API client library for .NET to:
+Azure Cosmos DB is Microsoft's fast NoSQL database with open APIs for any scale. You can use Azure Cosmos DB to quickly create and query key/value, document, and graph databases. Use the Azure Cosmos DB SQL API client library for .NET to:
 
 * Create an Azure Cosmos database and a container
 * Add sample data to the container
 * Query the data 
 * Delete the database
 
-[API reference documentation](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[API reference documentation](/dotnet/api/microsoft.azure.cosmos) | [Library source code](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## Prerequisites
 
@@ -47,7 +52,7 @@ If you have your own Azure subscription or created a subscription for free, you 
 
 You can use Azure Cloud Shell to create the Azure Cosmos account. Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell. For this quickstart, choose **Bash** mode. Azure Cloud Shell also requires a storage account, you can create one when prompted.
 
-Select the **Try It** button next to the following code, choose **Bash** mode select **create a storage account** and login to Cloud Shell. Next copy and paste the following code to Azure cloud shell and run it. The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command.
+Select the **Try It** button next to the following code, choose **Bash** mode select **create a storage account** and login to Cloud Shell. Next copy and paste the following code to Azure Cloud Shell and run it. The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command.
 
 ```azurecli-interactive
 
@@ -63,7 +68,7 @@ az group create \
     --name $resourceGroupName \
     --location $location
 
-# Create a SQL API Cosmos DB account with session consistency and multi-master enabled
+# Create a SQL API Cosmos DB account with session consistency and multi-region writes enabled
 az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
@@ -141,7 +146,7 @@ export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
 export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
-**MacOS**
+**macOS**
 
 ```bash
 export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
@@ -157,21 +162,20 @@ Before you start building the application, let's look into the hierarchy of reso
 * Containers 
 * Items
 
-To learn in more about the hierarchy of different entities, see the [working with databases, containers, and items in Azure Cosmos DB](databases-containers-items.md) article. You will use the following .NET classes to interact with these resources:
+To learn in more about the hierarchy of different entities, see the [working with databases, containers, and items in Azure Cosmos DB](account-databases-containers-items.md) article. You will use the following .NET classes to interact with these resources:
 
-* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
+* [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
 
-* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) - This method creates (if doesn't exist) or gets (if already exists) a database resource as an asynchronous operation. 
+* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) - This method creates (if doesn't exist) or gets (if already exists) a database resource as an asynchronous operation. 
 
-* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet)- - This method creates (if it doesn't exist) or gets (if it already exists) a container as an asynchronous operation. You can check the status code from the response to determine whether the container was newly created (201) or an existing container was returned (200). 
-* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) - This method creates an item within the container. 
+* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync)- - This method creates (if it doesn't exist) or gets (if it already exists) a container as an asynchronous operation. You can check the status code from the response to determine whether the container was newly created (201) or an existing container was returned (200). 
+* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) - This method creates an item within the container. 
 
-* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) - This method creates an item within the container if it doesn't already exist or replaces the item if it already exists. 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync) - This method creates an item within the container if it doesn't already exist or replaces the item if it already exists. 
 
-* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
-) - This method creates a query for items under a container in an Azure Cosmos database using a SQL statement with parameterized values. 
+* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator) - This method creates a query for items under a container in an Azure Cosmos database using a SQL statement with parameterized values. 
 
-* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) - Deletes the specified database from your Azure Cosmos account. `DeleteAsync` method only deletes the database. Disposing of the `Cosmosclient` instance should happen separately (which it does in the DeleteDatabaseAndCleanupAsync method. 
+* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync) - Deletes the specified database from your Azure Cosmos account. `DeleteAsync` method only deletes the database. Disposing of the `Cosmosclient` instance should happen separately (which it does in the DeleteDatabaseAndCleanupAsync method. 
 
  ## <a id="code-examples"></a>Code examples
 
@@ -478,7 +482,7 @@ az group delete -g "myResourceGroup"
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos account, create a database and a container using a .NET Core app. You can now import additional data to your Azure Cosmos account with the instructions int the following article. 
+In this quickstart, you learned how to create an Azure Cosmos account, create a database and a container using a .NET Core app. You can now import additional data to your Azure Cosmos account with the instructions in the following article. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)

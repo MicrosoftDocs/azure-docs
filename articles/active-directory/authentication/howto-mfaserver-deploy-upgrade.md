@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/12/2018
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla
 
@@ -22,29 +22,33 @@ This article walks you through the process of upgrading Azure Multi-Factor Authe
 If you're upgrading from v6.x or older to v7.x or newer, all components change from .NET 2.0 to .NET 4.5. All components also require Microsoft Visual C++ 2015 Redistributable Update 1 or higher. The MFA Server installer installs both the x86 and x64 versions of these components if they aren't already installed. If the User Portal and Mobile App Web Service run on separate servers, you need to install those packages before upgrading those components. You can search for the latest Microsoft Visual C++ 2015 Redistributable update on the [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
+>
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure AD Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 Upgrade steps at a glance:
 
-* Upgrade Azure MFA Servers (Subordinates then Master)
+* Upgrade Azure MFA Servers (Subordinates then Primary)
 * Upgrade the User Portal instances
 * Upgrade the AD FS Adapter instances
 
 ## Upgrade Azure MFA Server
 
 1. Use the instructions in [Download the Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md#download-the-mfa-server) to get the latest version of the Azure MFA Server installer.
-2. Make a backup of the MFA Server data file located at C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (assuming the default install location) on your master MFA Server.
+2. Make a backup of the MFA Server data file located at C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (assuming the default install location) on your primary MFA Server.
 3. If you run multiple servers for high availability, change the client systems that authenticate to the MFA Server so that they stop sending traffic to the servers that are upgrading. If you use a load balancer, remove a subordinate MFA Server from the load balancer, do the upgrade, and then add the server back into the farm.
-4. Run the new installer on each MFA Server. Upgrade subordinate servers first because they can read the old data file being replicated by the master.
+4. Run the new installer on each MFA Server. Upgrade subordinate servers first because they can read the old data file being replicated by the primary.
 
    > [!NOTE]
-   > When upgrading a server it should be removed from any loadbalancing or traffic sharing with other MFA Servers.
+   > When upgrading a server it should be removed from any load balancing or traffic sharing with other MFA Servers.
    >
    > You do not need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade. The installation path is picked up from the registry from the previous installation, so it installs in the same location (for example, C:\Program Files\Multi-Factor Authentication Server).
   
 5. If you're prompted to install a Microsoft Visual C++ 2015 Redistributable update package, accept the prompt. Both the x86 and x64 versions of the package are installed.
 6. If you use the Web Service SDK, you are prompted to install the new Web Service SDK. When you install the new Web Service SDK, make sure that the virtual directory name matches the previously installed virtual directory (for example, MultiFactorAuthWebServiceSdk).
-7. Repeat the steps on all subordinate servers. Promote one of the subordinates to be the new master, then upgrade the old master server.
+7. Repeat the steps on all subordinate servers. Promote one of the subordinates to be the new primary, then upgrade the old primary server.
 
 ## Upgrade the User Portal
 

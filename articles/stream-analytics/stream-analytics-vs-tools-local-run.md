@@ -3,9 +3,9 @@ title: Test Azure Stream Analytics queries locally in Visual Studio
 description: This article describes how to test queries locally with Azure Stream Analytics Tools for Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2018
 ---
 
@@ -25,7 +25,7 @@ In your Azure Stream Analytics project, double-click **Script.asaql** to open th
 
 To validate your query against local static data, right-click the input and select **Add local input**.
    
-![Add local input](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![Screenshot that highlights the Add local input menu option.](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 In the pop-up window, select sample data from your local path and **Save**.
    
@@ -70,5 +70,4 @@ You can see the progress in the **Output** window.
 * [Quickstart: Create a Stream Analytics job using Visual Studio](stream-analytics-quick-create-vs.md)
 * [Use Visual Studio to view Azure Stream Analytics jobs](stream-analytics-vs-tools.md)
 * [Test live data locally using Azure Stream Analytics tools for Visual Studio (Preview)](stream-analytics-live-data-local-testing.md)
-* [Tutorial: Deploy an Azure Stream Analytics job with CI/CD using Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Continuously integrate and develop with Stream Analytics tools](stream-analytics-tools-for-visual-studio-cicd.md)

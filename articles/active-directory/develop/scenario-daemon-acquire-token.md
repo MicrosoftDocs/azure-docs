@@ -1,5 +1,5 @@
 ---
-title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
+title: Acquire tokens to call a web API (daemon app) - The Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
 author: jmprieur
@@ -13,7 +13,7 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 
 ---
 
@@ -32,6 +32,20 @@ ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
+# [Java](#tab/java)
+
+```Java
+final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
+```
+
+# [Node.js](#tab/nodejs)
+
+```JavaScript
+const tokenRequest = {
+	scopes: [process.env.GRAPH_ENDPOINT + '.default'], // e.g. 'https://graph.microsoft.com/.default'
+};
+```
+
 # [Python](#tab/python)
 
 In MSAL Python, the configuration file looks like this code snippet:
@@ -40,12 +54,6 @@ In MSAL Python, the configuration file looks like this code snippet:
 {
     "scope": ["https://graph.microsoft.com/.default"],
 }
-```
-
-# [Java](#tab/java)
-
-```Java
-final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
 ```
 
 ---
@@ -91,29 +99,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-# [Python](#tab/python)
+### AcquireTokenForClient uses the application token cache
 
-```Python
-# The pattern to acquire a token looks like this.
-result = None
-
-# First, the code looks up a token from the cache.
-# Because we're looking for a token for the current app, not for a user,
-# use None for the account parameter.
-result = app.acquire_token_silent(config["scope"], account=None)
-
-if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
-    result = app.acquire_token_for_client(scopes=config["scope"])
-
-if "access_token" in result:
-    # Call a protected API with the access token.
-    print(result["token_type"])
-else:
-    print(result.get("error"))
-    print(result.get("error_description"))
-    print(result.get("correlation_id"))  # You might need this when reporting a bug.
-```
+In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
+Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
 
 # [Java](#tab/java)
 
@@ -164,6 +153,43 @@ private static IAuthenticationResult acquireToken() throws Exception {
  }
 ```
 
+# [Node.js](#tab/nodejs)
+
+The code snippet below illustrates token acquisition in an MSAL Node confidential client application:
+
+```JavaScript
+try {
+    const authResponse = await cca.acquireTokenByClientCredential(tokenRequest);
+    console.log(authResponse.accessToken) // display access token
+} catch (error) {
+    console.log(error);
+}
+```
+
+# [Python](#tab/python)
+
+```Python
+# The pattern to acquire a token looks like this.
+result = None
+
+# First, the code looks up a token from the cache.
+# Because we're looking for a token for the current app, not for a user,
+# use None for the account parameter.
+result = app.acquire_token_silent(config["scope"], account=None)
+
+if not result:
+    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+    result = app.acquire_token_for_client(scopes=config["scope"])
+
+if "access_token" in result:
+    # Call a protected API with the access token.
+    print(result["token_type"])
+else:
+    print(result.get("error"))
+    print(result.get("error_description"))
+    print(result.get("correlation_id"))  # You might need this when reporting a bug.
+```
+
 ---
 
 ### Protocol
@@ -172,7 +198,7 @@ If you don't yet have a library for your chosen language, you might want to use 
 
 #### First case: Access the token request by using a shared secret
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -185,7 +211,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 #### Second case: Access the token request by using a certificate
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -199,11 +225,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 For more information, see the protocol documentation: [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md).
 
-## Application token cache
-
-In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
-Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
-
 ## Troubleshooting
 
 ### Did you use the resource/.default scope?
@@ -215,7 +236,7 @@ If you get an error message telling you that you used an invalid scope, you prob
 If you get an **Insufficient privileges to complete the operation** error when you call the API, the tenant administrator needs to grant permissions to the application. See step 6 of Register the client app above.
 You'll typically see an error that looks like this error:
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {
@@ -229,21 +250,32 @@ Content: {
 }
 ```
 
+### Are you calling your own API?
+
+If you call your own web API and couldn't add an app permission to the app registration for your daemon app, did you expose an app role in your web API?
+
+For details, see [Exposing application permissions (app roles)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) and, in particular, [Ensuring that Azure AD issues tokens for your web API to only allowed clients](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
+
 ## Next steps
 
 # [.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
-
-# [Python](#tab/python)
-
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # [Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=nodejs).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[Calling a web API](./scenario-daemon-call-api.md?tabs=python).
 
 ---

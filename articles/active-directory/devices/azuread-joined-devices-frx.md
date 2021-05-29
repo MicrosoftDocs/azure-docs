@@ -5,7 +5,7 @@ description: How users can set up Azure AD Join during the out of box experience
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/28/2019
 
 ms.author: joflore

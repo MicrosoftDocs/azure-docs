@@ -1,11 +1,8 @@
 ---
 title: Operationalize a data analytics pipeline - Azure 
 description: Set up and run an example data pipeline that is triggered by new data and produces concise results.
-author: ashishthaps
-ms.author: ashishth
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
 ---
@@ -28,7 +25,7 @@ The example pipeline waits until a new time period's flight data arrives, then s
 
 The following diagram illustrates the example pipeline.
 
-![HDI flight example data pipeline overview](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png" alt-text="HDI flight example data pipeline overview" border="false":::
 
 ## Apache Oozie solution overview
 
@@ -38,7 +35,7 @@ Oozie describes its pipelines in terms of *actions*, *workflows*, and *coordinat
 
 The following diagram shows the high-level design of this example Oozie pipeline.
 
-![Oozie Flight example Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png" alt-text="Oozie Flight example Data Pipeline" border="false":::
 
 ## Provision Azure resources
 
@@ -46,11 +43,11 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
 
 ### Provision Azure SQL Database
 
-1. Create an Azure SQL Database. See [Create an Azure SQL Database in the Azure portal](../sql-database/sql-database-single-database-get-started.md).
+1. Create an Azure SQL Database. See [Create an Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).
 
-1. To make sure that your HDInsight cluster can access the connected Azure SQL Database, configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. You can enable this option in the Azure portal by selecting **Set server firewall**, and selecting **ON** underneath **Allow Azure services and resources to access this server** for the Azure SQL Database server or database. For more information, see [Create and manage IP firewall rules](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+1. To make sure that your HDInsight cluster can access the connected Azure SQL Database, configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. You can enable this option in the Azure portal by selecting **Set server firewall**, and selecting **ON** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-1. Use [Query editor](../sql-database/sql-database-single-database-get-started.md#query-the-database) to execute the following SQL statements to create the `dailyflights` table that will store the summarized data from each run of the pipeline.
+1. Use [Query editor](../azure-sql/database/single-database-create-quickstart.md#query-the-database) to execute the following SQL statements to create the `dailyflights` table that will store the summarized data from each run of the pipeline.
 
     ```sql
     CREATE TABLE dailyflights
@@ -129,11 +126,11 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
 2. From the list of services, select **Hive**.
 
-    ![Apache Ambari services list selecting Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png" alt-text="Apache Ambari services list selecting Hive":::
 
 3. Select **Go To View** next to the Hive View 2.0 label.
 
-    ![Ambari Apache Hive summary list](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png" alt-text="Ambari Apache Hive summary list":::
 
 4. In the query text area, paste the following statements to create the `rawFlights` table. The `rawFlights` table provides a schema-on-read for the CSV files within the `/example/data/flights` folder in Azure Storage.
 
@@ -162,7 +159,7 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
 5. Select **Execute** to create the table.
 
-    ![hdi ambari services hive query](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="hdi ambari services hive query":::
 
 6. To create the `flights` table, replace the text in the query text area with the following statements. The `flights` table is a Hive-managed table that partitions data loaded into it by year, month, and day of month. This table will contain all historical flight data, with the lowest granularity present in the source data of one row per flight.
 
@@ -251,18 +248,18 @@ Then update the values for your specific environment. The table below the text s
     INSERT OVERWRITE TABLE flights
     PARTITION (YEAR, MONTH, DAY_OF_MONTH)
     SELECT 
-      	FL_DATE,
-      	CARRIER,
-      	FL_NUM,
-      	ORIGIN,
-      	DEST,
-      	DEP_DELAY,
-      	ARR_DELAY,
-      	ACTUAL_ELAPSED_TIME,
-      	DISTANCE,
-    	YEAR,
-      	MONTH,
-      	DAY_OF_MONTH
+          FL_DATE,
+          CARRIER,
+          FL_NUM,
+          ORIGIN,
+          DEST,
+          DEP_DELAY,
+          ARR_DELAY,
+          ACTUAL_ELAPSED_TIME,
+          DISTANCE,
+        YEAR,
+          MONTH,
+          DAY_OF_MONTH
     FROM rawflights
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
@@ -276,18 +273,18 @@ Then update the values for your specific environment. The table below the text s
     CREATE EXTERNAL TABLE ${hiveTableName}
     (
         YEAR INT,
-      	MONTH INT,
-      	DAY_OF_MONTH INT,
-      	CARRIER STRING,
-      	AVG_DEP_DELAY FLOAT,
-      	AVG_ARR_DELAY FLOAT,
-      	TOTAL_DISTANCE FLOAT
+          MONTH INT,
+          DAY_OF_MONTH INT,
+          CARRIER STRING,
+          AVG_DEP_DELAY FLOAT,
+          AVG_ARR_DELAY FLOAT,
+          TOTAL_DISTANCE FLOAT
     )
     ROW FORMAT DELIMITED
     FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE TABLE ${hiveTableName}
-    SELECT 	year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
-    		avg(arr_delay) avg_arr_delay, sum(distance) total_distance 
+    SELECT     year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
+            avg(arr_delay) avg_arr_delay, sum(distance) total_distance 
     FROM flights
     GROUP BY year, month, day_of_month, carrier 
     HAVING year = ${year} AND month = ${month} AND day_of_month = ${day};
@@ -413,11 +410,13 @@ Use SCP from your bash session to deploy your Oozie workflow (`workflow.xml`), t
 
 1. Observe the status using the Oozie Web Console. From within Ambari, select **Oozie**, **Quick Links**, and then **Oozie Web Console**. Under the **Workflow Jobs** tab, select **All Jobs**.
 
-    ![hdi oozie web console workflows](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png" alt-text="hdi oozie web console workflows":::
 
 1. When the status is SUCCEEDED, query the SQL Database table to view the inserted rows. Using the Azure portal, navigate to the pane for your SQL Database, select **Tools**, and open the **Query Editor**.
 
-        SELECT * FROM dailyflights
+    ```sql
+    SELECT * FROM dailyflights
+    ```
 
 Now that the workflow is running for the single test day, you can wrap this workflow with a coordinator that schedules the workflow so it runs daily.
 
@@ -589,11 +588,11 @@ To run the pipeline with a coordinator, proceed in a similar fashion as for the 
 
 5. Verify the status using the Oozie Web Console, this time selecting the **Coordinator Jobs** tab, and then  **All jobs**.
 
-    ![Oozie Web Console Coordinator Jobs](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png" alt-text="Oozie Web Console Coordinator Jobs":::
 
 6. Select a coordinator instance to display the list of scheduled actions. In this case, you should see four actions with nominal times in the range from 1/1/2017 to 1/4/2017.
 
-    ![Oozie Web Console Coordinator Job](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png" alt-text="Oozie Web Console Coordinator Job":::
 
     Each action in this list corresponds to an instance of the workflow that processes one day's worth of data, where the start of that day is indicated by the nominal time.
 

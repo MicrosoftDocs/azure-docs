@@ -7,10 +7,15 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
-ms.subservice: diagnostic-extension
+ms.subservice: application-insights
 ---
+
 # Store and view diagnostic data in Azure Storage
-Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure storage emulator or to Azure storage. Once in storage, it can be viewed with one of several available tools.
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
+Diagnostic data is not permanently stored unless you transfer it to the Microsoft Azure Storage Emulator or to Azure Storage. Once in storage, it can be viewed with one of several available tools.
 
 ## Specify a storage account
 You specify the storage account that you want to use in the ServiceConfiguration.cscfg file. The account information is defined as a connection string in a configuration setting. The following example shows the default connection string created for a new Cloud Service project in  Visual Studio:

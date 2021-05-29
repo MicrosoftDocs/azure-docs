@@ -3,16 +3,16 @@ title: Review access of an access package in Azure AD entitlement management
 description: Learn how to complete an access review of entitlement management access packages in Azure Active Directory access reviews (Preview).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 11/01/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -29,8 +29,7 @@ Azure AD entitlement management simplifies how enterprises manage access to grou
 
 To review users' active access package assignments, you must meet the prerequisites to do an access review:
 - Azure AD Premium P2
-- Global administrator
-- Designated User administrator, Catalog owner, or Access package manager
+- Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 

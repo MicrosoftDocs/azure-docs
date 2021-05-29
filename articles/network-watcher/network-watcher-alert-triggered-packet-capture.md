@@ -10,11 +10,12 @@ author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use packet capture for proactive network monitoring with alerts and Azure Functions
@@ -27,7 +28,7 @@ Resources that are deployed in Azure run 24/7. You and your staff cannot activel
 
 By using Network Watcher, alerting, and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
 
-![Scenario][scenario]
+![Diagram shows Network Watcher extension on a virtual machine which flows to a T C P Segments sent > 100 error, which flows to Azure Functions, which flows to Network Watcher which flows back to Network Watcher extension.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -36,7 +37,7 @@ By using Network Watcher, alerting, and functions from within the Azure ecosyste
 
 * The latest version of [Azure PowerShell](/powershell/azure/install-Az-ps).
 * An existing instance of Network Watcher. If you don't already have one, [create an instance of Network Watcher](network-watcher-create.md).
-* An existing virtual machine in the same region as Network Watcher with the [Windows extension](../virtual-machines/windows/extensions-nwa.md) or [Linux virtual machine extension](../virtual-machines/linux/extensions-nwa.md).
+* An existing virtual machine in the same region as Network Watcher with the [Windows extension](../virtual-machines/extensions/network-watcher-windows.md) or [Linux virtual machine extension](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## Scenario
 
@@ -329,7 +330,7 @@ The following example is PowerShell code that can be used in the function. There
 
     ![Copying the function URL][2]
 
-If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
+If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## Configure an alert on a VM
 
@@ -337,7 +338,7 @@ Alerts can be configured to notify individuals when a specific metric crosses a 
 
 ### Create the alert rule
 
-Go to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Enter the following values in the **Alert rule** blade, and then select **OK**.
+Go to an existing virtual machine, and then add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../azure-monitor/alerts/alerts-classic-portal.md). Enter the following values in the **Alert rule** blade, and then select **OK**.
 
   |**Setting** | **Value** | **Details** |
   |---|---|---|
@@ -350,7 +351,7 @@ Go to an existing virtual machine, and then add an alert rule. More detailed doc
   |**Webhook**|[webhook URL from function app]| The webhook URL from the function app that was created in the previous steps.|
 
 > [!NOTE]
-> The TCP segments metric is not enabled by default. Learn more about how to enable additional metrics by visiting [Enable monitoring and diagnostics](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> The TCP segments metric is not enabled by default. Learn more about how to enable additional metrics by visiting [Enable monitoring and diagnostics](../azure-monitor/overview.md).
 
 ## Review the results
 
@@ -360,11 +361,11 @@ After the criteria for the alert triggers, a packet capture is created. Go to Ne
 
 If the capture file is stored locally, you can retrieve it by signing in to the virtual machine.
 
-For instructions about downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool you can use is [Storage Explorer](https://storageexplorer.com/).
+For instructions about downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool you can use is [Storage Explorer](https://storageexplorer.com/).
 
 After your capture has been downloaded, you can view it by using any tool that can read a **.cap** file. Following are links to two of these tools:
 
-- [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+- [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [WireShark](https://www.wireshark.org/)
 
 ## Next steps

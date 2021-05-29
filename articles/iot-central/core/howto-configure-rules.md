@@ -3,18 +3,16 @@ title: Configure rules and actions in Azure IoT Central | Microsoft Docs
 description: This how-to article shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: vavilla
 ms.author: vavilla
-ms.date: 11/27/2019
+ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
+
+# This article applies to operators, builders, and administrators.
 ---
 
 # Configure rules
-
-
-
-*This article applies to operators, builders, and administrators.*
 
 Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
 
@@ -30,7 +28,13 @@ Conditions are what rules trigger on. Currently, when you add multiple condition
 
 In the following screenshot, the conditions check when the temperature is greater than 70&deg; F and the humidity is less than 10. When both of these statements are true, the rule evaluates to true and triggers an action.
 
-![Conditions](media/howto-configure-rules/conditions.png)
+![Screenshot shows a refrigerator monitor with conditions specified for temperature and humidity.](media/howto-configure-rules/conditions.png)
+
+### Use a cloud property in a value field
+
+You can reference a cloud property from the device template in the **Value** field for a condition. The cloud property and telemetry value must have similar types. For example, if **Temperature** is a double, then only cloud properties of type double show as options in the **Value** drop-down.
+
+If you choose an event type telemetry value, the **Value** drop-down includes the option **Any**. The **Any** option means the rule fires when your application receives an event of that type, whatever the payload.
 
 ## Use aggregate windowing
 
@@ -44,7 +48,4 @@ A restriction applies to rules that are applied to IoT Edge modules. Rules on te
 
 ## Next steps
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
-
-> [!div class="nextstepaction"]
-> [Analyze your data on the fly](howto-create-analytics.md)
+Now that you've learned how to configure a rule in your Azure IoT Central application, you can learn how to [Configure advanced rules](howto-configure-rules-advanced.md) using Power Automate or Azure Logic Apps.

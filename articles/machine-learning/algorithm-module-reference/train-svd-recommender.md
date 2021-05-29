@@ -9,14 +9,14 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
+ms.date: 03/17/2021
 ---
 
 # Train SVD Recommender
 
-This article describes how to use the Train SVD Recommender module in Azure Machine Learning designer (preview). Use this module to train a recommendation model based on the Single Value Decomposition (SVD) algorithm.  
+This article describes how to use the Train SVD Recommender module in Azure Machine Learning designer. Use this module to train a recommendation model based on the Single Value Decomposition (SVD) algorithm.  
 
-The Train SVD Recommender module reads a dataset of user-item-rating triples. It returns a trained SVD recommender. You can then use the trained model to predict ratings or generate recommendations, by using the [Score SVD Recommender](score-svd-recommender.md) module.  
+The Train SVD Recommender module reads a dataset of user-item-rating triples. It returns a trained SVD recommender. You can then use the trained model to predict ratings or generate recommendations, by connecting the [Score SVD Recommender](score-svd-recommender.md) module.  
 
 
   
@@ -66,6 +66,9 @@ From this sample, you can see that a single user has rated several movies.
   
 5.  Submit the pipeline.  
 
+## Results
+
+After pipeline run is completed, to use the model for scoring, connect the [Train SVD Recommender](train-svd-recommender.md) to [Score SVD Recommender](score-svd-recommender.md), to predict values for new input examples.
 
 ## Next steps
 

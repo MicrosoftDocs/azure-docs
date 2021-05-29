@@ -30,12 +30,20 @@ landingContent:
             url: develop.md
   - title: Get started
     linkLists:
+      - linkListType: learn
+        links:
+          - text: Follow the Microsoft Learn blockchain path
+            url: /learn/paths/ethereum-blockchain-development
+          - text: Watch the beginner's blockchain series
+            url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
       - linkListType: deploy
         links:
           - text: Create a blockchain member - Portal
             url: create-member.md
           - text: Create a blockchain member - CLI
             url: create-member-cli.md
+          - text: Create using ARM template
+            url: create-member-template.md
       - linkListType: quickstart
         links:
           - text: Use Visual Studio Code to connect to a consortium network
@@ -103,4 +111,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/blockchain
+            url: /rest/api/blockchain

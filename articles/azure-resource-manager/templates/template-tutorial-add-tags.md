@@ -1,15 +1,16 @@
 ---
 title: Tutorial - add tags to resources in template
-description: Add tags to resources that you deploy in your Azure Resource Manager template. Tags let you logically organize resources.
+description: Add tags to resources that you deploy in your Azure Resource Manager template (ARM template). Tags let you logically organize resources.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
+ms.custom:
 ---
 
 # Tutorial: Add tags in your ARM template
 
-In this tutorial, you learn how to add tags to resources in your Azure Resource Manager (ARM) template. [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
+In this tutorial, you learn how to add tags to resources in your Azure Resource Manager template (ARM template). [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 
 ## Prerequisites
 
@@ -37,7 +38,7 @@ The following example highlights the changes to the template. Copy the whole fil
 
 It's time to deploy the template and look at the results.
 
-If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
+If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -66,7 +67,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
+> If the deployment failed, use the `verbose` switch to get information about the resources being created. Use the `debug` switch to get more information for debugging.
 
 ## Verify deployment
 

@@ -22,7 +22,9 @@ Many modern applications have a single-page app front end that is written primar
 - Many authorization servers and identity providers do not support cross-origin resource sharing (CORS) requests.
 - Full-page browser redirects away from the app can be invasive to the user experience.
 
-To support these applications, Azure Active Directory B2C (Azure AD B2C) uses the OAuth 2.0 implicit flow. The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
+The recommended way of supporting single-page applications is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md).
+
+Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. In these cases, Azure Active Directory B2C (Azure AD B2C) supports the OAuth 2.0 authorization implicit grant flow. The flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
 
 Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](user-flow-overview.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, **{tenant}.onmicrosoft.com** is used as an example. Replace `{tenant}` with the name of your tenant if you have one and have also created a user flow.
 
@@ -36,7 +38,7 @@ When your web application needs to authenticate the user and run a user flow, it
 
 In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter and the user flow to run. To get a feel for how the request works, try pasting the request into a browser and running it. Replace `{tenant}` with the name of your Azure AD B2C tenant. Replace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of the application you've previously registered in your tenant. Replace `{policy}` with the name of a policy you've created in your tenant, for example `b2c_1_sign_in`.
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
@@ -67,7 +69,7 @@ After the user completes the user flow, Azure AD returns a response to your app 
 ### Successful response
 A successful response that uses `response_mode=fragment` and `response_type=id_token+token` looks like the following, with line breaks for legibility:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
@@ -89,7 +91,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### Error response
 Error responses also can be sent to the redirect URI so that the app can handle them appropriately:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -110,13 +112,13 @@ Many open-source libraries are available for validating JWTs, depending on the l
 
 Azure AD B2C has an OpenID Connect metadata endpoint. An app can use the endpoint to fetch information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each user flow in your Azure AD B2C tenant. For example, the metadata document for the b2c_1_sign_in user flow in the fabrikamb2c.onmicrosoft.com tenant is located at:
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
 ```
 
 One of the properties of this configuration document is the `jwks_uri`. The value for the same user flow would be:
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
@@ -135,7 +137,7 @@ Several more validations that you should perform are described in detail in the 
 
 * Ensuring that the user or organization has signed up for the app.
 * Ensuring that the user has proper authorization and privileges.
-* Ensuring that a certain strength of authentication has occurred, such as by using Azure Multi-Factor Authentication.
+* Ensuring that a certain strength of authentication has occurred, such as by using Azure AD Multi-Factor Authentication.
 
 For more information about the claims in an ID token, see the [Azure AD B2C token reference](tokens-overview.md).
 
@@ -148,7 +150,7 @@ Now that you've signed the user into your single-page app, you can get access to
 
 In a typical web app flow, you would make a request to the `/token` endpoint. However, the endpoint does not support CORS requests, so making AJAX calls to get a refresh token is not an option. Instead, you can use the implicit flow in a hidden HTML iframe element to get new tokens for other web APIs. Here's an example, with line breaks for legibility:
 
-```HTTP
+```http
 https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -180,7 +182,7 @@ By setting the `prompt=none` parameter, this request either succeeds or fails im
 ### Successful response
 A successful response by using `response_mode=fragment` looks like this example:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_sent_earlier
@@ -200,7 +202,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### Error response
 Error responses also can be sent to the redirect URI so that the app can handle them appropriately.  For `prompt=none`, an expected error looks like this example:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
@@ -221,7 +223,7 @@ When you want to sign the user out of the app, redirect the user to Azure AD to 
 
 You can simply redirect the user to the `end_session_endpoint` that is listed in the same OpenID Connect metadata document described in [Validate the ID token](#validate-the-id-token). For example:
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
@@ -239,12 +241,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## Next steps
 
-### Code sample: Azure AD B2C with Microsoft Authentication Library for JavaScript
-
-[Single-page application built with msal.js for Azure AD B2C][github-msal-js-example] (GitHub)
-
-This sample on GitHub is intended to help get you started to Azure AD B2C in a simple web application built with [msal.js][github-msal-js] and using pop-up-style authentication.
-
-<!-- Links - EXTERNAL -->
-[github-msal-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
-[github-msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
+See the code sample: [Sign-in with Azure AD B2C in a JavaScript single-page application](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).

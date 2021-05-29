@@ -1,6 +1,6 @@
 ---
-title: Create or update custom roles for Azure resources with Azure PowerShell
-description: Learn how to list, create, update, or delete custom roles with role-based access control (RBAC) for Azure resources using Azure PowerShell.
+title: Create or update Azure custom roles using Azure PowerShell - Azure RBAC
+description: Learn how to list, create, update, or delete custom roles using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,23 +9,24 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
-ms.reviewer: bagovind
+ms.reviewer: bagovind 
+ms.custom: devx-track-azurepowershell
 ---
-# Create or update custom roles for Azure resources using Azure PowerShell
+# Create or update Azure custom roles using Azure PowerShell
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using Azure PowerShell.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using Azure PowerShell.
 
-For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md).
+For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -58,7 +59,7 @@ API Management Service Contributor                   False
 The following example lists just the custom roles that are available for assignment in the selected subscription.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -396,6 +397,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## Next steps
 
-- [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Custom roles for Azure resources](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Azure custom roles](custom-roles.md)
+- [Azure resource provider operations](resource-provider-operations.md)

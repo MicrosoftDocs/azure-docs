@@ -2,11 +2,9 @@
 title: Migrate cluster to a newer version
 titleSuffix: Azure HDInsight
 description: Learn guidelines to migrate your Azure HDInsight cluster to a newer version.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh 
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
 ---
@@ -20,7 +18,7 @@ To take advantage of the latest HDInsight features, we recommend that HDInsight 
 ## Migration tasks
 
 The workflow to upgrade HDInsight Cluster is as follows.
-![HDInsight upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
+:::image type="content" source="./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png" alt-text="HDInsight upgrade workflow diagram" border="false":::
 
 1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
 2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
@@ -45,7 +43,7 @@ The following documents provide guidance on how to migrate specific workloads:
 
 ## Backup and restore
 
-For more information about database backup and restore, see [Recover an Azure SQL database by using automated database backups](../sql-database/sql-database-recovery-using-backups.md).
+For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](../azure-sql/database/recovery-using-backups.md).
 
 ## Next steps
 

@@ -1,12 +1,13 @@
 ---
- title: NVv3-series - Azure Virtual Machines
- description: Specifications for the NVv3-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: NVv3-series - Azure Virtual Machines
+description: Specifications for the NVv3-series VMs.
+services: virtual-machines
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.topic: conceptual
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # NVv3-series
@@ -15,19 +16,23 @@ The NVv3-series virtual machines are powered by [NVIDIA Tesla M60](https://image
 
 Each GPU in NVv3 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
-Premium Storage caching:  Supported
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disk): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+<br>
 
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
-
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs | Virtual Workstations | Virtual Applications |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs / Expected network bandwidth (Mbps) | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Standard_NV12s_v3 |12 | 112 | 320  | 1 | 8  | 12 | 20000/200 | 4 | 1 | 25  |
-| Standard_NV24s_v3 |24 | 224 | 640  | 2 | 16 | 24 | 40000/400 | 8 | 2 | 50  |
-| Standard_NV48s_v3 |48 | 448 | 1280 | 4 | 32 | 32 | 80000/800 | 8 | 4 | 100 |
+| Standard_NV12s_v3 |12 | 112 | 320  | 1 | 8  | 12 | 20000/200 | 4 / 6000 | 1 | 25  |
+| Standard_NV24s_v3 |24 | 224 | 640  | 2 | 16 | 24 | 40000/400 | 8 / 12000 | 2 | 50  |
+| Standard_NV48s_v3 |48 | 448 | 1280 | 4 | 32 | 32 | 80000/800 | 8 / 24000 | 4 | 100 |
 
-1 GPU = one-half M60 card.
+<sup>1</sup> 1 GPU = one-half M60 card.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -8,9 +8,7 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -35,9 +33,9 @@ This article also assumes that you are familiar with installing SAP HANA instanc
 
 These articles provide a good overview of using SAP HANA in Azure:
 
-- [Manual installation of single-instance SAP HANA on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Manual installation of single-instance SAP HANA on Azure VMs](./hana-get-started.md)
 - [Set up SAP HANA system replication in Azure VMs](sap-hana-high-availability.md)
-- [Back up SAP HANA on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Back up SAP HANA on Azure VMs](../../../backup/sap-hana-db-about.md)
 
 It's also a good idea to be familiar with these articles about SAP HANA:
 
@@ -50,7 +48,7 @@ It's also a good idea to be familiar with these articles about SAP HANA:
 - [SAP HANA service auto-restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Configure SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)
 
-Beyond being familiar with deploying VMs in Azure, before you define your availability architecture in Azure, we recommend that you read [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
+Beyond being familiar with deploying VMs in Azure, before you define your availability architecture in Azure, we recommend that you read [Manage the availability of Windows virtual machines in Azure](../../availability.md).
 
 ## Service level agreements for Azure components
 
@@ -58,31 +56,13 @@ Azure has different availability SLAs for different components, like networking,
 
 [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) describes three different SLAs, for three different configurations:
 
-- A single VM that uses [Azure premium SSDs](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) for the OS disk and all data disks. This option provides a monthly uptime of 99.9 percent.
-- Multiple (at least two) VMs that are organized in an [Azure availability set](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). This option provides a monthly uptime of 99.95 percent.
-- Multiple (at least two) VMs that are organized in an [Availablity Zone](https://docs.microsoft.com/azure/availability-zones/az-overview). This option provided a monthly uptime of 99.99 percent.
+- A single VM that uses [Azure premium SSDs](../../managed-disks-overview.md) for the OS disk and all data disks. This option provides a monthly uptime of 99.9 percent.
+- Multiple (at least two) VMs that are organized in an [Azure availability set](../../windows/tutorial-availability-sets.md). This option provides a monthly uptime of 99.95 percent.
+- Multiple (at least two) VMs that are organized in an [Availablity Zone](../../../availability-zones/az-overview.md). This option provided a monthly uptime of 99.99 percent.
 
 Measure your availability requirement against the SLAs that Azure components can provide. Then, choose your  scenarios for SAP HANA to achieve your required level of availability.
 
 ## Next steps
 
-- Learn about [SAP HANA availability within one Azure region](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region).
-- Learn about [SAP HANA availability across Azure regions](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions). 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
+- Learn about [SAP HANA availability within one Azure region](./sap-hana-availability-one-region.md).
+- Learn about [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md).

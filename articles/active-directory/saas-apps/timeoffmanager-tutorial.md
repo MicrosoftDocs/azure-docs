@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with TimeOffManager | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and TimeOffManager.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with TimeOffManager
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate TimeOffManager with Azure Active
 * Enable your users to be automatically signed-in to TimeOffManager with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -149,11 +142,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Account \> Account Options \> Single Sign-On Settings**.
    
-	![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795917.png "Single Sign-On Settings")
+	![Screenshot shows Single Sign-On Settings selected from Account Options.](./media/timeoffmanager-tutorial/ic795917.png "Single Sign-On Settings")
 
 3. In the **Single Sign-On Settings** section, perform the following steps:
    
-	![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795918.png "Single Sign-On Settings")
+	![Screenshot shows the Single Sign-On Settings section where you can enter the values described.](./media/timeoffmanager-tutorial/ic795918.png "Single Sign-On Settings")
    
 	a. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
    
@@ -171,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In **Single Sign on settings** page, copy the value of **Assertion Consumer Service URL** and paste it in the **Reply URL** text box under **Basic SAML Configuration** section in Azure portal. 
 
-	  ![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
+    ![Screenshot shows the Assertion Consumer Service U R L link.](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
 
 ### Create TimeOffManager test user
 
@@ -184,15 +177,14 @@ In this section, a user called Britta Simon is created in TimeOffManager. TimeOf
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the TimeOffManager tile in the Access Panel, you should be automatically signed in to the TimeOffManager for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the TimeOffManager tile in the Access Panel, you should be automatically signed in to the TimeOffManager for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try TimeOffManager with Azure AD](https://aad.portal.azure.com/)
-

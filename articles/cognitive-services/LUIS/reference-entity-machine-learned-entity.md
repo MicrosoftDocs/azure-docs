@@ -1,19 +1,19 @@
 ---
-title: Machine-learned entity type - LUIS
+title: Machine-learning entity type - LUIS
 titleSuffix: Azure Cognitive Services
-description: The machine-learned entity is the preferred entity for building LUIS applications.
+description: The machine-learning entity is the preferred entity for building LUIS applications.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/30/2019
-ms.author: diberry
----
-# Machine-learned entity
+ms.date: 04/13/2021
 
-The machine-learned entity is the preferred entity for building LUIS applications.
+---
+# Machine-learning entity
+
+The machine-learning entity is the preferred entity for building LUIS applications.
 
 
 ## Example JSON
@@ -32,7 +32,7 @@ Example utterances include:
 
 #### [V3 prediction endpoint response](#tab/V3)
 
-Because a machine-learned entity can have many subcomponents with constraints and descriptors, this is just an example only. It should be considered a guide for what your entity will return.
+Because a machine-learning entity can have many subentities with required features, this is just an example only. It should be considered a guide for what your entity will return.
 
 Consider the query:
 
@@ -342,6 +342,6 @@ This entity isn't available in the V2 prediction runtime.
 
 ## Next steps
 
-Learn more about the machine-learned entity including a [tutorial](tutorial-machine-learned-entity.md), [concepts](luis-concept-entity-types.md#design-entities-for-decomposition), and [how-to guide](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Learn more about the machine-learning entity including a [tutorial](tutorial-machine-learned-entity.md), [concepts](luis-concept-entity-types.md#machine-learned-ml-entity), and [how-to guide](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
 Learn about the [list](reference-entity-list.md) entity and [regular expression](reference-entity-regular-expression.md) entity.

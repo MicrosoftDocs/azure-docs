@@ -1,22 +1,14 @@
 ---
 title: Copy data from PayPal using Azure Data Factory (Preview) 
 description: Learn how to copy data from PayPal to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: jingwang
-
+ms.author: jianleishen
 ---
 # Copy data from PayPal using Azure Data Factory (Preview)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from PayPal. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -36,7 +28,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to PayPal connector.
 

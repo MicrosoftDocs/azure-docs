@@ -1,32 +1,33 @@
 ---
-title: 'Azure VPN Gateway: Configure alerts on diagnostic log events'
-description: Steps to configure alerts on VPN Gateway diagnostic log events
+title: 'Configure alerts on diagnostic resource log events'
+titleSuffix: Azure VPN Gateway
+description: Learn how to set up alerts based on resource log events from Azure VPN Gateway, using Azure Monitor Log Analytics.
 services: vpn-gateway
-author: anzaman
+author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 06/12/2019
+ms.topic: how-to
+ms.date: 11/18/2020
 ms.author: alzam
 
 ---
-# Set up alerts on diagnostic log events from VPN Gateway
+# Set up alerts on resource log events from VPN Gateway
 
-This article helps you set up alerts based on diagnostic log events from Azure VPN Gateway using Azure Log Analytics. 
+This article helps you set up alerts based on resource log events from Azure VPN Gateway using Azure Monitor Log Analytics. 
 
-The following logs are available in Azure:
+The following resource logs are available in Azure:
 
 |***Name*** | ***Description*** |
-|---		| ---				|
-|GatewayDiagnosticLog | Contains diagnostic logs for gateway configuration events, primary changes and maintenance events |
+|--- | --- |
+|GatewayDiagnosticLog | Contains resource logs for gateway configuration events, primary changes and maintenance events |
 |TunnelDiagnosticLog | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable |
 |RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |
 |IKEDiagnosticLog | Logs IKE control messages and events on the gateway |
-|P2SDiagnosticLog | Logs point-to-site control messages and events on the gateway. Connection source info is provided for IKEv2 connections only |
+|P2SDiagnosticLog | Logs point-to-site control messages and events on the gateway. Connection source info is provided for IKEv2 and OpenVPN connections only |
 
 ## <a name="setup"></a>Set up alerts in the Azure portal
 
-The following example steps will create an alert for a disconnection event that involves a site-to-site VPN tunnel:
+The following example steps creates an alert for a disconnection event that involves a site-to-site VPN tunnel:
 
 
 1. In the Azure portal, search for **Log Analytics** under **All services** and select **Log Analytics workspaces**.

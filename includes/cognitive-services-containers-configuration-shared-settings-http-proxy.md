@@ -11,7 +11,7 @@ If you need to configure an HTTP proxy for making outbound requests, use these t
 | Name | Data type | Description |
 |--|--|--|
 |HTTP_PROXY|string|The proxy to use, for example, `http://proxy:8888`<br>`<proxy-url>`|
-|HTTP_PROXY_CREDS|string|Any credentials needed to authenticate against the proxy, for example, username:password.|
+|HTTP_PROXY_CREDS|string|Any credentials needed to authenticate against the proxy, for example, `username:password`. This value **must be in lower-case**. |
 |`<proxy-user>`|string|The user for the proxy.|
 |`<proxy-password>`|string|The password associated with `<proxy-user>` for the proxy.|
 ||||

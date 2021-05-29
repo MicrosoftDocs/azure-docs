@@ -5,7 +5,7 @@ description: Learn how to do a controlled validation of hybrid Azure AD join bef
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 
 ms.author: joflore
@@ -60,7 +60,7 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Value name: **TenantId**
       1. Value type: **REG_SZ**
-      1. Value data: The GUID or **Directory ID** of your Azure AD instance (This value can be found in the **Azure portal** > **Azure Active Directory** > **Properties** > **Directory ID**)
+      1. Value data: The GUID or **Tenant ID** of your Azure AD instance (This value can be found in the **Azure portal** > **Azure Active Directory** > **Properties** > **Tenant ID**)
    1. Click **OK**
 1. Right-click on the Registry and select **New** > **Registry Item**
    1. On the **General** tab, configure the following
@@ -79,7 +79,7 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
 If you are using AD FS, you first need to configure client-side SCP using the instructions mentioned above by linking the GPO to your AD FS servers. The SCP object defines the source of authority for device objects. It can be on-premises or Azure AD. When client-side SCP is configured for AD FS, the source for device objects is established as Azure AD.
 
 > [!NOTE]
-> If you failed to configure client-side SCP on your AD FS servers, the source for device identities would be considered as on-premises. ADFS will then start deleting device objects from on-premises directory after the stipulated period defined in the ADFS Device Registration's attribute "MaximumInactiveDays". ADFS Device Registration objects can be found using the [Get-AdfsDeviceRegistration cmdlet](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> If you failed to configure client-side SCP on your AD FS servers, the source for device identities would be considered as on-premises. ADFS will then start deleting device objects from on-premises directory after the stipulated period defined in the ADFS Device Registration's attribute "MaximumInactiveDays". ADFS Device Registration objects can be found using the [Get-AdfsDeviceRegistration cmdlet](/powershell/module/adfs/get-adfsdeviceregistration).
 
 ## Controlled validation of hybrid Azure AD join on Windows down-level devices
 

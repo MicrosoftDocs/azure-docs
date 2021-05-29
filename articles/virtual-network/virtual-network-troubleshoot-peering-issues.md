@@ -20,7 +20,7 @@ ms.author: kaushika
 
 # Troubleshoot virtual network peering issues
 
-This troubleshooting guide provides steps to help you resolve most [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) issues.
+This troubleshooting guide provides steps to help you resolve most [virtual network peering](virtual-network-peering-overview.md) issues.
 
 ![Diagram of virtual network peering](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 
@@ -32,15 +32,15 @@ Are the virtual networks in the same subscription or in different subscriptions?
 
 To configure virtual network peering for the virtual networks that are in the same subscription, use the methods in the following articles:
 
-* If the virtual networks are in the *same region*, see [Create a peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
-* If the virtual networks are in the *different regions*, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
+* If the virtual networks are in the *same region*, see [Create a peering](./virtual-network-manage-peering.md#create-a-peering).
+* If the virtual networks are in the *different regions*, see [Virtual network peering](./virtual-network-peering-overview.md). 
 
 > [!Note]
 > Connectivity doesn't work over global virtual network peering for the following resources: 
 >
 > * Virtual machines (VMs) behind Basic internal load balancer (ILB) SKU
 > * Redis cache (uses Basic ILB SKU)
-> * Application gateway (uses Basic ILB SKU)
+> * Application gateway v1 (uses Basic ILB SKU)
 > * Virtual machine scale sets (uses Basic ILB SKU)
 > * Azure Service Fabric clusters (uses Basic ILB SKU)
 > * SQL Server Always On (uses Basic ILB SKU)
@@ -48,11 +48,11 @@ To configure virtual network peering for the virtual networks that are in the sa
 > * Azure API Management (uses Basic ILB SKU)
 > * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB SKU)
 
-For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering.
+For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering.
 
 ### The virtual networks are in different subscriptions or Active Directory tenants
 
-To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see [Create peering in different subscriptions for Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
+To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, see [Create peering in different subscriptions for Azure CLI](./create-peering-different-subscriptions.md#cli).
 
 > [!Note]
 > To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](virtual-network-manage-peering.md#permissions).
@@ -63,11 +63,11 @@ To configure virtual network peering for virtual networks in different subscript
 
 ### For a site-to-site connection or an ExpressRoute connection
 
-Follow the steps in: [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+Follow the steps in: [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### For point-to-site connections
 
-1. Follow the steps in: [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+1. Follow the steps in: [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. After virtual network peering is established or changed, download and reinstall the point-to-site package so that the point-to-site clients get the updated routes to the spoke virtual network.
 
 ## Configure virtual network peering with hub-spoke topology virtual network
@@ -80,12 +80,12 @@ Follow the steps in: [Configure VPN gateway transit for virtual network peering]
 1. In the hub virtual network, configure a network virtual appliance (NVA).
 1. In the spoke virtual networks, have user-defined routes with the next hop type "network virtual appliance" applied.
 
-For more information, see [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining).
+For more information, see [Service chaining](./virtual-network-peering-overview.md#service-chaining).
 
 > [!Note]
-> If you require help to set up an NVA, [contact the NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> If you require help to set up an NVA, [contact the NVA vendor](https://mskb.pkisolutions.com/kb/2984655).
 
-For help with troubleshooting the NVA device setup and routing, see [Network virtual appliance issues in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
+For help with troubleshooting the NVA device setup and routing, see [Network virtual appliance issues in Azure](./virtual-network-troubleshoot-nva.md).
 
 ### The virtual networks are in different regions
 
@@ -101,7 +101,7 @@ Transit over global virtual network peering is now supported. Connectivity does 
 * API Management (uses Basic ILB SKU)
 * Azure AD DS (uses Basic ILB SKU)
 
-To learn more about global peering requirements and restraints, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints).
+To learn more about global peering requirements and restraints, see [Virtual network peering](./virtual-network-peering-overview.md#requirements-and-constraints).
 
 ## Troubleshoot a connectivity issue between two peered virtual networks
 
@@ -113,11 +113,11 @@ To troubleshoot this issue:
 
 1. Check the network traffic flows:
 
-   Use [Connection Troubleshoot](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) and [IP flow verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) from the source VM to the destination VM to determine whether there is an NSG or UDR that is causing interference in traffic flows.
+   Use [Connection Troubleshoot](../network-watcher/network-watcher-connectivity-overview.md) and [IP flow verify](../network-watcher/network-watcher-ip-flow-verify-overview.md) from the source VM to the destination VM to determine whether there is an NSG or UDR that is causing interference in traffic flows.
 
    If you're using a firewall or NVA: 
    1. Document the UDR parameters so that you can restore them after this step is complete.
-   2. Remove the UDR from the source VM subnet or NIC that points to the NVA as the next hop. Verify connectivity from the source VM directly to the destination that is bypassing the NVA. If this step doesn't work, see the [NVA troubleshooter](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
+   2. Remove the UDR from the source VM subnet or NIC that points to the NVA as the next hop. Verify connectivity from the source VM directly to the destination that is bypassing the NVA. If this step doesn't work, see the [NVA troubleshooter](./virtual-network-troubleshoot-nva.md).
 
 2. Take a network trace: 
    1. Start a network trace on the destination VM. For Windows, you can use **Netsh**. For Linux, use **TCPDump**.
@@ -141,7 +141,7 @@ To troubleshoot this issue:
    > * API Management (uses Basic ILB SKU)
    > * Azure AD DS (uses Basic ILB SKU)
 
-For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering.
+For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering.
 
 ### The peering status is "Disconnected"
 
@@ -155,8 +155,8 @@ Does your network use a third-party NVA or VPN gateway?
 
 To troubleshoot connectivity issues that affect a third-party NVA or VPN gateway, see the following articles:
 
-* [NVA troubleshooter](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
-* [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
+* [NVA troubleshooter](./virtual-network-troubleshoot-nva.md)
+* [Service chaining](./virtual-network-peering-overview.md#service-chaining)
 
 ### My network does not use a third-party NVA or VPN gateway
 
@@ -186,7 +186,7 @@ For point-to-site connections:
 
 A hub network must include an NVA. Configure UDRs in spokes that have an NVA set as the next hop, and enable **Allow forwarded traffic** in the hub virtual network.
 
-For more information, see [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining), and discuss these requirements with the [NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) of your choice.
+For more information, see [Service chaining](./virtual-network-peering-overview.md#service-chaining), and discuss these requirements with the [NVA vendor](https://mskb.pkisolutions.com/kb/2984655) of your choice.
 
 ## Troubleshoot a hub-spoke network connectivity issue between spoke virtual networks in different regions
 
@@ -202,7 +202,7 @@ Transit over global virtual network peering is now supported. Connectivity doesn
 * API Management (uses Basic ILB SKU)
 * Azure AD DS (uses Basic ILB SKU)
 
-For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering and [Different VPN Topologies](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
+For more information, see the [requirements and constraints](./virtual-network-peering-overview.md#requirements-and-constraints) of global peering and [Different VPN Topologies](/archive/blogs/igorpag/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2).
 
 ## Troubleshoot a hub-spoke network connectivity issue between a web app and the spoke virtual network
 
@@ -214,14 +214,14 @@ To troubleshoot this issue:
 
 For more information, see the following articles:
 
-* [Integrate your app with an Azure virtual network](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-* [About Point-to-Site VPN routing](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
+* [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+* [About Point-to-Site VPN routing](../vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
 
 ## Troubleshoot a virtual network peering configuration error message 
 
 ### Current tenant `<TENANT ID>` isn't authorized to access linked subscription
 
-To resolve this issue, see [Create peering - Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
+To resolve this issue, see [Create peering - Azure CLI](./create-peering-different-subscriptions.md#cli).
 
 ### Not connected
 
@@ -229,7 +229,7 @@ To resolve this issue, delete the peering from both virtual networks, and then r
 
 ### Failed to peer a Databricks virtual network
 
-To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2).
 
 ### The remote virtual network lacks a gateway
 
@@ -242,4 +242,4 @@ There are two ways to resolve the issue:
 
 ## Next steps
 
-* [Troubleshooting connectivity problems between Azure VMs](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
+* [Troubleshooting connectivity problems between Azure VMs](./virtual-network-troubleshoot-connectivity-problem-between-vms.md)

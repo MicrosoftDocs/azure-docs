@@ -16,7 +16,7 @@ ms.author: alkohli
 
     Search for _StorSimple Physical_. Select and click **StorSimple Physical Device Series** and then click **Create**. Alternatively, in the Azure portal click **+** and then under **Storage**, click **StorSimple Physical Device Series**.
 
-    ![Create StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman11.png)
+    ![Create StorSimple Device Manager 2](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. In the **StorSimple Device Manager** blade, do the following steps:
 
@@ -24,7 +24,7 @@ ms.author: alkohli
 
    2. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
 
-   3. For **Resource group**, **Use existing** or **Create new** group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. For **Resource group**, **Use existing** or **Create new** group. For more information, see [Azure resource groups](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
    4. Supply a **Location** for your service. In general, choose a location closest to the geographical region where you want to deploy your device. You may also want to factor in the following considerations:
 
@@ -37,8 +37,8 @@ ms.author: alkohli
 
    7. Click **Create** to create the StorSimple Device Manager.
 
-       ![Create StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman2.png)
+       ![Create StorSimple Device Manager 3](./media/storsimple-8000-create-new-service/createssdevman2.png)
 
 The service creation takes a few minutes. After the service is successfully created, you will see a notification and the new service blade opens up.
 
-![Create StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman5.png)
+![Create StorSimple Device Manager 4](./media/storsimple-8000-create-new-service/createssdevman5.png)

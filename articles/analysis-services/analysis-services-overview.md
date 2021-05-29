@@ -4,11 +4,11 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 04/13/2020
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
-
+ms.custom: references_regions
 ---
 # What is Azure Analysis Services?
 
@@ -22,7 +22,7 @@ Azure Analysis Services is a fully managed platform as a service (PaaS) that pro
 
 ## Get up and running quickly
 
-In Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And with Azure Resource Manager [templates](../azure-resource-manager/resource-manager-create-first-template.md) and PowerShell, you can create servers using a declarative template. With a single template, you can deploy server resources along with other Azure components such as storage accounts and Azure Functions. 
+In Azure portal, you can [create a server](analysis-services-create-server.md) within minutes. And with Azure Resource Manager [templates](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) and PowerShell, you can create servers using a declarative template. With a single template, you can deploy server resources along with other Azure components such as storage accounts and Azure Functions. 
 
 **Video:** Check out [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) to learn more about how you can use Azure Automation to speed server creation.
 
@@ -43,7 +43,7 @@ This tier is recommended for evaluation, development, and test scenarios. A sing
 
 ### Basic tier
 
-The tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale-out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features *are not supported* in this tier.  
+This tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale-out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features *are not supported* in this tier.  
 
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|
@@ -60,14 +60,13 @@ This tier is for mission-critical production applications that require elastic u
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    320    |    200     |
-|S9 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
-|S8v2 <sup>[1](#depr)</sup>   |    640     |    200     |
-|S9v2 <sup>[1](#depr)</sup>    |    1280    |    400     |
+|S8 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>   |    320    |    200     |
+|S9 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
+|S8v2 <sup>[1](#naar)</sup>   |    640     |    200     |
+|S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
-<a name="depr">1</a> - Not available in all regions.   
-<a name="rec">2</a> - This plan is deprecated. v2 is recommended.
-
+<a name="naar">1</a> - Not available in all regions.   
+<a name="rec">2</a> - S8 and S9 are [deprecated](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). v2 is recommended. 
 
 ## Availability by region
 
@@ -79,17 +78,22 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |---------|---------|:---------:|
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|Canada Central     |     S8v2, S9v2   |    1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|East US     |     S8v2, S9v2   |    1    |
 |East US 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|East US 2     |     S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    1    |
+|East US 2     |     S8v2, S9v2   |    1    |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|North Central US     |     S8v2, S9v2    |    1     |
 |Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Central US     |    S8v2, S9v2     |    1     |
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|South Central US     |    S8v2, S9v2     |    1     |
 |West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |West US     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|West US     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    2  |
+|West US     |    S8v2, S9v2   |    2  |
 |West US2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|West US2    |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |    1     |
+|West US2    |    S8v2, S9v2  |    1     |
 
 ### Europe
 
@@ -99,17 +103,19 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |North Europe     |    S8v2, S9v2      |    3     |
 |UK South     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |West Europe     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|West Europe    |   S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |  1  |
+|West Europe    |   S8v2, S9v2  |  1  |
 
 ### Asia Pacific 
 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Australia East     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Australia East     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2    |    1     |
+|Australia East     |    S8v2, S9v2    |    1     |
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2, D1     |   1      |
+|Japan East     |    S8v2, S9v2    |    1     |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
+|Southeast Asia     |     S8v2, S9v2     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## Scale to your needs
@@ -128,15 +134,17 @@ Just like with changing tiers, you can scale out query replicas according to you
 
 ## Pricing
 
-Total cost depends on a number of factors; for example, your chosen region, tier, query replicas, and pause/resume. Use the [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/) calculator to determine typical pricing for your region. This tool calculates pricing for a single-server instance for a single region. Keep in mind, query replicas are billed at the same rate as the server. 
+Total cost depends on a number of factors. For example, your chosen region, tier, query replicas, and pause/resume. Use the [Azure Analysis Services Pricing](https://azure.microsoft.com/pricing/details/analysis-services/) calculator to determine typical pricing for your region. This tool calculates pricing for a single-server instance for a single region. Keep in mind, query replicas are billed at the same rate as the server. 
 
 ## Built on SQL Server Analysis Services
 
-Azure Analysis Services is compatible with many great features already in SQL Server Analysis Services Enterprise Edition. Azure Analysis Services supports tabular models at the 1200 and higher [compatibility levels](analysis-services-compat-level.md). Tabular models are relational modeling constructs (model, tables, columns), articulated in tabular metadata object definitions in Tabular Model Scripting Language (TMSL) and Tabular Object Model (TOM) code. Partitions, perspectives, row-level security, bi-directional relationships, and translations are all supported\*. Multidimensional models and PowerPivot for SharePoint *are not* supported in Azure Analysis Services.
+Azure Analysis Services is compatible with many great features already in SQL Server Analysis Services Enterprise Edition. Azure Analysis Services supports tabular models at the 1200 and higher [compatibility levels](/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services). Tabular models are relational modeling constructs (model, tables, columns), articulated in tabular metadata object definitions in Tabular Model Scripting Language (TMSL) and Tabular Object Model (TOM) code. Partitions, perspectives, row-level security, bi-directional relationships, and translations are all supported\*. Multidimensional models and PowerPivot for SharePoint *are not* supported in Azure Analysis Services.
 
-Tabular models in both in-memory and DirectQuery modes are supported. In-memory mode (default) tabular models support multiple data sources. Because model data is highly compressed and cached in-memory, this mode provides the fastest query response over large amounts of data. It also provides the greatest flexibility for complex datasets and queries. Partitioning enables incremental loads, increases parallelization, and reduces memory consumption. Other advanced data modeling features like calculated tables, and all DAX functions are supported. In-memory models must be refreshed (processed) to update cached data from data sources. With Azure service principal support, unattended refresh operations using PowerShell, TOM, TMSL and REST offer flexibility in making sure your model data is always up to date. 
+Tabular models in both in-memory and DirectQuery modes are supported. In-memory mode (default) tabular models support multiple data sources. Because model data is highly compressed and cached in-memory, this mode provides the fastest query response over large amounts of data. It also provides the greatest flexibility for complex datasets and queries. 
 
-DirectQuery mode* leverages the backend relational database for storage and query execution. Extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Oracle, and Teradata data sources are supported. Backend data sets can exceed available server resource memory. Complex data model refresh scenarios aren't needed. There are also some restrictions, such as limited data source types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+Partitioning enables incremental loads, increases parallelization, and reduces memory consumption. Other advanced data modeling features like calculated tables, and all DAX functions are supported. In-memory models must be refreshed (processed) to update cached data from data sources. With Azure service principal support, unattended refresh operations using PowerShell, TOM, TMSL, and REST offer flexibility in making sure your model data is always up to date. 
+
+DirectQuery mode* leverages the backend relational database for storage and query execution. Extremely large data sets in single SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics, Oracle, and Teradata data sources are supported. Backend data sets can exceed available server resource memory. Complex data model refresh scenarios aren't needed. There are also some restrictions, such as limited data source types, DAX formula limitations, and some advanced data modeling features aren't supported. Before determining the best mode for you, see [Direct Query mode](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* Feature availability depends on tier.
 
@@ -146,12 +154,12 @@ Tabular models in Azure Analysis Services support a wide variety of data sources
 
 ## Compatibility level
 
-Compatibility level refers to release-specific behaviors in the Analysis Services engine. Azure Analysis Services supports tabular models at the 1200 and higher compatibility levels. To learn more, see [Compatibility level for tabular models](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
+Compatibility level refers to release-specific behaviors in the Analysis Services engine. Azure Analysis Services supports tabular models at the 1200 and higher compatibility levels. To learn more, see [Compatibility level for tabular models](/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## Your data is secure
 
-Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides **Basic** level of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection Standard overview](../virtual-network/ddos-protection-overview.md). 
+Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides the **Basic** level protection of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection Standard overview](../ddos-protection/ddos-protection-overview.md). 
 
 At the server level, Analysis Services provides firewall, Azure authentication, server administrator roles, and Server-Side Encryption. At the data model level, user roles, row-level, and object-level security ensure your data is safe and gets seen by only those users who are meant to see it.
 
@@ -171,7 +179,7 @@ Secure access to data sources on-premises in your organization is achieved by in
 
 ### Roles
 
-Analysis Services uses [role-based authorization](https://docs.microsoft.com/analysis-services/tabular-models/roles-ssas-tabular) that grants access to server and model database operations, objects, and data. All users who access a server or database do so with their Azure AD user account within an assigned role. The server administrator role is at the server resource level. By default, the account used when creating a server is automatically included in the Server Admins role. Additional user and group accounts are added by using the portal, SSMS, or PowerShell.
+Analysis Services uses [role-based authorization](/analysis-services/tabular-models/roles-ssas-tabular) that grants access to server and model database operations, objects, and data. All users who access a server or database do so with their Azure AD user account within an assigned role. The server administrator role is at the server resource level. By default, the account used when creating a server is automatically included in the Server Admins role. Additional user and group accounts are added by using the portal, SSMS, or PowerShell.
   
 Non-administrative end users who query data are granted access through database roles. A database role is created as a separate object in the database, and applies only to the database in which that role is created. Database roles are defined by (database) Administrator, Read, and Read and Process permissions. User and group accounts are added by using SSMS or PowerShell.
 
@@ -181,7 +189,7 @@ Tabular models at all compatibility levels support row-level security. Row-level
 
 ### Object-level security 
 
-Tabular models at the 1400 compatibility level support object-level security, which includes table-level security and column-level security. Object level security is set in the JSON-based metadata in the Model.bim file by using TMSL, or TOM. To learn more, see [Object-level security](https://docs.microsoft.com/analysis-services/tabular-models/object-level-security).
+Tabular models at the 1400 compatibility level support object-level security, which includes table-level security and column-level security. Object level security is set in the JSON-based metadata in the Model.bim file by using TMSL, or TOM. To learn more, see [Object-level security](/analysis-services/tabular-models/object-level-security).
 
 ### Automation through service principals
 
@@ -202,9 +210,9 @@ Develop and deploy models with Visual Studio with Analysis Services projects. Th
 
 Microsoft Analysis Services Projects is available as a free installable VSIX package. [Download from Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). The extension works with any version of Visual Studio 2017 and later, including the free Community edition.
 
-### Sql Server Management Studio
+### SQL Server Management Studio
 
-Manage your servers and model databases by using [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Connect to your servers in the cloud. Run TMSL scripts right from the XMLA query window, and automate tasks by using TMSL scripts and PowerShell. New features and functionality happen fast - SSMS is updated monthly.
+Manage your servers and model databases by using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). Connect to your servers in the cloud. Run TMSL scripts right from the XMLA query window, and automate tasks by using TMSL scripts and PowerShell. New features and functionality happen fast - SSMS is updated monthly.
 
 ### Open-source tools
 
@@ -217,7 +225,7 @@ Server resource management tasks like creating server resources, suspending or r
 ### Object model and scripting
 
 Tabular models offer rapid development and are highly customizable. 
-Tabular models include the [Tabular Object Model](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) namespace. 
+Tabular models include the [Tabular Object Model](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) to describe model objects. TOM is exposed in JSON through the [Tabular Model Scripting Language (TMSL)](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) and the AMO data definition language through the [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) namespace. 
 
 ## Supports the latest client tools
 
@@ -227,23 +235,23 @@ Modern data exploration and visualization tools like Power BI, Excel, Reporting 
 
 ## Monitoring and diagnostics
 
-Azure Analysis Services is integrated with Azure metrics, providing an extensive number of resource-specific metrics to help you monitor the performance and health of your servers. To learn more, see [Monitor server metrics](analysis-services-monitor.md). Record metrics with [Azure resource diagnostic logs](../azure-monitor/platform/platform-logs-overview.md). Monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). To learn more, see [Setup diagnostic logging](analysis-services-logging.md).
+Azure Analysis Services is integrated with Azure Monitor metrics, providing an extensive number of resource-specific metrics to help you monitor the performance and health of your servers. To learn more, see [Monitor server metrics](analysis-services-monitor.md). Record metrics with [resource platform logs](../azure-monitor/essentials/platform-logs-overview.md). Monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). To learn more, see [Setup diagnostic logging](analysis-services-logging.md).
 
-Azure Analysis Services also supports using [Dynamic Management Views (DMVs)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Based on SQL syntax, DMVs interface schema rowsets that return metadata and monitoring information about server instance.
+Azure Analysis Services also supports using [Dynamic Management Views (DMVs)](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Based on SQL syntax, DMVs interface schema rowsets that return metadata and monitoring information about server instance.
 
 ## Documentation
 
 Documentation specific to Azure Analysis Services is included here. Use the table of contents on the left side of your browser screen to find articles. 
 
-Because tabular models in Azure Analysis Services are much the same as tabular models in SQL Server Analysis Services and Power BI Premium datasets, there's an extensive library of shared data modeling tutorials, conceptual, procedural, developer, and reference articles in [Analysis Services documentation](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current). Articles in the shared Analysis Services documentation show if they also apply to Azure Analysis Services by an APPLIES TO banner beneath the title. You can also use the Version selector above the table of contents to see only those articles that apply to the platform you're using.
+Because tabular models in Azure Analysis Services are much the same as tabular models in SQL Server Analysis Services and Power BI Premium datasets, there's an extensive library of shared data modeling tutorials, conceptual, procedural, developer, and reference articles in [Analysis Services documentation](/analysis-services/?view=azure-analysis-services-current&preserve-view=true). Articles in the shared Analysis Services documentation show if they also apply to Azure Analysis Services by an APPLIES TO banner beneath the title. You can also use the Version selector above the table of contents to see only those articles that apply to the platform you're using.
 
 ![Shared documentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 
 ### Contribute!
 
-Analysis Services documentation, like this article, are open source. To learn more about how you can contribute, see the [Docs contributor guide](https://docs.microsoft.com/contribute/). 
+Analysis Services documentation, like this article, is open source. To learn more about how you can contribute, see the [Docs contributor guide](/contribute/). 
 
-Azure Analysis Services documentation also uses [GitHub Issues](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs). You can provide feedback about the product or documentation. Use **Feedback** at the bottom of an article. GitHub Issues are not enabled for the shared Analysis Services documentation. 
+Azure Analysis Services documentation also uses [GitHub Issues](/teamblog/a-new-feedback-system-is-coming-to-docs). You can provide feedback about the product or documentation. Use **Feedback** at the bottom of an article. GitHub Issues are not enabled for the shared Analysis Services documentation. 
 
 ## Blogs
 
@@ -262,4 +270,4 @@ Analysis Services has a vibrant community of users. Join the conversation on [Az
 > [Quickstart: Create a server - Portal](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a server - PowerShell](analysis-services-create-powershell.md)  
+> [Quickstart: Create a server - PowerShell](analysis-services-create-powershell.md)

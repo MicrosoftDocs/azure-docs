@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
@@ -61,7 +61,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     Your hub is now created and configured to send unauthenticated notification for Windows Phone.
 
     > [!NOTE]
-    > This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) by allowing you to upload your certificate.
+    > This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](/previous-versions/windows/apps/ff941099(v=vs.105)) by allowing you to upload your certificate.
 
 ## Create a Windows Phone application
 
@@ -80,8 +80,11 @@ In this section, you create a Windows Phone application that registers itself wi
     ![Visual Studio - NuGet Package Manager][20]
 4. Open the file App.xaml.cs and add the following `using` statements:
 
-        using Microsoft.Phone.Notification;
-        using Microsoft.WindowsAzure.Messaging;
+    ```csharp
+    using Microsoft.Phone.Notification;
+    using Microsoft.WindowsAzure.Messaging;
+    ```
+
 5. Add the following code at the top of `Application_Launching` method in `App.xaml.cs`:
 
     ```csharp
@@ -110,7 +113,7 @@ In this section, you create a Windows Phone application that registers itself wi
     ```
 
    > [!NOTE]
-   > The value `MyPushChannel` is an index that is used to lookup an existing channel in the [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) collection. If there isn't one there, create a new entry with that name.
+   > The value `MyPushChannel` is an index that is used to lookup an existing channel in the [HttpNotificationChannel](/previous-versions/ff402781(v=vs.110)) collection. If there isn't one there, create a new entry with that name.
 
     Insert the name of your hub and the connection string called `DefaultListenSharedAccessSignature` that you noted in the previous section.
     This code retrieves the channel URI for the app from MPNS, and then registers that channel URI with your notification hub. It also guarantees that the channel URI is registered in your notification hub each time the application is launched.
@@ -167,10 +170,10 @@ In this simple example, you broadcasted push notifications to all your Windows P
 [213]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 
 <!-- URLs. -->
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[MPNS authenticated mode]: https://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[MPNS authenticated mode]: /previous-versions/windows/apps/ff941099(v=vs.105)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-[toast catalog]: https://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
-[tile catalog]: https://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
-[Notification Hubs - Windows Phone Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
+[toast catalog]: /previous-versions/windows/apps/jj662938(v=vs.105)
+[tile catalog]: /previous-versions/windows/apps/hh202948(v=vs.105)
+[Notification Hubs - Windows Phone Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari

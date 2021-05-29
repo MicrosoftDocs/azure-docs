@@ -3,8 +3,9 @@ title: Use the portal for maintenance notifications
 description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the portal.
 author: shants123
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 #pmcontact: shants
@@ -28,15 +29,14 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
    **Maintenance status**: Shows the maintenance status for the VM. The following are the potential values:
 	  
-      | Value | Description |
-	  |-------|-------------|
-	  | Start now | The VM is in the self-service maintenance window that lets you initiate the maintenance yourself. See below on how to start maintenance on your VM. | 
-	  | Scheduled | The VM is scheduled for maintenance with no option for you to initiate maintenance. You can learn of the maintenance window by selecting the Maintenance - Scheduled window in this view or by clicking on the VM. | 
-	  | Already updated | Your VM is already updated and no further action is required at this time. | 
-	  | Retry later | You have initiated maintenance with no success. You will be able to use the self-service maintenance option at a later time. | 
-	  | Retry now | You can retry a previously unsuccessful self-initiated maintenance. | 
-	  | - | Your VM is not part of a planned maintenance wave. |
-	  
+    | Value | Description |
+    |-------|-------------|
+    | Start now | The VM is in the self-service maintenance window that lets    you initiate the maintenance yourself. See below on how to start    maintenance on your VM. | 
+    | Scheduled | The VM is scheduled for maintenance with no option for you    to initiate maintenance. You can learn of the maintenance window by    selecting the Maintenance - Scheduled window in this view or by clicking    on the VM. | 
+    | Already updated | Your VM is already updated and no further action is    required at this time. | 
+    | Retry later | You have initiated maintenance with no success. You will    be able to use the self-service maintenance option at a later time. | 
+    | Retry now | You can retry a previously unsuccessful self-initiated    maintenance. | 
+    | - | Your VM is not part of a planned maintenance wave. |
 
    **Maintenance - Self-service window**: Shows the time window when you can self-start maintenance on your VMs.
    
@@ -46,7 +46,7 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Make sure you set the **Event type** as **Planned maintenance**, and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**.
 

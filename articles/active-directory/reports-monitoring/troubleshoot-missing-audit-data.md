@@ -11,7 +11,7 @@ editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -30,16 +30,16 @@ ms.collection: M365-identity-device-management
 
 I performed some actions in the Azure portal and expected to see the audit logs for those actions in the `Activity logs > Audit Logs` blade, but I can’t find them.
 
- ![Reporting](./media/troubleshoot-missing-audit-data/01.png)
+ ![Screenshot shows Audit Log entries.](./media/troubleshoot-missing-audit-data/01.png)
  
 ### Cause
 
 Actions don’t appear immediately in the activity logs. The table below enumerates our latency numbers for activity logs. 
 
-| Report | &nbsp; | Latency (P95) | Latency (P99) |
-|--------|--------|---------------|---------------|
-| Directory audit | &nbsp; | 2 mins | 5 mins |
-| Sign-in activity | &nbsp; | 2 mins | 5 mins | 
+| Report | Latency (P95) | Latency (P99) |
+|--------|---------------|---------------|
+| Directory audit | 2 mins | 5 mins |
+| Sign-in activity | 2 mins | 5 mins |
 
 ### Resolution
 
@@ -51,16 +51,16 @@ Wait for 15 minutes to two hours and see if the actions appear in the log. If yo
 
 I recently signed into the Azure portal and expected to see the sign-in logs for those actions in the `Activity logs > Sign-ins` blade, but I can’t find them.
 
- ![Reporting](./media/troubleshoot-missing-audit-data/02.png)
+ ![Screenshot shows Sign-ins in the Activity log.](./media/troubleshoot-missing-audit-data/02.png)
  
 ### Cause
 
 Actions don’t appear immediately in the activity logs. The table below enumerates our latency numbers for activity logs. 
 
-| Report | &nbsp; | Latency (P95) | Latency (P99) |
-|--------|--------|---------------|---------------|
-| Directory audit | &nbsp; | 2 mins | 5 mins |
-| Sign-in activity | &nbsp; | 2 mins | 5 mins | 
+| Report | Latency (P95) | Latency (P99) |
+|--------|---------------|---------------|
+| Directory audit | 2 mins | 5 mins |
+| Sign-in activity  2 mins | 5 mins |
 
 ### Resolution
 
@@ -72,16 +72,16 @@ Wait for 15 minutes to two hours and see if the actions appear in the log. If yo
 
 I can't view more than 30 days of sign-in and audit data from the Azure portal. Why? 
 
- ![Reporting](./media/troubleshoot-missing-audit-data/03.png)
+ ![Screenshot shows the Date menu.](./media/troubleshoot-missing-audit-data/03.png)
 
 ### Cause
 
 Depending on your license, Azure Active Directory Actions stores activity reports for the following durations:
 
-| Report           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Directory Audit  | &nbsp; |	7 days	   | 30 days             | 30 days             |
-| Sign-in Activity | &nbsp; | Not available. You can access your own sign-ins for 7 days from the individual user profile blade | 30 days | 30 days             |
+| Report           | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---                 |
+| Directory Audit  |  7 days       | 30 days             | 30 days             |
+| Sign-in Activity | Not available. You can access your own sign-ins for 7 days from the individual user profile blade | 30 days | 30 days             |
 
 For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 

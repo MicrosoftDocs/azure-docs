@@ -8,7 +8,8 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-# As a developer or operator for Azure IoT Hub, I want to resolve 400027 ConnectionForcefullyClosedOnNewConnection errors.
+ms.custom: [mqtt, fasttrack-edit, iot]
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 400027 ConnectionForcefullyClosedOnNewConnection errors.
 ---
 
 # 400027 ConnectionForcefullyClosedOnNewConnection
@@ -16,6 +17,8 @@ ms.author: jlian
 This article describes the causes and solutions for **400027 ConnectionForcefullyClosedOnNewConnection** errors.
 
 ## Symptoms
+
+Your device get disconnected with **Communication_Error** as **ConnectionStatusChangeReason** using .NET SDK and MQTT transport type.
 
 Your device-to-cloud twin operation (such as read or patch reported properties) or direct method invocation fails with the error code **400027**.
 

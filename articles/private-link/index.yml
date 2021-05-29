@@ -24,6 +24,11 @@ landingContent:
         links:
           - text: What is Private Link?
             url: private-link-overview.md
+      - linkListType: video
+        links:
+          - text: Secure Azure PaaS resources using Private Link
+            url: https://www.youtube.com/watch?v=AZ0iFcyPDkc
+
 
   # Card (optional)
   - title: Connect to an Azure service
@@ -32,6 +37,8 @@ landingContent:
         links:
           - text: What is a Private Endpoint?
             url: private-endpoint-overview.md
+          - text: Private Endpoints DNS integration
+            url: private-endpoint-dns.md            
       - linkListType: quickstart
         links:
           - text: Create a Private Endpoint
@@ -62,16 +69,5 @@ landingContent:
           - text: REST
             url: /rest/api/virtualnetwork/privatelinkservices
 
- # Card
-  - title: Explore Azure Private Link
-    linkLists:
-      - linkListType: video
-        links:
-          - text: Azure Private Link
-            url: https://www.youtube.com/watch?reload=9&v=nuFEVvewUgQ
-          - text: Private connectivity to Azure PaaS services using Private Link
-            url: https://www.youtube.com/watch?v=aVFV1_ZwAEY
-          - text: "Azure Networking - #11 - Azure Private Link"
-            url: https://www.youtube.com/watch?v=PWKM5KXjWno
 
 

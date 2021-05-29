@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -27,14 +27,14 @@ The following tokens are used in communication with Azure AD B2C:
 
 - *ID token* - A JWT that contains claims that you can use to identify users in your application. This token is securely sent in HTTP requests for communication between two components of the same application or service. You can use the claims in an ID token as you see fit. They are commonly used to display account information or to make access control decisions in an application. ID tokens are signed, but they are not encrypted. When your application or API receives an ID token, it must validate the signature to prove that the token is authentic. Your application or API must also validate a few claims in the token to prove that it's valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
 - *Access token* -  A JWT that contains claims that you can use to identify the granted permissions to your APIs. Access tokens are signed, but they aren't encrypted. Access tokens are used to provide access to APIs and resource servers.  When your API receives an access token, it must validate the signature to prove that the token is authentic. Your API must also validate a few claims in the token to prove that it is valid. Depending on the scenario requirements, the claims validated by an application can vary, but your application must perform some common claim validations in every scenario.
-- *Refresh token* - Refresh tokens are used to acquire new ID tokens and access tokens in an OAuth 2.0 flow. They provide your application with long-term access to resources on behalf of users without requiring interaction with those users. Refresh tokens are opaque to your application. They are issued by Azure AD B2C and can be inspected and interpreted only by Azure AD B2C. They are long-lived, but your application shouldn't be written with the expectation that a refresh token will last for a specific period of time. Refresh tokens can be invalidated at any moment for a variety of reasons. The only way for your application to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD B2C. When you redeem a refresh token for a new token, you receive a new refresh token in the token response. Save the new refresh token. It replaces the refresh token that you previously used in the request. This action helps guarantee that your refresh tokens remain valid for as long as possible.
+- *Refresh token* - Refresh tokens are used to acquire new ID tokens and access tokens in an OAuth 2.0 flow. They provide your application with long-term access to resources on behalf of users without requiring interaction with those users. Refresh tokens are opaque to your application. They are issued by Azure AD B2C and can be inspected and interpreted only by Azure AD B2C. They are long-lived, but your application shouldn't be written with the expectation that a refresh token will last for a specific period of time. Refresh tokens can be invalidated at any moment for a variety of reasons. The only way for your application to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD B2C. When you redeem a refresh token for a new token, you receive a new refresh token in the token response. Save the new refresh token. It replaces the refresh token that you previously used in the request. This action helps guarantee that your refresh tokens remain valid for as long as possible. Note that single-page applications using the authorization code flow with PKCE always have a refresh token lifetime of 24 hours. [Learn more about the security implications of refresh tokens in the browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## Endpoints
 
 A [registered application](tutorial-register-applications.md) receives tokens and communicates with Azure AD B2C by sending requests to these endpoints:
 
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
 Security tokens that your application receives from Azure AD B2C can come from the `/authorize` or `/token` endpoints. When ID tokens are acquired from the `/authorize` endpoint, it's done using the [implicit flow](implicit-flow-single-page-application.md), which is often used for users signing in to JavaScript-based web applications. When ID tokens are acquired from the `/token` endpoint, it's done using the [authorization code flow](openid-connect.md#get-a-token), which keeps the token hidden from the browser.
 
@@ -49,7 +49,7 @@ The following table lists the claims that you can expect in ID tokens and access
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
 | Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifies the intended recipient of the token. For Azure AD B2C, the audience is the application ID. Your application should validate this value and reject the token if it doesn't match. Audience is synonymous with resource. |
-| Issuer | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifies the security token service (STS) that constructs and returns the token. It also identifies the directory in which the user was authenticated. Your application should validate the issuer claim to make sure that the token came from the appropriate endpoint. |
+| Issuer | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifies the security token service (STS) that constructs and returns the token. It also identifies the directory in which the user was authenticated. Your application should validate the issuer claim to make sure that the token came from the appropriate endpoint. |
 | Issued at | `iat` | `1438535543` | The time at which the token was issued, represented in epoch time. |
 | Expiration time | `exp` | `1438539443` | The time at which the token becomes invalid, represented in epoch time. Your application should use this claim to verify the validity of the token lifetime. |
 | Not before | `nbf` | `1438535543` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Your application should use this claim to verify the validity of the token lifetime. |
@@ -93,7 +93,7 @@ The following properties are used to [manage token compatibility](configure-toke
 
 ## Pass-through
 
-When a user journey starts, Azure AD B2C receives an access token from an identity provider. Azure AD B2C uses that token to retrieve information about the user. You [enable a claim in your user flow](idp-pass-through-user-flow.md) or [define a claim in your custom policy](idp-pass-through-custom.md) to pass the token through to the applications that you register in Azure AD B2C. Your application must be using a [v2 user flow](user-flow-versions.md) to take advantage of passing the token as a claim.
+When a user journey starts, Azure AD B2C receives an access token from an identity provider. Azure AD B2C uses that token to retrieve information about the user. You enable a claim in your user flow to [pass the token through](idp-pass-through-user-flow.md) to the applications that you register in Azure AD B2C. Your application must be using a [recommended user flow](user-flow-versions.md) to take advantage of passing the token as a claim.
 
 Azure AD B2C currently only supports passing the access token of OAuth 2.0 identity providers, which include Facebook and Google. For all other identity providers, the claim is returned blank.
 
@@ -115,22 +115,22 @@ The header of the token contains information about the key and encryption method
 }
 ```
 
-The value of the **alg** claim is the algorithm that was used to sign the token. The value of the **kid** claim is the public key that was used to sign the token. At any given time, Azure AD B2C can sign a token by using any one of a set of public-private key pairs. Azure AD B2C rotates the possible set of keys periodically. Your application should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD B2C is every 24 hours.
+The value of the **alg** claim is the algorithm that was used to sign the token. The value of the **kid** claim is the public key that was used to sign the token. At any given time, Azure AD B2C can sign a token by using any one of a set of public-private key pairs. Azure AD B2C rotates the possible set of keys periodically. Your application should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD B2C is every 24 hours. To handle unexpected key changes, your application should be written to re-retrieve the public keys if it receives an unexpected **kid** value.
 
 Azure AD B2C has an OpenID Connect metadata endpoint. Using this endpoint, applications can request information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. Your Azure AD B2C tenant contains a JSON metadata document for each policy. The metadata document is a JSON object that contains several useful pieces of information. The metadata contains **jwks_uri**, which gives the location of the set of public keys that are used to sign tokens. That location is provided here, but it's best to fetch the location dynamically by using the metadata document and parsing **jwks_uri**:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
 ```
 The JSON document located at this URL contains all the public key information in use at a particular moment. Your app can use the `kid` claim in the JWT header to select the public key in the JSON document that is used to sign a particular token. It can then perform signature validation by using the correct public key and the indicated algorithm.
 
 The metadata document for the `B2C_1_signupsignin1` policy in the `contoso.onmicrosoft.com` tenant is located at:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `acr` claim in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
+To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
 
 A description of how to perform signature validation is outside the scope of this document. Many open-source libraries are available to help you validate a token.
 

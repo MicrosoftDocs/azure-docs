@@ -1,12 +1,10 @@
 ---
 title: Configure Jenkins for a Java app on Service Fabric in Azure 
 description: In this tutorial, learn how to set up continuous integration using Jenkins to deploy a Java Service Fabric application.
-author: suhuruli
 
 ms.topic: tutorial
 ms.date: 08/27/2018
-ms.author: suhuruli
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 # Tutorial: Configure a Jenkins environment to enable CI/CD for a Java application on Service Fabric
 
@@ -80,7 +78,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
    a. In the general section, select the checkbox for **GitHub project**, and specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, ``https://github.com/testaccount/dev_test``).
 
-   b. Under the **Source Code Management** section, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, *https://github.com/testaccount/dev_test.git*). Also, you can specify here which branch to build (for example, **/master**).
+   b. Under the **Source Code Management** section, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, *`https://github.com/testaccount/dev_test.git`*). Also, you can specify here which branch to build (for example, **/master**).
 
 1. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins. Use the following steps:
 
@@ -104,7 +102,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 
     You can also provide additional details used to deploy the application. See the following screenshot for an example for the application details:
 
-    ![Service Fabric Jenkins Build action](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
+    ![Post-build Actions dialog with additional Service Fabric project deployment options](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
     > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.

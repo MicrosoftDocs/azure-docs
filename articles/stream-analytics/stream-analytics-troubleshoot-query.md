@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Stream Analytics queries
 description: This article describes techniques to troubleshoot your queries in Azure Stream Analytics jobs.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
 ---
@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 This article describes common issues with developing Stream Analytics queries and how to troubleshoot them.
 
-This article describes common issues with developing Azure Stream Analytics queries, how to troubleshoot query issues, and how to correct the issues. Many troubleshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnostic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
+This article describes common issues with developing Azure Stream Analytics queries, how to troubleshoot query issues, and how to correct the issues. Many troubleshooting steps require resource logs to be enabled for your Stream Analytics job. If you do not have resource logs enabled, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
 
 ## Query is not producing expected output
 
@@ -23,28 +23,30 @@ This article describes common issues with developing Azure Stream Analytics quer
     - On Azure portal, on the **Query** tab, select **Test**. Use the downloaded sample data to [test the query](stream-analytics-test-query.md). Examine any errors and attempt to correct them.   
     - You can also [test your query locally](stream-analytics-live-data-local-testing.md) using Azure Stream Analytics tools for Visual Studio or [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Debug queries step by step locally using job diagram](debug-locally-using-job-diagram.md) in Azure Stream Analytics tools for Visual Studio. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc.) through multiple query steps and finally to output sinks. Each query step is mapped to a temporary result set defined in the script using the WITH statement. You can view the data, as well as metrics, in each intermediate result set to find the source of the issue.
+2.  [Debug queries step by step locally using job diagram](debug-locally-using-job-diagram-vs-code.md) in Azure Stream Analytics tools for Visual Studio Code. The job diagram shows how data flows from input sources (Event Hub, IoT Hub, etc.) through multiple query steps and finally to output sinks. Each query step is mapped to a temporary result set defined in the script using the WITH statement. You can view the data, as well as metrics, in each intermediate result set to find the source of the issue.
 
-    ![Job diagram preview result](./media/debug-locally-using-job-diagram/preview-result.png)
+    ![Job diagram preview result](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-3.  If you use [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), verify that the events have timestamps greater than the [job start time](stream-analytics-out-of-order-and-late-events.md).
+3.  If you use [**Timestamp By**](/stream-analytics-query/timestamp-by-azure-stream-analytics), verify that the events have timestamps greater than the [job start time](./stream-analytics-time-handling.md).
 
 4.  Eliminate common pitfalls, such as:
-    - A [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) clause in the query filtered out all events, preventing any output from being generated.
-    - A [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) function fails, causing the job to fail. To avoid type cast failures, use [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) instead.
+    - A [**WHERE**](/stream-analytics-query/where-azure-stream-analytics) clause in the query filtered out all events, preventing any output from being generated.
+    - A [**CAST**](/stream-analytics-query/cast-azure-stream-analytics) function fails, causing the job to fail. To avoid type cast failures, use [**TRY_CAST**](/stream-analytics-query/try-cast-azure-stream-analytics) instead.
     - When you use window functions, wait for the entire window duration to see an output from the query.
     - The timestamp for events precedes the job start time and events are dropped.
-    - [**JOIN**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) conditions don't match. If there are no matches, there will be zero output.
+    - [**JOIN**](/stream-analytics-query/join-azure-stream-analytics) conditions don't match. If there are no matches, there will be zero output.
 
-5.  Ensure event ordering policies are configured as expected. Go to **Settings** and select [**Event Ordering**](stream-analytics-out-of-order-and-late-events.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production. 
+5.  Ensure event ordering policies are configured as expected. Go to **Settings** and select [**Event Ordering**](./stream-analytics-time-handling.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production. 
 
-6. Debug by using audit and diagnostic logs:
-    - Use [Audit Logs](../azure-resource-manager/resource-group-audit.md), and filter to identify and debug errors.
-    - Use [job diagnostic logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
+6. Debug by using activity and resource logs:
+    - Use [Activity Logs](../azure-resource-manager/management/view-activity-logs.md), and filter to identify and debug errors.
+    - Use [job resource logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
 
 ## Resource utilization is high
 
 Ensure you take advantage of parallelization in Azure Stream Analytics. You can learn to [scale with query parallelization](stream-analytics-parallelization.md) of Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
+
+If resource utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units. High utilization indicates that the job is using close to the maximum allocated resources.
 
 ## Debug queries progressively
 
@@ -98,12 +100,12 @@ This time, the data in the output is formatted and populated as expected.
 
 ## Get help
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

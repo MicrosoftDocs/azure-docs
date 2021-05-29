@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/13/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -41,6 +41,5 @@ The following documentation provides information about the various device option
 
 ## Next steps
 
-* [Configure Hybrid Azure AD join](../device-management-hybrid-azuread-joined-devices-setup.md)
+* [Configure Hybrid Azure AD join](../devices/hybrid-azuread-join-plan.md)
 * [Configure / Disable device writeback](how-to-connect-device-writeback.md)
-

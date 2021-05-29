@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Choose a load balancing solution for CloudSimple Private Clouds
 description: Describes the load balancing options deploying an application in a Private Cloud
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -35,7 +35,7 @@ To learn more about how to configure this solution, refer to the solution guide 
 
 If you choose to run your application in a hybrid deployment where the web front-end tier is running within an Azure vNet in your Azure subscription and the DB tier of the application is running in VMware VMs in CloudSimple Private Cloud, you can use Azure internal load balancer (L4 load balancer) in front of your DB tier VMs for traffic management.
 
-To learn more, see Azure [Internal Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer) documentation.
+To learn more, see Azure [Internal Load Balancer](../load-balancer/components.md#frontend-ip-configurations) documentation.
 
 ## Global server load balancer
 

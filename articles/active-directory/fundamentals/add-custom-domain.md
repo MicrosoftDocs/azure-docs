@@ -2,13 +2,13 @@
 title: Add your custom domain - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add a custom domain using Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: ajburnle
 ms.reviewer: elkuzmen
@@ -33,7 +33,7 @@ Create your new directory by following the steps in [Create a new tenant for you
 >[!IMPORTANT]
 >The person who creates the tenant is automatically the Global administrator for that tenant. The Global administrator can add additional administrators to the tenant.
 
-For more information about subscription roles, see [Azure RBAC roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+For more information about subscription roles, see [Azure roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
 >[!TIP]
 > If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Azure AD Connect tool to synchronize your directories.
@@ -94,15 +94,17 @@ After you've verified your custom domain name, you can delete your verification 
 
 If Azure AD can't verify a custom domain name, try the following suggestions:
 
-- **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain. This process can take an hour or more.
+- **Wait at least an hour and try again.** DNS records must propagate before Azure AD can verify the domain. This process can take an hour or more.
+ 
+- **If you are trying to verify a child domain, verify the parent domain first.** Make sure the parent domain is created and verified first before you try to verify child domain.
 
 - **Make sure the DNS record is correct.** Go back to the domain name registrar site. Make sure the entry is there, and that it matches the DNS entry information provided by Azure AD.
 
   If you can't update the record on the registrar site, share the entry with someone who has permissions to add the entry and verify it's correct.
 
-- **Make sure the domain name isn't already in use in another directory.** A domain name can only be verified in one directory. If your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this duplication problem, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../users-groups-roles/domains-manage.md).
+- **Make sure the domain name isn't already in use in another directory.** A domain name can only be verified in one directory. If your domain name is currently verified in another directory, it can't also be verified in the new directory. To fix this duplication problem, you must delete the domain name from the old directory. For more information about deleting domain names, see [Manage custom domain names](../enterprise-users/domains-manage.md).
 
-- **Make sure you don't have any unmanaged Power BI tenants.** If your users have activated Power BI through self-service sign-up and created an unmanaged tenant for your organization, you must take over management as an internal or external admin, using PowerShell. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+- **Make sure you don't have any unmanaged Power BI tenants.** If your users have activated Power BI through self-service sign-up and created an unmanaged tenant for your organization, you must take over management as an internal or external admin, using PowerShell. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../enterprise-users/domains-admin-takeover.md).
 
 ## Next steps
 
@@ -110,6 +112,6 @@ If Azure AD can't verify a custom domain name, try the following suggestions:
 
 - Add users to your domain. For more information, see [How to add or delete users](add-users-azure-active-directory.md).
 
-- Manage your domain name information in Azure AD. For more information, see [Managing custom domain names](../users-groups-roles/domains-manage.md).
+- Manage your domain name information in Azure AD. For more information, see [Managing custom domain names](../enterprise-users/domains-manage.md).
 
-- If you have on-premises versions of Windows Server that you want to use alongside Azure Active Directory, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md).
+- If you have on-premises versions of Windows Server that you want to use alongside Azure Active Directory, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).

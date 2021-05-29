@@ -4,21 +4,20 @@ description: Learn how to create an application gateway with a virtual machine s
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Manage web traffic with an application gateway using Azure PowerShell
 
-Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create a virtual machine scale set with the default backend pool
+* Set up the network
+* Create an application gateway
+* Create a virtual machine scale set with the default backend pool
 
 If you prefer, you can complete this procedure using [Azure CLI](tutorial-manage-web-traffic-cli.md).
 
@@ -252,4 +251,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-[Restrict web traffic with a web application firewall](./tutorial-restrict-web-traffic-powershell.md)
+[Restrict web traffic with a web application firewall](../web-application-firewall/ag/tutorial-restrict-web-traffic-powershell.md)

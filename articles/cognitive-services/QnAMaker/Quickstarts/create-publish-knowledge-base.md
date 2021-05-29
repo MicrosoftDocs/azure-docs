@@ -1,53 +1,113 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
-ms.topic: conceptual
-ms.date: 02/08/2020
+ms.service: cognitive-services
+ms.subservice: qna-maker
+ms.topic: quickstart
+ms.date: 11/09/2020
 
 ---
 
 # Quickstart: Create, train, and publish your QnA Maker knowledge base
 
-You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
+You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions.
 
 ## Prerequisites
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 > [!div class="checklist"]
-> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-> * A QnA Maker [resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA Maker resource name you selected when you created the resource.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+> [!div class="checklist"]
+> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with Custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource.
+
+---
 
 ## Create your first QnA Maker knowledge base
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 1. Sign in to the [QnAMaker.ai](https://QnAMaker.ai) portal with your Azure credentials.
 
-1. In the QnA Maker portal, select **Create a knowledge base**.
+2. In the QnA Maker portal, select **Create a knowledge base**.
 
-1. On the **Create** page, skip **Step 1** if you already have your QnA Maker resource.
+3. On the **Create** page, skip **Step 1** if you already have your QnA Maker resource.
 
-    If you haven't created the resource yet, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+If you haven't created the service yet, select **Stable** and **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
-    When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
+When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
 
-1. In **Step 3**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
+4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
-   ![Screenshot of selecting a QnA Maker service knowledge base](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base":::
 
-1. In **Step 3**, name your knowledge base **My Sample QnA KB**.
+5. In **Step 3**, name your knowledge base **My Sample QnA KB**.
 
-1. In **Step 4**, configure the settings with the following table:
+6. In **Step 4**, configure the settings with the following table:
 
     |Setting|Value|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
-    |**Default answer text**| `Quickstart - default answer not found.`|
-    |**+ Add URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**Multi-turn default text**| Select an option|
+    |**+ Add URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Chit-chat**|Select **Professional**|
 
-1. In **Step 5**, Select **Create your KB**.
+7. In **Step 5**, Select **Create your KB**.
 
     The extraction process takes a few moments to read the document and identify questions and answers.
 
     After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+1. Sign in to the [QnAMaker.ai](https://QnAMaker.ai) portal with your Azure credentials.
+
+2. In the QnA Maker portal, select **Create a knowledge base**.
+
+3. On the **Create** page, skip **Step 1** if you already have Custom question answering added to a Text Analytics service.
+
+    If you haven't created the service yet, select **Preview** and **Create a QnA service**. 
+
+> [!div class="mx-imgBorder"]
+> ![Create service](../media/qnamaker-create-publish-knowledge-base/create-qna-service.png) 
+    
+You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the Text Analytics service in your subscription. You should add the Custom question answering feature to the service on creation. 
+    
+> [!div class="mx-imgBorder"]
+> ![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+ 
+   Remember your Azure Active Directory ID, Subscription, Text Analytics resource name you selected when you created the resource. When you are done creating the resource in the Azure portal, return to the QnA Maker portal, refresh the browser page, and continue to **Step 2**.
+
+4. In **Step 2**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
+
+> [!div class="mx-imgBorder"]
+> ![Create KB](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png) 
+
+5. In **Step 2**, if you are creating the first knowledge base for your service, you can check **Add knowledge bases in multiple languages to this service** property to allow the capability to add knowledge bases in different languages to the same service. You won't be able to modify this later.
+
+6. In **Step 3**, name your knowledge base **My Sample QnA KB**. 
+
+7. In **Step 4**, configure the settings with the following table:
+
+    |Setting|Value|
+    |--|--|
+    |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
+    |**Multi-turn default text**| Select an option|
+    |**+ Add File**| Download Surface laptop manual from: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf' 
+    |**Chit-chat**|Select **Professional**|
+
+8. In **Step 5**, Select **Create your KB**.
+
+    The extraction process takes a few moments to read the document and identify questions and answers.
+
+    After successfully creating the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
+
+---
 
 ## Add a new question and answer set
 
@@ -60,7 +120,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Add the question as text and the answer formatted with markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Add the question as text and the answer formatted with markdown.":::
 
     The markdown symbol, `*`, is used for bullet points. The `\n` is used for a new line.
 
@@ -68,24 +128,42 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 ## Save and train
 
-In the upper right, select **Save and train** to save your edits and train QnA Maker . Edits aren't kept unless they're saved.
+In the upper right, select **Save and train** to save your edits and train QnA Maker. Edits aren't kept unless they're saved.
 
 ## Test the knowledge base
 
+# [QnA Maker GA (stable release)](#tab/v1)
+
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect.
-1. Enter an example user query in the textbox.
+2. Enter an example user query in the textbox.
 
-    `How many Azure services are used by a knowledge base?`
+    `I want to know the difference between 32 bit and 64 bit Windows`
 
-    ![ Enter an example user query in the textbox. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/query-dialogue.png" alt-text="Enter an example user query in the textbox.":::
 
-1. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base.
+3. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base.
 
-1. Select **Test** again to close the **Test** panel.
+4. Select **Test** again to close the **Test** panel.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect.
+2. Enter an example user query in the textbox.
+
+    `whats the size of the touchscreen`
+
+3. If you enable the MRC feature for your knowledge base, by selecting the **Display short answer** then you will also see a precise answer, if available, along with the answer passage in the test pane. 
+
+    ![Managed enabled test pane](../media/conversational-context/test-pane-with-managed.png)
+    
+
+4. Select Inspect to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base. 
+5. Select **Test** again to close the **Test** panel.
+---
 
 ## Publish the knowledge base
 
-When you publish a knowledge base, the contents of your knowledge base moves from the `test` index to a `prod` index in Azure search.
+When you publish a knowledge base, the contents of your knowledge base move from the `test` index to a `prod` index in Azure search.
 
 ![Screenshot of moving the contents of your knowledge base](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
@@ -127,7 +205,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     The chat bot responds with an answer from your knowledge base.
 
-    ![Enter a user query into the test web chat.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Enter a user query into the test web chat.":::
 
 ## What did you accomplish?
 
@@ -149,6 +227,4 @@ If you are not continuing to the next quickstart, delete the QnA Maker and Bot f
 For more information:
 
 * [Markdown format in answers](../reference-markdown-format.md)
-* QnA Maker [data sources](../concepts/knowledge-base.md).
-
-
+* QnA Maker [data sources](../Concepts/data-sources-and-content.md).

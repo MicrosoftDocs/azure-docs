@@ -2,13 +2,13 @@
 title: What is a BLEU score? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: BLEU is a measurement of the differences between machine translation and human-created reference translations of the same source sentence.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: swmachan
+ms.date: 08/17/2020
+ms.author: lajanuar
 #Customer intent: As a Custom Translator user, I want to understand how BLEU score works so that I understand system test outcome better.
 ---
 

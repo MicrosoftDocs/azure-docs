@@ -1,19 +1,8 @@
 ---
 title: Network security for Azure Service Bus
 description: This article describes network security features such as service tags, IP firewall rules, service endpoints, and private endpoints. 
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 
@@ -24,18 +13,21 @@ This article describes how to use the following security features with Azure Ser
 - Service tags
 - IP Firewall rules
 - Network service endpoints
-- Private endpoints (preview)
+- Private endpoints
 
 
 ## Service tags
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [Service tags overview](../virtual-network/service-tags-overview.md).
 
-You can use service tags to define network access controls on [network security groups](../virtual-network/security-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **ServiceBus**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
+You can use service tags to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **ServiceBus**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
 
+
+> [!NOTE]
+> You can use service tags only for **premium** namespaces. If you are using a **standard** namespace, use the IP address that you see when you run the following command: `nslookup <host name for the namespace>`. For example: `nslookup contosons.servicebus.windows.net`. 
 
 ## IP firewall 
 By default, Service Bus namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
@@ -86,8 +78,6 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 
 > [!NOTE]
 > This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
->
-> This feature is currently in **preview**. 
 
 
 For more information, see [How to configure private endpoints for a Service Bus namespace](private-link-service.md)

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Java"
 titleSuffix: Azure Cognitive Services
-description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,14 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and Java
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-Use this quickstart to begin making calls to the Bing Autosuggest API and getting the JSON response. This simple Java application sends a partial search query to the API, and returns suggestions for searches. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple Java application sends a partial search query to the API, and returns suggestions for searches. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
 ## Prerequisites
 
@@ -40,7 +45,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     import com.google.gson.JsonParser;
     ```
 
-2. Create variables for your subscription key, the API host and path, your [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search query. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for your subscription key, the API host and path, your [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search query. Use the global endpoint below, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -53,7 +58,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
 
 ## Format the response
 
-Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to take in a JSON string and convert it into an object. Then use `GsonBuilder()` and `toJson()` to create the formatted string.
+Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to take in a JSON string and convert it into an object. Then, use `GsonBuilder()` and `toJson()` to create the formatted string.
 
 ```java
 // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -69,7 +74,7 @@ public static String prettify(String json_text) {
 
 1. Create a new method named  `get_suggestions()` and perform the following steps:
 
-   1. construct the URL for your request by combining your API host, path, and encoding your search query. Be sure to url-encode the query before appending it. Create a parameters string for your query by appending the market code to the `mkt=` parameter, and your query to the `q=` parameter.
+   1. Construct the URL for your request by combining your API host, path, and encoding your search query. Be sure to url-encode the query before appending it. Create a parameters string for your query by appending the market code to the `mkt=` parameter, and your query to the `q=` parameter.
     
       ```java
   
@@ -80,7 +85,7 @@ public static String prettify(String json_text) {
       }
       ```
     
-   2. Create a new URL for the request with the API host, path, and parameters created above. 
+   2. Create a new URL for the request with the API host, path, and parameters that you created in the previous step. 
     
        ```java
        //...
@@ -99,7 +104,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. Read in the API response to a `StringBuilder`. After the response has been captured, close the `InputStreamReader` stream, and return the response.
+   4. Store the API response in `StringBuilder`. After the response has been captured, close the `InputStreamReader` stream, and return the response.
 
        ```java
        //...
@@ -115,7 +120,7 @@ public static String prettify(String json_text) {
        return response.toString();
        ```
 
-2. In the main function of your application, call `get_suggestions()`, and print the response using `prettify()`.
+2. In the main function of your application, call `get_suggestions()`, and print the response by using `prettify()`.
     
     ```java
     public static void main(String[] args) {
@@ -203,4 +208,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single-page web app](../tutorials/autosuggest.md)
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

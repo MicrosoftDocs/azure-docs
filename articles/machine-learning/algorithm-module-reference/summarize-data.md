@@ -14,7 +14,7 @@ ms.date: 01/27/2020
 
 # Summarize Data
 
-This article describes a module of Azure Machine Learning designer (preview).
+This article describes a module of Azure Machine Learning designer.
 
 Use the Summarize Data module to create a set of standard statistical measures that describe each column in the input table.
 

@@ -5,14 +5,18 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: article
-ms.date: 03/18/2020
+ms.topic: how-to
+ms.date: 02/08/2021
 ms.author: cherylmc
 
 ---
-# Working with User VPN client profiles
+# Working with User VPN client profile files
 
-The downloaded profile file contains information that is necessary to configure a VPN connection. This article helps you obtain and understand the information necessary for a User VPN client profile.
+The profile files contain information that is necessary to configure a VPN connection. This article helps you obtain and understand the information necessary for a User VPN client profile.
+
+## Download the profile
+
+You can use the steps in the [Download profiles](global-hub-profile.md) article to download the client profile zip file.
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 

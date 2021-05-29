@@ -1,13 +1,13 @@
 ---
 title: Azure PowerShell Samples - Create a complete virtual machine scale set
 description: This script creates a virtual machine scale set running Windows Server 2016, where individual resources are configured and created.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
 ms.date: 05/29/2018
-ms.author: jushiman
-ms.custom: mvc
+ms.reviewer: jushiman
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
@@ -56,6 +56,4 @@ This script uses the following commands to create the deployment. Each item in t
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

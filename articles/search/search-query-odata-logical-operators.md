@@ -88,23 +88,31 @@ When a Boolean field `b` appears by itself in a filter expression, it behaves as
 
 Match documents where the `rating` field is between 3 and 5, inclusive:
 
+```odata-filter-expr
     rating ge 3 and rating le 5
+```
 
 Match documents where all elements of the `ratings` field are less than 3 or greater than 5:
 
+```odata-filter-expr
     ratings/all(r: r lt 3 or r gt 5)
+```
 
 Match documents where the `location` field is within the given polygon, and the document does not contain the term "public".
 
+```odata-filter-expr
     geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))') and not search.ismatch('public')
+```
 
 Match documents for hotels in Vancouver, Canada where there is a deluxe room with a base rate less than 160:
 
+```odata-filter-expr
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
+```
 
 ## Next steps  
 
 - [Filters in Azure Cognitive Search](search-filters.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

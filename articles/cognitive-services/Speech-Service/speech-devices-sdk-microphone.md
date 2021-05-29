@@ -23,7 +23,7 @@ The Speech Devices SDK works best with a microphone array that has been designed
 
 The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
 
-|     | Circular Array |     | Linear Array |     |
+| Mics & Geometry | Circular Array | Circular Array | Linear Array | Linear Array |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
 | \# Mics | 7 | 4 | 4 | 2 |
@@ -100,7 +100,7 @@ microphones into a device:
 | Sampling Clock      | Device audio must be free of jitter and drop-outs with low drift |
 | Record Capability   | The device must be able to record individual channel raw streams simultaneously |
 | USB                 | All USB audio input devices must set descriptors according to the [USB Audio Devices Rev3 Spec](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Microphone Geometry | Drivers must implement [Microphone Array Geometry Descriptors](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) correctly |
+| Microphone Geometry | Drivers must implement [Microphone Array Geometry Descriptors](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) correctly |
 | Discoverability     | Devices must not have any undiscoverable or uncontrollable hardware, firmware, or 3rd party software-based non-linear audio processing algorithms to/from the device |
 | Capture Format      | Capture formats must use a minimum sampling rate of 16 kHz and recommended 24-bit depth |
 

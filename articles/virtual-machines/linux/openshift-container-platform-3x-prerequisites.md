@@ -1,18 +1,12 @@
 ---
 title: OpenShift Container Platform 3.11 in Azure prerequisites 
 description: Prerequisites to deploy OpenShift Container Platform 3.11 in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
@@ -86,7 +80,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 > [!NOTE]
 > Your SSH key pair can't have a password / passphrase.
 
-For more information on SSH keys on Windows, see [How to create SSH keys on Windows](/azure/virtual-machines/linux/ssh-from-windows). Be sure to export the private key in OpenSSH format.
+For more information on SSH keys on Windows, see [How to create SSH keys on Windows](./ssh-from-windows.md). Be sure to export the private key in OpenSSH format.
 
 ## Store the SSH private key in Azure Key Vault
 The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault by using the following command:
@@ -136,7 +130,7 @@ Take note of the appId property and password returned from the command:
  > [!WARNING] 
  > Be sure to write down the secure password as it will not be possible to retrieve this password again.
 
-For more information on service principals, see [Create an Azure service principal with Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+For more information on service principals, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ## Prerequisites applicable only to Resource Manager template
 

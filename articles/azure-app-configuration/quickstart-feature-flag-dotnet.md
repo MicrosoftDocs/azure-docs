@@ -3,18 +3,17 @@ title: Quickstart for adding feature flags to .NET Framework apps | Microsoft Do
 description: A quickstart for adding feature flags to .NET Framework apps and managing them in Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
-
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/21/2019
-ms.author: lcozzens
+ms.date: 10/19/2020
+ms.author: alkemper
 
 #Customer intent: As a .NET Framework developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -22,11 +21,11 @@ ms.author: lcozzens
 
 In this quickstart, you incorporate Azure App Configuration into a .NET Framework app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states. 
 
-The .NET Feature Management libraries extend the framework with comprehensive feature flag support. These libraries are built on top of the .NET configuration system. They seamlessly integrate with App Configuration through its .NET configuration provider.
+The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
@@ -34,7 +33,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
@@ -66,6 +65,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
+    using System.Threading.Tasks;
     ```
 
 1. Update the `Main` method to connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Then display a message if the `Beta` feature flag is enabled.
@@ -95,6 +95,8 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
             }
 
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to continue ...");
+            Console.Read();
         }
     ```
 
@@ -102,11 +104,15 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command:
 
+    ```console
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use Windows PowerShell, run the following command:
 
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
 1. Restart Visual Studio to allow the change to take effect. 
 

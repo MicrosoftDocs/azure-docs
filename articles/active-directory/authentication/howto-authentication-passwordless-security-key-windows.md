@@ -1,42 +1,37 @@
 ---
 title: Passwordless security key sign-in Windows - Azure Active Directory
-description: Learn how to enable passwordless security key sign-in to Azure Active Directory using FIDO2 security keys (preview)
+description: Learn how to enable passwordless security key sign-in to Azure Active Directory using FIDO2 security keys 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign-in to Windows 10 devices with Azure Active Directory (preview)
+# Enable passwordless security key sign-in to Windows 10 devices with Azure Active Directory 
 
 This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both your Azure AD and hybrid Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
-
-|     |
-| --- |
-| FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 ## Requirements
 
 | Device Type | Azure AD joined | Hybrid Azure AD joined |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
+| [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Combined security information registration](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| WebAuthN requires Windows 10 version 1809 or higher | X | X |
-| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1903 or higher | X |   |
-| [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 Insider Build 18945 or higher |   | X |
+| WebAuthN requires Windows 10 version 1903 or higher | X | X |
+| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1909 or higher | X |   |
+| [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 version 2004 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 or later |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional) | X | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (Optional) | X | X |
 | Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
 
@@ -53,11 +48,11 @@ The following scenarios aren't supported:
 - Signing in or unlocking a Windows 10 device with a security key containing multiple Azure AD accounts. This scenario utilizes the last account added to the security key. WebAuthN allows users to choose the account they wish to use.
 - Unlock a device running Windows 10 version 1809. For the best experience, use Windows 10 version 1903 or higher.
 
-## Prepare devices for preview
+## Prepare devices
 
-Azure AD joined devices that you are piloting during the feature preview with must run Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
+Azure AD joined devices must run Windows 10 version 1909 or higher.
 
-Hybrid Azure AD joined devices must run Windows 10 Insider Build 18945 or newer.
+Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
 
 ## Enable security keys for Windows sign-in
 
@@ -99,7 +94,7 @@ To target specific device groups to enable the credential provider, use the foll
       - OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Data Type: Integer
       - Value: 1
-1. This policy can be assigned to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. This policy can be assigned to specific users, devices, or groups. For more information, see [Assign user and device profiles in Microsoft Intune](/intune/device-profile-assign).
 
 ![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
@@ -121,10 +116,10 @@ For devices not managed by Intune, a provisioning package can be installed to en
 1. Take note of or change the path in the **Build** windows under **Select where to save the provisioning package** and select **Next**.
 1. Select **Build** on the **Build the provisioning package** page.
 1. Save the two files created (*ppkg* and *cat*) to a location where you can apply them to machines later.
-1. To apply the provisioning package you created, see [Apply a provisioning package](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package).
+1. To apply the provisioning package you created, see [Apply a provisioning package](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> Devices running Windows 10 Version 1809 must also enable shared PC mode (*EnableSharedPCMode*). For more information about enabling this functionality, see [Set up a shared or guest PC with Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
+> Devices running Windows 10 Version 1903 must also enable shared PC mode (*EnableSharedPCMode*). For more information about enabling this functionality, see [Set up a shared or guest PC with Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### Enable with Group Policy
 
@@ -133,7 +128,7 @@ For **hybrid Azure AD joined devices**, organizations can configure the followin
 - Setting this policy to **Enabled** allows users to sign in with security keys.
 - Setting this policy to **Disabled** or **Not Configured** stops users from signing in with security keys.
 
-This Group Policy setting requires an updated version of the `credentialprovider.admx` Group Policy template. This new template is available with the next version of Windows Server and with Windows 10 20H1. This setting can be managed with a device running one of these newer versions of Windows or centrally by following the guidance in the support topic, [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+This Group Policy setting requires an updated version of the `CredentialProviders.admx` Group Policy template. This new template is available with the next version of Windows Server and with Windows 10 20H1. This setting can be managed with a device running one of these newer versions of Windows or centrally by following the guidance in the support topic, [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## Sign in with FIDO2 security key
 
@@ -149,13 +144,13 @@ In the example below, a user named Bala Sandhu has already provisioned their FID
 
 ## Troubleshooting and feedback
 
-If you'd like to share feedback or encounter issues while previewing this feature, share via the Windows Feedback Hub app using the following steps:
+If you'd like to share feedback or encounter issues about this feature, share via the Windows Feedback Hub app using the following steps:
 
 1. Launch **Feedback Hub** and make sure you're signed in.
 1. Submit feedback under the following categorization:
    - Category: Security and Privacy
    - Subcategory: FIDO
-1. To capture logs, use the option to **Recreate my Problem**
+1. To capture logs, use the option to **Recreate my Problem**.
 
 ## Next steps
 
@@ -163,4 +158,4 @@ If you'd like to share feedback or encounter issues while previewing this featur
 
 [Learn more about device registration](../devices/overview.md)
 
-[Learn more about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Learn more about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

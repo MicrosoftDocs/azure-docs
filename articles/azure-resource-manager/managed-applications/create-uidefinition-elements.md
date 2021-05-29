@@ -2,15 +2,14 @@
 title: Create UI definition elements
 description: Describes the elements to use when constructing UI definitions for Azure portal.
 author: tfitzmac
-
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 10/27/2020
 ms.author: tomfitz
 
 ---
 # CreateUiDefinition elements
 
-This article describes the schema and properties for all supported elements of a CreateUiDefinition. 
+This article describes the schema and properties for all supported elements of a CreateUiDefinition.
 
 ## Schema
 
@@ -44,23 +43,31 @@ The schema for most elements is as follows:
 
 The documentation for each element contains a UI sample, schema, remarks on the behavior of the element (usually concerning validation and supported customization), and sample output.
 
+- [Microsoft.Common.CheckBox](microsoft-common-checkbox.md)
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
+- [Microsoft.Common.EditableGrid](microsoft-common-editablegrid.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
 - [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)
 - [Microsoft.Common.PasswordBox](microsoft-common-passwordbox.md)
 - [Microsoft.Common.Section](microsoft-common-section.md)
+- [Microsoft.Common.ServicePrincipalSelector](microsoft-common-serviceprincipalselector.md)
+- [Microsoft.Common.Slider](microsoft-common-slider.md)
 - [Microsoft.Common.TagsByResource](microsoft-common-tagsbyresource.md)
 - [Microsoft.Common.TextBlock](microsoft-common-textblock.md)
 - [Microsoft.Common.TextBox](microsoft-common-textbox.md)
 - [Microsoft.Compute.CredentialsCombo](microsoft-compute-credentialscombo.md)
 - [Microsoft.Compute.SizeSelector](microsoft-compute-sizeselector.md)
 - [Microsoft.Compute.UserNameTextBox](microsoft-compute-usernametextbox.md)
+- [Microsoft.KeyVault.KeyVaultCertificateSelector](microsoft-keyvault-keyvaultcertificateselector.md)
 - [Microsoft.ManagedIdentity.IdentitySelector](microsoft-managedidentity-identityselector.md)
 - [Microsoft.Network.PublicIpAddressCombo](microsoft-network-publicipaddresscombo.md)
 - [Microsoft.Network.VirtualNetworkCombo](microsoft-network-virtualnetworkcombo.md)
+- [Microsoft.Solutions.ArmApiControl](microsoft-solutions-armapicontrol.md)
+- [Microsoft.Solutions.ResourceSelector](microsoft-solutions-resourceselector.md)
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
+- [Microsoft.Storage.StorageBlobSelector](microsoft-storage-storageblobselector.md)
 
 ## Next steps
 

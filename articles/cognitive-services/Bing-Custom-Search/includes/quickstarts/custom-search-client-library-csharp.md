@@ -15,13 +15,13 @@ Get started with the Bing Custom Search client library for C#. Follow these step
 Use the Bing Custom Search client library for C# to:
 * Find search results on the web, from your Bing Custom Search instance.
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) | [Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) | [Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
 
 ## Prerequisites
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](../../quick-start.md) for more information.
-- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
+- Microsoft [.NET Core](https://dotnet.microsoft.com/download)
 - Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
 - If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 - The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)  NuGet package. 

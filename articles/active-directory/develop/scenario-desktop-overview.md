@@ -1,5 +1,6 @@
 ---
-title: Build a desktop app that calls web APIs - Microsoft identity platform | Azure
+title: Build a desktop app that calls web APIs | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a desktop app that calls web APIs (overview)
 services: active-directory
 author: jmprieur
@@ -9,45 +10,37 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Scenario: Desktop app that calls web APIs
 
 Learn all you need to build a desktop app that calls web APIs.
 
-## Prerequisites
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## Get started
 
-If you haven't already, create your first application by following the .NET desktop quickstart, the Universal Windows Platform (UWP) quickstart, or the macOS native app quickstart:
+If you haven't already, create your first application by completing a quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Quickstart: Acquire a token and call Microsoft Graph API from a UWP app](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Acquire a token and call Microsoft Graph API from a macOS native app](./quickstart-v2-ios.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](./quickstart-v2-windows-desktop.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a UWP app](./quickstart-v2-uwp.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a macOS native app](./quickstart-v2-ios.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from an Node.js & Electron app](./quickstart-v2-nodejs-desktop.md)
 
 ## Overview
 
-You write a desktop application, and you want to sign in users to your application and call web APIs such as Microsoft Graph, other Microsoft APIs, or your own web API. You have several possibilities:
+You write a desktop application, and you want to sign in users to your application and call web APIs such as Microsoft Graph, other Microsoft APIs, or your own web API. You have several options:
 
 - You can use the interactive token acquisition:
 
   - If your desktop application supports graphical controls, for instance, if it's a Windows.Form application, a WPF application, or a macOS native application.
   - Or, if it's a .NET Core application and you agree to have the authentication interaction with Azure Active Directory (Azure AD) happen in the system browser.
+  - Or, if it's a Node.js Electron application, which runs on a Chromium instance.
 
 - For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or Azure AD joined to acquire a token silently by using Integrated Windows Authentication.
-- Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to perform multifactor authentication (conditional access). Also, your application won't benefit from single sign-on (SSO).
+- Finally, and although it's not recommended, you can use a username and a password in public client applications. It's still needed in some scenarios like DevOps. Using it imposes constraints on your application. For instance, it can't sign in a user who needs to perform [multi-factor authentication](../authentication/concept-mfa-howitworks.md) (conditional access). Also, your application won't benefit from single sign-on (SSO).
 
   It's also against the principles of modern authentication and is only provided for legacy reasons.
 
@@ -61,7 +54,11 @@ You write a desktop application, and you want to sign in users to your applicati
 
 Desktop applications have a number of specificities. They depend mainly on whether your application uses interactive authentication or not.
 
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Desktop app: App registration](scenario-desktop-app-registration.md)
+Move on to the next article in this scenario, 
+[App registration](scenario-desktop-app-registration.md).

@@ -2,12 +2,13 @@
 title: Tutorial - Autoscale a scale set with Azure templates
 description: Learn how to use Azure Resource Manager templates to automatically scale a virtual machine scale set as CPU demands increases and decreases
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.custom: mvc
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: autoscale
+ms.date: 03/27/2018
+ms.reviewer: avverma
+ms.custom: avverma, devx-track-azurecli
 
 ---
 # Tutorial: Automatically scale a virtual machine scale set with an Azure template
@@ -19,11 +20,11 @@ When you create a scale set, you define the number of VM instances that you wish
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 
 ## Define an autoscale profile
@@ -137,10 +138,10 @@ First, create a resource group with [az group create](/cli/azure/group). The fol
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
+Now create a virtual machine scale set with [az deployment group create](/cli/azure/deployment/group). When prompted, provide your own username, such as *azureuser*, and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json
 ```
@@ -177,6 +178,7 @@ ssh azureuser@13.92.224.66 -p 50001
 Once logged in, install the **stress** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
 
 ```console
+sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -266,8 +268,3 @@ In this tutorial, you learned how to automatically scale in or out a scale set w
 > * Create and use autoscale rules
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
-
-For more examples of virtual machine scale sets in action, see the following sample Azure CLI sample scripts:
-
-> [!div class="nextstepaction"]
-> [Scale set script samples for Azure CLI](cli-samples.md)

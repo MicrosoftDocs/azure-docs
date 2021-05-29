@@ -7,7 +7,7 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
@@ -42,7 +42,7 @@ You can directly upload a packet capture taken by network watcher using the “I
 
 When providing a link to CapAnalysis, make sure to append a SAS token to the storage blob URL.  To do this, navigate to Shared access signature from the storage account, designate the allowed permissions, and press the Generate SAS button to create a token. You can then append the SAS token to the packet capture storage blob URL.
 
-The resulting URL will look something like the following URL: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+The resulting URL will look something like the following URL: `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### Analyzing packet captures

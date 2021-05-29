@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Sample: Explore an image processing app with C#
@@ -28,11 +28,14 @@ Explore a basic Windows application that uses Computer Vision to perform optical
 Before exploring the sample app, ensure that you've met the following prerequisites:
 
 * You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-* You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Take note of the service endpoint URL as well.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Get the sample app
 
-The Computer Vision sample app is available on GitHub from the `Microsoft/Cognitive-Vision-Windows` repository. This repository also includes the `Microsoft/Cognitive-Common-Windows` repository as a Git submodule. You can recursively clone this repository, including the submodule, either by using the `git clone --recurse-submodules` command from the command line, or by using GitHub Desktop.
+The Computer Vision sample app is available on GitHub from the [Microsoft/Cognitive-Vision-Windows repository](https://github.com/microsoft/Cognitive-Vision-Windows). This repository also includes the `Microsoft/Cognitive-Common-Windows` repository as a Git submodule. You can recursively clone this repository, including the submodule, either by using the `git clone --recurse-submodules` command from the command line, or by using GitHub Desktop.
 
 For example, to recursively clone the repository for the Computer Vision sample app from a command prompt, run the following command:
 
@@ -75,8 +78,6 @@ You can run the sample app, to see how it interacts with you and with the Comput
    ![Subscription Key Management page](../Images/Vision_UI_Subscription.PNG)  
 1. Enter your subscription key in **Subscription Key**.
 1. Enter the endpoint URL in **Endpoint**.  
-   For example, if you're using the subscription key from the Computer Vision free trial, enter the following endpoint URL:
-   `https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. If you don't want to enter your subscription key and endpoint URL the next time you run the sample app, choose **Save Setting** to save the subscription key and endpoint URL to your computer. If you want to delete your previously-saved subscription key and endpoint URL, choose **Delete Setting**.
 
@@ -308,4 +309,4 @@ When no longer needed, delete the folder into which you cloned the `Microsoft/Co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Face service](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Get started with Face service](../../face/quickstarts/client-libraries.md?pivots=programming-language-csharp)

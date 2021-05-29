@@ -1,11 +1,8 @@
 ---
 title: Deploy and manage Apache Storm topologies on Azure HDInsight 
 description: Learn how to deploy, monitor, and manage Apache Storm topologies using the Storm Dashboard on Linux-based HDInsight. Use Hadoop tools for Visual Studio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ---
@@ -41,7 +38,7 @@ You can use the Data Lake Tools for Visual Studio to submit C# or hybrid topolog
 
 1. In the **Configure your new project** window, enter a **Project name**, and go to or create a **Location** to save the new project in. Then select **Create**.
 
-    ![Configure your new project window, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
+    :::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png" alt-text="Configure your new project window, Visual Studio" border="true":::
 
 1. From **Server Explorer**, right-click **Azure** and select **Connect to Microsoft Azure Subscription...** and complete the sign-in process.
 
@@ -81,7 +78,7 @@ You can programmatically deploy a topology using the Nimbus service. [https://gi
 
 When you submit a topology using Visual Studio, the **Storm Topologies View** window appears. Select the topology from the list to view information about the running topology.
 
-![Monitor topology, Storm Topologies View window, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png" alt-text="Monitor topology, Storm Topologies View window, Visual Studio" border="true":::
 
 > [!NOTE]  
 > You can also view **Storm Topologies** from **Server Explorer**. Expand **Azure** > **HDInsight**, right-click a Storm on HDInsight cluster, and then select **View Storm Topologies**.
@@ -177,7 +174,7 @@ The main page of the Storm UI provides the following information:
 
 The Storm UI main page looks similar to this web page:
 
-![Main page, Storm UI, Apache Storm topologies, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png" alt-text="Main page, Storm UI, Apache Storm topologies, Azure" border="true":::
 
 #### Topology summary
 
@@ -196,7 +193,7 @@ Selecting a link from the **Topology summary** section displays the following in
 
 The Storm topology summary page looks similar to this web page:
 
-![Topology summary page, Storm UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png" alt-text="Topology summary page, Storm UI, Apache Storm, Azure" border="true":::
 
 In the **Topology actions** section, you can select the following buttons to do an action:
 
@@ -227,7 +224,7 @@ Selecting a spout from the **Spouts** or **Bolts** sections displays the followi
 
 The Storm bolt summary page looks similar to this web page:
 
-![Bolt summary page, Storm UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png" alt-text="Bolt summary page, Storm UI, Apache Storm, Azure" border="true":::
 
 ## Monitor and manage the topology using the REST API
 

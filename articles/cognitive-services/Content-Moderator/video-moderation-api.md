@@ -8,18 +8,19 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 
-#As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
+#Customer intent: As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
 # Analyze video content for objectionable material in C#
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to scan video content for adult or racy content.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
@@ -30,7 +31,7 @@ The Content Moderator's video moderation capability is available as a free publi
 
 ### Create an Azure Media Services account
 
-Follow the instructions in [Create an Azure Media Services account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) to subscribe to AMS and create an associated Azure storage account. In that storage account, create a new Blob storage container.
+Follow the instructions in [Create an Azure Media Services account](../../media-services/previous/media-services-portal-create-account.md) to subscribe to AMS and create an associated Azure storage account. In that storage account, create a new Blob storage container.
 
 ### Create an Azure Active Directory application
 
@@ -40,7 +41,7 @@ In the **Azure AD app** section, select **Create New** and name your new Azure A
 
 Select your app registration and click the **Manage application** button below it. Note the value in the **Application ID** field; you will need this later. Select **Settings** > **Keys**, and enter a description for a new key (such as "VideoModKey"). Click **Save**, and then notice the new key value. Copy this string and save it somewhere secure.
 
-For a more thorough walkthrough of the above process, See [Get started with Azure AD authentication](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+For a more thorough walkthrough of the above process, See [Get started with Azure AD authentication](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
 Once you've done this, you can use the video moderation media processor in two different ways.
 
@@ -427,9 +428,5 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 ## Next steps
 
 Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) from your moderation output.
-
-Add [transcript moderation](video-transcript-moderation-review-tutorial-dotnet.md) to your video reviews.
-
-Check out the detailed tutorial on how to build a [complete video and transcript moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).
 
 [Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.

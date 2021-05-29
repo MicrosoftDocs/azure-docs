@@ -3,7 +3,6 @@ title: Application scenarios and design
 description: Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.custom: sfrev
 ---
 # Service Fabric application scenarios
 
@@ -11,7 +10,7 @@ Azure Service Fabric offers a reliable and flexible platform where you can write
 
 The unique architecture of Service Fabric enables you to perform near real-time data analysis, in-memory computation, parallel transactions, and event processing in your applications. You can easily scale your applications in or out depending on your changing resource requirements.
 
-For design guidance on building applications, read [Microservices architecture on Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) and [Best practices for application design using Service Fabric](service-fabric-best-practices-applications.md).
+For design guidance on building applications, read [Microservices architecture on Azure Service Fabric](/azure/architecture/reference-architectures/microservices/service-fabric) and [Best practices for application design using Service Fabric](service-fabric-best-practices-applications.md).
 
 Consider using the Service Fabric platform for the following types of applications:
 
@@ -21,7 +20,7 @@ Consider using the Service Fabric platform for the following types of applicatio
 [Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric), and
 [Mesh Systems](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
 
-* **Gaming and session-based interactive applications**: Service Fabric is useful if your application requires low-latency reads and writes, such as in online gaming or instant messaging. Service Fabric enables you to build these interactive, stateful applications without having to create a separate store or cache. Visit [Azure gaming solutions](https://azure.microsoft.com/solutions/gaming/) for design guidance on [using Service Fabric in gaming services](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
+* **Gaming and session-based interactive applications**: Service Fabric is useful if your application requires low-latency reads and writes, such as in online gaming or instant messaging. Service Fabric enables you to build these interactive, stateful applications without having to create a separate store or cache. Visit [Azure gaming solutions](https://azure.microsoft.com/solutions/gaming/) for design guidance on [using Service Fabric in gaming services](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
 
     Customers who have built gaming services include [Next Games](https://customers.microsoft.com/story/next-games-media-telecommunications-azure) and [Digamore](https://customers.microsoft.com/story/digamore-entertainment-scores-with-a-new-gaming-platform-based-on-azure-service-fabric/). Customers who have built interactive sessions include [Honeywell with Hololens](https://customers.microsoft.com/story/honeywell-manufacturing-hololens).
 
@@ -67,8 +66,8 @@ Here's an example application that uses stateful services:
 
 * Get started building stateless and stateful services with the Service Fabric
   [Reliable Services](service-fabric-reliable-services-quick-start.md) and [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
-* Visit the Azure Architecture Center for guidance on [building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/).
-* Go to [Azure Service Fabric application and cluster best practices](service-fabric-best-practices-overview.md) for application design guidance.
+* Visit the Azure Architecture Center for guidance on [building microservices on Azure](/azure/architecture/microservices/).
+* Go to [Azure Service Fabric application and cluster best practices](./service-fabric-best-practices-security.md) for application design guidance.
 
 * See also:
   * [Understanding microservices](service-fabric-overview-microservices.md)

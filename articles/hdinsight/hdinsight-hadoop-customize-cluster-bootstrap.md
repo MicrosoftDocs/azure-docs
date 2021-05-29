@@ -1,12 +1,9 @@
 ---
 title: Customize Azure HDInsight cluster configurations using bootstrap
 description: Learn how to customize HDInsight cluster configuration programmatically using .NET, PowerShell, and Resource Manager templates.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 04/01/2020
 ---
 
@@ -43,14 +40,14 @@ For information on installing additional components on HDInsight cluster during 
 
 ## Prerequisites
 
-* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [Az Module](/powershell/azure/).
 
 ## Use Azure PowerShell
 
 The following PowerShell code customizes an [Apache Hive](https://hive.apache.org/) configuration:
 
 > [!IMPORTANT]  
-> The parameter `Spark2Defaults` may need to be used with [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). You can pass empty values to the parameter as shown in the code example below.
+> The parameter `Spark2Defaults` may need to be used with [Add-AzHDInsightConfigValue](/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). You can pass empty values to the parameter as shown in the code example below.
 
 ```powershell
 # hive-site.xml configuration
@@ -103,7 +100,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## Use .NET SDK
 
-See [Azure HDInsight SDK for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+See [Azure HDInsight SDK for .NET](/dotnet/api/overview/azure/hdinsight).
 
 ## Use Resource Manager template
 
@@ -119,7 +116,7 @@ You can use bootstrap in Resource Manager template:
 }
 ```
 
-![Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="Hadoop customizes cluster bootstrap Azure Resource Manager template":::
 
 Sample Resource Manager template snippet to switch configuration in spark2-defaults to periodically clean up event logs from storage.  
 
@@ -138,7 +135,7 @@ Sample Resource Manager template snippet to switch configuration in spark2-defau
 * [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Install and use Apache Spark on HDInsight clusters](spark/apache-spark-jupyter-spark-sql-use-portal.md)
-* [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
+* [Install and use Apache Giraph on HDInsight clusters](./hdinsight-hadoop-hue-linux.md).
 
 ## Appendix: PowerShell sample
 

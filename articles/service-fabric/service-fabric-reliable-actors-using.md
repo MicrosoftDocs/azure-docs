@@ -1,11 +1,9 @@
 ---
 title: Implement features in Azure Service Fabric actors 
 description: Describes how to write your own actor service that implements service-level features in the same way as when you inherit StatefulService.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Implement service-level features in your actor service
 
@@ -138,7 +136,7 @@ public class Program
 
 ## Implement actor backup and restore
 
-A custom actor service can expose a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`. For an example, see [Backup and restore actors](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+A custom actor service can expose a method to back up actor data by taking advantage of the remoting listener already present in `ActorService`. For an example, see [Backup and restore actors](service-fabric-reliable-actors-backup-and-restore.md).
 
 ## Actor that uses a remoting V2 (interface compatible) stack
 
@@ -210,7 +208,7 @@ This change is a two-step upgrade. Follow the steps in this sequence.
 
 * [Actor state management](service-fabric-reliable-actors-state-management.md)
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Actors API reference documentation](/previous-versions/azure/dn971626(v=azure.100))
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
@@ -40,7 +40,7 @@ Implementing a one-click disaster recovery solution that uses Azure Site Recover
    - StorSimple storage device on-premises registered with Azure StorSimple manager
    - StorSimple Cloud Appliance created in the Azure StorSimple manager. The appliance can be kept in a shut-down state.
    - File shares hosted on the volumes configured on the StorSimple storage device
-   - [Azure Site Recovery services vault](../site-recovery/site-recovery-vmm-to-vmm.md) created in a Microsoft Azure subscription
+   - [Azure Site Recovery services vault](../site-recovery/hyper-v-vmm-azure-tutorial.md) created in a Microsoft Azure subscription
 
 In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
 
@@ -90,7 +90,7 @@ This step requires that you prepare the on-premises file server environment, cre
 1. Click **Next**.
 1. Accept the **Terms of Agreement** and then click **Next**.
 1. Click **Finish**.
-1. Create file shares using volumes carved out of StorSimple storage. For more information, see [Use the StorSimple Manager service to manage volumes](storsimple-manage-volumes.md).
+1. Create file shares using volumes carved out of StorSimple storage. For more information, see [Use the StorSimple Manager service to manage volumes](./index.yml).
    
    1. On your on-premises VMs, press the Windows key +Q and search for **iSCSI**.
    1. Select **iSCSI initiator**.
@@ -108,7 +108,7 @@ This step requires that you prepare the on-premises file server environment, cre
    1. Use the File and Storage Services role to create file shares on these volumes.
 
 #### To create and prepare an Azure Site Recovery vault
-Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-hyper-v-site-to-azure.md) to get started with Azure Site Recovery before protecting the file server VM.
+Refer to the [Azure Site Recovery documentation](../site-recovery/index.yml) to get started with Azure Site Recovery before protecting the file server VM.
 
 #### To enable protection
 1. Disconnect the iSCSI target(s) from the on-premises VMs that you want to protect through Azure Site Recovery:
@@ -120,7 +120,7 @@ Refer to the [Azure Site Recovery documentation](../site-recovery/site-recovery-
    > [!NOTE]
    > This will cause the file shares to be temporarily unavailable.
    
-1. [Enable virtual machine protection](../site-recovery/site-recovery-hyper-v-site-to-azure.md) of the file server VM from the Azure Site Recovery portal.
+1. [Enable virtual machine protection](../site-recovery/hyper-v-azure-tutorial.md) of the file server VM from the Azure Site Recovery portal.
 1. When the initial synchronization begins, you can reconnect the target again. Go to the iSCSI initiator, select the StorSimple device, and click **Connect**.
 1. When the synchronization is complete and the status of the VM is **Protected**, select the VM, select the **Configure** tab, and update the network of the VM accordingly (this is the network that the failed over VM(s) will be a part of). If the network doesn’t show up, it means that the sync is still going on.
 
@@ -290,7 +290,7 @@ Refer to the [Active Directory DR Solution](../site-recovery/site-recovery-activ
 1. In the Azure portal, select **Recovery services** vault &gt; **Recovery plans (Site Recovery)** &gt; **recoveryplan_name** created for the file server VM.
 1. On the Recovery plan blade, Click **More** &gt;  **Planned failover**.
 
-   ![Recovery plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Screenshot that highlights the Planned failover and Failover options.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. On the **Confirm Planned Failover** blade, choose the source and target locations and select target network and click the check icon ✓ to start the failover process.
 1. After replica virtual machines are created they're in a commit pending state. Click **Commit** to commit the failover.
 1. After replication is complete, the virtual machines start up at the secondary location.

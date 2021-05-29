@@ -1,20 +1,23 @@
 ---
 title: Azure CLI script - Scale and monitor Azure Database for PostgreSQL
 description: Azure CLI Script Sample - Scale Azure Database for PostgreSQL server to a different performance level after querying the metrics.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 08/07/2019
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 This sample CLI script scales compute and storage for a single Azure Database for PostgreSQL server after querying the metrics. Compute can scale up or down. Storage can only scale up. 
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+> [!IMPORTANT] 
+> Storage can only be scaled up, not down.
 
-If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 Update the script with your subscription ID.
@@ -30,8 +33,8 @@ This script uses the commands outlined in the following table:
 | **Command** | **Notes** |
 |---|---|
 | [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | Creates a PostgreSQL server that hosts the databases. |
-| [az postgres server update](/cli/azure/postgres/server#az-postgres-server-update) | Updates properties of the PostgreSQL server. |
+| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgres server update](/cli/azure/postgres/server#az_postgres_server_update) | Updates properties of the PostgreSQL server. |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | List the metric value for the resources. |
 | [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 

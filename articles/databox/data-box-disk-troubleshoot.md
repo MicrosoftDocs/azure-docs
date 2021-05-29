@@ -1,12 +1,12 @@
 ---
 title: Azure Data Box Disk troubleshooting | Microsoft Docs 
-description: Describes how to troubleshoot issues seen in Azure Data Box Disk.
+description: Learn how to use logs to troubleshoot the validation issues that might come up when you deploy Azure Data Box Disk.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
 ---
@@ -27,41 +27,41 @@ If you run multiple sessions for validation, then one error log is generated per
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    	<ErrorLog Version="2018-10-01">
-    		<SessionId>session#1</SessionId>
-    		<ItemType>PageBlob</ItemType>
-    		<SourceDirectory>D:\Dataset\TestDirectory</SourceDirectory>
-    		<Errors>
-    			<Error Code="Not512Aligned">
-    				<Description>The file is not 512 bytes aligned.</Description>
-    				<List>
-    					<File Path="\Practice\myScript.ps1" />
-    				</List>
-    				<Count>1</Count>
-    			</Error>
-    		</Errors>
-    		<Warnings />
-    	</ErrorLog>
+        <ErrorLog Version="2018-10-01">
+            <SessionId>session#1</SessionId>
+            <ItemType>PageBlob</ItemType>
+            <SourceDirectory>D:\Dataset\TestDirectory</SourceDirectory>
+            <Errors>
+                <Error Code="Not512Aligned">
+                    <Description>The file is not 512 bytes aligned.</Description>
+                    <List>
+                        <File Path="\Practice\myScript.ps1" />
+                    </List>
+                    <Count>1</Count>
+                </Error>
+            </Errors>
+            <Warnings />
+        </ErrorLog>
     ```
 
 - Here is a sample of the error log when the container name is not valid. The folder that you create under `BlockBlob`, `PageBlob`, or `AzureFile` folders on the disk becomes a container in your Azure Storage account. The name of the container must follow the [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
     ```xml
-    	<?xml version="1.0" encoding="utf-8"?>
-    	<ErrorLog Version="2018-10-01">
-    	  <SessionId>bbsession</SessionId>
-    	  <ItemType>BlockBlob</ItemType>
-    	  <SourceDirectory>E:\BlockBlob</SourceDirectory>
-    	  <Errors>
-    	    <Error Code="InvalidShareContainerFormat">
-    	      <List>
-    	        <Container Name="Azu-reFile" />
-    	        <Container Name="bbcont ainer1" />
-    	      </List>
-    	      <Count>2</Count>
-    	    </Error>
-    	  </Errors>
-    	  <Warnings />
+    <?xml version="1.0" encoding="utf-8"?>
+    <ErrorLog Version="2018-10-01">
+        <SessionId>bbsession</SessionId>
+        <ItemType>BlockBlob</ItemType>
+        <SourceDirectory>E:\BlockBlob</SourceDirectory>
+        <Errors>
+        <Error Code="InvalidShareContainerFormat">
+            <List>
+            <Container Name="Azu-reFile" />
+            <Container Name="bbcont ainer1" />
+            </List>
+            <Count>2</Count>
+        </Error>
+        </Errors>
+        <Warnings />
     </ErrorLog>
     ```
 

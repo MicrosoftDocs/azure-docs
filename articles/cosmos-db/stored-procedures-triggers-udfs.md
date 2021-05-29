@@ -3,6 +3,7 @@ title: Work with stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: This article introduces the concepts such as stored procedures, triggers, and user-defined functions in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
@@ -11,6 +12,7 @@ ms.reviewer: sngun
 ---
 
 # Stored procedures, triggers, and user-defined functions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB provides language-integrated, transactional execution of JavaScript. When using the SQL API in Azure Cosmos DB, you can write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** in the JavaScript language. You can write your logic in JavaScript that executed inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) or the [Cosmos DB SQL API client SDKs](how-to-use-stored-procedures-triggers-udfs.md).
 
@@ -20,7 +22,7 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 
 * **Procedural logic:** JavaScript as a high-level programming language that provides rich and familiar interface to express business logic. You can perform a sequence of complex operations on the data.
 
-* **Atomic transactions:** Azure Cosmos DB guarantees that the database operations that are performed within a single stored procedure or a trigger are atomic. This atomic functionality lets an application combine related operations into a single batch, so that either all of the operations succeed or none of them succeed.
+* **Atomic transactions:** Azure Cosmos DB database operations that are performed within a single stored procedure or a trigger are atomic. This atomic functionality lets an application combine related operations into a single batch, so that either all of the operations succeed or none of them succeed.
 
 * **Performance:** The JSON data is intrinsically mapped to the JavaScript language type system. This mapping allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are other performance benefits associated with shipping business logic to the database, which includes:
 
@@ -51,7 +53,7 @@ In Azure Cosmos DB, JavaScript runtime is hosted inside the database engine. Hen
 
 ### Scope of a transaction
 
-Stored procedures are associated with an Azure Cosmos container and stored procedure execution is scoped to a logical partition key. Stored procedures must include a logical partition key value during execution that defines the logical partition for the scope of the transaction. For more information, see [Azure Cosmos DB partitioning](partition-data.md) article.
+Stored procedures are associated with an Azure Cosmos container and stored procedure execution is scoped to a logical partition key. Stored procedures must include a logical partition key value during execution that defines the logical partition for the scope of the transaction. For more information, see [Azure Cosmos DB partitioning](partitioning-overview.md) article.
 
 ### Commit and rollback
 
@@ -59,11 +61,14 @@ Transactions are natively integrated into the Azure Cosmos DB JavaScript program
 
 ### Data consistency
 
-Stored procedures and triggers are always executed on the primary replica of an Azure Cosmos container. This feature ensures that reads from stored procedures offer [strong consistency](consistency-levels-tradeoffs.md). Queries using user-defined functions can be executed on the primary or any secondary replica. Stored procedures and triggers are intended to support transactional writes – meanwhile read-only logic is best implemented as application-side logic and queries using the [Azure Cosmos DB SQL API SDKs](sql-api-dotnet-samples.md), will help you saturate the database throughput. 
+Stored procedures and triggers are always executed on the primary replica of an Azure Cosmos container. This feature ensures that reads from stored procedures offer [strong consistency](./consistency-levels.md). Queries using user-defined functions can be executed on the primary or any secondary replica. Stored procedures and triggers are intended to support transactional writes – meanwhile read-only logic is best implemented as application-side logic and queries using the [Azure Cosmos DB SQL API SDKs](sql-api-dotnet-samples.md), will help you saturate the database throughput. 
+
+> [!TIP]
+> The queries executed within a stored procedure or trigger may not see changes to items made by the same script transaction. This statement applies both to SQL queries, such as `getContent().getCollection.queryDocuments()`, as well as integrated language queries, such as `getContext().getCollection().filter()`.
 
 ## Bounded execution
 
-All Azure Cosmos DB operations must complete within the specified timeout duration. This constraint applies to JavaScript functions - stored procedures, triggers, and user-defined functions. If an operation does not complete within that time limit, the transaction is rolled back.
+All Azure Cosmos DB operations must complete within the specified timeout duration. Stored procedures have a timeout limit of 5 seconds. This constraint applies to JavaScript functions - stored procedures, triggers, and user-defined functions. If an operation does not complete within that time limit, the transaction is rolled back.
 
 You can either ensure that your JavaScript functions finish within the time limit or implement a continuation-based model to batch/resume execution. In order to simplify development of stored procedures and triggers to handle time limits, all functions under the Azure Cosmos container (for example, create, read, update, and delete of items) return a boolean value that represents whether that operation will complete. If this value is false, it is an indication that the procedure must wrap up execution because the script is consuming more time or provisioned throughput than the configured value. Operations queued prior to the first unaccepted store operation are guaranteed to complete if the stored procedure completes in time and does not queue any more requests. Thus, operations should be queued one at a time by using JavaScript's callback convention to manage the script's control flow. Because scripts are executed in a server-side environment, they are strictly governed. Scripts that repeatedly violate execution boundaries may be marked inactive and can't be executed, and they should be recreated to honor the execution boundaries.
 

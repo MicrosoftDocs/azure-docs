@@ -7,7 +7,8 @@ ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/19/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure Firewall test environment
@@ -68,12 +69,11 @@ This script uses the following commands to create a resource group, virtual netw
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm) | Create a virtual machine. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
-|[New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)| Creates a new Azure Firewall.|
-|[Get-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/get-azfirewall)|Gets an Azure Firewall object.|
-|[New-AzFirewallApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallapplicationrule)|Creates a new Azure Firewall application rule.|
-|[Set-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/set-azfirewall)|Commits changes to the Azure Firewall object.|
+|[New-AzFirewall](/powershell/module/az.network/new-azfirewall)| Creates a new Azure Firewall.|
+|[Get-AzFirewall](/powershell/module/az.network/get-azfirewall)|Gets an Azure Firewall object.|
+|[New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule)|Creates a new Azure Firewall application rule.|
+|[Set-AzFirewall](/powershell/module/az.network/set-azfirewall)|Commits changes to the Azure Firewall object.|
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
-
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).

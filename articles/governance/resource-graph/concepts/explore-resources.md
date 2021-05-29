@@ -1,14 +1,14 @@
 ---
 title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
-ms.date: 10/18/2019
+ms.date: 05/11/2021
 ms.topic: conceptual
 ---
 # Explore your Azure resources with Resource Graph
 
 Azure Resource Graph provides the ability to explore and discover your Azure resources quickly and
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
-about the properties that make up your Azure resources.
+about the properties that exist on your Azure resources.
 
 ## Explore virtual machines
 
@@ -18,8 +18,8 @@ the resource you're looking for.
 
 ### Virtual machine discovery
 
-Let's start with a simple query to get a single VM from our environment and look at the properties
-returned.
+Let's start with a simple query to get a single virtual machine from our environment and look at the
+properties returned.
 
 ```kusto
 Resources
@@ -32,13 +32,14 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines'
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json -Depth 100
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1").Data | ConvertTo-Json -Depth 100
 ```
 
 > [!NOTE]
-> The Azure PowerShell `Search-AzGraph` cmdlet returns a **PSCustomObject** by default. To have the
-> output look the same as what is returned by Azure CLI, the `ConvertTo-Json` cmdlet is used. The
-> default value for **Depth** is _2_. Setting it to _100_ should convert all returned levels.
+> The Azure PowerShell `Search-AzGraph` cmdlet returns a **PSResourceGraphResponse** by default. To
+> have the output look the same as what is returned by Azure CLI, the `ConvertTo-Json` cmdlet is
+> used on the **Data** property. The default value for **Depth** is _2_. Setting it to _100_ should
+> convert all returned levels.
 
 The JSON results are structured similar to the following example:
 
@@ -105,8 +106,9 @@ The JSON results are structured similar to the following example:
 ]
 ```
 
-The properties tell us additional information about the virtual machine resource itself, everything
-from SKU, OS, disks, tags, and the resource group and subscription it's a member of.
+The properties tell us additional information about the virtual machine resource itself. These
+properties include: operating system, disks, tags, and the resource group and subscription it's
+a member of.
 
 ### Virtual machines by location
 
@@ -125,7 +127,7 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines'
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location").Data | ConvertTo-Json
 ```
 
 The JSON results are structured similar to the following example:
@@ -167,14 +169,13 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines'
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup").Data | ConvertTo-Json
 ```
 
 ### Virtual machines connected to premium-managed disks
 
-If we wanted to get the details of premium-managed disks that are attached to these
-**Standard_B2s** virtual machines, we can expand the query to give us the resource ID of those
-managed disks.
+To get the details of premium-managed disks that are attached to these **Standard_B2s** virtual
+machines, we expand the query to return the resource ID of those managed disks.
 
 ```kusto
 Resources
@@ -184,17 +185,12 @@ Resources
 | project disk.id
 ```
 
-> [!NOTE]
-> Another way to get the SKU would have been by using the **aliases** property
-> **Microsoft.Compute/virtualMachines/sku.name**. See the [Show aliases](../samples/starter.md#show-aliases)
-> and [Show distinct alias values](../samples/starter.md#distinct-alias-values) examples.
-
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id").Data | ConvertTo-Json
 ```
 
 The result is a list of disk IDs.
@@ -220,11 +216,11 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Before running the query, how did we know the **type** should now be **Microsoft.Compute/disks**?
-If you look at the full ID, you'll see **/providers/Microsoft.Compute/disks/** as part of the
-string. This string fragment gives you a hint as to what type to search for. An alternative method
-would be to remove the limit by type and instead only search by the ID field. As the ID is unique,
-only one record would be returned and the **type** property on it provides that detail.
+Before running the query, how did we know the **type** should now be **Microsoft.Compute/disks**? If
+you look at the full ID, you'll see **/providers/Microsoft.Compute/disks/** as part of the string.
+This string fragment gives you a hint as to what type to search for. An alternative method would be
+to remove the limit by type and instead only search by the ID field. As the ID is unique, only one
+record would be returned and the **type** property on it provides that detail.
 
 > [!NOTE]
 > For this example to work, you must replace the ID field with a result from your own environment.
@@ -234,7 +230,7 @@ az graph query -q "Resources | where type =~ 'Microsoft.Compute/disks' and id ==
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'").Data | ConvertTo-Json
 ```
 
 The JSON results are structured similar to the following example:
@@ -288,7 +284,7 @@ cat nics.txt
 
 ```azurepowershell-interactive
 # Use Resource Graph to get all NICs and store in the $nics variable
-$nics = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
+$nics = (Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20").Data
 
 # Review the output of the query stored in the variable
 $nics.nic
@@ -307,7 +303,7 @@ cat ips.txt
 
 ```azurepowershell-interactive
 # Use Resource Graph  with the $nics variable to get all related public IP addresses and store in $ips variable
-$ips = Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
+$ips = (Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp").Data
 
 # Review the output of the query stored in the variable
 $ips.publicIp
@@ -323,7 +319,7 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 
 ```azurepowershell-interactive
 # Use Resource Graph with the $ips variable to get the IP address of the public IP address resources
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
+(Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip").Data | ConvertTo-Json
 ```
 
 To see how to accomplish these steps in a single query with the `join` operator, see the

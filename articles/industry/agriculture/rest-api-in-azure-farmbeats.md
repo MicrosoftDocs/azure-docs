@@ -1,19 +1,15 @@
 ---
-title: References
-description:
+title: Azure FarmBeats APIs
+description: Learn about Azure FarmBeats APIs, which provide agricultural businesses with a standardized RESTful interface with JSON-based responses.
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ---
 
-# References
+# Azure FarmBeats APIs
 
-This article describes the Azure FarmBeats APIs.
-
-## REST API
-
-The Azure FarmBeats APIs provide agricultural businesses with a standardized RESTful interface with JSON-based responses to help you take advantage of Azure FarmBeats capabilities, such as:
+This article describes the Azure FarmBeats APIs. The Azure FarmBeats APIs provide agricultural businesses with a standardized RESTful interface with JSON-based responses to help you take advantage of Azure FarmBeats capabilities, such as:
 
 - APIs to get sensor, camera, drone, weather, satellite, and curated ground data.
 - Normalization and contextualization of data across common data providers.
@@ -58,7 +54,7 @@ To make an authenticated request to the REST APIs, client code requires authenti
 
 The access token must be sent in subsequent API requests, in the header section, as:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -160,14 +156,23 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
 4. Go to your Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) and do the following:
     - Go to the **RoleAssignment API**.
     - Perform a POST to create a **RoleAssignment** object for the **Object ID** you just created.
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
-  > For more information on how to add users and Active Directory registration, see [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > For more information on how to add users and Active Directory registration, see [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 After you finish the previous steps, your app registration (client) can call the Azure FarmBeats APIs by using an access token via bearer authentication.
 
 Use the access token to send it in subsequent API requests in the header section as:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

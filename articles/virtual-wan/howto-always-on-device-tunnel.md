@@ -1,13 +1,13 @@
 ---
 title: 'Configure an Always-On VPN tunnel'
 titleSuffix: Azure Virtual WAN
-description: Steps to configure Always On VPN device tunnel for Virtual WAN
+description: Learn how to configure Always On VPN device tunnel for Virtual WAN.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 03/13/2020
+ms.topic: how-to
+ms.date: 05/26/2021
 ms.author: cherylmc
 
 ---
@@ -20,7 +20,7 @@ ms.author: cherylmc
 You must create a point-to-site configuration and edit the virtual hub assignment. See the following sections for instructions:
 
 * [Create a P2S configuration](virtual-wan-point-to-site-portal.md#p2sconfig)
-* [Edit the hub assignment](virtual-wan-point-to-site-portal.md#edit)
+* [Create hub with P2S gateway](virtual-wan-point-to-site-portal.md#hub)
 
 ## Configure the device tunnel
 
@@ -30,7 +30,7 @@ You must create a point-to-site configuration and edit the virtual hub assignmen
 
 To remove the profile, run the following command:
 
-![Cleanup](./media/howto-always-on-device-tunnel/cleanup.png)
+![Screenshot shows a PowerShell window that runs the command Remove-VpnConnection -Name MachineCertTest.](./media/howto-always-on-device-tunnel/cleanup.png)
 
 ## Next steps
 

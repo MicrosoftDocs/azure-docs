@@ -4,10 +4,12 @@ description: How-to article highlighting how to annotate data assets in Azure Da
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 # How to annotate data sources in Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## Introduction
 

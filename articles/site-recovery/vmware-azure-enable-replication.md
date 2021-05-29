@@ -1,11 +1,12 @@
 ---
 title: Enable VMware VMs for disaster recovery using Azure Site Recovery
 description: This article describes how to enable VMware VM replication for disaster recovery using the Azure Site Recovery service
-author: Rajeswari-Mamilla
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 04/01/2020
 ms.topic: conceptual
-ms.author: ramamill
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Enable replication to Azure for VMware VMs
@@ -90,6 +91,42 @@ To enable replication, follow these steps:
 
 1. Select **Enable Replication**. You can track the progress of the **Enable Protection** job at **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the virtual machine is ready for failover.
 
+## Monitor initial replication
+
+After "Enable replication" of the protected item is complete, Azure Site Recovery initiates replication (synonymous to synchronization) of data from the source machine to target region. During this period, replica of source disks are created. Only after completion of copying original disks, the delta changes are copied to the target region. The time taken to copy the original disks depends on multiple parameters such as:
+
+- size of source machine disks
+- bandwidth available to transfer the data to Azure (You can leverage deployment planner to identify the optimal bandwidth required)
+- process server resources like memory, free disk space, CPU available to cache & process the data received from protected items (ensure that process server is [healthy](vmware-physical-azure-monitor-process-server.md#monitor-proactively))
+
+To track the progress of initial replication, navigate to recovery services vault in Azure portal -> replicated items -> monitor "Status" column value of replicated item. The status shows the percentage completion of initial replication. Upon hovering over the Status, the "Total data transferred" would be available. Upon clicking on status, a contextual page opens and displays the following parameters:
+
+- Last refreshed at - indicates the latest time at which the replication information of the whole machine has been refreshed by the service.
+- Completed percentage - indicates the percentage of initial replication completed for the VM
+- Total data transferred - Amount of data transferred from VM to Azure
+
+    :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="state-of-replication" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+
+- Synchronization progress (to track details at a disk level)
+    - State of replication
+      - If replication is yet to start, then the status is updated as "In queue". During initial replication, only 3 disks are replicated at a time. This mechanism is followed to avoid throttling at the process server.
+      - After replication starts, the status is updated as "In progress".
+      - After completion of initial replication, status is marked as "Complete".        
+   - Site Recovery reads through the original disk, transfers data to Azure and captures progress at a disk level. Note that, Site Recovery skips replication of the unoccupied size of the disk and adds it to the completed data. So, sum of data transferred across all disks might not add up to the "total data transferred" at the VM level.
+   - Upon clicking on the information balloon against a disk you can obtain details on when the replication (synonymous for synchronization) was triggered for the disk, data transferred to Azure in the last 15 min followed by the last refreshed time stamp. This time stamp indicates latest time at which information was received by Azure service from the source machine
+:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="initial-replication-info-balloon-details" lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
+   - Health of each disk is displayed
+      - If replication is slower than expected, then the disk status turns into warning
+      - If replication is not progressing, then the disk status turns into critical
+
+If the health is in critical/warning state, make sure that Replication Health of the machine and [Process Sever](vmware-physical-azure-monitor-process-server.md) are healthy. 
+
+As soon as enable replication job is complete, the replication progress would be 0% and total data transferred would be NA. Upon clicking, the data against each identified disk would be as "NA".This indicates that the replication is yet to start and Azure Site Recovery is yet to receive the latest statistics. The progress is refreshed at an interval of 30 min.
+
+> [!NOTE]
+> Make sure to update Configuration servers, scale-out process servers and mobility agents to versions 9.36 or higher to ensure accurate progress is captured and sent to Site Recovery services.
+
+
 ## View and manage VM properties
 
 Next, verify the properties of the source virtual machine. Remember that the Azure VM name needs to conform with [Azure virtual machine requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
@@ -101,9 +138,9 @@ Next, verify the properties of the source virtual machine. Remember that the Azu
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Compute and network properties window":::
 
    - **Azure VM name**: Modify the name to meet Azure requirements, if necessary.
-   - **Target VM size or VM type**: The default VM size is chosen based on parameters that include disk count, NIC count, CPU core count, memory, and available VM role sizes in the target Azure region. Azure Site Recovery picks the first available VM size that satisfies all the criteria. You can select a different VM size based on your needs at any time before failover. The VM disk size is also based on source disk size, and it can only be changed after failover. Learn more about disk sizes and IOPS rates at [Scalability and performance targets for VM disks on Windows](/azure/virtual-machines/windows/disk-scalability-targets).
-   - **Resource group**: You can select a [resource group](/azure/azure-resource-manager/management/overview#resource-groups), from which a virtual machine becomes a part of a post failover. You can change this setting at any time before failover. After failover, if you migrate the virtual machine to a different resource group, the protection settings for that virtual machine break.
-   - **Availability set**: You can select an [availability set](/azure/virtual-machines/windows/tutorial-availability-sets) if your virtual machine needs to be a part of a post failover. When you select an availability set, keep the following information in mind:
+   - **Target VM size or VM type**: The default VM size is chosen based on parameters that include disk count, NIC count, CPU core count, memory, and available VM role sizes in the target Azure region. Azure Site Recovery picks the first available VM size that satisfies all the criteria. You can select a different VM size based on your needs at any time before failover. The VM disk size is also based on source disk size, and it can only be changed after failover. Learn more about disk sizes and IOPS rates at [Scalability and performance targets for VM disks](../virtual-machines/disks-scalability-targets.md).
+   - **Resource group**: You can select a [resource group](../azure-resource-manager/management/overview.md#resource-groups), from which a virtual machine becomes a part of a post failover. You can change this setting at any time before failover. After failover, if you migrate the virtual machine to a different resource group, the protection settings for that virtual machine break.
+   - **Availability set**: You can select an [availability set](../virtual-machines/windows/tutorial-availability-sets.md) if your virtual machine needs to be a part of a post failover. When you select an availability set, keep the following information in mind:
      - Only availability sets that belong to the specified resource group are listed.
      - VMs that are on different virtual networks can't be a part of the same availability set.
      - Only virtual machines of the same size can be a part of an availability set.

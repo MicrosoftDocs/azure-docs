@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workpath | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workpath.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 320b0daf-14be-4813-b59b-25a6a5070690
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Workpath
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Workpath with Azure Active Direc
 * Enable your users to be automatically signed-in to Workpath with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -96,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<subdomain>.workpath.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Workpath Client support team](https://help.workpath.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Workpath Client support team](https://www.workpath.com/en/company/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Workpath application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -149,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Workpath SSO
 
-To configure single sign-on on **Workpath** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Workpath support team](https://help.workpath.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Workpath** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Workpath support team](https://www.workpath.com/en/company/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Workpath test user
 
@@ -159,15 +152,14 @@ In this section, a user called Britta Simon is created in Workpath. Workpath sup
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Workpath tile in the Access Panel, you should be automatically signed in to the Workpath for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Workpath tile in the Access Panel, you should be automatically signed in to the Workpath for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Workpath with Azure AD](https://aad.portal.azure.com/)
-

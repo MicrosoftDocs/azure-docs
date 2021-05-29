@@ -111,8 +111,8 @@ To learn more about Azure reservations, see the following articles:
 
 * [What are reservations for Azure](save-compute-costs-reservations.md)  
 * [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)  
+* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)  
 * [Manage reservations for Azure](manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)  
 * [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-* [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)

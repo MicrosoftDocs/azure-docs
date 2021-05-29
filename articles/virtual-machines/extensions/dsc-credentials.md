@@ -1,20 +1,15 @@
 ---
 title: Pass credentials to Azure using Desired State Configuration
 description: Learn how to securely pass credentials to Azure virtual machines using PowerShell Desired State Configuration (DSC).
-services: virtual-machines-windows
-documentationcenter: ''
-author: bobbytreed
-manager: carmonm
-editor: ''
-tags: azure-resource-manager
-keywords: 'dsc'
-ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
-ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
-ms.date: 05/02/2018
+ms.service: virtual-machines
+ms.subservice: extensions
+author: bobbytreed
 ms.author: robreed
+ms.collection: windows
+ms.date: 05/02/2018 
+ms.custom: devx-track-azurepowershell
+
 ---
 # Pass credentials to the Azure DSCExtension handler
 

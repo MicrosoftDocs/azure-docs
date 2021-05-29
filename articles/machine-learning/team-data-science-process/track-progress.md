@@ -41,7 +41,7 @@ Here is a simple example dashboard that tracks the sprint activities of an Agile
 
 - The **burnup chart** shows completed work compared to total amount of work in the sprint.
 
-![Dashboard](./media/track-progress/dashboard.png)
+![Screenshot shows an Azure DevOps dashboard example.](./media/track-progress/dashboard.png)
 
 ## Next steps
 

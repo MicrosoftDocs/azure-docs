@@ -9,15 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using PHP
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple PHP application sends a news search query to the API, and displays the response. 
 
-While this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -27,12 +32,12 @@ While this application is written in PHP, the API is a RESTful Web service compa
 
 ## Search entities
 
-To run this application, follow these steps.
+To run this application, follow these steps:
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
-4. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+4. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 5. Run the program.
 
 ```php
@@ -48,8 +53,8 @@ To run this application, follow these steps.
 // Replace the subscriptionKey string value with your valid subscription key.
 $subscriptionKey = 'ENTER KEY HERE';
 
-$host = "https://api.cognitive.microsoft.com";
-$path = "/bing/v7.0/entities";
+$host = "https://api.bing.microsoft.com";
+$path = "/v7.0/search";
 
 $mkt = "en-US";
 $query = "italian restaurants near me";
@@ -79,7 +84,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -150,4 +155,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
 * [What is the Bing Entity Search API?](../overview.md )
-* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Bing Entity Search API reference](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

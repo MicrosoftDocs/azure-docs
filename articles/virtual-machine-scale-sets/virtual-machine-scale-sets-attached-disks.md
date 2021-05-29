@@ -1,17 +1,18 @@
 ---
 title: Azure Virtual Machine Scale Sets Attached Data Disks
 description: Learn how to use attached data disks with virtual machine scale sets through outlines of specific use cases.
-author: avirishuv
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: disks
 ms.date: 4/25/2017
-ms.author: avverma
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 # Azure virtual machine scale sets and attached data disks
-To expand your available storage, Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) support VM instances with attached data disks. You can attach data disks when the scale set is created, or to an existing scale set.
+To expand your available storage, Azure [virtual machine scale sets](./index.yml) support VM instances with attached data disks. You can attach data disks when the scale set is created, or to an existing scale set.
 
 > [!NOTE]
 > When you create a scale set with attached data disks, you need to mount and format the disks from within a VM to use them (just like for standalone Azure VMs). A convenient way to complete this process is to use a Custom Script Extension that calls a script to partition and format all the data disks on a VM. For examples of this, see [Azure CLI](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
@@ -27,7 +28,7 @@ The rest of this article outlines specific use cases such as Service Fabric clus
 
 
 ## Create a Service Fabric cluster with attached data disks
-Each [node type](../service-fabric/service-fabric-cluster-nodetypes.md) in a [Service Fabric](/azure/service-fabric) cluster running in Azure is backed by a virtual machine scale set. Using an Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster. You can use an [existing template](https://github.com/Azure-Samples/service-fabric-cluster-templates) as a starting point. In the template, include a _dataDisks_ section in the _storageProfile_ of the _Microsoft.Compute/virtualMachineScaleSets_ resource(s) and deploy the template. The following example attaches a 128 GB data disk:
+Each [node type](../service-fabric/service-fabric-cluster-nodetypes.md) in a [Service Fabric](../service-fabric/index.yml) cluster running in Azure is backed by a virtual machine scale set. Using an Azure Resource Manager template, you can attach data disks to the scale set(s) that make up the Service Fabric cluster. You can use an [existing template](https://github.com/Azure-Samples/service-fabric-cluster-templates) as a starting point. In the template, include a _dataDisks_ section in the _storageProfile_ of the _Microsoft.Compute/virtualMachineScaleSets_ resource(s) and deploy the template. The following example attaches a 128 GB data disk:
 
 ```json
 "dataDisks": [
@@ -88,5 +89,3 @@ Data disks specified in the scale set model are always empty. However, you may a
 Support for Azure Managed disks and scale set attached data disks is available in API version [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) or later of the Microsoft.Compute API.
 
 Azure portal support for attached data disks in scale sets is limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.
-
-

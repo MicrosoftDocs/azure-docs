@@ -4,7 +4,7 @@ description: Describes the concept of a hierarchical namespace for Azure Data La
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 04/01/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
@@ -40,6 +40,10 @@ The reasons for enabling a hierarchical namespace are determined by a TCO analys
 
 To analyze differences in data storage prices, transaction prices, and storage capacity reservation pricing between accounts that have a flat hierarchical namespace versus a hierarchical namespace, see [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
+## Enabling a hierarchical namespace
+
+You can't enable a hierarchical namespace on an existing storage account. You can enable a hierarchical namespace only when you create a storage account. For guidance, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
+
 ## Next steps
 
-- [Create a Storage account](./data-lake-storage-quickstart-create-account.md)
+- [Create a Storage account](../common/storage-account-create.md)

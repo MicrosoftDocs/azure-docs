@@ -2,12 +2,13 @@
 title: Tutorial - Create and use disks for scale sets with Azure PowerShell
 description: Learn how to use Azure PowerShell to create and use Managed Disks with virtual machine scale sets, including how to add, prepare, list, and detach disks.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.custom: mvc
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: disks
+ms.date: 03/27/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Tutorial: Create and use disks with virtual machine scale set with Azure PowerShell
@@ -38,12 +39,12 @@ When a scale set is created or scaled, two disks are automatically attached to e
 ### Temporary disk sizes
 | Type | Common sizes | Max temp disk size (GiB) |
 |----|----|----|
-| [General purpose](../virtual-machines/windows/sizes-general.md) | A, B, and D series | 1600 |
-| [Compute optimized](../virtual-machines/windows/sizes-compute.md) | F series | 576 |
-| [Memory optimized](../virtual-machines/windows/sizes-memory.md) | D, E, G, and M series | 6144 |
-| [Storage optimized](../virtual-machines/windows/sizes-storage.md) | L series | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N series | 1440 |
-| [High performance](../virtual-machines/windows/sizes-hpc.md) | A and H series | 2000 |
+| [General purpose](../virtual-machines/sizes-general.md) | A, B, and D series | 1600 |
+| [Compute optimized](../virtual-machines/sizes-compute.md) | F series | 576 |
+| [Memory optimized](../virtual-machines/sizes-memory.md) | D, E, G, and M series | 6144 |
+| [Storage optimized](../virtual-machines/sizes-storage.md) | L series | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N series | 1440 |
+| [High performance](../virtual-machines/sizes-hpc.md) | A and H series | 2000 |
 
 
 ## Azure data disks
@@ -52,12 +53,12 @@ Additional data disks can be added if you need to install applications and store
 ### Max data disks per VM
 | Type | Common sizes | Max data disks per VM |
 |----|----|----|
-| [General purpose](../virtual-machines/windows/sizes-general.md) | A, B, and D series | 64 |
-| [Compute optimized](../virtual-machines/windows/sizes-compute.md) | F series | 64 |
-| [Memory optimized](../virtual-machines/windows/sizes-memory.md) | D, E, G, and M series | 64 |
-| [Storage optimized](../virtual-machines/windows/sizes-storage.md) | L series | 64 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N series | 64 |
-| [High performance](../virtual-machines/windows/sizes-hpc.md) | A and H series | 64 |
+| [General purpose](../virtual-machines/sizes-general.md) | A, B, and D series | 64 |
+| [Compute optimized](../virtual-machines/sizes-compute.md) | F series | 64 |
+| [Memory optimized](../virtual-machines/sizes-memory.md) | D, E, G, and M series | 64 |
+| [Storage optimized](../virtual-machines/sizes-storage.md) | L series | 64 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N series | 64 |
+| [High performance](../virtual-machines/sizes-hpc.md) | A and H series | 64 |
 
 
 ## VM disk types
@@ -76,11 +77,13 @@ Premium disks are backed by SSD-based high-performance, low-latency disks. These
 | Max IOPS per disk | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
 Throughput per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
-While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Windows VM sizes](../virtual-machines/windows/sizes.md).
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Windows VM sizes](../virtual-machines/sizes.md).
 
 
 ## Create and attach disks
 You can create and attach disks when you create a scale set, or with an existing scale set.
+
+As of API version `2019-07-01`, you can set the size of the OS disk in a virtual machine scale set with the [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) property. After provisioning, you may have to expand or repartition the disk to make use of the whole space. Learn more about [expanding the disk here](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
 
 ### Attach disks at scale set creation
 Create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). When prompted, provide a username and password for the VM instances. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985.
@@ -129,7 +132,7 @@ Update-AzVmss `
 ## Prepare the data disks
 The disks that are created and attached to your scale set VM instances are raw disks. Before you can use them with your data and applications, the disks must be prepared. To prepare the disks, you create a partition, create a filesystem, and mount them.
 
-To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
+To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/extensions/custom-script-windows.md).
 
 
 The following example executes a script from a GitHub sample repo on each VM instance with [Add-AzVmssExtension](/powershell/module/az.compute/Add-AzVmssExtension) that prepares all the raw attached data disks:

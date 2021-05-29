@@ -81,7 +81,7 @@ The Speech SDK enables Azure-connected speech services.
 >[!NOTE]
 >The Azure Kinect DK does not have speakers.
 
-For additional details and information, visit [Speech Service documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+For additional details and information, visit [Speech Service documentation](../cognitive-services/speech-service/index.yml).
 
 ## Vision services
 

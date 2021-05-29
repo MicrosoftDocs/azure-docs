@@ -33,11 +33,11 @@ The .zip file that you use for push deployment must contain all of the files nee
 
 A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself. When deploying a C# class library project, you must include the compiled library files and dependencies in a `bin` subfolder in your .zip package.
 
+When you are developing on a local computer, you can manually create a .zip file of the function app project folder using built-in .zip compression functionality or third-party tools.
+
 ## Download your function app files
 
-When you are developing on a local computer, it's easy to create a .zip file of the function app project folder on your development computer.
-
-However, you might have created your functions by using the editor in the Azure portal. You can download an existing function app project in one of these ways:
+If you created your functions by using the editor in the Azure portal, you can download your existing function app project as a .zip file in one of these ways:
 
 + **From the Azure portal:**
 
@@ -53,7 +53,9 @@ However, you might have created your functions by using the editor in the Azure 
 
     Use the following deployment GET API to download the files from your `<function_app>` project: 
 
-        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```http
+    https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+    ```
 
     Including `/site/wwwroot/` makes sure your zip file includes only the function app project files and not the entire site. If you are not already signed in to Azure, you will be asked to do so.  
 
@@ -61,7 +63,7 @@ You can also download a .zip file from a GitHub repository. When you download a 
 
 ## <a name="cli"></a>Deploy by using Azure CLI
 
-You can use Azure CLI to trigger a push deployment. Push deploy a .zip file to your function app by using the [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command. To use this command, you must use Azure CLI version 2.0.21 or later. To see what Azure CLI version you are using, use the `az --version` command.
+You can use Azure CLI to trigger a push deployment. Push deploy a .zip file to your function app by using the [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip) command. To use this command, you must use Azure CLI version 2.0.21 or later. To see what Azure CLI version you are using, use the `az --version` command.
 
 In the following command, replace the `<zip_file_path>` placeholder with the path to the location of your .zip file. Also, replace `<app_name>` with the unique name of your function app and replace `<resource_group>` with the name of your resource group.
 

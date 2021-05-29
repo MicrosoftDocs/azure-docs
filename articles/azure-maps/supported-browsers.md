@@ -1,6 +1,6 @@
 ---
 title: Web SDK supported browsers | Microsoft Azure Maps
-description: In this article, you'll learn about supported browsers for Microsoft Azure Maps Web SDK and how to check if a browser is a supported browser.
+description: Find out how to check whether the Azure Maps Web SDK supports a browser. View a list of supported browsers. Learn how to use map services with legacy browsers.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -12,7 +12,7 @@ manager: cpendle
 
 # Web SDK supported browsers
 
-The Azure Maps Web SDK provides a helper function called [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). This function detects whether a web browser has the minimum set of WebGL features required to support loading and rendering the map control. Here's an example of how to use the function:
+The Azure Maps Web SDK provides a helper function called [atlas.isSupported](/javascript/api/azure-maps-control/atlas#issupported-boolean-). This function detects whether a web browser has the minimum set of WebGL features required to support loading and rendering the map control. Here's an example of how to use the function:
 
 ```JavaScript
 if (!atlas.isSupported()) {
@@ -31,7 +31,7 @@ The Azure Maps Web SDK supports the following desktop browsers:
 - Microsoft Edge (current and previous version)
 - Google Chrome (current and previous version)
 - Mozilla Firefox  (current and previous version)
-- Apple Safari (Mac OS X) (current and previous version)
+- Apple Safari (macOS X) (current and previous version)
 
 See also [Target legacy browsers](#Target-Legacy-Browsers) later in this article.
 
@@ -58,7 +58,7 @@ The following Web SDK modules are also supported in Node.js:
 
 ## <a name="Target-Legacy-Browsers"></a>Target legacy browsers
 
-You might want to target older browsers that don't support WebGL or that have only limited support for it. In such cases, we recommend that you use Azure Maps services together with an open-source map control like [Leaflet](https://leafletjs.com/). Here's an example:
+You might want to target older browsers that don't support WebGL or that have only limited support for it. In such cases, we recommend that you use Azure Maps services together with an open-source map control like [Leaflet](https://leafletjs.com/). Here's an example that makes use of the open source [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet).
 
 <br/>
 
@@ -67,13 +67,14 @@ You might want to target older browsers that don't support WebGL or that have on
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Additional code samples using Azure Maps in Leaflet can be found [here](https://azuremapscodesamples.azurewebsites.net/?search=leaflet).
+
+[Here](open-source-projects.md#third-part-map-control-plugins) are some popular open-source map controls that the Azure Maps team has created plugin's for.
 
 ## Next steps
 
 Learn more about the Azure Maps Web SDK:
 
-> [!div class="nextstepaction"]
-> [Map control](how-to-use-map-control.md)
+[Map control](how-to-use-map-control.md)
 
-> [!div class="nextstepaction"]
-> [Services module](how-to-use-services-module.md)
+[Services module](how-to-use-services-module.md)

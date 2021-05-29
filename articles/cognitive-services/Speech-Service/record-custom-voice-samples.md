@@ -14,44 +14,43 @@ ms.author: erhopf
 
 # Record voice samples to create a custom voice
 
-Creating a high-quality production custom voice from scratch is not a casual undertaking. The central component of a custom voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose a voice talent who has experience making these kinds of recordings, and have them recorded by a competent recording engineer using professional equipment.
+Creating a high-quality production custom neural voice from scratch is not a casual undertaking. The central component of a custom neural voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose a voice talent who has experience making these kinds of recordings, and have them recorded by a recording engineer using professional equipment.
 
-Before you can make these recordings, though, you need a script: the words that will be spoken by your voice talent to create the audio samples. For best results, your script must have good phonetic coverage and sufficient variety to train the custom voice model.
+Before you can make these recordings, though, you need a script: the words that will be spoken by your voice talent to create the audio samples. For best results, your script must have good phonetic coverage and sufficient variety to train the custom neural voice model.
 
 Many small but important details go into creating a professional voice recording. This guide is a roadmap for a process that will help you get good, consistent results.
 
+> [!NOTE]
+> To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom neural voice model. When preparing your recording script, make sure you include the below sentence. 
+
+> “I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
+This sentence will be used to verify if the training data is done by the same person that makes the consent. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
+
+> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
+
 > [!TIP]
-> For the highest quality results, consider engaging Microsoft to help develop your custom voice. Microsoft has extensive experience producing high-quality voices for its own products, including Cortana and Office.
+> For the highest quality results, consider engaging Microsoft to help develop your custom neural voice. Microsoft has extensive experience producing high-quality voices for its own products, including Cortana and Office.
 
 ## Voice recording roles
 
-There are four basic roles in a custom voice recording project:
+There are four basic roles in a custom neural voice recording project:
 
 Role|Purpose
 -|-
-Voice talent        |This person's voice will form the basis of the custom voice.
+Voice talent        |This person's voice will form the basis of the custom neural voice.
 Recording engineer  |Oversees the technical aspects of the recording and operates the recording equipment.
 Director            |Prepares the script and coaches the voice talent's performance.
-Editor              |Finalizes the audio files and prepares them for upload to the Custom Voice portal.
+Editor              |Finalizes the audio files and prepares them for upload to Speech Studio
 
 An individual may fill more than one role. This guide assumes that you will be primarily filling the director role and hiring both a voice talent and a recording engineer. If you want to make the recordings yourself, this article includes some information about the recording engineer role. The editor role isn't needed until after the session, so can be performed by the director or the recording engineer.
 
 ## Choose your voice talent
 
-Actors with experience in voiceover or voice character work make good custom voice talent. You can also often find suitable talent among announcers and newsreaders.
+Actors with experience in voiceover or voice character work make good custom neural voice talent. You can also often find suitable talent among announcers and newsreaders. Choose voice talent whose natural voice you like. It is possible to create unique "character" voices, but it's much harder for most talent to perform them consistently, and the effort can cause voice strain. The single most important factor for choosing voice talent is consistency. Your recordings should all sound like they were made on the same day in the same room. You can approach this ideal through good recording practices and engineering.
 
-Choose voice talent whose natural voice you like. It is possible to create unique "character" voices, but it's much harder for most talent to perform them consistently, and the effort can cause voice strain.
+Your voice talent is the other half of the equation. They must be able to speak with consistent rate, volume level, pitch, and tone. Clear diction is a must. The talent also needs to be able to strictly control their pitch variation, emotional affect, and speech mannerisms. Recording voice samples can be more fatiguing than other kinds of voice work. Most voice talent can record for two or three hours a day. Limit sessions to three or four a week, with a day off in-between if possible.
 
-> [!TIP]
-> Generally, avoid using recognizable voices to create a custom voice—unless, of course, your goal is to produce a celebrity voice. Lesser-known voices are usually less distracting to users.
-
-The single most important factor for choosing voice talent is consistency. Your recordings should all sound like they were made on the same day in the same room. You can approach this ideal through good recording practices and engineering.
-
-Your voice talent is the other half of the equation. They must be able to speak with consistent rate, volume level, pitch, and tone. Clear diction is a must. The talent also needs to be able to strictly control their pitch variation, emotional affect, and speech mannerisms.
-
-Recording custom voice samples can be more fatiguing than other kinds of voice work. Most voice talent can record for two or three hours a day. Limit sessions to three or four a week, with a day off in-between if possible.
-
-Recordings made for a voice model should be emotionally neutral. That is, a sad utterance should not be read in a sad way. Mood can be added to the synthesized speech later through prosody controls. Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom voice. In the process, you'll pinpoint what "neutral" sounds like for that persona.
+Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom neural voice. In the process, you'll pinpoint what "neutral" sounds like for that persona. Using the Custom Neural Voice capability, you can train a model that speaks with emotions. Define the "speaking styles" and ask your voice talent to read the script in a way that resonate the styles you want.  
 
 A persona might have, for example, a naturally upbeat personality. So "their" voice might carry a note of optimism even when they speak neutrally. However, such a personality trait should be subtle and consistent. Listen to readings by existing voices to get an idea of what you're aiming for.
 
@@ -60,23 +59,23 @@ A persona might have, for example, a naturally upbeat personality. So "their" vo
 
 ## Create a script
 
-The starting point of any custom voice recording session is the script, which contains the utterances to be spoken by your voice talent. (The term "utterances" encompasses both full sentences and shorter phrases.)
+The starting point of any custom neural voice recording session is the script, which contains the utterances to be spoken by your voice talent. (The term "utterances" encompasses both full sentences and shorter phrases.)
 
 The utterances in your script can come from anywhere: fiction, non-fiction, transcripts of speeches, news reports, and anything else available in printed form. If you want to make sure your voice does well on specific kinds of words (such as medical terminology or programming jargon), you might want to include sentences from scholarly papers or technical documents. For a brief discussion of potential legal issues, see the ["Legalities"](#legalities) section. You can also write your own text.
 
-Your utterances don't need to come from the same source, or the same kind of source. They don't even need to have anything to do with each other. However, if you will use set phrases (for example, "You have successfully logged in") in your speech application, make sure to include them in your script. This will give your custom voice a better chance of pronouncing those phrases well. And if you should decide to use a recording in place of synthesized speech, you'll already have it in the same voice.
+Your utterances don't need to come from the same source, or the same kind of source. They don't even need to have anything to do with each other. However, if you will use set phrases (for example, "You have successfully logged in") in your speech application, make sure to include them in your script. This will give your custom neural voice a better chance of pronouncing those phrases well. And if you should decide to use a recording in place of synthesized speech, you'll already have it in the same voice.
 
 While consistency is key in choosing voice talent, variety is the hallmark of a good script. Your script should include many different words and sentences with a variety of sentence lengths, structures, and moods. Every sound in the language should be represented multiple times and in numerous contexts (called *phonetic coverage*).
 
 Furthermore, the text should incorporate all the ways that a particular sound can be represented in writing, and place each sound at varying places in the sentences. Both declarative sentences and questions should be included and read with appropriate intonation.
 
-It's difficult to write a script that provides *just enough* data to allow the Custom Speech portal to build a good voice. In practice, the simplest way to make a script that achieves robust phonetic coverage is to include a large number of samples. The standard voices that Microsoft provides were built from tens of thousands of utterances. You should be prepared to record a few to several thousand utterances at minimum to build a production-quality custom voice.
+It's difficult to write a script that provides *just enough* data to allow Speech Studio to build a good voice. In practice, the simplest way to make a script that achieves robust phonetic coverage is to include a large number of samples. The standard voices that Microsoft provides were built from tens of thousands of utterances. You should be prepared to record a few to several thousand utterances at minimum to build a production-quality custom neural voice.
 
 Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
 
 ### Script format
 
-You can write your script in Microsoft Word. The script is for use during the recording session, so you can set it up any way you find easy to work with. Create the text file that's required by the Custom Voice portal separately.
+You can write your script in Microsoft Word. The script is for use during the recording session, so you can set it up any way you find easy to work with. Create the text file that's required by Speech Studio separately.
 
 A basic script format contains three columns:
 
@@ -95,7 +94,7 @@ Print three copies of the script: one for the talent, one for the engineer, and 
 
 ### Legalities
 
-Under copyright law, an actor's reading of copyrighted text might be a performance for which the author of the work should be compensated. This performance will not be recognizable in the final product, the custom voice. Even so, the legality of using a copyrighted work for this purpose is not well established. Microsoft cannot provide legal advice on this issue; consult your own counsel.
+Under copyright law, an actor's reading of copyrighted text might be a performance for which the author of the work should be compensated. This performance will not be recognizable in the final product, the custom neural voice. Even so, the legality of using a copyrighted work for this purpose is not well established. Microsoft cannot provide legal advice on this issue; consult your own counsel.
 
 Fortunately, it is possible to avoid these issues entirely. There are many sources of text you can use without permission or license.
 
@@ -105,7 +104,7 @@ Fortunately, it is possible to avoid these issues entirely. There are many sourc
 |Works no longer<br>under copyright|Typically works published prior to 1923. For English, [Project Gutenberg](https://www.gutenberg.org/) offers tens of thousands of such works. You may want to focus on newer works, as the language will be closer to modern English.|
 |Government&nbsp;works|Works created by the United States government are not copyrighted in the United States, though the government may claim copyright in other countries/regions.|
 |Public domain|Works for which copyright has been explicitly disclaimed or that have been dedicated to the public domain. It may not be possible to waive copyright entirely in some jurisdictions.|
-|Permissively-licensed works|Works distributed under a license like Creative Commons or the GNU Free Documentation License (GFDL). Wikipedia uses the GFDL. Some licenses, however, may impose restrictions on performance of the licensed content that may impact the creation of a custom voice model, so read the license carefully.|
+|Permissively-licensed works|Works distributed under a license like Creative Commons or the GNU Free Documentation License (GFDL). Wikipedia uses the GFDL. Some licenses, however, may impose restrictions on performance of the licensed content that may impact the creation of a custom neural voice model, so read the license carefully.|
 
 ## Recording your script
 
@@ -146,7 +145,7 @@ Here, most of the range (height) is used, but the highest peaks of the signal do
 
 Record directly into the computer via a high-quality audio interface or a USB port, depending on the mic you're using. For analog, keep the audio chain simple: mic, preamp, audio interface, computer. You can license both [Avid Pro Tools](https://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) monthly at a reasonable cost. If your budget is extremely tight, try the free [Audacity](https://www.audacityteam.org/).
 
-Record at 44.1 kHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 kHz 24-bit, if your equipment supports it. You will down-sample your audio to 16 kHz 16-bit before you submit it to the Custom Voice portal. Still, it pays to have a high-quality original recording in the event edits are needed.
+Record at 44.1 kHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 kHz 24-bit, if your equipment supports it. You will down-sample your audio to 24 kHz 16-bit before you submit it to Speech Studio. Still, it pays to have a high-quality original recording in the event edits are needed.
 
 Ideally, have different people serve in the roles of director, engineer, and talent. Don't try to do it all yourself. In a pinch, one person can be both the director and the engineer.
 
@@ -178,15 +177,15 @@ The match file is especially important when you resume recording after a break o
 
 Coach your talent to take a deep breath and pause for a moment before each utterance. Record a couple of seconds of silence between utterances. Words should be pronounced the same way each time they appear, considering context. For example, "record" as a verb is pronounced differently from "record" as a noun.
 
-Record a good five seconds of silence before the first recording to capture the "room tone." This practice helps the Custom Voice portal compensate for any remaining noise in the recordings.
+Record approximately five seconds of silence before the first recording to capture the "room tone." This practice helps Speech Studio compensate for any remaining noise in the recordings.
 
 > [!TIP]
-> All you really need to capture is the voice talent, so you can make a monophonic (single-channel) recording of just their lines. However, if you record in stereo, you can use the second channel to record the chatter in the control room to capture discussion of particular lines or takes. Remove this track from the version that's uploaded to the Custom Voice portal.
+> All you really need to capture is the voice talent, so you can make a monophonic (single-channel) recording of just their lines. However, if you record in stereo, you can use the second channel to record the chatter in the control room to capture discussion of particular lines or takes. Remove this track from the version that's uploaded to Speech Studio.
 
 Listen closely, using headphones, to the voice talent's performance. You're looking for good but natural diction, correct pronunciation, and a lack of unwanted sounds. Don't hesitate to ask your talent to re-record an utterance that doesn't meet these standards.
 
 > [!TIP]
-> If you are using a large number of utterances, a single utterance might not have a noticeable effect on the resultant custom voice. It might be more expedient to simply note any utterances with issues, exclude them from your dataset, and see how your custom voice turns out. You can always go back to the studio and record the missed samples later.
+> If you are using a large number of utterances, a single utterance might not have a noticeable effect on the resultant custom neural voice. It might be more expedient to simply note any utterances with issues, exclude them from your dataset, and see how your custom neural voice turns out. You can always go back to the studio and record the missed samples later.
 
 Note the take number or time code on your script for each utterance. Ask the engineer to mark each utterance in the recording's metadata or cue sheet as well.
 
@@ -196,23 +195,23 @@ Take regular breaks and provide a beverage to help your voice talent keep their 
 
 Modern recording studios run on computers. At the end of the session, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 kHz 16-bit) or better. 48 kHz 24-bit is common and desirable. Higher sampling rates, such as 96 kHz, are generally not needed.
 
-The Custom Voice portal requires each provided utterance to be in its own file. Each audio file delivered by the studio contains multiple utterances. So the primary post-production task is to split up the recordings and prepare them for submission. The recording engineer might have placed markers in the file (or provided a separate cue sheet) to indicate where each utterance starts.
+Speech Studio requires each provided utterance to be in its own file. Each audio file delivered by the studio contains multiple utterances. So the primary post-production task is to split up the recordings and prepare them for submission. The recording engineer might have placed markers in the file (or provided a separate cue sheet) to indicate where each utterance starts.
 
 Use your notes to find the exact takes you want, and then use a sound editing utility, such as [Avid Pro Tools](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), or the free [Audacity](https://www.audacityteam.org/), to copy each utterance into a new file.
 
-Leave only about 0.2 seconds of silence at the beginning and end of each clip, except for the first. That file should start with a full five seconds of silence. Do not use an audio editor to "zero out" silent parts of the file. Including the "room tone" will help the Custom Voice algorithms compensate for any residual background noise.
+Leave only about 0.2 seconds of silence at the beginning and end of each clip, except for the first. That file should start with a full five seconds of silence. Do not use an audio editor to "zero out" silent parts of the file. Including the "room tone" will help the algorithms compensate for any residual background noise.
 
 Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording, like a slight lip smack before a line, but be careful not to remove any actual speech. If you can't fix a file, remove it from your dataset and note that you have done so.
 
-Convert each file to 16 bits and a sample rate of 16 kHz before saving and, if you recorded the studio chatter, remove the second channel. Save each file in WAV format, naming the files with the utterance number from your script.
+Convert each file to 16 bits and a sample rate of 24 kHz before saving and if you recorded the studio chatter, remove the second channel. Save each file in WAV format, naming the files with the utterance number from your script.
 
-Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Creating custom voice fonts](how-to-customize-voice-font.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
+Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Create and use your voice model](./how-to-custom-voice-create-voice.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
 
 Archive the original recordings in a safe place in case you need them later. Preserve your script and notes, too.
 
 ## Next steps
 
-You're ready to upload your recordings and create your custom voice.
+You're ready to upload your recordings and create your custom neural voice.
 
 > [!div class="nextstepaction"]
-> [Create custom voice fonts](how-to-customize-voice-font.md)
+> [Create and use your voice model](./how-to-custom-voice-create-voice.md)

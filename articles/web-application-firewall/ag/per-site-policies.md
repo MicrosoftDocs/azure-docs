@@ -5,9 +5,10 @@ description: Learn how to configure per-site Web Application Firewall policies o
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/24/2020
+ms.date: 12/09/2020
 ms.author: victorh
-ms.topic: conceptual
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure per-site WAF policies using Azure PowerShell
@@ -20,14 +21,13 @@ By applying WAF policies to a listener, you can configure WAF settings for indiv
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create a WAF policy
-> * Create an application gateway with WAF enabled
-> * Apply the WAF policy globally, per-site, and per-URI
-> * Create a virtual machine scale set
-> * Create a storage account and configure diagnostics
-> * Test the application gateway
+* Set up the network
+* Create a WAF policy
+* Create an application gateway with WAF enabled
+* Apply the WAF policy globally, per-site, and per-URI 
+* Create a virtual machine scale set
+* Create a storage account and configure diagnostics
+* Test the application gateway
 
 ![Web application firewall example](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
@@ -140,23 +140,23 @@ $rule = New-AzApplicationGatewayFirewallCustomRule -Name globalAllow -Priority 5
 
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
 $condition1 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable1 -Operator Contains -MatchValue "globalBlock" 
-$rule1 = New-AzApplicationGatewayFirewallCustomRule -Name globalAllow -Priority 10 -RuleType MatchRule -MatchCondition $condition1 -Action Block
+$rule1 = New-AzApplicationGatewayFirewallCustomRule -Name globalBlock -Priority 10 -RuleType MatchRule -MatchCondition $condition1 -Action Block
 
 $variable2 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
 $condition2 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable2 -Operator Contains -MatchValue "siteAllow" 
-$rule2 = New-AzApplicationGatewayFirewallCustomRule -Name globalAllow -Priority 5 -RuleType MatchRule -MatchCondition $condition2 -Action Allow
+$rule2 = New-AzApplicationGatewayFirewallCustomRule -Name siteAllow -Priority 5 -RuleType MatchRule -MatchCondition $condition2 -Action Allow
 
 $variable3 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
 $condition3 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable3 -Operator Contains -MatchValue "siteBlock" 
-$rule3 = New-AzApplicationGatewayFirewallCustomRule -Name globalAllow -Priority 10 -RuleType MatchRule -MatchCondition $condition3 -Action Block
+$rule3 = New-AzApplicationGatewayFirewallCustomRule -Name siteBlock -Priority 10 -RuleType MatchRule -MatchCondition $condition3 -Action Block
 
 $variable4 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
 $condition4 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable4 -Operator Contains -MatchValue "URIAllow" 
-$rule4 = New-AzApplicationGatewayFirewallCustomRule -Name globalAllow -Priority 5 -RuleType MatchRule -MatchCondition $condition4 -Action Allow
+$rule4 = New-AzApplicationGatewayFirewallCustomRule -Name URIAllow -Priority 5 -RuleType MatchRule -MatchCondition $condition4 -Action Allow
 
 $variable5 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
 $condition5 = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable5 -Operator Contains -MatchValue "URIBlock" 
-$rule5 = New-AzApplicationGatewayFirewallCustomRule -Name globalAllow -Priority 10 -RuleType MatchRule -MatchCondition $condition5 -Action Block
+$rule5 = New-AzApplicationGatewayFirewallCustomRule -Name URIBlock -Priority 10 -RuleType MatchRule -MatchCondition $condition5 -Action Block
 
 $policySettingGlobal = New-AzApplicationGatewayFirewallPolicySetting `
   -Mode Prevention `
@@ -279,18 +279,20 @@ $PathRuleConfig1 = New-AzApplicationGatewayPathRuleConfig `
 $URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
   -PathRules $PathRuleConfig, $PathRuleConfig1 `
   -DefaultBackendAddressPoolId $defaultPool.Id `
-  -DefaultBackendHttpSettingsId poolSettings.Id
+  -DefaultBackendHttpSettingsId $poolSettings.Id
 
 Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
   -Name "RequestRoutingRule" `
   -RuleType PathBasedRouting `
   -HttpListener $siteListener `
-  -UrlPathMapId $URLPathMap.Id
+  -UrlPathMap $URLPathMap
 ```
 
 ## Create a virtual machine scale set
 
 In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You assign the scale set to the backend pool when you configure the IP settings.
+
+Replace your own values for `-AdminUsername` and `-AdminPassword`.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -302,12 +304,12 @@ $appgw = Get-AzApplicationGateway `
   -Name myAppGateway
 
 $backendPool = Get-AzApplicationGatewayBackendAddressPool `
-  -Name defaultPool `
+  -Name appGatewayBackendPool `
   -ApplicationGateway $appgw
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
@@ -324,8 +326,8 @@ Set-AzVmssStorageProfile $vmssConfig `
   -OsDiskCreateOption FromImage
 
 Set-AzVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword "Azure123456!" `
+  -AdminUsername <username> `
+  -AdminPassword <password> `
   -ComputerNamePrefix myvmss
 
 Add-AzVmssNetworkInterfaceConfiguration `
@@ -393,7 +395,7 @@ $store = Get-AzStorageAccount `
 Set-AzDiagnosticSetting `
   -ResourceId $appgw.Id `
   -StorageAccountId $store.Id `
-  -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
+  -Category ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
   -Enabled $true `
   -RetentionEnabled $true `
   -RetentionInDays 30

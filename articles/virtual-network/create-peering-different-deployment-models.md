@@ -4,14 +4,14 @@ description: Learn how to create a virtual network peering between virtual netwo
 services: virtual-network
 documentationcenter: ''
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
@@ -30,7 +30,7 @@ The steps to create a virtual network peering are different, depending on whethe
 |[Both Resource Manager](create-peering-different-subscriptions.md) |Different|
 |[One Resource Manager, one classic](create-peering-different-deployment-models-subscriptions.md) |Different|
 
-A virtual network peering can't be created between two virtual networks deployed through the classic deployment model. If you need to connect virtual networks that were both created through the classic deployment model, you can use an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks.
+A virtual network peering can't be created between two virtual networks deployed through the classic deployment model. If you need to connect virtual networks that were both created through the classic deployment model, you can use an Azure [VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) to connect the virtual networks.
 
 This tutorial peers virtual networks in the same region. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region). It's recommended that you familiarize yourself with the [peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints) before peering virtual networks.
 
@@ -140,10 +140,10 @@ Complete the following steps using the Azure classic CLI and the Azure CLI. You 
 
 ## <a name="powershell"></a>Create peering - PowerShell
 
-1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [Az](https://www.powershellgallery.com/packages/Az/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Install the latest version of the PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) and [Az](https://www.powershellgallery.com/packages/Az/) modules. If you're new to Azure PowerShell, see [Azure PowerShell overview](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Start a PowerShell session.
 3. In PowerShell, sign in to Azure by entering the `Add-AzureAccount` command. The account you sign in with must have the necessary permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#requirements-and-constraints).
-4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
+4. To create a virtual network (classic) with PowerShell, you must create a new, or modify an existing, network configuration file. Learn how to [export, update, and import network configuration files](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). The file should include the following **VirtualNetworkSite** element for the virtual network used in this tutorial:
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">
@@ -235,7 +235,7 @@ When you've finished this tutorial, you might want to delete the resources you c
     Remove-AzResourceGroup -Name myResourceGroup -Force
     ```
 
-2. To delete the virtual network (classic) with PowerShell, you must modify an existing network configuration file. Learn how to [export, update, and import network configuration files](virtual-networks-using-network-configuration-file.md). Remove the following VirtualNetworkSite element for the virtual network used in this tutorial:
+2. To delete the virtual network (classic) with PowerShell, you must modify an existing network configuration file. Learn how to [export, update, and import network configuration files](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Remove the following VirtualNetworkSite element for the virtual network used in this tutorial:
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">

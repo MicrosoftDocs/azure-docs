@@ -4,8 +4,8 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: rohogue
+ms.date: 03/11/2021
+ms.author: v-erkel
 ---
 
 # What is Azure HPC Cache?
@@ -13,6 +13,12 @@ ms.author: rohogue
 Azure HPC Cache speeds access to your data for high-performance computing (HPC) tasks. By caching files in Azure, Azure HPC Cache brings the scalability of cloud computing to your existing workflow. This service can be used even for workflows where your data is stored across WAN links, such as in your local datacenter network-attached storage (NAS) environment.
 
 Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NFS storage or new Blob containers can become part of its aggregated namespace, which makes client access simple even if you change the back-end storage target.
+
+## Overview video
+
+[![video thumbnail: Azure HPC Cache overview - click to visit video page](media/video-1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
+
+Click the image above to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
 
 ## Use cases
 
@@ -42,27 +48,12 @@ An Azure HPC Cache deployment can help speed up quantitative analysis calculatio
 
 ## Region availability
 
-Azure HPC Cache is available in these Azure regions:
+Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) page to learn where Azure HPC Cache is available.
 
-* East US
-* East US 2
-* North Europe
-* West Europe
-* Southeast Asia
-* Sydney
-* West US 2
-* Korea Central
-
-Check the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) for the latest availability information.
-
-## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality in the initial months of general availability.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches.
+Azure HPC Cache resides in a single region. It can access data stored in other regions if you connect it to Blob containers located there. The cache does not permanently store customer data.
 
 ## Next steps
 
 * Read the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) to learn more about its capabilities
-* Learn about product [prerequisites](hpc-cache-prereqs.md)
+* Learn about product [prerequisites](hpc-cache-prerequisites.md)
 * [Create an Azure HPC Cache](hpc-cache-create.md) from the Azure portal

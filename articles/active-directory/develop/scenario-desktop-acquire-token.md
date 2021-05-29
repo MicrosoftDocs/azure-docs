@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 01/06/2021
 ms.author: jmprieur
-ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+ms.custom: aaddev, devx-track-python
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Desktop app that calls web APIs: Acquire a token
@@ -35,7 +35,7 @@ The web API is defined by its `scopes`. Whatever the experience you provide in y
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -52,7 +52,6 @@ catch(MsalUiRequiredException ex)
 # [Java](#tab/java)
 
 ```java
-
 Set<IAccount> accountsInCache = pca.getAccounts().join();
 // Take first account in the cache. In a production application, you would filter
 // accountsInCache to get the right account for the user authenticating.
@@ -85,24 +84,9 @@ try {
     }
 }
 return result;
-
 ```
 
-# [Python](#tab/python)
-
-```Python
-result = None
-
-# Firstly, check the cache to see if this end user has signed in before
-accounts = app.get_accounts(username=config["username"])
-if accounts:
-    result = app.acquire_token_silent(config["scope"], account=accounts[0])
-
-if not result:
-    result = app.acquire_token_by_xxx(scopes=config["scope"])
-```
-
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
 ### In MSAL for iOS and macOS
 
@@ -121,6 +105,7 @@ MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] ini
     }
 }];
 ```
+
 Swift:
 
 ```swift
@@ -128,20 +113,98 @@ guard let account = try? application.account(forIdentifier: accountIdentifier) e
 let silentParameters = MSALSilentTokenParameters(scopes: scopes, account: account)
 application.acquireTokenSilent(with: silentParameters) { (result, error) in
 
-	guard let authResult = result, error == nil else {
+    guard let authResult = result, error == nil else {
 
-	let nsError = error! as NSError
+    let nsError = error! as NSError
 
-		if (nsError.domain == MSALErrorDomain &&
-			nsError.code == MSALError.interactionRequired.rawValue) {
+        if (nsError.domain == MSALErrorDomain &&
+            nsError.code == MSALError.interactionRequired.rawValue) {
 
-			// Interactive auth will be required, call acquireToken()
-			return
-		}
-		return
-	}
+            // Interactive auth will be required, call acquireToken()
+            return
+        }
+        return
+    }
 }
 ```
+
+# [Node.js](#tab/nodejs)
+
+In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). MSAL Node uses an in-memory token cache to see if there are any user accounts in the cache. If there is, the account object can be passed to the `acquireTokenSilent()` method to retrieve a cached access token.
+
+```javascript
+
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+const msalTokenCache = pca.getTokenCache();
+
+let accounts = await msalTokenCache.getAllAccounts();
+
+    if (accounts.length > 0) {
+
+        const silentRequest = {
+            account: accounts[0], // Index must match the account that is trying to acquire token silently
+            scopes: ["user.read"],
+        };
+
+        pca.acquireTokenSilent(silentRequest).then((response) => {
+            console.log("\nSuccessful silent token acquisition");
+            console.log("\nResponse: \n:", response);
+            res.sendStatus(200);
+        }).catch((error) => console.log(error));
+    } else {
+        const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
+
+        const authCodeUrlParameters = {
+            scopes: ["User.Read"],
+            redirectUri: "your_redirect_uri",
+            codeChallenge: challenge, // PKCE Code Challenge
+            codeChallengeMethod: "S256" // PKCE Code Challenge Method 
+        };
+
+        // get url to sign user in and consent to scopes needed for application
+        pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+            console.log(response);
+
+            const tokenRequest = {
+                code: response["authorization_code"],
+                codeVerifier: verifier // PKCE Code Verifier 
+                redirectUri: "your_redirect_uri",
+                scopes: ["User.Read"],
+            };
+
+            // acquire a token by exchanging the code
+            pca.acquireTokenByCode(tokenRequest).then((response) => {
+                console.log("\nResponse: \n:", response);
+            }).catch((error) => {
+                console.log(error);
+            });
+        }).catch((error) => console.log(JSON.stringify(error)));
+    }
+```
+
+# [Python](#tab/python)
+
+```python
+result = None
+
+# Firstly, check the cache to see if this end user has signed in before
+accounts = app.get_accounts(username=config["username"])
+if accounts:
+    result = app.acquire_token_silent(config["scope"], account=accounts[0])
+
+if not result:
+    result = app.acquire_token_by_xxx(scopes=config["scope"])
+```
+
 ---
 
 Here are the various ways to acquire tokens in a desktop application.
@@ -151,6 +214,7 @@ Here are the various ways to acquire tokens in a desktop application.
 The following example shows minimal code to get a token interactively for reading the user's profile with Microsoft Graph.
 
 # [.NET](#tab/dotnet)
+
 ### In MSAL.NET
 
 ```csharp
@@ -172,7 +236,7 @@ catch(MsalUiRequiredException)
 
 ### Mandatory parameters
 
-`AcquireTokenInteractive` has only one mandatory parameter, ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, the required scopes can be found in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), the scope "User.Read", "Contacts.Read" must be used. For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` has only one mandatory parameter, ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, the required scopes can be found in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](/graph/api/user-list-contacts), the scope "User.Read", "Contacts.Read" must be used. For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 On Android, you also need to specify the parent activity by using `.WithParentActivityOrWindow`, as shown, so that the token gets back to that parent activity after the interaction. If you don't specify it, an exception is thrown when calling `.ExecuteAsync()`.
 
@@ -180,7 +244,7 @@ On Android, you also need to specify the parent activity by using `.WithParentAc
 
 #### WithParentActivityOrWindow
 
-The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform.
+The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify, for platforms that support it, the parent UI. When used in a desktop application, `.WithParentActivityOrWindow` has a different type, which depends on the platform. Alternatively you can omit the optional parent window parameter to create a window, if you do not want to control where the sign-in dialog appears on the screen. This would be applicable for applications which are command line based, used to pass calls to any other backend service and do not need any windows for user interaction.
 
 ```csharp
 // net45
@@ -190,13 +254,13 @@ WithParentActivityOrWindow(IWin32Window window)
 // Mac
 WithParentActivityOrWindow(NSWindow window)
 
-// .Net Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
+// .NET Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
 WithParentActivityOrWindow(object parent).
 ```
 
 Remarks:
 
-- On .NET Standard, the expected `object` is `Activity` on Android, `UIViewController` on iOS, `NSWindow` on MAC, and `IWin32Window` or `IntPr` on Windows.
+- On .NET Standard, the expected `object` is `Activity` on Android, `UIViewController` on iOS, `NSWindow` on Mac, and `IWin32Window` or `IntPr` on Windows.
 - On Windows, you must call `AcquireTokenInteractive` from the UI thread so that the embedded browser gets the appropriate UI synchronization context. Not calling from the UI thread might cause messages to not pump properly and deadlock scenarios with the UI. One way of calling Microsoft Authentication Libraries (MSALs) from the UI thread if you aren't on the UI thread already is to use the `Dispatcher` on WPF.
 - If you're using WPF, to get a window from a WPF control, you can use the `WindowInteropHelper.Handle` class. Then the call is from a WPF control (`this`):
 
@@ -210,15 +274,26 @@ Remarks:
 
 `WithPrompt()` is used to control the interactivity with the user by specifying a prompt.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Image showing the fields in the Prompt structure. These constant values control interactivity with the user by defining the type of prompt displayed by the WithPrompt() method.](https://user-images.githubusercontent.com/34331512/112267137-3f1c3a00-8c32-11eb-97fb-33604311329a.png)
 
 The class defines the following constants:
 
 - ``SelectAccount`` forces the STS to present the account selection dialog box that contains accounts for which the user has a session. This option is useful when application developers want to let users choose among different identities. This option drives MSAL to send ``prompt=select_account`` to the identity provider. This option is the default. It does a good job of providing the best possible experience based on the available information, such as account and presence of a session for the user. Don't change it unless you have good reason to do it.
 - ``Consent`` enables the application developer to force the user to be prompted for consent, even if consent was granted before. In this case, MSAL sends `prompt=consent` to the identity provider. This option can be used in some security-focused applications where the organization governance demands that the user is presented with the consent dialog box each time the application is used.
 - ``ForceLogin`` enables the application developer to have the user prompted for credentials by the service, even if this user prompt might not be needed. This option can be useful to let the user sign in again if acquiring a token fails. In this case, MSAL sends `prompt=login` to the identity provider. Sometimes it's used in security-focused applications where the organization governance demands that the user re-signs in each time they access specific parts of an application.
+- ``Create`` triggers a sign-up experience, which is used for External Identities, by sending `prompt=create` to the identity provider. This prompt should not be sent for Azure AD B2C apps. For more information, see [Add a self-service sign-up user flow to an app](../external-identities/self-service-sign-up-user-flow.md).
 - ``Never`` (for .NET 4.5 and WinRT only) won't prompt the user, but instead tries to use the cookie stored in the hidden embedded web view. For more information, see web views in MSAL.NET. Using this option might fail. In that case, `AcquireTokenInteractive` throws an exception to notify that a UI interaction is needed. You'll need to use another `Prompt` parameter.
-- ``NoPrompt`` won't send any prompt to the identity provider. This option is useful only for Azure Active Directory (Azure AD) B2C edit profile policies. For more information, see [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities).
+- ``NoPrompt`` won't send any prompt to the identity provider which therefore will decide to present the best sign-in experience to the user (single-sign-on, or select account). This option is also mandatory for Azure Active Directory (Azure AD) B2C edit profile policies. For more information, see [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities).
+
+#### WithUseEmbeddedWebView
+
+This method enables you to specify if you want to force the usage of an embedded WebView or the system WebView (when available). For more information, see [Usage of web browsers](msal-net-web-browsers.md).
+
+```csharp
+var result = await app.AcquireTokenInteractive(scopes)
+                    .WithUseEmbeddedWebView(true)
+                    .ExecuteAsync();
+```
 
 #### WithExtraScopeToConsent
 
@@ -275,7 +350,7 @@ The MSAL.NET team has rewritten the UI tests to use this extensibility mechanism
 
 ##### Provide a great experience with SystemWebViewOptions
 
-From MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), you can specify:
+From MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions), you can specify:
 
 - The URI to go to (`BrowserRedirectError`) or the HTML fragment to display (`HtmlMessageError`) in case of sign-in or consent errors in the system web browser.
 - The URI to go to (`BrowserRedirectSuccess`) or the HTML fragment to display (`HtmlMessageSuccess`) in case of successful sign-in or consent.
@@ -301,7 +376,7 @@ var result = app.AcquireTokenInteractive(scopes)
 
 #### Other optional parameters
 
-To learn more about all the other optional parameters for `AcquireTokenInteractive`, see [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+To learn more about all the other optional parameters for `AcquireTokenInteractive`, see [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 # [Java](#tab/java)
 
@@ -352,26 +427,7 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
 }
 ```
 
-# [Python](#tab/python)
-
-MSAL Python doesn't provide an interactive acquire token method directly. Instead, it requires the application to send an authorization request in its implementation of the user interaction flow to obtain an authorization code. This code can then be passed to the `acquire_token_by_authorization_code` method to get the token.
-
-```Python
-result = None
-
-# Firstly, check the cache to see if this end user has signed in before
-accounts = app.get_accounts(username=config["username"])
-if accounts:
-    result = app.acquire_token_silent(config["scope"], account=accounts[0])
-
-if not result:
-    result = app.acquire_token_by_authorization_code(
-         request.args['code'],
-         scopes=config["scope"])    
-
-```
-
-# [MacOS](#tab/macOS)
+# [macOS](#tab/macOS)
 
 ### In MSAL for iOS and macOS
 
@@ -380,14 +436,14 @@ Objective-C:
 ```objc
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
-	if (!error)
-	{
-		// You'll want to get the account identifier to retrieve and reuse the account
-		// for later acquireToken calls
-		NSString *accountIdentifier = result.account.identifier;
+    if (!error)
+    {
+        // You'll want to get the account identifier to retrieve and reuse the account
+        // for later acquireToken calls
+        NSString *accountIdentifier = result.account.identifier;
 
-		NSString *accessToken = result.accessToken;
-	}
+        NSString *accessToken = result.accessToken;
+    }
 }];
 ```
 
@@ -397,15 +453,78 @@ Swift:
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: MSALWebviewParameters())
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
 
-	guard let authResult = result, error == nil else {
-		print(error!.localizedDescription)
-		return
-	}
+    guard let authResult = result, error == nil else {
+        print(error!.localizedDescription)
+        return
+    }
 
-	// Get access token from result
-	let accessToken = authResult.accessToken
+    // Get access token from result
+    let accessToken = authResult.accessToken
 })
 ```
+
+# [Node.js](#tab/nodejs)
+
+In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). The process has two steps: first, the application obtains a URL that can be used to generate an authorization code. This URL can be opened in a browser of choice, where the user can input their credentials, and will be redirected back to the `redirectUri` (registered during the app registration) with an authorization code. Second, the application passes the authorization code received to the `acquireTokenByCode()` method which exchanges it for an access token.
+
+```javascript
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+const {verifier, challenge} = await msal.cryptoProvider.generatePkceCodes();
+
+const authCodeUrlParameters = {
+    scopes: ["User.Read"],
+    redirectUri: "your_redirect_uri",
+    codeChallenge: challenge, // PKCE Code Challenge
+    codeChallengeMethod: "S256" // PKCE Code Challenge Method 
+};
+
+// get url to sign user in and consent to scopes needed for application
+pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+    console.log(response);
+
+    const tokenRequest = {
+        code: response["authorization_code"],
+        codeVerifier: verifier // PKCE Code Verifier 
+        redirectUri: "your_redirect_uri",
+        scopes: ["User.Read"],
+    };
+
+    // acquire a token by exchanging the code
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+    }).catch((error) => {
+        console.log(error);
+    });
+}).catch((error) => console.log(JSON.stringify(error)));
+```
+
+# [Python](#tab/python)
+
+MSAL Python 1.7+ provides an interactive acquire token method.
+
+```python
+result = None
+
+# Firstly, check the cache to see if this end user has signed in before
+accounts = app.get_accounts(username=config["username"])
+if accounts:
+    result = app.acquire_token_silent(config["scope"], account=accounts[0])
+
+if not result:
+    result = app.acquire_token_interactive(  # It automatically provides PKCE protection
+         scopes=config["scope"])
+```
+
 ---
 
 ## Integrated Windows Authentication
@@ -415,10 +534,9 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
 ### Constraints
 
 - Integrated Windows Authentication is usable for *federated+* users only, that is, users created in Active Directory and backed by Azure AD. Users created directly in Azure AD without Active Directory backing, known as *managed* users, can't use this authentication flow. This limitation doesn't affect the username and password flow.
-- IWA is for apps written for .NET Framework, .NET Core, and Universal Windows Platform (UWP) platforms.
-- IWA doesn't bypass multifactor authentication (MFA). If MFA is configured, IWA might fail if an MFA challenge is required, because MFA requires user interaction.
-  > [!NOTE]
-  > This one is tricky. IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
+- IWA doesn't bypass [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md). If MFA is configured, IWA might fail if an MFA challenge is required, because MFA requires user interaction.
+
+    IWA is non-interactive, but MFA requires user interactivity. You don't control when the identity provider requests MFA to be performed, the tenant admin does. From our observations, MFA is required when you sign in from a different country/region, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don't expect a deterministic set of rules. Azure AD uses AI to continuously learn if MFA is required. Fall back to a user prompt like interactive authentication or device code flow if IWA fails.
 
 - The authority passed in `PublicClientApplicationBuilder` needs to be:
   - Tenanted of the form `https://login.microsoftonline.com/{tenant}/`, where `tenant` is either the GUID that represents the tenant ID or a domain associated with the tenant.
@@ -430,25 +548,25 @@ To sign in a domain user on a domain or Azure AD joined machine, use Integrated 
   - Or, the tenant admin must have previously consented to all users in the tenant to use the application.
   - In other words:
     - Either you as a developer selected the **Grant** button in the Azure portal for yourself.
-    - Or, a tenant admin selected the **Grant/revoke admin consent for {tenant domain}** button on the **API permissions** tab of the registration for the application. For more information, see [Add permissions to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
-    - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
-    - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
+    - Or, a tenant admin selected the **Grant/revoke admin consent for {tenant domain}** button on the **API permissions** tab of the registration for the application. For more information, see [Add permissions to access your web API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
+    - Or, you've provided a way for users to consent to the application. For more information, see [Requesting individual user consent](./v2-permissions-and-consent.md#requesting-individual-user-consent).
+    - Or, you've provided a way for the tenant admin to consent to the application. For more information, see [Admin consent](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 - This flow is enabled for .NET desktop, .NET Core, and UWP apps.
 
-For more information on consent, see [Microsoft identity platform permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+For more information on consent, see the [Microsoft identity platform permissions and consent](./v2-permissions-and-consent.md).
 
 ### Learn how to use it
 
 # [.NET](#tab/dotnet)
 
-In MSAL.NET, you need to use:
+In MSAL.NET, use:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-You normally need only one parameter (`scopes`). Depending on the way your Windows administrator set up the policies, applications on your Windows machine might not be allowed to look up the signed-in user. In that case, use a second method, `.WithUsername()`, and pass in the username of the signed-in user as a UPN format, for example, `joe@contoso.com`. On .NET Core, only the overload taking the username is available because the .NET Core platform can't ask the username to the OS.
+You normally need only one parameter (`scopes`). Depending on the way your Windows administrator set up the policies, applications on your Windows machine might not be allowed to look up the signed-in user. In that case, use a second method, `.WithUsername()`, and pass in the username of the signed-in user as a UPN format, for example, `joe@contoso.com`.
 
 The following sample presents the most current case, with explanations of the kind of exceptions you can get and their mitigations.
 
@@ -524,18 +642,17 @@ static async Task GetATokenForGraph()
    }
  }
 
-
  Console.WriteLine(result.Account.Username);
 }
 ```
 
-For the list of possible modifiers on AcquireTokenByIntegratedWindowsAuthentication, see [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods).
+For the list of possible modifiers on AcquireTokenByIntegratedWindowsAuthentication, see [AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder#methods).
 
 # [Java](#tab/java)
 
 This extract is from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
 
-```Java
+```java
 private static IAuthenticationResult acquireTokenIwa() throws Exception {
 
     // Load token cache from file and initialize token cache aspect. The token cache will have
@@ -583,13 +700,17 @@ private static IAuthenticationResult acquireTokenIwa() throws Exception {
 }
 ```
 
+# [macOS](#tab/macOS)
+
+This flow doesn't apply to macOS.
+
+# [Node.js](#tab/nodejs)
+
+This flow isn't yet supported in MSAL Node.
+
 # [Python](#tab/python)
 
 This flow isn't yet supported in MSAL Python.
-
-# [MacOS](#tab/macOS)
-
-This flow doesn't apply to MacOS.
 
 ---
 
@@ -599,20 +720,19 @@ You can also acquire a token by providing the username and password. This flow i
 
 ### This flow isn't recommended
 
-This flow is *not recommended* because having your application ask a user for their password isn't secure. For more information, see [What's the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). The preferred flow for acquiring a token silently on Windows domain joined machines is [Integrated Windows Authentication](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). You can also use [device code flow](https://aka.ms/msal-net-device-code-flow).
+The username and password flow is *not recommended* because having your application ask a user for their password isn't secure. For more information, see [What's the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) The preferred flow for acquiring a token silently on Windows domain joined machines is [Integrated Windows Authentication](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). You can also use [device code flow](https://aka.ms/msal-net-device-code-flow).
 
-> [!NOTE]
-> Using a username and password is useful in some cases, such as DevOps scenarios. But if you want to use a username and password in interactive scenarios where you provide your own UI, think about how to move away from it. By using a username and password, you're giving up a number of things:
->
-> - Core tenets of modern identity. A password can get phished and replayed because a shared secret can be intercepted. It's incompatible with passwordless.
-> - Users who need to do MFA can't sign in because there's no interaction.
-> - Users can't do single sign-on (SSO).
+Using a username and password is useful in some cases, such as DevOps scenarios. But if you want to use a username and password in interactive scenarios where you provide your own UI, think about how to move away from it. By using a username and password, you're giving up a number of things:
+
+- Core tenets of modern identity. A password can get phished and replayed because a shared secret can be intercepted. It's incompatible with passwordless.
+- Users who need to do MFA can't sign in because there's no interaction.
+- Users can't do single sign-on (SSO).
 
 ### Constraints
 
 The following constraints also apply:
 
-- The username and password flow isn't compatible with conditional access and multifactor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multifactor authentication, you can't use this flow. Many organizations do that.
+- The username and password flow isn't compatible with conditional access and multi-factor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
 - It works only for work and school accounts (not MSA).
 - The flow is available on .NET desktop and .NET Core, but not on UWP.
 
@@ -684,7 +804,7 @@ static async Task GetATokenForGraph()
  if (accounts.Any())
  {
   result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
-                    .ExecuteAync();
+                    .ExecuteAsync();
  }
  else
  {
@@ -829,13 +949,13 @@ static async Task GetATokenForGraph()
 }
 ```
 
-For more information on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods).
+For more information on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder#methods).
 
 # [Java](#tab/java)
 
 The following extract is from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
 
-```Java
+```java
 private static IAuthenticationResult acquireTokenUsernamePassword() throws Exception {
 
     // Load token cache from file and initialize token cache aspect. The token cache will have
@@ -880,11 +1000,46 @@ private static IAuthenticationResult acquireTokenUsernamePassword() throws Excep
 }
 ```
 
+# [macOS](#tab/macOS)
+
+This flow isn't supported on MSAL for macOS.
+
+# [Node.js](#tab/nodejs)
+
+This extract is from the [MSAL Node dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/username-password). In the code snippet below, the username and password are hardcoded for illustration purposes only. This should be avoided in production. Instead, a basic UI prompting the user to enter her username/password would be recommended.
+
+```javascript
+const msal = require("@azure/msal-node");
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+// For testing, enter your username and password below.
+// In production, replace this with a UI prompt instead.
+const usernamePasswordRequest = {
+    scopes: ["user.read"],
+    username: "", // Add your username here
+    password: "", // Add your password here
+};
+
+pca.acquireTokenByUsernamePassword(usernamePasswordRequest).then((response) => {
+    console.log("acquired token by password grant");
+}).catch((error) => {
+    console.log(error);
+});
+```
+
 # [Python](#tab/python)
 
 This extract is from the [MSAL Python dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
 
-```Python
+```python
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
     config["client_id"], authority=config["authority"],
@@ -910,21 +1065,17 @@ if not result:
         config["username"], config["password"], scopes=config["scope"])
 ```
 
-# [MacOS](#tab/macOS)
-
-This flow isn't supported on MSAL for macOS.
-
 ---
 
 ## Command-line tool without a web browser
 
 ### Device code flow
 
-If you're writing a command-line tool that doesn't have web controls, and you can't or don't want to use the previous flows, you need to use the device code flow.
+If you're writing a command-line tool that doesn't have web controls, and you can't or don't want to use the previous flows, use the device code flow.
 
-Interactive authentication with Azure AD requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or OSes. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
+Interactive authentication with Azure AD requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or operating systems. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
 
-1. Whenever user authentication is required, the app provides a code for the user. The user is asked to use another device, such as an internet-connected smartphone, to go to a URL, for instance, `https://microsoft.com/devicelogin`. Then the user is prompted to enter the code. That done, the web page leads the user through a normal authentication experience, which includes consent prompts and multifactor authentication, if necessary.
+1. Whenever user authentication is required, the app provides a code for the user. The user is asked to use another device, such as an internet-connected smartphone, to go to a URL, for instance, `https://microsoft.com/devicelogin`. Then the user is prompted to enter the code. That done, the web page leads the user through a normal authentication experience, which includes consent prompts and multi-factor authentication, if necessary.
 
 2. Upon successful authentication, the command-line app receives the required tokens through a back channel and uses them to perform the web API calls it needs.
 
@@ -946,12 +1097,12 @@ This method takes as parameters:
 
   ![DeviceCodeResult properties](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
-The following sample code presents the most current case, with explanations of the kind of exceptions you can get and their mitigation.
+The following sample code presents the synopsis of most current cases, with explanations of the kind of exceptions you can get and their mitigation. For a fully functional code sample, see [active-directory-dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) on GitHub.
 
 ```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
-private readonly string[] Scopes = new string[] { "user.read" };
+private readonly string[] scopes = new string[] { "user.read" };
 
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
@@ -966,7 +1117,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     // All AcquireToken* methods store the tokens in the cache, so check the cache first
     try
     {
-        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+        return await pca.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
             .ExecuteAsync();
     }
     catch (MsalUiRequiredException ex)
@@ -975,10 +1126,10 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
-private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
+private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)
 {
     try
     {
@@ -1002,6 +1153,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
         Console.WriteLine(result.Account.Username);
         return result;
     }
+
     // TODO: handle or throw all these exceptions depending on your app
     catch (MsalServiceException ex)
     {
@@ -1035,6 +1187,7 @@ private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientA
     }
 }
 ```
+
 # [Java](#tab/java)
 
 This extract is from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
@@ -1090,11 +1243,44 @@ private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
 }
 ```
 
+# [macOS](#tab/macOS)
+
+This flow doesn't apply to macOS.
+
+# [Node.js](#tab/nodejs)
+
+This extract is from the [MSAL Node dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/device-code).
+
+```javascript
+const msal = require('@azure/msal-node');
+
+const msalConfig = {
+    auth: {
+        clientId: "your_client_id_here",
+        authority: "your_authority_here",
+    }
+};
+
+const pca = new msal.PublicClientApplication(msalConfig);
+
+const deviceCodeRequest = {
+    deviceCodeCallback: (response) => (console.log(response.message)),
+    scopes: ["user.read"],
+    timeout: 20,
+};
+
+pca.acquireTokenByDeviceCode(deviceCodeRequest).then((response) => {
+    console.log(JSON.stringify(response));
+}).catch((error) => {
+    console.log(JSON.stringify(error));
+});
+```
+
 # [Python](#tab/python)
 
 This extract is from the [MSAL Python dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample/).
 
-```Python
+```python
 # Create a preferably long-lived app instance which maintains a token cache.
 app = msal.PublicClientApplication(
     config["client_id"], authority=config["authority"],
@@ -1141,10 +1327,6 @@ if not result:
         # and then keep calling acquire_token_by_device_flow(flow) in your own customized loop
 ```
 
-# [MacOS](#tab/macOS)
-
-This flow doesn't apply to MacOS.
-
 ---
 
 ## File-based token cache
@@ -1177,7 +1359,7 @@ The customization of token cache serialization to share the SSO state between AD
 
 ### Simple token cache serialization (MSAL only)
 
-The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application.
+The following example is a naive implementation of custom serialization of a token cache for desktop applications. Here, the user token cache is in a file in the same folder as the application or, in a per user per app folder in the case where the app is a [packaged desktop application](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). For the full code, see the following sample: [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 After you build the application, you enable the serialization by calling ``TokenCacheHelper.EnableSerialization()`` and passing the application `UserTokenCache`.
 
@@ -1196,15 +1378,27 @@ static class TokenCacheHelper
   {
    tokenCache.SetBeforeAccess(BeforeAccessNotification);
    tokenCache.SetAfterAccess(AfterAccessNotification);
+   try
+   {
+    // For packaged desktop apps (MSIX packages) the executing assembly folder is read-only. 
+    // In that case we need to use Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path + "\msalcache.bin" 
+    // which is a per-app read/write folder for packaged apps.
+    // See https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes
+    CacheFilePath = System.IO.Path.Combine(Windows.Storage.ApplicationData.Current.LocalCacheFolder.Path, "msalcache.bin3");
+   }
+   catch (System.InvalidOperationException)
+   {
+    // Fall back for an un-packaged desktop app
+    CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin";
+   }
   }
 
   /// <summary>
   /// Path to the token cache
   /// </summary>
-  public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+  public static string CacheFilePath { get; private set; }
 
   private static readonly object FileLock = new object();
-
 
   private static void BeforeAccessNotification(TokenCacheNotificationArgs args)
   {
@@ -1258,7 +1452,6 @@ app = PublicClientApplicationBuilder.Create(clientId)
 FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
                                                unifiedCacheFileName,
                                                adalV3cacheFileName);
-
 ```
 
 This time the helper class looks like the following code:
@@ -1385,7 +1578,11 @@ namespace CommonCacheMsalV3
 }
 ```
 
+## (Advanced) Accessing the user's cached tokens in background apps and services
+
+[!INCLUDE [advanced-token-caching](../../../includes/advanced-token-cache.md)]
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Call a web API from the desktop app](scenario-desktop-call-api.md)
+Move on to the next article in this scenario,
+[Call a web API from the desktop app](scenario-desktop-call-api.md).

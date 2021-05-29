@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/06/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -22,16 +22,25 @@ Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens
 
 ## Protocol
 
-The **Name** attribute of the **Protocol** element needs to be set to `None`. Set the **OutputTokenFormat** element to `JWT`.
+The **Name** attribute of the **Protocol** element needs to be set to `OpenIdConnect`. Set the **OutputTokenFormat** element to `JWT`.
 
 The following example shows a technical profile for `JwtIssuer`:
 
-```XML
+```xml
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
-  <Protocol Name="None" />
+  <Protocol Name="OpenIdConnect" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
-  ...
+  <Metadata>
+    <Item Key="client_id">{service:te}</Item>
+    <Item Key="issuer_refresh_token_user_identity_claim_type">objectId</Item>
+    <Item Key="SendTokenResponseBodyWithJsonNumbers">true</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+    <Key Id="issuer_refresh_token_key" StorageReferenceId="B2C_1A_TokenEncryptionKeyContainer" />
+  </CryptographicKeys>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
 </TechnicalProfile>
 ```
 
@@ -60,8 +69,12 @@ The CryptographicKeys element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| issuer_secret | Yes | The X509 certificate (RSA key set) to use to sign the JWT token. This is the `B2C_1A_TokenSigningKeyContainer` key you cofigured in [Get started with custom policies](custom-policy-get-started.md). |
-| issuer_refresh_token_key | Yes | The X509 certificate (RSA key set) to use to encrypt the refresh token. You configured the `B2C_1A_TokenEncryptionKeyContainer` key in [Get started with custom policies](custom-policy-get-started.md) |
+| issuer_secret | Yes | The X509 certificate (RSA key set) to use to sign the JWT token. This is the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy). |
+| issuer_refresh_token_key | Yes | The X509 certificate (RSA key set) to use to encrypt the refresh token. You configured the `B2C_1A_TokenEncryptionKeyContainer` key in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy) |
+
+## Session management
+
+To configure the Azure AD B2C sessions between Azure AD B2C and a relying party application, in the attribute of the `UseTechnicalProfileForSessionManagement` element, add a reference to [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider) SSO session.
 
 
 

@@ -4,11 +4,11 @@ description: In this tutorial, you learn how to create an application with an AS
 
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc
+ms.custom: "mvc, devx-track-js, devx-track-csharp"
 ---
 # Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
 
-This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).  If you prefer, you can also watch a [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100) of this tutorial.
+This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. This tutorial series requires a Windows developer machine. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).  If you prefer, you can also watch a [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100) of this tutorial.
 
 ![AngularJS+ASP.NET API Front End, Connecting to a stateful backend service on Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
@@ -37,7 +37,7 @@ Before you begin this tutorial:
 ## Create an ASP.NET Web API service as a reliable service
 
 First, create the web front-end of the voting application using ASP.NET Core. ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
-To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
+To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](/aspnet/core/).
 
 1. Launch Visual Studio as an **administrator**.
 
@@ -145,10 +145,10 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
                     <div class="col-xs-8">
                         <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
                             <span class="pull-left">
-                                {{vote.key}}
+                                {{vote.Key}}
                             </span>
                             <span class="badge pull-right">
-                                {{vote.value}} Votes
+                                {{vote.Value}} Votes
                             </span>
                         </button>
                     </div>

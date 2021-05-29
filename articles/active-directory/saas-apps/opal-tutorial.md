@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Opal | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Opal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 434fc204-e9f9-4678-ad5f-054d621bb2f9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Opal
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Opal with Azure Active Directory
 * Enable your users to be automatically signed-in to Opal with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,12 +34,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
 * Opal supports **IDP** initiated SSO
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 
 ## Adding Opal from the gallery
 
@@ -58,7 +49,6 @@ To configure the integration of Opal into Azure AD, you need to add Opal from th
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Opal** in the search box.
 1. Select **Opal** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for Opal
 
@@ -85,33 +75,34 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL:
+    1. In the **Identifier** text box, type a URL:
     `Opal`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<subdomain>.ouropal.com/auth/saml/callback`
+    1. In the **Reply URL** text box, type a URL using the following pattern:
 
-	> [!NOTE]
-	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Opal Client support team](mailto:support@workwithopal.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+        `https://<subdomain>.ouropal.com/auth/saml/callback`
+
+        > [!NOTE]
+        > The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Opal Client support team](mailto:support@workwithopal.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Opal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 1. In addition to above, Opal application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
-	| Name | Source Attribute|
-	| ---------------| --------------- |
-	| firstname 		  | user.givenname |
-	| lastname 		  | user.surname |
+    | Name | Source Attribute|
+    | ---------------| --------------- |
+    | firstname | user.givenname |
+    | lastname | user.surname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up Opal** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -120,7 +111,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **Name** field, enter `B.Simon`.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
@@ -137,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -155,15 +146,14 @@ In this section, you create a user called Britta Simon in Opal. Work with [Opal
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Opal tile in the Access Panel, you should be automatically signed in to the Opal for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Opal tile in the Access Panel, you should be automatically signed in to the Opal for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Opal with Azure AD](https://aad.portal.azure.com/)
-

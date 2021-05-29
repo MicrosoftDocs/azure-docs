@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -20,13 +20,13 @@ In this quickstart, you'll quickly create a workload classifier with high import
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!NOTE]
-> Creating a Synapse SQL pool instance in Azure Synapse Analytics may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Creating a dedicated SQL pool instance in Azure Synapse Analytics may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## Prerequisites
 
-This quickstart assumes you already have a SQL Data Warehouse and that you have CONTROL DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
+This quickstart assumes you have already provisioned a dedicated SQL pool in Azure Synapse Analytics and that you have CONTROL DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a dedicated SQL pool called **mySampleDataWarehouse**.
 
 ## Sign in to the Azure portal
 
@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create login for TheCEO
 
-Create a SQL Server authentication login in the `master` database using [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for 'TheCEO'.
+Create a SQL Server authentication login in the `master` database using [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for 'TheCEO'.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'TheCEO')
@@ -46,7 +46,7 @@ END
 
 ## Create user
 
-[Create user](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), "TheCEO", in mySampleDataWarehouse
+[Create user](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), "TheCEO", in mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -58,7 +58,7 @@ END
 
 ## Create a workload classifier
 
-Create a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for "TheCEO" with high importance.
+Create a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for "TheCEO" with high importance.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];
@@ -82,27 +82,23 @@ DROP USER [TheCEO]
 ;
 ```
 
-You're being charged for data warehouse units and data stored in your data warehouse. These compute and storage resources are billed separately.
+You're being charged for data warehouse units and data stored in your dedicated SQL pool. These compute and storage resources are billed separately.
 
-- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
-- If you want to remove future charges, you can delete the data warehouse.
+- If you want to keep the data in storage, you can pause compute when you aren't using the dedicated SQL pool. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
+- If you want to remove future charges, you can delete the dedicated SQL pool.
 
 Follow these steps to clean up resources.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select on your data warehouse.
+1. Sign in to the [Azure portal](https://portal.azure.com), select your dedicated SQL pool.
 
     ![Clean up resources](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, select **Start**.
+2. To pause compute, select the **Pause** button. When the dedicated SQL pool is paused, you see a **Start** button.  To resume compute, select **Start**.
 
-3. To remove the data warehouse so you're not charged for compute or storage, select **Delete**.
-
-4. To remove the SQL server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
-
-5. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
+3. To remove the dedicated SQL pool so you're not charged for compute or storage, select **Delete**.
 
 ## Next steps
 
-- You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to view queries and the importance assigned.
-- For more information about Synapse SQL workload management, see [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Classification](sql-data-warehouse-workload-classification.md).
+- You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to view queries and the importance assigned.
+- For more information about dedicated SQL pool workload management, see [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Classification](sql-data-warehouse-workload-classification.md).
 - See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

@@ -1,29 +1,22 @@
 ---
 title: Cognitive Services on Azure Government | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government
+description: Guidance for developing Cognitive Services applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
 
-
-ms.assetid: cba97199-851d-43ae-a75a-c601f3f81601
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 9/28/2018
-ms.author: femila
-
+ms.date: 10/10/2020
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs
+# Cognitive Services on Azure Government – Computer Vision, Face, and Translator
 
-To see an overview of Cognitive Services on Azure Government, [click here](documentation-government-services-aiandcognitiveservices.md).
-
-> [!IMPORTANT]
-> Billing for the Computer Vision API, Face API, and Translator Text API will begin on 11/1/2018.
+For feature variations and limitations, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md).
 
 ## Prerequisites
 
@@ -111,10 +104,7 @@ The Quickstarts below will help you to get started with the APIs available throu
     >
     
 ### Variations
-* The URI for accessing the Face API in Azure Government is :
-   - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
-   - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
-
+* The URI for accessing the Computer Vision API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md#guidance-for-developers).
 
 ### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
 
@@ -379,9 +369,8 @@ For more information, please see [public documentation](../cognitive-services/co
     >
     
 ### Variations 
-* The URI for accessing the Face API in Azure Government is :
-   - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
-   - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
+* The URI for accessing the Face API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md#guidance-for-developers).
+
 
 ### Detect Faces in images with Face API using C# <a name="Detect"> </a>
 Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
@@ -610,7 +599,7 @@ Response:
 ```
 For more information, please see [public documentation](../cognitive-services/Face/index.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
-## Text Translation API 
+## Translator API 
 ### Prerequisites
 
 * Make sure Visual Studio has been installed:
@@ -622,9 +611,12 @@ For more information, please see [public documentation](../cognitive-services/Fa
     >
     
 ### Variations
-* The URI for accessing the Text Translation API in Azure Government is: 
-  - `https://api.cognitive.microsofttranslator.us`
-* There are 2 regions `USGovVirginia` and `USGovArizona`
+* The URI for accessing the Translator API in Azure Government is different than in Azure.  For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](compare-azure-government-global-azure.md#guidance-for-developers).
+* [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
+  The URI for accessing the API is:
+  - `https://<your-custom-domain>.cognitiveservices.azure.us/translator/text/v3.0`
+  - You can find your custom domain endpoint in the overview blade on the Azure portal once the resource is created. 
+* There are 2 regions `US Gov Virginia` and `US Gov Arizona`
 ### Text Translation Method
 The below example uses [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with the Text Translation API. 
 
@@ -634,17 +626,16 @@ The sample is written in C#.
 
 1. Create a new Console solution in Visual Studio.
 2. Replace Program.cs with the corresponding code below.
-3. Replace the `subscriptionKey` value with the key value that you retrieved above.
-4. Replace the `region` value with the region value where you created your translator resource.
-5. Replace the `text` value with text that you want to translate.
-6. Run the program.
+3. Replace the `endpoint` value with the URI as explained in the `Variations` section. 
+4. Replace the `subscriptionKey` value with the key value that you retrieved above.
+5. Replace the `region` value with the region value where you created your translator resource.
+6. Replace the `text` value with text that you want to translate.
+7. Run the program.
 
 You can also test out different languages and texts by replacing the "text", "from", and "to" variables in Program.cs. 
 
 ```csharp
 using System;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
 using System.Net.Http;
@@ -659,7 +650,7 @@ namespace TextTranslator
 {
     class Program
     {
-        static string host = "https://api.cognitive.microsofttranslator.us";
+        static string host = "PASTE ENDPOINT HERE";
         static string path = "/translate?api-version=3.0";
         // Translate to German.
         static string params_ = "&to=de";
@@ -705,7 +696,7 @@ namespace TextTranslator
     }
 }
 ```
-For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) for Translator Text API.
+For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator Text API.
 
 ### Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

@@ -1,24 +1,15 @@
-﻿---
+---
 title: "Tutorial: Create a Windows virtual machine scale set"
 description: Learn how to use Azure PowerShell to create and deploy a highly available application on Windows VMs using a virtual machine scale set
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang:
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: windows
 ms.date: 11/30/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
-#Customer intent: As an IT administrator, I want to learn about autoscaling VMs in Azure so that I can deploy a highly-available and scalable infrastructure.
 ---
 
 # Tutorial: Create a virtual machine scale set and deploy a highly available app on Windows with Azure PowerShell
@@ -42,11 +33,11 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 VMs are created as needed in a scale set. You define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
 
-Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 300 VMs in a scale set when using a custom image.
+Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 600 VMs in a scale set when using a custom image.
 
 
 ## Create a scale set
-Create a virtual machine scale set with [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
+Create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -64,7 +55,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Deploy sample application
-To test your scale set, install a basic web application. The Azure Custom Script Extension is used to download and run a script that installs IIS on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](extensions-customscript.md).
+To test your scale set, install a basic web application. The Azure Custom Script Extension is used to download and run a script that installs IIS on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../extensions/custom-script-windows.md).
 
 Use the Custom Script Extension to install a basic IIS web server. Apply the Custom Script Extension that installs IIS as follows:
 
@@ -97,7 +88,7 @@ Update-AzVmss `
 
 ## Allow traffic to application
 
-To allow access to the basic web application, create a network security group with [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) and [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup). For more information, see [Networking for Azure virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+To allow access to the basic web application, create a network security group with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) and [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). For more information, see [Networking for Azure virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -146,7 +137,7 @@ Update-AzVmss `
 ```
 
 ## Test your scale set
-To see your scale set in action, get the public IP address of your load balancer with [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). The following example displays the IP address for *myPublicIP* created as part of the scale set:
+To see your scale set in action, get the public IP address of your load balancer with [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). The following example displays the IP address for *myPublicIP* created as part of the scale set:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `
@@ -165,7 +156,7 @@ To see the scale set in action, you can force-refresh your web browser to see th
 Throughout the lifecycle of the scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. Azure PowerShell provides a quick way to do those tasks. Here are a few common tasks.
 
 ### View VMs in a scale set
-To view a list of VM instances in a scale set, use [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm) as follows:
+To view a list of VM instances in a scale set, use [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) as follows:
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -182,7 +173,7 @@ MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0      
 MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
 ```
 
-To view additional information about a specific VM instance, add the `-InstanceId` parameter to [Get-AzVmssVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm). The following example views information about VM instance *1*:
+To view additional information about a specific VM instance, add the `-InstanceId` parameter to [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). The following example views information about VM instance *1*:
 
 ```azurepowershell-interactive
 Get-AzVmssVM `
@@ -193,7 +184,7 @@ Get-AzVmssVM `
 
 
 ### Increase or decrease VM instances
-To see the number of instances you currently have in a scale set, use [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) and query on *sku.capacity*:
+To see the number of instances you currently have in a scale set, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) and query on *sku.capacity*:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
@@ -201,7 +192,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
   Select -ExpandProperty Sku
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). The following example sets the number of VMs in your scale set to *3*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [Update-AzVmss](/powershell/module/az.compute/update-azvmss). The following example sets the number of VMs in your scale set to *3*:
 
 ```azurepowershell-interactive
 # Get current scale set

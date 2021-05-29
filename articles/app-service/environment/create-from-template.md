@@ -7,7 +7,7 @@ ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Create an ASE by using an Azure Resource Manager template
 
@@ -170,15 +170,15 @@ To create an ASEv1 by using a Resource Manager template, see [Create an ILB ASE 
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../../app-service/configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

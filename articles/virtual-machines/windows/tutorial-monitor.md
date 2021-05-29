@@ -1,21 +1,15 @@
 ---
 title: Tutorial - Monitor Windows virtual machines in Azure 
 description: In this tutorial, you learn how to monitor the performance and discovered application components running on your Windows virtual machines.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mgoedtel
 manager: carmonm
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: monitoring
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about monitoring so that I can review the health status and perform troubleshooting on Windows virtual machines.
 ---
@@ -42,13 +36,13 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Create virtual machine
 
-To configure Azure monitoring and update management in this tutorial, you need a Windows VM in Azure. First, set an administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+To configure Azure monitoring and update management in this tutorial, you need a Windows VM in Azure. First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Now create the VM with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVM* in the *EastUS* location. If they do not already exist, the resource group *myResourceGroupMonitorMonitor* and supporting network resources are created:
+Now create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVM* in the *EastUS* location. If they do not already exist, the resource group *myResourceGroupMonitorMonitor* and supporting network resources are created:
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -64,7 +58,7 @@ It takes a few minutes for the resources and VM to be created.
 
 As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The captured screenshots are stored in an Azure storage account, which is also created by default.
 
-You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive.
+You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](/powershell/module/az.compute/get-azvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive.
 
 ```powershell
 Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
@@ -89,18 +83,18 @@ To enable monitoring of your Azure VM with Azure Monitor for VMs:
 
 3. On the **Insights (preview)** page, select **Try now**.
 
-    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
 
     The list preselects the default workspace and location where the VM is deployed in the subscription. 
 
     >[!NOTE]
-    >To create a new Log Analytics workspace to store the monitoring data from the VM, see [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md). Your Log Analytics workspace must belong to one of the [supported regions](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics).
+    >To create a new Log Analytics workspace to store the monitoring data from the VM, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). The workspace must belong to one of the [supported regions](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
 
 After you've enabled monitoring, you might need to wait several minutes before you can view the performance metrics for the VM.
 
-![Enable Azure Monitor for VMs monitoring deployment processing](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Enable Azure Monitor for VMs monitoring deployment processing](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## View VM performance metrics
 

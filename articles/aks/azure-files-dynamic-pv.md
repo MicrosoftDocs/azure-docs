@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 07/01/2020
 
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage using Azure Files to pods in AKS.
@@ -31,7 +31,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * *Standard_ZRS* - standard zone redundant storage (ZRS)
 * *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
 * *Premium_LRS* - premium locally redundant storage (LRS)
-* *Premium_ZRS* - premium zone redundant storage (GRS)
+* *Premium_ZRS* - premium zone redundant storage (ZRS)
 
 > [!NOTE]
 > Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher, minimum premium file share is 100GB
@@ -44,7 +44,7 @@ Create a file named `azure-file-sc.yaml` and copy in the following example manif
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: azurefile
+  name: my-azurefile
 provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
@@ -53,6 +53,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```
@@ -73,11 +74,11 @@ Now create a file named `azure-file-pvc.yaml` and copy in the following YAML. Ma
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: azurefile
+  name: my-azurefile
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: my-azurefile
   resources:
     requests:
       storage: 5Gi
@@ -95,15 +96,15 @@ kubectl apply -f azure-file-pvc.yaml
 Once completed, the file share will be created. A Kubernetes secret is also created that includes connection information and credentials. You can use the [kubectl get][kubectl-get] command to view the status of the PVC:
 
 ```console
-$ kubectl get pvc azurefile
+$ kubectl get pvc my-azurefile
 
-NAME        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            azurefile      5m
+NAME           STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
+my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            my-azurefile      5m
 ```
 
 ## Use the persistent volume
 
-The following YAML creates a pod that uses the persistent volume claim *azurefile* to mount the Azure file share at the */mnt/azure* path. For Windows Server containers (currently in preview in AKS), specify a *mountPath* using the Windows path convention, such as *'D:'*.
+The following YAML creates a pod that uses the persistent volume claim *my-azurefile* to mount the Azure file share at the */mnt/azure* path. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
 Create a file named `azure-pvc-files.yaml`, and copy in the following YAML. Make sure that the *claimName* matches the PVC created in the last step.
 
@@ -115,7 +116,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -129,7 +130,7 @@ spec:
   volumes:
     - name: volume
       persistentVolumeClaim:
-        claimName: azurefile
+        claimName: my-azurefile
 ```
 
 Create the pod with the [kubectl apply][kubectl-apply] command.
@@ -144,7 +145,7 @@ You now have a running pod with your Azure Files share mounted in the */mnt/azur
 Containers:
   mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Fri, 01 Mar 2019 23:56:16 +0000
@@ -156,7 +157,7 @@ Containers:
 Volumes:
   volume:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  azurefile
+    ClaimName:  my-azurefile
     ReadOnly:   false
 [...]
 ```
@@ -169,7 +170,7 @@ The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: azurefile
+  name: my-azurefile
 provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
@@ -178,6 +179,7 @@ mountOptions:
   - gid=0
   - mfsymlinks
   - cache=strict
+  - actimeo=30
 parameters:
   skuName: Standard_LRS
 ```
@@ -185,6 +187,8 @@ parameters:
 ## Next steps
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+
+For storage class parameters, see [Dynamic Provision](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision).
 
 Learn more about Kubernetes persistent volumes using Azure Files.
 
@@ -205,18 +209,18 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-list]: /cli/azure/group#az-group-list
-[az-resource-show]: /cli/azure/aks#az-aks-show
-[az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
-[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/aks#az_aks_show
+[az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
+[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
 [mount-options]: #mount-options
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [storage-skus]: ../storage/common/storage-redundancy.md
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md

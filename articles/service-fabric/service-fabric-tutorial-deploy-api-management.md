@@ -4,7 +4,7 @@ description: Learn how to quickly get started with Azure API Management and rout
 
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Integrate API Management with Service Fabric in Azure
 
@@ -25,7 +25,7 @@ This article shows you how to set up [Azure API Management](../api-management/ap
 Before you begin:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in a network security group.
 * If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2019](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 
@@ -147,9 +147,9 @@ To add a front-end API operation, fill out the values:
 
 ### Microsoft.ApiManagement/service/apis/policies
 
-[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) creates a backend policy, which ties everything together. This is where you configure the backend Service Fabric service to which requests are routed. You can apply this policy to any API operation.  For more information, see [Policies overview](/azure/api-management/api-management-howto-policies).
+[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) creates a backend policy, which ties everything together. This is where you configure the backend Service Fabric service to which requests are routed. You can apply this policy to any API operation.  For more information, see [Policies overview](../api-management/api-management-howto-policies.md).
 
-The [backend configuration for Service Fabric](/azure/api-management/api-management-transformation-policies#SetBackendService) provides the following request routing controls:
+The [backend configuration for Service Fabric](../api-management/api-management-transformation-policies.md#SetBackendService) provides the following request routing controls:
 
 * Service instance selection by specifying a Service Fabric service instance name, either hardcoded (for example, `"fabric:/myapp/myservice"`) or generated from the HTTP request (for example, `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
 * Partition resolution by generating a partition key using any Service Fabric partitioning scheme.
@@ -176,7 +176,7 @@ The [backend configuration for Service Fabric](/azure/api-management/api-managem
 </policies>
 ```
 
-For a full set of Service Fabric back-end policy attributes, refer to the [API Management back-end documentation](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
+For a full set of Service Fabric back-end policy attributes, refer to the [API Management back-end documentation](../api-management/api-management-transformation-policies.md#SetBackendService)
 
 ## Set parameters and deploy API Management
 
@@ -239,9 +239,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$temp
 
 ```azurecli
 ResourceGroupName="sfclustertutorialgroup"
-az group deployment create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
+az deployment group create --name ApiMgmtNetworkDeployment --resource-group $ResourceGroupName --template-file network-apim.json --parameters @network-apim.parameters.json
 
-az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json
+az deployment group create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json
 ```
 
 ## Test it
@@ -273,7 +273,7 @@ You can now try sending a request to your back-end service in Service Fabric thr
 
 A cluster is made up of other Azure resources in addition to the cluster resource itself. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Sign in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](https://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Sign in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](https://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzResourceGroup cmdlet](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
@@ -287,9 +287,11 @@ az group delete --name $ResourceGroupName
 
 ## Next steps
 
-Learn more about using [API Management](/azure/api-management/import-and-publish).
+Learn more about using [API Management](../api-management/import-and-publish.md).
 
-[azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.md) to create and manage Service Fabric backends for API Management.
+
+[azure-powershell]: /powershell/azure/
 
 [apim-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.json
 [apim-parameters-arm]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/apim.parameters.json
@@ -299,7 +301,6 @@ Learn more about using [API Management](/azure/api-management/import-and-publish
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-vice-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

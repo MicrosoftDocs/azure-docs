@@ -1,6 +1,6 @@
 ---
 title: Container networking with Azure Virtual Network | Microsoft Docs
-description: Learn about how to enable containers to use an Azure Virtual Network.
+description: Learn about the Azure Virtual Network container network interface (CNI) plug-in and how to enable containers to use an Azure Virtual Network.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
@@ -56,7 +56,7 @@ The plug-in supports up to 250 Pods per virtual machine and up to 16,000 Pods in
 
 The plug-in can be used in the following ways, to provide basic virtual network attach for Pods or Docker containers:
 
-- **Azure Kubernetes Service**: The plug-in is integrated into the Azure Kubernetes Service (AKS), and can be used by choosing the *Advanced Networking* option. Advanced Networking lets you deploy a Kubernetes cluster in an existing, or a new, virtual network. To learn more about Advanced Networking and the steps to set it up, see [Network configuration in AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure Kubernetes Service**: The plug-in is integrated into the Azure Kubernetes Service (AKS), and can be used by choosing the *Advanced Networking* option. Advanced Networking lets you deploy a Kubernetes cluster in an existing, or a new, virtual network. To learn more about Advanced Networking and the steps to set it up, see [Network configuration in AKS](../aks/configure-azure-cni.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **AKS-Engine**: AKS-Engine is a tool that generates an Azure Resource Manager template for the deployment of a Kubernetes cluster in Azure. For detailed instructions, see [Deploy the plug-in for AKS-Engine Kubernetes clusters](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
 - **Creating your own Kubernetes cluster in Azure**: The plug-in can be used to provide basic networking for Pods in Kubernetes clusters that you deploy yourself, without relying on AKS, or tools like the AKS-Engine. In this case, the plug-in is installed and enabled on every virtual machine in a cluster. For detailed instructions, see [Deploy the plug-in for a Kubernetes cluster that you deploy yourself](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 - **Virtual network attach for Docker containers in Azure**: The plug-in can be used in cases where you don’t want to create a Kubernetes cluster, and would like to create Docker containers with virtual network attach, in virtual machines. For detailed instructions, see [Deploy the plug-in for Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).

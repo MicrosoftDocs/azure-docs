@@ -6,18 +6,18 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
 ---
 
-# Connection strings for Synapse SQL pool
+# Connection strings for SQL pools in Azure Synapse
 
-You can connect to SQL pool with several different application protocols such as, [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  
+You can connect to a SQL pool in Azure Synapse with several different application protocols such as, [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  
 
-To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
+To build your connection string using the Azure portal, navigate to your SQL pool blade, under *Essentials* click on *Show database connection strings*.
 
 ## Sample ADO.NET connection string
 
@@ -44,7 +44,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 > [!NOTE]
-> Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of  unavailability.
+> Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of unavailability.
 
 ## Next steps
 

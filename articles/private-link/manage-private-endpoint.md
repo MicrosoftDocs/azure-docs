@@ -4,9 +4,10 @@ description: Learn how to manage private endpoint connections in Azure
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Manage a Private Endpoint connection
@@ -15,8 +16,8 @@ Azure Private Link works on an approval call flow model wherein the Private Link
 ![Manage Private Endpoints](media/manage-private-endpoint/manage-private-endpoint.png)
 
 There are two connection approval methods that a Private Link service consumer can choose from:
-- **Automatic**: If the service consumer has RBAC permissions on the service provider resource, the consumer can choose the automatic approval method. In this case, when the request reaches the service provider resource, no action is required from the service provider and the connection is automatically approved. 
-- **Manual**: On the contrary, if the service consumer doesn’t have RBAC permissions on the service provider resource, the consumer can choose the manual approval method. In this case, the connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. 
+- **Automatic**: If the service consumer has Azure RBAC permissions on the service provider resource, the consumer can choose the automatic approval method. In this case, when the request reaches the service provider resource, no action is required from the service provider and the connection is automatically approved. 
+- **Manual**: On the contrary, if the service consumer doesn’t have Azure RBAC permissions on the service provider resource, the consumer can choose the manual approval method. In this case, the connection request appears on the service resources as **Pending**. The service provider has to manually approve the request before connections can be established. 
 In manual cases, service consumer can also specify a message with the request to provide more context to the service provider. The service provider has following options to choose from for all Private Endpoint connections: **Approved**, **Reject**, **Remove**.
 
 The below table shows the various service provider actions and the resulting connection states for Private Endpoints.  The service provider can also change the connection state of private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side. 

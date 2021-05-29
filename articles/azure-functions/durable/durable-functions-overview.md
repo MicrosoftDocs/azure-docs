@@ -3,7 +3,7 @@ title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 08/07/2019
+ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -19,7 +19,11 @@ Durable Functions currently supports the following languages:
 
 * **C#**: both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
 * **JavaScript**: supported only for version 2.x of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
+* **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version.
 * **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
+* **PowerShell**: Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.x of the bundle extensions.
+
+To access the latest features and updates, it is recommended you use the latest versions of the Durable Functions extension and the language-specific Durable Functions libraries. Learn more about [Durable Functions versions](durable-functions-versions.md).
 
 Durable Functions has a goal of supporting all [Azure Functions languages](../supported-languages.md). See the [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
 
@@ -91,6 +95,42 @@ You can use the `context.df` object to invoke other functions by name, pass para
 > [!NOTE]
 > The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
 
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    x = yield context.call_activity("F1", None)
+    y = yield context.call_activity("F2", x)
+    z = yield context.call_activity("F3", y)
+    result = yield context.call_activity("F4", z)
+    return result
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+You can use the `context` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+> [!NOTE]
+> The `context` object in Python represents the orchestration context. Access the main Azure Functions context using the `function_context` property on the orchestration context.
+
+# [PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+$X = Invoke-DurableActivity -FunctionName 'F1'
+$Y = Invoke-DurableActivity -FunctionName 'F2' -Input $X
+$Z = Invoke-DurableActivity -FunctionName 'F3' -Input $Y
+Invoke-DurableActivity -FunctionName 'F4' -Input $Z
+```
+
+You can use the `Invoke-DurableActivity` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-DurableActivity` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-DurableActivity` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
 ---
 
 ### <a name="fan-in-out"></a>Pattern #2: Fan out/fan in
@@ -158,6 +198,56 @@ The fan-out work is distributed to multiple instances of the `F2` function. The 
 
 The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
 
+# [Python](#tab/python)
+
+```python
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    # Get a list of N work items to process in parallel.
+    work_batch = yield context.call_activity("F1", None)
+
+    parallel_tasks = [ context.call_activity("F2", b) for b in work_batch ]
+    
+    outputs = yield context.task_all(parallel_tasks)
+
+    # Aggregate all N outputs and send the result to F3.
+    total = sum(outputs)
+    yield context.call_activity("F3", total)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `context.task_all` API is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+
+The automatic checkpointing that happens at the `yield` call on `context.task_all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+# [PowerShell](#tab/powershell)
+
+```PowerShell
+param($Context)
+
+# Get a list of work items to process in parallel.
+$WorkBatch = Invoke-DurableActivity -FunctionName 'F1'
+
+$ParallelTasks =
+    foreach ($WorkItem in $WorkBatch) {
+        Invoke-DurableActivity -FunctionName 'F2' -Input $WorkItem -NoWait
+    }
+
+$Outputs = Wait-ActivityFunction -Task $ParallelTasks
+
+# Aggregate all outputs and send the result to F3.
+$Total = ($Outputs | Measure-Object -Sum).Sum
+Invoke-DurableActivity -FunctionName 'F3' -Input $Total
+```
+
+The fan-out work is distributed to multiple instances of the `F2` function. Please note the usage of the `NoWait` switch on the `F2` function invocation: this switch allows the orchestrator to proceed invoking `F2` without for activity completion. The work is tracked by using a dynamic list of tasks. The `Wait-ActivityFunction` command is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+
+The automatic checkpointing that happens at the `Wait-ActivityFunction` call ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
 ---
 
 > [!NOTE]
@@ -174,21 +264,21 @@ Durable Functions provides **built-in support** for this pattern, simplifying or
 The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
 
 ```
-> curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
+> curl -X POST https://myfunc.azurewebsites.net/api/orchestrators/DoWork -H "Content-Length: 0" -i
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec
 
 {"id":"b79baf67f717453ca9e86c5da21e03ec", ...}
 
-> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec -i
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec
 
 {"runtimeStatus":"Running","lastUpdatedTime":"2019-03-16T21:20:47Z", ...}
 
-> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec -i
 HTTP/1.1 200 OK
 Content-Length: 175
 Content-Type: application/json
@@ -272,6 +362,66 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# [Python](#tab/python)
+
+```python
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    job = json.loads(context.get_input())
+    job_id = job["jobId"]
+    polling_interval = job["pollingInterval"]
+    expiry_time = job["expiryTime"]
+
+    while context.current_utc_datetime < expiry_time:
+        job_status = yield context.call_activity("GetJobStatus", job_id)
+        if job_status == "Completed":
+            # Perform an action when a condition is met.
+            yield context.call_activity("SendAlert", job_id)
+            break
+
+        # Orchestration sleeps until this time.
+        next_check = context.current_utc_datetime + timedelta(seconds=polling_interval)
+        yield context.create_timer(next_check)
+
+    # Perform more work here, or let the orchestration end.
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$output = @()
+
+$jobId = $Context.Input.JobId
+$machineId = $Context.Input.MachineId
+$pollingInterval = New-TimeSpan -Seconds $Context.Input.PollingInterval
+$expiryTime = $Context.Input.ExpiryTime
+
+while ($Context.CurrentUtcDateTime -lt $expiryTime) {
+    $jobStatus = Invoke-DurableActivity -FunctionName 'GetJobStatus' -Input $jobId
+    if ($jobStatus -eq "Completed") {
+        # Perform an action when a condition is met.
+        $output += Invoke-DurableActivity -FunctionName 'SendAlert' -Input $machineId
+        break
+    }
+
+    # Orchestration sleeps until this time.
+    Start-DurableTimer -Duration $pollingInterval
+}
+
+# Perform more work here, or let the orchestration end.
+
+$output
+```
+
 ---
 
 When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end. When `nextCheck` exceeds `expiryTime`, the monitor ends.
@@ -341,6 +491,64 @@ module.exports = df.orchestrator(function*(context) {
 
 To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
 
+# [Python](#tab/python)
+
+```python
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("RequestApproval", None)
+
+    due_time = context.current_utc_datetime + timedelta(hours=72)
+    durable_timeout_task = context.create_timer(due_time)
+    approval_event_task = context.wait_for_external_event("ApprovalEvent")
+
+    winning_task = yield context.task_any([approval_event_task, durable_timeout_task])
+
+    if approval_event_task == winning_task:
+        durable_timeout_task.cancel()
+        yield context.call_activity("ProcessApproval", approval_event_task.result)
+    else:
+        yield context.call_activity("Escalate", None)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$output = @()
+
+$duration = New-TimeSpan -Seconds $Context.Input.Duration
+$managerId = $Context.Input.ManagerId
+
+$output += Invoke-DurableActivity -FunctionName "RequestApproval" -Input $managerId
+
+$durableTimeoutEvent = Start-DurableTimer -Duration $duration -NoWait
+$approvalEvent = Start-DurableExternalEventListener -EventName "ApprovalEvent" -NoWait
+
+$firstEvent = Wait-DurableTask -Task @($approvalEvent, $durableTimeoutEvent) -Any
+
+if ($approvalEvent -eq $firstEvent) {
+    Stop-DurableTimerTask -Task $durableTimeoutEvent
+    $output += Invoke-DurableActivity -FunctionName "ProcessApproval" -Input $approvalEvent
+}
+else {
+    $output += Invoke-DurableActivity -FunctionName "EscalateApproval"
+}
+
+$output
+```
+To create the durable timer, call `Start-DurableTimer`. The notification is received by `Start-DurableExternalEventListener`. Then, `Wait-DurableTask` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
 ---
 
 An external client can deliver the event notification to a waiting orchestrator function by using the [built-in HTTP APIs](durable-functions-http-api.md#raise-event):
@@ -375,6 +583,26 @@ module.exports = async function (context) {
     await client.raiseEvent(instanceId, "ApprovalEvent", isApproved);
 };
 ```
+
+# [Python](#tab/python)
+
+```python
+import azure.durable_functions as df
+
+
+async def main(client: str):
+    durable_client = df.DurableOrchestrationClient(client)
+    is_approved = True
+    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+
+Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
+
+``````
 
 ---
 
@@ -453,6 +681,38 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+# [Python](#tab/python)
+
+```python
+import logging
+import json
+
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableOrchestrationContext):
+
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+        context.set_result(current_value)
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    
+    context.set_state(current_value)
+
+main = df.Entity.create(entity_function)
+```
+
+# [PowerShell](#tab/powershell)
+
+Durable entities are currently not supported in PowerShell.
+
 ---
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
@@ -463,7 +723,7 @@ Clients can enqueue *operations* for (also known as "signaling") an entity funct
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [DurableClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableEntityClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
@@ -475,7 +735,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-bindings.md#entity-client-usage) on the orchestration client binding.
+> Dynamically generated proxies are also available in .NET for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using [type-safe methods](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) on the orchestration client binding.
 
 # [JavaScript](#tab/javascript)
 
@@ -489,9 +749,27 @@ module.exports = async function (context) {
 };
 ```
 
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    entity_id = df.EntityId("Counter", "myCounter")
+    instance_id = await client.signal_entity(entity_id, "add", 1)
+    return func.HttpResponse("Entity signaled")
+```
+
+# [PowerShell](#tab/powershell)
+
+Durable entities are currently not supported in PowerShell.
+
 ---
 
-Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above.
+Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above for C#, JavaScript, and Python.
 
 ## The technology
 
@@ -503,7 +781,7 @@ In order to provide reliable and long-running execution guarantees, orchestrator
 
 ## Billing
 
-Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in the Azure Functions [Consumption plan](../functions-scale.md#consumption-plan), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) article.
+Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in the Azure Functions [Consumption plan](../consumption-plan.md), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) article.
 
 ## Jump right in
 
@@ -511,8 +789,10 @@ You can get started with Durable Functions in under 10 minutes by completing one
 
 * [C# using Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
+* [Python using Visual Studio Code](quickstart-python-vscode.md)
+* [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
 
-In both quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
+In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
 ## Learn more
 

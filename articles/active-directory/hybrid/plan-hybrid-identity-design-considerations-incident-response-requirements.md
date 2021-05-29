@@ -20,7 +20,7 @@ ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ---
 # Determine incident response requirements for your hybrid identity solution
-Large or medium organizations most likely will have a [security incident response](https://technet.microsoft.com/library/cc700825.aspx) in place to help IT take actions accordingly to the level of incident. The identity management system is an important component in the incident response process because it can be used to help identifying who performed a specific action against the target. The hybrid identity solution must be able to provide monitoring and reporting capabilities that can be leveraged by IT to take actions to identify and mitigate a potential threat. In a typical incident response plan you will have the following phases as part of the plan:
+Large or medium organizations most likely will have a [security incident response](/previous-versions/tn-archive/cc700825(v=technet.10)) in place to help IT take actions accordingly to the level of incident. The identity management system is an important component in the incident response process because it can be used to help identifying who performed a specific action against the target. The hybrid identity solution must be able to provide monitoring and reporting capabilities that can be leveraged by IT to take actions to identify and mitigate a potential threat. In a typical incident response plan you will have the following phases as part of the plan:
 
 1. Initial assessment.
 2. Incident communication.
@@ -64,4 +64,3 @@ During damage control and risk reduction-phase, it is important to quickly reduc
 
 ## See Also
 [Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
-

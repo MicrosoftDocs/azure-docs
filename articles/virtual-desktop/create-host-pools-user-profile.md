@@ -1,20 +1,17 @@
 ---
 title: Windows Virtual Desktop FSLogix profile container share - Azure
 description: How to set up an FSLogix profile container for a Windows Virtual Desktop host pool using a virtual machine-based file share.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Create a profile container for a host pool using a file share
 
 The Windows Virtual Desktop service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, which will be deprecated in future versions of Windows Virtual Desktop.
 
-This article will tell you how to set up a FSLogix profile container share for a host pool using a virtual machine-based file share. For more FSLogix documentation, see the [FSLogix site](https://docs.fslogix.com/).
+This article will tell you how to set up a FSLogix profile container share for a host pool using a virtual machine-based file share. We strongly recommend using Azure Files instead of file shares. For more FSLogix documentation, see the [FSLogix site](https://docs.fslogix.com/).
 
 >[!NOTE]
 >If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
@@ -25,7 +22,7 @@ When creating the virtual machine, be sure to place it on either the same virtua
 
 - [Create a virtual machine from an Azure Gallery image](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Create a virtual machine from a managed image](../virtual-machines/windows/create-vm-generalized-managed.md)
-- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 After creating the virtual machine, join it to the domain by doing the following things:
 

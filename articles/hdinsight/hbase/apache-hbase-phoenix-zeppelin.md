@@ -1,12 +1,9 @@
 ---
 title: Run Apache Base queries in Azure HDInsight with Apache Phoenix
 description: Learn how to use Apache Zeppelin to run Apache Base queries with Phoenix.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2019
 ---
 
@@ -28,70 +25,70 @@ An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apac
 
 1. From the Zeppelin page, select **Create new note**.
 
-    ![HDInsight Interactive Query zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
+   :::image type="content" source="./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png" alt-text="HDInsight Interactive Query zeppelin" border="true":::
 
 1. From the **Create new note** dialog, type or select the following values:
 
-    - Note Name: Enter a name for the note.
-    - Default interpreter: Select **jdbc** from the drop-down list.
+   - Note Name: Enter a name for the note.
+   - Default interpreter: Select **jdbc** from the drop-down list.
 
-    Then select **Create Note**.
+   Then select **Create Note**.
 
 1. Ensure the notebook header shows a connected status. It's denoted by a green dot in the top-right corner.
 
-    ![Zeppelin notebook status](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Zeppelin notebook status")
+   :::image type="content" source="./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png" alt-text="Zeppelin notebook status" border="true":::
 
 1. Create an HBase table. Enter the following command and then press **Shift + Enter**:
 
-    ```sql
-    %jdbc(phoenix)
-    CREATE TABLE Company (
-    	company_id INTEGER PRIMARY KEY,
-    	name VARCHAR(225)
-    );
-    ```
+   ```sql
+   %jdbc(phoenix)
+   CREATE TABLE Company (
+       company_id INTEGER PRIMARY KEY,
+       name VARCHAR(225)
+   );
+   ```
 
-    The **%jdbc(phoenix)** statement in the first line tells the notebook to use the Phoenix JDBC interpreter.
+   The **%jdbc(phoenix)** statement in the first line tells the notebook to use the Phoenix JDBC interpreter.
 
 1. View created tables.
 
-    ```sql
-    %jdbc(phoenix)
-    SELECT DISTINCT table_name
-    FROM SYSTEM.CATALOG
-    WHERE table_schem is null or table_schem <> 'SYSTEM';
-    ```
+   ```sql
+   %jdbc(phoenix)
+   SELECT DISTINCT table_name
+   FROM SYSTEM.CATALOG
+   WHERE table_schem is null or table_schem <> 'SYSTEM';
+   ```
 
 1. Insert values in the table.
 
-    ```sql
-    %jdbc(phoenix)
-    UPSERT INTO dbo.Company VALUES(1, 'Microsoft');
-    UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
-    ```
+   ```sql
+   %jdbc(phoenix)
+   UPSERT INTO dbo.Company VALUES(1, 'Microsoft');
+   UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
+   ```
 
 1. Query the table.
 
-    ```sql
-    %jdbc(phoenix)
-    SELECT * FROM dbo.Company;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   SELECT * FROM dbo.Company;
+   ```
 
 1. Delete a record.
 
-    ```sql
-    %jdbc(phoenix)
-    DELETE FROM dbo.Company WHERE COMPANY_ID=1;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   DELETE FROM dbo.Company WHERE COMPANY_ID=1;
+   ```
 
 1. Drop the table.
 
-    ```sql
-    %jdbc(phoenix)
-    DROP TABLE dbo.Company;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   DROP TABLE dbo.Company;
+   ```
 
 ## Next steps
 
-- [Apache Phoenix now supports Zeppelin in Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Apache Phoenix now supports Zeppelin in Azure HDInsight](/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Apache Phoenix grammar](https://phoenix.apache.org/language/index.html)

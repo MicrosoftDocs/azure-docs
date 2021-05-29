@@ -2,13 +2,12 @@
 title: Azure PowerShell Samples - Enable host-based autoscale
 description: This script creates a virtual machine scale set running Windows Server 2016 and uses host-based metrics to automatically scale as CPU load changes.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: sample
-ms.date: 03/27/2018
 ms.author: jushiman
-ms.custom: mvc
-
+ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: autoscale
+ms.date: 06/25/2020
+ms.custom: avverma, devx-track-azurepowershell
 ---
 
 # Automatically scale a virtual machine scale set with PowerShell
@@ -43,6 +42,5 @@ This script uses the following commands to create the deployment. Each item in t
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).

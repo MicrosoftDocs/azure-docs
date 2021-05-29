@@ -1,11 +1,10 @@
 ---
 title: Configure managed identities with Azure App Configuration
 description: Learn how managed identities work in Azure App Configuration and how to configure a managed identity
-author: jpconnock
-
+author: barbkess
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: jeconnoc
+ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 
@@ -30,7 +29,7 @@ To set up a managed identity using the Azure CLI, use the [az appconfig identity
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
-- [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.1 or later) if you prefer to use a local CLI console.
+- [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.1 or later) if you prefer to use a local CLI console.
 
 The following steps will walk you through creating an App Configuration store and assigning it an identity using the CLI:
 
@@ -63,7 +62,7 @@ To set up a managed identity using the Azure CLI, use the [az appconfig identity
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
-- [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console.
+- [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console.
 
 The following steps will walk you through creating a user-assigned identity and an App Configuration store, then assigning the identity to the store using the CLI:
 
@@ -96,12 +95,12 @@ The following steps will walk you through creating a user-assigned identity and 
 
 ## Removing an identity
 
-A system-assigned identity can be removed by disabling the feature by using the [az appconfig identity remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) command in the Azure CLI. User-assigned identities can be removed individually. Removing a system-assigned identity in this way will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the app resource is deleted.
+A system-assigned identity can be removed by disabling the feature by using the [az appconfig identity remove](/cli/azure/appconfig/identity#az_appconfig_identity_remove) command in the Azure CLI. User-assigned identities can be removed individually. Removing a system-assigned identity in this way will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the app resource is deleted.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
 
-[az appconfig identity assign]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
-[az login]: /cli/azure/reference-index#az-login
+[az appconfig identity assign]: /cli/azure/appconfig/identity#az_appconfig_identity_assign
+[az login]: /cli/azure/reference-index#az_login

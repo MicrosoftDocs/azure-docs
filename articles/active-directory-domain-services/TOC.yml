@@ -9,7 +9,7 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Create a basic managed domain
+    - name: Create a managed domain
       href: tutorial-create-instance.md
     - name: Configure the virtual network for apps
       href: tutorial-configure-networking.md
@@ -21,9 +21,11 @@
       href: tutorial-configure-ldaps.md
     - name: Configure password hash sync
       href: tutorial-configure-password-hash-sync.md
-    - name: Create an advanced managed domain
+    - name: Create a replica set
+      href: tutorial-create-replica-set.md
+    - name: Create a customized managed domain
       href: tutorial-create-instance-advanced.md
-    - name: Create a forest trust (preview)
+    - name: Create a forest trust
       href: tutorial-create-forest-trust.md
 - name: Samples
   items:
@@ -31,12 +33,18 @@
       href: powershell-create-instance.md
     - name: Create a managed domain using a template
       href: template-create-instance.md
+    - name: Configure scoped synchronization using Azure AD PowerShell
+      href: powershell-scoped-synchronization.md
+    - name: Create a resource forest and trust using Azure PowerShell
+      href: create-resource-forest-powershell.md
 - name: Concepts
   items:
     - name: Administration basics
       href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
+    - name: Replica sets
+      href: concepts-replica-sets.md
     - name: Forests and trusts
       items:
         - name: Resource forests
@@ -47,6 +55,10 @@
       href: synchronization.md
     - name: How password hash synchronization works
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Virtual network considerations
+      href: network-considerations.md
+    - name: Classic deployment migration benefits
+      href: concepts-migration-benefits.md
     - name: What is Azure Active Directory?
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Azure Active Directory architecture
@@ -61,12 +73,8 @@
           href: create-ou.md
         - name: Create a group managed service account (gMSA)
           href: create-gmsa.md
-    - name: Plan for Azure AD DS
-      items: 
-        - name: Virtual network considerations
-          href: network-considerations.md
     - name: Manage Azure AD DS
-      items: 
+      items:
         - name: Administer Group Policy
           href: manage-group-policy.md
         - name: Manage DNS
@@ -107,6 +115,8 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
+        - name: SUSE Linux Enterprise
+          href: join-suse-linux-vm.md
     - name: Deploy applications
       items:
         - name: Deploy Azure AD Application Proxy
@@ -114,7 +124,7 @@
         - name: Enable profile synchronization for SharePoint Server
           href: deploy-sp-profile-sync.md
     - name: Troubleshoot
-      items: 
+      items:
         - name: Common errors
           href: troubleshoot.md
         - name: Domain-join issues
@@ -139,10 +149,17 @@
               href: alert-service-principal.md
             - name: Secure LDAP alerts
               href: alert-ldaps.md
+- name: Reference
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.addomainservices/
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
     - name: FAQs
-      href: faqs.md
+      href: faqs.yml
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
     - name: Pricing

@@ -2,13 +2,13 @@
 title: include file
 description: include file
 documentationcenter: partner-center-commercial-marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 10/09/2019
-ms.author: dsindona
+ms.date: 06/01/2020
 ms.custom: include file
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 Connect with customers directly by listing your offer in the marketplaces and hooking up your Customer Relationship Management (CRM) system so that you can receive customer contact information immediately after a customer expresses interest or deploys your product.
@@ -17,7 +17,6 @@ Connect with customers directly by listing your offer in the marketplaces and ho
 
 Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
 
-- [Azure Blob](../commercial-marketplace-lead-management-instructions-azure-blob.md) - Provide contact email, container name, and storage account connection string. 
 - [Azure Table](../commercial-marketplace-lead-management-instructions-azure-table.md) - Provide contact email and storage account connection string. 
 - [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) - Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
 - [Https Endpoint](../commercial-marketplace-lead-management-instructions-https.md) - Provide contact email and HTTPS endpoint URL. 

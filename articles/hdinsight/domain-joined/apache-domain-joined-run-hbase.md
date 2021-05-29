@@ -2,9 +2,6 @@
 title: Apache HBase & Enterprise Security Package - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ---
@@ -40,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## Create domain users
 
-Visit [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds), to learn how to create the **sales_user1** and **marketing_user1** domain users. In a production scenario, domain users come from your Active Directory tenant.
+Visit [Create a HDInsight cluster with Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md), to learn how to create the **sales_user1** and **marketing_user1** domain users. In a production scenario, domain users come from your Active Directory tenant.
 
 ## Create HBase tables and import sample data
 
@@ -84,7 +81,7 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
     scan 'Customers'
     ```
 
-    ![HDInsight Hadoop HBase shell output](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png" alt-text="HDInsight Hadoop HBase shell output" border="true":::
 
 ## Create Ranger policies
 
@@ -92,11 +89,11 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
 1. Open the **Ranger Admin UI**. Click **\<ClusterName>_hbase** under **HBase**.
 
-   ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png" alt-text="HDInsight Apache Ranger Admin UI" border="true":::
 
 2. The **List of Policies** screen will display all Ranger policies created for this cluster. One pre-configured policy may be listed. Click **Add New Policy**.
 
-    ![Apache Ranger HBase policies list](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Apache Ranger HBase policies list" border="true":::
 
 3. On the **Create Policy** screen, enter the following values:
 
@@ -115,7 +112,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
    * `*` indicates zero or more occurrences of characters.
    * `?` indicates single character.
 
-   ![Apache Ranger policy create sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="Apache Ranger policy create sales" border="true":::
 
    >[!NOTE]
    >Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
@@ -134,7 +131,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
    |Select User  | marketing_user1 |
    |Permissions  | Read |
 
-   ![Apache Ranger policy create marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png" alt-text="Apache Ranger policy create marketing" border="true":::  
 
 6. Click **Add** to save the policy.
 
@@ -224,7 +221,7 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
 
 1. View the audit access events from the Ranger UI.
 
-   ![HDInsight Ranger UI Policy Audit](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png" alt-text="HDInsight Ranger UI Policy Audit" border="true":::
 
 ## Clean up resources
 

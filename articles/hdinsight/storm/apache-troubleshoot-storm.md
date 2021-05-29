@@ -2,9 +2,6 @@
 title: Troubleshoot Storm by using Azure HDInsight
 description: Get answers to common questions about using Apache Storm with Azure HDInsight.
 keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
@@ -91,7 +88,7 @@ Storm binaries for the current HDP stack are in `/usr/hdp/current/storm-client`.
 
 There might be multiple binaries for specific HDP versions in /usr/hdp (for example, `/usr/hdp/2.5.0.1233/storm`). The `/usr/hdp/current/storm-client` folder is symlinked to the latest version that is running on the cluster.
 
-For more information, see [Connect to an HDInsight cluster by using SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and [Apache Storm](https://storm.apache.org/).
+For more information, see [Connect to an HDInsight cluster by using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) and [Apache Storm](https://storm.apache.org/).
 
 ## How do I determine the deployment topology of a Storm cluster?
 
@@ -137,7 +134,7 @@ For more information about using Storm event hub spout .jar files with your topo
 
 ### C#-based topology (Mono on HDInsight 3.4+ Linux Storm clusters)
 
-[Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)](./apache-storm-develop-csharp-event-hub-topology.md)
 
 ### Latest Apache Storm event hub spout binaries for HDInsight 3.5+ Linux Storm clusters
 
@@ -183,4 +180,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 - Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
-- If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+- If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

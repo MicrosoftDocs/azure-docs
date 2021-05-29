@@ -1,16 +1,17 @@
 ---
 title: Delete an Azure Migrate project
-description: Describes how to create an Azure Migrate project and add an assessment/migration tool.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+description: In this article, learn how you can delete an Azure Migrate project by using the Azure portal.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: raynew
+
 ---
 
 # Delete an Azure Migrate project
 
-This article describes how to delete an [Azure Migrate](migrate-overview.md) project.
+This article describes how to delete an [Azure Migrate](./migrate-services-overview.md) project.
 
 
 ## Before you start
@@ -22,7 +23,7 @@ Before you delete a project:
     - The workspace isn't automatically deleted. Delete it manually.
     - Verify what a workspace is used for before you delete it. The same Log Analytics workspace can be used for multiple scenarios.
     - Before you delete the project, you can find a link to the workspace in **Azure Migrate - Servers** > **Azure Migrate - Server Assessment**, under **OMS Workspace**.
-    - To delete a workspace after deleting a project, find the workspace in the relevant resource group, and follow [these instructions](../azure-monitor/platform/delete-workspace.md).
+    - To delete a workspace after deleting a project, find the workspace in the relevant resource group, and follow [these instructions](../azure-monitor/logs/delete-workspace.md).
 
 
 ## Delete a project
@@ -44,7 +45,9 @@ These tables summarize the resources created for discovery, assessment, and migr
 > [!NOTE]
 > Delete the key vault with caution because it might contain security keys.
 
-### VMware/physical server
+### Projects with public endpoint connectivity
+
+#### VMware/physical server
 
 **Resource** | **Type**
 --- | ---
@@ -58,9 +61,9 @@ migrateappligwsa* | Storage account
 migrateapplilsa* | Storage account
 migrateapplicsa* | Storage account
 migrateapplikv* | Key vault
-migrateapplisbns16041 | Service Bus Namespace
+migrateapplisbns* | Service Bus Namespace
 
-### Hyper-V VM 
+#### Hyper-V VM
 
 **Resource** | **Type**
 --- | ---
@@ -69,6 +72,50 @@ migrateapplisbns16041 | Service Bus Namespace
 HyperV*kv | Key vault
 HyperV*Site | Microsoft.OffAzure/HyperVSites
 "ProjectName"-MigrateVault-* | Recovery Services vault
+
+<br/>
+The following tables summarize the resources created by Azure Migrate to discover, assess, and migrate servers over a private network using [Azure private link](./how-to-use-azure-migrate-with-private-endpoints.md).
+
+### Projects with private endpoint connectivity
+
+#### VMware VMs - agentless migrations
+
+**Type** | **Resource** | **Private endpoint <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Discovery site (master site) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Key vault | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/VMwareSites | "ApplianceName"*site | NA
+Recovery Services vault | "ApplianceName"*vault | NA
+Storage account | "ApplianceName"*usa | "ApplianceName"\*usa\*pe
+Recovery Services vault | "ProjectName"-MigrateVault-* | NA
+Storage account | migrateappligwsa* | NA
+Storage account | migrateapplilsa* | NA
+Key vault | migrateapplikv* | NA
+Service Bus Namespace | migrateapplisbns* | NA
+
+#### Hyper-V VMs 
+
+**Type** | **Resource** | **Private endpoint <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Discovery site (master site) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Key vault | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/HyperVSites | "ApplianceName"*site | NA
+Recovery Services vault | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
+
+#### Physical servers / AWS VMs / GCP VMs 
+
+**Type** | **Resource** | **Private endpoint <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+Discovery site (master site) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+Key vault | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/serversites | "ApplianceName"*site | NA
+Recovery Services vault | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
 
 
 ## Next steps

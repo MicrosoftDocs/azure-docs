@@ -1,8 +1,6 @@
 ---
 title: Azure HDInsight architecture with Enterprise Security Package
 description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: omidm
 ms.service: hdinsight
 ms.topic: conceptual
@@ -52,7 +50,7 @@ For more information, see [Configure HDInsight clusters with ESP using Azure AD 
 
 If you have an on-premises Active Directory instance or more complex Active Directory setups for your domain, you can sync those identities to Azure AD by using Azure AD Connect. You can then enable Azure AD DS on that Active Directory tenant.
 
-Because Kerberos relies on password hashes, you must [enable password hash sync on Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+Because Kerberos relies on password hashes, you must [enable password hash sync on Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md).
 
 If you're using federation with Active Directory Federation Services (AD FS), you must enable password hash sync. (For a recommended setup, see [this video](https://youtu.be/qQruArbu2Ew).) Password hash sync helps with disaster recovery in case your AD FS infrastructure fails, and it also helps provide leaked-credential protection. For more information, see [Enable password hash sync with Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -60,7 +58,7 @@ Using on-premises Active Directory or Active Directory on IaaS VMs alone, withou
 
 If federation is being used and password hashes are synced correctly, but you're getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Azure AD tenant. To check and set the HRD policy:
 
-1. Install the preview [Azure AD PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Install the preview [Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD

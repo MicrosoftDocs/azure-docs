@@ -11,7 +11,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Deploy StorSimple Virtual Array - Prepare the Azure portal
 
-![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+![Diagram showing the steps that are needed to deploy a virtual array. The first step is labeled Get started and is highlighted.](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
 ## Overview

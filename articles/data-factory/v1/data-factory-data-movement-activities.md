@@ -1,21 +1,11 @@
 ---
 title: Move data by using Copy Activity 
 description: 'Learn about data movement in Data Factory pipelines: data migration between cloud stores, and between an on-premises store and a cloud store. Use Copy Activity.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data by using Copy Activity
@@ -68,7 +58,7 @@ Copy Activity in Data Factory copies data from a source data store to a sink dat
 > [!NOTE] 
 > If you need to move data to/from a data store that Copy Activity doesn't support, use a **custom activity** in Data Factory with your own logic for copying/moving data. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
@@ -80,7 +70,7 @@ Copy Activity also reads from and writes to files in specified formats: **Text, 
 
 For example, you can do the following copy activities:
 
-* Copy data in on-premises SQL Server and write to Azure Data Lake Store in ORC format.
+* Copy data in a SQL Server database and write to Azure Data Lake Store in ORC format.
 * Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
 * Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
 * Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.

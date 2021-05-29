@@ -1,18 +1,19 @@
 ---
-title: Add a drawing toolbar to a map | Microsoft Azure Maps
+title: Add drawing tools toolbar to map | Microsoft Azure Maps
 description: How to add a drawing toolbar to a map using Azure Maps Web SDK
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+ms.custom: devx-track-js
 ---
 
 # Add a drawing tools toolbar to a map
 
-This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) control adds the drawing toolbar on the map. You will learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
+This article shows you how to use the Drawing Tools module and display the drawing toolbar on the map. The [DrawingToolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) control adds the drawing toolbar on the map. You will learn how to create maps with only one and all drawing tools and how to customize the rendering of the drawing shapes in the drawing manager.
 
 ## Add drawing toolbar
 
@@ -32,7 +33,7 @@ Below is the complete running code sample of the functionality above:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Add drawing toolbar" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Add drawing toolbar" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>Add drawing toolbar</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -57,7 +58,7 @@ Below is the complete running code sample of the functionality above:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Add a polygon drawing  tool" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Add a polygon drawing  tool" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Add a polygon drawing  tool</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -118,7 +119,7 @@ Below is the complete running code sample of the functionality above:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Change drawing rendering style" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Change drawing rendering style" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Change drawing rendering style</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -140,10 +141,10 @@ Learn how to use additional features of the drawing tools module:
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Drawing toolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 > [!div class="nextstepaction"]
-> [Drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Drawing manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)

@@ -1,13 +1,10 @@
 ---
 title: Plan a virtual network for Azure HDInsight
 description: Learn how to plan an Azure Virtual Network deployment to connect HDInsight to other cloud resources, or resources in your datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 02/25/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 01/12/2021
 ---
 
 # Plan a virtual network for Azure HDInsight
@@ -39,14 +36,15 @@ The following are the questions that you must answer when planning to install HD
 
 * Do you want to restrict/redirect inbound or outbound traffic to HDInsight?
 
-    HDInsight must have unrestricted communication with specific IP addresses in the Azure data center. There are also several ports that must be allowed through firewalls for client communication. For more information, see the [controlling network traffic](#networktraffic) section.
+    HDInsight must have unrestricted communication with specific IP addresses in the Azure data center. There are also several ports that must be allowed through firewalls for client communication. For more information, see [Control network traffic](./control-network-traffic.md).
 
 ## <a id="existingvnet"></a>Add HDInsight to an existing virtual network
 
 Use the steps in this section to discover how to add a new HDInsight to an existing Azure Virtual Network.
 
 > [!NOTE]  
-> You cannot add an existing HDInsight cluster into a virtual network.
+> - You cannot add an existing HDInsight cluster into a virtual network.
+> - The VNET and the cluster being created must be in the same subscription.
 
 1. Are you using a classic or Resource Manager deployment model for the virtual network?
 
@@ -79,7 +77,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         For more information, see the [Troubleshoot network security groups](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
 
         > [!IMPORTANT]  
-        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
+        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/network-security-groups-overview.md) document.
 
     * User-defined routes
 
@@ -115,8 +113,8 @@ Azure provides name resolution for Azure services that are installed in a virtua
 
 * Any resource that is in the same Azure Virtual Network, by using the __internal DNS name__ of the resource. For example, when using the default name resolution, the following are examples of internal DNS names assigned to HDInsight worker nodes:
 
-  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * \<workername1>.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * \<workername2>.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Both these nodes can communicate directly with each other, and other nodes in HDInsight, by using internal DNS names.
 
@@ -171,22 +169,22 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
     Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
 
-	```powershell
-	$clusterNICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP" | where-object {$_.Name -like "*node*"}
+    ```powershell
+    $clusterNICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP" | where-object {$_.Name -like "*node*"}
 
-	$nodes = @()
-	foreach($nic in $clusterNICs) {
-		$node = new-object System.Object
-		$node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
-		$node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
-		$node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
-		$nodes += $node
-	}
-	$nodes | sort-object Type
+    $nodes = @()
+    foreach($nic in $clusterNICs) {
+        $node = new-object System.Object
+        $node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
+        $node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
+        $node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
+        $nodes += $node
+    }
+    $nodes | sort-object Type
     ```
 
-	```azurecli
-	az network nic list --resource-group RESOURCEGROUP --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
+    ```azurecli
+    az network nic list --resource-group RESOURCEGROUP --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
     In the list of nodes returned, find the FQDN for the head nodes and use the FQDNs to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
@@ -196,73 +194,15 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 2. To determine the node and port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
-## <a id="networktraffic"></a> Controlling network traffic
-
-### Techniques for controlling inbound and outbound traffic to HDInsight clusters
-
-Network traffic in an Azure Virtual Networks can be controlled using the following methods:
-
-* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
-
-* **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
-
-As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
-
-![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
-
-### HDInsight with network security groups
-
-If you plan on using **network security groups** to control network traffic, perform the following actions before installing HDInsight:
-
-1. Identify the Azure region that you plan to use for HDInsight.
-
-2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
-
-3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
-
-    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network.
-
-For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
-
-### Controlling outbound traffic from HDInsight clusters
-
-For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
-
-#### Forced tunneling to on-premises
-
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling of traffic to on-premises networks.
-
-## <a id="hdinsight-ip"></a> Required IP addresses
-
-If you use network security groups or user-defined routes to control traffic, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
-
-## <a id="hdinsight-ports"></a> Required ports
-
-If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special whitelisting of ports is needed as long as the azure management traffic explained in the previous section is allowed to reach cluster on port 443.
-
-For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
-
-For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
-
 ## Load balancing
 
-When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/concepts-limitations.md#skus), which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
-
-## Transport Layer Security
-
-Connections to the cluster via the public cluster endpoint `https://<clustername>.azurehdinsight.net` are proxied through cluster gateway nodes. These connections are secured using a protocol called TLS. Enforcing higher versions of TLS on gateways improves the security for these connections. For more information on why you should use newer versions of TLS, see [Solving the TLS 1.0 Problem](https://docs.microsoft.com/security/solving-tls1-problem).
-
-By default, Azure HDInsight clusters accept TLS 1.2 connections on public HTTPS endpoints, as well as older versions for backward compatibility. You can control the minimum TLS version supported on the gateway nodes during cluster creation using either the Azure portal, or a resource manager template. For the portal, select the TLS version from the **Security + networking** tab during cluster creation. For a resource manager template at deployment time, use the **minSupportedTlsVersion** property. For a sample template, see [HDInsight minimum TLS 1.2 Quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). This property supports three values: "1.0", "1.1" and "1.2", which correspond to TLS 1.0+, TLS 1.1+ and TLS 1.2+ respectively.
-
-> [!IMPORTANT]
-> Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. We recommend that you ensure that all your clients are ready to handle TLS 1.2 or later versions. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
+When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/skus.md), which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
 
 ## Next steps
 
 * For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md).
 * For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
-* For configuring Apache HBase clusters in Azure virtual networks, see [Create Apache HBase clusters on HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
-* For configuring Apache HBase geo-replication, see [Set up Apache HBase cluster replication in Azure virtual networks](hbase/apache-hbase-replication.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
-* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 * For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
+* For more information on controlling traffic including Firewall integration, see [Control network traffic](./control-network-traffic.md).

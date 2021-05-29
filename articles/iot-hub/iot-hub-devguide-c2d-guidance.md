@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
+ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Cloud-to-device communications guidance
@@ -20,12 +21,14 @@ IoT Hub provides three options for device apps to expose functionality to a back
 
 * [Cloud-to-device messages](iot-hub-devguide-messages-c2d.md) for one-way notifications to the device app.
 
+To learn how [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) uses these options to control IoT Plug and Play devices, see [IoT Plug and Play service developer guide](../iot-pnp/concepts-developer-guide-service.md).
+
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Here is a detailed comparison of the various cloud-to-device communication options.
 
-|  | Direct methods | Twin's desired properties | Cloud-to-device messages |
-| ---- | ------- | ---------- | ---- |
+| Categories | Direct methods | Twin's desired properties | Cloud-to-device messages |
+| ---------- | -------------- | ------------------------- | ------------------------ |
 | Scenario | Commands that require immediate confirmation, such as turning on a fan. | Long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes. | One-way notifications to the device app. |
 | Data flow | Two-way. The device app can respond to the method right away. The solution back end receives the outcome contextually to the request. | One-way. The device app receives a notification with the property change. | One-way. The device app receives the message
 | Durability | Disconnected devices are not contacted. The solution back end is notified that the device is not connected. | Property values are preserved in the device twin. Device will read it at next reconnection. Property values are retrievable with the [IoT Hub query language](iot-hub-devguide-query-language.md). | Messages can be retained by IoT Hub for up to 48 hours. |
