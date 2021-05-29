@@ -119,15 +119,12 @@ You can't use a loop for a child resource. To create more than one instance of a
 For example, suppose you typically define a dataset as a child resource within a data factory.
 
 ```bicep
-resource dataFactoryName_resource 'Microsoft.DataFactory/factories@2018-06-01' = {
+resource dataFactoryName 'Microsoft.DataFactory/factories@2018-06-01' = {
   name: exampleDataFactory
 ...
-resource dataFactoryName_ArmtemplateTestDatasetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
-  parent: dataFactoryName_resource
-  name: 'ArmtemplateTestDatasetIn'
-  dependsOn: [
-    dataFactoryName_resource
-  ]
+resource dataFactoryData 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
+  parent: dataFactoryName
+  name: 'dataSet'
 ```
 
 To create more than one data set, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
@@ -137,12 +134,12 @@ To establish a parent/child relationship with an instance of the data factory, p
 The following example shows the implementation:
 
 ```bicep
-resource dataFactoryName_resource 'Microsoft.DataFactory/factories@2018-06-01' = {
+resource dataFactoryName 'Microsoft.DataFactory/factories@2018-06-01' = {
   name: "exampleDataFactory"
   ...
 }
 
-resource dataFactoryName_ArmtemplateTestDatasetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = [for i in range(0, 3): {
+resource dataFactoryData 'Microsoft.DataFactory/factories/datasets@2018-06-01' = [for i in range(0, 3): {
   name: 'exampleDataFactory/exampleDataset${i}'
   ...
 }

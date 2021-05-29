@@ -24,11 +24,11 @@ var stringVar = 'example value'
 You can use the value from a parameter or another variable when constructing the variable.
 
 ```bicep
-param inputValue string = 'deployment parameter'
+param inputValue string = 'deployment Parameter'
 
 var stringVar = 'myVariable'
-var concatToVar =  '${stringVar}-addtovar'
-var concatToParam = '${inputValue}-addtoparam'
+var concatToVar =  '${stringVar}AddToVar'
+var concatToParam = '${inputValue}AddToParam'
 ```
 
 You can use [Bicep functions](bicep-functions.md) to construct the variable value. The [reference](bicep-functions-resource.md#reference) and [list](bicep-functions-resource.md#list) functions are valid when declaring a variable.
