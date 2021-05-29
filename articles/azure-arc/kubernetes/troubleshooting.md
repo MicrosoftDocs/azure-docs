@@ -212,7 +212,7 @@ The above warning is observed when you have used a service principal to log into
         az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
         ```
 
-    - If you are enabling custom locations feature on an existing Arc enabled Kubernetes cluster:
+    - If you are enabling custom locations feature on an existing Arc enabled Kubernetes cluster, run the following command:
 
         ```console
         az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
