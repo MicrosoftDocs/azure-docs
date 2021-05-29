@@ -13,7 +13,7 @@ This article is intended for users who have some familiarity with Bicep files. I
 
 ## Bicep format
 
-A Bicep file has the following elements. The elements can appear in any order.
+A Bicep file has the following elements. Bicep is a declarative language, which means the elements can appear in any order.  Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
 
 ```bicep
 targetScope = '<scope>'
