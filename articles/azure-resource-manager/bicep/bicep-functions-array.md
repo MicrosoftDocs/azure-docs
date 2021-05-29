@@ -73,20 +73,20 @@ The output from the preceding example with the default values is:
 
 `concat(arg1, arg2, arg3, ...)`
 
-Combines multiple arrays and returns the concatenated array, or combines multiple string values and returns the concatenated string.
+Combines multiple arrays and returns the concatenated array.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The first array or string for concatenation. |
-| additional arguments |No |array or string |Additional arrays or strings in sequential order for concatenation. |
+| arg1 |Yes |array |The first array for concatenation. |
+| additional arguments |No |array |Additional arrays in sequential order for concatenation. |
 
-This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Arrays are only concatenated with other arrays.
+This function can take any number of arrays and combines them.
 
 ### Return value
 
-A string or array of concatenated values.
+An array of concatenated values.
 
 ### Example
 
@@ -112,28 +112,6 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
-
-The following example shows how to combine two string values and return a concatenated string.
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
-```
-
-You can also use:
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
-```
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 ## contains
 
