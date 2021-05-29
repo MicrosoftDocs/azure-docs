@@ -29,7 +29,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
 1. In **Solution Explorer**, right-click the project and select **Publish**. 
 
-1. Under **Actions**, select **Edit Azure App Service Settings**. 
+1. In the **Publish** tab under **Hosting**, expand the three dots (**...**) and select **Mananage Azure App Service settings**. 
 
     ![Edit the application settings](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 
