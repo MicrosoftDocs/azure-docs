@@ -178,7 +178,7 @@ New-AzResourceGroupDeployment `
 To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
-bicepFile="{provide-the-path-to-the-bicep-file}"
+$bicepFile="{provide-the-path-to-the-bicep-file}"
 az deployment group create \
   --name firstbicep \
   --resource-group myResourceGroup \
