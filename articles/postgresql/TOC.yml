@@ -551,24 +551,34 @@
       items:
       - name: Azure portal
         href: flexible-server/how-to-restart-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-restart-server-cli.md        
     - name: Restore a server
       items:
       - name: Azure portal
         href: flexible-server/how-to-restore-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-restore-server-cli.md
     - name: Stop/start a server
       items:
       - name: Azure portal
         href: flexible-server/how-to-stop-start-server-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-stop-start-server-cli.md
     - name: Manage high availability
       items:
       - name: Azure portal
         href: flexible-server/how-to-manage-high-availability-portal.md
+      - name: Azure CLI
+        href: flexible-server/how-to-manage-high-availability-cli.md        
     - name: Monitor
       items:
-      - name: Create alerts on metrics
+      - name: Create alerts on metrics using portal
         href: flexible-server/howto-alert-on-metrics.md
-      - name: Configure and access logs
+      - name: Configure and access logs using portal
         href: flexible-server/howto-configure-and-access-logs.md
+      - name: Configure audit log CLI
+        href: flexible-server/howto-configure-audit-log-cli.md  
 - name: Hyperscale (Citus)
   items:
   - name: Hyperscale (Citus) documentation
