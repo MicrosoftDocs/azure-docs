@@ -181,8 +181,8 @@ When data is stored in Application Insights, it contains the history of Azure Sp
   * One instance in Application Map with a time range in the last hour, as well as Failures, Performance, and Metrics.
   * One instance in Live Metrics.
 * You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. Around 8:30 AM today, you try a blue/green deployment with another JAR file. Currently, you have two deployments for this application. After a break around 11:00 AM today, you want to check some data from Application Insights. You will see:
-  * Three instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance and Metrics.
-  * Two instances in Application Map with time ranges in last hour, as well as Failures, Performance and Metrics.
+  * Three instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance, and Metrics.
+  * Two instances in Application Map with time ranges in last hour, as well as Failures, Performance, and Metrics.
   * Two instances in Live Metrics.
 
 ## See also
