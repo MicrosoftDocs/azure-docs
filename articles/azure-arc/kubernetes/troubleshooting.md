@@ -197,9 +197,7 @@ When you are connecting your cluster to Azure Arc or when you are enabling custo
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-The above warning is observed when you have used a service principal to log into Azure and this service principal doesn't have permissions to get information of the application used by Azure Arc service.
-
-To avoid this error, execute the following steps:
+The above warning is observed when you have used a service principal to log into Azure and this service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
 
 1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
