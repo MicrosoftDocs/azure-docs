@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 05/29/2021
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -50,29 +50,29 @@ The only change needed in an ARM template to specify a zonal ILB ASE is the new 
 The example ARM template snippet below shows the new ***zones*** property specifying that the ILB ASE should be pinned to zone 2.
 
 ```
-   "resources": [
-      {
-         "type": "Microsoft.Web/hostingEnvironments",
-         "kind": "ASEV2",
-         "name": "yourASENameHere",
-         "apiVersion": "2015-08-01",
-         "location": "your location here",
-         "zones": [
+"resources": [
+    {
+        "type": "Microsoft.Web/hostingEnvironments",
+        "kind": "ASEV2",
+        "name": "yourASENameHere",
+        "apiVersion": "2015-08-01",
+        "location": "your location here",
+        "zones": [
             "2"
-         ],
-         "properties": {
-         "name": "yourASENameHere",
-         "location": "your location here",
-         "ipSslAddressCount": 0,
-         "internalLoadBalancingMode": "3",
-         "dnsSuffix": "contoso-internal.com",
-         "virtualNetwork": {
-             "Id": "/subscriptions/your-subscription-id-here/resourceGroups/your-resource-group-here/providers/Microsoft.Network/virtualNetworks/your-vnet-name-here",
-             "Subnet": "yourSubnetNameHere"
-          }
-         }
-      }
-    ]
+        ],
+        "properties": {
+            "name": "yourASENameHere",
+            "location": "your location here",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "3",
+            "dnsSuffix": "contoso-internal.com",
+            "virtualNetwork": {
+                "Id": "/subscriptions/your-subscription-id-here/resourceGroups/your-resource-group-here/providers/Microsoft.Network/virtualNetworks/your-vnet-name-here",
+                "Subnet": "yourSubnetNameHere"
+            }
+        }
+    }
+]
 ```
 
 To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) upstream of the zonal ILB ASEs. 
