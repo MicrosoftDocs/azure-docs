@@ -1,7 +1,7 @@
 ---
-title: "How to: Identify apps running on ADAL and migrate them to MSAL | Azure"
+title: "How to: Identify apps running on ADAL using Azure portal | Azure"
 titleSuffix: Microsoft identity platform
-description: In this how-to guide, you get to identify apps that are running on ADAL to aid in migrating them to MSAL.
+description: In this how-to guide, you get to identify apps that are running on ADAL using Azure portal.
 services: active-directory
 author: SHERMANOUKO
 manager: CelesteDG
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to 
 ms.workload: identity
-ms.date: 05/12/2021
+ms.date: 05/27/2021
 ms.author: shermanouko
 ms.custom: aaddev
 ms.reviewer: aiwang, marsma
-# Customer intent: As an application developer / IT admin, I need to know / identify which of my apps are running on ADAL so that I can migrate them to MSAL.
+# Customer intent: As an application developer / IT admin, I need to know / identify which of my apps are running on ADAL via the Azure portal.
 ---
 
-# How to: Identify apps running on ADAL and migrate them to MSAL
+# How to: Identify apps running on ADAL using Azure portal
 
-Azure Active Directory self-service portal provides a workbook to identify apps using ADAL for their authentication. This article provides guidance on determining apps that run on ADAL using the self-service portal. Support for ADAL is ending on June 30 2022. Apps using ADAL on existing OS versions will continue to work, but technical support or security updates will be unavailable after June 30 2022.
+Azure portal provides a workbook to identify apps using ADAL for their authentication. This article provides guidance on determining apps that run on ADAL using the self-service portal. Support for ADAL is ending on June 30 2022. Apps using ADAL on existing OS versions will continue to work, but technical support or security updates will be unavailable after June 30 2022.
 
 ## Prerequisites
 
@@ -27,13 +27,13 @@ The following article is recommended before going through this article:
 
 - [MSAL overview](./msal-overview.md)
 
-## Identify apps using ADAL in your tenant
+## Sign-ins Monitoring workbook
 
-Migrating your app from ADAL to MSAL requires you to identify apps that use ADAL for authentication.  The Sign-ins workbook now has a new table. This table contains a list of applications that use ADAL and how often these applications are used. The information in this workbook is available in [sign in logs](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md), but the workbook helps you collect and visualize the information in one view.  
+Migrating your app from ADAL to MSAL requires you to identify apps that use ADAL for authentication. The Sign-ins workbook is one of the Monitoring workbooks accessible via the Azure portal. Sign-ins workbook now has a new table. This table contains a list of applications that use ADAL and how often these applications are used. The information in this workbook is available in [sign in logs](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md), but the workbook helps you collect and visualize the information in one view.  
 
-## Accessing the workbook
+### Accessing the workbook
 
-If your organization is new to Azure Monitor workbooks, [integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) before accessing the workbook. This integration allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration will be stored. Insights before the date of the Azure Monitor integration won't be available. You can use the workbook to assess past insights if your Azure AD sign-in and audit logs is already integrated with Azure Monitor.
+If your organization is new to Azure Monitoring workbooks, [integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) before accessing the workbook. This integration allows you to store, and query, and visualize your logs using workbooks for up to two years. Only sign-in and audit events created after Azure Monitor integration will be stored. Insights before the date of the Azure Monitor integration won't be available. You can use the workbook to assess past insights if your Azure AD sign-in and audit logs is already integrated with Azure Monitor.
 
 To access the workbook: 
 
@@ -42,6 +42,8 @@ To access the workbook:
 3. In the Usage section, open the **Sign-ins** workbook 
 
 ![Screenshot of the Azure Active Directory monitoring workbooks interface highlighting the Sign Ins workbook.](./media/howto-identify-apps-running-on-adal/sign-in-workbook.png)
+
+### Identify apps running on ADAL
 
 The Sign-ins workbook has a new table at the bottom of the page that can show you which recently used apps are using ADAL as shown below. Update these apps to use MSAL.
 
