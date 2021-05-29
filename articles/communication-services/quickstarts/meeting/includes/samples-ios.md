@@ -145,8 +145,8 @@ Add other mandatory MeetingUIClientCallIdentityProviderDelegate protocol methods
 
 ## Use Azure Communication Calling SDK via Teams Embed SDK
 
-Teams Embed SDK provides also Azure Communication Calling SDK (ACS) within it which allows to use both SDK features in the same app. 
-Only one SDK can be initialized and used at the time. Having both SDK's initialized and used at the same time will result in unexpected behavior. 
+Teams Embed SDK provides also Azure Communication Calling SDK (ACS) within it, which allows to use both SDK features in the same app. 
+Only one SDK can be initialized and used at the time. Having both SDKs initialized and used at the same time will result in unexpected behavior. 
 
 Import `TeamsAppSDK` to access Azure Communication Calling SDK from Teams Embed SDK. 
 ```swift
@@ -171,9 +171,9 @@ Initialization is done by creating new `CallClient`
 ```swift
 self.callClient = CallClient()
 ```
-Use all ACS API like described in it's documentation.
+Use all ACS APIs like they are described in its documentation.
 
-Dispose the ACS SDK and set `nil` to it's variables after the usage is not needed anymore or the app needs to use Teams Embed SDK.
+Dispose the ACS SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use Teams Embed SDK.
 ```swift
     public func disposeAcsSdk()
     {
@@ -208,9 +208,9 @@ private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
 }
 
 ```
-Use the Teams Embed SDK API's like they are described in it's documentation. 
+Use the Teams Embed SDK APIs like they are described in its documentation. 
 
-Dispose the Teams Embed SDK and set `nil` to it's variables after the usage is not needed anymore or the app needs to use ACS SDK.
+Dispose the Teams Embed SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use ACS SDK.
 ```swift
     private func disposeTeamsSdk() {
         self.meetingUIClient?.dispose(completionHandler: { (error: Error?) in
@@ -225,7 +225,7 @@ Dispose the Teams Embed SDK and set `nil` to it's variables after the usage is n
 
 ```
 
-Disposing Teams Embed SDK is only possible if there are no active calls. The `meetingUIClient?.dispose` will return error in it's completion handler if there's an active call. 
+Disposing Teams Embed SDK is only possible if there are no active calls. The `meetingUIClient?.dispose` will return error in its completion handler if there's an active call. 
 Hang up the active call and call `self.disposeTeamsSdk()` if there was no active call left.
 ```swift
 	
