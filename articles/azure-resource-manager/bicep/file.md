@@ -269,7 +269,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 }]
 ```
 
-For more information, see [Serial or Parallel](loop-resources.md#serial-or-parallel).
+For more information, see [Deploy in batches](loop-resources.md#deploy-in-batches).
 
 ## Outputs
 
