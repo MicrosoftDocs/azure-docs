@@ -45,7 +45,7 @@ Common scenarios for using watchlists include:
 
     You will see a preview of the first 50 rows of results in the wizard screen.
 
-1. In the **SearchKey** field, enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains server names and their respective IP addresses, and you expect to use the IP addresses often for search or joins, use the IP address column as the SearchKey.
+1. In the **SearchKey** field, enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains server names and their respective IP addresses, and you expect to use the IP addresses often for search or joins, use the **IP Address** column as the SearchKey.
 
 1. Select **Next: Review and Create**.
 
@@ -72,7 +72,7 @@ Common scenarios for using watchlists include:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="use watchlists in queries" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
 
-1. The items in your watchlist are automatically extracted for your query, and will appear on the **Results** tab. The example below shows the results of the extraction of the **ServerName** and **IpAddress** fields.
+1. The items in your watchlist are automatically extracted for your query, and will appear on the **Results** tab. The example below shows the results of the extraction of the **Name** and **IP Address** fields. The **SearchKey** is shown as its own column.
 
     > [!NOTE]
     > The timestamp on your queries will be ignored in both the query UI and in scheduled alerts.
@@ -99,7 +99,7 @@ To use watchlists in analytics rules, from the Azure portal, navigate to **Azure
 
     :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="list of four items for watchlist":::
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="create watchlist with four items":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-other.png" alt-text="create watchlist with four items":::
 
 1. Next, create the analytics rule.  In this example, we only include events from IP addresses in the watchlist:
 
@@ -119,14 +119,13 @@ To use watchlists in analytics rules, from the Azure portal, navigate to **Azure
     )
     ```
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-3.png" alt-text="use watchlists in analytics rules":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="use watchlists in analytics rules":::
 
 ## View list of watchlists aliases
 
 To get a list of watchlist aliases, from the Azure portal, navigate to **Azure Sentinel** > **General** > **Logs**, and run the following query: `_GetWatchlistAlias`. You can see the list of aliases in the **Results** tab.
 
-> [!div class="mx-imgBorder"]
-> ![list watchlists](./media/watchlists/sentinel-watchlist-alias.png)
+   :::image type="content" source="./media/watchlists/sentinel-watchlist-alias.png" alt-text="list watchlists":::
 
 ## Next steps
 In this document, you learned how to use watchlists in Azure Sentinel to enrich data and improve investigations. To learn more about Azure Sentinel, see the following articles:
