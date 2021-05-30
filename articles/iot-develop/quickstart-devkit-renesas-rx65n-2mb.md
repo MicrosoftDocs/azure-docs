@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/25/2021
+ms.date: 0/01/2021
 ---
 
 # Quickstart: Connect a Renesas Starter Kit+ for RX65N-2MB to IoT Central
@@ -180,35 +180,33 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing DHCP
-    	IP address: 10.0.0.123
-    	Mask: 255.255.255.0
-    	Gateway: 10.0.0.1
+        IP address: 10.0.0.81
+        Mask: 255.255.255.0
+        Gateway: 10.0.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-    	DNS address: 10.0.0.1
+        DNS address: 10.0.0.1
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-    	SNTP IP address: 185.242.56.3
-    	SNTP time update: Nov 16, 2020 23:47:35.385 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP IP address: 104.194.242.237
+        SNTP time update: May 28, 2021 22:53:27.54 UTC 
     SUCCESS: SNTP initialized
 
     Initializing Azure IoT DPS client
-    	DPS endpoint: global.azure-devices-provisioning.net
-    	DPS ID scope: ***
-    	Registration ID: ***
+        DPS endpoint: global.azure-devices-provisioning.net
+        DPS ID scope: ***
+        Registration ID: mydevice
     SUCCESS: Azure IoT DPS client initialized
 
     Initializing Azure IoT Hub client
-    	Hub hostname: ***
-    	Device id: ***
-    	Model id: dtmi:azurertos:devkit:gsg;1
-    Connected to IoTHub
+        Hub hostname: ***.azure-devices.net
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsg;1
+    Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-
-    Starting Main loop
     ```
 
 Keep Termite open to monitor device output in the following steps.
