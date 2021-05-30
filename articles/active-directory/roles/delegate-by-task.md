@@ -25,14 +25,14 @@ In this article, you can find the information needed to restrict a user's admini
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Configure application proxy app | Application administrator | 
-Configure connector group properties | Application administrator | 
-Create application registration when ability is disabled for all users | Application developer | Cloud Application administrator, Application Administrator
-Create connector group | Application administrator | 
-Delete connector group | Application administrator | 
-Disable application proxy | Application administrator | 
-Download connector service | Application administrator | 
-Read all configuration | Application administrator | 
+Configure application proxy app | Application Administrator | 
+Configure connector group properties | Application Administrator | 
+Create application registration when ability is disabled for all users | Application Developer | Cloud Application Administrator, Application Administrator
+Create connector group | Application Administrator | 
+Delete connector group | Application Administrator | 
+Disable application proxy | Application Administrator | 
+Download connector service | Application Administrator | 
+Read all configuration | Application Administrator | 
 
 ## External Identities/B2C
 
@@ -49,11 +49,11 @@ Create, read, update, and delete sign-in user flows | External ID User Flow Admi
 Create, read, update, and delete sign-up user flow |External ID User Flow Administrator | 
 Create, read, update, and delete user attributes | External ID User Flow Attribute Administrator | 
 Create, read, update, and delete users | User Administrator
-Read all configuration | Global reader | 
-Read B2C audit logs | Global reader ([see documentation](../../active-directory-b2c/faq.yml)) | 
+Read all configuration | Global Reader | 
+Read B2C audit logs | Global Reader ([see documentation](../../active-directory-b2c/faq.yml)) | 
 
 > [!NOTE]
-> Azure AD B2C Global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
+> Azure AD B2C Global Administrators do not have the same permissions as Azure AD Global Administrators. If you have Azure AD B2C Global Administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
 
 ## Company branding
 
@@ -73,7 +73,7 @@ Configure company properties | Global Administrator |
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Passthrough authentication | Global Administrator  | 
-Read all configuration | Global reader | Global Administrator  |
+Read all configuration | Global Reader | Global Administrator  |
 Seamless single sign-on | Global Administrator  | 
 
 ## Cloud Provisioning
@@ -81,7 +81,7 @@ Seamless single sign-on | Global Administrator  |
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Passthrough authentication | Hybrid Identity Administrator  | 
-Read all configuration | Global reader | Hybrid Identity Administrator  |
+Read all configuration | Global Reader | Hybrid Identity Administrator  |
 Seamless single sign-on | Hybrid Identity Administrator  | 
 
 ## Connect Health
@@ -120,55 +120,55 @@ Read all configuration | Reader on Azure subscription containing AD DS service |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Disable device | Cloud device administrator | 
-Enable device | Cloud device administrator | 
+Disable device | Cloud Device Administrator | 
+Enable device | Cloud Device Administrator | 
 Read basic configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) | 
-Read BitLocker keys | Security Reader | Password administrator, Security administrator
+Read BitLocker keys | Security Reader | Password Administrator, Security Administrator
 
 ## Enterprise applications
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Consent to any delegated permissions | Cloud application administrator | Application administrator
-Consent to application permissions not including Microsoft Graph | Cloud application administrator | Application administrator
+Consent to any delegated permissions | Cloud Application Administrator | Application Administrator
+Consent to application permissions not including Microsoft Graph | Cloud Application Administrator | Application Administrator
 Consent to application permissions to Microsoft Graph | Privileged Role Administrator | 
 Consent to applications accessing own data | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) | 
-Create enterprise application | Cloud application administrator | Application administrator
-Manage Application Proxy | Application administrator | 
+Create enterprise application | Cloud Application Administrator | Application Administrator
+Manage Application Proxy | Application Administrator | 
 Manage user settings | Global Administrator | 
 Read access review of a group or of an app | Security Reader | Security Administrator, User Administrator
 Read all configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) | 
-Update enterprise application assignments | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
-Update enterprise application owners | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
-Update enterprise application properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
-Update enterprise application provisioning | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
-Update enterprise application self-service | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
-Update single sign-on properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud application administrator, Application administrator
+Update enterprise application assignments | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator
+Update enterprise application owners | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator
+Update enterprise application properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator
+Update enterprise application provisioning | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator
+Update enterprise application self-service | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator
+Update single sign-on properties | Enterprise application owner ([see documentation](../fundamentals/users-default-permissions.md)) | Cloud Application Administrator, Application Administrator
 
 ## Entitlement management
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
-Add SharePoint Online sites to catalog | Global administrator
+Add resources to a catalog | User Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
+Add SharePoint Online sites to catalog | Global Administrator
 
 
 ## Groups
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Assign license | User administrator | 
-Create group | Groups administrator | User administrator
-Create, update, or delete access review of a group or of an app | User administrator | 
-Manage group expiration | User administrator | 
+Assign license | User Administrator | 
+Create group | Groups Administrator | User Administrator
+Create, update, or delete access review of a group or of an app | User Administrator | 
+Manage group expiration | User Administrator | 
 Manage group settings | Groups Administrator | User Administrator | 
 Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](../fundamentals/users-default-permissions.md))
-Read hidden membership | Group member | Group owner, Password administrator, Exchange administrator, SharePoint administrator, Teams administrator, User administrator
-Read membership of groups with hidden membership | Helpdesk Administrator | User administrator, Teams administrator
-Revoke license | License administrator | User administrator
-Update group membership | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User administrator
-Update group owners | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User administrator
-Update group properties | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User administrator
-Delete group | Groups administrator | User administrator
+Read hidden membership | Group member | Group owner, Password Administrator, Exchange Administrator, SharePoint Administrator, Teams Administrator, User Administrator
+Read membership of groups with hidden membership | Helpdesk Administrator | User Administrator, Teams Administrator
+Revoke license | License Administrator | User Administrator
+Update group membership | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User Administrator
+Update group owners | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User Administrator
+Update group properties | Group owner ([see documentation](../fundamentals/users-default-permissions.md)) | User Administrator
+Delete group | Groups Administrator | User Administrator
 
 ## Identity Protection
 
@@ -189,23 +189,23 @@ Read vulnerabilities | Security Reader |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Assign license | License administrator | User administrator
+Assign license | License Administrator | User Administrator
 Read all configuration | Directory readers | Default user role ([see documentation](../fundamentals/users-default-permissions.md))
-Revoke license | License administrator | User administrator
-Try or buy subscription | Billing administrator | 
+Revoke license | License Administrator | User Administrator
+Try or buy subscription | Billing Administrator | 
 
 
 ## Monitoring - Audit logs
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Read audit logs | Reports reader | Security Reader, Security administrator
+Read audit logs | Reports Reader | Security Reader, Security Administrator
 
 ## Monitoring - Sign-ins
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Read sign-in logs | Reports reader | Security Reader, Security administrator
+Read sign-in logs | Reports Reader | Security Reader, Security Administrator
 
 ## Multi-factor authentication
 
@@ -231,9 +231,9 @@ Configure one-time bypass | Authentication Policy Administrator |
 Configure phone call settings | Authentication Policy Administrator | 
 Configure providers | Authentication Policy Administrator | 
 Configure server settings | Authentication Policy Administrator | 
-Read activity report | Global reader | 
-Read all configuration | Global reader | 
-Read server status | Global reader |  
+Read activity report | Global Reader | 
+Read all configuration | Global Reader | 
+Read server status | Global Reader |  
 
 ## Organizational relationships
 
@@ -242,7 +242,7 @@ Task | Least privileged role | Additional roles
 Manage identity providers | External Identity Provider Administrator | 
 Manage settings | Global Administrator | 
 Manage terms of use | Global Administrator | 
-Read all configuration | Global reader | 
+Read all configuration | Global Reader | 
 
 ## Password reset
 
@@ -260,17 +260,17 @@ Read all configuration | Security Administrator | User Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Assign users to roles | Privileged role administrator | 
-Configure role settings | Privileged role administrator | 
-View audit activity | Security reader | 
-View role memberships | Security reader | 
+Assign users to roles | Privileged Role Administrator | 
+Configure role settings | Privileged Role Administrator | 
+View audit activity | Security Reader | 
+View role memberships | Security Reader | 
 
 ## Roles and administrators
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Manage role assignments | Privileged role administrator | 
-Read access review of an Azure AD role  | Security Reader | Security administrator, Privileged role administrator
+Manage role assignments | Privileged Role Administrator | 
+Read access review of an Azure AD role  | Security Reader | Security Administrator, Privileged Role Administrator
 Read all configuration | Default user role ([see documentation](../fundamentals/users-default-permissions.md)) | 
 
 ## Security - Authentication methods
@@ -278,37 +278,37 @@ Read all configuration | Default user role ([see documentation](../fundamentals/
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure authentication methods | Global Administrator | 
-Configure password protection | Security administrator
-Configure smart lockout | Security administrator
-Read all configuration | Global reader | 
+Configure password protection | Security Administrator
+Configure smart lockout | Security Administrator
+Read all configuration | Global Reader | 
 
 ## Security - Conditional Access
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Configure MFA trusted IP addresses | Conditional Access administrator | 
-Create custom controls | Conditional Access administrator | Security administrator
-Create named locations | Conditional Access administrator | Security administrator
-Create policies | Conditional Access administrator | Security administrator
-Create terms of use | Conditional Access administrator | Security administrator
-Create VPN connectivity certificate | Conditional Access administrator | Security administrator
-Delete classic policy | Conditional Access administrator | Security administrator
-Delete terms of use | Conditional Access administrator | Security administrator
-Delete VPN connectivity certificate | Conditional Access administrator | Security administrator
-Disable classic policy | Conditional Access administrator | Security administrator
-Manage custom controls | Conditional Access administrator | Security administrator
-Manage named locations | Conditional Access administrator | Security administrator
-Manage terms of use | Conditional Access administrator | Security administrator
-Read all configuration | Security reader | Security administrator
-Read named locations | Security reader | Conditional Access administrator, security administrator
+Configure MFA trusted IP addresses | Conditional Access Administrator | 
+Create custom controls | Conditional Access Administrator | Security Administrator
+Create named locations | Conditional Access Administrator | Security Administrator
+Create policies | Conditional Access Administrator | Security Administrator
+Create terms of use | Conditional Access Administrator | Security Administrator
+Create VPN connectivity certificate | Conditional Access Administrator | Security Administrator
+Delete classic policy | Conditional Access Administrator | Security Administrator
+Delete terms of use | Conditional Access Administrator | Security Administrator
+Delete VPN connectivity certificate | Conditional Access Administrator | Security Administrator
+Disable classic policy | Conditional Access Administrator | Security Administrator
+Manage custom controls | Conditional Access Administrator | Security Administrator
+Manage named locations | Conditional Access Administrator | Security Administrator
+Manage terms of use | Conditional Access Administrator | Security Administrator
+Read all configuration | Security Reader | Security Administrator
+Read named locations | Security Reader | Conditional Access Administrator, Security Administrator
 
 ## Security - Identity security score
 
 Task | Least privileged role | Additional roles | 
 ---- | --------------------- | ----------------
-Read all configuration | Security reader | Security administrator
-Read security score | Security reader | Security administrator
-Update event status | Security administrator | 
+Read all configuration | Security Reader | Security Administrator
+Read security score | Security Reader | Security Administrator
+Update event status | Security Administrator | 
 
 ## Security - Risky sign-ins
 
@@ -329,22 +329,22 @@ Read users flagged for risk | Security Reader |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Add user to directory role | Privileged role administrator | 
-Add user to group | User administrator | 
-Assign license | License administrator | User administrator
-Create guest user | Guest inviter | User administrator
-Create user | User administrator | 
-Delete users | User administrator | 
-Invalidate refresh tokens of limited admins (see documentation) | User administrator | 
-Invalidate refresh tokens of non-admins (see documentation) | Password administrator | User administrator
+Add user to directory role | Privileged Role Administrator | 
+Add user to group | User Administrator | 
+Assign license | License Administrator | User Administrator
+Create guest user | Guest inviter | User Administrator
+Create user | User Administrator | 
+Delete users | User Administrator | 
+Invalidate refresh tokens of limited admins (see documentation) | User Administrator | 
+Invalidate refresh tokens of non-admins (see documentation) | Password Administrator | User Administrator
 Invalidate refresh tokens of privileged admins (see documentation) | Privileged Authentication Administrator | 
 Read basic configuration | Default User role ([see documentation](../fundamentals/users-default-permissions.md) | 
-Reset password for limited admins (see documentation) | User administrator | 
-Reset password of non-admins (see documentation) | Password administrator | User administrator
+Reset password for limited admins (see documentation) | User Administrator | 
+Reset password of non-admins (see documentation) | Password Administrator | User Administrator
 Reset password of privileged admins | Privileged Authentication Administrator | 
-Revoke license | License administrator | User administrator
-Update all properties except User Principal Name | User administrator | 
-Update User Principal Name for limited admins (see documentation) | User administrator | 
+Revoke license | License Administrator | User Administrator
+Update all properties except User Principal Name | User Administrator | 
+Update User Principal Name for limited admins (see documentation) | User Administrator | 
 Update User Principal Name property on privileged admins (see documentation) | Global Administrator | 
 Update user settings | Global Administrator | 
 Update Authentication methods | Authentication Administrator | Privileged Authentication Administrator, Global Administrator
@@ -359,4 +359,4 @@ Submit support ticket | Service Administrator | Application Administrator, Azure
 ## Next steps
 
 * [How to assign or remove azure AD administrator roles](manage-roles-portal.md)
-* [Azure AD administrator roles reference](permissions-reference.md)
+* [Azure AD built-in roles](permissions-reference.md)
