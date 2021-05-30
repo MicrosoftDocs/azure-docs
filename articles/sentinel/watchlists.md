@@ -49,7 +49,7 @@ Common scenarios for using watchlists include:
 
 1. Select **Next: Review and Create**.
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="watchlist source page":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="watchlist source page" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
     > [!NOTE]
     >
@@ -125,7 +125,7 @@ To use watchlists in analytics rules, from the Azure portal, navigate to **Azure
 
 To get a list of watchlist aliases, from the Azure portal, navigate to **Azure Sentinel** > **General** > **Logs**, and run the following query: `_GetWatchlistAlias`. You can see the list of aliases in the **Results** tab.
 
-   :::image type="content" source="./media/watchlists/sentinel-watchlist-alias.png" alt-text="list watchlists":::
+   :::image type="content" source="./media/watchlists/sentinel-watchlist-alias.png" alt-text="list watchlists" lightbox="./media/watchlists/sentinel-watchlist-alias.png":::
 
 ## Next steps
 In this document, you learned how to use watchlists in Azure Sentinel to enrich data and improve investigations. To learn more about Azure Sentinel, see the following articles:
