@@ -11,7 +11,7 @@ Bicep is a language for declaratively deploying Azure resources. We believe Bice
 
 You can use Bicep instead of JSON for developing your Azure Resource Manager templates (ARM templates). The JSON syntax for creating a JSON template can be verbose and require complicated expression. Bicep improves that experience without losing any of the capabilities of a JSON template. It's a transparent abstraction over the JSON for ARM templates. Each Bicep file compiles to a standard ARM template.
 
-Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file. There are a few [known limitations](#known-limitations) in the current release.
+Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file.
 
 To track the status of the Bicep work, see the [Bicep project repository](https://github.com/Azure/bicep).
 

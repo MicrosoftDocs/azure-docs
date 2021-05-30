@@ -89,11 +89,11 @@ param exampleInt int = 1
 
 For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
 
-Floating point, decimal or binary formats are not currently supported.
+Floating point, decimal or binary formats aren't currently supported.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). Each property in an object consists of key and value. The key and value are separated by a colon (`:`).
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`).
 
 In Bicep, the key isn't enclosed by quotes. Don't use commas to between properties.
 
@@ -106,7 +106,7 @@ param exampleObject object = {
 }
 ```
 
-Property accessors are used to access properties of an object. They are constructed using the `.` operator. For example:
+Property accessors are used to access properties of an object. They're constructed using the `.` operator. For example:
 
 ```bicep
 var x = {
@@ -120,17 +120,17 @@ var x = {
 
 Given the previous declaration, the expression x.y.z evaluates to the literal string 'Hello'. Similarly, the expression x.q evaluates to the integer literal 42.
 
-Property accessors can be used with any object. This includes parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
+Property accessors can be used with any object, including parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
 
 ## Strings
 
-In Bicep, strings are marked with singled quotes,and must be declared on a single line. All Unicode characters with codepoints between *0* and *10FFFF* are allowed.
+In Bicep, strings are marked with singled quotes, and must be declared on a single line. All Unicode characters with codepoints between *0* and *10FFFF* are allowed.
 
 ```bicep
 param exampleString string = 'test value'
 ```
 
-The following table lists the set of reserved characters which must be escaped by a backslash (`\`) character:
+The following table lists the set of reserved characters that must be escaped by a backslash (`\`) character:
 
 | Escape Sequence | Represented value | Notes |
 |:-|:-|:-|
@@ -140,14 +140,14 @@ The following table lists the set of reserved characters which must be escaped b
 | \r | carriage return (CR) ||
 | \t | tab character ||
 | \u{x} | Unicode code point *x* | *x* represents a hexadecimal codepoint value between *0* and *10FFFF* (both inclusive). Leading zeros are allowed. Codepoints above *FFFF* are emitted as a surrogate pair.
-| \$ | $ | Only needs to be escaped if it is followed by *{*. |
+| \$ | $ | Only needs to be escaped if it's followed by *{*. |
 
 ```bicep
 // evaluates to "what's up?"
 var myVar = 'what\'s up?'
 ```
 
-All strings in Bicep support interpolation. To inject an expression, surround it by *${* and *}`. Expressions that are referenced cannot span multiple lines.
+All strings in Bicep support interpolation. To inject an expression, surround it by *${* and *}`. Expressions that are referenced can't span multiple lines.
 
 ```bicep
 var storageName = 'storage${uniqueString(resourceGroup().id)}
