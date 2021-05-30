@@ -87,7 +87,7 @@ When you build a Nuxt.js site using `npm run build`, the app is built as a tradi
 
 ## Push your static website to GitHub
 
-Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a designated branch. Use the following commands sync your changes to GitHub.
+Azure Static Web Apps deploys your app from a GitHub repository and keeps doing so for every pushed commit to a designated branch. Use the following commands to sync your changes to GitHub.
 
 1. Stage all changed files:
 
@@ -143,7 +143,7 @@ The following steps show how to link the app you just pushed to GitHub to Azure 
 
 1. In the _App location_, enter **./** in the box.
 1. Leave the _Api location_ box empty.
-1. In the _Output location_ box, enter **out**.
+1. In the _Output location_ box, enter **dist**.
 
 ### Review and create
 
