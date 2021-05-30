@@ -8,7 +8,8 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.reviewer: cynthn
+ms.reviewer: cynthn 
+ms.custom: devx-track-azurepowershell
 ---
 # Preview: Create an Azure Image Builder template 
 

@@ -5,7 +5,8 @@ author: peterpogorski
 
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.author: pepogors
+ms.author: pepogors 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Infrastructure as code
