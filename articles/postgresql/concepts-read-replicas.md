@@ -31,7 +31,7 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 > Asynchronous read replicas are not suitable for such heavy write workloads. When evaluating read replicas for your application, monitor the lag on the replica for a full app work load cycle thru its peak and non-peak times to access the possible lag and the expected RTO/RPO at various points of the workload cycle.
 
 > [!NOTE]
-> Automatic backups are performed only from the primary servers and not from read replicas.
+> Automatic backups are performed for replica servers that are configured with up to 4TB storage configuration.
 
 ## Cross-region replication
 You can create a read replica in a different region from your primary server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.

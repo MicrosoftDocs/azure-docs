@@ -30,7 +30,7 @@ For servers which support up to 4-TB maximum storage, full backups occur once ev
 In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule. In a day, three differential snapshot backups are performed. Transaction log backups occur every five minutes. 
 
 > [!NOTE]
-> If you have configured [read replicas](./concepts-read-replicas.md), backups are performed only from the primary server.
+> If you have configured [read replicas](./concepts-read-replicas.md), automatic backups are performed for replica servers that are configured with up to 4TB storage configuration.
 
 ### Backup retention
 
