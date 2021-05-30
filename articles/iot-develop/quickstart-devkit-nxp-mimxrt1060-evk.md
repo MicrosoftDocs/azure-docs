@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 ---
 
 # Quickstart: Connect an NXP MIMXRT1060-EVK Evaluation kit to IoT Central
@@ -169,13 +169,6 @@ You can use the **Termite** app to monitor communication and confirm that your d
 	    Model id: dtmi:azurertos:devkit:gsg;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-
-    Receive twin properties: {"desired":{"$version":1},"reported":{"telemetryInterval":{"value":10,"ac":200,"av":1},"ledState":false,"deviceInformation":{"__t":"c","manufacturer":"NXP","model":"MIMXRT1060-EVK","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M7","processorManufacturer":"NXP","totalStorage":8192,"totalMemory":768},"$version":4}}
-    Device twin writeable property sent: {"telemetryInterval":{"value":10,"ac":200,"av":1}}
-    Device twin property sent: {"ledState":false}
-    Device twin property sent: {"deviceInformation":{"__t":"c","manufacturer":"NXP","model":"MIMXRT1060-EVK","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M7","processorManufacturer":"NXP","totalStorage":8192,"totalMemory":768}}.
-
-    Starting Main loop
     ```
 
 Keep Termite open to monitor device output in the following steps.
