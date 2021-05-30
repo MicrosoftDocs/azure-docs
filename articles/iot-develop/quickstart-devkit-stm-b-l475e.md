@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 ---
 
 # Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOTO1A Discovery kit to IoT Central
@@ -189,13 +189,6 @@ You can use the **Termite** app to monitor communication and confirm that your d
 	    Model id: dtmi:azurertos:devkit:gsg;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-
-    Receive twin properties: {"desired":{"$version":1},"reported":{"telemetryInterval":{"value":10,"ac":200,"av":1},"ledState":false,"deviceInformation":{"__t":"c","manufacturer":"STMicroelectronics","model":"B-L4S5I-IOT01A","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":8192,"totalMemory":768},"$version":4}}
-    Device twin writeable property sent: {"telemetryInterval":{"value":10,"ac":200,"av":1}}
-    Device twin property sent: {"ledState":false}
-    Device twin property sent: {"deviceInformation":{"__t":"c","manufacturer":"STMicroelectronics","model":"B-L4S5I-IOT01A","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":8192,"totalMemory":768}}.
-
-    Starting Main loop
     ```
     > [!IMPORTANT]
     > If the DNS client initialization fails and notifies you that the Wi-Fi firmware is out of date, you'll need to update the Wi-Fi module firmware. Download and install the [Inventek ISM 43362 Wi-Fi module firmware update](https://www.st.com/resource/en/utilities/inventek_fw_updater.zip). Then press the **Reset** button on the device to recheck your connection, and continue with this tutorial.
