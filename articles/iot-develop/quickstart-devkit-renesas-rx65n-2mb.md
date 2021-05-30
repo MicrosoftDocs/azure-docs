@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 0/01/2021
+ms.date: 06/01/2021
 ---
 
 # Quickstart: Connect a Renesas Starter Kit+ for RX65N-2MB to IoT Central
