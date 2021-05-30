@@ -19,7 +19,7 @@ The article describes how you can enable or disable zone redundant high availabi
 High availability feature provisions physically separate primary and standby replica in different zones. For more information, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). Enabling or disabling high availability does not change your other settings including VNET configuration, firewall settings, and backup retention. Disabling of high availability does not impact your application connectivity and operations.
 
 > [!IMPORTANT]
-> Zone redundant high availability is available in limited set of regions. Please review the supported regions [here](./overview.md#azure-regions). 
+> For the list of regions that support Zone redundant high availability, please review the supported regions [here](./overview.md#azure-regions). 
 
 ## Prerequisites
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -54,7 +54,7 @@ az postgres flexible-server create --name myservername --sku-name Standard-D2ds_
 
 ## Disable high availability
 
-You can disable high availability by using the [az postgres flexible-server update](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_update) command. Note that disabling high availability is only supported if the server was created with high availability. 
+You can disable high availability by using the [az postgres flexible-server update](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_update) command. Note that disabling high availability is only supported if the server is configured with high availability. 
 
 ```azurecli
 az postgres flexible-server update [--high-availability {Disabled, Enabled}]

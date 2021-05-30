@@ -577,8 +577,6 @@
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs using portal
         href: flexible-server/howto-configure-and-access-logs.md
-      - name: Configure audit log - CLI
-        href: flexible-server/how-to-configure-audit-log-cli.md  
 - name: Hyperscale (Citus)
   items:
   - name: Hyperscale (Citus) documentation

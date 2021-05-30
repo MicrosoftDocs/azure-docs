@@ -75,5 +75,6 @@ After the restore is completed, you should perform the following tasks to get yo
 - Configure alerts as appropriate for the newly restore server
 
 ## Next steps
-Learn more about [business continuity](concepts-business-continuity.md)
+* Learn about [business continuity](concepts-business-continuity.md)
+* Learn about [backup & recovery](concepts-backup-restore.md)  
 
