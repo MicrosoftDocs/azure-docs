@@ -6,13 +6,12 @@ summary: Find concepts, quickstarts, tutorials, and samples for SQL Server insta
 metadata:
   title: SQL Server on Azure VM documentation
   description: Find documentation about SQL Server installed to Azure virtual machines, both Windows and Linux.
-  services: sql-database
-  ms.service: sql-database
-  ms.subservice: single-database
+  services: virtual-machines-sql
+  ms.service:  virtual-machines-sql
+  ms.subservice: service-overview
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: sstein
   ms.date: 05/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

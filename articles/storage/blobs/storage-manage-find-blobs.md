@@ -1,15 +1,15 @@
 ---
 title: Manage and find Azure Blob data with blob index tags (preview)
 description: Learn how to use blob index tags to categorize, manage, and query for blob objects.
-author: twooley
+author: normesta
 
-ms.author: twooley
-ms.date: 03/18/2021
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Manage and find Azure Blob data with blob index tags (preview)
@@ -282,7 +282,7 @@ Blob index pricing is in public preview and subject to change for general availa
 
 ## Regional availability and storage account support
 
-Blob index tags are only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts aren't supported but you can upgrade any GPv1 account to a GPv2 account.
+Blob index tags are only available on general-purpose v2 accounts with hierarchical namespace (HNS) disabled. General-purpose v1 accounts aren't supported, but you can upgrade any general-purpose v1 account to a general-purpose v2 account.
 
 Index tags aren't supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
@@ -316,7 +316,7 @@ az provider register --namespace 'Microsoft.Storage'
 This section describes known issues and conditions in the public preview of blob index tags. This feature shouldn't be used for production workloads until it reaches general availability (GA) as behavior may change.
 
 - For preview, you must first register your subscription before you can use blob index for your storage account in the preview regions.
-- Only GPv2 accounts are supported in preview. Blob, BlockBlobStorage, and HNS enabled DataLake Gen2 accounts aren't supported. GPv1 accounts won't be supported.
+- Only general-purpose v2 accounts are supported in preview. Premium block blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 - When filtering is scoped to a single container, the `@container` can only be passed if all the index tags in the filter expression are equality checks (key=value).
 - When using the range operator with the `AND` condition, you can only specify the same index tag key name (`"Age" > '013' AND "Age" < '100'`).

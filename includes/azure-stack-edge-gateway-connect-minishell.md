@@ -77,7 +77,7 @@ Follow these steps to remotely connect from a Windows client.
     [1HXQG13.wdshcsso.com]: PS>
     ```
 
-When you use the `-UseSSL` option, you are remoting via PowerShell over *https*. We recommend that you always use *https* to remotely connect via PowerShell.
+When you use the `-UseSSL` option, you are remoting via PowerShell over *https*. We recommend that you always use *https* to remotely connect via PowerShell. Within trusted networks, remoting via PowerShell over http is acceptable. You first enable remote PowerShell over http in the local UI. Then you can connect to PowerShell interface of the device by using the preceding procedure without the `-UseSSL` option.
 
 If you are not using the certificates (we recommend that you use the certificates!), you can skip the certificate validation check by using the session options: `-SkipCACheck -SkipCNCheck -SkipRevocationCheck`.
 
