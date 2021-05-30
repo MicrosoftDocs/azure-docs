@@ -68,14 +68,6 @@ Bicep automatically manages dependencies between resources. You can avoid settin
 
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
 
-## Known limitations
-
-The following limits currently exist:
-
-* No support for `apiProfile`, which is used to map profile version to an API version for each resource type.
-* Bicep is newline sensitive.
-* Single-line object and arrays, like `['a', 'b', 'c']`, aren't supported.
-
 ## FAQ
 
 **Why create a new language instead of using an existing one?**
