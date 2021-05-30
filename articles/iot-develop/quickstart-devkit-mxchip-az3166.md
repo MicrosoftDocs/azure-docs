@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Central
@@ -148,7 +148,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-	    MAC address: ***
+	    MAC address: C8:93:46:8A:4C:43
 	    Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
@@ -180,13 +180,6 @@ You can use the **Termite** app to monitor communication and confirm that your d
 	    Model id: dtmi:azurertos:devkit:gsgmxchip;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-
-    Receive twin properties: {"desired":{"$version":1},"reported":{"telemetryInterval":{"value":10,"ac":200,"av":1},"ledState":false,"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128},"$version":7}}
-    Device twin writeable property sent: {"telemetryInterval":{"value":10,"ac":200,"av":1}}
-    Device twin property sent: {"ledState":false}
-    Device twin property sent: {"deviceInformation":{"__t":"c","manufacturer":"MXCHIP","model":"AZ3166","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"Arm Cortex M4","processorManufacturer":"STMicroelectronics","totalStorage":1024,"totalMemory":128}}.
-
-    Starting Main loop
     ```
 
 Keep Termite open to monitor device output in the following steps.
