@@ -243,7 +243,7 @@ You can find the details of the Recovery Services vault on the Azure Migrate: Se
 >[!Note]
 > For migrating Hyper-V VMs to Azure using private link, you must grant access to both the replication storage account and cache storage account.
 
-The role permissions for the resource manager vary depending on the type of the storage account.
+The role permissions for the Resource Manager vary depending on the type of the storage account.
 
 |**Storage Account Type** | **Role Permissions**|
 |--- | ---|
