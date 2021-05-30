@@ -384,7 +384,7 @@ Determine if current built-in Azure AD administrator roles are still up to date 
 
 For more information, see [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md).
 
-#### Review members of [built-in Microsoft 365 administrator roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
+#### Review members of [built-in Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Skip this step if you're not using Microsoft 365.
 ‎
 #### Validate incident response plan
