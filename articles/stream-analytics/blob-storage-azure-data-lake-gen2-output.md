@@ -47,6 +47,10 @@ When you're using Blob storage as output, a new file is created in the blob in t
 * If the output is partitioned by a custom field, and a new blob is created per partition key if it does not exist.
 * If the output is partitioned by a custom field where the partition key cardinality exceeds 8,000, and a new blob is created per partition key.
 
+## Note
+
+Stream Analytics appends to the same file in cases where a new blob file is not needed. Please note that this could cause additional triggers to be generated if azure services like event grid are configured to be triggered on blob file update
+
 ## Partitioning
 
 For partition key, use {date} and {time} tokens from your event fields in the path pattern. Choose the date format, such as YYYY/MM/DD, DD/MM/YYYY, or MM-DD-YYYY. HH is used for the time format. Blob output can be partitioned by a single custom event attribute {fieldname} or {datetime:\<specifier>}. The number of output writers follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md).
