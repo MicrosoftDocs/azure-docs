@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 ---
 
 # Quickstart: Connect a Renesas RX65N Cloud Kit to IoT Central
@@ -186,8 +186,8 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-	    Connecting to SSID 'JimacoNet'
-    SUCCESS: WiFi connected to JimacoNet
+	    Connecting to SSID 'iot'
+    SUCCESS: WiFi connected to iot
 
     Initializing DHCP
 	    IP address: 192.168.0.21
@@ -216,13 +216,6 @@ You can use the **Termite** app to monitor communication and confirm that your d
 	    Model id: dtmi:azurertos:devkit:gsgrx65ncloud;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-
-    Receive twin properties: {"desired":{"$version":1},"reported":{"telemetryInterval":{"value":10,"ac":200,"av":1},"ledState":false,"deviceInformation":{"__t":"c","manufacturer":"Renesas","model":"RX65N Cloud Kit","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"RX65N","processorManufacturer":"Renesas","totalStorage":2048,"totalMemory":640},"$version":4}}
-    Device twin writeable property sent: {"telemetryInterval":{"value":10,"ac":200,"av":1}}
-    Device twin property sent: {"ledState":false}
-    Device twin property sent: {"deviceInformation":{"__t":"c","manufacturer":"Renesas","model":"RX65N Cloud Kit","swVersion":"1.0.0","osName":"Azure RTOS","processorArchitecture":"RX65N","processorManufacturer":"Renesas","totalStorage":2048,"totalMemory":640}}.
-
-    Starting Main loop
     ```
 
 Keep Termite open to monitor device output in the following steps.
