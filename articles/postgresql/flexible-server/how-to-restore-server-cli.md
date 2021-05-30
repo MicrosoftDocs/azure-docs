@@ -3,7 +3,7 @@ title: Restore Azure Database for PostgreSQL - Flexible Server with Azure CLI
 description: This article describes how to perform restore operations in Azure Database for PsotgreSQL through the Azure CLI.
 author: mksuni
 ms.author: sumuth
-ms.service: postgres
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/29/2021
 ---

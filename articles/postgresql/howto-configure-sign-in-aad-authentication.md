@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 05/26/2021
 ---
 
 # Use Azure Active Directory for authentication with PostgreSQL

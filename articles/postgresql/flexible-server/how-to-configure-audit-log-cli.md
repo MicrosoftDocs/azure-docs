@@ -3,7 +3,7 @@ title: Configure audit logs with Azure CLI - Azure Database for PostgreSQL - Fle
 description: This article describes how to configure and access the audit logs in Azure Database for PostgreSQL Flexible Server from the Azure CLI.
 author: mksuni
 ms.author: sumuth
-ms.service: postgres
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/29/2021
 ---
@@ -13,7 +13,7 @@ ms.date: 05/29/2021
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is currently in public preview.
 
-The article shows you how to configure [audit logs](concepts-audit-logs.md) for your PostgreSQL flexible server using Azure CLI.
+The article shows you how to configure [audit logs](concepts-audit.md) for your PostgreSQL flexible server using Azure CLI.
 
 ## Prerequisites
 
@@ -54,4 +54,4 @@ az postgres flexible-server parameter set \
 ```
 
 ## Next steps
-- Learn more about [Audit logs](concepts-audit-logs.md)
+- Learn more about [Audit logs](concepts-audit.md)
