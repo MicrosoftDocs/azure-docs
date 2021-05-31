@@ -209,8 +209,8 @@ Request Body
 
 For automated deployments, using an interactive login to give an ASA job access to a Power BI workspace is not possible. This can be done be using service principal to grant permission for an ASA job's managed identity. This is possible using PowerShell:
 
-    Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>"
-    Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>"
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
 
 
 ## Remove Managed Identity
