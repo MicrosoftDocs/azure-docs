@@ -119,7 +119,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 1. Select **Create** to create the function project and HTTP trigger function.
 
-Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends an HTTP response that includes a value from the request body or query string. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. 
+Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends a "Welcome to Azure Functions!" HTTP response. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. 
 
 ## Rename the function
 
