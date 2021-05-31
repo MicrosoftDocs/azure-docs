@@ -179,7 +179,8 @@
       items:
       - name: Understand sensor alerts
         href: how-to-work-with-alerts-on-your-sensor.md
-      - name: Filter and manage alerts from the Alerts page 
+      - name: Filter and manage alerts from the Alerts page
+        displayName: alert, alerts, Important, pinned, recent, acknowledge, archive, archived, search, text,  
         href: how-to-view-alerts.md
       - name: About alert messages
         href: how-to-view-information-provided-in-alerts.md
