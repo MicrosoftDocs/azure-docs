@@ -70,13 +70,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section:
-
-   1. In the **Sign on URL** text box, enter the URL `https://secure.loginradius.com/login`
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
    1. In the **Identifier (Entity ID)** text box, enter the URL `https://lr.hub.loginradius.com/`
 
    1. In the **Reply URL (Assertion Consumer Service URL)** textbox, enter the LoginRadius ACS URL `https://lr.hub.loginradius.com/saml/serviceprovider/AdfsACS.aspx` 
+
+   1. In the **Sign on URL** text box, enter the URL `https://secure.loginradius.com/login`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
