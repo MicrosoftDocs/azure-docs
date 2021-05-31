@@ -544,9 +544,7 @@
       - name: Dow Jones Factiva
         href: dowjones-factiva-tutorial.md
       - name: Darwinbox
-        href: darwinbox-tutorial.md
-      - name: Draup, Inc
-        href: draup-inc-tutorial.md  
+        href: darwinbox-tutorial.md  
       - name: Drift
         href: drift-tutorial.md
       - name: Dropbox Business
