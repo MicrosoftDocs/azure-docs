@@ -92,17 +92,17 @@ The response includes classifying whether each text line is of handwriting style
 
 :::image type="content" source="./media/layout-handwriting-classification.png" alt-text="handwriting classification example":::
 
-### Tables with headers
-
-Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Tables can be complex with merged cells or columns, with or without borders, and with odd angles. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding box is output along with information whether it's recognized as part of a header or not. The model predicted header cells can span multiple rows and are not necessarily the first rows in a table. They also work with rotated tables. Each table cell also includes the full text with references to the individual words in the `readResults` section.
-
-![Tables example](./media/layout-table-header-demo.gif)
-
 ### Selection marks
 
 Layout API also extracts selection marks from documents. Extracted selection marks include the bounding box, confidence, and state (selected/unselected). Selection mark information is extracted in the `readResults` section of the JSON output.
 
 :::image type="content" source="./media/layout-selection-marks.png" alt-text="Layout selection marks output":::
+
+### Tables with headers
+
+Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Tables can be complex with merged cells or columns, with or without borders, and with odd angles. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding box is output along with information whether it's recognized as part of a header or not. The model predicted header cells can span multiple rows and are not necessarily the first rows in a table. They also work with rotated tables. Each table cell also includes the full text with references to the individual words in the `readResults` section.
+
+![Tables example](./media/layout-table-header-demo.gif)
 
 ## Next steps
 
