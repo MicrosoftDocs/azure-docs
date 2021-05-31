@@ -31,7 +31,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### Updated articles
 
-- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
 - [Developers’ guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
 - [How to: Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)
 - [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
