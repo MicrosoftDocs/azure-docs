@@ -2,7 +2,8 @@
 title: Deploy a Service Fabric managed cluster application using ARM template
 description: Deploy an application to a Azure Service Fabric managed cluster using an Azure Resource Manager template.
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 5/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Deploy a Service Fabric managed cluster application using ARM template
 
