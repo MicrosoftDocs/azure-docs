@@ -164,7 +164,7 @@ If the DNS resolution is incorrect, follow these steps:
 
 - **Tip:** You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the storage account FQDN link, _storageaccountname_.blob.core.windows.net, and the associated private IP address. This option is recommended only for testing. 
 - If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration). 
-- If you use Azure-provided DNS servers, use this guide as a reference for further troubleshooting [for further troubleshooting.](https://docs.microsoft.com/en-us/azure/migrate/troubleshoot-network-connectivity#validate-the-private-dns-zone).   
+- If you use Azure-provided DNS servers, use this guide as a reference for further troubleshooting [for further troubleshooting.](./troubleshoot-network-connectivity#validate-the-private-dns-zone)   
 
 ## Replicate data by using an ExpressRoute circuit with Microsoft peering
 
