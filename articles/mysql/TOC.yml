@@ -525,6 +525,12 @@
             href: flexible-server/how-to-configure-audit-log-cli.md
   - name: Replication
     items:
+      - name: Data-in replication
+        href: flexible-server/concepts-data-in-replication.md
+        displayName: replication, read replica
+      - name: Configure data-in replication
+        href: flexible-server/howto-data-in-replication.md
+        displayName: data-in replication, replica, failover
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
       - name: Create read replicas
