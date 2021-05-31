@@ -164,38 +164,45 @@ We try to minimize the amount of data transfer in each replication cycle by allo
 
 ### Throttling
 
-You can increase or decrease the replication bandwidth using the _NetQosPolicy._ The _AppNamePrefix_ to use in the _NetQosPolicy_ is "GatewayWindowsService.exe". You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
+You can increase or decrease the replication bandwidth using the _NetQosPolicy._ The _AppNamePrefix_ to use in the _NetQosPolicy_ is "GatewayWindowsService.exe". 
 
-New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 
-Note: This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
+    New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
 
-You can also increase and decrease replication bandwidth based on a schedule using the [sample script](https://docs.microsoft.com/en-us/azure/migrate/common-questions-server-migration#how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication).
+> [!NOTE]
+> This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
+
+You can also increase and decrease replication bandwidth based on a schedule using the [sample script](https://docs.microsoft.com/azure/migrate/common-questions-server-migration#how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication).
 
 ### Blackout window
 
 Azure Migrate provides a configuration-based mechanism through which customers can specify the time interval during which they don't want any replications to proceed. This time interval is called the blackout window. The need for a blackout window can arise in multiple scenarios such as when the source environment is resource constrained, when customers want replication to go through only non-business hours, etc.
 
-Note: The existing replication cycles at the start of the blackout window will complete before the replication pauses.
+> [!NOTE]
+> The existing replication cycles at the start of the blackout window will complete before the replication pauses.
 
-![](RackMultipart20210531-4-qcvtaj_html_777c5005e20d1fe3.gif)A blackout window can be specified for the appliance by creating/updating the file GatewayDataWorker.json in C:\ProgramData\Microsoft Azure\Config. A typical file would be of the form:
+A blackout window can be specified for the appliance by creating/updating the file GatewayDataWorker.json in C:\ProgramData\Microsoft Azure\Config. A typical file would be of the form:
 
-{
-
-"BlackoutWindows": "List of blackout windows"
-
-}
-
+    {
+    
+    "BlackoutWindows": "List of blackout windows"
+    
+    }
+    
 The list of blackout windows is a "|" delimited string of the format "DayOfWeek;StartTime;Duration". The duration can be specified in days, hours, and minutes. For example, the blackout windows can be specified as:
 
-{
-
-"BlackoutWindows": "Monday;7:00;7h | Tuesday;8:00;1d7h | Wednesday;16:00;1d | Thursday;18:00;5h | Friday;13:00;8m"
-
-}
-
+    {
+    
+    "BlackoutWindows": "Monday;7:00;7h | Tuesday;8:00;1d7h | Wednesday;16:00;1d | Thursday;18:00;5h | Friday;13:00;8m"
+    
+    }
+    
 The first value in the above example indicates a blackout window starting every Monday at 7:00 AM local time (time on the appliance) and lasting 7 hours.
 
 Once the GatewayDataWorker.json is created/updated with these contents, the Gateway service on the appliance needs to be restarted for these changes to take effect.
 
 In case of the scale-out scenario, the primary appliance and the scale-out appliance honor the blackout windows independently. As best practice, we recommend keeping the windows consistent across appliances.
+
+## Next steps
+[Migrate VMware VMs](tutorial-migrate-vmware.md) with agentless migration.
