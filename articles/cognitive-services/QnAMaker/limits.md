@@ -63,7 +63,7 @@ Maximum number of metadata fields per knowledge base is based on your **[Azure C
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-The number of metadata fields is limited by your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**. For GA version, since the test index is shared across all the KBs, the limit is applied across all KBs in the QnA Maker services.
+For GA version, since the test index is shared across all the KBs, the limit is applied across all KBs in the QnA Maker services.
 
 |**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -71,9 +71,20 @@ The number of metadata fields is limited by your **[Azure Cognitive Search tier 
 
 # [Custom question answering (preview release)](#tab/v2)
 
-The number of metadata fields is limited by your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**. For custom question answering:
+For custom question answering:
 1.	if you choose to have multiple language KBs, there is a dedicated test index per KB. So you can have 1000 metadata per KB in that case.
+
+|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|Maximum metadata fields per QnA Maker service (per KB)|1,000|100*|1,000|1,000|1,000|1,000|
+
 2.	If you don’t choose the multiple KB option, then the limits are applied across all KBs in the QnA Maker services.
+
+|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|Maximum metadata fields per QnA Maker service (across all KB)|1,000|100*|1,000|1,000|1,000|1,000|
+
+---
 
 ### By name and value
 
