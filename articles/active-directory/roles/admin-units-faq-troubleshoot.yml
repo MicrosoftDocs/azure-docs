@@ -82,13 +82,6 @@ sections:
           Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units).
           
           Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit) in Microsoft Graph.
-          
-      - question: |
-          Next steps
-        answer: |
-          - [Restrict scope for roles by using administrative units](administrative-units.md)
-          - [Manage administrative units](admin-units-manage.md)
-          
 
 additionalContent: |
 

@@ -24,7 +24,7 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          I'm a Groups Administrator but I can't see the **Azure AD roles can be assigned to the group** switch.
+          I'm a Groups Administrator but I can't see the 'Azure AD roles can be assigned to the group' switch.
         answer: |
           Only Privileged Role administrators or Global administrators can create a group that's eligible for role assignment. Only users in those roles see this control.
 
