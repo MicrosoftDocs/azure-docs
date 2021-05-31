@@ -20,7 +20,7 @@ This article describes some patterns appropriate for use with Table service solu
 The pattern map above highlights some relationships between patterns (blue) and anti-patterns (orange) that are documented in this guide. There are of many other patterns that are worth considering. For example, one of the key scenarios for Table Service is to use the [Materialized View Pattern](/previous-versions/msp-n-p/dn589782(v=pandp.10)) from the [Command Query Responsibility Segregation (CQRS)](/previous-versions/msp-n-p/jj554200(v=pandp.10)) pattern.  
 
 ## Intra-partition secondary index pattern
-Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values. Updates between copies can be kept consistent using EGTs.  
+Store multiple copies of each entity using different **RowKey** values (in the same partition) to enable fast and efficient lookups and alternate sort orders by using different **RowKey** values. Updates between copies can be kept consistent using entity group transactions (EGTs).  
 
 ### Context and problem
 The Table service automatically indexes entities using the **PartitionKey** and **RowKey** values. This enables a client application to retrieve an entity efficiently using these values. For example, using the table structure shown below, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the **PartitionKey** and **RowKey** values). A client can also retrieve entities sorted by employee ID within each department.

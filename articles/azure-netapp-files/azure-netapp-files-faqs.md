@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 05/25/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -193,10 +193,6 @@ If you are using Azure NetApp Files with Azure Active Directory Domain Services,
 
 Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Directory Domain Services.
 
-### Why does the available space on my SMB client not show the provisioned size?
-
-The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
-
 ### I’m having issues connecting to my SMB share. What should I do?
 
 As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
@@ -320,6 +316,10 @@ The requirements for data migration from on premises to Azure NetApp Files are a
 - Validate network connectivity between the source and the Azure NetApp Files target volume IP address. Data transfer between on premises and the Azure NetApp Files service is supported over ExpressRoute.
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
+
+### Where does Azure NetApp Files store customer data?   
+
+By default, your data stays within the region where you deploy your Azure NetApp Files volumes. However, you can choose to replicate your data on a volume-by-volume basis to available destination regions using [cross-region replication](cross-region-replication-introduction.md).
 
 ### How do I create a copy of an Azure NetApp Files volume in another Azure region?
 	

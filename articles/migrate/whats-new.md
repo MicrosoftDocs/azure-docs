@@ -13,6 +13,9 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (May 2021)
+- Migration of VMs and physical servers with OS disks up to 4 TB is now supported using the agent-based migration method.
+
 ## Update (March 2021)
 - Support to provide multiple server credentials on Azure Migrate appliance to discover installed applications (software inventory), agentless dependency analysis and discover SQL Server instances and databases in your VMware environment. [Learn more](tutorial-discover-vmware.md#provide-server-credentials)
 - Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. [Learn More](concepts-azure-sql-assessment-calculation.md) Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-sql.md) tutorials to get started.

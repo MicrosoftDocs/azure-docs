@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/30/2021
+ms.date: 03/30/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps

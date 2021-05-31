@@ -13,6 +13,8 @@
     href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
   - name: Veeam getting started guide
     href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+  - name: DobiProtect getting started guide
+    href: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
   expanded: false
 - name: Container solution partners
   items:
@@ -32,4 +34,6 @@
   items:
   - name: Overview of validated partners
     href: .\validated-partners\primary-secondary-storage\partner-overview.md
+  - name: ISV file services
+    href: .\validated-partners\primary-secondary-storage\isv-file-services.md
   expanded: false

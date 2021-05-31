@@ -3,7 +3,8 @@ author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
-ms.author: parkerra
+ms.author: parkerra 
+ms.custom: devx-track-azurepowershell
 ---
 ## Create a Spatial Anchors resource
 

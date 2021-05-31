@@ -6,7 +6,8 @@ ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
-ms.author: rogarana
+ms.author: rogarana 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Part one: enable AD DS authentication for your Azure file shares 

@@ -1,14 +1,16 @@
 ---
-title: Detect motion & record video on edge devices - Azure
-description: This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze the live video feed from a (simulated) IP camera, detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device.
+title: Detect motion & record video on edge devices with Live Video Analytics - Azure
+description: This quickstart shows you how to use Azure Live Video Analytics on IoT Edge to analyze the live video feed from a (simulated) IP camera, detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 
 ---
 
-# Quickstart: Detect motion and record video on edge devices
+# Quickstart: Detect motion and record video on edge devices with Live Video Analytics
  
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This quickstart shows you how to use Live Video Analytics on IoT Edge to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream. 
 
 ::: zone pivot="programming-language-csharp"

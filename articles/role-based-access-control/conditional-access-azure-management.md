@@ -39,6 +39,8 @@ The policy you create applies to all Azure management endpoints, including the f
 - Visual Studio subscriptions administrator portal
 - Azure DevOps
 - Azure Data Factory portal
+- Azure Event Hubs
+- Azure Service Bus
 - [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/conditional-access-configure)
 - SQL Managed Instance
 - Azure Synapse

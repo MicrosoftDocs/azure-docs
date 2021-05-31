@@ -10,11 +10,10 @@ services: iot-central
 ms.custom: mvc
 
 # Device groups, jobs, use dashboards and create personal dashboards
+# This article applies to operators.
 ---
 
 # IoT Central operator guide
-
-*This article applies to operators.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for operators who use an IoT Central application to manage IoT devices.
 
