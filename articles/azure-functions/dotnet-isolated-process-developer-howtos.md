@@ -121,9 +121,19 @@ In Azure Functions, a function project is a container for one or more individual
 
 Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends an HTTP response that includes a value from the request body or query string. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request. 
 
-[!INCLUDE [functions-vstools-rename](../../includes/functions-vstools-rename.md)]
+## Rename the function
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="9-13":::
+The `FunctionName` method attribute sets the name of the function, which by default is generated as `Function1`. Since the tooling doesn't let you override the default function name when you create your project, take a minute to create a better name for the function class, file, and metadata.
+
+1. In **File Explorer**, right-click the Function1.cs file and rename it to `HttpExample.cs`.
+
+1. In the code, rename the Function1 class to `HttpExample`.
+
+1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample` and the value passed to the `GetLogger` method.
+
+Your function definition should now look like the following code:
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs" range="9-15":::
  
 Now that you've renamed the function, you can test it on your local computer.
 
