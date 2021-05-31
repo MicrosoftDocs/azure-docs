@@ -69,9 +69,9 @@ Returns an object that represents the current resource group.
 
 The resourceGroup function has two distinct uses. One usage is for setting the scope on a [module](modules.md#configure-module-scopes) or [extension resource type](scope-extension-resources.md). The other usage is for getting details about the current resource group. The placement of the function determines its usage. When used to set the `scope` property, it returns a scope object.
 
-`resourceGroup()` can be used for either setting scope or getting details about the resource group. It's only available for resource group deployments.
+`resourceGroup()` can be used for either setting scope or getting details about the resource group.
 
-`resourceGroup(resourceGroupName)` and `resourceGroup(subscriptionId, resourceGroupName)` can only be used for setting scope. They can be used for resource group or subscription deployments.
+`resourceGroup(resourceGroupName)` and `resourceGroup(subscriptionId, resourceGroupName)` can only be used for setting scope.
 
 ### Parameters
 
@@ -163,8 +163,6 @@ The subscription function has two distinct uses. One usage is for setting the sc
 `subscription(subscriptionId)` can only be used for setting scope.
 
 `subscription()` can be used for setting scope or getting details about the subscription.
-
-The subscription function is only available for deployments scoped to a subscription or resource group.
 
 ### Parameters
 
