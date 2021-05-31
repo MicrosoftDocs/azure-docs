@@ -23,11 +23,11 @@ To learn about Bicep, see the following video.
 
 To start with Bicep, [install the tools](./install.md).
 
-After installing the tools, try the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
+After installing the tools, try the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md). The tutorial series walks you through the structure and capabilities of Bicep.
 
 To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
 
-If you have an existing ARM template that you would like to convert to Bicep, see [Converting ARM templates between JSON and Bicep](./decompile.md).
+If you have an existing ARM template that you would like to decompile to Bicep, see [Decompile ARM templates to Bicep](./decompile.md).
 
 ## Benefits of Bicep versus other tools
 
@@ -96,7 +96,7 @@ Bicep is a DSL focused on deploying complete solutions to Azure. Meeting that go
 
 They continue to function exactly as they always have. You don't need to make any changes. We'll continue to support the underlying ARM template JSON language. Bicep files compile to JSON, and that JSON is sent to Azure for deployment.
 
-When you're ready, you can [convert the JSON files to Bicep](./decompile.md).
+When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
 ## Next steps
 
