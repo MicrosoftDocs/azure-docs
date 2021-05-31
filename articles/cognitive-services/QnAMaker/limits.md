@@ -57,9 +57,7 @@ The maximum number of deep-links that can be crawled for extraction of QnAs from
 
 Metadata is presented as a text-based key:value pair, such as `product:windows 10`. It is stored and compared in lower case.
 
-### By Azure Cognitive Search pricing tier
-
-Maximum number of metadata fields per knowledge base is based on your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**.
+Maximum number of metadata fields is based on your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**.
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
