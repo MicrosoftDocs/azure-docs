@@ -1,5 +1,5 @@
 ---
-title: Azure Migrate agentless replication of VMware virtual machines concepts 
+title: Agentless replication of VMware virtual machines concepts 
 description: Describes concepts related to agentless migration of VMware VMs in Azure Migrate.
 author: anvar-ms
 ms.author: anvar
@@ -138,7 +138,7 @@ We use the following constraints to ensure that we don't exceed the IOPS limits 
 
 Azure Migrate supports concurrent replication of 500 virtual machines. When you are planning to replicate more than 300 virtual machines, you must deploy a scale-out appliance. The scale-out appliance is similar to an Azure Migrate primary appliance but consists only of gateway agent to facilitate data transfer to Azure. The following diagram shows the recommended way to use the scale-out appliance.
 
-![Migration steps](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
+![Scale-out configuration](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
 
 Note that you can deploy the scale-out appliance any time after configuring the primary appliance until there are 300 VMs replicating concurrently. When there are 300 VMs replicating concurrently, you must deploy the scale-out appliance to proceed.
@@ -168,12 +168,12 @@ You can increase or decrease the replication bandwidth using the _NetQosPolicy._
 
 You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 
-    New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+```New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB```
 
 > [!NOTE]
 > This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
 
-You can also increase and decrease replication bandwidth based on a schedule using the [sample script](https://docs.microsoft.com/azure/migrate/common-questions-server-migration#how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication).
+You can also increase and decrease replication bandwidth based on a schedule using the [sample script](https://go.microsoft.com/fwlink/?linkid=2165036).
 
 ### Blackout window
 
@@ -184,19 +184,24 @@ Azure Migrate provides a configuration-based mechanism through which customers c
 
 A blackout window can be specified for the appliance by creating/updating the file GatewayDataWorker.json in C:\ProgramData\Microsoft Azure\Config. A typical file would be of the form:
 
-    {
+```
+{
     
     "BlackoutWindows": "List of blackout windows"
     
-    }
+}
+```
+
     
 The list of blackout windows is a "|" delimited string of the format "DayOfWeek;StartTime;Duration". The duration can be specified in days, hours, and minutes. For example, the blackout windows can be specified as:
 
-    {
+```
+{
     
     "BlackoutWindows": "Monday;7:00;7h | Tuesday;8:00;1d7h | Wednesday;16:00;1d | Thursday;18:00;5h | Friday;13:00;8m"
     
-    }
+}
+```
     
 The first value in the above example indicates a blackout window starting every Monday at 7:00 AM local time (time on the appliance) and lasting 7 hours.
 
