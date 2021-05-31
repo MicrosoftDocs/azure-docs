@@ -184,7 +184,7 @@ ADF may still use Managed VNet IR, but you could encounter such error because th
 - Having private endpoint enabled on the source and also the sink side when using the Managed VNet IR.
 - If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, ADF may still use the Managed VNet IR if the Managed VNet IR is still there.
 
-##  Sharing Self-hosted Integration Runtime
+## Sharing Self-hosted Integration Runtime
 
 ### Sharing a self-hosted IR from a different tenant is not supported 
 
