@@ -76,7 +76,7 @@ Select *Room.json* to open it in the editing window, and change it in the follow
 After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
 
 > [!NOTE]
-> After editing the Room.json file in the previous section, stop the project console and then run it again before uploading the model to Azure Digital Twins for the edits to be reflected.
+> After editing the Room.json file in the previous section, stop the app and then run it again before uploading the model to Azure Digital Twins for the edits to be reflected.
 
 1. In the project console window, run the following command to upload your updated Room model, as well as a Floor model that you'll also use in the next section to create different types of twins.
 
