@@ -59,7 +59,7 @@ Metadata is presented as a text-based key:value pair, such as `product:windows 1
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-For GA version, since the test index is shared across all the KBs, the limit is applied across all KBs in the QnA Maker services.
+For GA version, since the test index is shared across all the KBs, the limit is applied across all KBs in the QnA Maker service.
 
 |**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -77,7 +77,7 @@ If you don't choose the option to have KBs in multiple langauges, then the limit
 
 |**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum metadata fields per QnA Maker service (across all KB)|1,000|100*|1,000|1,000|1,000|1,000|
+|Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
 
 ---
 
