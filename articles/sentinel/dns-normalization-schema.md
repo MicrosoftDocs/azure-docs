@@ -40,7 +40,7 @@ If your data source supports full DNS logging and you've chosen to log multiple 
 For example, you might modify your query with the following normalization:
 
 ```kql
-imDNS | where SrcIpAddre != "127.0.0.1" and EventSubType == "response"
+imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 ```
 
 ## Parsers
