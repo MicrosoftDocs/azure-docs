@@ -157,8 +157,8 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 | Azure Data Lake Storage Gen2 | Yes |
 | Azure Database for MySQL \* | Yes | 
 | Azure Database for PostgreSQL \* | Yes |
-| Azure SQL Managed Instance \* | Yes | 
 | Azure SQL Database \* | Yes |
+| Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes |
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
