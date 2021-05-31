@@ -66,7 +66,16 @@ Learned events can be unlearned. When the sensor unlearns events, it will retrig
 
     :::image type="content" source="media/how-to-work-with-alerts-sensor/unlearn.png" alt-text="Select Unlearn to unlearn an event.":::
 
-After an event is unlearned, it will move back to the Main View page. 
+After an event is unlearned, it will move back to the Main View page.
+
+**To see if an alert was learned, or acknowledged**:
+
+1. Navigate to the Event Timeline tab :::image type="icon" source="media/how-to-work-with-alerts-sensor/event-timeline.png" border="false":::
+
+1. Locate your alert in the timeline.
+
+The information will be listed in the alert window. 
+ 
 ## About acknowledging and unacknowledging events
 
 In certain situations, you might not want a sensor to learn a detected event, or the option might not be available. Instead, the incident might require mitigation. For example:
