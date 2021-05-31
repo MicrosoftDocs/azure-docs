@@ -79,6 +79,32 @@ If you'd like to use Azure portal to enable AGIC add-on, go to [(https://aka.ms/
 
 ![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
+## Give permissions to Azure identity created by Application Gateway Ingress Controller add-on
+We need give permissions to Azure identity created by Application Gateway Ingress Controller add-on (ingressapplicationgateway-myCluster) under MC_myCluster resourceGroup. This identity will be used by AGIC to perform updates on the Application Gateway. Use [Cloud Shell](https://shell.azure.com/) to run all of the following commands:
+1. For the role assignment commands below we need to obtain ingressapplicationgateway-myCluster `identityId` :
+```bash
+agwId=$(az aks show -n aks-soap-prod-eaus -g rg-soap-prod-eaus --query addonProfiles.ingressApplicationGateway.identity.resourceId -o tsv)
+```
+1. Give AGIC's identity `Contributor` access to you App Gateway. For this you need the ID of the App Gateway, which will
+look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
+
+    Get the list of App Gateway IDs in your subscription with: `az network application-gateway list --query '[].id'`
+
+    ```bash
+    az role assignment create \
+        --role "Contributor" \
+        --assignee $agwId \
+        --scope <App-Gateway-ID>
+    ```    
+1. Give AGIC's identity `Reader` access to the App Gateway resource group. The resource group ID would look like:
+`/subscriptions/A/resourceGroups/B`. You can get all resource groups with: `az group list --query '[].id'`
+
+    ```bash
+    az role assignment create \
+        --role "Reader" \
+        --assignee $agwId \
+        --scope <App-Gateway-Resource-Group-ID>
+    ```
 ## Peer the two virtual networks together
 
 Since we deployed the AKS cluster in its own virtual network and the Application Gateway in another virtual network, you'll need to peer the two virtual networks together in order for traffic to flow from the Application Gateway to the pods in the cluster. Peering the two virtual networks requires running the Azure CLI command two separate times, to ensure that the connection is bi-directional. The first command will create a peering connection from the Application Gateway virtual network to the AKS virtual network; the second command will create a peering connection in the other direction.
