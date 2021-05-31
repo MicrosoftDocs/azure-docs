@@ -145,4 +145,4 @@ Body
 ## Next steps
 
 - [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshoot roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Troubleshoot roles assigned to cloud groups](groups-faq-troubleshooting.yml)

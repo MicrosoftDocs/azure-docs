@@ -107,4 +107,4 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ## Next steps
 
 - [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.yml)

@@ -121,4 +121,4 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 - [Assign a role to a cloud group](groups-assign-role.md)
 - [Use cloud groups to manage role assignments](groups-concept.md)
-- [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.md)
+- [Troubleshooting roles assigned to cloud groups](groups-faq-troubleshooting.yml)
