@@ -24,9 +24,9 @@ After initial replication for the VM is complete, the replication process transi
 
 VMware changed block tracking (CBT) technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. Only the data that has changed since the previous completed replication cycle is replicated to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the virtual machine.
 
-When you perform the migrate operation on a replicating virtual machine, there&#39;s an on-demand delta replication cycle that replicates the remaining changes since the last replication cycle. After the on-demand cycle completes, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure. When you trigger migrate, you have the option to shut down the on-premises virtual machine. Shutting down the virtual machines ensures zero data loss during migration.
+When you perform the migrate operation on a replicating virtual machine, there's an on-demand delta replication cycle that replicates the remaining changes since the last replication cycle. After the on-demand cycle completes, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure. When you trigger migrate, you have the option to shut down the on-premises virtual machine. Shutting down the virtual machines ensures zero data loss during migration.
 
-Once the migration is successful and the VM boots up in Azure, ensure that you stop the replication of the VM. This will delete the intermediate disks (seed disks) that were created during data replication, and you&#39;ll also avoid incurring additional charges associated with the storage transactions on these disks.
+Once the migration is successful and the VM boots up in Azure, ensure that you stop the replication of the VM. This will delete the intermediate disks (seed disks) that were created during data replication, and you'll also avoid incurring additional charges associated with the storage transactions on these disks.
 
 ## Replication cycles
 
@@ -50,11 +50,11 @@ A cycle is said to be complete once the disks are consolidated.
 
 | Component | Region | Subscription | Description |
 | --- | --- | --- | --- |
-| Recovery services vault | Project&#39;s region | Project&#39;s subscription | Used to orchestrate data replication |
-| Service Bus | Target region | Project&#39;s subscription | Used for communication between cloud service and Azure Migrate appliance |
-| Log storage account | Target region | Project&#39;s subscription | Used to store replication data, which is read by the service and applied on customer&#39;s managed disk |
-| Appliance storage account | Target region | Project&#39;s subscription | Used to store machine states during replication |
-| Key vault | Target region | Project&#39;s subscription | Manages the log storage account, stores the service bus connection strings |
+| Recovery services vault | Project's region | Project's subscription | Used to orchestrate data replication |
+| Service Bus | Target region | Project's subscription | Used for communication between cloud service and Azure Migrate appliance |
+| Log storage account | Target region | Project's subscription | Used to store replication data, which is read by the service and applied on customer's managed disk |
+| Appliance storage account | Target region | Project's subscription | Used to store machine states during replication |
+| Key vault | Target region | Project's subscription | Manages the log storage account, stores the service bus connection strings |
 | Azure Virtual Machine | Target region | Target subscription | VM created in Azure when you migrate |
 | Azure Managed Disks | Target region | Target subscription | Managed disks attached to Azure VMs |
 | Network interface cards | Target region | Target subscription | The NICs attached to the VMs created in Azure |
@@ -77,11 +77,11 @@ There are two stages in every replication cycle that ensures data integrity betw
 
 1. First stage is a precheck to validate that every sector that has changed in the source disk is replicated to the target disk. This is accomplished using bitmaps.
 
-Source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, bitmap is created for all the changed blocks (in case of delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, a bitmap is created. Once the data transfer completes successfully, the cloud service compares the two bitmaps to ensure no changed block is missed. In case there&#39;s any mismatch between the bitmaps, the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
+Source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, bitmap is created for all the changed blocks (in case of delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, a bitmap is created. Once the data transfer completes successfully, the cloud service compares the two bitmaps to ensure no changed block is missed. In case there's any mismatch between the bitmaps, the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
 
-1. Second stage is to ensure that the data that&#39;s transferred to the Azure disks is same as the data that was replicated from the source disks.
+1. Second stage is to ensure that the data that's transferred to the Azure disks is same as the data that was replicated from the source disks.
 
-Every changed block that is uploaded by the Azure Migrate appliance is compressed and encrypted before it&#39;s written as a blob in the log storage account. We compute the checksum of this block before compression. This checksum is stored as metadata along with the compressed data. Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there&#39;s a mismatch, the data is not written to the Azure disks and the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
+Every changed block that is uploaded by the Azure Migrate appliance is compressed and encrypted before it's written as a blob in the log storage account. We compute the checksum of this block before compression. This checksum is stored as metadata along with the compressed data. Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data is not written to the Azure disks and the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
 
 ## Security
 
@@ -100,7 +100,7 @@ When a VM undergoes replication, there are few states that are possible:
 - **Migration in progress:** The VM is migrating. You can click on this link to check the ongoing migration job. This job consists of five stages: Prerequisites check for migration, shutting down the virtual machine (optional step), prepare for migration, creation of Azure VM, start the Azure VM.
 - **Not applicable:** This can happen when the VM has successfully migrated and/or when you have stopped replication. Once you stop replication and the operation finishes successfully, the VM will be removed from the list of replicating machines blade. You can find the VM in virtual machines blade in the Replicate wizard.
 
-Note: Some VMs are put in queued state to ensure there&#39;s minimal impact on the source environment due to the IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
+Note: Some VMs are put in queued state to ensure there's minimal impact on the source environment due to the IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
 
 ## Scheduling logic
 
@@ -128,7 +128,7 @@ This means whenever a migrate operation is triggered, the on-demand cycle for th
 
 **Constraints:**
 
-We use the following constraints to ensure that we don&#39;t exceed the IOPS limits on the SANs.
+We use the following constraints to ensure that we don't exceed the IOPS limits on the SANs.
 
 - Each Azure Migrate appliance supports replication of 52 disks in parallel
 - Each ESXi host supports 8 disks Every ESXi host has a 32 MB NFC buffer. So, we can schedule 8 disks on the host (Each disk takes up 4 MB of buffer for IR, DR).
@@ -149,24 +149,24 @@ When you stop replication, the intermediate disks (seed disks) created during re
 
 You can stop replication at two stages:
 
-1. When the replication is ongoing
-2. When the migration for a VM has completed
+-  When the replication is ongoing
+-  When the migration for a VM has completed
 
-As best practice, you should always stop the replication after the VM has migrated successfully to Azure to ensure that you don&#39;t incur additional charges for storage transactions on the intermediate managed disks (seed disks).
+As best practice, you should always stop the replication after the VM has migrated successfully to Azure to ensure that you don't incur additional charges for storage transactions on the intermediate managed disks (seed disks).
 
 In some cases, you will notice that stop replication takes time. This is because whenever you stop replication, the ongoing replication cycle is completed (only when the VM is in delta sync) before deleting the artefacts.
 
 ## Impact of churn
 
-We try to minimize the amount of data transfer in each replication cycle by allowing the data to fold as much as possible before we schedule the next cycle. Because agentless replication folds in data, the _churn pattern_ is more important than the _churn rate_. When a file is written again and again, the rate doesn&#39;t have much impact. However, a pattern in which every other sector is written causes high churn in the next cycle.
+We try to minimize the amount of data transfer in each replication cycle by allowing the data to fold as much as possible before we schedule the next cycle. Because agentless replication folds in data, the _churn pattern_ is more important than the _churn rate_. When a file is written again and again, the rate doesn't have much impact. However, a pattern in which every other sector is written causes high churn in the next cycle.
 
 ## Management of replication
 
 ### Throttling
 
-You can increase or decrease the replication bandwidth using the _NetQosPolicy._ The _AppNamePrefix_ to use in the _NetQosPolicy_ is &quot;GatewayWindowsService.exe&quot;. You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
+You can increase or decrease the replication bandwidth using the _NetQosPolicy._ The _AppNamePrefix_ to use in the _NetQosPolicy_ is "GatewayWindowsService.exe". You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 
-![](RackMultipart20210531-4-qcvtaj_html_84643c1ac67332bf.gif)New-NetQosPolicy -Name &quot;ThrottleReplication&quot; -AppPathNameMatchCondition &quot;GatewayWindowsService.exe&quot; -ThrottleRateActionBitsPerSecond 1MB
+New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
 
 Note: This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
 
@@ -174,7 +174,7 @@ You can also increase and decrease replication bandwidth based on a schedule usi
 
 ### Blackout window
 
-Azure Migrate provides a configuration-based mechanism through which customers can specify the time interval during which they don&#39;t want any replications to proceed. This time interval is called the blackout window. The need for a blackout window can arise in multiple scenarios such as when the source environment is resource constrained, when customers want replication to go through only non-business hours, etc.
+Azure Migrate provides a configuration-based mechanism through which customers can specify the time interval during which they don't want any replications to proceed. This time interval is called the blackout window. The need for a blackout window can arise in multiple scenarios such as when the source environment is resource constrained, when customers want replication to go through only non-business hours, etc.
 
 Note: The existing replication cycles at the start of the blackout window will complete before the replication pauses.
 
@@ -182,15 +182,15 @@ Note: The existing replication cycles at the start of the blackout window will c
 
 {
 
-&quot;BlackoutWindows&quot;: &quot;\&lt;List of blackout windows\&gt;&quot;
+"BlackoutWindows": "List of blackout windows"
 
 }
 
-The list of blackout windows is a &quot;|&quot; delimited string of the format &quot;DayOfWeek;StartTime;Duration&quot;. The duration can be specified in days, hours, and minutes. For example, the blackout windows can be specified as:
+The list of blackout windows is a "|" delimited string of the format "DayOfWeek;StartTime;Duration". The duration can be specified in days, hours, and minutes. For example, the blackout windows can be specified as:
 
 {
 
-&quot;BlackoutWindows&quot;: &quot;Monday;7:00;7h | Tuesday;8:00;1d7h | Wednesday;16:00;1d | Thursday;18:00;5h | Friday;13:00;8m&quot;
+"BlackoutWindows": "Monday;7:00;7h | Tuesday;8:00;1d7h | Wednesday;16:00;1d | Thursday;18:00;5h | Friday;13:00;8m"
 
 }
 
