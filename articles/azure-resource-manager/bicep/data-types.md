@@ -25,6 +25,10 @@ Within a Bicep, you can use these data types:
 
 Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, an array must be declared in multiple lines. Don't use commas between values.
 
+In an array, each item is represented by the [any type](bicep-functions-any.md). You can have an array where each item is the same data type, or an array that holds different data types.
+
+Arrays in Bicep are 0-based. In the following example, the expression `exampleArray[0]` evaluates to 1 and `exampleArray[2]` evaluates to 3. The index of the indexer may itself be another expression. The expression `exampleArray[index]` evaluates to 2. Integer indexers are only allowed on expression of array types.
+
 ```bicep
 var index = 1
 
@@ -34,8 +38,6 @@ var exampleArray = [
   3
 ]
 ```
-
-Arrays in Bicep are 0-based. The expression exampleArray[0] evaluates to 1 and exampleArray[2] evaluates to 3. The index of the indexer may itself be another expression. In the above example, exampleArray[index] would evaluate to 2. Integer indexers are only allowed on expression of array types.
 
 String-based indexers are allowed in Bicep.
 
@@ -60,7 +62,7 @@ The expression environmentSettings['dev'] evaluates to the following object:
 }
 ```
 
-The elements of an array can be the same type or different types.
+The following example shows an array with different types.
 
 ```bicep
 var mixedArray = [
@@ -93,7 +95,7 @@ Floating point, decimal or binary formats aren't currently supported.
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`).
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, an object must be declared in multiple lines. Each property in an object consists of key and value. The key and value are separated by a colon (`:`). An object allows any property of any type.
 
 In Bicep, the key isn't enclosed by quotes. Don't use commas to between properties.
 
