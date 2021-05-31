@@ -41,6 +41,9 @@ The file includes all the parameters defined in the analytics rule, so for **Sch
 
     > [!NOTE]
     > - You can select multiple analytics rules at once for export by marking the check boxes next to the rules and clicking **Export** at the end.
+    >
+    > - You can export all the rules on a single page of the display grid at once, by marking the check box in the header row (next to **SEVERITY**) before clicking **Export**. You can't export more than one page's worth of rules at a time, though.
+    >
     > - Be aware that in this scenario, a single file (named *Azure_Sentinel_analytic_**rules**.json*) will be created, and will contain JSON code for all the exported rules.
 
 ## Import rules
@@ -52,6 +55,9 @@ The file includes all the parameters defined in the analytics rule, so for **Sch
 1. Click **Import** from the bar at the top of the screen. In the resulting dialog box, navigate to and select the JSON file representing the rule you want to import, and select **Open**.
 
     :::image type="content" source="./media/import-export-analytics-rules/import-rule.png" alt-text="Import analytics rule" lightbox="./media/import-export-analytics-rules/import-rule.png":::
+
+    > [!NOTE]
+    > You can import **up to 50** analytics rules from a single ARM template file.
 
 ## Next steps
 
