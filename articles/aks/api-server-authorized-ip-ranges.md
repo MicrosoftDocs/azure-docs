@@ -59,7 +59,6 @@ az aks create \
 > You should add these ranges to an allow list:
 > - The firewall public IP address
 > - Any range that represents networks that you'll administer the cluster from
-> - If you are using Azure Dev Spaces on your AKS cluster, you have to allow [additional ranges based on your region][dev-spaces-ranges].
 >
 > The upper limit for the number of IP ranges you can specify is 200.
 >
@@ -183,7 +182,7 @@ For more information, see [Security concepts for applications and clusters in AK
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->
-[az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
+[az-aks-update]: /cli/azure/aks#az_aks_update
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list

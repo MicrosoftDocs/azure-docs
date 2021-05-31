@@ -7,7 +7,8 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
-ms.colletion: windows
+ms.colletion: windows 
+ms.custom: devx-track-azurepowershell
 ---
 # Preview: Create a Windows image and distribute it to a Shared Image Gallery 
 

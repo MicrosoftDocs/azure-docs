@@ -9,8 +9,8 @@ author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/19/2021
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Start, monitor, and track run history
@@ -21,6 +21,7 @@ This article shows how to do the following tasks:
 
 * Monitor run performance.
 * Create a custom view. 
+* Add run display name.
 * Add a run description. 
 * Tag and find runs.
 * Run search over your run history. 
@@ -96,7 +97,7 @@ You'll need the following items:
     
         This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
     
-        For more information, see [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+        For more information, see [az ml folder attach](/cli/azure/ml/folder?preserve-view=true&view=azure-cli-latest#az_ml_folder_attach).
     
     2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you're looking at your file system) against the -c parameter.
     
@@ -111,7 +112,7 @@ You'll need the following items:
         >
         > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
     
-        For more information, see [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+        For more information, see [az ml run submit-script](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_submit-script).
 
     # [Studio](#tab/azure-studio)
 
@@ -162,7 +163,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about runs for this experiment.
     
-        For more information, see [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+        For more information, see [az ml experiment list](/cli/azure/ml/experiment?preserve-view=true&view=azure-cli-latest#az_ml_experiment_list).
     
     * To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
     
@@ -172,7 +173,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about the run.
     
-        For more information, see [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
+        For more information, see [az ml run show](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_show).
     
     
     # [Studio](#tab/azure-studio)
@@ -189,10 +190,23 @@ To view your runs in the studio:
 In the **All runs'** page, you can filter the runs list by tags, experiments, compute target and more to better organize and scope your work.  
     
 1. Make customizations to the page by selecting runs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.   
-    
+
+1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
+
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
     
-1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
+
+## Run display name
+A run display name is an optional, non-unique, user-friendly property that can be added to a run to help annotate runs and provide more meaningful information to the run. 
+
+To edit the run display name, navigate to the **Run Details** page and select the **Edit** icon next to the run. By default, the run display name is set to the run ID. The run ID is the unique identifier for the run and can be added as a column in the runs list view. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name.gif" alt-text="Screenshot: add a display name":::
+
+The following image shows the edited run display name. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/display-name-runs-list.png" alt-text="Screenshot: display name in runs list":::
+
 
 ## Run description 
 
@@ -254,13 +268,13 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    For more information, see [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+    For more information, see [az ml run update](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_update).
     
     # [Studio](#tab/azure-studio)
     
     You can add, edit, or delete run tags from the studio. Navigate to the **Run Details** page for your run and select the edit, or pencil icon to add, edit, or delete tags for your runs. You can also search and filter on these tags from the runs list page.
     
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-tags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/tags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
     
     ---
 
@@ -332,7 +346,7 @@ To cancel a run using the CLI, use the following command. Replace `runid` with t
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-For more information, see [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+For more information, see [az ml run cancel](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_cancel).
 
 # [Studio](#tab/azure-studio)
 
@@ -342,7 +356,7 @@ To cancel a run in the studio, using the following steps:
 
 1. Select the pipeline run number you want to cancel.
 
-1. In the toolbar, select **Cancel**
+1. In the toolbar, select **Cancel**.
 
 ---
 

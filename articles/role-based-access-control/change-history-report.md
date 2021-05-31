@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
 ms.author: rolyon
-ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
 # View activity logs for Azure RBAC changes
 

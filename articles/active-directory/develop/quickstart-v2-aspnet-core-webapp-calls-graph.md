@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 05/17/2021
 ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core"
 # Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Azure Active Directory instance, then access their data in Microsoft Graph on their behalf.
@@ -18,7 +18,7 @@ ms.custom: "devx-track-csharp, aaddev, scenarios:getting-started, languages:aspn
 
 # Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph on their behalf
 
-In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization and calls Microsoft Graph.  
+In this quickstart, you download and run a code sample that demonstrates how an ASP.NET Core web app can sign in users from any Azure Active Directory (Azure AD) organization and calls Microsoft Graph.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -28,20 +28,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 > * [.NET Core SDK 3.1+](https://dotnet.microsoft.com/download)
 >
-> ## Register and download the quickstart app
-> You have two options to start your quickstart application:
-> * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### Option 1: Register and auto configure your app and then download your code sample
->
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
-> 1. Enter a name for your application and select **Register**.
-> 1. Follow the instructions to download and automatically configure your new application for you in one click.
->
-> ### Option 2: Register and manually configure your application and code sample
->
-> #### Step 1: Register your application
+> ## Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
@@ -60,7 +48,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Select **Add** and immediately record the secret's **Value** for use in a later step. The secret value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### Step 1: Configure your application in the Azure portal
+> ## Step 1: Configure your application in the Azure portal
+>
 > For the code sample in this quickstart to work, add a **Redirect URI** of `https://localhost:44321/signin-oidc` and **Front-channel logout URL** of `https://localhost:44321/signout-oidc` in the app registration.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
@@ -68,7 +57,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
 
-#### Step 2: Download the ASP.NET Core project
+## Step 2: Download the ASP.NET Core project
 
 > [!div renderon="docs"]
 > [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
@@ -82,13 +71,15 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### Step 3: Your app is configured and ready to run
+> ## Step 3: Your app is configured and ready to run
+>
 > We have configured your project with values of your app's properties and it's ready to run.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
-> #### Step 3: Configure your ASP.NET Core project
+>
+> ## Step 3: Configure your ASP.NET Core project
 > 1. Extract the .zip archive into a local folder near the root of your drive. For example, into *C:\Azure-Samples*.
 > 1. Open the solution in Visual Studio 2019.
 > 1. Open the *appsettings.json* file and modify the following:
@@ -105,10 +96,10 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >       - If your application supports **All Microsoft account users**, leave this value as `common`
 >    - Replace `Enter_the_Client_Secret_Here` with the **Client secret** you created and recorded in an earlier step.
-> 
+>
 > For this quickstart, don't change any other values in the *appsettings.json* file.
 >
-> #### Step 4: Build and run the application
+> ## Step 4: Build and run the application
 >
 > Build and run the app in Visual Studio by selecting the **Debug** menu > **Start Debugging**, or by pressing the `F5` key.
 >
@@ -125,6 +116,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 This section gives an overview of the code required to sign in users and call the Microsoft Graph API on their behalf. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application and call Microsoft Graph. It uses [Microsoft.Identity.Web](microsoft-identity-web.md), which is a wrapper around [MSAL.NET](msal-overview.md).
 
 ### How the sample works
+
 ![Shows how the sample app generated by this quickstart works](media/quickstart-v2-aspnet-core-webapp-calls-graph/aspnetcorewebapp-intro.svg)
 
 ### Startup class
@@ -197,7 +189,7 @@ app.UseEndpoints(endpoints =>
 
 You can protect a controller or its methods by applying the `[Authorize]` attribute to the controller's class or one or more of its methods. This `[Authorize]` attribute restricts access by allowing only authenticated users. If the user isn't already authenticated, an authentication challenge can be started to access the controller. In this quickstart, the scopes are read from the configuration file:
 
-```CSharp
+```csharp
 [AuthorizeForScopes(ScopeKeySection = "DownstreamApi:Scopes")]
 public async Task<IActionResult> Index()
 {
@@ -206,7 +198,7 @@ public async Task<IActionResult> Index()
 
     return View();
 }
- ```
+```
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

@@ -12,6 +12,9 @@ To detect changes to the Azure file share, Azure File Sync has a scheduled job c
 To immediately sync files that are changed in the Azure file share, the **Invoke-AzStorageSyncChangeDetection** PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. This cmdlet is intended for scenarios where some type of automated process is making changes in the Azure file share or the changes are done by an administrator (like moving files and directories into the share). For end user changes, the recommendation is to install the Azure File Sync agent in an IaaS VM and have end users access the file share through the IaaS VM. This way all changes will quickly sync to other agents without the need to use the Invoke-AzStorageSyncChangeDetection cmdlet. To learn more, see the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) documentation.
 
 >[!NOTE]
+>The **Invoke-AzStorageSyncChangeDetection** PowerShell cmdlet can only detect a maximum of 10,000 items. For other limitations, see the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) documentation.
+
+>[!NOTE]
 >Changes made to an Azure file share using REST does not update the SMB last modified time and will not be seen as a change by sync.
 
 We are exploring adding change detection for an Azure file share similar to USN for volumes on Windows Server. Help us prioritize this feature for future development by voting for it at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
