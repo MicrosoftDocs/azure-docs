@@ -60,7 +60,7 @@ To configure and test Azure AD SSO with Pexip, perform the following steps:
     1. **[Create Pexip test user](#create-pexip-test-user)** - to have a counterpart of B.Simon in Pexip that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO for Pexip
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
