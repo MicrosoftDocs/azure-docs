@@ -3,7 +3,7 @@ title: Move Azure VMware Solution resources across regions
 description: This article describes how to move Azure VMware Solution resources from one Azure region to another.  
 ms.custom: subject-moving-resources
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 06/01/2021
 
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution resources from Azure Region A to Azure Region B.
 ---
@@ -20,7 +20,7 @@ This article helps you plan and migrate Azure VMware Solution from one Azure reg
 
 The diagram shows the recommended ExpressRoute connectivity between the two Azure VMware Solution environments.  An HCX site pairing and service mesh are created between the two environments.  The HCX migration traffic and Layer-2 extension moves (depicted by the red line) between the two environments. For VMware recommended HCX planning, see [Planning an HCX Migration](https://vmc.techzone.vmware.com/vmc-solutions/docs/deploy/planning-an-hcx-migration#section1).
 
-:::image type="content" source="media/move-azure-vmware-solution-across-regions/move-ea-csp-across-regions2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false":::
+:::image type="content" source="media/move-azure-vmware-solution-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false":::
 
 >[!NOTE]
 >You don't need to migrate any workflow back to on-premises because the traffic will flow between the private clouds (source and target):
@@ -75,7 +75,7 @@ Back up the Azure VMware Solution (source) configuration that includes VC, NSX-T
 
 Azure VMware Solution supports all backup solutions. You'll need CloudAdmin privileges to install, backup data, and restore backups. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
-1. VM workload backup using the Commvault solution:
+- VM workload backup using the Commvault solution:
 
    - [Create a VMware client](https://documentation.commvault.com/commvault/v11_sp20/article?p=119380.htm) from the Command center for Azure VMware Solution vCenter.
 
@@ -85,7 +85,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
    - [Restore VMs](https://documentation.commvault.com/commvault/v11_sp20/article?p=87275.htm).
 
-2. VM workload backup using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
+- VM workload backup using [Veritas NetBackup solution](https://vrt.as/nb4avs). 
 
 >[!TIP]
 >You can use [Azure Resource Mover](/azure/resource-mover/move-region-within-resource-group?toc=/azure/azure-resource-manager/management/toc.json) to verify and migrate the list of supported resources to move across regions, which are dependent on Azure VMware Solution.
@@ -315,3 +315,14 @@ For this last step, you'll verify that all the VM workloads were migrated succes
 
 >[!NOTE]
 >Once you decommission the private cloud, you cannot undo it as the configuration and data will be lost.
+
+
+## Next steps
+
+Learn more about:
+
+- [Move operation support for Microsoft.AVS](../azure-resource-manager/management/move-support-resources.md#microsoftavs)
+- [Move guidance for networking resources](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
+- [Move guidance for virtual machines](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
+- [Move guidance for App Service resources](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
+ 
