@@ -281,4 +281,4 @@ For more information about SQL Server VMs, see:
 
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
-* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server VMs](frequently-asked-questions-faq.yml)

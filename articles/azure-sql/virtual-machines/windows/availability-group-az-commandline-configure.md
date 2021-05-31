@@ -515,7 +515,7 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 For more information, see the following articles: 
 
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server VMs](frequently-asked-questions-faq.yml)
 * [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
 * [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
 * [Overview of Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)   

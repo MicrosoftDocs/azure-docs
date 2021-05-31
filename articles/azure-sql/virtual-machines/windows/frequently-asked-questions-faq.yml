@@ -21,8 +21,8 @@ summary: |
   [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
   
   > [!div class="op_single_selector"]
-  > * [Windows](frequently-asked-questions-faq.md)
-  > * [Linux](../linux/frequently-asked-questions-faq.md)
+  > * [Windows](frequently-asked-questions-faq.yml)
+  > * [Linux](../linux/frequently-asked-questions-faq.yml)
   
   This article provides answers to some of the most common questions about running [SQL Server on Windows Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/).
   
@@ -170,11 +170,11 @@ sections:
              Yes, as long as the SQL Server VM was deployed on the public cloud using the Resource Manager model, and not the classic model. All other customers are able to register with the new SQL IaaS Agent extension. However, only customers with the [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) benefit can use their own license by activating the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) on a SQL Server VM. 
           
       - question: |
-          What happens to the extension (_Microsoft.SqlVirtualMachine_) resource if the VM resource is moved or dropped? 
+          What happens to the extension ('Microsoft.SqlVirtualMachine') resource if the VM resource is moved or dropped? 
         answer:    When the Microsoft.Compute/VirtualMachine resource is dropped or moved, then the associated Microsoft.SqlVirtualMachine resource is notified to asynchronously replicate the operation.
 
       - question: |
-          What happens to the VM if the extension (_Microsoft.SqlVirtualMachine_) resource is dropped?
+          What happens to the VM if the extension ('Microsoft.SqlVirtualMachine') resource is dropped?
         answer:     The Microsoft.Compute/VirtualMachine resource is not impacted when the Microsoft.SqlVirtualMachine resource is dropped. However, the licensing changes will default back to the original image source. 
 
       - question: |
@@ -400,5 +400,5 @@ additionalContent: |
   
   * [Overview of SQL Server on a Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
   * [Provision SQL Server on a Linux VM](../linux/sql-vm-create-portal-quickstart.md)
-  * [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
+  * [FAQ (Linux)](../linux/frequently-asked-questions-faq.yml)
   * [SQL Server on Linux documentation](/sql/linux/sql-server-linux-overview)

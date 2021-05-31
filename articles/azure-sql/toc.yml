@@ -778,7 +778,7 @@
       href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
       displayName: faq
-      href: managed-instance/frequently-asked-questions-faq.md
+      href: managed-instance/frequently-asked-questions-faq.yml
 
   - name: Quickstarts
     href: managed-instance/quickstart-content-reference-guide.md

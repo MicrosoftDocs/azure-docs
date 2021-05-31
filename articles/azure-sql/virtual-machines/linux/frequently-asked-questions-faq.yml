@@ -20,7 +20,7 @@ summary: |
   
   > [!div class="op_single_selector"]
   > * [Windows](../windows/frequently-asked-questions-faq.yml)
-  > * [Linux](frequently-asked-questions-faq.md)
+  > * [Linux](frequently-asked-questions-faq.yml)
   
   This article provides answers to some of the most common questions about running [SQL Server on Linux virtual machines](sql-server-on-linux-vm-what-is-iaas-overview.md).
   
