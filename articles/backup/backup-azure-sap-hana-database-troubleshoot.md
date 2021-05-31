@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 05/26/2021
+ms.date: 05/31/2021
 ---
 
 # Troubleshoot backup of SAP HANA databases on Azure
@@ -154,7 +154,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 **Error message** | <span style="font-weight:normal">Restored database name not in correct format.</span>
 --------- | --------
 **Possible causes** | The Restored database name that you have provided is not in the acceptable/expected format.
-**Recommended action** | Ensure that the restored database name starts with a letter and shouldn’t contain any symbol, other than digits or an underscore.<br>It can contain a maximum of 127 characters only and must not begin with \_SYS_\.
+**Recommended action** | Ensure that the restored database name starts with a letter and shouldn’t contain any symbol, other than digits or an underscore.<br>It can contain a maximum of 127 characters only and must not begin with "\_SYS_\".
 
 ###### UserErrorDefaultSidAdmDirectoryChanged
 
