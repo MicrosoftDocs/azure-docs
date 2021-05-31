@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the a **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
+In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the **sample command-line client application** for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
 
 You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [code of the sample](https://github.com/Azure-Samples/digital-twins-samples/tree/master/) to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you want.
 
@@ -42,6 +42,8 @@ Now that the app and authentication are set up, run the project with this button
 
 A console window will open, carry out authentication, and wait for a command. 
 * Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in with your Azure credentials. You can then close the browser tab or window.
+    > [!NOTE]
+    > You won't be prompted to authenticate again if you've already set up local Azure credentials at an earlier stage.
 
 Here is a screenshot of what the project console looks like:
 
@@ -72,6 +74,9 @@ Select *Room.json* to open it in the editing window, and change it in the follow
 ### Upload models to Azure Digital Twins
 
 After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
+
+> [!NOTE]
+> After editing the Room.json file in the previous section, stop the project console and then run it again before uploading the model to Azure Digital Twins for the edits to be reflected.
 
 1. In the project console window, run the following command to upload your updated Room model, as well as a Floor model that you'll also use in the next section to create different types of twins.
 
