@@ -67,7 +67,7 @@ For GA version, since the test index is shared across all the KBs, the limit is 
 
 # [Custom question answering (preview release)](#tab/v2)
 
-If you choose to have multiple language KBs in one service, there is a dedicated test index per KB. So you can have 1000 metadata per KB in that case.
+If you choose to have multiple language KBs in one service, there is a dedicated test index per KB. So the limit is applied per KB in the QnA Maker service.
 
 |**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
