@@ -74,7 +74,7 @@ The JSON output has two parts:
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
-:::image type="content" source="./media/layout-select-pages.png" alt-text="Layout selected pages output":::
+:::image type="content" source="./media/layout-select-pages-for-text.png" alt-text="Layout selected pages output":::
 
 ### Text lines and words
 
@@ -102,7 +102,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Tables can be complex with merged cells or columns, with or without borders, and with odd angles. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding box is output along with information whether it's recognized as part of a header or not. The model predicted header cells can span multiple rows and are not necessarily the first rows in a table. They also work with rotated tables. Each table cell also includes the full text with references to the individual words in the `readResults` section.
 
-:::image type="content" source="./media/layout-table-headers.png" alt-text="Layout table headers output":::
+:::image type="content" source="./media/layout-table-headers-example.png" alt-text="Layout table headers output":::
 
 ## Next steps
 
