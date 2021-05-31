@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
 ---
 

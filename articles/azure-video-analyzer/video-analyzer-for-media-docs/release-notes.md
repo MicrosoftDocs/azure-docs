@@ -24,7 +24,7 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
-## April/May 2021
+## April 2021
 
 The Video Indexer service was renamed to Azure Video Analyzer for Media.
 

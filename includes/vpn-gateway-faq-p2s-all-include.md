@@ -5,9 +5,9 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 02/19/2020
+ ms.date: 05/28/2021
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 
@@ -92,11 +92,11 @@ When you configure both SSTP and IKEv2 in a mixed environment (consisting of Win
 
 ### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
 
-Azure supports Windows, Mac and Linux for P2S VPN.
+Azure supports Windows, Mac, and Linux for P2S VPN.
 
 ### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 
-Yes, you can enable these new features on already deployed gateways using Powershell or the Azure portal, provided that the gateway SKU that you are using supports RADIUS and/or IKEv2. For example, the VPN gateway Basic SKU does not support RADIUS or IKEv2.
+Yes, if the gateway SKU that you are using supports RADIUS and/or IKEv2, you can enable these features on gateways that you've already deployed by using PowerShell or the Azure portal. Note that the Basic SKU does not support RADIUS or IKEv2.
 
 ### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
 
