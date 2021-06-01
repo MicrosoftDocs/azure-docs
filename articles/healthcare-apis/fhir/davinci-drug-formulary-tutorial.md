@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Davinci Drug Formulary
+title: Tutorial - DaVinci Drug Formulary
 description: This tutorial walks through setting up the Azure API for FHIR to pass the Touchstone tests against the DaVinci Drug Formulary capability statement.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -11,7 +11,7 @@ author: modillon
 ms.date: 06/01/2021
 ---
 
-# Davinci Drug Formulary Tutorial
+# DaVinci Drug Formulary
 
 In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [DaVinci Payer Data Exchange US Drug Formulary Implementation Guide](http://hl7.org/fhir/us/Davinci-drug-formulary/).
 
