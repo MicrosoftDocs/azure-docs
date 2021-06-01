@@ -131,7 +131,25 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
  
     :::image type="content" source="./media/dobimigrate-quick-start-guide/dobiprotect-azure-files-shares.png" alt-text="Show available shares.":::
 
-13. Click **Finish** to complete the Azure Files configuration. You can then initiate a new migration task.
+13. Click **Finish** to complete the Azure Files configuration. You can then start a new migration task.
+
+### Start a new migration
+
+DobiMigrate can set up a new migration by manually adding migration paths, or by using bulk import. Bulk import adds multiple migrations with common migration options.
+
+To start a new migration:
+
+1. Click the **New migration** button on the dashboard.
+   
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-new-migration.png" alt-text="Start a new migration job.":::
+
+1. Select the source and the paths to be migrated.
+
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-select-source.png" alt-text="Select source and the paths to be migrated.":::
+
+1. Select the **Destination**.
+2. Verify the protocols, and confirm the migration options.
+3. Click **Finish** to complete the migration process.
 
 ## Support 
 
