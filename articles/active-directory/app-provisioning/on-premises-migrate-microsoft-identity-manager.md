@@ -55,7 +55,7 @@ At this point, the MIM Sync server is no longer needed.
 
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisites.md)
-- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
-- [Generic SQL Connector](on-prem-sql-connector-configure.md)
+- [Azure AD ECMA Connector Host prerequisites](on-premises-ecma-prerequisites.md)
+- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
+- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
+- [Generic SQL Connector](on-premises-sql-connector-configure.md)

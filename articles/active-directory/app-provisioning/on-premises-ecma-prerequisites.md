@@ -22,7 +22,7 @@ This article provides guidance on the prerequisites that are needed for using th
 
 Installing and configuring the Azure AD ECMA Connector Host is a process. Use the flow below to guide you through the process.
 
- ![Installation flow](./media/on-prem-ecma-prerequisites/flow-1.png)  
+ ![Installation flow](./media/on-premises-ecma-prerequisites/flow-1.png)  
 
 For more installation and configuration information, see:
    - [Installation of the Azure AD ECMA Connector Host](on-prem-ecma-install.md)
@@ -45,7 +45,7 @@ For more installation and configuration information, see:
 
 ## Next Steps
 
-- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
-- [Generic SQL Connector](on-prem-sql-connector-configure.md)
+- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
+- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
+- [Generic SQL Connector](on-premises-sql-connector-configure.md)
 - [Tutorial:  ECMA Connector Host Generic SQL Connector](tutorial-ecma-sql-connector.md)

@@ -22,7 +22,7 @@ The Azure AD ECMA Connector Host is included and part of the Azure AD Connect Pr
 
 Installing and configuring the Azure AD ECMA Connector Host is a process.  Use the flow below to guide you through the process.
 
- ![Installation flow](./media/on-prem-ecma-install/flow-1.png)  
+ ![Installation flow](./media/on-premises-ecma-install/flow-1.png)  
 
 For more installation and configuration information see:
    - [Prerequisites for the Azure AD ECMA Connector Host](on-prem-ecma-prerequisites.md)
@@ -40,23 +40,23 @@ For more installation and configuration information see:
  6.  Download the agent installer
  7. Run the Azure AD Connect provisioning installer AADConnectProvisioningAgentSetup.msi.
  8. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
-   ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/on-prem-ecma-install/install-1.png)</br>
+   ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/on-premises-ecma-install/install-1.png)</br>
  9. After this operation finishes, the configuration wizard starts. Click **Next**.
-   ![Welcome screen](media/on-prem-ecma-install/install-2.png)</br>
+   ![Welcome screen](media/on-premises-ecma-install/install-2.png)</br>
  10. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)** and click **Next**. 
-   ![Select extension](media/on-prem-ecma-install/install-3.png)</br>
+   ![Select extension](media/on-premises-ecma-install/install-3.png)</br>
  12. Use your global administrator account and sign in to Azure AD.
-     ![Azure signin](media/on-prem-ecma-install/install-4.png)</br>
+     ![Azure signin](media/on-premises-ecma-install/install-4.png)</br>
  13.  On the **Agent Configuration** screen, click **Confirm**.
-     ![Confirm installation](media/on-prem-ecma-install/install-5.png)</br>
+     ![Confirm installation](media/on-premises-ecma-install/install-5.png)</br>
  14.  Once the installation is complete, you should see a message at the bottom of the wizard.  Click **Finish**.
-     ![Click finish](media/on-prem-ecma-install/install-6.png)</br>
+     ![Click finish](media/on-premises-ecma-install/install-6.png)</br>
  15. Click **Close**.
 
 Now that the agent package has been successfully installed, you will need to configure the Azure AD ECMA Connector Host and create or import connectors.  
 ## Next Steps
 
 
-- [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisites.md)
-- [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
-- [Generic SQL Connector](on-prem-sql-connector-configure.md)
+- [Azure AD ECMA Connector Host prerequisites](on-premises-ecma-prerequisites.md)
+- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
+- [Generic SQL Connector](on-premises-sql-connector-configure.md)

@@ -22,7 +22,7 @@ This article provides guidance on how to configure the Azure AD ECMA Connector H
 
 Installing and configuring the Azure AD ECMA Connector Host is a process.  Use the flow below to guide you through the process.
 
- ![Installation flow](./media/on-prem-ecma-configure/flow-1.png)  
+ ![Installation flow](./media/on-premises-ecma-configure/flow-1.png)  
 
 For more installation and configuration information see:
    - [Prerequisites for the Azure AD ECMA Connector Host](on-prem-ecma-prerequisites.md)
@@ -37,7 +37,7 @@ Configuring the Azure AD ECMA Connector Host occurs in 2 parts.
 ### Configure the Settings
 When you first start the Azure AD ECMA Connector Host you will see a port number which will already be filled out using the default 8585.  
 
- ![Configure your settings](.\media\on-prem-ecma-configure\configure-1.png)
+ ![Configure your settings](.\media\on-premises-ecma-configure\configure-1.png)
 
 For the preview, you will need to generate a new self-signed certificate.
 
@@ -63,28 +63,28 @@ The following sections will guide you through establishing connectivity with the
 1.  On the server the running the Azure AD ECMA Connector Host, click Start.
 2. Type run and enter services.msc in the box
 3. In the services, ensure that **Microsoft ECMA2Host** is present and running.  If not, click **Start**.
- ![Service is running](.\media\on-prem-ecma-configure\configure-2.png)
+ ![Service is running](.\media\on-premises-ecma-configure\configure-2.png)
 
 #### Add Enterprise application
 1.  Sign-in to the Azure portal as an application administrator
 2. In the portal, navigate to Azure Active Directory, **Enterprise Applications**.
 3. Click on **New Application**.
- ![Add new application](.\media\on-prem-ecma-configure\configure-4.png)
+ ![Add new application](.\media\on-premises-ecma-configure\configure-4.png)
 4. Locate your application and click **Create**.
 
 ### Configure the application and test
   1. Once it has been created, click he **Provisioning page**.
   2. Click **get started**.
- ![get started](.\media\on-prem-ecma-configure\configure-6.png)
+ ![get started](.\media\on-premises-ecma-configure\configure-6.png)
   3. On the **Provisioning page**, change the mode to **Automatic**
-   ![Change mode](.\media\on-prem-ecma-configure\configure-7.png)
+   ![Change mode](.\media\on-premises-ecma-configure\configure-7.png)
   4. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
    >[!NOTE]
    >After adding the agent, you need to wait 10-20 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
    >
    >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
    
-   ![Assign an agent](.\media\on-prem-ecma-configure\configure-8.png)
+   ![Assign an agent](.\media\on-premises-ecma-configure\configure-8.png)
   5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
  
    https://localhost:8585/ecma2host_connectorName/scim
@@ -95,12 +95,12 @@ The following sections will guide you through establishing connectivity with the
   
   6. Enter the secret token value that you defined when creating the connector.
   7. Click Test Connection and wait one minute.
-  ![Test the connection](.\media\on-prem-ecma-configure\configure-5.png)
+  ![Test the connection](.\media\on-premises-ecma-configure\configure-5.png)
 
    >[!NOTE]
    >Be sure to wait 10-20 minutes after assigning the agent to test the connection.  The connection will fail if registration has not completed.
   8. Once connection test is successful, click **save**.
- ![Successful test](.\media\on-prem-ecma-configure\configure-9.png)
+ ![Successful test](.\media\on-premises-ecma-configure\configure-9.png)
 
 ## Configure who is in scope for provisioning
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD you can move on to configuring who is in scope for provisioning.  The sections below will provide information on how scope your users.
@@ -123,11 +123,11 @@ You will need to map the user attributes in Azure AD to the attributes in the ta
  1. In the Azure AD portal, under **Enterprise applications**, click he **Provisioning page**.
  2. Click **get started**.
  3. Expand **Mappings** and click **Provision Azure Active Directory Users**
-   ![provision a user](.\media\on-prem-ecma-configure\configure-10.png)
+   ![provision a user](.\media\on-premises-ecma-configure\configure-10.png)
  4. Click **Add new mapping**
-   ![Add a mapping](.\media\on-prem-ecma-configure\configure-11.png)
+   ![Add a mapping](.\media\on-premises-ecma-configure\configure-11.png)
  5. Specify the source and target attributes and click **OK**.
-   ![Edit attributes](.\media\on-prem-ecma-configure\configure-12.png)
+   ![Edit attributes](.\media\on-premises-ecma-configure\configure-12.png)
 
 
 For more information on mapping user attributes from applications to Azure AD, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](customize-application-attributes.md).
@@ -137,16 +137,16 @@ To test your configuration, you can use on-demand provisioning of user.  For inf
 
  1. Navigate to the single sign-on blade and then back to the provisioning blade. From the new provisioning overview blade, click on on-demand.
  2. Test provisioning a few users on-demand as described [here](provision-on-demand.md).
-   ![Test provisioning](.\media\on-prem-ecma-configure\configure-13.png)
+   ![Test provisioning](.\media\on-premises-ecma-configure\configure-13.png)
 
 ### Start provisioning users
  1. Once on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and group, turn **provisioning On**, and click **Save**.
-   ![Start provisioning](.\media\on-prem-ecma-configure\configure-14.png)
+   ![Start provisioning](.\media\on-premises-ecma-configure\configure-14.png)
   2.  Wait several minutes for provisioning to start (it may take up to 40 minutes). You can learn more about the provisioning service performance here. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to Off, and click Save. This will stop the provisioning service from running in the future.
 
 ### Verify users have been successfully provisioned
 After waiting, check your data source to see if new users are being provisioned.
- ![Verify users are provisioned](.\media\on-prem-ecma-configure\configure-15.png)
+ ![Verify users are provisioned](.\media\on-premises-ecma-configure\configure-15.png)
 
 ## Monitor your deployment
 
@@ -156,6 +156,6 @@ After waiting, check your data source to see if new users are being provisioned.
 
 ## Next Steps
 
-- [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisites.md)
-- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
-- [Generic SQL Connector](on-prem-sql-connector-configure.md)
+- [Azure AD ECMA Connector Host prerequisites](on-premies-ecma-prerequisites.md)
+- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
+- [Generic SQL Connector](on-premises-sql-connector-configure.md)

@@ -94,6 +94,6 @@ You can also check whether all of the required ports are open.
 ## Next Steps
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host prerequisites](on-prem-ecma-prerequisites.md)
-- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
+- [Azure AD ECMA Connector Host prerequisites](on-premises-ecma-prerequisites.md)
+- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
+- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)

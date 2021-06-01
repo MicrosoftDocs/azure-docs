@@ -25,7 +25,7 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
  1. Verify that the agent and ECMA host are running:
      1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
      2. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*. 
-![ECMA service running](./media/on-prem-ecma-tshoot/tshoot-1.png)
+![ECMA service running](./media/on-premises-ecma-troubleshoot/tshoot-1.png)
 
  2. Navigate to the folder where the ECMA Host was installed  > Troubleshooting > Scripts > TestECMA2HostConnection and run the script.  This script will send a SCIM GET or POST request in order to validate that the ECMA Connector Host is operating and responding to requests.
     It should be run on the same computer as the ECMA Connector Host service itself.
@@ -45,14 +45,14 @@ After configuring the ECMA Host and Provisioning Agent, it's time to test connec
 #### The following issues can be resolved by running the ECMA host as an admin:
 
 * I get an error when opening the ECMA host wizard 
-   ![ECMA wizard error](./media/on-prem-ecma-tshoot/tshoot-2.png)
+   ![ECMA wizard error](./media/on-premises-ecma-troubleshoot/tshoot-2.png)
 
 * I've been able to configure the ECMA host wizard, but am not able to see the ECMA host logs. In this case you will need to open the host as an admin and setup a connector end to end. This can be simplified by exporting an existing connector and importing it again. 
 
-   ![Host logs](./media/on-prem-ecma-tshoot/tshoot-3.png)
+   ![Host logs](./media/on-premises-ecma-troubleshoot/tshoot-3.png)
 
 * I've been able to configure the ECMA host wizard, but am not able to start the ECMA host service
-   ![Host service](./media/on-prem-ecma-tshoot/tshoot-4.png)
+   ![Host service](./media/on-premises-ecma-troubleshoot/tshoot-4.png)
 
 
 ## Turning on verbose logging 
@@ -148,7 +148,7 @@ This test verifies that your agents can communicate with Azure over port 443. Op
 
 You might get the following error message when you attempt to register the agent.
 
-![Agent times out](./media/on-prem-ecma-tshoot/tshoot-5.png)
+![Agent times out](./media/on-premises-ecma-troubleshoot/tshoot-5.png)
 
 This problem is usually caused by the agent being unable to connect to the Hybrid Identity Service and requires you to configure an HTTP proxy. To resolve this problem, configure an outbound proxy. 
 
@@ -203,7 +203,7 @@ Message: Could not load file or assembly 'file:///C:\Program Files\Microsoft ECM
 
 ## Next Steps
 
-- [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-prem-ecma-configure.md)
-- [Generic SQL Connector](on-prem-sql-connector-configure.md)
+- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
+- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
+- [Generic SQL Connector](on-premises-sql-connector-configure.md)
 - [Tutorial:  ECMA Connector Host Generic SQL Connector](tutorial-ecma-sql-connector.md)

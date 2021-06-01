@@ -71,23 +71,23 @@
       - name: Missing source attribute
         href: user-provisioning-sync-attributes-for-mapping.md
       - name: Troubleshooting ECMA Connector Host
-        href: on-prem-ecma-tshoot.md
+        href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: On-premises app provisioning
       items:
       - name: ECMA Connector Host pre-requisites
-        href: on-prem-ecma-prerequisites.md
+        href: on-premises-ecma-prerequisites.md
       - name: ECMA Connector Host installation
-        href: on-prem-ecma-install.md
+        href: on-premises-ecma-install.md
       - name: ECMA Connector Host configuration
-        href: on-prem-ecma-configure.md
+        href: on-premises-ecma-configure.md
       - name: Generic SQL connector configuration
-        href: on-prem-sql-connector-configure.md
+        href: on-premises-sql-connector-configure.md
       - name: On-premises application provisioning to SCIM-enabled apps
         href: on-premises-scim-provisioning.md
       - name: Migrate connector from MIM Sync
-        href: on-prem-migrate-microsoft-identity-manager.md
+        href: on-premises-migrate-microsoft-identity-manager.md
   - name: Reference
     items:
     - name: SCIM 2.0 protocol compliance
