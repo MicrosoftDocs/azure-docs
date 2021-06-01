@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 ms.author: b-juche
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
@@ -31,18 +31,21 @@ When preparing a multi-node SAS GRID environment for production, you might notic
 | No `nconnect` | 8 hours |
 | `nconnect=8`  | 5.5 hours | 
 
-Both sets of tests used the same E32-8_v3 virtual machine and RHEL8.3, with readahead set to 15 MiB.
+Both sets of tests used the same E32-8_v4 virtual machine and RHEL8.3, with readahead set to 15 MiB.
 
 When you use `nconnect`, keep the following rules in mind:
 
 * `nconnect` is supported by Azure NetApp Files on all major Linux distributions but only on newer releases:
-    * NFSv3: 
-        * Redhat: Added the option in RHEL8.3
-        * SUSE: Added the option in SLES12SP4 and SLES15SP1
-        * Ubuntu: Ubuntu 18.04
-    * •	NFSv4.1:
-        * Redhat: Added the option in RHEL8.3
-        * SUSE: Added the option in SLES15SP2  
+
+    | Linux release | NFSv3 (minimum release) | NFSv4.1 (minimum release) |
+    |-|-|-|
+    | Redhat Enterprise Linux | RHEL8.3 | RHEL8.3 |
+    | SUSE | SLES12SP4 or SLES15SP1 | SLES15SP2 |
+    | Ubuntu | Ubuntu18.04 |          |
+
+    > [!NOTE]
+    > SLES15SP2 is the minimum SUSE release in which `nconnect` is supported by Azure NetApp Files for NFSv4.1.  All other releases as specified are the first releases that introduced the `nconnect` feature.
+
 * All mounts from a single endpoint will inherit the `nconnect` setting of the first export mounted, as shown in the following scenarios: 
 
     Scenario 1: `nconnect` is used by the first mount. Therefore, all mounts against the same endpoint use `nconnect=8`.
@@ -112,7 +115,7 @@ Using these mount options significantly reduces the workload to storage in these
 
 ### Close-to-open consistency 
 
-Close-to-open consistency (the `cto` mount option) ensures that no matter the state of the cache, on open most data for a file is always available.   
+Close-to-open consistency (the `cto` mount option) ensures that no matter the state of the cache, on open the most recent data for a file is always presented to the application.  
 
 * When a directory is crawled (`ls`, `ls -l` for example) a certain set of PRC calls are issued.  
     The NFS server shares its view of the filesystem. As long as `cto` is used by all NFS clients accessing a given NFS export, all clients will see the same list of files and directories therein.  The freshness of the attributes of the files in the directory is controlled by the [attribute cache timers](#how-attribute-cache-timers-work).  In other words, as long as `cto` is used, files appear to remote clients as soon as the file is created and the file lands on the storage.

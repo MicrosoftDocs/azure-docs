@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 ms.author: b-juche
 ---
 # Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries
@@ -43,7 +43,7 @@ A concurrency level as low as 155 is sufficient to achieve 155,000 Oracle DB NFS
 
 See [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md) for details.
 
-The `sunrpc.max_tcp_slot_table_entries` tunable is a connection-level tuning parameter.  *As a best practice, set this value to 128 or less per connection, not surpassing 2000 slots environment wide.*
+The `sunrpc.max_tcp_slot_table_entries` tunable is a connection-level tuning parameter.  *As a best practice, set this value to 128 or less per connection, not surpassing 3,000 slots environment wide.*
 
 ### Examples of slot count based on concurrency recommendation 
 
