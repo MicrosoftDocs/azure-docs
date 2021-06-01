@@ -40,7 +40,7 @@ You can change SKUs up or down after the managed domain has been deployed. Howev
 
 For example:
 
-* You can't change down to the *Standard* SKU. AADDS resource forest doesn't support the *Standard* SKU. 
+* You can't change down to the *Standard* SKU. Azure AD DS resource forest doesn't support the *Standard* SKU. 
 * Or, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
 
 For more information on these limits, see [Azure AD DS SKU features and limits][concepts-sku].
