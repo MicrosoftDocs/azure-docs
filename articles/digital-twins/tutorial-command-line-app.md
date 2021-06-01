@@ -41,9 +41,6 @@ Now that the app and authentication are set up, run the project with this button
 :::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Screenshot of the Visual Studio start button (SampleClientApp project)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 A console window will open, carry out authentication, and wait for a command. 
-* Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in with your Azure credentials. You can then close the browser tab or window.
-    > [!NOTE]
-    > You won't be prompted to authenticate again if you've already set up local Azure credentials at an earlier stage.
 
 Here is a screenshot of what the project console looks like:
 
@@ -52,7 +49,7 @@ Here is a screenshot of what the project console looks like:
 > [!TIP]
 > For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
 
-Keep the project console running for the rest of the steps in this tutorial.
+Once you've confirmed the app is running successfully, close the console window to stop running the app for now. You'll run it again later in the article.
 
 ## Model a physical environment with DTDL
 
@@ -75,8 +72,7 @@ Select *Room.json* to open it in the editing window, and change it in the follow
 
 After designing models, you need to upload them to your Azure Digital Twins instance. This configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you have uploaded the models, you can create twin instances that use them.
 
-> [!NOTE]
-> After editing the Room.json file in the previous section, stop the app and then run it again before uploading the model to Azure Digital Twins for the edits to be reflected.
+1. After editing the Room.json file in the previous section, start running the console app again.
 
 1. In the project console window, run the following command to upload your updated Room model, as well as a Floor model that you'll also use in the next section to create different types of twins.
 

@@ -13,8 +13,6 @@ To start working with Azure Digital Twins in an open [Azure Cloud Shell](https:/
 az login
 az account set --subscription "<your-Azure-subscription-ID>"
 ```
-> [!NOTE]
-> Cloud Shell is automatically authenticated under the initial account signed-in with. Run `az login` only if you need to use a different account.
 
 > [!TIP]
 > You can also use your subscription name instead of the ID in the command above. 
