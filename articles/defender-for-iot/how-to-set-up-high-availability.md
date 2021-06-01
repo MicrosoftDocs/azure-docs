@@ -16,6 +16,8 @@ When a primary and secondary on-premises management console is paired:
 
 - An on-premises management console SLL certificate is applied to create a secure connection between the primary and secondary appliances. The SLL may be the self-signed certificate installed by default or a certificate installed by the customer.
 
+    When validation is `ON`, the appliance should be able to establish connection to the CRL server defined by the certificate.
+
 - The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. The on-premises management console configurations and device data are backed up. PCAP files and logs are not included in the backup. You can back up and restore of PCAPs and logs manually.
 
 - The primary setup at the management console is duplicated on the secondary; for example, system settings. If these settings are updated on the primary, they are also updated on the secondary.
@@ -24,7 +26,7 @@ When a primary and secondary on-premises management console is paired:
 
 ## About failover and failback
 
-If a sensor cannot connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Fail over from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
+If a sensor cannot connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Fail over from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
 
 During failover, sensors continue attempting to communicate with the primary appliance. When more than half the managed sensors succeed to communicate with the primary, the primary is restored. The following message appears at the secondary console when the primary is restored.
 
@@ -72,7 +74,7 @@ You need to verify that your organizational security policy allows you access to
 
 ## Create the primary and secondary pair
 
-Verify that both the primary and secondary on-premises management console appliances are powered on before starting the procedure.  
+Verify that both the primary and secondary on-premises management console appliances are powered on before starting the procedure.
 
 ### On the primary
 
@@ -115,13 +117,13 @@ This allows the connection between the primary and secondary appliances for back
 cyberx-management-deploy-ssh-key <Primary ip>
 ```
 
-This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
+This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
 
 3. Enter the IP address of the primary and press Enter.
 
 ### Track high availability activity
 
-The core application logs can be exported to the Defender for IoT support team to handle any high availability issues.  
+The core application logs can be exported to the Defender for IoT support team to handle any high availability issues.  
 
 To access the core logs:
 
