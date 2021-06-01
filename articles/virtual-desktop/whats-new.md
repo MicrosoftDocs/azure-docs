@@ -57,7 +57,7 @@ Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](
 
 ## May 2021
 
-Here's what's new for May:
+Here's what's new for May 2021:
 
 ### Smart card authentication
 
