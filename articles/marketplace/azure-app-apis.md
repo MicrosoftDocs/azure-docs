@@ -1,12 +1,12 @@
 ---
 title: Partner Center submission API to onboard Azure apps in the Microsoft commercial marketplace 
-description: Learn the prerequisites to use the Partner Center submission API for Azure apps in commercial marketplace on Microsoft Partner Center. 
+description: Learn the prerequisites to use the Partner Center submission API for Azure apps in Azure Marketplace. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
+ms.date: 06/01/2021
 ---
 
 # Partner Center submission API to onboard Azure apps in Partner Center
@@ -68,5 +68,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## Next steps
 
-* [Create an Azure Container technical asset](../azure-container-technical-assets.md)
-* [Create an Azure Container offer](../azure-container-offer-setup.md)
+* [Create an Azure Container technical asset](azure-container-technical-assets.md)
+* [Create an Azure Container offer](azure-container-offer-setup.md)

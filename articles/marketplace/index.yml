@@ -72,7 +72,7 @@ landingContent:
       - text: Downloads dashboard
         url: ./partner-center-portal/downloads-dashboard.md
       - text: Ratings and reviews dashboard
-        url: ./partner-center-portal/ratings-reviews.md
+        url: ratings-reviews.md
 
   - title: Create an offer
     linkLists:
@@ -83,7 +83,7 @@ landingContent:
       - text: Virtual machines
         url: ./marketplace-virtual-machines.md
       - text: Azure applications
-        url: ./create-new-azure-apps-offer.md
+        url: ./azure-app-offer.md
       - text: Dynamics 365 for Customer Engagement & Power Apps
         url: dynamics-365-customer-engage-offer-setup.md
       - text: Dynamics 365 Business Central
@@ -119,7 +119,7 @@ landingContent:
       - text: SaaS fulfillment APIs
         url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
       - text: Marketplace metering service APIs
-        url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+        url: marketplace-metering-service-apis-faq.md
       - text: Reporting API (PDF)
         url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 

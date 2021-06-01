@@ -78,7 +78,7 @@ You can also [join our active community forum](https://www.microsoftpartnercommu
 
 ### What analytics are available to my organization from the commercial marketplace?
 
-We provide reporting on your offers within the commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](partner-center-portal/analytics.md).
+We provide reporting on your offers within the commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](analytics.md).
 
 ### What is Microsoft's relationship with my customers?
 

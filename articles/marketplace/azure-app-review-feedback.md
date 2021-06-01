@@ -1,6 +1,6 @@
 ---
 title: Review feedback for Azure apps offers - Microsoft commercial marketplace 
-description: How to handle feedback for your Azure application offer from the Microsoft Azure Marketplace review team. You can access feedback in Azure DevOps with your Partner Center credentials. 
+description: Handle feedback for your Azure application offer from the Microsoft Azure Marketplace review team. You can access feedback in Azure DevOps with your Partner Center credentials. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: mingshen
 author: mingshen-ms
 ---
 
-# Handling review feedback for Azure application offers
+# Handle review feedback for Azure application offers
 
 This article explains how to access feedback from the Microsoft Azure Marketplace review team in [Azure DevOps](https://azure.microsoft.com/services/devops/). If critical issues are found in your Azure application offer during the **Microsoft review** step, you can sign into this system to view detailed information about these issues (review feedback). After you fix all issues, you must resubmit your offer to continue to publish it on Azure Marketplace. The following diagram illustrates how this feedback process relates to the publishing process.
 
@@ -52,4 +52,4 @@ Use the following procedure to review issues documented in the pull request.
 
 ## Next steps
 
-After you correct the critical issues documented in the review PR(s), you must [republish your Azure app offer](../create-new-azure-apps-offer.md).
+- After you correct the critical issues documented in the review PR(s), you must [republish your Azure app offer](azure-app-offer-setup.md).

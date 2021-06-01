@@ -1,18 +1,30 @@
 ---
 title: Configure a managed application plan
-description: Learn how to configure a managed application plan for your Azure application offer in Partner Center. 
+description: Configure a managed application plan for your Azure application offer in Partner Center (Azure Marketplace). 
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 06/01/2021
 ---
 
 # Configure a managed application plan
 
-This article applies only to managed application plans for an Azure application offer. If you’re configuring a solution template plan, go to [Configure a solution template plan](create-new-azure-apps-offer-solution.md).
+This article applies only to managed application plans for an Azure application offer. If you’re configuring a solution template plan, go to [Configure a solution template plan](azure-app-solution.md).
+
+## Re-use technical configuration (optional)
+
+If you’ve created more than one plan of the same type within this offer and the technical configuration is identical between them, you can reuse the technical configuration from another plan. This setting cannot be changed after this plan is published.
+
+To re-use a technical configuration:
+
+1. Select the **This plan reuses the technical configuration from another plan of the same type** check box.
+1. In the list that appears, select the base plan you want.
+
+> [!NOTE]
+> If a plan is currently reusing or has reused the technical configuration from another plan of the same type, go to that base plan to view history of previously published packages.
 
 ## Define markets, pricing, and availability
 
@@ -178,9 +190,9 @@ The actions that are available in the **Action** column of the **Plan overview**
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
 - If the plan status is **Live**, the link in the **Action** column will be either **Stop selling plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
-- To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](create-new-azure-apps-offer-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
+- To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](azure-app-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
 
 ## Next steps
 
-- [How to test and publish your Azure Application offer](create-new-azure-apps-offer-test-publish.md).
-- Learn [How to sell your Azure Application offer](create-new-azure-apps-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.
+- [Test and publish Azure application offer](azure-app-test-publish.md).
+- [Sell an Azure application offer](azure-app-marketing.md) through the **Co-sell with Microsoft** and/or **Resell through CSPs** programs.

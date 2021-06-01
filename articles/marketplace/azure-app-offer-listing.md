@@ -1,16 +1,16 @@
 ---
-title: How to configure your Azure Application offer listing details 
-description: Learn how to configure the listing details for your Azure application offer in Partner Center. 
+title: Configure your Azure application offer listing details 
+description: Configure the listing details for your Azure application offer in Partner Center (Azure Marketplace). 
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 06/01/2021
 ---
 
-# How to configure your Azure Application offer listing details
+# Configure your Azure application offer listing details
 
 The information you provide on the **Offer listing** page for your Azure Application offer will be displayed in the Microsoft commercial marketplace online stores. This includes the descriptions of your offer, screenshots, and your marketing assets. To see what this looks like, see [Offer listing details](plan-azure-application-offer.md#offer-listing-details).
 
@@ -91,4 +91,4 @@ Select **Save draft** before continuing to the next tab: Preview audience.
 
 ## Next steps
 
-- [How to add a preview audience for your Azure Application offer](create-new-azure-apps-offer-preview.md)
+- [Add a preview audience to this offer](azure-app-preview.md)

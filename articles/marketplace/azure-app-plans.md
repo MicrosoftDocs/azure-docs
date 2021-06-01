@@ -1,16 +1,16 @@
 ---
-title: How to create plans for your Azure application offer
-description: Learn how to create plans for your Azure application offer in Partner Center.
+title: Create plans for an Azure application offer
+description: Create plans for an Azure application offer in Partner Center (Azure Marketplace). 
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
-ms.service: marketplace
+ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 06/01/2021
 ---
 
-# How to create plans for your Azure application offer
+# Create plans for an Azure application offer
 
 Offers sold through the Microsoft commercial marketplace must have at least one plan to list your offer in the commercial marketplace. You can create a variety of plans with different options within the same offer. These plans (sometimes referred to as SKUs) can differ in terms of plan type (_solution template_ or _managed application_), monetization, or audience. For general guidance on plans, see [Plans and pricing for commercial marketplace offers](plans-pricing.md).
 
@@ -31,11 +31,7 @@ The **Plan setup** tab enables you to set the type of plan, whether it reuses th
 
 A **Solution template** plan is managed entirely by the customer. A **Managed application** plan enables publishers to manage the application on behalf of the customer. For details on these two plan types, see [Types of plans](plan-azure-application-offer.md#types-of-plans).
 
-### Re-use technical configuration (optional)
-
-If you’ve created more than one plan of the same type within this offer and the technical configuration is identical between them, you can reuse the technical configuration from another plan. This setting cannot be changed after this plan is published.
-
-#### To re-use technical configuration
+#### To re-use a technical configuration
 
 1. Select the **This plan reuses the technical configuration from another plan of the same type** check box.
 1. In the list that appears, select the base plan you want.
@@ -81,5 +77,5 @@ The **Plan listing** tab is where you configure listing details of the plan. Thi
 
 Do one of the following:
 
-- If you’re configuring a solution template plan, go to [Configure a solution template plan](create-new-azure-apps-offer-solution.md).
-- If you’re configuring a managed application plan, go to [Configure a managed application plan](create-new-azure-apps-offer-managed.md).
+- [Configure a solution template plan](azure-app-solution.md)
+- [Configure a managed application plan](azure-app-managed.md)
