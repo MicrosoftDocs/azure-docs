@@ -20,6 +20,7 @@ In this article, we use the Text Analytics REST API and [Postman](https://www.po
 
 > [!NOTE]
 > * You will need a Text Analytics resource using a Standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) if you want to use the `/analyze` or `/health` endpoints. The `/analyze` endpoint is included in your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+> * Please be aware that per our Cognitive Services agreement terms,  Microsoft provides technical documentation regarding the appropriate operation applicable to this Cognitive Service (including applicable developer guides), which is made available by Microsoft [here](https://docs.microsoft.com/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context) and updated from time to time.  In the creation of any new Text Analytics resource, you must acknowledge and agree in Azure Portal that you have reviewed the Responsible AI (RAI) documentation and will use this service in accordance with it. This acknowledgement applies to all resources created under that same subscription through the various Azure tools such as CLI, ARM template and Azure Portal. 
 
 Before you use the Text Analytics API, you will need to create a Azure resource with a key and endpoint for your applications. 
 
@@ -27,7 +28,7 @@ Before you use the Text Analytics API, you will need to create a Azure resource 
 
 2.	Select the region you want to use for your endpoint.
 
-3.	Create the Text Analytics resource and go to the “keys and endpoint blade” in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
+3.	Create the Text Analytics resource and go to the “Keys and Endpoint” section under Resource Management in the left of the page. Copy the key to be used later when you call the APIs. You'll add this later as a value for the `Ocp-Apim-Subscription-Key` header.
 
 4. To check the number of text records that have been sent using your Text Analytics resource:
 
