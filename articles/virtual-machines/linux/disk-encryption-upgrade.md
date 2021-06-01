@@ -12,22 +12,24 @@ ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
-# How to upgrade from the previous to the current version of Azure Disk Encryption
+# Upgrading the Azure Disk Encryption version
 
 The first version of Azure Disk Encryption (ADE)—sometimes referred to as "dual-pass encryption"—relied on Azure Active Directory (AAD) for authentication; the current version—sometimes referred to as "single-pass" encryption—does not.  We strongly encourage the use of the newest version.
+
+## How to migrate
 
 Migration from dual-pass encryption to single-pass encryption is only available through Azure PowerShell. Ensure you have the latest version of Azure PowerShell (at least version 5.9.0) and the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az) installed.
 
 To upgrade from dual-pass encryption to single-pass encryption, use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) PowerShell cmdlet. 
 
 > [!WARNING]
-> The Set-AzVMDiskEncryptionExtension cmdlet must only be used on VMs encrypted with dual-pass encryption. Attempting to migrate an unencrypted VM, or a VM encrypted with single pass encryption, will result in a terminal error.
+> The Set-AzVMDiskEncryptionExtension cmdlet must only be used on VMs encrypted with dual-pass encryption. Attempting to migrate an unencrypted VM, or a VM encrypted with single-pass encryption, will result in a terminal error.
 
 ```azurepowershell-interactive
 Set-AzVMDiskEncryptionExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Migrate
 ```
 
-When the cmdlet prompt you for confirmation, enter "Y".  The ADE version will then be updated, and the VM rebooted. The output will look similar to the following:
+When the cmdlet prompts you for confirmation, enter "Y".  The ADE version will be updated and the VM rebooted. The output will look similar to the following:
 
 ```bash
 > Set-AzVMDiskEncryptionExtension -ResourceGroupName myResourceGroup -VMName myVM -Migrate
