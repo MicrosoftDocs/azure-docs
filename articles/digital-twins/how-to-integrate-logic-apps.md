@@ -34,6 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with this account.
 You also need to complete the following items as part of prerequisite setup. The remainder of this section will walk you through these steps:
 - Set up an Azure Digital Twins instance
 - Add a digital twin
+- Set up an Azure Active Directory (Azure AD) app registration
 
 ### Set up Azure Digital Twins instance
 
@@ -47,25 +48,9 @@ You can add twins using the [DigitalTwins APIs](/rest/api/digital-twins/dataplan
 
 You will need the **Twin ID** of a twin in your instance that you've created.
 
-## Set up app registration
+### Set up app registration
 
 [!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
-
-### Get app registration client secret
-
-You will also need to create a **Client secret** for your Azure AD app registration. To do this, navigate to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) page in the Azure portal (you can use this link or look for it in the portal search bar). Select your registration that you created in the previous section from the list, in order to open its details. 
-
-Select **Certificates and secrets** from the registration's menu, and then select **+ New client secret**.
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Screenshot of an Azure AD app registration in the Azure portal. 'New client secret' is highlighted.":::
-
-Enter whatever values you want for **Description** and **Expires**, and select **Add**.
-
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Screenshot of the form for adding a client secret to an app registration in the Azure portal.":::
-
-Now, verify that the client secret is visible on the _Certificates & secrets_ page with _Expires_ and _Value_ fields. Take note of its _Value_ to use later (you can also copy it to the clipboard with the Copy icon)
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Screenshot of the app registration client secret value in the Azure portal.":::
 
 ## Create custom Logic Apps connector
 
@@ -121,8 +106,8 @@ In the Security step, select **Edit** and configure this information:
 * **Authentication type**: OAuth 2.0
 * **OAuth 2.0**:
     - Identity provider: Azure Active Directory
-    - Client ID: The **Application (client) ID** for your Azure AD app registration
-    - Client secret: The **Client secret** you created [earlier](#get-app-registration-client-secret) for your Azure AD app registration
+    - Client ID: The **Application (client) ID** for the Azure AD app registration you created in [Prerequisites](#prerequisites)
+    - Client secret: The **Client secret** from the app registration 
     - Login URL: https://login.windows.net (leave default)
     - Tenant ID: The **Directory (tenant) ID** for your Azure AD app registration
     - Resource URL: 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -132,8 +117,6 @@ In the Security step, select **Edit** and configure this information:
 Note that the Redirect URL field says *Save the custom connector to generate the redirect URL*. Do this now by selecting **Update connector** across the top of the pane to confirm your connector settings.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot of the top of the 'Edit Logic Apps Custom Connector' page. Highlight around 'Update connector' button.":::
-
-<!-- Success message? didn't see one -->
 
 Return to the Redirect URL field and copy the value that has been generated. You will use it in the next step.
 
