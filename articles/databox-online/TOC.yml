@@ -281,8 +281,14 @@
           items:
           - name: Connect to VM console
             href: azure-stack-edge-gpu-connect-virtual-machine-console.md
+          - name: Collect VM guest logs
+            href: azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md
           - name: VM image upload
-            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md    
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+          - name: VM deployment
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+          - name: GPU extension issues
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
     - name: Manage certificates
       items:
       - name: Requirements
