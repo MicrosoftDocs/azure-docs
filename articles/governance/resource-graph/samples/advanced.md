@@ -230,8 +230,8 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="mvexpand-cosmosdb"></a>List Cosmos DB with specific write locations
 
-The following query limits to Cosmos DB resources, uses `mv-expand` to expand the property bag for
-**properties.writeLocations**, then project specific fields and limit the results further to
+The following query limits to Azure Cosmos DB resources, uses `mv-expand` to expand the property bag
+for **properties.writeLocations**, then project specific fields and limit the results further to
 **properties.writeLocations.locationName** values matching either 'East US' or 'West US'.
 
 ```kusto
@@ -420,7 +420,7 @@ Resources
 | join kind=leftouter(
     Resources
     | where type == 'microsoft.compute/virtualmachines/extensions'
-    | extend 
+    | extend
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -597,7 +597,9 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ## <a name="count-gcnoncompliant"></a>Count of non-compliant Guest Configuration assignments
 
-Displays a count of non-compliant machines per [Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration). Limits results to first 100 for performance.
+Displays a count of non-compliant machines per
+[Guest Configuration assignment reason](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration).
+Limits results to first 100 for performance.
 
 ```kusto
 GuestConfigurationResources

@@ -2,7 +2,7 @@
 title: How to create Guest Configuration policies for Linux
 description: Learn how to create an Azure Policy Guest Configuration policy for Linux.
 ms.date: 03/31/2021
-ms.topic: how-to 
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
 # How to create Guest Configuration policies for Linux
@@ -26,7 +26,7 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policy definitions with Guest Configuration in the Azure Government and
-> Azure China environments is a Preview feature.
+> Azure China 21Vianet environments is a Preview feature.
 >
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
@@ -114,9 +114,9 @@ uncompressed.
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
 name of the [InSpec profile](https://www.inspec.io/docs/reference/profiles/). **Name** is the only
-required resource property. Create a YaML file and a Ruby script file, as detailed below.
+required resource property. Create a YAML file and a Ruby script file, as detailed below.
 
-First, create the YaML file used by InSpec. The file provides basic information about the
+First, create the YAML file used by InSpec. The file provides basic information about the
 environment. An example is given below:
 
 ```yaml
@@ -169,10 +169,10 @@ AuditFilePathExists -out ./Config
 ```
 
 Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing
-`./config.ps1` in the terminal. A new mof file will be created.
+`./config.ps1` in the terminal. A new MOF file is be created.
 
 The `Node AuditFilePathExists` command isn't technically required but it produces a file named
-`AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow
+`AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .MOF file name follow
 the configuration makes it easy to organize many files when operating at scale.
 
 You should now have a project structure as below:
@@ -184,7 +184,7 @@ You should now have a project structure as below:
     / linux-path
         inspec.yml
         / controls
-            linux-path.rb 
+            linux-path.rb
 ```
 
 The supporting files must be packaged together. The completed package is used by Guest Configuration
@@ -250,7 +250,7 @@ Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
   storage account
 - **Force**: Overwrite existing package in the storage account with the same name
 
-The example below publishes the package to a storage container name 'guestconfiguration'.
+The following example publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditFilePathExists/AuditFilePathExists.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -262,7 +262,7 @@ package and creates a policy definition.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
-- **ContentUri**: Public http(s) uri of Guest Configuration content package.
+- **ContentUri**: Public HTTP(s) URI of Guest Configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in hashtable format.
@@ -346,9 +346,9 @@ describe file(attr_path) do
 end
 ```
 
-Add the property **AttributesYmlContent** in your configuration with any string as the value.
-The Guest Configuration agent automatically creates the YAML file
-used by InSpec to store attributes. See the example below.
+Add the property **AttributesYmlContent** in your configuration with any string as the value. The
+Guest Configuration agent automatically creates the YAML file used by InSpec to store attributes.
+See the following example.
 
 ```powershell
 Configuration AuditFilePathExists
@@ -418,7 +418,7 @@ unique from previous versions. You can include a version number in the name such
 specify that the package should be considered newer or older than other packages.
 
 Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
-the explanations below.
+the following explanations.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published.

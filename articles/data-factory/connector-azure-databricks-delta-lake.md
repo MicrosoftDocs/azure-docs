@@ -1,8 +1,8 @@
 ---
 title: Copy data to and from Azure Databricks Delta Lake
 description: Learn how to copy data to and from Azure Databricks Delta Lake by using a copy activity in an Azure Data Factory pipeline.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -62,7 +62,7 @@ For cluster configuration details, see [Configure clusters](/azure/databricks/cl
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that define Data Factory entities specific to an Azure Databricks Delta Lake connector.
 

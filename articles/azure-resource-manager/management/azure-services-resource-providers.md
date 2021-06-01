@@ -2,7 +2,7 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 03/16/2021 
+ms.date: 03/16/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -76,7 +76,6 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](../../mysql/index.yml) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](../../postgresql/index.yml) |
-| Microsoft.DeploymentManager | [Azure Deployment Manager](../templates/deployment-manager-overview.md) |
 | Microsoft.DesktopVirtualization | [Windows Virtual Desktop](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Azure IoT Hub](../../iot-hub/index.yml)<br />[Azure IoT Hub Device Provisioning Service](../../iot-dps/index.yml) |
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |

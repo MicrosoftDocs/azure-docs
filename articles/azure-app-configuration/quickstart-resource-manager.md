@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Learn how to create an Azure App Configuration store by using Azure Resource Manager template (ARM template).
 author: GrantMeStrength
 ms.author: jken
-ms.date: 10/16/2020
+ms.date: 05/26/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
@@ -37,7 +37,7 @@ The quickstart uses the `copy` element to create multiple instances of key-value
 > [!IMPORTANT]
 > This template requires App Configuration resource provider version `2020-07-01-preview` or later. This version uses the `reference` function to read key-values. The `listKeyValue` function that was used to read key-values in the previous version is not available starting in version `2020-07-01-preview`.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -61,6 +61,9 @@ Two Azure resources are defined in the template:
 > ```azurecli-interactive
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
+
+> [!NOTE]
+> There is a limitation where key-value data access inside an ARM template is disabled if access key authentication is disabled. See [disable access key authentication](./howto-disable-access-key-authentication.md#limitations) for more details.
 
 ## Deploy the template
 
@@ -105,5 +108,5 @@ Write-Host "Press [ENTER] to continue..."
 
 To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
 
-- [101-app-configuration-store-ff](https://azure.microsoft.com/resources/templates/101-app-configuration-store-ff/)
-- [101-app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/101-app-configuration-store-keyvaultref/)
+- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
+- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/13/2019
+ms.date: 05/05/2021
 
 ms.author: mimart
 author: msmimart
@@ -31,18 +31,18 @@ To leave an organization, follow these steps.
 1. Go to your Access Panel Profile page by doing one of the following steps:
    
    - In the [Azure portal](https://portal.azure.com), click your name in the upper right and select **View account**.
-   - Open your [Access Panel](https://myapps.microsoft.com), click your name in the upper right, and next to **Organizations**, select the settings icon (gear).
+   - Open your [Access Panel](https://myapps.microsoft.com), click your name in the upper right, and next to **Organizations** and select  **View account**.
  
-   ![Screenshot showing user settings in Access Panel](media/leave-the-organization/UserSettings.png) 
-
-   > [!NOTE]
-   > If you’re not already signed in to the organization you want to leave, under **Organizations**, click the **Sign in to leave organization** link next to the organization’s name. After you’re signed in, click your name again in the upper right and next to **Organizations**, select the settings icon (gear).
-
+ 
+2. Select **Manage Organizations**.
+  ![Screenshot showing user settings in Access Panel](media/leave-the-organization/manage-organizations.png) 
+  
 3. Under **Organizations**, find the organization that you want to leave, and select **Leave organization**.
 
-   ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/LeaveOrg.png)
-
-4. When asked to confirm, select **Leave**. 
+   ![Screenshot showing Leave organization option in the user interface](media/leave-the-organization/leave-org.png)
+4. When asked to confirm, select **Leave**.
+> [!NOTE]
+   > You cannot leave your home organization.
 
 ## Account removal
 

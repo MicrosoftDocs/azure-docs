@@ -657,7 +657,7 @@ To ensure devices and server-side solutions that use models continue to work, pu
 
 The DTMI includes a version number that you can use to create multiple versions of a model. Devices and server-side solutions can use the specific version they were designed to use.
 
-IoT Central implements more versioning rules for device models. If you version a device template and its model in IoT Central, you can migrate devices from previous versions to later versions. However, migrated devices can't use new capabilities without a firmware upgrade. To learn more, see [Create a new device template version](../iot-central/core/howto-version-device-template.md).
+IoT Central implements more versioning rules for device models. If you version a device template and its model in IoT Central, you can migrate devices from previous versions to later versions. However, migrated devices can't use new capabilities without a firmware upgrade. To learn more, see [Edit a  device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Limits and constraints
 

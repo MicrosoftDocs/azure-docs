@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/28/2021
+ms.date: 05/03/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -42,6 +42,7 @@ In this tutorial, you learn how to:
 > * Configure a NAT rule to allow a remote desktop to the test server
 > * Test the firewall
 
+If you prefer, you can complete this procedure using [Azure PowerShell](deploy-ps-policy.md).
 
 ## Prerequisites
 

@@ -5,6 +5,8 @@
     items:
     - name: What is Application Proxy?
       href: what-is-application-proxy.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
   - name: Tutorials
     expanded: true
     items:

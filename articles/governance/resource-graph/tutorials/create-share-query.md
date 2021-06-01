@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Manage queries in Azure portal"
+title: "Tutorial: Manage queries in the Azure portal"
 description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
 ms.date: 05/01/2021
 ms.topic: tutorial
@@ -50,7 +50,7 @@ follow these steps:
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples – Count virtual machines by OS type](../samples/starter.md#count-os).
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-os).
 
 1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as
    **Private query**, and then select **Save** at the bottom of the **Save query** pane. The tab
@@ -94,7 +94,7 @@ use it. To create a new Shared query, follow these steps:
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples – Count virtual machines by OS type](../samples/starter.md#count-os).
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-os).
 
 1. Select **Save** or **Save as**.
 
@@ -165,7 +165,8 @@ Explorer**.
 
 The Resource Graph query is listed alongside other resources that are part of a resource group.
 Selecting the Resource Graph query opens the page for that query. The ellipsis and shortcut menu
-options (triggered by right-clicking) work the same as on the Resource Graph query page.
+options, triggered by select and hold (or right-click), work the same as on the Resource Graph query
+page.
 
 ### Query Resource Graph
 
@@ -204,7 +205,7 @@ longer want them.
 
 ## Next steps
 
-In this tutorial, you've created Private and Shared queries. To learn more about the Resource graph
+In this tutorial, you've created Private and Shared queries. To learn more about the Resource Graph
 language, continue to the query language details page.
 
 > [!div class="nextstepaction"]

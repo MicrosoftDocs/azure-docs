@@ -2,7 +2,7 @@
 title: Manage Start/Stop VMs v2 (preview)
 description: This article tells how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 (preview) feature and perform other management tasks.
 services: azure-functions
-ms.subservice: 
+ms.subservice: start-stop-vms
 ms.date: 03/16/2021
 ms.topic: conceptual
 ---

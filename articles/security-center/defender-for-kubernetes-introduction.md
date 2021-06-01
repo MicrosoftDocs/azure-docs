@@ -53,7 +53,7 @@ Also, our global team of security researchers constantly monitor the threat land
 
 
 
-## Azure Defender for Kubernetes - FAQ
+## FAQ - Azure Defender for Kubernetes
 
 ### Can I still get cluster protections without the Log Analytics agent?
 

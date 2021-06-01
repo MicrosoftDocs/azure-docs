@@ -67,7 +67,7 @@ To create a service principal with Azure CLI and assign an Azure role, call the 
 
 If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
 
-The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope
+The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Contributor** role to it with account scope
 
 ```azurecli-interactive
 az ad sp create-for-rbac \
