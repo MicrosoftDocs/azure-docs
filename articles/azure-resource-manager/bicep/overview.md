@@ -90,7 +90,9 @@ Yes. Starting with v0.3, Bicep is supported by Microsoft support plans. Bicep ha
 
 **Is Bicep only for Azure?**
 
-Bicep is a DSL focused on deploying complete solutions to Azure. Meeting that goal requires working with some APIs that are outside of Azure. We expect to provide extensibility points for those scenarios.
+Currently, we aren't planning for Bicep to extend beyond Azure. We want to fully support Azure and optimize the deployment experience.
+
+Meeting that goal requires working with some APIs that are outside of Azure. We expect to provide extensibility points for those scenarios.
 
 **What happens to my existing ARM templates?**
 
