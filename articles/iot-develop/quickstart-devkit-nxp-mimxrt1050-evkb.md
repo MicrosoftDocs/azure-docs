@@ -108,7 +108,7 @@ After the build completes, confirm that the binary file was created in the follo
 
 1. On the NXP EVK, locate the **Reset** button, the Micro USB port, and the Ethernet port. You use these components in the following steps. All three are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/nxp-evk-board.png" alt-text="Locate key components on the NXP EVK board":::
+    :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1050-evkb/nxp-1050-evkb-board.png" alt-text="Locate key components on the NXP EVK board":::
 
 1. Connect the Micro USB cable to the Micro USB port on the NXP EVK, and then connect it to your computer. After the device powers up, a solid green LED shows the power status.
 1. Use the Ethernet cable to connect the NXP EVK to an Ethernet port.
