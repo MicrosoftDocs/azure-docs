@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate SailPoint IdentityNow with Azure
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* SailPoint IdentityNow active subscription.  If you do not have IdentityNow, please contact microsoftcrew@sailpoint.com.
+* SailPoint IdentityNow active subscription.  If you do not have IdentityNow, please contact [SailPoint IdentityNow support team](mailto:support@sailpoint.com).
 
 ## Scenario description
 
@@ -131,16 +131,16 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to SailPoint IdentityNow Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to SailPoint IdentityNow Sign on URL where you can initiate the login flow.  
 
-1. Go to SailPoint IdentityNow Sign-on URL directly and initiate the login flow from there.
+* Go to SailPoint IdentityNow Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the SailPoint IdentityNow tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SailPoint IdentityNow tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure SailPoint IdentityNow you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure SailPoint IdentityNow you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
