@@ -86,6 +86,8 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 Layout API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Text is extracted with information provided on lines, words, bounding boxes, confidence scores, and style (handwritten or other). All the text information is included in the `readResults` section of the JSON output.
 
+:::image type="content" source="./media/layout-text-extraction.png" alt-text="Layout text extraction output":::
+
 ### Natural reading order for text lines (Latin only)
 
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
