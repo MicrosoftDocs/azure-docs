@@ -80,7 +80,7 @@ Check with your mobile device vendor to learn about your vendor's adherence with
 
 FIDO2 security keys, smart cards, and Windows Hello for Business can help you meet these requirements.
 
-* FIDO2 keys are a recent innovation, so they're still in the process of meeting FIPS certification.
+* FIDO2 key providers are in various stages of FIPS certification, including some that have completed validation. We recommend you review the [list of supported FIDO2 key vendors](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-key-providers) and check with your provider for current FIPS validation status.
 
 * Smart cards are a proven technology. Multiple vendor products meet FIPS requirements.
 

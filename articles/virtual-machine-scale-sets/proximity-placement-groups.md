@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: proximity-placement-groups
 ms.date: 07/01/2019
 ms.reviewer: zivr
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 

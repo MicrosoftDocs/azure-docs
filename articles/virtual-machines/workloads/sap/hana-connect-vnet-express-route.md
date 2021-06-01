@@ -7,12 +7,13 @@ author: msjuergent
 manager: bburns
 editor:
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
 ---
 
