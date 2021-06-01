@@ -112,7 +112,7 @@ Using these mount options significantly reduces the workload to storage in these
 
 ### Close-to-open consistency 
 
-Close-to-open consistency (the `cto` mount option) ensures that no matter the state of the cache, on open the most data for a file is always available.   
+Close-to-open consistency (the `cto` mount option) ensures that no matter the state of the cache, on open most data for a file is always available.   
 
 * When a directory is crawled (`ls`, `ls -l` for example) a certain set of PRC calls are issued.  
     The NFS server shares its view of the filesystem. As long as `cto` is used by all NFS clients accessing a given NFS export, all clients will see the same list of files and directories therein.  The freshness of the attributes of the files in the directory is controlled by the [attribute cache timers](#how-attribute-cache-timers-work).  In other words, as long as `cto` is used, files appear to remote clients as soon as the file is created and the file lands on the storage.

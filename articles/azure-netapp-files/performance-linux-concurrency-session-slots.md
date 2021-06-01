@@ -43,31 +43,31 @@ A concurrency level as low as 155 is sufficient to achieve 155,000 Oracle DB NFS
 
 See [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md) for details.
 
-The `sunrpc.max_slot_table_entries` tunable is a connection-level tuning parameter.  *As a best practice, set this value to 128 or less per connection, not surpassing 2000 slots environment wide.*
+The `sunrpc.max_tcp_slot_table_entries` tunable is a connection-level tuning parameter.  *As a best practice, set this value to 128 or less per connection, not surpassing 2000 slots environment wide.*
 
 ### Examples of slot count based on concurrency recommendation 
 
 Examples in this section demonstrate the slot count based on concurrency recommendation.  
 
-#### Example 1 – One NFS client, 65,536 `sunrpc.max_slot_table_entries`, and no `nconnect` for a maximum concurrency of 128 based on the server-side limit of 128
+#### Example 1 – One NFS client, 65,536 `sunrpc.max_tcp_slot_table_entries`, and no `nconnect` for a maximum concurrency of 128 based on the server-side limit of 128
 
 Example 1 is based on a single client workload with the default `sunrpc.max_tcp_slot_table_entry` value of 65,536 and a single network connection, that is, no `nconnect`.  In this case, a concurrency of 128 is achievable.
 
 * `NFS_Server=10.10.10.10, NFS_Client=10.10.10.11`
     * `Connection (10.10.10.10:2049, 10.10.10.11:6543,TCP`) 
-        * The client in theory can issue no more than 65,536 requests in flight to the server for the session.
+        * The client in theory can issue no more than 65,536 requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 
-#### Example 2 – One NFS client, 128 `sunrpc.max_slot_table_entries`, and no `nconnect` for a maximum concurrency of 128
+#### Example 2 – One NFS client, 128 `sunrpc.max_tcp_slot_table_entries`, and no `nconnect` for a maximum concurrency of 128
 
 Example 2 is based on a single client workload with a `sunrpc.max_tcp_slot_table_entry` value of 128, but without the `nconnect` mount option.  With this setting, a concurrency of 128 is achievable from a single network connection.
 
 * `NFS_Server=10.10.10.10, NFS_Client=10.10.10.11`
     * `Connection (10.10.10.10:2049, 10.10.10.11:6543,TCP) `
-        * The client will issue no more than 128 requests in flight to the server for the session.
+        * The client will issue no more than 128 requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 
-#### Example 3 – One NFS client, 100 `sunrpc.max_slot_table_entries`, and `nconnect=8` for a maximum concurrency of 800
+#### Example 3 – One NFS client, 100 `sunrpc.max_tcp_slot_table_entries`, and `nconnect=8` for a maximum concurrency of 800
 
 Example 3 is based on a single client workload, but with a lower  `sunrpc.max_tcp_slot_table_entry` value of 100.  This time, the `nconnect=8` mount option used spreading the workload across 8 connection.  With this setting, a concurrency of 800 is achievable spread across the 8 connections.  This amount is the concurrency needed to achieve 400,000 IOPS.
 
@@ -85,23 +85,23 @@ Example 3 is based on a single client workload, but with a lower  `sunrpc.max_tc
         * The client will issue no more than 100 requests in flight to the server from  this connection.
         * The server is expected to accept no more than 128 requests in flight from the client for this connection.
 
-#### Example 4 – 250 NFS clients, 8 `sunrpc.max_slot_table_entries`, and no `nconnect` for a maximum concurrency of 2000
+#### Example 4 – 250 NFS clients, 8 `sunrpc.max_tcp_slot_table_entries`, and no `nconnect` for a maximum concurrency of 2000
 
 Example 4 uses the reduced per-client `sunrpc.max_tcp_slot_table_entry` value of 8 for a 250 machine-count EDA environment. In this scenario, a concurrency of 2000 is reached environment wide, a value more than sufficient to drive 4,000 MiB/s of a backend EDA workload.
 
 * `NFS_Server=10.10.10.10, NFS_Client1=10.10.10.11`
     * `Connection (10.10.10.10:2049, 10.10.10.11:6543,TCP)` 
-        * The client will issue no more than 8 requests in flight to the server for the session.
+        * The client will issue no more than 8 requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 * `NFS_Server=10.10.10.10, NFS_Client2=10.10.10.12`
     * `Connection (10.10.10.10:2049, 10.10.10.12:7820,TCP) `
-        * The client will issue no more than 8 requests in flight to the server for the session.
+        * The client will issue no more than 8 requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 * `…`
 * `…`
 * `NFS_Server=10.10.10.10, NFS_Client250=10.10.11.13`
     * `Connection (10.10.10.10:2049, 10.10.11.13:4320,TCP) `
-        * The client will issue no more than 8 requests in flight to the server for the session.
+        * The client will issue no more than 8 requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 
 When using NFSv3, *you should collectively keep the storage endpoint slot count to 2,000 or less*. It is best to set the per-connection value for `sunrpc.max_tcp_slot_table_entries` to less than 128 when an application scales out across many network connections (`nconnect` and HPC in general, and EDA in particular).  
