@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Create an Azure File Sync server endpoint
 
-A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint is subject to the following conditions:
+A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint must meet the following conditions:
 
 - A server endpoint must be a path on a registered server (rather than a mounted share). Network attached storage (NAS) is not supported.
 - Although the server endpoint can be on the system volume, server endpoints on the system volume may not use cloud tiering.
