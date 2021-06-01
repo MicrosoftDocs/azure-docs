@@ -88,7 +88,7 @@ To upload the Drawing package:
 
 17. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the Drawing package upload.
 
-     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="Copy the status URl in the Location key.":::
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="Copy the status URL in the Location key.":::
 
 ### Check the Drawing package upload status
 
