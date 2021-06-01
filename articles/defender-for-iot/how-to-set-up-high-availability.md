@@ -1,12 +1,12 @@
 ---
 title: Set up high availability
-description: Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+description: Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 ms.date: 12/07/2020
 ms.topic: how-to
 ---
 # About high availability
 
-Increase the resiliency of your Defender for IoT deployment by installing a on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with an on-premises management console pair that includes a primary and secondary appliance.
 
@@ -42,7 +42,7 @@ The installation and configuration procedures are performed in four main stages:
 
 2. Configure the on-premises management console primary appliance. For example, scheduled backup settings, VLAN settings. See the on-premises management console user guide for details. All settings are applied to the secondary appliance automatically after pairing.
 
-3. Install a on-premises management console secondary appliance. For more information see, [About the Defender for IoT Installation](how-to-install-software.md).
+3. Install an on-premises management console secondary appliance. For more information, see [About the Defender for IoT Installation](how-to-install-software.md).
 
 4. Pair the primary and secondary on-premises management console appliances as described [here](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
 
@@ -64,7 +64,7 @@ Verify that you have met the following high availability requirements:
 
 ### Network access requirements
 
-You need to verify that your organizational security policy allows you access to the following services on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
+Verify if your organizational security policy allows you to hav access to the following services on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 
 |Port|Service|Description|
 |----|-------|-----------|
