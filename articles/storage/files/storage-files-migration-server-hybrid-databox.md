@@ -140,7 +140,7 @@ Cloud tiering is the Azure File Sync feature that allows the local server to hav
 
 Learn more by checking out the [cloud tiering overview](../file-sync/file-sync-cloud-tiering-overview.md) or take a closer look at the different [cloud tiering policies](../file-sync/file-sync-cloud-tiering-policy.md) you can use to fine-tune what is cached / tiered on the local server.
 
-## Wrapping up your migration
+## Complete your migration
 
 After you create a server endpoint, sync is working. But sync needs to enumerate (discover) the files and folders you moved via Azure Data Box into the Azure file share. Depending on the size of the namespace, it can take a long time before the latest server changes are synced to the cloud. Your users are not impacted and can continue to work with the data on the server. This strategy achieves a zero-downtime cloud migration.
 
