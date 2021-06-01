@@ -42,7 +42,7 @@ Tasks for monitoring account activity
 
 Details go here
 
-#### Receive an alert when big blobs are uploaded to Blob Storage
+#### Receive an alert when a large blob is uploaded
 
 Details go here
 

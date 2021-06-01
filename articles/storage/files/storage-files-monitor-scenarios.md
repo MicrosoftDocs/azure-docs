@@ -42,7 +42,7 @@ Tasks for monitoring account activity
 
 Details go here
 
-#### Receive an alert when big files are uploaded to a file share
+#### Receive an alert when a big file is uploaded
 
 Details go here
 
