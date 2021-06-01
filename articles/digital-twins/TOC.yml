@@ -83,9 +83,9 @@
       href: how-to-authenticate-client.md
     - name: Create an app registration
       items:
-      - name: Portal version
+      - name: Portal
         href: how-to-create-app-registration-portal.md
-      - name: CLI version
+      - name: CLI
         href: how-to-create-app-registration-cli.md
     - name: Move instance to a different region
       href: how-to-move-regions.md
