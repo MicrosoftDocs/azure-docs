@@ -18,7 +18,7 @@ You can also watch a video on how to [reset the vCenter CloudAdmin & NSX-T admin
 
 If you use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon, your connections stop working once you update your password.  Stop these services before initiating the password rotation. Otherwise, you'll experience temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
-## Reset your Azure VMware Solution credentials
+## Reset your Azure VMware Solution cloudadmin credentials
 
 In this step, you'll rotate the cloudadmin credentials for your Azure VMware Solution components. 
 
@@ -39,7 +39,7 @@ In this step, you'll rotate the cloudadmin credentials for your Azure VMware Sol
    az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
 
-## Update HCX Connector with the latest credentials
+## Update HCX Connector with the latest cloudadmin credentials
 
 In this step, you'll update HCX Connector with the updated credentials.
 
