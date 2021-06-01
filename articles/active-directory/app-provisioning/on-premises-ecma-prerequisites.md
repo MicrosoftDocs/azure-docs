@@ -25,9 +25,9 @@ Installing and configuring the Azure AD ECMA Connector Host is a process. Use th
  ![Installation flow](./media/on-premises-ecma-prerequisites/flow-1.png)  
 
 For more installation and configuration information, see:
-   - [Installation of the Azure AD ECMA Connector Host](on-prem-ecma-install.md)
-   - [Configure the Azure AD ECMA Connector Host and the provisioning agent](on-prem-ecma-configure.md)
-   - [Azure AD ECMA Connector Host generic SQL connector configuration](on-prem-sql-connector-configure.md)
+   - [Installation of the Azure AD ECMA Connector Host](on-premises-ecma-install.md)
+   - [Configure the Azure AD ECMA Connector Host and the provisioning agent](on-premises-ecma-configure.md)
+   - [Azure AD ECMA Connector Host generic SQL connector configuration](on-premises-sql-connector-configure.md)
 
 ## On-premises pre-requisites
  - A target system, such as a SQL database, or LDAP directory (excluding AD DS), in which users can be created, updated, and deleted.

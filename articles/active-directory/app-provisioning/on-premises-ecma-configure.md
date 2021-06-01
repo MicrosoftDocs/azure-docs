@@ -25,9 +25,9 @@ Installing and configuring the Azure AD ECMA Connector Host is a process.  Use t
  ![Installation flow](./media/on-premises-ecma-configure/flow-1.png)  
 
 For more installation and configuration information see:
-   - [Prerequisites for the Azure AD ECMA Connector Host](on-prem-ecma-prerequisites.md)
-   - [Installation of the Azure AD ECMA Connector Host](on-prem-ecma-install.md)
-    - [Azure AD ECMA Connector Host generic SQL connector configuration](on-prem-sql-connector-configure.md)
+   - [Prerequisites for the Azure AD ECMA Connector Host](on-premises-ecma-prerequisites.md)
+   - [Installation of the Azure AD ECMA Connector Host](on-premises-ecma-install.md)
+    - [Azure AD ECMA Connector Host generic SQL connector configuration](on-premises-sql-connector-configure.md)
 ## Configure the Azure AD ECMA Connector Host
 Configuring the Azure AD ECMA Connector Host occurs in 2 parts.
     
@@ -52,7 +52,7 @@ The configuration steps for each of the individual connectors are longer and are
 
 Use one of the links below to create and configure a connector.
 
-- [Generic SQL connector](on-prem-sql-connector-configure.md) - a connector that will work with SQL databases such as Microsoft SQL or MySQL.
+- [Generic SQL connector](on-premises-sql-connector-configure.md) - a connector that will work with SQL databases such as Microsoft SQL or MySQL.
 - Generic LDAP connector - a connector that will work with LDAP directories such as OpenLDAP and Active Directory Lightweight Directory Services.
 
 

@@ -77,29 +77,29 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
  6. Accept the terms and click download.
  7. Run the Azure AD Connect provisioning installer AADConnectProvisioningAgentSetup.msi.
  8. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms and select **Install**.
-   ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/on-prem-ecma-install/install-1.png)</br>
+   ![Microsoft Azure AD Connect Provisioning Agent Package screen](media/on-premises-ecma-install/install-1.png)</br>
  9. After this operation finishes, the configuration wizard starts. Click **Next**.
-   ![Welcome screen](media/on-prem-ecma-install/install-2.png)</br>
+   ![Welcome screen](media/on-premises-ecma-install/install-2.png)</br>
  10. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)** and click **Next**. 
-   ![Select extension](media/on-prem-ecma-install/install-3.png)</br>
+   ![Select extension](media/on-premises-ecma-install/install-3.png)</br>
  12. Use your global administrator account and sign in to Azure AD.
-     ![Azure signin](media/on-prem-ecma-install/install-4.png)</br>
+     ![Azure signin](media/on-premises-ecma-install/install-4.png)</br>
  13.  On the **Agent Configuration** screen, click **Confirm**.
-     ![Confirm installation](media/on-prem-ecma-install/install-5.png)</br>
+     ![Confirm installation](media/on-premises-ecma-install/install-5.png)</br>
  14.  Once the installation is complete, you should see a message at the bottom of the wizard.  Click **Finish**.
-     ![Finish button](media/on-prem-ecma-install/install-6.png)</br>
+     ![Finish button](media/on-premises-ecma-install/install-6.png)</br>
  15. Click **Close**.
  
 ## Step 4 - Configure the Azure AD ECMA Connector Host
 1. On the desktop, click the ECMA shortcut.
 2. Once the ECMA Connector Host Configuration starts, leave the default port 8585 and click **Generate**.  This will generate a certificate.  The auto-generated certificate will be self-signed / part of the trusted root and the SAN matches the hostname.
-     ![Configure your settings](.\media\on-prem-ecma-configure\configure-1.png)
+     ![Configure your settings](.\media\on-premises-ecma-configure\configure-1.png)
 3. Click **Save**.
 
 ## Step 5 - Create a generic SQL connector
  1.  Click on the ECMA Connector Host shortcut on the desktop.
  2.  Select **New Connector**.
-     ![Choose new connector](.\media\on-prem-sql-connector-configure\sql-1.png)
+     ![Choose new connector](.\media\on-premises-sql-connector-configure\sql-1.png)
 
  3. On the **Properties** page, fill in the boxes with the values specified in the table below and click **Next**.
      ![Enter properties](.\media\tutorial-ecma-sql-connector\conn-1.png)
@@ -199,29 +199,29 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 1.  On the server the running the Azure AD ECMA Connector Host, click Start.
 2. Type run and enter services.msc in the box
 3. In the services, ensure that **Microsoft ECMA2Host** is present and running.  If not, click **Start**.
- ![Service is running](.\media\on-prem-ecma-configure\configure-2.png)
+ ![Service is running](.\media\on-premises-ecma-configure\configure-2.png)
 
 ## Step 7 - Add Enterprise application
 1.  Sign-in to the Azure portal as an application administrator
 2. In the portal, navigate to Azure Active Directory, **Enterprise Applications**.
 3. Click on **New Application**.
- ![Add new application](.\media\on-prem-ecma-configure\configure-4.png)
+ ![Add new application](.\media\on-premises-ecma-configure\configure-4.png)
 4. Search the gallery for the test application **on-premises provisioning** and click **Create**.
  ![Create new application](.\media\tutorial-ecma-sql-connector\app-1.png)
 
 ## Step 8 - Configure the application and test
 1. Once it has been created, click he **Provisioning page**.
 2. Click **get started**.
-     ![get started](.\media\on-prem-ecma-configure\configure-6.png)
+     ![get started](.\media\on-premises-ecma-configure\configure-6.png)
 3. On the **Provisioning page**, change the mode to **Automatic**
-     ![Mode to automatic](.\media\on-prem-ecma-configure\configure-7.png)
+     ![Mode to automatic](.\media\on-premises-ecma-configure\configure-7.png)
 4. In the on-premises connectivity section, select the agent that you just deployed and click **assign agent(s)**.
      >[!NOTE]
      >After adding the agent, you need to wait 10 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
      >
      >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
    
-     ![Restart an agent](.\media\on-prem-ecma-configure\configure-8.png)
+     ![Restart an agent](.\media\on-premises-ecma-configure\configure-8.png)
 5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
 
      |Property|Value|
@@ -230,9 +230,9 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 
 6. Enter the secret token value that you defined when creating the connector.
 7. Click Test Connection and wait one minute.
-     ![Assign an agent](.\media\on-prem-ecma-configure\configure-5.png)
+     ![Assign an agent](.\media\on-premises-ecma-configure\configure-5.png)
 8. Once connection test is successful, click **save**.
-     ![Test an agent](.\media\on-prem-ecma-configure\configure-9.png)
+     ![Test an agent](.\media\on-premises-ecma-configure\configure-9.png)
 
 ## Step 9 - Assign users to application
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD you can move on to configuring who is in scope for provisioning. 
@@ -256,9 +256,9 @@ Now we need to map attributes between the on-premises application and our SQL se
  1. In the Azure AD portal, under **Enterprise applications**, click he **Provisioning page**.
  2. Click **get started**.
  3. Expand **Mappings** and click **Provision Azure Active Directory Users**
-   ![provision a user](.\media\on-prem-ecma-configure\configure-10.png)
+   ![provision a user](.\media\on-premises-ecma-configure\configure-10.png)
  5. Click **Add new mapping**
-     ![Add a mapping](.\media\on-prem-ecma-configure\configure-11.png)
+     ![Add a mapping](.\media\on-premises-ecma-configure\configure-11.png)
  6. Specify the source and target attributes and  and add all of the mappings in the table below.
 
       |Mapping Type|Source attribute|Target attribute|
@@ -281,16 +281,16 @@ Now that our attributes are mapped we can test on-demand provisioning with one o
  3. On the left, click **Provisioning**.
  4. Click **Provision on-demand**
  5. Search for one of your test users and click **Provision**
-     ![Test provisioning](.\media\on-prem-ecma-configure\configure-13.png)
+     ![Test provisioning](.\media\on-premises-ecma-configure\configure-13.png)
 
 ### Step 12 - Start provisioning users
  1. Once on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and group, turn **provisioning On**, and click **Save**.
-   ![Start provisioning](.\media\on-prem-ecma-configure\configure-14.png)
+   ![Start provisioning](.\media\on-premises-ecma-configure\configure-14.png)
   2.  Wait several minutes for provisioning to start (it may take up to 40 minutes). You can learn more about the provisioning service performance here. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to Off, and click Save. This will stop the provisioning service from running in the future.
 
 ### Step 13 - Verify users have been successfully provisioned
 After waiting, check the SQL database to ensure users are being provisioned.
- ![Verify users are provisioned](.\media\on-prem-ecma-configure\configure-15.png)
+ ![Verify users are provisioned](.\media\on-premises-ecma-configure\configure-15.png)
 
 ## Appendix A
 **SQL script to create the sample database**
