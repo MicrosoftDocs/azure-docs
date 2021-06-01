@@ -72,9 +72,11 @@ After an event is unlearned, it will move back to the Main View page.
 
 1. Navigate to the Event Timeline tab :::image type="icon" source="media/how-to-work-with-alerts-sensor/event-timeline.png" border="false":::
 
-1. Locate your alert in the timeline.
+1. Locate the alert in the timeline.
 
-The information will be listed in the alert window. 
+    :::image type="content" source="media/how-to-work-with-alerts-sensor/event-timeline-acknowledged.png" alt-text="You can locate the acknowledged events in the event timeline.":::
+
+    You will see in the alert's window, if the alert was learned, or acknowledged.
  
 ## About acknowledging and unacknowledging events
 
