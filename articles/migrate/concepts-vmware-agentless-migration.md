@@ -46,7 +46,7 @@ A cycle is said to be complete once the disks are consolidated.
 - DRA agent
 - Gateway agent
 
-**Azure components:** The following table summarizes various Azure artifacts that are created while using the agentless method of VMware VM migration.
+**Azure components:** The following table summarizes various Azure Artifacts that are created while using the agentless method of VMware VM migration.
 
 | Component | Region | Subscription | Description |
 | --- | --- | --- | --- |
