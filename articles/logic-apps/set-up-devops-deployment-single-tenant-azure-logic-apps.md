@@ -207,7 +207,7 @@ If you use other deployment tools, you can deploy your single-tenant based logic
 
 ##### Install Azure Logic Apps (Standard) extension for Azure CLI
 
-Install the *preview* single-tenant Azure Logic Apps (Standard) extension for Azure CLI by running the command, `az extension add`, with the following require parameters:
+Install the *preview* single-tenant Azure Logic Apps (Standard) extension for Azure CLI by running the command, `az extension add`, with the following required parameters:
 
 ```azurecli-interactive
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
