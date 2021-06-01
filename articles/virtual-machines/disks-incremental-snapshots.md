@@ -42,6 +42,13 @@ You can identify incremental snapshots from the same disk with the `SourceResour
 You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. Replace `<yourResourceGroupNameHere>` with your value and then you can use the following example to list your existing incremental snapshots:
 
 
+```azurecli
+resourceGroupName="yourResourceGroupNameHere"
+snapshots=$(az snapshot list --query "[?incremental=="True"]" -g $resourceGroupName --output table)
+
+
+```
+
 
 # [Azure PowerShell](#tab/azure-powershell)
 
