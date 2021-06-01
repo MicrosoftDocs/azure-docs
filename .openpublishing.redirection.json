@@ -44327,7 +44327,7 @@
     {
       "source_path_from_root": "/articles/active-directory/privileged-identity-management/azure-ad-roles-features.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/marketplace-roadmap.md",
