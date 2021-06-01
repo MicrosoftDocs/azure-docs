@@ -70,7 +70,6 @@ The structure of the Bicep file is more flexible than the JSON template. You can
 The following limits currently exist:
 
 * Can't set mode or batch size on copy loops.
-* Can't combine loops and conditions.
 * Single-line object and arrays, like `['a', 'b', 'c']`, aren't supported.
 
 ## FAQ
