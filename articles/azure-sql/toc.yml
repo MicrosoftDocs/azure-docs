@@ -300,9 +300,9 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
-      - name: Hyperscale Replicas
+      - name: Hyperscale replicas
         href: database/service-tier-hyperscale-replicas.md        
-      - name: Hyperscale Replicas FAQ
+      - name: Hyperscale replicas FAQ
         href: database/service-tier-hyperscale-named-replicas-faq.yml
     - name: Plan and manage costs 
       href: database/cost-management.md
@@ -364,7 +364,7 @@
         href: database/sql-data-sync-sql-server-configure.md
       - name: Migrate SQLite to serverless
         href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
-    - name: Scale Out
+    - name: Scale out
       items: 
       - name: Configure security for named replicas
         href: database/hyperscale-named-replica-security-configure.md
