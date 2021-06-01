@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 06/01/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
@@ -90,9 +90,9 @@ To connect to Azure Resource Manager, you will need to create or get signing cha
 
 For test and development use only, you can use Windows PowerShell to create certificates on your local system. While creating the certificates for the client, follow these guidelines:
 
-1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-gpu-manage-certificates.md#create-signing-chain-certificate).
+1. You first need to create a root certificate for the signing chain. For more information, see See steps to [Create signing chain certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signing-chain-certificate).
 
-2. You can next create the endpoint certificates for the blob and Azure Resource Manager. You can get these endpoints from the **Device** page in the local web UI. See the steps to [Create endpoint certificates](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates).
+2. You can next create the endpoint certificates for the blob and Azure Resource Manager. You can get these endpoints from the **Device** page in the local web UI. See the steps to [Create endpoint certificates](azure-stack-edge-gpu-create-certificates-powershell.md#create-signed-endpoint-certificates).
 
 3. For all these certificates, make sure that the subject name and subject alternate name conform to the following guidelines:
 

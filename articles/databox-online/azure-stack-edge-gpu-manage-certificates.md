@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 06/01/2021
 ms.author: alkohli
 ---
 # Upload, import, and export certificates on Azure Stack Edge Pro GPU
@@ -17,7 +17,8 @@ ms.author: alkohli
 This article describes the types of certificates that can be installed on your Azure Stack Edge Pro device. The article also includes the details for each certificate type along with the procedure to install and identify the expiration date.  
 
 To ensure secure and trusted communication between your Azure Stack Edge device and the clients connecting to it, you can use self-signed certificates or bring your own certificates. This article describes how to manage these certificates including how to upload, import, export these certificates or view their expiration date.
-To know more about how to create these certificates, see [Create certificates using Azure PowerShell]().
+
+To know more about how to create these certificates, see [Create certificates using Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md).
 
 
 ## Upload certificates 
