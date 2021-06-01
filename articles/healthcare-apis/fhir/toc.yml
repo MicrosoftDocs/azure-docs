@@ -58,6 +58,8 @@
       href: cms-tutorial-introduction.md
     - name: Carin Implementation Guide for Blue Button (C4BB IG)
       href: carin-implementation-guide-bb-tutorial.md
+    - name: $member-match operation
+      href: tutorial-$member-match.md
 - name: How-to guides
   expanded: false
   items:
