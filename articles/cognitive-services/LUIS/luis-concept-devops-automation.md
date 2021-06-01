@@ -1,5 +1,5 @@
 ---
-title: Continuous workflows for LUIS apps
+title: Continuous Integration and Continuous Delivery workflows for LUIS apps
 description: How to implement CI/CD workflows for DevOps for Language Understanding (LUIS).
 ms.service: cognitive-services
 ms.subservice: language-understanding
