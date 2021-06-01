@@ -40,7 +40,7 @@ The following sections describe the phases of the migration process in detail.
 
 ## Phase 1: Determine how many Azure file shares you need
 
-This migration guide can only work, if you continue to use the on-premises, Direct Attached Storage (DAS) that contains your files. Data Box will be fed from that location and Azure File Sync will also be set up on that location. NAS (Network Attached Storage) does not work with this guide. 
+With this migration guide, you must continue to use the on-premises direct attached storage (DAS) that contains your files. Data Box will be fed from that location and Azure File Sync will also be set up on that location. NAS (Network Attached Storage) does not work with this migration path.
 
 You determine what syncs by setting up Azure File Sync *sync groups* that each determine where a set of files syncs between. Each sync group has at least one server location, called a *server endpoint* and one Azure file share, called the *cloud endpoint*. 
 
@@ -154,4 +154,3 @@ There's more to discover about Azure file shares and Azure File Sync. The follow
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 * [Create a file share](storage-how-to-create-file-share.md)
 * [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
-
