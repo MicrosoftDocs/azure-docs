@@ -31,7 +31,7 @@ The following diagram provides a reference architecture for on-premises to Azure
 
 :::image type="content" source="./media/komprise-quick-start-guide/komprise-architecture.png" alt-text="Reference architecture describes basic setup for Komprise Intelligent Data Manager":::
 
-Komprise is a software solution that is easily deployed in a virtual environment, and can be installed within 15 to 30 minutes. The solutions consist of:
+Komprise is a software solution that is easily deployed in a virtual environment. The solutions consist of:
 - **Director** - The administration console for the Komprise Grid. It is used to configure the environment, monitor activities, view reports and graphs, and set policies.
 - **Observers** - Manage and analyze shares, summarize reports, communicates with the Director and handle NFS data traffic.
 - **Proxies** - Simplify and accelerate SMB/CIFS data flow, easily scale to meet performance requirements of a growing environment.
@@ -72,7 +72,7 @@ Use the following methods to identify the bandwidth headroom to Azure that is fr
 
 ## Migration planning guide
 
-Komprise is simple to set up and run multiple migrations simultaneously in 3 steps:
+Komprise is simple to set up and run multiple migrations simultaneously in three steps:
 
 1.	Analyze data to identify files to migrate or archive,
 1.	Define policies to migrate, move, or copy unstructured data to Azure Storage,
@@ -88,9 +88,9 @@ Information of the analysis is useful and can help with the migration significan
 - Information on access time can identify:
   - Files you need to cache on-premises or store on fast file service
   - Files you can archive to blob storage
-- Information on top users, groups, or shares can determine the order of the migration and the most impacted group within the organization to assess business impact migration will have
-- Number of files, or capacity per file type can determine type of stored files and if there are any possibilities to clean up the content, reduce the migration effort, and reduce the cost of the target storage
-- Number of files, or capacity per file size can determine the duration of migration. Large number of small files will take longer to migrate than small number of large files even though it will consume the same capacity
+- Information on top users, groups, or shares can determine the order of the migration and the most impacted group within the organization to assess business impact
+- Number of files, or capacity per file type can determine type of stored files and if there are any possibilities to clean up the content. Cleaning up will reduce the migration effort, and reduce the cost of the target storage
+- Number of files, or capacity per file size can determine the duration of migration. Large number of small files will take longer to migrate than small number of large files
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-1.png" alt-text="Analysis by file type and access time":::
 
@@ -108,6 +108,57 @@ Before deploying Komprise, target service has to be deployed. You can learn more
 - How to create an [SMB volume](/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) or [NFS export](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in Azure NetApp Files
 
 The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. If setting up the environment in Azure, deployment using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management) is recommended.
+
+1. Open the Azure portal, and search for  **storage accounts**. 
+
+    :::image type="content" source="./media/komprise-quick-start-guide/azure-locate-storage-account.png" alt-text="Shows where you've typed storage in the search box of the Azure portal.":::
+
+    You can also click on the default  **Storage accounts**  icon.
+
+    :::image type="content" source="./media/komprise-quick-start-guide/azure-portal.png" alt-text="Shows adding a storage account in the Azure portal.":::
+
+2. Select  **Create**  to add an account:
+   1. Select existing resource group or **Create new**
+   2. Provide a unique name for your storage account
+   3. Choose the region
+   4. Select  **Standard**  or **Premium** performance, depending on your needs. If you select **Premium**, select **File shares** under **Premium account type**.
+   5. Choose the **[Redundancy](/azure/storage/common/storage-redundancy)** that meets your data protection requirements
+   
+   :::image type="content" source="./media/komprise-quick-start-guide/azure-account-create-1.png" alt-text="Shows storage account settings in the portal.":::
+
+3. Next, we recommend the default settings from the **Advanced** screen. If you are migrating to Azure Files, we recommend enabling **Large file shares** if available.
+
+   :::image type="content" source="./media/komprise-quick-start-guide/azure-account-create-2.png" alt-text="Shows Advanced settings tab in the portal.":::
+
+4. Keep the default networking options for now and move on to  **Data protection**. You can choose to enable soft delete, which allows you to recover an accidentally deleted data within the defined retention period. Soft delete offers protection against accidental or malicious deletion.
+
+   :::image type="content" source="./media/komprise-quick-start-guide/azure-account-create-3.png" alt-text="Shows the Data Protection settings in the portal.":::
+
+5. Add tags for organization if you use tagging and **Create** your account.
+ 
+6. Two quick steps are all that are now required before you can add the account to your Komprise environment. Navigate to the account you created in the Azure portal and select File shares under the File service menu. Add a File share and choose a meaningful name. Then, navigate to the Access keys item under Settings and copy the Storage account name and one of the two access keys. If the keys are not showing, click on the **Show keys**.
+
+   :::image type="content" source="./media/komprise-quick-start-guide/azure-access-key.png" alt-text="Shows access key settings in the portal.":::
+
+7. Navigate to the properties of the Azure File share and take the URL address, it will be required to add the Azure connection into the Komprise target file share:
+
+   :::image type="content" source="./media/komprise-quick-start-guide/azure-files-endpoint.png" alt-text="Find Azure files endpoint.":::
+
+8. (_Optional_) You can add extra layers of security to your deployment.
+ 
+   1. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations).
+ 
+   2.  Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network.
+
+       :::image type="content" source="./media/komprise-quick-start-guide/azure-storage-firewall.png" alt-text="Shows storage firewall settings in the portal.":::
+
+   3.  Set a [delete lock](/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
+
+       :::image type="content" source="./media/komprise-quick-start-guide/azure-resource-lock.png" alt-text="Shows setting a delete lock in the portal.":::
+
+   4.  Configure extra [security best practices](/azure/storage/blobs/security-recommendations).
+
+
 
 Setting up Komprise solution is simple:
 
@@ -172,10 +223,13 @@ To configure and run a migration, follow these steps:
 
 4. As a last step, mark the migration completed.
 
-## Pricing
+## Support
 
-Komprise is suited in various scenarios and implements its hybrid Software as a Service (SaaS) system. SaaS is a method of software delivery and licensing in which software is accessed online via a subscription.
-Visit Komprise listing on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview).
+To open a case with Komprise, sign in to the [Komprise support site](https://komprise.freshdesk.com/)
+
+## Marketplace
+
+Get Komprise listing on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview).
 
 ## Next steps
 
