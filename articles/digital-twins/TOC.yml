@@ -82,7 +82,11 @@
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration
-      href: how-to-create-app-registration.md
+      items:
+      - name: Portal version
+        href: how-to-create-app-registration-portal.md
+      - name: CLI version
+        href: how-to-create-app-registration-cli.md
     - name: Move instance to a different region
       href: how-to-move-regions.md
   - name: Design models
@@ -305,6 +309,14 @@
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
       - name: Device simulator service
         href: https://github.com/Azure/device-simulation-dotnet/tree/master
+  - name: Ontologies
+    items:
+      - name: Smart buildings
+        href: https://github.com/Azure/opendigitaltwins-building
+      - name: Smart cities
+        href: https://github.com/Azure/opendigitaltwins-smartcities
+      - name: Energy grids
+        href: https://github.com/Azure/opendigitaltwins-energygrid/
   - name: DTDL
     items:
     - name: DTDL extension for VS Code
