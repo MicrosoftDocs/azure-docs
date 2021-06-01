@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: How to get OPC UA data into Azure Digital Twins
+title: Ingesting OPC UA data using Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Steps to get your Azure OPC UA Data into Azure Digital Twins
 author: danhellem
@@ -14,7 +14,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Get OPC UA data into Azure Digital Twins
+# Ingesting OPC UA data using Azure Digital Twins
 
 The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a platform independent, service-oriented architecture for the manufacturing space. It is used to get telemetry data from devices. 
 
