@@ -17,6 +17,10 @@ There are several ways to connect devices to Azure IoT. In this section, you lea
 
 To create a new application:
 1. From [Azure IoT Central portal](https://apps.azureiotcentral.com/), select **Build** on the side navigation menu.
+
+    > [!NOTE]
+    > If you have an existing IoT Central application, you can use it to complete the steps in this article rather than create a new application. In this case, we recommend that you either create a new device or delete and recreate the device if you want to use an existing device ID.
+
 1. Select **Create app** in the **Custom app** tile.
 
     :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-select-custom.png" alt-text="Select a custom app in Azure IoT Central":::
@@ -26,12 +30,8 @@ To create a new application:
 
     :::image type="content" source="media/iot-develop-embedded-create-central-app-with-device/iot-central-create-custom.png" alt-text="Create a custom app in Azure IoT Central":::
 
-1. Select **Create**.
+1. Select **Create**. After IoT Central provisions the application, it redirects you automatically to the new application dashboard.
 
-    After IoT Central provisions the application, it redirects you automatically to the new application dashboard.
-
-    > [!NOTE]
-    > If you have an existing IoT Central application, you can use it to complete the steps in this article rather than create a new application. In this case, we recommend that you either create a new device or delete and recreate the device if you want to use an existing device ID.
 
 ### Create a new device
 

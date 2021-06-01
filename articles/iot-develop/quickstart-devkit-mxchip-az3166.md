@@ -245,9 +245,14 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the IoT Central portal to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
-* For device developers, the suggested next step is to see the other tutorials in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
-* If you have issues getting your device to initialize or connect after following the steps in this guide, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
-* To learn more about how Azure RTOS components are used in the sample code for this tutorial, see [Using Azure RTOS in the Getting Started guide](https://github.com/azure-rtos/getting-started/blob/master/docs/using-azure-rtos.md).
+As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
+
+> [!div class="nextstepaction"]
+> [Getting started with Azure IoT embedded device development](quickstart-device-development.md)
+> [!div class="nextstepaction"]
+> [Troubleshooting in the Getting Started guide](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)
+> [!div class="nextstepaction"]
+> [Using Azure RTOS in the Getting Started guide](https://github.com/azure-rtos/getting-started/blob/master/docs/using-azure-rtos.md)
 
     > [!IMPORTANT]
     > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
