@@ -104,7 +104,9 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Prevent replication across tenants
 
-By default, you can configure object replication to copy blobs from a source storage account in one Azure AD tenant to a destination account in a different tenant. To prevent object replication across Azure AD tenants, you can set the **AllowCrossTenantReplication** property on the storage account to *false*. When you disallow cross-tenant replication for a storage account, then Azure Storage restricts object replication policies to include source and destination accounts that are within the same tenant only.
+By default, you can configure object replication to copy blobs from a source storage account in one Azure AD tenant to a destination account in a different tenant. To prevent object replication across Azure AD tenants, you can set the **AllowCrossTenantReplication** property on the storage account to *false*. When you disallow cross-tenant replication for a storage account, then Azure Storage requires that for any object replication policy that is configured with that storage account as either the source or destination account, both the source and destination accounts must reside within the same tenant.
+
+You can use Azure Policy to audit a set of storage accounts to ensure that the **AllowCrossTenantReplication** property is set to prevent cross-tenant object replication. You can also use Azure Policy to enforce governance for a set of storage accounts. For example, you can create a policy with a Deny action to prevent a user from creating a storage account where the **AllowCrossTenantReplication** property is set to *true*, or from modifying an existing storage account to change the property value to *true*.
 
 ## Billing
 
