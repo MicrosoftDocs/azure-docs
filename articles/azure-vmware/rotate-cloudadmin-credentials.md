@@ -2,7 +2,7 @@
 title: Rotate the cloudadmin credentials for Azure VMware Solution
 description: Learn how to rotate the vCenter and NSX-T credentials for your Azure VMware Solution private cloud. 
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/28/2021
 
 #Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter CloudAdmin and NSX-T admin credentials.
 
@@ -18,18 +18,9 @@ You can also watch a video on how to [reset the vCenter CloudAdmin & NSX-T admin
 
 ## Prerequisites
 
-If you use your cloudadmin credentials for connected services, your connections stop working once you've updated the password. Stop these services before you rotate the password. Otherwise, you'll experience temporary locks on your accounts, as these services continuously call your old credentials.
+- If you use your cloudadmin credentials for connected services, your connections stop working once you've updated the password. Stop these services before you rotate the password. Otherwise, you'll experience temporary locks on your accounts, as these services continuously call your old credentials. 
 
-## Set up connection to an external identity source
-In this step, you'll set up a connection to an external identity source, in this case, LDAP, to create and manage credentials for use with connected services. 
-
-1. Sign in to your Azure VMware Solution private cloud and select **Operations** > **Run Commands**.
-
-   :::image type="content" source="media/rotate-cloudadmin-credentials/rotate-credentials-ldap-run-commands.png" alt-text="Screenshot showing the Operations Run Command for LDAP.":::
-
-1. Select **LDAP** from the available commands.  This built-in command is not editable. 
-
-1. Select **Run**. After the script finishes, it returns the output and any errors.
+- Make sure to set up a connection to an external identity source (LDAP) to create and manage credentials for use with connected services. [we need a link to the procedure]
 
 
 ## Reset your Azure VMware Solution credentials
@@ -59,11 +50,9 @@ In this step, you'll reset the cloudadmin credentials for your Azure VMware Solu
       :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new NSX-T Manager credentials.":::
 
 
-<!-- 5/15/2021: Shawn is suggesting that we remove this section since there are so many products that used stored credentials. -->
+## Update HCX Connector with the latest credentials
 
-## Verify HCX Connector has the latest credentials
-
-In this step, you'll verify that the HCX Connector has the updated credentials.
+In this step, you'll update HCX Connector with the updated credentials.
 
 >[!NOTE]
 >HCX connector won't need your NSX-T admin account, but other services might, such as vRealize Operations Manager. You can add and configure an [NSX-T Adapter Instance to vRealize Operations Manager](https://docs.vmware.com/en/VMware-Validated-Design/5.1/sddc-deployment-of-vmware-nsx-t-workload-domains/GUID-A14D37FE-59AD-44E7-BB95-E3098F8B3640.html?hWord=N4IghgNiBcIHIGUAaBaAKgAgIIBMwAcAXAUwCcQBfIA).
