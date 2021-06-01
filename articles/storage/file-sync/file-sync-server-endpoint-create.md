@@ -41,7 +41,7 @@ Refer to the [cloud tiering article](file-sync-cloud-tiering-overview.md) that c
 
 ### Initial sync section
 
-The **Initial sync** section is available only for the first server endpoint in a sync group. For any additional server endpoint, check out the [Initial download section](#initial-download-section).
+The **Initial sync** section is available only for the first server endpoint in a sync group. For any additional server endpoint, see the [Initial download section](#initial-download-section).
 
 There are two fundamentally different initial sync behaviors:
 
