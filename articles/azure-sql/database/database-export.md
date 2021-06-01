@@ -4,11 +4,11 @@ titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Export a database to a BACPAC file using the Azure portal.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: backup-restore
-ms.custom: sqldbrb=2, devx-track-azurepowershell
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: mathoma
+ms.subservice: data-movement
+author: cawrites
+ms.custom: sqldbrb=2
+ms.author: chadam
+ms.reviewer: 
 ms.date: 01/11/2021
 ms.topic: how-to
 ---
