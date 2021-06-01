@@ -2,7 +2,7 @@
 title: Rotate the cloudadmin credentials for Azure VMware Solution
 description: Learn how to rotate the vCenter Server and NSX-T Manager credentials for your Azure VMware Solution private cloud. 
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 06/01/2021
 
 #Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter CloudAdmin and NSX-T admin credentials.
 
@@ -39,9 +39,9 @@ In this step, you'll rotate the cloudadmin credentials for your Azure VMware Sol
    az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
 
-## Verify HCX Connector has the latest credentials
+## Update HCX Connector wath the latest credentials
 
-In this step, you'll verify that the HCX Connector has the updated credentials.
+In this step, you'll update HCX Connector with the updated credentials.
 
 1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
 
