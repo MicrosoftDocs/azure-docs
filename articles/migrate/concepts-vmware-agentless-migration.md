@@ -16,7 +16,7 @@ This article describes the replication concepts when migrating VMware VMs using 
 
 The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from virtual machine disks. The following block diagram shows you various steps involved when you migrate your virtual machines using Azure Migrate: Server Migration tool.
 
- ![Migration steps](./media/concepts-vmware-agentless-migration/Migration-process.png)
+ ![Migration steps.](./media/concepts-vmware-agentless-migration/migration-phases.png)
 
 When replication is configured for a virtual machine, it first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks are replicated to managed disks in your target subscription.
 
@@ -46,7 +46,7 @@ A cycle is said to be complete once the disks are consolidated.
 - DRA agent
 - Gateway agent
 
-**Azure components:** The following table summarizes various Azure artefacts that are created while using the agentless method of VMware VM migration.
+**Azure components:** The following table summarizes various Azure artifacts that are created while using the agentless method of VMware VM migration.
 
 | Component | Region | Subscription | Description |
 | --- | --- | --- | --- |
@@ -76,12 +76,9 @@ If you have created a custom role for the logged-in user, ensure that the permis
 There are two stages in every replication cycle that ensures data integrity between the on-premises disk (source disk) and the replica disk in Azure (target disk).
 
 1. First stage is a precheck to validate that every sector that has changed in the source disk is replicated to the target disk. This is accomplished using bitmaps.
-
 Source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, bitmap is created for all the changed blocks (in case of delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, a bitmap is created. Once the data transfer completes successfully, the cloud service compares the two bitmaps to ensure no changed block is missed. In case there's any mismatch between the bitmaps, the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
 
-1. Second stage is to ensure that the data that's transferred to the Azure disks is same as the data that was replicated from the source disks.
-
-Every changed block that is uploaded by the Azure Migrate appliance is compressed and encrypted before it's written as a blob in the log storage account. We compute the checksum of this block before compression. This checksum is stored as metadata along with the compressed data. Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data is not written to the Azure disks and the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
+1. Second stage is to ensure that the data that's transferred to the Azure disks is same as the data that was replicated from the source disks. Every changed block that is uploaded by the Azure Migrate appliance is compressed and encrypted before it's written as a blob in the log storage account. We compute the checksum of this block before compression. This checksum is stored as metadata along with the compressed data. Upon decompression, the checksum for the data is calculated and compared with the checksum computed in the source environment. If there's a mismatch, the data is not written to the Azure disks and the cycle is considered failed. As every cycle is resynchronization, the mismatch will be fixed in the next cycle.
 
 ## Security
 
@@ -100,7 +97,8 @@ When a VM undergoes replication, there are few states that are possible:
 - **Migration in progress:** The VM is migrating. You can click on this link to check the ongoing migration job. This job consists of five stages: Prerequisites check for migration, shutting down the virtual machine (optional step), prepare for migration, creation of Azure VM, start the Azure VM.
 - **Not applicable:** This can happen when the VM has successfully migrated and/or when you have stopped replication. Once you stop replication and the operation finishes successfully, the VM will be removed from the list of replicating machines blade. You can find the VM in virtual machines blade in the Replicate wizard.
 
-Note: Some VMs are put in queued state to ensure there's minimal impact on the source environment due to the IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
+> [!Note]
+>Some VMs are put in queued state to ensure minimal impact on the source environment due to IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
 
 ## Scheduling logic
 
@@ -109,13 +107,13 @@ Initial replication is scheduled when replication is configured for a VM. This i
 Delta replication cycles are scheduled as follows:
 
 - First delta replication cycle is scheduled immediately after the initial replication cycle completes
-- Next delta replication cycles are scheduled according to the following logic:
-
+- Next delta replication cycles are scheduled according to the following logic: 
 max [(Previous delta replication cycle time/2), 1 hour]
 
 That is, next delta replication will be scheduled no sooner than one hour. For example, if a VM takes four hours for a delta replication cycle, the next delta replication cycle is scheduled in two hours, and not in the next hour.
 
-**Note:** The process is different immediately after initial replication, when the first delta cycle is scheduled immediately.
+> [!Note]
+> The process is different immediately after initial replication, when the first delta cycle is scheduled immediately.
 
 - When you trigger migration, an on-demand delta replication cycle (pre-failover delta replication cycle) is performed for the VM prior to migration.
 
@@ -138,7 +136,7 @@ We use the following constraints to ensure that we don't exceed the IOPS limits 
 
 Azure Migrate supports concurrent replication of 500 virtual machines. When you are planning to replicate more than 300 virtual machines, you must deploy a scale-out appliance. The scale-out appliance is similar to an Azure Migrate primary appliance but consists only of gateway agent to facilitate data transfer to Azure. The following diagram shows the recommended way to use the scale-out appliance.
 
-![Scale-out configuration](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
+![Scale-out configuration.](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
 
 Note that you can deploy the scale-out appliance any time after configuring the primary appliance until there are 300 VMs replicating concurrently. When there are 300 VMs replicating concurrently, you must deploy the scale-out appliance to proceed.
@@ -154,7 +152,7 @@ You can stop replication at two stages:
 
 As best practice, you should always stop the replication after the VM has migrated successfully to Azure to ensure that you don't incur additional charges for storage transactions on the intermediate managed disks (seed disks).
 
-In some cases, you will notice that stop replication takes time. This is because whenever you stop replication, the ongoing replication cycle is completed (only when the VM is in delta sync) before deleting the artefacts.
+In some cases, you will notice that stop replication takes time. This is because whenever you stop replication, the ongoing replication cycle is completed (only when the VM is in delta sync) before deleting the artifacts.
 
 ## Impact of churn
 
