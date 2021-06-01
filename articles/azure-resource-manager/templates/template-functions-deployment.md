@@ -139,7 +139,7 @@ You can use deployment() to link to another template based on the URI of the par
 # [Bicep](#tab/bicep)
 
 ```bicep
-var sharedTemplateUrl = uri(deployment().prperties.templateLink.uri, 'shared-resources.json')
+var sharedTemplateUrl = uri(deployment().properties.templateLink.uri, 'shared-resources.json')
 ```
 
 ---
