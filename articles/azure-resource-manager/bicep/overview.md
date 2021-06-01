@@ -1,5 +1,5 @@
 ---
-title: Bicep language for deploying Azure resources 
+title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
 ms.date: 06/01/2021
