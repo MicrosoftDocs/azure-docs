@@ -232,6 +232,7 @@
   items:
     - name: Develop
       items:
+        - name: Use device and service SDKs
           items:
             - name: Use the IoT device SDK for C
               href: iot-hub-device-sdk-c-intro.md
