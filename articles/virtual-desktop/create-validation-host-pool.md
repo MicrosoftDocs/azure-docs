@@ -4,7 +4,8 @@ description: How to create a validation host pool to monitor service updates bef
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 12/15/2020
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 # Tutorial: Create a host pool to validate service updates

@@ -12,7 +12,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
-ms.author: mnayak
+ms.author: mnayak 
+ms.custom: devx-track-azurepowershell
 ---
 # Configure routing preference for a public IP address using Azure PowerShell
 

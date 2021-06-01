@@ -5,7 +5,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/12/2021
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurepowershell
 ---
 
 # Azure customer usage attribution

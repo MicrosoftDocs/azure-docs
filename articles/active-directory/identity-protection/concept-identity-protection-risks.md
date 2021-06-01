@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 05/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -107,6 +107,10 @@ If you haven't seen any leaked credential risk events, it's because of the follo
 #### How often does Microsoft process new credentials?
 
 Credentials are processed immediately after they have been found, normally in multiple batches per day.
+
+### Locations
+
+Location in risk detections are determined by IP address lookup.
 
 ## Next steps
 
