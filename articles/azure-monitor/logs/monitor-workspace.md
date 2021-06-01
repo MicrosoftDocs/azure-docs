@@ -47,25 +47,82 @@ The following table describes the categories from the _LogOperation function.
 ### Ingestion
 Ingestion operations are issues that occurred during data ingestion including notification about reaching the Azure Log Analytics workspace limits. Error conditions in this category might suggest data loss, so they are particularly important to monitor. The table below provides details on these operations. See [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) for service limits for Log Analytics workspaces.
 
+ 
+#### Operation: Data collection Stopped  
+Data collection stopped due to daily limit reached.
 
-| Operation | Level | Detail | Related article |
-|:---|:---|:---|:---|
-| Custom log | Error   | Custom fields column limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
-| Custom log | Error   | Custom logs ingestion failed. | |
-| Metadata. | Error | Configuration error detected. | |
-| Data collection | Error   | Data was dropped because the request was created earlier than the number of set days. | [Manage usage and costs with Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached)
-| Data collection | Info    | Collection machine configuration is detected.| |
-| Data collection | Info    | Data collection started due to new day. | [Manage usage and costs with Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Data collection | Warning | Data collection stopped due to daily limit reached.| [Manage usage and costs with Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Data processing | Error   | Invalid JSON format. | [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)](../logs/data-collector-api.md#request-body) | 
-| Data processing | Warning | Value has been trimmed to the max allowed size. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
-| Data processing | Warning | Field value trimmed as size limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) | 
-| Ingestion rate | Info | Ingestion rate limit approaching 70%. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
-| Ingestion rate | Warning | Ingestion rate limit approaching the limit. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
-| Ingestion rate | Error   | Rate limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
-| Storage | Error   | Cannot access the storage account as credentials used are invalid.  |
+In the past 7 Days you have reached your ingestion daily limit; this is either due to your workspace being in the free tier or that you have set a daily ingestion limit.
+Note, after reaching the set limit, your data collection will automatically stop for the day and will resume only during the next collection day. 
+ 
+Recommended Actions: 
+*	Check _LogOperation table for collection stopped and collection resumed events.</br>
+`_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Data collection"`
+*	[Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection stopped" Operation event, this will allow you to get notified when the limit is reached.
+*	Reaching the daily limit is not recommended, as this will result in data loss, you might want to either check why the limit is reached, you can use the ‘workspace insights’ blade to review your usage patterns and try to reduce them.
+Or, you can decide to ([increase your daily ingestion limit](./manage-cost-storage.md#manage-your-maximum-daily-data-volume) \ [change the pricing tier](./manage-cost-storage.md#changing-pricing-tier) to one that will suite your ingestion pattern). 
+* As mentioned, data ingestion will resume during the start of the next day, you can also monitor this event by [Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection resumed" Operation event, this will allow you to get notified when the limit is reached.
 
+#### Operation: Ingestion rate
+Ingestion rate limit approaching\passed the limit.
 
+ Your ingestion rate has passed the 80%; at this point there is not issue. Please note, data collected exceeding the threshold will be dropped. </br>
+
+Recommended Actions:
+*	Check _LogOperation table for ingestion rate event 
+`_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Ingestion rate"` 
+      Note: Operation table in the workspace every 6 hours while the threshold continues to be exceeded. 
+*	[Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection stopped" Operation even, this will allow you to get notified when the limit is reached.
+*	We recommend making sure you do not exceed the ingestion rate limit, as this will result in data loss.
+
+You might want to either check why the limit is reached, you can use the workspace insights blade to review your usage patterns and try to reduce them.
+For further information: 
+[Azure Monitor service limits](././service-limits.md#data-ingestion-volume-rate) 
+[Manage usage and costs for Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached)  
+
+ 
+#### Operation: Maximum table column count
+Custom fields has reached the limit.
+
+Recommended Actions: 
+For custom tables, you can move to [Parsing the data](./parse-text.md) in queries, 
+If for any reason this is not possible, please proceed with case creation and request to increase the filed limit for this specific table.  
+
+#### Operation: Field content validation
+One of the fields of the data being ingested had more than 32Kb in size, so it got truncated.
+
+Log Analytics limits ingested fields size to 32Kb, larger size fields will be trimmed to 32Kb. We don’t recommend sending fields larger then 32Kb as the trim process might remove important information. 
+
+Recommended Actions:
+Check the source of the affected data type:
+*	If the data is being sent thru the HTTP Data Collector API, you will need to change your code\script to split the data before it’s ingested.
+*	In case it’s a custom log, collected from a Log Analytics agent, then you’ll to change the logging settings of the application\tool to prevent this.
+*	For any other data type, please raise a support case.
+</br>Read more: [Azure Monitor service limits](././service-limits.md#data-ingestion-volume-rate) 
+
+### Data Collection
+#### Operation: Azure Activity Log Collection
+Description: In some situations, like moving a subscription to a different tenant, the Azure Activity logs might stop flowing in into the workspace. In those situations, we need to reconnect the subscription following the process described in this article.
+
+Recommended Actions: 
+* If the subscription mentioned on the warning message no longer exists, please navigate to the ‘Azure Activity log’ blade under ‘Workspace Data Sources’, select the relevant subscription and finally select the ‘Disconnect’ button.
+* If you no longer have access to the subscription mentioned on the warning message:
+  * If you no longer want to collect logs from this subscription, then please follow the same actions as step 1
+  * If you still want to collect logs from this subscription, then please follow the same actions as step 1, contact the subscription owner to verify and fix your permissions and re-enable activity log collection 
+* If you need to enable or re-enable activity log collection, we strongly recommend that you switch to the new collection method that leverages diagnostic settings, as it includes : [Azure Activity log](././essentials/activity-log.md#send-to-log-analytics-workspace)
+
+### Agent
+#### Operation: Linux Agent
+Config settings on the portal have changed.
+
+Recommended Action
+This issue is raised in case there is an issue for the Agent to retrieve the new config settings, 
+To mitigate this, you will need to reinstall the agent. 
+Check _LogOperation table for agent event.</br>
+
+ `_LogOperation | where TimeGenerated >= ago(6h) | where Category == "Agent" | where Operation == "Linux Agent"  | distinct _ResourceId`
+
+The list will list the resource Ids where the Agent has the wrong configuration.
+To mitigate the issue, you will need to reinstall the Agents listed.
 
    
 
@@ -114,9 +171,7 @@ The following example creates a warning alert when the data collection has reach
   - Frequency: 5 (minutes)
 - Alert rule name: Daily data limit reached
 - Severity: Warning (Sev 1)
-
-
-
+ 
 ## Next steps
 
 - Learn more about [log alerts](../alerts/alerts-log.md).
