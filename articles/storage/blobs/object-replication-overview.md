@@ -39,7 +39,7 @@ Object replication requires that the following Azure Storage features are also e
 
 Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
-Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2. 
+Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2.
 
 ## How object replication works
 
@@ -101,6 +101,10 @@ If the replication status for a blob in the source account indicates failure, th
 - Make sure that the object replication policy is configured on the destination account.
 - Verify that the destination container still exists.
 - If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
+
+## Prevent replication across tenants
+
+By default, you can configure object replication to copy blobs from a source storage account in one Azure AD tenant to a destination account in a different tenant. To prevent object replication across Azure AD tenants, you can set the **AllowCrossTenantReplication** property on the storage account to *false*. When you disallow cross-tenant replication for a storage account, then Azure Storage restricts object replication policies to include source and destination accounts that are within the same tenant only.
 
 ## Billing
 
