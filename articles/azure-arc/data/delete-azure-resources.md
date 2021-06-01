@@ -18,6 +18,18 @@ This article describes how to delete resources from Azure.
 > [!WARNING]
 > When you delete resources as described in this article, these actions are irreversible.
 
+## Before
+
+Before you delete a resource such as Azure Arc SQL managed instance or Azure Arc data controller, you need to export and upload the usage information to Azure for accurate billing calculation by following the instructions described in [Upload billing data to Azure](view-billing-data-in-azure.md#upload-billing-data-to-azure).
+
+## Direct connectivity mode
+
+When a cluster is connected to Azure with direct connectivity mode, use the Azure portal to manage the resources. Use the portal for all create, read, update, & delete (CRUD) operations for data controller, Managed Instance, and PostgreSQL groups.
+
+See [Manage Azure resources by using the Azure portal](../../azure-resource-manager/management/manage-resources-portal.md).
+
+## Indirect connectivity mode
+
 In indirect connect mode, deleting an instance from Kubernetes will not remove it from Azure and deleting an instance from Azure will not remove it from Kubernetes. For indirect connect mode, deleting a resource is a two step process and this will be improved in the future. Kubernetes will be the source of truth and the portal will be updated to reflect it.
 
 In some cases, you may need to manually delete Azure Arc enabled data services resources in Azure.  You can delete these resources using any of the following options.

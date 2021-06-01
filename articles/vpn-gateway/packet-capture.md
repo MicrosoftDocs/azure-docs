@@ -8,7 +8,8 @@ author: anzaman
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alzam
+ms.author: alzam 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure packet capture for VPN gateways

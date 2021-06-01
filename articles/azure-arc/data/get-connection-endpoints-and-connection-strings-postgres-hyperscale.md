@@ -152,7 +152,7 @@ host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} 
 ```
 
 ## Next steps
-- Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
+- Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group
 
 
