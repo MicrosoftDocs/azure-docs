@@ -24,22 +24,7 @@ As a C# developer, you may also be interested in one of the following articles:
 
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
 
-## Supported versions
-
-Versions of the Functions runtime work with specific versions of .NET. To learn more about Functions versions, see [Azure Functions runtime versions overview](functions-versions.md)
-
-The following table shows the highest level of .NET Core or .NET Framework that can be used with a specific version of Functions. 
-
-| Functions runtime version | Max .NET version |
-| ---- | ---- |
-| Functions 3.x | .NET Core 3.1<br/>.NET 5.0<sup>1</sup> |
-| Functions 2.x | .NET Core 2.2<sup>2</sup> |
-| Functions 1.x | .NET Framework 4.7 |
-
-<sup>1</sup> Must run [out-of-process](dotnet-isolated-process-guide.md).  
-<sup>2</sup> For details, see [Functions v2.x considerations](#functions-v2x-considerations).   
-
-For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
 ### Functions v2.x considerations
 
