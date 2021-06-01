@@ -259,7 +259,7 @@ To view an Azure Resource Manager template that creates a diagnostic setting, se
 
 ### [Azure Policy](#tab/policy)
 
-You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](policy-reference.md).
+You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
 
 ---
 
@@ -473,6 +473,10 @@ The following example shows how to read metric data on the metric supporting mul
 ```
 
 ### [Template](#tab/template)
+
+N/A.
+
+### [Azure Policy](#tab/policy)
 
 N/A.
 

@@ -30,6 +30,10 @@ Details go here
 
 Details go here
 
+#### Monitor ingress and egress
+
+Details go here.
+
 #### Receive an alert when a Blob Storage is approaching a capacity limit
 
 Details go here
