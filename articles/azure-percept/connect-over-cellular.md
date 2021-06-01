@@ -11,17 +11,15 @@ ms.custom: template-concept
 
 # Connect the Azure Percept DK Over Cellular Networks
 
-The benefits of connecting Edge AI devices over cellular (LTE and 5G) networks are many. Scenarios where Edge AI is most effective are in places where Wi-Fi and LAN connectivity are limited, such as smart cities, autonomous vehicles, and agriculture. Additionally, cellular networks provide better security than WiFi. Lastly, using IoT devices that run AI at the Edge provides a way to optimize the bandwidth on cellular networks. Where only necessary information is sent to the cloud while most of the data is processed on the device. Today, the Azure Percept DK isn't able to connect directly to cellular networks. However, they can connect to cellular gateways using the built-in Ethernet and WiFi capabilities. This article covers how this works.
+The benefits of connecting Edge AI devices over cellular (LTE and 5G) networks are many. Scenarios where Edge AI is most effective are in places where Wi-Fi and LAN connectivity are limited, such as smart cities, autonomous vehicles, and agriculture. Additionally, cellular networks provide better security than Wi-Fi. Lastly, using IoT devices that run AI at the Edge provides a way to optimize the bandwidth on cellular networks. Where only necessary information is sent to the cloud while most of the data is processed on the device. Today, the Azure Percept DK isn't able to connect directly to cellular networks. However, they can connect to cellular gateways using the built-in Ethernet and Wi-Fi capabilities. This article covers how this works.
 
 ## Options for connecting the Azure Percept DK Over Cellular Networks
 With additional hardware, you can connect the Azure Percept DK using cellular connectivity like LTE or 5G. There are two primary options supported today:
-1. **Cellular WiFi hotspot device** - where the dev kit is connected to the Wi-Fi network that the Wi-Fi hotspot provides. In this case, the dev kit connects to the network like any other Wi-Fi network. For more instructions, follow the [Azure Percept DK Setup Guide](./quickstart-percept-dk-set-up.md) and select the cellular Wi-Fi network broadcasted from the hotspot.
+1. **Cellular Wi-Fi hotspot device** - where the dev kit is connected to the Wi-Fi network that the Wi-Fi hotspot provides. In this case, the dev kit connects to the network like any other Wi-Fi network. For more instructions, follow the [Azure Percept DK Setup Guide](./quickstart-percept-dk-set-up.md) and select the cellular Wi-Fi network broadcasted from the hotspot.
 1. **Cellular Ethernet gateway device** - here the dev kit is connected to the cellular gateway over Ethernet, which takes advantage of the improved security compared to Wi-Fi connections. The rest of this article goes into more detail on how a network like this is configured.
 
 ## Cellular Gateway Topology
 :::image type="Image" source="media/connect-over-cellular/topology.png" alt-text="This diagram shows how the Azure Percept DK connects to a cellular gateway via Ethernet.":::
-
-:::image-end:::
 
 In the above diagram, you can see how a cellular gateway can be easily paired with the Azure Percept DK.
 
@@ -43,10 +41,10 @@ To SSH into the dev kit via a cellular ethernet gateway, you have these options:
 ## Considerations when selecting a cellular gateway device
 Cellular gateways support different technologies that impact the maximum data rate for downloads and uploads. The advertised data rates provide guidance for decision making but are usually never reached. Here is some guidance for selecting the right gateway for your needs.
  
-- **LTE CAT-1** provides up to 10 Mbps down and 5 Mbps up. It is enough for default Azure Percept Devkit features such as object detection and creating a voice assistant. However, it may not be enough for solutions that require streaming data up to the cloud.
+- **LTE CAT-1** provides up to 10 Mbps down and 5 Mbps up. It is enough for default Azure Percept Devkit features such as object detection and creating a voice assistant. However, it may not be enough for solutions that require video streaming data up to the cloud.
 - **LTE CAT-3 and 4** provides up to 100 Mbps down and 50 Mbps up, which is enough for streaming video to the cloud. However, it is not enough to stream full HD quality video.
 - **LTE CAT-5 and higher** provides data rates high enough for streaming HD video for a single device. If you need to connect multiple devices to a single gateway, you will want to consider 5G.
-- **5G** gateways will best position your scenarios for the future. They have data rates and bandwidth to support high data throughput for multiple devices at a time.
+- **5G** gateways will best position your scenarios for the future. They have data rates and bandwidth to support high data throughput for multiple devices at a time. Additionally, also provide lower latency for data transfer.
 
 
 ## Next steps
