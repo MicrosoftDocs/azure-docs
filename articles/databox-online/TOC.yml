@@ -292,7 +292,7 @@
     - name: Manage certificates
       items:
       - name: What are certificates?
-        href: azure-stack-edge-gpu-certificate-overview.md 
+        href: azure-stack-edge-gpu-certificates-overview.md 
       - name: View requirements
         href: azure-stack-edge-gpu-certificate-requirements.md 
       - name: Create certificates
