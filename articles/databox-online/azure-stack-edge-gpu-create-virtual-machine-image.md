@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 6/01/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -159,7 +159,7 @@ The Blob SAS URL has the following format. Insert the filename, in the format `/
 
     where:
     * `<source URI>` is the download URL that you generated in step 3b.
-    * `<target URI>` tells which Blob container to copy the new image to in your Azure Storage account. For steps to create the target URI, see [Create target URI forVHD upload](#create-target-uri-for-vhd-upload). 
+    * `<target URI>` tells which Blob container to copy the new image to in your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to Blob container](#use-azcopy-to-copy-vm-image-to-blob-container). 
 
     For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** Blob container in the **mystorageaccount** storage account:
 
