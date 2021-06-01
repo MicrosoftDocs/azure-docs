@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create custom VM images that you can use to create VMs. This article describes the steps that are required to create Windows or Linux VM custom images that you can use to deploy VMs on your Azure Stack Edge Pro GPU device.
+To deploy VMs on your Azure Stack Edge Pro GPU device, you need to be able to create custom VM images that you can use to create VMs in Azure. To deploy VMs with the VM images, you must store the images in an Azure Storage account. This article describes the steps to create custom VM images in Azure for Windows and Linux VMs and download or copy those images to an Azure Storage account. 
 
 There's a required workflow for preparing the image. You must create a virtual machine in Azure, customize the VM, generalize the OS VHD, and then download the OS VHD to an Azure storage account. For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).<!--Review initial description, and workflow in step links. Then revisit process description.-->
 
@@ -47,11 +47,11 @@ Do the following steps to create a Windows VM image:
 
 3. Download the OS disk from Azure:
 
-   1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). This step is required, even after the is generalize and shut down, to deallocate the OS disk so that the disk can be downloaded. 
+   1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). This step is required, even after the VM is generalize and shut down, to deallocate the OS disk so that the disk can be downloaded. 
 
    1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url). By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed. 
       
-   1. Download the VHS to you Azure Storage account. Two methods are available:
+   1. Download the VHD to your Azure Storage account using one of these methods:
    
       - Method 1: Select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. *When you use this method, the disk copy can take quite a long time.*
 
@@ -102,7 +102,8 @@ In Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bri
 To create a VM image using the RHEL BYOS image, follow these steps:
 
 1. Log in to the [Red Hat Subscription Management](https://access.redhat.com/management). Navigate to the [Cloud Access Dashboard](https://access.redhat.com/management/cloud) from the top menu bar.
-1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access#proc_enabling-sub-new-ccsp_cloud-access). This will allow you to access the Red Hat Gold Images. 
+1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access#proc_enabling-sub-new-ccsp_cloud-access). Enabling the subscription will allow you to access the Red Hat Gold Images.
+
 1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access). 
 1. Register and subscribe your VM with the Red Hat Customer portal. See [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273). This step allows you to access the Red Hat Update Infrastructure (RHUI) that hosts the Red Hat packages. 
 
@@ -130,13 +131,13 @@ To use AzCopy to copy your prepared VHD to an Azure Storage account, you'll need
 
 The target URI is the Blob SAS URL for the Blob container that has the desired filename added to it. 
 
-To generate an SAS URL for a container in an Azure Storage account, do the following steps:
+To generate a SAS URL for a container in an Azure Storage account, do the following steps:
 
 1. In the Azure portal, open the storage account, and select **Containers**. Then select and then right-click the Blob container you want to use, and select **Generate SAS**.
 
    ![Screenshot of the Generate SAS option for a Blob container in the Azure portal](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-01.png)
 
-2. On the **Generate SAS** screen, select the Read and Write **Permissions**.  
+2. On the **Generate SAS** screen, select **Read** and **Write** in **Permissions**.  
 
    ![Screenshot of the Generate SAS screen with Read and Write permissions selected](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-02.png)
 
@@ -154,6 +155,8 @@ The Blob SAS URL has the following format. Insert the filename, in the format `/
 
 ### Copy VHD to Blob container using AzCopy
 
+ 1. [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) if you haven't done that already.
+ 
  1. In PowerShell, navigate to the directory where you stored azcopy.exe, and run the following command:
 
     `.\azcopy copy <source URI> <target URI> --recursive`
