@@ -46,7 +46,7 @@ ms.custom: devx-track-java
 ## Release notes
 ### <a name="2.12.3"></a>2.12.3
 
-* Fix retry policy when GoneException is wrapped in IllegalStateException - this change is necessary to make sure Gateway cache is refreshed on 410 so the Spark connector (for Spark 2.4) can use a custom retry policy to allow queries to succeed during partition splits
+* Fix retry policy when `GoneException` is wrapped in `IllegalStateException` - this change is necessary to make sure Gateway cache is refreshed on 410 so the Spark connector (for Spark 2.4) can use a custom retry policy to allow queries to succeed during partition splits
 
 ### <a name="2.12.2"></a>2.12.2
 
@@ -59,7 +59,7 @@ ms.custom: devx-track-java
 ### <a name="2.12.0"></a>2.12.0
 
 * Improve handling of RU budget provided through the Spark Connector for  bulk operation. An initial one-time bulk import is performed from spark connector with a baseBatchSize and the RU consumption for the above batch import is collected.
-  A miniBatchSizeAdjustmentFactor is calculated based on the above RU consumption and the minibatch size is adjusted based on this. Based on the Elapsed time and the consumed RU for each batch import, a sleep duration is calculated to limit the RU consumption per second and is used to pause the thread prior to the next batch import.
+  A miniBatchSizeAdjustmentFactor is calculated based on the above RU consumption, and the mini-batch size is adjusted based on this. Based on the Elapsed time and the consumed RU for each batch import, a sleep duration is calculated to limit the RU consumption per second and is used to pause the thread prior to the next batch import.
 
 ### <a name="2.11.0"></a>2.11.0
 
