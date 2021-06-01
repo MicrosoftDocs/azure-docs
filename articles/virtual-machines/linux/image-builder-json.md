@@ -8,7 +8,8 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.reviewer: cynthn
+ms.reviewer: cynthn 
+ms.custom: devx-track-azurepowershell
 ---
 # Preview: Create an Azure Image Builder template 
 
@@ -82,7 +83,7 @@ The location is the region where the custom image will be created. For the Image
 The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
 
 ### Zone Redundancy
-Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type]( Create an Azure Image Builder template (preview) - Azure Virtual Machines | Microsoft Docs) if specified.
+Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#distribute-sharedimage) if specified.
 
  
 ## vmProfile

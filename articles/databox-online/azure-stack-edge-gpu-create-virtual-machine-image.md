@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 05/28/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -97,7 +97,7 @@ For a full list of Azure Marketplace images that could work (presently not teste
 ### Using RHEL BYOS images
 <!--RHEL BYOS image is not listed in the table above. Is it available but not yet tested?-->
 
-In Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription (RHEL BYOS) images, also known as the *Red Hat gold images*, are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images are not supported.
+If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription(RHEL BYOS) images, also known as the Red Hat gold images are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images are not supported on Azure Marketplace.
 
 To create a VM image using the RHEL BYOS image, follow these steps:
 
@@ -105,13 +105,9 @@ To create a VM image using the RHEL BYOS image, follow these steps:
 1. Enable your Azure subscription. See [detailed instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access#proc_enabling-sub-new-ccsp_cloud-access). Enabling the subscription will allow you to access the Red Hat Gold Images.
 
 1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access). 
-1. Register and subscribe your VM with the Red Hat Customer portal. See [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273). This step allows you to access the Red Hat Update Infrastructure (RHUI) that hosts the Red Hat packages. 
 
-You can now follow the steps to create a Linux VM image.
-
-### Set Provisioning flags on custom Linux image 
-
-To successfully deploy a Linux VM in Azure, instance creation must be disabled on the image, and provisioning using `cloud init' must be enabled. The Provisioning flags that set these values are configured correctly for standard VM images. If you use a custom VM image, you need to make sure they're correct.
+You can now use the VM that you provisioned to [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
+ 
  
 Make sure the Provisioning flags in the */etc/waagent.conf* file have the following values:
 
