@@ -84,8 +84,8 @@
         href: on-prem-ecma-configure.md
       - name: Generic SQL connector configuration
         href: on-prem-sql-connector-configure.md
-      - name: On-premises app provisioning to SCIM-enabled apps
-        href: on-prem-scim-provisioning.md
+      - name: On-premises application provisioning to SCIM-enabled apps
+        href: on-premises-scim-provisioning.md
       - name: Migrate connector from MIM Sync
         href: on-prem-migrate-microsoft-identity-manager.md
   - name: Reference

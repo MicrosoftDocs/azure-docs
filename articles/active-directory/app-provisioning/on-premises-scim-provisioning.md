@@ -20,7 +20,7 @@ ms.reviewer: arvinh
 
 The Azure AD provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This document outlines how you can use the Azure AD provisioning service to provision users into an on-premises application that is SCIM enabled. If you're looking to provision users into non-SCIM on-premises applications, such as a non-AD LDAP directory or SQL DB, see here (link to new doc that we will need to create). If you're looking to provisioning users into cloud apps such as DropBox, Atlassian, etc. review the app specific [tutorials](../../active-directory/saas-apps/tutorial-list.md). 
 
-![architecture](./media/on-prem-scim-provisioning/scim-1.png)
+![architecture](./media/on-premises-scim-provisioning/scim-3.png)
 
 
 ## Pre-requisites
@@ -44,7 +44,7 @@ Use the steps below to provision to SCIM-enabled apps.
  10. Select the agent that you installed, from the dropdown list, and click assign agent.
  11. Wait 10 minutes or restart the Azure AD Connect Provisioning agent service on your server / VM.
  12. Provide URL for your SCIM endpoint in the tenant URL field (e.g. Https://localhost:8585/scim).
-     ![assign agent](./media/on-prem-scim-provisioning/scim-2.png)
+     ![assign agent](./media/on-premises-scim-provisioning/scim-2.png)
  13. Click test connection and save the credentials.
  14. Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.  
  15. Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
