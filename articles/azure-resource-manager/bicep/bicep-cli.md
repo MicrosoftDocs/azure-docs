@@ -1,10 +1,10 @@
 ---
-title: Describes the commands in Bicep CLI
+title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
 ms.date: 06/01/2021
 ---
-# Bicep CLI
+# Bicep CLI commands
 
 This article describes the commands you can use in the Bicep CLI. You must have the [Bicep CLI installed](./install.md) to run the commands. 
 
@@ -66,7 +66,7 @@ az bicep install --version v0.3.255
 
 ## list-versions
 
-The **list-vesions** command returns all available versions of the Bicep CLI. Use this command to see if you want to [upgrade](#upgrage) or [install](#install) a new version.
+The **list-vesions** command returns all available versions of the Bicep CLI. Use this command to see if you want to [upgrade](#upgrade) or [install](#install) a new version.
  
 ```azurecli
 az bicep list-versions

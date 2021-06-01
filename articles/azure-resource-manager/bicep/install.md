@@ -49,13 +49,13 @@ You now have everything you need to [deploy](deploy-cli.md) and [decompile](deco
 
 To manually start the Bicep CLI installation, use:
 
-```bash
+```azurecli
 az bicep install
 ```
 
 To upgrade to the latest version, use:
 
-```bash
+```azurecli
 az bicep upgrade
 ```
 
