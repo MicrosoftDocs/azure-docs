@@ -17,6 +17,8 @@ This article describes the Bicep operators that are available when you create a 
 
 Enclosing an expression between `(` and `)` allows you to override the default Bicep operator precedence. For example, the expression x + y / z evaluates the division first and then the addition. However, the expression (x + y) / z evaluates the addition first and division second.
 
+For information about accessing a resource through the `::` operator, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
+
 ## Comparison
 
 The comparison operators compare values and return either `true` or `false`.
