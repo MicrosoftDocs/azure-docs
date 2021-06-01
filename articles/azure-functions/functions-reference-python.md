@@ -13,7 +13,7 @@ This article is an introduction to developing Azure Functions using Python. The 
 As a Python developer, you may also be interested in one of the following articles:
 
 | Getting started | Concepts| Scenarios/Samples |
-| -- | -- | -- | 
+| -- | -- | -- |
 | <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
@@ -621,6 +621,14 @@ For a list of preinstalled system libraries in Python worker Docker images, plea
 |------------|------------|------------|
 | Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
 | Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+
+## Python worker extensions
+
+Azure Functions Python Worker and SDK provide an interface for third-party libraries integration. A third-party library developer can implement an Azure Functions Python extension which utilizes lifecycle hooks to perform post-load, pre-invocation, and post-invocation action on a customer's function app. These extensions can be found in PyPI registry or GitHub. Please ensure the extension you choose is trustworthy and you bear the risk of using it. Azure Functions gives no express warranties to any extensions.
+
+As a customer, to enable this feature and install an extension, you need to set the `PYTHON_ENABLE_WORKER_EXTENSIONS` feature flag to `1` and include the extension in your requirements.txt. Some extensions may allow extra configuration and pass extra properties into your functions. For how to use an extension, please visit the extension's manual page or readme doc.
+
+As a third-party library developer, please visit our tutorial [Authoring Python worker extensions](author-python-worker-extensions) to learn how to integrate into Azure Functions.
 
 ## Cross-origin resource sharing
 
