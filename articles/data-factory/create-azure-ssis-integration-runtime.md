@@ -5,7 +5,8 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/09/2021
 author: swinarko
-ms.author: sawinark
+ms.author: sawinark 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure-SSIS integration runtime in Azure Data Factory

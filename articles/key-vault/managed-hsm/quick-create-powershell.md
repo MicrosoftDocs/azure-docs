@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: keys
 tags:
   - azure-resource-manager
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---

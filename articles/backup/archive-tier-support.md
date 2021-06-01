@@ -2,7 +2,8 @@
 title: Archive Tier support (Preview)
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 05/24/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Archive Tier support (Preview)
@@ -94,6 +95,7 @@ This will list all recovery points associated with a particular backup item that
 ### Check why a recovery point cannot be moved to archive
 
 ```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -IsReadyForMove $false -TargetTier VaultArchive
 $rp[0].RecoveryPointMoveReadinessInfo["ArchivedRP"]
 ```
 
@@ -133,7 +135,7 @@ This command moves an archivable recovery point to archive. It returns a job tha
 This command returns all the archived recovery points.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime
 ```
 
 ### Restore with PowerShell
@@ -153,7 +155,7 @@ For more information about the various restore methods for Azure virtual machine
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The additional parameters required are **RehydrationPriority** and **RehydrationDuration**.
+To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` command requires two additional parameters, **RehydrationDuration** and **RehydrationPriority**.
 
 ### View jobs from PowerShell
 
@@ -295,6 +297,12 @@ There are several error codes that come up when a recovery point can't be moved 
 ### What will happen to archive recovery points if I stop protection and retain data?
 
 The recovery point will remain in archive forever. For more information, see [Impact of stop protection on recovery points](manage-recovery-points.md#impact-of-stop-protection-on-recovery-points).
+
+### Is Cross Region restore supported from archive tier?
+
+When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
+
+While restoring from recovery point in archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: "Learn how to store and restore automated backups on separate Azure
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: shkale-msft

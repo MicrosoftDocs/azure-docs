@@ -2,7 +2,8 @@
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.
 ms.topic: article
-ms.date: 07/17/2020
+ms.date: 07/17/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure DevTest Labs FAQ
