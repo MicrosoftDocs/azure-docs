@@ -101,8 +101,6 @@
         href: azure-ad-custom-roles-configure.md
     - name: Azure roles
       href: pim-resource-roles-custom-role-policy.md
-  - name: PowerShell for Azure AD roles
-    href: powershell-for-azure-ad-roles.md
   - name: Manage Privileged access groups (Preview)
     items:
     - name: Privileged access overview
@@ -125,6 +123,8 @@
     href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
   - name: Delegate PIM access
     href: pim-how-to-give-access-to-pim.md
+  - name: PowerShell for Azure AD roles
+    href: powershell-for-azure-ad-roles.md
   - name: Troubleshoot PIM
     href: pim-troubleshoot.md
 - name: Reference
