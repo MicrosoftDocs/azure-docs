@@ -14,43 +14,67 @@ ms.custom: "monitoring"
 
 Intro goes here.
 
-## Audit activities for Azure Files
+## Monitor use and capacity
+
+Tasks for determining use and capacity
+
+#### Identify unused storage accounts
 
 Details go here
 
-## Identify unused Storage accounts
+#### Identify storage accounts with low use
 
 Details go here
 
-## Get the amount of used capacity for a file share
+#### Get the amount of used capacity for a file share
 
 Details go here
 
-## Identify the client associated with a request
+## Monitor activity
+
+Tasks for monitoring account activity
+
+#### Audit activities for Azure Files
 
 Details go here
 
-## Auditing with a user identity
+#### Identify the client associated with a request
+
+Details go here
+
+#### Auditing with a user identity
 
 Not sure what this is. Need clarification.
 
-## Number of bytes read per request by a specific service principal
+#### Number of bytes read per request by a specific service principal
 
 Details go here
 
-## Number of bytes read per request as part of a particular connection  
+#### Number of bytes read per request as part of a particular connection  
 
 Details go here
 
-## Receive real-time alerts of account activity
+## Optimize cost
+
+Tasks for controlling cost
+
+#### Optimize the cost of storing log data
 
 Details go here
 
-### Get notified when big files are uploaded to a file share
+#### Optimize the cost of querying data
+
+Details go here.
+
+## Receive alerts of account activity
+
+Tasks for setting up and receiving alerts
+
+#### Get notified when big files are uploaded to a file share
 
 Details go here
 
-### Determine when a file share is approaching a capacity limit
+#### Determine when a file share is approaching a capacity limit
 
 Details go here
 

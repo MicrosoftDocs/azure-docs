@@ -14,43 +14,67 @@ ms.custom: "monitoring"
 
 Intro goes here
 
-## Audit activities for Blob Storage
+## Monitor use and capacity
+
+Tasks for determining use and capacity
+
+#### Identify unused storage accounts
 
 Details go here
 
-## Identify unused Storage accounts
+#### Identify storage accounts with low use
 
 Details go here
 
-## Get the amount of used capacity for Blob Storage
+#### Get the amount of used capacity for Blob Storage
 
 Details go here
 
-## Identify the client associated with a request
+## Monitor activity
+
+Tasks for monitoring account activity
+
+#### Audit activities for Blob Storage
 
 Details go here
 
-## Auditing with a user identity
+#### Number of bytes read per request by a specific service principal
+
+Details go here
+
+#### Number of bytes read per request as part of a particular connection  
+
+Details go here
+
+#### Identify the client associated with a request
+
+Details go here
+
+#### Audit with a user identity
 
 Not sure what this is. Need clarification.
 
-## Number of bytes read per request by a specific service principal
+## Optimize cost
+
+Tasks for controlling costs
+
+#### Optimize the cost of storing log data
 
 Details go here
 
-## Number of bytes read per request as part of a particular connection  
+#### Optimize the cost of querying data
+
+Details go here.
+
+## Receive alerts of account activity
+
+Tasks for alerts
+
+#### Alert on big blobs that are uploaded to Blob Storage
 
 Details go here
 
-## Receive real-time alerts of account activity
-
-Details go here
-
-### Alert on big blobs that are uploaded to Blob Storage
-
-Details go here
-
-### Alert when a Blob Storage is approaching a capacity limit
+#### Alert when a Blob Storage is approaching a capacity limit
 
 Details go here
 
