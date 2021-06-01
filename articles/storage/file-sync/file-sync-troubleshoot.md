@@ -935,7 +935,25 @@ This error occurs if the directory used as the server endpoint path was renamed 
 If the directory was deleted, perform the following steps to remove the existing server endpoint and create a new server endpoint using a new path:
 
 1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
-2. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
+1. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
+
+<a id="-2134375783"></a>**Server endpoint provisioning failed due to an empty server path.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80C80299 |
+| **HRESULT (decimal)** | -2134375783 |
+| **Error string** | ECS_E_SYNC_AUTHORITATIVE_UPLOAD_EMPTY_SET |
+| **Remediation required** | Yes |
+
+Server endpoint provisioning fails with this error code if these conditions are met: 
+* This server endpoint was provisioned with the initial sync mode: [server authoritative](file-sync-server-endpoint-create.md#initial-sync-section)
+* Local server path is empty or contains no items recognized as able to sync.
+
+This provisioning error protects you from deleting all content that might be available in an Azure file share. Server authoritative upload is a special mode to catch up a cloud location that was already seeded, with the updates from the server location. Review this [migration guide](../files/storage-files-migration-server-hybrid-databox.md) to understand the scenario for which this mode has been built for.
+
+1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
+1. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
