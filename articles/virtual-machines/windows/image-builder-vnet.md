@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
-ms.reviewer: danis
+ms.reviewer: danis 
+ms.custom: devx-track-azurepowershell
 ---
 # Use Azure Image Builder for Windows VMs allowing access to an existing Azure VNET
 

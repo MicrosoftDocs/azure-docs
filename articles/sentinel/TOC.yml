@@ -337,6 +337,8 @@
     href: top-workbooks.md
   - name: Azure CLI
     href: /cli/azure/sentinel
+  - name: Azure Sentinel PowerShell
+    href: /powershell/module/az.securityinsights/
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
