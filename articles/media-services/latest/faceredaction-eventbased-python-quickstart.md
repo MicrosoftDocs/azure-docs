@@ -96,41 +96,8 @@ The bash script below provisions the Azure services used in this solution. The b
 - Load environment variables into local variables.
 - Define names for ADLSgen2, a generic Azure Storage account, Azure Media Services, Azure Function App, and an Event Grid System Topic and Subscription.
 - Provision the Azure services defined.
- 
-```bash
-resource_group=$RESOURCE_GROUP
-subscription_id=$SUBSCRIPTION_ID
-location_Resources=$LOCATION 
-solution_name=$SOLUTION_NAME
 
-adlsg2_name="${solution_name}adlsgen2"
-storage_name="${solution_name}v2blob"
-ams_name="${solution_name}ams"
-function_name="${solution_name}functionapp"
-event_grid_system_topic="${solution_name}-event-based-video"
-event_grid_subscription="event-based-video-subscription"
-
-# Provision Azure Data Lake Gen2 account
-az storage account create --name $adlsg2_name --resource-group $resource_group --location $location_Resources \
-    --kind StorageV2 --hns true 
-adls_resource_id=$(az resource show --name $adlsg2_name --resource-group $resource_group \
-    --resource-type "Microsoft.Storage/StorageAccounts" --query id -o tsv)
-az storage container create --name raw --account-name $adlsg2_name
-
-# Provision Storage Account for AMS
-az storage account create --name $storage_name --resource-group $resource_group \
-    --location $location_Resources --kind StorageV2
-
-# Provision Azure Media Services instance
-az ams account create --name $ams_name --resource-group $resource_group --storage-account $storage_name \
-    --location $location_Resources --mi-system-assigned
-
-# Provision Azure Functions app
-az functionapp create --name $function_name --resource-group $resource_group --storage-account $storage_name \ 
-    --consumption-plan-location $location_Resources --os-type Linux --runtime python --runtime-version 3.8 \
-    --functions-version 3
-
-```
+[!code-bash[Main](../../../media-services-v3-python/VideoAnalytics/FaceRedactorEventBased/AzureServicesProvisioning/deploy_resources.azcli)]
 
 ## Examine Azure Function code
 
@@ -142,88 +109,7 @@ After successfully provisioning the Azure Resources, we are ready to deploy the 
 - Connect to Azure Data Lake Gen2 using DataLakeService Client, and generate a SAS-token to use as authentication for the AMS job input.
 - Configure and create the Job.
 
-```python
-import json
-import logging
-import os
-from datetime import datetime, timedelta
-from urllib.parse import quote
-
-import adal
-from msrestazure.azure_active_directory import MSIAuthentication, AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-from azure.identity import ClientSecretCredential, DefaultAzureCredential
-from azure.mgmt.media import AzureMediaServices
-from azure.mgmt.media.models import (
-    Asset,
-    Job,
-    JobInputHttp,
-    JobOutputAsset)
-import azure.functions as func
-from azure.storage.filedatalake import DataLakeServiceClient, FileSasPermissions, generate_file_sas
-
-def main(event: func.EventGridEvent):
-    result = json.dumps({
-        'id': event.id,
-        'data': event.get_json(),
-        'topic': event.topic,
-        'subject': event.subject,
-        'event_type': event.event_type,
-    })
-
-    logging.info('Python EventGrid trigger processed an event: %s', result)
-
-    blob_url = event.get_json().get('url')
-    blob_name = blob_url.split("/")[-1].split("?")[0]
-    origin_container_name = blob_url.split("/")[-2].split("?")[0]
-    storage_account_name = blob_url.split("//")[1].split(".")[0]
-
-    ams_account_name = os.getenv('ACCOUNTNAME')
-    resource_group_name = os.getenv('RESOURCEGROUP')
-    subscription_id = os.getenv('SUBSCRIPTIONID')
-    client_id = os.getenv('AZURE_CLIENT_ID')
-    client_secret = os.getenv('AZURE_CLIENT_SECRET')
-    TENANT_ID = os.getenv('AZURE_TENANT_ID')
-    storage_blob_url = 'https://' + storage_account_name + '.blob.core.windows.net/'
-    transform_name = 'faceredact'
-    LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-    RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
-    
-    out_asset_name = 'faceblurringOutput_' + datetime.utcnow().strftime("%m-%d-%Y_%H:%M:%S")
-    out_alternate_id = 'faceblurringOutput_' + datetime.utcnow().strftime("%m-%d-%Y_%H:%M:%S")
-    out_description = 'Redacted video with blurred faces'
-
-    context = adal.AuthenticationContext(LOGIN_ENDPOINT + "/" + TENANT_ID)
-    credentials = AdalAuthentication(context.acquire_token_with_client_credentials, RESOURCE, client_id, client_secret)
-    client = AzureMediaServices(credentials, subscription_id)
-
-    output_asset = Asset(alternate_id=out_alternate_id,
-                         description=out_description)
-    client.assets.create_or_update(
-        resource_group_name, ams_account_name, out_asset_name, output_asset)
-
-    token_credential = DefaultAzureCredential()
-    datalake_service_client = DataLakeServiceClient(account_url=storage_blob_url,
-                                                    credential=token_credential)
-
-    delegation_key = datalake_service_client.get_user_delegation_key(
-        key_start_time=datetime.utcnow(), key_expiry_time=datetime.utcnow() + timedelta(hours=1))
-
-    sas_token = generate_file_sas(account_name=storage_account_name, file_system_name=origin_container_name, directory_name="",
-                                  file_name=blob_name, credential=delegation_key, permission=FileSasPermissions(read=True),
-                                  expiry=datetime.utcnow() + timedelta(hours=1), protocol="https")
-
-    sas_url = "{}?{}".format(quote(blob_url, safe='/:'), sas_token)
-    
-    job_name = 'Faceblurring-job_' + datetime.utcnow().strftime("%m-%d-%Y_%H:%M:%S")
-    job_input = JobInputHttp(label="Video_asset", files=[sas_url])
-    job_output = JobOutputAsset(asset_name=out_asset_name)
-    job_parameters = Job(input=job_input, outputs=[job_output])
-
-    client.jobs.create(resource_group_name, ams_account_name,
-                       transform_name, job_name, parameters=job_parameters)
-                       
-```
+[!code-python[Main](../../../media-services-v3-python/VideoAnalytics/FaceRedactorEventBased/AzureFunction/EventGrid_AMSJob/__init__.py)]
 
 ## Examine the code for configuring the Azure Resources 
 
@@ -235,65 +121,8 @@ The bash script below is used for configuring the Resources after they have been
 
 > [!NOTE]
 > Currently, neither the Azure Media Services v3 Python SDK, nor Azure CLI did support the creation of a FaceRedaction Transform. We therefore the Rest API method to create the transform job.
-  
-```bash  
 
-resource_group=$RESOURCE_GROUP
-subscription_id=$SUBSCRIPTION_ID
-location_Resources=$LOCATION
-solution_name=$SOLUTION_NAME
-client_id=$AZURE_CLIENT_ID
-client_secret=$AZURE_CLIENT_SECRET
-tenant_id=$AZURE_TENANT_ID
-
-adlsg2_name="${solution_name}adlsgen2"
-storage_name="${solution_name}v2blob"
-ams_name="${solution_name}ams"
-function_name="${solution_name}functionapp"
-event_grid_system_topic="${solution_name}-event-based-video"
-event_grid_subscription="event-based-video-subscription"
-
-adls_resource_id=$(az resource show --name $adlsg2_name --resource-group $resource_group \
-    --resource-type "Microsoft.Storage/StorageAccounts" --query id -o tsv)
-function_id=$(az functionapp function show -g $resource_group --name $function_name --function-name EventGrid_AMSJob \
-    --query id -o tsv)
-function_resource_id=$(az resource show --name $function_name --resource-group $resource_group \
-    --resource-type "Microsoft.Web/sites/functions" --query id -o tsv)
-
-az functionapp config appsettings set --name $function_name --resource-group $resource_group \
-    --settings "ACCOUNTNAME=$ams_name" "RESOURCEGROUP=$resource_group" "SUBSCRIPTIONID=$subscription_id" \
-    "AZURE_CLIENT_ID=$client_id" "AZURE_CLIENT_SECRET=$client_secret" "AZURE_TENANT_ID=$tenant_id"
-    
-az eventgrid system-topic create -g $resource_group --name $event_grid_system_topic --location $location_Resources \
-    --topic-type microsoft.storage.storageaccounts --source $adls_resource_id
-    
-eventgrid_resource_id=$(az resource show --name $event_grid_system_topic --resource-group $resource_group \
-    --resource-type "Microsoft.EventGrid/systemTopics" --query id -o tsv)
-    
-az eventgrid system-topic event-subscription create --name $event_grid_subscription --resource-group $resource_group \
-    --system-topic-name $event_grid_system_topic --endpoint $function_id --endpoint-type azurefunction \
-    --event-delivery-schema eventgridschema --included-event-types Microsoft.Storage.BlobCreated \
-    --max-delivery-attempts 1 --subject-begins-with "/blobServices/default/containers/raw" --subject-ends-with ".mp4" 
-
-# Create transform for AMS
-az rest --method put --uri https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Media/mediaServices/${ams_name}/transforms/faceredact?api-version=2020-05-01 --body '{
-    "properties": {
-        "description": "Transform for FaceRedaction Analyzer ",
-        "outputs": [
-            {
-                "onError": "StopProcessingJob",
-                "relativePriority": "Normal",
-                "preset": {
-                    "@odata.type": "#Microsoft.Media.FaceDetectorPreset",
-                    "mode": "Combined",
-                    "blurType":"High"
-                }
-            }
-        ]
-    }
-}'
-
-```
+[!code-bash[Main](../../../media-services-v3-python/VideoAnalytics/FaceRedactorEventBased/AzureServicesProvisioning/configure_resources.azcli)]
  
 ## Enable Github Actions pipeline
  The Workflow file in this repository contains the steps to execute the deployment of this solution. To start the Workflow, it needs to be enabled for your own repo. In order to enable it, go to the Actions tab in your repo and select 'I understand my workflows, go ahead and enable them'.
@@ -330,7 +159,6 @@ This page should show the job that was fired by the Azure Function. The job can 
 By selecting the job, you'll see some details about the specific job. If you select the Output asset name and then use the link to the storage container that is linked to it, you can see your processed video when the job is finished.
 
 ![AMS Output](./media/faceredaction-eventbased-python-quickstart/ams-output.png)
-
  
  ## Clean up Resources
  
