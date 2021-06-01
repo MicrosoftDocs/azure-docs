@@ -3,12 +3,12 @@ title: Migrate from DTU to vCore
 description: Migrate a database in Azure SQL Database from the DTU model to the vCore model. Migrating to vCore is similar to upgrading or downgrading between the standard and premium tiers.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.topic: conceptual
 ms.custom: sqldbrb=1
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan, moslake
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma, moslake
 ms.date: 02/09/2021
 ---
 # Migrate Azure SQL Database from the DTU-based model to the vCore-based model

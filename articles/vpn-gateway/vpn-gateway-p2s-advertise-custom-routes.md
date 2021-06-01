@@ -1,24 +1,24 @@
 ---
 title: 'Advertise custom routes for point-to-site VPN Gateway clients'
 titleSuffix: Azure VPN Gateway
-description: Learn how to advertise custom routes to your VPN Gateway point-to-site clients.
+description: Learn how to advertise custom routes to your VPN Gateway point-to-site clients. This article includes steps for VPN client forced tunneling.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 05/28/2021
 ms.author: cherylmc
 
 ---
 
 # Advertise custom routes for P2S VPN clients
 
-You may want to advertise custom routes to all of your point-to-site VPN clients. For example, when you have enabled storage endpoints in your VNet and want the remote users to be able to access these storage accounts over the VPN connection. You can advertise the IP address of the storage end-point to all your remote users so that the traffic to the storage account goes over the VPN tunnel, and not the public Internet.
+You may want to advertise custom routes to all of your point-to-site VPN clients. For example, when you have enabled storage endpoints in your VNet and want the remote users to be able to access these storage accounts over the VPN connection. You can advertise the IP address of the storage end-point to all your remote users so that the traffic to the storage account goes over the VPN tunnel, and not the public Internet. You can also use custom routes in order to configure forced tunneling for VPN clients.
 
-![Azure VPN Gateway Multi-Site connection example](./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png)
+:::image type="content" source="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png" alt-text="Diagram of advertising custom routes.":::
 
-## To advertise custom routes
+## Advertise custom routes
 
 To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The following example shows you how to advertise the IP for the [Contoso storage account tables](https://contoso.table.core.windows.net).
 
@@ -41,7 +41,23 @@ To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The fo
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
     ```
-## To view custom routes
+
+## Advertise custom routes - forced tunneling
+
+To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The following example shows you how to advertise the IP for the [Contoso storage account tables](https://contoso.table.core.windows.net).
+
+1. Ping *contoso.table.core.windows.net* and note the IP address. For example:
+
+    ```cmd
+    C:\>ping contoso.table.core.windows.net
+    Pinging table.by4prdstr05a.store.core.windows.net [13.88.144.250] with 32 bytes of data:
+    ```
+1. To add multiple custom routes, use a comma and spaces to separate the addresses. For example:
+
+    ```azurepowershell-interactive
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 0.0.0.0/1 , 128.0.0.0/1
+    ```
+## View custom routes
 
 Use the following example to view custom routes:
 
@@ -49,7 +65,7 @@ Use the following example to view custom routes:
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
-## To delete custom routes
+## Delete custom routes
 
 Use the following example to delete custom routes:
 
@@ -59,4 +75,4 @@ Use the following example to delete custom routes:
   ```
 ## Next steps
 
-For additional P2S routing information, see [About point-to-site routing](vpn-gateway-about-point-to-site-routing.md).
+For more P2S routing information, see [About point-to-site routing](vpn-gateway-about-point-to-site-routing.md).

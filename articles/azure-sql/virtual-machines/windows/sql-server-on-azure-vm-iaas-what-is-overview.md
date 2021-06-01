@@ -7,7 +7,7 @@ author: MashaMSFT
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-
+ms.subservice: service-overview
 
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server

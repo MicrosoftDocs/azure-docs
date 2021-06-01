@@ -99,7 +99,7 @@ The following table compares the scaling behaviors of the various hosting plans.
 | --- | --- |
 | **[Consumption plan](consumption-plan.md)** | Pay only for the time your functions run. Billing is based on number of executions, execution time, and memory used. |
 | **[Premium plan](functions-premium-plan.md)** | Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance per plan must be kept warm at all times. This plan provides the most predictable pricing. |
-| **[Dedicated plan](dedicated-plan.md)* | You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps.|
+| **[Dedicated plan](dedicated-plan.md)** | You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps.|
 | **[App Service Environment (ASE)](dedicated-plan.md)** | There's a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. There's also a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. |
 | **[Kubernetes](functions-kubernetes-keda.md)**| You pay only the costs of your Kubernetes cluster; no additional billing for Functions. Your function app runs as an application workload on top of your cluster, just like a regular app. |
 
