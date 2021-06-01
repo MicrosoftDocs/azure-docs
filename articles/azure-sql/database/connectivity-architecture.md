@@ -3,14 +3,14 @@ title: Azure SQL Database Connectivity Architecture
 description: This document explains the Azure SQL Database connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: fasttrack-edit, sqldbrb=1 
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: sstein, vanto
+ms.reviewer: mathoma, vanto
 ms.date: 01/25/2021
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
@@ -76,7 +76,7 @@ Periodically, we will retire Gateways using old hardware and migrate the traffic
 | Australia Central    | 20.36.105.0, 20.36.104.6, 20.36.104.7 | 20.36.105.32/29 |
 | Australia Central 2   | 20.36.113.0, 20.36.112.6 | 20.36.113.32/29 |
 | Australia East       | 13.75.149.87, 40.79.161.1, 13.70.112.9 | 13.70.112.32/29, 40.79.160.32/29, 40.79.168.32/29 |
-| Australia South East | 191.239.192.109, 13.73.109.251, 13.77.48.10, 13.77.49.32 | 13.77.49.32/29 |
+| Australia Southeast | 191.239.192.109, 13.73.109.251, 13.77.48.10, 13.77.49.32 | 13.77.49.32/29 |
 | Brazil South         | 191.233.200.14, 191.234.144.16, 191.234.152.3 | 191.233.200.32/29, 191.234.144.32/29 |
 | Canada Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 | 13.71.168.32/29, 20.38.144.32/29, 52.246.152.32/29 |
 | Canada East          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 | 40.69.105.32/29|
@@ -91,9 +91,9 @@ Periodically, we will retire Gateways using old hardware and migrate the traffic
 | France Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 | 40.79.136.32/29, 40.79.144.32/29 |
 | France South         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 | 40.79.176.40/29, 40.79.177.32/29 |
 | Germany West Central | 51.116.240.0, 51.116.248.0, 51.116.152.0 | 51.116.152.32/29, 51.116.240.32/29, 51.116.248.32/29 |
-| India Central        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 | 104.211.86.32/29, 20.192.96.32/29 |
-| India South          | 104.211.224.146    | 40.78.192.32/29, 40.78.193.32/29 |
-| India West           | 104.211.160.80, 104.211.144.4 | 104.211.144.32/29, 104.211.145.32/29 |
+| Central India        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 | 104.211.86.32/29, 20.192.96.32/29 |
+| South India          | 104.211.224.146    | 40.78.192.32/29, 40.78.193.32/29 |
+| West India           | 104.211.160.80, 104.211.144.4 | 104.211.144.32/29, 104.211.145.32/29 |
 | Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5, 13.78.104.32 | 13.78.104.32/29, 40.79.184.32/29, 40.79.192.32/29 |
 | Japan West           | 104.214.148.156, 40.74.100.192, 40.74.97.10 | 40.74.96.32/29 |
 | Korea Central        | 52.231.32.42, 52.231.17.22 ,52.231.17.23, 20.44.24.32, 20.194.64.33 | 20.194.64.32/29,20.44.24.32/29, 52.231.16.32/29 |
@@ -116,7 +116,6 @@ Periodically, we will retire Gateways using old hardware and migrate the traffic
 | West Europe          | 40.68.37.158, 104.40.168.105, 52.236.184.163  | 104.40.169.32/29, 13.69.112.168/29, 52.236.184.32/29 |
 | West US              | 104.42.238.205, 13.86.216.196   | 13.86.217.224/29 |
 | West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  | 13.66.136.192/29, 40.78.240.192/29, 40.78.248.192/29 |
-| West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  | 20.150.168.32/29, 20.150.176.32/29, 20.150.184.32/29 |
 |                      |                    |                    |
 
 ## Next steps

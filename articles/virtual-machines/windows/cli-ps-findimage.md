@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
 # Find and use Azure Marketplace VM images with Azure PowerShell
 

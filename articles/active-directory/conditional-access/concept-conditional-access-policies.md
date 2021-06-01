@@ -82,6 +82,10 @@ This assignment condition allows Conditional Access policies to target specific 
 
 This control is used to exclude devices that are hybrid Azure AD joined, or marked a compliant in Intune. This exclusion can be done to block unmanaged devices. 
 
+#### Filters for devices (preview)
+
+This control allows targeting specific devices based on their attributes in a policy.
+
 ## Access controls
 
 The access controls portion of the Conditional Access policy controls how a policy is enforced.
