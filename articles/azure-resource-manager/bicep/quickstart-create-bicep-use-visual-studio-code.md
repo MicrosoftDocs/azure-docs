@@ -199,7 +199,7 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 
 For more information about the Bicep syntax, see [Bicep structure](./file.md).
 
-## Visual file
+## Visualize resources
 
 You can view a representation of the resources in your file.
 
@@ -207,7 +207,7 @@ From the upper left corner, select the visualizer button to open the Bicep Visua
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visualizer.png" alt-text="Bicep Visualizer":::
 
-The visualizer shows the resources defined in the Bicep file with the resource dependency information.  The two resources defined in this quickstart don't have dependency relationship. So you don't see a connector between the two resources.
+The visualizer shows the resources defined in the Bicep file with the resource dependency information. The two resources defined in this quickstart don't have dependency relationship, so you don't see a connector between the two resources.
 
 ## Deploy the Bicep file
 
