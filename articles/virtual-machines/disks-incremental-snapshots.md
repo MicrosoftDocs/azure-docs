@@ -43,9 +43,11 @@ You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snap
 
 
 ```azurecli
+# Declare variables and create snapshot list
 resourceGroupName="yourResourceGroupNameHere"
 snapshots=$(az snapshot list --query "[?incremental=="True"]" -g $resourceGroupName --output table)
 
+# Rest of iteration code here
 
 ```
 
