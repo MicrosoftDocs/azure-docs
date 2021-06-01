@@ -65,7 +65,7 @@ The following sections describe how to find the other values.
 
 The **client ID** and **tenant ID** values can be collected from the app registration's details page in the Azure portal:
 
-:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Portal view of the important values for the app registration":::
+:::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Screenshot of the Azure portal showing the important values for the app registration.":::
 
 Take note of the _**Application (client) ID**_ and _**Directory (tenant) ID**_ shown on **your** page.
 
@@ -75,15 +75,15 @@ To set up a **client secret** for your app registration, navigate to your app re
 
 Select **Certificates and secrets** from the registration's menu, and then select **+ New client secret**.
 
-:::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Portal view of an Azure AD app registration. There's a highlight around 'Certificates and secrets' in the resource menu, and a highlight on the page around 'New client secret'":::
+:::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing an Azure AD app registration and a highlight around 'New client secret'.":::
 
 Enter whatever values you want for Description and Expires, and select **Add**.
 
-:::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Add client secret":::
+:::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Screenshot of the Azure portal while adding a client secret.":::
 
 Now, verify that the client secret is visible on the **Certificates & secrets** page with Expires and Value fields. Take note of its **Secret ID** and **Value** to use later (you can also copy them to the clipboard with the Copy icons).
 
-:::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Copy client secret value":::
+:::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Screenshot of the Azure portal showing how to copy the client secret value.":::
 
 >[!IMPORTANT]
 >Make sure to copy the value now and store it in a safe place, as it cannot be retrieved again. If you can't find the value later, you'll have to create a new secret.
