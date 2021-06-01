@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # How to launch the Azure Percept DK setup experience over Ethernet
 
-In this how-to guide you'll learn how to launch the Azure Percept DK setup experience over an Ethernet connection. It's a companion to the [Quick Start: Set up your Azure Percept DK and deploy your first AI model](articles\azure-percept\quickstart-percept-dk-set-up.md) guide. See each option outlined below and choose which one is most appropriate for your environment.
+In this how-to guide you'll learn how to launch the Azure Percept DK setup experience over an Ethernet connection. It's a companion to the [Quick Start: Set up your Azure Percept DK and deploy your first AI model](./quickstart-percept-dk-set-up.md) guide. See each option outlined below and choose which one is most appropriate for your environment.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ It's possible to find your dev kits's IP address by connecting to the dev kit ov
 
 1. Plug the ethernet cable into the dev kit and the other end into the router
 1. Power on your Azure Percept dev kit
-1. Connect to your dev kit over SSH. See [Connect to your Azure Percept DK over SSH](articles\azure-percept\how-to-ssh-into-percept-dk.md) for detailed instruction on how to connect to your dev kit over SSH.
+1. Connect to your dev kit over SSH. See [Connect to your Azure Percept DK over SSH](./how-to-ssh-into-percept-dk.md) for detailed instruction on how to connect to your dev kit over SSH.
 1. To list the ethernet local network IP address, type the bellow command in your SSH terminal window:
 
     ```bash
@@ -85,4 +85,4 @@ You can also use free tools found on the Web to identify your dev kit's IP addre
 1. Open a web browser and paste the dev kit's IP address. The setup experience should launch in the browser.
 
 ## Next steps
-- [Complete the set up experience](articles\azure-percept\quickstart-percept-dk-set-up.md)
+- [Complete the set up experience](./quickstart-percept-dk-set-up.md)
