@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/29/2021
 ---
 
-# Restartan Azure Database for PostgreSQL - Flexible Server (Preview)
+# Restart an Azure Database for PostgreSQL - Flexible Server (Preview)
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is currently in public preview.
