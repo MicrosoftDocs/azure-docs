@@ -1,5 +1,5 @@
 ---
-title: Migrate your file data to Azure with Komprise Intelligent Data Manager
+title: Analyze and migrate your file data to Azure with Komprise Intelligent Data Manager
 titleSuffix: Azure Storage
 description: Getting started guide to implement Komprise Intelligent Data Manager. Guide shows how to analyze your file infrastructure, and migrate your data to Azure Files, Azure NetApp Files, Azure Blob Storage, or any available ISV NAS solution 
 author: dukicn
@@ -158,12 +158,7 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
    4.  Configure extra [security best practices](/azure/storage/blobs/security-recommendations).
 
-
-
-Setting up Komprise solution is simple:
-
-1.	The **Director** is provided as a cloud service, set up, and managed by Komprise. Information needed to access Director is sent with the welcome email once you purchase the solution.
-1.	**Download** the Komprise Observer virtual appliance from the Director, deploy it to your hypervisor and configure it with the network and domain.
+1.	**Download** the Komprise Observer virtual appliance from the Director, deploy it to your hypervisor and configure it with the network and domain. Director is provided as a cloud service managed by Komprise. Information needed to access Director is sent with the welcome email once you purchase the solution.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-1.png" alt-text="Download appropriate image for Komprise Observer from Director":::
 
@@ -188,11 +183,6 @@ Setting up Komprise solution is simple:
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-azure-files-1.png" alt-text="Select Azure Files as a target service":::
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-azure-files-2.png" alt-text="Enter details for Azure Files":::
-
-
-1. Select shares to migrate and **Proceed with selected**
-
-    :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-4.png" alt-text="Specify shares to analyze":::
 
 ## Migration guide
 
