@@ -91,69 +91,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     - **Subscription**, **Resource group**, and **Key vault**: Enter the values corresponding to those in the key vault you created in the previous section.
     - **Secret**: Select the secret named **Message** that you created in the previous section.
 
-## Connect to Key Vault
-
-1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
-
-    ```azurecli
-    az ad sp create-for-rbac -n "http://<myServicePrincipal>" --sdk-auth
-    ```
-
-    This operation returns a series of key/value pairs:
-
-    ```console
-    {
-    "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-    "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-    "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-    "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-    "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-    "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-    "galleryEndpointUrl": "https://gallery.azure.com/",
-    "managementEndpointUrl": "https://management.core.windows.net/"
-    }
-    ```
-
-1. Run the following command to let the service principal access your key vault:
-
-    ```cmd
-    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
-    ```
-
-1. Add environment variables to store the values of *clientId*, *clientSecret*, and *tenantId*.
-
-    #### [Windows command prompt](#tab/cmd)
-
-    ```cmd
-    setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
-    setx AZURE_CLIENT_SECRET <clientSecret-of-your-service-principal>
-    setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
-    ```
-
-    #### [PowerShell](#tab/powershell)
-
-    ```PowerShell
-    $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
-    $Env:AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
-    $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
-    ```
-
-    #### [Bash](#tab/bash)
-
-    ```bash
-    export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
-    export AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
-    export AZURE_TENANT_ID = <tenantId-of-your-service-principal>
-    ```
-
-    ---
-
-    > [!NOTE]
-    > These Key Vault credentials are used only within your application. Your application authenticates directly to Key Vault with these credentials. They are never passed to the App Configuration service.
-
-1. Restart your terminal to load these new environment variables.
-
 ## Update your code to use a Key Vault reference
 
 1. Add a reference to the required NuGet packages by running the following command:
@@ -192,6 +129,28 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     ```
 
     #### [.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
+            })
+            .UseStartup<Startup>());
+    ```
+
+    #### [.NET Core 5.x](#tab/core5x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -255,13 +214,98 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     ![Quickstart local app launch](./media/key-vault-reference-launch-local.png)
 
+
+## Use Azure App Configuration andAzure Key Vault with managed identity
+
+To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code calls `SetCredential` as part of `ConfigureKeyVault` to tell the config provider what credential to use when authenticating to Key Vault.
+
+### [.NET Core 2.x](#tab/core2x)
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+                var credentials = new ManagedIdentityCredential();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(credentials);
+                            });
+                });
+            })
+            .UseStartup<Startup>();
+```
+
+### [.NET Core 3.x](#tab/core3x)
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+                var credentials = new ManagedIdentityCredential();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(credentials);
+                            });
+                });
+            })
+            .UseStartup<Startup>());
+```
+
+### [.NET Core 5.x](#tab/core5x)
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+                var credentials = new ManagedIdentityCredential();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(credentials);
+                            });
+                });
+            })
+            .UseStartup<Startup>());
+```
+---
+
+You can now access Key Vault references just like any other App Configuration key. The config provider will use the `ManagedIdentityCredential` to authenticate to Key Vault and retrieve the value. For information on configuring the Azure App Configuration service to use managed identities, see [Use managed identities to access App Configuration](./howto-integrate-azure-managed-service-identity.md)
+
+> [!NOTE]
+> The `ManagedIdentityCredential` works only in Azure environments of services that support managed identity authentication. It doesn't work in the local environment. Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) for the code to work in both local and Azure environments as it will fall back to a few authentication options including managed identity.
+> 
+> If you want to use a **user-asigned managed identity** with the `DefaultAzureCredential` when deployed to Azure, [specify the clientId](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
+>```
+>config.AddAzureAppConfiguration(options =>
+>   {
+>       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>))
+>           .ConfigureKeyVault(kv =>
+>               {
+>                   kv.SetCredential(new DefaultAzureCredential());
+>               });
+>        });
+>```
+>
+
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
-
-## Next steps
-
-In this tutorial, you created an App Configuration key that references a value stored in Key Vault. To learn how to add an Azure-managed service identity that streamlines access to App Configuration and Key Vault, continue to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
