@@ -10,9 +10,9 @@ ms.date: 06/28/2021
 
 # Rotate the cloudadmin credentials for Azure VMware Solution
 
-In this article, you'll rotate the cloudadmin credentials (vCenter and NSX-T credentials) for your Azure VMware Solution private cloud.  Although the passwords for these accounts don't expire, you can generate new ones. After generating new passwords, you'll update VMware HCX Connector with the latest credentials applied.
+In this article, you'll rotate the cloudadmin credentials (vCenter and NSX-T credentials) for your Azure VMware Solution private cloud.  Although the passwords for these accounts don't expire, you can generate new ones. After generating new passwords, you must update VMware HCX Connector with the latest credentials applied.
 
-You can use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon. To use your cloudadmin credentials for connected services, you must first set up a connection to an external identity source. If you don't have an external identity source, such as Active Directory, don't rotate your cloudadmin credentials. Rotating could break any connections that use the vCenter or NSX-T credentials. It could also lock those accounts out, resulting in a security lockout.
+You can use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon. To use your cloudadmin credentials for connected services, you must first set up a connection to an external identity source. If you don't have an external identity source, such as Active Directory, don't rotate your cloudadmin credentials. Rotating could break any connections that use the vCenter or NSX-T credentials. It could also lock out those accounts, resulting in a security lockout.
 
 
 ## Prerequisites
@@ -36,7 +36,7 @@ In this step, you'll reset the cloudadmin credentials for your Azure VMware Solu
 
    1. Select the confirmation checkbox and then select **Generate password**.
 
-      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new vCenter credentials.":::
+      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new vCenter credential.":::
 
 1. Reset the **NSX-T Manager credentials**:
 
@@ -46,7 +46,7 @@ In this step, you'll reset the cloudadmin credentials for your Azure VMware Solu
 
    1. Select the confirmation checkbox and then select **Generate password**.
 
-      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new NSX-T Manager credentials.":::
+      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new NSX-T Manager credential.":::
 
 
 ## Update HCX Connector with the latest credentials
