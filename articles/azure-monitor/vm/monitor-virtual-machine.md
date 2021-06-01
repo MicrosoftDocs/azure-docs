@@ -96,6 +96,15 @@ You need to enable VM insights on each workspace. You can do this through the po
 
 ![Enable VM insights](media/monitor-vm-azure/enable-vminsights.png)
 
+
+### Integration with Azure Monitor
+
+- Azure Security Center and Azure Sentinel store data in a Log Analytics workspace and use the same KQL language for log queries. Even if you choose to use a [different workspace for these services](), you can still use [cross resource queries]() to combine availability and performance data with security data in log queries or workbooks.
+- Create log query alerts combining security data with availability and performance data.
+- Azure Security Center and Azure Sentinel the same Log Analytics agent meaning that you can collect security data without deploying additional agents to the machine.
+
+
+
 ## System Center Operations Manager
 System Center Operations Manager provides granular monitoring of workloads on virtual machines. See the [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) for a comparison of monitoring platforms and different strategies for implementation.
 

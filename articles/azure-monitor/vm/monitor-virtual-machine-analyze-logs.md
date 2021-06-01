@@ -18,10 +18,9 @@ The following table lists the tables in the Log Analytics workspace with data re
 
 | Table | Description | Source|
 |:---|:---|:---|
-| [ActivityLog](/azure/azure-monitor/reference/tables/activitylog) | Configuration changes and history of when each virtual machine is stopped and started. | Activity Log |
+| [ActivityLog](/azure/azure-monitor/reference/tables/activitylog) | Event from the Activity log. Includes configuration changes and history of when each virtual machine is stopped and started. | Activity Log |
+| [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) | Rows logged by Log Analytics agents once per minute to report on agent health. | 
 | [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) | Performance data collected from guest operating system. | VM insights |
-| [Perf](/azure/azure-monitor/reference/tables/insightsmetrics) | Performance data collected from guest operating system and applications. | Workspace |
-| [Syslog](/azure/azure-monitor/reference/tables/syslog) | Linux events created on guest operating system. | Workspace |
 | [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) | Traffic for open server ports on the monitored machine. | VM Insights |
 | [VMComputer](/azure/azure-monitor/reference/tables/vmcomputer) | Inventory data for servers collected by the Service Map and VM Insights solutions using the Dependency agent and Log analytics agent. | VM insights |
 | [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) | Traffic for inbound and outbound connections to and from monitored computers. | VM insights |
@@ -30,20 +29,6 @@ The following table lists the tables in the Log Analytics workspace with data re
 
 > [!NOTE]
 > Performance data collected by the Log Analytics agent writes to the *Perf* table while VM insights will collect it to the *InsightsMetrics* table. This is the same data, but the tables have a different structure. If you have existing queries based on *Perf*, the will need to be rewritten to use *InsightsMetrics*.
-
-
-## Heartbeat
-
-| Table | Description |
-|:---|:---|
-| [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) | Rows logged by Log Analytics agents once per minute to report on agent health. | 
-
-## Performance data
-
-| Table | Description | Source|
-|:---|:---|:---|
-| [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) | Performance data collected from guest operating system. | VM insights |
-
 
 
 
@@ -59,6 +44,7 @@ These tables are collected by VM insights and analyzed by the Map feature.
 | [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) | Process data for servers collected by the Service Map and VM Insights solutions using the Dependency agent and Log analytics agent. | VM insights |
 
 
+## Machines 
 ### List all known machines
 
 ```kusto

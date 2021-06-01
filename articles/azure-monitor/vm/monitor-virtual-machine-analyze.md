@@ -1,61 +1,59 @@
 ---
-title: Monitor Azure virtual machines with Azure Monitor
+title: Monitor Azure virtual machines with Azure Monitor - Analyze monitoring data
 description: Describes how to collect and analyze monitoring data from virtual machines in Azure using Azure Monitor.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/05/2020
+ms.date: 05/31/2021
 
 ---
 
 # Monitoring virtual machines with Azure Monitor - Analyze monitoring data
-Once you’ve deployed agents to your virtual machines and configured data collection, data will be available for analysis. You can leverage existing views and workbooks that visualize the collected data and allow you to drill in for more analysis. Or you can perform ad hoc analysis by writing your own log queries. You can even create your own workbooks if you have custom requirements.
+Once you’ve deployed agents to your virtual machines and configured data collection, data will be available for analysis. You can leverage existing views and workbooks that visualize the collected data and allow you to drill in for more analysis, or you can perform ad hoc analysis by writing your own log queries. You can even create your own workbooks if you have custom requirements.
+
 This section describes the different ways you can view and analyze data collected from your virtual machines.
 
-## Understand types of data available
-
-The basic types of data collected from virtual machines include the following:
+## Types of monitoring data
+You should understand what kinds of data are available in Azure Monitor since different features will use different kinds of data. The basic types of data collected from virtual machines include the following:
 
 | Data | Contents |
 |:---|:---|
-| [Activity log](../essentials/platform-logs-overview.md) | Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane). For a virtual machine, this includes such information as when it was started and any configuration changes. |
-| [Platform metrics](../essentials/data-platform-metrics.md) | Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are collected for the virtual machine host, but you require the diagnostics extension to collect metrics for the guest operating system.
-| Activity log | Information about changes to virtual machines including creation, configuration changes, and start/stop. |
-| Metrics | Performance data collected for the host machine.  Includes performance data from guest operating system only if the diagnostic extension is installed. View this data in Metrics explorer. |
-| Logs | Event and performance data collected from VM insights and from any data sources configured on the workspace. View this data in VM insights or create custom queries using Log Analytics. |
+| [Activity log](../essentials/platform-logs-overview.md) | Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane). For a virtual machine, this includes such information as when it was started and any configuration changes. View the Activity log from the virtual machine's monitoring menu or [create a diagnostic setting]() to send these events into the Log Analytics workspace so you can analyze it with other data. |
+| [Metrics](../essentials/data-platform-metrics.md) | Numerical values that are automatically collected at regular intervals and describe some aspect of a resource at a particular time. Platform metrics are collected for the virtual machine host, but you require the diagnostics extension to collect metrics for the guest operating system. View this data in Metrics explorer. |
+| [Logs](../essentials/data-platform-metrics.md) | Event and performance data collected from VM insights and from any data sources configured on the workspace. View this data in VM insights or create custom queries using Log Analytics. |
 
-## Metrics and Logs
-It can be confusing to determine which data is available between Log and Metrics since data is collected using different methods, and agents send data to different locations. This is important to understand though, since different features of Azure Monitor use different kinds of data, and the type of alerting that you use for a particular scenario will depend on having that data available in a particular location.
+### Metrics and Logs
+It can be confusing to determine which data is available between Metrics and Logs since data is collected using different methods, and agents send data to different locations. This is important to understand though, since different features of Azure Monitor use different kinds of data, and the type of alerting that you use for a particular scenario will depend on having that data available in a particular location.
 
 > [!NOTE]
 > The Azure Monitor Agent, currently in public preview, will replace the Log Analytics agent and have the ability to send client performance data to both Logs and Metrics. When this agent becomes generally available with VM insights, then all performance data will sent to both Logs and Metrics significantly simplifying this logic. 
 
+The following details should help you understand the differences between the types of data. 
+
 - Any non-numeric data such as events is stored in Logs.  
+- Numeric data is often stored in both Metrics and Logs so it can be analyzed in different ways and support different types of alerts.
 - Performance data from the guest operating system will be sent to logs by VM insights (using the Log Analytics agent and Dependency agent).
-- Performance data from the guest operating system will only be sent to Metrics if the diagnostic extension is installed.
+- Performance data from the guest operating system will only be sent to Metrics if the diagnostic extension is installed. The diagnostic extension is only available for Azure virtual machines.
 - A specific set of performance counters is available for Metric alerts even though the data is stored in Logs. These counters cannot be analyzed with Metrics explorer.
 
-
 ## Virtual machine monitoring menu
-Once you configure collection of monitoring data for a virtual machine, you have multiple options for accessing it in the Azure portal:
+Each Azure virtual machine and Azure Arc enabled server has a **Monitoring** menu in the Azure portal where you can access all the monitoring data for that machine. You may also choose to use the **Azure Monitor** menu to access data for multiple machines.
 
-- Use the **Azure Monitor** menu to access data from all monitored resources. 
-- Use VM insights for monitoring sets of virtual machines at scale.
-- Analyze data for a single virtual machine from its menu in the Azure portal. The table below lists different options for monitoring the virtual machines menu.
+The table below lists the different options in the virtual machine's **Monitoring** menu.
 
 ![Monitoring in the Azure portal](media/monitor-vm-azure/monitor-menu.png)
 
 | Menu option | Description |
 |:---|:---|
 | Overview | Displays [platform metrics](../essentials/data-platform-metrics.md) for the virtual machine host. Click on a graph to work with this data in [metrics explorer](../essentials/metrics-getting-started.md). |
-| Activity log | [Activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. |
-| Insights | Opens [VM insights](../vm/vminsights-overview.md) with the map for the current virtual machine selected. |
-| Alerts | Views [alerts](../alerts/alerts-overview.md) for the current virtual machine.  |
-| Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with the scope set to the current virtual machine. |
-| Diagnostic settings | Enable and configure [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. |
+| Activity log | [Activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for the current virtual machine. Use this to view the activity of the machine such as any configuration changers and when it's been stopped and started. |
+| Insights | Open [VM insights](../vm/vminsights-overview.md) with the map for the current virtual machine selected. This shows you running processes on the machine and dependencies on other machines and external processes. You can also view trends for performance data collected for the machine.  |
+| Alerts | Views [alerts](../alerts/alerts-overview.md) for the current virtual machine. These are only alerts that use the machine as the target resource. See [Alerts]() for details. |
+| Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with the scope set to the current machine. |
+| Diagnostic settings | Enable and configure [diagnostics extension](../agents/diagnostics-extension-overview.md) for the current virtual machine. Note that this option is different than the **Diagnostic settings** option for other Azure resources.   |
 | Advisor recommendations | Recommendations for the current virtual machine from [Azure Advisor](../../advisor/index.yml). |
-| Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the current virtual machine. |
+| Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the current virtual machine. This allows you to create custom queries with data from only this machine. |
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-overview.md) to monitor connections between the current virtual machine and other virtual machines. |
 
 
@@ -72,7 +70,7 @@ The map feature of VM insights includes views for machine properties, events ass
 ## Analyze metric data with metrics explorer
 Select  **Metrics** from the virtual machine's menu to open metrics explorer which allows you to analyze metric data for virtual machines. See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool. 
 
-There are three namespaces used by virtual machines for metrics:
+There are three namespaces used by virtual machines:
 
 | Namespace | Description | Requirement |
 |:---|:---|:---|
@@ -80,19 +78,24 @@ There are three namespaces used by virtual machines for metrics:
 | Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure storage.  |
 | Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | For Windows, [diagnostic extension installed](../agents/diagnostics-extension-overview.md) installed with Azure Monitor sink enabled. For Linux, [Telegraf agent installed](../essentials/collect-custom-metrics-linux-telegraf.md). |
 
+
+> [!NOTE]
+> For machines without the diagnostic extension installed, you'll see an option in the **Metric Namespace** dropdown called **Enable new guest memory metrics**. This option describes how to add the diagnostic extension to the machine to collect guest metrics. These same values are collected in Logs when VM insights is enabled.
+
+> [!NOTE]
+> Even with the dia
+
+
 ![Metrics explorer in the Azure portal](media/monitor-vm-azure/metrics.png)
 
+
 ## Analyze log data with Log Analytics
-Azure virtual machines will collect the following data to Azure Monitor Logs. 
+Azure virtual machines will send the following data to Azure Monitor Logs. 
 
 VM insights enables the collection of a predetermined set of performance counters that are written to the *InsightsMetrics* table. This is the same table used by [Container insights](../containers/container-insights-overview.md). 
 
-| Data source | Requirements | Tables |
-|:---|:---|:---|
-| VM insights | Enable on each virtual machine. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>See [How to query logs from VM insights](../vm/vminsights-log-search.md) for details. |
-| Activity log | Diagnostic setting for the subscription. | AzureActivity |
-| Host metrics | Diagnostic setting for the virtual machine. | AzureMetrics |
 
+[How to query logs from VM insights](../vm/vminsights-log-search.md) for details.
 
 | Table | Description | Source|
 |:---|:---|:---|
@@ -101,6 +104,7 @@ VM insights enables the collection of a predetermined set of performance counter
 | [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) | Traffic for inbound and outbound connections to and from monitored computers. | VM insights |
 | [VMProcess](/azure/azure-monitor/reference/tables/vmprocess) | Process data for servers collected by the Service Map and VM Insights solutions using the Dependency agent and Log analytics agent. | VM insights |
 | ActivityLog | Configuration changes and history of when each virtual machine is stopped and started. | Activity Log |
+| InsightsMetrics |  |
 
 > [!NOTE]
 > Performance data collected by the Log Analytics agent writes to the *Perf* table while VM insights will collect it to the *InsightsMetrics* table. This is the same data, but the tables have a different structure. If you have existing queries based on *Perf*, the will need to be rewritten to use *InsightsMetrics*.
