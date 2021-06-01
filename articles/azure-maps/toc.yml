@@ -67,6 +67,8 @@
     href: choose-pricing-tier.md
   - name: Creator for Indoor maps
     items:
+    - name: Creator service geographic scope
+      href: creator-geographic-scope.md
     - name: Indoor map concepts
       href: creator-indoor-maps.md
     - name: Drawing conversion errors and warnings

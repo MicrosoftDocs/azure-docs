@@ -72,7 +72,7 @@ To upload the Drawing package:
 
 11. In the **VALUE** field, select `application/octet-stream`.
 
-     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-header.png"alt-text="Header tab information for Data Upload.":::
+     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-header.png"alt-text="Header tab information for data upload.":::
 
 12. Select the **Body** tab.
 
@@ -80,7 +80,7 @@ To upload the Drawing package:
 
 14. Select **Select File**, and then select a Drawing package.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="Select a drawing package.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="Select a Drawing package.":::
 
 15. Select **Send**.
 
@@ -114,7 +114,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 8. In the response window, select the **Headers** tab. 
 
-9. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the drawing package resource. 
+9. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the drawing package resource.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/resource-location-url.png" alt-text="Copy the resource location URL.":::
 
@@ -183,7 +183,7 @@ To convert a Drawing package:
 
 9. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the conversion.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="Copy the value of the location key for drawing package":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="Copy the value of the location key for drawing package.":::
 
 ### Check the Drawing package conversion status
 
@@ -213,7 +213,7 @@ To check the status of the conversion process and retrieve the `conversionId`:
 
 9. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`conversionId`), which can be used by other APIs to access the converted map data.
 
-      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="Copy the conversion id.":::
+      :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="Copy the conversion ID.":::
 
 The sample Drawing package should be converted without errors or warnings. However, if you receive errors or warnings from your own Drawing package, the JSON response includes a link to the [Drawing error visualizer](drawing-error-visualizer.md). You can use the Drawing Error visualizer to inspect the details of errors and warnings. To receive recommendations to resolve conversion errors and warnings, see [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
@@ -272,7 +272,7 @@ To create a dataset:
 
 9. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the dataset.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="Copy the value of the location key for dataset":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="Copy the value of the location key for dataset.":::
 
 ### Check the dataset creation status
 
@@ -296,11 +296,11 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 
 7. Select **Send**.
 
-8. In the response window, select the **Headers** tab. The the value of the **Resource-Location** key is the `resource location URL`. The `resource location URL` contains the unique identifier (`datasetId`) of the dataset. 
+8. In the response window, select the **Headers** tab. The value of the **Resource-Location** key is the `resource location URL`. The `resource location URL` contains the unique identifier (`datasetId`) of the dataset. 
 
 9. Copy the `datasetId`, because you'll use it in the next sections of this tutorial.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/dataset-id.png" alt-text="Copy the dataset id":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/dataset-id.png" alt-text="Copy the dataset ID.":::
 
 ## Create a tileset
 
@@ -330,7 +330,7 @@ To create a tileset:
 
 9. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the tileset.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-tileset-location-url.png" border="true" alt-text="Copy the value of the tileset status url":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-tileset-location-url.png" border="true" alt-text="Copy the value of the tileset status url.":::
 
 ### Check the tileset creation status
 
@@ -354,9 +354,9 @@ To check the status of the dataset creation process and retrieve the `tilesetId`
 
 7. Select **Send**.
 
-8. In the response window, select the **Headers** tab. The the value of the **Resource-Location** key is the `resource location URL`.  The `resource location URL` contains the unique identifier (`tilesetId`) of the dataset.
+8. In the response window, select the **Headers** tab. The value of the **Resource-Location** key is the `resource location URL`.  The `resource location URL` contains the unique identifier (`tilesetId`) of the dataset.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="Copy the tileset id":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="Copy the tileset ID.":::
 
 ## Query datasets with WFS API
 
@@ -551,7 +551,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 
 8. In the **KEY** field, select `Content-Type`. 
 
-9. In the **VALUE** field select `application/json`.
+9. In the **VALUE** field, select `application/json`.
 
      :::image type="content" source="./media/tutorial-creator-indoor-maps/stateset-header.png"alt-text="Header tab information for stateset creation.":::
 
@@ -578,7 +578,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 
 13. Select **Send**.
 
-14. After the update completes, you'll receive a `200 OK` HTTP status code. If you implementd [dynamic styling](indoor-map-dynamic-styling.md) for an indoor map, the update displays at the specified time stamp in your rendered map.
+14. After the update completes, you'll receive a `200 OK` HTTP status code. If you implemented [dynamic styling](indoor-map-dynamic-styling.md) for an indoor map, the update displays at the specified time stamp in your rendered map.
 
 You can use the [Feature Get Stateset API](/rest/api/maps/v2/featurestate/getstatespreview) to retrieve the state of a feature using its feature `id`. You can also use the [Feature State Delete State API](/rest/api/maps/v2/featurestate/deletestatesetpreview) to delete the stateset and its resources.
 
