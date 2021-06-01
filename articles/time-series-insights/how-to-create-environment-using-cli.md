@@ -1,9 +1,10 @@
 ---
 title: 'Create an Azure Time Series Insights Gen2 environment using the Azure CLI - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: 'Learn how to set up an environment in Azure Time Series Insights Gen2 using the Azure CLI.'
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights

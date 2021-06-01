@@ -3,14 +3,14 @@ title: What's new?
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn about the new features and documentation improvements for Azure SQL Database & SQL Managed Instance.
 services: sql-database
-author: stevestein
+author: MashaMSFT
+ms.author: mathoma
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/17/2021
-ms.author: sstein
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

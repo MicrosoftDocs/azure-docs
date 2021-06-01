@@ -468,7 +468,7 @@ You may want to target a specific version of a module in your requirements.psd1 
 
 ```powershell
 @{
-	Az.Accounts = '1.9.5'
+	'Az.Accounts' = '1.9.5'
 }
 ```
 
