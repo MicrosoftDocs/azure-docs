@@ -4,7 +4,7 @@ description: Enable e-mail notifications for Azure SQL Database automatic query 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: danimir

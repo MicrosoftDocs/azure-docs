@@ -7,7 +7,8 @@ ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
+ms.collection: linux 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure Azure Image Builder Service permissions using PowerShell
