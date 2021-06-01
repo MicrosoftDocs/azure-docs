@@ -12,7 +12,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Teams interoperability
+# Teams federation (interoperability)
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
