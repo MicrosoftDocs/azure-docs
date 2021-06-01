@@ -76,7 +76,7 @@ Recommended Actions:
 
 You might want to either check why the limit is reached, you can use the workspace insights blade to review your usage patterns and try to reduce them.
 For further information: 
-[Azure Monitor service limits](../../service-limits.md#data-ingestion-volume-rate) 
+[Azure Monitor service limits](../service-limits.md#data-ingestion-volume-rate) 
 [Manage usage and costs for Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached)  
 
  
