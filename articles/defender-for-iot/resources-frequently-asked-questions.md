@@ -2,7 +2,7 @@
 title: Defender for IoT frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT features and service.
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 06/01/2021
 ---
 
 # Azure Defender for IoT frequently asked questions
@@ -76,7 +76,7 @@ You can see how to [update your sensor network configuration before activation](
 
 You can also [update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration) after activation.
 
-You can work with CLI [commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration) to [change network configurations](references-work-with-defender-for-iot-cli-commands.md#filter-network-configurations).
+You can work with CLI [commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration) to [change network configurations](references-work-with-defender-for-iot-cli-commands.md#network-configurations).
 
 ## How do I check the sanity of my deployment
 
