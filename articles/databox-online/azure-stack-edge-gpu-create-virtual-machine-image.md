@@ -95,7 +95,6 @@ You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro 
 For a full list of Azure Marketplace images that could work (presently not tested), go to [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
 ### Using RHEL BYOS images
-<!--RHEL BYOS image is not listed in the table above. Is it available but not yet tested?-->
 
 If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Linux Bring Your Own Subscription(RHEL BYOS) images, also known as the Red Hat gold images are supported and can be used to create your VM image. The standard pay-as-you-go RHEL images are not supported on Azure Marketplace.
 
@@ -119,37 +118,43 @@ Make sure the Provisioning flags in the */etc/waagent.conf* file have the follow
 
 ## Use AzCopy to copy VM image to Blob container
 
-The following procedures describe how to create a target URL in Azure storage for your VM image file, and use that URL file to a Blob container in your Azure Storage account.
+The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. It's a good idea to store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
 
-### Generate SAS URL for Blob container
+### Generate a download URL for the VHD
 
-To use AzCopy to copy your prepared VHD to an Azure Storage account, you'll need a target URI that tells where to copy the new image to in your Azure Storage account. It's a good idea to use the same storage account you used for the device.
+If you haven't done this already, [generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url) for the OS VHD that you just prepared.
 
-The target URI is the Blob SAS URL for the Blob container that has the desired filename added to it. 
+### Create a target URI for a Blob container
 
-To generate a SAS URL for a container in an Azure Storage account, do the following steps:
+AzCopy requires a *target URI* that tells where to copy the new image to in your storage account. Before you run AzCopy, you'll generate a shared-access signature (SAS) URL for the Blob container you want to copy the file to. To create the target URI, you'll add the filename to the SAS URL.
 
-1. In the Azure portal, open the storage account, and select **Containers**. Then select and then right-click the Blob container you want to use, and select **Generate SAS**.
+To create the target URI for your prepared VHD, do the following steps:
 
-   ![Screenshot of the Generate SAS option for a Blob container in the Azure portal](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-01.png)
+1. Generate a SAS URL for a container in an Azure Storage account, do the following steps:
 
-2. On the **Generate SAS** screen, select **Read** and **Write** in **Permissions**.  
+   1. In the Azure portal, open the storage account, and select **Containers**. Select and then right-click the Blob container you want to use, and select **Generate SAS**.
 
-   ![Screenshot of the Generate SAS screen with Read and Write permissions selected](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-02.png)
+      ![Screenshot of the Generate SAS option for a Blob container in the Azure portal](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-01.png)
 
-3. Select **Generate SAS token and URL**, and then copy the **Blob SAS URL**.
+   1. On the **Generate SAS** screen, select **Read** and **Write** in **Permissions**.  
 
-   ![Screenshot of the Generate SAS screen, with options for generating and copying a Blob SAS URL](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-03.png)
+      ![Screenshot of the Generate SAS screen with Read and Write permissions selected](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-02.png)
 
-### Create target URI for new VHD
+   1. Select **Generate SAS token and URL**, and then select **Copy** to copy the **Blob SAS URL**.
 
-After you [generate a Blob SAS URL for the container](#generate-sas-url-for-blob-container), add the desired filename to create the target URI for your file copy in AzCopy.
+      ![Screenshot of the Generate SAS screen, with options for generating and copying a Blob SAS URL](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-03.png)
 
-The Blob SAS URL has the following format. Insert the filename, in the format `/<filename>.vhd` before the question mark that begins the query string. The filename extension must be VHD.
+1. To create the target URI for the AzCopy command, add the desired filename to the SAS URL.
 
-![Graphic of a Blob SAS URL, with container path and place to insert the new filename labeled](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-04.png) 
+   The Blob SAS URL has the following format. 
+
+   ![Graphic of a Blob SAS URL, with container path and place to insert the new filename labeled](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-04.png
+
+   Insert the filename, in the format `/<filename>.vhd` before the question mark that begins the query string. The filename extension must be VHD.
 
 ### Copy VHD to Blob container using AzCopy
+
+To use AzCopy to copy your VHD to Blob storage, do the following steps:
 
  1. [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) if you haven't done that already.
  
