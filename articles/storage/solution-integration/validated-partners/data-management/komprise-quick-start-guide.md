@@ -16,8 +16,6 @@ This article helps you integrate the Komprise Intelligent Data Manager infrastru
 
 Komprise provides analytics and insights into network attached storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
 
-## Potential use cases
-
 Komprise will help in many different use cases, like:
 
 - Analysis of on-premises unstructured data to gain insights for data management, movement, positioning, archiving, protection, and confinement.
