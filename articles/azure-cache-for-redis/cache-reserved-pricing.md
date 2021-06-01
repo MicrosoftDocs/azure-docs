@@ -27,7 +27,7 @@ For the details on how enterprise customers and Pay-As-You-Go customers are char
 
 The size of reservation should be based on the total amount of memory size that is used by the existing or soon-to-be-deployed cache within a specific region, and using the same service tier.
 
-For example, let's suppose that you're running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13-GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either one  P2-cache and 1 P3-cache or 3 P2-caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
+For example, let's suppose that you're running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13-GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either one P2-cache and one P3-cache or three P2-caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
 
 
 ## Buy Azure Cache for Redis reserved capacity
