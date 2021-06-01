@@ -123,8 +123,8 @@
       href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
-    - name: OPC UA data to Azure Digital Twins
-      href: how-to-opcua-to-azure-digital-twins.md
+    - name: Ingest OPC UA data to Azure Digital Twins
+      href: how-to-opc-ua-to-azure-digital-twins.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
