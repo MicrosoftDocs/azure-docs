@@ -178,7 +178,7 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
   
         :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-3.png" alt-text="Specify NAS solutions to discover":::
 
-    For example, you can specify an Azure Files share as a migration destination by providing storage account and shares details:
+    This step must be repeated for source and destination shares. To add Azure Files as a target, you need to provide storage account and shares details:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-azure-files-1.png" alt-text="Select Azure Files as a target service":::
 
