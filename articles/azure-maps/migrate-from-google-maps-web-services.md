@@ -45,7 +45,7 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 | Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.         |         
 | Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |                         
 | Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |                         
-| Elevation               | [Elevation (Preview)](/rest/api/maps/elevation)                   | 
+| Elevation               | [Elevation](/rest/api/maps/elevation)                   | 
 
 The following service APIs aren't currently available in Azure Maps:
 
