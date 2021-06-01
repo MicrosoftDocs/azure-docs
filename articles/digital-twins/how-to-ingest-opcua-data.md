@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Ingest OPC UA data to Azure Digital Twins
+title: Ingesting OPC UA data using Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Steps to get your Azure OPC UA Data into Azure Digital Twins
 author: danhellem
@@ -30,7 +30,7 @@ This article shows how to connect all these pieces together to get your OPC UA n
 Before completing this article, complete the following prerequisites:
 * **Download sample repo**: This article uses a [DTDL model](concepts-models.md) file and an Azure function body from the [OPC UA to Azure Digital Twins GitHub Repo](https://github.com/Azure-Samples/opcua-to-azure-digital-twins). Start by downloading the sample repo onto your machine. You can select the **Code** button for the repo to either clone the repository or download it as a .zip file to your machine.
 
-    :::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/download-repo.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to clone or download the code." lightbox="media/how-to-opc-ua-to-azure-digital-twins/download-repo.png":::
+    :::image type="content" source="media/how-to-ingest-opcua-data/download-repo.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to clone or download the code." lightbox="media/how-to-ingest-opcua-data/download-repo.png":::
     
     If you download the repository as a .zip, be sure to unzip it and extract the files.
 * **Download Visual Studio**: This article uses Visual Studio to publish an Azure function. You can download the latest version of Visual Studio from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
@@ -39,12 +39,11 @@ Before completing this article, complete the following prerequisites:
 
 Here are the components that will be included in this solution.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/opca-to-azure-digital-twins-diagram-1.png" alt-text="Diagram of the solution architecture showing how O P C U A data flows into Azure Digital Twins." lightbox="media/how-to-opc-ua-to-azure-digital-twins/opca-to-azure-digital-twins-diagram-1.png":::
- 
+<TODO: Architecture diagram coming soon>
 
 | Component | Description |
 | --- | --- |
-| [Prosys OPC UA Simulation Server](https://www.prosysopc.com/products/opc-ua-simulation-server/) | Free OPC UA Server to simulate the OPC UA data. |
+| OPC UA Server | OPC UA Server from [ProSys](https://www.prosysopc.com/products/opc-ua-simulation-server/) or [Kepware](https://www.kepware.com/en-us/products/#KEPServerEX) to simulate the OPC UA data. |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) | IoT Edge is an IoT Hub service that gets installed on a local Linux gateway device. It is required for the OPC Publisher module to run and send data to IoT Hub. |
 | [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | This is an IoT Edge module built by the Azure Industrial IoT team. This module connects to your OPC UA Server and sends the node data into Azure IoT Hub. |
 | [Azure IoT Hub](../iot-hub/about-iot-hub.md) | OPC Publisher sends the OPC UA telemetry into Azure IoT Hub. From there, you can process the data through an Azure Function and into Azure Digital Twins. |
@@ -55,7 +54,7 @@ Here are the components that will be included in this solution.
 
 The first step is getting the devices and software set up on the edge. Here are the edge components you'll set up, in this order:
 1. [OPC UA simulation server](#set-up-opc-ua-server)
-1. [IoT Hub and IoT edge device](#set-up-iot-edge-device)
+1. [IoT Hub and IoT Edge device](#set-up-iot-edge-device)
 1. [Gateway device](#set-up-gateway-device)
 
 This section will walk through a brief setup of each. 
@@ -70,19 +69,20 @@ For more detailed information on installing each of these pieces, see the follow
 
 For this article, you do not need access to physical devices running a real OPC UA Server. Instead, you can install the free [Prosys OPC UA Simulation Server](https://www.prosysopc.com/products/opc-ua-simulation-server/) on a Windows VM to generate the OPC UA data. This section walks through this setup.
 
-If you already have a physical OPC UA device or another OPC UA simulation server you'd like to use, you can ahead to the next section, [Set up IoT Edge device](#set-up-iot-edge-device).
+If you already have a physical OPC UA device or another OPC UA simulation server you'd like to use, you can ahead to the next section, [Set up IoT Edge device](#set-up-iot-edge-device).(#set-up-iot-edge-device).
 
 #### Create Windows 10 virtual machine
 
 The Prosys Software requires a simple virtual resource. Using the [Azure portal](https://portal.azure.com), [create a Windows 10 virtual machine (VM)](../virtual-machines/windows/quick-create-portal.md) with the following specifications:
+* **Availability options**: No infrastructure redundancy required
 * **Image**: Windows 10 Pro, Version 2004 - Gen2
 * **Size**: Standard_B1s - 1 vcpu, 1 GiB memory
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/create-windows-virtual-machine-1.png" alt-text="Screenshot of the Azure portal, showing the Basics tab of Windows virtual machine setup." lightbox="media/how-to-opc-ua-to-azure-digital-twins/create-windows-virtual-machine-1.png":::
+:::image type="content" source="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png" alt-text="Screenshot of the Azure portal, showing the Basics tab of Windows virtual machine setup." lightbox="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png":::
 
 Your VM must be reachable over the internet. For simplicity in this walkthrough, you can open all ports and assign the VM a Public IP address. This is done in the **Networking** tab of virtual machine setup.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/create-windows-virtual-machine-2.png" alt-text="Screenshot of the Azure portal, showing the Networking tab of Windows virtual machine setup.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/create-windows-virtual-machine-2.png" alt-text="Screenshot of the Azure portal, showing the Networking tab of Windows virtual machine setup.":::
 
 > [!WARNING]
 > Opening all ports to the internet is not recommended for production solutions, as it can present a security risk. You may want to consider other security strategies for your environment.
@@ -97,22 +97,18 @@ From your new Windows virtual machine, install the [Prosys OPC UA Simulation Ser
 
 Once the download and install are completed, launch the server. It may take a few moments for the OPC UA Server to start. Once it's ready, the Server Status should show as **Running**.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/prosys-server-1.png" alt-text="Screenshot of Prosys OPC UA Simulation Server.":::
-
-Copy the value of **Connection Address (UA TCP)**. Paste it somewhere safe to use later. In the pasted value, replace the machine name part of the address with with the **Public IP** of your VM from earlier, like this: 
+Next, copy the value of **Connection Address (UA TCP)**. Paste it somewhere safe to use later. In the pasted value, replace the machine name part of the address with with the **Public IP** of your VM from earlier, like this: 
 
 `opc.tcp://<ip-address>:53530/OPCUA/SimulationServer`
 
 You will use this updated value later in this article.
 
-Next, view the simulation nodes provided by default with the server by selecting the **Objects** tab and expanding the **Objects::FolderType** and **Simulation::FolderType** folders. You'll see the simulation nodes, each with its own unique `NodeId` value. 
+Finally, view the simulation nodes provided by default with the server by selecting the **Objects** tab and expanding the Objects::FolderType and Simulation::FolderType folders. You'll see the simulation nodes, each with its own unique `NodeId` value. 
 
 Capture the `NodeId` values for the simulated nodes that you want to publish. You'll need these IDs later in the article to simulate data from these nodes.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/prosys-server-2.png" alt-text="Screenshot of Prosys OPC UA Simulation Server, showing OPC UA nodes. One node is selected and the NodeId value is highlighted.":::
-
 > [!TIP]
-> Verify the OPC UA Server is accessible by following the "Verify the OPC UA Service is running and reachable" steps in the [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher).
+> Verify the OPC UA Server is accessible by follow the "Verify the OPC UA Service is running and reachable" steps in the [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher).
 
 #### Verify completion
 
@@ -129,17 +125,17 @@ In this section, you'll set up an IoT Hub instance and an IoT Edge device.
 
 First, [create an Azure IoT Hub instance](../iot-hub/iot-hub-create-through-portal.md). For this article, you can create an instance in the **F1 - Free** tier.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/iot-hub.png" alt-text="Screenshot of the Azure portal showing properties of an IoT Hub.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iot-hub.png" alt-text="Screenshot of the Azure portal showing properties of an IoT Hub.":::
 
 After you have created the Azure IoT Hub instance, select **IoT Edge** from the instance's left navigation menu, and select **Add an IoT Edge device**.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/iot-edge-1.png" alt-text="Screenshot of adding an IoT edge device in the Azure portal.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iot-edge-1.png" alt-text="Screenshot of adding an IoT Edge device in the Azure portal.":::
 
 Follow the prompts to create a new device. 
 
 Once your device is created, copy either the **Primary Connection String** or **Secondary Connection String** value. You will need this later when you set up the edge device.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/iot-edge-2.png" alt-text="Screenshot of the Azure portal showing IoT Edge device connection strings.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iot-edge-2.png" alt-text="Screenshot of the Azure portal showing IoT Edge device connection strings.":::
 
 #### Verify completion
 
@@ -155,11 +151,12 @@ In order to get your OPC UA Server data into IoT Hub, you need a device that run
 #### Create Ubuntu Server virtual machine
 
 Using the [Azure portal](https://portal.azure.com), create an Ubuntu Server virtual machine with the following specifications:
+* **Availability options**: No infrastructure redundancy required
 * **Image**: Ubuntu Server 18.04 LTS - Gen1
 * **Size**: Standard_B1ms - 1 vcpu, 2 GiB memory
     - The default size (Standard_b1s – vcpu, 1GiB memory) is too slow for RDP. Updating it to the 2 GiB memory will provide a better RDP experience.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/ubuntu-virtual-machine.png" alt-text="Screenshot of the Azure portal showing Ubuntu virtual machine settings.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/ubuntu-virtual-machine.png" alt-text="Screenshot of the Azure portal showing Ubuntu virtual machine settings.":::
 
 > [!NOTE]
 > If you choose to RDP into your Ubuntu VM, you can follow the instructions to [Install and configure xrdp to use Remote Desktop with Ubuntu](../virtual-machines/linux/use-remote-desktop.md).
@@ -182,7 +179,7 @@ Next, install the OPC Publisher module on your gateway device.
 
 Start by getting the module from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.iotedge-opc-publisher).
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/opc-publisher-1.png" alt-text="Screenshot of OPC publisher in Azure marketplace.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/opc-publisher-1.png" alt-text="Screenshot of OPC publisher in Azure Marketplace.":::
 
 Then, follow the installation steps documented in the [OPC Publisher GitHub Repo](https://github.com/Azure/iot-edge-opc-publisher) to install the module on your Ubuntu VM.
 
@@ -203,7 +200,7 @@ In the step for [specifying container create options](https://github.com/Azure/i
 }
 ```
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/opc-publisher-2.png" alt-text="Screenshot of OPC publisher container create options.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/opc-publisher-2.png" alt-text="Screenshot of OPC publisher container create options.":::
 
 >[!NOTE]
 >The create options above should work in most cases without any changes, but if you're using your own gateway device that's different from the article guidance so far, you may need to adjust the settings to your situation.
@@ -212,9 +209,9 @@ Follow the rest of the prompts to create the module.
 
 After about 15 seconds, you can run the `iotedge list` command on your gateway device, which lists all the modules running on your IoT Edge device. You should see the OPCPublisher module up and running.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/iotedge-list.png" alt-text="Screenshot of iotedge list results.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-list.png" alt-text="Screenshot of iotedge list results.":::
 
-Finally, from the gateweay device, go to the `/iiotedge` directory and create a *publishednodes.json* file. The IDs in the file need to match the `NodeId` values that you [gathered earlier from the OPC Server](#install-opc-ua-simulation-software). Your file should look like something like this:
+Finally, go to the `/iiotedge` directory and create a *publishednodes.json* file. The IDs in the file need to match the `NodeId` values that you [gathered earlier from the OPC Server](#install-opc-ua-simulation-software). Your file should look like something like this:
 
 ```JSON
 [
@@ -255,7 +252,7 @@ sudo iotedge logs OPCPublisher -f
 
 The command will result in the output of the OPC Publisher logs. If everything is configured and running correctly, you will see something like the following:
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/iotedge-logs.png" alt-text="Screenshot of the iotedge logs in terminal. There is a column of diagnostics information fields on the left, and a column of values on the right.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/iotedge-logs.png" alt-text="Screenshot of the iotedge logs in terminal. There is a column of diagnostics information fields on the left, and a column of values on the right.":::
 
 Data should now be flowing from an OPC UA Server into your IoT Hub.
 
@@ -299,7 +296,7 @@ Next, add a model and twin to your instance. The model file that you'll upload t
 
 You can use [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) to upload the Simulation model, and create a new twin called **simulation-1**.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/azure-digital-twins-explorer-1.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing the Simulation model and simulation-1 twin.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/azure-digital-twins-explorer.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing the Simulation model and simulation-1 twin.":::
 
 ### Verify completion
 
@@ -316,18 +313,18 @@ Now that you have the OPC UA nodes sending data into IoT Hub, and an Azure Digit
 The data flow in this section involves these steps:
 
 1. An Azure function uses an event subscription to receive messages coming from IoT Hub.
-1. The Azure function processes each telemetry event that arrives. It extracts the `NodeId` from the event, and looks it up against the items in the *opcua-mapping.json file*. The file maps each `NodeId` to a specific `TwinId` and `Property` value in Azure Digital Twins.
+1. The Azure function processes each telemetry event that arrives. It extracts the `NodeId` from the event, and looks it up against the items in the *opcua-mapping.json file*. The file maps each `NodeId` to a certain `twinId` and property in Azure Digital Twins where the node's value should be saved.
 1. The Azure function generates the appropriate patch document to update the corresponding digital twin, and runs the twin property update command.
 
 ### Create opcua-mapping.json file
 
-First, create your *opcua-mapping.json* file. Start with a blank JSON file and fill in entries that map `NodeId` values to `TwinId` and `Property` values in Azure Digital Twins, according to the example and schema below. You will need to create a mapping entry for every `NodeId`.
+First, create your *opcua-mapping.json* file. Start with a blank JSON file and fill in entries that map `NodeId` values to `twinId` values and properties in Azure Digital Twins, according to the example and schema below. You will need to create a mapping entry for every `NodeId`.
 
 ```JSON
 [
     {
         "NodeId": "1001",
-        "TwinId": "simulation-1",
+        "TwinId": "simulation",
         "Property": "Counter",
         "ModelId": "dtmi:com:microsoft:iot:opcua:simulation;1"
     },
@@ -355,9 +352,9 @@ Follow the instructions to [Create a storage container](../storage/blobs/storage
 
 Next, create a [shared access signature for the container](../storage/common/storage-sas-overview.md) and save that URL. Later, you'll provide the URL to the Azure function so that it can access the stored file.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/azure-storage-explorer.png" alt-text="Screenshot of Azure storage Explorer showing the dialog to create a SAS token.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/azure-storage-explorer.png" alt-text="Screenshot of Azure storage Explorer showing the dialog to create a SAS token.":::
 
-### Publish Azure Function
+### Publish Azure function
 
 In this section, you'll publish an Azure function that you downloaded in [Prerequisites](#prerequisites) that will process the OPC UA data and update Azure Digital Twins.
 
@@ -381,7 +378,7 @@ You'll also need to add some application settings to fully set up your environme
 
 Select Configuration from the function's left navigation menu. Use the **+ New application setting** button to start creating new settings.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/azure-function-settings-1.png" alt-text="Screenshot of adding application settings to an Azure function in the Azure portal.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/azure-function-settings-1.png" alt-text="Screenshot of adding application settings to an Azure function in the Azure portal.":::
 
 There are three application settings you need to create:
 
@@ -391,7 +388,7 @@ There are three application settings you need to create:
 | JSON_MAPPINGFILE_URL | URL of the shared access signature for the opcua-mapping.json | ✔ |
 | LOG_LEVEL | Log level verbosity. Default is 100. Verbose is 300 | |
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/azure-function-settings-2.png" alt-text="Screenshot of application settings for an Azure function in the Azure portal. The settings above have been added.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/azure-function-settings-2.png" alt-text="Screenshot of application settings for an Azure function in the Azure portal. The settings above have been added.":::
 
 > [!TIP]
 > Set the `LOG_LEVEL` application setting on the function to 300 for a more verbose logging experience. 
@@ -404,22 +401,13 @@ For instructions, follow the same steps used in [Connect the IoT hub to the Azur
 
 The event subscription will have an Endpoint type of **Azure function**, and an Endpoint of **ProcessOPCPublisherEventsToADT**.
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/event-subscription.png" alt-text="Screenshot of Azure portal showing creation of a new event subscription.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/event-subscription.png" alt-text="Screenshot of Azure portal showing creation of a new event subscription.":::
 
 After this step, all required components should be installed and running. Data should be flowing from your OPC UA Simulation Server, through Azure IoT Hub, and into your Azure Digital Twins instance. 
 
 The next section provides some Azure CLI commands that you can run to monitor the events and verify everything is working successfully.
 
-### Verify completion
-
-In this section, you set up an Azure function to connect the OPC UA data to Azure Digital Twins. Verify that you've completed the following checklist:
-> [!div class="checklist"]
-> * Created and imported *opcua-mapping.json* file into a blob storage container. 
-> * Published the sample function ProcessOPCPublisherEventsToADT to a function app in Azure.
-> * Added three new application settings to the Azure Functions app.
-> * Created an event subscription to send IoT Hub events to the function app.
-
-## Verify and monitor
+### Verify and monitor
 
 The commands in this section can be run in the [Azure Cloud Shell](https://shell.azure.com), or in a [local Azure CLI window](/cli/azure/install-azure-cli).
 
@@ -433,9 +421,19 @@ Run this command to monitor Azure function event processing:
 az webapp log tail –name <function-name> --resource-group <resource-group-name>
 ```
 
-Finally, use Azure Digital Twins Explorer to monitor twin property updates and verify that the twin is updating. For more information on using Azure Digital Twins Explorer to monitor your instance, see [Concepts: Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)
+Finally, you can use Azure Digital Twins Explorer to manually monitor twin property updates. 
 
-:::image type="content" source="media/how-to-opc-ua-to-azure-digital-twins/azure-digital-twins-explorer-2.png" alt-text="Screenshot of using Azure Digital Twins Explorer to monitor twin property updates.":::
+:::image type="content" source="media/how-to-ingest-opcua-data/adt-explorer-2.png" alt-text="Screenshot of using azure digital twins explorer to monitor twin property updates":::
+
+### Verify completion
+
+In this section, you set up an Azure function to connect the OPC UA data to Azure Digital Twins. Verify that you've completed the following checklist:
+> [!div class="checklist"]
+> * Created and imported *opcua-mapping.json* file into a blob storage container. 
+> * Published the sample function ProcessOPCPublisherEventsToADT to a function app in Azure.
+> * Added three new application settings to the Azure Functions app.
+> * Created an event subscription to send IoT Hub events to the function app.
+> * Used Azure CLI commands to verify the final data flow
 
 ## Next steps
 

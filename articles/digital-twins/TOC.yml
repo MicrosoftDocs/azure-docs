@@ -124,7 +124,7 @@
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
     - name: Ingest OPC UA data to Azure Digital Twins
-      href: how-to-opc-ua-to-azure-digital-twins.md
+      href: how-to-ingest-opcua-data.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
