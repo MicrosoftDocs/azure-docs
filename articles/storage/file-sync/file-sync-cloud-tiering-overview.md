@@ -76,7 +76,7 @@ On the other hand, for a file stored in an on-premises file server, the size on 
 
 ![A screenshot of a file's properties when it is not tiered - namespace + file content.](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-1.png) 
 
-It's also possible for a file to be partially tiered (or partially recalled). In a partially tiered file, only part of the file is stored on disk. You may have partially recalled files on your volume if files are partially read by applications that support streaming access to files. Examples are multimedia players, and zip utilities. Azure File Sync is efficient and recalls only the requested information from the connected Azure file share.
+It's also possible for a file to be partially tiered (or partially recalled). In a partially tiered file, only part of the file is stored on disk. You may have partially recalled files on your volume if files are partially read by applications that support streaming access to files. Some examples are multimedia players and zip utilities. Azure File Sync is efficient and recalls only the requested information from the connected Azure file share.
 
 > [!NOTE]
 > Size represents the logical size of the file. Size on disk represents the physical size of the file stream that's stored on the disk.
