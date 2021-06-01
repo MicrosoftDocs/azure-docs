@@ -62,7 +62,7 @@ For more information on deploying a model, see [How to deploy managed online end
 | liveness_probe.timeout | The number of seconds after which the liveness probe times out. Defaults to 2 seconds. Minimum value is 1. |
 | liveness_probe.failure_threshold | The system will try failure_threshold times before giving up. Defaults to 30. Minimum value is 1. |
 | liveness_probe.success_threshold | The minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
-| readiness_probe | Readiness probe validates if the container is ready to serve traffic. The properties and defaults are same as liveness probe. |
+| readiness_probe | Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe. |
 | tags | Dictionary of Azure Tags you want associated with the deployment. |
 | description | Description of the deployment. |
 
