@@ -518,7 +518,7 @@ Revoking the key effectively blocks access to all registry data, since the regis
 > [!IMPORTANT]
 > Currently, during registry deployment, a registry's *user-assigned* identity can only be configured to access an encryption key in a key vault that allows public access, not one configured with a [Key Vault firewall](../key-vault/general/network-security.md). 
 > 
-> To access a key vault configured with a Key Vault firewall, the registry must bypass the firewall using its system-managed identity. Currently these settings can only be configured after the registry is deployed. 
+> To access a key vault protected with a Key Vault firewall, the registry must bypass the firewall using its *system-managed* identity. Currently these settings can only be configured after the registry is deployed. 
 
 For this scenario, first create a new user-assigned identity, key vault, and container registry encrypted with a customer-managed key, using the [Azure CLI](#enable-customer-managed-key---cli), [portal](#enable-customer-managed-key---portal), or [template](#enable-customer-managed-key---template). Detailed steps are in preceding sections in this article.
    > [!NOTE]
