@@ -9,7 +9,7 @@ ms.date: 06/01/2021
 
 # Use Bicep modules
 
-Bicep enables you to break down a complex solution into modules. A Bicep module is a set of one or more resources to be deployed together. Modules abstract away complex details of the raw resource declaration, which can increase readability. You can reuse these modules, and share them with other people. Combined with [template specs](../templates/template-specs.md), it creates a way for modularity and code reuse. Bicep modules are transpiled into a single ARM template with [nested templates](../templates/linked-templates.md#nested-template) for deployment. In Bicep, [_dependsOn_](../templates/template-syntax.md#resources) gets handled automatically.
+Bicep enables you to break down a complex solution into modules. A Bicep module is a set of one or more resources to be deployed together. Modules abstract away complex details of the raw resource declaration, which can increase readability. You can reuse these modules, and share them with other people. Bicep modules are transpiled into a single ARM template with [nested templates](../templates/linked-templates.md#nested-template) for deployment.
 
 For a tutorial, see [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/).
 
@@ -148,7 +148,7 @@ module stgModule './storageAccount.bicep' = {
 output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
-The scope property must be set to a valid scope object. If your Bicep file deploys a resource group, subscription, or management group, you can set the scope for a module to the symbolic name for that resource. This approach is shown in the previous example where a resource group is created and used for a module's scope. 
+The scope property must be set to a valid scope object. If your Bicep file deploys a resource group, subscription, or management group, you can set the scope for a module to the symbolic name for that resource. This approach is shown in the previous example where a resource group is created and used for a module's scope.
 
 Or, you can use the scope functions to get a valid scope. Those functions are:
 
