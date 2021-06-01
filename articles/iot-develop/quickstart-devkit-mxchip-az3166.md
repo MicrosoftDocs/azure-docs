@@ -254,6 +254,5 @@ As a next step, explore the following articles to learn more about building devi
 > [!div class="nextstepaction"]
 > [Using Azure RTOS in the Getting Started guide](https://github.com/azure-rtos/getting-started/blob/master/docs/using-azure-rtos.md)
 
-    > [!IMPORTANT]
-    > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-
+> [!IMPORTANT]
+> Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
