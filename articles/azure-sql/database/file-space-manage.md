@@ -4,13 +4,13 @@ description: This page describes how to manage file space with single and pooled
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 04/16/2021
+ms.date: 05/28/2021
 ---
 # Manage file space for databases in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 
 ### Monitoring file space usage
 
-Most storage space metrics displayed in the Azure portal and the following APIs only measure the size of used data pages:
+Most storage space metrics displayed in the following APIs only measure the size of used data pages:
 
 - Azure Resource Manager based metrics APIs including PowerShell [get-metrics](/powershell/module/az.monitor/get-azmetric)
 - T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)

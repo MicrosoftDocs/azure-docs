@@ -5,7 +5,7 @@ ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions]
+ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
 ms.date: 07/15/2020
 ---
 
@@ -139,6 +139,9 @@ Below data sources have native Private Endpoint support and can be connected thr
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 - Azure Machine Learning
+
+> [!Note]
+> You still can access all data sources that are supported by Data Factory through public network.
 
 > [!NOTE]
 > Because Azure SQL Managed Instance doesn't support native Private Endpoint right now, you can access it from managed Virtual Network using Private Linked Service and Load Balancer. Please see [How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint](tutorial-managed-virtual-network-sql-managed-instance.md).
