@@ -175,25 +175,25 @@ If you use other deployment tools, you can deploy your single-tenant based logic
 
 - The latest Azure CLI extension installed on your local computer.
 
-  - If you don't have this extension, review [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
+  - If you don't have this extension, review the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
   - If you're not sure that you have the latest version, follow the [steps to check your environment and CLI version](#check-environment-cli-version).
 
-- The *preview* Azure Logic Apps (Standard) extension for Azure CLI.
+- The *preview* single-tenant Azure Logic Apps (Standard) extension for Azure CLI.
 
-  Although single-tenant Azure Logic Apps is generally available, the Azure Logic Apps extension is still in preview.
+  If you don't have this extension, follow the [steps to install the extension](#install-logic-apps-cli-extension). Although single-tenant Azure Logic Apps is generally available, the single-tenant Azure Logic Apps extension for Azure CLI is still in preview.
 
 <a name="check-environment-cli-version"></a>
 
 ##### Check environment and CLI version
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Confirm that your subscription is active by running the following interactive Azure CLI command:
+1. Sign in to the [Azure portal](https://portal.azure.com). In a terminal or command window, confirm that your subscription is active by running the command, [`az login`](/cli/azure/authenticate-azure-cli):
 
    ```azurecli-interactive
    az login
    ```
 
-1. In a terminal or command window, check your version of the Azure CLI version by running the following command:
+1. In a terminal or command window, check your version of the Azure CLI version by running the command, `az`, with the following required parameter:
 
    ```azurecli-interactive
    az --version
@@ -203,22 +203,26 @@ If you use other deployment tools, you can deploy your single-tenant based logic
 
    For more information about the latest version, review the [most recent release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
 
-##### Install Logic Apps extension for Azure CLI
+<a name="install-logic-apps-cli-extension"></a>
 
-Install the *preview* Logic Apps extension for Azure CLI by running the following command:
+##### Install Azure Logic Apps (Standard) extension for Azure CLI
+
+Install the *preview* single-tenant Azure Logic Apps (Standard) extension for Azure CLI by running the command, `az extension add`, with the following require parameters:
 
 ```azurecli-interactive
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
-##### Deploy using the Azure CLI
+<a name="deploy-logic-app"></a>
 
-To deploy your zipped artifact to an Azure resource group, run the following CLI command:
+##### Deploy logic app
+
+To deploy your zipped artifact to an Azure resource group, run the command, `az logicapp deployment`, with the following required parameters:
 
 ```azurecli-interactive
-az logicapp deployment source config-zip -g {your-resource-group} 
-   --name {your-logic-app-name} 
-   --src {your-build-artifact}.zip
+az logicapp deployment source config-zip --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription 
+   --src MyBuildArtifact.zip
 ```
 
 ---
