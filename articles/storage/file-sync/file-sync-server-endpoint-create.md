@@ -69,11 +69,14 @@ A server endpoint can only succeed provisioning with the authoritative upload op
 * New or updated files and folders will be uploaded from the server.
 * Files and folders that don't exist on the server (anymore) will be deleted from the cloud share.
 * Metadata-only changes to files and folders on the server will be efficiently moved to the cloud share as metadata-only updates.
-* Files and folders might exist on server and the cloud share. But some files or folders may have changed their parent directory on the server since the seeding of the Azure file share. These files and folders will be purged from the cloud share and uploaded again. It's therefore best to avoid restructuring your namespace at a larger scale during a migration.
+* Files and folders might exist on server and the cloud share. But some files or folders may have changed their parent directory on the server since the seeding of the Azure file share. These files and folders will be purged from the cloud share and uploaded again. Because of this, it's best to avoid restructuring your namespace at a larger scale during a migration.
 
 ### Initial download section
 
 The **Initial download** section is available for the second and any more server endpoints in a sync group. The [first server endpoint in a sync group has extra options](#initial-sync-section) that relate to migration with Azure Data Box. These options don't apply if this server endpoint isn't the first one in your sync group.
+
+> [!NOTE]
+> Selecting an initial download option has no impact if the Azure file share is empty.
 
 As part of this section, a choice can be made for how content from the Azure file share will initially arrive on the server:
 
@@ -87,9 +90,6 @@ As part of this section, a choice can be made for how content from the Azure fil
 * **Avoid tiered files** </br> This option will download each file in its entirety before the file shows up in the folder on server. This option avoids a tiered file to ever exist on the server. A namespace item and file content are always present at the same time. Avoid this option if fast disaster recovery from the cloud is your reason for creating a server endpoint. If you have applications that require full files to be present, and cannot tolerate tiered files in their namespace, this is ideal. This option is not available if you are using cloud tiering for your new server endpoint.
     :::column-end:::
 :::row-end:::
-
-> [!NOTE]
-> Selecting an initial download option has no impact if the Azure file share is empty.
 
 Once you selected an initial download option, you cannot change it after you confirm to create the server endpoint. How files appear on the server after initial download finishes, depends on your use of the cloud tiering feature and whether or not you opted to [proactively recall changes in the cloud](file-sync-cloud-tiering-overview.md#proactive-recalling). The latter is a feature useful for sync groups with multiple server endpoints in different geographic locations.
 
