@@ -5,10 +5,9 @@ summary: Learn about cloud solutions from Azure private multi-access edge comput
 
 metadata:
   title: Azure private multi-access edge compute documentation
-  description: Learn about cloud solutions from Microsoft Azure, Affirmed Networks, and Metaswitch Networks that can help future-proof your network, drive down costs, and create new business models and revenue streams
-
-  services: networking
-  ms.service: networking
+  description: Learn about cloud solutions from Microsoft Azure, Affirmed Networks, and Metaswitch that can help future-proof your network, drive down costs, and create new business models and revenue streams.
+  services: vnf-manager
+  ms.service: vnf-manager
   ms.topic: landing-page
   author: kumud
   ms.author: KumudD
@@ -58,23 +57,13 @@ landingContent:
             url: deploy-affirmed-solution.md
   
   # Card
-  - title: Azure private MEC solution architectures
-    linkLists:
-      - linkListType: architecture
-        links:
-          - text: Industry 4.0
-            url: https://docs.microsoft.com/azure/architecture/
-          - text: Enhance customer experience at a grocery store 
-            url: https://docs.microsoft.com/azure/architecture/
-  
-  # Card
   - title: About Network Functions Manager
     linkLists:
       - linkListType: overview
         links:
           - text: What is Network Functions Manager?
-            url: https://docs.microsoft.com/azure
+            url: ../network-functions-manager/overview.md 
           - text: Create a network function
-            url: https://docs.microsoft.com/azure/architecture/
+            url: ../network-functions-manager/create-function.md 
 
 

@@ -41,7 +41,7 @@ The following diagram shows each of these Network Functions and the interfaces t
 
 Fusion Core is delivered on a Virtual Machine (VM) known as the Fusion Core Base VM. The Fusion Core Base VM is designed to be deployed as an Azure managed application on an Azure Stack Edge (ASE). The Network Functions and infrastructure components required to deliver Fusion Core function are deployed as containers on the Fusion Core Base VM and orchestrated by Kubernetes.
 
-:::image type="content" source="FusionCoreBaseVMASEWithNetworking.png" alt-text="Fusion Core Base VM on ASE":::
+:::image type="content" source="./media/metaswitch-overview/fusioncorebasevmasewithnetworking.png" alt-text="Fusion Core Base VM on ASE":::
 
 ## Why use Fusion Core?
 
