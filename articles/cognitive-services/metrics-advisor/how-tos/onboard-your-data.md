@@ -25,7 +25,7 @@ If you are not sure about some of the terms, refer to [Glossary](../glossary.md)
 
 Partial data is caused by inconsistencies between the data stored in Metrics Advisor and the data source. This can happen when the data source is updated after Metrics Advisor has finished pulling data. Metrics Advisor only pulls data from a given data source once.
 
-For example, if a metric has been onboarded to Metrics Advisor for monitoring. Metrics Advisor successfully grabs metric data at timestamp A and performs anomaly detection on it. However, if the metric data of that particular timestamp A has been refreshed after the data been ingested. New data value won't be retrieved.
+For example, if a metric has been onboarded to Metrics Advisor for monitoring. Metrics Advisor successfully grabs metric data at timestamp A and performs anomaly detection on it. However, if the metric data of that particular timestamp A has been refreshed after the data been ingested, new data value won't be retrieved.
 
 You can try to [backfill](manage-data-feeds.md#backfill-your-data-feed) historical data (described later) to mitigate inconsistencies but this won't trigger new anomaly alerts, if alerts for those time points have already been triggered. This process may add additional workload to the system, and is not automatic.
 
@@ -78,7 +78,7 @@ If the timestamp of a data point is omitted, Metrics Advisor will use the timest
 
 |Selection  |Description  |Notes  |
 |---------|---------|---------|
-| **Display Name** | Name to be displayed in your workspace instead of the original column name. | |
+| **Display Name** | Name to be displayed in your workspace instead of the original column name. | Optional.|
 |**Timestamp**     | The timestamp of a data point. If omitted, Metrics Advisor will use the timestamp when the data point is ingested instead. For each data feed, you can specify at most one column as timestamp.        | Optional. Should be specified with at most one column. If you get a **column cannot be specified as Timestamp** error, check your query or data source for duplicate timestamps.      |
 |**Measure**     |  The numeric values in the data feed. For each data feed, you can specify multiple measures but at least one column should be selected as measure.        | Should be specified with at least one column.        |
 |**Dimension**     | Categorical values. A combination of different values identifies a particular single-dimension time series, for example: country, language, tenant. You can select zero or more columns as dimensions. Note: be cautious when selecting a non-string column as a dimension. | Optional.        |
@@ -98,7 +98,7 @@ If *Country* is a dimension and *Language* is set as *Ignored*, then the first a
 
 After configuring the schema, select **Verify schema**. Within this operation, Metrics Advisor will perform following checks:
 1. Whether timestamp of queried data falls into one single interval. 
-2. Whether there's duplicate values returned for the same dimention combination within one metric interval.  
+2. Whether there's duplicate values returned for the same dimension combination within one metric interval.  
 
 ### Automatic roll up settings
 
@@ -110,11 +110,11 @@ Metrics Advisor can automatically perform aggregation(for example SUM, MAX, MIN)
 
 Consider the following scenarios:
 
-* *I do not need to include the roll-up analysis for my data.*
+* *"I do not need to include the roll-up analysis for my data."*
 
     You do not need to use the Metrics Advisor roll-up.
 
-* *My data has already rolled up and the dimension value is represented by: NULL or Empty (Default), NULL only, Others.*
+* *"My data has already rolled up and the dimension value is represented by: NULL or Empty (Default), NULL only, Others."*
 
     This option means Metrics Advisor doesn't need to roll up the data because the rows are already summed. For example, if you select *NULL only*, then the second data row in the below example will be seen as an aggregation of all countries and language *EN-US*; the fourth data row which has an empty value for *Country* however will be seen as an ordinary row which might indicate incomplete data.
     
@@ -125,7 +125,7 @@ Consider the following scenarios:
     | US      | EN-US    | 12000  |
     |         | EN-US    | 5000   |
 
-* *I need Metrics Advisor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by <some string>*
+* *"I need Metrics Advisor to roll up my data by calculating Sum/Max/Min/Avg/Count and represent it by {some string}."*
 
     Some data sources such as Cosmos DB or Azure Blob Storage do not support certain calculations like *group by* or *cube*. Metrics Advisor provides the roll up option to automatically generate a data cube during ingestion.
     This option means you need Metrics Advisor to calculate the roll-up using the algorithm you've selected and use the specified string to represent the roll-up in Metrics Advisor. This won't change any data in your data source.
@@ -176,8 +176,8 @@ Consider the following scenarios:
     Consider the following before using the Auto roll up feature:
 
     * If you want to use *SUM* to aggregate your data, make sure your metrics are additive in each dimension. Here are some examples of *non-additive* metrics:
-      * Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
-      * Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
+      1. Fraction-based metrics. This includes ratio, percentage, etc. For example, you should not add the unemployment rate of each state to calculate the unemployment rate of the entire country.
+      2. Overlap in dimension. For example, you should not add the number of people in to each sport to calculate the number of people who like sports, because there is an overlap between them, one person can like multiple sports.
     * To ensure the health of the whole system, the size of cube is limited. Currently, the limit is 1,000,000. If your data exceeds that limit, ingestion will fail for that timestamp.
 
 ## Advanced settings
@@ -200,11 +200,11 @@ To check ingestion failure details:
 :::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Check failed ingestion":::
 
 A *failed* status indicates the ingestion for this data source will be retried later.
-An *Error* status indicates Metrics Advisor won't retry for the data source. To reload data, you need trigger a backfill/reload manually.
+An *Error* status indicates Metrics Advisor won't retry for the data source. To reload data, you need to trigger a backfill/reload manually.
 
-You can also reload the progress of an ingestion by clicking **Refresh Progress**. After data ingestion complete, you're free to click into metrics and check anomaly detection results.
+You can also reload the progress of an ingestion by clicking **Refresh Progress**. After data ingestion completes, you're free to click into metrics and check anomaly detection results.
 
 ## Next steps
 - [Manage your data feeds](manage-data-feeds.md)
-- [Configurations for different data sources](../data-feeds-from-different-sources.md)
+- [Connect different data sources](../data-feeds-from-different-sources.md)
 - [Configure metrics and fine tune detecting configuration](configure-metrics.md)
