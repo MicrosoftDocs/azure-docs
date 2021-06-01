@@ -182,14 +182,14 @@ You'll need the following items:
     
 ## Track your work with notifications, favorites and recents. 
 
-### Notifications
+### Run Notifications
 
 Stay updated with the run status by viewing the notifications for your runs and other assets and resources. New run updates will appear in the 
 **Notifications** panel. 
 
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/notifications.gif" alt-text="Screenshot: view notifications":::
 
-### Favorites and Recents
+### Favorite and Recent Runs
 To improve the discoverability of assets, favorite runs or experiments by selecting the **star** icon in the run details page. You can also favorite runs and experiments from the experiments and runs lists. 
 
 You can also view all recently accessed runs and experiments that you previously clicked on in the **Recents** tab. Favorited runs and experiments are also found in the **Recents** tab. 
