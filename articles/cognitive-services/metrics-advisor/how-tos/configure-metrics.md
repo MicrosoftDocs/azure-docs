@@ -18,7 +18,7 @@ Use this article to start configuring your Metrics Advisor instance using the we
 
 :::image type="content" source="../media/metrics/select-metric.png" alt-text="Select a metric" lightbox="../media/metrics/select-metric.png":::
 
-Click on one of the metric names to see its details. In this detailed view, you can switch to another metric in the same data feed using the drop down list in the top right corner of the screen.
+Select one of the metric names to see its details. In this detailed view, you can switch to another metric in the same data feed using the drop down list in the top right corner of the screen.
 
 When you first view a metrics' details, you can load a time series by letting Metrics Advisor choose one for you, or by specifying values to be included for each dimension. 
 
@@ -52,7 +52,11 @@ This configuration will be applied to the group of series or specific series ins
 
 ### Anomaly detection methods
 
-Metrics Advisor offers multiple anomaly detection methods. You can use one or combine them using logical operators by clicking the **+** button. 
+Metrics Advisor offers multiple anomaly detection methods: **Hard threshold, Smart detection, Change threshold**. You can use one or combine them using logical operators by clicking the **'+'** button. 
+
+**Hard threshold**
+
+ Hard threshold is a basic method for anomaly detection. You can set an upper and/or lower bound to determine the expected value range. Any points fall out of the boundary will be identified as an anomaly. 
 
 **Smart detection** 
 
@@ -97,10 +101,7 @@ Use the following steps to use this mode:
     
     * **Up** configures detection to only detect anomalies when (current data point) - (comparison data point) > **+** threshold percentage.
     * **Down** configures detection to only detect anomalies when (current data point) - (comparing data point) < **-** threshold percentage.
- 
-**Hard threshold**
 
- Hard threshold is a basic method for anomaly detection. You can set an upper and/or lower bound to determine the expected value range. Any points fall out of the boundary will be identified as an anomaly. 
 
 
 ## Preset events
@@ -136,7 +137,7 @@ The **Cycle event** section can be used in some scenarios to help reduce unneces
 - Metrics that have multiple patterns or cycles, such as both a weekly and monthly pattern. 
 - Metrics that do not have a clear pattern, but the data is comparable Year over Year (YoY), Month over Month (MoM), Week Over Week (WoW), or Day Over Day (DoD).
  
-Not all options are selectable for every granularity. The available options per granularity are below:
+Not all options are selectable for every granularity. The available options per granularity are below ( ✔ for available, X for unavailable):
 
 | Granularity | YoY | MoM | WoW | DoD |
 |:-|:-|:-|:-|:-|
@@ -149,10 +150,8 @@ Not all options are selectable for every granularity. The available options per 
 | Secondly | X | X | X | X |
 | Custom* | ✔ | ✔ | ✔ | ✔ |
 
-X - Unavailable.  
-✔ - Available.
   
-\* When using a custom granularity in seconds, only available if the metric is longer than one hour and less than one day.
+When using a custom granularity in seconds, only available if the metric is longer than one hour and less than one day.
 
 Cycle event is used to reduce anomalies if they follow a cyclic pattern, but it will report an anomaly if multiple data points don't follow the pattern. **Strict mode** is used to enable anomaly reporting if even one data point doesn't follow the pattern. 
 
@@ -172,5 +171,4 @@ If you'd like to get notified whenever an anomaly is detected, you can subscribe
 ## Next steps 
 - [Configure alerts and get notifications using a hook](alerts.md)
 - [Adjust anomaly detection using feedback](anomaly-feedback.md)
-- [Diagnose an incident](diagnose-incident.md).
-
+- [Diagnose an incident](diagnose-incident.md)
