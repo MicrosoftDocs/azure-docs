@@ -20,7 +20,6 @@ The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
 This article shows how to do the following tasks:
 
 * Monitor run performance.
-* Track your work with notifications, favorites and recents. 
 * Create a custom view. 
 * Add a run description. 
 * Tag and find runs.
@@ -178,24 +177,8 @@ You'll need the following items:
     
     # [Studio](#tab/azure-studio)
     
-    ---
-    
-## Track your work with notifications, favorites and recents. 
-
-### Run Notifications
-
-Stay updated with the run status by viewing the notifications for your runs and other assets and resources. New run updates will appear in the 
-**Notifications** panel. 
-
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/notifications.gif" alt-text="Screenshot: view notifications":::
-
-### Favorite and Recent Runs
-* To improve the discoverability of your assets, favorite runs or experiments by selecting the **star** icon in the run details page. You can favorite runs and experiments from the experiments and runs lists as well. 
-
-* View all recently accessed runs and experiments that you previously clicked on in the **Recents** tab. Favorited runs and experiments are also found in the **Recents** tab. 
-
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/recentsandfavorites.gif" alt-text="Screenshot: favorite resorces and view recent assets":::
-    
+    ---    
+   
 ## Custom View 
     
 To view your runs in the studio: 
@@ -210,7 +193,7 @@ In the **All runs'** page, you can filter the runs list by tags, experiments, co
 
 1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/customviews.gif" alt-text="Screenshot: create a custom view":::
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="Screenshot: create a custom view":::
     
 
 ## Run description 
@@ -219,7 +202,7 @@ A run description can be added to a run to provide more context and information 
 
 Navigate to the **Run Details** page for your run and select the edit or pencil icon to add, edit, or delete descriptions for your run. To persist the changes to the runs list, save the changes to your existing Custom View or a new Custom View. Markdown format is supported for run descriptions, which allows images to be embedded and deep linking as shown below.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/rundescription.gif" alt-text="Screenshot: create a run description"::: 
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description.gif" alt-text="Screenshot: create a run description"::: 
 
 ## Tag and find runs
 
@@ -279,7 +262,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     You can add, edit, or delete run tags from the studio. Navigate to the **Run Details** page for your run and select the edit, or pencil icon to add, edit, or delete tags for your runs. You can also search and filter on these tags from the runs list page.
     
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/runtags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
+    :::image type="content" source="media/how-to-track-monitor-analyze-runs/run-tags.gif" alt-text="Screenshot: Add, edit, or delete run tags":::
     
     ---
 
