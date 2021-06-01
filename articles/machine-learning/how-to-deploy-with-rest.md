@@ -1,5 +1,5 @@
 ---
-title: "Deploy models using managed online endpoints with REST API's (preview)"
+title: "Deploy models using managed online endpoints with REST APIs (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy models using managed online endpoints with REST APIs.
 services: machine-learning
