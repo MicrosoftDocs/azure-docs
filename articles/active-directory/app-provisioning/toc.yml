@@ -87,7 +87,7 @@
       - name: On-premises app provisioning to SCIM-enabled apps
         href: on-prem-scim-provisioning.md
       - name: Migrate connector from MIM Sync
-        href: on-prem-migrate-mim.md
+        href: on-prem-migrate-microsoft-identity-manager.md
   - name: Reference
     items:
     - name: SCIM 2.0 protocol compliance
