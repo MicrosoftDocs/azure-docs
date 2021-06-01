@@ -22,7 +22,7 @@ Azure Database for PostgreSQL supports a subset of key extensions as listed belo
 
 ## Postgres 13 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 12. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 13. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
