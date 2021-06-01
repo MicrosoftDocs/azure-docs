@@ -20,9 +20,9 @@ This article takes you through the steps to create and delete a Creator resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
-2. Select your Azure Maps account. If you can't see your Azure Maps account under the **Recent resources**, navigate to the Azure portal menu. Select **All resources**, and then select your Azure Maps account.
+2. Navigate to the Azure portal menu. Select **All resources**, and then select your Azure Maps account.
 
-      :::image type="content" border="true" source="./media/how-to-manage-creator/select-maps-account.png" alt-text="Select Azure Maps account":::
+      :::image type="content" border="true" source="./media/how-to-manage-creator/select-all-resources.png" alt-text="Select Azure Maps account":::
 
 3. In the navigation pane, select **Creator overview**, and then select **Create**.
 
