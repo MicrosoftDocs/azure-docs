@@ -219,14 +219,15 @@ sections:
           - Federated sign-ins require your federation server to support WS-Trust endpoints that are enabled and accessible. 
           - You enabled pass-through authentication. So your temporary password needs to be changed when you sign in.
           
-          
+      - question: How can users change their temporary or expired password on Azure AD joined devices?
+        answer: |
+              Currently, Azure AD joined devices do not force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires an Azure AD token) after they login to Windows.
           
       - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Azure AD join my PC?
         answer: |
-          This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
+          This error happens when you set up Azure Active Directory auto-enrollment with Intune without proper license assigned. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
           
-          
-          
+     
       - question: Why did my attempt to Azure AD join a PC fail, although I didn't get any error information?
         answer: |
           A likely cause is that you signed in to the device by using the local built-in administrator account. 

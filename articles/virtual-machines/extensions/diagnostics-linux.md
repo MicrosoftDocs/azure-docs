@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: linux
-ms.date: 02/05/2021
+ms.date: 02/05/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use the Linux diagnostic extension 4.0 to monitor metrics and logs

@@ -2,7 +2,8 @@
 title: Scale out a Service Fabric managed cluster
 description: In this tutorial, learn how to scale out a node type of a Service Fabric managed cluster.
 ms.topic: tutorial
-ms.date: 5/10/2021
+ms.date: 5/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Scale out a Service Fabric managed cluster
