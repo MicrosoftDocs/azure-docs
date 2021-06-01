@@ -4,7 +4,7 @@ description: Learn about incremental snapshots for managed disks, including how 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 06/01/2021
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurepowershell
@@ -25,15 +25,16 @@ You can use the Azure CLI to create an incremental snapshot. You will need the l
 The following script will create an incremental snapshot of a particular disk:
 
 ```azurecli
-diskName = "yourDiskNameHere"
-resourceGroupName = "yourResourceGroupNameHere"
-snapshotName = "desiredSnapshotNameHere"
+# Declare variables
+diskName="yourDiskNameHere"
+resourceGroupName="yourResourceGroupNameHere"
+snapshotName="desiredSnapshotNameHere"
 
-# get the disk you need to backup
-yourDisk = az disk show -n $diskName -g $resourceGroupName
+# Get the disk you need to backup
+yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --output tsv)
 
-az snapshot create -g resourceGroupName -n snapshotName --source yourDisk --incremental true
-
+# Create the snapshot
+az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true
 ```
 
 You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you were to delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
