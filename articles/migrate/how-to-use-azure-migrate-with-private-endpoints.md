@@ -220,9 +220,9 @@ Additionally, to enable replications over a private link, [create a private endp
 
 #### Grant access permissions to the Recovery Services vault
 
-The Recovery Services vault managed identity requires permissions for authenticated access to the cache/replication storage account.
+You must grant the permissions to the recovery Services vault for authenticated access to the cache/replication storage account.
 
-Use the guidance below to identify the Recovery Services vault created by Azure Migrate and grant the required permissions.
+To identify the Recovery Services vault created by Azure Migrate and grant the required permissions, follow these steps:
 
 **_Identify the recovery services vault and the managed identity object ID_**
 
@@ -236,21 +236,19 @@ You can find the details of the Recovery Services vault on the Azure Migrate: Se
 
     ![Azure Migrate: Server Migration properties page](./media/how-to-use-azure-migrate-with-private-endpoints/vault-info.png)
 
-**_Grant the required permissions to access the storage account_**
+**_Permissions to access the storage account_**
 
  To the managed identity of the vault you must be grant the following role permissions on the storage account required for replication.  In this case, you must create the storage account in advance.
 
 >[!Note]
 > For migrating Hyper-V VMs to Azure using private link, you must grant access to both the replication storage account and cache storage account.
 
-The role permissions vary depending on the type of the storage account.
+The role permissions for the Resource Manager vary depending on the type of the storage account.
 
-- Resource Manager-based storage accounts (Standard type):
-  - [Contributor](../role-based-access-control/built-in-roles.md#contributor) _and_
-  - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-- Resource Manager-based storage accounts (Premium type):
-  - [Contributor](../role-based-access-control/built-in-roles.md#contributor) _and_
-  - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+|**Storage Account Type** | **Role Permissions**|
+|--- | ---|
+|Standard Type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|
+|Premium Type | [Contributor](../role-based-access-control/built-in-roles.md#contributor)<br>[Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
 1. Go to the replication/cache storage account selected for replication. Select **Access control (IAM)** in the left pane.
 
