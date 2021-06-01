@@ -285,12 +285,18 @@
             href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md    
     - name: Manage certificates
       items:
-      - name: Requirements
+      - name: What are certificates?
+        href: azure-stack-edge-gpu-certificate-overview.md 
+      - name: View requirements
         href: azure-stack-edge-gpu-certificate-requirements.md 
-      - name: Bring your own
+      - name: Create certificates
+        items:
+        - name: Via Azure Powershell
+          href: azure-stack-edge-gpu-create-certificates-powershell.md 
+        - name: Create via Azure Stack Readiness Checker tool
+          href: azure-stack-edge-gpu-create-certificates-tool.md 
+      - name: Upload, export, import
         href: azure-stack-edge-gpu-manage-certificates.md 
-      - name: Create via Azure Stack Readiness Checker tool
-        href: azure-stack-edge-gpu-create-certificates-tool.md 
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
     - name: Manage Edge compute 
