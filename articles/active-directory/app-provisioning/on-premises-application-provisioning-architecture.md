@@ -1,5 +1,5 @@
 ---
-title: 'On-premises application provisioning architecture | Microsoft Docs'
+title: 'Azure AD on-premises application provisioning architecture | Microsoft Docs'
 description: Describes overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# On-premises application provisioning architecture
+# Azure AD on-premises application provisioning architecture
 
 >[!IMPORTANT]
 > The on-premises provisioning preview is currently in an invitation-only preview. You can request access to the capability [here](https://aka.ms/onpremprovisioningpublicpreviewaccess). We will open the preview to more customers and connectors over the next few months as we prepare for general availability.
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 The following diagram shows an over view of how on-premises application provisioning works.
 
-![Architecture](.\media\on-prem-app-prov-arch\arch1.png)
+![Architecture](.\media\on-premises-application-provisioning-architecture\arch-1.png)
 
 There are three primary components to provisioning users into an on-premises application.
 

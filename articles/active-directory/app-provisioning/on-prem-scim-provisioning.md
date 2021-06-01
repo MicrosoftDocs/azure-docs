@@ -1,5 +1,5 @@
 ---
-title: On-premises app provisioning to SCIM-enabled apps
+title: Azure AD on-premises app provisioning to SCIM-enabled apps
 description: This article describes how to on-premises app provisioning to SCIM-enabled apps.
 services: active-directory
 author: billmath
@@ -13,7 +13,7 @@ ms.author: billmath
 ms.reviewer: arvinh
 ---
 
-# On-premises app provisioning to SCIM-enabled apps
+# Azure AD on-premises application provisioning to SCIM-enabled apps
 
 >[!IMPORTANT]
 > The on-premises provisioning preview is currently in an invitation-only preview. You can request access to the capability [here](https://aka.ms/onpremprovisioningpublicpreviewaccess). We will open the preview to more customers and connectors over the next few months as we prepare for general availability.
@@ -59,7 +59,7 @@ Use the steps below to provision to SCIM-enabled apps.
   * Azure AD offers open-source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation (the code is as-is)
 * Support the /schemaDiscovery endpoint to reduce configuration required in the Azure portal. 
 
-Next Steps
+## Next Steps
 
 - [App provisioning](user-provisioning.md)
 - [Azure AD ECMA Connector Host installation](on-prem-ecma-install.md)
