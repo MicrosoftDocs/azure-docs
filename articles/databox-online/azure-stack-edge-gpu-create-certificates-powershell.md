@@ -1,6 +1,6 @@
 ---
-title: Use certificates with Azure Stack Edge Pro GPU | Microsoft Docs
-description: Describes use of certificates with Azure Stack Edge Pro GPU device including why to use, which types and how to upload certificates on your device.
+title: Create certificates for Azure Stack Edge Pro GPU via Azure PowerShell | Microsoft Docs
+description: Describes how to create certificates for Azure Stack Edge Pro GPU device using Azure PowerShell cmdlets.
 services: databox
 author: alkohli
 
