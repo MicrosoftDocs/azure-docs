@@ -1,0 +1,16 @@
+- name: Azure Healthcare APIs
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Healthcare APIs
+    href: placeholder.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: FHIR
+    expanded: true
+    items:
+    - name: FHIR Quickstart
+      href: placeholder-fhir.md
+    - name: DICOM Quickstart
+      href: placeholder-dicom.md

@@ -1,14 +1,13 @@
 ### YamlMime:Landing
 
-title: FHIR documentation
-summary: FHIR documentation section for Azure Healthcare APIs
+title: Azure Healthcare APIs documentation
+summary: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and Data Transformation
 
 metadata:
-  title: Azure Healthcare APIs FHIR Services
-  description: FHIR documentation section for Azure Healthcare APIs
+  title: Azure Healthcare APIs documentation
+  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and Data Transformation
   services: healthcare-apis
   ms.service: healthcare-apis
-  ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
   author: ginalee-dotcom
@@ -19,9 +18,9 @@ metadata:
 
 landingContent:
 
-  - title: Start with FHIR Service
+  - title: What is Healthcare APIs?
     linkLists:
       - linkListType: overview
         links:
           - text: Placeholder
-            url: placeholder-fhir.md
+            url: placeholder.md
