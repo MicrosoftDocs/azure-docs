@@ -303,5 +303,6 @@ We prevent users from deleting their own Global Administrator role to avoid a sc
 ## Next steps
 
 * Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-* For more about roles and Administrator role assignment, see [Assign administrator roles](permissions-reference.md)
+* For more about role permissions, see [Azure AD built-in roles](permissions-reference.md)
 * For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md)
+

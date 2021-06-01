@@ -19,7 +19,7 @@ ms.date: 03/13/2021
 
    :::image type="content" source="../media/nsxt/nsxt-create-segment-specs.png" alt-text="Set the Segment Name, Connected Gateway and Type, and Transport Zone, then select Set Subnet.":::
 
-1. Enter the IP address of the gateway and then select **Add**. 
+1. Enter the gateway IP address and then select **Add**. 
 
    >[!IMPORTANT]
    >The IP address needs to be on a non-overlapping RFC1918 address block, which ensures connection to the VMs on the new segment.
