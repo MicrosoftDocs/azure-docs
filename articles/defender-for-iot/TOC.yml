@@ -142,7 +142,7 @@
     - name: Manage users and user access
       items:
       - name: Create and manage users
-        displayName: Active Directory, roles, permissions
+        displayName: Active Directory, roles, permissions, password, passwords, change, reset
         href: how-to-create-and-manage-users.md
       - name: Define global user access control
         href: how-to-define-global-user-access-control.md
@@ -339,7 +339,7 @@
       displayNAme: prototype, disable
       href: azure-rtos-security-module-api.md
     - name: Frequently asked questions- agent
-      displayName: FAQ, embedded, dependencies, data, quota, internet, 
+      displayName: FAQ, embedded, dependencies, data, quota, internet, password, change 
       href: resources-agent-frequently-asked-questions.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=security-identity
