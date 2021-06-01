@@ -86,8 +86,6 @@ Based on whether you want to use Azure CLI, Visual Studio Code, or the Azure por
 
 Before you start, you need to have the following items:
 
-- The [Azure CLI installed](/cli/azure/install-azure-cli) on your local computer.
-
 - The latest Azure CLI extension installed on your local computer.
 
   - If you don't have this extension, review the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
@@ -387,7 +385,7 @@ For this task, use your previously saved client ID as the *application ID*.
 1. Under **API Connections**, select a connection, which is `office365` in this example.
 
 1. On the connection's menu, under **Settings**, select **Access policies** > **Add**.
- 
+
 1. In the **Add access policy** pane, in the search box, find and select your previously saved client ID.
 
 1. When you're done, select **Add**.
@@ -652,12 +650,12 @@ To change this maximum, use the Azure CLI (logic app create only) and Azure port
 
 #### Azure CLI
 
-For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
+To create a new logic app, run the command, `az logicapp create`, with the following parameters:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName 
-   --name MyLogicAppName --storage-account MyStorageAccount 
-   --custom-location --subscription MySubscription  MyCustomLocation 
+az logicapp create --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription 
+   --storage-account MyStorageAccount --custom-location MyCustomLocation 
    [--plan MyHostingPlan] [--min-worker-count 1] [--max-worker-count 4]
 ```
 
@@ -665,9 +663,8 @@ To configure your maximum instance count, use the `--settings` parameter:
 
 ```azurecli
 az logicapp config appsettings set --name MyLogicAppName 
-   --resource-group MyResourceGroupName 
-   --settings "K8SE_APP_MAX_INSTANCE_COUNT=10" 
-   --subscription MySubscription
+   --resource-group MyResourceGroupName --subscription MySubscription
+   --settings "K8SE_APP_MAX_INSTANCE_COUNT=10"
 ```
 
 #### Azure portal
@@ -675,7 +672,9 @@ az logicapp config appsettings set --name MyLogicAppName
 In your single-tenant based logic app's settings, add or edit the `K8SE_APP_MAX_INSTANCE_COUNT` setting value by following these steps:
 
 1. In the Azure portal, find and open your single-tenant based logic app.
+
 1. On the logic app menu, under **Settings**, select **Configuration**.
+
 1. In the **Configuration** pane, under **Application settings**, either add a new application setting or edit the existing value, if already added.
 
    1. Select **New application setting**, and add the `K8SE_APP_MAX_INSTANCE_COUNT` setting with the maximum value you want.
@@ -692,19 +691,20 @@ To change this minimum, use the Azure CLI or the Azure portal.
 
 #### Azure CLI
 
-For a existing logic app resource, run the Azure CLI command, `az logicapp scale`, for example:
+For a existing logic app resource, run the command, `az logicapp scale`, with the following parameters:
 
 ```azurecli
-az logicapp scale --name MyLogicAppName --resource-group MyResourceGroupName 
-   --instance-count 5 --subscription MySubscription
+az logicapp scale --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription 
+   --instance-count 5 
 ```
 
-For a new logic app, run the Azure CLI command, `az logicapp create`, for example:
+To create a new logic app, run the command, `az logicapp create`, with the following parameters:
 
 ```azurecli
-az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName 
-   --storage-account MyStorageAccount --custom-location 
-   --subscription MySubscription MyCustomLocation 
+az logicapp create --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription 
+   --storage-account MyStorageAccount --custom-location MyCustomLocation 
    [--plan MyHostingPlan] [--min-worker-count 2] [--max-worker-count 4]
 ```
 
@@ -713,8 +713,11 @@ az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName
 In your single-tenant based logic app's settings, change the **Scale out** property value by following these steps:
 
 1. In the Azure portal, find and open your single-tenant based logic app.
+
 1. On the logic app menu, under **Settings**, select **Scale out**.
+
 1. On the **Scale out** pane, drag the minimum instances slider to the value that you want.
+
 1. When you're done, save your changes.
 
 ## Troubleshoot problems
@@ -723,37 +726,36 @@ To get more information about your deployed logic apps, try the following option
 
 ### Access app settings and configuration
 
-To access your app settings, run the following Azure CLI command:
+To access your app settings, run the command, `az logicapp config appsettings`, with the following parameters:
 
 ```azurecli
 az logicapp config appsettings list --name MyLogicAppName 
    --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
-To configure an app setting, run the command `az logicapp config appsettings set` as follows. Make sure to use the `--settings` parameter with your setting's name and value.
+To configure an app setting, run the command, `az logicapp config appsettings set`, with the following parameters. Make sure to use the `--settings` parameter with your setting's name and value.
 
 ```azurecli
 az logicapp config appsettings set --name MyLogicAppName 
-   --resource-group MyResourceGroupName 
-   --settings "MySetting=1" 
-   --subscription MySubscription
+   --resource-group MyResourceGroupName --subscription MySubscription 
+   --settings "MySetting=1"
 ```
 
-To delete an app setting, run the command `az logicapp config appsettings delete` as follows. Make sure to using the `--setting-names` parameter with the name of the setting you want to delete.
+To delete an app setting, run the command, `az logicapp config appsettings delete`, with the following parameters. Make sure to use the `--setting-names` parameter with the name of the setting you want to delete.
 
 ```azurecli
 az logicapp config appsettings delete --name MyLogicAppName 
-   --resource-group MyResourceGroupName 
-   --setting-names MySetting 
-   --subscription MySubscription
+   --resource-group MyResourceGroupName --subscription MySubscription
+   --setting-names MySetting
 ```
 
 ### View logic app properties
 
-To view your app's information and properties, run the following Azure CLI command: 
+To view your app's information and properties, run the command, `az logicapp show`, with the following parameters:
 
 ```azurecli
-az logicapp show --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
+az logicapp show --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription
 ```
 
 ### Monitor workflow activity
@@ -772,4 +774,4 @@ To get logged data about your logic app, enable Application Insights on your
 
 ## Next steps
 
-* Learn more about [Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)
+- [About Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md)
