@@ -51,7 +51,7 @@ In this step, you'll reset the cloudadmin credentials for your Azure VMware Solu
 
 ## Update HCX Connector with the latest credentials
 
-In this step, you'll update HCX Connector with the updated credentials.
+In this step, you'll update HCX Connector with the new credentials.
 
 >[!NOTE]
 >HCX connector won't need your NSX-T admin account, but other services might, such as vRealize Operations Manager. You can add and configure an [NSX-T Adapter Instance to vRealize Operations Manager](https://docs.vmware.com/en/VMware-Validated-Design/5.1/sddc-deployment-of-vmware-nsx-t-workload-domains/GUID-A14D37FE-59AD-44E7-BB95-E3098F8B3640.html?hWord=N4IghgNiBcIHIGUAaBaAKgAgIIBMwAcAXAUwCcQBfIA).
