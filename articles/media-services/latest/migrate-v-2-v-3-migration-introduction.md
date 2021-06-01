@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -74,7 +74,3 @@ Your application of Media Services V2 may be unique. Therefore, we have provided
 - [Packaging and delivery](migrate-v-2-v-3-migration-scenario-based-publishing.md)
 - [Content protection](migrate-v-2-v-3-migration-scenario-based-content-protection.md)
 - [Media Reserved Units (MRU)](migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

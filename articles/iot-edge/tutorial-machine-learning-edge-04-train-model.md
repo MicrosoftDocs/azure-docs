@@ -12,6 +12,8 @@ services: iot-edge
 
 # Tutorial: Train and deploy an Azure Machine Learning model
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 In this article, we do the following tasks:
 
 * Use Azure Machine Learning Studio to train a machine learning model.
@@ -45,7 +47,7 @@ We use Machine Learning Studio to host the two Jupyter notebooks and supporting 
 
 ### Install Azure Machine Learning Visual Studio Code extension
 
-Visual Studio Code on the development VM should have this extension installed. If you're running on a different instance, reinstall the extension as described in [Set up the Visual Studio Code extension](../machine-learning/tutorial-setup-vscode-extension.md).
+Visual Studio Code on the development VM should have this extension installed. If you're running on a different instance, reinstall the extension as described in [Set up the Visual Studio Code extension](../machine-learning/how-to-setup-vs-code.md).
 
 ### Create an Azure Machine Learning account
 

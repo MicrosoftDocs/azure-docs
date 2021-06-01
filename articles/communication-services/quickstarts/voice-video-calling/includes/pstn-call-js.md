@@ -2,7 +2,7 @@
 author: nikuklic
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/11/2020
+ms.date: 03/10/2021
 ms.author: nikuklic
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]

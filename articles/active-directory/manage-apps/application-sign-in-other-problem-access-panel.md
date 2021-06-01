@@ -2,14 +2,14 @@
 title: Troubleshoot problems signing in to an application from Azure AD My Apps
 description: Troubleshoot problems signing in to an application from Azure AD My Apps
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
 ---
@@ -143,7 +143,7 @@ This is because My Apps currently reads up to 999 app role assignments to determ
 To check if a user has more than 999 app role assignments, follow these steps:
 1. Install the [**Microsoft.Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell module.
 2. Run `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`.
-3. Run `(Get-MgUserAppRoleAssignment -UserId "<userId>" -Top 999).Count` to determine the number of app role assignments the user currently has granted.
+3. Run `(Get-MgUserAppRoleAssignment -UserId "<user-id>" -PageSize 999).Count` to determine the number of app role assignments the user currently has granted.
 4. If the result is 999, the user likely has more than 999 app roles assignments.
 
 ### Check a user’s assigned licenses

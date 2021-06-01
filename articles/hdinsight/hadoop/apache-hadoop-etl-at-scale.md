@@ -13,7 +13,7 @@ Extract, transform, and load (ETL) is the process by which data is acquired from
 
 The use of HDInsight in the ETL process is summarized by this pipeline:
 
-![HDInsight ETL at scale overview](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+:::image type="content" source="./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png" alt-text="HDInsight ETL at scale overview" border="false":::
 
 The following sections explore each of the ETL phases and their associated components.
 
@@ -58,7 +58,7 @@ Multiple blobs can be distributed across many servers to scale out access to the
 
 Azure Storage has a WebHDFS API layer for the blob storage. All HDInsight services can access files in Azure Blob storage for data cleaning and data processing. This is similar to how those services would use Hadoop Distributed File System (HDFS).
 
-Data is typically ingested into Azure Storage through PowerShell, the Azure Storage SDK, or AZCopy.
+Data is typically ingested into Azure Storage through PowerShell, the Azure Storage SDK, or AzCopy.
 
 ### Azure Data Lake Storage
 

@@ -4,11 +4,12 @@ description: Learn how to use Azure PowerShell to clone a managed image to a ima
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Clone a managed image to a Shared Image Gallery image

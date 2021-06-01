@@ -130,7 +130,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 The output of the application should be similar to:
 
-![HDInsight Hadoop Hive job output](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png" alt-text="HDInsight Hadoop Hive job output" border="true":::
 
 ## Next steps
 

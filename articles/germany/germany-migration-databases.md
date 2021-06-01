@@ -2,11 +2,11 @@
 title: Migrate Azure database resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure database resources from Azure Germany to global Azure
 ms.topic: article
-ms.date: 02/16/2021
+ms.date: 03/29/2021
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
 # Migrate database resources to global Azure
@@ -43,6 +43,9 @@ For databases that are too large for BACPAC files, or to migrate from one cloud 
 
 > [!IMPORTANT]
 > Configuring active geo-replication to migrate databases to global Azure is only supported using Transact-SQL (T-SQL), and prior to migrating you must request enablement of your subscription to support migrating to global Azure. To submit a request, you must use [this support request link](#requesting-access). 
+
+> [!Note]
+> Azure global cloud regions, Germany West Central and Germany North, are the supported regions for active geo-replication with the Azure Germany cloud. If an alternative global Azure region is desired as the final database(s) destination, the recommendation after completion of the migration to global Azure is to configure an additional geo-replication link from Germany West Central or Germany North to the required Azure global cloud region.
 
 For details about active geo-replication costs, see the section titled **Active geo-replication** in [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
@@ -91,13 +94,17 @@ Its fully qualified domain name (FQDN) is `globalazureserver.database.windows.ne
     ALTER DATABASE [azuregermanydb] FAILOVER;
     ```
 
-5.	Use the following T-SQL to stop active geo-replication. If this command is run after the planned failover, it will terminate the geo-link with the database in global Azure being the read-write copy. This will complete the migration process. However, if the command is executed before the planned failover, it will stop the migration process and the database in Azure Germany will remain the read-write copy. This T-SQL command should be run on the current geo-primary database's logical server, for example, on the Azure Germany server before planned failover and the global Azure server after planned failover.
+5.	The active geo-replication link can be terminated before or after the failover process. Executing the following T-SQL command after the planned failover removes the geo-replication link with the database in global Azure being the read-write copy. It should be run on the current geo-primary database's logical server (i.e. on the global Azure server). This will complete the migration process.
 
+    ```sql
+    ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [azuregermanyserver];
+    ```
 
-    `ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [azuregermanyserver];`
-    or
-    `ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [globalazureserver];`
+    The following T-SQL command when executed before the planned failover also stops the migration process, but in this situation the database in Azure Germany will remain the read-write copy. This T-SQL command should also be run on the current geo-primary database's logical server, in this case on the Azure Germany server.
 
+    ```sql
+    ALTER DATABASE [azuregermanydb] REMOVE SECONDARY ON SERVER [globalazureserver];
+    ```
 
 These steps to migrate Azure SQL databases from Azure Germany to global Azure can also be followed using active geo-replication.
 
@@ -120,6 +127,19 @@ For more information the following tables below indicates T-SQL commands for man
 |[sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync?view=azuresqldb-current&preserve-view=true) | Causes the application to wait until all committed transactions are replicated and acknowledged by the active secondary database. |
  
 
+## Migrate SQL Database long-term retention backups
+
+Migrating a database with geo-replication or BACPAC file does not copy over the long-term retention backups, that the database might have in Azure Germany. To migrate existing long-term retention backups to the target global Azure region, you can use the COPY long-term retention backup procedure. 
+
+>[!Note]
+>LTR backup copy methods documented here can only copy the LTR backups from Azure Germany to global Azure. Copying PITR backups using these methods is not supported. 
+>
+
+### Pre-requisites
+
+1. Target database where you are copying the LTR backups, in global Azure must exist before you start the copying the backups. It is recommended that you first migrate the source database using [active geo-replication](#migrate-sql-database-using-active-geo-replication) and then initiate the LTR backup copy. This will ensure that the database backups are copied to the correct destination database. This step is not required, if you are copying over LTR backups of a dropped database. When copying LTR backups of a dropped database, a dummy DatabaseID will be created in the target region. 
+2. Install this [PowerShell Az Module](https://www.powershellgallery.com/packages/Az.Sql/3.0.0-preview)
+3. Before you begin, ensure that required [Azure RBAC roles](../azure-sql/database/long-term-backup-retention-configure.md#azure-roles-to-manage-long-term-retention) are granted at either **subscription** or **resource group** scope. Note: To access LTR backups that belong to a dropped server, the permission must be granted in the subscription scope of that server. . 
 
 
 ### Limitations  
@@ -130,8 +150,70 @@ For more information the following tables below indicates T-SQL commands for man
 - Creation of a geo secondary must be initiated from the Azure Germany region.
 - Customers can migrate databases out of Azure Germany only to global Azure. Currently no other cross-cloud migration is supported. 
 - Azure AD users in Azure Germany user databases are migrated but are not available in the new Azure AD tenant where the migrated database resides. To enable these users, they must be manually dropped and recreated using the current Azure AD users available in the new Azure AD tenant where the newly migrated database resides.  
+
+
+### Copy long-term retention backups using PowerShell
+
+A new PowerShell command **Copy-AzSqlDatabaseLongTermRetentionBackup** has been introduced, which can be used to copy the long-term retention backups from Azure Germany to Azure global regions. 
+
+1. **Copy LTR backup using backup name**
+Following example shows how you can copy a LTR backup from Azure Germany to Azure global region, using the backupname.  
+
+```powershell
+# Source database and target database info
+$location = "<location>"
+$sourceRGName = "<source resourcegroup name>"
+$sourceServerName = "<source server name>"
+$sourceDatabaseName = "<source database name>"
+$backupName = "<backup name>"
+$targetDatabaseName = "<target database name>"
+$targetSubscriptionId = "<target subscriptionID>"
+$targetRGName = "<target resource group name>"
+$targetServerFQDN = "<targetservername.database.windows.net>"
+
+Copy-AzSqlDatabaseLongTermRetentionBackup 
+    -Location $location 
+    -ResourceGroupName $sourceRGName 
+    -ServerName $sourceServerName 
+    -DatabaseName $sourceDatabaseName
+    -BackupName $backupName
+    -TargetDatabaseName $targetDatabaseName 
+    -TargetSubscriptionId $targetSubscriptionId
+    -TargetResourceGroupName $targetRGName
+    -TargetServerFullyQualifiedDomainName $targetServerFQDN 
+```
+
+2. **Copy LTR backup using backup resourceID**
+Following example shows how you can copy LTR backup from Azure Germany to Azure global region, using a backup resourceID. This example can be used to copy backups of a deleted database as well. 
+
+```powershell
+$location = "<location>"
+# list LTR backups for All databases (you have option to choose All/Live/Deleted)
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $location -DatabaseState All
+
+# select the LTR backup you want to copy
+$ltrBackup = $ltrBackups[0]
+$resourceID = $ltrBackup.ResourceId
+
+# Source Database and target database info
+$targetDatabaseName = "<target database name>"
+$targetSubscriptionId = "<target subscriptionID>"
+$targetRGName = "<target resource group name>"
+$targetServerFQDN = "<targetservername.database.windows.net>"
+
+Copy-AzSqlDatabaseLongTermRetentionBackup 
+    -ResourceId $resourceID 
+    -TargetDatabaseName $targetDatabaseName 
+    -TargetSubscriptionId $targetSubscriptionId
+    -TargetResourceGroupName $targetRGName
+    -TargetServerFullyQualifiedDomainName $targetServerFQDN
+```
+
+
+### Limitations  
+
 - [Point-in-time restore (PITR)](../azure-sql/database/recovery-using-backups.md#point-in-time-restore) backups are only taken on the primary database, this is by design. When migrating databases from Azure Germany using Geo-DR, PITR backups will start happening on the new primary after failover. However, the existing PITR backups (on the previous primary in Azure Germany) will not be migrated. If you need PITR backups to support any point-in-time restore scenarios, you need to restore the database from PITR backups in Azure Germany and then migrate the recovered database to global Azure. 
-- Long-term retention policies are not migrated with the database. If you have a [long-term retention (LTR)](../azure-sql/database/long-term-retention-overview.md) policy on your database in Azure Germany, you need to manually copy and recreate the LTR policy on the new database after migrating. Functionality to migrate LTR backups from Azure Germany to global Azure are not currently available.
+- Long-term retention policies are not migrated with the database. If you have a [long-term retention (LTR)](../azure-sql/database/long-term-retention-overview.md) policy on your database in Azure Germany, you need to manually copy and recreate the LTR policy on the new database after migrating. 
 
 
 ### Requesting access

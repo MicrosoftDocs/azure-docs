@@ -2,11 +2,12 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.author: tomfitz
+ms.date: 05/04/2021
+ms.author: tomfitz 
+ms.custom: devx-track-azurepowershell
 author: tfitzmac
 ---
-# Azure Resource Manager template specs (Preview)
+# Azure Resource Manager template specs
 
 A template spec is a resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use Azure role-based access control (Azure RBAC) to share the template spec.
 
@@ -15,13 +16,20 @@ A template spec is a resource type for storing an Azure Resource Manager templat
 To deploy the template spec, you use standard Azure tools like PowerShell, Azure CLI, Azure portal, REST, and other supported SDKs and clients. You use the same commands as you would for the template.
 
 > [!NOTE]
-> Template Specs is currently in preview. To use it with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
+> To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Why use template specs?
 
-If you currently have your templates in a GitHub repo or storage account, you run into several challenges when trying to share and use the templates. For a user to deploy it, the template must either be local or the URL for the template must be publicly accessible. To get around this limitation, you might share copies of the template with users who need to deploy it, or open access to the repo or storage account. When users own local copies of a template, these copies can eventually diverge from the original template. When you make a repo or storage account publicly accessible, you may allow unintended users to access the template.
+Template specs provide the following benefits:
 
-The benefit of using template specs is that you can create canonical templates and share them with teams in your organization. The template specs are secure because they're available to Azure Resource Manager for deployment, but not accessible to users without Azure RBAC permission. Users only need read access to the template spec to deploy its template, so you can share the template without allowing others to modify it.
+* You use standard ARM templates for your template spec.
+* You manage access through Azure RBAC, rather than SAS tokens.
+* Users can deploy the template spec without having write access to the template.
+* You can integrate the template spec into existing deployment process, such as PowerShell script or DevOps pipeline.
+
+Template specs enable you to create canonical templates and share them with teams in your organization. The template specs are secure because they're available to Azure Resource Manager for deployment, but not accessible to users without the correct permission. Users only need read access to the template spec to deploy its template, so you can share the template without allowing others to modify it.
+
+If you currently have your templates in a GitHub repo or storage account, you run into several challenges when trying to share and use the templates. To deploy the template, you need to either make the template publicly accessible or manage access with SAS tokens. To get around this limitation, users might create local copies, which eventually diverge from your original template. Template specs simplify sharing templates.
 
 The templates you include in a template spec should be verified by administrators in your organization to follow the organization's requirements and guidance.
 

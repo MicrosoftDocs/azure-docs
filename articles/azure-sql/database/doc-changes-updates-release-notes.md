@@ -3,14 +3,14 @@ title: What's new?
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn about the new features and documentation improvements for Azure SQL Database & SQL Managed Instance.
 services: sql-database
-author: stevestein
+author: MashaMSFT
+ms.author: mathoma
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.author: sstein
+ms.date: 04/17/2021
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -44,13 +44,10 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
-| Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](../accelerated-database-recovery.md).|
-| Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](data-discovery-and-classification-overview.md).|
 | Elastic database jobs (preview) | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
 | Elastic queries | For information, see [Elastic query overview](elastic-query-overview.md). |
 | Elastic transactions | [Distributed transactions across cloud databases](elastic-transactions-overview.md). |
 | Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](connect-query-portal.md).|
-| R services / machine learning with single databases and elastic pools |For information, see [Machine Learning Services in Azure SQL Database](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 |SQL Analytics|For information, see [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).|
 | &nbsp; |
 
@@ -58,12 +55,12 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
-| <a href="/azure/azure-sql/database/elastic-transactions-overview">Distributed transactions</a> | Distributed transactions across Managed Instances. |
-| <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
-| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Instance-level Azure AD server principals (logins)</a> | Create instance-level logins using a <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
+| [Distributed transactions](./elastic-transactions-overview.md) | Distributed transactions across Managed Instances. |
+| [Instance pools](../managed-instance/instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
+| [Instance-level Azure AD server principals (logins)](/sql/t-sql/statements/create-login-transact-sql) | Create instance-level logins using a [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) statement. |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
-| Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), which is currently in limited public preview. | 
+| Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md), which is currently in limited public preview. |
 
 ---
 
@@ -92,10 +89,11 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
 |[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
 |[Distributed transactions cannot be executed after Managed Instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Has Workaround||
-|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
+|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
 |[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Resolved|June 2020|
 |[Agent becomes unresponsive upon modifying, disabling, or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Resolved|June 2020|
@@ -123,6 +121,12 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
+
+### Changing the connection type does not affect connections through the failover group endpoint
+
+If an instance participates in an [auto-failover group](./auto-failover-group-overview.md), changing the instance's [connection type](../managed-instance/connection-types-overview.md) does not take effect for the connections established through the failover group listener endpoint.
+
+**Workaround**: Drop and recreate auto-failover group afer changing the connection type.
 
 ### Procedure sp_send_dbmail may transiently fail when @query parameter is used
 
@@ -168,13 +172,13 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Workaround**: Use [Shared Access Signature to authenticate to storage](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Workaround**: Use [Shared Access Signature to authenticate to storage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### Service Principal cannot access Azure AD and AKV
 
 In some circumstances there might exist an issue with Service Principal used to access Azure AD and Azure Key Vault (AKV) services. As a result, this issue impacts usage of Azure AD authentication and Transparent Database Encryption (TDE) with SQL Managed Instance. This might be experienced as an intermittent connectivity issue, or not being able to run statements such are CREATE LOGIN/USER FROM EXTERNAL PROVIDER or EXECUTE AS LOGIN/USER. Setting up TDE with customer-managed key on a new Azure SQL Managed Instance might also not work in some circumstances.
 
-**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin blade](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal”. In case you have encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
+**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin blade](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal". In case you have encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
 
 ### Restoring manual backup without CHECKSUM might fail
 

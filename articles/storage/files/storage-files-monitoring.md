@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli"
+ms.custom: "monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
 
 # Monitoring Azure Files
@@ -100,6 +100,8 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then click the **Save** button.
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
    > Before you choose a storage account as the export destination, see [Archive Azure resource logs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) to understand prerequisites on the storage account.
 
@@ -144,12 +146,14 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> 
 ```
 
 Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the Azure File service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **Category** parameter.
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 Here's an example:
 
@@ -203,19 +207,21 @@ For more information, see [Stream Azure Resource Logs to Log Analytics workspace
 
 If you choose to archive your logs to a storage account, you'll pay for the volume of logs that are sent to the storage account. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
 Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID Blob storage service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **category** parameter.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Here's an example:
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
 For a description of each parameter, see the [Archive Resource logs via the Azure CLI](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
@@ -223,7 +229,7 @@ For a description of each parameter, see the [Archive Resource logs via the Azur
 
 If you choose to stream your logs to an event hub, you'll pay for the volume of logs that are sent to the event hub. For specific pricing, see the **Platform Logs** section of the [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) page.
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -237,7 +243,7 @@ For a description of each parameter, see the [Stream data to Event Hubs via Azur
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -297,7 +303,7 @@ You can read account-level metric values of your storage account or the Azure Fi
 
 #### List the account-level metric definition
 
-You can list the metric definition of your storage account or the Azure Files service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
+You can list the metric definition of your storage account or the Azure Files service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) command.
  
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
@@ -307,13 +313,13 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Read account-level metric values
 
-You can read the metric values of your storage account or the Azure Files service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
+You can read the metric values of your storage account or the Azure Files service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### [.NET](#tab/azure-portal)
+### [.NET SDK](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
  
@@ -600,8 +606,9 @@ The following table lists some example scenarios to monitor and the proper metri
 
     For standard file shares, select the following response types:
 
+    - SuccessWithShareIopsThrottling
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - ClientShareIopsThrottlingError
 
     For premium file shares, select the following response types:
 

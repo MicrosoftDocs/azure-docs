@@ -45,7 +45,7 @@ az network vnet create \
 ```
 
 ## Disable subnet private endpoint policies 
-Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -166,7 +166,7 @@ Connect to the VM *myVm* from the internet as follows:
    Address:  10.1.3.4
    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. The following example uses [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) to do the operation.
+3. Test the private link connection for the PostgreSQL server using any available client. The following example uses [Azure Data studio](/sql/azure-data-studio/download) to do the operation.
 
 4. In **New connection**, enter or select this information:
 

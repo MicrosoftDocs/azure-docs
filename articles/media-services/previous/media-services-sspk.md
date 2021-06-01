@@ -3,19 +3,17 @@ title: Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
 description: Learn about how to licensing the Microsoft&reg; Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
-author: xpouyat
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 3/10/2021
 ms.author: xpouyat
-
 ---
 # Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
 
@@ -110,15 +108,16 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * ZTE Corporation
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
-* Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
 * Arcelik A.S
 * Compal Electronics, Inc.
+* Enseo, LLC
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
+* Hisense Broadband Multimedia Technologies Co.,Ltd.
 * Hisense International Co., Ltd.
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
@@ -126,15 +125,16 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Innolux Corporation
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
 * K-Tronics (Suzhou) Technology Co., Ltd. 
-* Kaonmedia Co., Ltd.
+* KAONMEDIA CO., Ltd.
 * KDDI Corporation
 * Mega Fame Electronics Co. Limited
+* MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited
 * MOKA INTERNATIONAL LIMITED
-* Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., Ltd.
+* Sharp Consumer Electronics Poland Sp. z o.o.
 * Shenzhen ATEKO PHOTO Electricity Co.,Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
 * Shenzhen Jiuzhou Electric Co., Ltd
@@ -145,13 +145,11 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
 * Sky CP Ltd
-* Sky Deutschland Fernsehen GmbH & Co. KG
 * SMARDTV GLOBAL SAS
 * SoftAtHome
 * Sony Corporation
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
-* UMC Poland sp. z .o.o.
 * Vizio, Inc.
 * ZTE Corporation
 

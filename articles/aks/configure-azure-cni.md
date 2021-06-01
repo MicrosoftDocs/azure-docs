@@ -4,7 +4,7 @@ description: Learn how to configure Azure CNI (advanced) networking in Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)
@@ -19,10 +19,9 @@ This article shows you how to use *Azure CNI* networking to create and use a vir
 
 * The virtual network for the AKS cluster must allow outbound internet connectivity.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range, or cluster virtual network address range.
-* The service principal used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
+* The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
-* Instead of a service principal, you can use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
 * The subnet assigned to the AKS node pool cannot be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
 
 ## Plan IP addressing for your cluster
@@ -150,7 +149,12 @@ The following screenshot from the Azure portal shows an example of configuring t
 > [!NOTE] 
 > This preview feature is currently available in the following regions:
 >
+> * East US
 > * West Central US
+> * West US 2
+> * Canada Central
+> * Australia East
+> * UK South
 
 A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting pod IPs from a subnet separate from the subnet hosting the AKS cluster.  It offers the following benefits:
 
@@ -342,7 +346,7 @@ Learn more about networking in AKS in the following articles:
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
 [aks-network-concepts]: concepts-network.md

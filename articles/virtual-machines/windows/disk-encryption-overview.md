@@ -2,8 +2,9 @@
 title: Enable Azure Disk Encryption for Windows VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows VMs.
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
@@ -60,6 +61,8 @@ To enable Azure Disk Encryption, the VMs must meet the following network endpoin
 Azure Disk Encryption uses the BitLocker external key protector for Windows VMs. For domain joined VMs, don't push any group policies that enforce TPM protectors. For information about the group policy for "Allow BitLocker without a compatible TPM," see [BitLocker Group Policy Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
 BitLocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of BitLocker recovery information -> Allow 256-bit recovery key](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for BitLocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, force the new policy to update (gpupdate.exe /force), and then restarting may be required.
+
+Azure Disk Encryption does not store recovery keys. If the [Interactive logon: Machine account lockout threshold](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) security setting is enabled, machines can only be recovered by providing a recovery key via the serial console. Instructions for ensuring the appropriate recovery policies are enabled can be found in the [Bitlocker recovery guide plan](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).
 
 Azure Disk Encryption will fail if domain level group policy blocks the AES-CBC algorithm, which is used by BitLocker.
 

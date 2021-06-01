@@ -43,7 +43,7 @@ When a URL is specified, Container insights only scrapes the endpoint. When Kube
 |------|-----|-----------|-------|-------------|
 | Cluster-wide | | | | Specify any one of the following three methods to scrape endpoints for metrics. |
 | | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Container insights parameter and can be used instead of node IP address. Must be all uppercase.) |
-| | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. Fully qualified domain names must be used here. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, Container insights agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. `monitor_kubernetes_pods` must be set to `true`. |
 | | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If necessary, set to `https`. | 

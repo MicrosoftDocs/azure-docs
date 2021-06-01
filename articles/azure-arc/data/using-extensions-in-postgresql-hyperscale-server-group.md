@@ -16,19 +16,18 @@ ms.topic: how-to
 
 PostgreSQL is at its best when you use it with extensions. In fact, a key element of our own Hyperscale functionality is the Microsoft-provided `citus` extension that is installed by default, which allows Postgres to transparently shard data across multiple nodes.
 
-
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Supported extensions
 The standard [`contrib`](https://www.postgresql.org/docs/12/contrib.html) extensions and the following extensions are already deployed in the containers of your Azure Arc enabled PostgreSQL Hyperscale server group:
-- ['citus'](https://github.com/citusdata/citus), v: 10.0. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL Hyperscale server group is not supported.
-- ['pg_cron'](https://github.com/citusdata/pg_cron), v: 1.3
-- ['pgaudit'](https://www.pgaudit.org/), v: 1.4
+- [`citus`](https://github.com/citusdata/citus), v: 10.0. The Citus extension by [Citus Data](https://www.citusdata.com/) is loaded by default as it brings the Hyperscale capability to the PostgreSQL engine. Dropping the Citus extension from your Azure Arc PostgreSQL Hyperscale server group is not supported.
+- [`pg_cron`](https://github.com/citusdata/pg_cron), v: 1.3
+- [`pgaudit`](https://www.pgaudit.org/), v: 1.4
 - plpgsql, v: 1.0
-- ['postgis'](https://postgis.net), v: 3.0.2
-- ['plv8'](https://plv8.github.io/), v: 2.3.14
-- ['pg_partman'](https://github.com/pgpartman/pg_partman), v: 4.4.1/
-- ['tdigest'](https://github.com/tvondra/tdigest), v: 1.0.1
+- [`postgis`](https://postgis.net), v: 3.0.2
+- [`plv8`](https://plv8.github.io/), v: 2.3.14
+- [`pg_partman`](https://github.com/pgpartman/pg_partman), v: 4.4.1/
+- [`tdigest`](https://github.com/tvondra/tdigest), v: 1.0.1
 
 Updates to this list will be posted as it evolves over time.
 
@@ -49,10 +48,10 @@ This guide will take in a scenario to use two of these extensions:
 |`postgis`      |No       |Yes        |
 |`plv8`      |No       |Yes        |
 
-## Add extensions to the shared_preload_libraries
-For details about that are shared_preload_libraries please read the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES):
+## Add extensions to the `shared_preload_libraries`
+For details about that are `shared_preload_libraries`, read the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES):
 - This step isn't needed for the extensions that are part of `contrib`
-- this step isn't required for extensions that are not required to pre-load by shared_preload_libraries. For these extensions you may jump the next next paragraph [Create extensions](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group#create-extensions).
+- this step isn't required for extensions that are not required to pre-load by shared_preload_libraries. For these extensions you may jump the next paragraph [Create extensions](#create-extensions).
 
 ### Add an extension at the creation time of a server group
 ```console

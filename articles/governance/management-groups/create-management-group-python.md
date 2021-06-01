@@ -1,9 +1,11 @@
 ---
-title: "Quickstart: Create a management group with Python"
+title: 'Quickstart: Create a management group with Python'
 description: In this quickstart, you use Python to create a management group to organize your resources into a resource hierarchy.
-ms.date: 01/29/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - mode-api
 ---
 # Quickstart: Create a management group with Python
 
@@ -90,12 +92,12 @@ Python can be used, including [bash on Windows 10](/windows/wsl/install-win10) o
    ```python
    # Import management group classes
    from azure.mgmt.managementgroups import ManagementGroupsAPI
-   
+
    # Import specific methods and models from other libraries
    from azure.common.credentials import get_azure_cli_credentials
    from azure.common.client_factory import get_client_from_cli_profile
    from azure.mgmt.resource import ResourceManagementClient, SubscriptionClient
-   
+
    # Wrap all the work in a function
    def createmanagementgroup( strName ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
@@ -106,17 +108,17 @@ Python can be used, including [bash on Windows 10](/windows/wsl/install-win10) o
        subsList = []
        for sub in subsRaw:
            subsList.append(sub.get('subscription_id'))
-       
+
        # Create management group client and set options
        mgClient = get_client_from_cli_profile(ManagementGroupsAPI)
        mg_request = {'name': strName, 'display_name': strName}
-       
+
        # Create management group
        mg = mgClient.management_groups.create_or_update(group_id=strName,create_management_group_request=mg_request)
-       
+
        # Show results
        print(mg)
-   
+
    createmanagementgroup("MyNewMG")
    ```
 

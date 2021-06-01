@@ -1,15 +1,15 @@
 ---
 title: NIST SP 800-53 R4 blueprint sample overview
 description: Overview of the NIST SP 800-53 R4 blueprint sample. This blueprint sample helps customers assess specific NIST SP 800-53 R4 controls.
-ms.date: 01/27/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # NIST SP 800-53 R4 blueprint sample
 
-The NIST SP 800-53 R4 blueprint sample provides governance guard-rails using
-[Azure Policy](../../policy/overview.md) that help you assess specific NIST SP 800-53 R4
-controls. This blueprint helps customers deploy a core set of policies for any Azure-deployed
-architecture that must implement NIST SP 800-53 R4 controls.
+The NIST SP 800-53 R4 blueprint sample provides governance guardrails using
+[Azure Policy](../../policy/overview.md) that help you assess specific NIST SP 800-53 R4 controls.
+This blueprint helps customers deploy a core set of policies for any Azure-deployed architecture
+that must implement NIST SP 800-53 R4 controls.
 
 ## Control mapping
 
@@ -147,11 +147,11 @@ The following table provides a list of the blueprint artifact parameters:
 |\[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
 |\[Preview\]: Deploy Log Analytics Agent for Windows VMs|Policy assignment|Log Analytics workspace for Windows VMs|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
 |\[Preview\]: Deploy Log Analytics Agent for Windows VMs|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
-|Deploy Advanced Threat Protection on Storage Accounts|Policy assignment|Effect|Information about policy effects can be found at [Understand Azure Policy Effects](../../policy/concepts/effects.md)|
-|Deploy Auditing on SQL servers|Policy assignment|The value in days of the retention period (0 indicates unlimited retention)|Retention days (optional, 180 days if unspecified)|
+|Deploy Advanced Threat Protection on Storage Accounts|Policy assignment|Effect|Information about policy effects can be found at [Understand Azure Policy Effects](../../policy/concepts/effects.md) |
+|Deploy Auditing on SQL servers|Policy assignment|The value in days of the retention period (0 indicates unlimited retention) |Retention days (optional, 180 days if unspecified) |
 |Deploy Auditing on SQL servers|Policy assignment|Resource group name for storage account for SQL server auditing|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region). Important - for proper operation of Auditing do not delete or rename the resource group or the storage accounts.|
 |Deploy diagnostic settings for Network Security Groups|Policy assignment|Storage account prefix for network security group diagnostics|This prefix will be combined with the network security group location to form the created storage account name.|
-|Deploy diagnostic settings for Network Security Groups|Policy assignment|Resource group name for storage account for network security group diagnostics (must exist)|The resource group that the storage account will be created in. This resource group must already exist.|
+|Deploy diagnostic settings for Network Security Groups|Policy assignment|Resource group name for storage account for network security group diagnostics (must exist) |The resource group that the storage account will be created in. This resource group must already exist.|
 
 ## Next steps
 

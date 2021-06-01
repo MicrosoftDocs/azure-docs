@@ -11,7 +11,7 @@ ms.date: 02/06/2020
 ms.author: tagore
 
 ---
-# Platform-supported migration of IaaS resources from classic to Azure Resource Manager in Linux
+# Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 
 > [!IMPORTANT]
 > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).

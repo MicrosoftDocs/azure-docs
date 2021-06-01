@@ -31,7 +31,7 @@ The **HDInsight clusters** page will list your existing clusters.  From the port
 
 Select your cluster name from the [**HDInsight clusters**](#showClusters) page.  This will open the **Overview** view, which looks similar to the following image:
 
-![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
+:::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Azure portal HDInsight cluster essentials":::
 
 **Top menu:**  
 
@@ -168,7 +168,7 @@ From the [cluster home page](#homePage):
 
 1. Select **Cluster dashboards**.
 
-    ![HDInsight Apache Hadoop cluster menu](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png" alt-text="HDInsight Apache Hadoop cluster menu":::
 
 1. Select **Ambari home** from the new page.
 1. Enter the cluster username and password.  The default cluster username is _admin_.

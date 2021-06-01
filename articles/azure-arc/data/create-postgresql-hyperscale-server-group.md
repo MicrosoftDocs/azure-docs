@@ -229,7 +229,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
 ## Next steps
 
-- Connect to your Azure Arc enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](https://docs.microsoft.com/en-us/azure/azure-arc/data/get-connection-endpoints-and-connection-strings-postgres-hyperscale)
+- Connect to your Azure Arc enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/concepts-hyperscale-nodes.md)
     * [Determine application type](../../postgresql/concepts-hyperscale-app-type.md)
@@ -241,7 +241,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* In the documents above, skip the sections **Sign in to the Azure portal**, & **Create an Azure Database for PostgreSQL - Hyperscale (Citus)**. Implement the remaining steps in your Azure Arc deployment. Those sections are specific to the Azure Database for PostgreSQL Hyperscale (Citus) offered as a PaaS service in the Azure cloud but the other parts of the documents are directly applicable to your Azure Arc enabled PostgreSQL Hyperscale.
 
-- [Scale out your Azure Arc enabled for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
+- [Scale out your Azure Arc enabled for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

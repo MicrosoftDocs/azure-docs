@@ -1,5 +1,5 @@
 ---
-title: Use Azure CLI to set ACLs in Azure Data Lake Storage Gen2
+title: Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2
 description: Use the Azure CLI to manage access control lists (ACL) in storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
@@ -26,7 +26,7 @@ ACL inheritance is already available for new child items that are created under 
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
-- Azure CLI version `2.6.0` or higher.
+- Azure CLI version `2.14.0` or higher.
 
 - One of the following security permissions:
 

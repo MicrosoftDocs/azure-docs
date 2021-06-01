@@ -3,20 +3,18 @@ title: How to generate thumbnails using Media Encoder Standard with .NET
 description: This topic shows how to use .NET to encode an asset and generate thumbnails at the same time using Media Encoder Standard.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # How to generate thumbnails using Media Encoder Standard with .NET
 

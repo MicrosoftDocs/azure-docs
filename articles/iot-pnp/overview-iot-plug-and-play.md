@@ -3,14 +3,14 @@ title: Introduction to IoT Plug and Play | Microsoft Docs
 description: Learn about IoT Plug and Play. IoT Plug and Play is based on an open modeling language that enables smart IoT devices to declare their capabilities. IoT devices present that declaration, called a device  model, when they connect to cloud solutions. The cloud solution can then automatically understand the device and start interacting with it, all without writing any code.
 author: rido-min
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 03/21/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
 
-# As a device builder, I need to know what is IoT Plug and Play, so I can understand how it can help me build and market my IoT devices.
+#Customer intent: As a device builder, I need to know what is IoT Plug and Play, so I can understand how it can help me build and market my IoT devices.
 ---
 
 # What is IoT Plug and Play?
@@ -65,7 +65,7 @@ As a device builder, you can develop an IoT hardware product that supports IoT P
 
 ## Device certification
 
-The [IoT Plug and Play device certification program](howto-certify-device.md) verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
+The [IoT Plug and Play device certification program](../certification/program-requirements-pnp.md) verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
 
 ## Next steps
 

@@ -35,7 +35,7 @@ Container insights delivers a comprehensive monitoring experience using differen
 * Review the resource utilization of workloads running on the host that are unrelated to the standard processes that support the pod.
 * Understand the behavior of the cluster under average and heaviest loads. This knowledge can help you identify capacity needs and determine the maximum load that the cluster can sustain.
 * Configure alerts to proactively notify you or record it when CPU and memory utilization on nodes or containers exceed your thresholds, or when a health state change occurs in the cluster at the infrastructure or nodes health rollup.
-* Integrate with [Prometheus](https://prometheus.io/docs/introduction/overview/) to view application and workload metrics it collects from nodes and Kubernetes using [queries](container-insights-log-search.md) to create custom alerts, dashboards, and detailed perform detailed analysis.
+* Integrate with [Prometheus](https://prometheus.io/docs/introduction/overview/) to view application and workload metrics it collects from nodes and Kubernetes using [queries](container-insights-log-search.md) to create custom alerts, dashboards, and perform detailed analysis.
 * Monitor container workloads [deployed to AKS Engine](https://github.com/Azure/aks-engine) on-premises and [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 * Monitor container workloads [deployed to Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
@@ -54,7 +54,7 @@ The main differences in monitoring a Windows Server cluster compared to a Linux 
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Container insights.
 
-> [!VIDEO https://youtu.be/XEdwGvS2AwA]
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 ## How do I access this feature?
 

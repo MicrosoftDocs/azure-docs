@@ -5,7 +5,7 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Create multiple resource instances with ARM templates
@@ -39,7 +39,7 @@ To complete this article, you need:
 1. In **File name**, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
     ```
 
 1. Select **Open** to open the file.

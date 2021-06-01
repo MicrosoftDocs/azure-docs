@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/17/2021
 ms.author: memildin
 ---
 
@@ -150,7 +150,6 @@ spec:
       labels:
         app: redis
       annotations:
-        apparmor.security.beta.kubernetes.io/pod: runtime/default
         container.apparmor.security.beta.kubernetes.io/redis: runtime/default
     spec:
       containers:

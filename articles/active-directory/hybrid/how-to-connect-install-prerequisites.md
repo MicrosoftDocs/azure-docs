@@ -32,7 +32,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security.
 
 ### Prepare your on-premises data
-* Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Microsoft 365.
+* Use [IdFix](https://github.com/Microsoft/idfix) to identify errors such as duplicates and formatting problems in your directory before you [synchronize to Azure AD and Microsoft 365](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac).
 * Review [optional sync features you can enable in Azure AD](how-to-connect-syncservice-features.md), and evaluate which features you should enable.
 
 ### On-premises Active Directory
@@ -97,6 +97,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.
+* Azure AD Connect requires network connectivity to all configured domains
 * If you have firewalls on your intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, see [Azure AD Connect ports](reference-connect-ports.md) for more information.
 * If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * If you're using the Microsoft cloud in Germany or the Microsoft Azure Government cloud, see [Azure AD Connect sync service instances considerations](reference-connect-instances.md) for URLs.
@@ -225,7 +226,7 @@ The following table shows the minimum requirements for the Azure AD Connect sync
 | Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
 | 10,000–50,000 |1.6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1.6 GHz |16 GB |100 GB |
-| For 100,000 or more objects, the full version of SQL Server is required | | | |
+| For 100,000 or more objects, the full version of SQL Server is required. For performance reasons, installing locally is preferred. | | | |
 | 100,000–300,000 |1.6 GHz |32 GB |300 GB |
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |

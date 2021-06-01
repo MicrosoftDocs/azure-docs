@@ -3,7 +3,7 @@ title: Configure continuous deployment
 description: Learn how to enable CI/CD to Azure App Service from GitHub, BitBucket, Azure Repos, or other repos. Select the build pipeline that fits your needs.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
 ---
@@ -13,7 +13,7 @@ ms.custom: seodec18
 [Azure App Service](overview.md) enables continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [BitBucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure Repos](/azure/devops/repos/git/creatingrepo) repositories by pulling in the latest updates.
 
 > [!NOTE]
-> The **Development Center (Classic)** page in the Azure portal, which is the old deployment experience, will be deprecated in March, 2021. This change will not affect any existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page.
+> The **Development Center (Classic)** page in the Azure portal, an earlier version of the deployment experience, was deprecated in March 2021. This change doesn't affect existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page in the portal.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -38,7 +38,8 @@ Choose the tab that corresponds to your selection for the steps.
 
 1. If you're deploying from GitHub for the first time, click **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, click **Change Account**.
 
-1. Once you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for.
+1. Once you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to configure CI/CD for. 
+If you can’t find an organization or repository, you may need to enable additional permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories)
 
 1. When GitHub Actions is the chosen build provider, you can select the workflow file you want with the **Runtime stack** and **Version** dropdowns. Azure commits this workflow file into your selected GitHub repository to handle build and deploy tasks. To see the file before saving your changes, click **Preview file**.
 
@@ -112,7 +113,9 @@ You can customize the GitHub Actions build provider in the following ways:
 
 #### Authenticate with a service principal
 
-1. Generate a service principal with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). In the following example, replace *\<subscription-id>*, *\<group-name>*, and *\<app-name>* with your own values:
+This optional configuration replaces the default authentication with publishing profiles in the generated workflow file.
+
+1. Generate a service principal with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). In the following example, replace *\<subscription-id>*, *\<group-name>*, and *\<app-name>* with your own values:
 
     ```azurecli-interactive
     az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
@@ -155,7 +158,7 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 ## More resources
 
-* [Deploy from Azure Pipelines to Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)
+* [Deploy from Azure Pipelines to Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)
 * [Investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Use Azure PowerShell](/powershell/azure/)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
