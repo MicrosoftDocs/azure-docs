@@ -1,5 +1,5 @@
 ---
-title: Hyperscale Secondary Replicas
+title: Hyperscale secondary replicas
 description: This article describes the different types of secondary replicas available in the Hyperscale service tier.
 services: sql-database
 ms.service: sql-database
