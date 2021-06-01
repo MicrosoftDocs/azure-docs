@@ -39,7 +39,7 @@ In this step, you'll rotate the cloudadmin credentials for your Azure VMware Sol
    az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
 
-## Update HCX Connector wath the latest credentials
+## Update HCX Connector with the latest credentials
 
 In this step, you'll update HCX Connector with the updated credentials.
 
