@@ -136,7 +136,7 @@
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
-  - name: Use Azure Migrate with private link
+  - name: Use Azure Migrate with private endpoints
     href: how-to-use-azure-migrate-with-private-endpoints.md
     items:
       - name: Troubleshoot network connectivity

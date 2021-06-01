@@ -7,9 +7,9 @@ ms.subservice: migration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: danimir 
+author: danimir
 ms.author: danil
-ms.reviewer: mathoma
+ms.reviewer: cawrites
 ms.date: 07/11/2019
 ---
 # SQL Server instance migration to Azure SQL Managed Instance
