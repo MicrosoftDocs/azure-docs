@@ -7,6 +7,8 @@
     href: what-are-applied-ai-services.md
   - name: Why use Applied AI Services?
     href: why-applied-ai-services.md
+  - name: Frequently asked questions (FAQ)
+    href: faq.yml
 - name: Quickstarts
   items:
   - name: Azure Form Recognizer
