@@ -14,6 +14,9 @@ manager: philMea
 
 You can convert uploaded Drawing packages into map data by using the [Azure Maps Conversion service](/rest/api/maps/v2/conversion). This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
+For a guide on how to prepare your Drawing package, see [Conversion Drawing Package Guide](drawing-package-guide.md).
+
+
 ## Prerequisites
 
 The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk's AutoCAD® software.
@@ -21,6 +24,7 @@ The Drawing package includes drawings saved in DWG format, which is the native f
 You can choose any CAD software to produce the drawings in the Drawing package.  
 
 The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) converts the Drawing package into map data. The Conversion service works with the AutoCAD DWG file format `AC1032`.
+
 
 ## Glossary of terms
 
@@ -64,7 +68,6 @@ The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) performs the f
     - zone
     - facility
     
-
 ## DWG file requirements
 
 A single DWG file is required for each level of the facility. All data of a single level must be contained in a single DWG file.  Any external references (_xrefs_) must be bound to the parent drawing. For example, a facility with three levels will have three DWG files in the Drawing package.
@@ -188,6 +191,7 @@ Although there are requirements when you use the manifest objects, not all objec
 
 >[!NOTE]
 > Unless otherwise specified, all properties with a string property type allow for one thousand characters.
+
 
 | Object | Required | Description |
 | :----- | :------- | :------- |
@@ -421,7 +425,13 @@ When your Drawing package meets the requirements, you can use the [Azure Maps Co
 > [Creator Facility Ontology](creator-facility-ontology.md)
 
 > [!div class="nextstepaction"]
->[Creator for indoor maps](creator-indoor-maps.md)
+> [Creator for indoor maps](creator-indoor-maps.md)
+
+> [!div class="nextstepaction"]
+> [Drawing Package Guide](drawing-package-guide.md)
+
+> [!div class="nextstepaction"]
+>[Creator  for indoor maps](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)

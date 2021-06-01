@@ -415,10 +415,10 @@ groups:
   pivots:
   - id: development-environment-vscode
     title: Visual Studio Code
-  - id: development-environment-cli
-    title: Command line
   - id: development-environment-vs
     title: Visual Studio
+  - id: development-environment-cli
+    title: Command line
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
