@@ -58,7 +58,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
 1. Select a VM and click **Continue**.
 1. In the next screen that appears, select a restore point to use for the recovery.
 
-    ![Select restore point](./media/backup-azure-arm-restore-vms/restore-point.png)
+    ![Select restore point for a virtual machine](./media/backup-azure-arm-restore-vms/restore-point.png)
 
 
 

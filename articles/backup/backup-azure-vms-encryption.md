@@ -104,7 +104,7 @@ In addition, there are a couple of things that you might need to do in some circ
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
-1. Navigate to Backup center and select the **Backup Instances** menu item.
+1. Navigate to **Backup center** and select the **Backup Instances** menu item.
 1. Select **Azure Virtual machines** as the **Datasource type** and search for the VM that you have configured for backup.
 1. Right-click the relevant row or select the more icon (…), and click **Backup Now**.
 1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
