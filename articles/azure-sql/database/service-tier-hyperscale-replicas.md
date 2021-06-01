@@ -161,7 +161,7 @@ Geo-replication for Hyperscale databases is currently in preview, with the follo
 - Creating a database copy of the geo-replica is not supported. 
 - Secondary of a secondary (also known as "geo-replica chaining") is not supported. 
 
-## See also
+## Next steps
 
 - [Hyperscale service tier](service-tier-hyperscale.md)
 - [Active geo-replication](active-geo-replication-overview.md)
