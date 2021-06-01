@@ -55,8 +55,6 @@
       href: pim-how-to-change-default-settings.md
     - name: Azure roles
       href: pim-resource-roles-configure-role-settings.md
-    - name: Invite external users
-      href: pim-resource-roles-external-users.md
   - name: Configure alerts
     items:
     - name: Azure AD roles
@@ -117,6 +115,8 @@
       href: groups-role-settings.md
     - name: View audit history
       href: groups-audit.md
+  - name: Invite external users
+    href: pim-resource-roles-external-users.md
   - name: Extend or renew roles
     href: pim-resource-roles-renew-extend.md
   - name: Elevate access to manage Azure subscriptions
