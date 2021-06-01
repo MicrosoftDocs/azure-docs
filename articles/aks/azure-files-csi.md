@@ -192,9 +192,9 @@ Filesystem                                                                      
 
 For the case in which your Azure Files are protected with a private enpoint, you must create your own storage class customized with the following parameters:
 
-* `resourceGroup`: the resource group name whe the storage account is deployed.
+* `resourceGroup`: the resource group name where the storage account is deployed.
 * `storageAccount`: the storage account name.
-* `server` the FQDN of the private endpoint for the storage account (i.e. <storage account name>.privatelink.file.core.windows.net)
+* `server` the FQDN of the storage account's files private endpoint (i.e. <storage account name>.privatelink.file.core.windows.net)
 
 Create a file named `private-azure-file-sc.yaml`, and paste the following example manifest replacing the valules for `<resourceGroup>` and `<storageAccountName>`:
 
@@ -225,7 +225,7 @@ mountOptions:
 Create the storage class with the [kubectl apply][kubectl-apply] command:
 
 ```console
-kubectl apply -f azure-file-sc.yaml
+kubectl apply -f private-azure-file-sc.yaml
 
 storageclass.storage.k8s.io/private-azurefile-csi created
 ```
