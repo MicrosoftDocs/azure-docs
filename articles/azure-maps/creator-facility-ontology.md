@@ -62,9 +62,9 @@ The `unit` feature class defines a physical and non-overlapping area that can be
 |`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)     |true      | The ID of a [`category`](#category) feature.|
-|`isOpenArea`        | boolean                     |false     | Represents whether the unit is an open area. If set to `true`, [structures](#structure) don't surround the unit boundary, and a navigating agent can enter the `unit` without the need of an [`opening`](#opening). By default, units are surrounded by physical barriers and are open only where an opening feature is placed on the boundary of the unit. If walls are needed in an open area unit, they can be represented as a [`lineElement`](#lineelement) or [`areaElement`](#areaelement) with an `isObstruction` property equal to `true`.|
+|`isOpenArea`        | boolean (Default value is `null`.)                    |false     | Represents whether the unit is an open area. If set to `true`, [structures](#structure) don't surround the unit boundary, and a navigating agent can enter the `unit` without the need of an [`opening`](#opening). By default, units are surrounded by physical barriers and are open only where an opening feature is placed on the boundary of the unit. If walls are needed in an open area unit, they can be represented as a [`lineElement`](#lineelement) or [`areaElement`](#areaelement) with an `isObstruction` property equal to `true`.|
 |`navigableBy`        | enum ["pedestrian", "wheelchair", "machine", "bicycle", "automobile", "hiredAuto", "bus", "railcar", "emergency", "ferry", "boat"]  | false      |Indicates the types of navigating agents that can traverse the unit. If unspecified, the unit is assumed to be traversable by any navigating agent. |
-|`isRoutable`        | boolean                      | false    |  Determines if the unit is part of the routing graph. If set to `true`, the unit can be used as source/destination or intermediate node in the routing experience. |
+|`isRoutable`        | boolean (Default value is `null`.)                      | false    |  Determines if the unit is part of the routing graph. If set to `true`, the unit can be used as source/destination or intermediate node in the routing experience. |
 |`routeThroughBehavior`        | enum ["disallowed", "allowed", "preferred"] |  false     | Determines if navigating through the unit is allowed. If unspecified, it inherits inherits its value from the category feature referred to in the `categoryId` property. If specified, it overrides the value given in its category feature." |
 |`nonPublic`        |  boolean| false       | If `true`, the unit is navigable only by privileged users.  Default value is `false`. |
 | `levelId`          | [level.Id](#level)        | true     | The ID of a level feature. |
@@ -85,8 +85,8 @@ The `unit` feature class defines a physical and non-overlapping area that can be
 |`originalId`        | string     |true      | The ID derived from client data. Maximum length allowed is 1000.|
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        | [category.Id](#category)     |true      | The ID of a [`category`](#category) feature.|
-|`isOpenArea`        | boolean                     |false     | Represents whether the unit is an open area. If set to `true`, [structures](#structure) don't surround the unit boundary, and a navigating agent can enter the `unit` without the need of an [`opening`](#opening). By default, units are surrounded by physical barriers and are open only where an opening feature is placed on the boundary of the unit. If walls are needed in an open area unit, they can be represented as a [`lineElement`](#lineelement) or [`areaElement`](#areaelement) with an `isObstruction` property equal to `true`.|
-|`isRoutable`        | boolean                      | false    |  Determines if the unit is part of the routing graph. If set to `true`, the unit can be used as source/destination or intermediate node in the routing experience. |
+|`isOpenArea`        | boolean (Default value is `null`.)                    |false     | Represents whether the unit is an open area. If set to `true`, [structures](#structure) don't surround the unit boundary, and a navigating agent can enter the `unit` without the need of an [`opening`](#opening). By default, units are surrounded by physical barriers and are open only where an opening feature is placed on the boundary of the unit. If walls are needed in an open area unit, they can be represented as a [`lineElement`](#lineelement) or [`areaElement`](#areaelement) with an `isObstruction` property equal to `true`.|
+|`isRoutable`        | boolean (Default value is `null`.)                     | false    |  Determines if the unit is part of the routing graph. If set to `true`, the unit can be used as source/destination or intermediate node in the routing experience. |
 | `levelId`          | [level.Id](#level)        | true     | The ID of a level feature. |
 |`occupants`         |  array of [directoryInfo.Id](#directoryinfo) |    false |    The IDs of [directoryInfo](#directoryinfo) features. Used to represent one or many occupants in the feature. |
 |`addressId`         | [directoryInfo.Id](#directoryinfo) | true     | The ID of a [directoryInfo](#directoryinfo) feature. Used to represent the address of the feature.|
@@ -289,7 +289,7 @@ The `pointElement` is a class feature that defines a point feature in a unit, su
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        |[category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `unitId`          | string     | true     | The ID of a [`unit`](#unit) feature containing this feature.  Maximum length allowed is 1000.|
-| `isObstruction`          | boolean | false     | If `true`, this feature represents an obstruction to be avoided while routing through the containing unit feature. |
+| `isObstruction`          | boolean (Default value is `null`.) | false     | If `true`, this feature represents an obstruction to be avoided while routing through the containing unit feature. |
 |`name` |    string |    false |    Name of the feature in local language.  Maximum length allowed is 1000.|
 |`nameSubtitle` |    string |    false |   Subtitle that shows up under the `name` of the feature. Can be used to display the name in a different language, and so on. Maximum length allowed is 1000. |
 |`nameAlt` |    string |    false |   Alternate name used for the feature.  Maximum length allowed is 1000.|
@@ -306,7 +306,7 @@ The `lineElement` is a class feature that defines a line feature in a unit, such
 |`externalId`        | string     |true      | An ID used by the client to associate the feature with another feature in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`categoryId`        |[category.Id](#category)      |true      | The ID of a [`category`](#category) feature.|
 | `unitId`          | string     | true     | The ID of a [`unit`](#unit) feature containing this feature. Maximum length allowed is 1000. |
-| `isObstruction`          | boolean | false     | If `true`, this feature represents an obstruction to be avoided while routing through the containing unit feature. |
+| `isObstruction`          | boolean (Default value is `null`.)| false     | If `true`, this feature represents an obstruction to be avoided while routing through the containing unit feature. |
 |`name` |    string |    false |    Name of the feature in local language. Maximum length allowed is 1000. |
 |`nameSubtitle` |    string |    false |   Subtitle that shows up under the `name` of the feature. Can be used to display the name in a different language, and so on. Maximum length allowed is 1000. |
 |`nameAlt` |    string |    false |   Alternate name used for the feature. Maximum length allowed is 1000. |
@@ -346,7 +346,7 @@ The `category` class feature defines category names. For example: "room.conferen
 |`externalId`        | string     |true      | An ID used by the client to associate the category with another category in a different dataset, such as in an internal database. Maximum length allowed is 1000.|
 |`name` |    string |    true |   Name of the category. Suggested to use "." to represent hierarchy of categories. For example: "room.conference", "room.privateoffice". Maximum length allowed is 1000. |
 | `routeThroughBehavior` | boolean | false | Determines whether a feature can be used for through traffic.|
-|`isRoutable`        | boolean                      | false    |  Determines if a feature should be part of the routing graph. If set to `true`, the unit can be used as source/destination or intermediate node in the routing experience. |
+|`isRoutable`        | boolean (Default value is `null`.)                  | false    |  Determines if a feature should be part of the routing graph. If set to `true`, the unit can be used as source/destination or intermediate node in the routing experience. |
 
 :::zone-end
 
