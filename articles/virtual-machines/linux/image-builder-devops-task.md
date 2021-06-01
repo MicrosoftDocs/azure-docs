@@ -7,7 +7,8 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
+ms.collection: linux 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Image Builder Service DevOps Task

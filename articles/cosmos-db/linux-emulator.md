@@ -188,6 +188,18 @@ This section provides tips to troubleshoot errors when using the Linux emulator.
   - .NET: See the [certificates section](#run-on-linux)
   - Java: See the [Java Certificates Store section](#run-on-linux)
 
+#### My Node.js app is reporting a self-signed certificate error
+
+If you attempt to connect to the emulator via an address other than `localhost`, such as the containers IP address, Node.js will raise an error about the certificate being self-signed, even if the certificate has been installed.
+
+TLS verification can be disabled by setting the environment variable `NODE_TLS_REJECT_UNAUTHORIZED` to `0`:
+
+```bash
+NODE_TLS_REJECT_UNAUTHORIZED=0
+```
+
+This flag is only recommended for local development as it disables TLS for Node.js. More information can be found on in [Node.js documentation](https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value) and the [Cosmos DB Emulator Certificates documentation](local-emulator-export-ssl-certificates.md#how-to-use-the-certificate-in-nodejs).
+
 #### The Docker container failed to start
 
 The emulator errors out with the following message:
