@@ -136,7 +136,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
 :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment":::
 
 - View costs 
-    - Manged online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
+    - Managed online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
 
 For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md).
 

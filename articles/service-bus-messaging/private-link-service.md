@@ -4,7 +4,8 @@ description: Learn how to integrate Azure Service Bus with Azure Private Link Se
 author: spelluru
 ms.author: spelluru
 ms.date: 03/29/2021
-ms.topic: article
+ms.topic: article 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Allow access to Azure Service Bus namespaces via private endpoints
@@ -117,7 +118,7 @@ $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
 
 # create resource group
-az group create -l $vnetLocation -n $rgName
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `
