@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. If you want to setup Terraform Cloud manually, in a different web browser window, sign in to your Terraform Cloud company site as an administrator.
 
-2. Go to the **Settings > SSO > Edit Settings**
+2. Go to the **Settings > SSO > Edit Settings**.
 
     ![Terraform Cloud settings](./media/terraform-cloud-tutorial/sso-settings.png)
 
