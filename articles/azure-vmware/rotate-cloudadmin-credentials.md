@@ -59,7 +59,26 @@ In this step, you'll reset the cloudadmin credentials for your Azure VMware Solu
       :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new NSX-T Manager credentials.":::
 
 
+<!-- 5/15/2021: Shawn is suggesting that we remove this section since there are so many products that used stored credentials. -->
 
+## Verify HCX Connector has the latest credentials
+
+In this step, you'll verify that the HCX Connector has the updated credentials.
+
+>[!NOTE]
+>HCX connector won't need your NSX-T admin account, but other services might, such as vRealize Operations Manager. You can add and configure an [NSX-T Adapter Instance to vRealize Operations Manager](https://docs.vmware.com/en/VMware-Validated-Design/5.1/sddc-deployment-of-vmware-nsx-t-workload-domains/GUID-A14D37FE-59AD-44E7-BB95-E3098F8B3640.html?hWord=N4IghgNiBcIHIGUAaBaAKgAgIIBMwAcAXAUwCcQBfIA).
+
+1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
+
+   Be sure to use port 443. 
+
+1. On the VMware HCX Dashboard, select **Site Pairing**.
+    
+   :::image type="content" source="media/rotate-cloudadmin-credentials/hcx-site-pairing.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
+ 
+1. Select the correct connection to Azure VMware Solution and select **Edit Connection**.
+ 
+1. Provide the new vCenter Server CloudAdmin user credentials and select **Edit**, which saves the credentials. 
 
 
 ## Next steps
