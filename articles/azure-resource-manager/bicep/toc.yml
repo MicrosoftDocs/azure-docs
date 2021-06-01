@@ -94,9 +94,9 @@
         href: key-vault-parameter.md
     - name: CI/CD
       items:
-      - name: ARM templates with pipelines
+      - name: Bicep with pipelines
         href: add-template-to-azure-pipelines.md
-      - name: Deploy - GitHub Actions
+      - name: Bicep with GitHub Actions
         href: deploy-github-actions.md
   - name: Decompile Bicep
     items:
