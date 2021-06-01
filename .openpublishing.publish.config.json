@@ -382,6 +382,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-python",
+      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
