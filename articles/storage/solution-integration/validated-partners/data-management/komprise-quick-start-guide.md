@@ -14,17 +14,7 @@ ms.subservice: partner
 
 This article helps you integrate the Komprise Intelligent Data Manager infrastructure with Azure storage services. It includes considerations and implementation guidance on how to analyze, and migrate your data.
 
-File migrations are risky, time-consuming, and labor intensive. With Komprise, customers can quickly identify and move the right data to their Azure Storage services.
-
-Komprise provides analytics and insights into NFS and SMB storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
-
-Within 15 minutes of deploying Komprise, customers can: 
-
-- Understand data growth and usage across their storage infrastructure,
-- Find the right data across multi-vendor NAS solutions to migrate to Azure,
-- Set policies and processes to migrate data as needed.
-
-Komprise is simple to deploy, operate, and scale.
+Komprise provides analytics and insights into network attached storage systems. It enables migration of data to Azure storage services like Azure Files, Azure NetApp Files, Azure Blob Storage, or ISV NAS solution. Learn more on [verified partner solutions for primary and secondary storage](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview).
 
 ## Potential use cases
 
@@ -45,14 +35,6 @@ Komprise is a software solution that is easily deployed in a virtual environment
 - **Director** - The administration console for the Komprise Grid. It is used to configure the environment, monitor activities, view reports and graphs, and set policies.
 - **Observers** - Manage and analyze shares, summarize reports, communicates with the Director and handle NFS data traffic.
 - **Proxies** - Simplify and accelerate SMB/CIFS data flow, easily scale to meet performance requirements of a growing environment.
-
-### Data Flow
-
-Running a migration with the Komprise system is simple and it is easy to set up multiple migrations for different shares simultaneously:
-
-1.	Analyze data to determine what to migrate or archive,
-1.	Define policies to migrate, move, or copy unstructured data to Azure Storage,
-1.	Activate policies to migrate, move, or copy data to Azure File, Azure NetApp Files, or Azure Blob Storage
 
 ## Before you begin
 
@@ -88,9 +70,39 @@ Use the following methods to identify the bandwidth headroom to Azure that is fr
   - [Cisco Network Assistant](https://www.cisco.com/c/en/us/products/cloud-systems-management/network-assistant/index.html)
   - [WhatsUp Gold](https://www.whatsupgold.com/network-traffic-monitoring)
 
+## Migration planning guide
+
+Komprise is simple to set up and run multiple migrations simultaneously in 3 steps:
+
+1.	Analyze data to identify files to migrate or archive,
+1.	Define policies to migrate, move, or copy unstructured data to Azure Storage,
+1.	Activate policies.
+
+First step is critical to find and prioritize the right data. Analysis will provide the information on data that you need to:
+
+- Cache on-premises or fully move the data to Azure determined by access time,
+- Archive your cold data to Azure Blob Storage.
+
+Information of the analysis is useful and can help with the migration significantly. For example:
+
+- Information on access time can identify:
+  - Files you need to cache on-premises or store on fast file service
+  - Files you can archive to blob storage
+- Information on top users, groups, or shares can determine the order of the migration and the most impacted group within the organization to assess business impact migration will have
+- Number of files, or capacity per file type can determine type of stored files and if there are any possibilities to clean up the content, reduce the migration effort, and reduce the cost of the target storage
+- Number of files, or capacity per file size can determine the duration of migration. Large number of small files will take longer to migrate than small number of large files even though it will consume the same capacity
+
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-1.png" alt-text="Analysis by file type and access time":::
+
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-shares.png" alt-text="Example of share analysis":::
+
+- Custom query capability filter data to your needs
+
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-custom.png" alt-text="Analysis for custom query":::
+
 ## Deployment guide
 
-Before deploying Komprise, target service has to be deployed. This example is using Azure NetApp Files, but any supported Azure Storage service or ISV NAS solution can be used. You can learn more here:
+Before deploying Komprise, target service has to be deployed. You can learn more here:
 
 - How to create [Azure File Share](/azure/storage/files/storage-how-to-create-file-share)
 - How to create an [SMB volume](/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) or [NFS export](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in Azure NetApp Files
@@ -120,18 +132,16 @@ Setting up Komprise solution is simple:
   
         :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-3.png" alt-text="Specify NAS solutions to discover":::
 
+    For example, you can specify an Azure Files share as a migration destination by providing storage account and shares details:
+
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-azure-files-1.png" alt-text="Select Azure Files as a target service":::
+
+    :::image type="content" source="./media/komprise-quick-start-guide/komprise-azure-files-2.png" alt-text="Enter details for Azure Files":::
+
+
 1. Select shares to migrate and **Proceed with selected**
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-4.png" alt-text="Specify shares to analyze":::
-
-1. Analyze shares and determine data migration plan. 
-   
-    :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-shares.png" alt-text="Example of share analysis":::
-
-    Information of the analysis is useful and can help with the migration significantly. For example:
-    - information on top users, groups, or shares can determine the order of the migration and the most impacted group within the organization to assess business impact migration will have
-    - number of files, or capacity per file type can determine type of stored files and if there are any possibilities to clean up the content, reduce the migration effort, and reduce the cost of the target storage
-    - number of files, or capacity per file size can determine the duration of migration. Large number of small files will take longer to migrate than small number of large files even though it will consume the same capacity
 
 ## Migration guide
 
