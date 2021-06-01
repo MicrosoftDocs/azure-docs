@@ -144,11 +144,11 @@ Location information also typically benefits from creating broader classificatio
 
 You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example, in a fictitious movie list personalization, is it possible that a weekend vs weekday elicits different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it is relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature. 
 
-#### Expand feature sets with artificial intelligence and cognitive services
+#### Expand feature sets with Artificial Intelligence and Cognitive Services
 
 Artificial Intelligence and ready-to-run Cognitive Services can be a very powerful addition to the Personalizer. 
 
-By preprocessing your items using artificial intelligence services, you can automatically extract information that is likely to be relevant for personalization.
+By preprocessing your items using Artificial Intelligence services, you can automatically extract information that is likely to be relevant for personalization.
 
 For example:
 
