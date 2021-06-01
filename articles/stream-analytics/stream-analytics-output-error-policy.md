@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/30/2021
 ms.custom: seodec18
 ---
 # Azure Stream Analytics output error policy

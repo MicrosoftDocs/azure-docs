@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Create an app registration
+title: Create an app registration (portal)
 titleSuffix: Azure Digital Twins
-description: See how to create an Azure AD app registration, as an authentication option for client apps.
+description: See how to create an Azure AD app registration, as an authentication option for client apps, using the Azure portal.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 10/13/2020
@@ -15,13 +15,15 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create an app registration to use with Azure Digital Twins
+# Create an app registration to use with Azure Digital Twins (portal)
+
+[!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
 When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as the custom client app built in the [Tutorial: Code a client app](tutorial-code.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
-This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up.
+This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up using the [Azure portal](https://portal.azure.com).
 
-## Using Azure AD app registrations
+## Azure AD app registrations
 
 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's cloud-based identity and access management service. Setting up an **app registration** in Azure AD is one way to grant a client app access to Azure Digital Twins.
 

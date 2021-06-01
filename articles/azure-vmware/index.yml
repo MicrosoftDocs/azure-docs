@@ -122,11 +122,11 @@ landingContent:
             url: reserved-instance.md
       - linkListType: how-to-guide
         links:
-          - text: Configure and manage DHCP
+          - text: Configure DHCP 
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched VMware HCX networks
             url: configure-l2-stretched-vmware-hcx-networks.md
-          - text: Configure NSX network components
+          - text: Configure NSX components using Azure 
             url: configure-nsx-network-components-azure-portal.md
           - text: Configure GitHub Enterprise Server
             url: github-enterprise-server.md
@@ -220,8 +220,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Move EA and CSP subscriptions
-            url: move-ea-csp-subscriptions.md 
+        - text: Move Azure VMware Solution subscriptions
+          url: move-ea-csp-subscriptions.md
+        - text: Move Azure VMware Solution across regions
+          url: move-azure-vmware-solution-across-regions.md
 
 
 
