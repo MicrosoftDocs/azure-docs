@@ -156,6 +156,6 @@ After waiting, check your data source to see if new users are being provisioned.
 
 ## Next Steps
 
-- [Azure AD ECMA Connector Host prerequisites](on-premies-ecma-prerequisites.md)
+- [Azure AD ECMA Connector Host prerequisites](on-premsies-ecma-prerequisites.md)
 - [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
 - [Generic SQL Connector](on-premises-sql-connector-configure.md)
