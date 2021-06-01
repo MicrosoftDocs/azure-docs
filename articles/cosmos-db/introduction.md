@@ -1,179 +1,84 @@
 ---
-title: Introduction to Azure Cosmos DB | Microsoft Docs
-description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, and high availability.
-services: cosmosdb
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
-
-ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
-ms.service: cosmosdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/10/2017
-ms.author: mimig
+title: Introduction to Azure Cosmos DB
+description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
+author: markjbrown
+ms.author: mjbrown
+ms.service: cosmos-db
+ms.topic: overview
+ms.date: 05/07/2021
 
 ---
 
 # Welcome to Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs), something no other database service can offer.
+Today's applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. Applications need to respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds.
 
-![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
+Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and automatic and instant scalability, guarantee speed at any scale. Business continuity is assured with [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) availability and enterprise-grade security. App development is faster and more productive thanks to turnkey multi region data distribution anywhere in the world, open source APIs and SDKs for popular languages. As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
-Azure Cosmos DB contains a write optimized, resource governed, schema-agnostic database engine that natively supports multiple data models: key-value, documents, graphs, and columnar. It also supports many APIs for accessing data including [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [DocumentDB SQL](../documentdb/documentdb-introduction.md), [Gremlin](graph-introduction.md) (preview), and [Azure Tables](table-introduction.md) (preview), in an extensible manner. 
+> [!NOTE]
+> Would you like to help improve Azure Cosmos DB docs by participating in a user study? Please take a few minutes to fill out this 5 minute [screening survey](https://aka.ms/cosmosdb-documentation-screener-survey). If you qualify, you are redirected to a scheduler where you can book a slot to join an interactive research session. No personal data is collected during this process as per our [privacy statement](https://go.microsoft.com/fwlink/?LinkId=521839).
 
-Azure Cosmos DB started in late 2010 to address developer pain-points that are faced by large scale applications inside Microsoft. Since building globally distributed applications is not a problem unique to just to Microsoft, we made the service available externally to all Azure Developers in the form of Azure DocumentDB. Azure Cosmos DB is the next big leap in the evolution of DocumentDB and we are now making it available for you to use. As a part of this release of Azure Cosmos DB, DocumentDB customers (with their data) are automatically Azure Cosmos DB customers. The transition is seamless and they now have access to a broader range of new capabilities offered by Azure Cosmos DB. 
+You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](free-tier.md) to get an account with the first 1000 RU/s and 25 GB of storage free.
 
-## Capability comparison
+> [!div class="nextstepaction"]
+> [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/)
 
-Azure Cosmos DB provides the best capabilities of relational and non-relational databases.
+:::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB is a fully managed NoSQL database for modern app development." border="false":::
 
-| Capabilities | Relational DBs	| Non-relational (NoSQL) DBs | 	Azure Cosmos DB |
-| --- | --- | --- | --- |
-| Global distribution | x | x | ✓ Turnkey, 30+ regions, multi-homing |
-| Horizontal scale | x | ✓ | ✓ Independently scale storage and throughput | 
-| Latency guarantees | x | ✓ | ✓ <10 ms for reads, <15 ms for writes at p99 | 
-| High availability | x | ✓ | ✓ Always on, PACELC tradeoffs, automatic & manual failover |
-| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API (more coming soon) |
-| SLAs | ✓ | x | ✓ Comprehensive SLAs for latency, throughput, consistency, availability |
+## Key Benefits
 
-## Key capabilities
-As a globally distributed database service, Azure Cosmos DB provides the following capabilities to help you build scalable, globally distributed, highly responsive applications:
+### Guaranteed speed at any scale
 
-* [**Turnkey global distribution**](#global-distribution)
-    * Your application is instantly available to your users, everywhere. Now your data can be too.
-    * Don't worry about hardware, adding nodes, VMs or cores. Just point and click, and your data is there. 
+Gain unparalleled [SLA-backed](https://azure.microsoft.com/support/legal/sla/cosmos-db) speed and throughput, fast global access, and instant elasticity.
 
-* [**Multiple data models and popular APIs for accessing and querying data**](#data-models)
-    * Support for multiple data models including key-value, document, graph, and columnar.
-    * Extensible APIs for Node.js, Java, .NET, .NET Core, Python, and MongoDB.
-    * SQL and Gremlin for queries. 
+- Real-time access with fast read and write latencies globally, and throughput and consistency all backed by [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db)
+- Multi-region writes and data distribution to any Azure region with the click of a button.
+- Independently and elastically scale storage and throughput across any Azure region – even during unpredictable traffic bursts – for unlimited scale worldwide.
 
-* [**Elastically scale throughput and storage on demand, worldwide**](#horizontal-scale)
-    * Easily scale throughput at [second](../documentdb/documentdb-request-units.md) and [minute](https://aka.ms/acdbrupm) granularities, and change it anytime you want. 
-    * Scale storage [transparently and automatically](partition-data.md) to cover your size requirements now and forever.
+### Simplified application development
 
-* [**Build highly responsive and mission-critical applications**](#low-latency) 
-    * Get access to your data with single digit millisecond latencies at the 99th percentile, anywhere in the world. 
+Build fast with open source APIs, multiple SDKs, schemaless data and no-ETL analytics over operational data.
 
-* [**Ensure "always on" availability**](#high-availability)
-    * 99.99% availability within a single region.
-    * Deploy to any number of [Azure regions](https://azure.microsoft.com/regions) for higher availability.
-    * [Simulate a failure](../documentdb/documentdb-regional-failovers.md) of one or more regions with zero-data loss guarantees. 
+- Deeply integrated with key Azure services used in modern (cloud-native) app development including Azure Functions, IoT Hub, AKS (Azure Kubernetes Service), App Service, and more.
+- Choose from multiple database APIs including the native Core (SQL) API, API for MongoDB, Cassandra API, Gremlin API, and Table API.
+- Build apps on Core (SQL) API using the languages of your choice with SDKs for .NET, Java, Node.js and Python. Or your choice of drivers for any of the other database APIs.
+- Run no-ETL analytics over the near-real time operational data stored in Azure Cosmos DB with Azure Synapse Analytics.
+- Change feed makes it easy to track and manage changes to database containers and create triggered events with Azure Functions.
+- Azure Cosmos DB’s schema-less service automatically indexes all your data, regardless of the data model, to deliver blazing fast queries.
 
-* [**Write globally distributed applications, the right way**](#consistency)
-    * [Five consistency models](../documentdb/documentdb-consistency-levels.md) models offer strong SQL-like consistency to NoSQL-like eventual consistency, and every thing in between. 
-  
-* [**Money back guarantees**](#sla) 
-    * Your data gets there fast, or your money back. 
-    * [Service level agreements](https://aka.ms/acdbsla) for availability, latency, throughput, and consistency. 
+### Mission-critical ready
 
-* [**No database schema/index management**](#schema-free)
-    * Stop worrying about keeping your database schema and indexes in-sync with your application’s schema. We're schema-free. 
+Guarantee business continuity, 99.999% availability, and enterprise-level security for every application.
 
-* [**Low cost of ownership**](#tco)
-    * Five to ten times [more cost effective](https://aka.ms/documentdb-tco-paper) than a non-managed solution.
-    * Three times cheaper than DynamoDB.
+- Azure Cosmos DB offers a comprehensive suite of [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db) including industry-leading availability worldwide.
+- Easily distribute data to any Azure region with automatic data replication. Enjoy zero downtime with multi-region writes or RPO 0 when using Strong consistency.
+- Enjoy enterprise-grade encryption-at-rest with self-managed keys.
+- Azure role-based access control keeps your data safe and offers fine-tuned control.
 
-<a id="global-distribution"></a>
+### Fully managed and cost-effective
 
-## Global distribution
-Azure Cosmos DB containers are distributed along two dimensions: 
+End-to-end database management, with serverless and automatic scaling matching your application and TCO needs
 
-1. Within a given region, all resources are horizontally partitioned using resource partitions (local distribution). 
-2. Each resource partition is also replicated across geographical regions (global distribution). 
+- Fully-managed database service. Automatic, no touch, maintenance, patching, and updates, saving developers time and money.
+- Cost-effective options for unpredictable or sporadic workloads of any size or scale, enabling developers to get started easily without having to plan or manage capacity.
+- Serverless model offers spiky workloads automatic and responsive service to manage traffic bursts on demand.
+- Autoscale provisioned throughput automatically and instantly scales capacity for unpredictable workloads, while maintaining [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-![A diagram depicting the global distribution of Azure Cosmos DB](./media/introduction/azure-cosmos-db-global-distribution.png) 
+## Solutions that benefit from Azure Cosmos DB
 
-When your storage and throughput needs to be scaled, Cosmos DB transparently performs partition management operations across all the regions. Independent of the scale, distribution, or failures, Cosmos DB continues to provide a single system image of the globally distributed resources. 
-
-Global distribution of resources in Cosmos DB is [turn-key](../documentdb/documentdb-distribute-data-globally.md). At any time with a few button clicks (or programmatically with a single API call), you can associate any number of geographical regions with your database account. 
-
-Regardless of the amount of data or the number of regions, Cosmos DB guarantees each newly associated region to start processing client requests under an hour at the 99th percentile. This is done by parallelizing the seeding and copying data from all the source resource partitions to the newly associated region. Customers can also remove an existing region or take a region that was previously associated with their database account offline.
-
-<a id="data-models"></a>
-## Multi-model, multi-API support
- Azure Cosmos DB natively supports multiple data models including documents, key-value, graph, and column-family. The core content-model of Cosmos DB’s database engine is based on atom-record-sequence (ARS). Atoms consist of a small set of primitive types like string, bool, and number. Records are structs composed of these types. Sequences are arrays consisting of atoms, records, or sequences. 
-
-![Multi-model and multi-API Azure Cosmos DB](./media/introduction/azure-cosmos-db-multimodel.png) 
- 
- The database engine can efficiently translate and project different data models onto the ARS-based data model. The core data model of Cosmos DB is natively accessible from dynamically typed programming languages and can be exposed as-is as JSON. 
- 
- The service also supports popular database APIs for data access and querying. Cosmos DB’s database engine currently supports [DocumentDB SQL](../documentdb/documentdb-introduction.md), [MongoDB](../documentdb/documentdb-protocol-mongodb.md), [Azure Tables](table-introduction.md) (preview), and [Gremlin](graph-introduction.md) (preview). You can continue to build applications using popular OSS APIs and get all the benefits of a battle-tested and fully managed, globally distributed database service. 
-
-<a id="horizontal-scale"></a>
-## Horizontal scaling of storage and throughput
-All the data within a Cosmos DB container (for example, a document collection, table, or graph) is horizontally partitioned and transparently managed by resource partitions. A resource partition is a consistent and highly available container of data partitioned by a [customer specified partition-key](partition-data.md). It provides a single system image for a set of resources it manages and is a fundamental unit of scalability and distribution. Cosmos DB is designed to let you elastically scale throughput based on the application traffic patterns across different geographical regions to support fluctuating workloads varying both by geography and time. The service manages the partitions transparently without compromising the availability, consistency, latency, or throughput of a Cosmos DB container.  
- 
-![Azure Cosmos DB is horizontally scalable](./media/introduction/azure-cosmos-db-partitioning.png) 
-
-You can elastically scale throughput of an Azure Cosmos DB container by programmatically provisioning throughput using [request units per second (RU/s)](../documentdb/documentdb-request-units.md). Internally, the service transparently manages resource partitions to deliver the throughput on a given container. Cosmos DB ensures that the throughput is available for use across all the regions associated with the container. The new throughput is effective within five seconds of the change in the configured throughput value. 
-
-You can provision throughput on a Cosmos DB container at both, per-second and at [per-minute (RU/m)](request-units-per-minute.md) granularities. The provisioned throughput at per-minute granularity is used to manage unexpected spikes in the workload occurring at a per-second granularity. 
-
-<a id="low-latency"></a>
-## Low latency guarantees at the 99th percentile
-As part of its SLAs, Cosmos DB guarantees end-to-end low latency at the 99th percentile to its customers. For a typical 1-KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 15 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).  With an upper bound of request processing on every database transaction, Cosmos DB allows clients to clearly distinguish between transactions with high latency vs. a database being unavailable.
-
-<a id="high-availability"></a>
-## Transparent multi-homing and 99.99% high availability
-You can dynamically associate "priorities" to the regions associated with your Azure Cosmos DB database account. Priorities are used to direct the requests to specific regions in the event of regional failures. In an unlikely event of a regional disaster, Cosmos DB automatically failovers in the order of priority.
-
-To test the end-to-end availability of the application, you can [manually trigger failover](../documentdb/documentdb-regional-failovers.md) (rate limited to two operations within an hour). Cosmos DB guarantees zero data loss during manual regional failovers. In case a regional disaster occurs, Cosmos DB guarantees an upper-bound on data loss during the system-initiated automatic failover. You do not have to redeploy your application after a regional failover, and availability SLAs are maintained by Azure Cosmos DB. 
-
-For this scenario, Cosmos DB allows you to interact with resources using either logical (region-agnostic) or physical (region-specific) endpoints. The former ensures that the application can transparently be multi-homed in case of failover. The latter provides fine-grained control to the application to redirect reads and writes to specific regions. Cosmos DB guarantees 99.99% availability SLA for every database account. The availability guarantees are agnostic of the scale (provisioned throughput and storage), number of regions, or geographical distance between regions associated with a given database. 
-
-<a id="consistency"></a>
-## Multiple, well-defined consistency models
-Commercial distributed databases fall into two categories: databases that do not offer well-defined, provable consistency choices at all, and databases which offer two extreme programmability choices (strong vs. eventual consistency). The former burdens application developers with minutia of their replication protocols and expects them to make difficult tradeoffs between consistency, availability, latency, and throughput. The latter puts a pressure to choose one of the two extremes. Despite the abundance of research and proposals for more than 50 consistency models, the distributed database community has not been able to commercialize consistency levels beyond strong and eventual consistency. 
-
-Cosmos DB allows you to choose between [five well-defined consistency models](../documentdb/documentdb-consistency-levels.md) along the consistency spectrum – strong, bounded staleness, [session](http://dl.acm.org/citation.cfm?id=383631), consistent prefix, and eventual. 
-
-![Azure Cosmos DB offers multiple, well defined (relaxed) consistency models to choose from](media/introduction/azure-cosmos-db-consistency-levels.png)
-
-The following table illustrates the specific guarantees each consistency level provides.
- 
-**Consistency Levels and guarantees**
-
-| Consistency Level	| Guarantees |
-| --- | --- |
-| Strong | Linearizability |
-| Bounded Staleness	| Consistent Prefix. Reads lag behind writes by k prefixes or t interval |
-| Session	| Consistent Prefix. Monotonic reads, monotonic writes, read-your-writes, write-follows-reads |
-| Consistent Prefix	| Updates returned are some prefix of all the updates, with no gaps |
-| Eventual	| Out of order reads |
-
-You can configure the default consistency level on your Cosmos DB account (and later override the consistency on a specific read request). Internally, the default consistency level applies to data within the partition sets which may be span regions. 
-
-
-<a id="sla"></a>
-## Guaranteed service level agreements
-
-Cosmos DB is the first managed database service to offer 99.99% [SLA guarantees](https://aka.ms/acdbsla) for availability, throughput, low latency, and consistency.
-* Availability: 99.99% uptime availability SLA for each of the data and control plane operations.
-* Throughput: 99.99% of requests complete successfully 
-* Latency: 99.99% of <10 ms latencies at the 99th percentile
-* Consistency: 100% of read requests will meet the consistency guarantee for the consistency level requested by you.
-
-
-<a id="schema-free"></a>
-## Schema-free
-
-Both relational and NoSQL databases force you to deal with schema & index management, versioning and migration – all of this is extremely challenging in a globally distributed setup. But don’t worry -- Cosmos DB makes this problem go away! With Cosmos DB, you do not have to manage schemas and indexes, deal with schema versioning or worry about application downtime while migrating schemas. Cosmos DB’s database engine is fully schema-agnostic – it automatically indexes all the data it ingests without requiring any schema or indexes and serves blazing fast queries. 
-
-<a id="tco"></a>
-## Low cost of ownership
-
- When all total cost of ownership (TCO) considerations taken into account, managed cloud services like Azure Cosmos DB can be five to ten times more cost effective than their OSS counter-parts running on-premises or virtual machines. And Azure Cosmos DB is up to two to three times cheaper than DynamoDB for high volume workloads. Learn more in the [TCO whitepaper](https://aka.ms/documentdb-tco-paper). 
+Any [web, mobile, gaming, and IoT application](use-cases.md) that needs to handle massive amounts of data, reads, and writes at a [global scale](distribute-data-globally.md) with near-real response times for a variety of data will benefit from Cosmos DB's [guaranteed high availability](https://azure.microsoft.com/support/legal/sla/cosmos-db/), high throughput, low latency, and tunable consistency. Learn about how Azure Cosmos DB can be used to build [IoT and telematics](use-cases.md#iot-and-telematics), [retail and marketing](use-cases.md#retail-and-marketing), [gaming](use-cases.md#gaming) and [web and mobile applications](use-cases.md#web-and-mobile-applications).
 
 ## Next steps
+
 Get started with Azure Cosmos DB with one of our quickstarts:
 
-* [Get started with Azure Cosmos DB's DocumentDB API](create-documentdb-dotnet.md)
-* [Get started with Azure Cosmos DB's MongoDB API](create-mongodb-nodejs.md)
-* [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md)
-* [Get started with Azure Cosmos DB's Table API](create-table-dotnet.md)
+- [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
+- [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
+- [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
+- [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
+- [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
+- [A whitepaper on next-gen app development with Azure Cosmos DB](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
+
+> [!div class="nextstepaction"]
+> [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)

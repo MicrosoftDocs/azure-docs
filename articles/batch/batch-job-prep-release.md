@@ -1,21 +1,9 @@
 ---
-title: Create tasks to prepare jobs and complete jobs on compute nodes - Azure Batch | Microsoft Docs
+title: Create tasks to prepare & complete jobs on compute nodes
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
-services: batch
-documentationcenter: .net
-author: tamram
-manager: timlt
-editor: ''
-
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: big-compute
-ms.date: 02/27/2017
-ms.author: tamram
-ms.custom: H1Hack27Feb2017
+ms.topic: how-to
+ms.date: 02/17/2020
+ms.custom: "seodec18, devx-track-csharp"
 
 ---
 # Run job preparation and job release tasks on Batch compute nodes
@@ -51,24 +39,29 @@ You might want to keep a copy of log files that your tasks generate, or perhaps 
 
 > [!TIP]
 > Another way to persist logs and other job and task output data is to use the [Azure Batch File Conventions](batch-task-output.md) library.
-> 
-> 
+>
+>
 
 ## Job preparation task
-Before execution of a job's tasks, Batch executes the job preparation task on each compute node that is scheduled to run a task. By default, the Batch service waits for the job preparation task to be completed before running the tasks scheduled to execute on the node. However, you can configure the service not to wait. If the node restarts, the job preparation task runs again, but you can also disable this behavior.
+
+
+Before execution of a job's tasks, Batch executes the job preparation task on each compute node scheduled to run a task. By default, Batch waits for the job preparation task to complete before running the tasks scheduled to execute on the node. However, you can configure the service not to wait. If the node restarts, the job preparation task runs again. You can also disable this behavior. If you have a job with a job preparation task and a job manager task configured, the job preparation task runs before the job manager task, just as it does for all other tasks. The job preparation task always runs first.
 
 The job preparation task is executed only on nodes that are scheduled to run a task. This prevents the unnecessary execution of a preparation task in case a node is not assigned a task. This can occur when the number of tasks for a job is less than the number of nodes in a pool. It also applies when [concurrent task execution](batch-parallel-node-tasks.md) is enabled, which leaves some nodes idle if the task count is lower than the total possible concurrent tasks. By not running the job preparation task on idle nodes, you can spend less money on data transfer charges.
 
 > [!NOTE]
 > [JobPreparationTask][net_job_prep_cloudjob] differs from [CloudPool.StartTask][pool_starttask] in that JobPreparationTask executes at the start of each job, whereas StartTask executes only when a compute node first joins a pool or restarts.
-> 
-> 
+>
 
-## Job release task
+
+>## Job release task
+
 Once a job is marked as completed, the job release task is executed on each node in the pool that executed at least one task. You mark a job as completed by issuing a terminate request. The Batch service then sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
 
 > [!NOTE]
 > Job deletion also executes the job release task. However, if a job has already been terminated, the release task is not run a second time if the job is later deleted.
+
+Jobs release tasks can run for a maximum of 15 minutes before being terminated by the Batch service. For more information, see the [REST API reference documentation](/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 
@@ -96,7 +89,7 @@ myJob.JobPreparationTask =
 
 // Assign the job release task to the job
 myJob.JobReleaseTask =
-    new JobPreparationTask { CommandLine = jobReleaseCmdLine };
+    new JobReleaseTask { CommandLine = jobReleaseCmdLine };
 
 await myJob.CommitAsync();
 ```
@@ -108,13 +101,13 @@ As mentioned earlier, the release task is executed when a job is terminated or d
 // Job Release Task on any node that executed job tasks. Note that the
 // Job Release Task is also executed when a job is deleted, thus you
 // need not call Terminate if you typically delete jobs after task completion.
-await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
+await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## Code sample on GitHub
 To see job preparation and release tasks in action, check out the [JobPrepRelease][job_prep_release_sample] sample project on GitHub. This console application does the following:
 
-1. Creates a pool with two "small" nodes.
+1. Creates a pool with two nodes.
 2. Creates a job with job preparation, release, and standard tasks.
 3. Runs the job preparation task, which first writes the node ID to a text file in a node's "shared" directory.
 4. Runs a task on each node that writes its task ID to the same text file.
@@ -127,7 +120,7 @@ Output from the sample application is similar to the following:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-Created pool JobPrepReleaseSamplePool with 2 small nodes
+Created pool JobPrepReleaseSamplePool with 2 nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...
@@ -191,33 +184,33 @@ This MSDN forum post provides an overview of several methods of preparing your n
 
 Written by one of the Azure Batch team members, it discusses several techniques that you can use to deploy applications and data to compute nodes.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
-[api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_net]: /dotnet/api/microsoft.azure.batch
+[api_net_listjobs]: /dotnet/api/microsoft.azure.batch.joboperations
+[api_rest]: /rest/api/batchservice/
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
-[net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_batch_client]: /dotnet/api/microsoft.azure.batch.batchclient
 [net_cloudjob]:https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_job_prep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
-[net_job_prep_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
-[net_job_prep_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.resourcefiles.aspx
-[net_job_delete]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.deletejobasync.aspx
-[net_job_terminate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.terminatejobasync.aspx
-[net_job_release]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobreleasetask.aspx
-[net_job_release_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobreleasetask.aspx
-[pool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
+[net_job_prep]: /dotnet/api/microsoft.azure.batch.jobpreparationtask
+[net_job_prep_cloudjob]: /dotnet/api/microsoft.azure.batch.cloudjob
+[net_job_prep_resourcefiles]: /dotnet/api/microsoft.azure.batch.jobpreparationtask
+[net_job_delete]: /previous-versions/azure/mt281411(v=azure.100)
+[net_job_terminate]: /previous-versions/azure/mt188985(v=azure.100)
+[net_job_release]: /dotnet/api/microsoft.azure.batch.jobreleasetask
+[net_job_release_cloudjob]: /dotnet/api/microsoft.azure.batch.cloudjob
+[pool_starttask]: /dotnet/api/microsoft.azure.batch.cloudpool
 
-[net_list_certs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.certificateoperations.listcertificates.aspx
-[net_list_compute_nodes]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listcomputenodes.aspx
-[net_list_job_schedules]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobscheduleoperations.listjobschedules.aspx
-[net_list_jobprep_status]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobpreparationandreleasetaskstatus.aspx
-[net_list_jobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[net_list_nodefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listnodefiles.aspx
-[net_list_pools]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.listpools.aspx
-[net_list_schedule_jobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobscheduleoperations.listjobs.aspx
-[net_list_task_files]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
-[net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
+[net_list_certs]: /dotnet/api/microsoft.azure.batch.certificateoperations
+[net_list_compute_nodes]: /dotnet/api/microsoft.azure.batch.pooloperations
+[net_list_job_schedules]: /dotnet/api/microsoft.azure.batch.jobscheduleoperations
+[net_list_jobprep_status]: /dotnet/api/microsoft.azure.batch.joboperations
+[net_list_jobs]: /dotnet/api/microsoft.azure.batch.joboperations
+[net_list_nodefiles]: /dotnet/api/microsoft.azure.batch.joboperations
+[net_list_pools]: /dotnet/api/microsoft.azure.batch.pooloperations
+[net_list_schedule_jobs]: /dotnet/api/microsoft.azure.batch.jobscheduleoperations
+[net_list_task_files]: /dotnet/api/microsoft.azure.batch.cloudtask
+[net_list_tasks]: /dotnet/api/microsoft.azure.batch.joboperations
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png

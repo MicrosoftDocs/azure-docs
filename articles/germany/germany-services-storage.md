@@ -1,25 +1,20 @@
 ---
 title: Azure Germany storage services | Microsoft Docs
-description: Provides a comparison of storage services for Azure Germany
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
+description: This topic provides a comparison of storage services for Azure Germany. You will also find other relevant information.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
 # Azure Germany storage services
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 ## Storage
-For details on Azure Storage and how to use it, see the [Storage global documentation](../storage/index.md).
+For details on Azure Storage and how to use it, see the [Storage global documentation](../storage/index.yml).
 
 Data stored in Azure Storage is replicated to ensure high availability. For geo-redundant storage and read-access geo-redundant storage, Azure replicates data between *pairing regions*. For Azure Germany, these pairing regions are:
 
@@ -35,14 +30,13 @@ Storage Service Encryption safeguards data at rest within Azure storage accounts
 ### Storage service availability by Azure Germany region
 
 | Service | Germany Central | Germany Northeast |
-| --- | --- | --- | --- |
-| [Blob storage](../storage/storage-introduction.md#blob-storage) |GA |GA |
-| [Table storage](../storage/storage-introduction.md#table-storage) |GA  |GA |
-| [Queue storage](../storage/storage-introduction.md#queue-storage) |GA | GA |
-| [File storage](../storage/storage-introduction.md#file-storage) |GA |GA |
-| [Hot/cool blob storage](../storage/storage-blob-storage-tiers.md) |GA |GA |
-| [Storage Service Encryption](../storage/storage-service-encryption.md) |GA |GA |
-| [Premium Storage](../storage/storage-premium-storage.md) |GA |GA |
+| --- | --- | --- |
+| [Blob storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |
+| [Azure Files](../storage/common/storage-introduction.md#azure-files) | GA | GA |
+| [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
+| [Queue storage](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
+| [Hot/cool blob storage](../storage/blobs/storage-blob-storage-tiers.md) |GA |GA |
+| [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
 | Import/Export |NA |NA |
 | StorSimple |NA |NA |
 
@@ -52,25 +46,25 @@ The URLs for storage accounts in Azure Germany are different from those in globa
 | Service type | Global Azure | Azure Germany |
 | --- | --- | --- |
 | Blob storage | *.blob.core.windows.net | *.blob.core.cloudapi.de |
+| Azure Files | *.file.core.windows.net | *.file.core.cloudapi.de | 
 | Queue storage | *.queue.core.windows.net | *.queue.core.cloudapi.de |
 | Table storage | *.table.core.windows.net | *.table.core.cloudapi.de |
-| File storage | *.file.core.windows.net | *.file.core.cloudapi.de | 
 
 > [!NOTE]
-> All your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/storage-configure-connection-string.md). 
+> All your scripts and code need to account for the appropriate endpoints. For more information, see [Configure Azure Storage connection strings](../storage/common/storage-configure-connection-string.md). 
 >
 >
 
-For more information on APIs, see [Cloud Storage Account Constructor](https://msdn.microsoft.com/library/azure/mt616540.aspx).
+For more information on APIs, see [Cloud Storage Account Constructor](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.-ctor).
 
 The endpoint suffix to use in these overloads is *core.cloudapi.de*.
 
 > [!NOTE]
-> If error 53 ("The network path was not found") is returned while you're [mounting the file share](../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share), a firewall might be blocking the outbound port. Try mounting the file share on a virtual machine that's in the same Azure subscription as storage account.
+> If error 53 ("The network path was not found") is returned while you're [mounting the file share](../storage/files/storage-dotnet-how-to-use-files.md), a firewall might be blocking the outbound port. Try mounting the file share on a virtual machine that's in the same Azure subscription as storage account.
 >
 >
 
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

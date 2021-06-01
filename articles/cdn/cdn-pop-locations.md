@@ -1,45 +1,58 @@
 ---
-title: Azure CDN POP Locations | Microsoft Docs
-description: This topic lists Azure CDN point-of-presence Locations.
+title: Azure CDN POP locations by region | Microsoft Docs
+description: This article lists Azure CDN POP locations, sorted by region, for Azure CDN products.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
-editor: ''
+author: sohamnchatterjee
+manager: danielgi
+editor: sohamnchatterjee
 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: mazha
+ms.date: 05/18/2021
+ms.author: allensu
+ms.custom: references_regions
 
 ---
-# Azure CDN POP Locations
-This topic lists current POP locations for **Azure CDN from Verizon** and **Azure CDN from Akamai**.
+# Azure CDN Coverage by Metro 
+> [!div class="op_single_selector"]
+> * [POP locations by region](cdn-pop-locations.md)
+> * [Verizon POP locations by abbreviation](cdn-pop-abbreviations.md)
+> * [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
+>
+
+
+This article lists current metros containing point-of-presence (POP) locations, sorted by region, for Azure Content Delivery Network (CDN) products. Each metro may contain more than one POP. For example, Azure CDN from Microsoft has 116 POPs across 100 metro cities. 
 
 > [!IMPORTANT]
-> \***Azure CDN from Akamai** POP locations are not individually disclosed.  
+> Each Azure CDN product has a distinct way of building its CDN infrastructures, hence Microsoft recommends against using POP locations to decide which Azure CDN product to use. Instead, you should consider its features and end-user performance. Test the performance with each Azure CDN product to choose the right product for your users. 
 > 
-> Both providers have distinct ways of building their CDN infrastructures.  We recommend against using POP locations to decide which Azure CDN product to use, and instead consider features and end-user performance.  Test the performance with both providers to choose the right Azure CDN product for your users. 
-> 
+
+## Microsoft
+
+[!INCLUDE [front-door-edge-location](../../includes/front-door-edge-locations.md)]
+
+## Partners
+
+> [!IMPORTANT]
+> POP city locations for **Azure CDN from Akamai** are not individually disclosed.  
 > 
 
 | Region | Verizon | Akamai |
-| --- | --- | --- |
-| North America |Atlanta, GA<br />Philadelphia, PA<br />New York, NY<br />Miami, FL<br />Washington DC<br />Boston, MA<br />Denver, CO<br />Chicago, IL<br />Dallas, TX<br />Los Angeles, CA<br />San Jose, CA<br />Seattle, WA |**&#x2713;**\* |
-| South America |São Paulo, Brazil<br />Rio de Janeiro, Brazil<br />Quito, Ecuador<br />Barranquilla, Colombia<br />Medellin, Colombia<br/>Buenos Aires, Argentina |**&#x2713;**\* |
-| North and East Europe |Copenhagen, Denmark<br />Helsinki, Finland<br />London, UK<br />Stockholm, Sweden<br />Warsaw, Poland |**&#x2713;**\* |
-| West Europe |Amsterdam, Netherlands<br />Frankfurt, Germany<br />Paris, France<br />Vienna, Austria |**&#x2713;**\* |
-| South Europe |Madrid, Spain<br />Milan, Italy |**&#x2713;**\* |
-| East Asia |Tokyo, Japan<br />Osaka, Japan<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Hong Kong<br />Kaohsiung, Taiwan<br />Seoul, South Korea<br />Singapore |**&#x2713;**\* |
-| South and Central Asia |Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India |**&#x2713;**\* |
-| Middle East/West Asia |Muscat, Oman |**&#x2713;**\* |
-| Africa | |**&#x2713;**\* |
-| Australia and New Zealand |Melbourne, Australia<br />Sydney, Australia |**&#x2713;**\* |
+|--|--|--|
+| North America | Guadalajara, Mexico<br />Mexico City, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Dallas, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, NY, USA<br />Philadelphia, PA, USA<br />San Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA <br /> Ashburn, VA, USA <br /> Phoenix, AZ, USA | Canada<br />Mexico<br />USA |
+| South America | Buenos Aires, Argentina<br />Rio de Janeiro, Brazil<br />São Paulo, Brazil<br />Valparaíso, Chile<br />Bogota, Colombia<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brazil<br />Chile<br />Colombia<br />Ecuador<br />Peru<br />Uruguay |
+| Europe | Vienna, Austria<br />Copenhagen, Denmark<br />Helsinki, Finland<br />Marseille, France<br />Paris, France<br />Frankfurt, Germany<br />Milan, Italy<br />Riga, Latvia<br />Amsterdam, Netherlands<br />Warsaw, Poland<br />Madrid, Spain<br />Stockholm, Sweden<br />London, UK <br /> Manchester, UK | Austria<br />Bulgaria<br />Denmark<br />Finland<br />France<br />Germany<br />Greece<br />Ireland<br />Italy<br />Netherlands<br />Poland<br />Russia<br />Spain<br />Sweden<br />Switzerland<br />United Kingdom |
+| Africa | Johannesburg, South Africa <br/> Nairobi, Kenya | South Africa |
+| Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
+| India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
+| Asia | Hong Kong<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
+| Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
-## See Also
-* [Azure CDN Edge Nodes API to get latest IP addresses for whitelisting](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
+## Next steps
 
+* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/cdn/edgenodes).

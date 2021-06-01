@@ -1,25 +1,24 @@
 ---
-title: Introduction to resource troubleshooting in Azure Network Watcher | Microsoft Docs
+title: Introduction to resource troubleshooting
+titleSuffix: Azure Network Watcher
 description: This page provides an overview of the Network Watcher resource troubleshooting capabilities
 services: network-watcher
 documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
-
-ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: gwallace
+ms.date: 06/19/2017
+ms.author: damendo
 ---
 
 # Introduction to resource troubleshooting in Azure Network Watcher
 
-Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring these gateways and their Connections is critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot Virtual Network Gateways and Connections. This can be called by PowerShell, CLI, or REST API. When called, Network Watcher diagnoses the health of the virtual network gateway or connection and return the appropriate results. This request is a long running transaction, the results are returned once the diagnosis is complete.
+Virtual Network Gateways provide connectivity between on-premises resources and other virtual networks within Azure. Monitoring gateways and their connections are critical to ensuring communication is not broken. Network Watcher provides the capability to troubleshoot gateways and connections. The capability can be called through the portal, PowerShell, Azure CLI, or REST API. When called, Network Watcher diagnoses the health of the gateway, or connection, and returns the appropriate results. The request is a long running transaction. The results are returned once the diagnosis is complete.
+
+![Screenshot shows Network Watcher V P N Diagnostics.][2]
 
 ## Results
 
@@ -45,35 +44,52 @@ The following tables show the different fault types (id under results from the p
 
 | Fault Type | Reason | Log|
 |---|---|---|
-| NoFault | When no error is detected. |Yes|
-| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
-| PlannedMaintenance |  Gateway instance is under maintenance.  |No|
-| UserDrivenUpdate | When a user update is in progress. This could be a resize operation. | No |
-| VipUnResponsive | Cannot reach the primary instance of the Gateway. This happens when the health probe fails. | No |
+| NoFault | When no error is detected |Yes|
+| GatewayNotFound | Cannot find gateway or gateway is not provisioned |No|
+| PlannedMaintenance |  Gateway instance is under maintenance  |No|
+| UserDrivenUpdate | This fault occurs when a user update is in progress. The update could be a resize operation. | No |
+| VipUnResponsive | This fault occurs when the primary instance of the gateway can't be reached due to a health probe failure. | No |
 | PlatformInActive | There is an issue with the platform. | No|
 | ServiceNotRunning | The underlying service is not running. | No|
-| NoConnectionsFoundForGateway | No Connections exists on the gateway. This is only a warning.| No|
-| ConnectionsNotConnected | Connections are not connected. This is only a warning.| Yes|
-| GatewayCPUUsageExceeded | The current Gateway CPU usage is > 95%. | Yes |
+| NoConnectionsFoundForGateway | No connections exist on the gateway. This fault is only a warning.| No|
+| ConnectionsNotConnected | Connections are not connected. This fault is only a warning.| Yes|
+| GatewayCPUUsageExceeded | The current gateway CPU usage is > 95%. | Yes |
 
 ### Connection
 
 | Fault Type | Reason | Log|
 |---|---|---|
-| NoFault | When no error is detected. |Yes|
-| GatewayNotFound | Cannot find Gateway or Gateway is not provisioned. |No|
-| PlannedMaintenance | Gateway instance is under maintenance.  |No|
-| UserDrivenUpdate | When a user update is in progress. This could be a resize operation.  | No |
-| VipUnResponsive | Cannot reach the primary instance of the Gateway. It happens when the health probe fails. | No |
-| ConnectionEntityNotFound | Connection configuration is missing. | No |
-| ConnectionIsMarkedDisconnected | The Connection is marked "disconnected". |No|
-| ConnectionNotConfiguredOnGateway | The underlying service does not have the Connection configured. | Yes |
-| ConnectionMarkedStandy | The underlying service is marked as standby.| Yes|
-| Authentication | Preshared Key mismatch. | Yes|
+| NoFault | When no error is detected |Yes|
+| GatewayNotFound | Cannot find gateway or gateway is not provisioned |No|
+| PlannedMaintenance | Gateway instance is under maintenance  |No|
+| UserDrivenUpdate | This fault occurs when a user update is in progress. The update could be a resize operation.  | No |
+| VipUnResponsive | This fault occurs when the primary instance of the gateway can't be reached due to a health probe failure. | No |
+| ConnectionEntityNotFound | Connection configuration is missing | No |
+| ConnectionIsMarkedDisconnected | The connection is marked "disconnected" |No|
+| ConnectionNotConfiguredOnGateway | The underlying service does not have the connection configured. | Yes |
+| ConnectionMarkedStandby | The underlying service is marked as standby.| Yes|
+| Authentication | Preshared key mismatch | Yes|
 | PeerReachability | The peer gateway is not reachable. | Yes|
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|
 | WfpParse Error | An error occurred parsing the WFP log. |Yes|
 
+## Supported Gateway types
+
+The following table lists which gateways and connections are supported with Network Watcher troubleshooting:
+
+| Gateway or connection | Supported  |
+|---------|---------|
+|**Gateway types**   |         |
+|VPN      | Supported        |
+|ExpressRoute | Not Supported |
+|**VPN types** | |
+|Route Based | Supported|
+|Policy Based | Not Supported|
+|**Connection types**||
+|IPSec| Supported|
+|VNet2Vnet| Supported|
+|ExpressRoute| Not Supported|
+|VPNClient| Not Supported|
 
 ## Log files
 
@@ -84,7 +100,7 @@ The resource troubleshooting log files are stored in a storage account after res
 > [!NOTE]
 > In some cases, only a subset of the logs files is written to storage.
 
-For instructions on downloading files from azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/storage-dotnet-how-to-use-blobs.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](http://storageexplorer.com/)
+For instructions on downloading files from Azure storage accounts, refer to [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool that can be used is Storage Explorer. More information about Storage Explorer can be found here at the following link: [Storage Explorer](https://storageexplorer.com/)
 
 ### ConnectionStats.txt
 
@@ -128,7 +144,7 @@ Error: On-prem device sent invalid payload.
 
 The **Scrubbed-wfpdiag.txt** log file contains the wfp log. This log contains logging of packet drop and IKE/AuthIP failures.
 
-The following example shows the contents of the Scrubbed-wfpdiag.txt file. In this example, the shared key of a Connection was not correct as can be seen from the 3rd line from the bottom. The following example is just a snippet of the entire log, as the log can be lengthy depending on the issue.
+The following example shows the contents of the Scrubbed-wfpdiag.txt file. In this example, the shared key of a Connection was not correct as can be seen from the third line from the bottom. The following example is just a snippet of the entire log, as the log can be lengthy depending on the issue.
 
 ```
 ...
@@ -187,9 +203,15 @@ Elapsed Time            330 sec
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
 
+## Considerations 
+* Only one troubleshoot operation can be run at a time per subscription. To run another troubleshoot operation, wait for the previous one to complete. Triggering more operations while a previous one hasn't completed will cause subsequent operations to fail. 
+* CLI Bug: If you are using Azure CLI to run the command, the VPN Gateway and the Storage account need to be in same resource group. Customers with the resources in different resource groups can use PowerShell or the Azure portal instead.  
+
+
 ## Next steps
 
-Learn how to diagnose VPN Gateways and Connections with PowerShell by visiting [Gateway troubleshooting - PowerShell](network-watcher-troubleshoot-manage-powershell.md).
+To learn how to diagnose a problem with a gateway or gateway connection, see [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
+[2]: ./media/network-watcher-troubleshoot-overview/portal.png

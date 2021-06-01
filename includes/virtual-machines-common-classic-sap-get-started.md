@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 
 ## Planning and Implementation
 Title: SAP NetWeaver on Azure Virtual Machines – Planning and Implementation Guide
@@ -6,7 +13,7 @@ Summary: This is the paper to start with if you are thinking about running SAP N
 
 Updated: August 2015
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397963)
+[Download this guide now](https://go.microsoft.com/fwlink/?LinkId=397963)
 
 ## Deployment
 Title: SAP NetWeaver on Azure Virtual Machines – Deployment Guide
@@ -15,7 +22,7 @@ Summary: This document provides procedural guidance for deploying SAP NetWeaver 
 
 Updated: September 2015
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397964)
+[Download this guide now](https://go.microsoft.com/fwlink/?LinkId=397964)
 
 ## SAP DBMS on Azure
 Title: SAP DBMS in Azure Deployment Guide
@@ -24,14 +31,14 @@ Summary: This paper covers planning and implementation considerations for the DB
 
 Updated: December 2015
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397965)
+[Download this guide now](https://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## SAP NetWeaver on Azure
 Title: SAP NetWeaver - Building an Azure based Disaster Recovery Solution
 
-Summary:This document provides a step-by-step guidance for building an Azure based Disaster Recovery solution for SAP NetWeaver. The solution described assumes that the SAP landscape is running virtualized on-premise based on Hyper-V. In the first part of the document Azure Site Recovery (ASR) services are introduced in its components. The second part of the document describes specifics for SAP NetWeaver based landscapes. Possibilities of using ASR with SAP NetWeaver application instances and SAP Central Services are discussed and described. A focus of the second part is leveraging ASR for SAP Central Services which are protected with windows Server Failover Cluster configurations.
+Summary:This document provides a step-by-step guidance for building an Azure based Disaster Recovery solution for SAP NetWeaver. The solution described assumes that the SAP landscape is running virtualized on-premises based on Hyper-V. In the first part of the document Azure Site Recovery (ASR) services are introduced in its components. The second part of the document describes specifics for SAP NetWeaver based landscapes. Possibilities of using ASR with SAP NetWeaver application instances and SAP Central Services are discussed and described. A focus of the second part is leveraging ASR for SAP Central Services which are protected with windows Server Failover Cluster configurations.
 
 Updated: September 2015
 
-[Download this guide now](http://go.microsoft.com/fwlink/?LinkID=521971)
+[Download this guide now](https://go.microsoft.com/fwlink/?LinkID=521971)
 

@@ -1,29 +1,20 @@
 ---
 title: Connect to Azure Analysis Services with Power BI | Microsoft Docs
-description: Learn how to connect to an Azure Analysis Services server by using Power BI.
-services: analysis-services
-documentationcenter: ''
+description: Learn how to connect to an Azure Analysis Services server by using Power BI. Once connected, users can explore model data.
 author: minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/12/2017
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 5/25/2021
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Connect with Power BI
 
 Once you've created a server in Azure, and deployed a tabular model to it, users in your organization are ready to connect and begin exploring data. 
 
-> [!TIP]
-> Be sure to use the latest version of [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+> [!NOTE]
+> If publishing a Power BI Desktop model to the Power BI service, on the Azure Analysis Services server, ensure the Case-Sensitive collation server property is not selected (default). The Case-Sensitive server property can be set by using SQL Server Management Studio.
 > 
 > 
   
@@ -31,28 +22,41 @@ Once you've created a server in Azure, and deployed a tabular model to it, users
 
 1. In Power BI Desktop, click **Get Data** > **Azure** > **Azure Analysis Services database**.
 
-2. In **Server**, enter the server name. 
-    
-    Be sure to include the full URL. For example, asazure://westcentralus.asazure.windows.net/advworks.
+2. In **Server**, enter the server name. Be sure to include the full URL; for example, asazure://westcentralus.asazure.windows.net/advworks.
 
 3. In **Database**, if you know the name of the tabular model database or perspective you want to connect to, paste it here. Otherwise, you can leave this field blank and select a database or perspective later.
 
-4. Leave the default **Connect live** option, then press **Connect**. 
+4. Select a connection option and then press **Connect**. 
+
+    Both **Connect live** and **Import** options are supported. However, we recommended you use live connections because Import mode does have some limitations; most notably, server performance might be impacted during import.
+    
+    If you have a Power BI model in [Mixed storage mode](/power-bi/transform-model/desktop-composite-models), the **Connect live** option is replaced by the **[DirectQuery](/power-bi/connect-data/desktop-directquery-datasets-azure-analysis-services)** option. Live connections are also automatically upgraded to DirectQuery if the model is switched from Import to Mixed storage mode.
 
 5. If prompted, enter your login credentials. 
 
-6. In **Navigator**, expand the server, then select the model or perspective you want to connect to, then click **Connect**. Click  a model or perspective to show all the objects for that view.
+   > [!NOTE]
+   > One-time passcode (OTP) accounts aren't supported. 
+
+6. In **Navigator**, expand the server, then select the model or perspective you want to connect to, and then click **Connect**. Click a model or perspective to show all objects for that view.
 
     The model opens in Power BI Desktop with a blank report in Report view. The Fields list displays all non-hidden model objects. Connection status is displayed in the lower-right corner.
 
 ## Connect in Power BI (service)
 
 1. Create a Power BI Desktop file that has a live connection to your model on your server.
-2. In [Power BI](https://powerbi.microsoft.com), click **Get Data** > **Files**. Locate and select your file.
+2. In [Power BI](https://powerbi.microsoft.com), click **Get Data** > **Files**, and then locate and select your .pbix file.
 
+## Request Memory Limit
 
+To safeguard the performance of the system, a memory limit is enforced for all queries issued by Power BI reports against Azure Analysis Services, regardless of the [Query Memory Limit](/analysis-services/server-properties/memory-properties?view=azure-analysis-services-current&preserve-view=true) configured on the Azure Analysis Services server. Users should consider simplifying the query or its calculations if the query is too memory intensive.
+
+|                                                           | Request Memory limit |
+|-----------------------------------------------------------|----------------------|
+| Live connect from Power BI                            | 10 GB  |
+| DirectQuery from Power BI report in Shared workspace  | 1 GB   |
+| DirectQuery from Power BI report in Premium workspace | 10 GB  |
+| Power BI Q&A | 100 MB |
 
 ## See also
 [Connect to Azure Analysis Services](analysis-services-connect.md)   
-[Client libraries](analysis-services-data-providers.md)
-
+[Client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true)

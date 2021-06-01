@@ -1,6 +1,20 @@
+---
+ title: include file for PowerShell for Azure DNS
+ description: include file for PowerShell for Azure DNS
+ services: dns
+ author: subsarma
+ ms.service: dns
+ ms.topic: include file for PowerShell for Azure DNS
+ ms.date: 04/28//2021
+ ms.author: subsarma
+ ms.custom: include file for PowerShell for Azure DNS, devx-track-azurepowershell
+---
+
 ## Set up Azure PowerShell for Azure DNS
 
 ### Before you begin
+
+[!INCLUDE [requires-azurerm](requires-azurerm.md)]
 
 Verify that you have the following items before beginning your configuration.
 
@@ -9,24 +23,24 @@ Verify that you have the following items before beginning your configuration.
 
 ### Sign in to your Azure account
 
-Open your PowerShell console and connect to your account. For more information, see [Using PowerShell with Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
+Open your PowerShell console and connect to your account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/azurerm/authenticate-azureps).
 
-```powershell
-Login-AzureRmAccount
+```azurepowershell-interactive
+Connect-AzAccount
 ```
 
 ### Select the subscription
  
 Check the subscriptions for the account.
 
-```powershell
-Get-AzureRmSubscription
+```azurepowershell-interactive
+Get-AzSubscription
 ```
 
 Choose which of your Azure subscriptions to use.
 
-```powershell
-Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
+```azurepowershell-interactive
+Select-AzSubscription -SubscriptionName "your_subscription_name"
 ```
 
 ### Create a resource group
@@ -35,14 +49,6 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 You can skip this step if you are using an existing resource group.
 
-```powershell
-New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
-```
-
-### Register resource provider
-
-The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription must be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
-
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```azurepowershell-interactive
+New-AzResourceGroup -Name MyDNSResourceGroup -location "West US"
 ```

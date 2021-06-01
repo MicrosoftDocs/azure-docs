@@ -1,92 +1,113 @@
 ---
-title: Create and manage Azure Database for MySQL server using Azure portal | Microsoft Docs
-description: This article describes how you can quickly create a new Azure Database for MySQL server and manage the server using the Azure Portal.
-services: mysql
-author: v-chenyh
-ms.author: nolanwu
-editor: jasonh
-manager: jhubbard
-ms.assetid: 
-ms.service: mysql-database
-ms.tgt_pltfrm: portal
-ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2017
+title: Manage server - Azure portal - Azure Database for MySQL
+description: Learn how to manage an Azure Database for MySQL server from the Azure portal.
+author: Bashar-MSFT
+ms.author: bahusse
+ms.service: mysql
+ms.topic: how-to
+ms.date: 1/26/2021
 ---
 
-# Create and manage Azure Database for MySQL server using Azure portal
-This article describes how you can quickly create a new Azure Database for MySQL server and manage the server using the Azure Portal. Server management includes viewing server details & databases, resetting password and deleting the server.
+# Manage an Azure Database for MySQL server using the Azure portal
 
-## Log in to the Azure portal
-Log in to the [Azure portal](https://portal.azure.com).
+This article shows you how to manage your Azure Database for MySQL servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
-## Create an Azure Database for MySQL server
-Follow these steps to create an Azure Database for MySQL server named “mysqlserver4demo”
-
-1- Click **New** button found on the upper left-hand corner of the Azure portal.
-
-2- Select **Databases** from the New page, and select **Azure Database for MySQL** from the Databases page.
-
-> An Azure Database for MySQL server is created with a defined set of [compute and storage](./concepts-compute-unit-and-storage.md) resources. The database is created within an Azure resource group and in an Azure Database for MySQL server.
-
-![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
-
-3- Fill out the Azure Database for MySQL form with the following information:
-
-| **Form Field** | **Field Description** |
-|----------------|-----------------------|
-| *Server name* | azure-mysql (server name is globally unique) |
-| *Subscription* | MySQLaaS (select from drop down) |
-| *Resource group* | myresource (create a new resource group or use an existing one) |
-| *Server admin login* | myadmin (setup admin account name) |
-| *Password* | setup admin account password |
-| *Confirm password* | confirm admin account password |
-| *Location* | North Europe (select between North Europe and West US) |
-| *Version* | 5.6 (choose Azure Database for MySQL server version) |
-
-4- Click **Pricing tier** to specify the service tier and performance level for your new server. Compute Unit can be configured between 50 and 100 in Basic tier, 100 and 200 in Standard tier, and storage can be added based on included amount. For this HowTo guide, let’s choose 50 Compute Unit and 50GB. Click **OK** to save your selection.
-![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
-
-5- Click **Create** to provision the server. Provisioning takes a few minutes.
-
-> Check the **Pin to dashboard** option to allow easy tracking of your deployments.
 > [!NOTE]
-> Although up to 1000GB in Basic tier and 10000GB in Standard tier will be supported for storage, for Public Preview, the maximum storage is still limited to 1000GB temporarily. 
-</Include>
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+>
 
-## Update an Azure Database for MySQL server
-After new server is provisioned, user has 2 options to edit an existing server: reset administrator password or scale up/down the server by changing the compute-units.
+## Sign in
 
-### Change the administrator user password
-1- On the server **Overview** blade, click **Reset password** to populate a password input and confirmation window.
+Sign in to the [Azure portal](https://portal.azure.com).
 
-2- Enter new password and confirm the password in the window as below:
-![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+## Create a server
 
-3- Click **OK** to save the new password.
+Visit the [quickstart](quickstart-create-mysql-server-database-using-azure-portal.md) to learn how to create and get started with an Azure Database for MySQL server.
 
-### Scale up/down by changing Compute Units
+## Scale compute and storage
 
-1- On the server blade, under **Settings**, click **Pricing tier** to open the Pricing tier blade for the Azure Database for MySQL server.
+After server creation you can scale between the General Purpose and Memory Optimized tiers as your needs change. You can also scale compute and memory by increasing or decreasing vCores. Storage can be scaled up (however, you cannot scale storage down).
 
-2- Follow Step 4 in **Create an Azure Database for MySQL server** to change Compute Units in the same pricing tier.
+### Scale between General Purpose and Memory Optimized tiers
 
-## Delete an Azure Database for MySQL server
+You can scale from General Purpose to Memory Optimized and vice-versa. Changing to and from the Basic tier after server creation is not supported.
 
-1- On the server **Overview** blade, click **Delete** command button to open the Deleting confirmation blade.
+1. Select your server in the Azure portal. Select **Pricing tier**, located in the **Settings** section.
 
-2- Type the correct server name in input box of the blade for double confirmation.
+2. Select **General Purpose** or **Memory Optimized**, depending on what you are scaling to.
 
-3- Click **Delete** button again to confirm deleting action and wait for “Deleting success” popup on the notification bar.
+   :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Screenshot of Azure portal to choose Basic, General Purpose, or Memory Optimized tier in Azure Database for MySQL":::
 
-## List the Azure Database for MySQL databases
-On the server **Overview** blade, scroll down until you see the database tile on the bottom. All the databases will be listed in the table. click **Delete** command button to open the Deleting confirmation blade.
+   > [!NOTE]
+   > Changing tiers causes a server restart.
 
-![show-databases](./media/howto-create-manage-server-portal/show-databases.png)
+3. Select **OK** to save changes.
 
-## Show details of an Azure Database for MySQL server
-Click **Properties** under **Settings** on the server blade will open the **Properties** blade. Then you can view all detailed information about the server.
+### Scale vCores up or down
+
+1. Select your server in the Azure portal. Select **Pricing tier**, located in the **Settings** section.
+
+2. Change the **vCore** setting by moving the slider to your desired value.
+
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot of Azure portal to choose vCore option in Azure Database for MySQL":::
+
+    > [!NOTE]
+    > Scaling vCores causes a server restart.
+
+3. Select **OK** to save changes.
+
+### Scale storage up
+
+1. Select your server in the Azure portal. Select **Pricing tier**, located in the **Settings** section.
+
+2. Change the **Storage** setting by moving the slider up to your desired value.
+
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot of Azure portal to choose Storage scale in Azure Database for MySQL":::
+
+   > [!NOTE]
+   > Storage cannot be scaled down.
+
+3. Select **OK** to save changes.
+
+## Update admin password
+
+You can change the administrator role's password using the Azure portal.
+
+1. Select your server in the Azure portal. In the **Overview** window select **Reset password**.
+
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot of Azure portal to reset the password in Azure Database for MySQL":::
+
+2. Enter a new password and confirm the password. The textbox will prompt you about password complexity requirements.
+
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot of Azure portal to reset your password and save in Azure Database for MySQL":::
+
+3. Select **OK** to save the new password.
+ 
+
+> [!IMPORTANT]
+> Resetting server admin password will automatically reset the server admin privileges to default. Consider resetting your server admin password if you accidentally revoked one or more of the server admin privileges.
+   
+> [!NOTE]
+> Server admin user has the following privileges by default: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
+
+## Delete a server
+
+You can delete your server if you no longer need it.
+
+1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
+
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot of Azure portal to Delete the server in Azure Database for MySQL":::
+
+2. Type the name of the server into the input box to confirm that this is the server you want to delete.
+
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot of Azure portal to confirm the server delete in Azure Database for MySQL":::
+
+   > [!NOTE]
+   > Deleting a server is irreversible.
+
+3. Select **Delete**.
 
 ## Next steps
 
-[Quickstart: Create Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
+- Learn about [backups and server restore](howto-restore-server-portal.md)
+- Learn about [tuning and monitoring options in Azure Database for MySQL](concepts-monitoring.md)

@@ -1,0 +1,24 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Azure Active Directory application provisioning",
+    "rootDirectory": "articles/active-directory/app-provisioning/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/active-directory/app-provisioning"
+    },
+    "inclusionCriteria": {
+        "excludePullRequestTitles": true,
+        "minAdditionsToFile" : 10,
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:active-directory/svc",
+            "label:app-provisioning/subsvc"
+        ]
+    },
+    "areas": [
+        {
+            "name": ".",
+            "heading": "Azure Active Directory application provisioning"
+        }
+    ]
+}

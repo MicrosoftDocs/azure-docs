@@ -1,9 +1,9 @@
 ---
 title: Page templates in Azure API Management | Microsoft Docs
-description: Learn how to customize the content of developer portal pages using a set of templates in Azure API Management.
+description: Learn how to customize the content of developer portal page templates in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -11,9 +11,8 @@ ms.assetid: e57df269-1019-4b74-b74d-53155b809d59
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 # Page templates in Azure API Management
@@ -28,7 +27,11 @@ Azure API Management provides you the ability to customize the content of develo
 -   [Page not found](#PageNotFound)  
   
 > [!NOTE]
->  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates.md).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="SignIn"></a> Sign in  
  The **sign in** template allows you to customize the sign in page in the developer portal.  
@@ -104,16 +107,16 @@ Azure API Management provides you the ability to customize the content of develo
 ### Sample template data  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -123,10 +126,10 @@ Azure API Management provides you the ability to customize the content of develo
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a> Sign up  

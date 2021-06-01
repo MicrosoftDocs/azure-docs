@@ -1,0 +1,13 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Azure portal documentation
+    tocHref: /azure/azure-portal/
+    topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /azure/virtual-machines/
+    topicHref: /azure/azure-portal/index
+  - name: Azure portal documentation
+    tocHref: /power-bi
+    topicHref: /azure/azure-portal/index
