@@ -642,18 +642,18 @@ This sample JSON output has been shortened for readability. See the [full sample
 ```json
 {
     "status": "succeeded",
-    "createdDateTime": "2020-06-04T08:19:29Z",
-    "lastUpdatedDateTime": "2020-06-04T08:19:35Z",
+    "createdDateTime":"2021-02-09T18:14:05Z",
+    "lastUpdatedDateTime":"2021-02-09T18:14:10Z",
     "analyzeResult": {
-        "version": "2.1.1",
+        "version": "2.1.0",
         "readResults": [
             {
-                "page": 1,
-                "angle": -17.0956,
-                "width": 4032,
-                "height": 3024,
-                "unit": "pixel"
-            }
+             "page":1,
+             "angle":-16.6836,
+             "width":4032,
+             "height":3024,
+             "unit":"pixel"
+          }
         ],
         "documentResults": [
             {

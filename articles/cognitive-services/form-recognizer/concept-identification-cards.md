@@ -168,6 +168,8 @@ The `readResults` node contains all of the recognized text. Text is organized by
               }
             ],
           ...
+          }
+        ]
       }
     ],
 
