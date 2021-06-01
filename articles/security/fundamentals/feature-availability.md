@@ -97,7 +97,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Akamai Security Events](/azure/sentinel/connect-akamai-security-events)                           | Public Preview | Public Preview |
 | - [Alcide kAudit](/azure/sentinel/connect-alcide-kaudit)                                   | Public Preview | Not Available      |
 | - [Alsid for Active Directory](/azure/sentinel/connect-alsid-active-directory)                      | Public Preview | Not Available      |
-| - [Apache HHTP Server](/azure/sentinel/connect-apache-http-server)                               | Public Preview | Not Available      |
+| - [Apache HTTP Server](/azure/sentinel/connect-apache-http-server)                               | Public Preview | Not Available      |
 | - [Aruba ClearPass](/azure/sentinel/connect-aruba-clearpass)                                  | Public Preview | Public Preview |
 | - [AWS](/azure/sentinel/connect-data-sources)                                             | GA             | GA             |
 | - [Barracuda CloudGen Firewall](/azure/sentinel/connect-barracuda-cloudgen-firewall)                      | GA             | GA             |
