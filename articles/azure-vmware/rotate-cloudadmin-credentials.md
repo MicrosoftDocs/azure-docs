@@ -14,7 +14,6 @@ This article walks you through the steps to rotate the cloudadmin credentials (v
 
 You can use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon. To use your cloudadmin credentials for connected services, you must first set up a connection to an external identity source. If you don't have an external identity source, such as Active Directory, don't rotate your cloudadmin credentials. Rotating could break any connections that use the vCenter or NSX-T credentials. It could also lock those accounts out, resulting in a security lockout.
 
-You can also watch a video on how to [reset the vCenter CloudAdmin & NSX-T admin password](https://youtu.be/cK1qY3knj88). 
 
 ## Prerequisites
 
