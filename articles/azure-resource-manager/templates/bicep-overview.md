@@ -69,8 +69,9 @@ The structure of the Bicep file is more flexible than the JSON template. You can
 
 The following limits currently exist:
 
-* Can't set mode or batch size on copy loops.
 * Single-line object and arrays, like `['a', 'b', 'c']`, aren't supported.
+* Bicep is newline sensitive. We are exploring ways we can remove/relax this restriction.
+* No support for the concept of apiProfile which is used to map a single apiProfile to a set apiVersion for each resource type. We are looking to bring support for this type of capability, but suspect it will work slightly differently.
 
 ## FAQ
 
