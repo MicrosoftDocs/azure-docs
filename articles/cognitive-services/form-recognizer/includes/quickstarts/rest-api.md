@@ -51,7 +51,7 @@ curl -v -i POST "https://{endpoint}/formrecognizer/v2.1/layout/analyze" -H "Cont
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
 https://<span></span>cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/**{resultId}**. 
 
@@ -227,7 +227,7 @@ curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/receipt/analyze
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
 *https://<span></span>cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/**{resultId}***
 
@@ -606,7 +606,7 @@ curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/businessCard/an
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
 _https://<span></span>cognitiveservice/formrecognizer/v2.1/prebuilt/businessCard/analyzeResults/**{resultId}**_
 
@@ -769,7 +769,7 @@ curl -v -i POST https://{endpoint}/formrecognizer/v2.1/prebuilt/invoice/analyze"
 
 #### Operation-Location
 
-You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
  _https://<span></span>cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/**{resultId}**_
 
