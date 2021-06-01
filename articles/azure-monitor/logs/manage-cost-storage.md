@@ -95,7 +95,7 @@ To change the Log Analytics pricing tier of your workspace,
 
 ### Changing pricing tier via ARM
 
-You can also [set the pricing tier via Azure Resource Manager](./resource-manager-workspace.md) using the `sku` object to set the pricing tier, and the `capacityReservationLevel` parameter if the pricing tier is `capacityresrvation`. (Learn more about [setting workspace properties via ARM](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces?tabs=json#workspacesku-object).) Here is a sample ARM template to set your workspace to a 300 GB/day commitment tier (which in ARM is called `capacityreservation`). 
+You can also [set the pricing tier via Azure Resource Manager](./resource-manager-workspace.md) using the `sku` object to set the pricing tier, and the `capacityReservationLevel` parameter if the pricing tier is `capacityresrvation`. (Learn more about [setting workspace properties via ARM](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces?tabs=json#workspacesku-object).) Here is a sample ARM template to set your workspace to a 300 GB/day commitment tier (which in ARM is called `capacityreservation`). 
 
 ```
 {
@@ -118,13 +118,13 @@ You can also [set the pricing tier via Azure Resource Manager](./resource-manage
 }
 ```
 
-To use this template via PowerShell, after [installing the Azure Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps), log into Azure using `Connect-AzAccount`, select the subscription containing your workspace using `Select-AzSubscription -SubscriptionId YourSubscriptionId`, and apply the template (saved in a file named template.json):
+To use this template via PowerShell, after [installing the Azure Az PowerShell module](/powershell/azure/install-az-ps), log into Azure using `Connect-AzAccount`, select the subscription containing your workspace using `Select-AzSubscription -SubscriptionId YourSubscriptionId`, and apply the template (saved in a file named template.json):
 
 ```
 New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -TemplateFile "template.json"
 ```
 
-To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the sku), omit the  `capacityReservationLevel` property. Learn more about [creating ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell),  [https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell](adding a resource to your template), and [applying templates](https://docs.microsoft.com/azure/azure-monitor/resource-manager-samples). 
+To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the sku), omit the  `capacityReservationLevel` property. Learn more about [creating ARM templates](/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell),  [/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell](adding a resource to your template), and [applying templates](https://docs.microsoft.com/azure/azure-monitor/resource-manager-samples). 
 
 ## Legacy pricing tiers
 
@@ -311,7 +311,7 @@ Once alert is defined and the limit is reached, an alert is triggered and perfor
 ## Troubleshooting why usage is higher than expected
 
 Higher usage is caused by one, or both of:
-- More nodes than expected sending data to Log Analytics workspace: see [Understanding nodes sending data](#Understanding-nodes-sending-data)
+- More nodes than expected sending data to Log Analytics workspace: see [Understanding nodes sending data](#understanding-nodes-sending-data)
 - More data than expected being sent to Log Analytics workspace (perhaps due to starting to use a new solution or a configuration change to an existing solution): see [Understanding ingested data volume](#understanding-ingested-data-volume) 
 
 If you observe high data ingestion reported using the `Usage` records (see [below](#data-volume-by-solution)), but you don't observed the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible you have significant late arriving data. [Here](#late-arriving-data) is more information on how to diagnose this. 
