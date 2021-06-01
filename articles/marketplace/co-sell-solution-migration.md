@@ -21,7 +21,7 @@ As a Microsoft partner enrolled in the commercial marketplace, you can:
 - Ensure your offers are in the correct online store—[Microsoft AppSource](https://appsource.microsoft.com) or [Azure Marketplace](https://azure.microsoft.com)—to reach the millions of cloud customers who align with your offer's capabilities.
 - Drive your own publishing experience to co-sell with the offers that align with your business goals.
 - Align your offer publishing within Partner Center, where you are already managing your Microsoft relationship and co-sell opportunities.
-- Unlock [Marketplace Rewards](partner-center-portal/marketplace-rewards.md).
+- Unlock [Marketplace Rewards](marketplace-rewards.md).
 
 ## Prerequisites to continue co-selling with Microsoft
 
