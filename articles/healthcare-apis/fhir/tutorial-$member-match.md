@@ -34,17 +34,17 @@ coverage information. We've decided to omit that data to keep the results smalle
 
 ## Example of $member-match
 
-To use member match, use the following call:
+To use $member-match, use the following call:
 
 `POST {{fhirurl}}/Patient/$member-match`
 
-You'll need to include a Parameters resource in the body that includes the patient, the old coverage, and the new coverage. To see a JSON representation, see [$member-match example request](http://hl7.org/fhir/us/davinci-hrex/2020Sep/Parameters-member-match-in.json.html).
+You'll need to include a parameters resource in the body that includes the patient, the old coverage, and the new coverage. To see a JSON representation, see [$member-match example request](http://hl7.org/fhir/us/davinci-hrex/2020Sep/Parameters-member-match-in.json.html).
 
 If a single match is found, you'll receive a 200 response with another identifier added:
 
 :::image type="content" source="media/cms-tutorials/two-hundred-response-.png" alt-text="200 hundred response code.":::
 
-If the member-match cannot find a unique match, you'll receive a 422 response with an error code.
+If the $member-match can't find a unique match, you'll receive a 422 response with an error code.
 
 ## Next Step
 
