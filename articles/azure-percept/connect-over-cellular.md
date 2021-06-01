@@ -30,7 +30,6 @@ Here are some important points to consider when connecting the Azure Percept DK 
 - Set up the gateway first and then validate that it's receiving a connection via the SIM. It will then be easier to troubleshoot any issues found while connecting the Azure Percept DK.
 - Ensure both ends of the Ethernet cable are firmly connected to the gateway and Azure Percept DK.
 - Follow the [default instructions](./how-to-connect-over-ethernet.md) for connecting the Azure Percept DK over Ethernet.
-- If Wi-Fi security is a concern, you may want to disable Wi-Fi entirely on the dev kit. Follow [these instructions](./how-to-disable-wifi.md) for disabling Wi-Fi.
 - If your cellular plan has a quota, it's recommended that you optimize how much data your Azure Percept DK models send to the cloud.
 - Ensure you have a [properly configured firewall](./concept-security-configuration.md) that blocks externally originated inbound traffic.
 
