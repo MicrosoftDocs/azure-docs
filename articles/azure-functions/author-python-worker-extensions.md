@@ -11,13 +11,13 @@ ms.custom: devx-track-python
 
 As the number of feature requests is growing rapidly, we design and implement a new Python worker extension interface in Azure Functions Python worker to allow fast integration from third-party libraries.
 
-There are two parties, you as the **extension developer**, and the Python function app **customers**. Extension developers intend to distribute Python worker extensions into a Python packages. Each extension acts as a middleware between Python worker and customer's function apps. Our customers will import your extension and apply the new features to their functions. They are not aware of the implementation details in the extension.
+There are two parties, you as the **extension developer**, and the Python function app **customers**. Extension developers intend to publish Python worker extensions as a Python packages. Each extension acts as a middleware between Python worker and customer's function apps. Our customers will import your extension and apply the new features to their functions. They are not aware of the implementation details in the extension.
 
-An extension has a scope definition, it can either be application or function level. An [application level extension](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) will apply to every function once it is imported in any function app's trigger. On the contrary, a [function level extension](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py) will only apply to the specific trigger that imports the extension.
+An extension works on either application scope or function scope. An **application level extension** will apply to every function once it is imported in any function app's trigger. On the contrary, a **function level extension** will only apply to the specific trigger that imports the extension.
 
-With the extension interface, a developer can now integrate a third-party library into Azure Functions Python worker by implementing three types of lifecycle hooks: post-load, pre-invocation, and post-invocation. These lifecycle hooks provide function metadata to the extension which can be used for book-keeping, monitoring and modifying function load, pre-invocation, and post-invocation behavior.
+With the extension interface, a developer can now integrate a third-party library into Azure Functions Python worker by implementing three types of lifecycle hooks: **post-load**, **pre-invocation**, and **post-invocation**. These lifecycle hooks provide function metadata to the extension which can be used for book-keeping, monitoring and modifying function load, pre-invocation, and post-invocation behavior.
 
-In this tutorial, we will go through the process of authoring a Python Worker extension and demonstrate its usage on a customer's function app.
+In this tutorial, we will go through the process of authoring an application level Python Worker extension and demonstrate its usage on a customer's function app.
 
 ## Prerequisites
 
@@ -25,13 +25,9 @@ Before you start developing a Python function app, you must meet these requireme
 
 * [Python 3.6.x or above](https://www.python.org/downloads/release/python-374/). To check the full list of supported Python versions in Azure Functions, please visit [Python developer guide](functions-reference-python.md#python-version).
 
-* The [Azure Functions Core Tools](functions-run-local.md#v2) version >= 3.0.3568.
+* The [Azure Functions Core Tools](functions-run-local.md#v2) no earlier than 3.0.3568.
 
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-
-* An active Azure subscription.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Develop your first Python Worker extension
 

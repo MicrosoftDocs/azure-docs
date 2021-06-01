@@ -628,7 +628,7 @@ Azure Functions Python Worker and SDK provide an interface for third-party libra
 
 As a customer, to enable this feature and install an extension, you need to set the `PYTHON_ENABLE_WORKER_EXTENSIONS` feature flag to `1` and include the extension in your requirements.txt. Some extensions may allow extra configuration and pass extra properties into your functions. For how to use an extension, please visit the extension's manual page or readme doc.
 
-As a third-party library developer, please visit our tutorial [Authoring Python worker extensions](author-python-worker-extensions) to learn how to integrate into Azure Functions.
+As a third-party library developer, please visit our tutorial [Authoring Python worker extensions](author-python-worker-extensions.md#author-python-worker-extensions) to learn how to integrate into Azure Functions.
 
 ## Cross-origin resource sharing
 
