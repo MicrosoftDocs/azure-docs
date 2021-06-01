@@ -12,11 +12,11 @@
     items:
     - name: Overview
       items:
-      - name: What is the Metaswitch solution?
+      - name: What is Fusion Core?
         href: metaswitch-overview.md
     - name: How-to guides
       items:
-      - name: Deploy the Metaswitch solution
+      - name: Deploy Fusion Core on Azure Stack Edge
         href: deploy-metaswitch-solution.md
   - name: Edge connectivity using Affirmed Networks
     items:

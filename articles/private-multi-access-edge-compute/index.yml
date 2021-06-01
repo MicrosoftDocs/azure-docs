@@ -1,11 +1,12 @@
 ### YamlMime:Landing
 
 title: Azure private multi-access edge compute documentation
-summary: Learn about cloud solutions from Azure private multi-access edge compute (MEC), Affirmed Networks, and Metaswitch Networks that can help drive down costs and create new business models and revenue streams.
+summary: The Azure private multi-access edge compute (MEC) solution brings together Microsoft compute, networking and application services managed from the cloud and enables operators and system integrators to deliver high performance, low-latency connectivity and IoT applications at the enterprise edge for the next wave of enterprise digital transformation.
 
 metadata:
   title: Azure private multi-access edge compute documentation
-  description: Learn about cloud solutions from Microsoft Azure, Affirmed Networks, and Metaswitch that can help future-proof your network, drive down costs, and create new business models and revenue streams.
+  description:  The Azure private multi-access edge compute (MEC) solution brings together Microsoft compute, networking and application services managed from the cloud and enables operators and system integrators to deliver high performance, low-latency connectivity and IoT applications at the enterprise edge for the next wave of enterprise digital transformation.
+
   services: vnf-manager
   ms.service: vnf-manager
   ms.topic: landing-page
@@ -37,11 +38,11 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Use Metaswitch with Azure
+          - text: What is Fusion Core?
             url: metaswitch-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Metaswitch solution
+          - text: Deploy Fusion Core on an Azure Stack Edge device
             url: deploy-metaswitch-solution.md
 
   # Card
