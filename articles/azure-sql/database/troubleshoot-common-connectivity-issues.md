@@ -8,9 +8,9 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: troubleshooting
-author: dalechen
-ms.author: ninarn
-ms.reviewer: sstein, vanto
+author: ramakoni1
+ms.author: ramakoni
+ms.reviewer: mathoma, vanto
 ms.date: 01/14/2020
 ---
 

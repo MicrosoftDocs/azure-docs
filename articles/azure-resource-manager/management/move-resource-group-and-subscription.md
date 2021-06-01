@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 04/16/2021
+ms.date: 05/28/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -286,6 +286,12 @@ For example, moving a virtual machine could require moving seven resource types 
   * storageAccounts
 
 Another common example involves moving a virtual network. You may have to move several other resources associated with that virtual network. The move request could require moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
+
+**Question: What does the error code "RequestDisallowedByPolicy" mean?**
+
+Resource Manager validates your move request before attempting the move. This validation includes checking policies defined on the resources involved in the move. For example, if you're attempting to move a key vault but your organization has a policy to deny the creation of a key vault in the target resource group, validation fails and the move is blocked. The returned error code is **RequestDisallowedByPolicy**. 
+
+For more information about policies, see [What is Azure Policy?](../../governance/policy/overview.md).
 
 **Question: Why can't I move some resources in Azure?**
 
