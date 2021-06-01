@@ -14,8 +14,12 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 06/01/2021
 ms.author: barclayn
-zone_pivot_groups: platforms-identity
+zone_pivot_groups: platform-identity
 ---
+
+# testing zone pivots for MI
+
+
 ::: zone pivot="platform-idazp"
 
 "Does the user have enough information to make a decision before reading the document?"

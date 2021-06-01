@@ -1261,7 +1261,8 @@ groups:
     title: Facility Ontology 1.0 
   - id: facility-ontology-v2
     title: Facility Ontology 2.0 
-# Owner: barclayn (identity))
+# Owner: barclayn (identity)
+- id: platform-identity
   title: Platforms
   prompt: Choose an option
   pivots:
