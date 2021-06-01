@@ -26,7 +26,7 @@ requires three pieces of information to be passed in the body of the request:
 
 1.  The new coverage information (not required based on our implementation)
 
-After the data is passed in, the Azure API for FHIR validates that it can find a patient that exactly matches the demographics passed in with the old coverage information passed in. If a result is found, the response will be a bundle with the original passed in patient with a new identifier added in from the old payer and the old coverage information.
+After the data is passed in, the Azure API for FHIR validates that it can find a patient that exactly matches the demographics passed in with the old coverage information passed in. If a result is found, the response will be a bundle with the original patient data plus a new identifier added in from the old payer, and the old coverage information.
 
 > [!NOTE]
 > The specification describes passing in and back the new

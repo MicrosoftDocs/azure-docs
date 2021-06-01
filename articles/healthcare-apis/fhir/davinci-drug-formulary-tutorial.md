@@ -47,7 +47,7 @@ profiles](https://docs.microsoft.com/azure/healthcare-apis/fhir/validation-again
 
 ### Sample rest file
 
-To assist with creation of these search parameters and profiles, we have a [sample http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone. You should get a successful run with two small warnings in the results:
+To assist with creation of these search parameters and profiles, we have a [DaVinci Formulary sample http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone. You should get a successful run with two small warnings in the results:
 
 :::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="DaVinci test script execution.":::
 
