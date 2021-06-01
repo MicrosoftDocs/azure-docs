@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)

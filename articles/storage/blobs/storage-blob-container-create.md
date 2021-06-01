@@ -32,14 +32,14 @@ The URI for a container is in this format:
 
 To create a container, call one of the following methods:
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 - [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
 - [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
 
 These methods throw an exception if a container with the same name already exists.
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 - [Create](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
@@ -56,11 +56,11 @@ Containers are created immediately beneath the storage account. It's not possibl
 
 The following example creates a container asynchronously:
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateSampleContainerAsync":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
@@ -104,11 +104,11 @@ You can reference a blob stored in the root container without including the root
 
 The following example creates the root container synchronously:
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateRootContainer":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 ```csharp
 private static void CreateRootContainer(CloudBlobClient blobClient)
@@ -141,14 +141,14 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 To delete a container in .NET, use one of the following methods:
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 - [Delete](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync)
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexistsasync)
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 - [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
@@ -164,11 +164,11 @@ After you delete a container, you can't create a container with the same name fo
 
 The following example deletes the specified container, and handles the exception if the container doesn't exist:
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteSampleContainerAsync":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient, string containerName)
@@ -194,11 +194,11 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 
 The following example shows how to delete all of the containers that start with a specified prefix.
 
-# [\.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteContainersWithPrefixAsync":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [.NET v11 SDK](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
