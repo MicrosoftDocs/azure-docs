@@ -42,9 +42,13 @@ This release introduces the following features or capabilities:
 
 #### Azure Arc enabled SQL Managed Instance
 
-- Proxy integration with Kubernetes connected cluster
-- Upload metrics and logs from the portal for a connected cluster
+- Proxy integration with Kubernetes connected cluster.
+- Upload metrics and logs from the portal for a connected cluster.
 - [Use Transact-SQL](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server#TsqlProcedure) to manually fail-over the primary replica of a managed instance. 
+- Configure trace flags for managed instance.
+- Restore database to a point in time.
+- Set collation for managed instance.
+
 ### Known issues
 
 - You can create a data controller in direct connect mode with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
