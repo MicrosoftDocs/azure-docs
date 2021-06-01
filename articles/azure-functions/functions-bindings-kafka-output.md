@@ -7,7 +7,7 @@ ms.date: 05/28/2021
 ms.author: cshoe
 ---
 
-# Azure Blob storage output binding for Azure Functions
+# Apache Kafka output binding for Azure Functions
 
 The output binding allows an Azure Functions app to write messages to a Kafka topic. Both keys and values types are supported with built-in [Avro](http://avro.apache.org/docs/current/) and [Protobuf](https://developers.google.com/protocol-buffers/) serialization.
 
