@@ -30,11 +30,19 @@ Details go here
 
 Details go here
 
+#### Receive an alert when a file share is approaching a capacity limit
+
+Details go here
+
 ## Monitor activity
 
 Tasks for monitoring account activity
 
 #### Audit activities for Azure Files
+
+Details go here
+
+#### Receive an alert when big files are uploaded to a file share
 
 Details go here
 
@@ -46,11 +54,11 @@ Details go here
 
 Not sure what this is. Need clarification.
 
-#### Number of bytes read per request by a specific service principal
+#### Determine the number of bytes read per request by a specific service principal
 
 Details go here
 
-#### Number of bytes read per request as part of a particular connection  
+#### Determine the number of bytes read per request as part of a particular connection  
 
 Details go here
 
@@ -65,18 +73,6 @@ Details go here
 #### Optimize the cost of querying data
 
 Details go here.
-
-## Receive alerts of account activity
-
-Tasks for setting up and receiving alerts
-
-#### Get notified when big files are uploaded to a file share
-
-Details go here
-
-#### Determine when a file share is approaching a capacity limit
-
-Details go here
 
 ## See also
 

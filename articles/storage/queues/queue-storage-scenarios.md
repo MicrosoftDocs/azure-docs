@@ -38,6 +38,10 @@ Tasks for monitoring account activity
 
 Details go here
 
+#### Monitor queue messages in near real-time
+
+Details go here
+
 #### Auditing with a user identity
 
 Not sure what this is. Need clarification.
@@ -57,14 +61,6 @@ Details go here
 #### Optimize the cost of querying data
 
 Details go here.
-
-## Receive alerts of account activity
-
-Tasks for alerts
-
-#### Monitor queue messages in near real-time
-
-Details go here
 
 ## See also
 

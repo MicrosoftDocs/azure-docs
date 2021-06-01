@@ -30,6 +30,10 @@ Details go here
 
 Details go here
 
+#### Receive an alert when a Blob Storage is approaching a capacity limit
+
+Details go here
+
 ## Monitor activity
 
 Tasks for monitoring account activity
@@ -38,11 +42,15 @@ Tasks for monitoring account activity
 
 Details go here
 
-#### Number of bytes read per request by a specific service principal
+#### Receive an alert when big blobs are uploaded to Blob Storage
 
 Details go here
 
-#### Number of bytes read per request as part of a particular connection  
+#### Determine the number of bytes read per request by a specific service principal
+
+Details go here
+
+#### Determine the number of bytes read per request as part of a particular connection  
 
 Details go here
 
@@ -65,18 +73,6 @@ Details go here
 #### Optimize the cost of querying data
 
 Details go here.
-
-## Receive alerts of account activity
-
-Tasks for alerts
-
-#### Alert on big blobs that are uploaded to Blob Storage
-
-Details go here
-
-#### Alert when a Blob Storage is approaching a capacity limit
-
-Details go here
 
 ## See also
 
