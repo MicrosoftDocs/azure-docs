@@ -9,15 +9,11 @@ ms.custom: devx-track-python
 ---
 # Author Python worker extensions
 
-As the number of feature requests is growing rapidly, we design and implement a new Python worker extension interface in Azure Functions Python worker to allow fast integration from third-party libraries.
-
-There are two parties, you as the **extension developer**, and the Python function app **customers**. Extension developers intend to publish Python worker extensions as a Python packages. Each extension acts as a middleware between Python worker and customer's function apps. Our customers will import your extension and apply the new features to their functions. They are not aware of the implementation details in the extension.
-
-An extension works on either application scope or function scope. An **application level extension** will apply to every function once it is imported in any function app's trigger. On the contrary, a **function level extension** will only apply to the specific trigger that imports the extension.
-
-With the extension interface, a developer can now integrate a third-party library into Azure Functions Python worker by implementing three types of lifecycle hooks: **post-load**, **pre-invocation**, and **post-invocation**. These lifecycle hooks provide function metadata to the extension which can be used for book-keeping, monitoring and modifying function load, pre-invocation, and post-invocation behavior.
-
 In this tutorial, we will go through the process of authoring an application level Python Worker extension and demonstrate its usage on a customer's function app.
+
+With the extension interface, a developer can now integrate a third-party library into Azure Functions Python worker by implementing either an **application level** extension or a **function level** extension. There are three types of lifecycle hooks: **post-load**, **pre-invocation**, and **post-invocation**. These lifecycle hooks provide function metadata to the extension which can be used for book-keeping, monitoring and modifying function load and invocation behavior.
+
+For more information about the Python worker extension, please visit our [Python developer reference](functions-reference-python.md#).
 
 ## Prerequisites
 
@@ -215,7 +211,7 @@ In this case, customers need to resolve the extension via a VCS URL.
 git+https://github.com/<your_organization>/<extension_repo>.git@branch
 ```
 
-For furhter information about VCS support in pip, please visit the [official pip VCS support documentation](https://pip.pypa.io/en/stable/cli/pip_install/#vcs-support).
+For further information about VCS support in pip, please visit the [official pip VCS support documentation](https://pip.pypa.io/en/stable/cli/pip_install/#vcs-support).
 
 ## Examples
 
