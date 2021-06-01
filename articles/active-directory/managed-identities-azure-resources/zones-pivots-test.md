@@ -16,21 +16,21 @@ ms.date: 06/01/2021
 ms.author: barclayn
 zone_pivot_groups: platforms-identity
 ---
-::: zone pivot="<platform-idazp>"
+::: zone pivot="platform-idazp"
 
 "Does the user have enough information to make a decision before reading the document?"
 
 ::: zone-end
 
-::: zone pivot="<platform-idazcli>"
+::: zone pivot="platform-idazcli"
 
 ::: zone-end
 
-::: zone pivot="<platform-idpowershell>"
+::: zone pivot="platform-idpowershell"
 
 ::: zone-end
 
-::: zone pivot="<platform-idnet>"
+::: zone pivot="platform-idnet"
 
 ::: zone-end
 
