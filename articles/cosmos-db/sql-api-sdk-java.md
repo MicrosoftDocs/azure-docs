@@ -50,7 +50,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 
 ## Release notes
 ### <a name="2.6.3"></a>2.6.3
-* Fixed a retry policy when GoneException is wrapped in IllegalStateException - - this change is necessary to make sure Gateway cache is refreshed on 410 so the Spark connector (for Spark 2.4) can use a custom retry policy to allow queries to succeed during partition splits
+* Fixed a retry policy when `GoneException` is wrapped in `IllegalStateException` - - this change is necessary to make sure Gateway cache is refreshed on 410 so the Spark connector (for Spark 2.4) can use a custom retry policy to allow queries to succeed during partition splits
 
 ### <a name="2.6.2"></a>2.6.2
 * Added a new retry policy to  retry on Read Timeouts
