@@ -23,7 +23,7 @@ When working with an Azure Digital Twins instance, it is common to interact with
 
 This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up using the [Azure CLI](/cli/azure/what-is-azure-cli). It also covers how to [collect important values](#collect-important-values) that you'll need in order to use the app registration to authenticate.
 
-## Using Azure AD app registrations
+## Azure AD app registrations
 
 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's cloud-based identity and access management service. Setting up an **app registration** in Azure AD is one way to grant a client app access to Azure Digital Twins.
 
@@ -90,15 +90,15 @@ You can confirm that the Azure Digital Twins permissions were granted by looking
 
 :::image type="content" source="media/how-to-create-app-registration/cli-required-resource-access.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The items under 'requiredResourceAccess' are highlighted: there's a 'resourceAppId' value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a 'resourceAccess > id' value of 4589bd03-58cb-4e6c-b17f-b580e39652f8.":::
 
-You can also verify the app registration was successfully created using the Azure portal. For portal instructions, see [Verify success (portal)](how-to-create-app-registration-portal.md#verify-success).
+You can also verify the app registration was successfully created by using the Azure portal. For portal instructions, see [Verify success (portal)](how-to-create-app-registration-portal.md#verify-success).
 
 ## Collect important values
 
 Next, collect some important values about the app registration that you'll need in order to use the app registration to authenticate a client application. These values include:
-* resource name
-* client ID
-* tenant ID
-* client secret
+* **resource name**
+* **client ID**
+* **tenant ID**
+* **client secret**
 
 To work with Azure Digital Twins, the **resource name** is `http://digitaltwins.azure.net`.
 
@@ -120,7 +120,7 @@ Directory (tenant) ID:
 
 ### Collect client secret
 
-To create a client secret for your app registration, you'll need your app registration's **client ID** value. Use the value in the following CLI command to create a new secret:
+To create a **client secret** for your app registration, you'll need your app registration's client ID value from the previous section. Use the value in the following CLI command to create a new secret:
 
 ```azurecli-interactive
 az ad app credential reset --id <client-ID> --append
@@ -139,8 +139,8 @@ The output of this command is information about the client secret that you've cr
 
 It's possible that your organization requires additional actions from subscription Owners/administrators to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
-Here are some common potential activities that an Owner/administrator on the subscription may need to perform.
-* Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator may need to grant additional delegated or application permissions.
+Here are some common potential activities that an Owner or administrator on the subscription may need to perform.
+* Grant admin consent for the app registration. Your organization may have **Admin Consent Required** globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator may need to grant additional delegated or application permissions.
 * Activate public client access by appending `--set publicClient=true` to a create or update command for the registration.
 * Set specific reply URLs for web and desktop access using the `--reply-urls` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
 * Allow for implicit OAuth2 authentication flows using the `--oauth2-allow-implicit-flow` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
