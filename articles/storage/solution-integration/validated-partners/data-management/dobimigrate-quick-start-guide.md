@@ -170,7 +170,9 @@ Datadobi has made it easy to deploy their solution in Azure to protect Azure Vir
 - [Migrate File Data to Azure with DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=overview)
 
 
-## Additional resources
+## Next steps
+
+Learn more by visiting our guides:
 
 - [Storage migration overview](/azure/storage/common/storage-migration-overview)
 - [DobiMigrate User Manual](https://downloads.datadobi.com/NAS/olh/latest/dobimigrate.html)
