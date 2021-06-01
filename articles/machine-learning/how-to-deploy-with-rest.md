@@ -46,7 +46,7 @@ In this article, you learn how to use the new REST APIs to:
 ## Azure Machine Learning managed online endpoints
 Managed online endpoints (preview) allow you to deploy your model without having to create and manage the underlying infrastructure. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
-There are many ways to create an Azure Machine Learning online endpoints [including the CLI](how-to-deploy-managed-online-endpoints.md), and visually with[the studio](how-to-use-managed-online-endpoint-studio.md). The following example a managed online endpoint with the REST API.
+There are many ways to create an Azure Machine Learning online endpoints [including the CLI](how-to-deploy-managed-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example a managed online endpoint with the REST API.
 
 ## Create machine learning assets
 
@@ -82,10 +82,12 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 ### Upload & register code
 
-Now that you have the datastore, you can upload the scoring script. Use the Azure Storage CLI to upload a blob into your default container. You can also use other methods to upload, such as the Azure portal or Azure Storage Explorer.
-
+Now that you have the datastore, you can upload the scoring script. Use the Azure Storage CLI to upload a blob into your default container:
 
 :::code language="rest" source="~/azureml-examples-main/cli/how-to-deploy-rest.sh" id="upload_code":::
+
+> [!TIP]
+> You can also use other methods to upload, such as the Azure portal or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 Once you upload your code, you can specify your code with a PUT request and refer to the datastore with `datastoreId`:
 
