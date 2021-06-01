@@ -1,9 +1,34 @@
+---
+title: 'Managed online endpoints (preview) YAML reference'
+titleSuffix: Azure Machine Learning
+description: Learn about the YAML files used to deploy models as managed online endpoints
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: how-to
+
+author: rsethur
+ms.author: seramasu
+ms.date: 05/25/2021
+ms.reviewer: laobri
+---
+
+# Managed online endpoints (preview) YAML reference 
+
+The Azure CLI extension for Azure Machine Learning (CLI 2.0) uses YAML documents to provide configuration for many commands. In this article, learn about the YAML document used when working with managed online endpoints.
+
+For more information on deploying a model, see [How to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md).
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 > [!NOTE]
 > A fully specified sample YAML for managed online endpoints is available for [reference](https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.template.yaml)
 
+## Schema
+
 | Key | Description |
 | --- | --- |
-| $schema    | [Optional] The YAML schema. You can view the schema in the above example in a browser to see all available options in the YAML file.|
+| $schema    | \[__Optional__\] The YAML schema. You can view the schema in the above example in a browser to see all available options in the YAML file.|
 | name       | Name of the endpoint. Needs to be unique at Azure region level.|
 | traffic | Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100 |
 | auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint list-keys` command). |
@@ -13,8 +38,8 @@
 | description | Description of the endpoint. |
 | target | If this key isn't defined, the endpoint will be deployed as a managed online endpoint. To use AKS, set the value of this key to the name of the registered compute target, such as `target:azureml:my-aks`. 
 | deployments | Contains a list of deployments to be created in the endpoint. In this case, we have only one deployment, named `blue`. |
- 
-Attributes of the `deployment`:
+
+### Attributes of the `deployment` key
  
 | Key | Description |
 | --- | --- |
@@ -40,3 +65,7 @@ Attributes of the `deployment`:
 | readiness_probe | Readiness probe validates if the container is ready to serve traffic. The properties and defaults are same as liveness probe. |
 | tags | Dictionary of Azure Tags you want associated with the deployment. |
 | description | Description of the deployment. |
+
+## Next steps
+
+Learn how to [deploy a model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
