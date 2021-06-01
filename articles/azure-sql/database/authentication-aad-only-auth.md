@@ -17,7 +17,7 @@ ms.date: 06/01/2021
 > [!NOTE]
 > The **Azure AD-only authentication** feature discussed in this article is in **public preview**. 
 
-Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). SQL authentication is disabled when enabling Azure AD-only authentication in the Azure SQL environment, including connections from SQL server administrators, logins, and users. Only users using [Azure AD authentication](authentication-aad-overview.md) is authorized to connect to the server or database.
+Azure AD-only authentication is a feature within [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) that allows the service to only support Azure AD authentication, and is supported for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). SQL authentication is disabled when enabling Azure AD-only authentication in the Azure SQL environment, including connections from SQL server administrators, logins, and users. Only users using [Azure AD authentication](authentication-aad-overview.md) are authorized to connect to the server or database.
 
 Azure AD-only authentication can be enabled or disabled using the Azure portal, Azure CLI, PowerShell, or REST API. Azure AD-only authentication can also be configured during server creation with an ARM template.
 
@@ -29,8 +29,6 @@ For more information on Azure SQL authentication, see [Authentication and author
 ## Feature description
 
 When enabling Azure AD-only authentication, [SQL authentication](logins-create-manage.md#authentication-and-authorization) is disabled at the server level and prevents any authentication based on any SQL authentication credentials. SQL authentication users won't be able to connect to the Azure SQL logical server, including all of its databases. Although SQL authentication is disabled, new SQL authentication logins and users can still be created by Azure AD accounts with proper permissions. Newly created SQL authentication accounts won't be allowed to connect to the server. Enabling Azure AD-only authentication doesn't remove existing SQL authentication login and user accounts. The feature only prevents these accounts from connecting to the server, and any database created for this server.
-
-:::image type="content" source="media/authentication-aad-only-auth/aad-only-auth-portal.png" alt-text="Enable Azure AD only auth menu":::
 
 ## Permissions
 
@@ -47,13 +45,19 @@ The following actions are added to the [SQL Security Manager](../../role-based-a
 - Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*
 - Microsoft.Sql/managedInstances/read
 
+The above actions can also be added to a custom role to manage Azure AD-only authentication. For more information, see [Create and assign a custom role in Azure Active Directory](/azure/active-directory/roles/custom-create).
+
 ## Managing Azure AD-only authentication using APIs
 
 # [Azure CLI](#tab/azure-cli)
 
+You must have Azure CLI version **2.14.2** or higher.
+
 `name` corresponds to the prefix of the server or instance name (for example, `myserver`) and `resource-group` corresponds to the resource the server belongs to (for example, `myresource`).
 
 ## Azure SQL Database
+
+For more information, see [az sql server ad-only-auth](/cli/azure/sql/server/ad-only-auth).
 
 ### Enable or disable in SQL Database
 
@@ -77,6 +81,8 @@ az sql server ad-only-auth get --resource-group myresource --name myserver
 
 ## Azure SQL Managed Instance
 
+For more information, see [az sql mi ad-only-auth](/cli/azure/sql/mi/ad-only-auth).
+
 **Enable**
 
 ```azurecli
@@ -89,13 +95,15 @@ az sql mi ad-only-auth enable --resource-group myresource --name myserver
 az sql mi ad-only-auth disable --resource-group myresource --name myserver
 ```
 
-### Check the status in SQL Database
+### Check the status in SQL Managed Instance
 
 ```azurecli
 az sql mi ad-only-auth get --resource-group myresource --name myserver
 ```
 
 # [PowerShell](#tab/azure-powershell)
+
+[Az.Sql 2.10.0](https://www.powershellgallery.com/packages/Az.Sql/2.10.0) module or higher is required.
 
 `ServerName` or `InstanceName` correspond to the prefix of the server name (for example, `myserver` or `myinstance`) and `ResourceGroupName` corresponds to the resource the server belongs to (for example, `myresource`).
 
@@ -104,6 +112,8 @@ az sql mi ad-only-auth get --resource-group myresource --name myserver
 ### Enable or disable in SQL Database
 
 **Enable**
+
+For more information, see [Enable-AzSqlServerActiveDirectoryOnlyAuthentication](/powershell/module/az.sql/enable-azsqlserveractivedirectoryonlyauthentication). You can also run `get-help Enable-AzSqlServerActiveDirectoryOnlyAuthentication -full`.
 
 ```powershell
 Enable-AzSqlServerActiveDirectoryOnlyAuthentication -ServerName myserver -ResourceGroupName myresource
@@ -115,9 +125,9 @@ You can also use the following command:
 Get-AzSqlServer -ServerName myserver | Enable-AzSqlServerActiveDirectoryOnlyAuthentication
 ```
 
-For more information on these PowerShell commands, run `get-help  Enable-AzSqlServerActiveDirectoryOnlyAuthentication -full`.
-
 **Disable**
+
+For more information, see [Disable-AzSqlServerActiveDirectoryOnlyAuthentication](/powershell/module/az.sql/disable-azsqlserveractivedirectoryonlyauthentication).
 
 ```powershell
 Disable-AzSqlServerActiveDirectoryOnlyAuthentication -ServerName myserver -ResourceGroupName myresource
@@ -141,6 +151,8 @@ Get-AzSqlServer -ServerName myserver | Get-AzSqlServerActiveDirectoryOnlyAuthent
 
 **Enable**
 
+For more information, see [Enable-AzSqlInstanceActiveDirectoryOnlyAuthentication](/powershell/module/az.sql/enable-azsqlinstanceactivedirectoryonlyauthentication).
+
 ```powershell
 Enable-AzSqlInstanceActiveDirectoryOnlyAuthentication -InstanceName myinstance -ResourceGroupName myresource
 ```
@@ -148,12 +160,14 @@ Enable-AzSqlInstanceActiveDirectoryOnlyAuthentication -InstanceName myinstance -
 You can also use the following command:
 
 ```powershell
-Get- AzSqlInstance -InstanceName myinstance | Enable-AzSqlInstanceActiveDirectoryOnlyAuthentication
+Get-AzSqlInstance -InstanceName myinstance | Enable-AzSqlInstanceActiveDirectoryOnlyAuthentication
 ```
 
 For more information on these PowerShell commands, run `get-help  Enable-AzSqlInstanceActiveDirectoryOnlyAuthentication -full`.
 
 **Disable**
+
+For more information, see [Disable-AzSqlInstanceActiveDirectoryOnlyAuthentication](/powershell/module/az.sql/disable-azsqlinstanceactivedirectoryonlyauthentication).
 
 ```powershell
 Disable-AzSqlInstanceActiveDirectoryOnlyAuthentication -InstanceName myinstance -ResourceGroupName myresource
@@ -175,8 +189,6 @@ Get-AzSqlInstance -InstanceName myinstance | Get-AzSqlInstanceActiveDirectoryOnl
 
 The following parameters will need to be defined:
 
-- `<tenantId>` can be found by going to the [Azure portal](https://portal.azure.com), and selecting your **Azure Active Directory** resource. In the **Overview** pane, you should see your **Tenant ID**.
-- `<clientId>` is the **Object ID** of the Azure AD account. You can find this by going to the user's **Profile** page in the Azure portal.
 - `<subscriptionId>` can be found by navigating to **Subscriptions** in the Azure portal.
 - `<myserver>` correspond to the prefix of the server or instance name (for example, `myserver`).
 - `<myresource>` corresponds to the resource the server belongs to (for example, `myresource`)
@@ -184,16 +196,14 @@ The following parameters will need to be defined:
 To use latest MSAL, download it from https://www.powershellgallery.com/packages/MSAL.PS.
 
 ```rest
-$tenantId = '<tenandId>'
-$clientId = '<clientId>'
 $subscriptionId = '<subscriptionId>'
-$uri = "urn:ietf:wg:oauth:2.0:oob" 
-$authUrl = “https://login.windows.net/$tenantId”
 $serverName = "<myserver>"
 $resourceGroupName = "<myresource>"
 ```
 
 ## Azure SQL Database
+
+For more information, see the [Server Azure AD Only Authentications](/rest/api/sql/2021-02-01-preview/serverazureadonlyauthentications) REST API documentation.
 
 ### Enable or disable in SQL Database
 
@@ -219,6 +229,8 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 
 ## Azure SQL Managed Instance
 
+For more information, see the [Managed Instance Azure AD Only Authentications](/rest/api/sql/2021-02-01-preview/managedinstanceazureadonlyauthentications) REST API documentation.
+
 ### Enable or disable in SQL Managed Instance
 
 **Enable**
@@ -241,16 +253,56 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$serverName/azureADOnlyAuthentications/default?api-version=2020-02-02-preview" -Method GET -Headers $authHeader  | Format-List
 ```
 
+# [ARM Template](#tab/arm)
+
+## Azure SQL Database
+
+```json
+{
+  "name": "string",
+  "type": "Microsoft.Sql/servers/azureADOnlyAuthentications",
+  "apiVersion": "2020-11-01-preview",
+  "properties": {
+    "azureADOnlyAuthentication": "boolean"
+  }
+}
+```
+
+For more information, see [Microsoft.Sql servers/azureADOnlyAuthentications](/azure/templates/microsoft.sql/servers/azureadonlyauthentications).
+
+## Azure SQL Managed Instance
+
+```json
+{
+  "name": "string",
+  "type": "Microsoft.Sql/managedInstances/azureADOnlyAuthentications",
+  "apiVersion": "2020-11-01-preview",
+  "properties": {
+    "azureADOnlyAuthentication": "boolean"
+  }
+}
+```
+
+For more information, see [Microsoft.Sql managedInstances/azureADOnlyAuthentications](/azure/templates/microsoft.sql/managedinstances/azureadonlyauthentications).
+
 ---
 
 ## Remarks
 
-- A [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) can set or remove an Azure AD admin, but can't set the **Azure Active Directory authentication only** setting in the Azure portal. The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) can't set or remove an Azure AD admin, but can set the **Azure Active Directory authentication only** setting in the Azure portal. Only accounts with higher Azure RBAC roles or custom roles that contain both permissions can set or remove an Azure AD admin and set the **Azure Active Directory authentication only** setting. One such role is the [Global Administrators](../../active-directory/roles/permissions-reference.md#global-administrator).
-- The **Azure Active Directory authentication only** setting can only be enabled or disabled by users with the right permissions if the **Azure Active Directory admin** is specified. If the Azure AD admin isn't set, the **Azure Active Directory authentication only** setting remains inactive and cannot be enabled or disabled. 
+- A [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) can set or remove an Azure AD admin, but can't set the **Azure Active Directory authentication only** setting. The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) can't set or remove an Azure AD admin, but can set the **Azure Active Directory authentication only** setting. Only accounts with higher Azure RBAC roles or custom roles that contain both permissions can set or remove an Azure AD admin and set the **Azure Active Directory authentication only** setting. One such role is the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role.
+- The **Azure Active Directory authentication only** setting can only be enabled or disabled by users with the right permissions if the **Azure Active Directory admin** is specified. If the Azure AD admin isn't set, the **Azure Active Directory authentication only** setting remains inactive and cannot be enabled or disabled. Using APIs to enable Azure AD-only authentication will also fail if the Azure AD admin hasn't been set.
 - Changing an Azure AD admin when Azure AD-only authentication is enabled is supported for users with the appropriate permissions.
-- Changing an Azure AD admin and enabling or disabling Azure AD-only authentication is allowed in the Azure portal for users with the appropriate permissions. Both operations can be completed with one **Save** in the Azure portal.
-- Removing an Azure AD admin when the Azure AD-only authentication feature is enabled isn't supported. If the **Azure Active Directory authentication only** setting is enabled, the **Remove admin** button is inactive in the Azure portal.
+- Changing an Azure AD admin and enabling or disabling Azure AD-only authentication is allowed in the Azure portal for users with the appropriate permissions. Both operations can be completed with one **Save** in the Azure portal. The Azure AD admin must be set in order to enable Azure AD-only authentication.
+- Removing an Azure AD admin when the Azure AD-only authentication feature is enabled isn't supported. Using an API to remove an Azure AD admin will fail if Azure AD-only authentication is enabled.
+    - If the **Azure Active Directory authentication only** setting is enabled, the **Remove admin** button is inactive in the Azure portal.
 - Removing an Azure AD admin and disabling the **Azure Active Directory authentication only** setting is allowed, but requires the right user permission to complete the operations. Both operations can be completed with one **Save** in the Azure portal.
+- Azure AD users with proper permissions can impersonate existing SQL users.
+    - Impersonation continues working between SQL authentication users even when the Azure AD-only authentication feature is enabled.
+
+## Known issues
+
+- When Azure AD-only authentication is enabled, the server administrator password cannot be reset. Currently, the password resent operation succeeds in portal but fails in the SQL engine. The failure is indicated in the server activity log. This defect will be fixed later. In order to reset the server admin password, the Azure AD-only authentication feature must be disabled.
+
 
 ## Next steps
 
