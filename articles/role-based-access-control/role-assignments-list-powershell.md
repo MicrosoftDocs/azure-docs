@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
-ms.reviewer: bagovind
+ms.reviewer: bagovind 
+ms.custom: devx-track-azurepowershell
 ---
 # List Azure role assignments using Azure PowerShell
 
