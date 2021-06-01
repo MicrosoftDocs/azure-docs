@@ -61,7 +61,7 @@ The unit represents the unit of measurement of the model. Supported units can be
 
 **Q: What devices does Object Anchors support?**
 
-**A:** HoloLens 2 
+**A:** HoloLens 2.
 
 **Q: Which OS build should my HoloLens run?**
 
@@ -118,7 +118,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 * Ensure the room has enough textures by adding a few posters.
 * Scan the object more completely.
-* Adjust the model parameters as described above.
+* Adjust the model parameters as described below.
 * Provide a tight bounding box as search area that includes all or most of the object.
 * Clear spatial mapping cache and rescan the object.
 * Capture diagnostics and send the data to us.
@@ -132,6 +132,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 * Default `ObjectQuery.MinSurfaceCoverage` from object model usually is good, otherwise use a smaller value to get a quicker detection.
 * Use a small value for `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees` if object is expected to be up-right.
 * An app should always use a `1:1` object model for detection. The estimated scale should be close to 1 ideally within 1% error. An app could set `ObjectQuery.MaxScaleChange` to `0` or `0.1` to disable or enable scale estimation, and qualitatively evaluate the instance pose.
+* For more information, see [How to detect a difficult object](detect-difficult-object.md).
 
 **Q: How do I get Object Anchors diagnostics data from the HoloLens?**
 
