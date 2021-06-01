@@ -45,7 +45,7 @@ The following table describes the categories from the _LogOperation function.
 
 
 ### Ingestion
-Ingestion operations are issues that occurred during data ingestion including notification about reaching the Azure Log Analytics workspace limits. Error conditions in this category might suggest data loss, so they are particularly important to monitor. The table below provides details on these operations. See [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) for service limits for Log Analytics workspaces.
+Ingestion operations are issues that occurred during data ingestion including notification about reaching the Azure Log Analytics workspace limits. Error conditions in this category might suggest data loss, so they are particularly important to monitor. The table below provides details on these operations. See [Azure Monitor service limits](../../service-limits.md#log-analytics-workspaces) for service limits for Log Analytics workspaces.
 
  
 #### Operation: Data collection Stopped  
@@ -76,7 +76,7 @@ Recommended Actions:
 
 You might want to either check why the limit is reached, you can use the workspace insights blade to review your usage patterns and try to reduce them.
 For further information: 
-[Azure Monitor service limits](././service-limits.md#data-ingestion-volume-rate) 
+[Azure Monitor service limits](../../service-limits.md#data-ingestion-volume-rate) 
 [Manage usage and costs for Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached)  
 
  
@@ -97,7 +97,7 @@ Check the source of the affected data type:
 *	If the data is being sent thru the HTTP Data Collector API, you will need to change your code\script to split the data before it’s ingested.
 *	In case it’s a custom log, collected from a Log Analytics agent, then you’ll to change the logging settings of the application\tool to prevent this.
 *	For any other data type, please raise a support case.
-</br>Read more: [Azure Monitor service limits](././service-limits.md#data-ingestion-volume-rate) 
+</br>Read more: [Azure Monitor service limits](../../service-limits.md#data-ingestion-volume-rate) 
 
 ### Data Collection
 #### Operation: Azure Activity Log Collection
@@ -108,7 +108,7 @@ Recommended Actions:
 * If you no longer have access to the subscription mentioned on the warning message:
   * If you no longer want to collect logs from this subscription, then please follow the same actions as step 1
   * If you still want to collect logs from this subscription, then please follow the same actions as step 1, contact the subscription owner to verify and fix your permissions and re-enable activity log collection 
-* If you need to enable or re-enable activity log collection, we strongly recommend that you switch to the new collection method that leverages diagnostic settings, as it includes : [Azure Activity log](././essentials/activity-log.md#send-to-log-analytics-workspace)
+* If you need to enable or re-enable activity log collection, we strongly recommend that you switch to the new collection method that leverages diagnostic settings, as it includes : [Azure Activity log](../../essentials/activity-log.md#send-to-log-analytics-workspace)
 
 ### Agent
 #### Operation: Linux Agent
