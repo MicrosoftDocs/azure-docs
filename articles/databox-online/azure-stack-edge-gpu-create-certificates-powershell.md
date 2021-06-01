@@ -127,4 +127,4 @@ Once the certificates are created, the next step is to upload the certificates o
 
 ## Next steps
 
-[Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md)
+- [Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md)

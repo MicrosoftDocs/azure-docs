@@ -87,10 +87,8 @@ For more information, see [Export PFX certificates with private key](azure-stack
 
 ## Next steps
 
-[Use certificates with Azure Stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md)
+- Create certificates for your device
 
-[Create certificates for your Azure Stack Edge Pro using Azure Stack Hub Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md)
+    - Via [Azure PowerShell cmdlets](azure-stack-edge-gpu-create-certificates-powershell.md)
+    - Via [Azure Stack Hub Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md).
 
-[Export PFX certificates with private key](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
-
-[Troubleshooting certificate errors](azure-stack-edge-gpu-certificate-troubleshooting.md)

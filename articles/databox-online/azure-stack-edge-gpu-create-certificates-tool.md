@@ -148,4 +148,4 @@ First, you'll generate a proper folder structure and place the certificates in t
 
 ## Next steps
 
-[Deploy your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md)
+- [Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md)

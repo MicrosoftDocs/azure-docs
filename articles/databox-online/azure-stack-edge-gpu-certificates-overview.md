@@ -177,4 +177,5 @@ Certificates that contain an RSA public key are referred to as RSA certificates.
 
 ## Next steps
 
-[Deploy certificates on your device](azure-stack-edge-gpu-deploy-prep.md)
+- [Review certificate requirements](azure-stack-edge-gpu-certificate-requirements.md)
+
