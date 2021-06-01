@@ -616,7 +616,7 @@
             "redirect_document_id": false
         },
         {
-          "source_path_from_root": "/articles/azure/media-services/video-indexer/index.yml",
+          "source_path_from_root": "/articles/media-services/video-indexer/index.yml",
           "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
           "redirect_document_id": false
         }       
