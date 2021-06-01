@@ -46,7 +46,7 @@ The **decompile** command converts an ARM template to a Bicep file.
 az bicep decompile --file main.json
 ```
 
-For more information about using this command, see [Decompiling ARM template to Bicep](decompile.md).
+For more information about using this command, see [Decompiling ARM template JSON to Bicep](decompile.md).
 
 ## install
 
