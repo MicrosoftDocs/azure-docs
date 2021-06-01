@@ -140,7 +140,7 @@ You can restore or disable soft deleted blobs and directories in accounts that h
 >[!IMPORTANT]
 > This section section applies only to accounts that have a hierarchical namespace.
 
-1. Ensure that you have the **Az.Storage** preview module (version blah). See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md?tabs=azure-powershell#enable-blob-soft-delete-hierarchical-namespace).
+1. Ensure that you have the **Az.Storage** preview module installed. See [Enable blob soft delete by using PowerShell](soft-delete-blob-enable.md?tabs=azure-powershell#enable-blob-soft-delete-hierarchical-namespace).
 
 2. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
