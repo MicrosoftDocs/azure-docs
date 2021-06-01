@@ -52,10 +52,10 @@ When the registration is finished setting up, the portal will redirect you to it
 ## Collect important values
 
 Next, collect some important values about the app registration that you'll need in order to use the app registration to authenticate a client application. These values include:
-* resource name
-* client ID
-* tenant ID
-* client secret
+* **resource name**
+* **client ID**
+* **tenant ID**
+* **client secret**
 
 To work with Azure Digital Twins, the **resource name** is `http://digitaltwins.azure.net`.
 
