@@ -67,26 +67,28 @@ The **client ID** and **tenant ID** values can be collected from the app registr
 
 :::image type="content" source="media/how-to-create-app-registration/client-id-tenant-id.png" alt-text="Screenshot of the Azure portal showing the important values for the app registration.":::
 
-Take note of the _**Application (client) ID**_ and _**Directory (tenant) ID**_ shown on **your** page.
+Take note of the **Application (client) ID** and **Directory (tenant) ID** shown on **your** page.
 
 ### Collect client secret
 
-To set up a **client secret** for your app registration, navigate to your app registration in the Azure portal. 
+To set up a **client secret** for your app registration, start on your app registration page in the Azure portal. 
 
-Select **Certificates and secrets** from the registration's menu, and then select **+ New client secret**.
+1. Select **Certificates and secrets** from the registration's menu, and then select **+ New client secret**.
 
-:::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing an Azure AD app registration and a highlight around 'New client secret'.":::
+    :::image type="content" source="media/how-to-create-app-registration/client-secret.png" alt-text="Screenshot of the Azure portal showing an Azure AD app registration and a highlight around 'New client secret'.":::
 
-Enter whatever values you want for Description and Expires, and select **Add**.
+1. Enter whatever values you want for Description and Expires, and select **Add**.
 
-:::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Screenshot of the Azure portal while adding a client secret.":::
+    :::image type="content" source="media/how-to-create-app-registration/add-client-secret.png" alt-text="Screenshot of the Azure portal while adding a client secret.":::
 
-Now, verify that the client secret is visible on the **Certificates & secrets** page with Expires and Value fields. Take note of its **Secret ID** and **Value** to use later (you can also copy them to the clipboard with the Copy icons).
+1. Verify that the client secret is visible on the **Certificates & secrets** page with Expires and Value fields. 
 
-:::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Screenshot of the Azure portal showing how to copy the client secret value.":::
+1. Take note of its **Secret ID** and **Value** to use later (you can also copy them to the clipboard with the Copy icons).
+
+    :::image type="content" source="media/how-to-create-app-registration/client-secret-value.png" alt-text="Screenshot of the Azure portal showing how to copy the client secret value.":::
 
 >[!IMPORTANT]
->Make sure to copy the value now and store it in a safe place, as it cannot be retrieved again. If you can't find the value later, you'll have to create a new secret.
+>Make sure to copy the values now and store them in a safe place, as they can't be retrieved again. If you can't find them later, you'll have to create a new secret.
 
 ## Provide Azure Digital Twins API permission
 
