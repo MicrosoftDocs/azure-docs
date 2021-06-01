@@ -11,7 +11,7 @@ ms.author: cshoe
 
 Trigger a function based on a new Kafka event.
 
-Kafka messages can be serialized to multiple formats. Currently the following formats are supported: `string`, [Avro](http://avro.apache.org/docs/current/) and [Protobuf](https://developers.google.com/protocol-buffers/).
+Kafka messages can be serialized to multiple formats. Currently the following formats are supported: `string`, [Avro](http://avro.apache.org/docs/current/), and [Protobuf](https://developers.google.com/protocol-buffers/).
 
 ## String binding
 
@@ -55,8 +55,8 @@ public static void StringTopic(
 
 The Kafka trigger supports two methods for consuming Avro format:
 
-- **Specific**: A concrete user defined class is instantiated during message de-serialization.
-- **Generic**: An Avro schema and a generic record is created during message de-serialization.
+- **Specific**: A concrete user-defined class is instantiated during message de-serialization.
+- **Generic**: An Avro schema and a generic record instance are created during message de-serialization.
 
 ### Avro specific
 
@@ -230,7 +230,7 @@ public static void PageViews(
 
 # [C#](#tab/csharp)
 
-Protobuf is supported in the trigger based on the `Google.Protobuf` nuget package. To consume a topic that is using protobuf as serialization set the TValue generic argument to be of a type that implements `Google.Protobuf.IMessage`. The sample producer has a producer for topic `protoUser` (must be created). The sample function has a trigger handler for this topic in class `ProtobufTriggers`.
+Protobuf is supported in the trigger based on the `Google.Protobuf` NuGet package. To consume a topic using protobuf serialization, set the `TValue` generic argument to be of a type that implements `Google.Protobuf.IMessage`. The sample producer has a producer for topic `protoUser` (must be created). The sample function has a trigger handler for this topic in class `ProtobufTriggers`.
 
 ```csharp
 public static class ProtobufTriggers

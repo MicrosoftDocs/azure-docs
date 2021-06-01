@@ -31,12 +31,11 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-To set a key value use `KafkaEventData<string, string>` to define a key of type string (supported key types: int, long, string, byte[]).
+To define a key of type `string`, declare the key value as `KafkaEventData<string, string>`. Supported key types include `int`, `long`, `string`, and `byte[]`.
 
-To produce messages using Protobuf serialization use a `KafkaEventData<MyProtobufClass>` as message type. `MyProtobufClass` must implements the IMessage interface.
+To produce messages using Protobuf serialization, use a `KafkaEventData<MyProtobufClass>` as the message type. The `MyProtobufClass` must implement the `IMessage` interface.
 
-For Avro provide a type that implements ISpecificRecord.
-If nothing is defined the value will be of type `byte[]` and no key will be set.
+For Avro, provide a type that implements `ISpecificRecord`. If nothing is defined, the value is set to a  `byte[]` type, and no key is set.
 
 # [C# Script](#tab/csharp-script)
 
@@ -62,7 +61,7 @@ If nothing is defined the value will be of type `byte[]` and no key will be set.
 
 ## Configuration
 
-Customization of the Kafka extensions is available in the host file. As mentioned before, the interface to Kafka is built based on [Confluent.Kafka](https://www.nuget.org/packages/Confluent.Kafka/) library, therefore some of the configuration is just a bridge to the producer/consumer.
+Customization of the Kafka extensions is available in the host file. The interface to Kafka is built on the [Confluent.Kafka](https://www.nuget.org/packages/Confluent.Kafka/) library, so some of the configuration is just a bridge to the producer and consumer.
 
 ```json
 {
@@ -82,18 +81,18 @@ The Confluent.Kafka library is based on the [librdkafka](https://github.com/eden
 #### Extension configuration
 
 | Setting |Description|Default Value|
-|-|-|-|
-| MaxBatchSize| Maximum batch size when calling a Kafka trigger function|64|
-| SubscriberIntervalInSeconds | Defines the minimum frequency in which messages will be executed by function. Only if the message volume is less than MaxBatchSize / SubscriberIntervalInSeconds| 1 |
-| ExecutorChannelCapacity | Defines the channel capacity in which messages will be sent to functions. Once the capacity is reached the Kafka subscriber will pause until the function catches up| 1 |
-| ChannelFullRetryIntervalInMs | Defines the interval in milliseconds in which the subscriber should retry adding items to channel once it reaches the capacity| 50 |
+| --- | --- | --- |
+| MaxBatchSize | Maximum batch size when calling a Kafka triggered function. | 64 |
+| SubscriberIntervalInSeconds | Defines the minimum frequency in messages are executed per function. Only if the message volume is less than MaxBatchSize / SubscriberIntervalInSeconds| 1 |
+| ExecutorChannelCapacity | Defines the channel message capacity. Once capacity is reached, the Kafka subscriber pauses until the function catches up. | 1 |
+| ChannelFullRetryIntervalInMs | Defines the subscriber retry interval in milliseconds used when attempting to add items to at-capacity channel. | 50 |
 
 #### librdkafka configuration
 
-The following settings are applicable in advanced scenarios. Refer to the [librdkafka documentation](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md) for more information.
+The following settings are applicable in advanced scenarios. For more information, see the [librdkafka documentation](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md).
 
-| Setting |librdkafka property| Trigger or Output |
-|-|-|-|
+| Setting | librdkafka property | Trigger or Output |
+| --- | --- | --- |
 | ReconnectBackoffMs | reconnect.backoff.max.ms | Trigger |
 | ReconnectBackoffMaxMs | reconnect.backoff.max.ms | Trigger |
 | StatisticsIntervalMs | statistics.interval.ms | Trigger |
@@ -116,7 +115,7 @@ The following settings are applicable in advanced scenarios. Refer to the [librd
 Both, trigger and output, can connect to a secure Kafka broker. The following attribute properties are available to establish a secure connection:
 
 |Setting|librdkafka property|Description|
-|-|-|-|
+| --- | --- | --- |
 | AuthenticationMode | sasl.mechanism | SASL mechanism to use for authentication |
 | Username | sasl.username | SASL username for use with the PLAIN and SASL-SCRAM |
 | Password | sasl.password | SASL password for use with the PLAIN and SASL-SCRAM |
@@ -133,25 +132,25 @@ Username and password should reference an Azure Functions application setting.
 For non-C# languages, you can specify `cardinality` to allow batch processing.
 
 |Setting|Description|Option|
-|-|-|-|
-| cardinality | Set to many in order to enable batching. If omitted or set to one, a single message is passed to the function. For Java functions, if you set `MANY`, you need to set a `dataType`. | `ONE`, `MANY` |
+| --- | --- | --- |
+| cardinality | Set to `MANY` in order to enable batching. If omitted or set to one, a single message is passed to the function. For Java functions, if you set `MANY`, you need to set a `dataType`. | `ONE`, `MANY` |
 | dataType | For Java functions, the type used to deserialize a kafka event. Required when you set cardinality to `MANY` | `string`, `binary`|
 
 ## Linux Premium plan configuration
 
 To avoid a runtime error when loading the librdkafka library in the Linux Premium plan, add the following setting.
 
-|Setting|Value|Description|
-|-|-|-|
-|LD_LIBRARY_PATH|/home/site/wwwroot/bin/runtimes/linux-x64/native|Librakafka library path|
+| Setting | Value | Description |
+| --- | --- | --- |
+| LD_LIBRARY_PATH| `/home/site/wwwroot/bin/runtimes/linux-x64/native` | librakafka library path |
 
 ## Connecting to Confluent Cloud in Azure
 
-Connecting to a managed Kafka cluster as the one provided by [Confluent in Azure](https://www.confluent.io/azure/) requires a few additional steps.
+Connecting to a managed Kafka cluster as the one provided by [Confluent in Azure](https://www.confluent.io/azure/) requires a few more steps.
 
 # [C#](#tab/csharp)
 
-1. In the function trigger ensure that Protocol, AuthenticationMode, Username, Password and SslCaLocation are set.
+1. In the function trigger ensure that `Protocol`, `AuthenticationMode`, `Username`, `Password`, and `SslCaLocation` are set.
 
 ```c#
 public static class ConfluentCloudTrigger
