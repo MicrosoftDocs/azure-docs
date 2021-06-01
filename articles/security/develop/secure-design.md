@@ -439,7 +439,7 @@ throughout its access patterns.
 
 Implement *just-in-time* (JIT) access to further lower the exposure time
 of privileges. Use [Azure AD Privileged Identity
-Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity)
+Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity)
 to:
 
 - Give users the permissions they need only JIT.

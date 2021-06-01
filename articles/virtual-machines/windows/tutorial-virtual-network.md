@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about Azure virtual networks so that I can securely deploy Windows virtual machines and restrict traffic between them.
 ---

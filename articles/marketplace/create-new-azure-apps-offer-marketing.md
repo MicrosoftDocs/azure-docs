@@ -27,4 +27,4 @@ If you elect to make your offer available in the Cloud Solution Provider (CSP) p
 ## Next steps
 
 - [How to test and publish an Azure Application offer](create-new-azure-apps-offer-test-publish.md)
-- [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
+- [Active marketplace rewards](marketplace-rewards.md)

@@ -14,8 +14,12 @@
       href: release-notes.md  
 - name: Quickstarts
   items:
-  - name: Get started - Azure Video Analyzer
-    href: get-started-detect-motion-emit-events.md
+  - name: Get started with Azure Video Analyzer
+    items:
+    - name: Using ARM template
+      href: get-started-detect-motion-emit-events.md
+    - name: Using Portal
+      href: get-started-detect-motion-emit-events-portal.md
   - name: Azure Video Analyzer Visual Studio Code extension
     href: create-pipeline-vs-code-extension.md
   - name: Detect motion and emit events    
@@ -152,7 +156,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?category=media
   - name: Pricing
-    href: https://azure.microsoft.com/services/media-services/live-video-analytics/
+    href: https://azure.microsoft.com/pricing/details/video-analyzer/
   - name: FAQs
     href: faq-edge.md 
   - name: Quotas and limitations

@@ -232,11 +232,11 @@
     },
     {
       "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
-      "redirect_url": "/azure/container-registry/monitor-service",
+      "redirect_url": "/azure/container-registry/monitor-service"
     },
     {
       "source_path": "articles/confidential-computing/how-to-fortanix-enclave-manager.md",
-      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent",
+      "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent"
     },
     {
       "source_path": "articles/azure-percept/advanced-development-cloud.md",
@@ -5209,6 +5209,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/batch/tutorial-rendering-cli.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/tutorial-rendering-batchexplorer-blender.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/tutorial-r-doazureparallel.md",
+      "redirect_url": "/azure/batch/tutorial-parallel-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/batch/batch-rendering-render-managers.md",
+      "redirect_url": "/azure/batch/batch-rendering-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/high-performance-computing.md",
       "redirect_url": "/azure/architecture/topics/high-performance-computing/",
       "redirect_document_id": false
@@ -7174,8 +7194,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/migration.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v3",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-batch-testing.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/reference-entity-composite.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/reference-entity-machine-learned-entity",
       "redirect_document_id": true
     },
     {
@@ -8431,6 +8461,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/migrate-management-alerts.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/azure-iot-edge-module-creation.md",
+      "redirect_url": "/azure/marketplace/marketplace-iot-edge",
       "redirect_document_id": false
     },
     {
@@ -16239,6 +16274,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/spark-connector.md",
+      "redirect_url": "/azure/cosmos-db/create-sql-api-spark",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md",
       "redirect_url": "/azure/cost-management/overview",
       "redirect_document_id": false
@@ -17064,6 +17104,12 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/manage/review-service-usage-api.md",
+      "redirect_url": "/azure/cost-management-billing/costs/ingest-azure-usage-at-scale",
+      "redirect_document_id": true
+    },
+
+    {
       "source_path_from_root": "/articles/databox-family/index.md",
       "redirect_url": "/azure/databox/index",
       "redirect_document_id": false
@@ -17481,6 +17527,11 @@
     {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-certificates.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-certificates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-troubleshoot-virtual-machine-image-upload.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload",
       "redirect_document_id": false
     },
     {
@@ -19164,6 +19215,126 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/dev-spaces/how-to/create-cluster-cloud-shell.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/dev-spaces-business-continuity.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/github-actions.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/ingress-https-nginx.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/ingress-https-traefik.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/install-dev-spaces.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/manage-secrets.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/run-dev-spaces-windows-containers.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/setup-cicd.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/upgrade-tools.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/use-custom-nuget-feed.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/use-kubectl-with-azure-dev-spaces.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-to/use-private-helm-repo.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/configure-networking.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/faq.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-dev-spaces-works-cluster-setup.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-dev-spaces-works-prep.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-dev-spaces-works-remote-debugging.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-dev-spaces-works-routing.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-dev-spaces-works-up.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-dev-spaces-works.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/how-vs-code-works-with-dev-spaces.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/migrate-to-bridge-to-kubernetes.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-spaces/troubleshooting.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/solution-dev-test-environments.md",
       "redirect_url": "/azure/devtest-lab/devtest-lab-overview",
       "redirect_document_id": false
@@ -19679,6 +19850,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-app-registration.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-app-registration-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/digital-twins/concepts-integration.md",
+      "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-create-twin-level-role-based-access-control.md",
       "redirect_url": "/azure/digital-twins/how-to-use-tags",
       "redirect_document_id": false
@@ -19871,6 +20052,11 @@
     {
       "source_path_from_root": "/articles/event-grid/event-sources.md",
       "redirect_url": "/azure/event-grid/overview#event-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/move-partner-namespaces-across-regions.md",
+      "redirect_url": "/azure/event-grid/move-system-topics-across-regions",
       "redirect_document_id": false
     },
     {
@@ -28690,8 +28876,13 @@
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-deploy-model-cli.md",
-      "redirect_url": "/azure/machine-learning/tutorial-train-deploy-model-cli",
+      "redirect_url": "/azure/machine-learning/how-to-train-cli",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/tutorial-train-deploy-model-cli.md",
+      "redirect_url": "/azure/machine-learning/how-to-train-cli",
+      "redirect_document_id": "false"
     },
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-train-models-with-aml.md",
@@ -29424,63 +29615,68 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/iot-edge-module.md",
+      "redirect_url": "/azure/marketplace/marketplace-iot-edge",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-create-iot-edge-module-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation",
+      "redirect_url": "/azure/marketplace/iot-edge-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -29685,12 +29881,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-iot-edge-module-asset",
+      "redirect_url": "/azure/marketplace/iot-edge-technical-asset",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-certification-process.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-iot-edge-module-asset",
+      "redirect_url": "/azure/marketplace/iot-edge-technical-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-iot-edge-module-asset.md",
+      "redirect_url": "/azure/marketplace/iot-edge-technical-asset",
       "redirect_document_id": false
     },
     {
@@ -29725,37 +29926,42 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cpp-business-central-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-app-publishing-process.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-create-new-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-create-offer-settings.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-create-offer-technical-details.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-create-storefront-details.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-business-central-offer",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-new-business-central-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-business-central-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -29834,123 +30040,148 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
+      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-channel-info-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-contacts-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-plans-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-saas-subscription-apis.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-storefront-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-technical-info-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-testdrive-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/saas-app/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-new-saas-offer",
+      "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-contacts-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-power-bi-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-prerequisites.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-storefront-details-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-technical-info-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/power-bi/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-power-bi-app-offer",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-power-bi-app-overview.md",
+      "redirect_url": "/azure/marketplace/marketplace-power-bi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/create-power-bi-app-offer.md",
+      "redirect_url": "/azure/marketplace/power-bi-app-offer-setup",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/si-faqs.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/faq-terminology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/marketplace-rewards.md",
+      "redirect_url": "/azure/marketplace/marketplace-rewards",
       "redirect_document_id": false
     },
     {
@@ -30045,47 +30276,52 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/azure-applications/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/manage-offers/cpp-delete-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal-orig/manage-dynamics-365-for-operations.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/update-existing-offer",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/update-existing-offer.md",
+      "redirect_url": "/azure/marketplace/update-existing-offer",
       "redirect_document_id": false
     },
     {
@@ -33214,8 +33450,28 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/sql-vulnerability-assessment-enable.md",
+      "redirect_url": "/azure/security-center/defender-for-sql-on-machines-vulnerability-assessment",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/security-center-powerbi.md",
       "redirect_url": "/azure/security-center",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/articles/mysql/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariadb/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/concepts-data-access-and-security-threat-protection.md",
+      "redirect_url": "/azure/security-center/defender-for-databases-introduction",
       "redirect_document_id": false
     },
     {
@@ -33707,7 +33963,7 @@
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-metrics-azure-monitor.md",
       "redirect_url": "/azure/service-bus-messaging/monitor-service-bus-reference",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-migrate-acs-sas.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
@@ -33831,6 +34087,16 @@
     {
       "source_path_from_root": "/articles/service-bus-messaging/service-bus-shared-access-signature-authentication.md",
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-queues.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-ruby",
       "redirect_document_id": false
     },
     {
@@ -50107,7 +50373,7 @@
       "source_path_from_root": "/articles/active-directory/external-identities/add-guest-to-role.md",
       "redirect_url": "/azure/active-directory/external-identities/add-users-administrator",
       "redirect_document_id": false
-      },
+    },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-external-identities.md",
       "redirect_url": "/azure/active-directory/active-directory-b2b-compare-b2c",
@@ -61061,7 +61327,7 @@
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract.md",
       "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#train-a-custom-model",
-       "redirect_document_id": false
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
@@ -63794,6 +64060,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/kube-advisor-tool.md",
+      "redirect_url": "/azure/aks/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
@@ -63916,16 +64187,6 @@
     {
       "source_path_from_root": "/articles/azure-monitor/platform/workbooks-access-control.md",
       "redirect_url": "/azure/azure-monitor/visualize/workbooks-access-control",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/marketplace/cloud-partner-portal-orig/Pre-requisites.md",
-      "redirect_url": "/azure/marketplace/dynamics-365-operations-offer-setup",
       "redirect_document_id": false
     },
     {
@@ -65304,6 +65565,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/logs/example-queries.md",
+      "redirect_url": "/azure/azure-monitor/logs/queries",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -66347,6 +66613,22 @@
       "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
       "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure/media-services/video-indexer/",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/tutorial-bulk-processing.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/tutorial-ai-builder",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-libraries.md",
+      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
+      "redirect_document_id": false
     }
+
   ]
 }

@@ -52,6 +52,7 @@ import com.azure.core.http.rest.*;
 import com.azure.core.util.Context;
 import com.azure.core.util.polling.LongRunningOperationStatus;
 import com.azure.core.util.polling.PollResponse;
+import com.azure.core.util.polling.SyncPoller;
 import com.azure.identity.*;
 import java.io.*;
 
@@ -83,7 +84,7 @@ Alternatively, using the endpoint and access key from the communication resource
 <!-- embedme ./src/samples/java/com/azure/communication/phonenumbers/ReadmeSamples.java#L30-L41 -->
 ```java
 // You can find your connection string from your resource in the Azure portal
-String connectionString = "https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
+String connectionString = "endpoint=https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<ACCESS_KEY>";
 
 PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
     .connectionString(connectionString)

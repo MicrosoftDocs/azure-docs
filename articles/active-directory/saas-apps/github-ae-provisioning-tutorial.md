@@ -29,7 +29,7 @@ This tutorial describes the steps you need to perform in both GitHub AE and Azur
 > * Remove users in GitHub AE when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and GitHub AE
 > * Provision groups and group memberships in GitHub AE
-> * Single sign-on to [Github AE](./github-ae-tutorial.md) (recommended)
+> * Single sign-on to [GitHub AE](./github-ae-tutorial.md) (recommended)
 
 ## Prerequisites
 

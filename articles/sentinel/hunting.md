@@ -24,6 +24,10 @@ ms.author: yelevin
 > [!IMPORTANT]
 >
 > - Upgrades to the **hunting dashboard** are currently in **PREVIEW**. Items below relating to this upgrade will be marked as "(preview)". See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Azure Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that weren't detected by your security apps or even by your scheduled analytics rules, Azure Sentinel's built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
 

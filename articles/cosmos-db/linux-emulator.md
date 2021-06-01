@@ -8,7 +8,7 @@ ms.author: esarroyo
 ms.date: 05/25/2021
 ---
 
-# Run the emulator on docker for Linux (Preview)
+# Run the emulator on Docker for Linux (Preview)
 
 The Azure Cosmos DB Linux Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Currently, the Linux emulator only supports SQL API. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Linux Emulator, you can switch to using an Azure Cosmos DB account in the cloud. This article describes how to install and use the emulator on macOS and Linux environments.
 
@@ -187,6 +187,18 @@ This section provides tips to troubleshoot errors when using the Linux emulator.
 - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
   - .NET: See the [certificates section](#run-on-linux)
   - Java: See the [Java Certificates Store section](#run-on-linux)
+
+#### My Node.js app is reporting a self-signed certificate error
+
+If you attempt to connect to the emulator via an address other than `localhost`, such as the containers IP address, Node.js will raise an error about the certificate being self-signed, even if the certificate has been installed.
+
+TLS verification can be disabled by setting the environment variable `NODE_TLS_REJECT_UNAUTHORIZED` to `0`:
+
+```bash
+NODE_TLS_REJECT_UNAUTHORIZED=0
+```
+
+This flag is only recommended for local development as it disables TLS for Node.js. More information can be found on in [Node.js documentation](https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value) and the [Cosmos DB Emulator Certificates documentation](local-emulator-export-ssl-certificates.md#how-to-use-the-certificate-in-nodejs).
 
 #### The Docker container failed to start
 
