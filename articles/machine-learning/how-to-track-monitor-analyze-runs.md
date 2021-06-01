@@ -20,6 +20,7 @@ The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
 This article shows how to do the following tasks:
 
 * Monitor run performance.
+* Track your work with notifications, favorites and recents. 
 * Create a custom view. 
 * Add a run description. 
 * Tag and find runs.
@@ -178,6 +179,23 @@ You'll need the following items:
     # [Studio](#tab/azure-studio)
     
     ---
+    
+## Track your work with notifications, favorites and recents. 
+
+### Notifications
+
+Stay updated with the status of your runs by viewing the notifications for your runs and other assets and resources. New run updates will appear in the 
+**Notifications** panel. 
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/notifications.gif" alt-text="Screenshot: view notifications":::
+
+### Favorites and Recents
+To favorite runs or experiments, select the **star** icon in the run details page. You can also favorite runs and experiments from the experiments and runs lists.
+
+You can view all recently accessed runs and experiments that you previously clicked on in the **Recents** tab.
+
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/recentsandfavorites.gif" alt-text="Screenshot: favorite resorces and view recent assets":::
+    
 ## Custom View 
     
 To view your runs in the studio: 
