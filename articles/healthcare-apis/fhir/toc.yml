@@ -60,6 +60,8 @@
       href: carin-implementation-guide-bb-tutorial.md
     - name: $member-match operation
       href: tutorial-$member-match.md
+    - name: Davinci Drug Formulary
+      href: davinci-drug-formulary-tutorial.md
 - name: How-to guides
   expanded: false
   items:
