@@ -104,7 +104,9 @@ The initial backup will run in accordance with the schedule, but you can run it 
 1. Select **Azure Virtual machines** as the **Datasource type** and search for the VM that you have configured for backup.
 1. Right-click the relevant row or select the more icon (…), and click **Backup Now**.
 1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
-1. Monitor the portal notifications.<br>To monitor the job progress, navigate to **Backup center** -> **Backup Jobs** and filter the list for **In progress** jobs.<br>Depending on the size of your VM, creating the initial backup may take a while.
+1. Monitor the portal notifications.
+   To monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.
+   Depending on the size of your VM, creating the initial backup may take a while.
 
 ## Provide permissions
 
