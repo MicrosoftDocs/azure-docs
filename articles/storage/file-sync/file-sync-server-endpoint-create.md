@@ -24,7 +24,7 @@ This article helps you understand the options and decisions needed to create a n
 ## Prerequisites
 
 To create a server endpoint, you must first ensure that the following criteria are met: 
-- The server has the Azure File Sync agent installed and has been registered. Instructions for installing the Azure File Sync Agent can be found in the [Register/unregister a server with Azure File Sync](file-sync-server-registration.md) article. 
+- The server has the Azure File Sync agent installed and has been registered. See [Register/unregister a server with Azure File Sync](file-sync-server-registration.md) for details on installing the Azure File Sync Agent. 
 - Ensure that a Storage Sync Service has been deployed. See [How to deploy Azure File Sync](file-sync-deployment-guide.md) for details on how to deploy a Storage Sync Service. 
 - Ensure that a sync group has been deployed. Learn how to [Create a sync group](file-sync-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint).
 - Ensure that the server is connected to the internet and that Azure is accessible. Azure File Sync uses port 443 for all communication between the server and cloud service.
