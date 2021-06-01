@@ -49,6 +49,9 @@ The above actions can also be added to a custom role to manage Azure AD-only aut
 
 ## Managing Azure AD-only authentication using APIs
 
+> [!IMPORTANT]
+> The Azure AD admin must be set before enabling Azure AD-only authentication.
+
 # [Azure CLI](#tab/azure-cli)
 
 You must have Azure CLI version **2.14.2** or higher.
