@@ -104,7 +104,7 @@
     href: file.md
   - name: Data types
     href: data-types.md
-  - name: Bicep functions
+  - name: Functions
     items:
     - name: All functions
       href: bicep-functions.md
@@ -138,6 +138,8 @@
       href: operators-logical.md
     - name: Numeric operators
       href: operators-numeric.md
+  - name: Bicep CLI
+    href: bicep-cli.md
   - name: Template reference
     href: /azure/templates/
   - name: Azure PowerShell

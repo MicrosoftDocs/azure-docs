@@ -53,29 +53,13 @@ To manually start the Bicep CLI installation, use:
 az bicep install
 ```
 
-To see your installed version, use:
-
-```bash
-az bicep version
-```
-
-To list all available versions, use:
-
-```bash
-az bicep list-versions
-```
-
 To upgrade to the latest version, use:
 
 ```bash
 az bicep upgrade
 ```
 
-To install a specific version:
-
-```bash
-az bicep install --version v0.3.255
-```
+For more commands, see [Bicep CLI](bicep-cli.md).
 
 > [!IMPORTANT]
 > Azure CLI installs a self-contained instance of the Bicep CLI. This instance doesn't conflict with any versions you may have manually installed. Azure CLI doesn't add Bicep CLI to your PATH.
