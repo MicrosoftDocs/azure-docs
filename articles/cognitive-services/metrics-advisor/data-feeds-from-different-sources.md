@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 04/20/2021
 ms.author: mbullwin
 ---
 
@@ -23,20 +23,20 @@ Use this article to find the settings and requirements for connecting different 
 | ---------------------|-------------|
 |**Basic** | You need to provide basic parameters for accessing data sources. For example, a connection string or a password. Data feed admins can view these credentials. |
 | **Azure Managed Identity** | [Managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for Azure resources is a feature of Azure Active Directory. It provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication.|
-| **Azure SQL Connection String**| Store your AzureSQL connection string as a **credential entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the credential entity can view these credentials, but enables authorized viewers to create data feeds without needing to know details for the credentials. |
-| **Data Lake Gen2 Shared Key**| Store your data lake account key as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Credential entity can view these credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
+| **Azure SQL Connection String**| Store your AzureSQL connection string as a **credential entity** in Metrics Advisor, and use it directly each time when onboarding metrics data. Only admins of the credential entity can view these credentials, other authorized viewers can create data feeds without knowing details for the credentials. |
+| **Data Lake Gen2 Shared Key**| Store your data lake account key as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of the Credential entity can view these credentials, other authorized viewers can create data feed without knowing the credential details.|
 | **Service principal**| Store your [Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity can view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
-| **Service principal from key vault**|Store your [Service Principal in a Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** can view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
+| **Service principal from key vault**|Store your [Service Principal in a Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** can view the credentials, other authorized viewers can create data feed without knowing detailed credentials. |
 
 ## Create a credential entity to manage your credential in secure
 
-You can create a **credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new data feed, this will be helpful when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
+You can create a **credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the detailed credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new data feed, this will be helpful when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
 1. Select '+' to create a new credential entity in 'Adding data feed' tab (you can also create one in 'Credential entity feed' tab).
 
    ![create credential entity](media/create-credential-entity.png)
  
-2. Set the credential entity name, description (if needed), and credential type (equals to *authentication types*).
+2. Specify the credential entity name, description (if needed), and credential type (equals to *authentication types*).
 
    ![set credential entity](media/set-credential-entity.png)
  
@@ -49,7 +49,7 @@ You can create a **credential entity** to store credential related information, 
 | Data sources | Authentication Types |
 |-------------| ---------------------|
 |[**Azure Application Insights**](#appinsights) | Basic |
-|[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity |
+|[**Azure Blob Storage (JSON)**](#blob) | Basic<br>Managed Identity |
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault |
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>Data Lake Gen2 Shared Key<br>Service principal<br>Service principal from key vault |
@@ -62,7 +62,7 @@ You can create a **credential entity** to store credential related information, 
 |[**PostgreSQL**](#pgsql) | Basic|
 |[**Local files(CSV)**](#csv) | Basic|
 
-The following sections specify the parameters required for all authentication types within different data source scenarios. 
+The following sections specify the parameters required for connecting to different data sources, covering all authentication types. 
 
 ## <span id="appinsights">Azure Application Insights</span>
 
@@ -89,7 +89,7 @@ The following sections specify the parameters required for all authentication ty
 
    4. Copy the API key to the **API key** field in Metrics Advisor.
 
-* **Query**: Azure Application Insights logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Kusto query language documentation](https://docs.microsoft.com/azure/data-explorer/kusto/query/) has all of the details for the language and should be your primary resource for writing a query against Application Insights. 
+* **Query**: Azure Application Insights logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Kusto query language documentation](https://docs.microsoft.com/azure/data-explorer/kusto/query/) has all of the details for the language and should be your primary resource for writing a query against Application Insights. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
 
@@ -106,14 +106,14 @@ The following sections specify the parameters required for all authentication ty
     
     * **Managed Identity**: Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. 
     
-        You can create a managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader.
+    You can create a managed identity in Azure portal for your Azure Blob Storage resource, and choose **role assignments** in **Access Control(IAM)** section, then click **add** to create. A suggested role type is: Storage Blob Data Reader.
     
-        ![MI blob](media/managed-identity-blob.png)
+    ![MI blob](media/managed-identity-blob.png)
     
 
 * **Container**: Metrics Advisor expects time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
-* **Blob Template**: Metrics Advisor uses path to find the json file in your Blob storage. This is an example of a Blob file template, which is used to find the json file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. "%Y/%m" is the path, if you have "%d" in your path, you can add after "%m". If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`.
+* **Blob Template**: Metrics Advisor uses path to find the json file in your Blob storage. This is an example of a Blob file template, which is used to find the json file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. '%Y/%m' is the path, if you have '%d' in your path, you can add after '%m'. If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`.
 
    The following parameters are supported:
     * `%Y` is the year formatted as `yyyy`
@@ -122,12 +122,12 @@ The following sections specify the parameters required for all authentication ty
     * `%h` is the hour formatted as `HH`
     * `%M` is the minute formatted as `mm`
   
-  For example, in the following dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
+  For example, in the following dataset, the blob template should be '%Y/%m/%d/00/JsonFormatV2.json'.
   
   ![blob template](media/blob-template.png)
   
 
-* **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Advisor supports two versions, you can choose one to fill in the field:
+* **JSON format version**: Defines the data schema in the JSON files, and only one timestamp is allowed per JSON file.  Currently Metrics Advisor supports two versions, you can choose 'v1' or 'v2' to fill in the field:
   
   * **v1** (Default value)
 
@@ -148,14 +148,14 @@ The following sections specify the parameters required for all authentication ty
       ]
       ```
 
-    Only one timestamp is allowed per JSON file. 
+
 
 ## <span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
 * **Connection String**: The connection string to access your Azure Cosmos DB. This can be found in the Cosmos DB resource in Azure portal, in **Keys**. Also, you can find more information in [Secure access to data in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data).
 * **Database**: The database to query against. This can be found in the **Browse** page under **Containers** section in the Azure portal.
 * **Collection ID**: The collection ID to query against. This can be found in the **Browse** page under **Containers** section in the Azure portal.
-* **SQL Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
+* **SQL Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
     
@@ -190,7 +190,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedures to set service principal from key vault. 
         Here's an example of connection string: 
         ```
         Data Source=<URI Server>;Initial Catalog=<Database>
@@ -207,7 +207,7 @@ The following sections specify the parameters required for all authentication ty
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-        <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 * **Query**: See [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
 
@@ -225,7 +225,7 @@ The following sections specify the parameters required for all authentication ty
     
     * **Basic**: The **Account Name** of your Azure Data Lake Storage Gen2. This can be found in your Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys**. 
 
-    * **Azure Data Lake Storage Gen2 Shared Key**: First, you should specify the account key to access your Azure Data Lake Storage Gen2 （the same as Account Key in *Basic* authentication type）. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting. Then you should create a credential entity for *Azure Data Lake Storage Gen2 Shared Key* type and fill in the account key. 
+    * **Azure Data Lake Storage Gen2 Shared Key**: First, you should specify the account key to access your Azure Data Lake Storage Gen2 (the same as Account Key in *Basic* authentication type). This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting. Then you should create a credential entity for *Azure Data Lake Storage Gen2 Shared Key* type and fill in the account key. 
     The account name is the same as *Basic* authentication type.
     
     * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
@@ -238,22 +238,22 @@ The following sections specify the parameters required for all authentication ty
         
         The account name is the same as **Basic** authentication type.
     
-    * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
     The account name is the same as *Basic* authentication type.
    
 
-* **Account Key**(only *Basic* needs): Specify the account key to access your Azure Data Lake Storage Gen2. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting.
+* **Account Key**(only *Basic* needs): Specify the account key to access your Azure Data Lake Storage Gen2. This can be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting.
 
 * **File System Name (Container)**: Metrics Advisor will expect your time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field. This can be found in your Azure storage account (Azure Data Lake Storage Gen2)  instance, and click **'Containers'** in **'Data Lake Storage'** section, then you'll see the container name.
 
 * **Directory Template**:
-   This is the directory template of the Blob file.
-       The following parameters are supported:
-       * `%Y` is the year formatted as `yyyy`
-       * `%m` is the month formatted as `MM`
-       * `%d` is the day formatted as `dd`
-       * `%h` is the hour formatted as `HH`
-       * `%M` is the minute formatted as `mm`
+   This is the directory template of the Blob file.The following parameters are supported:
+       
+    * `%Y` is the year formatted as `yyyy`
+    * `%m` is the month formatted as `MM`
+    * `%d` is the day formatted as `dd`
+    * `%h` is the hour formatted as `HH`
+    * `%M` is the minute formatted as `mm`
 
    Query sample for a daily metric: `%Y/%m/%d`.
 
@@ -310,9 +310,9 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 
      Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
-* **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
+* **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
 
-* **Query**: Specify the query of Log Analytics. For more information, see [Log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/log-query-overview)
+* **Query**: Specify the query for Log Analytics. For more information, see [Log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/log-query-overview). You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
 
@@ -338,23 +338,23 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     * **Managed Identity**: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. 
     
         To enable your managed entity, you can refer to following steps:
-    1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
-    2. In the Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give the managed identity access to specified users, and the suggested role type is: admin / viewer.
-    3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
-    4. The last step is to enable managed identity(MI) in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
+      1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as **on** in **RESOURCE MANAGEMENT > Identity**.
+      2. In the Azure portal for your data source, click **set admin** in **Settings > Active Directory admin**, this is to give the managed identity access to specified users, and the suggested role type is: admin / viewer.
+      3. Then you should create a contained user in database. First, start SQL Server Management Studio, in the **Connect to Server** dialog, Enter your **server name** in the Server name field. Then in the Authentication field, select **Active Directory - Universal with MFA support**. In the User name field, enter the name of the Azure AD account that you set as the server administrator, then click **Options**. In the Connect to database field, enter the name of the non-system database you want to configure. Then click **Connect**, and finally complete the sign-in process.
+      4. The last step is to enable managed identity(MI) in Metrics Advisor. In the **Object Explorer**, expand the **Databases** folder. Right-click on a user database and click **New query**. In the query window, you should enter the following line, and click Execute in the toolbar:
     
-        ```
-        CREATE USER [MI Name] FROM EXTERNAL PROVIDER
-        ALTER ROLE db_datareader ADD MEMBER [MI Name]
-        ```
+    ```
+    CREATE USER [MI Name] FROM EXTERNAL PROVIDER
+    ALTER ROLE db_datareader ADD MEMBER [MI Name]
+    ```
        
-         Note: The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
+     Note: The [MI Name] is the workspace name in Metrics Advisor. Also, you can learn more detail in this document: [Authorize with a managed identity](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-msi#enable-managed-identities-on-a-vm). 
         
-       Here's an example of connection string: 
+   Here's an example of connection string: 
    
-         ```
-         Data Source=<Server>;Initial Catalog=<Database>
-         ```
+     ```
+     Data Source=<Server>;Initial Catalog=<Database>
+     ```
         
 
     
@@ -405,7 +405,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
 * **Connection String**: Create an SAS (shared access signature) URL and fill in here. The most straightforward way to generate a SAS URL is using the Azure portal. By using the Azure portal, you can navigate graphically. To create an SAS URL via the Azure portal, first, navigate to the storage account you’d like to access under the **Settings section** then click **Shared access signature**. 
 Check allowed services and allowed resource types checkboxes, then click the **Generate SAS and connection string** button at the bottom. Table service SAS URL is what you need to copy and fill in the text box in the Metrics Advisor.
 
-    ![azure table generate sas](media/azure-table-generate-sas.png)
+![azure table generate sas](media/azure-table-generate-sas.png)
 
 * **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
 
@@ -431,14 +431,14 @@ Check allowed services and allowed resource types checkboxes, then click the **G
     ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ``` -->
-
+    <!-- For more information, refer to the [tutorial on writing a valid query](tutorial/write-a-valid-query.md) for more specific examples. -->
 
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
 * **Connection String**: The connection string to access your InfluxDB.
 * **Database**: The database to query against.
-* **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
+* **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
 
@@ -467,7 +467,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
 ## <span id="mysql">MySQL</span>
 
 * **Connection String**: The connection string to access your MySQL DB.
-* **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
+* **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
 
@@ -480,7 +480,7 @@ Check allowed services and allowed resource types checkboxes, then click the **G
 ## <span id="pgsql">PostgreSQL</span>
 
 * **Connection String**: The connection string to access your PostgreSQL DB.
-* **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
+* **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion. You can use the `@IntervalStart` and `@IntervalEnd` variables in your query. They should be formatted as: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
 
