@@ -1261,5 +1261,16 @@ groups:
     title: Facility Ontology 1.0 
   - id: facility-ontology-v2
     title: Facility Ontology 2.0 
-
+# Owner: barclayn (identity))
+  title: Platforms
+  prompt: Choose an option
+  pivots:
+  - id: platform-idazp
+    title: Azure portal
+  - id: platform-idazcli
+    title: Azure CLI
+  - id: platform-idpowershell
+    title: PowerShell
+  - id: platform-idnet
+    title: .NET
     
