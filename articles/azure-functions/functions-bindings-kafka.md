@@ -21,32 +21,11 @@ Invoke Azure Functions and write values out to [Apache Kafka](https://kafka.apac
 
 ----
 
-This repository contains Kafka binding extensions for the **Azure WebJobs SDK**. The communication with Kafka is based on library **Confluent.Kafka**.
-
-Please find samples [here](https://github.com/Azure/azure-functions-kafka-extension/tree/master/samples)
-
-**DISCLAIMER**: This library is supported in the Premium Plan along with support for scaling as Go-Live - supported in Production with a SLA. It is also fully supported when using Azure Functions on Kubernetes where scaling will be handed by KEDA - scaling based on Kafka queue length. It is currently not supported on the Consumption plan (there will be no scale from zero) - this is something the Azure Functions team is still working on.
-
-## Quick Start
-
-This library provides Quick Start for each language. General information of the samples, refer to: 
-
-* [Samples Overview Documentation](samples/README.md)
-
-| Language | Description | Link | DevContainer |
-| -------- | ----------- | ---- | ------------ |
-| C# | C# precompiled sample with Visual Studio | [Readme](samples/dotnet/README.md)| No |
-| Java | Java 8 sample | [Readme](samples/java/README.md) | Yes |
-| JavaScript | Node 12 sample | [Readme](samples/javascript/README.md)| Yes |
-| PowerShell | PowerShell 6 Sample | [Readme](samples/powershell/README.md)| No |
-| Python | Python 3.8 sample | [Readme](samples/python/README.md)| Yes |
-| TypeScript | TypeScript sample (Node 12) | [Readme](samples/typescript/kafka-trigger/README.md)| Yes |
-
-The following direction is for C#. However, other languages work with C# extension. You can refer to the configuration parameters. 
-
 ## Bindings
 
-There are two binding types in this repo: trigger and output. To get started using the extension in a WebJob project add reference to Microsoft.Azure.WebJobs.Extensions.Kafka project and call `AddKafka()` on the startup:
+# [C#](#tab/csharp)
+
+To get started using the extension in a WebJob project, add reference to [Microsoft.Azure.WebJobs.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kafka/) project and call `AddKafka()` during startup.
 
 ```csharp
 static async Task Main(string[] args)
@@ -98,6 +77,28 @@ public class Functions
     }
 }
 ```
+
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [Java](#tab/Java)
+
+**TODO**
+
+# [JavaScript](#tab/JavaScript)
+
+**TODO**
+
+# [PowerShell](#tab/PowerShell)
+
+**TODO**
+
+# [Python](#tab/python)
+
+**TODO**
+
+---
 
 ## Next steps
 
