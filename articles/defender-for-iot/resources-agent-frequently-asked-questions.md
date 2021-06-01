@@ -2,7 +2,7 @@
 title: Azure Defender for IoT agent frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT agent.
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 04/25/2021
 ---
 
 # Azure Defender for IoT agent frequently asked questions
