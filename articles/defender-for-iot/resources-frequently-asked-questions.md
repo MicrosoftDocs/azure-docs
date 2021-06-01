@@ -76,7 +76,7 @@ You can see how to [update your sensor network configuration before activation](
 
 You can also [update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration) after activation.
 
-You can work with CLI [commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration) to [change network configurations](references-work-with-defender-for-iot-cli-commands.md#network-configurations).
+You can work with CLI [commands](references-work-with-defender-for-iot-cli-commands.md#network-configuration) to [change network configurations](references-work-with-defender-for-iot-cli-commands.md#network-configuration).
 
 ## How do I check the sanity of my deployment
 
