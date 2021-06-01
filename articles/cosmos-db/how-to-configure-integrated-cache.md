@@ -61,7 +61,7 @@ You must adjust the request consistency to eventual. If not, the request will al
 > [!NOTE]
 > If you are using the Python SDK, you **must** explicitly set the consistency level for each request. The default account-level setting will not automatically apply.
 
-## MaxIntegratedCacheStaleness
+## Adjust MaxIntegratedCacheStaleness
 
 Configure `MaxIntegratedCacheStaleness`, which is the maximum time in which you are willing to tolerate stale cached data. We recommend setting the `MaxIntegratedCacheStaleness` as high as possible because it will increase the likelihood that repeated point reads and queries can be cache hits. If you set `MaxIntegratedCacheStaleness` to 0, your read request will **never** use the integrated cache, regardless of the consistency level. When not configured, the default `MaxIntegratedCacheStaleness` is 5 minutes.
 
