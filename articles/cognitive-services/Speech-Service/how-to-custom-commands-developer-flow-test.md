@@ -35,7 +35,7 @@ To set up the client, checkout [Windows Voice Assistant Client](https://github.c
 > [!div class="mx-imgBorder"]
 > ![WVAC Create profile](media/custom-commands/conversation.png)
 
-## Test programatically with Cognitive Services Voice Assitant Test Tool
+## Test programatically with Cognitive Services Voice Assistant Test Tool
 The Voice Assistant Test (VST) tool is a configurable .NET core C# console application for end-to-end functional regression tests for your Microsoft Voice Assistant. 
 
 The tool can run manually as a console command or automated as part of Azure DevOps CI/CD pipeline to prevent regressions in your bot.
