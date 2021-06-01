@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/01/2021
 ms.author: cynthn
 ms.subservice: cloud-init
 ---
@@ -15,7 +15,15 @@ This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io)
 ## Update a VM with cloud-init
 For security purposes, you may want to configure a VM to apply the latest updates on first boot. As cloud-init works across different Linux distros, there is no need to specify `apt` or `yum` for the package manager. Instead, you define `package_upgrade` and let the cloud-init process determine the appropriate mechanism for the distro in use. 
 
-For this example, we will be using the Azure Cloud Shell. To see the upgrade process in action, create a file named *cloud_init_upgrade.txt* and paste the following configuration.  You can use any editor you wish. Enter `sensible-editor cloud_init_upgrade.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+For this example, we will be using the Azure Cloud Shell. To see the upgrade process in action, create a file named *cloud_init_upgrade.txt* and paste the following configuration. 
+
+Select the **Try it** button on the code block below to open the Cloud Shell. To create the file and see a list of available editors in the Cloud Shell, type the following:
+
+```azurecli-interactive
+sensible-editor cloud_init_upgrade.txt 
+```
+
+Copy the text below and paste it into the `cloud_init_upgrade.txt` file. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
 
 ```yaml
 #cloud-config
