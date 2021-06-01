@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 
 # As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
@@ -114,9 +114,9 @@ After you push your logic app project to your source repository, you can set up 
 
 To set up a build pipeline based on your logic app project type, follow the corresponding actions:
 
-* Nuget-based: The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation.
+- Nuget-based: The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation.
 
-* Bundle-based: The extension bundle-based project isn't language specific and doesn't require any language-specific build steps. You can use any method to zip your project files.
+- Bundle-based: The extension bundle-based project isn't language specific and doesn't require any language-specific build steps. You can use any method to zip your project files.
 
   > [!IMPORTANT]
   > Make sure that the .zip file includes all workflow folders, configuration files such as host.json, connections.json, and any other related files.
@@ -132,9 +132,9 @@ To set up a release pipeline that deploys to Azure, choose the associated option
 
 For GitHub deployments, you can deploy your logic app by using [GitHub Actions](https://docs.github.com/actions), for example, the GitHub Action in Azure Functions. This action requires that you pass through the following information:
 
-* Your build artifact
-* The logic app name to use for deployment
-* Your publish profile
+- Your build artifact
+- The logic app name to use for deployment
+- Your publish profile
 
 ```yaml
 - name: 'Run Azure Functions Action'
@@ -152,9 +152,9 @@ For more information, review the [Continuous delivery by using GitHub Action](..
 
 For Azure DevOps deployments, you can deploy your logic app by using the [Azure Function App Deploy task](/devops/pipelines/tasks/deploy/azure-function-app) in Azure Pipelines. This action requires that you pass through the following information:
 
-* Your build artifact
-* The logic app name to use for deployment
-* Your publish profile
+- Your build artifact
+- The logic app name to use for deployment
+- Your publish profile
 
 ```yaml
 - task: AzureFunctionApp@1
@@ -171,7 +171,44 @@ For more information, review the [Deploy an Azure Function using Azure Pipelines
 
 #### [Azure CLI](#tab/azure-cli)
 
-If you use other deployment tools, you can deploy your logic app by using the Azure CLI commands for single-tenant Azure Logic Apps. For example, to deploy your zipped artifact to an Azure resource group, run the following CLI command:
+If you use other deployment tools, you can deploy your logic app by using the Azure CLI commands for single-tenant Azure Logic Apps.
+
+Before you start, you need to have the following items:
+
+- The latest Azure CLI extension installed on your local computer. If you're not sure, follow the [steps to check your environment and CLI version](#check-environment-cli-version).
+
+- The Logic Apps extension for Azure CLI
+
+<a name="check-environment-cli-version"></a>
+
+##### Check environment and CLI version
+
+1. In the [Azure portal(https://portal.azure.com). In the Azure portal, make sure you have an active subscription by running the following interactive Azure CLI command:
+
+   ```azurecli-interactive
+   az login
+   ```
+
+  If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
+
+
+1. Check your Azure CLI version in a terminal or command window by running the following command:
+
+   ```azurecli-interactive
+   az --version
+   ```
+
+For the latest version, review the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+
+
+1. Install the Logic Apps extension Install the preview version of the Logic Apps extension for the Azure CLI:
+
+
+```azurecli-interactive
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+```
+
+For example, to deploy your zipped artifact to an Azure resource group, run the following CLI command:
 
 `az logicapp deployment source config-zip -g {your-resource-group} --name {your-logic-app-name} --src {your-build-artifact}.zip`
 
@@ -185,7 +222,7 @@ For examples that show how to implement an end-to-end container build and deploy
 
 ## Next steps
 
-* [DevOps deployment for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md)
+- [DevOps deployment for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md)
 
 We'd like to hear about your experiences with the single-tenant Azure Logic Apps!
 
