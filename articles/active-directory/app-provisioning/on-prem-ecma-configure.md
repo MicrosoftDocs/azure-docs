@@ -48,7 +48,7 @@ For the preview, you will need to generate a new self-signed certificate.
 ### Create a connector
 Now you must create a connector for the Azure AD ECMA Connector Host to use.  This connector will allow the ECMA Connector Host to export (and import if desired) data to the data source for the connector you create.  
 
-The configuration steps for each of the indiviudal connectors are longer and are provided in their own documents.
+The configuration steps for each of the individual connectors are longer and are provided in their own documents.
 
 Use one of the links below to create and configure a connector.
 
@@ -67,12 +67,12 @@ The following sections will guide you through establishing connectivity with the
 
 #### Add Enterprise application
 1.  Sign-in to the Azure portal as an application administrator
-2. In the portal, navigate to Azure Active Directory, **Enterpirse Applications**.
+2. In the portal, navigate to Azure Active Directory, **Enterprise Applications**.
 3. Click on **New Application**.
  ![Add new application](.\media\on-prem-ecma-configure\configure-4.png)
 4. Locate your application and click **Create**.
 
-### Configure the applicaion and test
+### Configure the application and test
  1. Once it has been created, click he **Provisioning page**.
  2. Click **get started**.
  ![get started](.\media\on-prem-ecma-configure\configure-6.png)
@@ -135,7 +135,7 @@ You will need to map the user attributes in Azure AD to the attributes in the ta
 For more information on mapping user attributes from applications to Azure AD, see [Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory](customize-application-attributes.md).
 
 ### Test your configuration by provisioning users on demand
-To test your configuration, you can use on-demand provisiong of user.  For information on provisiong users on-demand see [On-demand provisioning](provision-on-demand.md).
+To test your configuration, you can use on-demand provisioning of user.  For information on provisioning users on-demand see [On-demand provisioning](provision-on-demand.md).
 
  1. Navigate to the single sign-on blade and then back to the provisioning blade. From the new provisioning overview blade, click on on-demand.
  2. Test provisioning a few users on-demand as described [here](provision-on-demand.md).

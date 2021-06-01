@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure AD into a SQL DB.  For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-This tutorial covers how to setup and use the generic SQL connector with the Azure AD ECMA Connector Host. Your test environment should mirror the items layed out below before attempting this tutorial.
+This tutorial covers how to setup and use the generic SQL connector with the Azure AD ECMA Connector Host. Your test environment should mirror the environment presented below before attempting this tutorial.
 
 ![Architecure](.\media\tutorial-ecma-sql-connector\sql-1.png)
 
@@ -115,7 +115,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 
      |Property|Value|
      |-----|-----|
-     |DSN File|Navigate to the file created at the begining of the tutorial in Step 2.|
+     |DSN File|Navigate to the file created at the beginning of the tutorial in Step 2.|
      |User Name|contoso\administrator|
      |Password|the administrators password.|
  5. On the **Schema 1** page, fill in the boxes with the values specified in the table below and click **Next**.
@@ -171,7 +171,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
  
  13. On the **Object Types** page, fill in the boxes and click **Next**.  Use the table below the image for guidance on the individual boxes. 
 
-      **Anchor** - this attribute should be uniqie in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.
+      **Anchor** - this attribute should be unique in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.
  
       **Query attribute** - used by the ECMA host to query the in-memory cache. This attribute should be unique.
  
@@ -203,13 +203,13 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 
 ## Step 7 - Add Enterprise application
 1.  Sign-in to the Azure portal as an application administrator
-2. In the portal, navigate to Azure Active Directory, **Enterpirse Applications**.
+2. In the portal, navigate to Azure Active Directory, **Enterprise Applications**.
 3. Click on **New Application**.
  ![Add new application](.\media\on-prem-ecma-configure\configure-4.png)
 4. Search the gallery for the test application **on-premises provisioning** and click **Create**.
  ![Create new application](.\media\tutorial-ecma-sql-connector\app-1.png)
 
-## Step 8 - Configure the applicaion and test
+## Step 8 - Configure the application and test
 1. Once it has been created, click he **Provisioning page**.
 2. Click **get started**.
      ![get started](.\media\on-prem-ecma-configure\configure-6.png)

@@ -40,7 +40,7 @@ For more installation and configuration information, see:
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
     [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
 
- - Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure Portal.
+ - Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
 
 
 ## Next Steps

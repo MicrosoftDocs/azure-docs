@@ -134,14 +134,14 @@ To create a generic SQL connector use the following steps:
      |Property|Description|
      |-----|-----|
      |Target Object|The object that you are configuring.|
-     |Anchor|The attribute that will be used as the objects anchor.  This attribute should be uniqie in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.|
+     |Anchor|The attribute that will be used as the objects anchor.  This attribute should be unique in the target system. The Azure AD provisioning service will query the ECMA host using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.|
      |Query attribute|Used by the ECMA host to query the in-memory cache. This attribute should be unique.|
      |DN|The attribute that is used for the target objects distinguished name.  The autogenerate option should be selected in most cases. If deselected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType|
  
- 14. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you would like to expose to Azure AD. These attributes can then be configured in the Azure Portal for provisioning.  On the **Select Attributes** page, select attributes from the drop-down to add. 
+ 14. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you would like to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.  On the **Select Attributes** page, select attributes from the drop-down to add. 
      ![Enter attributes](.\media\on-prem-sql-connector-configure\sql-13.png)
 
-15. On the **Deprovisioning** page, review the deprovisionig information and make adjustments as necessary. Click Finish.
+15. On the **Deprovisioning** page, review the deprovisioning information and make adjustments as necessary. Click Finish.
      ![Enter deprovisioning information](.\media\on-prem-sql-connector-configure\sql-14.png)
 
 
