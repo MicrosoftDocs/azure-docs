@@ -30,7 +30,7 @@ The following Azure services support managed identities for Azure resources:
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
-| User assigned | Preview | Preview | Not available | Preview |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure API Management (in regions where available):
 
