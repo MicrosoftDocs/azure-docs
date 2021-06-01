@@ -29645,6 +29645,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/marketplace/partner-center-portal/downloads-dashboard.md",
+      "redirect_url": "/azure/marketplace/downloads-dashboard",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/azure-app-metered-billing.md",
       "redirect_url": "/azure/marketplace/azure-app-metered-billing",
       "redirect_document_id": false

@@ -57,11 +57,11 @@ After these validation checks are complete, your offer will be live in the marke
 
 ### Errors and review feedback
 
-The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template) issues are typically presented as pull request (PR) links. An explanation of how to view and respond to these PRs, see [Handling review feedback](azure-apps-review-feedback.md).
+The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template) issues are typically presented as pull request (PR) links. An explanation of how to view and respond to these PRs, see [Handling review feedback](azure-app-review-feedback.md).
 
 If you have errors in one or more of the publishing steps, correct them before republishing your offer.
 
 ## Next step
 
 - [Access analytic reports for the commercial marketplace](analytics.md)
-- [Sell your Azure application offer](azure-app-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
+- [Sell your Azure application offer](azure-app-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.

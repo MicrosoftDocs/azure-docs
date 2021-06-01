@@ -150,7 +150,7 @@
     - name: Metered billing
       href: marketplace-metering-service-apis.md
     - name: Handling review feedback
-      href: azure-apps-review-feedback.md
+      href: azure-app-review-feedback.md
     - name: Application APIs
       href: azure-app-apis.md
   - name: Azure Container offer
@@ -414,7 +414,7 @@
   - name: Marketplace Insights dashboard
     href: insights-dashboard.md
   - name: Downloads dashboard
-    href: partner-center-portal/downloads-dashboard.md
+    href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: ratings-reviews.md
   - name: Programmatic access to analytics
@@ -520,7 +520,7 @@
     - name: Marketplace metering service APIs
       href: marketplace-metering-service-apis.md   
     - name: Marketplace metering service APIs - FAQ
-      href: partner-center-portal/marketplace-metering-service-apis-faq.md
+      href: marketplace-metering-service-apis-faq.md
   - name: SaaS Fulfillment APIs
     items:
     - name: SaaS Fulfillment API overview

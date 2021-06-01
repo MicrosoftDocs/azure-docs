@@ -42,5 +42,5 @@ Why you might be seeing this message:
 - For information about your orders in a graphical and downloadable format, see  [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
 - For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & reviews analytics dashboard in Partner Center](ratings-reviews.md).
