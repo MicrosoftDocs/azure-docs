@@ -42,7 +42,7 @@ We will develop an extension to report the elapsed time of an HTTP trigger invoc
 ```
 <python_worker_extension_root>/
  | - .venv/
- | - python_worker_extension/
+ | - python_worker_extension_timer/
  | | - __init__.py
  | - setup.py
  | - readme.md
@@ -93,9 +93,9 @@ setup(
 )
 ```
 
-### Implement the function invocation timer extension
+### Implement the timer extension
 
-Let's implement an application level extension in `python_worker_extension/__init__.py`.
+Let's implement an application level extension in `python_worker_extension_timer/__init__.py`.
 
 ```python
 import typing
@@ -161,6 +161,69 @@ The `configure` method is customer facing. You can assume the customer will call
 The `pre_invocation_app_level` method will be called by Python worker once before a function invocation. It provides the information of a customer's function, such as function context and arguments. In this examle, the extension logs a message and record the starttime of an invocation based on its invocation_id.
 
 Similarly, the `post_invocation_app_level` is called after an invocation. In this example, we calculate the elapsed time based on the start_time and current time. Additionally, we overwrite the return value of the Http response.
+
+## Testing your extension
+
+To try out your own extension from a customer's perspective, create a new folder as your function app root and change your directory into it.
+
+1. Open a Windows PowerShell or any Linux shell as you prefer.
+2. Initialize the Azure Functions project by using our core tools command `func init --python`
+3. Create a new anonymous Http trigger by `func new -t HttpTrigger -n HttpTrigger -a anonymous`
+3. Create a Python virtual environment by `py -m venv .venv` in Windows, or `python3 -m venv .venv` in Linux.
+4. Activate the Python virutal environment with `.venv\Scripts\Activate.ps1` in Windows PowerShell or `source .venv/bin/activate` in Linux shell.
+5. Install the packages for your function app project `pip install -r requirements.txt`
+6. Install the extension from your local file path in editable mode `pip install -e <python_worker_extension_root>`
+7. Enable the extension interface by adding a new setting `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` in `local.settings.json`.
+
+Now we can import the extension into the Http trigger by adding the following two lines before the `main` function:
+
+```python
+from python_worker_extension_timer import TimerExtension
+TimerExtension.configure(append_to_http_response=True)
+```
+
+Start the function host using `func host start --verbose` and make a request to `https://localhost:7071/api/HttpTrigger`. You should see the extension applied to customer's functino app properly.
+
+```text
+This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response. (TimeElapsed: 0.0009996891021728516 sec)
+```
+
+## Publish your extension
+
+Once you finish the validation, you can choose a license, write up the readme docs, and publish it to a Python package registry (e.g. PyPI) or version control platform (e.g. GitHub).
+
+### PyPI
+
+1. Install, `twine` and `wheel` in your default Python environment or in a virtual environment `pip install twine wheel`.
+2. Remove the old `dist/` folder from your extension repository.
+3. Run `python setup.py sdist bdist_wheel` to generate a new package inside `dist/`.
+4. Upload the package to PyPI by running `twine upload dist/*`. You may need to provide your PyPI account credentials in this step.
+
+After these steps, customers can use your extension by simply include your package name in their requirements.txt.
+
+```python
+# requrements.txt
+python_worker_extension_timer==1.0.0
+```
+
+For further information, please visit the [official Python packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/).
+
+### GitHub (VCS Repository)
+
+You can also publish the extension source code with setup.py into a GitHub repository.
+
+In this case, customers need to resolve the extension via a VCS URL.
+
+```python
+# requirements.txt
+git+https://github.com/<your_organization>/<extension_repo>.git@branch
+```
+
+For furhter information about VCS support in pip, please visit the [official pip VCS support documentation](https://pip.pypa.io/en/stable/cli/pip_install/#vcs-support).
+
+## Examples
+
+OpenCensus integration is an opensource project using the extension interface to integrate telemetry tracing in Azure Functions Python apps. Please visit [opencensus-python-extensions-azure](https://github.com/census-ecosystem/opencensus-python-extensions-azure/tree/main/extensions/functions) for the implementation.
 
 ## Next steps
 
