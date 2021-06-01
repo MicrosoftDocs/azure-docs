@@ -5,16 +5,18 @@ description: Learn how to export Azure Communication Services SDK Telemetry Data
 author: peiliu
 manager: vravikumar
 services: azure-communication-services
-ms.author: tchladek
+ms.author: peiliu
 ms.date: 06/01/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Exporting SDK Telemetry Data to Application Insights
+# Quickstart: Using Azure OpenTelemetry Exporter to Export SDK Telemetry Data to Application Insights
 
-// TODO: Write brief description
+The Azure OpenTelemetry Exporter is an SDK within [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). It allows you to export tracing data using OpenTelemetry and send the data to [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview). OpenTelemetry provides a standardized way for applications and frameworks to collect telemetry information.
+
+Azure Application Insights is a feature of Azure Monitor which is used to monitor live applications. It displays telemetry data about your application in a Microsoft Azure resource. The telemetry model is standardized so that it is possible to create platform and language-independent monitoring.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/telemetry-app-insights-net.md)]
