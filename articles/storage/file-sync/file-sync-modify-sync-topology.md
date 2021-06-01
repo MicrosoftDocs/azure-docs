@@ -37,7 +37,7 @@ Repeat these steps for all the sync groups in the Storage Sync Service you would
 
 ## Change a server endpoint path
 
-A server endpoint path is an immutable property. Choosing a different location on the server has consequences for the data in the old location, the Azure file share and the new location. Most of these behaviors are undefined if you were to simply change the path. You can only remove a server endpoint and then create a new server endpoint with the new path. Carefully consider the sync state of your server to find the right time to perform this large change.
+A server endpoint path is an immutable property. Choosing a different location on the server has consequences for the data in the old location, the Azure file share, and the new location. Most of these behaviors are undefined if you were to simply change the path. You can only remove a server endpoint and then create a new server endpoint with the new path. Carefully consider the sync state of your server to find the right time to perform this large change.
 
 Deleting a server endpoint is not trivial and can lead to data loss if done in the wrong way. The [delete server endpoint article](file-sync-server-endpoint-delete.md) guides you through the process.
 
@@ -57,6 +57,5 @@ To unregister a server regardless of the negative implications, navigate to your
 
 ## Next steps
 * [Deprovision your Azure File Sync server endpoint](./file-sync-server-endpoint-delete.md)
-
 
 
