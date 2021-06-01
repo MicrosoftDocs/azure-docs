@@ -60,7 +60,7 @@ The sensors and agents continue to run and store data as long as the device is r
 
 ## How can I change a user's passwords
 
-Learn how to [Change a user's password](how-to-create-and-manage-users.md#change-a-users-password)[change the default password](how-to-create-and-manage-users., for either the sensor or the on-premises management console.
+Learn how to [Change a user's password](how-to-create-and-manage-users.md#change-a-users-password) for either the sensor or the on-premises management console.
 
 You can also [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
