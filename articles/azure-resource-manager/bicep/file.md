@@ -13,7 +13,7 @@ This article is intended for users who have some familiarity with Bicep files. I
 
 ## Bicep format
 
-A Bicep file has the following elements. The elements can appear in any order.
+A Bicep file has the following elements. Bicep is a declarative language, which means the elements can appear in any order.  Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
 
 ```bicep
 targetScope = '<scope>'
@@ -139,6 +139,8 @@ param location string = resourceGroup().location
 
 For the available data types, see [Data types in Bicep](data-types.md).
 
+A parameter can't have the same name as a variable, module, or resource.
+
 For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Parameter decorators
@@ -177,6 +179,8 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 ```
 
 You don't specify a [data type](data-types.md) for a variable. Instead, the data type is inferred from the value.
+
+A variable can't have the same name as a parameter, module, or resource.
 
 For more information, see [Variables in Bicep](./variables.md).
 
@@ -236,6 +240,8 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in
 }]
 ```
 
+A resource can't have the same name as a parameter, variable, or module.
+
 ## Modules
 
 Use modules to link to other Bicep files that contain code you want to reuse. The module contains one or more resources to deploy. Those resources are deployed along with any other resources in your Bicep file.
@@ -251,6 +257,8 @@ module webModule './webApp.bicep' = {
 ```
 
 The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value.
+
+A module can't have the same name as a parameter, variable, or resource.
 
 Like resources, you can conditionally or iteratively deploy a module. The syntax is the same for modules as resources.
 
@@ -269,7 +277,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 }]
 ```
 
-For more information, see [Serial or Parallel](loop-resources.md#serial-or-parallel).
+For more information, see [Deploy in batches](loop-resources.md#deploy-in-batches).
 
 ## Outputs
 
@@ -280,6 +288,8 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
 Specify a [data type](data-types.md) for the output value.
+
+An output can have the same name as a parameter, variable, module, or resource.
 
 For more information, see [Outputs in Bicep](./outputs.md).
 

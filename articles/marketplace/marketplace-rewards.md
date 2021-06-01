@@ -1,22 +1,22 @@
 ---
 title: Marketplace rewards - your commercial marketplace benefits | Azure
-description: Marketplace Rewards is designed to support you at your specific stage of growth.
+description: Marketplace Rewards is designed to support you at your specific stage of growth in Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
+ms.date: 05/28/2021
 ---
 
 # Marketplace Rewards
 
-Marketplace Rewards supports you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals.
+Marketplace Rewards supports you at your specific stage of growth, starting with awareness activities to help you get your first customers. As you grow through the Microsoft commercial marketplace, you unlock new benefits designed to help you convert customers and close deals. For details on the program and benefits, see [Marketplace Rewards](https://aka.ms/marketplacerewards) (PPT). 
 
 The program creates a positive feedback loop: the benefits at each stage of growth help you progress to the next stage, helping you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform.
 
-Your benefits are differentiated based on whether your offer is [Contact Me, Free Trial, or Transact](../determine-your-listing-type.md).
+Your benefits are differentiated based on whether your offer is [Contact Me, Free Trial, or Transact](determine-your-listing-type.md).
 
 You will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility.
 
@@ -26,7 +26,7 @@ The minimum requirement to publish in the online stores is an MPNID, so these be
 
 You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-To check your eligibility for the Marketplace Rewards program, see the [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) page in Partner Center .
+To check your eligibility for the Marketplace Rewards program, see the [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) page in Partner Center.
 
 Your steps to get started are easy:
 
@@ -46,6 +46,6 @@ Your steps to get started are easy:
 1. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
 
 >[!NOTE]
->If your offer has been live for more than four weeks and you have not received a message, check in Partner Center to find who in your organization owns the offer. They should have the communication and next steps. If you cannot determine the owner, or if the owner has left your company, open a support ticket at https://aka.ms/marketplacepublishersupport.
+>If your offer has been live for more than four weeks and you have not received a message, check in Partner Center to find who in your organization owns the offer. They should have the communication and next steps. If you cannot determine the owner, or if the owner has left your company, open a [support ticket](https://aka.ms/marketplacepublishersupport).
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.

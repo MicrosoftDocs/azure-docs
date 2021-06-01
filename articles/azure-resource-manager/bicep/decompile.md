@@ -1,50 +1,171 @@
 ---
-title: Convert templates between JSON and Bicep
-description: Describes commands for converting Azure Resource Manager templates from Bicep to JSON and from JSON to Bicep.
+title: Decompile ARM template JSON to Bicep 
+description: Describes commands for decompiling Azure Resource Manager templates to Bicep files.
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.custom: devx-track-azurepowershell
 ---
-# Converting ARM templates between JSON and Bicep
+# Decompiling ARM template JSON to Bicep
 
-This article describes how you convert Azure Resource Manager templates (ARM templates) from JSON to Bicep and from Bicep to JSON.
+This article describes how to decompile Azure Resource Manager templates (ARM templates) to Bicep files. You must have the [Bicep CLI installed](./install.md) to run the conversion commands.
 
-You must have the [Bicep CLI installed](./install.md) to run the conversion commands.
+Decompiling an ARM template helps you get started with Bicep development. If you have a library of ARM templates and want to use Bicep for future development, you can decompile them to Bicep. However, the Bicep file might need revisions to implement best practices for Bicep.
 
-The conversion commands produce templates that are functionally equivalent. However, they might not be exactly the same in implementation. Converting a template from JSON to Bicep and then back to JSON probably results in a template with different syntax than the original template. When deployed, the converted templates produce the same results.
+This article shows how to run the decompile command in Azure CLI. If you're not using Azure CLI, run the command without `az` at the start of the command. For example, `az bicep decompile` becomes ``bicep decompile``.
 
-## Convert from JSON to Bicep
+## Decompile from JSON to Bicep
 
-The Bicep CLI provides a command to decompile any existing JSON template to a Bicep file.
-
-If you have Azure CLI version 2.20.0 or later, the Bicep CLI is automatically installed. To decompile a JSON file, use:
+To decompile ARM template JSON to Bicep, use:
 
 ```azurecli
 az bicep decompile --file main.json
 ```
 
-If you don't have a recent version of Azure CLI, and have instead installed the Bicep CLI manually, use:
+The command creates a file named **main.bicep** in the same directory as the ARM template.
 
-```bash
-bicep decompile main.json
+> [!CAUTION]
+> Decompilation attempts to convert the file, but there is no guaranteed mapping from ARM template JSON to Bicep. You may need to fix warnings and errors in the generated Bicep file. Or, decompilation can fail if an accurate conversion isn't possible. To report any issues or inaccurate conversions, [create an issue](https://github.com/Azure/bicep/issues).
+
+The decompile and [build](bicep-cli.md#build) commands produce templates that are functionally equivalent. However, they might not be exactly the same in implementation. Converting a template from JSON to Bicep and then back to JSON probably results in a template with different syntax than the original template. When deployed, the converted templates produce the same results.
+
+## Fix conversion issues
+
+Suppose you have the following ARM template:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
+}
 ```
 
-This command provides a starting point for Bicep authoring. The command doesn't work for all templates. Currently, nested templates can be decompiled only if they use the 'inner' expression evaluation scope. Templates that use copy loops can't be decompiled.
+When you decompile it, you get:
 
-## Convert from Bicep to JSON
+```bicep
+@allowed([
+  'Standard_LRS'
+  'Standard_GRS'
+  'Standard_ZRS'
+  'Premium_LRS'
+])
+@description('Storage Account type')
+param storageAccountType string = 'Standard_LRS'
 
-The Bicep CLI also provides a command to convert Bicep to JSON.
+@description('Location for all resources.')
+param location string = resourceGroup().location
 
-For Azure CLI version 2.20.0 or later, use the following command to build a JSON file:
+var storageAccountName_var = 'store${uniqueString(resourceGroup().id)}'
 
-```azurecli
-az bicep build --file main.bicep
+resource storageAccountName 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: storageAccountName_var
+  location: location
+  sku: {
+    name: storageAccountType
+  }
+  kind: 'StorageV2'
+  properties: {}
+}
+
+output storageAccountName string = storageAccountName_var
 ```
 
-If you've installed the Bicep CLI manually, use:
+The decompiled file works, but it has some names that you might want to change. The variable `var storageAccountName_var` has an unusual naming convention. Let's change it to:
 
-```bash
-bicep build main.bicep
+```bicep
+var uniqueStorageName = 'store${uniqueString(resourceGroup().id)}'
+```
+
+The resource has a symbolic name that you might want to change. Instead of `storageAccountName` for the symbolic name, use `exampleStorage`.
+
+```bicep
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+```
+
+Since you changed the name of the variable for the storage account name, you need to change where it's used.
+
+```bicep
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: uniqueStorageName 
+```
+
+And in the output, use:
+
+```bicep
+output storageAccountName string = uniqueStorageName
+```
+
+The complete file is:
+
+```bicep
+@allowed([
+  'Standard_LRS'
+  'Standard_GRS'
+  'Standard_ZRS'
+  'Premium_LRS'
+])
+@description('Storage Account type')
+param storageAccountType string = 'Standard_LRS'
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+var uniqueStorageName = 'store${uniqueString(resourceGroup().id)}'
+
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: uniqueStorageName
+  location: location
+  sku: {
+    name: storageAccountType
+  }
+  kind: 'StorageV2'
+  properties: {}
+}
+
+output storageAccountName string = uniqueStorageName
 ```
 
 ## Export template and convert
@@ -79,4 +200,4 @@ The [Bicep playground](https://aka.ms/bicepdemo) enables you to view equivalent 
 
 ## Next steps
 
-For information about the Bicep, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+To learn about all of the Bicep CLI commands, see [Bicep CLI commands](bicep-cli.md).

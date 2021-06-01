@@ -5,9 +5,9 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ---

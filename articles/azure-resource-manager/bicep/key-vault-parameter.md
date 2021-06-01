@@ -9,7 +9,7 @@ ms.date: 06/01/2021
 
 # Use Azure Key Vault to pass secure parameter value during Bicep deployment
 
-Instead of putting a secure value (like a password) directly in your Bicep file or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. When a [module](./modules.md) expects a `string` parameter with `secure:ture` modifier, you can use the `getSecret` method to obtain a key vault secret. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
+Instead of putting a secure value (like a password) directly in your Bicep file or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. When a [module](./modules.md) expects a `string` parameter with `secure:ture` modifier, you can use the `getSecret` function to obtain a key vault secret. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
 
 This article's focus is how to pass a sensitive value as a Bicep parameter. The article doesn't cover how to set a virtual machine property to a certificate's URL in a key vault.
 For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
@@ -150,9 +150,9 @@ The following procedure shows how to create a role with the minimum permission, 
 
 When using a key vault with the Bicep file for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
-## Use getSecret
+## Use getSecret function
 
-You can use the `getSecret` method to obtain a key vault secret and pass the value to a `string` parameter of a module. The `getSecret` method can only be called on a     `Microsoft.KeyVault/vaults` resource and can be used only with parameter with @secure() decorator.
+You can use the [`getSecret` function](./bicep-functions-resource.md#getsecret) to obtain a key vault secret and pass the value to a `string` parameter of a module. The `getSecret` function can only be called on a `Microsoft.KeyVault/vaults` resource and can be used only with parameter with `@secure()` decorator.
 
 The following Bicep file creates an Azure SQL server. The `adminPassword` parameter has a `@secure()` decorator.
 
@@ -176,7 +176,7 @@ resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
 
 Let's use the preceding Bicep file as a module given the file name is *sql.bicep* in the same directory as the main Bicep file.
 
-The following Bicep file consumes the sql.bicep as a module.  The Bicep file references an existing key vault, and calls the `getSecret` method to retrieve the key vault secret, and then passes the value as a parameter to the module.
+The following Bicep file consumes the sql.bicep as a module.  The Bicep file references an existing key vault, and calls the `getSecret` function to retrieve the key vault secret, and then passes the value as a parameter to the module.
 
 ```bicep
 param sqlServerName string

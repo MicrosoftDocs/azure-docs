@@ -25,16 +25,27 @@ resource myStorageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 You set a symbolic name for the resource. In the preceding example, the symbolic name is `myStorageAccount`. You can use any value for the symbolic name but it can't be the same as another resource, parameter, or variable in the Bicep file. The symbolic name isn't the same as the resource name. You use the symbolic name to easily reference the resource in other parts of your Bicep file.
 
+Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/template-syntax.md).
+
 ## Set resource name
 
 Each resource has a name. When setting the resource name, pay attention to the [rules and restrictions for resource names](../management/resource-name-rules.md).
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'examplestorage'
+  ...
+}
+```
+
+Typically, you'd set the name to a parameter so you can pass in different values during deployment.
 
 ```bicep
 @minLength(3)
 @maxLength(24)
 param storageAccountName string
 
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageAccountName
   ...
 }
@@ -45,13 +56,20 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 Many resources require a location. You can determine if the resource needs a location either through intellisense or [template reference](/azure/templates/). The following example adds a location parameter that is used for the storage account.
 
 ```bicep
-@minLength(3)
-@maxLength(24)
-param storageAccountName string
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'examplestorage'
+  location: 'eastus'
+  ...
+}
+```
+
+Typically, you'd set location to a parameter so you can deploy to different locations.
+
+```bicep
 param location string = resourceGroup().location
 
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageAccountName
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'examplestorage'
   location: location
   ...
 }
@@ -88,14 +106,9 @@ The preceding properties are generic to most resource types. After setting those
 Use intellisense or [template reference](/azure/templates/) to determine which properties are available and which ones are required. The following example sets the remaining properties for a storage account.
 
 ```bicep
-@minLength(3)
-@maxLength(24)
-param storageAccountName string
-param location string = resourceGroup().location
-
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageAccountName
-  location: location
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+  name: 'examplestorage'
+  location: 'eastus'
   sku: {
     name: 'Standard_LRS'
     tier: 'Standard'
@@ -171,6 +184,12 @@ While you may be inclined to use `dependsOn` to map relationships between your r
 
 Even though explicit dependencies are sometimes required, the need for them is rare. In most cases you have a symbolic reference available to imply the dependency between resources. If you find yourself using dependsOn you should consider if there is a way to get rid of it.
 
+### Visualize dependencies
+
+Visual Studio Code provides a tool for visualizing the dependencies. Open a Bicep file in Visual Studio Code, and then select the visualizer button on the upper left corner.  The following screenshot shows the dependencies of a visual machine resource that are defined in the Bicep file.
+
+:::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Screenshot of Visual Studio Code Bicep resource visualizer":::
+
 ## Reference existing resources
 
 You can add references and access runtime properties from resources outside of the current file by using the `existing` keyword in a resource declaration. This is equivalent to using the ARM Template [reference() function](../templates/template-functions-resource.md#reference).
@@ -193,25 +212,6 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
   name: 'exampleStorage'
   scope: resourceGroup(mySub, myRg)
 }
-
-## Use template extensions
-
-ARM template extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../../virtual-machines/extensions/features-linux.md).
-
-The existing extensions are:
-
-- [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/2018-10-01/virtualmachines/extensions)
-- [Microsoft.Compute virtualMachineScaleSets/extensions](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
-- [Microsoft.HDInsight clusters/extensions](/azure/templates/microsoft.hdinsight/2018-06-01-preview/clusters)
-- [Microsoft.Sql servers/databases/extensions](/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)
-- [Microsoft.Web/sites/siteextensions](/azure/templates/microsoft.web/2016-08-01/sites/siteextensions)
-
-To find out the available extensions, browse to the [template reference](/azure/templates/). In **Filter by title**, enter **extension**.
-
-To learn how to use these extensions, see:
-
-- [Tutorial: Deploy virtual machine extensions with ARM templates](../templates/template-tutorial-deploy-vm-extensions.md).
-- [Tutorial: Import SQL BACPAC files with ARM templates](../templates/template-tutorial-deploy-sql-extensions-bacpac.md)
 
 ## Next steps
 

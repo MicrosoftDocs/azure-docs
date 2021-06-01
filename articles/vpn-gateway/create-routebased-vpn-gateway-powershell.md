@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Create a route-based virtual network gateway: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a route-based virtual network gateway for a VPN connection to your on-premises network, or to connect virtual networks.
@@ -8,7 +8,8 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a route-based VPN gateway using PowerShell

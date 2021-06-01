@@ -90,13 +90,13 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 
 If you want to return values from the deployed resources, you can use a loop in the [output section](loop-outputs.md).
 
-## Serial or Parallel
+## Deploy in batches
 
-By default, Resource Manager creates the resources in parallel. It applies no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the template. The order in which they're created isn't guaranteed.
+By default, Resource Manager creates resources in parallel. When you use a loop to create multiple instances of a resource type, those instances are all deployed at the same time. The order in which they're created isn't guaranteed. There's no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the Bicep file.
 
-You may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
+You might not want to update all instances of a resource type at the same time. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. You can specify that a subset of the instances be batched together and deployed at the same time. The other instances wait for that batch to complete.
 
-To serially deploy more than one instance of a resource, set the `batchSize` [decorator](./file.md#resource-and-module-decorators) to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy at a time. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 param rgLocation string = resourceGroup().location
@@ -114,38 +114,50 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 
 ## Iteration for a child resource
 
-You can't use a loop for a child resource. To create more than one instance of a resource that you typically define as nested within another resource, you must instead create that resource as a top-level resource. You define the relationship with the parent resource through the type and name properties.
+You can't use a loop for a nested child resource. To create more than one instance of a child resource, change the child resource to a top-level resource.
 
-For example, suppose you typically define a dataset as a child resource within a data factory.
+For example, suppose you typically define a file service and file share as nested resources for a storage account.
 
 ```bicep
-resource dataFactoryName_resource 'Microsoft.DataFactory/factories@2018-06-01' = {
-  name: exampleDataFactory
-...
-resource dataFactoryName_ArmtemplateTestDatasetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = {
-  parent: dataFactoryName_resource
-  name: 'ArmtemplateTestDatasetIn'
-  dependsOn: [
-    dataFactoryName_resource
-  ]
+resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+  resource service 'fileServices' = {
+    name: 'default'
+    resource share 'shares' = {
+      name: 'exampleshare'
+    }
+  }
+}
 ```
 
-To create more than one data set, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+To create more than one file share, move it outside of the storage account. You define the relationship with the parent resource through the `parent` property.
 
-To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the format: `{parent-resource-name}/{child-resource-name}`.
-
-The following example shows the implementation:
+The following example shows how to create a storage account, file service, and more than one file share:
 
 ```bicep
-resource dataFactoryName_resource 'Microsoft.DataFactory/factories@2018-06-01' = {
-  name: "exampleDataFactory"
-  ...
+resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
 }
 
-resource dataFactoryName_ArmtemplateTestDatasetIn 'Microsoft.DataFactory/factories/datasets@2018-06-01' = [for i in range(0, 3): {
-  name: 'exampleDataFactory/exampleDataset${i}'
-  ...
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2021-02-01' = {
+  name: 'default'
+  parent: stg
 }
+
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01' = [for i in range(0, 3): {
+  name: 'exampleshare${i}'
+  parent: service
+}]
 ```
 
 ## Example templates

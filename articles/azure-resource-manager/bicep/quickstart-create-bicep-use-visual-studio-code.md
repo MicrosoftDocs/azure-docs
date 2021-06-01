@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Create Bicep files with Visual Studio Code
 
-This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio Code. You'll create a storage account and a virtual network. You'll see how an extension simplifies development by providing type safety, syntax validation, and autocompletion.
+This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio Code. You'll create a storage account and a virtual network. You'll also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
 
 ## Prerequisites
 
@@ -266,4 +266,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/)
+> [Bicep in Microsoft Learn](learn-bicep.md)

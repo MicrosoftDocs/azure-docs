@@ -11,7 +11,7 @@ Bicep is a language for declaratively deploying Azure resources. We believe Bice
 
 You can use Bicep instead of JSON for developing your Azure Resource Manager templates (ARM templates). The JSON syntax for creating a JSON template can be verbose and require complicated expression. Bicep improves that experience without losing any of the capabilities of a JSON template. It's a transparent abstraction over the JSON for ARM templates. Each Bicep file compiles to a standard ARM template.
 
-Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file. There are a few [known limitations](#known-limitations) in the current release.
+Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file.
 
 To track the status of the Bicep work, see the [Bicep project repository](https://github.com/Azure/bicep).
 
@@ -23,11 +23,11 @@ To learn about Bicep, see the following video.
 
 To start with Bicep, [install the tools](./install.md).
 
-After installing the tools, try the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
+After installing the tools, try the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md). The tutorial series walks you through the structure and capabilities of Bicep.
 
 To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
 
-If you have an existing ARM template that you would like to convert to Bicep, see [Converting ARM templates between JSON and Bicep](./decompile.md).
+If you have an existing ARM template that you would like to decompile to Bicep, see [Decompile ARM templates to Bicep](./decompile.md).
 
 ## Benefits of Bicep versus other tools
 
@@ -68,14 +68,6 @@ Bicep automatically manages dependencies between resources. You can avoid settin
 
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
 
-## Known limitations
-
-The following limits currently exist:
-
-* No support for `apiProfile`, which is used to map profile version to an API version for each resource type.
-* Bicep is newline sensitive.
-* Single-line object and arrays, like `['a', 'b', 'c']`, aren't supported.
-
 ## FAQ
 
 **Why create a new language instead of using an existing one?**
@@ -104,7 +96,7 @@ Bicep is a DSL focused on deploying complete solutions to Azure. Meeting that go
 
 They continue to function exactly as they always have. You don't need to make any changes. We'll continue to support the underlying ARM template JSON language. Bicep files compile to JSON, and that JSON is sent to Azure for deployment.
 
-When you're ready, you can [convert the JSON files to Bicep](./decompile.md).
+When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
 ## Next steps
 

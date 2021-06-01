@@ -170,71 +170,19 @@ The output from the preceding example with the default values is:
 
 ## concat
 
-`concat (arg1, arg2, arg3, ...)`
-
-Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array.
-
-To simplify string concatenation, Bicep supports a [string interpolation](https://en.wikipedia.org/wiki/String_interpolation#) syntax.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |string or array |The first string or array for concatenation. |
-| additional arguments |No |string or array |Additional strings or arrays in sequential order for concatenation. |
-
-This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Strings are only concatenated with other strings.
-
-### Return value
-
-A string or array of concatenated values.
-
-### Examples
-
-The following example shows how to combine two string values and return a concatenated string.
+Instead of using the concat function, use string interpolation. 
 
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
-```
-
-or
-
-```bicep
-param prefix string = 'prefix'
-
-output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
+output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
-
-The following example shows how to combine two arrays.
-
-```bicep
-param firstArray array = [
-  '1-1'
-  '1-2'
-  '1-3'
-]
-param secondArray array = [
-  '2-1'
-  '2-2'
-  '2-3'
-]
-
-output return array = concat(firstArray, secondArray)
-```
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| concatOutput | String | prefixAnd5yj4yjf5mbg72 |
 
 ## contains
 

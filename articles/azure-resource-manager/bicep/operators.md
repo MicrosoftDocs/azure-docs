@@ -4,7 +4,7 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 04/15/2021
+ms.date: 06/01/2021
 ---
 
 # Bicep operators
@@ -16,6 +16,8 @@ This article describes the Bicep operators that are available when you create a 
 - [numeric](#numeric)
 
 Enclosing an expression between `(` and `)` allows you to override the default Bicep operator precedence. For example, the expression x + y / z evaluates the division first and then the addition. However, the expression (x + y) / z evaluates the addition first and division second.
+
+For information about accessing a resource through the `::` operator, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
 
 ## Comparison
 

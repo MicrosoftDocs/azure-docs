@@ -540,8 +540,8 @@ This section describes how to provide a new VM image when a vulnerability or exp
 Do one of the following actions:
 
 - If you have a new VM image to replace the vulnerable VM image, see [Provide a fixed VM image](#provide-a-fixed-vm-image).
-- If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [stop selling the plan](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
-- If you don't plan to replace the only VM image in the offer, we recommend you [stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+- If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [stop selling the plan](update-existing-offer.md#stop-selling-an-offer-or-plan).
+- If you don't plan to replace the only VM image in the offer, we recommend you [stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan).
 
 ### Provide a fixed VM image
 
@@ -621,5 +621,5 @@ For more information, please visit [VM Extension](../virtual-machines/extensions
 ## Next steps
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
-- [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
+- [Active marketplace rewards](marketplace-rewards.md)
 - If you have questions or feedback for improvement, contact [Partner Center support](https://aka.ms/marketplacepublishersupport).

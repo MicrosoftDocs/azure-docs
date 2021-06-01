@@ -4,7 +4,7 @@ description: Use Azure Resource Manager and Azure PowerShell to deploy resources
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/01/2021
 ---
 
 # Deploy resources with Bicep and Azure PowerShell
@@ -60,34 +60,6 @@ You can target your deployment to a resource group, subscription, management gro
 
 For every scope, the user deploying the template must have the required permissions to create resources.
 
-## Deployment name
-
-When deploying a Bicep file, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the Bicep file is used. For example, if you deploy a Bicep named `azuredeploy.bicep` and don't specify a deployment name, the deployment is named `azuredeploy`.
-
-Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
-
-To create a unique name, you can assign a random number.
-
-```azurepowershell-interactive
-$suffix = Get-Random -Maximum 1000
-$deploymentName = "ExampleDeployment" + $suffix
-```
-
-Or, add a date value.
-
-```azurepowershell-interactive
-$today=Get-Date -Format "MM-dd-yyyy"
-$deploymentName="ExampleDeployment"+"$today"
-```
-
-If you run concurrent deployments to the same resource group with the same deployment name, only the last deployment is completed. Any deployments with the same name that haven't finished are replaced by the last deployment. For example, if you run a deployment named `newStorage` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage` that deploys a storage account named `storage2`, you deploy only one storage account. The resulting storage account is named `storage2`.
-
-However, if you run a deployment named `newStorage` that deploys a storage account named `storage1`, and immediately after it completes you run another deployment named `newStorage` that deploys a storage account named `storage2`, then you have two storage accounts. One is named `storage1`, and the other is named `storage2`. But, you only have one entry in the deployment history.
-
-When you specify a unique name for each deployment, you can run them concurrently without conflict. If you run a deployment named `newStorage1` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage2` that deploys a storage account named `storage2`, then you have two storage accounts and two entries in the deployment history.
-
-To avoid conflicts with concurrent deployments and to ensure unique entries in the deployment history, give each deployment a unique name.
-
 ## Deploy local Bicep file
 
 You can deploy a Bicep file from your local machine or one that is stored externally. This section describes deploying a local Bicep file.
@@ -113,15 +85,7 @@ The deployment can take several minutes to complete.
 
 Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#development-environment) to compile the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
-## Deploy template spec
-
-Currently, Azure PowerShell doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
-
-## Preview changes
-
-Before deploying your Bicep file, you can preview the changes the Bicep file will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the Bicep file makes the changes that you expect. What-if also validates the Bicep file for errors.
-
-## Pass parameter values
+## Parameters
 
 To pass parameter values, you can use either inline parameters or a parameter file.
 
@@ -181,6 +145,42 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateFile <path-to-bicep> `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
+
+## Preview changes
+
+Before deploying your Bicep file, you can preview the changes the Bicep file will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the Bicep file makes the changes that you expect. What-if also validates the Bicep file for errors.
+
+## Deploy template specs
+
+Currently, Azure PowerShell doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep). You can also build your Bicep file into an ARM template JSON by using the Bicep CLI, and then create a template spec with the JSON template.
+
+## Deployment name
+
+When deploying a Bicep file, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the Bicep file is used. For example, if you deploy a Bicep named `azuredeploy.bicep` and don't specify a deployment name, the deployment is named `azuredeploy`.
+
+Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
+
+To create a unique name, you can assign a random number.
+
+```azurepowershell-interactive
+$suffix = Get-Random -Maximum 1000
+$deploymentName = "ExampleDeployment" + $suffix
+```
+
+Or, add a date value.
+
+```azurepowershell-interactive
+$today=Get-Date -Format "MM-dd-yyyy"
+$deploymentName="ExampleDeployment"+"$today"
+```
+
+If you run concurrent deployments to the same resource group with the same deployment name, only the last deployment is completed. Any deployments with the same name that haven't finished are replaced by the last deployment. For example, if you run a deployment named `newStorage` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage` that deploys a storage account named `storage2`, you deploy only one storage account. The resulting storage account is named `storage2`.
+
+However, if you run a deployment named `newStorage` that deploys a storage account named `storage1`, and immediately after it completes you run another deployment named `newStorage` that deploys a storage account named `storage2`, then you have two storage accounts. One is named `storage1`, and the other is named `storage2`. But, you only have one entry in the deployment history.
+
+When you specify a unique name for each deployment, you can run them concurrently without conflict. If you run a deployment named `newStorage1` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage2` that deploys a storage account named `storage2`, then you have two storage accounts and two entries in the deployment history.
+
+To avoid conflicts with concurrent deployments and to ensure unique entries in the deployment history, give each deployment a unique name.
 
 ## Next steps
 

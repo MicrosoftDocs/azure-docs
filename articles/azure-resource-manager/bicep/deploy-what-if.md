@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 ms.author: tomfitz
 ---
 # Bicep deployment what-if operation
