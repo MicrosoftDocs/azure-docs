@@ -18,11 +18,11 @@ Search for Change Analysis in the search bar on Azure portal to launch the exper
 
 ![Screenshot of searching Change Analysis in Azure portal](./media/change-analysis/search-change-analysis.png)
 
-All resources under a selected subscription are displayed with changes from the past 24 hours. To optimize for the page load performance, the service is displaying 10 resources at a time. Select the next page to view more resources. We are working on removing this limitation.
+All resources under a selected subscription are displayed with changes from the past 24 hours. All changes are displayed with old value and new value to provide insights at one glance.
 
 ![Screenshot of Change Analysis blade in Azure portal](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Clicking into a resource to view all its changes. If needed, drill down into a change to view json formatted change details and insights.
+Clicking into a change to view full Resource Manager snippet and other properties.
 
 ![Screenshot of change details](./media/change-analysis/change-details.png)
 
@@ -36,11 +36,6 @@ The UI supports selecting multiple subscriptions to view resource changes. Use t
 
 ![Screenshot of subscription filter that supports selecting multiple subscriptions](./media/change-analysis/multiple-subscriptions-support.png)
 
-### Web App Diagnose and Solve Problems
-
-In Azure Monitor, Change Analysis is also built into the self-service **Diagnose and solve problems** experience. Access this experience from the **Overview** page of your App Service application.
-
-![Screenshot of the "Overview" button and the "Diagnose and solve problems" button](./media/change-analysis/change-analysis.png)
 
 ## Application Change Analysis in the Diagnose and solve problems tool
 
@@ -66,6 +61,13 @@ Application Change Analysis is a standalone detector in the Web App diagnose and
 
      ![Screenshot of the change diff view](./media/change-analysis/change-view.png)
 
+## Diagnose and Solve Problems tool
+Change Analysis is available as an insight card in Diagnose and Solve Problem tool. If a resource experiences issues and there are changes discovered in the past 72 hours, the insights card will display the number of changes. Clicking on view change details link will lead to the filtered view from Change Analysis standalone UI.
+
+![Screenshot of viewing change insight in Diagnose and Solve Problems tool.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
+
 ## Virtual Machine Diagnose and Solve Problems
 
 Go to Diagnose and Solve Problems tool for a Virtual Machine.  Go to **Troubleshooting Tools**, browse down the page and select **Analyze recent changes** to view changes on the Virtual Machine.
@@ -76,14 +78,14 @@ Go to Diagnose and Solve Problems tool for a Virtual Machine.  Go to **Troublesh
 
 ## Activity Log Change History
 
-The [View change history](../platform/activity-log.md#view-change-history) feature in Activity Log calls Application Change Analysis service backend to get changes associated with an operation. **Change history** used to call [Azure Resource Graph](../../governance/resource-graph/overview.md) directly, but swapped the backend to call Application Change Analysis so changes returned will include resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md), resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md), and in-guest changes from PaaS services such as App Services web app. 
+The [View change history](../essentials/activity-log.md#view-change-history) feature in Activity Log calls Application Change Analysis service backend to get changes associated with an operation. **Change history** used to call [Azure Resource Graph](../../governance/resource-graph/overview.md) directly, but swapped the backend to call Application Change Analysis so changes returned will include resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md), resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md), and in-guest changes from PaaS services such as App Services web app. 
 In order for the Application Change Analysis service to be able to scan for changes in users' subscriptions, a resource provider needs to be registered. The first time entering **Change History** tab, the tool will automatically start to register **Microsoft.ChangeAnalysis** resource provider. After registered, changes from **Azure Resource Graph** will be available immediately and cover the past 14 days. Changes from other sources will be available after ~4 hours after subscription is onboard.
 
 ![Activity Log change history integration](./media/change-analysis/activity-log-change-history.png)
 
 ## VM Insights integration
 
-Users having [VM Insights](../insights/vminsights-overview.md) enabled can view what changed in their virtual machines that might of caused any spikes in a metrics chart such as CPU or Memory. Change data is integrated in the VM Insights side navigation bar. User can view if any changes happened in the VM and select **Investigate Changes** to view change details in Application Change Analysis standalone UI.
+Users having [VM Insights](../vm/vminsights-overview.md) enabled can view what changed in their virtual machines that might of caused any spikes in a metrics chart such as CPU or Memory. Change data is integrated in the VM Insights side navigation bar. User can view if any changes happened in the VM and select **Investigate Changes** to view change details in Application Change Analysis standalone UI.
 
 [![VM insights integration](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 

@@ -2,14 +2,15 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template) and Bicep file.
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 05/18/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Outputs in ARM templates
 
 This article describes how to define output values in your Azure Resource Manager template (ARM template) and Bicep file. You use outputs when you need to return values from the deployed resources.
 
-The format of each output value must resolve to one of the [data types](template-syntax.md#data-types).
+The format of each output value must resolve to one of the [data types](data-types.md).
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
@@ -30,7 +31,21 @@ For JSON, add the `outputs` section to the template. The output value gets the f
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+For Bicep, use the `output` keyword.
+
+In the following example, `publicIP` is the identifier of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
 If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -53,16 +68,6 @@ If you need to output a property that has a hyphen in the name, use brackets aro
 ```
 
 # [Bicep](#tab/bicep)
-
-For Bicep, use the `output` keyword.
-
-In the following example, `publicIP` is the symbolic name of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
-
-```bicep
-output hostname string = publicIP.properties.dnsSettings.fqdn
-```
-
-If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
 
 ```bicep
 var user = {
@@ -94,9 +99,7 @@ In JSON, add the `condition` element to define whether the output is returned.
 
 # [Bicep](#tab/bicep)
 
-Conditional output isn't currently available for Bicep.
-
-However, you can use the `?` operator to return one of two values depending on a condition.
+To specify a conditional output in Bicep, use the `?` operator. The following example either returns an endpoint URL or an empty string depending on a condition.
 
 ```bicep
 param deployStorage bool = true
@@ -145,7 +148,11 @@ In JSON, add the `copy` element to iterate an output.
 
 # [Bicep](#tab/bicep)
 
-Iterative output isn't currently available for Bicep.
+In Bicep, add a `for` expression that defines the conditions for the dynamic output. The following example iterates over a range of integers. You can also iterate over an array.
+
+```bicep
+output storageEndpoints array = [for i in range(0, storageCount): reference(${i}${baseName_var}).primaryEndpoints.blob]
+```
 
 ---
 

@@ -987,7 +987,7 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
   "quantity": " 20",
   "timeStamp": "2019-04-15T20:17:31.7350641Z",
   "action": "Reinstate",
-  "status": "In Progress"
+  "status": "InProgress"
 }
 ```
 
@@ -1014,4 +1014,4 @@ See [Support for the commercial marketplace program in Partner Center](../suppor
 
 See the [commercial marketplace metering service APIs](marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
 
-Review and use the [SaaS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) built on top of the APIs described in this document.
+Review and use the [clients for different programming languages and samples](https://github.com/microsoft/commercial-marketplace-samples).

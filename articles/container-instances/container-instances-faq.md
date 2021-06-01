@@ -30,17 +30,17 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 ### What Windows base OS images are supported?
 
 > [!NOTE]
-> Due to issues with backwards compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. 
+> Due to issues with backward compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. After June 14th, 2021, ACI will no longer support deployments using older version numbers. 
 
 #### Windows Server 2016 base images
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016`, `10.0.14393.3506` or newer
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.3506` or newer
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016`, `10.0.14393.3568` or newer
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.3568` or newer
 
 > [!NOTE]
 > Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
 
-#### Windows Server 2019 and client base images (preview)
+#### Windows Server 2019 and client base images
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.1040` or newer
 * [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.1040` or newer
@@ -50,9 +50,12 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 
 Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you are using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
 
+> [!NOTE]
+> ACI cannot pull images from non OCI-compliant registries.
+
 ### What types of container registries are compatible with ACI?
 
-ACI supports image pulls from ACR and other third-party container registries such as DockerHub. ACI also supports image pulls from on-premise registries as long as they are OCR-compatible and have an endpoint that is publicly exposed to the internet.
+ACI supports image pulls from ACR and other third-party container registries such as DockerHub. ACI supports image pulls from ACR and other third-party OCI compatible container registries such as DockerHub with an endpoint that is publicly exposed to the internet.
 
 ## Availability and quotas
 

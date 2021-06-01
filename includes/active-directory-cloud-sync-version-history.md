@@ -2,6 +2,22 @@ This article lists the versions and features of Azure Active Directory Connect P
 
 Microsoft provides direct support for the latest agent version and one version before.
 
+## 1.1.359.0
+
+### New features and improvements
+- GMSA Cmdlets to set/reset permission
+
+### Fixed issues
+- GMSA folder permission bug fix (originally, the issue resulted in bootstrap issues)
+- Bug fix for handling multiple changes to a single value reference attribute (e.g. manager)
+- Bug fix for failure in Initial Enumeration, plus enhanced tracing of the failure
+- Optimize group membership updates to a Scoping Group. With this, customers now can sync a group of up to 50K members using group scoping filter. 
+- Support retrieving a single object by DN with Scoping used by Provisioning On Demand to obey Scoping logic
+
+
+
+
+
 ## 1.1.354.0
 
 January 20, 2021: Released for download

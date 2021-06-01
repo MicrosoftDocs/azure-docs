@@ -49,9 +49,9 @@ If you're not already familiar with monitoring Azure services, start with the ar
 
 The following sections build on this article by describing the specific data gathered from Azure Cosmos DB and providing examples for configuring data collection and analyzing this data with Azure tools.
 
-## Azure Monitor for Azure Cosmos DB
+## Cosmos DB insights
 
-Azure Monitor for Azure Cosmos DB is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) and uses the same monitoring data collected for Azure Cosmos DB described in the sections below. Use Azure Monitor for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and leverage the other features of Azure Monitor for detailed analysis and alerting. To learn more, see the [Explore Azure Monitor for Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) article.
+Cosmos DB insights is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) and uses the same monitoring data collected for Azure Cosmos DB described in the sections below. Use Azure Monitor for a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience, and leverage the other features of Azure Monitor for detailed analysis and alerting. To learn more, see the [Explore Cosmos DB insights](../azure-monitor/insights/cosmosdb-insights-overview.md) article.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
@@ -120,11 +120,11 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 
 ## <a id="analyze-log-data"></a> Analyzing logs
 
-Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties.
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). For a list of the types of resource logs collected for Azure Cosmos DB, see [Monitoring Azure Cosmos DB data reference](monitor-cosmos-db-reference.md#resource-logs).
 
-The [Activity log](../azure-monitor/platform/activity-log.md) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform login Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 Azure Cosmos DB stores data in the following tables.
 

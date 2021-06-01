@@ -11,10 +11,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: ASP.NET Core
-    href: quickstart-dotnetcore.md
   - name: ASP.NET
-    href: quickstart-dotnet-framework.md
+    href: quickstart-dotnetcore.md
   - name: Node.js
     href: quickstart-nodejs.md
   - name: PHP
@@ -34,6 +32,8 @@
     href: quickstart-custom-container.md
   - name: Multi-container app
     href: quickstart-multi-container.md
+  - name: App on Azure Arc (preview)
+    href: quickstart-arc.md
 - name: Tutorials
   items:
   - name: Secure app accesses storage and Microsoft Graph
@@ -88,6 +88,10 @@
     href: tutorial-send-email.md
   - name: Troubleshoot errors
     href: tutorial-troubleshoot-monitor.md
+  - name: GitHub Actions
+    items:
+    - name: ASP.NET Core with a container
+      href: app-service-sql-github-actions.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -108,6 +112,8 @@
     href: operating-system-functionality.md
   - name: Deployment best practices
     href: deploy-best-practices.md
+  - name: Azure Arc hosting (preview)
+    href: overview-arc-integration.md
   - name: Security
     items:
     - name: Recommendations
@@ -117,7 +123,7 @@
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -187,9 +193,9 @@
         href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
-      - name: GitHub Action
+      - name: GitHub Actions
         href: deploy-github-actions.md
-      - name: GitHub Action for Containers
+      - name: GitHub Actions for Containers
         href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
@@ -219,8 +225,6 @@
         href: configure-authentication-provider-facebook.md
       - name: Authenticate with Google
         href: configure-authentication-provider-google.md
-      - name: Authenticate with Microsoft account
-        href: configure-authentication-provider-microsoft.md
       - name: Authenticate with Twitter
         href: configure-authentication-provider-twitter.md
       - name: Authenticate with an OpenID Connect provider (Preview)
@@ -248,7 +252,7 @@
     - name: Configure PremiumV3 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
-      href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
     - name: High density hosting
       href: manage-scale-per-app.md
   - name: Monitor app
@@ -279,6 +283,8 @@
       href: app-service-undelete.md
     - name: Restore from downed region
       href: manage-disaster-recovery.md
+    - name: Enable on Azure Arc
+      href: manage-create-arc-environment.md
   - name: Move app
     items:
     - name: Move between regions
@@ -322,8 +328,10 @@
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
-  - name: Migration Assistant guides
-    href: https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs
+  - name: Kudu service
+    href: resources-kudu.md
+  - name: Migration Assistant
+    href: app-service-migration-assistant.md
   - name: Best practices
     href: app-service-best-practices.md
   - name: Samples

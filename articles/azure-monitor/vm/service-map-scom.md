@@ -1,7 +1,6 @@
 ---
-title: Integrate Azure Monitor for VMs Map with Operations Manager | Microsoft Docs
-description: Azure Monitor for VMs automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using the Map feature to automatically create distributed application diagrams in Operations Manager.
-ms.subservice: 
+title: Integrate VM insights Map with Operations Manager | Microsoft Docs
+description: VM insights automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using the Map feature to automatically create distributed application diagrams in Operations Manager.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,17 +8,17 @@ ms.date: 07/12/2019
 
 ---
 
-# Integrate System Center Operations Manager with Azure Monitor for VMs Map feature
+# Integrate System Center Operations Manager with VM insights Map feature
 
-In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. With this integration between the Map feature and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Azure Monitor for VMs. This article describes how to configure your System Center Operations Manager management group to support this feature.
+In VM insights, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. With this integration between the Map feature and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in VM insights. This article describes how to configure your System Center Operations Manager management group to support this feature.
 
 >[!NOTE]
->If you have already deployed Service Map, you can view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. The Map feature of Azure Monitor for VMs is intended to replace the standalone Service Map solution. To learn more, see [Azure Monitor for VMs overview](../vm/vminsights-overview.md).
+>If you have already deployed Service Map, you can view your maps in VM insights, which includes additional features to monitor VM health and performance. The Map feature of VM insights is intended to replace the standalone Service Map solution. To learn more, see [VM insights overview](../vm/vminsights-overview.md).
 
 ## Prerequisites
 
 * A System Center Operations Manager management group (2012 R2 or later).
-* A Log Analytics workspace configured to support Azure Monitor for VMs.
+* A Log Analytics workspace configured to support VM insights.
 * One or more Windows and Linux virtual machines or physical computers that are monitored by Operations Manager and sending data to your Log Analytics workspace. Linux servers reporting to an Operations Manager management group need to be configured to directly connect to Azure Monitor. For more information, review the overview in [Collect log data with the Log Analytics agent](../agents/log-analytics-agent.md).
 * A service principal with access to the Azure subscription that is associated with the Log Analytics workspace. For more information, go to [Create a service principal](#create-a-service-principal).
 
@@ -39,7 +38,7 @@ After you install the Service Map management pack, a new node, **Service Map**, 
 >[!NOTE]
 >[Operations Management Suite was a collection of services](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) that included Log Analytics, is now part of [Azure Monitor](../overview.md).
 
-To configure Azure Monitor for VMs Map integration, do the following:
+To configure VM insights Map integration, do the following:
 
 1. To open the configuration wizard, in the **Service Map Overview** pane, click **Add workspace**.  
 
@@ -62,7 +61,7 @@ To configure Azure Monitor for VMs Map integration, do the following:
     For the integration to build a distributed application diagram for a server, the server must be:
 
    * Monitored by Operations Manager
-   * Configured to report to the Log Analytics workspace configured with Azure Monitor for VMs
+   * Configured to report to the Log Analytics workspace configured with VM insights
    * Listed in the Service Map Servers Group
 
      ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
@@ -88,7 +87,7 @@ The Service Map folder has four nodes:
   >[!NOTE]
   >These alerts are not Log Analytics alerts synced with Operations Manager, they are generated in the management group based on workflows defined in the Service Map management pack.
 
-* **Servers**: Lists the monitored servers that are configured to sync from Azure Monitor for VMs Map feature.
+* **Servers**: Lists the monitored servers that are configured to sync from VM insights Map feature.
 
     ![The Operations Manager Monitoring Servers pane](media/service-map-scom/scom-monitoring-servers.png)
 
@@ -115,7 +114,7 @@ You can configure only one Log Analytics workspace in this current release.
 
 ## Configure rules and overrides
 
-A rule, *Microsoft.SystemCenter.ServiceMapImport.Rule*, periodically fetches information from Azure Monitor for VMs Map feature. To modify the synchronization interval, you can override the rule and modify the value for the parameter **IntervalMinutes**.
+A rule, *Microsoft.SystemCenter.ServiceMapImport.Rule*, periodically fetches information from VM insights Map feature. To modify the synchronization interval, you can override the rule and modify the value for the parameter **IntervalMinutes**.
 
 ![The Operations Manager Overrides properties window](media/service-map-scom/scom-overrides.png)
 
@@ -129,8 +128,8 @@ A rule, *Microsoft.SystemCenter.ServiceMapImport.Rule*, periodically fetches inf
 The current design presents the following issues and limitations:
 
 * You can only connect to a single Log Analytics workspace.
-* Although you can add servers to the Service Map Servers Group manually through the **Authoring** pane, the maps for those servers are not synced immediately. They will be synced from Azure Monitor for VMs Map feature during the next sync cycle.
-* If you make any changes to the Distributed Application Diagrams created by the management pack, those changes will likely be overwritten on the next sync with Azure Monitor for VMs.
+* Although you can add servers to the Service Map Servers Group manually through the **Authoring** pane, the maps for those servers are not synced immediately. They will be synced from VM insights Map feature during the next sync cycle.
+* If you make any changes to the Distributed Application Diagrams created by the management pack, those changes will likely be overwritten on the next sync with VM insights.
 
 ## Create a service principal
 
@@ -142,5 +141,5 @@ For official Azure documentation about creating a service principal, see:
 
 ### Suggestions
 
-Do you have any feedback for us about integration with Azure Monitor for VMs Map feature or this documentation? Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.
+Do you have any feedback for us about integration with VM insights Map feature or this documentation? Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.
 

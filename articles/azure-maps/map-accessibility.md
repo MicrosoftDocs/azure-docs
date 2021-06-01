@@ -174,4 +174,4 @@ Take a look at these useful accessibility tools:
 > [WebAim color contrast checker](https://webaim.org/resources/contrastchecker/)
 
 > [!div class="nextstepaction"]
-> [No Coffee Vision Simulator](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)
+> [No Coffee Vision Simulator](https://uxpro.cc/toolbox/nocoffee/)

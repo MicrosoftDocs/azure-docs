@@ -52,7 +52,7 @@ The Translator service can be accessed through two different resource types:
 
 1. **Resource Group**. The Azure resource group that you choose serve as a virtual container for your new resource. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. Translator is a non-regional service—there is no dependency on a specific Azure region. *See* [Regions and Availability Zones in Azure](/azure/availability-zones/az-overview).
+1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. Translator is a non-regional service—there is no dependency on a specific Azure region. *See* [Regions and Availability Zones in Azure](../../availability-zones/az-overview.md).
 
 1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 

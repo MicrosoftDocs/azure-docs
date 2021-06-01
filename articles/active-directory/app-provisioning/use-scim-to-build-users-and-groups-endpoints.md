@@ -1,19 +1,19 @@
 ---
 title: Build a SCIM endpoint for user provisioning to apps from Azure Active Directory
-description: Learn to develop a SCIM endpoint, integrate your SCIM API with Azure AD, and automatically provision users and groups into your cloud applications with Azure Active Directory. 
+description: Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and automatically provision users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Tutorial: Develop a sample SCIM endpoint
+# Tutorial: Develop a sample SCIM endpoint in Azure Active Directory
 
 No one wants to build a new endpoint from scratch, so we created some [reference code](https://aka.ms/scimreferencecode) for you to get started with [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview). You can get your SCIM endpoint up and running with no code in just five minutes.
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Deploy your SCIM endpoint in Azure
 
-The steps here deploy the SCIM endpoint to a service by using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Azure App Service](https://docs.microsoft.com/azure/app-service/). The SCIM reference code can also be run locally, hosted by an on-premises server, or deployed to another external service.
+The steps here deploy the SCIM endpoint to a service by using [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) and [Azure App Service](../../app-service/index.yml). The SCIM reference code can also be run locally, hosted by an on-premises server, or deployed to another external service.
 
 1. Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from GitHub and select **Clone or download**.
 
@@ -52,6 +52,8 @@ The steps here deploy the SCIM endpoint to a service by using [Visual Studio 201
     ![Screenshot that shows creating a new app service.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-3.png)
 
 1. Select the resource group to use and select **Publish**.
+
+    ![Screenshot that shows publishing a new app service.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-4.png)
 
 1. Go to the application in **Azure App Service** > **Configuration** and select **New application setting** to add the *Token__TokenIssuer* setting with the value `https://sts.windows.net/<tenant_id>/`. Replace `<tenant_id>` with your Azure AD tenant ID. If you want to test the SCIM endpoint by using [Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), add an *ASPNETCORE_ENVIRONMENT* setting with the value `Development`.
 

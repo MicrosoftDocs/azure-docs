@@ -121,14 +121,16 @@ The storage client library uses the Key Vault interfaces in the core library in 
 
 ### Interface and dependencies
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 There are two necessary packages for Key Vault integration:
 
 * Azure.Core contains the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The storage client library for .NET already defines it as a dependency.
 * Azure.Security.KeyVault.Keys (v4.x) contains the Key Vault REST client, as well as cryptographic clients used with client-side encryption.
 
-# [.NET v11](#tab/dotnet11)
+Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. As of Azure.Security.KeyVault.Keys 4.1.0, there is not an `IKeyEncryptionKeyResolver` implementation that supports key caching. Should caching be necessary due to throttling, [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) can be followed to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 There are three Key Vault packages:
 
@@ -136,15 +138,15 @@ There are three Key Vault packages:
 * Microsoft.Azure.KeyVault (v3.x) contains the Key Vault REST client.
 * Microsoft.Azure.KeyVault.Extensions (v3.x) contains extension code that includes implementations of cryptographic algorithms and an RSAKey and a SymmetricKey. It depends on the Core and KeyVault namespaces and provides functionality to define an aggregate resolver (when users want to use multiple key providers) and a caching key resolver. Although the storage client library does not directly depend on this package, if users wish to use Azure Key Vault to store their keys or to use the Key Vault extensions to consume the local and cloud cryptographic providers, they will need this package.
 
-More information regarding Key Vault usage in v11 can be found in the [v11 encryption code samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
-
----
-
 Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. When performing client-side encryption with Key Vault, the preferred model is to use symmetric master keys stored as secrets in Key Vault and cached locally. Users must do the following:
 
 1. Create a secret offline and upload it to Key Vault.
 2. Use the secret's base identifier as a parameter to resolve the current version of the secret for encryption and cache this information locally. Use CachingKeyResolver for caching; users are not expected to implement their own caching logic.
 3. Use the caching resolver as an input while creating the encryption policy.
+
+More information regarding Key Vault usage in v11 can be found in the [v11 encryption code samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
+
+---
 
 ## Best practices
 
@@ -173,7 +175,7 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 
 ### Blob service encryption
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 Create a **ClientSideEncryptionOptions** object and set it on client creation with **SpecializedBlobClientOptions**. You cannot set encryption options on a per-API basis. Everything else will be handled by the client library internally.
 
@@ -223,7 +225,7 @@ ClientSideEncryptionOptions encryptionOptions;
 BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOptions(encryptionOptions);
 ```
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
@@ -249,7 +251,7 @@ blob.DownloadToStream(outputStream, null, options, null);
 
 ### Queue service encryption
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 Create a **ClientSideEncryptionOptions** object and set it on client creation with **SpecializedQueueClientOptions**. You cannot set encryption options on a per-API basis. Everything else will be handled by the client library internally.
 
@@ -327,7 +329,7 @@ QueueMessage[] messages = queue.ReceiveMessages(maxMessages: 5).Value;
 Debug.Assert(messages.Length == 4)
 ```
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 

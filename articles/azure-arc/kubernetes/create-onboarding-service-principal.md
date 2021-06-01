@@ -1,9 +1,9 @@
 ---
-title: "Create an Azure Arc enabled onboarding service principal (Preview)"
+title: "Create an onboarding service principal for Azure Arc enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/09/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -11,13 +11,13 @@ description: "Create an Azure Arc enabled onboarding service principal "
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Create an Azure Arc enabled onboarding service principal (Preview)
+# Create an onboarding service principal for Azure Arc enabled Kubernetes
 
 ## Overview
 
-You can onboard Kubernetes clusters to Azure Arc using service principals with limited-privilege role assignments. This capability is useful in continuous integration and continuous deployment (CI/CD) pipelines, like Azure Pipelines and GitHub Actions.
+You can connect Kubernetes clusters to Azure Arc using service principals with limited-privilege role assignments. This capability is useful in continuous integration and continuous deployment (CI/CD) pipelines, like Azure Pipelines and GitHub Actions.
 
-Walk through the following steps to learn how to use service principals for onboarding Kubernetes clusters to Azure Arc.
+Walk through the following steps to learn how to use service principals for connecting Kubernetes clusters to Azure Arc.
 
 ## Create a new service principal
 
@@ -45,12 +45,12 @@ Assign the "Kubernetes Cluster - Azure Arc Onboarding" role to the newly created
 
 Given the limited abilities, customers can easily re-use this principal to onboard multiple clusters.
 
-You can limit permissions further by passing in the appropriate `--scope` argument when assigning the role. This allows customers to restrict cluster registration. The following scenarios are supported by various `--scope` parameters:
+You can limit permissions further by passing in the appropriate `--scope` argument when assigning the role. This allows admins to restrict cluster registration to subscription or resource group scope. The following scenarios are supported by various `--scope` parameters:
 
 | Resource  | `scope` argument| Effect |
 | ------------- | ------------- | ------------- |
-| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Service principal can register any cluster in an existing Resource Group in the given subscription. |
-| Resource Group | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Service principal can __only__ register clusters in the Resource Group `myGroup`. |
+| Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Service principal can register cluster in  any resource group under that subscription. |
+| Resource Group | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Service principal can __only__ register clusters in the resource group `myGroup`. |
 
 ```console
 az role assignment create \
@@ -85,4 +85,4 @@ az connectedk8s connect -n myConnectedClusterName -g myResoureGroupName
 
 ## Next steps
 
-* [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+Govern your cluster configuration [using Azure Policy](./use-azure-policy.md).

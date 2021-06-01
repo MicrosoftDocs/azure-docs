@@ -4,8 +4,9 @@ description: How to troubleshoot issues with PowerShell when you set up a Window
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 06/05/2020
-ms.author: helohr
-manager: lizross
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
 # Windows Virtual Desktop PowerShell
 

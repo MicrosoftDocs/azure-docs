@@ -4,13 +4,12 @@ description: Learn how to use a Resource Manager template to create a classic me
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.subservice: alerts
+ms.date: 02/14/2021
 ---
 # Create a classic metric alert with a Resource Manager template
 
 > [!WARNING]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](../platform/alerts-overview.md). Classic alerts are [retired](../platform/monitoring-classic-retirement.md) for public cloud users, though still in limited use for resources that do not yet support the new alerts.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users, though still in limited use until **31 May 2021**. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
 >
 
 This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure Azure classic metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
@@ -393,6 +392,6 @@ An alert on a Resource Manager template is most often useful when creating an al
 ```
 
 ## Next Steps
-* [Read more about Alerts](../platform/alerts-overview.md)
-* [Add Diagnostic Settings](../samples/resource-manager-diagnostic-settings.md) to your Resource Manager template
+* [Read more about Alerts](./alerts-overview.md)
+* [Add Diagnostic Settings](../essentials/resource-manager-diagnostic-settings.md) to your Resource Manager template
 * For the JSON syntax and properties, see [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) template reference.

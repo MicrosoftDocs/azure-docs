@@ -57,7 +57,7 @@ The following list covers important networking components in an Azure Red Hat Op
 
 * **Ingress**: The ingress networking policy is supported as a part of [OpenShift SDN](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). This network policy is enabled by default, and the enforcement is carried out by users. While the ingress network policy is V1 NetworkPolicy compliant, the Egress and IPBlock Types are not supported.
 
-* **Egress**: The egress network policies are supported by using the [egress firewall](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) feature in OpenShift. There is only one egress policy per namespace/project. Egress policies are not supported on the"default" namespace and are evaluated in order (first to last).
+* **Egress**: The egress network policies are supported by using the [egress firewall](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) feature in OpenShift. There is only one egress policy per namespace/project. Egress policies are not supported on the "default" namespace and are evaluated in order (first to last).
 
 ## Networking basics in OpenShift
 
