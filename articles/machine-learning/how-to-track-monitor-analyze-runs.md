@@ -190,9 +190,9 @@ Stay updated with the run status by viewing the notifications for your runs and 
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/notifications.gif" alt-text="Screenshot: view notifications":::
 
 ### Favorite and Recent Runs
-To improve the discoverability of assets, favorite runs or experiments by selecting the **star** icon in the run details page. You can also favorite runs and experiments from the experiments and runs lists. 
+* To improve the discoverability of your assets, favorite runs or experiments by selecting the **star** icon in the run details page. You can favorite runs and experiments from the experiments and runs lists as well. 
 
-You can also view all recently accessed runs and experiments that you previously clicked on in the **Recents** tab. Favorited runs and experiments are also found in the **Recents** tab. 
+* View all recently accessed runs and experiments that you previously clicked on in the **Recents** tab. Favorited runs and experiments are also found in the **Recents** tab. 
 
 :::image type="content" source="media/how-to-track-monitor-analyze-runs/recentsandfavorites.gif" alt-text="Screenshot: favorite resorces and view recent assets":::
     
