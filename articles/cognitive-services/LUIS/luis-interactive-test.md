@@ -4,7 +4,10 @@ description: Use Language Understanding (LUIS) to continuously work on your appl
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.author: aahi
+author: aahill
+ms.manager: nitinme
+ms.date: 06/01/2021
 ---
 
 # Test your LUIS app in the LUIS portal
