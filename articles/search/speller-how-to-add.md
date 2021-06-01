@@ -8,17 +8,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ms.custom: references_regions
 ---
 # Add spell check to queries in Cognitive Search
 
 > [!IMPORTANT]
-> Spell correction is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for speller. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Spell correction is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal and preview REST API only.
 
 You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
 ## Prerequisites
+
+Speller was released in tandem with the [semantic search preview](semantic-search-overview.md). As such, [sign up](https://aka.ms/SemanticSearchPreviewSignup) is required but there is no charge for using it, and no tier restrictions. Speller is available in the [same regions](semantic-search-overview.md#availability-and-pricing) as semantic search.
+
+Once sign up is processed, you will need the following:
 
 + An existing search index, with content in a [supported language](#supported-languages). Currently, spell correction does not work with [synonyms](search-synonyms.md). Avoid using it on indexes that specify a synonym map in any field definition.
 
@@ -27,9 +31,6 @@ You can improve recall by spell-correcting individual search query terms before 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs.
 
 + [A query request](/rest/api/searchservice/preview-api/search-documents) that invokes spell correction must have "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage" set to a [supported language](#supported-languages).
-
-> [!Note]
-> The speller parameter is available on all tiers, in the same regions that provide semantic search. Sign up is required but there is no charge and no tier restrictions. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Spell correction with simple search
 
