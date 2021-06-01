@@ -171,46 +171,55 @@ For more information, review the [Deploy an Azure Function using Azure Pipelines
 
 #### [Azure CLI](#tab/azure-cli)
 
-If you use other deployment tools, you can deploy your logic app by using the Azure CLI commands for single-tenant Azure Logic Apps.
+If you use other deployment tools, you can deploy your single-tenant based logic app by using the Azure CLI. Before you start, you need to have the following items:
 
-Before you start, you need to have the following items:
+- The latest Azure CLI extension installed on your local computer.
 
-- The latest Azure CLI extension installed on your local computer. If you're not sure, follow the [steps to check your environment and CLI version](#check-environment-cli-version).
+  - If you don't have this extension, review [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
-- The Logic Apps extension for Azure CLI
+  - If you're not sure that you have the latest version, follow the [steps to check your environment and CLI version](#check-environment-cli-version).
+
+- The *preview* Azure Logic Apps (Standard) extension for Azure CLI.
+
+  Although single-tenant Azure Logic Apps is generally available, the Azure Logic Apps extension is still in preview.
 
 <a name="check-environment-cli-version"></a>
 
 ##### Check environment and CLI version
 
-1. In the [Azure portal(https://portal.azure.com). In the Azure portal, make sure you have an active subscription by running the following interactive Azure CLI command:
+1. Sign in to the [Azure portal](https://portal.azure.com). Confirm that your subscription is active by running the following interactive Azure CLI command:
 
    ```azurecli-interactive
    az login
    ```
 
-  If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
-
-
-1. Check your Azure CLI version in a terminal or command window by running the following command:
+1. In a terminal or command window, check your version of the Azure CLI version by running the following command:
 
    ```azurecli-interactive
    az --version
    ```
 
-For the latest version, review the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+1. If you don't have the latest Azure CLI version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
+   For more information about the latest version, review the [most recent release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
 
-1. Install the Logic Apps extension Install the preview version of the Logic Apps extension for the Azure CLI:
+##### Install Logic Apps extension for Azure CLI
 
+Install the *preview* Logic Apps extension for Azure CLI by running the following command:
 
 ```azurecli-interactive
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
-For example, to deploy your zipped artifact to an Azure resource group, run the following CLI command:
+##### Deploy using the Azure CLI
 
-`az logicapp deployment source config-zip -g {your-resource-group} --name {your-logic-app-name} --src {your-build-artifact}.zip`
+To deploy your zipped artifact to an Azure resource group, run the following CLI command:
+
+```azurecli-interactive
+az logicapp deployment source config-zip -g {your-resource-group} 
+   --name {your-logic-app-name} 
+   --src {your-build-artifact}.zip
+```
 
 ---
 
