@@ -1,5 +1,5 @@
 ---
-title: Create and Manage Downloadable Access Review History Report (Preview)
+title: Create and manage downloadable access review history report (Preview) - Azure Active Directory
 description: Using Azure Active Directory access reviews, you can download a review history for access reviews in your organization.
 services: active-directory
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 03/25/2021
 ms.author: ajburnle
 ---
 
-# Create and Manage Downloadable Access Review History Report (Preview)
+# Create and manage downloadable access review history report (Preview) in Azure AD access reviews
 
 With Azure Active Directory (Azure AD) Access Reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that were taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.
  
@@ -84,7 +84,7 @@ The reports provide details on a per-user basis showing the following:
 | AccessRecommendation | System recommendations include Approve, Deny, and No Info |
 |SubmissionResult | Review result submission status include applied, and not applied. |
 
-## Next Steps
+## Next steps
 - [Review access to groups or applications](perform-access-review.md)
 - [Review access for yourself to groups or applications](review-your-access.md)
 - [Complete an access review of groups or applications](complete-access-review.md)
