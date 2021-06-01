@@ -258,16 +258,57 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 
 # [ARM Template](#tab/arm)
 
+- Input the Azure AD admin for the deployment. You will find the user Object ID by going to the [Azure portal](https://portal.azure.com) and navigating to your **Azure Active Directory** resource. Under **Manage**, select **Users**. Search for the user you want to set as the Azure AD admin for your Azure SQL server. Select the user, and under their **Profile** page, you will see the **Object ID**.
+- The Tenant ID can be found in the **Overview** page of your **Azure Active Directory** resource.
+
 ## Azure SQL Database
+
+### Enable
+
+The below ARM Template enables Azure AD-only authentication in your Azure SQL Database. To disable Azure AD-only authentication, set the `azureADOnlyAuthentication` property to `false`.
 
 ```json
 {
-  "name": "string",
-  "type": "Microsoft.Sql/servers/azureADOnlyAuthentications",
-  "apiVersion": "2020-11-01-preview",
-  "properties": {
-    "azureADOnlyAuthentication": "boolean"
-  }
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "sqlServer_name": {
+            "type": "String"
+        },
+        "aad_admin_name": {
+            "type": "String"
+        },
+        "aad_admin_objectid": {
+            "type": "String"
+        },
+        "aad_admin_tenantid": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/administrators",
+            "apiVersion": "2020-02-02-preview",
+            "name": "[concat(parameters('sqlServer_name'), '/ActiveDirectory')]",
+            "properties": {
+                "administratorType": "ActiveDirectory",
+                "login": "[parameters('aad_admin_name')]",
+                "sid": "[parameters('aad_admin_objectid')]",
+                "tenantId": "[parameters('aad_admin_tenantId')]"
+            }
+        },        
+        {
+            "type": "Microsoft.Sql/servers/azureADOnlyAuthentications",
+            "apiVersion": "2020-02-02-preview",
+            "name": "[concat(parameters('sqlServer_name'), '/Default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers/administrators', parameters('sqlServer_name'), 'ActiveDirectory')]"
+            ],
+            "properties": {
+                "azureADOnlyAuthentication": true
+            }
+        }
+    ]
 }
 ```
 
@@ -275,15 +316,54 @@ For more information, see [Microsoft.Sql servers/azureADOnlyAuthentications](/az
 
 ## Azure SQL Managed Instance
 
+### Enable
+
+The below ARM Template enables Azure AD-only authentication in your Azure SQL Managed Instance. To disable Azure AD-only authentication, set the `azureADOnlyAuthentication` property to `false`.
+
 ```json
 {
-  "name": "string",
-  "type": "Microsoft.Sql/managedInstances/azureADOnlyAuthentications",
-  "apiVersion": "2020-11-01-preview",
-  "properties": {
-    "azureADOnlyAuthentication": "boolean"
-  }
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "instance": {
+            "type": "String"
+        },
+        "aad_admin_name": {
+            "type": "String"
+        },
+        "aad_admin_objectid": {
+            "type": "String"
+        },
+        "aad_admin_tenantid": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/managedInstances/administrators",
+            "apiVersion": "2020-02-02-preview",
+            "name": "[concat(parameters('instance'), '/ActiveDirectory')]",
+            "properties": {
+                "administratorType": "ActiveDirectory",
+                "login": "[parameters('aad_admin_name')]",
+                "sid": "[parameters('aad_admin_objectid')]",
+                "tenantId": "[parameters('aad_admin_tenantId')]"
+            }
+        },
+        {
+            "type": "Microsoft.Sql/managedInstances/azureADOnlyAuthentications",
+            "apiVersion": "2020-02-02-preview",
+            "name": "[concat(parameters('instance'), '/Default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/managedInstances/administrators', parameters('instance'), 'ActiveDirectory')]"
+            ],
+            "properties": {
+                "azureADOnlyAuthentication": true
+            }
+        }
+    ]
 }
+
 ```
 
 For more information, see [Microsoft.Sql managedInstances/azureADOnlyAuthentications](/azure/templates/microsoft.sql/managedinstances/azureadonlyauthentications).
