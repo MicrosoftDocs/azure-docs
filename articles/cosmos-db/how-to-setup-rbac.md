@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ms.author: thweiss
 ---
 
@@ -305,12 +305,12 @@ Assign a role to an identity:
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
 $accountName = "<myCosmosAccount>"
-$readOnlyRoleDefinitionId = "<roleDefinitionId>" // as fetched above
+$readOnlyRoleDefinitionId = "<roleDefinitionId>" # as fetched above
 $principalId = "<aadPrincipalId>"
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
     -RoleDefinitionId $readOnlyRoleDefinitionId `
-    -Scope $accountName `
+    -Scope "/" `
     -PrincipalId $principalId
 ```
 
@@ -321,7 +321,7 @@ Assign a role to an identity:
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
+readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
 principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```

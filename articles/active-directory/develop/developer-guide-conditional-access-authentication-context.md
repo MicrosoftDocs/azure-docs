@@ -84,7 +84,7 @@ These steps are the changes that you need to carry in your code base. The steps 
 
 **Third**: Your application, and for this example, we’d assume it’s a web API, then needs to evaluate calls against the saved mapping and accordingly raise claim challenges for its client apps. To prepare for this action, the following steps are to be taken:
 
-1. In a sensitive and protected by auth context operation, evaluate the values in the acrs claim against the auth context ID mapping saved earlier and raise a claims challenge as provided in the code snippet below. 
+1. In a sensitive and protected by auth context operation, evaluate the values in the **acrs** claim against the Auth Context ID mappings saved earlier and raise a [Claims Challenge](claims-challenge.md) as provided in the code snippet below. 
 
 1. The following diagram shows the interaction between the user, client app, and the web API.
 
