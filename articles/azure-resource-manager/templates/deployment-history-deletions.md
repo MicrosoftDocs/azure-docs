@@ -2,7 +2,8 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 03/23/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Automatic deletions from deployment history
 
@@ -48,6 +49,12 @@ lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv -
 az lock delete --ids $lockid
 ```
 
+## Required permissions
+
+The deletions are requested under the identity of the user who deployed the template. To delete deployments, the user must have access to the **Microsoft.Resources/deployments/delete** action. If the user doesn't have the required permissions, deployments aren't deleted from the history.
+
+If the current user doesn't have the required permissions, automatic deletion is attempted again during the next deployment.
+
 ## Opt out of automatic deletions
 
 You can opt out of automatic deletions from the history. **Use this option only when you want to manage the deployment history yourself.** The limit of 800 deployments in the history is still enforced. If you exceed 800 deployments, you'll receive an error and your deployment will fail.
@@ -72,7 +79,7 @@ To reenable automatic deletions, use Azure REST API or Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az feature register](/cli/azure/feature#az-feature-register).
+For Azure CLI, use [az feature register](/cli/azure/feature#az_feature_register).
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -84,7 +91,7 @@ To see the current status of your subscription, use:
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az-feature-unregister).
+To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#az_feature_unregister).
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming

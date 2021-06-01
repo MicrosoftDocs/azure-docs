@@ -20,15 +20,11 @@ ms.custom: aaddev
 
 After you create your application, you'll learn how to configure the code by using the app registration parameters. Mobile applications present some complexities related to fitting into their creation framework.
 
-## Find MSAL support for mobile apps
+## Microsoft libraries supporting mobile apps
 
-The following Microsoft Authentication Library (MSAL) types support mobile apps.
+The following Microsoft libraries support mobile apps:
 
-MSAL | Description
------------- | ----------
-![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Used to develop portable applications. MSAL.NET supports the following platforms for building a mobile application: Universal Windows Platform (UWP), Xamarin.iOS, and Xamarin.Android.
-![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Used to develop native iOS applications by using Objective-C or Swift.
-![MSAL.Android](media/sample-v2-code/logo_android.png) <br/> MSAL.Android | Used to develop native Android applications in Java for Android.
+[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 
 ## Instantiate the application
 
@@ -79,7 +75,7 @@ The following sections provide more information about instantiating the applicat
 
 ##### Specify the parent UI, window, or activity
 
-On Android, you need to pass the parent activity before you do the interactive authentication. On iOS, when you use a broker, you need to pass-in `ViewController`. In the same way on UWP, you might want to pass-in the parent window. You pass it in when you acquire the token. But when you're creating the app, you can also specify a callback as a delegate that returns `UIParent`.
+On Android, pass the parent activity before you do the interactive authentication. On iOS, when you use a broker, pass-in `ViewController`. In the same way on UWP, you might want to pass-in the parent window. You pass it in when you acquire the token. But when you're creating the app, you can also specify a callback as a delegate that returns `UIParent`.
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
@@ -127,7 +123,7 @@ These tasks are necessary when you use MSAL for iOS and macOS:
 If you use Xamarin.Android, do the following tasks:
 
 - [Ensure control goes back to MSAL after the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
-- [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
+- [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support)
 - [Use the embedded web view (optional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Troubleshoot as necessary](msal-net-xamarin-android-considerations.md#troubleshooting)
 

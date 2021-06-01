@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 04/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -42,7 +42,7 @@ With the user option, users can sign in/up with a username and password:
 
 ![Username sign-up or sign-in experience](./media/identity-provider-local/local-account-username-experience.png)
 
-## Phone sign-in (Preview)
+## Phone sign-in
 
 Passwordless authentication is a type of authentication where a user doesn't need to sign-in with their password. With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary login identifier. The user will have the following experience during sign-up and sign-in:
 
@@ -76,9 +76,9 @@ The following screenshots demonstrate the phone recovery flow:
 ![Phone recovery user flow](./media/identity-provider-local/local-account-change-phone-flow.png)
 
 
-## Phone or email sign-in (Preview)
+## Phone or email sign-in
 
-You can choose to combine the [phone sign-in](#phone-sign-in-preview), and the [email sign-in](#email-sign-in). In the sign-up or sign-in page, user can type a phone number, or email address. Based on the user input, Azure AD B2C takes the user to the corresponding flow. 
+You can choose to combine the [phone sign-in](#phone-sign-in), and the [email sign-in](#email-sign-in). In the sign-up or sign-in page, user can type a phone number, or email address. Based on the user input, Azure AD B2C takes the user to the corresponding flow. 
 
 ![Phone or email sign-up or sign-in experience](./media/identity-provider-local/local-account-phone-and-email-experience.png)
 
@@ -138,12 +138,12 @@ After you download the starter pack.
 
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 
-1. Complete the steps in the [Add application IDs to the custom policy](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) section of [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md). For example, update `/phone-number-passwordless/`**`Phone_Email_Base.xml`** with the **Application (client) IDs** of the two applications you registered when completing the prerequisites, *IdentityExperienceFramework* and *ProxyIdentityExperienceFramework*.
+1. Complete the steps in the [Add application IDs to the custom policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-application-ids-to-the-custom-policy) section of [Get started with custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). For example, update `/phone-number-passwordless/`**`Phone_Email_Base.xml`** with the **Application (client) IDs** of the two applications you registered when completing the prerequisites, *IdentityExperienceFramework* and *ProxyIdentityExperienceFramework*.
 1. Upload the policy files
 
 ::: zone-end
 
 ## Next steps
 
-- [Add external identity providers](tutorial-add-identity-providers.md)
+- [Add external identity providers](add-identity-provider.md)
 - [Create a user flow](tutorial-create-user-flows.md)

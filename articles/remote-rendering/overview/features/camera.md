@@ -52,14 +52,14 @@ Depth buffers normally record z-values in a floating-point range of [0;1], with 
 The Azure Remote Rendering API needs to know about the depth buffer convention of your local renderer to correctly compose remote depth into the local depth buffer. If your depth buffer range is [0;1] leave this flag as `false`. If you use an inverted depth buffer with a [1;0] range, set the `InverseDepth` flag to `true`.
 
 > [!NOTE]
-> For Unity, the correct setting is already applied by the `RemoteManager` so there is no need for manual intervention.
+> For Unity, the correct setting is already applied by the `RenderingConnection` so there is no need for manual intervention.
 
 Changing the camera settings can be done as follows:
 
 ```cs
-void ChangeCameraSetting(AzureSession session)
+void ChangeCameraSetting(RenderingSession session)
 {
-    CameraSettings settings = session.Actions.CameraSettings;
+    CameraSettings settings = session.Connection.CameraSettings;
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
@@ -68,9 +68,9 @@ void ChangeCameraSetting(AzureSession session)
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeCameraSetting(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<CameraSettings> settings = session->Actions()->GetCameraSettings();
+    ApiHandle<CameraSettings> settings = session->Connection()->GetCameraSettings();
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);

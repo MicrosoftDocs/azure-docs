@@ -1,12 +1,8 @@
 ---
 title: Create data mining reports
 description: generate comprehensive and granular information about your network devices at various layers, such as protocols, firmware versions, or programming commands.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Sensor data mining queries
@@ -50,11 +46,11 @@ Data mining queries that you create are dynamically updated each time you open t
 
 You can use queries to handle an extensive range of security needs for various security teams:
 
-- **SOC incident response**: Generate a report in real time to help deal with immediate incident response. For example, generate a report for a list of devices that might require patching.
+- **SOC incident response**: Generate a report in real time to help deal with immediate incident response. For example, Data Mining can generate a report for a list of devices that might require patching.
 
 - **Forensics**: Generate a report based on historical data for investigative reports.
 
-- **IT Network Integrity**: Generate a report that helps improve overall network security. For example, generate a report that lists devices with weak authentication credentials.
+- **IT Network Integrity**: Generate a report that helps improve overall network security. For example, generate a report can be generated that lists devices with weak authentication credentials.
 
 - **Visibility**: Generate a report that covers all query items to view all baseline parameters of your network.
 

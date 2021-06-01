@@ -1,7 +1,7 @@
 ---
 title: Set up your environment for Blueprint Operator
 description: Learn how to configure your Azure environment for use with the Blueprint Operator Azure built-in role.
-ms.date: 11/24/2020
+ms.date: 05/01/2021
 ms.topic: how-to
 ---
 # Configure your environment for a Blueprint Operator
@@ -27,7 +27,7 @@ follow the principle of least privilege when granting these permissions.
 1. (Recommended)
    [Create a security group and add members](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)
+1. [Assign Azure role](../../../role-based-access-control/role-assignments-portal.md)
    of **Blueprint Operator** to the account or security group
 
 ## User-assign managed identity
@@ -45,7 +45,7 @@ of permissions.
 1. Grant the user-assigned managed identity any roles or permissions required by the blueprint
    definition for the intended scope.
 
-1. [Add a role assignment](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)
+1. [Assign Azure role](../../../role-based-access-control/role-assignments-portal.md)
    of **Managed Identity Operator** to the account or security group. Scope the role assignment to
    the new user-assigned managed identity.
 

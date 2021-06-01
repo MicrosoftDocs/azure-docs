@@ -66,7 +66,7 @@ You can also create alerts by using the **Metrics** page. The steps are similar.
     
 
 > [!NOTE]
-> This article doesn't cover all the different steps and combinations that you can use to create an alert. For an overview of alerts, see [Alerts overview](../azure-monitor/platform/alerts-metric.md).
+> This article doesn't cover all the different steps and combinations that you can use to create an alert. For an overview of alerts, see [Alerts overview](../azure-monitor/alerts/alerts-metric.md).
 
 ## Next steps
 

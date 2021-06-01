@@ -3,7 +3,7 @@ title: Monitoring - Azure Database for MariaDB
 description: This article describes the metrics for monitoring and alerting for Azure Database for MariaDB, including CPU, storage, and connection statistics.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
@@ -12,7 +12,7 @@ ms.date: 10/21/2020
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
 
 ## Metrics
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md).
+All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/data-platform.md).
 
 For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
 
@@ -61,6 +61,6 @@ Learn more about how to set up notifications in the [planned maintenance notific
 
 ## Next steps
 
-- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md).
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../azure-monitor/data-platform.md).
 - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.
 - Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for MariaDB.

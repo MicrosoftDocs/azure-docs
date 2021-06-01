@@ -3,14 +3,14 @@ title: Translator Detect Method
 titleSuffix: Azure Cognitive Services
 description: Identify the language of a piece of text with the Azure Cognitive Services Translator Detect method.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator 3.0: Detect

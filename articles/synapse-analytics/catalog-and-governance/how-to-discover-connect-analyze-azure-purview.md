@@ -1,12 +1,12 @@
 ---
 title: Discover, connect, and explore data in Synapse using Azure Purview
 description: Guide on how to discover data, connect them and explore them in Synapse
-services: synapse-analytics 
-author: ArnoMicrosoft
-ms.service: synapse-analytics 
+author: Jejiang
+ms.service: synapse-analytics
+ms.subservice: purview 
 ms.topic: how-to
 ms.date: 12/16/2020
-ms.author: acomet
+ms.author: jejiang
 ms.reviewer: jrasnick
 ---
 
@@ -27,6 +27,8 @@ The use Azure Purview in Synapse requires you to have access to that Purview acc
 ### Data discovery: search datasets 
 
 To discover data registered and scanned by Azure Purview, you can use the Search bar at the top center of Synapse workspace. Make sure that you select Azure Purview to search for all of your organization data. 
+
+[![Search for Azure Purview assets](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
 ## Azure Purview actions 
 

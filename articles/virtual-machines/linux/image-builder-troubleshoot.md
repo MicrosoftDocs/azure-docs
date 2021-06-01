@@ -6,7 +6,9 @@ ms.author: danis
 ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure Image Builder Service
@@ -670,4 +672,4 @@ Support Subtopic: Azure Image Builder
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).

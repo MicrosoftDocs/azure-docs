@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Group policy definitions with initiatives"
 description: This Azure Policy pattern provides an example of how to group policy definitions into an initiative.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: group policy definitions
@@ -32,10 +32,10 @@ parameters. The values are provided when the initiative is assigned.
 #### Includes policy definitions
 
 Each included policy definition must provide the **policyDefinitionId** and a **parameters** array
-if the policy definition accepts parameters. In the snippet below, the included policy definition
-takes two parameters: **tagName** and **tagValue**. **tagName** is defined with a literal, but
-**tagValue** uses the parameter **costCenterValue** defined by the initiative. This passthrough of
-values improves reuse.
+if the policy definition accepts parameters. In the following snippet, the included policy
+definition takes two parameters: **tagName** and **tagValue**. **tagName** is defined with a
+literal, but **tagValue** uses the parameter **costCenterValue** defined by the initiative. This
+passthrough of values improves reuse.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="30-40":::
 

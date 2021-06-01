@@ -2,7 +2,7 @@
 title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
 description: This article provides details about SQL filter grammar. A SQL filter supports a subset of the SQL-92 standard.  
 ms.topic: article
-ms.date: 11/24/2020
+ms.date: 04/30/2021
 ---
 
 # Subscription Rule SQL Filter Syntax
@@ -45,7 +45,10 @@ Service Bus Premium also supports the [JMS SQL message selector syntax](https://
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` isn't specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. 
+    - The `sys` value indicates system scope where `<property_name>` is any of the properties on the Service Bus message as described in [Messages, payloads, and serialization](service-bus-messages-payloads.md).
+    - The `user` value indicates user scope where `<property_name>` is a key of the custom properties that you can set on the message when sending to Service  Bus.
+    - The `user` scope is the default scope if `<scope>` isn't specified.  
   
 ## Remarks
 
@@ -194,13 +197,13 @@ The `property(name)` function returns the value of the property referenced by `n
   
 ## Considerations
   
-Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantics:  
+Consider the following Sql Filter semantics:  
   
 -   Property names are case-insensitive.  
   
 -   Operators follow C# implicit conversion semantics whenever possible.  
   
--   System properties are public properties exposed in [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) instances.  
+-   System properties are any of the properties on the Service Bus message as described in [Messages, payloads, and serialization](service-bus-messages-payloads.md).
   
 	Consider the following `IS [NOT] NULL` semantics:  
   
@@ -208,7 +211,7 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
   
 ### Property evaluation semantics  
   
-- An attempt to evaluate a non-existent system property throws a [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
+- An attempt to evaluate a non-existent system property throws a `FilterException` exception.  
   
 - A property that doesn't exist is internally evaluated as **unknown**.  
   
@@ -264,8 +267,8 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
   
 -   Arithmetic operators such as `+`, `-`, `*`, `/`, and `%` follow the same semantics as the C# operator binding in data type promotions and implicit conversions.
 
-
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## Examples
+For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
 
 ## Next steps
 

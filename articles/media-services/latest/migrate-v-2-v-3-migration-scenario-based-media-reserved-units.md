@@ -1,14 +1,13 @@
 ---
-title: Media Reserved Units (MRUs) scenario-based migration guidance | Microsoft Docs
+title: Media Reserved Units (MRUs) migration guidance
 description: This article gives you MRU scenario based guidance that will assist you in migrating from Azure Media Services V2 to V3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -44,7 +43,3 @@ For more information about MRUs, see [Media Reserved Units](concept-media-reserv
 ## Samples
 
 You can also [compare the V2 and V3 code in the code samples](migrate-v-2-v-3-migration-samples.md).
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

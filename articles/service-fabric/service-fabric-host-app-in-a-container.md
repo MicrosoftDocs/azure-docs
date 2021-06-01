@@ -3,7 +3,8 @@ title: Deploy a .NET app in a container to Azure Service Fabric
 description: Learn how to containerize an existing .NET application using Visual Studio and debug containers in Service Fabric locally. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. When deployed to Azure, the application uses Azure SQL DB to persist data.
 
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 07/08/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
@@ -25,7 +26,7 @@ In this tutorial, you learn how to:
 
 1. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. Enable Windows features **Hyper-V** and **Containers**.
-3. Install [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
+3. Install [Docker Desktop for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) so that you can run containers on Windows 10.
 4. Install [Service Fabric runtime version 6.2 or later](service-fabric-get-started.md) and the [Service Fabric SDK version 3.1](service-fabric-get-started.md) or later.
 5. Install [Visual Studio 2019 Version 16.1](https://www.visualstudio.com/) or later with the **Azure development** and **ASP.NET and web development** workloads.
 6. Install [Azure PowerShell][link-azure-powershell-install]

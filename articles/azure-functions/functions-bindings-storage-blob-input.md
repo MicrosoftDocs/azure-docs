@@ -259,9 +259,10 @@ The `dataType` property determines which binding is used. The following values a
 
 | Binding value | Default | Description | Example |
 | --- | --- | --- | --- |
-| `undefined` | Y | Uses rich binding | `def main(input: func.InputStream)` |
 | `string` | N | Uses generic binding and casts the input type as a `string` | `def main(input: str)` |
 | `binary` | N | Uses generic binding and casts the input blob as `bytes` Python object | `def main(input: bytes)` |
+
+If the `dataType` property is not defined in function.json, the default value is `string`.
 
 Here's the Python code:
 
@@ -270,8 +271,10 @@ import logging
 import azure.functions as func
 
 
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
+# The input binding field inputblob can either be 'bytes' or 'str' depends
+# on dataType in function.json, 'binary' or 'string'.
+def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     return inputblob
 ```
 
@@ -344,7 +347,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in`. Exceptions are noted in the [usage](#usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code.|
 |**path** |**BlobPath** | The path to the blob. |
-|**connection** |**Connection**| The name of an app setting that contains the [Storage connection string](../storage/common/storage-configure-connection-string.md) to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** |**Connection**| The name of an app setting that contains the [Storage connection string](../storage/common/storage-configure-connection-string.md) to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
 |**dataType**| n/a | For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 |n/a | **Access** | Indicates whether you will be reading or writing. |
 
@@ -374,7 +377,7 @@ Access the blob data via a parameter that matches the name designated by binding
 
 # [Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Refer to the [input example](#example) for details.
+Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream). Refer to the [input example](#example) for details.
 
 ---
 

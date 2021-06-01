@@ -1,16 +1,12 @@
 ---
 title: Create an Azure-SSIS integration runtime in Azure Data Factory 
 description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 04/09/2021
 author: swinarko
-ms.author: sawinark
-ms.reviewer: douglasl
-manager: mflasko
+ms.author: sawinark 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure-SSIS integration runtime in Azure Data Factory
@@ -95,7 +91,7 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 ### Provision an Azure-SSIS integration runtime
 
-On the **Let's get started** page, select the **Configure SSIS Integration Runtime** tile to open the **Integration runtime setup** pane.
+On the **Let's get started** page, select the **Configure SSIS Integration** tile to open the **Integration runtime setup** pane.
 
    ![Configure SSIS Integration Runtime tile](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
@@ -123,7 +119,7 @@ On the **General settings** page of **Integration runtime setup** pane, complete
 
    7. For **Save Money**, select the Azure Hybrid Benefit option for your integration runtime: **Yes** or **No**. Select **Yes** if you want to bring your own SQL Server license with Software Assurance to benefit from cost savings with hybrid use.
 
-   8. Select **Next**.
+   8. Select **Continue**.
 
 #### Deployment settings page
 
@@ -147,19 +143,25 @@ If you select the check box, complete the following steps to bring your own data
    
       Based on the selected database server, the SSISDB instance can be created on your behalf as a single database, as part of an elastic pool, or in a managed instance. It can be accessible in a public network or by joining a virtual network. For guidance in choosing the type of database server to host SSISDB, see [Compare SQL Database and SQL Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
-      If you select an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, you need to join your Azure-SSIS IR to a virtual network. For more information, see [Create an Azure-SSIS IR in a virtual network]().
+      If you select an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, you need to join your Azure-SSIS IR to a virtual network. For more information, see [Join an Azure-SSIS IR to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md).
 
    1. Select the **Use Azure AD authentication with the managed identity for your ADF** check box to choose the authentication method for your database server to host SSISDB. You'll choose either SQL authentication or Azure AD authentication with the managed identity for your data factory.
 
-      If you select the check box, you'll need to add the managed identity for your data factory into an Azure AD group with access permissions to your database server. For more information, see [Create an Azure-SSIS IR with Azure AD authentication]().
+      If you select the check box, you'll need to add the managed identity for your data factory into an Azure AD group with access permissions to your database server. For more information, see [Enable Azure AD authentication for an Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
    
    1. For **Admin Username**, enter the SQL authentication username for your database server to host SSISDB. 
 
    1. For **Admin Password**, enter the SQL authentication password for your database server to host SSISDB. 
 
+   1. Select the **Use dual standby Azure-SSIS Integration Runtime pair with SSISDB failover** check box to configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR).
+   
+      If you select the check box, enter a name to identify your pair of primary and secondary Azure-SSIS IRs in the **Dual standby pair name** text box. You need to enter the same pair name when creating your primary and secondary Azure-SSIS IRs.
+
+      For more information, see [Configure your Azure-SSIS IR for BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
+
    1. For **Catalog Database Service Tier**, select the service tier for your database server to host SSISDB. Select the Basic, Standard, or Premium tier, or select an elastic pool name.
 
-Select **Test connection** when applicable and if it's successful, select **Next**.
+Select **Test connection** when applicable and if it's successful, select **Continue**.
 
 > [!NOTE]
    > If you use Azure SQL Database server to host SSISDB, your data will be stored in geo-redundant storage for backups by default. If you don't want your data to be replicated in other regions, please follow the instructions to [Configure backup storage redundancy by using PowerShell](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell).
@@ -181,7 +183,7 @@ On the **Add package store** pane, complete the following steps.
    1. For **Package store linked service**, select your existing linked service that stores the access information for file system/Azure Files/Azure SQL Managed Instance where your packages are deployed or create a new one by selecting **New**. On the **New linked service** pane, complete the following steps.
    
       > [!NOTE]
-      > You can use either **Azure File Storage** or **File System** linked services to access Azure Files. If you use **Azure File Storage** linked service, Azure-SSIS IR package store supports only **Basic** (not **Account key** nor **SAS URI**) authentication method for now. To use **Basic** authentication on **Azure File Storage** linked service, you can append `?feature.upgradeAzureFileStorage=false` to the ADF portal URL in your browser. Alternatively, you can use **File System** linked service to access Azure Files instead. 
+      > You can use either **Azure File Storage** or **File System** linked services to access Azure Files. If you use **Azure File Storage** linked service, Azure-SSIS IR package store supports only **Basic** (not **Account key** nor **SAS URI**) authentication method for now.  
 
       ![Deployment settings for linked services](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -193,7 +195,7 @@ On the **Add package store** pane, complete the following steps.
 
       1. You can ignore **Connect via integration runtime**, since we always use your Azure-SSIS IR to fetch the access information for package stores.
 
-      1. If you select **Azure File Storage**, complete the following steps. 
+      1. If you select **Azure File Storage**, for **Authentication method**, select **Basic**, and then complete the following steps. 
 
          1. For **Account selection method**, select **From Azure subscription** or **Enter manually**.
          
@@ -203,21 +205,21 @@ On the **Add package store** pane, complete the following steps.
 
       1. If you select **Azure SQL Managed Instance**, complete the following steps. 
 
-         1. Select **Connection string** to enter it manually or your **Azure Key Vault** where it's stored as a secret.
-         
+         1. Select **Connection string** or your **Azure Key Vault** where it's stored as a secret.
+
          1. If you select **Connection string**, complete the following steps. 
+             1. For **Account selection method**, if you choose **From Azure subscription**, select the relevant **Azure subscription**, **Server name**, **Endpoint type** and **Database name**. If you choose **Enter manually**, complete the following steps. 
+                1.  For **Fully qualified domain name**, enter `<server name>.<dns prefix>.database.windows.net` or `<server name>.public.<dns prefix>.database.windows.net,3342` as the private or public endpoint of your Azure SQL Managed Instance, respectively. If you enter the private endpoint, **Test connection** isn't applicable, since ADF UI can't reach it.
 
-            1. For **Fully qualified domain name**, enter `<server name>.<dns prefix>.database.windows.net` or `<server name>.public.<dns prefix>.database.windows.net,3342` as the private or public endpoint of your Azure SQL Managed Instance, respectively. If you enter the private endpoint, **Test connection** isn't applicable, since ADF UI can't reach it.
+                1. For **Database name**, enter `msdb`.
 
-            1. For **Database name**, enter `msdb`.
-               
             1. For **Authentication type**, select **SQL Authentication**, **Managed Identity**, or **Service Principal**.
 
-            1. If you select **SQL Authentication**, enter the relevant **Username** and **Password** or select your **Azure Key Vault** where it's stored as a secret.
+                - If you select **SQL Authentication**, enter the relevant **Username** and **Password** or select your **Azure Key Vault** where it's stored as a secret.
 
-            1. If you select **Managed Identity**, grant your ADF managed identity access to your Azure SQL Managed Instance.
+                -  If you select **Managed Identity**, grant your ADF managed identity access to your Azure SQL Managed Instance.
 
-            1. If you select **Service Principal**, enter the relevant **Service principal ID** and **Service principal key** or select your **Azure Key Vault** where it's stored as a secret.
+                - If you select **Service Principal**, enter the relevant **Service principal ID** and **Service principal key** or select your **Azure Key Vault** where it's stored as a secret.
 
       1. If you select **File system**, enter the UNC path of folder where your packages are deployed for **Host**, as well as the relevant **Username** and **Password** or select your **Azure Key Vault** where it's stored as a secret.
 
@@ -225,7 +227,7 @@ On the **Add package store** pane, complete the following steps.
 
    1. Your added package stores will appear on the **Deployment settings** page. To remove them, select their check boxes, and then select **Delete**.
 
-Select **Test connection** when applicable and if it's successful, select **Next**.
+Select **Test connection** when applicable and if it's successful, select **Continue**.
 
 #### Advanced settings page
 
@@ -308,7 +310,7 @@ On the **Connections** pane of **Manage** hub, switch to the **Integration runti
 
 ### Azure SSIS integration runtimes in the portal
 
-1. In the Azure Data Factory UI, switch to the **Edit** tab and select **Connections**. Then switch to the **Integration Runtimes** tab to view existing integration runtimes in your data factory.
+1. In the Azure Data Factory UI, switch to the **Manage** tab and then switch to the **Integration runtimes** tab on the **Connections** pane to view existing integration runtimes in your data factory.
 
    ![View existing IRs](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
@@ -316,7 +318,7 @@ On the **Connections** pane of **Manage** hub, switch to the **Integration runti
 
    ![Integration runtime via menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. In the **Integration runtime setup** pane, select the **Lift-and-shift existing SSIS packages to execute in Azure** tile, and then select **Next**.
+1. In the **Integration runtime setup** pane, select the **Lift-and-shift existing SSIS packages to execute in Azure** tile, and then select **Continue**.
 
    ![Specify the type of integration runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 

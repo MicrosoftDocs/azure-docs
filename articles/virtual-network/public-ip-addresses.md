@@ -49,7 +49,7 @@ Standard SKU public IP addresses:
 - Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
 - Secure by default and closed to inbound traffic. Allow list inbound traffic with a [network security group](./network-security-groups-overview.md#network-security-groups).
 - Assigned to network interfaces, standard public load balancers, or Application Gateways. For more information about Standard load balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Can be zone-redundant (advertized from all 3 zones) or zonal (can be created zonal and guaranteed in a specific availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where 3 availability zones](../availability-zones/az-region.md) are live.** IPs created before zones are live will not be zone redundant.
+- Can be zone-redundant (advertised from all 3 zones), zonal (guaranteed in a specific pre-selected availability zone), or no-zone (not associated with a specific pre-selected availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where 3 availability zones](../availability-zones/az-region.md) are live.** IPs created before zones are live will not be zone redundant.
 - Can be used as anycast frontend IPs for [cross-region load balancers](../load-balancer/cross-region-overview.md) (preview functionality).
  
 > [!NOTE]
@@ -57,6 +57,9 @@ Standard SKU public IP addresses:
 
 > [!NOTE]
 > Only Public IP addresses with basic SKU are available when using [instance metadata service IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU is not supported.
+
+> [!NOTE]
+> Diagnostic settings does not appear under the resouce blade when using a Standard SKU Public IP address. To enable logging on your Standard Public IP address resource  navigate to diagnostic settings under the Azure Monitor blade and select your IP address resource.
 
 ### Basic
 
@@ -139,6 +142,8 @@ You can associate a public IP address with a [Windows](../virtual-machines/windo
 
 Choose **dynamic** or **static** for the public IP address. Learn more about [assigning IP addresses to network interfaces](virtual-network-network-interface-addresses.md).
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Internet-facing load balancers
 
 You can associate a public IP address of either [SKU](#sku) with an [Azure Load Balancer](../load-balancer/load-balancer-overview.md), by assigning it to the load balancer **frontend** configuration. The public IP serves as a load-balanced IP. 
@@ -147,6 +152,8 @@ You can assign either a dynamic or a static public IP address to a load balancer
 
 For more information about Azure load balancer SKUs, see [Azure load balancer standard SKU](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## VPN gateways
 
 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) connects an Azure virtual network to:
@@ -154,14 +161,17 @@ For more information about Azure load balancer SKUs, see [Azure load balancer st
 * Azure virtual networks
 * On-premises network(s). 
 
-A public IP address is assigned to the VPN Gateway to enable communication with the remote network. You can only assign a *dynamic* basic public IP address to a VPN gateway.
+A public IP address is assigned to the VPN Gateway to enable communication with the remote network. 
+
+* Assign a **dynamic** basic public IP to a VPNGw 1-5 SKU front-end configuration.
+* Assign a **static** standard public IP address to a VPNGwAZ 1-5 SKU front-end configuration.
 
 ## Application gateways
 
 You can associate a public IP address with an Azure [Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), by assigning it to the gateway's **frontend** configuration. 
 
 * Assign a **dynamic** basic public IP to an application gateway V1 front-end configuration. 
-* Assign a **static** standard SKU address to a V2 front-end configuration.
+* Assign a **static** standard public IP address to a V2 front-end configuration.
 
 ## Azure Firewall
 
@@ -178,7 +188,7 @@ The following table shows the property through which a public IP can be associat
 | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes |Yes |
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
-| VPN gateway |Gateway IP configuration |Yes |No |
+| VPN gateway |Gateway IP configuration |Yes |Yes (VPNGwAZ only) |
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) |
 | Azure Firewall | Front-end configuration | No | Yes|
 

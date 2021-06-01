@@ -31,7 +31,7 @@ This article defines authentication and authorization. It also briefly covers ho
 
 ## Authentication and authorization using the Microsoft identity platform
 
-Creating apps that each maintain their own username and password information incurs a high administrative burden when you need to add or remove users across multiple apps. Instead, your apps can delegate that responsibility to a centralized identity provider.
+Creating apps that each maintain their own username and password information incurs a high administrative burden when adding or removing users across multiple apps. Instead, your apps can delegate that responsibility to a centralized identity provider.
 
 Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as:
 

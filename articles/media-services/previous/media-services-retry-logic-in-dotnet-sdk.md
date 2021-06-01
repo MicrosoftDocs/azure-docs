@@ -1,21 +1,19 @@
 ---
 title: Retry logic in the Media Services SDK for .NET | Microsoft Docs
 description: The topic gives an overview of retry logic in the Media Services SDK for .NET.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 527b61a6-c862-4bd8-bcbc-b9aea1ffdee3
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 # Retry logic in the Media Services SDK for .NET
 
@@ -48,7 +46,7 @@ The following table describes exceptions that the Media Services SDK for .NET ha
 | IOException |No |Yes |No |No |
 
 ### <a name="WebExceptionStatus"></a> WebException status codes
-The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) enumeration defines the status codes.  
+The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus) enumeration defines the status codes.  
 
 | Status | Web Request | Storage | Query | SaveChanges |
 | --- | --- | --- | --- | --- |

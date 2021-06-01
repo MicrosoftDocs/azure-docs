@@ -9,7 +9,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a solution or device builder, I want to understand what IoT Plug and Play bridge is and how I can connect existing sensors attached to a Windows or Linux PC as IoT Plug and Play devices.
+#Customer intent: As a solution or device builder, I want to understand what IoT Plug and Play bridge is and how I can connect existing sensors attached to a Windows or Linux PC as IoT Plug and Play devices.
 ---
 
 # IoT Plug and Play bridge
@@ -147,5 +147,5 @@ Now that you have an overview of the architecture of IoT Plug and Play bridge, t
 
 - [How to connect an IoT Plug and Play bridge sample running on Linux or Windows to IoT Hub](./howto-use-iot-pnp-bridge.md)
 - [Build and deploy IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md)
-- [Extend IoT Plug and Play bridge](howto-build-deploy-extend-pnp-bridge.md)
+- [Extend IoT Plug and Play bridge](howto-author-pnp-bridge-adapter.md)
 - [IoT Plug and Play bridge on GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

@@ -3,7 +3,7 @@ title: Backup and restore - Azure CLI - Azure Database for MariaDB
 description: Learn how to backup and restore a server in Azure Database for MariaDB by using the Azure CLI.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020 
@@ -51,7 +51,7 @@ The backup retention period governs how far back in time a point-in-time restore
 
 You can restore the server to a previous point in time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server.
 
-To restore the server, use the Azure CLI [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) command.
+To restore the server, use the Azure CLI [az mariadb server restore](/cli/azure/mariadb/server#az_mariadb_server_restore) command.
 
 ### Run the restore command
 

@@ -44,4 +44,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python API
-            url: /python/api/azureml-opendatasets/?view=azure-ml-py
+            url: /python/api/azureml-opendatasets/

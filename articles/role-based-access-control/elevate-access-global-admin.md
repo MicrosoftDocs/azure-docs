@@ -8,7 +8,8 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Elevate access to manage all Azure subscriptions and management groups
@@ -28,7 +29,7 @@ If you are a Global Administrator, there might be times when you want to do the 
 
 ## How does elevated access work?
 
-Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a [Global Administrator](../active-directory/roles/permissions-reference.md#company-administrator-permissions) in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
+Azure AD and Azure resources are secured independently from one another. That is, Azure AD role assignments do not grant access to Azure resources, and Azure role assignments do not grant access to Azure AD. However, if you are a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) in Azure AD, you can assign yourself access to all Azure subscriptions and management groups in your directory. Use this capability if you don't have access to Azure subscription resources, such as virtual machines or storage accounts, and you want to use your Global Administrator privilege to gain access to those resources.
 
 When you elevate your access, you will be assigned the [User Access Administrator](built-in-roles.md#user-access-administrator) role in Azure at root scope (`/`). This allows you to view all resources and assign access in any subscription or management group in the directory. User Access Administrator role assignments can be removed using Azure PowerShell, Azure CLI, or the REST API.
 
@@ -75,7 +76,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    For information about assigning roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.md). If you are using Privileged Identity Management, see [Discover Azure resources to manage](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 1. Perform the steps in the following section to remove your elevated access.
 
@@ -144,7 +145,7 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 Use the following basic steps to elevate access for a Global Administrator using the Azure CLI.
 
-1. Use the [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
+1. Use the [az rest](/cli/azure/reference-index#az_rest) command to call the `elevateAccess` endpoint, which grants you the User Access Administrator role at root scope (`/`).
 
     ```azurecli
     az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
@@ -152,13 +153,13 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Add or remove Azure role assignments using the Azure CLI](role-assignments-cli.md).
+    For information about assigning roles, see [Assign Azure roles using the Azure CLI](role-assignments-cli.md).
 
 1. Perform the steps in a later section to remove your elevated access.
 
 ### List role assignment at root scope (/)
 
-To list the User Access Administrator role assignment for a user at root scope (`/`), use the [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) command.
+To list the User Access Administrator role assignment for a user at root scope (`/`), use the [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) command.
 
 ```azurecli
 az role assignment list --role "User Access Administrator" --scope "/"
@@ -188,7 +189,7 @@ To remove the User Access Administrator role assignment for yourself or another 
 
 1. Sign in as a user that can remove elevated access. This can be the same user that was used to elevate access or another Global Administrator with elevated access at root scope.
 
-1. Use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command to remove the User Access Administrator role assignment.
+1. Use the [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) command to remove the User Access Administrator role assignment.
 
     ```azurecli
     az role assignment delete --assignee username@example.com --role "User Access Administrator" --scope "/"
@@ -208,7 +209,7 @@ Use the following basic steps to elevate access for a Global Administrator using
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Add or remove Azure role assignments using the REST API](role-assignments-rest.md).
+    For information about assigning roles, see [Assign Azure roles using the REST API](role-assignments-rest.md).
 
 1. Perform the steps in a later section to remove your elevated access.
 
@@ -326,4 +327,4 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 ## Next steps
 
 - [Understand the different roles](rbac-and-directory-admin-roles.md)
-- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)
+- [Assign Azure roles using the REST API](role-assignments-rest.md)

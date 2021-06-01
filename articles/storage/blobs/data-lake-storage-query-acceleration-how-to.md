@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration
@@ -29,24 +29,24 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
   Not applicable
 
-  ### [.NET](#tab/dotnet)
+  ### [.NET v12 SDK](#tab/dotnet)
 
   The [.NET SDK](https://dotnet.microsoft.com/download) 
 
-  ### [Java](#tab/java)
+  ### [Java v12 SDK](#tab/java)
 
-  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above
+  - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 
     > [!NOTE] 
     > This article assumes that you've created a Java project by using Apache Maven. For an example of how to create a project by using Apache Maven, see [Setting up](storage-quickstart-blobs-java.md#setting-up).
   
-  ### [Python](#tab/python)
+  ### [Python v12 SDK](#tab/python)
 
   [Python](https://www.python.org/downloads/) 3.8 or greater.
 
-  ### [Node.js](#tab/nodejs)
+  ### [Node.js v12 SDK](#tab/nodejs)
 
   There are no additional prerequisites required to use the Node.js SDK.
 
@@ -97,7 +97,7 @@ To use query acceleration, you must first register the query acceleration featur
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
+3. Register the query acceleration feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
 
    ```azurecli
    az feature register --namespace Microsoft.Storage --name BlobQuery
@@ -117,7 +117,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName BlobQuer
 
 #### [Azure CLI](#tab/azure-cli)
 
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
 
 ```azurecli
 az feature show --namespace Microsoft.Storage --name BlobQuery
@@ -139,7 +139,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
 
 #### [Azure CLI](#tab/azure-cli)
 
-To register the resource provider, use the [az provider register](/cli/azure/provider#az-provider-register) command.
+To register the resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command.
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
@@ -165,7 +165,7 @@ To update from an older version of Az, run the following command:
 Update-Module -Name Az
 ```
 
-#### [.NET](#tab/dotnet)
+#### [.NET v12 SDK](#tab/dotnet)
 
 1. Open a command prompt and change directory (`cd`) into your project folder For example:
 
@@ -173,10 +173,10 @@ Update-Module -Name Az
    cd myProject
    ```
 
-2. Install the `12.5.0-preview.6` version of the Azure Blob storage client library for .NET package by using the `dotnet add package` command. 
+2. Install the `12.5.0-preview.6` version or later of the Azure Blob storage client library for .NET package by using the `dotnet add package` command. 
 
    ```console
-   dotnet add package Azure.Storage.Blobs -v 12.6.0
+   dotnet add package Azure.Storage.Blobs -v 12.8.0
    ```
 
 3. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library. To use that library, use the following command.
@@ -185,7 +185,7 @@ Update-Module -Name Az
    dotnet add package CsvHelper
    ```
 
-#### [Java](#tab/java)
+#### [Java v12 SDK](#tab/java)
 
 1. Open the *pom.xml* file of your project in a text editor. Add the following dependency elements to the group of dependencies. 
 
@@ -208,7 +208,7 @@ Update-Module -Name Az
     </dependency>
    ```
 
-#### [Python](#tab/python)
+#### [Python v12 SDK](#tab/python)
 
 Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
 
@@ -216,7 +216,7 @@ Install the Azure Data Lake Storage client library for Python by using [pip](htt
 pip install azure-storage-blob==12.4.0
 ```
 
-#### [Node.js](#tab/nodejs)
+#### [Node.js v12 SDK](#tab/nodejs)
 
 Install Data Lake client library for JavaScript by opening a terminal window, and then typing the following command.
 
@@ -233,7 +233,7 @@ Install Data Lake client library for JavaScript by opening a terminal window, an
 
 Not applicable
 
-#### [.NET](#tab/dotnet)
+#### [.NET v12 SDK](#tab/dotnet)
 
 Add these `using` statements to the top of your code file.
 
@@ -258,7 +258,7 @@ using System.IO;
 using System.Globalization;
 ```
 
-#### [Java](#tab/java)
+#### [Java v12 SDK](#tab/java)
 
 Add these `import` statements to the top of your code file.
 
@@ -272,7 +272,7 @@ import java.util.function.Consumer;
 import org.apache.commons.csv.*;
 ```
 
-#### [Python](#tab/python)
+#### [Python v12 SDK](#tab/python)
 
 Add these import statements to the top of your code file.
 
@@ -281,7 +281,7 @@ import sys, csv
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, BlobQueryError
 ```
 
-### [Node.js](#tab/nodejs)
+### [Node.js v12 SDK](#tab/nodejs)
 
 Include the `storage-blob` module by placing this statement at the top of your code file. 
 
@@ -321,7 +321,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ```
 
-### [.NET](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](/dotnet/api/system.io.stream) object.
 
@@ -351,11 +351,11 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
                 query,
                 options)).Value.Content))
         {
-            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture) { HasHeaderRecord = true }))
+            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture, hasHeaderRecord: true) { HasHeaderRecord = true }))
             {
                 while (await parser.ReadAsync())
                 {
-                    Console.Out.WriteLine(String.Join(" ", parser.Context.Record));
+                    Console.Out.WriteLine(String.Join(" ", parser.Parser.Record));
                 }
             }
         }
@@ -368,7 +368,7 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
 
 ```
 
-### [Java](#tab/java)
+### [Java v12 SDK](#tab/java)
 
 The method `BlobQuickQueryClient.openInputStream()` sends the query to the query acceleration API, and then streams the results back to the application as a `InputStream` object which can be read like any other InputStream object.
 
@@ -415,7 +415,7 @@ static void DumpQueryCsv(BlobClient blobClient, String query, Boolean headers) {
 }
 ```
 
-### [Python](#tab/python)
+### [Python v12 SDK](#tab/python)
 
 ```python
 def query_hemingway(blob: BlobClient):
@@ -430,9 +430,9 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
         print("*".join(row))
 ```
 
-### [Node.js](#tab/nodejs)
+### [Node.js v12 SDK](#tab/nodejs)
 
-This example sends the query to the query acceleration API, and then streams the results back. The `blob` object passed into the `queryHemingway` helper function is of type [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient). To learn more about how to get a [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient) object, see [Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
+This example sends the query to the query acceleration API, and then streams the results back. The `blob` object passed into the `queryHemingway` helper function is of type [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). To learn more about how to get a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, see [Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
 ```javascript
 async function queryHemingway(blob)
@@ -475,6 +475,9 @@ async function dumpQueryCsv(blob, query, headers)
 
 You can scope your results to a subset of columns. That way you retrieve only the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
 
+> [!NOTE]
+> The maximum number of columns that you can scope your results to is 49. If you need your results to contain more than 49 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`). 
+
 This code retrieves only the `BibNum` column for all books in the data set. It also uses the information from the header row in the source file to reference columns in the query.
 
 ### [PowerShell](#tab/azure-powershell)
@@ -493,7 +496,7 @@ Get-QueryCsv $ctx $container $blob "SELECT BibNum FROM BlobStorage" $true
 
 ```
 
-### [.NET](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 ```cs
 static async Task QueryBibNum(BlockBlobClient blob)
@@ -503,7 +506,7 @@ static async Task QueryBibNum(BlockBlobClient blob)
 }
 ```
 
-### [Java](#tab/java)
+### [Java v12 SDK](#tab/java)
 
 ```java
 static void QueryBibNum(BlobClient blobClient)
@@ -513,7 +516,7 @@ static void QueryBibNum(BlobClient blobClient)
 }
 ```
 
-### [Python](#tab/python)
+### [Python v12 SDK](#tab/python)
 
 ```python
 def query_bibnum(blob: BlobClient):
@@ -521,7 +524,7 @@ def query_bibnum(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### [Node.js](#tab/nodejs)
+### [Node.js v12 SDK](#tab/nodejs)
 
 ```javascript
 async function queryBibNum(blob)
@@ -555,7 +558,7 @@ $query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
 
 ```
 
-### [.NET](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 ```cs
 static async Task QueryDvds(BlockBlobClient blob)
@@ -568,7 +571,7 @@ static async Task QueryDvds(BlockBlobClient blob)
 }
 ```
 
-### [Java](#tab/java)
+### [Java v12 SDK](#tab/java)
 
 ```java
 static void QueryDvds(BlobClient blobClient)
@@ -581,7 +584,7 @@ static void QueryDvds(BlobClient blobClient)
 }
 ```
 
-### [Python](#tab/python)
+### [Python v12 SDK](#tab/python)
 
 ```python
 def query_dvds(blob: BlobClient):
@@ -592,7 +595,7 @@ def query_dvds(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### [Node.js](#tab/nodejs)
+### [Node.js v12 SDK](#tab/nodejs)
 
 ```javascript
 async function queryDvds(blob)

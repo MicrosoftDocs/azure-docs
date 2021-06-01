@@ -2,7 +2,7 @@
 title: Azure Service Bus end-to-end tracing and diagnostics | Microsoft Docs
 description: Overview of Service Bus client diagnostics and end-to-end tracing (client through all the services that are involved in processing.)
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -130,12 +130,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 In this example, listener logs duration, result, unique identifier, and start time for each Service Bus operation.
 
 ### Events
-For every operation, two events are sent: 'Start' and 'Stop'. Most probably, you're only interested in 'Stop' events. They provide the result of operation, and start time and duration as Activity properties.
-
-Event payload provides a listener with the context of the operation, it replicates API incoming parameters and return value. 'Stop' event payload has all the properties of 'Start' event payload, so you can ignore 'Start' event completely.
-
-Each 'Stop' event has `Status` property with `TaskStatus` async operation was completed with, that is also omitted in the following table for simplicity.
-
 All events will have the following properties that conform with the open telemetry specification: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md.
 
 - `message_bus.destination` – queue/topic/subscription path

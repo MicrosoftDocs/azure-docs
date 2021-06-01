@@ -94,7 +94,7 @@ func main() {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on Github.
+Run the following commands to create a go.mod file that links to components hosted on GitHub.
 
 ```cmd
 go mod init quickstart
@@ -108,7 +108,7 @@ go build
 go run quickstart
 ```
 
-See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechRecognizer) classes.
+See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer) classes.
 
 ## Speech-to-text from audio file
 
@@ -174,7 +174,7 @@ func main() {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on Github.
+Run the following commands to create a go.mod file that links to components hosted on GitHub.
 
 ```cmd
 go mod init quickstart
@@ -188,4 +188,4 @@ go build
 go run quickstart
 ```
 
-See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechRecognizer) classes.
+See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer) classes.

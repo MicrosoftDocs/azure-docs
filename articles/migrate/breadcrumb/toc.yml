@@ -14,7 +14,4 @@
   - name: Migrate
     tocHref: /sql/dma/
     topicHref: /azure/migrate/index
-  - name: AVS migration assessment
-    tocHref: /azure/azure-vmware/
-    topicHref: /azure/migrate/index
 

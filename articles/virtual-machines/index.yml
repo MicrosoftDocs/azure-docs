@@ -29,6 +29,8 @@ landingContent:
             url: dedicated-hosts.md
           - text: Proximity placement groups
             url: co-location.md
+          - text: Virtual Machine Scale Sets Orchestration modes 
+            url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md
 
   # Card (optional)
   - title: Linux quickstarts
@@ -70,13 +72,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Troubleshoot SSH issues
-            url: ./troubleshooting/troubleshoot-ssh-connection.md
+            url: /troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection
           - text: Troubleshoot RDP issues
-            url: ./troubleshooting/rdp.md
+            url: /troubleshoot/azure/virtual-machines/rdp
           - text: Linux VM not booting 
-            url: ./troubleshooting/boot-error-troubleshoot-linux.md
+            url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot-linux
           - text: Windows VM not booting
-            url: /troubleshooting/boot-error-troubleshoot.md
+            url: /troubleshoot/azure/virtual-machines/boot-error-troubleshoot
           - text: Microsoft Q&A
             url: /answers/topics/azure-virtual-machines.html
 
@@ -94,5 +96,4 @@ landingContent:
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/#Linux
           - text: Regional availability
-            url: https://azure.microsoft.com/regions/services/  
-
+            url: https://azure.microsoft.com/regions/services/

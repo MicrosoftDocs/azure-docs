@@ -52,7 +52,7 @@ Azure Attestation -> Client
 
 **challenge** (BASE64URL(OCTETS)): Random value issued by the service.
 
-**service_context** (BASE64URL(OCTETS)): Opaque, encrypted context created by the service, which includes, among others, the challenge, and an expiration time for that challenge. 
+**service_context** (BASE64URL(OCTETS)): Opaque context created by the service.
 
 
 ### Request message
@@ -233,7 +233,7 @@ TPM + VBS enclave sample:
 
 - **value_type (String)**: Data type of the claim’s value
 
-**service_context** (BASE64URL(OCTETS)): Opaque, encrypted context created by the service which includes, among others, the challenge and an expiration time for that challenge.
+**service_context** (BASE64URL(OCTETS)): Opaque context created by the service.
 
 ### Report message
 

@@ -2,17 +2,17 @@
 title: Set up diagnostic logs - Azure Event Hub | Microsoft Docs
 description: Learn how to set up activity logs and diagnostic logs for event hubs in Azure.
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 02/25/2021
 ---
 
 # Set up diagnostic logs for an Azure event hub
 
 You can view two types of logs for Azure Event Hubs:
 
-* **[Activity logs](../azure-monitor/platform/platform-logs-overview.md)**: These logs have information about operations done on a job. The logs are always enabled. You can see activity log entries by selecting **Activity log** in the left pane for your event hub namespace in the Azure portal. For example: "Create or Update Namespace", "Create or Update Event Hub".
+* **[Activity logs](../azure-monitor/essentials/platform-logs-overview.md)**: These logs have information about operations done on a job. The logs are always enabled. You can see activity log entries by selecting **Activity log** in the left pane for your event hub namespace in the Azure portal. For example: "Create or Update Namespace", "Create or Update Event Hub".
 
     ![Activity log for an Event Hubs namespace](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md)**: Diagnostic logs provide richer information about operations and actions that are conducted against your namespace by using the API, or through management clients on the language SDK. 
+* **[Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)**: Diagnostic logs provide richer information about operations and actions that are conducted against your namespace by using the API, or through management clients on the language SDK. 
     
     The following section shows you how to enable diagnostic logs for an Event Hubs namespace.
 
@@ -31,7 +31,7 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, follow these
 
     New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the **Diagnostics logs** pane.
 
-    For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/platform/platform-logs-overview.md).
+    For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Diagnostic logs categories
 
@@ -202,7 +202,7 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 | `Count` | Number of occurrences for the given action |
 | `ResourceId` | Azure Resource Manager resource ID. |
 
-Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. Enable IP filtering, and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs doesn't support IPv6 ranges. 
+Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. [Enable IP filtering](event-hubs-ip-filtering.md), and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs IP filtering doesn't support IPv6 ranges. Note that you may see private endpoint addresses in the IPv6 format in the log. 
 
 ### Example
 
@@ -242,4 +242,4 @@ Customer-managed key user log JSON includes elements listed in the following tab
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)

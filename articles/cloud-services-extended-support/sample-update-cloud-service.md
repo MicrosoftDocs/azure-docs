@@ -7,7 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Update an Azure Cloud Service (extended support)
@@ -67,3 +67,4 @@ $cloudService | Update-AzCloudService
 
 ## Next steps
 For more information on Azure Cloud Services (extended support), see [Azure Cloud Services (extended support) overview](overview.md).
+- Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)

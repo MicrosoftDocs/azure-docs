@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 04/20/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SAML SSO for Bamboo by resolution GmbH
@@ -24,15 +24,15 @@ In this tutorial, you'll learn how to integrate SAML SSO for Bamboo by resolutio
 
 To configure Azure AD integration with SAML SSO for Bamboo by resolution GmbH, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* SAML SSO for Bamboo by resolution GmbH single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* SAML SSO for Bamboo by resolution GmbH single sign-on enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* SAML SSO for Bamboo by resolution GmbH supports **SP and IDP** initiated SSO
-* SAML SSO for Bamboo by resolution GmbH supports **Just In Time** user provisioning
+* SAML SSO for Bamboo by resolution GmbH supports **SP and IDP** initiated SSO.
+* SAML SSO for Bamboo by resolution GmbH supports **Just In Time** user provisioning.
 
 ## Add SAML SSO for Bamboo by resolution GmbH from the gallery
 
@@ -122,19 +122,19 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 1. On the right side of the main toolbar, click **Settings** > **Add-ons**.
 
-	![The Settings](./media/bamboo-tutorial/tutorial_bamboo_setings.png)
+	![The Settings](./media/bamboo-tutorial/settings.png)
 
 1. Go to SECURITY section, click on **SAML SingleSignOn** on the Menubar.
 
-	![The Samlsingle](./media/bamboo-tutorial/tutorial_bamboo_samlsingle.png)
+	![The Samlsingle](./media/bamboo-tutorial/single-sign-on.png)
 
 1. On the **SAML SIngleSignOn Plugin Configuration page**, click **Add idp**.
 
-	![The Add idp](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
+	![The Add idp](./media/bamboo-tutorial/configuration.png)
 
 1. On the **Choose your SAML Identity Provider** Page, perform the following steps:
 
-	![The identity provider](./media/bamboo-tutorial/tutorial_bamboo_identityprovider.png)
+	![The identity provider](./media/bamboo-tutorial/identity-provider.png)
 
 	a. Select **Idp Type** as **AZURE AD**.
 
@@ -146,11 +146,11 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 1. On the **Identity provider configuration** page click **Next**.
 
-	![The identity config](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
+	![The identity config](./media/bamboo-tutorial/identity-configuration.png)
 
 1. On the **Import SAML Idp Metadata** Page, click **Load File** to upload the **METADATA XML** file which you have downloaded from Azure portal.
 
-	![The idpmetadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
+	![The idpmetadata](./media/bamboo-tutorial/metadata.png)
 
 1. Click **Next**.
 
@@ -178,4 +178,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure SAML SSO for Bamboo by resolution GmbH you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure SAML SSO for Bamboo by resolution GmbH you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

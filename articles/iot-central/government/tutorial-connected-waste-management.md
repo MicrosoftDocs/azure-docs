@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create a connected waste management app with Azure IoT Central'
-description: Learn to build a connected waste management application by using Azure IoT Central application templates.
+description: 'Tutorial: Learn to build a connected waste management application by using Azure IoT Central application templates'
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
@@ -14,13 +14,14 @@ This tutorial shows you how to use Azure IoT Central to create a connected waste
 
 Specifically, you learn how to: 
 
-* Use the Azure IoT Central *Connected waste management* template to create your app.
-* Explore and customize the operator dashboard. 
-* Explore the connected waste bin device template.
-* Explore simulated devices.
-* Explore and configure rules.
-* Configure jobs.
-* Customize your application branding.
+> [!div class="checklist"]
+> * Use the Azure IoT Central *Connected waste management* template to create your app.
+> * Explore and customize the operator dashboard. 
+> * Explore the connected waste bin device template.
+> * Explore simulated devices.
+> * Explore and configure rules.
+> * Configure jobs.
+> * Customize your application branding.
 
 ## Prerequisites
 
@@ -47,8 +48,6 @@ This template includes a sample connected waste bin device template, a simulated
     * **Application name**. By default, the application uses **Connected waste management**, followed by a unique ID string that Azure IoT Central generates. Optionally, you can choose a friendly application name. You can change the application name later, too.
     * **URL**. Optionally, you can choose your desired URL. You can change the URL later. 
     * **Pricing plan**. If you have an Azure subscription, enter your directory, Azure subscription, and region in the appropriate fields of the **Billing info** dialog box. If you don't have a subscription, select **Free** to enable 7-day trial subscription, and complete the required contact information.  
-
-    For more information about directories and subscriptions, see [Quickstart - Create an Azure IoT Central application](../core/quick-deploy-iot-central.md).
 
 1. At the bottom of the page, select **Create**. 
 

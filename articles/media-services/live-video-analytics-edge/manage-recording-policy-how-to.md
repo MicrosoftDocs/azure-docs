@@ -1,15 +1,17 @@
 ---
-title: Manage recording policy - Azure
-description: This topic explains how to manage recording policy.
+title: Manage recording policy with Live Video Analytics - Azure
+description: This topic explains how to manage recording policy with Live Video Analytics.
 ms.topic: how-to
 ms.date: 04/27/2020
 
 ---
-# Manage recording policy
+# Manage recording policy with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 You can use Live Video Analytics on IoT Edge for [continuous video recording](continuous-video-recording-concept.md), whereby you can record video into the cloud for weeks or months. You can manage the length (in days) of that cloud archive by using the [Lifecycle Management tools](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal) built into Azure storage.  
 
-Your Media Service account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a Media Service [asset](../latest/assets-concept.md). Each asset is mapped to a container in the storage account. lifecycle management allows you to define a [policy](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) for a Storage account, wherein you can specify a [rule](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) such as the following.
+Your Media Service account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a Media Service [asset](../latest/assets-concept.md). Each asset is mapped to a container in the storage account. Lifecycle management allows you to define a [policy](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#policy) for a Storage account, wherein you can specify a [rule](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal#rules) such as the following.
 
 ```
 {
@@ -40,7 +42,7 @@ The above rule:
 * Specifies that when blobs age beyond 30 days, they are moved from the [hot access tier to cool](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
 * And when blobs age beyond 90 days, they are to be deleted.
 
-Since Live Video Analytics archives your video in specified units of time, your asset will contain a series of blobs, one blob per segment. When Lifecycle management policy kicks in and deletes older blobs, you will continue to be able to access and playback the remaining blobs via Media Service APIs. For more information, see [playback recordings](playback-recordings-how-to.md). 
+When you use Live Video Analytics to record to an asset, you specify a `segmentLength` property that tells the module to aggregate a minimum duration of video (in seconds) before it's written to the cloud. Your asset will contain a series of segments, each with a creation timestamp that is `segmentLength` newer than the previous. When the lifecycle management policy kicks in, it deletes segments older than the specified threshold. However, you will continue to be able to access and play back the remaining segments via Media Service APIs. For more information, see [play back recordings](playback-recordings-how-to.md). 
 
 ## Limitations
 

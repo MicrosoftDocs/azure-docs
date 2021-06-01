@@ -10,6 +10,8 @@ ms.date: 12/04/2020
 
 # Troubleshoot Live Video Analytics on IoT Edge
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This article covers troubleshooting steps for Live Video Analytics (LVA) on Azure IoT Edge.
 
 ## Troubleshoot deployment issues
@@ -62,7 +64,7 @@ You can use the Azure portal to run a diagnosis of the media graph using direct 
     * 500 - An error occurred in the IoT Edge runtime.
 
     > [!TIP]
-    > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** as a guide for troubleshooting and diagnostics.
+    > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
 ### Post deployment: Direct method error code
 1. If you get a status `501 code`, check to ensure that the direct method name is accurate. If the method name and request payload are accurate, you should get results along with success code =200. 
 1. If the request payload is inaccurate, you will get a status `400 code` and a response payload that indicates error code and message that should help with diagnosing the issue with your direct method call.
@@ -92,7 +94,19 @@ Live Video Analytics is deployed as an IoT Edge module on the IoT Edge device, a
 * [The IoT Edge module is deployed successfully and then disappears from the device](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
     > [!TIP]
-    > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** as a guide for troubleshooting and diagnostics.
+    > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
+
+You might also encounter issues when running the **[Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)**. Some common issues include:
+
+* Using a subscription where you do not have owner privileges. This will cause the script to fail with a **ForbiddenError** or a **AuthorizationFailed** error.
+    * To get past this issue, ensure that you have **OWNER** privileges to the subscription you plan to use. If you cannot do it by yourself, please reach out to the subscription administrator to grant the right privileges.
+* **The template deployment failed because of policy violation.**
+    * To get pass this issue, please work with your IT admin to ensure that the call(s) to create virtual machine to bypass blocking ssh authentication. This will not be needed as we are using a secure Bastion network that requires a username and password to communicate with the Azure resources. These credentials will be stored in the **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** file in Cloud Shell, once the virtual machine is successfully created, deployed and attached to the IoT Hub.
+* The setup script cannot create a service principal and/or Azure resources.
+    * To get past this issue, please check that your subscription and the Azure tenant have not reached their maximum service limits. Learn more about [Azure AD service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) and [Azure subscription and service limits, quotas, and constraints.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+
+> [!TIP]
+> If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)**.
 ### Live Video Analytics working with external modules
 
 Live Video Analytics via the media graph extension processors can extend the media graph to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), this media graph can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol . In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:
@@ -271,7 +285,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ``` 
 
-[Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) provides some guidance for gathering some diagnostic logs from a gRPC server. 
+[Logging and diagnostics in gRPC on .NET](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1) provides some guidance for gathering some diagnostic logs from a gRPC server. 
 
 ### A failed gRPC connection 
 
@@ -281,7 +295,7 @@ If a graph is active and streaming from a camera, the connection will be maintai
 
 Live Video Analytics does not monitor or provide any hardware resource monitoring. Developers will have to use the hardware manufacturers monitoring solutions. However, if you use Kubernetes containers, you can monitor the device using the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-gRPC in .NET core documents also share some valuable information on [Performance Best Practices](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) and [Load balancing](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true).  
+gRPC in .NET core documents also share some valuable information on [Performance Best Practices](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1) and [Load balancing](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1#load-balancing).  
 
 ### Troubleshooting an inference server when it does not receive any frames and you are receiving, an "unknown" protocol error 
 
@@ -295,7 +309,7 @@ There are several things you can do to get more information about the problem.
    ```
 
    If the command outputs a short string of jumbled text, then telnet was successfully able to open a connection to your inference server and open a binary gRPC channel. If you do not see this, then telnet will report a network error. 
-* In your inference server you can enable additional logging in the gRPC library. This can give additional information about the gRPC channel itself. Doing this varies by language, here are instructions for [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true). 
+* In your inference server you can enable additional logging in the gRPC library. This can give additional information about the gRPC channel itself. Doing this varies by language, here are instructions for [C#](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1). 
 
 ### Picking more images from buffer of gRPC without sending back result for first buffer
 

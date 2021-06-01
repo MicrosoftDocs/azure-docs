@@ -1,9 +1,9 @@
 ---
 title: Planned maintenance notification - Azure Database for MariaDB
 description: This article describes the Planned maintenance notification feature in Azure Database for MariaDB
-author: ambhatna
-ms.author: ambhatna
-ms.service: jroth
+author: savjani
+ms.author: pariks
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
 ---

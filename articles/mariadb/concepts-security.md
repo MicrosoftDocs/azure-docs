@@ -3,7 +3,7 @@ title: Security - Azure Database for MariaDB
 description: An overview of the security features in Azure Database for MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---

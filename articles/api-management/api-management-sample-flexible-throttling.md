@@ -36,14 +36,14 @@ Within Azure API Management, rate limits are typically propagated faster across 
 > Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between the configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
 
 ## Product-based throttling
-To date, the rate throttling capabilities have been limited to being scoped to a particular Product subscription, defined in the Azure portal. This is useful for the API provider to apply limits on the developers who have signed up to use their API, however, it does not help, for example, in throttling individual end users of the API. It is possible that for single user of the developer's application to consume the entire quota and then prevent other customers of the developer from being able to use the application. Also, several customers who might generate a high volume of requests may limit access to occasional users.
+Rate throttling capabilities that are scoped to a particular subscription are useful for the API provider to apply limits on the developers who have signed up to use their API. However, it does not help, for example, in throttling individual end users of the API. It is possible for a single user of the developer's application to consume the entire quota and then prevent other customers of the developer from being able to use the application. Also, several customers who might generate a high volume of requests may limit access to occasional users.
 
 ## Custom key-based throttling
 
 > [!NOTE]
 > The `rate-limit-by-key` and `quota-by-key` policies are not available when in the Consumption tier of Azure API Management. 
 
-The new [rate-limit-by-key](./api-management-access-restriction-policies.md#LimitCallRateByKey) and [quota-by-key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) policies provide a more flexible solution to traffic control. These new policies allow you to define expressions to identify the keys that are used to track traffic usage. The way this works is easiest illustrated with an example. 
+The [rate-limit-by-key](./api-management-access-restriction-policies.md#LimitCallRateByKey) and [quota-by-key](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) policies provide a more flexible solution to traffic control. These policies allow you to define expressions to identify the keys that are used to track traffic usage. The way this works is easiest illustrated with an example. 
 
 ## IP address throttling
 The following policies restrict a single client IP address to only 10 calls every minute, with a total of 1,000,000 calls and 10,000 kilobytes of bandwidth per month. 
@@ -73,7 +73,7 @@ If an end user is authenticated, then a throttling key can be generated based on
 This example shows how to extract the Authorization header, convert it to `JWT` object and use the subject of the token to identify the user and use that as the rate limiting key. If the user identity is stored in the `JWT` as one of the other claims, then that value could be used in its place.
 
 ## Combined policies
-Although the new throttling policies provide more control than the existing throttling policies, there is still value combining both capabilities. Throttling by product subscription key ([Limit call rate by subscription](./api-management-access-restriction-policies.md#LimitCallRate) and [Set usage quota by subscription](./api-management-access-restriction-policies.md#SetUsageQuota)) is a great way to enable monetizing of an API by charging based on usage levels. The finer grained control of being able to throttle by user is complementary and prevents one user's behavior from degrading the experience of another. 
+Although the user-based throttling policies provide more control than the subscription-based throttling policies, there is still value combining both capabilities. Throttling by product subscription key ([Limit call rate by subscription](./api-management-access-restriction-policies.md#LimitCallRate) and [Set usage quota by subscription](./api-management-access-restriction-policies.md#SetUsageQuota)) is a great way to enable monetizing of an API by charging based on usage levels. The finer grained control of being able to throttle by user is complementary and prevents one user's behavior from degrading the experience of another. 
 
 ## Client driven throttling
 When the throttling key is defined using a [policy expression](./api-management-policy-expressions.md), then it is the API provider that is choosing how the throttling is scoped. However, a developer might want to control how they rate limit their own customers. This could be enabled by the API provider by introducing a custom header to allow the developer's client application to communicate the key to the API.
@@ -87,7 +87,7 @@ When the throttling key is defined using a [policy expression](./api-management-
 This enables the developer's client application to choose how they want to create the rate limiting key. The client developers could create their own rate tiers by allocating sets of keys to users and rotating the key usage.
 
 ## Summary
-Azure API Management provides rate and quote throttling to both protect and add value to your API service. The new throttling policies with custom scoping rules allow you finer grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these new policies by manufacturing rate limiting keys with client IP addresses, user identity, and client generated values. However, there are many other parts of the message that could be used such as user agent, URL path fragments, message size.
+Azure API Management provides rate and quota throttling to both protect and add value to your API service. The new throttling policies with custom scoping rules allow you finer grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these new policies by manufacturing rate limiting keys with client IP addresses, user identity, and client generated values. However, there are many other parts of the message that could be used such as user agent, URL path fragments, message size.
 
 ## Next steps
 Please give us your feedback as a GitHub issue for this topic. It would be great to hear about other potential key values that have been a logical choice in your scenarios.
