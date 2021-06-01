@@ -22,7 +22,7 @@ You can automate how you assign roles to user accounts using the Microsoft Graph
 
 - Azure AD Premium P1 or P2 license
 - Privileged Role Administrator or Global Administrator
-- Admin consent when using Graph explorer for Microsoft Graph API
+- Admin consent when using Graph Explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
