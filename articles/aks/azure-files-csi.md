@@ -188,6 +188,70 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
+## Use a persistent volume with private Azure Files (Private Endpoint)
+
+For the case in which your Azure Files are protected with a private enpoint, you must create your own storage class customized with the following parameters:
+
+* `resourceGroup`: the resource group name whe the storage account is deployed.
+* `storageAccount`: the storage account name.
+* `server` the FQDN of the private endpoint for the storage account (i.e. <storage account name>.privatelink.file.core.windows.net)
+
+Create a file named `private-azure-file-sc.yaml`, and paste the following example manifest replacing the valules for `<resourceGroup>` and `<storageAccountName>`:
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: private-azurefile-csi
+provisioner: file.csi.azure.com
+allowVolumeExpansion: true
+parameters:
+  resourceGroup: <resourceGroup>
+  storageAccount: <storageAccountName>
+  server: <storageAccountName>.privatelink.file.core.windows.net 
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=0
+  - gid=0
+  - mfsymlinks
+  - cache=strict  # https://linux.die.net/man/8/mount.cifs
+  - nosharesock  # reduce probability of reconnect race
+  - actimeo=30  # reduce latency for metadata-heavy workload
+```
+
+Create the storage class with the [kubectl apply][kubectl-apply] command:
+
+```console
+kubectl apply -f azure-file-sc.yaml
+
+storageclass.storage.k8s.io/private-azurefile-csi created
+```
+  
+Create a file named `private-pvc.yaml`, and paste the following example manifest:
+  
+```yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: private-azurefile-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: private-azurefile-csi
+  resources:
+    requests:
+      storage: 100Gi
+```
+  
+Create the PVC with the [kubectl apply][kubectl-apply] command:
+  
+```console
+kubectl apply -f private-pvc.yaml
+```
+
 ## NFS file shares
 
 [Azure Files now has support for NFS v4.1 protocol](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS 4.1 support for Azure Files provides you with a fully managed NFS file system as a service built on a highly available and highly durable distributed resilient storage platform.
