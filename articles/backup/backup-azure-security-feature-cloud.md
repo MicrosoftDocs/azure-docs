@@ -2,7 +2,8 @@
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 04/30/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Soft delete for Azure Backup
 

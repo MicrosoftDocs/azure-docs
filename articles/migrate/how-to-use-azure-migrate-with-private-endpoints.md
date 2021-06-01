@@ -147,7 +147,7 @@ Open a browser on any machine that can connect to the appliance server, and open
    - **Connectivity**: The appliance checks for access to the required URLs. If the server uses a proxy:
      - Select **Set up proxy** to specify the proxy address `http://ProxyIPAddress` or `http://ProxyFQDN` and listening port.
      - Specify credentials if the proxy needs authentication. Only HTTP proxy is supported.
-     - You can add a list of URLs/IP addresses that should bypass the proxy server. If you are using ExpressRoute private peering, ensure that you bypass these [URLs](./replicate-using-expressroute.md#configure-proxy-bypass-rules-on-the-azure-migrate-appliance-for-vmware-agentless-migrations).
+     - You can add a list of URLs/IP addresses that should bypass the proxy server.
      - Select **Save** to register the configuration if you have updated the proxy server details or added URLs/IP addresses to bypass proxy.
 
         > [!Note]

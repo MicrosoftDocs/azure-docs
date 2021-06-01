@@ -10,7 +10,7 @@ ms.date: 03/20/2019
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - seo-lt-2019
   - azure-synapse
   - devx-track-azurepowershell
