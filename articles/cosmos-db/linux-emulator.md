@@ -94,7 +94,7 @@ The emulator is using a self-signed certificate to secure the connectivity to it
 
 1. After the *emulatorcert.crt* is loaded into KeyChain, double-click on the **localhost** name and change the trust settings to **Always Trust**.
 
-1. You can now browse to `https://localhost:8081/_explorer/index.html` or `https://{your_local_ip}:8081/_explorer/index.html` and retrieve the connection string to of the emulator.
+1. You can now browse to `https://localhost:8081/_explorer/index.html` or `https://{your_local_ip}:8081/_explorer/index.html` and retrieve the connection string to the emulator.
 
 ## <a id="run-on-linux"></a>Run the Linux Emulator on Linux OS
 
