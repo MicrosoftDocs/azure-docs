@@ -120,8 +120,7 @@ public static async Task TracedSample()
         activity?.SetTag("Token value", tokenResponse.Value.Token);
         activity?.SetTag("Expires on", tokenResponse.Value.ExpiresOn);
 
-        Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
-        Console.WriteLine(token);
+        Console.WriteLine($"\nIssued an access token with 'chat' scope that expires at {expiresOn}:");
     }
 }
 ```
@@ -139,7 +138,7 @@ Lastly, call and await the `TracedSample()` function where we have our SDK calls
 Add the following code to the `Main` method:
 
 ```csharp
- var resourceAttributes = new Dictionary<string, object> { { "service.name", "<service-name>" }, { "service.instance.id", "<service-instance-id>" } };
+var resourceAttributes = new Dictionary<string, object> { { "service.name", "<service-name>" }, { "service.instance.id", "<service-instance-id>" } };
 var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
 
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()

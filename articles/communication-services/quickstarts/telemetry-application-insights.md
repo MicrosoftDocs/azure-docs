@@ -37,9 +37,23 @@ Azure Application Insights is a feature of Azure Monitor which is used to monito
 The output of the app describes each action that is completed:
 <!---cSpell:disable --->
 ```console
-// TODO: Fill out the console values.
+Created an identity with ID: <identity-id>
+Issued an access token with 'chat' scope that expires at <expiry-data>
 ```
 <!---cSpell:enable --->
+
+## View the Telemetry Data in Application Insights
+In order to analyze the telemetry data from the SDK, go to the `Performance` tab and then go to `Dependencies`. You will be able to see the `Create User Activity` and `Get Token Activity` that we’ve tracked.
+
+:::image type="content" source="media/application-insights-dependencies.png" alt-text="Screenshot showing telemetry data entries in Application Insights.":::
+
+To view more detail, you can drill into the samples:
+
+:::image type="content" source="media/application-insights-samples-drill-down.png" alt-text="Screenshot showing the drill down view of the samples":::
+
+In the drill-down view, there is more information about the Activity such as where it was called from, its timestamp, name, performance, type, etc. You can also see the Cloud role name and instance id that we defined in the sample code snippet above. Notice that the custom properties that were tracked also show up here:
+
+:::image type="content" source="media/application-insights-e2e-details.png" alt-text="Screenshot showing the drill down view of the samples":::
 
 ## Next Steps
 
@@ -51,5 +65,4 @@ In this quickstart, you learned how to:
 > * View exported data in Application Insights
 
 You may also want to:
-
-// TODO: Add more resources and Telemetry and Application Insights for further learning
+- [Learn more about Analyzing Data in Application Insights](https://docs.microsoft.com/powerapps/maker/canvas-apps/application-insights)
