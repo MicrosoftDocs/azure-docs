@@ -16,7 +16,7 @@ A server endpoint represents a specific location on a registered server, such as
 - A server endpoint must be a path on a registered server (rather than a mounted share). Network attached storage (NAS) is not supported.
 - Although the server endpoint can be on the system volume, server endpoints on the system volume may not use cloud tiering.
 - Changing the path or drive letter after you established a server endpoint on a volume is not supported. Make sure you are using a suitable path before creating the server endpoint.
-- A registered server can support multiple server endpoints, however a sync group can only have one server endpoint per registered server at any given time. Other server endpoints within the sync group must be on different registered servers.
+- A registered server can support multiple server endpoints, however, a sync group can only have one server endpoint per registered server at any given time. Other server endpoints within the sync group must be on different registered servers.
 - Multiple server endpoints can exist on the same volume if their namespaces are not overlapping (for example, F:\sync1 and F:\sync2) and each endpoint is syncing to a unique sync group. 
 
 This article helps you understand the options and decisions needed to create a new server endpoint and start sync. For this to work, you need to have finished [planning for your Azure File Sync deployment](file-sync-planning.md) and also have deployed [resources needed in prior steps](file-sync-deployment-guide.md) to creating a server endpoint.
