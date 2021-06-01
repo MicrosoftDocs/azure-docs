@@ -5,7 +5,7 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 05/31/2021
+ms.date: 06/01/2021
 ---
 
 # Quickstart: Use the Copy Data tool to copy data
@@ -56,7 +56,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
     
 ## Start the Copy Data tool
 
-1. On the home page, select the **Ingest** tile to start the Copy Data tool. 
+1. On the **Let's get started** page, select the **Copy Data** tile to start the Copy Data tool.
 
    !["Copy Data" tile](./media/doc-common-process/get-started-page.png)
 
@@ -76,25 +76,24 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
        ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
-    1. On the **Source data store** page, select the newly created linked service as source in the **Connection** block.
+    1. Select the newly created linked service as source in the **Connection** block.
     1. In the **File or folder** section, select **Browse** to navigate to the **adftutorial/input** folder, select the **emp.txt** file, and then click **OK**.
     1. Select the **Binary copy** checkbox to copy file as-is, and then select **Next**.
 
-       ![Screenshot that shows the Source data store page.](./media/quickstart-create-data-factory-copy-data-tool/source-data-store.png)
-    
+       :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/source-data-store.png" alt-text="Screenshot that shows the Source data store page.":::
 
 1. On the **Destination data store** page, complete the following steps:
-    1. select the **Azure Blob Storage** linked service you created in the **Connection** block.
+    1. Select the **Azure Blob Storage** linked service that you created in the **Connection** block.
 
     1. In the **Folder path** section, select **Browse** to navigate to the **adftutorial** folder, select the **output** folder, and then select OK.
 
-       ![Screenshot that shows the Destination data store page](./media/quickstart-create-data-factory-copy-data-tool/destination-data-store.png)
+       :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/destination-data-store.png" alt-text="Screenshot that shows the Destination data store page.":::
 
     1. Leave other settings as default and then select **Next**.
 
 1. On the **Settings** page, specify a name for the pipeline and its description, then select **Next** to use the default configurations. 
 
-    ![Screenshot that shows the settings page.](./media/quickstart-create-data-factory-copy-data-tool/settings.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/settings.png" alt-text="Screenshot that shows the settings page.":::
 
 1. On the **Summary** page, review all settings, and select **Next**. 
 
@@ -108,7 +107,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **Activity name** column for more details about copy operation. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). 
 
-1. To go back to the Pipeline Runs view, select the **ALL pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**. 
+1. To go back to the Pipeline Runs view, select the **All runs** link in the breadcrumb menu. To refresh the view, select **Refresh**. 
 
 1. Verify that the **emp.txt** file is created in the **output** folder of the **adftutorial** container. If the output folder doesn't exist, the Data Factory service automatically creates it. 
 
