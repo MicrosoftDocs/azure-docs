@@ -27,10 +27,10 @@ The IoT Edge security daemon is a native component that needs to be updated usin
 
 Check the version of the security daemon running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
 
+# [Linux](#tab/linux)
+
 >[!IMPORTANT]
 >If you are updating a device from version 1.0 or 1.1 to version 1.2, there are differences in the installation and configuration processes that require extra steps. For more information, refer to the steps later in this article: [Special case: Update from 1.0 or 1.1 to 1.2](#special-case-update-from-10-or-11-to-12).
-
-# [Linux](#tab/linux)
 
 On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
 
@@ -125,6 +125,12 @@ If you want to update to the most recent version of IoT Edge, use the following 
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+>[!IMPORTANT]
+>If you are updating a device from the public preview version of IoT Edge for Linux on Windows to the generally available version, you need to uninstall and reinstall Azure IoT Edge.
+
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and it is managed with Microsoft Update to keep the components up to date automatically.
 
 To receive IoT Edge for Linux on Windows updates, the Windows host should be configured to receive updates for other Microsoft products. You can turn this option with the following steps:
@@ -137,6 +143,9 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 
 1. Toggle the *Receive updates for other Microsoft products when you update Windows* button to **On**.
 
+:::moniker-end
+<!-- end 1.1 -->
+
 # [Windows](#tab/windows)
 
 <!-- 1.2 -->
@@ -148,7 +157,13 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 With IoT Edge for Windows, IoT Edge runs directly on the Windows device. For update instructions using the PowerShell scripts, see [Install and manage Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ---
 
