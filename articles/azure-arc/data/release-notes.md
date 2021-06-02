@@ -35,9 +35,9 @@ This is the latest preview release.
 
 This release introduces the following features or capabilities:
 
-- Delete an Azure Arc PostgreSQL Hyperscale from the Azure Portal when its Data Controller was configured for Direct connectivity mode.
-- Deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure Portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
-- Specify storage classes and Postgres extensions when deploying Azure Arc enabled PostgreSQL Hyperscale from the Azure Portal.
+- Delete an Azure Arc PostgreSQL Hyperscale from the Azure portal when its Data Controller was configured for Direct connectivity mode.
+- Deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
+- Specify storage classes and Postgres extensions when deploying Azure Arc enabled PostgreSQL Hyperscale from the Azure portal.
 - Reduce the number of worker nodes in your Azure Arc enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command line.
 
 #### Azure Arc enabled SQL Managed Instance
