@@ -3,7 +3,7 @@ title: Create Azure NetApp files Windows Virtual Desktop - Azure
 description: This article describes how to create an Azure NetApp file in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 06/03/2021
 ms.author: helohr
 manager: femila
 ---
