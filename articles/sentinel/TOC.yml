@@ -276,10 +276,20 @@
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
+  - name: Analytics rules
+    items:
+    - name: Map data fields to entities
+      href: map-data-fields-to-entities.md
+    - name: Surface custom details in alerts
+      href: surface-custom-details-in-alerts.md
+    - name: Export and import analytics rules
+      href: import-export-analytics-rules.md
+    - name: Create incidents from alerts
+      href: create-incidents-from-alerts.md
+    - name: Work with SOC-ML anomaly rules
+      href: work-with-anomaly-rules.md
   - name: Discover and deploy solutions
     href: sentinel-solutions-deploy.md
-  - name: Work with SOC-ML anomaly rules
-    href: work-with-anomaly-rules.md
   - name: Create custom entity activities
     href: customize-entity-activities.md
   - name: Use user and entity behavior analytics
@@ -288,18 +298,12 @@
       href: enable-entity-behavior-analytics.md
     - name: Investigate with UEBA
       href: investigate-with-ueba.md
-  - name: Map data fields to entities
-    href: map-data-fields-to-entities.md
   - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
     href: multiple-workspace-view.md
   - name: Set up customer-managed keys (CMK)
     href: customer-managed-keys.md
-  - name: Surface custom details in alerts
-    href: surface-custom-details-in-alerts.md
-  - name: Create incidents from alerts
-    href: create-incidents-from-alerts.md
   - name: Collaborate in Microsoft Teams
     href: collaborate-in-microsoft-teams.md
   - name: Manage your SOC better with incident metrics
