@@ -64,8 +64,6 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 ## <a name="connectivity"></a>Types of connectivity
 
-Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User VPN (Point-to-Site), and ExpressRoute.
-
 ### <a name="s2s"></a>Site-to-site VPN connections
 
 You can connect to your resources in Azure over a Site-to-site IPsec/IKE (IKEv2) connection. For more information, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md). 
