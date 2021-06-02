@@ -141,7 +141,7 @@ App Service provides a built-in token store, which is a repository of tokens tha
 - post to the authenticated user's Facebook timeline
 - read the user's corporate data using the Microsoft Graph API
 
-You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](configure-authentication-oauth-tokens.md#refresh-identity-provider-tokens) when they become invalid. 
+You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](configure-authentication-oauth-tokens.md#refresh-auth-tokens) when they become invalid. 
 
 The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
 

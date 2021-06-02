@@ -308,7 +308,7 @@ Save your settings by clicking **PUT**.
 
 Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
-For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-identity-provider-tokens).
+For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
 ## Call API securely from server code
 
@@ -432,7 +432,7 @@ Congratulations! Your client code is now accessing the back-end data on behalf o
 
 ## When access tokens expire
 
-Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-identity-provider-tokens).
+Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
 ## Clean up resources
 
