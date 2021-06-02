@@ -31,10 +31,6 @@
     items:
     - name: Protect the access key
       href: howto-secure-rotate-access-key.md
-    - name: Secure the traffic for VNet
-      href: howto-secure-private-endpoints.md
-    - name: Secure and control network access
-      href: howto-secure-network-access-control.md
   - name: Troubleshooting
     items:
     - name: Collect network trace
@@ -52,7 +48,7 @@
 - name: Reference 
   items:
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/documentation-preview/webpubsub?view=azure-rest-preview&branch=result_openapiHub_production_138700d9fb80
+    href: https://docs.microsoft.com/rest/api/webpubsub
   - name: PubSub WebSocket Subprotocol
     href: https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol
   - name: Web PubSub CloudEvents 

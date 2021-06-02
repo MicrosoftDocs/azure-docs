@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -90,6 +90,8 @@ The following metadata is relevant when using an asymmetric key.
 | METADATA| Yes | A URL that points to a token issuer configuration document, which is also known as an OpenID well-known configuration endpoint.   |
 | issuer | No | Identifies the security token service (token issuer). This value can be used to overwrite the value configured in the metadata, and must be identical to the `iss` claim within the JWT token claim. |  
 | IdTokenAudience | No | Identifies the intended recipient of the token. Must be identical to the `aud` claim within the JWT token claim. |  
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## Cryptographic keys
 
@@ -181,7 +183,7 @@ The token issuer must provide following endpoints:
 * `/.well-known/openid-configuration` - A well-known configuration endpoint with relevant information about the token, such as the token issuer name and the link to the JWK endpoint. 
 * `/.well-known/keys` - the JSON Web Key (JWK) end point with the public key that is used to sign the key (with the private key part of the certificate).
 
-See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .Net MVC controller sample.
+See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC controller sample.
 
 #### Step 1. Prepare a self-signed certificate
 
@@ -215,7 +217,7 @@ The following technical profile validates the token and extracts the claims. Cha
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item>
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

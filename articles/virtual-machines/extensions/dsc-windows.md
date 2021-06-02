@@ -1,10 +1,10 @@
 ---
-title: Azure Desired State Configuration Extension Handler 
+title: Azure Desired State Configuration Extension Handler
 description: Upload and apply a PowerShell DSC configuration on an Azure VM using DSC Extension
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: bobbytreed  
+author: bobbytreed
 ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
@@ -27,11 +27,11 @@ Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 
 ### Internet connectivity
 
 The DSC extension for Windows requires that the target virtual machine is able to communicate with Azure
-and the location of the configuration package (.zip file) if it is stored in a location outside of Azure. 
+and the location of the configuration package (.zip file) if it is stored in a location outside of Azure.
 
 ## Extension schema
 
-The following JSON shows the schema for the settings portion of the DSC Extension in an Azure Resource Manager template. 
+The following JSON shows the schema for the settings portion of the DSC Extension in an Azure Resource Manager template.
 
 ```json
 {
@@ -66,7 +66,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
             "downloadMappings": {
              "specificDependencyKey": "https://myCustomDependencyLocation"
             }
-        } 
+        }
     },
     "protectedSettings": {
         "configurationArguments": {
@@ -117,13 +117,12 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 | protectedSettings.configurationUrlSasToken | string | Specifies the SAS token to access the URL defined by configuration.url. This property will be encrypted. |
 | protectedSettings.configurationDataUrlSasToken | string | Specifies the SAS token to access the URL defined by configurationData.url. This property will be encrypted. |
 
-
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates.
 Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
 A sample Resource Manager template that includes the DSC extension for Windows can be found on the
-[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration/nested/provisionServer.json#L91).
 
 ## Troubleshoot and support
 

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory Application proxy documentation
-summary: Azure Active Directory app proxy supports you on your cloud journey by providing secure remote access and cloud scale security to your private applications.
+title: Azure Active Directory Application Proxy documentation
+summary: Azure Active Directory Application Proxy provides secure remote access and cloud scale security to your private applications.
 
 metadata: 
-   title: Application proxy documentation
-   description: Azure Active Directory app proxy supports you on your cloud journey by providing secure remote access and cloud scale security to your private applications.
+   title: Application Proxy documentation
+   description: Azure Active Directory Application Proxy provides secure remote access and cloud scale security to your private applications.
    ms.service: active-directory
    ms.subservice: app-proxy
    ms.workload: identity
@@ -16,14 +16,12 @@ metadata:
    manager: mtillman
 
 landingContent:
-  - title: About app proxy
+  - title: About Application Proxy
     linkLists:
       - linkListType: overview
         links:
-          - text: What is application proxy?
+          - text: What is Application Proxy?
             url: what-is-application-proxy.md
-          # - text: What is single sign-on?
-          #   url: what-is-single-sign-on.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -40,30 +38,6 @@ landingContent:
             url: ../manage-apps/what-is-single-sign-on.md
           - text: Single sign-on options
             url: ../manage-apps/sso-options.md
-  # - title: Use on-premises apps
-  #   linkLists:
-  #     - linkListType: learn
-        # links:
-          # - text: What is App Proxy?
-          #   url: what-is-application-proxy.md
-          # - text: App Proxy deployment
-          #   url: application-proxy-deployment-plan.md
-  # - title: Secure apps
-  #   linkLists:
-  #     - linkListType: learn
-        # links:
-          # - text: Manage access to apps
-          #   url: what-is-access-management.md
-          # - text: Manage tenant restrictions
-          #   url: tenant-restrictions.md
-  - title: Configure My Apps
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: Plan a My Apps deployment
-            url: ../manage-apps/my-apps-deployment-plan.md
-          - text: Create collections
-            url: ../manage-apps/access-panel-collections.md
   - title: Develop new apps
     linkLists:
       - linkListType: learn

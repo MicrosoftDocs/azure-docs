@@ -84,7 +84,7 @@ Action groups provide a modular and reusable way to trigger actions for your Azu
 > [!NOTE]
 > After you create the ITSM connection, you need to wait 30 minutes for the sync process to finish.
 
-## Define a template
+### Define a template
 
 Certain work item types can use templates that you define in the ITSM tool. By using templates, you can define fields that will be automatically populated according to fixed values for an action group. You can define which template you want to use as a part of the definition of an action group. You can find in ServiceNow docs information about how to create templates - (here)[https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html].
 
@@ -110,9 +110,7 @@ To create an action group:
 
 7. Select a **Work Item** type.
 
-8. If you want to fill out-of-the-box fields with fixed values, select **Use Custom Template**. Otherwise, choose an existing [template](#define-a-template) in the **Template** list and enter the fixed values in the template fields.
-
-9. In the last section of the interface for creating an ITSM action group, you can define how many work items will be created for each alert.
+8. In the last section of the interface for creating an ITSM action group, you can define how many work items will be created for each alert.
 
    > [!NOTE]
    > This section is relevant only for log search alerts. For all other alert types, you'll create one work item per alert.
@@ -139,6 +137,10 @@ To create an action group:
      * If you select **Create individual work items for each Log Entry (Configuration item field is not filled. Can result in large number of work items.)**, a work item will be created for each row in the search results of the log search alert query. The description property in the payload of the work item will contain the row from the search results.
       
      * If you select **Create individual work items for each Configuration Item**, every configuration item in every alert will create a new work item. Each configuration item can have more than one work item in the ITSM system. This option is the same as the selecting the check box that appears after you select **Incident** as the work item type.
+9. As a part of the action definition you can define predefined fields that will contain constant values as a part of the payload. According to the work item type there are 3 options that can be used as a part of the payload:
+    * **None**: Use a regular payload to ServiceNow without any extra predefined fields and values.
+    * **Use default fields**: Using a set of fields and values that will be sent automatically as a part of the payload to ServiceNow. Those fields are not flexible and the values are defined in ServiceNow lists.
+    * **Use saved templates from ServiceNow**: Using a predefine set of fields and values that was defined as a part of a template definition in ServiceNow. If you already defined the template in ServiceNow you can use it from the **Template** list otherwise you can define it in ServiceNow, for more [details](#define-a-template).
 
 10. Select **OK**.
 
