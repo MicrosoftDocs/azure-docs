@@ -22,18 +22,18 @@ Passwords are a primary attack vector. Bad actors use social engineering, phishi
 
 Microsoft offers the following [three passwordless authentication options](concept-authentication-passwordless.md) that integrate with Azure Active Directory (Azure AD):
 
-* [Microsoft Authenticator app](concept-authentication-passwordless.md) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
+* [Microsoft Authenticator app](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
 
-* [FIDO2-compliant security keys](http://concept-authentication-passwordless.md/) - useful for users who sign in to shared machines like kiosks, in situations where use of phones is restricted, and for highly privileged identities. 
+* [FIDO2-compliant security keys](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-keys) - useful for users who sign in to shared machines like kiosks, in situations where use of phones is restricted, and for highly privileged identities. 
 
-* [Windows Hello for Business](concept-authentication-passwordless) - best for users on their dedicated Windows computers. 
+* [Windows Hello for Business](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless#windows-hello-for-business) - best for users on their dedicated Windows computers. 
 
 > [!NOTE]
 > To create an offline version of this plan with all links, use your browsers print to pdf functionality.
 
 ## Use the passwordless methods wizard
 
-The [Azure portal](http://portal.azure.com/) now has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
+The [Azure portal](https://portal.azure.com/) now has a passwordless methods wizard that will help you to select the appropriate method for each of your audiences. If you haven't yet determined the appropriate methods, see [https://aka.ms/passwordlesswizard](https://aka.ms/passwordlesswizard), then return to this article to continue planning for your selected methods. **You need administrator rights to access this wizard.**
 
 ## Passwordless authentication scenarios
 
@@ -75,7 +75,7 @@ The prerequisites are determined by your selected passwordless authentication me
 | Prerequisite| Microsoft Authenticator app| FIDO2 Security Keys|
 | - | -|-|
 | [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|  |
-| [Users can perform Azure AD MFA](/howto-mfa-getstarted.md)| √| √|  |
+| [Users can perform Azure AD MFA](howto-mfa-getstarted.md)| √| √|  |
 | [Users have registered for Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)| √| √|  |
 | [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md)| √| |  |
 | Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox (version 67 or higher). Microsoft recommends version 1903 or higher for native support.| | √|  |
@@ -119,7 +119,7 @@ Microsoft provides communication templates for end users. Download the [authenti
 
 Users register their passwordless method as a part of the **combined security information workflow** at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Azure AD logs registration of security keys and Microsoft Authenticator app, and any other changes to the authentication methods. 
 
-For the first-time user who doesn't have a password, admins can provide a [Temporary Access Passcode](howto-authentication-temporary-access-pass) to register their security information in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . This is a time-limited passcode and satisfies strong authentication requirements. **Temporary Access Pass is a per-user process**.
+For the first-time user who doesn't have a password, admins can provide a [Temporary Access Passcode](howto-authentication-temporary-access-pass.md) to register their security information in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo.md) . This is a time-limited passcode and satisfies strong authentication requirements. **Temporary Access Pass is a per-user process**.
 
 This method can also be used for easy recovery when the user has lost or forgotten their authentication factor such as security key or Microsoft Authenticator app but needs to sign in to **register a new strong authentication method**. 
 
@@ -163,7 +163,7 @@ The following are sample test cases for passwordless authentication with the Mic
 
 | Scenario| Solution |
 | - |-|
-| User cannot perform combined registration.| Ensure [combined registration](../concept-registration-mfa-sspr-combined.md) is enabled. |
+| User cannot perform combined registration.| Ensure [combined registration](concept-registration-mfa-sspr-combined.md) is enabled. |
 | User cannot enable phone sign-in authenticator app.| Ensure user is in scope for deployment. |
 | User is NOT in scope for passwordless authentication, but is presented with passwordless sign-in option, which they cannot complete.| Occurs when user has enabled phone sign in in the application prior to the policy being created. To enable sign in, add the user to a group of users enabled for passwordless sign-in. To block sign in: have the user remove their credential from that application. |
 
@@ -312,7 +312,7 @@ Here are the sample test cases for passwordless authentication with security key
 
 | Scenario| Solution |
 | - | -|
-| User can’t perform combined registration.| Ensure [combined registration](.concept-registration-mfa-sspr-combined.md) is enabled. |
+| User can’t perform combined registration.| Ensure [combined registration](concept-registration-mfa-sspr-combined.md) is enabled. |
 | User can’t add a security key in their [security settings](https://aka.ms/mysecurityinfo).| Ensure that [security keys](howto-authentication-passwordless-security-key.md) are enabled. |
 | User can’t add security key in Windows 10 sign-in options.| [Ensure that security keys for Windows sign in](concept-authentication-passwordless.md) are enabled |
 | **Error message**: We detected that this browser or OS doesn’t support FIDO2 security keys.| Passwordless FIDO2 security devices can only be registered in supported browsers (Microsoft Edge, Firefox version 67) o Windows 10 version 1809 or higher. |
