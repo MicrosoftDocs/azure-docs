@@ -11,6 +11,9 @@ Get started with Azure Communication Services by using the Communication Service
 > [!NOTE]
 > This document uses version 1.0.0 of the calling SDK.
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling)
+
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://developer.apple.com/xcode/), along with a valid developer certificate installed into your Keychain.

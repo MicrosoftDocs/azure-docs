@@ -69,7 +69,7 @@ A multi-regional deployment relies on creation of Azure Machine Learning and oth
 
 * __Regional availability__: Use regions that are close to your users. To check regional availability for Azure Machine Learning, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/).
 * __Azure paired regions__: Paired regions coordinate platform updates and prioritize recovery efforts where needed. For more information, see [Azure paired regions](../best-practices-availability-paired-regions.md).
-* __Service availability__: Decide whether the resources used by your solution should be hot/hot, hot/warm, or hot/code.
+* __Service availability__: Decide whether the resources used by your solution should be hot/hot, hot/warm, or hot/cold.
     
     * __Hot/hot__: Both regions are active at the same time, with one region ready to begin use immediately.
     * __Hot/warm__: Primary region active, secondary region has critical resources (for example, deployed models) ready to start. Non-critical resources would need to be manually deployed in the secondary region.
