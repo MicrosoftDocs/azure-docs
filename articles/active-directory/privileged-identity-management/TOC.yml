@@ -27,35 +27,51 @@
     href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
-  - name: Discover Azure resources
-    href: pim-resource-roles-discover-resources.md
   - name: Discovery & Insights for Azure AD roles
     href: pim-security-wizard.md
-  - name: Assign roles
+  - name: Assign
     items:
     - name: Azure AD roles
       href: pim-how-to-add-role-to-user.md
     - name: Azure roles
       href: pim-resource-roles-assign-roles.md
-  - name: Activate roles
+    - name: Privileged Access groups
+      href: groups-assign-member-owner.md
+  - name: Activate
     items:
     - name: Azure AD roles
       href: pim-how-to-activate-role.md
     - name: Azure roles
       href: pim-resource-roles-activate-your-roles.md
-  - name: Approve requests
+  - name: Approve
     items:
     - name: Azure AD roles
       href: pim-how-to-activate-role.md
     - name: Azure roles
       href: pim-resource-roles-approval-workflow.md
-  - name: Role settings
+    - name: Privileged Access groups
+      href: groups-approval-workflow.md
+  - name: Bring under management
+    items:
+    - name: Azure resources
+      href: pim-resource-roles-discover-resources.md
+    - name: Privileged Access groups
+      href: groups-discover-groups.md
+  - name: Extend or renew
+    items:
+    - name: Azure roles
+      href: pim-resource-roles-renew-extend.md
+    - name: Privileged Access groups
+      href: groups-renew-extend.md
+  - name: Settings
     items:
     - name: Azure AD roles
       href: pim-how-to-change-default-settings.md
     - name: Azure roles
       href: pim-resource-roles-configure-role-settings.md
-  - name: Configure alerts
+    - name: Privileged Access groups
+      href: groups-role-settings.md
+  - name: Alerts
     items:
     - name: Azure AD roles
       href: pim-how-to-configure-security-alerts.md
@@ -67,6 +83,8 @@
       href: pim-how-to-use-audit-log.md
     - name: Azure roles
       href: azure-pim-resource-rbac.md
+    - name: Privileged Access groups
+      href: groups-audit.md
   - name: Access reviews
     items:
     - name: Azure AD roles
@@ -99,32 +117,12 @@
         href: azure-ad-custom-roles-configure.md
     - name: Azure roles
       href: pim-resource-roles-custom-role-policy.md
-  - name: Manage Privileged access groups (Preview)
-    items:
-    - name: Privileged access overview
-      href: groups-features.md
-    - name: Bring groups under management
-      href: groups-discover-groups.md
-    - name: Assign member or owner
-      href: groups-assign-member-owner.md
-    - name: Approve requests
-      href: groups-approval-workflow.md
-    - name: Extend or renew assignments
-      href: groups-renew-extend.md
-    - name: Configure role settings
-      href: groups-role-settings.md
-    - name: View audit history
-      href: groups-audit.md
   - name: Invite external users
     href: pim-resource-roles-external-users.md
-  - name: Extend or renew roles
-    href: pim-resource-roles-renew-extend.md
   - name: Elevate access to manage Azure subscriptions
     href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
   - name: Delegate PIM access
     href: pim-how-to-give-access-to-pim.md
-  - name: PowerShell for Azure AD roles
-    href: powershell-for-azure-ad-roles.md
   - name: Troubleshoot PIM
     href: pim-troubleshoot.md
 - name: Reference
@@ -135,5 +133,7 @@
     href: /cli/azure/ad
   - name:  Azure AD PowerShell for Graph
     href: /powershell/azure/active-directory/install-adv2
+  - name: PowerShell examples for Azure AD roles
+    href: powershell-for-azure-ad-roles.md
   - name: Azure AD service limits
     href: ../users-groups-roles/directory-service-limits-restrictions.md
