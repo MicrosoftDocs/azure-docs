@@ -48,7 +48,7 @@ In this case, you want to add interfaces for concepts needed for your solution b
 
 The example below presents a solution that needs to represent "focus rooms," which are not present in the RealEstateCore ontology. A focus room is a small space designed for people to focus on a task for a couple hours at a time. 
 
-To extend the industry ontology with this new concept, create a new interface that [extends from](concepts-models.md#inheritance) the interfaces in the industry ontology. 
+To extend the industry ontology with this new concept, create a new interface that [extends from](concepts-models.md#model-inheritance) the interfaces in the industry ontology. 
 
 After adding the focus room interface, the extended hierarchy shows the new room type. 
 
