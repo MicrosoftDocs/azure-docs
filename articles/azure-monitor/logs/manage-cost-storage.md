@@ -124,7 +124,7 @@ To use this template via PowerShell, after [installing the Azure Az PowerShell m
 New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -TemplateFile "template.json"
 ```
 
-To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the sku), omit the  `capacityReservationLevel` property. Learn more about [creating ARM templates](../../azure-resource-manager/templates/template-tutorial-create-first-template),  [adding a resource to your template](../../azure-resource-manager/templates/template-tutorial-add-resource), and [applying templates](../resource-manager-samples). 
+To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the sku), omit the  `capacityReservationLevel` property. Learn more about [creating ARM templates](../../azure-resource-manager/templates/template-tutorial-create-first-template.md),  [adding a resource to your template](../../azure-resource-manager/templates/template-tutorial-add-resource.md), and [applying templates](../resource-manager-samples.md). 
 
 ## Legacy pricing tiers
 
