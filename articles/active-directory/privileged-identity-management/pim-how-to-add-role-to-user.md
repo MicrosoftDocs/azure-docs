@@ -27,8 +27,6 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged role administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
 
-    For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md).
-
 1. Open **Azure AD Privileged Identity Management**.
 
 1. Select **Azure AD roles**.

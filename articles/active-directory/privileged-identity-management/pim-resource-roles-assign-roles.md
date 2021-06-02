@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 05/11/2020
+ms.date: 06/03/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -39,8 +39,6 @@ You can use the Azure attribute-based access control (Azure ABAC) preview to pla
 Follow these steps to make a user eligible for an Azure resource role.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with Owner or User Access Administrator role permissions.
-
-    For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 1. Open **Azure AD Privileged Identity Management**.
 
