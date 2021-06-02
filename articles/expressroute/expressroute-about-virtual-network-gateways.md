@@ -50,6 +50,7 @@ The following table shows the gateway types and the estimated performance scale 
 - Number of routes learned: 9,500
 
  This table applies to both the Resource Manager and classic deployment models.
+ 
 |**Gateway SKU**|**Connections per second**|**Mega-Bits per second**|**Packets per second**|**Supported number of NM Agents**|
 | --- | --- | --- | --- | --- |
 |**Standard**|7,000|>1,000|>100,000|>2,000|
@@ -57,6 +58,7 @@ The following table shows the gateway types and the estimated performance scale 
 |**Ultra Performance**|16,000|10,000|100,000,000|11,000|
 ### <a name="aggthroughput"></a>Feature support by gateway SKU
 The following table shows the features supported across each gateway type.
+
 |**Gateway SKU**|**VPN Gateway and ExpressRoute coexistence**|**FastPath**|**Max Number of Circuit Connections**|
 | --- | --- | --- | --- |
 |**Standard SKU/ERGw1Az**|No|No|4|>100K|
