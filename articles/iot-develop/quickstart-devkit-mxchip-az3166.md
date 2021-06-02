@@ -253,7 +253,7 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Send telemetry from a device application to Azure IoT Central](quickstart-send-telemetry-central.md)
+> [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
-> [Send telemetry from a device application to Azure IoT Hub](quickstart-send-telemetry-iot-hub.md)
+> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
 
