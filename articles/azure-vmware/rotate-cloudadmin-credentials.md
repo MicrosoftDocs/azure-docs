@@ -10,16 +10,15 @@ ms.date: 06/28/2021
 
 # Rotate the cloudadmin credentials for Azure VMware Solution
 
-In this article, you'll rotate the cloudadmin credentials (vCenter and NSX-T credentials) for your Azure VMware Solution private cloud.  Although the passwords for these accounts don't expire, you can generate new ones. After generating new passwords, you must update VMware HCX Connector with the latest credentials applied.
+In this article, you'll rotate the cloudadmin credentials (vCenter and NSX-T credentials) for your Azure VMware Solution private cloud.  Although the passwords for these accounts don't expire, you can generate new ones. After generating new passwords, you'll update VMware HCX Connector with the latest credentials. You can use your cloudadmin credentials for connected services like backup and disaster recovery appliances, VMware HCX, or any vRealize suite products. 
 
-You can use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon. To use your cloudadmin credentials for connected services, you must first set up a connection to an external identity source. If you don't have an external identity source, such as Active Directory, don't rotate your cloudadmin credentials. Rotating could break any connections that use the vCenter or NSX-T credentials. It could also lock out those accounts, resulting in a security lockout.
 
 
 ## Prerequisites
 
 - If you use your cloudadmin credentials for connected services, your connections stop working once you've updated the password. Stop these services before you rotate the password. Otherwise, you'll experience temporary locks on your accounts, as these services continuously call your old credentials. 
 
-- Make sure to [set up a connection to an external identity source (LDAP)](connect-external-identity-source-ldap-run-command.md) to create and manage credentials for use with connected services. If you don't have an external identity source, such as Active Directory, you shouldn't rotate your cloudadmin credentials. Rotating could break any connections that use the vCenter or NSX-T credentials. It could also lock out those accounts, resulting in a security lockout.
+- Make sure to [set up a connection to an external identity source (LDAP)](connect-external-identity-source-ldap-run-command.md). It lets you create and manage credentials for use with connected services. If you don't have an external identity source, such as Active Directory, you shouldn't rotate your cloudadmin credentials. Rotating could break any connections that use the vCenter or NSX-T credentials. It could also lock out those accounts, resulting in a security lockout.
 
 
 ## Reset your Azure VMware Solution cloudadmin credentials
