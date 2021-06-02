@@ -84,13 +84,8 @@ postgres=#
 > When this happens, you need to reconnect with azdata as explained above.
 
 ## From CLI with kubectl
-- If your server group is of Postgres version 12 (default), then the following command:
 ```console
-kubectl get postgresql-12/<server group name> -n <namespace name>
-```
-- If your server group is of Postgres version 11, then the following command:
-```console
-kubectl get postgresql-11/<server group name> -n <namespace name>
+kubectl get postgresqls/<server group name> -n <namespace name>
 ```
 
 Those commands will produce output like the one below. You can use that information to form your connection strings:
@@ -152,7 +147,7 @@ host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} 
 ```
 
 ## Next steps
-- Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
+- Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group
 
 

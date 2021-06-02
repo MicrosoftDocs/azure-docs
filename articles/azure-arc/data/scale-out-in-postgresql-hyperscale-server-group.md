@@ -1,6 +1,6 @@
 ---
-title: Scale out Azure Database for PostgreSQL Hyperscale server group
-description: Scale out Azure Database for PostgreSQL Hyperscale server group
+title: Scale out and in your Azure Database for PostgreSQL Hyperscale server group
+description: Scale out and in you Azure Database for PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,8 +11,13 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Scale out your Azure Arc enabled PostgreSQL Hyperscale server group by adding more worker nodes
-This document explains how to scale out an Azure Arc enabled PostgreSQL Hyperscale server group. It does so by taking you through a scenario. **If you do not want to run through the scenario and want to just read about how to scale out, jump to the paragraph [Scale out](#scale-out)**.
+# Scale out and in your Azure Arc enabled PostgreSQL Hyperscale server group by adding more worker nodes
+This document explains how to scale out and scale in an Azure Arc enabled PostgreSQL Hyperscale server group. It does so by taking you through a scenario. **If you do not want to run through the scenario and want to just read about how to scale out, jump to the paragraph [Scale out](#scale-out)** or [Scale in]().
+
+You scale out when you add Postgres instances (Postgres Hyperscale worker nodes) to your Azure Arc enabled PosrgreSQL Hyperscale.
+
+You scale in when you remove Postgres instances (Postgres Hyperscale worker nodes) from your Azure Arc enabled PosrgreSQL Hyperscale.
+
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -147,8 +152,6 @@ The general format of the scale-out command is:
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-> [!CAUTION]
-> The preview release does not support scale back in. For example it is not yet possible to reduce the number of worker nodes. If you need to do so, you need to extract/backup the data, drop the server group, create a new server group with less worker nodes and then import the data.
 
 In this example, we increase the number of worker nodes from 2 to 4, by running the following command:
 
@@ -188,7 +191,7 @@ postgres01  Ready    4
 #### With kubectl:
 Run the command:
 ```console
-kubectl get postgresql-12
+kubectl get postgresqls
 ```
 
 It returns the list of server groups created in your namespace and indicates their number of worker nodes. For example:
@@ -196,8 +199,6 @@ It returns the list of server groups created in your namespace and indicates the
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> [!NOTE]
-> If you created a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
 
 #### With a SQL query:
 Connect to your server group with the client tool of your choice and run the following query:
@@ -231,6 +232,16 @@ Note the execution time.
 >* [High performance HTAP with Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Building HTAP applications with Python & Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
+## Scale in
+To scale in (reduce the number of worker nodes in your server group), you use the same command as to scale out but you indicate a smaller number of worker nodes. The worker nodes that are removed are the latest ones added to the server group. When you run this command, the system moves the data out of the nodes that are removed and redistributes (rebalances) it automatically to the remaining nodes. 
+
+The general format of the scale-in command is:
+```console
+azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
+```
+
+
+The scale-in operation is an online operation. Your applications continue to access the data with no downtime while the nodes are removed and the data is redistributed across the remaining nodes.
 
 ## Next steps
 

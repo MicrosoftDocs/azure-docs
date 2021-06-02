@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/04/2021
+ms.date: 06/02/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -18,31 +18,33 @@ This article highlights capabilities, features, and enhancements recently releas
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## April 2021
+## May 2021
 
-This preview release is published on April 29, 2021.
+This is the latest preview release. 
 
 ### What's new
 
-This section describes the new features introduced or enabled for this release. 
-
 #### Platform
 
-- Direct connected clusters automatically upload telemetry information automatically Azure. 
+- All create, update, and delete operations for data controller, Managed Instance, and PostgreSQL groups in direct connected mode are only available from Azure portal, for the current release. Create, update, and delete operations using `azdata` are blocked. You can still use `kubectl` to create resources directly on the Kubernetes cluster, however they will not be reflected in the Azure portal.
+- Validation rules when deleting Azure Arc data services. For instance, alerting when attempting to delete the data controller when there are SQL Managed Instances deployed using the data controller.
+- Support for custom configuration profiles to support custom configuration settings when deploying Arc enabled data controller using the Azure portal.
+- Optionally, automatically upload your logs to Azure Log analytics workspace in the directly connected mode.
 
 #### 	Azure Arc enabled PostgreSQL Hyperscale
 
-- Azure Arc enabled PostgreSQL Hyperscale is now supported in Direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure portal. 
-- Azure Arc enabled PostgreSQL Hyperscale ships with the Citus 10.0 extension which features columnar table storage
-- Azure Arc enabled PostgreSQL Hyperscale  now supports full user/role management.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports additional extensions with `Tdigest` and  `pg_partman`.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
+This release introduces the following features or capabilities:
+
+- Delete an Azure Arc PostgreSQL Hyperscale from the Azure portal when its Data Controller was configured for Direct connectivity mode.
+- Deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
+- Specify storage classes and Postgres extensions when deploying Azure Arc enabled PostgreSQL Hyperscale from the Azure portal.
+- Reduce the number of worker nodes in your Azure Arc enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command line.
 
 #### Azure Arc enabled SQL Managed Instance
 
-- Restore a database to SQL Managed Instance with three replicas and it will be automatically added to the availability group. 
-- Connect to a secondary read-only endpoint on SQL Managed Instances deployed with three replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
+- Manually trigger a failover of using Transact-SQL. 
+- Transact--SQL `BACKUP` command is blocked unless using `COPY_ONLY` setting. 
+
 
 ### Known issues
 
@@ -84,6 +86,32 @@ This section describes the new features introduced or enabled for this release.
    If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
 
 - Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
+
+## April 2021
+
+This preview release is published on April 29, 2021.
+
+### What's new
+
+This section describes the new features introduced or enabled for this release. 
+
+#### Platform
+
+- Direct connected clusters automatically upload telemetry information automatically Azure. 
+
+#### 	Azure Arc enabled PostgreSQL Hyperscale
+
+- Azure Arc enabled PostgreSQL Hyperscale is now supported in Direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure portal. 
+- Azure Arc enabled PostgreSQL Hyperscale ships with the Citus 10.0 extension which features columnar table storage
+- Azure Arc enabled PostgreSQL Hyperscale  now supports full user/role management.
+- Azure Arc enabled PostgreSQL Hyperscale  now supports additional extensions with `Tdigest` and  `pg_partman`.
+- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
+- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
+
+#### Azure Arc enabled SQL Managed Instance
+
+- Restore a database to SQL Managed Instance with three replicas and it will be automatically added to the availability group. 
+- Connect to a secondary read-only endpoint on SQL Managed Instances deployed with three replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
 
 ## March 2021
 

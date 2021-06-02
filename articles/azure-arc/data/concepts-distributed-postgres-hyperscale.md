@@ -70,7 +70,7 @@ See details at [Table colocation](../../postgresql/concepts-hyperscale-colocatio
 
 ## Next steps
 - [Read about creating Azure Arc enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
-- [Read about scaling out Azure Arc enabled PostgreSQL Hyperscale server groups created in your Arc Data Controller](scale-out-postgresql-hyperscale-server-group.md)
+- [Read about scaling out Azure Arc enabled PostgreSQL Hyperscale server groups created in your Arc Data Controller](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Read about Azure Arc enabled Data Services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [Read about Azure Arc](https://aka.ms/azurearc)
 
