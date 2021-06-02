@@ -219,6 +219,9 @@ az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any
 
 To deploy your zipped artifact to an Azure resource group, run the command, `az logicapp deployment`, with the following required parameters:
 
+> [!NOTE]
+> Make sure that your zip file contains the actual build artifacts, such as your workflow folders, connections.json file, and so on.
+
 ```azurecli-interactive
 az logicapp deployment source config-zip --name MyLogicAppName 
    --resource-group MyResourceGroupName --subscription MySubscription 
