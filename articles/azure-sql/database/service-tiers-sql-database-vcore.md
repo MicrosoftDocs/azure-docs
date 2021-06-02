@@ -138,17 +138,17 @@ For detailed information, see [Create a SQL Database](single-database-create-qui
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select the **Change configuration** link:
 
-:::image type="content" source="./media/service-tiers-vcore/configure-sql-database.png" alt-text"configure SQL database" loc-scope="azure-portal":::
+:::image type="content" source="./media/service-tiers-vcore/configure-sql-database.png" alt-text="configure SQL database" loc-scope="azure-portal":::
 
 Select the desired hardware generation:
 
-:::image type="content" source="./media/service-tiers-vcore/select-hardware.png" alt-text"select hardware for SQL database" loc-scope="azure-portal":::
+:::image type="content" source="./media/service-tiers-vcore/select-hardware.png" alt-text="select hardware for SQL database" loc-scope="azure-portal":::
 
 **To change the hardware generation of an existing SQL Database or pool**
 
 For a database, on the Overview page, select the **Pricing tier** link:
 
-:::image type="content" source="./media/service-tiers-vcore/change-hardware.png" alt-text"change hardware for SQL Database" loc-scope="azure-portal":::
+:::image type="content" source="./media/service-tiers-vcore/change-hardware.png" alt-text="change hardware for SQL Database" loc-scope="azure-portal":::
 
 For a pool, on the Overview page, select **Configure**.
 
