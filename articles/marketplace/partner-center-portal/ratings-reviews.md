@@ -70,13 +70,13 @@ The response will appear under the text of the original review in the product de
 
 You can edit or delete a response to a review by selecting “Edit” or “Delete”.
 
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/edit-or-delete-reply.png" alt-text="Illustrates options to edit or delete a reply" lightbox="media/marketplace-publisher-guide-rating-reviews/edit-or-delete-reply.png":::
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/edit-or-delete-reply.png" alt-text="Illustrates options to edit or delete a reply":::
 
 ### Contacting users after a review has been posted
 
 When posting a review, a user can give consent to be contacted by the publisher. When a user has given consent, a notification will appear at the top of the review in Partner Center, and the email address of the user who posted the review will be visible.
 
-:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/contacting-consenting-customer.png" alt-text="Illustrates contacting a consenting customer" lightbox="media/marketplace-publisher-guide-rating-reviews/contacting-consenting-customer.png":::
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/contacting-consenting-customer.png" alt-text="Illustrates contacting a consenting customer":::
 
 ## Next steps
 
