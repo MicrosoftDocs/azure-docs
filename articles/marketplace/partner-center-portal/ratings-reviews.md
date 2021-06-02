@@ -39,13 +39,13 @@ The ratings & reviews summary section displays the metrics below for a selected�
 - **Total ratings:** Overall count of ratings submitted. This count also includes ratings with and without reviews.
 - **Ratings with reviews:** Count of reviews submitted.
 
-![Partner Center analyze ratings and reviews summary](./media/analyze-ratings-summary.png)
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/analyze-ratings-summary.png" alt-text="Illustrates Partner Center analyze ratings and reviews summary" lightbox="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png":::
 
 ### Review comments
 
 Reviews are displayed in chronological order for when they were posted. The default view displays all reviews and you can filter through the reviews by star rating using the **rating filter** in the dropdown menu. Additionally, you can search by keywords that appear in the review.  
 
-![Partner Center analyze review comments](./media/analyze-reviews.png)
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/analyze-reviews.png" alt-text="Illustrates Partner Center analyze review comments" lightbox="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png":::
 
 ### Responding to a review
 
@@ -60,23 +60,23 @@ The response will appear under the text of the original review in the product de
 
 #### Appsource
 
-![Appsource review response](./media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png)
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/review-reply-appsource.png" alt-text="Illustrates Appsource review response" lightbox="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png":::
 
 #### Azure Marketplace online store
 
-![Azure Marketplace online store reply](./media/marketplace-publisher-guide-rating-reviews/az-mp-online-store.png)
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/az-mp-online-store.png" alt-text="Illustrates Azure Marketplace online store reply" lightbox="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png":::
 
 ### Editing or deleting a response to a review
 
 You can edit or delete a response to a review by selecting “Edit” or “Delete”.
 
-![Edit or delete a reply](./media/marketplace-publisher-guide-rating-reviews/edit-or-delete-reply.png)
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/edit-or-delete-reply.png" alt-text="Illustrates options to edit or delete a reply" lightbox="media/marketplace-publisher-guide-rating-reviews/az-mp-online-store.png":::
 
 ### Contacting users after a review has been posted
 
 When posting a review, a user can give consent to be contacted by the publisher. When a user has given consent, a notification will appear at the top of the review in Partner Center, and the email address of the user who posted the review will be visible.
 
-![Contacting consenting customer](./media/marketplace-publisher-guide-rating-reviews/contacting-consenting-customer.png)
+:::image type="content" source="media/marketplace-publisher-guide-rating-reviews/contacting-consenting-customer.png" alt-text="Illustrates contacting a consenting customer" lightbox="media/marketplace-publisher-guide-rating-reviews/az-mp-online-store.png":::
 
 ## Next steps
 
