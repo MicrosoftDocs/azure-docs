@@ -15,7 +15,7 @@ This migration article is one of several that apply to the keywords Azure File S
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-server-hybrid-databox/file-sync-data-box-concept.png" alt-text="An image displaying the three sequential steps described in this migration guide. The column next to the image spells them out in detail." lightbox="media/storage-files-migration-server-hybrid-databox/file-sync-data-box-concept-expanded.png":::
+        :::image type="content" source="media/storage-files-migration-server-hybrid-databox/file-sync-data-box-concept.png" alt-text="A display of three sequential steps described in this migration guide. The column next to the image describes them in detail." lightbox="media/storage-files-migration-server-hybrid-databox/file-sync-data-box-concept-expanded.png":::
     :::column-end:::
     :::column:::
         > [!div class="checklist"]
@@ -131,7 +131,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 
 :::row:::
     :::column:::
-        [![An image showing an Azure portal section of the create server endpoint wizard. A checkbox is shown that corresponds to the scenario of seeding the Azure file share with data, then check this box to connect AFS to the same on-prem location of the data.](media/storage-files-migration-server-hybrid-databox/enable-authoritative-upload-top-checkbox.png)](media/storage-files-migration-server-hybrid-databox/enable-authoritative-upload-top-checkbox-expanded.png#lightbox)
+        [![An Azure portal section of the create server endpoint wizard is shown. A checkbox is highlighted that corresponds to the scenario of seeding the Azure file share with data. Check this box if you connect AFS to the same on-prem location from where you copied onto Data Box before.](media/storage-files-migration-server-hybrid-databox/enable-authoritative-upload-top-checkbox.png)](media/storage-files-migration-server-hybrid-databox/enable-authoritative-upload-top-checkbox-expanded.png#lightbox)
     :::column-end:::
     :::column:::
         Once you are in the **Create server endpoint** wizard, utilize the provided checkbox underneath the folder path. Only make this selection if you have entered a path that points to the same file and folder structure as can be found in the Azure file share (where Data Box moved the files and folders into for this namespace). </br> </br> If there is a mismatch of folder hierarchy, then that will present itself as differences that cannot be automatically resolved. Avoid a mismatch or any investment in the Data Box process will result in zero benefit to you. All data will be deleted in the Azure file share. All data will need to be uploaded from the local server. The directory structures must match to gain the benefit of a bulk-migration with Azure Data Box and a seamless update of the cloud share with the latest changes from the server.
