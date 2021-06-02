@@ -14,7 +14,7 @@ We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpoi
 
 ## Microsoft Endpoint Configuration Manager
 
-Starting in version 1906 <!---of what?--->, you can use Microsoft Endpoint Configuration Manager to manage your Windows Virtual Desktop devices. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-virtual-desktop).
+Microsoft Endpoint Manager versions 1906 and later can manage your Windows Virtual Desktop devices. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-virtual-desktop).
 
 ## Microsoft InTune
 
