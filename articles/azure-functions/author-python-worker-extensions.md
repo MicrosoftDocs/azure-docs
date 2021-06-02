@@ -13,7 +13,7 @@ With the extension interface, a developer can now integrate a third-party librar
 
 In this tutorial, we will go through the process of authoring an application-level Python Worker extension and demonstrate its usage on a customer's function app.
 
-For more information about the Python worker extension, please visit our [Python developer reference](functions-reference-python.md#).
+For more information about the Python worker extension, please visit our [Python developer reference](functions-reference-python.md#python-worker-extensions).
 
 ## Prerequisites
 
