@@ -9,15 +9,15 @@ author: solankisamir
 ms.service: api-management
 ms.topic: how-to
 ms.author: sasolank
-ms.date: 05/05/2021
+ms.date: 06/02/2021
 ms.custom: devx-track-azurepowershell
 
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
 
-The API Management service can be configured in a [virtual network in internal mode](api-management-using-with-internal-vnet.md), which makes it accessible only from within the virtual network. [Azure Application Gateway](../application-gateway/overview.md) is a PaaS service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offerings a Web Application Firewall (WAF).
+You can configure the API Management service in a [virtual network in internal mode](api-management-using-with-internal-vnet.md), making it accessible only within the virtual network. [Azure Application Gateway](../application-gateway/overview.md) is a PaaS service, acting as a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offerings a Web Application Firewall (WAF).
 
-Combining API Management provisioned in an internal virtual network with the Application Gateway front end enables the following scenarios:
+By combining API Management provisioned in an internal virtual network with the Application Gateway front end, you can:
 
 * Use the same API Management resource for consumption by both internal consumers and external consumers.
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
@@ -38,14 +38,18 @@ To follow the steps described in this article, you must have:
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Certificates - You need PFX files for the API Management service's custom hostnames: gateway, developer portal, and management endpoint. Also needed is a CER file for the root certificate of the PFX certificates. For more information, see [Certificates for the backend](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
-* Make sure that you are using the latest version of Azure PowerShell. See [Install Azure PowerShell](/powershell/azure/install-az-ps).
+* Certificates
+     - PFX files for the API Management service's custom hostnames: gateway, developer portal, and management endpoint. 
+     - A CER file for the root certificate of the PFX certificates. 
+     
+    For more information, see [Certificates for the backend](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
+* The latest version of Azure PowerShell. If you haven't already, [install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Scenario
 
-This article covers how to use a single API Management service for both internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You will also see how to expose only a subset of your APIs (in the example they are highlighted in green) for external consumption using routing functionality available in Application Gateway.
+In this article, you learn how to Use a single API Management service for both internal and external consumers and make it act as a single front end for both on-premises and cloud APIs. You will also unnderstand how to expose only a subset of your APIs (in the example they are highlighted in green) for external consumption using routing functionality available in Application Gateway.
 
-In the first setup example, all your APIs are managed only from within your virtual network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to the internet. High-performance connectivity is delivered via Express Route circuits.
+In the first setup example, all your APIs are managed only from within your virtual network. Internal consumers (highlighted in orange) can access all your internal and external APIs. Traffic never goes out to the internet. High-performance connectivity can be delivered via Express Route circuits.
 
 ![url route](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
@@ -317,7 +321,7 @@ $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -Publi
 Configure the certificates for the Application Gateway, which will be used to decrypt and re-encrypt the traffic passing through.
 
 > [!NOTE]
-> Application Gateway supports defining custom TLS options. It also supports disabling certain TLS protocol versions, as well defining which cipher suites to use and the order of preference. To learn more about configurable TLS options, see the [TLS policy overview](../application-gateway/application-gateway-ssl-policy-overview.md).
+> Application Gateway supports defining custom TLS options, disabling certain TLS protocol versions, and specifying cipher suites and the order of preference. To learn more about configurable TLS options, see the [TLS policy overview](../application-gateway/application-gateway-ssl-policy-overview.md).
 
 ```powershell
 $certGateway = New-AzApplicationGatewaySslCertificate -Name "gatewaycert" `
@@ -374,7 +378,7 @@ $trustedRootCert = New-AzApplicationGatewayTrustedRootCertificate -Name "whiteli
 
 ### Step 8
 
-Configure HTTP backend settings for the Application Gateway. This includes setting a timeout limit for backend requests, after which they're canceled. This value is different from the probe timeout.
+Configure HTTP backend settings for the Application Gateway, including a timeout limit for backend requests, after which they're canceled. This value is different from the probe timeout.
 
 ```powershell
 $apimPoolGatewaySetting = New-AzApplicationGatewayBackendHttpSettings -Name "apimPoolGatewaySetting" `
@@ -462,9 +466,9 @@ Ensure that the health status of each backend pool is Healthy. If you need to tr
 
 ## CNAME the API Management proxy hostname to the public DNS name of the Application Gateway resource
 
-Once the gateway is created, the next step is to configure the front end for communication. When using a public IP address, Application Gateway requires a dynamically assigned DNS name, which may not be easy to use.
+Once the gateway is created, configure the front end for communication. When using a public IP address, Application Gateway requires a dynamically assigned DNS name, which may not be easy to use.
 
-The Application Gateway's DNS name should be used to create a CNAME record which points the API Management gateway hostname (`api.contoso.net` in the preceding examples) to this DNS name. To configure the frontend IP CNAME record, retrieve the details of the Application Gateway and its associated IP/DNS name using the `PublicIPAddress` element. The use of A-records is not recommended since the VIP may change on restart of gateway.
+Use the Application Gateway's DNS name to create a CNAME record pointing the API Management gateway hostname (`api.contoso.net` in the preceding examples) to this DNS name. To configure the frontend IP CNAME record, retrieve the details of the Application Gateway and its associated IP/DNS name using the `PublicIPAddress` element. We don't recommend using A-records is not recommended, since the VIP may change when the gateway restarts.
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
@@ -474,7 +478,7 @@ For testing purposes, you may update the hosts file on your local machine with e
 
 ## Summary
 
-Azure API Management configured in a virtual network provides a single gateway interface for all configured APIs, whether they are hosted on-premises or in the cloud. Integrating Application Gateway with API Management provides the flexibility of selectively enabling particular APIs to be accessible on the internet, and providing a Web Application Firewall as a front end to your API Management instance.
+Azure API Management configured in a virtual network provides a single gateway interface for all configured APIs, whether hosted on-premises or in the cloud. Integrating Application Gateway with API Management provides the flexibility of selectively enabling particular APIs to be accessible on the internet, and providing a WAF as a front end to your API Management instance.
 
 ## Next steps
 
