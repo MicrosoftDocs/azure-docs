@@ -188,7 +188,7 @@ To use AzCopy to copy your VHD to Blob storage, do the following steps:
     `.\azcopy copy <source URI> <target URI> --recursive`
 
     where:
-    * `<source URI>` is the download URL that you generated in step 3b.
+    * `<source URI>` is the download URL that you generated earlier.
     * `<target URI>` tells which Blob container to copy the new image to in your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to Blob container](#use-azcopy-to-copy-vm-image-to-blob-container). 
 
     For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** Blob container in the **mystorageaccount** storage account:
