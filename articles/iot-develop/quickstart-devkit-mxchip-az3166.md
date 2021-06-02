@@ -229,11 +229,9 @@ Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
 
-## Troubleshooting
+## Troubleshoot and Debug
 
-If you experience issues building the device code, flashing the device, or connecting to the device, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
-
-## Debugging
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
