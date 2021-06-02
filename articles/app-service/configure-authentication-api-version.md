@@ -34,11 +34,7 @@ The following steps will allow you to manually migrate the application to the V2
 1. Get your existing configuration by using the V1 API:
 
    ```azurecli
-   # For Web Apps
    az webapp auth show -g <group_name> -n <site_name>
-
-   # For Azure Functions
-   az functionapp auth show -g <group_name> -n <site_name>
    ```
 
    In the resulting JSON payload, make note of the secret value used for each provider you have configured:
