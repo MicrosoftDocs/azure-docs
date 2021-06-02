@@ -37,7 +37,7 @@ The quickstart uses the `copy` element to create multiple instances of key-value
 > [!IMPORTANT]
 > This template requires App Configuration resource provider version `2020-07-01-preview` or later. This version uses the `reference` function to read key-values. The `listKeyValue` function that was used to read key-values in the previous version is not available starting in version `2020-07-01-preview`.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 

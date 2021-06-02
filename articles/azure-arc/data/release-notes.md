@@ -38,13 +38,14 @@ This release introduces the following features or capabilities:
 - Delete an Azure Arc PostgreSQL Hyperscale from the Azure Portal when its Data Controller was configured for Direct connectivity mode.
 - Deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure Portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
 - Specify storage classes and Postgres extensions when deploying Azure Arc enabled PostgreSQL Hyperscale from the Azure Portal.
-- Reduce the number of worker nodes in your Azure Arc enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from AZDATA command line.
+- Reduce the number of worker nodes in your Azure Arc enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command line.
 
 #### Azure Arc enabled SQL Managed Instance
 
-- Proxy integration with Kubernetes connected cluster
-- Upload metrics and logs from the portal for a connected cluster
-- [Use Transact-SQL](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server#TsqlProcedure) to manually fail-over the primary replica of a managed instance. 
+- Manually trigger a failover of using Transact-SQL. 
+- Transact--SQL `BACKUP` command is blocked unless using `COPY_ONLY` setting. 
+
+
 ### Known issues
 
 - You can create a data controller in direct connect mode with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
