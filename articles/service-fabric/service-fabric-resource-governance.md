@@ -260,14 +260,18 @@ Additional remarks:
 
 ## Other resources for containers
 
-Besides CPU and memory, it's possible to specify other resource limits for containers. These limits are specified at the code-package level and are applied when the container is started. Unlike with CPU and memory, Cluster Resource Manager isn't aware of these resources, and won't do any capacity checks or load balancing for them.
+Besides CPU and memory, it's possible to specify other [resource limits for containers](service-fabric-service-model-schema-complex-types.md#resourcegovernancepolicytype-complextype). These limits are specified at the code-package level and are applied when the container is started. Unlike with CPU and memory, Cluster Resource Manager isn't aware of these resources, and won't do any capacity checks or load balancing for them.
 
-* *MemorySwapInMB*: The amount of swap memory that a container can use.
-* *MemoryReservationInMB*: The soft limit for memory governance that is enforced only when memory contention is detected on the node.
-* *CpuPercent*: The percentage of CPU that the container can use. If CPU requests or limits are specified for the service package, this parameter is effectively ignored.
-* *MaximumIOps*: The maximum IOPS that a container can use (read and write).
-* *MaximumIOBytesps*: The maximum IO (bytes per second) that a container can use (read and write).
-* *BlockIOWeight*: The block IO weight for relative to other containers.
+* *MemorySwapInMB*: The total amount of swap memory that can be used, in MB. Must be a positive integer.
+* *MemoryReservationInMB*: The soft limit (in MB) for memory governance that is enforced only when memory contention is detected on the node. Must be a positive integer.
+* *CpuPercent*: Usable percentage of available CPUs (Windows only). Must be a positive integer. Cannot be used with CpuShares, CpuCores, or CpuCoresLimit.
+* *CpuShares*: Relative CPU weight. Must be a positive integer. Cannot be used with CpuPercent, CpuCores, or CpuCoresLimit.
+* *MaximumIOps*: Maximum IO rate (read and write) in terms of IOps that can be used. Must be a positive integer.
+* *MaximumIOBandwidth*: The maximum IO (bytes per second) that can be used (read and write). Must be a positive integer.
+* *BlockIOWeight*: Block IO weight, relative to other code packages. Must be a positive integer between 10 and 1000.
+* *DiskQuotaInMB*: Disk quota for containers. Must be a positive integer.
+* *KernelMemoryInMB*: Kernel memory limits in bytes.  Must be a positive integer.  Note this is Linux-specific and Docker on Windows will error out if this is set.
+* *ShmSizeInMB*: Size of */dev/shm* in bytes. If omitted, the system uses 64MB.  Must be a positive integer. Note this is Linux-specific, however, Docker will only ignore (and not error out) if specified.
 
 These resources can be combined with CPU and memory. Here is an example of how to specify additional resources for containers:
 
