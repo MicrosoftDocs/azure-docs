@@ -62,7 +62,7 @@ To continue to pin intermediate certificates, add the following to the pinned in
 | [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005.cer) | 6c3af02e7f269aa73afd0eff2a88a4a1f04ed1e5 |
 | [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer) | 30e01761ab97e59a06b41ef20af6f2de7ef4f7b0 |
 
-If your application validates certificate in code, you need to modify it to recognize the properties --- for example, Issuers, Thumbprint---of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
+If your application validates certificate in code, you need to modify it to recognize the properties --- for example, Issuers, Thumbprint --- of the newly pinned certificates. This extra verification should cover all pinned certificates to be more future-proof.
 
 ## Next steps
 
