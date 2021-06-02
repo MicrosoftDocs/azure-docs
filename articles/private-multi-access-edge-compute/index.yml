@@ -27,7 +27,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure private MEC?
-            url: azure-private-multi-access-edge-compute.md
+            url: overview.md
       - linkListType: concept
         links:
           - text: Partner solutions
