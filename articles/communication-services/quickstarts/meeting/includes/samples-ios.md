@@ -101,7 +101,7 @@ private func joinMeeting() {
 }
 ```
 
-Add and implement `avatarFor` protocol method and map each `identifier` with to the corresponding avatar.
+Add and implement `avatarFor` protocol method and map each `identifier` to the corresponding avatar.
 
 ```swift
     func avatarFor(identifier: CommunicationIdentifier, size: MeetingUIClientAvatarSize, completionHandler: @escaping (UIImage?) -> Void) {
@@ -285,6 +285,10 @@ Add other mandatory MeetingUIClientCallIdentityProviderDelegate protocol methods
 
 ## Receive information about user actions in the UI and add your own custom functionalities.
 
+The `MeetingUIClientCallUserEventDelegate` delegate methods are called upon user actions in remote participant's profile.
+While joining the call or meeting, set the join options property `enableNamePlateOptionsClickDelegate` to `true`.
+Setting this property would enable the name plate options in remote participant's profile and enable the `MeetingUIClientCallUserEventDelegate`.
+
 Add the `MeetingUIClientCallUserEventDelegate` to your class.
 
 ```swift
@@ -294,7 +298,6 @@ class ViewController: UIViewController, MeetingUIClientCallUserEventDelegate {
     private var meetingUIClientCall: MeetingUIClientCall?
 ```
 
-While joining the call or meeting, set the join options property `enableNamePlateOptionsClickDelegate` to `true`.
 Set the `self.meetingUIClientCall?.meetingUIClientCallUserEventDelegate` to `self` after joining the call or meeting has started successfully.
 
 ```swift
@@ -315,23 +318,40 @@ private func joinMeeting() {
 }
 ```
 
-Add and implement `onNamePlateOptionsClicked` protocol method and map each `identifier` with to the corresponding call participant user.
+Add and implement `onNamePlateOptionsClicked` protocol method and map each `identifier` to the corresponding call participant user.
+This is called on single tap of user tile or user title text from call main screen.
 
 ```swift
 func onNamePlateOptionsClicked(identifier: CommunicationIdentifier) {
-
+    if let userIdentifier = identifier as? CommunicationUserIdentifier
+        {
+            if (userIdentifier.identifier.starts(with: "8:acs:")) {
+                // Custom behavior based on the user here.
+                print("Acs user tile clicked")
+            }
+        }
 }
 ```
 
-Add and implement `onParticipantViewLongPressed` protocol method and map each `identifier` with to the corresponding call participant user.
+Add and implement `onParticipantViewLongPressed` protocol method and map each `identifier` to the corresponding call participant user.
+This is called on long press of user tile from call main screen.
 
 ```swift
 func onParticipantViewLongPressed(identifier: CommunicationIdentifier) {
-
+    if let userIdentifier = identifier as? CommunicationUserIdentifier
+        {
+            if (userIdentifier.identifier.starts(with: "8:acs:")) {
+                // Custom behavior based on the user here.
+                print("Acs user tile clicked")
+            }
+        }
 }
 ```
 
 ## Add UI icon customizations in a call or meeting
+
+The icons shown in the call or meeting could be customized through method `public func set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposed in `MeetingUIClient`.
+The list of possible icons which could be customized are available in `MeetingUIClientIconType`.
 
 ```swift
 class ViewController: UIViewController {
@@ -360,6 +380,9 @@ func getIconConfig() -> Dictionary<MeetingUIClientIconType, String> {
 ```
 
 ## Add UI customizations on main call screen
+
+The `MeetingUIClient` provides support to customize the main call screen UI. Currently it supports customizing the UI using `MeetingUIClientInCallScreenDelegate` protocol methods.
+Call screen control actions are exposed through the methods present in `MeetingUIClientCall`.
 
 Add the `MeetingUIClientInCallScreenDelegate` to your class.
 
@@ -414,6 +437,9 @@ func provideScreenBackgroudColor() -> UIColor? {
 
 ## Add UI customizations on staging call screen
 
+The `MeetingUIClient` provides support to customize the staging call screen UI. Currently it supports customizing the UI using `MeetingUIClientStagingScreenDelegate` protocol methods.
+While joining the call or meeting, set the join options property `enableCallStagingScreen` to `true` to display the staging screen.
+
 Add the `MeetingUIClientStagingScreenDelegate` to your class.
 
 ```swift
@@ -423,7 +449,6 @@ class ViewController: UIViewController, MeetingUIClientStagingScreenDelegate {
     private var meetingUIClientCall: MeetingUIClientCall?
 ```
 
-While joining the call or meeting, set the join options property `enableCallStagingScreen` to `true` to display the staging screen.
 Set the `meetingUIClient?.meetingUIClientStagingScreenDelegate` to `self` before joining the call or meeting.
 
 ```swift
@@ -466,6 +491,10 @@ func provideStagingScreenBackgroundColor() -> UIColor? {
 
 ## Add UI customizations on connecting call screen
 
+The `MeetingUIClient` provides support to customize the connecting call screen UI. Currently it supports customizing the UI using `MeetingUIClientConnectingScreenDelegate` protocol methods.
+Use the icon configuration method `set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposed in `MeetingUIClient` to change only the icons displayed and use the functionality provided by the `MeetingUIClient`.
+
+
 Add the `MeetingUIClientConnectingScreenDelegate` to your class.
 
 ```swift
@@ -506,6 +535,9 @@ func provideConnectingScreenBackgroundColor() -> UIColor?
 
 ## API's to control the call
 
+Call control actions are exposed through the methods present in `MeetingUIClientCall`.
+These methods are useful in controlling the call actions if the UI had been customized using the `MeetingUIClient` customization delegates.
+
 ```swift
 class ViewController: UIViewController {
 
@@ -537,7 +569,7 @@ Invoke the `mute` method to mute the microphone for an active call if one exists
 Microphone status changes in notified in the `onIsMutedChanged` method of `MeetingUIClientCallDelegate`
 
 ```swift
-// Unmute the microphone for an active call.
+// Mute the microphone for an active call.
 public func mute(completionHandler: @escaping (Error?) -> Void)
 
 meetingUIClientCall?.mute { [weak self] (error) in
@@ -547,11 +579,21 @@ meetingUIClientCall?.mute { [weak self] (error) in
 }
 ```
 
-Other methods available in the MeetingUIClientCall class.
+Invoke the `unmute` method to unmute the microphone for an active call if one exists.
+
 ```swift
 // Unmute the microphone for an active call.
 public func unmute(completionHandler: @escaping (Error?) -> Void)
 
+meetingUIClientCall?.unmute { [weak self] (error) in
+    if error != nil {
+        print("Mute call failed: \(error!)")
+    }
+}
+```
+
+Other methods available in the MeetingUIClientCall class.
+```swift
 // Start the video for an active call.
 public func startVideo(completionHandler: @escaping (Error?) -> Void)
 
@@ -580,4 +622,3 @@ public func hangUp(completionHandler: @escaping (Error?) -> Void)
 // Set the user role for an active call.
 public func setRoleFor(identifier: CommunicationIdentifier, userRole: MeetingUIClientUserRole, completionHandler: @escaping (Error?) -> Void)
 ```
-
