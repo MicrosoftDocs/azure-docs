@@ -35,11 +35,11 @@ Follow these steps to connect client machines to your Azure FXT Edge Filer clust
 
 To help balance client requests among all the nodes in the cluster, you should mount clients to the full range of client-facing IP addresses. There are several ways to automate this task.
 
-To learn about round-robin DNS load balancing for the cluster, read [Configure DNS for the Azure FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-load-balancing). To use this method you must maintain a DNS server, which is not explained in these articles.
+To learn about round-robin DNS load balancing for the cluster, read [Configure DNS for the Azure FXT Edge Filer cluster](configure-network.md#configure-dns-for-load-balancing). To use this method you must maintain a DNS server, which is not explained in these articles.
 
 A simpler method for small installations is to use a script to assign IP addresses throughout the range at client mount time.
 
-Other load-balancing methods might be appropriate for large or complicated systems. Consult your Microsoft representative or open a [support request](fxt-support-ticket.md) for help. (Azure Load Balancer is currently *not supported* with Azure FXT Edge Filer.)
+Other load-balancing methods might be appropriate for large or complicated systems. Consult your Microsoft representative or open a [support request](support-ticket.md) for help. (Azure Load Balancer is currently *not supported* with Azure FXT Edge Filer.)
 
 ## Create the mount command
 
@@ -55,7 +55,7 @@ There are three elements to the mount command:
 
 ### Create the cluster path
 
-The cluster path is a combination of the vserver *IP address* plus the path to a *namespace junction*. The namespace junction is a virtual path that you defined when you [added the storage system](fxt-add-storage.md#create-a-junction).
+The cluster path is a combination of the vserver *IP address* plus the path to a *namespace junction*. The namespace junction is a virtual path that you defined when you [added the storage system](add-storage.md#create-a-junction).
 
 For example, if you used ``/fxt/files`` as your namespace path, your clients would mount *IP_address*:/fxt/files to their local mount point.
 
@@ -106,4 +106,4 @@ After you have mounted clients, you can test your workflow and get started with 
 
 If you need to move data to a new cloud core filer, take advantage of the cache structure by using parallel data ingest. Some strategies are described in [Moving data to a vFXT cluster](../avere-vfxt/avere-vfxt-data-ingest.md). (Avere vFXT for Azure is a cloud-based product that uses caching technology very similar to the Azure FXT Edge Filer.)
 
-Read [Monitor Azure FXT Edge Filer hardware status](fxt-monitor.md) if you need to troubleshoot any hardware issues.
+Read [Monitor Azure FXT Edge Filer hardware status](monitor.md) if you need to troubleshoot any hardware issues.

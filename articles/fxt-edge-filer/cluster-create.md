@@ -32,10 +32,10 @@ Complete these prerequisites before starting this tutorial:
 
 * Install your Azure FXT Edge Filer hardware systems in your data center
 
-  You only need one node to create the cluster, but you need to [add at least two more nodes](fxt-add-nodes.md) before you can configure the cluster and get it ready to use.
+  You only need one node to create the cluster, but you need to [add at least two more nodes](add-nodes.md) before you can configure the cluster and get it ready to use.
 
 * Connect appropriate power and network cables to the system  
-* Power on at least one Azure FXT Edge Filer node and [set its root password](fxt-node-password.md)
+* Power on at least one Azure FXT Edge Filer node and [set its root password](node-password.md)
 
 ## Gather information for the cluster
 
@@ -85,7 +85,7 @@ The Azure FXT Edge Filer hybrid storage cache cluster uses IP addresses in three
 
   The cluster distributes client-facing IP addresses across its constituent nodes as evenly as possible.
 
-  For simplicity, many administrators configure a single DNS name with round-robin DNS (RRDNS) configuration to make it easier to distribute client requests across the address range. This setup also enables all clients to use the same mount command to access the cluster. Read [Configure DNS](fxt-configure-network.md#configure-dns-for-load-balancing) for more information.
+  For simplicity, many administrators configure a single DNS name with round-robin DNS (RRDNS) configuration to make it easier to distribute client requests across the address range. This setup also enables all clients to use the same mount command to access the cluster. Read [Configure DNS](configure-network.md#configure-dns-for-load-balancing) for more information.
 
 The management IP address and a range of cluster network addresses must be specified to create a new cluster. Client-facing addresses are specified after cluster creation.
 
@@ -93,9 +93,9 @@ The management IP address and a range of cluster network addresses must be speci
 
 You can connect to any of the installed FXT nodes and use its OS software to set up the cluster.
 
-If you have not already done so, power on at least one of the FXT nodes for your cluster, and make sure it has a network connection and an IP address. You must set a new root password to activate the node, so follow the steps in [Set hardware passwords](fxt-node-password.md) if you have not already done so.
+If you have not already done so, power on at least one of the FXT nodes for your cluster, and make sure it has a network connection and an IP address. You must set a new root password to activate the node, so follow the steps in [Set hardware passwords](node-password.md) if you have not already done so.
 
-To check the network connection, make sure that the node’s network link LEDs are illuminated (and, if necessary, the indicators on the network switch to which it is attached). Indicator LEDs are described in [Monitor Azure FXT Edge Filer hardware status](fxt-monitor.md).
+To check the network connection, make sure that the node’s network link LEDs are illuminated (and, if necessary, the indicators on the network switch to which it is attached). Indicator LEDs are described in [Monitor Azure FXT Edge Filer hardware status](monitor.md).
 
 When the node boots, it will request an IP address. If it is connected to a DHCP server, it accepts the IP address provided by DHCP. (This IP address is temporary. It will change when you create the cluster.)
 
@@ -103,9 +103,9 @@ If it is not connected to a DHCP server or does not receive a response, the node
 
 ### Find the IP address
 
-Connect to the Azure FXT Edge Filer node to find its IP address. You can use a serial cable, direct connection to the USB and VGA ports, or connect through a KVM switch. (For port connection details see [Set initial passwords](fxt-node-password.md).)
+Connect to the Azure FXT Edge Filer node to find its IP address. You can use a serial cable, direct connection to the USB and VGA ports, or connect through a KVM switch. (For port connection details see [Set initial passwords](node-password.md).)
 
-After you connect, sign in with the username `root` and the password that you set when you booted the node for the first time.  
+After you connect, sign in with the username `root` and the password that you set when you booted the node for the first time.
 
 After signing in, you need to determine the node’s IP address.
 
@@ -248,7 +248,7 @@ Below the **Cluster** section there are fields for specifying DNS and NTP server
 
   DNS is recommended for all clusters, and required if you want to use SMB, AD, or Kerberos.
   
-  For optimal performance, configure the cluster’s DNS server for round-robin load balancing as described in [Configure DNS for the Azure FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-load-balancing).
+  For optimal performance, configure the cluster’s DNS server for round-robin load balancing as described in [Configure DNS for the Azure FXT Edge Filer cluster](configure-network.md#configure-dns-for-load-balancing).
 
 * **DNS domain** - Enter the network domain name the cluster will use.
 
@@ -302,17 +302,17 @@ These steps are needed for most or all clusters.
 
   Three nodes is standard, but many production clusters have more - up to a maximum of 24 nodes.
 
-  Read [Add cluster nodes](fxt-add-nodes.md) to learn how to add other Azure FXT Edge Filer units to your cluster, and to enable High Availability.
+  Read [Add cluster nodes](add-nodes.md) to learn how to add other Azure FXT Edge Filer units to your cluster, and to enable High Availability.
 
 * Specify back-end storage
 
-  Add *core filer* definitions for each back-end storage system that the cluster will use. Read [Add back-end storage and configure virtual namespace](fxt-add-storage.md#about-back-end-storage) to learn more.
+  Add *core filer* definitions for each back-end storage system that the cluster will use. Read [Add back-end storage and configure virtual namespace](add-storage.md#about-back-end-storage) to learn more.
 
 * Set up client access and the virtual namespace
 
   Create at least one virtual server (vserver) and assign it an IP address range for client machines to use. You also must configure the cluster namespace (sometimes called the Global Namespace or GNS), a virtual filesystem feature that lets you map back-end storage exports to virtual paths. The cluster namespace gives clients a consistent and accessible filesystem structure even if you switch back-end storage media. The namespace also can provide a user-friendly virtual storage hierarchy for Azure Blob containers or other supported cloud object storage.
 
-  Read [Configure the namespace](fxt-add-storage.md#configure-the-namespace) for details. This step includes:
+  Read [Configure the namespace](add-storage.md#configure-the-namespace) for details. This step includes:
   * Creating vservers
   * Setting up junctions between the client network view and back-end storage
   * Defining which client IP addresses are served by each vserver
@@ -320,9 +320,9 @@ These steps are needed for most or all clusters.
   > [!Note]
   > Significant planning is recommended before starting to set up the cluster’s GNS. Read the [Using a Global Namespace](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) and [Creating and Working with VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) sections in the Cluster Configuration Guide for help.
 
-* [Adjust network settings](fxt-configure-network.md)
+* [Adjust network settings](configure-network.md)
 
-  There are several network-related settings that should be verified or customized for a new cluster. Read [Adjust network settings](fxt-configure-network.md) for details about these items:
+  There are several network-related settings that should be verified or customized for a new cluster. Read [Adjust network settings](configure-network.md) for details about these items:
 
   * Verifying DNS and NTP configuration
   * Configuring directory services, if needed
@@ -358,7 +358,7 @@ These steps are not required for all clusters. They are needed for some types of
 
 * Install additional licenses
 
-  If you want to use cloud storage other than Azure Blob, you must install an additional feature license. Contact your Microsoft representative for details about purchasing a FlashCloud<sup>TM</sup> license. Details are explained in [Add back-end storage and configure virtual namespace](fxt-add-storage.md#about-back-end-storage).
+  If you want to use cloud storage other than Azure Blob, you must install an additional feature license. Contact your Microsoft representative for details about purchasing a FlashCloud<sup>TM</sup> license. Details are explained in [Add back-end storage and configure virtual namespace](add-storage.md#about-back-end-storage).
 
 ### Enable support
 
@@ -389,4 +389,4 @@ Follow these steps to set up support uploads.
 After you have created the basic cluster and accepted the privacy policy, add the rest of the cluster nodes.
 
 > [!div class="nextstepaction"]
-> [Add cluster nodes](fxt-add-nodes.md)
+> [Add cluster nodes](add-nodes.md)

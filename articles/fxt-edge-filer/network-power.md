@@ -35,7 +35,7 @@ Identify the various ports on the back of your Azure FXT Edge Filer.
 
 * Connect the RJ-45 ports to your data center's network source as described in [Network ports](#network-ports).  
 * Securely connect the [iDRAC port](#idrac-port) to a separate network with a secure DHCP server.
-* Use the USB ports and the VGA port to connect a keyboard and monitor to the node for initial setup. You must boot the node and [set an initial password](fxt-node-password.md) to activate the node's other ports. Read [Set initial passwords](fxt-node-password.md) for details.
+* Use the USB ports and the VGA port to connect a keyboard and monitor to the node for initial setup. You must boot the node and [set an initial password](node-password.md) to activate the node's other ports. Read [Set initial passwords](node-password.md) for details.
 
 This article also describes how to [connect AC power](#connect-power-cables) for the node.
 
@@ -71,7 +71,7 @@ The type of connections to use for your system depends on your data center envir
   * SFP28 type 25GbE-capable direct attach twinaxial cable
   * SFP28 type 10GbE-capable direct attach twinaxial cable
 
-* The 1GbE network ports are used for cluster management traffic. Check the **Use 1Gb mgmt network** option when creating the cluster if you want to create a physically separate network for cluster configuration (described in [Configure the management network](fxt-cluster-create.md#configure-the-management-network)). Cable the ports with standard Cat5 or better cable as described in the supported cables list.
+* The 1GbE network ports are used for cluster management traffic. Check the **Use 1Gb mgmt network** option when creating the cluster if you want to create a physically separate network for cluster configuration (described in [Configure the management network](cluster-create.md#configure-the-management-network)). Cable the ports with standard Cat5 or better cable as described in the supported cables list.
 
   You can leave the 1GbE ports uncabled if you plan to use the high-speed ports for all traffic. By default, the 1GbE network ports are not used if a higher speed data port is available.  
 
@@ -85,7 +85,7 @@ The port labeled iDRAC is a 1Gb connection that allows communication with a remo
 Use these security strategies when connecting and configuring the iDRAC port:
 
 * Only connect iDRAC ports to a network that is physically separated from the data network used to access the cluster.
-* Set a secure iDRAC administrator password on each node. You must set this password to activate the hardware - follow instructions in [Set hardware passwords](fxt-node-password.md).
+* Set a secure iDRAC administrator password on each node. You must set this password to activate the hardware - follow instructions in [Set hardware passwords](node-password.md).
 * The default iDRAC port configuration uses DHCP and IPv4 for IP address assignment. Make sure your DHCP environment is well protected and that connections are restricted between DHCP clients and the DHCP server. (The cluster control panel includes settings to change the nodes’ address configuration method after you create the cluster.)
 * Leave the iDRAC port set to "dedicated mode" (the default), which restricts iDRAC/IPMI network traffic to the dedicated RJ-45 port.
 
@@ -135,7 +135,7 @@ Each node requires at least one IP address, but node addresses are assigned when
 
 The total number of IP addresses required depends on the number of nodes in that make up your cache.
 
-Configure the IP address range by using the Control Panel software after the nodes have been installed. To learn more, read [Gather information for the cluster](fxt-cluster-create.md#gather-information-for-the-cluster).  
+Configure the IP address range by using the Control Panel software after the nodes have been installed. To learn more, read [Gather information for the cluster](cluster-create.md#gather-information-for-the-cluster).  
 
 ## Connect power cables
 
@@ -155,10 +155,10 @@ To power up the node, press the power button on the front of the system. The but
 
 ### Power off an Azure FXT Edge Filer node
 
-The power button can be used to shut down the system during testing and before adding it to a cluster. However, after an Azure FXT Edge Filer node is in use as part of a cluster, you should use the cluster control panel software to shut down the hardware. Read [How to safely power off Azure FXT Edge Filer hardware](fxt-power-off.md) for details.
+The power button can be used to shut down the system during testing and before adding it to a cluster. However, after an Azure FXT Edge Filer node is in use as part of a cluster, you should use the cluster control panel software to shut down the hardware. Read [How to safely power off Azure FXT Edge Filer hardware](power-off.md) for details.
 
 ## Next steps
 
 After you finish cabling the hardware, power on each of the nodes and initialize them by setting their root passwords.
 > [!div class="nextstepaction"]
-> [Set initial passwords](fxt-node-password.md)
+> [Set initial passwords](node-password.md)

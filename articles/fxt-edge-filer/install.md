@@ -29,10 +29,10 @@ This tutorial includes these setup steps:
 Before you begin, make sure that the data center and rack you will use has these features:
 
 * An available 1U slot on the rack where you intend to mount the device.
-* AC power supply and cooling systems that meet the needs of the Azure FXT Edge Filer. (Read [Power and thermal specifications](fxt-specs.md#power-and-thermal-specifications) for help planning and sizing the installation.)  
+* AC power supply and cooling systems that meet the needs of the Azure FXT Edge Filer. (Read [Power and thermal specifications](specs.md#power-and-thermal-specifications) for help planning and sizing the installation.)  
 
   > [!NOTE]
-  > To take full advantage of the two redundant power supply units (PSUs), use power distribution units on two different branch circuits when attaching AC power. Read [Connect power cables](fxt-network-power.md#connect-power-cables) for details.  
+  > To take full advantage of the two redundant power supply units (PSUs), use power distribution units on two different branch circuits when attaching AC power. Read [Connect power cables](network-power.md#connect-power-cables) for details.  
 
 ## Unpack the hardware node
 
@@ -221,4 +221,4 @@ To remove the front bezel:
 After you have unpacked and racked the device, continue setup by attaching network cables and connecting AC power to the Azure FXT Edge Filer.
 
 > [!div class="nextstepaction"]
-> [Cable the network ports and supply power](fxt-network-power.md)
+> [Cable the network ports and supply power](network-power.md)

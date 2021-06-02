@@ -49,5 +49,5 @@ Two hardware models are available.
 
 ## Next steps
 
-* Continue learning about the Azure FXT Edge Filer by reading the [specifications](fxt-specs.md) or [installation tutorial](fxt-install.md).
+* Continue learning about the Azure FXT Edge Filer by reading the [specifications](specs.md) or [installation tutorial](install.md).
 * Learn how to purchase Azure FXT Edge Filer on the [Azure FXT Edge Filer product page](https://azure.microsoft.com/services/fxt-edge-filer/).
