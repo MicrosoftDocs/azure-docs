@@ -15,7 +15,7 @@ This article explains how to install, and authenticate the Defender micro agent 
 
 1. [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine) and [connect to the VM](../virtual-machines/linux/quick-create-portal.md#connect-to-virtual-machine).
 
-1. [Register an Iot Edge device in the IoT hub](../iot-edge/how-to-register-device.md) and [retrieve connection strings](../iot-edge/how-to-register-device.md#view-registered-devices-and-retrieve-connection-strings).
+1. [Register an Iot Edge device in IoT Hub](../iot-edge/how-to-register-device.md) and [retrieve connection strings](../iot-edge/how-to-register-device.md#view-registered-devices-and-retrieve-connection-strings).
     
 1. Add the appropriate Microsoft package repository. 
 
