@@ -36,7 +36,8 @@ Add a minimum of one and up to 10 Azure subscription IDs, either individually (u
 1. Open the .CSV file in a suitable application such as Microsoft Excel.
 1. In the .CSV file, in the **ID** column, enter the Azure Subscription IDs you want to add to the preview audience.
 1. In the **Description** column, you can optionally add a description for each email address.
-1. Save the file as a .CSV file.
+1. For each Subscription ID you enter in column B, enter a **Type** in column A of "SubscriptionID".
+1. Save as a .CSV file.
 1. On the **Preview audience** page, select the **Import Audience (csv)** link.
 1. In the **Confirm** dialog box, select **Yes**.
 1. Select the .CSV file and then **Open**.
