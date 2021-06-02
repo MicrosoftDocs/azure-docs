@@ -22,7 +22,7 @@ Passwords are a primary attack vector. Bad actors use social engineering, phishi
 
 Microsoft offers the following [three passwordless authentication options](concept-authentication-passwordless.md) that integrate with Azure Active Directory (Azure AD):
 
-* [Microsoft Authenticator app](../Passwordless/concept-authentication-passwordless.md) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
+* [Microsoft Authenticator app](concept-authentication-passwordless.md) - turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser.
 
 * [FIDO2-compliant security keys](http://concept-authentication-passwordless.md/) - useful for users who sign in to shared machines like kiosks, in situations where use of phones is restricted, and for highly privileged identities. 
 
@@ -74,12 +74,12 @@ The prerequisites are determined by your selected passwordless authentication me
 
 | Prerequisite| Microsoft Authenticator app| FIDO2 Security Keys|
 | - | -|-|
-| [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](../Passwordless/howto-registration-mfa-sspr-combined.md) is enabled| √| √|  |
-| [Users can perform Azure AD MFA](../Passwordless/howto-mfa-getstarted.md)| √| √|  |
-| [Users have registered for Azure AD MFA and SSPR](../Passwordless/howto-registration-mfa-sspr-combined.md)| √| √|  |
+| [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|  |
+| [Users can perform Azure AD MFA](/howto-mfa-getstarted.md)| √| √|  |
+| [Users have registered for Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)| √| √|  |
 | [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md)| √| |  |
 | Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox (version 67 or higher). Microsoft recommends version 1903 or higher for native support.| | √|  |
-| Compatible security keys. Ensure that you’re using a [Microsoft-tested and verified FIDO2 security key](../Passwordless/concept-authentication-passwordless.md), or other compatible FIDO2 security key.| | √|  |
+| Compatible security keys. Ensure that you’re using a [Microsoft-tested and verified FIDO2 security key](concept-authentication-passwordless.md), or other compatible FIDO2 security key.| | √|  |
 
 
 ### Windows Hello for Business
@@ -109,9 +109,9 @@ Your communications to end users should include the following information:
 
 * [Downloading the Microsoft Authenticator app](../user-help/user-help-auth-app-download-install.md)
 
-* [Registering in the Microsoft Authenticator app](../passwordless/howto-authentication-passwordless-phone.md)
+* [Registering in the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
 
-* [Signing in with your phone](user-help-auth-app-sign-in.md)
+* [Signing in with your phone](../user-help/user-help-auth-app-sign-in.md)
 
 Microsoft provides communication templates for end users. Download the [authentication rollout material](https://aka.ms/MFAtemplates) to help draft your communications. The rollout materials include customizable posters and email templates that you can use to inform your users about upcoming passwordless authentication options in your organization.
 
@@ -143,7 +143,7 @@ The [Microsoft Authenticator app](concept-authentication-passwordless.md) turns 
 
 ### Deploy phone sign-in with the Microsoft Authenticator app
 
-Follow the steps in the article, [Enable passwordless sign-in with the Microsoft Authenticator app](../Passwordless/howto-authentication-passwordless-phone.md) to enable the Microsoft Authenticator app as a passwordless authentication method in your organization.
+Follow the steps in the article, [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md) to enable the Microsoft Authenticator app as a passwordless authentication method in your organization.
 
 ### Testing Microsoft Authenticator app
 
@@ -163,14 +163,14 @@ The following are sample test cases for passwordless authentication with the Mic
 
 | Scenario| Solution |
 | - |-|
-| User cannot perform combined registration.| Ensure [combined registration](../Passwordless/concept-registration-mfa-sspr-combined.md) is enabled. |
+| User cannot perform combined registration.| Ensure [combined registration](../concept-registration-mfa-sspr-combined.md) is enabled. |
 | User cannot enable phone sign-in authenticator app.| Ensure user is in scope for deployment. |
 | User is NOT in scope for passwordless authentication, but is presented with passwordless sign-in option, which they cannot complete.| Occurs when user has enabled phone sign in in the application prior to the policy being created. To enable sign in, add the user to a group of users enabled for passwordless sign-in. To block sign in: have the user remove their credential from that application. |
 
 
 ## Plan for and deploy FIDO2-compliant security keys
 
-Enable compatible security keys. Here is a list of [FIDO2 security key providers](concept-authentication-passwordless) that provide keys known to be compatible with the passwordless experience.
+Enable compatible security keys. Here is a list of [FIDO2 security key providers](concept-authentication-passwordless.md) that provide keys known to be compatible with the passwordless experience.
 
 ### Plan security key lifecycle
 
@@ -182,7 +182,7 @@ Prepare for and plan the key lifecycle.
 
  **Disabling a key** - If an administrator wishes to remove a FIDO2 key associated with a User Account, they can do so by deleting the key from the user’s authentication method as shown below.
 
-1. Login to the [Azure AD portal](../Downloads/portal.azure.com) and search for the user account from which the FIDO key is to be removed.
+1. Login to the [Azure AD portal](https://portal.azure.com) and search for the user account from which the FIDO key is to be removed.
 
 2. Select Authentication methods, select FIDO2 security key, then right-click and select Delete. 
 
@@ -202,7 +202,7 @@ There are three types of passwordless sign-in deployments available with securit
 
 * Hybrid Azure AD joined Windows 10 devices 
 
-  * Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDO2 keys](../Passwordless/howto-authentication-passwordless-security-key-on-premises.md)
+  * Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDO2 keys](howto-authentication-passwordless-security-key-on-premises.md)
 
 **For Azure AD web apps and Azure AD joined Windows devices**, use:
 
@@ -222,23 +222,23 @@ There are three types of passwordless sign-in deployments available with securit
 
 Enabling Windows 10 sign-in using FIDO2 security keys requires you to enable the credential provider functionality in Windows 10. Choose one of the following:
 
-* [Enable credential provider with Intune](../Passwordless/howto-authentication-passwordless-security-key-windows.md)
+* [Enable credential provider with Intune](howto-authentication-passwordless-security-key-windows.md)
 
   * We recommend Intune deployment.
 
-* [Enable credential provider with a provisioning package](../Passwordless/howto-authentication-passwordless-security-key-windows.md)
+* [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md)
 
   * If Intune deployment isn’t possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
     * Group Policy or Configuration Manager
     * Local installation on a Windows 10 machine
 
-* [Enable credential provider with Group Policy](../Passwordless/howto-authentication-passwordless-security-key-windows.md)
+* [Enable credential provider with Group Policy](howto-authentication-passwordless-security-key-windows.md)
 
    * Only supported for hybrid Azure AD joined devices.
 
 #### Enable on-premises integration
 
-Follow the steps in the article [Enable passwordless security key sign in to on-premises resources (preview)](../Passwordless/howto-authentication-passwordless-security-key-on-premises.md).
+Follow the steps in the article [Enable passwordless security key sign in to on-premises resources (preview)](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT] 
 > These steps must also be completed for any hybrid Azure AD joined devices to utilize FIDO2 security keys for Windows 10 sign-in.
@@ -312,9 +312,9 @@ Here are the sample test cases for passwordless authentication with security key
 
 | Scenario| Solution |
 | - | -|
-| User can’t perform combined registration.| Ensure [combined registration](../Passwordless/concept-registration-mfa-sspr-combined.md) is enabled. |
-| User can’t add a security key in their [security settings](https://aka.ms/mysecurityinfo).| Ensure that [security keys](../Passwordless/howto-authentication-passwordless-security-key.md) are enabled. |
-| User can’t add security key in Windows 10 sign-in options.| [Ensure that security keys for Windows sign in](../Passwordless/concept-authentication-passwordless.md) are enabled |
+| User can’t perform combined registration.| Ensure [combined registration](.concept-registration-mfa-sspr-combined.md) is enabled. |
+| User can’t add a security key in their [security settings](https://aka.ms/mysecurityinfo).| Ensure that [security keys](howto-authentication-passwordless-security-key.md) are enabled. |
+| User can’t add security key in Windows 10 sign-in options.| [Ensure that security keys for Windows sign in](concept-authentication-passwordless.md) are enabled |
 | **Error message**: We detected that this browser or OS doesn’t support FIDO2 security keys.| Passwordless FIDO2 security devices can only be registered in supported browsers (Microsoft Edge, Firefox version 67) o Windows 10 version 1809 or higher. |
 | **Error message**: Your company policy requires that you use a different method to sign in.| Ensure security keys are enabled in the tenant. |
 | User unable to manage my security key on Windows 10 version 1809| Version 1809 requires that you use the security key management software provided by the FIDO2 key vendor. Contact the vendor for support. |
@@ -323,7 +323,7 @@ Here are the sample test cases for passwordless authentication with security key
 
 ## Manage passwordless authentication
 
-To manage your user’s passwordless authentication methods in the [Azure portal](http://portal.azure.com/), select your user account, and then select Authentication methods.
+To manage your user’s passwordless authentication methods in the [Azure portal](https://portal.azure.com/), select your user account, and then select Authentication methods.
 
 ### Microsoft Graph APIs 
 
