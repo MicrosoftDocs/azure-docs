@@ -5685,7 +5685,7 @@
     },
     {
       "source_path_from_root": "/articles/fxt-edge-filer/fxt-cluster-create.md",
-      "redirect_url": "/azure/fxt-edge-filer/cluster-create.md",
+      "redirect_url": "/azure/fxt-edge-filer/cluster-create",
       "redirect_document_id": false
     },
     {
