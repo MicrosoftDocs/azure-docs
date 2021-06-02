@@ -1,20 +1,20 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Stack Edge Pro with GPU| Microsoft Docs 
-description: Describes how to troubleshoot Azure Stack Edge Pro GPU issues.
+title: Run diagnostics, collect logs to troubleshoot Azure Stack Edge Pro with GPU| Microsoft Docs 
+description: Describes how to run diagnostics and use logs to troubleshoot Azure Stack Edge Pro GPU issues.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 06/02/2021
 ms.author: alkohli
 ---
-# Troubleshoot issues on your Azure Stack Edge Pro GPU device 
+# Run diagnostics, collect logs to troubleshoot Azure Stack Edge Pro GPU 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to troubleshoot issues on your Azure Stack Edge Pro GPU device. 
+This article describes how to run diagnostics, collect a Support Package, and use logs to troubleshoot issues on your Azure Stack Edge Pro GPU device. 
 
 
 ## Run diagnostics
