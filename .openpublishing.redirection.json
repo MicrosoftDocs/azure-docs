@@ -5669,6 +5669,86 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
+      "redirect_url": "/azure/fxt-edge-filer/add-nodes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-storage.md",
+      "redirect_url": "/azure/fxt-edge-filer/add-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-additional-doc.md",
+      "redirect_url": "/azure/fxt-edge-filer/additional-doc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-cluster-create.md",
+      "redirect_url": "/azure/fxt-edge-filer/cluster-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-configure-network.md",
+      "redirect_url": "/azure/fxt-edge-filer/configure-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-install.md",
+      "redirect_url": "/azure/fxt-edge-filer/install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-monitor.md",
+      "redirect_url": "/azure/fxt-edge-filer/monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-mount-clients.md",
+      "redirect_url": "/azure/fxt-edge-filer/mount-clients",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-network-power.md",
+      "redirect_url": "/azure/fxt-edge-filer/network-power",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-node-password.md",
+      "redirect_url": "/azure/fxt-edge-filer/node-password",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-overview.md",
+      "redirect_url": "/azure/fxt-edge-filer/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-port-list.md",
+      "redirect_url": "/azure/fxt-edge-filer/port-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-power-off.md",
+      "redirect_url": "/azure/fxt-edge-filer/power-off",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-specs.md",
+      "redirect_url": "/azure/fxt-edge-filer/specs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-support-ticket.md",
+      "redirect_url": "/azure/fxt-edge-filer/support-ticket",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/fxt-edge-filer/fxt-supported-ciphers.md",
+      "redirect_url": "/azure/fxt-edge-filer/supported-ciphers",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
@@ -5696,6 +5776,11 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/scale-out-postgresql-hyperscale-server-group.md",
+      "redirect_url": "/azure/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group",
       "redirect_document_id": false
     },
     {
@@ -28610,6 +28695,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/concept-managed-endpoints.md",
+      "redirect_url": "/azure/machine-learning/concept-endpoints",
+      "redireect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
       "redirect_url": "/azure/machine-learning/samples-notebooks",
       "redirect_document_id": false
@@ -47890,6 +47980,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/faq-text-to-speech.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-studio-test-model.md",
       "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-studio-overview",
       "redirect_document_id": true
@@ -61703,6 +61798,11 @@
       "source_path_from_root": "/articles/cognitive-services/LUIS/get-started-portal-deploy-app.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-create-app",
       "redirect_document_id": false
+    },
+    {
+    "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-test.md",
+    "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
+    "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-get-started-javascript-add-utterance.md",
