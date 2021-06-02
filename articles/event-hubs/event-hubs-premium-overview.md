@@ -65,5 +65,5 @@ For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas
 
 ## Next steps
 
-You can start using Event Hubs Premium (Preview) via [Azure portal](https://aka.ms/eventhubsclusterquickstart). Refer [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing and  [Event Hubs FAQ](event-hubs-faq.yml) to find answers to some frequently asked questions about Event Hubs. 
+You can start using Event Hubs Premium (Preview) via [Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). Refer [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing and  [Event Hubs FAQ](event-hubs-faq.yml) to find answers to some frequently asked questions about Event Hubs. 
 
