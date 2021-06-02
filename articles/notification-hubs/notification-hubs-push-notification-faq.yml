@@ -32,7 +32,7 @@ sections:
       - question: |
           What is the price model for Notification Hubs?
         answer: |
-          The latest pricing details can be found on the [Notification Hubs Pricing] page. Notification Hubs is billed at the namespace level. (For the definition of a namespace, see "What is the resource structure of Notification Hubs?") Notification Hubs offers three tiers:
+          The latest pricing details can be found on the [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/) page. Notification Hubs is billed at the namespace level. (For the definition of a namespace, see "What is the resource structure of Notification Hubs?") Notification Hubs offers three tiers:
           
           * **Free**: This tier is a good starting point for exploring push capabilities. It's not recommended for production apps. You get 500 devices and 1 million pushes included per namespace per month, with no service level agreement (SLA) guarantee.
           * **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per namespace per month as a baseline.
@@ -43,7 +43,7 @@ sections:
           * **Rich telemetry**: You can use Notification Hubs Per Message Telemetry to track any push requests and Platform Notification System Feedback for debugging.
           * **Multi-tenancy**: You can work with Platform Notification System credentials on a namespace level. This option allows you to easily split tenants into hubs within the same namespace.
           * **Scheduled push**: You can schedule notifications to be sent out anytime.
-          * **Bulk operations**: Enables registrations Export/Import functionality as described in the [Registrations Export/Import] document.
+          * **Bulk operations**: Enables registrations Export/Import functionality as described in the [Registrations Export/Import](./export-modify-registrations-bulk.md) document.
           
       - question: |
           What is the Notification Hubs SLA?
@@ -56,7 +56,7 @@ sections:
       - question: |
           How do I upgrade or downgrade my hub or namespace to a different tier?
         answer: |
-          Go to the **[Azure portal]** > **Notification Hubs Namespaces** or **Notification Hubs**. Select the resource you want to update, and go to **Pricing Tier**. Note the following requirements:
+          Go to the **[Azure portal](https://portal.azure.com)** > **Notification Hubs Namespaces** or **Notification Hubs**. Select the resource you want to update, and go to **Pricing Tier**. Note the following requirements:
           
           * The updated pricing tier applies to *all* hubs in the namespace you're working with.
           * If your device count exceeds the limit of the tier you're downgrading to, you need to delete devices before you downgrade.
@@ -66,7 +66,7 @@ sections:
       - question: |
           Which server-side platforms do you support?
         answer: |
-          Server SDKs are available for .NET, Java, Node.js, PHP, and Python. Notification Hubs APIs are based on REST interfaces, so you can work directly with REST APIs if you're using different platforms or do not want extra dependency. For more information, go to the [Notification Hubs REST APIs] page.
+          Server SDKs are available for .NET, Java, Node.js, PHP, and Python. Notification Hubs APIs are based on REST interfaces, so you can work directly with REST APIs if you're using different platforms or do not want extra dependency. For more information, go to the [Notification Hubs REST APIs](/previous-versions/azure/reference/dn530746(v=azure.100)) page.
           
       - question: |
           Which client platforms do you support?
@@ -81,7 +81,7 @@ sections:
       - question: |
           How many devices can I support if I send push notifications via Notification Hubs?
         answer: |
-          Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
+          Refer to the [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/) page for details on the number of supported devices.
           
           If you need support for more than 10 million registered devices, you must partition your devices across multiple namespaces.
           
@@ -91,7 +91,7 @@ sections:
           Depending on the selected tier, Azure Notification Hubs automatically scales up based on the number of notifications flowing through the system.
           
           > [!NOTE]
-          > The overall usage cost can increase based on the number of push notifications sent. Make sure that you're aware of the tier limits outlined on the [Notification Hubs Pricing] page.
+          > The overall usage cost can increase based on the number of push notifications sent. Make sure that you're aware of the tier limits outlined on the [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/) page.
           
           Our customers use Notification Hubs to send millions of push notifications daily. You do not have to do anything special to scale the reach of your push notifications as long as you're using Azure Notification Hubs.
           
@@ -150,12 +150,12 @@ sections:
       - question: |
           Should I do registrations from the app backend or directly through client devices?
         answer: |
-          Registrations from the app backend are useful when you have to authenticate clients before creating the registration. They're also useful when you have tags that must be created or modified by the app backend based on app logic. For more information, go to the [Backend Registration guidance] and [Backend Registration guidance 2] pages.
+          Registrations from the app backend are useful when you have to authenticate clients before creating the registration. They're also useful when you have tags that must be created or modified by the app backend based on app logic. For more information, go to the [Backend Registration guidance](/previous-versions/azure/azure-services/dn743807(v=azure.100)) and [Backend Registration guidance 2](/previous-versions/azure/azure-services/dn530747(v=azure.100)) pages.
           
       - question: |
           What is the push notification delivery security model?
         answer: |
-          Azure Notification Hubs uses a [shared access signature](../storage/common/storage-sas-overview.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
+          Azure Notification Hubs uses a [shared access signature](../storage/common/storage-sas-overview.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model](/previous-versions/azure/azure-services/dn495373(v=azure.100)) document.
           
       - question: |
           How should I handle sensitive payload in push notifications?
@@ -167,7 +167,7 @@ sections:
           > [!NOTE]
           > Azure Notification Hubs does not log the payload of messages.
           
-          To send sensitive payloads, we recommend using a Secure Push pattern. The sender delivers a ping notification with a message identifier to the device without the sensitive payload. When the app on the device receives the payload, the app calls a secure API directly to fetch the message details. For a guide on how to implement this pattern, go to the [Notification Hubs Secure Push tutorial] page.
+          To send sensitive payloads, we recommend using a Secure Push pattern. The sender delivers a ping notification with a message identifier to the device without the sensitive payload. When the app on the device receives the payload, the app calls a secure API directly to fetch the message details. For a guide on how to implement this pattern, go to the [Notification Hubs Secure Push tutorial](./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) page.
           
   - name: Operations
     questions:
@@ -197,19 +197,19 @@ sections:
       - question: |
           Is there audit log capability?
         answer: |
-          Yes. All Notification Hubs management operations update the Azure Activity Log to which is exposed in the [Azure portal]. The Azure Activity Log offers insights into the operations performed on resources in your subscriptions. Using the Activity Log, you can determine the what, who, and when for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. However. the Activity Log does not include read (GET) operation.
+          Yes. All Notification Hubs management operations update the Azure Activity Log to which is exposed in the [Azure portal](https://portal.azure.com). The Azure Activity Log offers insights into the operations performed on resources in your subscriptions. Using the Activity Log, you can determine the what, who, and when for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. However. the Activity Log does not include read (GET) operation.
           
   - name: Monitoring and troubleshooting
     questions:
       - question: |
           What troubleshooting capabilities are available?
         answer: |
-          Azure Notification Hubs provides several features for troubleshooting, particularly for the most common scenario of dropped notifications. For details, see the [Notification Hubs troubleshooting] white paper.
+          Azure Notification Hubs provides several features for troubleshooting, particularly for the most common scenario of dropped notifications. For details, see the [Notification Hubs troubleshooting](./notification-hubs-push-notification-fixer.md) white paper.
           
       - question: |
           What telemetry features are available?
         answer: |
-          Azure Notification Hubs enables viewing telemetry data in the [Azure portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
+          Azure Notification Hubs enables viewing telemetry data in the [Azure portal](https://portal.azure.com). Details of the metrics are available on the [Notification Hubs Metrics](../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) page.
           
           You can also programmatically access metrics. For more information, see the following articles:
           
@@ -219,21 +219,3 @@ sections:
           
           > [!NOTE]
           > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNs for iOS and macOS or FCM for Android devices). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
-          
-          [Azure portal]: https://portal.azure.com
-          [Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
-          [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-          [Notification Hubs REST APIs]: /previous-versions/azure/reference/dn530746(v=azure.100)
-          [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-          [Backend Registration guidance]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
-          [Backend Registration guidance 2]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
-          [Notification Hubs security model]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
-          [Notification Hubs Secure Push tutorial]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
-          [Notification Hubs troubleshooting]: ./notification-hubs-push-notification-fixer.md
-          [Notification Hubs Metrics]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-          [Registrations Export/Import]: ./export-modify-registrations-bulk.md
-          [Azure portal]: https://portal.azure.com
-          [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
-          [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-          
-          
