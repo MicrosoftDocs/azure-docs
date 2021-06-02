@@ -54,7 +54,7 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 ::: zone-end
 
-::: zone pivot="platform-REST"
+::: zone pivot="platform-rest"
 
 [!INCLUDE [REST](includes/create-user-assigned-managed-identities-powershell.md)]
 
