@@ -38,7 +38,7 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 ## Turn on recovery options
 
-- [Soft Delete](../general/soft-delete-overview.md) is on by default. You can choose a retention period between 7 and 90 days.
+- [Soft Delete](soft-delete-overview.md) is on by default. You can choose a retention period between 7 and 90 days.
 - Turn on purge protection to prevent immediate permanent deletion of HSM or keys. When purge protection is on HSM or keys will remain in deleted state until the retention days have passed.
 
 ## Next steps
