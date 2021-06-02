@@ -29,7 +29,7 @@ To ensure you apply the correct update package to your dev kit, you must first d
 > Applying the incorrect update package could result in your dev kit becoming inoperable. It is important that you follow these steps to ensure you apply the correct update package.
 
 Option 1:
-1. Log in to the [Azure Percept Studio](https://docs.microsoft.com/en-us/azure/azure-percept/overview-azure-percept-studio).
+1. Log in to the [Azure Percept Studio](/azure/azure-percept/overview-azure-percept-studio).
 2. In **Devices**, choose your devkit device.
 3. In the **General** tab, look for the **Model** and **SW Version** information.
 
