@@ -28,6 +28,12 @@ Some example use cases enabled by Azure Object Anchors include:
 
 - **Asset Finding**. If you already have a 3D model of some object in your physical space, Azure Object Anchors can enable you to locate and track instances of that object in your physical environment.
 
+## Usage Flow
+
+First, upload your 3d asset to our Azure Object Anchors Conversion service using the [Conversion SDK](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.MixedReality.ObjectAnchors.Conversion/latest/index.html). The service will then convert your asset into an Azure Object Anchors model. Download the model, so you can [visualize it](visualize-converted-model.md) if you want. Finally, copy the model over to a HoloLens device that has the Runtime SDK for [Unity](/dotnet/api/Microsoft.Azure.ObjectAnchors) or [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt): you can now detect physical objects that match your original model.
+
+:::image type="content" source="./media/aoa-flow.png" alt-text="usage flow":::
+
 ## Next steps
 
 The following sections provide information about getting started with using and building apps with Azure Object Anchors.
