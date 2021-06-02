@@ -79,7 +79,9 @@ Follow these steps to connect to Azure:
 
 4. [Connect](#connect-to-your-spark-pools) to your Azure account if you haven't yet done so.
 
-5. Select a Spark pool as the default Spark pool for the current script file. The tools automatically update the **.VSCode\settings.json** configuration file:
+5. Select a Spark pool as the default Spark pool for the current script file. 
+
+6. Use **Synapse: PySpark Interactive** to submit this file. And the tools automatically update the **.VSCode\settings.json** configuration file:
 
      ![Set default cluster configuration](./media/vscode-tool-synapse/set-default-cluster-configuration.png)
 

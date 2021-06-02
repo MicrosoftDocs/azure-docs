@@ -7,7 +7,7 @@ ms.reviewer: minewiskan
 ms.date: 08/31/2020
 ms.topic: quickstart
 ms.service: azure-analysis-services
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - references_regions
   - devx-track-azurepowershell
   - mode-api

@@ -83,8 +83,8 @@ landingContent:
             url: ../general/overview.md
           - text: Basic concepts
             url: ../general/basic-concepts.md
-          - text: Security overview
-            url: ../general/security-overview.md
+          - text: Security features
+            url: ../general/security-features.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
 

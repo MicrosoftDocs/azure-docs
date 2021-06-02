@@ -69,12 +69,12 @@ A **PersonGroup** should have one unique recognition model for all of the **Pers
 See the following code example for the .NET client library.
 
 ```csharp
-// Create an empty PersonGroup with "recognition_02" model
+// Create an empty PersonGroup with "recognition_04" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 ```
 
-In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it is set up to use the _recognition_02_ model to extract face features.
+In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it is set up to use the _recognition_04_ model to extract face features.
 
 Correspondingly, you need to specify which model to use when detecting faces to compare against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
 

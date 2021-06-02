@@ -1,3 +1,4 @@
+items:
 - name: Computer Vision Documentation
   href: index.yml
 - name: Overview
@@ -21,6 +22,18 @@
     href: quickstarts-sdk/client-library.md
   - name: Samples
     href: /samples/browse/?products=azure&terms=computer-vision
+  - name: Responsible use of AI
+    items:
+    - name: Transparency notes
+      items:
+      - name: OCR use cases
+        href: /legal/cognitive-services/computer-vision/ocr-transparency-note?context=/azure/cognitive-services/computer-vision/context/context
+      - name: Characteristics and limitations
+        href: /legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/computer-vision/ocr-guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context
+    - name: Data, privacy, and security
+      href: /legal/cognitive-services/computer-vision/ocr-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context
   - name: How-to guides
     items:
     - name: Call the Read API
@@ -45,7 +58,8 @@
         href: ../containers/azure-container-instance-recipe.md
         displayName: container instances, container, containers, images
       - name: All Cognitive Services containers
-        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+        href: ../containers/index.yml
+        maintainContext: true
   - name: Reference
     items:
     - name: OCR REST API v3.2
@@ -55,17 +69,17 @@
     - name: OCR REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-computervision/
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+      href: /python/api/overview/azure/cognitiveservices/computervision
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/computervision
     - name: Azure CLI
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Image Analysis
@@ -125,17 +139,17 @@
     - name: Image Analysis REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-computervision
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+      href: /python/api/overview/azure/cognitiveservices/computervision
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/computervision
     - name: Azure CLI
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
 - name: Spatial Analysis
@@ -177,15 +191,15 @@
       - name: Camera placement
         href: spatial-analysis-camera-placement.md
       - name: All Cognitive Services containers
-        href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
+        href: ../containers/index.yml?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: How-to guides
   items:
   - name: Enterprise readiness
     items:
     - name: Set up Virtual Networks
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Use Azure AD Authentication
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
 - name: Resources
   items: 
   - name: Enterprise readiness

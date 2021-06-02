@@ -31,6 +31,8 @@
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
+  - name: Load balance VMs with multiple availability sets
+    href: tutorial-multi-availability-sets-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
   - name: Cross-region load balancer
@@ -102,7 +104,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets

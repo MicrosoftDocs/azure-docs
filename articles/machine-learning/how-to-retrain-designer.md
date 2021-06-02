@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.date: 03/06/2021
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Use pipeline parameters to retrain models in the designer

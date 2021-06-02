@@ -186,7 +186,7 @@ You can only add a network interface to, or remove a network interface from an a
 
 **Commands**
 
-- Azure CLI: [az network nic update](/cli/azure/network/nic#az-network-nic-update)
+- Azure CLI: [az network nic update](/cli/azure/network/nic#az_network_nic_update)
 - PowerShell: [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)
 
 ## Delete a network interface
@@ -225,7 +225,7 @@ The IP flow verify feature of Azure Network Watcher can also help you determine 
 
 **Commands**
 
-- Azure CLI: [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
+- Azure CLI: [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg)
 - PowerShell: [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
 
 ### View effective routes
@@ -242,7 +242,7 @@ The next hop feature of Azure Network Watcher can also help you determine if rou
 
 **Commands**
 
-- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
+- Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic#az_network_nic_show_effective_route_table)
 - PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## Permissions

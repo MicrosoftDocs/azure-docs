@@ -9,8 +9,8 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, responsible-ml
+ms.topic: how-to
+ms.custom: devx-track-python, responsible-ml
 ---
 
 # Use the interpretability package to explain ML models & predictions in Python (preview)
@@ -29,8 +29,9 @@ In this how-to guide, you learn to use the interpretability package of the Azure
 * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
 
 
-
 For more information on the supported interpretability techniques and machine learning models, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+
+For guidance on how to enable interpretability for models trained with automated machine learning see, [Interpretability: model explanations for automated machine learning models (preview)](how-to-machine-learning-interpretability-automl.md). 
 
 ## Generate feature importance value on your personal machine 
 The following example shows how to use the interpretability package on your personal machine without contacting Azure services.

@@ -27,7 +27,7 @@ The quickstart uses two pre-written C# applications, one to send the telemetry a
 
 * The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 3.1 or greater on your development machine.
 
-    You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+    You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
 
     You can verify the current version of C# on your development machine using the following command:
 

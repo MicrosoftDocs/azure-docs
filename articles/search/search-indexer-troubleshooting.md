@@ -65,6 +65,86 @@ More details for accessing data in a SQL managed instance are outlined [here](se
 
 Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you turn off automatic indexing in Cosmos DB, Azure Cognitive Search returns a successful state, but fails to index container contents. For instructions on how to check settings and turn on indexing, see [Manage indexing in Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
+### SharePoint Online Conditional Access policies
+
+When creating a SharePoint Online indexer you will go through a step that requires you to login to your AAD app after providing a device code. If you receive a message that says "Your sign-in was successful but your admin requires the device requesting access to be managed" the indexer is likely being blocked from accessing the SharePoint Online document library due to a [Conditional Access](https://review.docs.microsoft.com/azure/active-directory/conditional-access/overview) policy.
+
+To update the policy to allow the indexer access to the document library, follow the below steps:
+
+1. Open the Azure portal and search **Azure AD Conditional Access**, then select **Policies** on the left menu. If you don't have access to view this page you will need to either find someone who has access or get access.
+
+1. Determine which policy is blocking the SharePoint Online indexer from accessing the document library. The policy that might be blocking the indexer will include the user account that you used to authenticate during the indexer creation step in the **Users and groups** section. The policy also might have **Conditions** that:
+    * Restrict **Windows** platforms.
+    * Restrict **Mobile apps and desktop clients**.
+    * Have **Device state** configured to **Yes**.
+
+1. Once you've confirmed there is a policy that is blocking the indexer, you next need to make an exemption for the indexer. Retrieve the search service IP address.
+
+    1. Obtain the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find out the FQDN by looking up your search service on the Azure portal.
+
+   ![Obtain service FQDN](media\search-indexer-howto-secure-access\search-service-portal.png "Obtain service FQDN")
+
+    The IP address of the search service can be obtained by performing a `nslookup` (or a `ping`) of the FQDN. In the example below, you would add "150.0.0.1" to an inbound rule on the Azure Storage firewall. It might take up to 15 minutes after the firewall settings have been updated for the search service indexer to be able to access the Azure Storage account.
+
+    ```azurepowershell
+
+    nslookup contoso.search.windows.net
+    Server:  server.example.org
+    Address:  10.50.10.50
+    
+    Non-authoritative answer:
+    Name:    <name>
+    Address:  150.0.0.1
+    Aliases:  contoso.search.windows.net
+    ```
+
+1. Get the IP address ranges for the indexer execution environment for your region.
+
+    Additional IP addresses are used for requests that originate from the indexer's [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). You can get this IP address range from the service tag.
+
+    The IP address ranges for the `AzureCognitiveSearch` service tag can be either obtained via the [discovery API (preview)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
+    For this walkthrough, assuming the search service is the Azure Public cloud, the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519) should be downloaded.
+
+   ![Download JSON file](media\search-indexer-troubleshooting\service-tag.png "Download JSON file")
+
+    From the JSON file, assuming the search service is in West Central US, the list of IP addresses for the multi-tenant indexer execution environment are listed below.
+
+    ```json
+        {
+          "name": "AzureCognitiveSearch.WestCentralUS",
+          "id": "AzureCognitiveSearch.WestCentralUS",
+          "properties": {
+            "changeNumber": 1,
+            "region": "westcentralus",
+            "platform": "Azure",
+            "systemService": "AzureCognitiveSearch",
+            "addressPrefixes": [
+              "52.150.139.0/26",
+              "52.253.133.74/32"
+            ]
+          }
+        }
+    ```
+
+1. Back on the Conditional Access page in the Azure portal select **Named locations** from the menu on the left, then select **+ IP ranges location**. Give your new named location a name and add the IP ranges for your search service and indexer execution environments that you collected in the last two steps.
+    * For your search service IP address you may need to add "/32" to the end of the IP address since it only accepts valid IP ranges.
+    * Remember that for the indexer execution environment IP ranges, you only need to add the IP ranges for the region that your search service is in.
+
+1. Exclude the new Named location from the policy. 
+    1. Select **Policies** on the left menu. 
+    1. Select the policy that is blocking the indexer.
+    1. Select **Conditions**.
+    1. Select **Locations**.
+    1. Select **Exclude** then add the new Named location.
+    1. **Save** the changes.
+
+1. Wait a few minutes for the policy to update and enforce the new policy rules.
+
+1. Attempt to create the indexer again
+    1. Send an update request for the data source object that you created.
+    1. Resend the indexer create request. Use the new code to login, then send another indexer creation request after the successful login.
+
 ## Document processing errors
 
 ### Unprocessable or unsupported documents

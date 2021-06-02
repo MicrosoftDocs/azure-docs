@@ -83,7 +83,7 @@ EventHub namespace.
 
     1. [Create a policy assignment](../governance/policy/assign-policy-portal.md) using the custom policy created.
 
-        [ ![Screenshot showing how to create policy assignment](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
+       :::image type="content" source="./media/create-catalog-portal/policy-assignment.png" alt-text="Screenshot showing how to create policy assignment" lightbox="./media/create-catalog-portal/policy-assignment.png":::
 
 ## Sign in to Azure
 
@@ -115,7 +115,7 @@ If necessary, follow these steps to configure your subscription to enable Azure 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
     > [!Note] 
-    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Azure supported services page](../azure-resource-manager/management/region-move-support.md).
+    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 
 1. On the **Basics** tab, do the following:
     1. Select a **Resource group**.

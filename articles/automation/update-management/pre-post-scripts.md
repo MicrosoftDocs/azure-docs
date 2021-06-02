@@ -4,7 +4,8 @@ description: This article tells how to configure and manage pre-scripts and post
 services: automation
 ms.subservice: update-management
 ms.date: 03/08/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage pre-scripts and post-scripts

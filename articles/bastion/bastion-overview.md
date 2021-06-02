@@ -55,4 +55,4 @@ Subscribe to the RSS feed and view the latest Azure Bastion feature updates on t
 ## Next steps
 
 * [Tutorial: Create an Azure Bastion host and connect to a Windows VM](tutorial-create-host-portal.md).
-* Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+* Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

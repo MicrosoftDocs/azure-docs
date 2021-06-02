@@ -30,7 +30,8 @@ Use these selected comparisons to help you decide which method to use. You can a
 **Target disk** | Managed disks | Managed disks
 **Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 63
 **Passthrough disks** | Not supported | Supported
-**UEFI boot** | Supported. | Supported.
+**UEFI boot** | Supported. | Supported. 
+**Connectivity** | Public internet <br/> ExpressRoute with Microsoft peering <br/> <br/> [Learn how](./replicate-using-expressroute.md) to use private endpoints for replication over an ExpressRoute private peering or a S2S VPN connection. |Public internet <br/> ExpressRoute with Private peering <br/> ExpressRoute with Microsoft peering <br/> Site-to-site VPN
 
 ## Compare deployment steps
 

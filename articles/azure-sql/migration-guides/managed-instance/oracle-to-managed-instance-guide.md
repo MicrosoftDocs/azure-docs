@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 11/06/2020
 ---
 # Migration guide: Oracle to Azure SQL Managed Instance
@@ -17,7 +17,7 @@ ms.date: 11/06/2020
 
 In this guide, you learn how to migrate your Oracle schemas to Azure SQL Managed Instance by using SQL Server Migration Assistant for Oracle (SSMA for Oracle).
 
-For other migration guides, see [Azure Database Migration Guides](https://docs.microsoft.com/data-migration).
+For other migration guides, see [Azure Database Migration Guides](/data-migration).
 
 ## Prerequisites
 

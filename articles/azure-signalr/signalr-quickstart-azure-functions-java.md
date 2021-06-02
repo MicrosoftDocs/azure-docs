@@ -26,7 +26,7 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
    > The required SignalR Service bindings in Java are only supported in Azure Function Core Tools version 2.4.419 (host version 2.0.12332) or above.
 
    > [!NOTE]
-   > To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://www.microsoft.com/net/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
+   > To install extensions, Azure Functions Core Tools requires the [.NET Core SDK](https://dotnet.microsoft.com/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above

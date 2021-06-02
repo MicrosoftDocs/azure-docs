@@ -87,7 +87,7 @@ The Synapse serverless Apache Spark pools are based off the Linux distribution. 
 To recreate the environment and validate your updates:
  1. [Download](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/base_environment.yml) the template to locally recreate the Synapse runtime. There may be slight differences between the template and the actual Synapse environment.
    
- 2. Create a virtual environment using the [following instructions](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html). This  environment allows you to create an isolated Python installation with the specified list of libraries. 
+ 2. Create a virtual environment using the [following instructions](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment). This  environment allows you to create an isolated Python installation with the specified list of libraries. 
     
     ```
     conda myenv create -f environment.yml
@@ -97,7 +97,7 @@ To recreate the environment and validate your updates:
  3. Use ``pip install -r <provide your req.txt file>`` to update the virtual environment with your specified packages. If the installation results in an error, then there may be a a conflict between what is pre-installed in the Synapse base runtime and what is specified in the provided requirements file. These dependency conflicts must be resolved in order to get the updated libraries on your serverless Apache Spark pool.
 
 >[!IMPORTANT]
->Issues may arrise when using pip and conda together. When combining pip and conda, it's best to follow these [recommended best practices](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#using-pip-in-an-environment).
+>Issues may arrise when using pip and conda together. When combining pip and conda, it's best to follow these [recommended best practices](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)

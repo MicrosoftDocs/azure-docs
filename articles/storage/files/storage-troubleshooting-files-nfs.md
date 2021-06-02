@@ -7,7 +7,7 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure NFS file shares
@@ -125,11 +125,11 @@ If the package is not installed, install the package on your distribution.
 
 ```
 sudo apt update
-sudo apt install-nfscommon
+sudo apt install nfs-common
 ```
 ##### Fedora, Red Hat Enterprise Linux 8+, CentOS 8+
 
-Use the dnf package manager:`sudo dnf install nfs-common`.
+Use the dnf package manager:`sudo dnf install nfs-utils`.
 
 Older versions of Red Hat Enterprise Linux and CentOS use the yum package manager: `sudo yum install nfs-common`.
 
@@ -155,6 +155,10 @@ Using wc -c will always fetch the latest value from the server and won't have an
 
 #### Workaround 2: Use "noac" mount flag
 Remount the file system using the "noac" flag with your mount command. This will always fetch all the metadata values from the server. There may be some minor perf overhead for all metadata operations if this workaround is used.
+
+
+## Unable to mount an NFS share that is restored back from soft-deleted state
+There is a known issue during preview where NFS shares gets soft deleted despite the platform not fully supporting it. These shares will routinely get deleted upon its expiration. You can also early-delete them by "undelete share + disable soft-delete + delete share" flow. However, if you try to recover and use the shares, you will get access denied or permission denied or NFS I/O error on the client.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

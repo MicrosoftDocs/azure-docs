@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.date: 02/05/2021
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer

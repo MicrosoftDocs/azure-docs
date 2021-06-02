@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 After deploying new binary to your app, you may want to check the functionality and see information about your running application. This article explains how to access the API from a test endpoint provided by Azure Spring Cloud and expose the production-ready features for your app.
 
 ## Prerequisites
-This article assumes that you have a Spring Boot 2.x application that can be successfully deployed and booted on Azure Spring Cloud service.  See [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart.md)
+This article assumes that you have a Spring Boot 2.x application that can be successfully deployed and booted on Azure Spring Cloud service.  See [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./quickstart.md)
 
 ## Verify app through test endpoint
 1. Go to **Application dashboard** and click your app to enter the app overview page.
@@ -71,6 +71,5 @@ To view all the endpoints built-in, see [Exposing Endpoints](https://docs.spring
 
 ## Next steps
 
-* [Understand metrics for Azure Spring Cloud](spring-cloud-concept-metrics.md)
-* [Understanding app status in Azure Spring Cloud](spring-cloud-concept-app-status.md)
-
+* [Understand metrics for Azure Spring Cloud](./concept-metrics.md)
+* [Understanding app status in Azure Spring Cloud](./concept-app-status.md)

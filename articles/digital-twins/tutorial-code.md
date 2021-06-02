@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Tutorial: Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). It walks you through writing a C# console client app step by step, starting from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). It walks you through writing a C# console client app step by step, starting from scratch.
 
 > [!div class="checklist"]
 > * Set up project
@@ -44,7 +44,7 @@ What you need to begin:
 
 Once you are ready to go with your Azure Digital Twins instance, start setting up the client app project. 
 
-Open a command prompt or other console window on your machine, and create an empty project directory where you would like to store your work during this tutorial. Name the directory whatever you would like (for example, *DigitalTwinsCodeTutorial*).
+Open a command prompt or other console window on your machine, and create an empty project directory where you want to store your work during this tutorial. Name the directory whatever you want (for example, *DigitalTwinsCodeTutorial*).
 
 Navigate into the new directory.
 
@@ -58,7 +58,7 @@ This will create several files inside your directory, including one called *Prog
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
 
-Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
+Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), the second provides tools to help with authentication against Azure.
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core
@@ -81,7 +81,7 @@ To begin, open the file *Program.cs* in any code editor. You will see a minimal 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="A snippet of sample code. There is one 'using System;' statement, a namespace called DigitalTwinsCodeTutorial; a class in the namespace called Program; and a Main method in the class with a standard signature of 'static void Main(string[] args)'. The main method contains a Hello World print statement." lightbox="media/tutorial-code/starter-template.png":::
+        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Screenshot of a snippet of sample code in a code editor." lightbox="media/tutorial-code/starter-template.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -97,10 +97,10 @@ Next, you'll add code to this file to fill out some functionality.
 
 The first thing your app will need to do is authenticate against the Azure Digital Twins service. Then, you can create a service client class to access the SDK functions.
 
-In order to authenticate, you need the *hostName* of your Azure Digital Twins instance.
+In order to authenticate, you need the *host name* of your Azure Digital Twins instance.
 
 In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
-Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*.
+Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *host name*.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
@@ -122,7 +122,7 @@ Azure Digital Twins has no intrinsic domain vocabulary. The types of elements in
 
 The first step in creating an Azure Digital Twins solution is defining at least one model in a DTDL file.
 
-In the directory where you created your project, create a new *.json* file called *SampleModel.json*. Paste in the following file body: 
+In the directory where you created your project, create a new .json file called *SampleModel.json*. Paste in the following file body: 
 
 :::code language="json" source="~/digital-twins-docs-samples/models/SampleModel.json":::
 
@@ -130,7 +130,7 @@ In the directory where you created your project, create a new *.json* file calle
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-parse-models.md).
+> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-parse-models.md).
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
@@ -182,7 +182,7 @@ To keep the program from crashing, you can add exception code around the model u
 
 Now, if you run the program with `dotnet run` in your command window now, you will see that you get an error code back. The output from the model creation code shows this error:
 
-:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Program output, showing a message that says '409:Service request failed. Status: 409 (Conflict).', followed by an error printout indicating that dtmi:example:SampleModel;1 already exists":::
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Screenshot of a console showing the program output, which results in an error '409:Service request failed. Status: 409 (Conflict).'.":::
 
 From this point forward, the tutorial will wrap all calls to service methods in try/catch handlers.
 
@@ -194,7 +194,7 @@ Add the following code to the end of the `Main` method to create and initialize 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Initialize_twins":::
 
-In your command window, run the program with `dotnet run`. In the output, look for the print messages that *sampleTwin-0*, *sampleTwin-1*, and *sampleTwin-2* were created. 
+In your command window, run the program with `dotnet run`. In the output, look for the print messages that sampleTwin-0, sampleTwin-1, and sampleTwin-2 were created. 
 
 Then, run the program again. 
 
@@ -230,7 +230,7 @@ Then, add the following code to the end of the `Main` method to call the `ListRe
 
 In your command window, run the program with `dotnet run`. You should see a list of all the relationships you have created in an output statement that looks like this:
 
-:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Program output, showing a message that says 'Twin sampleTwin-0 is connected to: contains->sampleTwin-1, -contains->sampleTwin-2'" lightbox="media/tutorial-code/list-relationships.png":::
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Screenshot of a console showing the program output, which results in a message that lists the twin relationships." lightbox="media/tutorial-code/list-relationships.png":::
 
 ### Query digital twins
 
@@ -256,7 +256,7 @@ At this point in the tutorial, you have a complete client app, capable of perfor
 
 ## Clean up resources
 
-After completing this tutorial, you can choose which resources you'd like to remove, depending on what you'd like to do next.
+After completing this tutorial, you can choose which resources you want to remove, depending on what you want to do next.
 
 * **If you plan to continue to the next tutorial**, the instance used in this tutorial can be reused in the next one. You can keep the Azure Digital Twins resources you set up here and skip the rest of this section.
 
@@ -273,4 +273,4 @@ In this tutorial, you created a .NET console client application from scratch. Yo
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md)
+> [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md)

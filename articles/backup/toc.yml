@@ -212,6 +212,8 @@
         href: backup-azure-system-state.md
     - name: Restore
       items:
+      - name: Overview
+        href: about-restore-microsoft-azure-recovery-services.md
       - name: Recover files from Azure to Windows Server
         href: backup-azure-restore-windows-server.md
       - name: Restore all files in a volume
@@ -240,10 +242,18 @@
     items:
     - name: Overview
       href: blob-backup-overview.md
-    - name: Configure and manage
-      href: blob-backup-configure-manage.md
-    - name: Restore
-      href: blob-restore.md
+    - name: From the Azure portal
+      items:
+      - name: Configure and manage
+        href: blob-backup-configure-manage.md
+      - name: Restore
+        href: blob-restore.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-blobs-storage-account-ps.md
+      - name: Restore
+        href: restore-blobs-storage-account-ps.md
   - name: Azure File share backup
     items:
     - name: Overview
@@ -414,6 +424,8 @@
         href: backup-azure-sql-automation.md
       - name: Azure PowerShell Samples
         href: powershell-backup-samples.md
+    - name: Use Azure CLI
+      href: create-manage-azure-services-using-azure-command-line-interface.md
     - name: Use Azure Backup REST API
       items:
       - name: Create Recovery Services vault
@@ -428,6 +440,8 @@
         href: backup-azure-arm-userestapi-restoreazurevms.md
       - name: Manage Azure Backup jobs
         href: backup-azure-arm-userestapi-managejobs.md
+    - name: Query backup information using ARG
+      href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
       href: backup-rm-template-samples.md
   - name: Security
@@ -460,7 +474,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
   - name: Access tier
     items:
     - name: Archive tier

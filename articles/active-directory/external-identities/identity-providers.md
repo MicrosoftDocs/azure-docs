@@ -29,13 +29,13 @@ In addition to Azure AD accounts, External Identities offers a variety of identi
 
 - **Google**: Google federation allows external users to redeem invitations from you by signing in to your apps with their own Gmail accounts. Google federation can also be used in your self-service sign-up user flows. See how to [add Google as an identity provider](google-federation.md).
    > [!IMPORTANT]
-   > **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+   > **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 - **Facebook**: When building an app, you can configure self-service sign-up and enable Facebook federation so that users can sign up for your app using their own Facebook accounts. Facebook can only be used for self-service sign-up user flows and isn't available as a sign-in option when users are redeeming  invitations from you. See how to [add Facebook as an identity provider](facebook-federation.md).
 
-- **Direct federation**: You can also set up direct federation with any external identity provider that supports the SAML or WS-Fed protocols. Direct federation allows external users to redeem invitations from you by signing in to your apps with their existing social or enterprise accounts. See how to [set up direct federation](direct-federation.md).
+- **SAML/WS-Fed identity provider federation**: You can also set up federation with any external IdP that supports the SAML or WS-Fed protocols. SAML/WS-Fed IdP federation allows external users to redeem invitations from you by signing in to your apps with their existing social or enterprise accounts. See how to [set up SAML/WS-Fed IdP federation](direct-federation.md).
    > [!NOTE]
-   > Direct federation identity providers can't be used in your self-service sign-up user flows.
+   > Federated SAML/WS-Fed IdPs can't be used in your self-service sign-up user flows.
 
 ## Adding social identity providers
 
@@ -57,4 +57,4 @@ To learn how to add identity providers for sign-in to your applications, refer t
 - [Add email one-time passcode authentication](one-time-passcode.md)
 - [Add Google](google-federation.md) as an allowed social identity provider
 - [Add Facebook](facebook-federation.md) as an allowed social identity provider
-- [Set up direct federation](direct-federation.md) with any organization whose identity provider supports the SAML 2.0 or WS-Fed protocol. Note that direct federation is not an option for self-service sign-up user flows.
+- [Set up SAML/WS-Fed IdP federation](direct-federation.md) with any organization whose identity provider supports the SAML 2.0 or WS-Fed protocol. Note that SAML/WS-Fed IdP federation is not an option for self-service sign-up user flows.

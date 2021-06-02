@@ -27,7 +27,7 @@ Check below table for features availability:
 |                          | Integration Runtime Sharing | ✓<br><small>*Can be shared across different data factories* | ✗ |
 |                          | Time to Live | ✓ | ✗ |
 | **Pipelines Activities** | SSIS Package Activity | ✓ | ✗ |
-|                          | Support for Power Query Activity | ✓ | ✓ |
+|                          | Support for Power Query Activity | ✓ | ✗ |
 | **Template Gallery and Knowledge Center** | Solution Templates | ✓<br><small>*Azure Data Factory Template Gallery* | ✓<br><small>*Synapse Workspace Knowledge Center* |
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |
 | **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓<br><small>*Leverage the Synapse Spark pools* |

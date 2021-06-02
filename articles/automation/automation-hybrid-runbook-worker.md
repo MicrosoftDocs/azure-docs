@@ -4,7 +4,8 @@ description: This article provides an overview of the Hybrid Runbook Worker, whi
 services: automation
 ms.subservice: process-automation
 ms.date: 01/22/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Hybrid Runbook Worker overview
 

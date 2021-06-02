@@ -58,7 +58,7 @@ To test network communication with Network Watcher, you must first enable a netw
 
 ### Enable network watcher
 
-If you already have a network watcher enabled in the East US region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) command to create a network watcher in the EastUS region:
+If you already have a network watcher enabled in the East US region, skip to [Use IP flow verify](#use-ip-flow-verify). Use the [az network watcher configure](/cli/azure/network/watcher#az_network_watcher_configure) command to create a network watcher in the EastUS region:
 
 ```azurecli-interactive
 az network watcher configure \
@@ -69,7 +69,7 @@ az network watcher configure \
 
 ### Use IP flow verify
 
-When you create a VM, Azure allows and denies network traffic to and from the VM, by default. You might later override Azure's defaults, allowing or denying additional types of traffic. To test whether traffic is allowed or denied to different destinations and from a source IP address, use the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command.
+When you create a VM, Azure allows and denies network traffic to and from the VM, by default. You might later override Azure's defaults, allowing or denying additional types of traffic. To test whether traffic is allowed or denied to different destinations and from a source IP address, use the [az network watcher test-ip-flow](/cli/azure/network/watcher#az_network_watcher_test_ip_flow) command.
 
 Test outbound communication from the VM to one of the IP addresses for www.bing.com:
 
@@ -121,7 +121,7 @@ The result returned informs you that access is denied because of a security rule
 
 ## View details of a security rule
 
-To determine why the rules in [Use IP flow verify](#use-ip-flow-verify) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
+To determine why the rules in [Use IP flow verify](#use-ip-flow-verify) are allowing or preventing communication, review the effective security rules for the network interface with the [az network nic list-effective-nsg](/cli/azure/network/nic#az_network_nic_list_effective_nsg) command:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \

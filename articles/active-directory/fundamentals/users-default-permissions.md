@@ -130,7 +130,6 @@ Users can perform the following actions on owned groups.
 | microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
 | microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
-| microsoft.directory/groups/dynamicMembershipRule/update | Update groups.dynamicMembershipRule property in Azure Active Directory. |
 | microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
 | microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
 | microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |

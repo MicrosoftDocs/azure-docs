@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/01/2020
+ms.date: 05/08/2021
 ---
 # Register and scan Azure Files
 
@@ -34,10 +34,10 @@ To register a new Azure Files account in your data catalog, do the following:
 On the **Register sources (Azure Files)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-1. Choose how you want to point to your desired storage account:
-   1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop down box and the appropriate storage account from the **Storage account name** drop down box.
-   1. Or, you can select **Enter manually** and enter a service endpoint (URL).
-1. **Finish** to register the data source.
+2. Choose your Azure subscription to filter down Azure Storage Accounts.
+3. Select an Azure Storage Account.
+4. Select a collection or create a new one (Optional).
+5. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-files/register-sources.png" alt-text="register sources options" border="true":::
 

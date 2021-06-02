@@ -32,13 +32,13 @@ When working through this article, replace the resource names where needed.
 
 You will need information from the source image definition so you can create a copy of it in your new gallery.
 
-List information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list) to find information about the source gallery.
+List information about the available image galleries using [az sig list](/cli/azure/sig#az_sig_list) to find information about the source gallery.
 
 ```azurecli-interactive 
 az sig list -o table
 ```
 
-List the image definitions in a gallery, using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list). In this example, we are searching for image definitions in the gallery named *myGallery* in the *myGalleryRG* resource group.
+List the image definitions in a gallery, using [az sig image-definition list](/cli/azure/sig/image-definition#az_sig_image_definition_list). In this example, we are searching for image definitions in the gallery named *myGallery* in the *myGalleryRG* resource group.
 
 ```azurecli-interactive 
 az sig image-definition list \
@@ -47,7 +47,7 @@ az sig image-definition list \
    -o table
 ```
 
-List the versions of an image in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to find the image version that you want to copy into your new gallery. In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition.
+List the versions of an image in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) to find the image version that you want to copy into your new gallery. In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -57,7 +57,7 @@ az sig image-version list \
    -o table
 ```
 
-Once you have all of the information you need, you can get the ID of the source image version using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
+Once you have all of the information you need, you can get the ID of the source image version using [az sig image-version show](/cli/azure/sig/image-version#az_sig_image_version_show).
 
 ```azurecli-interactive
 az sig image-version show \
@@ -71,7 +71,7 @@ az sig image-version show \
 
 ## Create the image definition 
 
-You need to create an image definition that matches the image definition of your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az-sig-image-definition-show).
+You need to create an image definition that matches the image definition of your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -129,7 +129,7 @@ az sig image-definition create \
 
 ## Create the image version
 
-Create versions using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. 
+Create versions using [az image gallery create-image-version](/cli/azure/sig/image-version#az_sig_image_version_create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az_image_list) to get information about images that are in a resource group. 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 

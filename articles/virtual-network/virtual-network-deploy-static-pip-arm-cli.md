@@ -28,13 +28,13 @@ You can create a virtual machine with a static public IP address. A public IP ad
 You can complete the following steps from your local computer or by using the Azure Cloud Shell. To use your local computer, ensure you have the [Azure CLI installed](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). To use the Azure Cloud Shell, select **Try It** in the top right corner of any command box that follows. The Cloud Shell signs you into Azure.
 
 1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `az login`.
-2. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the East US Azure region:
+2. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group in the East US Azure region:
 
    ```azurecli-interactive
    az group create --name myResourceGroup --location eastus
    ```
 
-3. Create a virtual machine with the [az vm create](/cli/azure/vm#az-vm-create) command. The `--public-ip-address-allocation=static` option assigns a static public IP address to the virtual machine. The following example creates an Ubuntu virtual machine with a static, basic SKU public IP address named *myPublicIpAddress*:
+3. Create a virtual machine with the [az vm create](/cli/azure/vm#az_vm_create) command. The `--public-ip-address-allocation=static` option assigns a static public IP address to the virtual machine. The following example creates an Ubuntu virtual machine with a static, basic SKU public IP address named *myPublicIpAddress*:
 
    ```azurecli-interactive
    az vm create \
@@ -49,7 +49,7 @@ You can complete the following steps from your local computer or by using the Az
 
    If the public IP address must be a standard SKU, add `--public-ip-sku Standard` to the previous command. Learn more about [Public IP address SKUs](./public-ip-addresses.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/skus.md).
 
-4. View the public IP address assigned and confirm that it was created as a static, basic SKU address, with [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
+4. View the public IP address assigned and confirm that it was created as a static, basic SKU address, with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
 
    ```azurecli-interactive
    az network public-ip show \
@@ -68,7 +68,7 @@ You can complete the following steps from your local computer or by using the Az
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of the resources it contains:
+When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

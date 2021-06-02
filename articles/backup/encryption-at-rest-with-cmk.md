@@ -2,7 +2,8 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 05/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Encryption of backup data using customer-managed keys
@@ -39,7 +40,7 @@ This article discusses the following:
     >Use Az module 5.3.0 or greater to use customer managed keys for backups in the Recovery Services vault.
     
     >[!Warning]
-    >If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br></br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
+    >If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 
 If you haven't created and configured your Recovery Services vault, you can [read how to do so here](backup-create-rs-vault.md).
 
@@ -148,6 +149,9 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 1. Once done, select **Add** to add the new access policy.
 
 1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
+
+>[!NOTE] 
+>You can also assign an RBAC role to the Recovery Services vault that contains the above mentioned permissions, such as the _[Key Vault Crypto Officer](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations)_ role.<br><br>These roles may contain additional permissions other than the ones discussed above.
 
 ## Enable soft-delete and purge protection on the Azure Key Vault
 
@@ -378,6 +382,16 @@ When you specify the customer-managed key that must be used to encrypt backups, 
 Using the **Select from Key Vault** option helps to enable auto-rotation for the selected key. This eliminates the manual effort to update to the next version. However, using this option:
 - Key version update may take up to an hour to take effect.
 - When a new version of the key takes effect, the old version should also be available (in enabled state) for at least one subsequent backup job after the key update has taken effect.
+
+### Using Azure Policies for auditing and enforcing encryption utilizing customer-managed keys (in preview)
+
+Azure Backup allows you to use Azure Polices to audit and enforce encryption, using customer-managed keys, of data in the Recovery Services vault. Using the Azure Policies:
+
+- The audit policy can be used for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021. For vaults with the CMK encryption enabled before this date, the policy may fail to apply or may show false negative results (that is, these vaults may be reported as non-compliant, despite having **CMK encryption** enabled).
+- To use the audit policy for auditing vaults with **CMK encryption** enabled before 04/01/2021, use the Azure portal to update an encryption key. This helps to upgrade to the new model. If you do not want to change the encryption key, provide the same key again through the key URI or the key selection option. 
+
+   >[!Warning]
+    >If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 
 ## Frequently asked questions
 

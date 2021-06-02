@@ -37,7 +37,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/hardware-security-modules/dedicated-hsm
+    href: /cli/azure/dedicated-hsm
   - name: Azure PowerShell
     href: /powershell/module/Az.DedicatedHsm
 - name: Resources

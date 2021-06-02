@@ -1,12 +1,11 @@
 ---
 title: Continuous export can send Azure Security Center's alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 description: Learn how to configure continuous export of security alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/24/2020
+ms.date: 05/05/2021
 ms.author: memildin
 
 ---
@@ -54,7 +53,7 @@ Continuous export can export the following data types whenever they change:
 - Regulatory compliance data
 
 > [!NOTE]
-> The exporting of secure score and regulatory compliance data is a preview feature and isn't available on government clouds. 
+> The exporting of secure score and regulatory compliance data is a preview feature. 
 
 ## Set up a continuous export 
 

@@ -1,6 +1,6 @@
 ---
 title: Manage the devices in your Azure IoT Central application | Microsoft Docs
-description: As an operator, learn how to manage devices in your Azure IoT Central application. Learn how to manage individual devices and do bulk import and exports of the devices in your application.
+description: Learn how to manage devices in your Azure IoT Central application. Learn how to manage individual devices and do bulk import and exports of the devices in your application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/08/2020
@@ -9,11 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
+
+# Operator
 ---
 
 # Manage devices in your Azure IoT Central application
 
-This article describes how, as an operator, you manage devices in your Azure IoT Central application. As an operator, you can:
+This article describes how you manage devices in your Azure IoT Central application. You can:
 
 - Use the **Devices** page to view, add, and delete devices connected to your Azure IoT Central application.
 - Import and export devices in bulk.
@@ -33,7 +35,7 @@ To view an individual device:
 
 1. In the right-hand pane of the **Devices** page, you see a list of devices created from that device template. Choose an individual device to see the device details page for that device:
 
-    ![Device Details Page](./media/howto-manage-devices/devicelist.png)
+    ![Device Details Page](./media/howto-manage-devices/device-list.png)
 
 ## Add a device
 
@@ -73,7 +75,7 @@ To bulk-register devices in your application:
 
 1. Select **Import**.
 
-    ![Import Action](./media/howto-manage-devices/bulkimport1a.png)
+    ![Import Action](./media/howto-manage-devices/bulk-import-1.png)
 
 
 1. Select the CSV file that has the list of Device IDs to be imported.
@@ -82,7 +84,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown in the Device Operations panel.
 
-    ![Import Success](./media/howto-manage-devices/bulkimport3a.png)
+    ![Import Success](./media/howto-manage-devices/bulk-import-2.png)
 
 If the device import operation fails, you see an error message on the Device Operations panel. A log file capturing all the errors is generated that you can download.
 
@@ -94,7 +96,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. On the left panel, choose **All devices**:
 
-    ![Unassociated Devices](./media/howto-manage-devices/unassociateddevices1a.png)
+    ![Unassociated Devices](./media/howto-manage-devices/unassociated-devices-1.png)
 
 1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassociated** for any of your devices.
 
@@ -102,7 +104,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Select **Migrate**:
 
-    ![Associate Devices](./media/howto-manage-devices/unassociateddevices2a.png)
+    ![Associate Devices](./media/howto-manage-devices/unassociated-devices-2.png)
 
 1. Choose the template from the list of available templates and select **Migrate**.
 
@@ -120,7 +122,7 @@ To bulk export devices from your application:
 
 1. Select the devices that you want to export and then select the **Export** action.
 
-    ![Export](./media/howto-manage-devices/export1a.png)
+    ![Export](./media/howto-manage-devices/export-1.png)
 
 1. The export process starts. You can track the status using the Device Operations panel.
 
@@ -128,7 +130,7 @@ To bulk export devices from your application:
 
 1. Select the **Download File** link to download the file to a local folder on the disk.
 
-    ![Export Success](./media/howto-manage-devices/export2a.png)
+    ![Export Success](./media/howto-manage-devices/export-2.png)
 
 1. The exported CSV file contains the following columns: device ID, device name, device keys, and X509 certificate thumbprints:
 

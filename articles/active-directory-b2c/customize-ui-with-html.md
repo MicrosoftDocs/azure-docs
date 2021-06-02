@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -384,9 +384,9 @@ To use the sample:
     https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
     
-1. Save the `\*.html` files and upload them to Blob storage.
+1. Save the `\*.html` files and upload them to the Blob storage.
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
-1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
+1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the `\*.html` files.
 
 ## Use company branding assets in custom HTML
 

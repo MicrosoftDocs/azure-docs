@@ -1,6 +1,9 @@
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/use-managed-Identity)
+
 ## Setting up
 
-## Create a new Python application
+### Create a new Python application
 
 Open your terminal or command window create a new directory for your app, and navigate to it.
 

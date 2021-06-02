@@ -19,12 +19,14 @@
     href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
   - name: Leverage Bastion for remote working
     href: work-remotely-support.md
+  - name: Bastion FAQ
+    href: bastion-faq.md
   - name: Bastion and VNet peering
     href: vnet-peering.md
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: How-to guides
   items:
   - name: Create a host
@@ -71,8 +73,6 @@
     href: /cli/azure/network/bastion
 - name: Resources
   items:
-  - name: Bastion FAQ
-    href: bastion-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog

@@ -4,8 +4,8 @@ description: Learn how to monitor a pipeline in a data factory by using differen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/16/2018
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.custom: devx-track-python
 ---
 # Programmatically monitor an Azure data factory

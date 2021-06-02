@@ -169,7 +169,7 @@ To set up Windows Event Logs using the configuration workbook:
 
 ## Optional: configure alerts
 
-Azure Monitor for Windows Virtual Desktop allows you to monitor Azure Monitor alerts happening within your selected subscription in the context of your Windows Virtual Desktop data. Azure Monitor alerts are an optional feature on your Azure subscriptions, and you need to set them up separately from Azure Monitor for Windows Virtual Desktop. You can use the Azure Monitor alerts framework to set custom alerts on Windows Virtual Desktop events, diagnostics, and resources. To learn more about Azure Monitor alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
+Azure Monitor for Windows Virtual Desktop allows you to monitor Azure Monitor alerts happening within your selected subscription in the context of your Windows Virtual Desktop data. Azure Monitor alerts are an optional feature on your Azure subscriptions, and you need to set them up separately from Azure Monitor for Windows Virtual Desktop. You can use the Azure Monitor alerts framework to set custom alerts on Windows Virtual Desktop events, diagnostics, and resources. To learn more about Azure Monitor alerts, see [Azure Monitor Log Alerts](../azure-monitor/alerts/alerts-log.md).
 
 ## Diagnostic and usage data
 

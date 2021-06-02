@@ -9,8 +9,8 @@ ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 12/20/2020
-ms.topic: conceptual
-ms.custom: how-to, automl
+ms.topic: how-to
+ms.custom: automl
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning
