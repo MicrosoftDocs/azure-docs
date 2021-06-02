@@ -31,11 +31,11 @@
         - name: Live Migration
           items:
             - name: Using Dual-write proxy
-            - href: dual-write-proxy-migration.md          
+              href: dual-write-proxy-migration.md          
         - name: Offline Migration
           items:
             - name: Using Apache Spark
-            - href: spark-migration.md    
+              href: spark-migration.md    
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           

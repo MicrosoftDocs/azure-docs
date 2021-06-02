@@ -15,7 +15,7 @@ ms.date: 06/02/2021
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Where possible, we recommend using Apache Cassandra native capability to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This will use Apache Cassandra's gossip protocol to replicate data from your source data-center into your new managed instance datacenter in a seamless way. However, there may be some scenarios where your source database version is not compatible, or a hybrid cluster setup is otherwise not feasible. This article describes how to migrate data to Migrate to Azure Managed Instance for Apache Cassandra in an offline fashion using the Cassandra Spark Connector, and Azure Databricks for Apache Spark.
+Where possible, we recommend using Apache Cassandra native replication to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This approach will use Apache Cassandra's gossip protocol to replicate data from your source data-center into your new managed instance datacenter. However, there may be some scenarios where your source database version isn't compatible, or a hybrid cluster setup is otherwise not feasible. This article describes how to migrate data to Migrate to Azure Managed Instance for Apache Cassandra in an offline fashion using the Cassandra Spark Connector, and Azure Databricks for Apache Spark.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ We recommend selecting Databricks runtime version 7.5, which supports Spark 3.0.
 
 ## Add dependencies
 
-You need to add the Apache Spark Cassandra Connector library to your cluster to connect to both native and Azure Cosmos DB Cassandra endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates.
+Add the Apache Spark Cassandra Connector library to your cluster to connect to both native and Azure Cosmos DB Cassandra endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates.
 
 :::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Databricks.":::
 
