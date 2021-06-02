@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 
 ---
 # Configure one or more Always On availability group listeners - Resource Manager

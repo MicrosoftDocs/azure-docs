@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2020
+ms.date: 05/14/2021
 ms.author: duau
 ---
 # Azure Resource Manager deployment model templates for Front Door

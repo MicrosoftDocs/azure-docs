@@ -7,7 +7,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 

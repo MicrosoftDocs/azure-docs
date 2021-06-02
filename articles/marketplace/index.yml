@@ -87,9 +87,9 @@ landingContent:
       - text: Dynamics 365 for Customer Engagement & Power Apps
         url: dynamics-365-customer-engage-offer-setup.md
       - text: Dynamics 365 Business Central
-        url: ./partner-center-portal/create-new-business-central-offer.md
+        url: dynamics-365-business-central-offer-setup.md
       - text: Dynamics 365 for Operations
-        url: ./partner-center-portal/create-new-operations-offer.md
+        url: dynamics-365-operations-offer-setup.md
       - text: More offer types
         url: ./publisher-guide-by-offer-type.md
 

@@ -301,14 +301,14 @@
       href: connector-cassandra.md
     - name: Common Data Model format
       href: format-common-data-model.md
-    - name: Common Data Service for Apps
-      href: connector-dynamics-crm-office-365.md
     - name: Concur
       href: connector-concur.md
     - name: Couchbase
       href: connector-couchbase.md
     - name: DB2
       href: connector-db2.md
+    - name: Dataverse
+      href: connector-dynamics-crm-office-365.md
     - name: Delimited text format
       href: format-delimited-text.md
     - name: Delta format

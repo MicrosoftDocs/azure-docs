@@ -21,6 +21,8 @@ ms.author: yelevin
 
 The Trend Micro Deep Security connector lets you easily connect your Deep Security logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's networks and systems, and improves your security operation capabilities.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 
 ## Prerequisites
 

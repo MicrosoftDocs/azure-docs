@@ -1,11 +1,13 @@
 ---
-title: Live Video Analytics on IoT Edge FAQ - Azure  
-description: This article answers commonly asked questions about Live Video Analytics on IoT Edge.
+title: Azure Live Video Analytics on IoT Edge FAQ  
+description: This article answers commonly asked questions about Azure Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
 ---
 
-# Live Video Analytics on IoT Edge FAQ
+# Azure Live Video Analytics on IoT Edge FAQ
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article answers commonly asked questions about Live Video Analytics on Azure IoT Edge.
 

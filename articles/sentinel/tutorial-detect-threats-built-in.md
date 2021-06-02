@@ -90,6 +90,10 @@ Several new scheduled analytics rule templates produce alerts that are correlate
 
     For more details on how to customize your rules in the rule creation wizard, see [Tutorial: Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
 
+## Export rules to an ARM template
+
+You can easily [export your rule to an Azure Resource Manager (ARM) template](import-export-analytics-rules.md) if you want to manage and deploy your rules as code. You can also import rules from template files in order to view and edit them in the user interface.
+
 ## Next steps
 
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel.
