@@ -19,7 +19,7 @@ You can use your cloudadmin credentials for connected services like HCX, vRealiz
 
 - If you use your cloudadmin credentials for connected services, your connections stop working once you've updated the password. Stop these services before you rotate the password. Otherwise, you'll experience temporary locks on your accounts, as these services continuously call your old credentials. 
 
-- Make sure to set up a connection to an external identity source (LDAP) to create and manage credentials for use with connected services. [we need a link to the procedure]
+- Make sure to [set up a connection to an external identity source (LDAP)](connect-external-identity-source-ldap-run-command.md) to create and manage credentials for use with connected services. If you don't have an external identity source, such as Active Directory, you shouldn't rotate your cloudadmin credentials. Rotating could break any connections that use the vCenter or NSX-T credentials. It could also lock out those accounts, resulting in a security lockout.
 
 
 ## Reset your Azure VMware Solution credentials
@@ -32,21 +32,21 @@ In this step, you'll reset the cloudadmin credentials for your Azure VMware Solu
 
    1. Select **Generate new password**.
 
-      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials1.png" alt-text="Screenshot showing the vCenter credentials and a way to copy them or generate a new password.":::
+      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png" alt-text="Screenshot showing the vCenter credentials and a way to copy them or generate a new password.":::
 
    1. Select the confirmation checkbox and then select **Generate password**.
 
-      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new vCenter credential.":::
+      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-2.png" alt-text="Screenshot prompting confirmation to generate a new vCenter credential.":::
 
 1. Reset the **NSX-T Manager credentials**:
 
    1. Select **Generate new password**.
 
-      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials1.png" alt-text="Screenshot showing the NSX-T Manager credentials and a way to copy them or generate a new password.":::
+      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials-1.png" alt-text="Screenshot showing the NSX-T Manager credentials and a way to copy them or generate a new password.":::
 
    1. Select the confirmation checkbox and then select **Generate password**.
 
-      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials2.png" alt-text="Screenshot prompting confirmation to generate a new NSX-T Manager credential.":::
+      :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials-2.png" alt-text="Screenshot prompting confirmation to generate a new NSX-T Manager credential.":::
 
 
 ## Update HCX Connector with the latest credentials
@@ -56,7 +56,7 @@ In this step, you'll update HCX Connector with the new credentials.
 >[!NOTE]
 >HCX connector won't need your NSX-T admin account, but other services might, such as vRealize Operations Manager. You can add and configure an [NSX-T Adapter Instance to vRealize Operations Manager](https://docs.vmware.com/en/VMware-Validated-Design/5.1/sddc-deployment-of-vmware-nsx-t-workload-domains/GUID-A14D37FE-59AD-44E7-BB95-E3098F8B3640.html?hWord=N4IghgNiBcIHIGUAaBaAKgAgIIBMwAcAXAUwCcQBfIA).
 
-1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
+1. Go to the on-premises HCX Connector at https://*{ip of the HCX connector appliance}*:443 and sign in using the new credentials.
 
    Be sure to use port 443. 
 
