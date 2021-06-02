@@ -48,4 +48,4 @@ To be enrolled in MACC and offer must be:
 
 - To learn more about how the MACC program benefits customers and how they can find solutions that are enabled for MACC, see [Azure Consumption Commitment benefit](/marketplace/azure-consumption-commitment-benefit).
 - To learn more about how your organization can leverage the Azure Marketplace, complete our Microsoft Learn module: [Simplify cloud procurement and governance with Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/)
-- [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations#transact-publishing-option.md)
+- [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-publishing-option)
