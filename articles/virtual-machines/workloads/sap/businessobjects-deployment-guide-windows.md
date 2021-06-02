@@ -146,9 +146,9 @@ The steps in this section use the following prefix:
 
 ### Initialize a new data disk
 
-The SAP BusinessObjects BI application requires a partition on which its binaries can be installed. You can install an SAP BOBI application on the OS partition (C: ), but you must make sure to have enough space for the deployment and the OS. We recommend that you have at least 2 GB available for temporary files and web applications. Also, it's advisable to separate SAP BOBI installation binaries in separate partitions.
+The SAP BusinessObjects BI application requires a partition on which its binaries can be installed. You can install an SAP BOBI application on the OS partition (C:), but you must make sure to have enough space for the deployment and the OS. We recommend that you have at least 2 GB available for temporary files and web applications. Also, it's advisable to separate SAP BOBI installation binaries in separate partitions.
 
-In this example, an SAP BOBI application is installed on a separate partition (F: ). Initialize the Premium SSD disk that you attached during the VM provisioning:
+In this example, an SAP BOBI application is installed on a separate partition (F:). Initialize the Premium SSD disk that you attached during the VM provisioning:
 
 1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](../../windows/attach-managed-disk-portal.md#add-a-data-disk) to attach a new managed data disk.
 1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](../../windows/attach-managed-disk-portal.md#initialize-a-new-data-disk).
