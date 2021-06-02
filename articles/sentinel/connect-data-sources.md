@@ -62,6 +62,7 @@ To find the support contact information for a data connector:
    The **Supported by** field has a support contact link you can use for support and maintenance of the selected data connector.
 
 ## Data connection methods
+<a name="map-data-types-with-azure-sentinel-connection-options"></a>
 
 Azure Sentinel supports the following data connection methods:
 

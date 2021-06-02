@@ -854,9 +854,9 @@ The Zoom Reports data connector ingests Zoom Reports events into Azure Sentinel.
 
 The Zscaler data connector connects Zscaler Internet Access (ZIA) logs to Azure Sentinel. Using Zscaler on Azure Sentinel gives you insights into your organization's internet usage and enhances your security operations capabilities.​ For more information, see the [Zscaler and Microsoft Azure Sentinel Deployment Guide](https://aka.ms/ZscalerCEFInstructions).
 
-**Data ingestion method:** [CEF](connect-common-event-format.md) over Syslog.
-
 For more information about connecting to Azure Sentinel, see [Connect Zscaler to Azure Sentinel](connect-zscaler.md).
+
+**Data ingestion method:** [CEF](connect-common-event-format.md) over Syslog.
 
 **Supported by:** [Zscaler](https://help.zscaler.com/submit-ticket-links)
 
