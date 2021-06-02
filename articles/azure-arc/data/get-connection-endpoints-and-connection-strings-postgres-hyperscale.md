@@ -84,13 +84,8 @@ postgres=#
 > When this happens, you need to reconnect with azdata as explained above.
 
 ## From CLI with kubectl
-- If your server group is of Postgres version 12 (default), then the following command:
 ```console
-kubectl get postgresql-12/<server group name> -n <namespace name>
-```
-- If your server group is of Postgres version 11, then the following command:
-```console
-kubectl get postgresql-11/<server group name> -n <namespace name>
+kubectl get postgresqls/<server group name> -n <namespace name>
 ```
 
 Those commands will produce output like the one below. You can use that information to form your connection strings:
