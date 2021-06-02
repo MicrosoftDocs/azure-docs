@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
-ms.author: alkohli
+ms.date: 05/13/2021
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
 ---
 
@@ -453,6 +454,13 @@ Depending on whether you created a Windows VM or a Linux VM, the connection inst
 To connect to a Linux VM, do the following:
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+  If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
+
+  ```powershell
+  $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
+  ```
+  In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
 
 ### Connect to a Windows VM
 

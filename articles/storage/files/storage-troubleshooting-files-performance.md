@@ -1,11 +1,11 @@
 ---
 title: Azure file shares performance troubleshooting guide
 description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
-author: gunjanj
+author: roygara
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 11/16/2020
-ms.author: gunjanj
+ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -60,7 +60,7 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 ### Cause 2: Metadata or namespace heavy workload
 
-If the majority of your requests are metadata-centric (such as createfile, openfile, closefile, queryinfo, or querydirectory), the latency will be worse than that of read/write operations.
+If the majority of your requests are metadata-centric (such as `createfile`, `openfile`, `closefile`, `queryinfo`, or `querydirectory`), the latency will be worse than that of read/write operations.
 
 To determine whether most of your requests are metadata-centric, start by following steps 1-4 as previously outlined in Cause 1. For step 5, instead of adding a filter for **Response type**, add a property filter for **API name**.
 
@@ -112,8 +112,8 @@ This is a known issue with the implementation of the SMB client on Linux.
 ### Workaround
 
 - Spread the load across multiple VMs.
-- On the same VM, use multiple mount points with a **nosharesock** option, and spread the load across these mount points.
-- On Linux, try mounting with a **nostrictsync** option to avoid forcing an SMB flush on every **fsync** call. For Azure Files, this option doesn't interfere with data consistency, but it might result in stale file metadata on directory listings (**ls -l** command). Directly querying file metadata by using the **stat** command will return the most up-to-date file metadata.
+- On the same VM, use multiple mount points with a `nosharesock` option, and spread the load across these mount points.
+- On Linux, try mounting with a `nostrictsync` option to avoid forcing an SMB flush on every `fsync` call. For Azure Files, this option doesn't interfere with data consistency, but it might result in stale file metadata on directory listings (`ls -l` command). Directly querying file metadata by using the `stat` command will return the most up-to-date file metadata.
 
 ## High latencies for metadata-heavy workloads involving extensive open/close operations
 
@@ -124,7 +124,7 @@ Lack of support for directory leases.
 ### Workaround
 
 - If possible, avoid using an excessive opening/closing handle on the same directory within a short period of time.
-- For Linux VMs, increase the directory entry cache timeout by specifying **actimeo=\<sec>** as a mount option. By default, the timeout is 1 second, so a larger value, such as 3 or 5 seconds, might help.
+- For Linux VMs, increase the directory entry cache timeout by specifying `actimeo=<sec>` as a mount option. By default, the timeout is 1 second, so a larger value, such as 3 or 5 seconds, might help.
 - For CentOS Linux or Red Hat Enterprise Linux (RHEL) VMs, upgrade the system to CentOS Linux 8.2 or RHEL 8.2. For other Linux VMs, upgrade the kernel to 5.0 or later.
 
 ## Low IOPS on CentOS Linux or RHEL
@@ -288,7 +288,7 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
 7. In the **Dimension values** drop-down list, select the file share or shares that you want to alert on.
 8. Define the alert parameters by selecting values in the **Operator**, **Threshold value**, **Aggregation granularity**, and **Frequency of evaluation** drop-down lists, and then select **Done**.
 
-   Egress, ingress, and transactions metrics are expressed per minute, though you're provisioned egress, ingress, and I/O per second. Therefore, for example, if your provisioned egress is 90&nbsp;mebibytes per second (MiB/s) and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
+   Egress, ingress, and transactions metrics are expressed per minute, though you're provisioned egress, ingress, and I/O per second. Therefore, for example, if your provisioned egress is 90&nbsp; MiB/s and you want your threshold to be 80&nbsp;percent of provisioned egress, select the following alert parameters: 
    - For **Threshold value**: *75497472* 
    - For **Operator**: *greater than or equal to*
    - For **Aggregation type**: *average*

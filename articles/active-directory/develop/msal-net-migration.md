@@ -47,13 +47,16 @@ If you are already familiar with the Azure AD for developers (v1.0) endpoint (an
 However, you still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more information, see [ADFS support](https://aka.ms/msal-net-adfs-support).
 
 The following picture summarizes some of the differences between ADAL.NET and MSAL.NET for a public client application
-![Side-by-side code](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
+[![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a public client application.](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png#lightbox)
+
+And the following picture summarizes some of the differences between ADAL.NET and MSAL.NET for a confidential client application
+[![Screenshot showing some of the differences between ADAL.NET and MSAL.NET for a confidential client application.](./media/msal-net-migration/confidential-client-application.png)](./media/msal-net-migration/confidential-client-application.png#lightbox)
 
 ### NuGet packages and Namespaces
 
 ADAL.NET is consumed from the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package. the namespace to use is `Microsoft.IdentityModel.Clients.ActiveDirectory`.
 
-To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package, and use the `Microsoft.Identity.Client` namespace
+To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package, and use the `Microsoft.Identity.Client` namespace. If you are building a confidential client application, you also want to check out [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
 
 ### Scopes not resources
 
@@ -145,7 +148,7 @@ Web app | Auth Code | [Acquiring tokens with authorization codes on web apps wit
 
 ADAL.NET allows you to extend the `TokenCache` class to implement the desired persistence functionality on platforms without a secure storage (.NET Framework and .NET core) by using the `BeforeAccess`, and `BeforeWrite` methods. For details, see [Token Cache Serialization in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization).
 
-MSAL.NET makes the token cache a sealed class, removing the ability to extend it. Therefore, your implementation of token cache persistence must be in the form of a helper class that interacts with the sealed token cache. This interaction is described in [Token Cache Serialization in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization).
+MSAL.NET makes the token cache a sealed class, removing the ability to extend it. Therefore, your implementation of token cache persistence must be in the form of a helper class that interacts with the sealed token cache. This interaction is described in [Token Cache Serialization in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization). The serialization will be different for a public client application (See [Token cache for a public client application](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-public-client-application)), and for a confidential client application (See [Token cache for a web app or web API](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-public-client-application))
 
 ## Signification of the common authority
 

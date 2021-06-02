@@ -1,12 +1,12 @@
 ---
 title: Overview of operational backup for Azure Blobs
-description: Learn about operational backup for Azure Blobs (in preview).
+description: Learn about operational backup for Azure Blobs.
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 05/05/2021
 
 ---
 
-# Overview of operational backup for Azure Blobs (in preview)
+# Overview of operational backup for Azure Blobs
 
 Operational backup for Blobs is a managed, local data protection solution that lets you protect your block blobs from various data loss scenarios like corruptions, blob deletions, and accidental storage account deletion. The data is stored locally within the source storage account itself and can be recovered to a selected point in time whenever needed. So it provides a simple, secure, and cost-effective means to protect your blobs.
 

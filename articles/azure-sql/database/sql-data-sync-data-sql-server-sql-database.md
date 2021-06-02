@@ -3,13 +3,13 @@ title: What is SQL Data Sync for Azure?
 description: This overview introduces SQL Data Sync for Azure, which allows you to sync data across multiple cloud and on-premises databases. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: MaraSteiu 
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 08/20/2019
 ---
 # What is SQL Data Sync for Azure?
@@ -147,6 +147,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Columns with User-Defined Data Types aren't supported
 - Moving servers between different subscriptions isn't supported. 
 - If two primary keys are only different in case (e.g. Foo and foo), Data Sync won't support this scenario.
+- Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
 
 #### Unsupported data types
 

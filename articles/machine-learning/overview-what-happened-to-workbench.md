@@ -91,11 +91,10 @@ Learn about the [latest architecture for Azure Machine Learning](concept-azure-m
 
 For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
 
-Create your first experiment with your preferred method:
+Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 
-  + [Use your own environment](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Use Python notebooks](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown](https://github.com/Azure/azureml-sdk-for-r) 
+  + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
   + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
-  + [Use the ML extension to the CLI](tutorial-train-deploy-model-cli.md)
+  + [Use the ML extension to the CLI](how-to-train-cli.md)

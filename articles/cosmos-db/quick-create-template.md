@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 
 #Customer intent: As a database admin who is new to Azure, I want to use Azure Cosmos DB to store and manage my data.
 

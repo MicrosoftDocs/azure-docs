@@ -10,10 +10,8 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for iOS.
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
-
 > [!NOTE]
-> This document uses version 1.0.0-beta.12 of the Calling SDK.
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)
 
 ## Prerequisites
 
@@ -43,9 +41,7 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.12'
-     pod 'AzureCommunication', '~> 1.0.0-beta.11'
-     pod 'AzureCore', '~> 1.0.0-beta.11'
+     pod 'AzureCommunicationCalling', '~> 1.0.0'
    end
    ```
 
@@ -167,8 +163,8 @@ func startCall()
     AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
         if granted {
             // start call logic
-            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(identifier: self.callee)]
-            self.call = self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
+            let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
+            self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { (call, error) in
                 if (error == nil) {
                     self.call = call
                 } else {
@@ -189,7 +185,7 @@ Implement the `endCall` method to end the current call when the *End Call* butto
 ```swift
 func endCall()
 {    
-    self.call!.hangUp(HangUpOptions()) { (error) in
+    self.call!.hangUp(options: HangUpOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }

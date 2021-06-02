@@ -7,7 +7,8 @@ author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/14/2021
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 
