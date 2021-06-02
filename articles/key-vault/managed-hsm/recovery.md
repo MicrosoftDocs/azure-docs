@@ -79,13 +79,14 @@ For more information about soft-delete, see [Managed HSM soft-delete overview](s
     az keyvault recover --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME}
     ```
 
+
 * Purge soft-deleted HSM
-> [!WARNING] 
-> This operation will permanently delete your HSM
 
     ```azurecli
     az keyvault purge --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME}
     ```
+    > [!WARNING] 
+    > This operation will permanently delete your HSM
 
 * Enable purge-protection on HSM
 
@@ -114,12 +115,12 @@ For more information about soft-delete, see [Managed HSM soft-delete overview](s
     ```
 
 * Purge soft-deleted key 
-> [!WARNING] 
-> This operation will permanently delete your key
 
     ```azurecli
     az keyvault key purge --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME} --name {KEY NAME}
     ```
+    > [!WARNING] 
+    > This operation will permanently delete your key
 
 # [Azure PowerShell](#tab/azure-powershell)
 
