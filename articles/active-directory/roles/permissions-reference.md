@@ -1493,6 +1493,7 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 >* Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
+Due to the above scenarios, Authentication Administrator role cannot change credentials or reset MFA on members or owners of role assignable security groups. See [Why we enforce creation of a special group for assigning it to a role](https://docs.microsoft.com/en-us/azure/active-directory/roles/groups-concept#why-we-enforce-creation-of-a-special-group-for-assigning-it-to-a-role).
 
 > [!IMPORTANT]
 > This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
