@@ -25,11 +25,11 @@ ms.author: yelevin
 
 ## Introduction
 
-You can now export your analytics rules to Azure Resource Manager (ARM) template files, and import rules from these files, as a means of managing and controlling your Azure Sentinel deployments. The export action will create a JSON file (named *Azure_Sentinel_analytic_rule.json*) in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
+You can now export your analytics rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Azure Sentinel deployments as code. The export action will create a JSON file (named *Azure_Sentinel_analytic_rule.json*) in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
 
-The exported JSON file is workspace-independent, so that it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
+The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
 
-The file includes all the parameters defined in the analytics rule, so for **Scheduled** rules it includes the underlying query and its accompanying scheduling settings, the severity, incident creation, event- and alert-grouping settings, assigned MITRE ATT&CK tactics, and more. Any type of analytics rule (not just Scheduled) can be exported to a JSON file.
+The file includes all the parameters defined in the analytics rule, so for **Scheduled** rules it includes the underlying query and its accompanying scheduling settings, the severity, incident creation, event- and alert-grouping settings, assigned MITRE ATT&CK tactics, and more. Any type of analytics rule - not just **Scheduled** - can be exported to a JSON file.
 
 ## Export rules
 
