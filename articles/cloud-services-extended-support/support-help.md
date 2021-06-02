@@ -15,7 +15,7 @@ Here are suggestions for where you can get help when developing your Azure Cloud
 
 ## Self help troubleshooting
 <div class='icon is-large'>
-    <img alt='Self help content' src='./media/logos/i-article.svg'>
+    <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
 For common issues and and workarounds, see [Troubleshoot Azure Cloud Services (extended support) role start failures](role-startup-failure.md) and [Frequently asked questions](faq.md)
@@ -37,7 +37,7 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 ## Create an Azure support request
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='./media/logos/logo-azure.svg'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
 </div>
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
@@ -50,7 +50,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
-    <img alt='Stay informed' src='./media/logos/i-blog.svg'>
+    <img alt='Stay informed' src='./media/logos/updates-logo.png'>
 </div>
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
