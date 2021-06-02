@@ -52,88 +52,30 @@ In the first option, you will have to update the sentinel key-value in App Confi
     - **Secret Version**: **Latest version**.
 
 > [!Note]
-> Reloading secrets only makes sense if you are referencing the latest version of a secret. If you reference a specific version, reloading the secret or certificate from Key Vault will always return the same value.
+> If you reference a specific version, reloading the secret or certificate from Key Vault will always return the same value.
 
 
 ## Update code to reload Key Vault secrets and certificates
 
-Update the `ConfigureKeyVault` method to set up a refresh interval for your Key Vault certificate using the `SetSecretRefreshInterval` method. With this change, your application will reload the public-private key pair for **ExampleCertificate** every 12 hours.
-
-#### [.NET 5.x](#tab/core5x)
+In your *Program.cs* file, update the `AddAzureAppConfiguration` method to set up a refresh interval for your Key Vault certificate using the `SetSecretRefreshInterval` method. With this change, your application will reload the public-private key pair for **ExampleCertificate** every 12 hours.
 
 ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-
-            config.AddAzureAppConfiguration(options =>
+config.AddAzureAppConfiguration(options =>
+{
+    options.Connect(settings["ConnectionStrings:AppConfig"])
+            .ConfigureKeyVault(kv =>
             {
-                options.Connect(settings["ConnectionStrings:AppConfig"])
-                        .ConfigureKeyVault(kv =>
-                        {
-                            kv.SetCredential(new DefaultAzureCredential());
-                            kv.SetSecretRefreshInterval("TestApp:Settings:KeyVaultCertificate", TimeSpan.FromHours(12));
-                        });
+                kv.SetCredential(new DefaultAzureCredential());
+                kv.SetSecretRefreshInterval("TestApp:Settings:KeyVaultCertificate", TimeSpan.FromHours(12));
             });
-        })
-        .UseStartup<Startup>());
+});
 ```
 
-#### [.NET Core 3.x](#tab/core3x)
+The first argument in `SetSecretRefreshInterval` method is the key of the Key Vault reference in App Configuration. This argument is optional. If the key parameter is omitted, the refresh interval will apply to all those secrets and certificates which do not have individual refresh intervals.
 
-```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
+Refresh interval defines the frequency at which your secrets and certificates will be reloaded from Key Vault regardless of their values in Key Vault or App Configuration. If you want to reload secrets and certificates when their value changes in App Configuration, you can monitor them using the `ConfigureRefresh` method. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
 
-            config.AddAzureAppConfiguration(options =>
-            {
-                options.Connect(settings["ConnectionStrings:AppConfig"])
-                        .ConfigureKeyVault(kv =>
-                        {
-                            kv.SetCredential(new DefaultAzureCredential());
-                            kv.SetSecretRefreshInterval("TestApp:Settings:KeyVaultCertificate", TimeSpan.FromHours(12));
-                        });
-            });
-        })
-        .UseStartup<Startup>());
-```
-
-#### [.NET Core 2.x](#tab/core2x)
-
-```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-        .ConfigureAppConfiguration((hostingContext, config) =>
-        {
-            var settings = config.Build();
-
-            config.AddAzureAppConfiguration(options =>
-            {
-                options.Connect(settings["ConnectionStrings:AppConfig"])
-                        .ConfigureKeyVault(kv =>
-                        {
-                            kv.SetCredential(new DefaultAzureCredential());
-                            kv.SetSecretRefreshInterval("TestApp:Settings:KeyVaultCertificate", TimeSpan.FromHours(12));
-                        });
-            });
-        })
-        .UseStartup<Startup>();
-```
-
----
-
-The first argument in `SetSecretRefreshInterval` method is the key of the Key Vault reference in App Configuration. This argument is optional. If no key is provided, the refresh interval will apply to all those secrets and certificates which do not have individual refresh intervals. 
-
-`SetSecretRefreshInterval` method doesn't monitor the value of a key in App Configuration. For monitoring the value in App Configuration, use the `ConfigureRefresh` method to register keys for refresh. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
-
-The frequency of reloading secrets and certificates from Key Vault should be chosen appropriately based on your needs. If the refresh interval is too low, there's a risk of being throttled by Key Vault. For more information, refer to the [service limits for Key Vault](../key-vault/general/service-limits.md).
+The frequency of reloading secrets and certificates from Key Vault should be chosen appropriately based on your needs. If refresh interval is too large, your application may not get the rotated secrets before the old secrets expire in Key Vault. If the refresh interval is too low, there's a risk of being throttled by Key Vault. For more information on throttling, refer to the [service limits for Key Vault](../key-vault/general/service-limits.md).
 
 
 ## Clean up resources
