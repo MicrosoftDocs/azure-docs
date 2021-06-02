@@ -146,7 +146,7 @@ Before you deploy a Linux VM using a custom VM image, make sure the Provisioning
 
 ## Use AzCopy to copy VM image to Blob container
 
-The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. It's a good idea to store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
+The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
 
 
 ### Create a target URI for a Blob container
