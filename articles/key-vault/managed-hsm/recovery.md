@@ -4,8 +4,8 @@ description: Managed HSM Recovery features are designed to prevent the accidenta
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.author: amitbapat
-author: ambapat
+ms.author: ambapat
+author: amitbapat
 ms.date: 06/01/2021
 ---
 
@@ -25,7 +25,7 @@ For more information about Managed HSM, see [Managed HSM overview](overview.md)
 
   | Role Assignment | Description |
   |---|---|
-  |[Managed HSM Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-hsm-contributor)|To list, recover and purge soft-deleted HSMs|
+  |[Managed HSM Contributor](../../role-based-access-control/built-in-roles#managed-hsm-contributor)|To list, recover and purge soft-deleted HSMs|
   |[Managed HSM Crypto User](./built-in-roles.md)|List soft-deleted keys|
   |[Managed HSM Crypto Officer](./built-in-roles.md)|Purge or recover soft-deleted keys|
 
@@ -38,7 +38,8 @@ For more information about Managed HSM, see [Managed HSM overview](overview.md)
 
 **Soft delete** is designed to prevent accidental deletion of your HSM and keys. Think of soft-delete like a recycle bin. When you delete an HSM or a key, it will remain recoverable for a user configurable retention period or a default of 90 days. HSMs and keys in the soft deleted state can also be **purged** which means they are permanently deleted. This allows you to recreate HSMs and keys with the same name. Both recovering and deleting HSMs and keys require specific role assignments. **Soft delete cannot be disabled.**
 
-> [!NOTE] Since the underlying resources remain allocated to your HSM, even when it is in deleted state, the HSM resource will continue to accrue hourly charges while in deleted state.
+> [!NOTE]
+> Since the underlying resources remain allocated to your HSM, even when it is in deleted state, the HSM resource will continue to accrue hourly charges while in deleted state.
 
 It is important to note that **Managed HSM names are globally unique** in every cloud environment, so you won't be able to create a Managed HSM with the same name if one exists in a soft deleted state. Similarly, the names of keys are unique within an HSM. You won't be able to create a new keyif one exists in the soft deleted state.
 
