@@ -215,7 +215,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     ![Quickstart local app launch](./media/key-vault-reference-launch-local.png)
 
 
-## Use Azure App Configuration andAzure Key Vault with managed identity
+## Use Azure App Configuration and Azure Key Vault with managed identity
 
 To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code calls `SetCredential` as part of `ConfigureKeyVault` to tell the config provider what credential to use when authenticating to Key Vault.
 
