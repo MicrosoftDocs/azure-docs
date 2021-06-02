@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Float SSO
 
-To configure single sign-on on **Float** side, visit the Float Team Settings section and select Configure from the Authentication module. Paste the Azure AD Login URL in the SAML 2.0 Endpoint URL field, paste the Azure AD Indentifier in the Identity Provider Issuer URL field, paste the full text from the downloaded **Certificate (Base64)** in the X.509 Certificate field, and Save.
+To configure single sign-on on **Float** side, visit the Float Team Settings section and select Configure from the Authentication module. Paste the Azure AD Login URL in the SAML 2.0 Endpoint URL field, paste the Azure AD Identifier in the Identity Provider Issuer URL field, paste the full text from the downloaded **Certificate (Base64)** in the X.509 Certificate field, and Save.
 
 ### Create Float test user
 
