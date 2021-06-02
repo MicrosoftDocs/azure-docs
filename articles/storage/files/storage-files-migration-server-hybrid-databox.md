@@ -13,10 +13,17 @@ ms.subservice: files
 
 This migration article is one of several that apply to the keywords Azure File Sync and Azure Data Box. Check if this article applies to your scenario:
 
-> [!div class="checklist"]
-> * Data source: Windows Server 2012 R2 or newer where Azure File Sync will be installed and point to the original set of files.
-> * Migration route: Windows Server 2012 R2 or newer &rArr; Data Box &rArr; Azure file share &rArr; sync with Windows Server original file location
-> * Caching files on-premises: Yes, the final goal is an Azure File Sync deployment that syncs the files from where they are now. 
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-server-hybrid-databox/file-sync-data-box-concept.png" alt-text="An image displaying the three sequential steps described in this migration guide. The column next to the image spells them out in detail." lightbox="media/storage-files-migration-server-hybrid-databox/file-sync-data-box-concept-expanded.png":::
+    :::column-end:::
+    :::column:::
+        > [!div class="checklist"]
+        > * Data source: Windows Server 2012 R2 or newer where Azure File Sync will be installed and point to the original set of files.
+        > * Migration route: Windows Server 2012 R2 or newer &rArr; Data Box &rArr; Azure file share &rArr; sync with Windows Server original file location
+        > * Caching files on-premises: Yes, the final goal is an Azure File Sync deployment that syncs the files from where they are now. 
+        :::column-end:::
+:::row-end:::
 
 Using Azure Data Box is a viable path to move the bulk of the data from your on-premises Windows Server to separate Azure file shares and then, optionally, add Azure File Sync on the original source server.
 
