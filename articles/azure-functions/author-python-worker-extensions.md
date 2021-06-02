@@ -9,9 +9,9 @@ ms.custom: devx-track-python
 ---
 # Author Python worker extensions
 
-In this tutorial, we will go through the process of authoring an application level Python Worker extension and demonstrate its usage on a customer's function app.
+With the extension interface, a developer can now integrate a third-party library into Azure Functions Python worker by implementing either an **application-level** extension or a **function-level** extension. There are three types of lifecycle hooks: **post-load**, **pre-invocation**, and **post-invocation**. These lifecycle hooks provide function metadata to the extension which is capable for book-keeping, monitoring, and enhancing the function load and invocation experience.
 
-With the extension interface, a developer can now integrate a third-party library into Azure Functions Python worker by implementing either an **application level** extension or a **function level** extension. There are three types of lifecycle hooks: **post-load**, **pre-invocation**, and **post-invocation**. These lifecycle hooks provide function metadata to the extension which can be used for book-keeping, monitoring and modifying function load and invocation behavior.
+In this tutorial, we will go through the process of authoring an application-level Python Worker extension and demonstrate its usage on a customer's function app.
 
 For more information about the Python worker extension, please visit our [Python developer reference](functions-reference-python.md#).
 
@@ -41,9 +41,9 @@ We will develop an extension to report the elapsed time of an HTTP trigger invoc
 ```
 
 * *.venv/*: (Optional) Contains a Python virtual environment used for local development.
-* *python_worker_extension/*: Contains the source code of the Python worker extension. It is the main Python module to be distrubuted into PyPI.
-* *setup.py*: Contains the list of Python packages the system installs when publishing to Azure.
-* *readme.md*: (Optional) Contains the instruction and usage of your Python worker extension. This will be displayed in the home page in your PyPI project as description.
+* *python_worker_extension/*: Contains the source code of the Python worker extension. It is the main Python module to be published into PyPI.
+* *setup.py*: Contains the metadata of the Python worker extension package.
+* *readme.md*: (Optional) Contains the instruction and usage of your extension. This will be displayed in the home page in your PyPI project as description.
 
 ### Set up project metadata
 
@@ -133,30 +133,30 @@ class TimerExtension(AppExtensionBase):
             start_time: float = cls.start_timestamps.pop(context.invocation_id)
             end_time: float = time()
 
-            # Calculate the elaspsed time
+            # Calculate the elapsed time
             elapsed_time = end_time - start_time
             logger.info(f'Time taken to execute {context.function_name} is {elapsed_time} sec')
 
-            # Append the elaspsed time to the end of HTTP response
+            # Append the elapsed time to the end of HTTP response
             # if the append_to_http_response is set to True
             if cls.append_to_http_response and isinstance(func_ret, HttpResponse):
                 func_ret._HttpResponse__body += f' (TimeElapsed: {elapsed_time} sec)'.encode()
 
 ```
 
-First, we choose to inherit [AppExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) as we want to apply this extension to every functions inside an application. Alternatively, you can also implement the extension in a function level by inheriting the [FuncExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py).
+First, we choose to inherit [AppExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) as we want to apply this extension to every function inside an application. Alternatively, you can also implement the extension on a function level by inheriting the [FuncExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/func_extension_base.py).
 
-The `init` method is a classmethod which will be called by the worker when the extension class is imported. You can do initialization actions here for the extension. In this example, we will initialize a hashmap for recording invocation start time for each function.
+The `init` method is a class method that will be called by the worker when the extension class is imported. You can do initialization actions here for the extension. In this example, we will initialize a hashmap for recording the invocation start time for each function.
 
-The `configure` method is customer facing. You can assume the customer will call `Extension.configure()` method before their actual function implementation. We highly recommend writing a readme for your extension to demonstrate the extension capabilities, possible configuration, and usage of your extension. In this example, we allow customer to choose whether the elaspsed time should be reported in the HttpResponse.
+The `configure` method is customer-facing. You can assume the customer will call `Extension.configure()` method before their actual function implementation. We highly recommend writing a readme for your extension to demonstrate the extension capabilities, possible configuration, and usage of your extension. In this example, we allow customers to choose whether the elapsed time should be reported in the HttpResponse.
 
-The `pre_invocation_app_level` method will be called by Python worker once before a function invocation. It provides the information of a customer's function, such as function context and arguments. In this examle, the extension logs a message and record the starttime of an invocation based on its invocation_id.
+The `pre_invocation_app_level` method will be called by the Python worker once before a function invocation. It provides the information of a customer's function, such as function context and arguments. In this example, the extension logs a message and records the start time of an invocation based on its invocation_id.
 
-Similarly, the `post_invocation_app_level` is called after an invocation. In this example, we calculate the elapsed time based on the start_time and current time. Additionally, we overwrite the return value of the Http response.
+Similarly, the `post_invocation_app_level` is called after an invocation. In this example, we calculate the elapsed time based on the start_time and current time. Additionally, we overwrite the return value of the HTTP response.
 
 ## Testing your extension
 
-To try out your own extension from a customer's perspective, create a new folder as your function app root and change your directory into it.
+To try out your extension from a customer's perspective, create a new folder as your function app root and change your directory into it.
 
 1. Open a Windows PowerShell or any Linux shell as you prefer.
 2. Initialize the Azure Functions project by using our core tools command `func init --python`
@@ -167,7 +167,7 @@ To try out your own extension from a customer's perspective, create a new folder
 6. Install the extension from your local file path in editable mode `pip install -e <python_worker_extension_root>`
 7. Enable the extension interface by adding a new setting `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` in `local.settings.json`.
 
-Now we can import the extension into the Http trigger by adding the following two lines before the `main` function:
+Now we can import the extension into the HTTP trigger by adding the following two lines before the `main` function:
 
 ```python
 from python_worker_extension_timer import TimerExtension
@@ -186,7 +186,7 @@ Once you finish the validation, you can choose a license, write up the readme do
 
 ### PyPI
 
-1. Install, `twine` and `wheel` in your default Python environment or in a virtual environment `pip install twine wheel`.
+1. Install, `twine` and `wheel` in your default Python environment or a virtual environment `pip install twine wheel`.
 2. Remove the old `dist/` folder from your extension repository.
 3. Run `python setup.py sdist bdist_wheel` to generate a new package inside `dist/`.
 4. Upload the package to PyPI by running `twine upload dist/*`. You may need to provide your PyPI account credentials in this step.

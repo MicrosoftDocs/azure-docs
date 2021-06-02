@@ -638,11 +638,11 @@ Please visit our tutorial [Authoring Python worker extensions](author-python-wor
 
 #### Python function customers
 
-Our customers consume the Python worker extension by including extensions in requirements.txt, installing and importing them into a function trigger. This enables the third party support and applies the new features to your functions.
+Our customers consume the Python worker extension by including extensions in requirements.txt, installing and importing them into a function trigger. This enables third-party features in your functions.
 
 You need to configure the app setting `PYTHON_ENABLE_WORKER_EXTENSIONS` to `1` to enable the extensions.
 
-Some extensions may allow extra configuration and pass extra properties into your function's context. For how to use an specific extension, please visit the extension's manual page or its readme doc.
+Some extensions may allow extra configuration and pass extra properties into your function's context. For how to use a specific extension, please visit the extension's manual page or its readme doc.
 
 Please ensure the extension you choose is trustworthy and you bear the risk of using it. Azure Functions gives no express warranties to any third-party extensions.
 
@@ -650,23 +650,21 @@ Please ensure the extension you choose is trustworthy and you bear the risk of u
 
 #### Application level extension
 
-An extension inhereted from [AppExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) will be implemented on an **application** scope, which means the extension will apply to every function once it is imported in any of the function triggers.
+An extension inherited from [AppExtensionBase](https://github.com/Azure/azure-functions-python-library/blob/dev/azure/functions/extension/app_extension_base.py) will be implemented on an **application** scope, which means the extension will apply to every function once it is imported in any of the function triggers.
 
 The **AppExtensionBase** expose the following **abstract class methods** for implementations:
-* *init*: This method will be called once the customer import the extension.
-* *configure*: This method may be called by customer. It is intended to configure the extension.
-* *post_function_load_app_level*: This method will be called right after a customer's function is loaded. The function name and function directory will be passed into your extension. Reminder, the function directory is read-only, any attempts to write to customer's directory will fail.
-* *pre_invocation_app_level*: This method will be called right before a customer's function is triggered. The function context and function invocation arguments will be passed into your extension. Usually, it is feasible to pass additional attributes in context object for customer's consumption.
+* *init*: This method will be called once the customer imports the extension.
+* *configure*: This method may be called by the customer. It is intended to configure the extension.
+* *post_function_load_app_level*: This method will be called right after a customer's function is loaded. The function name and function directory will be passed into your extension. Reminder, the function directory is read-only, any attempts of writing to the customer's directory will fail.
+* *pre_invocation_app_level*: This method will be called right before a customer's function is triggered. The function context and function invocation arguments will be passed into your extension. Usually, it is feasible to pass additional attributes in the context object for customer consumption.
 * *post_invocation_app_level*: This method will be called right after a customer's function finishes. The function context, function invocation arguments, and the invocation return object will be passed into your extension. It is a good place to validate if the execution of the lifecycle hooks succeeds.
 
-From a customer's perspective, to use an application level extension, they must include it in requirements.txt and install it.
+Here is an example of applying an application-level extension to a function app.
 
 ```python
 # <project_root>/requirements.txt
 application-level-extension==1.0.0
 ```
-
-Then configure it in one of the function's trigger. This applies the extension to all the functions inside an app.
 
 ```python
 # <project_root>/Trigger/__init__.py
@@ -684,18 +682,16 @@ We also provides a [FuncExtensionBase](https://github.com/Azure/azure-functions-
 
 The **FuncExtensionBase** expose the following **abstract methods** for implementations:
 * *\_\_init\_\_*: This method is the constructor of the extension. It will be called when customers initialize the extension instance in a specific function. Usually, when implementing this abstract method, you may want accept the `filename` parameter and pass it to the parent's method `super().__init__(filename)` for proper extension registration.
-* *post_function_load*: This method will be called right after a customer's function is loaded. The function name and function directory will be passed into your extension. Reminder, the function directory is read-only, any attempts to write to customer's directory will fail.
-* *pre_invocation*: This method will be called right before a customer's function is triggered. The function context and function invocation arguments will be passed into your extension. Usually, it is feasible to pass additional attributes in context object for customer's consumption.
-* *post_invocation*: This method will be called right after a customer's function finishes. The function context, function invocation arguments, and the invocation return object will be passed into your extension. It is a good place to validate if the execution of the lifecycle hooks succeeds.
+* *post_function_load*: This method is the same as the `post_function_load_app_level` in application-level extension.
+* *pre_invocation*: This method is the same as the `pre_invocation_app_level` in application-level extension.
+* *post_invocation*: This method is the same as the `post_invocation_app_level` in application-level extension.
 
-From a customer's perspective, to use a function level extension, they must include it in requirements.txt and install it.
+Here is an example of applying a function-level extension to a specific function trigger.
 
 ```python
 # <project_root>/requirements.txt
 function-level-extension==1.0.0
 ```
-
-Then import the extension in a specific function. Unlike the application level extension, you need to instantiate a FuncExtension to properly registered to the function trigger you choose.
 
 ```python
 # <project_root>/Trigger/__init__.py
