@@ -38,8 +38,8 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 ## Turn on recovery options
 
-- [Soft Delete](../general/soft-delete-overview.md) is on by default.
-- Turn on purge protection if you want to guard against force deletion of the HSM even after soft delete is turned on.
+- [Soft Delete](../general/soft-delete-overview.md) is on by default. You can choose a retention period between 7 and 90 days.
+- Turn on purge protection to prevent immediate permanent deletion of HSM or keys. When purge protection is on HSM or keys will remain in deleted state until the retention days have passed.
 
 ## Next steps
 
@@ -47,3 +47,4 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 - See [Managed HSM logging](logging.md) to learn how to use Azure Monitor to configure logging
 - See [Manage managed HSM keys](key-management.md) for key management.
 - See [Managed HSM role management](role-management.md) for managing role assignments.
+- See [Managed HSM soft-delete overview](soft-delete-overview) for recovery options.
