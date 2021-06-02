@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 05/28/2021
+ms.date: 06/02/2021
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
@@ -375,7 +375,9 @@ To use Azure CLI to call a method:
     Direct method=setLedState invoked
     ```
 
-## Debugging
+## Troubleshoot and Debug
+
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
