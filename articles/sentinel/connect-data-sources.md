@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/28/2021
+ms.date: 06/02/2021
 ms.author: yelevin
 
 ---
@@ -75,7 +75,7 @@ Some services connect natively, such as Amazon Web Services and Microsoft servic
 - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
 - [Azure DDoS Protection](connect-azure-ddos-protection.md)
 - [Azure Defender for IoT](connect-asc-iot.md) (formerly Azure Security Center for IoT)
-- [Azure Information Protection](connect-azure-information-protection.md)
+- [Azure Information Protection](connect-azure-information-protection.md). InformationProtectionLogs_CL usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
 - [Azure Firewall](connect-azure-firewall.md)
 - [Azure Security Center](connect-azure-security-center.md) - alerts from Azure Defender solutions
 - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (formerly Microsoft WAF)
@@ -87,7 +87,9 @@ Some services connect natively, such as Amazon Web Services and Microsoft servic
 - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
 - [Office 365](connect-office-365.md) (now with Teams!)
 - [Windows firewall](connect-windows-firewall.md)
-- [Windows security events](connect-windows-security-events.md)
+- [Windows security events](connect-windows-security-events.md). For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](./quickstart-get-visibility.md#use-built-in-workbooks).
+- For VMConnection, ServiceMapComputer_CL, and ServiceMapProcess_CL, see [Azure Monitor service map](../azure-monitor/vm/service-map.md), [Azure Monitor VM insights](../azure-monitor/vm/vminsights-enable-overview.md), and the VM insights workbook.
+- For [Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center), get the [Sysmon parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt) and see [Connect Windows Events](../azure-monitor/agents/data-sources-windows-events.md). Sysmon (event) collection isn't installed by default on virtual machines. For more information on how to install the Sysmon agent, see [Sysmon](/sysinternals/downloads/sysmon).
 
 ### External solutions via API
 
@@ -126,42 +128,6 @@ To connect your external appliance to Azure Sentinel, the agent must be deployed
 Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
 ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
-
-## Map data types with Azure Sentinel connection options
-
-| **Data type** | **How to connect** | **Data connector?** | **Comments** |
-|------|---------|-------------|------|
-| AWSCloudTrail | [Connect AWS](connect-aws.md) | &#10003; | |
-| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/essentials/platform-logs-overview.md)| &#10003; | |
-| AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
-| SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
-| AzureFirewall |[Azure Diagnostics](../firewall/firewall-diagnostics.md) | &#10003; | |
-| InformationProtectionLogs_CL  | [Azure Information Protection reports](/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | Usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
-| AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
-| CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | &#10003; | |
-| OfficeActivity | [Connect Office 365](connect-office-365.md) | &#10003; | |
-| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | &#10003; | For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](./quickstart-get-visibility.md#use-built-in-workbooks)  |
-| Syslog | [Connect Syslog](connect-syslog.md) | &#10003; | |
-| Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connect Microsoft Web Application Firewall](./connect-azure-waf.md) | &#10003; | |
-| SymantecICDx_CL | [Connect Symantec](connect-symantec.md) | &#10003; | |
-| ThreatIntelligenceIndicator  | [Connect threat intelligence](connect-threat-intelligence.md)  | &#10003; | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor service map](../azure-monitor/vm/service-map.md)<br>[Azure Monitor VM insights onboarding](../azure-monitor/vm/vminsights-enable-overview.md) <br> [Enable Azure Monitor VM insights](../azure-monitor/vm/vminsights-enable-overview.md) <br> [Using Single VM On-boarding](../azure-monitor/vm/vminsights-enable-portal.md)<br>  [Using On-boarding Via Policy](../azure-monitor/vm/vminsights-enable-policy.md)| &#10007; | VM insights workbook  |
-| DnsEvents | [Connect DNS](connect-dns.md) | &#10003; | |
-| W3CIISLog | [Connect IIS logs](../azure-monitor/agents/data-sources-iis-logs.md)  | &#10007; | |
-| WireData | [Connect Wire Data](../azure-monitor/insights/wire-data.md) | &#10007; | |
-| WindowsFirewall | [Connect Windows Firewall](connect-windows-firewall.md) | &#10003; | |
-| AADIP SecurityAlert  | [Connect Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
-| AATP SecurityAlert  | [Connect Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure ATP) | &#10003; | |
-| ASC SecurityAlert  | [Connect Azure Defender alerts](connect-azure-security-center.md) from Azure Security Center  | &#10003; | |
-| MCAS SecurityAlert  | [Connect Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
-| SecurityAlert | | | |
-| Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/agents/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](/sysinternals/downloads/sysmon). |
-| ConfigurationData  | [Automate VM inventory](../automation/change-tracking/overview.md)| &#10007; | |
-| ConfigurationChange  | [Automate VM tracking](../automation/change-tracking/overview.md) | &#10007; | |
-| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10003; | |
-| McasShadowItReporting  |  | &#10007; | |
-| Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | &#10003; | |
-
 
 ## Next steps
 
