@@ -74,7 +74,7 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
       
 1. Modify the gateway IP address if needed, and enter the DHCP range IP. 
       
-   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges." border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges for using a DHCP server." border="true":::
       
 1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
       
