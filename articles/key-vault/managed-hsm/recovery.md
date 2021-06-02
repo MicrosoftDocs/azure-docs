@@ -161,11 +161,13 @@ For more information about soft-delete, see [Managed HSM soft-delete overview](s
     Undo-AzKeyVaultKeyRemoval -HsmName ContosoHSM -Name ContosoFirstKey
     ```
 
-* Purge a soft-deleted key **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY)**
+* Purge a soft-deleted key
 
     ```powershell
     Remove-AzKeyVaultKey -HsmName ContosoHSM -Name ContosoFirstKey -InRemovedState
     ```
+    > [!WARNING] 
+    > This operation will permanently delete your key
 ---
 
 ## Next steps
