@@ -14,16 +14,16 @@ ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 # Upgrading the Azure Disk Encryption version
 
-The first version of Azure Disk Encryption (ADE)—sometimes referred to as "dual-pass encryption"—relied on Azure Active Directory (AAD) for authentication; the current version—sometimes referred to as "single-pass" encryption—does not.  We strongly encourage the use of the newest version.
+The first version of Azure Disk Encryption (ADE) relied on Azure Active Directory (AAD) for authentication; the current version does not.  We strongly encourage the use of the newest version.
 
 ## How to migrate
 
-Migration from dual-pass encryption to single-pass encryption is only available through Azure PowerShell. Ensure you have the latest version of Azure PowerShell (at least version 5.9.0) and the [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az) installed.
+Migration from Azure Disk Encryption (with AAD) to Azure Disk Encryption (without AAD) is only available through Azure PowerShell. Ensure you have the latest version of Azure PowerShell and at least the [Azure PowerShell Az module version 5.9.0](/powershell/azure/new-azureps-module-az) installed .
 
-To upgrade from dual-pass encryption to single-pass encryption, use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) PowerShell cmdlet. 
+To upgrade from Azure Disk Encryption (with AAD) to Azure Disk Encryption (without AAD), use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) PowerShell cmdlet. 
 
 > [!WARNING]
-> The Set-AzVMDiskEncryptionExtension cmdlet must only be used on VMs encrypted with dual-pass encryption. Attempting to migrate an unencrypted VM, or a VM encrypted with single-pass encryption, will result in a terminal error.
+> The Set-AzVMDiskEncryptionExtension cmdlet must only be used on VMs encrypted with Azure Disk Encryption (with AAD). Attempting to migrate an unencrypted VM, or a VM encrypted with Azure Disk Encryption (without AAD), will result in a terminal error.
 
 ```azurepowershell-interactive
 Set-AzVMDiskEncryptionExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Migrate
@@ -61,7 +61,6 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
                          True         OK OK
 ```
 
-As it says in the output, the migration will take at least 10 - 15 minutes minutes to complete.
 
 > [!IMPORTANT]
 > Do not cancel the cmdlet while the upgrade is in progress.  Doing so puts the health of the health at risk.
