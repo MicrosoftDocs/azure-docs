@@ -49,10 +49,12 @@ The following data sources are free with Azure Sentinel:
 
 - Azure Activity Logs.
 - Office 365 Audit Logs, including all SharePoint activity, Exchange admin activity, and Teams.
-- Microsoft Defender alerts, including alerts from Azure Defender, Microsoft 365 (M365) Defender, Microsoft Defender for Office 365, Microsoft Defender for Identity, and Microsoft Defender for Endpoint.
-- Azure Security Center and Microsoft Cloud App Security (MCAS) alerts. However, raw logs for some M365 Defender, MCAS, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
+- Microsoft Defender alerts, including alerts from Azure Defender, Microsoft 365 Defender, Microsoft Defender for Office 365, Microsoft Defender for Identity, and Microsoft Defender for Endpoint.
+- Azure Security Center and Microsoft Cloud App Security (MCAS) alerts. However, raw logs for some Microsoft 365 Defender, MCAS, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
 
-The following table lists the free data sources you can enable in Azure Sentinel. Some of the data connectors, such as M365 Defender and MCAS, include both free and paid data types, and you can select which data types you want to enable.
+The following table lists the free data sources you can enable in Azure Sentinel. Some of the data connectors, such as Microsoft 365 Defender and MCAS, include both free and paid data types, and you can select which data types you want to enable.
+
+![Screenshot showing the Data connector page for MCAS, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
 
 | Azure Sentinel Data Connector   | Data type | Free or paid |
 |-------------------------------------|--------------------------------|------------------|
@@ -85,7 +87,7 @@ There are two ways to pay for the Azure Sentinel service: Pay-As-You-Go and Comm
 
 Log Analytics and Azure Sentinel capacity Commitment Tiers save you as much as 65% compared to the Pay-As-You-Go price. With Commitment Tier pricing, you can buy a commitment starting at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100GB/day bills you for the committed 100GB/day data volume, plus any additional GB/day at the discounted rate for that tier.
 
-You can increase your commitment tier any time, and decrease it every 31 days, to optimize costs as your data volume increases or decreases. To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
+You can increase your commitment tier anytime, and decrease it every 31 days, to optimize costs as your data volume increases or decreases. To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
 ![Screenshot showing the Pricing page in Azure Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
 
@@ -128,7 +130,7 @@ Use the following methods to manage data ingestion and retention for your Azure 
 
 To optimize for highest savings, monitor your ingestion volume to ensure you have the Commitment Tier that aligns most closely with your ingestion volume patterns. You can increase or decrease your Commitment Tier to align with changing data volumes.
 
-You can increase your Commitment Tier any time, which restarts the 31-day commitment period. However, to move back to Pay-As-You-Go or to a lower Commitment Tier, you must wait until after the 31-day commitment period finishes. Billing for Commitment Tiers is on a daily basis.
+You can increase your Commitment Tier anytime, which restarts the 31-day commitment period. However, to move back to Pay-As-You-Go or to a lower Commitment Tier, you must wait until after the 31-day commitment period finishes. Billing for Commitment Tiers is on a daily basis.
 
 To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked **Current tier**.
 
@@ -155,7 +157,7 @@ If you ingest at least 1TB/day into your Azure Sentinel workspace or workspaces 
 
 Log Analytics dedicated clusters don't apply to Azure Sentinel Commitment Tiers. Azure Sentinel costs still apply per workspace in the dedicated cluster.
 
-You can add multiple Azure Sentinel workspace to a Log Analytics dedicated cluster. There are a couple of advantages to using a Log Analytics dedicated cluster for Azure Sentinel:
+You can add multiple Azure Sentinel workspaces to a Log Analytics dedicated cluster. There are a couple of advantages to using a Log Analytics dedicated cluster for Azure Sentinel:
 
 - Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](/azure/azure-monitor/log-query/cross-workspace-query) for inclusion in a single cross-workspace query.
 
