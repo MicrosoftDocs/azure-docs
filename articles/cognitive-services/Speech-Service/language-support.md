@@ -33,6 +33,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Language                 | Locale (BCP-47) | Customizations  | [Language identification](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
+| Arabic (Algeria)                   | `ar-DZ` | Text                                   |                           | 
 | Arabic (Bahrain), modern standard  | `ar-BH` | Text                                   |                           | 
 | Arabic (Egypt)                     | `ar-EG` | Text                                   | Yes                          |
 | Arabic (Iraq)                      | `ar-IQ` | Text                                   |                           |
@@ -40,12 +41,16 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabic (Jordan)                    | `ar-JO` | Text                                   |                           |
 | Arabic (Kuwait)                    | `ar-KW` | Text                                   |                           |
 | Arabic (Lebanon)                   | `ar-LB` | Text                                   |                           |
+| Arabic (Libya)                     | `ar-LY` | Text                                   |                           |
+| Arabic (Morocco)                   | `ar-MA` | Text                                   |                           |
 | Arabic (Oman)                      | `ar-OM` | Text                                   |                           |
 | Arabic (Qatar)                     | `ar-QA` | Text                                   |                           |
 | Arabic (Saudi Arabia)              | `ar-SA` | Text                                   |                           |
-| Arabic (State of Palestine)        | `ar-PS` | Text                                   |                           |
+| Arabic (Palestinian Authority)     | `ar-PS` | Text                                   |                           |
 | Arabic (Syria)                     | `ar-SY` | Text                                   |                           |
+| Arabic (Tunisia)                   | `ar-TN` | Text                                   |                           |
 | Arabic (United Arab Emirates)      | `ar-AE` | Text                                   |                           |
+| Arabic (Yemen)                     | `ar-YE` | Text                                   |                           |
 | Bulgarian (Bulgaria)               | `bg-BG` | Text                                   |                           |
 | Catalan (Spain)                    | `ca-ES` | Text                                   | Yes                          |
 | Chinese (Cantonese, Traditional)   | `zh-HK` | Audio (20201015)<br>Text                 |        Yes                   |
@@ -80,6 +85,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | German (Germany)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Text<br>Pronunciation|  Yes                         |
 | Greek (Greece)                     | `el-GR` | Text                                   |  Yes                         |
 | Gujarati (Indian)                  | `gu-IN` | Text                                   |                           |
+| Hebrew (Israel)                    | `he-IL` | Text                                   |                           |
 | Hindi (India)                      | `hi-IN` | Audio (20200701)<br>Text                 |     Yes                      |
 | Hungarian (Hungary)                | `hu-HU` | Text                                   |                           |
 | Indonesian (Indonesia)             | `id-ID` | Text                                   |                           |
