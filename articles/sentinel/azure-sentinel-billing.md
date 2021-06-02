@@ -6,11 +6,11 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/02/2021
 
 ---
 
-## Azure Sentinel costs and billing
+# Azure Sentinel costs and billing
 
 Azure Sentinel provides intelligent security analytics across your enterprise. Azure Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Azure Sentinel stores its data for analysis in an Azure Monitor Log Analytics workspace, and bills based on the volume of data stored in the workspace for analysis.
 
@@ -89,7 +89,7 @@ You can increase your commitment tier any time, and decrease it every 31 days, t
 
 ![Screenshot showing the Pricing page in Azure Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
 
-To set and change your Commitment Tier, see [Set and change pricing tier](#set-and-change-pricing-tier).
+To set and change your Commitment Tier, see [Set or change pricing tier](#set-or-change-pricing-tier).
 
 ## Estimate Azure Sentinel costs
 
@@ -107,7 +107,7 @@ There are several ways to understand and manage Azure Sentinel usage and costs. 
 
 Manage data ingestion and retention:
 
-- [Use Commitment Tier pricing to optimize costs](#set-and-change-pricing-tier) based on your data ingestion volume.
+- [Use Commitment Tier pricing to optimize costs](#set-or-change-pricing-tier) based on your data ingestion volume.
 - [Define a Log Analytics data volume cap](#define-a-data-volume-cap-in-log-analytics) to manage ingestion, although security data is excluded from the cap.
 - [Optimize Log Analytics costs with dedicated clusters](#optimize-log-analytics-costs-with-dedicated-clusters).
 - [Put non-security data in a different workspace](#put-non-security-data-in-a-separate-workspace).
@@ -116,7 +116,7 @@ Manage data ingestion and retention:
 Understand, monitor, and alert for data ingestion and cost changes:
 
 - [Run queries to understand your data ingestion](#run-queries-to-understand-your-data-ingestion).
-- [Deploy a workbook to visualize data ingestion](#deploy-a-workbook-to-visualize-azure-sentinel-data-ingestion)
+- [Deploy a workbook to visualize data ingestion](#deploy-a-workbook-to-visualize-data-ingestion)
 - [Use a cost management playbook](#use-a-playbook-for-cost-management-alerts) that can send an alert when ingestion exceeds a predefined threshold.
 - [Understand Common Event Format (CEF) data ingestion](#understand-cef-ingestion-volume).
 
