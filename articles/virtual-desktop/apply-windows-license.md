@@ -4,7 +4,8 @@ description: Describes how to apply the Windows license for Windows Virtual Desk
 author: Heidilohr
 ms.topic: how-to
 ms.date: 08/14/2019
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 ---
 # Apply Windows license to session host virtual machines
 

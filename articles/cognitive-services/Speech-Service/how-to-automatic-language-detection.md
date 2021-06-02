@@ -27,10 +27,10 @@ This article assumes you have an Azure subscription and speech resource, and als
 
 Language identification currently has a limit of **four languages** for single-shot recognition, and **10 languages** for continuous recognition. Keep this limitation in mind when constructing your `AutoDetectSourceLanguageConfig` object. In the samples below, you use `AutoDetectSourceLanguageConfig` to define a list of possible languages that you want to identify, and then reference those languages when running speech recognition.
 
-::: zone pivot="programming-language-csharp"
-
 > [!IMPORTANT]
-> This feature as shown below is currently in **preview**.
+> Continuous language identification is currently in **preview** and only supported in C# and C++.
+
+::: zone pivot="programming-language-csharp"
 
 The following example runs single-shot recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for live streaming scenarios), but don't know the language in the audio sample. 
 
