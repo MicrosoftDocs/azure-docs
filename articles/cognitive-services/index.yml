@@ -145,7 +145,7 @@ conceptualContent:
           itemType: reference
           text: Python Samples
     - title: Responsible use of AI
-      summary: Azure Cognitive Services provides information and guidelines on how to responsibly use AI in your applications.
+      summary: Azure Cognitive Services provides information and guidelines on how to responsibly use our AI services in your applications.
       links:
         - url: responsible-use-of-ai-overview.md
           itemType: overview
