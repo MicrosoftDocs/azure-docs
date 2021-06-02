@@ -260,7 +260,7 @@ The configuration is specific to Python function apps. It defines the prioritiza
 
 ## PYTHON\_ENABLE\_WORKER\_EXTENSIONS
 
-The configuration is specific to Python function apps. By setting this to `1`, the worker loads in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt which allows your function app to use new features provided by third-party packages. It may also change the behavior of function load and invocation in your app. Please ensure the extension you choose is trustworthy and you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, please visit the extension's manual page or readme doc. By default, this value is set to `0`.
+The configuration is specific to Python function apps. Setting this to `1` allows the worker to load in [Python worker extensions](functions-reference-python.md#python-worker-extensions) defined in requirements.txt. It enables your function app to access new features provided by third-party packages. It may also change the behavior of function load and invocation in your app. Please ensure the extension you choose is trustworthy as you bear the risk of using it. Azure Functions gives no express warranties to any extensions. For how to use an extension, please visit the extension's manual page or readme doc. By default, this value sets to `0`.
 
 |Key|Value|Description|
 |---|-----|-----------|
