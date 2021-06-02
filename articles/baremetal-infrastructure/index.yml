@@ -56,7 +56,18 @@ landingContent:
             url: workloads/oracle/options-considerations-high-availability.md
           - text: Choose how to recover
             url: workloads/oracle/oracle-high-availability-recovery.md
-
+      - linkListType: how-to-guide
+        links:
+          - text: SnapCenter overview
+            url: workloads/oracle/netapp-snapcenter-integration-oracle-baremetal.md
+          - text: Set up SnapCenter to route traffic
+            url: workloads/oracle/set-up-snapcenter-to-route-traffic.md
+          - text: Configure SnapCenter
+            url: workloads/oracle/configure-snapcenter-oracle-baremetal.md
+          - text: Create on-demand backup
+            url: workloads/oracle/create-on-demand-backup-oracle-baremetal.md
+          - text: Restore Oracle Database
+            url: workloads/oracle/restore-oracle-database-baremetal.md
 
 # card 3
   - title: SAP HANA on Azure (Large Instances)

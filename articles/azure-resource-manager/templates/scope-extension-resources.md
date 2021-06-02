@@ -3,7 +3,7 @@ title: Scope on extension resource types
 description: Describes how to use the scope property when deploying extension resource types.
 ms.topic: conceptual
 ms.date: 01/13/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Setting scope for extension resources in ARM templates

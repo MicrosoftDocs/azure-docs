@@ -97,6 +97,8 @@
       href: how-to-run-a-reindex.md
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
+  - name: Profile validation
+    href: validation-against-profiles.md
   - name: Export data
     expanded: false
     items:
@@ -104,6 +106,8 @@
       href: export-data.md
     - name: De-identified export
       href: de-identified-export.md
+    - name: Move data to Synapse
+      href: move-to-synapse.md
   - name: Convert data
     expanded: false
     items:

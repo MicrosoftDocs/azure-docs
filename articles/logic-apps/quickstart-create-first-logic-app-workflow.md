@@ -1,19 +1,19 @@
 ---
-title: Quickstart - Create an integration workflow in Azure portal
-description: Create your first automated integration workflow by using Azure Logic Apps in the Azure portal.
+title: Quickstart - Create integration workflows with Azure Logic Apps in the Azure portal
+description: Create your first automated integration workflow with multi-tenant Azure Logic Apps in the Azure portal.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
-ms.date: 04/28/2021
+ms.date: 05/25/2021
 
 # Customer intent: As a developer, I want to create my first automated integration workflow by using Azure Logic Apps in the Azure portal
 ---
 
-# Quickstart: Create an integration workflow using Azure Logic Apps in the Azure portal
+# Quickstart: Create an integration workflow with multi-tenant Azure Logic Apps and the Azure portal
 
-This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account, when you use [Azure Logic Apps](logic-apps-overview.md). While this example is cloud-based, Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments.
+This quickstart shows how to create an example automated workflow that integrates two services, an RSS feed for a website and an email account, when you use *multi-tenant* [Azure Logic Apps](logic-apps-overview.md). While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on premises, and hybrid environments. For more information about multi-tenant versus single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 In this example, you create a workflow that uses the RSS connector and the Office 365 Outlook connector. The RSS connector has a trigger that checks an RSS feed, based on a schedule. The Office 365 Outlook connector has an action that sends an email for each new item. The connectors in this example are only two among the [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow.
 
@@ -51,7 +51,7 @@ To create and manage a logic app using other tools, review these other Logic App
 
 * If you have a firewall that limits traffic to specific IP addresses, set up your firewall to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service in the Azure region where your logic app exists.
 
-  This example also uses the RSS and Office 365 Outlook connectors [managed by Microsoft](/connectors/managed.md). These connectors require that you set up your firewall to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in the logic app's Azure region.
+  This example also uses the RSS and Office 365 Outlook connectors, which are [managed by Microsoft](../connectors/managed.md). These connectors require that you set up your firewall to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in the logic app's Azure region.
 
 <a name="create-logic-app-resource"></a>
 

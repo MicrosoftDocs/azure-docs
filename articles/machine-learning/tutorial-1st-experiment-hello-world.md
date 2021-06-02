@@ -153,6 +153,9 @@ Select **Save and run script in terminal** to run your control script, which in 
 
 In the terminal, you may be asked to sign in to authenticate.  Copy the code and follow the link to complete this step.
 
+> [!TIP]
+> If you just finished creating the compute cluster, you may see the error "UserError: Required Docker image not found..." Wait about 5 minutes or so, and try again.  The compute cluster may need more time before it is ready to spin up nodes.
+
 > [!div class="nextstepaction"]
 > [I submitted code in the cloud](?success=submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 

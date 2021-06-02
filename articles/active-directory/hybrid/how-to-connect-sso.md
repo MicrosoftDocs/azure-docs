@@ -66,7 +66,6 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 |Windows 10|Yes\*|Yes|Yes|Yes\*\*\*|N/A
 |Windows 8.1|Yes\*|Yes*\*\*\*|Yes|Yes\*\*\*|N/A
 |Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
-|Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows Server 2012 R2 or above|Yes\*\*|N/A|Yes|Yes\*\*\*|N/A
 |Mac OS X|N/A|N/A|Yes\*\*\*|Yes\*\*\*|Yes\*\*\*
 
@@ -74,7 +73,7 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
  >Microsoft Edge legacy is no longer supported
 
 
-\*Requires Internet Explorer version 11 or later.
+\*Requires Internet Explorer version 11 or later. ([Beginning August 17, 2021, Microsoft 365 apps and services will not support IE 11](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).)
 
 \*\*Requires Internet Explorer version 11 or later. Disable Enhanced Protected Mode.
 

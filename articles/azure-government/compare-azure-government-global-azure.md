@@ -543,18 +543,7 @@ Azure Security Center is deployed in Azure Government regions but not in Azure G
 
 ### [Azure Sentinel](../sentinel/overview.md)
 
-The following **features have known limitations** in Azure Government:
-
-- Office 365 data connector
-    - The Office 365 data connector can be used only for [Office 365 GCC High and Office 365 DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod). Office 365 GCC can be accessed only from global (commercial) Azure.
-
-- AWS CloudTrail data connector
-    - The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
-
-### [Enterprise Mobility + Security (EMS)](/enterprise-mobility-security)
-
-For information about EMS suite capabilities in Azure Government, see the [Enterprise Mobility + Security for US Government Service Description](/enterprise-mobility-security/solutions/ems-govt-service-description).
-
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-sentinel).
 
 ## Storage
 

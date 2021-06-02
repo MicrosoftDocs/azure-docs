@@ -247,6 +247,9 @@ You can add properties to telemetry messages if you need to add custom metadata 
 
 The following code snippet shows how to add the `iothub-creation-time-utc` property to the message when you create it on the device:
 
+> [!IMPORTANT]
+> The format of this timestamp must be UTC with no timezone information. For example, `2021-04-21T11:30:16Z` is valid, `2021-04-21T11:30:16-07:00` is invalid.
+
 # [JavaScript](#tab/javascript)
 
 ```javascript

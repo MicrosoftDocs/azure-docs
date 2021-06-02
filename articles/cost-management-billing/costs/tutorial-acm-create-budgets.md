@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Tutorial: Create and manage Azure budgets
@@ -193,7 +193,7 @@ You can create a budget using an Azure Resource Manager template. To use the tem
 
 ## Clean up resources
 
-If you created a budget and you no longer it, view its details and delete it.
+If you created a budget and you no longer need it, view its details and delete it.
 
 ## Next steps
 

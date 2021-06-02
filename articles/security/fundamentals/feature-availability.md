@@ -1,11 +1,11 @@
 ---
 title: Azure service cloud feature availability for US government customers
 description: Lists feature availability for Azure security services, such as Azure Sentinel for US government customers
-author: batami
-ms.author: bagol
+author: TerryLanfear
+ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 04/29/2021
+ms.date: 05/23/2021
 ---
 
 
@@ -13,7 +13,7 @@ ms.date: 04/29/2021
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
-- Azure Sentinel
+- [Azure Sentinel](#azure-sentinel)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
@@ -44,6 +44,7 @@ For more information about Office 365 US Government environments, see:
 
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
+
 ## Azure Sentinel
 
 Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
@@ -57,8 +58,8 @@ The following tables display the current Azure Sentinel feature availability in 
 | ----- | ----- | ---- |
 |- [Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview |
 | - [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) |Public Preview | Public Preview |
-| - [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Not Available |
-| - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | Not Available |
+| - [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | GA | Public Preview |
+| - [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA |
 | - [Hunting](/azure/sentinel/hunting) | GA | GA |
 |- [Notebooks](/azure/sentinel/notebooks) | GA | GA |
 |- [SOC incident audit metrics](/azure/sentinel/manage-soc-with-incident-metrics) | GA | GA |
@@ -96,7 +97,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Akamai Security Events](/azure/sentinel/connect-akamai-security-events)                           | Public Preview | Public Preview |
 | - [Alcide kAudit](/azure/sentinel/connect-alcide-kaudit)                                   | Public Preview | Not Available      |
 | - [Alsid for Active Directory](/azure/sentinel/connect-alsid-active-directory)                      | Public Preview | Not Available      |
-| - [Apache HHTP Server](/azure/sentinel/connect-apache-http-server)                               | Public Preview | Not Available      |
+| - [Apache HTTP Server](/azure/sentinel/connect-apache-http-server)                               | Public Preview | Not Available      |
 | - [Aruba ClearPass](/azure/sentinel/connect-aruba-clearpass)                                  | Public Preview | Public Preview |
 | - [AWS](/azure/sentinel/connect-data-sources)                                             | GA             | GA             |
 | - [Barracuda CloudGen Firewall](/azure/sentinel/connect-barracuda-cloudgen-firewall)                      | GA             | GA             |
@@ -220,7 +221,7 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 
 ## Next steps
 
-- Understand the [shared responsibility](https://docs.microsoft.com/azure/security/fundamentals/shared-responsibility) model and which security tasks are handled by the cloud provider and which tasks are handled by you.
-- Understand the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners.
-- Understand the [Office 365 Government plan](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
+- Understand the [shared responsibility](shared-responsibility.md) model and which security tasks are handled by the cloud provider and which tasks are handled by you.
+- Understand the [Azure Government Cloud](/azure/azure-government/documentation-government-welcome) capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners.
+- Understand the [Office 365 Government plan](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/office-365-us-government#about-office-365-government-environments).
 - Understand [compliance in Azure](/azure/compliance/) for legal and regulatory standards.

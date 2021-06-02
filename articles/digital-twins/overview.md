@@ -33,7 +33,7 @@ Here's a summary of the features provided by Azure Digital Twins.
 
 In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [models](concepts-models.md). 
 
-You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as "building", "floor", and "elevator". You can then create **digital twins** based on these models to represent your specific environment.
+You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as Building, Floor, and Elevator. You can then create **digital twins** based on these models to represent your specific environment.
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
@@ -47,11 +47,9 @@ DTDL is used for data models throughout other Azure IoT services, including [IoT
 
 Digital models in Azure Digital Twins are live, up-to-date representations of the real world. Using the relationships in your custom DTDL models, you'll connect twins into a **live graph** representing your environment.
 
-You can view a visualization of your Azure Digital Twins graph through the help of a sample application, [Azure Digital Twins explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+You can visualize your Azure Digital Twins graph in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), which provides the following interface for interacting with your graph:
 
-Here's a view of what the sample visualization looks like:
-
-:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Screenshot of the Azure Digital Twins explorer sample application, showing a graph of nodes representing digital twins" lightbox="media/includes/azure-digital-twins-explorer.png":::
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing a graph of nodes representing digital twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 Azure Digital Twins provides a rich **event system** to keep that graph current with data processing and business logic. You can connect external compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), to drive this data processing in flexible, customized ways.
 
@@ -95,14 +93,14 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 ## Service limits
 
-You can read about the **service limits** of Azure Digital Twins here: [Azure Digital Twins service limits](reference-service-limits.md). This can be useful while working with the service to understand the service's functional and rate limitations, as well as which limits can be adjusted if necessary.
+You can read about the **service limits** of Azure Digital Twins in the [Azure Digital Twins service limits article](reference-service-limits.md). This can be useful while working with the service to understand the service's functional and rate limitations, as well as which limits can be adjusted if necessary.
 
 ## Terminology
 
-You can view a list of **common IoT terms** and their uses across the Azure IoT services, including Azure Digital Twins, here: [Azure IoT Glossary](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
+You can view a list of **common IoT terms** and their uses across the Azure IoT services, including Azure Digital Twins, in the [Azure IoT Glossary](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This resource may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
 
 ## Next steps
 
-* Dive into working with Azure Digital Twins in the quickstart: [Quickstart: Explore a sample scenario](quickstart-azure-digital-twins-explorer.md).
+* Dive into working with Azure Digital Twins in the quickstart: [Quickstart: Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 
 * Or, start reading about Azure Digital Twins concepts with [Concepts: Custom models](concepts-models.md).

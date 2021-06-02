@@ -62,6 +62,9 @@ Type `spx` to see help for the Speech CLI.
 
 #### [Docker Install (Windows, Linux, macOS)](#tab/dockerinstall)
 
+> [!WARNING]
+> You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
+
 Follow these steps to install the Speech CLI in a Docker container:
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop</a> for your platform if it isn't already installed.
@@ -125,9 +128,6 @@ On Windows, enter this command to start a container that exposes an interactive 
 ```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
-
-> [!WARNING]
-> You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
 
 <!-- Need to troubleshoot issues with docker pull image
 

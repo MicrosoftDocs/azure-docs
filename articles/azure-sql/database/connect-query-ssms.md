@@ -5,13 +5,13 @@ description: Learn how to connect to Azure SQL Database or SQL Managed Instance 
 keywords: connect to sql database,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: connect
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 09/28/2020
 ---
 # Quickstart: Use SSMS to connect to and query Azure SQL Database or Azure SQL Managed Instance

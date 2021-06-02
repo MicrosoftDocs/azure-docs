@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.author: rolyon
 
 #Customer intent: 
@@ -35,9 +35,9 @@ If you add three or more expressions for a targeted action, you must define the 
   
 The Azure portal does not allow you to edit or view a condition at the management group scope. The **Condition** column isn't displayed for the management group scope. Azure PowerShell and Azure CLI does allow you to add conditions at management group scope.
 
-**Are conditions supported via Azure AD Privileged Identity Management (PIM) for Azure resources in preview?**
+**Are conditions supported via Privileged Identity Management (PIM) for Azure resources in preview?**
 
-No.
+Yes. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 **Are conditions supported for classic administrators?**
 

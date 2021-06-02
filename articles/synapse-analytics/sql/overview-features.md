@@ -148,7 +148,7 @@ Data that is analyzed can be stored in various storage formats. The following ta
 | **Hive RC** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
 | **JSON** | Yes | [Yes](query-json-files.md) |
 | **Avro** | No | No |
-| **[Delta-lake](https://delta.io/)** | No | No |
+| **[Delta-lake](https://delta.io/)** | No | [Yes](query-delta-lake-format.md) |
 | **[CDM](/common-data-model/)** | No | No |
 
 ## Next steps

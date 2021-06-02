@@ -3,7 +3,7 @@ title: Set up AWS integration with Azure Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2020
+ms.date: 05/10/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -142,14 +142,22 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
 
 ## Set up a new connector for AWS in Azure
 
-Use the following information to create an AWS connector and start monitoring your AWS costs:
+Use the following information to create an AWS connector and start monitoring your AWS costs.
+
+### Prerequisites
+
+- Ensure you have at least one management group enabled. A management group is required to link your subscription to the AWS service. For more information about creating a management group, see [Create a management group in Azure](../../governance/management-groups/create-management-group-portal.md). 
+- Ensure that you're an administrator of the subscription.
+- Complete the set up required for a new AWS connector, as described in the [Create a Cost and Usage report in AWS](#create-a-cost-and-usage-report-in-aws) section.
+
+
+### Create a new connector
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to Azure Home by clicking **Home** in the menu on the left ("hamburger" menu icon with 3 lines).
-3. Go to **Tools** > **Cost Management** at the bottom of the page.
-3. Under **Settings**, select **Connectors for AWS**.  
-4. Select **+Add** at the top of the page to create a connector.  
-    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Example showing the Connectors for AWS setting" :::
+1. Navigate to **Cost Management + Billing** and select a billing scope, if necessary.
+1. Select **Cost analysis** and then select **Settings**. 
+1. Select **Connectors for AWS**.
+1. Select **Add connector**.
 1. On the **Create connector** page, in **Display name**, enter a name for your connector.  
     :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Example of the page for creating an AWS connector" :::
 1. Optionally, select the default management group. It will store all discovered linked accounts. You can set it up later.

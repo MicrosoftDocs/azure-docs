@@ -114,6 +114,8 @@
     href: teams-on-wvd.md
   - name: Set up Azure AD Multi-Factor Authentication
     href: set-up-mfa.md
+  - name: Configure AD FS single sign-on
+    href: configure-adfs-sso.md
   - name: Configure automatic updates
     href: configure-automatic-updates.md
   - name: Install language packs
