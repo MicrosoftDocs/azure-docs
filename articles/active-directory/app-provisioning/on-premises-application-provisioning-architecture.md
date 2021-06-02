@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 The following diagram shows an over view of how on-premises application provisioning works.
 
-![Architecture](.\media\on-premises-application-provisioning-architecture\arch-2.png)
+![Architecture](.\media\on-premises-application-provisioning-architecture\arch-3.png)
 
 There are three primary components to provisioning users into an on-premises application.
 
