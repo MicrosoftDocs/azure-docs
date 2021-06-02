@@ -23,7 +23,7 @@ Welcome to what's new in Azure Active Directory external identities documentatio
 
 ### Updated articles
 
-- [Azure Active Directory B2B collaboration FAQs](faq.md)
+- [Azure Active Directory B2B collaboration FAQs](faq.yml)
 - [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
 - [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
 - [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
