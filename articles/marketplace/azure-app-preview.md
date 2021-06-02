@@ -23,17 +23,17 @@ Add a minimum of one and up to 10 Azure subscription IDs, either individually (u
 > [!NOTE]
 > A preview audience differs from a private audience. A preview audience is allowed access to your offer before it's published live in the online stores. They can see and validate all plans, including those which will be available only to a private audience after your offer is fully published to the marketplace. You can make a plan available only to a private audience. A private audience (defined in a plan’s **Availability** tab) has exclusive access to a particular plan.
 
-### Add email addresses manually
+### Add subscription IDs manually
 
 1. On the **Preview audience** page, add a single Azure Subscription ID and an optional description in the boxes provided.
-1. To add another email address, select the **Add ID (Max 10)** link.
+1. To add another ID, select the **Add ID (Max 10)** link.
 1. Select **Save draft** before continuing to the next tab: Technical configuration.
 1. Go to [Next steps](#next-steps).
 
-### Add email addresses using the CSV file
+### Add subscription IDs with a CSV file
 
 1. On the **Preview audience** page, select the **Export Audience (csv)** link.
-1. Open the .CSV file in an application, such as Microsoft Excel.
+1. Open the .CSV file in a suitable application such as Microsoft Excel.
 1. In the .CSV file, in the **ID** column, enter the Azure Subscription IDs you want to add to the preview audience.
 1. In the **Description** column, you can optionally add a description for each email address.
 1. In the **Type** column, add **SubscriptionID** to each row that has an email address.
