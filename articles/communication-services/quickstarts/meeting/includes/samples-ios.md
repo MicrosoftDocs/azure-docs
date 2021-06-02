@@ -319,7 +319,7 @@ private func joinMeeting() {
 ```
 
 Add and implement `onNamePlateOptionsClicked` protocol method and map each `identifier` to the corresponding call participant user.
-This is called on single tap of user tile or user title text from call main screen.
+This method is called on single tap of user tile or user title text from call main screen.
 
 ```swift
 func onNamePlateOptionsClicked(identifier: CommunicationIdentifier) {
@@ -334,7 +334,7 @@ func onNamePlateOptionsClicked(identifier: CommunicationIdentifier) {
 ```
 
 Add and implement `onParticipantViewLongPressed` protocol method and map each `identifier` to the corresponding call participant user.
-This is called on long press of user tile from call main screen.
+This method is called on long press of user tile from call main screen.
 
 ```swift
 func onParticipantViewLongPressed(identifier: CommunicationIdentifier) {
@@ -351,7 +351,7 @@ func onParticipantViewLongPressed(identifier: CommunicationIdentifier) {
 ## Add UI icon customizations in a call or meeting
 
 The icons shown in the call or meeting could be customized through method `public func set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposed in `MeetingUIClient`.
-The list of possible icons which could be customized are available in `MeetingUIClientIconType`.
+The list of possible icons that could be customized are available in `MeetingUIClientIconType`.
 
 ```swift
 class ViewController: UIViewController {
@@ -533,7 +533,7 @@ func provideConnectingScreenBackgroundColor() -> UIColor?
 }
 ```
 
-## API's to control the call
+## APIs to control the call
 
 Call control actions are exposed through the methods present in `MeetingUIClientCall`.
 These methods are useful in controlling the call actions if the UI had been customized using the `MeetingUIClient` customization delegates.
