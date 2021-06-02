@@ -179,7 +179,7 @@ az storage fs file list -f my-file-system --path my-directory --account-name mys
 
 ## Upload a file to a directory
 
-Upload a file to a directory by using the `az storage fs directory upload` command.
+Upload a file to a directory by using the `az storage fs file upload` command.
 
 This example uploads a file named `upload.txt` to a directory named `my-directory`. 
 
