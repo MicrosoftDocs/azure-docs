@@ -140,6 +140,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50107 | InvalidRealmUri - The requested federation realm object does not exist. Contact the tenant admin. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat - Issue with JWT header. Contact the tenant admin. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter - Claims Transformation contains invalid input parameter. Contact the tenant admin to update the policy. |
+| AADSTS501241 | Lorem ipsum |
 | AADSTS50125 | PasswordResetRegistrationRequiredInterrupt - Sign-in was interrupted because of a password reset or password registration entry. |
 | AADSTS50126 | InvalidUserNameOrPassword - Error validating credentials due to invalid username or password. |
 | AADSTS50127 | BrokerAppNotInstalled - User needs to install a broker app to gain access to this content. |
@@ -152,7 +153,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS50135 | PasswordChangeCompromisedPassword - Password change is required due to account risk. |
 | AADSTS50136 | RedirectMsaSessionToApp - Single MSA session detected. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - The session is invalid due to a missing external refresh token. |
-| AADSTS50140 | KmsiInterrupt - This error occurred due to "Keep me signed in" interrupt when the user was signing-in. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details. |
+| AADSTS50140 | KmsiInterrupt - This error occurred due to "Keep me signed in" interrupt when the user was signing-in. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details. Lorem ipsum.|
 | AADSTS50143 | Session mismatch - Session is invalid because user tenant does not match the domain hint due to different resource. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Correlation ID, Request ID, and Error code to get more details. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword - User's Active Directory password has expired. Generate a new password for the user or have the user use the self-service reset tool to reset their password. |
 | AADSTS50146 | MissingCustomSigningKey - This app is required to be configured with an app-specific signing key. It is either not configured with one, or the key has expired or is not yet valid. |
@@ -189,6 +190,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS65004 | UserDeclinedConsent - User declined to consent to access the app. Have the user retry the sign-in and consent to the app|
 | AADSTS65005 | MisconfiguredApplication - The app required resource access list does not contain apps discoverable by the resource or The client app has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the app supports SAML, you may have configured the app with the wrong Identifier (Entity). To learn more, see the troubleshooting article for error [AADSTS650056](/troubleshoot/azure/active-directory/error-code-aadsts650056-misconfigured-app). |
 | AADSTS650052 | The app needs access to a service `(\"{name}\")` that your organization `\"{organization}\"` has not subscribed to or enabled. Contact your IT Admin to review the configuration of your service subscriptions. |
+| AADSTS650054 | Lorum ipsum |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - Authentication failed. The refresh token is not valid. Error may be due to the following reasons:<ul><li>Token binding header is empty</li><li>Token binding hash does not match</li></ul> |
 | AADSTS70001 | UnauthorizedClient - The application is disabled. To learn more, see the troubleshooting article for error [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory). |
@@ -196,6 +198,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS70003 | UnsupportedGrantType - The app returned an unsupported grant type. |
 | AADSTS70004 | InvalidRedirectUri - The app returned an invalid redirect URI. The redirect address specified by the client does not match any configured addresses or any addresses on the OIDC approve list. |
 | AADSTS70005 | UnsupportedResponseType - The app returned an unsupported response type due to the following reasons:<ul><li>response type 'token' is not enabled for the app</li><li>response type 'id_token' requires the 'OpenID' scope -contains an unsupported OAuth parameter value in the encoded wctx</li></ul> |
+| AADSTS700054 | Lorem ipsum |
 | AADSTS70007 | UnsupportedResponseMode - The app returned an unsupported value of `response_mode` when requesting a token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant - The refresh token has expired due to inactivity. The token was issued on XXX and was inactive for a certain amount of time. |
 | AADSTS70011 | InvalidScope - The scope requested by the app is invalid. |
