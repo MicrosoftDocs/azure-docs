@@ -37,7 +37,7 @@ To be enrolled in MACC and offer must be:
 1. In the **Offers** section, select the offer you want to see.
 1. On the **Offer overview** page, in the **Marketplace programs** section the **Microsoft Azure consumption commitment** status will show either _Enrolled_ or _Not Enrolled_.
 
-    :::image type="content" source="./media/azure-benefit/macc-enrolled.png>" alt-text="Screenshot of the Offer overview page in Partner Center that shows the Microsoft Azure consumption commitment status.":::
+    :::image type="content" source="media/azure-benefit/macc-enrolled.png" alt-text="Screenshot of the Offer overview page in Partner Center that shows the Microsoft Azure Consumption Commitment status.":::
 
     ***Figure 1: Offer that is enrolled in the MACC program***
 
@@ -48,4 +48,4 @@ To be enrolled in MACC and offer must be:
 
 - To learn more about how the MACC program benefits customers and how they can find solutions that are enabled for MACC, see [Azure Consumption Commitment benefit](/marketplace/azure-consumption-commitment-benefit).
 - To learn more about how your organization can leverage the Azure Marketplace, complete our Microsoft Learn module: [Simplify cloud procurement and governance with Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/)
-- [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations#transact-publishing-option)
+- [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations#transact-publishing-option.md)
