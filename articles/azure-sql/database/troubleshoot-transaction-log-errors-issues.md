@@ -21,7 +21,7 @@ You may see errors 9002 or 40552 when the transaction log is full and cannot acc
 These errors are similar to issues with a full transaction log in SQL Server, but have different resolutions in Azure SQL Database or Azure SQL Managed Instance.
 
 > [!NOTE]
-> **This article is focused on Azure SQL Database and Azure SQL Managed Instance.** Azure SQL Database and Azure SQL Managed Instance are based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting options and tools may differ. For more on blocking in SQL Server, see [Troubleshoot a Full Transaction Log (SQL Server Error 9002)](/sql/relational-databases/logs/troubleshoot-a-full-transaction-log-sql-server-error-9002.md).
+> **This article is focused on Azure SQL Database and Azure SQL Managed Instance.** Azure SQL Database and Azure SQL Managed Instance are based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting options and tools may differ. For more on blocking in SQL Server, see [Troubleshoot a Full Transaction Log (SQL Server Error 9002)](/sql/relational-databases/logs/troubleshoot-a-full-transaction-log-sql-server-error-9002).
 
 ## Automated backups and the transaction log
 
@@ -35,7 +35,7 @@ Similar to SQL Server, the transaction log for each database is truncated whenev
 
 ## Prevented transaction log truncation
 
-To discover what is preventing log truncation in a given case, refer to  `log_reuse_wait_desc` in `sys.databases`. The log reuse wait informs you to what conditions or causes are preventing the transaction log from being truncated by a regular log backup. For more information, see [sys.databases &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql.md). 
+To discover what is preventing log truncation in a given case, refer to  `log_reuse_wait_desc` in `sys.databases`. The log reuse wait informs you to what conditions or causes are preventing the transaction log from being truncated by a regular log backup. For more information, see [sys.databases &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql). 
 
 ```sql
 SELECT [name], log_reuse_wait_desc FROM sys.databases;
@@ -130,7 +130,7 @@ For more information on managing the file space of databases and elastic pools, 
 To resolve this issue, try the following methods:
 
 1. The issue can occur because of insert, update, or delete operations. Review the transaction to avoid unnecessary writes. Try to reduce the number of rows that are operated on immediately by implementing batching or splitting into multiple smaller transactions. For more information, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).
-2. The issue can occur because of index rebuild operations. To work around this issue, make sure the number of rows that are affected in the table * (average size of field that's updated in bytes + 80) < 2 gigabytes (GB). For large tables, consider creating partitions and performing index maintenance only on some partitions of the table. For more information, see [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=azuresqldb-current&preserve-view=true).
+2. The issue can occur because of index rebuild operations. To avoid this issue, ensure the following formula is true: (number of rows that are affected in the table) multiplied by (the average size of field that's updated in bytes + 80) < 2 gigabytes (GB). For large tables, consider creating partitions and performing index maintenance only on some partitions of the table. For more information, see [Create Partitioned Tables and Indexes](/sql/relational-databases/partitions/create-partitioned-tables-and-indexes?view=azuresqldb-current&preserve-view=true).
 3. If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. For more information, see [bcp Utility](/sql/tools/bcp-utility).
 4. If you are rebuilding an index with the `ALTER INDEX` statement, use the `SORT_IN_TEMPDB = ON` and `ONLINE = ON` options. For more information, see [ALTER INDEX (Transact-SQL)](/sql/t-sql/statements/alter-index-transact-sql).
 
