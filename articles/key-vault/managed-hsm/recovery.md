@@ -25,7 +25,7 @@ For more information about Managed HSM, see [Managed HSM overview](overview.md)
 
   | Role Assignment | Description |
   |---|---|
-  |[Managed HSM Contributor](../../role-based-access-control/built-in-roles#managed-hsm-contributor)|To list, recover and purge soft-deleted HSMs|
+  |[Managed HSM Contributor](../../role-based-access-control/built-in-roles.md#managed-hsm-contributor)|To list, recover and purge soft-deleted HSMs|
   |[Managed HSM Crypto User](./built-in-roles.md)|List soft-deleted keys|
   |[Managed HSM Crypto Officer](./built-in-roles.md)|Purge or recover soft-deleted keys|
 
