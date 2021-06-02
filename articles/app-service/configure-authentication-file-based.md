@@ -5,9 +5,9 @@ ms.topic: article
 ms.date: 03/29/2021
 ---
 
-# File-based configuration in Azure App Service authentication
+# File-based configuration in Azure App Service authentication (Preview)
 
-With [App Service authentication](overview-authentication-authorization.md), the authentication settings can be configured with a file. You may need to use file-based configuration to use certain preview capabilities of App Service authentication / authorization.
+With [App Service authentication](overview-authentication-authorization.md), the authentication settings can be configured with a file (Preview). You may need to use file-based configuration to use certain preview capabilities of App Service authentication / authorization.
 
 > [!IMPORTANT]
 > Remember that your app payload, and therefore this file, may move between environments, as with [slots](./deploy-staging-slots.md). It is likely you would want a different app registration pinned to each slot, and in these cases, you should continue to use the standard configuration method instead of using the configuration file.

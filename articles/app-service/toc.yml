@@ -229,8 +229,6 @@
         href: configure-authentication-provider-openid-connect.md
       - name: Authenticate using Sign in with Apple (Preview)
         href: configure-authentication-provider-apple.md
-      - name: File-based custom configuration
-        href: configure-authentication-file-based.md
     - name: Customize sign-ins/outs
       href: configure-authentication-customize-sign-in-out.md
     - name: Access user identities
@@ -241,6 +239,8 @@
       href: configure-authentication-client-apps.md
     - name: Manage API versions
       href: configure-authentication-api-version.md
+    - name: File-based configuration
+      href: configure-authentication-file-based.md
   - name: Secure app
     items:
     - name: Add SSL cert
