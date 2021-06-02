@@ -168,7 +168,7 @@
 - name: Resources
   items:
   - name: FAQ
-    href: notification-hubs-push-notification-faq.md
+    href: notification-hubs-push-notification-faq.yml
   - name: Google GCM to FCM Migration
     href: notification-hubs-gcm-to-fcm.md
   - name: SDKs
