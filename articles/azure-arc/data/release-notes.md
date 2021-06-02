@@ -62,7 +62,7 @@ This release introduces the following features or capabilities:
       ALTER AVAILABILITY GROUP current SET (ROLE = PRIMARY);
       ```
     
-- Transact--SQL `BACKUP` command is blocked unless using `COPY_ONLY` setting. This is required to support point in time Restore capability.
+- Transact-SQL `BACKUP` command is blocked unless using `COPY_ONLY` setting. This supports point in time restore capability.
 
 ### Known issues
 
