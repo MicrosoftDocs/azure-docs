@@ -375,7 +375,7 @@ To use Azure CLI to call a method:
     Direct method=setLedState invoked
     ```
 
-## Troubleshoot and Debug
+## Troubleshoot and debug
 
 If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
 
