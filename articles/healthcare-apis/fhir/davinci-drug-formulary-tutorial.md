@@ -47,13 +47,13 @@ profiles](https://docs.microsoft.com/azure/healthcare-apis/fhir/validation-again
 
 ### Sample rest file
 
-To assist with creation of these search parameters and profiles, we have a [DaVinci Formulary sample http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone. You should get a successful run with two small warnings in the results:
+To assist with creation of these search parameters and profiles, we have the [DaVinci Formulary](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) sample HTTP file on the open-source site that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone. You should get a successful run with two small warnings in the results:
 
 :::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="DaVinci test script execution.":::
 
 ## Touchstone query test
 
-The second test is the [query capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS) (we’ll test the Azure API for FHIR against the DaVinci Drug Formulary IG). This test validates that you can search for specific Coverage Plan and Drug resources using various parameters. The best path would be to test against resources that you already have in your database, but we also have an http file available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
+The second test is the [query capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS) (we’ll test the Azure API for FHIR against the DaVinci Drug Formulary IG). This test validates that you can search for specific Coverage Plan and Drug resources using various parameters. The best path would be to test against resources that you already have in your database, but we also have the [DaVinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) HTTP file available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
 
 :::image type="content" source="media/cms-tutorials/davinic-test-execution-results.png" alt-text="DaVinci test execution results.":::
 
