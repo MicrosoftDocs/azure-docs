@@ -64,7 +64,7 @@ For more information on deploying a model, see [How to deploy managed online end
 | liveness_probe.success_threshold | The minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
 | readiness_probe | Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe. |
 | tags | A dictionary of Azure Tags you want associated with the deployment. |
-| description | Description of the deployment. |
+| description | A description of the deployment. |
 
 ## Next steps
 
