@@ -6,14 +6,13 @@ documentationcenter: ''
 author: billmath
 manager: daveba
 editor: ''
-ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 06/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 
