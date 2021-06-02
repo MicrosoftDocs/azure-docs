@@ -252,9 +252,11 @@ In the most basic terms, **RemoteRenderedModel** holds the data needed to load a
 
 ## Load the Test Model
 
-Let's test the new script by loading the test model again. We'll create a Game Object to contain the script and be a parent to the test model.
+Let's test the new script by loading the test model again. We'll add a Game Object to contain the script and be a parent to the test model. We'll also create a virtual stage that contains the model. The stage will stay fixed relative to the real world using a [WorldAnchor](https://docs.microsoft.com/windows/mixed-reality/develop/unity/spatial-anchors-in-unity?tabs=worldanchor). We use a fixed stage so that the model itself can still be moved around later on.
 
-1. Create a new empty Game Object in the scene and name it **TestModel**.
+1. Create a new empty Game Object in the scene and name it **ModelStage**.
+1. Add a World Anchor component to **ModelStage** ![Add WorldAnchor component](./media/add-world-anchor-component.png))
+1. Create a new empty Game Object as a child of **ModelStage** and name it **TestModel**.
 1. Add the *RemoteRenderedModel* script to **TestModel**.
 ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
 1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively.
