@@ -41,6 +41,7 @@ The following limits apply only for networking resources managed through **Azure
 | User-defined route tables |200 |
 | User-defined routes per route table |400 |
 | Point-to-site root certificates per Azure VPN Gateway |20 |
+| Point-to-site revoked client certificates per Azure VPN Gateway |300 |
 | Virtual network TAPs |100 |
 | Network interface TAP configurations per virtual network TAP |100 |
 

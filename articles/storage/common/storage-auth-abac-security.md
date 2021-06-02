@@ -20,15 +20,23 @@ ms.subservice: common
 > This preview version is provided without a service level agreement, and it is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To fully secure resources by using [Azure attribute-based access control (Azure ABAC)](storage-auth-abac.md), you must also protect the [attributes](storage-auth-abac-attributes.md) used in the [Azure role assignment conditions](../../role-based-access-control/conditions-format.md). This requires that you secure all the permissions or actions that can be used to modify the attributes used in role assignment conditions. For example, if you author a condition for a storage account based on a path, then you should keep in mind that access could be compromised if the principal has an unrestricted permission to rename a file path.
+To fully secure resources using [Azure attribute-based access control (Azure ABAC)](storage-auth-abac.md), you must also protect the [attributes](storage-auth-abac-attributes.md) used in the [Azure role assignment conditions](../../role-based-access-control/conditions-format.md). For instance, if your condition is based on a file path, then you should beware that access can be compromised if the principal has an unrestricted permission to rename a file path.
 
 This article describes security considerations that you should factor into your role assignment conditions.
 
 ## Use of other authorization mechanisms 
 
-Azure ABAC is implemented as conditions on role assignments. Since these conditions are evaluated only when using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) with Azure Active Directory (Azure AD), they can be bypassed if you enable access by using alternate authorization methods. For example, conditions aren't evaluated when using Shared Key or shared access signature authorization. Similarly, conditions aren't evaluated when access is granted to a file or a folder by using [access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) in accounts that have the hierarchical namespace feature enabled on them. 
+Role assignment conditions are only evaluated when using Azure RBAC for authorization. These conditions can be bypassed if you allow access using alternate authorization methods:
+- [Shared Key](/rest/api/storageservices/authorize-with-shared-key) authorization
+- [Account shared access signature](/rest/api/storageservices/create-account-sas) (SAS)
+- [Service SAS](/rest/api/storageservices/create-service-sas).
 
-You can prevent this by [disabling shared key authorization](shared-key-authorization-prevent.md) for your storage account.
+Similarly, conditions are not evaluated when access is granted using [access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) in storage accounts with a [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS).
+
+You can prevent shared key, account-level SAS, and service-level SAS authorization by [disabling shared key authorization](shared-key-authorization-prevent.md) for your storage account. Since user delegation SAS depends on Azure RBAC, role-assignment conditions are evaluated when using this method of authorization.
+
+> [!NOTE]
+> Role-assignment conditions are not evaluated when access is granted using ACLs with Data Lake Storage Gen2. In this case, you must plan the scope of access so it does not overlap with that granted through ACLs.
 
 ## Securing storage attributes used in conditions
 
@@ -38,30 +46,30 @@ When using blob path as a *@Resource* attribute for a condition, you should also
 
 | Action | Description |
 | :--- | :--- |
-| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` | This allows customers to rename a file using the Path Create API. |
-| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | This allows access to various file system and path operations. |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action` | This action allows customers to rename a file using the Path Create API. |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | This action allows access to various file system and path operations. |
 
 ### Blob index tags
 
-[Blob index tags](../blobs/storage-manage-find-blobs.md) are used as free-form attributes for conditions in storage. If you author any access conditions by using these tags, you must also protect the tags themselves. Specifically, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` DataAction allows users to modify the tags on a storage object. A security principal's access to this action must also be suitably constrained to prevent them from modifying a tag key or value to gain access to a stored object that they'd otherwise be unable to access.
+[Blob index tags](../blobs/storage-manage-find-blobs.md) are used as free-form attributes for conditions in storage. If you author any access conditions by using these tags, you must also protect the tags themselves. Specifically, the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` DataAction allows users to modify the tags on a storage object. You can restrict this action to prevent users from manipulating a tag key or value to gain access to unauthorized objects.
 
-In addition, if blob index tags are used in conditions, data can be periodically vulnerable if the data and the associated index tags are updated in separate operations. To secure data from the instant that it's written to storage, the conditions for blob write operations should require the appropriate value for the associated index tags for the blob to be set to appropriate values in the same update operation.
+In addition, if blob index tags are used in conditions, data may be vulnerable if the data and the associated index tags are updated in separate operations. You can use `@Request` conditions on blob write operations to require that index tags be set in the same update operation. This approach can help secure data from the instant it's written to storage.
 
 #### Tags on copied blobs
 
-Blob index tags aren't copied from a source blob to the destination by default when the [Copy Blob](/rest/api/storageservices/Copy-Blob) API or any of its variants is used. To preserve the scope of access for blob upon copy, its tags must also be explicitly copied as well.
+By default, blob index tags are not copied from a source blob to the destination when you use [Copy Blob](/rest/api/storageservices/Copy-Blob) API or any of its variants. To preserve the scope of access for blob upon copy, you should copy the tags as well.
 
 #### Tags on snapshots
 
-Update of tags on blob snapshots aren't supported in preview. This implies that you must update the tags on a blob before taking the snapshot. Any update to tags will apply only to the base blob. The tags on the snapshot will continue to have the previous value.
+Tags on blob snapshots cannot be modified. This implies that you must update the tags on a blob before taking the snapshot. If you modify the tags on a base blob, the tags on it's snapshot will continue to have their previous value.
 
-If a tag on the base blob is modified after a snapshot is taken, and if there's a condition that uses that tag, then the scope of access for the base blob might be different than that for the blob snapshot.
+If a tag on a base blob is modified after a snapshot is taken, the scope of access may be different for the base blob and the snapshot.
 
 #### Tags on blob versions
 
 Blob index tags aren't copied when a blob version is created through the [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list) or [Copy Blob](/rest/api/storageservices/Copy-Blob) APIs. You can specify tags through the header for these APIs.
 
-You can modify tags on different versions of a blob, but these aren’t updated automatically when the tags on a base blob are modified. If you want to change the scope of access for a blob and all its versions using tags, you must update the tags on the base blob as well as all its versions.
+Tags can be set individually on a current base blob and on each blob version. When you modify tags on a base blob, the tags on previous versions are not updated. If you want to change the scope of access for a blob and all its versions using tags, you must update the tags on each version.
 
 #### Querying and filtering limitations for versions and snapshots
 
@@ -73,17 +81,17 @@ If you’re using role assignment conditions for [Azure built-in roles](../../ro
 
 ### Inherited role assignments
 
-Role assignments can be configured for a management group, subscription, resource group, storage account, or a container, and are inherited at each level in the stated order. Azure RBAC has an additive model, so the effective permissions are the sum of role assignments at each level. If a security principal has a permission assigned to them through multiple roles or a given role at multiple levels, then access for an operation using that permission is evaluated separately for each assigned role at every level.
+Role assignments can be configured for a management group, subscription, resource group, storage account, or a container, and are inherited at each level in the stated order. Azure RBAC has an additive model, so the effective permissions are the sum of role assignments at each level. If a principal has the same permission assigned to them through multiple role assignments, then access for an operation using that permission is evaluated separately for each assignment at every level.
 
-Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the access restrictions intended by the condition policy. For example, if a security principal is assigned a role, such as *Storage Blob Data Contributor*, at both the subscription and storage account levels and the role assignment condition is only defined at the storage account level, then the principal will have unrestricted access to the account through the role assignment at the subscription level, and vice versa.
+Since conditions are implemented as conditions on role assignments, any unconditional role assignment can allow users to bypass the condition. Let's say you assign the *Storage Blob Data Contributor* role to a user for a storage account and on a subscription, but add a condition only to the assignment for the storage account. In this case, the user will have unrestricted access to the storage account through the role assignment at the subscription level.
 
-Therefore, conditions must be consistently applied at all levels of a resource hierarchy where security principals have been granted access to a resource.
+That's why you should apply conditions consistently for all role assignments across a resource hierarchy.
 
 ## Other considerations
 
 ### Condition operations that write blobs
 
-Many of the operations that write blobs require either the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` or the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` permission. Built-in roles, such as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) grant both permissions to a security principal.
+Many operations that write blobs require either the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` or the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` permission. Built-in roles, such as [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) and [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) grant both permissions to a security principal.
 
 When you define a role assignment condition on these roles, you should use identical conditions on both these permissions to ensure consistent access restrictions for write operations.
 

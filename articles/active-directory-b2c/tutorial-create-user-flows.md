@@ -8,13 +8,13 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 05/21/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Tutorial: Create user flows in Azure Active Directory B2C
+# Tutorial: Create user flows and custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -323,7 +323,9 @@ As mentioned in [Prerequisites](#prerequisites), Facebook is *not* required for 
 1. Under **Custom policies**, select **B2C_1A_signup_signin**.
 1. Select **Run now** and select Facebook to sign in with Facebook and test the custom policy.
 
+
 ::: zone-end
+
 ## Next steps
 
 In this article, you learned how to:
@@ -337,3 +339,5 @@ Next, learn how to use Azure AD B2C to sign in and sign up users in an applicati
 
 > [!div class="nextstepaction"]
 > [Tutorial: Enable authentication in a web application using Azure AD B2C >](tutorial-web-app-dotnet.md)
+
+You can also learn more in the [Azure AD B2C Architecture Deep Dive Series](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).

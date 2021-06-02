@@ -45,7 +45,7 @@ Use the following steps to preview your offer.
 
 1. If your Azure application supports [metered billing using the commercial marketplace metering service](./partner-center-portal/azure-app-metered-billing.md), review and follow the testing best practices detailed in [Marketplace metered billing APIs](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
-1. If you need to make changes after previewing and testing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
+1. If you need to make changes after previewing and testing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./update-existing-offer.md).
 
 ## Publish your offer live
 

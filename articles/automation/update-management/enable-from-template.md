@@ -18,8 +18,6 @@ You can use an [Azure Resource Manager template](../../azure-resource-manager/te
 * Adds sample Automation runbooks to the account.
 * Enables the Update Management feature.
 
-The template does not automate enabling Update Management on one or more Azure or non-Azure VMs.
-
 If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. Using this template successfully creates the link and deploys Update Management.
 
 >[!NOTE]

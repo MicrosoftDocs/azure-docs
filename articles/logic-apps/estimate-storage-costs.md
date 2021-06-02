@@ -21,7 +21,7 @@ Storage costs change based on your workflows' content. Different triggers, actio
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* A single-tenant based logic Apps workflow. You can create a workflow [using the Azure portal](create-stateful-stateless-workflows-azure-portal.md) or [using Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md). If you don't have a workflow yet, you can use the sample small, medium, and large workflows in the storage calculator.
+* A single-tenant based logic Apps workflow. You can create a workflow [using the Azure portal](create-single-tenant-workflows-azure-portal.md) or [using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). If you don't have a workflow yet, you can use the sample small, medium, and large workflows in the storage calculator.
 
 * An Azure storage account that you want to use with your workflow. If you don't have a storage account, [create a storage account](../storage/common/storage-account-create.md)
 

@@ -71,7 +71,7 @@ To access this property, you need an Azure Active Directory Premium edition.
 To read this property, you need to grant the following rights: 
 
 - AuditLogs.Read.All
-- Organisation.Read.All  
+- Organization.Read.All  
 
 
 ### When does Azure AD update the property?
@@ -91,3 +91,4 @@ To generate a lastSignInDateTime timestamp, you need a successful sign-in. Becau
 * [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
 * [Audit API reference](/graph/api/resources/directoryaudit) 
 * [Sign-in activity report API reference](/graph/api/resources/signin)
+
