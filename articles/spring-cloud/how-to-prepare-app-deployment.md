@@ -261,6 +261,10 @@ To enable Distributed Configuration, include the following `spring-cloud-config-
 > [!WARNING]
 > Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
 
+> [!WARNING]
+> In case Spring Boot 2.4+ is used the following configuration has to be added to the application properties: `spring.config.import=configserver:${SPRING_CLOUD_CONFIG_URI}`
+> The environment variable `SPRING_CLOUD_CONFIG_URI` will automatically be injected into the application runtime. This is necessary as Spring Boot 2.4+ requires this property to be defined, otherwise, the configuration server property source can not be loaded and the application startup will fail.
+
 ### Metrics
 
 Include the `spring-boot-starter-actuator` dependency in the dependencies section of your pom.xml file as shown here:
