@@ -70,7 +70,7 @@ For detailed information, see [Create a SQL Managed Instance](../managed-instanc
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select desired hardware generation:
 
-  ![configure SQL Managed Instance](../database/media/service-tiers-vcore/configure-managed-instance.png)
+:::image type="content" source="../database/media/service-tiers-vcore/configure-managed-instance.png" alt-text"configure SQL Managed Instance"  loc-scope="azure-portal":::
   
 **To change the hardware generation of an existing SQL Managed Instance**
 
@@ -78,7 +78,7 @@ On the **Basics** tab, select the **Configure database** link in the **Compute +
 
 From the SQL Managed Instance page, select **Pricing tier** link placed under the Settings section
 
-![change SQL Managed Instance hardware](../database/media/service-tiers-vcore/change-managed-instance-hardware.png)
+:::image type="content" source="../database/media/service-tiers-vcore/change-managed-instance-hardware.png" alt-text"change SQL Managed Instance hardware"  loc-scope="azure-portal":::
 
 On the Pricing tier page, you will be able to change hardware generation as described in the previous steps.
 
