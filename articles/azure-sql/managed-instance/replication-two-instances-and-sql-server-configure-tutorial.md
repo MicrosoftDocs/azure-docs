@@ -4,10 +4,10 @@ description: "A tutorial that configures replication between a publisher managed
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1, devx-track-azurepowershell
+ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
+author: rothja
+ms.author: jroth
 ms.reviewer:
 ms.date: 11/21/2019
 ---

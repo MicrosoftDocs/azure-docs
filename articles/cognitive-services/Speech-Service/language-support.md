@@ -33,6 +33,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Language                 | Locale (BCP-47) | Customizations  | [Language identification](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
+| Arabic (Algeria)                   | `ar-DZ` | Text                                   |                           | 
 | Arabic (Bahrain), modern standard  | `ar-BH` | Text                                   |                           | 
 | Arabic (Egypt)                     | `ar-EG` | Text                                   | Yes                          |
 | Arabic (Iraq)                      | `ar-IQ` | Text                                   |                           |
@@ -40,12 +41,16 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabic (Jordan)                    | `ar-JO` | Text                                   |                           |
 | Arabic (Kuwait)                    | `ar-KW` | Text                                   |                           |
 | Arabic (Lebanon)                   | `ar-LB` | Text                                   |                           |
+| Arabic (Libya)                     | `ar-LY` | Text                                   |                           |
+| Arabic (Morocco)                   | `ar-MA` | Text                                   |                           |
 | Arabic (Oman)                      | `ar-OM` | Text                                   |                           |
 | Arabic (Qatar)                     | `ar-QA` | Text                                   |                           |
 | Arabic (Saudi Arabia)              | `ar-SA` | Text                                   |                           |
-| Arabic (State of Palestine)        | `ar-PS` | Text                                   |                           |
+| Arabic (Palestinian Authority)     | `ar-PS` | Text                                   |                           |
 | Arabic (Syria)                     | `ar-SY` | Text                                   |                           |
+| Arabic (Tunisia)                   | `ar-TN` | Text                                   |                           |
 | Arabic (United Arab Emirates)      | `ar-AE` | Text                                   |                           |
+| Arabic (Yemen)                     | `ar-YE` | Text                                   |                           |
 | Bulgarian (Bulgaria)               | `bg-BG` | Text                                   |                           |
 | Catalan (Spain)                    | `ca-ES` | Text                                   | Yes                          |
 | Chinese (Cantonese, Traditional)   | `zh-HK` | Audio (20201015)<br>Text                 |        Yes                   |
@@ -80,6 +85,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | German (Germany)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Text<br>Pronunciation|  Yes                         |
 | Greek (Greece)                     | `el-GR` | Text                                   |  Yes                         |
 | Gujarati (Indian)                  | `gu-IN` | Text                                   |                           |
+| Hebrew (Israel)                    | `he-IL` | Text                                   |                           |
 | Hindi (India)                      | `hi-IN` | Audio (20200701)<br>Text                 |     Yes                      |
 | Hungarian (Hungary)                | `hu-HU` | Text                                   |                           |
 | Indonesian (Indonesia)             | `id-ID` | Text                                   |                           |
@@ -444,30 +450,30 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 ### Customization
 
-Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Check below for the languages supported. 
+Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based on the Neural TTS technology and the multi-lingual multi-speaker universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. Check below for the languages supported.  
 
 > [!IMPORTANT]
 > The standard tier including the statistical parametric and the concatenative training methods of custom voice is being deprecated and will be retired on 2/29/2024. If you are using non-neural/standard Custom Voice, migrate to Custom Neural Voice immediately to enjoy the better quality and deploy the voices responsibly. 
 
-| Language | Locale | Neural |
-|--|--|--|
-| Bulgarian (Bulgaria)| `bg-BG` | Yes |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Yes |
-| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes |
-| Dutch (Netherlands)	| `nl-NL` | Yes |
-| English (Australia) | `en-AU` | Yes |
-| English (India) | `en-IN` | Yes |
-| English (United Kingdom) | `en-GB` | Yes |
-| English (United States) | `en-US` | Yes |
-| French (Canada) | `fr-CA` | Yes |
-| French (France) | `fr-FR` | Yes |
-| German (Germany) | `de-DE` | Yes |
-| Italian (Italy) | `it-IT` | Yes |
-| Japanese (Japan) | `ja-JP` | Yes |
-| Korean (Korea) | `ko-KR` | Yes |
-| Portuguese (Brazil) | `pt-BR` | Yes |
-| Spanish (Mexico) | `es-MX` | Yes |
-| Spanish (Spain) | `es-ES` | Yes |
+| Language | Locale | Neural | Cross-lingual |
+|--|--|--|--|
+| Bulgarian (Bulgaria)| `bg-BG` | Yes | No |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Yes | Yes |
+| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes | Yes |
+| Dutch (Netherlands)	| `nl-NL` | Yes | No |
+| English (Australia) | `en-AU` | Yes | Yes |
+| English (India) | `en-IN` | Yes | No |
+| English (United Kingdom) | `en-GB` | Yes | Yes |
+| English (United States) | `en-US` | Yes | Yes |
+| French (Canada) | `fr-CA` | Yes | Yes |
+| French (France) | `fr-FR` | Yes | Yes |
+| German (Germany) | `de-DE` | Yes | Yes |
+| Italian (Italy) | `it-IT` | Yes | Yes |
+| Japanese (Japan) | `ja-JP` | Yes | Yes |
+| Korean (Korea) | `ko-KR` | Yes | Yes |
+| Portuguese (Brazil) | `pt-BR` | Yes | Yes |
+| Spanish (Mexico) | `es-MX` | Yes | Yes |
+| Spanish (Spain) | `es-ES` | Yes | Yes |
 
 Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 

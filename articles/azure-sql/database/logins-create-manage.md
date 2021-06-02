@@ -9,9 +9,9 @@ ms.subservice: security
 ms.custom: sqldbrb=3
 ms.devlang: 
 ms.topic: conceptual
-author: VanMSFT
-ms.author: vanto
-ms.reviewer: sstein
+author: AndreasWolter
+ms.author: anwolter
+ms.reviewer: vanto, mathoma
 ms.date: 03/23/2020
 ---
 # Authorize database access to SQL Database, SQL Managed Instance, and Azure Synapse Analytics

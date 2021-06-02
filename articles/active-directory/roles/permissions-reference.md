@@ -214,17 +214,17 @@ Users in this role can create and manage all aspects of attack simulation creati
 
 ## Authentication Administrator
 
-Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Password reset permissions](#password-reset-permissions).
+Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication Administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Password reset permissions](#password-reset-permissions).
 
-The [Privileged authentication administrator](#privileged-authentication-administrator) role has permission to force re-registration and multi-factor authentication for all users.
+The [Privileged Authentication Administrator](#privileged-authentication-administrator) role has permission to force re-registration and multi-factor authentication for all users.
 
-The [Authentication policy administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
+The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
 
 | Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No |
-| Privileged authentication administrator| Yes for all users | Yes for all users | No | No | No |
-| Authentication policy administrator | No |No | Yes | Yes | Yes |
+| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No |
+| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No |
+| Authentication Policy Administrator | No |No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -253,13 +253,13 @@ The [Authentication policy administrator](#authentication-policy-administrator) 
 
 Users with this role can configure the authentication methods policy, tenant-wide MFA settings, and password protection policy. This role grants permission to manage Password Protection settings: smart lockout configurations and updating the custom banned passwords list.
 
-The [Authentication administrator](#authentication-administrator) and [Privileged authentication administrator](#privileged-authentication-administrator) roles have permission to manage registered authentication methods on users and can force re-registration and multi-factor authentication for all users.
+The [Authentication Administrator](#authentication-administrator) and [Privileged Authentication Administrator](#privileged-authentication-administrator) roles have permission to manage registered authentication methods on users and can force re-registration and multi-factor authentication for all users.
 
 | Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No |
-| Privileged authentication administrator| Yes for all users | Yes for all users | No | No | No |
-| Authentication policy administrator | No | No | Yes | Yes | Yes |
+| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No |
+| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No |
+| Authentication Policy Administrator | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > This role can't manage MFA settings in the legacy MFA management portal or Hardware OATH tokens.
@@ -909,17 +909,17 @@ Users with this role have access to all administrative features in Azure Active 
 
 ## Global Reader
 
-Users in this role can read settings and administrative information across Microsoft 365 services but can't take management actions. Global reader is the read-only counterpart to Global Administrator. Assign Global reader instead of Global Administrator for planning, audits, or investigations. Use Global reader in combination with other limited admin roles like Exchange Administrator to make it easier to get work done without the assigning the Global Administrator role. Global reader works with Microsoft 365 admin center, Exchange admin center, SharePoint admin center, Teams admin center, Security center, Compliance center, Azure AD admin center, and Device Management admin center.
+Users in this role can read settings and administrative information across Microsoft 365 services but can't take management actions. Global Reader is the read-only counterpart to Global Administrator. Assign Global Reader instead of Global Administrator for planning, audits, or investigations. Use Global Reader in combination with other limited admin roles like Exchange Administrator to make it easier to get work done without the assigning the Global Administrator role. Global Reader works with Microsoft 365 admin center, Exchange admin center, SharePoint admin center, Teams admin center, Security center, Compliance center, Azure AD admin center, and Device Management admin center.
 
 > [!NOTE]
-> Global reader role has a few limitations right now -
+> Global Reader role has a few limitations right now -
 >
->- [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global reader role
->- [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read integrated apps. You won't find the **Integrated apps** tab under **Settings** in the left pane of Microsoft 365 admin center.
->- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global reader can't read SCC audit logs, do content search, or see Secure Score.
->- [Teams admin center](https://admin.teams.microsoft.com) - Global reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
->- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global reader role.
->- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+>- [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global Reader role
+>- [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global Reader can't read integrated apps. You won't find the **Integrated apps** tab under **Settings** in the left pane of Microsoft 365 admin center.
+>- [Office Security & Compliance Center](https://sip.protection.office.com/homepage) - Global Reader can't read SCC audit logs, do content search, or see Secure Score.
+>- [Teams admin center](https://admin.teams.microsoft.com) - Global Reader cannot read **Teams lifecycle**, **Analytics & reports**, **IP phone device management** and **App catalog**.
+>- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) doesn't support the Global Reader role.
+>- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Global Reader is supported [for central reporting](/azure/information-protection/reports-aip) only, and when your Azure AD organization isn't on the [unified labeling platform](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > These features are currently in development.
 >
@@ -965,7 +965,7 @@ Users in this role can read settings and administrative information across Micro
 
 ## Groups Administrator
 
-Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the organization across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft Admin Center, Azure portal, as well as workload specific ones like Teams and SharePoint Admin Centers.
+Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the organization across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft admin center, Azure portal, as well as workload specific ones like Teams and SharePoint admin centers.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1104,7 +1104,7 @@ Users with this role can manage Azure AD identity governance configuration, incl
 
 ## Insights Administrator
 
-Users in this role can access the full set of administrative capabilities in the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights admin settings aspects.
+Users in this role can access the full set of administrative capabilities in the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights Administrator settings aspects.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1118,7 +1118,7 @@ Users in this role can access the full set of administrative capabilities in the
 
 ## Insights Business Leader
 
-Users in this role can access a set of dashboards and insights via the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Admin role.
+Users in this role can access a set of dashboards and insights via the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1130,7 +1130,7 @@ Users in this role can access a set of dashboards and insights via the [M365 Ins
 
 Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](/intune/role-based-access-control).
 
-This role can create and manage all security groups. However, Intune Admin does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the organization. However, he/she can manage the Office group that he creates which comes as a part of his/her end-user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
+This role can create and manage all security groups. However, Intune Administrator does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the organization. However, he/she can manage the Office group that he creates which comes as a part of his/her end-user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Intune Service Administrator." It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
@@ -1183,7 +1183,7 @@ Users with this role have global permissions to manage settings within Microsoft
 
 ## Knowledge Administrator
 
-Users in this role have full access to all knowledge, learning and intelligent features settings in the Microsoft 365 admin center. They have a general understanding of the suite of products, licensing details and has responsibility to control access. Knowledge administrator can create and manage content, like topics, acronyms and learning resources. Additionally, these users can create content centers, monitor service health, and create service requests.
+Users in this role have full access to all knowledge, learning and intelligent features settings in the Microsoft 365 admin center. They have a general understanding of the suite of products, licensing details and has responsibility to control access. Knowledge Administrator can create and manage content, like topics, acronyms and learning resources. Additionally, these users can create content centers, monitor service health, and create service requests.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1264,14 +1264,14 @@ Do not use. This role is automatically assigned from Commerce, and is not intend
 
 The Modern Commerce User role gives certain users permission to access Microsoft 365 admin center and see the left navigation entries for **Home**, **Billing**, and **Support**. The content available in these areas is controlled by [commerce-specific roles](../../cost-management-billing/manage/understand-mca-roles.md) assigned to users to manage products that they bought for themselves or your organization. This might include tasks like paying bills, or for access to billing accounts and billing profiles.
 
-Users with the Modern Commerce User role typically have administrative permissions in other Microsoft purchasing systems, but do not have Global Administrator or Billing administrator roles used to access the admin center.
+Users with the Modern Commerce User role typically have administrative permissions in other Microsoft purchasing systems, but do not have Global Administrator or Billing Administrator roles used to access the admin center.
 
 **When is the Modern Commerce User role assigned?**
 
 * **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce User role so they can manage their purchases in admin center. Admins can block self-service purchases (for Power BI, Power Apps, Power automate) through [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). For more information, see [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).
-* **Purchases from Microsoft commercial marketplace** – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce User role is assigned if they don’t have the Global Administrator or Billing admin role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
-* **Proposals from Microsoft** – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global Administrator or Billing admin role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce User role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
-* **Commerce-specific roles** – Some users are assigned commerce-specific roles. If a user isn't a Global or Billing admin, they get the Modern Commerce User role so they can access the admin center.
+* **Purchases from Microsoft commercial marketplace** – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce User role is assigned if they don’t have the Global Administrator or Billing Administrator role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
+* **Proposals from Microsoft** – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global Administrator or Billing Administrator role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce User role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
+* **Commerce-specific roles** – Some users are assigned commerce-specific roles. If a user isn't a Global Administrator or Billing Administrator, they get the Modern Commerce User role so they can access the admin center.
 
 If the Modern Commerce User role is unassigned from a user, they lose access to Microsoft 365 admin center. If they were managing any products, either for themselves or for your organization, they won’t be able to manage them. This might include assigning licenses, changing payment methods, paying bills, or other tasks for managing subscriptions.
 
@@ -1417,7 +1417,7 @@ Users with this role have limited ability to manage passwords. This role does no
 
 ## Power BI Administrator
 
-Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](/power-bi/service-admin-role).
+Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI Administrator role](/power-bi/service-admin-role).
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
@@ -1474,15 +1474,15 @@ Users with this role can register printers and manage printer status in the Micr
 
 Users with this role can set or reset any authentication method (including passwords) for any user, including Global Administrators. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users.
 
-The [Authentication administrator](#authentication-administrator) role has permission to force re-registration and multi-factor authentication for standard users and users with some admin roles.
+The [Authentication Administrator](#authentication-administrator) role has permission to force re-registration and multi-factor authentication for standard users and users with some admin roles.
 
-The [Authentication policy administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
+The [Authentication Policy Administrator](#authentication-policy-administrator) role has permissions to set the tenant's authentication method policy that determines which methods each user can register and use.
 
 | Role | Manage user's auth methods | Manage per-user MFA | Manage MFA settings | Manage auth method policy | Manage password protection policy |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| Authentication administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No |
-| Privileged authentication administrator| Yes for all users | Yes for all users | No | No | No |
-| Authentication policy administrator | No | No | Yes | Yes | Yes |
+| Authentication Administrator | Yes for some users (see above) | Yes for some users (see above) | No | No | No |
+| Privileged Authentication Administrator| Yes for all users | Yes for all users | No | No | No |
+| Authentication Policy Administrator | No | No | Yes | Yes | Yes |
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -1681,7 +1681,7 @@ In | Can do
 Identity Protection Center | Read all security reports and settings information for security features<br><ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mail flow rules
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Has read-only access to all information surfaced in Azure AD Privileged Identity Management: Policies and reports for Azure AD role assignments and security reviews.<br>**Cannot** sign up for Azure AD Privileged Identity Management or make any changes to it. In the Privileged Identity Management portal or via PowerShell, someone in this role can activate additional roles (for example, Global Administrator or Privileged Role Administrator), if the user is eligible for them.
 [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | View security policies<br>View and investigate security threats<br>View reports
-Windows Defender ATP and EDR | View and investigate alerts. When you turn on role-based access control in Windows Defender ATP, users with read-only permissions such as the Azure AD Security reader role lose access until they are assigned to a Windows Defender ATP role.
+Windows Defender ATP and EDR | View and investigate alerts. When you turn on role-based access control in Windows Defender ATP, users with read-only permissions such as the Azure AD Security Reader role lose access until they are assigned to a Windows Defender ATP role.
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information. Cannot make changes to Intune.
 [Cloud App Security](/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts
 [Azure Security Center](../../key-vault/managed-hsm/built-in-roles.md) | Can view recommendations and alerts, view security policies, view security states, but cannot make changes
@@ -1758,7 +1758,7 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 
 ## Skype for Business Administrator
 
-Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business Admin Center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
+Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business admin center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Lync Service Administrator." It is "Skype for Business Administrator" in the [Azure portal](https://portal.azure.com/).
@@ -1845,7 +1845,7 @@ Users in this role can troubleshoot communication issues within Microsoft Teams 
 
 ## Teams Devices Administrator
 
-Users with this role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) from the Teams Admin Center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
+Users with this role can manage [Teams-certified devices](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) from the Teams admin center. This role allows viewing all devices at single glance, with ability to search and filter devices. The user can check details of each device including logged-in account, make and model of the device. The user can change the settings on the device and update the software versions. This role does not grant permissions to check Teams activity and call quality of the device.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1855,7 +1855,7 @@ Users with this role can manage [Teams-certified devices](https://www.microsoft.
 
 ## Usage Summary Reports Reader
 
-Users with this role can access tenant level aggregated data and associated insights in Microsoft 365 Admin Center for Usage and Productivity Score but cannot access any user level details or insights. In Microsoft 365 Admin Center for the two reports, we differentiate between tenant level aggregated data and user level details. This role gives an extra layer of protection on individual user identifiable data, which was requested by both customers and legal teams.
+Users with this role can access tenant level aggregated data and associated insights in Microsoft 365 admin center for Usage and Productivity Score but cannot access any user level details or insights. In Microsoft 365 admin center for the two reports, we differentiate between tenant level aggregated data and user level details. This role gives an extra layer of protection on individual user identifiable data, which was requested by both customers and legal teams.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1866,7 +1866,7 @@ Users with this role can access tenant level aggregated data and associated insi
 
 ## User Administrator
 
-Users with this role can create users, and manage all aspects of users with some restrictions (see the table), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User administrators don't have permission to manage some user properties for users in most administrator roles. User with this role do not have permissions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
+Users with this role can create users, and manage all aspects of users with some restrictions (see the table), and can update password expiration policies. Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health. User Administrators don't have permission to manage some user properties for users in most administrator roles. User with this role do not have permissions to manage MFA. The roles that are exceptions to this restriction are listed in the following table.
 
 | User Administrator permission | Notes |
 | --- | --- |

@@ -221,11 +221,11 @@ landingContent:
           - text: Use the labeling tool
             url: label-tool.md
 
-  - title: API and client libraries
+  - title: REST API and client libraries
     linkLists:
       - linkListType: reference
         links:
-          - text: Form Recognizer API v2.1
+          - text: Azure Form Recognizer API v2.1
             url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
           - text: .NET SDK
             url: /dotnet/api/overview/azure/ai.formrecognizer-readme

@@ -6,7 +6,7 @@ ms.date: 03/29/2021
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
 # Migrate database resources to global Azure

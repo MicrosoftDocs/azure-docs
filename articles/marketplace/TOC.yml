@@ -92,7 +92,7 @@
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards
-    href: partner-center-portal/marketplace-rewards.md
+    href: marketplace-rewards.md
   - name: Getting paid
     items:
     - name: Getting paid
@@ -374,7 +374,7 @@
   - name: Review and publish offers
     href: review-publish-offer.md
   - name: Update existing offers
-    href: partner-center-portal/update-existing-offer.md   
+    href: update-existing-offer.md   
 - name: Sell and market your offers
   items: 
   - name: Marketing best practices
