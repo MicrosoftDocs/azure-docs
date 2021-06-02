@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add calling to an Windows app using Azure Communication Services
 description: In this quickstart, you learn how to use the Azure Communication Services Calling SDK for Windows.
-author: chpalm
+author: tophpalmer
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
@@ -177,7 +177,7 @@ The following code should be added inside `HangupHandler`.
 
 ```csharp
 HangupOptions hangupOptions = new HangupOptions();
-call_.Hangup(hangupOptions).Completed +=
+call_.HangupAsync(hangupOptions).Completed +=
 (IAsyncAction asyncInfo, AsyncStatus asyncStatus) =>
 {
 };

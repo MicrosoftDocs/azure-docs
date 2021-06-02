@@ -8,6 +8,9 @@ ms.author: mikben
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Windows.
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)
+
 ## Prerequisites
 
 To complete this tutorial, you’ll need the following prerequisites:
@@ -143,7 +146,7 @@ End the current call when the `Hang Up` button is clicked.
 ```C#
 private async void HangupButton_Click(object sender, RoutedEventArgs e)
 {
-    await call_.HangUp(new HangUpOptions());
+    await call_.HangUpAsync(new HangUpOptions());
 }
 ```
 
