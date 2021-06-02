@@ -103,6 +103,23 @@ You can associate a log query alert with a computer if you create a resource cen
 > [!IMPORTANT]
 > This section assumes the Log Analytics agent 
 
+## VM unresponsive
+The most basic type of alert for a virtual machine is whether it's responsive or not running. This could be that the machine is stopped 
+
+### Log query alert
+Each virtual machine sends a record to the Heartbeat table in the Log Analytics workspace every minute. You can create a log query that retrieves the last heartbeat for each computer and alerts on those that have exceeded a particular threshold. There are two methods for this depending on whether you want to receive a single alert for multiple computers or a separate alert for each computer.
+
+Negatives
+- Not stateful. Alert not automatically resolved once the machine is healthy again. (Stateful alerts available soon)
+- Minimum frequency of 5 minutes.
+- Alert associated with the workspace instead of the computer.
+
+Positives
+- Same cost regardless of number of machines.
+- More selective with included machines.
+- Could use complex logic.
+
+#### Alert for each computer
 
 
 ## Alert rule walkthrough
