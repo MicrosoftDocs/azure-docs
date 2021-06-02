@@ -261,7 +261,7 @@ Let's test the new script by loading the test model again. We'll add a Game Obje
 1. Create a new empty Game Object in the scene and name it **ModelStage**.
 1. Add a World Anchor component to **ModelStage**
 
-    ![Add WorldAnchor component](./media/add-world-anchor-component.png))
+    ![Add WorldAnchor component](./media/add-world-anchor-component.png)
 
 1. Create a new empty Game Object as a child of **ModelStage** and name it **TestModel**.
 1. Add the *RemoteRenderedModel* script to **TestModel**.
