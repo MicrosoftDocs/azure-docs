@@ -14,24 +14,12 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Using Azure OpenTelemetry Exporter to Export SDK Telemetry Data to Application Insights
 
-The Azure OpenTelemetry Exporter is an SDK within [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). It allows you to export tracing data using OpenTelemetry and send the data to [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview). OpenTelemetry provides a standardized way for applications and frameworks to collect telemetry information.
+The Azure OpenTelemetry Exporter is an SDK within [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). It allows you to export tracing data using OpenTelemetry and send the data to [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). OpenTelemetry provides a standardized way for applications and frameworks to collect telemetry information.
 
 Azure Application Insights is a feature of Azure Monitor which is used to monitor live applications. It displays telemetry data about your application in a Microsoft Azure resource. The telemetry model is standardized so that it is possible to create platform and language-independent monitoring.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/telemetry-app-insights-net.md)]
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./telemetry-app-insights-js.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./telemetry-app-insights-python.md)]
-::: zone-end
-
-::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./telemetry-app-insights-java.md)]
 ::: zone-end
 
 The output of the app describes each action that is completed:
@@ -53,7 +41,7 @@ To view more detail, you can drill into the samples:
 
 In the drill-down view, there is more information about the Activity such as where it was called from, its timestamp, name, performance, type, etc. You can also see the Cloud role name and instance id that we defined in the sample code snippet above. Notice that the custom properties that were tracked also show up here:
 
-:::image type="content" source="media/application-insights-e2e-details.png" alt-text="Screenshot showing the drill down view of the samples":::
+:::image type="content" source="media/application-insights-e2e-details.png" alt-text="End to end view of the transaction details":::
 
 ## Next Steps
 
