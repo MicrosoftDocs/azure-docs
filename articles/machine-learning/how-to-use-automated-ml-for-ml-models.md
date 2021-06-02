@@ -175,6 +175,11 @@ Drill down on any of the completed models to see training run details, like a mo
 
 [![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
+
+You can see a diagram of what data preprocessing, feature engineering, scaling techniques and the machine learning algorithm that were applied to generate this model.
+
+![Data transformation](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
+
 ## Model explanations (preview)
 
 To better understand your model, you can see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
