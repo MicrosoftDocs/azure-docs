@@ -72,18 +72,18 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
     
        ![Select Blob](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    1. On the **New Linked Service (Azure Blob Storage)** page, specify a name for your linked service. Select your storage account from the **Storage account name** list, test connection, and then select **Create**. 
+    1. On the **New connection (Azure Blob Storage)** page, specify a name for your connection. Select your Azure subscription from the **Azure subscription** list and your storage account from the **Storage account name** list, test connection, and then select **Create**. 
 
        ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
-    1. Select the newly created linked service as source in the **Connection** block.
+    1. Select the newly created connection in the **Connection** block.
     1. In the **File or folder** section, select **Browse** to navigate to the **adftutorial/input** folder, select the **emp.txt** file, and then click **OK**.
     1. Select the **Binary copy** checkbox to copy file as-is, and then select **Next**.
 
        :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/source-data-store.png" alt-text="Screenshot that shows the Source data store page.":::
 
 1. On the **Destination data store** page, complete the following steps:
-    1. Select the **Azure Blob Storage** linked service that you created in the **Connection** block.
+    1. Select the **AzureBlobStorage** connection that you created in the **Connection** block.
 
     1. In the **Folder path** section,  enter **adftutorial/output** for the folder path.
 
