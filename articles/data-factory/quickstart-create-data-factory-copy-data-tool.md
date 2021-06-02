@@ -85,13 +85,13 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 1. On the **Destination data store** page, complete the following steps:
     1. Select the **Azure Blob Storage** linked service that you created in the **Connection** block.
 
-    1. In the **Folder path** section, select **Browse** to navigate to the **adftutorial** folder, select the **output** folder, and then select OK.
+    1. In the **Folder path** section,  enter **adftutorial/output** for the folder path.
 
        :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/destination-data-store.png" alt-text="Screenshot that shows the Destination data store page.":::
 
     1. Leave other settings as default and then select **Next**.
 
-1. On the **Settings** page, specify a name for the pipeline and its description, then select **Next** to use the default configurations. 
+1. On the **Settings** page, specify a name for the pipeline and its description, then select **Next** to use other default configurations. 
 
     :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/settings.png" alt-text="Screenshot that shows the settings page.":::
 
@@ -107,7 +107,7 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **Activity name** column for more details about copy operation. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). 
 
-1. To go back to the Pipeline Runs view, select the **All runs** link in the breadcrumb menu. To refresh the view, select **Refresh**. 
+1. To go back to the Pipeline Runs view, select the **All pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**. 
 
 1. Verify that the **emp.txt** file is created in the **output** folder of the **adftutorial** container. If the output folder doesn't exist, the Data Factory service automatically creates it. 
 
