@@ -1,7 +1,7 @@
 ---
 title: Overview of Responsible use of AI
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways.
+description: Azure Cognitive Services provides information and guidelines on how to responsibly use artificial intelligence in applications. Below are the links to  articles that provide this guidance for the different services within the Cognitive Services suite.
 services: cognitive-services
 author: nitinme
 manager: nitinme
