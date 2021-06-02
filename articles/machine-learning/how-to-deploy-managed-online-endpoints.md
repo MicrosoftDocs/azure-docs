@@ -124,7 +124,7 @@ Currently, you can specify only one model per deployment in the YAML. If you hav
 ## Understand the scoring script
 
 > [!Tip]
-> The format of the scoring script for managed online endpoints is the same format used in the previous version of the CLI and in the Python SDK
+> The format of the scoring script for managed online endpoints is the same format used in the previous version of the CLI and in the Python SDK.
 
 As referred to in the above YAML, the `code_configuration.scoring_script` must have an `init()` function and a `run()` function. This example uses this [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). The `init()` function is called when the container is initialized/started. This initialization typically occurs shortly after the deployment is created or updated. Write logic here to do global initialization operations like caching the model in memory (as is done in this example). The `run()` function is called for every invocation of the endpoint and should do the actual scoring/prediction. In the example, we extract the data from the JSON input, call the `scikit-learn` model's `predict()` method, and return the result.
 
