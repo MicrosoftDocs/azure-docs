@@ -243,7 +243,7 @@ return detection_config
 
 ## Create a hook
 
-In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link for receiving the alert.  
+In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link which will show in the alert.
 
 ```python
 def sample_create_hook():
@@ -262,7 +262,7 @@ hook = client.create_hook(
         name="email hook",
         description="my email hook",
         emails_to_alert=["alertme@alertme.com"],
-        external_link="https://example.com/handleAlerts", # you must enter a valid webhook url to post the alert payload
+        external_link="https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/alerts"
     )
 )
 ```
