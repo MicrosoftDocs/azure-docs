@@ -54,7 +54,7 @@ Once your application is integrated using the supported authentication protocols
 > [!NOTE]
 > A detailed walkthrough of this feature is also available as a recorded session at [Use Conditional Access Auth Context in your app for step\-up authentication](https://www.youtube.com/watch?v=_iO7CfoktTY).
 
-**First**, declare and make the authentication contexts available in your tenant. For more information, see [Configure authentication contexts](../conditional-access/concept-conditional-access-cloud-apps.md#configure-authentication-contexts)
+**First**, declare and make the authentication contexts available in your tenant. For more information, see [Configure authentication contexts](../conditional-access/concept-conditional-access-cloud-apps.md#configure-authentication-contexts).
 
 Values **C1-C25** are available for use as **Auth Context IDs** in a tenant. Examples of auth context may be:
 
