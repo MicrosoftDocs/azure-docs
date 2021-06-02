@@ -531,7 +531,7 @@ This error occurs when there is a problem with the internal database used by Azu
 | **Error string** | ECS_E_AGENT_VERSION_BLOCKED |
 | **Remediation required** | Yes |
 
-This error occurs if the Azure File Sync agent version installed on the server is not supported. To resolve this issue, [upgrade]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) to a [supported agent version]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
+This error occurs if the Azure File Sync agent version installed on the server is not supported. To resolve this issue, [upgrade](file-sync-release-notes.md#azure-file-sync-agent-update-policy) to a [supported agent version](file-sync-release-notes.md#supported-versions).
 
 <a id="-2134351810"></a>**You reached the Azure file share storage limit.**  
 
