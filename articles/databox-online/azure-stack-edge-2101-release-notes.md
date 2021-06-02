@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro with FPGA 2101 release notes | Microsoft Docs
-description: Describes critical open issues and resolutions for the Azure Stack Edge 2101 release.
+title: Azure Stack Edge Pro FPGA 2101 release notes | Microsoft Docs
+description: Describes Azure Stack Edge Pro FPGA 2101 release critical open issues and resolutions.
 services: databox
 author: v-dalc
 ms.service: databox
