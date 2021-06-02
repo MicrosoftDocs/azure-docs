@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 06/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -44,6 +44,12 @@ In order for your disk pool to correctly function with your client machines, you
 ### Provide StoragePool resource provider permission to the disks that will be in the disk pool.
 
 In order for your disk pool to work correctly, the StoragePool resource provider must be assigned an RBAC role that contains Read & Write permissions for every managed disk in the disk pool.
+
+For a disk to be able to use a disk pool, it must meet the following requirements:
+
+- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
+    - For ultra disks, it must have a disk sector size of 512 bytes.
+- Must be a shared disk with a maxShares value of two or greater.
 
 1. Sign in to the Azure portal.
 1. Search for and select either the resource group that contains the disks or each disk themselves.

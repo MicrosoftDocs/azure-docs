@@ -4,14 +4,14 @@ description: Learn about Azure disk pools.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 06/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Azure managed disk pools (preview)
+# Azure disk pools (preview)
 
-A disk pools is a top-level Azure resource that allow your applications and workloads to access all of the disk pool's underlying storage. A disk pool surfaces a single endpoint for all underlying disks added as storage targets. You can think of a disk pool like a SAN appliance, and the disks in the pool as the SSDs inside the SAN.
+A disk pool is a top-level Azure resource that allow your applications and workloads to access all of the disk pool's underlying storage. A disk pool surfaces a single endpoint for all underlying disks added as storage targets. You can think of a disk pool like a SAN appliance, and the disks in the pool as the SSDs inside the SAN.
 
 A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside the pool. Each disk pool can have one iSCSI target, which can be connected to an Azure VMware Solution (AVS) host as a datastore. This allows you to scale your storage independent of your AVS hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances through vCenter, like any other datastore.
 
@@ -47,7 +47,7 @@ Disk pools are currently available in the following regions:
 
 ## Billing
 
-When you deploy a disk pool, several Azure artifacts are also deployed in the managed resource group that accompany the disk pool. You will be billed for the resources inside this managed resource group. Other than these resources and your disks, there are no additional service charges for a disk pool.
+When you deploy a disk pool, there are two main areas that will incur billing costs, the first are the disks inside the disk pool, and the second are the Azure artifacts deployed in the managed resource group that accompany the disk pool. You will be billed for the resources inside this managed resource group. Other than these resources and your disks, there are no additional service charges for a disk pool. For details on the managed resource group, see the how does it work section. 
 
 The resources in the managed resource group are:
 
