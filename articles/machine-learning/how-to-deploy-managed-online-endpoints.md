@@ -134,7 +134,7 @@ To save time in debugging, it's **highly recommended** you test-run your endpoin
 
 > [!Note]
 > * To deploy locally, you must have installed [Docker engine](https://docs.docker.com/engine/install/)
-> * Your Docker engine must be running. Typically, the engine launches at startup, if it doesn't, you can [troubleshoot here](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
+> * Your Docker engine must be running. Typically, the engine launches at startup. If it doesn't, you can [troubleshoot here](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
 
 > [!Important]
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before deploying to Azure. Local deployment has the following limitations:
