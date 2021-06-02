@@ -40,13 +40,13 @@ The [second test](https://touchstone.aegis.net/touchstone/testdefinitions?select
 
 In this test, you’ll need to load some sample data for the test to pass. We have a rest file here with the patient and coverage linked that you will need for the test. Once this data is loaded, you'll be able to successfully pass this test. If the data is not loaded, you'll receive a 422 response due to not finding an exact match.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-execution-passed.png" alt-text="DaVinci PDex execution passed.":::
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-passed.png" alt-text="DaVinci PDex test script passed.":::
 
 ## Touchstone Patient by Reference
 
 The next tests we'll review is the [patient by reference](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/02-PatientByReference&activeOnly=false&contentEntry=TEST_SCRIPTS) tests. This test validates that you can find a patient based on various search criteria. The best way to test the patient by reference will be to test against your own data, but we have uploaded a sample resource file that you can load to use as well.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-passed.png" alt-text="DaVinci PDex test script passed.":::
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-execution-passed.png" alt-text="DaVinci PDex execution passed.":::
 
 ## Touchstone patient/$everything test
 
