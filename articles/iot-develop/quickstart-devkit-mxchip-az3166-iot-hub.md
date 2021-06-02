@@ -16,7 +16,7 @@ ms.date: 05/28/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this tutorial, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
+In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
 
 You'll complete the following tasks:
 
@@ -42,11 +42,11 @@ You'll complete the following tasks:
 
 ## Prepare the development environment
 
-To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the tutorial. Then you install a set of programming tools.
+To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the quickstart. Then you install a set of programming tools.
 
-### Clone the repo for the tutorial
+### Clone the repo for the quickstart
 
-Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another tutorial, you don't need to do it again.
+Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another quickstart, you don't need to do it again.
 
 To clone the repo, run the following command:
 
@@ -56,7 +56,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### Install the tools
 
-The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another tutorial in the getting started guide, you don't need to do it again.
+The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another embedded device quickstart, you don't need to do it again.
 
 > [!NOTE]
 > The setup script installs the following tools:
@@ -71,7 +71,7 @@ To install the tools:
 
     > *getting-started\tools\get-toolchain.bat*
 
-1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the tutorial. You can use Windows CMD, PowerShell, or Git Bash for Windows.
+1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
 
     ```shell
@@ -93,7 +93,7 @@ To create an IoT hub:
 1. From your CLI app, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group. The following command creates a resource group named *MyResourceGroup* in the *centralus* region.
 
     > [!NOTE] 
-    > You can optionally set an alternate `location`. To see available locations, run [az account list-locations](/cli/azure/account#az-account-list-locations). For this tutorial we recommend using `centralus` as in the example CLI command. The IoT Plug and Play feature that you use later in the tutorial, is currently only available in three regions, including `centralus`.
+    > You can optionally set an alternate `location`. To see available locations, run [az account list-locations](/cli/azure/account#az-account-list-locations). For this quickstart we recommend using `centralus` as in the example CLI command. The IoT Plug and Play feature that you use later in the quickstart, is currently only available in three regions, including `centralus`.
 
     ```azurecli-interactive
     az group create --name MyResourceGroup --location centralus
@@ -101,7 +101,7 @@ To create an IoT hub:
 
 1. Run the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create an IoT hub. It might take a few minutes to create an IoT hub.
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this tutorial to represent your unique IoT hub name.
+    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your unique IoT hub name.
 
     ```azurecli-interactive
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
@@ -121,7 +121,7 @@ To register a device:
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
 
-    *MyMXCHIPDevice*. You can use this name directly for the device in CLI commands in this tutorial. Optionally, use a different name.
+    *MyMXCHIPDevice*. You can use this name directly for the device in CLI commands in this quickstart. Optionally, use a different name.
 
     ```azurecli-interactive
     az iot hub device-identity create --device-id MyMXCHIPDevice --hub-name {YourIoTHubName}
@@ -250,7 +250,7 @@ Keep Termite open to monitor device output in the following steps.
 ## View device properties
 
 > [!NOTE]
-> From this point in the tutorial, you can continue these steps, or you can optionally follow the same steps using the IoT Plug and Play preview. IoT Plug and Play provides a standard device model that lets a compatible device advertise its capabilities to an application. This approach simplifies the process of adding, configuring, and interacting with devices. To try IoT Plug and Play with your device, see [Using IoT Plug and Play with Azure RTOS](https://github.com/azure-rtos/getting-started/tree/master/docs/plugandplay.md).
+> From this point in the quickstart, you can continue these steps, or you can optionally follow the same steps using the IoT Plug and Play preview. IoT Plug and Play provides a standard device model that lets a compatible device advertise its capabilities to an application. This approach simplifies the process of adding, configuring, and interacting with devices. To try IoT Plug and Play with your device, see [Using IoT Plug and Play with Azure RTOS](https://github.com/azure-rtos/getting-started/tree/master/docs/plugandplay.md).
 
 You can use the Azure IoT Explorer to view and manage the properties of your devices. In the following steps, you'll add a connection to your IoT hub in IoT Explorer. With the connection, you can view properties for devices associated with the IoT hub. Optionally, you can perform the same task using Azure CLI.
 
@@ -381,7 +381,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 ## Clean up resources
 
-If you no longer need the Azure resources created in this tutorial, you can use the Azure CLI to delete the resource group and all of its resources.
+If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete the resource group and all of its resources.
 
 > [!IMPORTANT] 
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
@@ -405,11 +405,11 @@ To delete a resource group by name:
 
 ## Next steps
 
-In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
+In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
-* For device developers, the suggested next step is to see the other tutorials in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
+* For device developers, the suggested next step is to see the other quickstarts in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
 * If you have issues getting your device to initialize or connect after following the steps in this guide, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
-* To learn more about how Azure RTOS components are used in the sample code for this tutorial, see [Using Azure RTOS in the Getting Started guide](https://github.com/azure-rtos/getting-started/blob/master/docs/using-azure-rtos.md).
+* To learn more about how Azure RTOS components are used in the sample code for this quickstart, see [Using Azure RTOS in the Getting Started guide](https://github.com/azure-rtos/getting-started/blob/master/docs/using-azure-rtos.md).
 
     > [!IMPORTANT]
     > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
