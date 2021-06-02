@@ -19,7 +19,7 @@ Azure Cognitive Services provides information and guidelines on how to responsib
 
 * [Transparency note and use cases](/legal/cognitive-services/computer-vision/ocr-transparency-note?context=/azure/cognitive-services/computer-vision/context/context)
 * [Characteristics and limitations](/legal/cognitive-services/computer-vision/ocr-characteristics-and-limitations?context=/azure/cognitive-services/computer-vision/context/context)
-* [Integration and responsible use)](/legal/cognitive-services/computer-vision/ocr-guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context)
+* [Integration and responsible use](/legal/cognitive-services/computer-vision/ocr-guidance-integration-responsible-use?context=/azure/cognitive-services/computer-vision/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/computer-vision/ocr-data-privacy-security?context=/azure/cognitive-services/computer-vision/context/context)
 
 ## Computer Vision - Spatial Analysis
