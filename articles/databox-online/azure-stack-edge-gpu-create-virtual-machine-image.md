@@ -132,7 +132,7 @@ To create a VM image using the RHEL BYOS image, follow these steps:
 
 You can now use the VM that you provisioned to [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
  
-### Set Provisioning flags for a Linux custom image
+### Set Provisioning flags for a Linux custom VM image
 
 <!--Requested by the product team instead of introducing this in "Troubleshooting". Need a heading to link to. This placement is a bit awkward.-->
 
