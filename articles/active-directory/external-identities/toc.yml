@@ -88,7 +88,7 @@
         href: customize-invitation-api.md
     - name: Identity providers
       items:
-      - name: Azure AD Account
+      - name: Azure Active Directory
         href: azure-ad-account.md
       - name: Microsoft Account (Preview)
         href: microsoft-account.md
