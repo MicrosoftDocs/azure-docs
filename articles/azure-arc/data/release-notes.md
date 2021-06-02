@@ -22,6 +22,12 @@ This preview release is published on June 2, 2021.
 
 As a preview feature, the technology presented in this article is subject to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+### Breaking change
+
+- Kubernetes native deployment templates have been modified. Update update your .yml templates.
+    - Updated templates for data controller, bootstrapper, & SQL Managed instance: [GitHub microsoft/azure-arc pr 574](https://github.com/microsoft/azure_arc/pull/574)
+    - Updated templates for PostgreSQL Hyperscale: [GitHub microsoft/azure-arc pr 574](https://github.com/microsoft/azure_arc/pull/574)
+
 ### What's new
 
 #### Platform
@@ -42,13 +48,27 @@ This release introduces the following features or capabilities:
 
 #### Azure Arc enabled SQL Managed Instance
 
-- Manually trigger a failover of using Transact-SQL. 
-- Transact--SQL `BACKUP` command is blocked unless using `COPY_ONLY` setting. 
+- Manually trigger a failover of using Transact-SQL. Do the following commands in order:
 
+   1. On the primary replica endpoint connection:
+   
+      ```sql
+       ALTER AVAILABILITY GROUP current SET (ROLE = SECONDARY);
+      ```
+
+   1. On the secondary replica endpoint connection:
+   
+      ```sql
+      ALTER AVAILABILITY GROUP current SET (ROLE = PRIMARY);
+      ```
+    
+- Transact--SQL `BACKUP` command is blocked unless using `COPY_ONLY` setting. This is required to support point in time Restore capability.
 
 ### Known issues
 
-- You can create a data controller, managed instance, or server group on a connected cluster with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+#### Platform
+
+- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
    - Azure Data Studio
    - Azure Data CLI (`azdata`)
    - Kubernetes native tools (`kubectl`)
@@ -63,8 +83,6 @@ This release introduces the following features or capabilities:
 - Currently, only one Azure Arc data controller in direct connected mode per kubernetes cluster is supported.
 
 #### Azure Arc enabled SQL Managed Instance
-
-- Deployment of Azure Arc enabled SQL Managed Instance in direct mode can only be done from the Azure portal, and not available from tools such as azdata, Azure Data Studio, or kubectl.
 
 #### Azure Arc enabled PostgreSQL Hyperscale
 
