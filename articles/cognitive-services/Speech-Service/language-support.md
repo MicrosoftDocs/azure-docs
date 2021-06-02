@@ -31,7 +31,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Language                 | Locale (BCP-47) | Customizations  | [Language identification](how-to-automatic-language-detection.md) | [Pronunciation Assessment](how-to-pronunciation-assessment.md) |
+| Language                 | Locale (BCP-47) | Customizations  | [Language identification](how-to-automatic-language-detection.md) | [Pronunciation assessment](how-to-pronunciation-assessment.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|--------------------------|
 | Arabic (Bahrain), modern standard  | `ar-BH` | Text                                   |                           |                          |
 | Arabic (Egypt)                     | `ar-EG` | Text                                   | Yes                          |                          |
@@ -48,8 +48,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabic (United Arab Emirates)      | `ar-AE` | Text                                   |                           |                          |
 | Bulgarian (Bulgaria)               | `bg-BG` | Text                                   |                           |                          |
 | Catalan (Spain)                    | `ca-ES` | Text                                   | Yes                          |                          |
-| Chinese (Cantonese, Traditional)   | `zh-HK` | Audio (20201015)<br>Text                 |        Yes                   | Yes                         |
-| Chinese (Mandarin, Simplified)     | `zh-CN` | Audio (20200910)<br>Text                 |     Yes                      |                          |
+| Chinese (Cantonese, Traditional)   | `zh-HK` | Audio (20201015)<br>Text                 |        Yes                   |                          |
+| Chinese (Mandarin, Simplified)     | `zh-CN` | Audio (20200910)<br>Text                 |     Yes                      | Yes                         |
 | Chinese (Taiwanese Mandarin)       | `zh-TW` | Audio (20190701, 20201015)<br>Text                 |           Yes                |                          |
 | Croatian (Croatia)                 | `hr-HR` | Text                                   |                           |                          |
 | Czech (Czech Republic)             | `cs-CZ` | Text                                   |                           |                          |
