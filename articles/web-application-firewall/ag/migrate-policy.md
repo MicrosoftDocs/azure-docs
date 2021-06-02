@@ -6,7 +6,8 @@ ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/16/2020
-ms.author: ant
+ms.author: ant 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Migrate Web Application Firewall policies using Azure PowerShell

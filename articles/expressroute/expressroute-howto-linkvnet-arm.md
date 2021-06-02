@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: duau
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Tutorial: Connect a virtual network to an ExpressRoute circuit

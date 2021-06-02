@@ -1,3 +1,4 @@
+items:
 - name: Azure Communication Services Documentation
   href: index.yml
 - name: Overview
@@ -18,6 +19,8 @@
     href: quickstarts/managed-identity.md
   - name: Set up managed identities from CLI
     href: quickstarts/managed-identity-from-cli.md
+  - name: Get a relay token
+    href: quickstarts/relay-token.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -51,11 +54,11 @@
   - name: UI Library
     items:
       - name: Get started with Composites
-        href: https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-composites--page
+        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
       - name: Get started with Stateful Client
-        href: https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-stateful-client--page
+        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
       - name: Get started with UI Components
-        href: https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-ui-components--page
+        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
 - name: Tutorials
   expanded: false
   items:

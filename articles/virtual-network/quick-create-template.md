@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 05/11/2021
 ms.author: kumud
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create a virtual network - Resource Manager template
