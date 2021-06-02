@@ -15,7 +15,7 @@ At this time, only [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceO
 
 ### What is the cost of the NVA?
 
-You must purchase a license for the NVA from the NVA vendor. For your Barracuda CloudGen WAN NVA from Barracuda license, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). Cisco currently only offers BYOL (Bring Your Own License) licensing model that needs to be procured directly from Cisco. In addition, you will also incur charges from Microsoft for the NVA Infrastructure Units you consume, and any other resources you use. For more information, see [Pricing Concepts](pricing-concepts.md).
+You must purchase a license for the NVA from the NVA vendor. For your Barracuda CloudGen WAN NVA from Barracuda license, see [Barracuda's CloudGen WAN page](https://www.barracuda.com/products/cloudgenwan). Cisco currently only offers BYOL (Bring Your Own License) licensing model that needs to be procured directly from Cisco. In addition, you will also incur charges from Microsoft for the NVA Infrastructure Units you consume, and any other resources you use. For more information, see [Pricing Concepts](../articles/virtual-wan/pricing-concepts.md).
 
 ### Can I deploy an NVA to a Basic hub?
 
