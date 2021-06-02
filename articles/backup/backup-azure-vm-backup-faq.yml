@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Backing up Azure VMs
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: conceptual
-  ms.date: 05/10/2021
+  ms.date: 06/02/2021
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -109,6 +109,9 @@ sections:
 
       - question: What are the VM configurations stored in the virtual machine backup?
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
+      
+       - question: Can we back up tags from Azure VM? If so, how many tags?
+         answer:  Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
   - name: Restore
     questions:
