@@ -6,7 +6,7 @@ ms.service: api-management
 author: v-hhunter
 ms.author: v-hhunter
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/02/2021
 ms.custom: template-how-to 
 ---
 
@@ -83,25 +83,16 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 1. Navigate to your WebSocket API.
 1. Within your WebSocket API, select the onHandshake operation.
 1. Select the **Test** tab to access the Test console. 
+1. Optionally, provide query string parameters required for the WebSocket handshake.
 
     :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="test API example":::
 
 1. Click **Connect**.
-1. View response in **Output**.
+1. View connection status in **Output**.
 1. Enter value in **Payload**. 
 1. Click **Send**.
 1. Repeat preceding steps to test different payloads.
 1. When testing is complete, select **Disconnect**.
-
-## View WebSocket API metrics and logs
-
-You can view your WebSocket API metrics and logs from the **Change log** tab. The change log shows the history of changes you have deployed to your production API. These changes are shown on the developer portal with your API. To create a change log entry:
-
-1. Navigate to your WebSocket API.
-1. Add a new revision to your API.
-1. Make your changes.
-1. Select **Make current**.
-1. Select the **Change log** tab to view your changes.
 
 ## Limitations
 
