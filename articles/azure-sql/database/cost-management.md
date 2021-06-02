@@ -1,10 +1,11 @@
 ---
 title: Plan and manage costs
 description: Learn how to plan for and manage costs for Azure SQL Database by using cost analysis in the Azure portal.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: MashaMSFT
+ms.author: mathoma
 ms.custom: subject-cost-optimization
 ms.service: sql-database
+ms.subservice: service-overview
 ms.topic: how-to
 ms.date: 01/15/2021
 ---

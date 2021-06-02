@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Additional documentation for Azure FXT Edge Filer

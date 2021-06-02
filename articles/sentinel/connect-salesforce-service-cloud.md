@@ -22,6 +22,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Salesforce Service Cloud connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your Salesforce Service Cloud solution to Azure Sentinel. The Salesforce Service Cloud data connector allows you to easily connect your Salesforce data with Azure Sentinel, so that you can view it in workbooks, use it to create custom alerts, and incorporate it to improve investigation. Integration between Salesforce Service Cloud and Azure Sentinel makes use of REST API.
 
 > [!NOTE]

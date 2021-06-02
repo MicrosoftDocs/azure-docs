@@ -131,7 +131,25 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
  
     :::image type="content" source="./media/dobimigrate-quick-start-guide/dobiprotect-azure-files-shares.png" alt-text="Show available shares.":::
 
-13. Click **Finish** to complete the Azure Files configuration. You can then initiate a new migration task.
+13. Click **Finish** to complete the Azure Files configuration. You can then start a new migration task.
+
+### Start a new migration
+
+DobiMigrate can set up a new migration by manually adding migration paths, or by using bulk import. Bulk import adds multiple migrations with common migration options.
+
+To start a new migration:
+
+1. Click the **New migration** button on the dashboard.
+   
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-new-migration.png" alt-text="Start a new migration job.":::
+
+1. Select the source and the paths to be migrated.
+
+    :::image type="content" source="./media/dobimigrate-quick-start-guide/dobimigrate-select-source.png" alt-text="Select source and the paths to be migrated.":::
+
+1. Select the **Destination**.
+2. Verify the protocols, and confirm the migration options.
+3. Click **Finish** to complete the migration process.
 
 ## Support 
 
@@ -151,8 +169,9 @@ Datadobi has made it easy to deploy their solution in Azure to protect Azure Vir
 
 - [Migrate File Data to Azure with DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=overview)
 
+## Next steps
 
-## Additional resources
+Learn more by visiting our guides:
 
 - [Storage migration overview](/azure/storage/common/storage-migration-overview)
 - [DobiMigrate User Manual](https://downloads.datadobi.com/NAS/olh/latest/dobimigrate.html)

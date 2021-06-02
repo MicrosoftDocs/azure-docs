@@ -51,6 +51,9 @@ When you select a custom domain for an external URL, an information bar shows th
 
 To configure an on-premises app to use a custom domain, you need a verified Azure Active Directory custom domain, a PFX certificate for the custom domain, and an on-premises app to configure. 
 
+> [!IMPORTANT]
+> You are responsible for maintaining DNS records that redirect your custom domains to the *msappproxy.net* domain. If you choose to later delete your application or tenant, make sure to also delete associated DNS records for Application Proxy to prevent misuse of dangling DNS records. 
+
 ### Create and verify a custom domain
 
 To create and verify a custom domain:

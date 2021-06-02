@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: This article compares the database engine features of Azure SQL Database and Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: bonova, sstein, danil
+ms.reviewer: bonova, mathoma, danil
 ms.date: 05/18/2021
 ---
 
@@ -30,6 +30,7 @@ Azure manages your databases and guarantees their high-availability. Some featur
 If you need more details about the differences, you can find them in the separate pages:
 - [Azure SQL Database vs. SQL Server differences](transact-sql-tsql-differences-sql-server.md)
 - [Azure SQL Managed Instance vs. SQL Server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)
+
 
 ## Features of SQL Database and SQL Managed Instance
 
@@ -148,6 +149,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
 | VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | Yes, using [Virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
+| [Private connectivity](../../private-link/private-link-overview.md) | Yes, using [Private Link](/database/private-endpoint-overview.md) | Yes, using VNet. | 
 
 ## Tools
 
@@ -168,7 +170,7 @@ Azure SQL Database and Azure SQL Managed Instance support various data tools tha
 | [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes [version 18.0 and higher](/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](xevent-db-diff-from-svr.md) | Yes |
-| [System Center Operations Manager (SCOM)](/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | [Yes](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
+| [System Center Operations Manager](/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | [Yes](https://www.microsoft.com/en-us/download/details.aspx?id=101203) |
 
 ## Migration methods
 

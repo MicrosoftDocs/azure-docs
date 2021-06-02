@@ -3,13 +3,13 @@ title: Glossary of terms
 titleSuffix: Azure SQL Database & SQL Managed Instance 
 description: A glossary of terms for working with Azure SQL Database, Azure SQL Managed Instance, and SQL on Azure VM. 
 services: sql-database
-ms.service: sql-db-mi
-ms.subservice: service
+ms.service: sql-database
+ms.subservice: service-overview
 ms.custom: sqldbrb=4
 ms.devlang: 
 ms.topic: reference
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: 
 ms.date: 5/18/2021
 ---

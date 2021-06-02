@@ -85,6 +85,8 @@
       href: security-encrypt-data-managed-identity-cli-tutorial.md
     - name: Access storage with a Managed Identity
       href: security-access-storage-managed-identity-cli-tutorial.md
+    - name: Give a Function App access to Media Services account
+      href: security-function-app-managed-identity-cli-tutorial.md
   - name: Node.js
     items:
     - name: Encode and stream a remote file Node.js
@@ -259,6 +261,9 @@
         href: job-error-codes-reference.md
   - name: High availability
     items:
+    - name: Availability Zones
+      displayName: Availability, Availability Zones, AZ, az, HA, high availability
+      href: concept-availability-zones.md
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: architecture-high-availability-encoding-concept.md
@@ -463,6 +468,8 @@
       href: security-encrypt-data-managed-identity-cli-tutorial.md
     - name: Access storage with a Managed Identity
       href: security-access-storage-managed-identity-cli-tutorial.md
+    - name: Give a Function App access to Media Services account
+      href: security-function-app-managed-identity-cli-tutorial.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up
