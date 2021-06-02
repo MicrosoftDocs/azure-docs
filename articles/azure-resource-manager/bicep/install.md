@@ -83,7 +83,7 @@ bicep --version
 
 ### Install manually
 
-The following methods install the Bicep CLI and add it to your PATH.
+The following methods install the Bicep CLI and add it to your PATH. You must manually install for any use other than Azure CLI.
 
 #### Linux
 
@@ -111,7 +111,7 @@ brew tap azure/bicep
 brew install bicep
 ```
 
-##### macOS manual install
+##### via BASH
 
 ```sh
 # Fetch the latest Bicep CLI binary

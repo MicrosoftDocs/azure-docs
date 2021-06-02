@@ -19,7 +19,7 @@ Azure Media Services uses [Availability Zones](../../availability-zones/az-overv
 |-----------            |----------------------|
 | Control Plane (ARM API) | Continue to work as normal |
 | Key delivery            | Continue to work as normal |
-| Jobs                    | Queued Jobs resume in another Availability Zone|
+| Jobs                    | Jobs are rescheduled in another Availability Zone. There will be a delay in processing time as in-flight processing jobs are rescheduled to start over in the Availability Zone |
 | Live Events             | Continue to work as normal |
 | Streaming Endpoints     | Continue to work as normal |
 

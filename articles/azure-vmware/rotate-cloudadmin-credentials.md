@@ -22,7 +22,7 @@ You can use your cloudadmin credentials for connected services like HCX, vRealiz
 - Make sure to [set up a connection to an external identity source (LDAP)](connect-external-identity-source-ldap-run-command.md) to create and manage credentials for use with connected services. If you don't have an external identity source, such as Active Directory, you shouldn't rotate your cloudadmin credentials. Rotating could break any connections that use the vCenter or NSX-T credentials. It could also lock out those accounts, resulting in a security lockout.
 
 
-## Reset your Azure VMware Solution credentials
+## Reset your Azure VMware Solution cloudadmin credentials
 
 In this step, you'll reset the cloudadmin credentials for your Azure VMware Solution components.
 
@@ -49,7 +49,7 @@ In this step, you'll reset the cloudadmin credentials for your Azure VMware Solu
       :::image type="content" source="media/rotate-cloudadmin-credentials/reset-nsxt-manager-credentials-2.png" alt-text="Screenshot prompting confirmation to generate a new NSX-T Manager credential.":::
 
 
-## Update HCX Connector with the latest credentials
+## Update HCX Connector with the latest cloudadmin credentials
 
 In this step, you'll update HCX Connector with the new credentials.
 

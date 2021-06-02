@@ -18,7 +18,11 @@ The following modules cover Bicep.
 
 * [Build reusable Bicep templates by using parameters](/learn/modules/build-reusable-bicep-templates-parameters/) - This module describes how you can use Bicep parameters to provide information for your template during each deployment. You'll learn about parameter decorators, which make your parameters easy to understand and work with. You'll also learn about the different ways that you can provide parameter values and protect them when you're working with secure information.
 
+* [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) - Learn how to use conditions to deploy resources only when specific constraints are in place. Also learn how to use loops to deploy multiple resources that have similar properties.
+
 * [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates/) - This module shows how to deploy various Azure resources in your Bicep code. Learn about child and extension resources, and how they can be defined and used within Bicep. Use Bicep to work with resources that you created outside a Bicep template or module.
+
+* [Extend templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/) - Learn how to add custom steps to your Bicep file or Azure Resource Manager template (ARM template) by using deployment scripts.
 
 ## Next steps
 
