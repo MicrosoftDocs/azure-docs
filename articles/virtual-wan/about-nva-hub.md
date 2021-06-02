@@ -5,11 +5,11 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 06/02/2021
 ms.author: scottnap
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ---
-# About Network Virtual Appliance in an Azure Virtual WAN hub (Preview)
+# About Network Virtual Appliance in an Azure Virtual WAN hub
 
 Azure Virtual WAN has worked with networking partners to build automation that makes it easy to connect their Customer Premises Equipment (CPE) to an Azure VPN gateway in the virtual hub. Azure is working with select networking partners to enable customers to deploy a third-party Network Virtual Appliance (NVA) directly into the virtual hub. This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities.
 
@@ -68,7 +68,7 @@ You still need to create Hub-to-VNet connections to connect your Virtual WAN hub
 
 ## <a name="regions"></a>Supported regions
 
-NVA in the virtual hub is available for Preview in the following regions:
+NVA in the virtual hub is available in the following regions:
 
 |Geopolitical region | Azure regions|
 |---|---|
