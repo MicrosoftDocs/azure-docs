@@ -87,10 +87,10 @@ The following sections will guide you through establishing connectivity with the
   
 
   5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
- 
-      https://localhost:8585/ecma2host_connectorName/scim
 
-      For example, if the connector you created was named SQL, the url would be: https://localhost:8585/ecma2host_SQL/scim
+      |Property|Value|
+      |-----|-----|
+      |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
 
   6. Enter the secret token value that you defined when creating the connector.
   7. Click Test Connection and wait one minute.
