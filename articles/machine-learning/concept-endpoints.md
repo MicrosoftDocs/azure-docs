@@ -13,7 +13,7 @@ ms.date: 05/25/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# What are Azure Machine Learning endpoints (preview)?
+# What are Azure Machine Learning endpoints (preview)? 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
