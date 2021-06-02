@@ -53,7 +53,7 @@ You can respond to reviews from users and the response will be visible on either
 
 1. Select the **Ratings & reviews** tab, and then select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
 
-![Ratings & Review](./media/marketplace-publisher-guide-rating-reviews/ratings_and_reviews.png)
+![Ratings & Review](./media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png)
 2. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
 
 The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
