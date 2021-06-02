@@ -29,17 +29,17 @@ For more information on deploying a model, see [How to deploy managed online end
 | Key | Description |
 | --- | --- |
 | $schema    | \[__Optional__\] The YAML schema. You can view the schema in the above example in a browser to see all available options in the YAML file.|
-| name       | Name of the endpoint. Needs to be unique at Azure region level.|
-| traffic | Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100 |
-| auth_mode | use `key` for key based authentication and `aml_token` for Azure machine learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint list-keys` command). |
+| name       | Name of the endpoint. Needs to be unique at the Azure region level.|
+| traffic | Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100. |
+| auth_mode | use `key` for key based authentication and `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire but `aml_token` does. Get the most recent token with the `az ml endpoint list-keys` command). |
 | identity | Used to configure system-assigned and user-assigned managed identities. |
-| app_insights_enabled | `True` to enable integration with Azure AppInsights associated with your Azure machine learning workspace. `False` by default.
+| app_insights_enabled | `True` to enable integration with Azure AppInsights associated with your Azure Machine Learning workspace. `False` by default.
 | tags | Dictionary of Azure Tags to be associated with the Endpoint. |
 | description | Description of the endpoint. |
 | target | If this key isn't defined, the endpoint will be deployed as a managed online endpoint. To use AKS, set the value of this key to the name of the registered compute target, such as `target:azureml:my-aks`. 
 | deployments | Contains a list of deployments to be created in the endpoint. In this case, we have only one deployment, named `blue`. |
 
-### Attributes of the `deployment` key
+### Attributes of the `deployments` key
  
 | Key | Description |
 | --- | --- |
@@ -52,7 +52,7 @@ For more information on deploying a model, see [How to deploy managed online end
 | scale_settings.scale_type | Currently, this value must be `manual`. To scale up or scale down after the endpoint and deployment are created, update the `instance_count` in the YAML and run the command `az ml endpoint update -n $ENDPOINT_NAME --file <yaml filepath>`. |
 | scale_settings.instance_count | Number of instances in the deployment. Base the value on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. |
 | scale_settings.min_instances | The minimum number of instances to always be present. |
-| scale_settings.max_instances | The maximum number of instances that the deployment can scale to. Note that the quota will be reserved for max_instances. |
+| scale_settings.max_instances | The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances. |
 | request_settings.request_timeout_ms | The scoring timeout in milliseconds. The default value is 5000 for managed online endpoints. |
 | request_settings.max_concurrent_requests_per_instance | The number of maximum concurrent requests per node allowed per deployment. Defaults to 1. __Do not change this setting from the default value of 1 unless instructed by Microsoft Technical Support or a member of Azure Machine Learning team.__ |
 | request_settings.max_queue_wait_ms | The maximum amount of time a request will stay in the queue (in milliseconds). Defaults to 500. |
