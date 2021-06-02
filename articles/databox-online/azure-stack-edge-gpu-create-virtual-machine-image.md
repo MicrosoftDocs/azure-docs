@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 6/01/2021
+ms.date: 6/02/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -138,16 +138,6 @@ Before you deploy a Linux VM using a custom VM image, make sure the Provisioning
 The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. It's a good idea to store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
 
 
-After you generalize your virtual machine, you'll generate a download URL for the OS disk. The download URL will be the *source URI* for the `azcopy` command.
-
-To generate a download URL for the OS VHD of your virtual machine, do these steps:
-
-   1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). This step is required, even after the VM is generalized and shut down, to deallocate the OS disk so that the disk can be downloaded. 
-
-   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url). By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed. 
-
-   Make a note of the download URL. It will be the *source URI* for the AzCopy command.-->
-
 ### Create a target URI for a Blob container
 
 AzCopy requires a *target URI* that tells where to copy the new image to in your storage account. Before you run AzCopy, you'll generate a shared-access signature (SAS) URL for the Blob container you want to copy the file to. To create the target URI, you'll add the filename to the SAS URL.
@@ -172,7 +162,7 @@ To create the target URI for your prepared VHD, do the following steps:
 
    The Blob SAS URL has the following format. 
 
-   ![Graphic of a Blob SAS URL, with container path and place to insert the new filename labeled](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-04.png
+   ![Graphic of a Blob SAS URL, with container path and place to insert the new filename labeled](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-04.png)
 
    Insert the filename, in the format `/<filename>.vhd` before the question mark that begins the query string. The filename extension must be VHD.
 
