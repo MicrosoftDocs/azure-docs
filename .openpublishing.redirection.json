@@ -56447,7 +56447,12 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-give-access-to-pim.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/how-to-give-access-to-pim.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md",
