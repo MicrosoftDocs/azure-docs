@@ -226,7 +226,7 @@ sections:
       - question: |
           If I have an existing disk, can I enable shared disks on it?
         answer: |
-          All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the ### maxShares property on the disk.
+          All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the **maxShares** property on the disk.
 
       - question: |
           If I no longer want to use a disk in shared mode, how do I disable it?
@@ -246,7 +246,7 @@ sections:
       - question: |
           Can I enable host caching for a disk that has shared disk enabled?
         answer: |
-          The only supported host caching option is ### None.
+          The only supported host caching option is **None**.
 
   - name: Ultra disks
     questions:
@@ -263,7 +263,7 @@ sections:
       - question: |
           Can I use caching levels with an ultra disk?
         answer: |
-          No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to ### None.
+          No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to **None**.
 
       - question: |
           Can I attach an ultra disk to my existing VM?
@@ -305,7 +305,7 @@ sections:
       - question: |
           Can I upload data to an existing managed disk?
         answer: |
-          No, upload can only be used during the creation of a new empty disk with the ### ReadyToUpload state.
+          No, upload can only be used during the creation of a new empty disk with the **ReadyToUpload** state.
 
       - question: |
           How do I upload to a managed disk?
@@ -581,7 +581,7 @@ sections:
       - question: |
           Do we support enabling Host Caching on all disk sizes?
         answer: |
-          Host Caching (### ReadOnly and ### Read/Write) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
+          Host Caching (**ReadOnly** and **Read/Write**) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
 
   - name: Private Links for securely exporting and importing Managed Disks
     questions:
