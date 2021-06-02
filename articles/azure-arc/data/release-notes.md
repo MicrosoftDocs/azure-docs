@@ -82,8 +82,6 @@ This release introduces the following features or capabilities:
 - Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
 - Currently, only one Azure Arc data controller in direct connected mode per kubernetes cluster is supported.
 
-#### Azure Arc enabled SQL Managed Instance
-
 #### Azure Arc enabled PostgreSQL Hyperscale
 
 - Point in time restore is not supported for now on NFS storage.
