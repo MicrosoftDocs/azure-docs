@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory external identities"
 description: "New and updated documentation for the Azure Active Directory external identities."
-ms.date: 05/04/2021
+ms.date: 06/02/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,31 @@ manager: CelesteDG
 # Azure Active Directory external identities: What's new
 
 Welcome to what's new in Azure Active Directory external identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the external identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## May 2021
+
+### New articles
+
+- [Azure Active Directory B2B collaboration FAQs](faq.yml)
+
+### Updated articles
+
+- [Azure Active Directory B2B collaboration FAQs](faq.md)
+- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
+- [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
+- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
+- [What is guest user access in Azure Active Directory B2B?](what-is-b2b.md)
+- [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md)
+- [Billing model for Azure AD External Identities](external-identities-pricing.md)
+- [Example: Configure SAML/WS-Fed IdP federation with Active Directory Federation Services (AD FS) (preview)](direct-federation-adfs.md)
+- [Federation with SAML/WS-Fed identity providers for guest users (preview)](direct-federation.md)
+- [Add Google as an identity provider for B2B guest users](google-federation.md)
+- [Identity Providers for External Identities](identity-providers.md)
+- [Leave an organization as a guest user](leave-the-organization.md)
+- [Azure Active Directory external identities: What's new](whats-new-docs.md)
+- [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md)
+- [Invite internal users to B2B collaboration](invite-internal-users.md)
+
 
 ## April 2021
 
