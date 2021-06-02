@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 06/01/2021
 ms.author: ambapat
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
