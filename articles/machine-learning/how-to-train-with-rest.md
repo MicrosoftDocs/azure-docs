@@ -144,7 +144,7 @@ Use the following commands to submit the training job:
 
 ## Submit a hyperparameter sweep job
 
-Azure Machine Learning also lets you efficiently tune training hyperparameterss. You can create a hyperparameter tuning sweet, with the REST APIs. For more information on Azure Machine Learning's hyperparameter tuning options, see [Hyperparameter tuning a model](how-to-tune-hyperparameters.md). Specify the hyperparameter tuning parameters to configure the sweep:
+Azure Machine Learning also lets you efficiently tune training hyperparameters. You can create a hyperparameter tuning suite, with the REST APIs. For more information on Azure Machine Learning's hyperparameter tuning options, see [Hyperparameter tuning a model](how-to-tune-hyperparameters.md). Specify the hyperparameter tuning parameters to configure the sweep:
 
 - **jobType**: The job type. For a sweep job, it will be `Sweep`. 
 - **algorithm**: The sampling algorithm - "random" is often a good place to start. See the sweep job [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the enumeration of options. 

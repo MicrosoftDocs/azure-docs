@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 05/28/2021
 ms.author: memildin
 
 ---
@@ -28,6 +28,8 @@ Updates in May include:
 
 - [Azure Defender for DNS and Azure Defender for Resource Manager released for General Availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
 - [Azure Defender for open-source relational databases released for General Availability (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
+- [New alerts for Azure Defender for Resource Manager](#new-alerts-for-azure-defender-for-resource-manager)
+- [CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)](#cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview)
 - [More Resource Graph queries available for some recommendations](#more-resource-graph-queries-available-for-some-recommendations)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
 - [New recommendations to enable trusted launch capabilities (in preview)](#new-recommendations-to-enable-trusted-launch-capabilities-in-preview)
@@ -76,6 +78,37 @@ Azure Defender for open-source relational databases constantly monitors your ser
 - **Threat intelligence-based detection** - Azure Defender leverages Microsoft’s threat intelligence and vast knowledge base to surface threat alerts so you can act against them.
 
 Learn more in [Introduction to Azure Defender for open-source relational databases](defender-for-databases-introduction.md).
+
+### New alerts for Azure Defender for Resource Manager
+
+To expand the threat protections provided by Azure Defender for Resource Manager, we've added the following alerts:
+
+| Alert (alert type)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE tactics | Severity |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
+|**Permissions granted for an RBAC role in an unusual way for your Azure environment (Preview)**<br>(ARM_AnomalousRBACRoleAssignment)|Azure Defender for Resource Manager detected an RBAC role assignment that's unusual when compared with other assignments performed by the same assigner /  performed for the same assignee / in your tenant due to the following anomalies: assignment time, assigner location, assigner, authentication method, assigned entities, client software used, assignment extent. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to grant permissions to an additional user account they own.|Lateral Movement, Defense Evasion|Medium|
+|**Privileged custom role created for your subscription in a suspicious way (Preview)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Azure Defender for Resource Manager detected a suspicious creation of privileged custom role definition in your subscription. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to create a privileged role to use in the future to evade detection.|Lateral Movement, Defense Evasion|Low|
+|**Azure Resource Manager operation from suspicious IP address (Preview)**<br>(ARM_OperationFromSuspiciousIP)|Azure Defender for Resource Manager detected an operation from an IP address that has been marked as suspicious in threat intelligence feeds.|Execution|Medium|
+|**Azure Resource Manager operation from suspicious proxy IP address (Preview)**<br>(ARM_OperationFromSuspiciousProxyIP)|Azure Defender for Resource Manager detected a resource management operation from an IP address that is associated with proxy services, such as TOR. While this behavior can be legitimate, it's often seen in malicious activities, when threat actors try to hide their source IP.|Defense Evasion|Medium|
+||||
+
+For more information, see:
+- [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+- [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+
+
+### CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)
+
+Azure Defender for container registries now provides DevSecOps teams observability into GitHub Action workflows.
+
+The new vulnerability scanning feature for container images, utilizing Trivy, helps your developers scan for common vulnerabilities in their container images *before* pushing images to container registries.
+
+Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
+
+> [!IMPORTANT]
+> In the first stages of this preview, access is only available through the [preview URL](https://ms.portal.azure.com/?feature.cicd=true#blade/Microsoft_Azure_Security/SecurityMenuBlade/5/0/).
+
+Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-container-registries-cicd.md).
 
 ### More Resource Graph queries available for some recommendations
 

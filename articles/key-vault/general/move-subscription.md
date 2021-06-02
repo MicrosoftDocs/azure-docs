@@ -9,7 +9,8 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 # Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ---
 
@@ -85,7 +86,7 @@ Connect-AzAccount                                                          #Log 
 
 ```azurecli
 az account set -s <your-subscriptionId>                                    # Select your Azure Subscription
-tenantId=$(az account show --query tenantId)                               # Get your tenantId
+$tenantId=$(az account show --query tenantId)                               # Get your tenantId
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```

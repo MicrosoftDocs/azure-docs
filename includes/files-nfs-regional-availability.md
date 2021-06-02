@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: "include"
 ms.date: 09/15/2020
 ms.author: rogarana
-ms.custom: "include file"
+ms.custom: "include file, devx-track-azurepowershell"
 ---
 
 NFS is supported in **ALL** 30+ regions where Premium Files Storage is available.
