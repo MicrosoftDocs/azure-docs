@@ -69,7 +69,7 @@ Starting with the public preview version of the web client, version 1.0.24.7 (pr
 
 ### Start VM on connect support updates
 
-Start VM on connect (preview) now supports pooled host pools and the Azure government cloud. To learn more, read our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/leverage-start-vm-on-connect-for-pooled-host-pools-and-azure-gov/m-p/2349866).
+Start VM on connect (preview) now supports pooled host pools and the Azure Government Cloud. To learn more, read our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/leverage-start-vm-on-connect-for-pooled-host-pools-and-azure-gov/m-p/2349866).
 
 ### Latency improvements for the United Arab Emirates region
 
@@ -91,7 +91,7 @@ We have released a public preview of the latest version of the FSLogix agent. Ch
 
 For this update, we resolved an issue that caused the screen to remain black while sharing video. We also fixed a mismatch in video resolutions between the session client and the Teams server. Teams on Windows Virtual Desktop should now change resolution and bit rates based on input from the Teams server.
 
-### Azure Portal deployment updates
+### Azure portal deployment updates
 
 We've made the following updates to the deployment process in the Azure portal:
 
@@ -100,7 +100,7 @@ We've made the following updates to the deployment process in the Azure portal:
 - Added a tool tip to the RDP proxy in the advanced host pool RDP properties tab.
 - Added an information bubble for the icon path when adding an application from an MSIX package.
 - You can no longer do managed boot diagnostics with an unmanaged disk.
-- Updated the template for creating a host pool in Azure Resource Manager so that the Azure Portal can now support creating host pools with third-party marketplace images.
+- Updated the template for creating a host pool in Azure Resource Manager so that the Azure portal can now support creating host pools with third-party marketplace images.
 
 ### Single sign-on using Active Directory Federation Services public preview
 
