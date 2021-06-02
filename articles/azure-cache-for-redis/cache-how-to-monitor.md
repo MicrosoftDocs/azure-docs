@@ -40,15 +40,18 @@ The **Usage** section in the **Overview** blade has **Redis Server Load**, **Mem
 
 The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
 
-## View metrics with Azure monitor
+## View metrics charts for all your caches with Azure Monitor for Azure Cache for Redis
 
-To view Redis metrics and create custom charts using Azure Monitor, click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
+Use [Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) (preview) for a view of the overall performance, failures, capacity, and operational health of all your Azure Cache for Redis resources in a customizable unified interactive experience that lets you drill down into details for individual resources. Azure Monitor for Azure Cache for Redis is based on the [workbooks feature of Azure Monitor](../azure-monitor/visualize/workbooks-overview.md) that provides rich visualizations for metrics and other data. To learn more, see the [Explore Azure Monitor for Azure Cache for Redis](../azure-monitor/insights/redis-cache-insights-overview.md) article.
+
+## View metrics with Azure Monitor metrics explorer
+
+For scenarios where you don't need the full flexibility of Azure Monitor for Azure Cache for Redis, you can instead view metrics and create custom charts using the Azure Monitor metrics explorer. Click **Metrics** from the **Resource menu**, and customize your chart using the desired metrics, reporting interval, chart type, and more.
 
 ![In the left navigation pane of contoso55, Metrics is an option under Monitoring and is highlighted. On Metrics there is a list of metrics. Cache hits and Cache misses are selected.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
 For more information on working with metrics using Azure Monitor, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
 
-<a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## Export cache metrics
 
@@ -82,6 +85,22 @@ To access your metrics, you can view them in the Azure portal as previously desc
 Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. The **Metric** blade for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval. 
 
 Each metric includes two versions. One metric measures performance for the entire cache, and for caches that use [clustering](cache-how-to-premium-clustering.md), a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` is just the hits for that shard of the cache.
+
+> [!NOTE]
+> When you're seeing the aggregation type : 
+>
+> - Count” show 2, it indicates the metric received 2 data points for your time granularity (1 minute). 
+> - “Max” shows the maximum value of a data point in the time granularity, 
+> - “Min” shows the minimum value of a data point in the time granularity, 
+> - “Average” shows the average value of all data points in the time granularity. 
+> - “Sum” shows the sum of all data points in the time granularity and may be misleading depending on the specific metric. 
+> Under normal conditions, “Average” and “Max” will be very similar because only one node emits these metrics (the master node). In a scenario where the number of connected clients changes rapidly, “Max,” “Average,” and “Min” would show very different values and this is also expected behavior.
+> 
+> Generally, “Average” will show you a smooth chart of your desired metric and reacts well to changes in time granularity. “Max” and “Min” may hide large changes in the metric if the time granularity is large but can be used with a small time granularity to help pinpoint exact times when large changes occur in the metric.
+>
+> “Count” and “Sum” may be misleading for certain metrics (connected clients included). 
+>
+> Hence, we suggested you to have a look at the Average metrics and not the Sum metrics.
 
 > [!NOTE]
 > Even when the cache is idle with no connected active client applications, you may see some cache activity, such as connected clients, memory usage, and operations being performed. This activity is normal during the operation of an Azure Cache for Redis instance.

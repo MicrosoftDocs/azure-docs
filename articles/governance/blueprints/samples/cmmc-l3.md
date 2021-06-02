@@ -6,7 +6,7 @@ ms.topic: sample
 ---
 # CMMC Level 3 blueprint sample
 
-The CMMC Level 3 blueprint sample provides governance guard-rails using
+The CMMC Level 3 blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific
 [Cybersecurity Maturity Model Certification (CMMC) framework](https://www.acq.osd.mil/cmmc/index.html)
 controls. This blueprint helps customers deploy a core set of policies for any Azure-deployed
@@ -137,7 +137,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|CMMC Level 3|Policy Assignment|Include Arc-connected servers when evaluating guest configuration policies|By selecting 'true,' you agree to be charged monthly per Arc connected machine; for more information, visit https://aka.ms/policy-pricing|
+|CMMC Level 3|Policy Assignment|Include Arc-connected servers when evaluating guest configuration policies|By selecting 'true', you agree to be charged monthly per Arc connected machine; for more information, visit https://aka.ms/policy-pricing|
 |CMMC Level 3|Policy Assignment|List of users that must be excluded from Windows VM Administrators group|A semicolon-separated list of users that should be excluded in the Administrators local group; Ex: Administrator; myUser1; myUser2|
 |CMMC Level 3|Policy Assignment|List of users that must be included in Windows VM Administrators group|A semicolon-separated list of users that should be included in the Administrators local group; Ex: Administrator; myUser1; myUser2|
 |CMMC Level 3|Policy Assignment|Log Analytics workspace ID for VM agent reporting|ID (GUID) of the Log Analytics workspace where VMs agents should report|

@@ -69,5 +69,5 @@ To learn more about selecting an application platform and tools, see [Overview: 
 
 ## Next steps
 Select one of the following quickstart series that is most relevant to your development role. These articles demonstrate the basics of creating an Azure IoT application to host devices, using an SDK, connecting a device, and sending telemetry.  
-- For device application development:  [Quickstart: Send telemetry from a device to Azure IoT Central](quickstart-send-telemetry-python.md)
+- For device application development:  [Quickstart: Send telemetry from a device to Azure IoT Central](quickstart-send-telemetry-central.md)
 - For embedded device development: [Getting started with Azure IoT embedded device development](quickstart-device-development.md)

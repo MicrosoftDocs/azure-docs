@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 09/11/2020
+ms.date: 05/28/2021
 ---
 
 # Common questions about the Microsoft commercial marketplace
@@ -64,6 +64,12 @@ After you sign up and accept the Publisher Agreement, you'll have access to the 
 
 For more information, see [Welcome to the commercial marketplace](index.yml) and [Monetize your Microsoft 365 add-in through Microsoft Commercial Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
+### How can my own employees use our offers from the marketplace without being charged?
+
+To prevent Microsoft from charging your employees and assessing the store service fee on the sale of your offer, you must first create a [private plan](/azure/marketplace/private-offers) for the offer with a $0 price and send this offer to the internal users who want to purchase it.
+
+You can also use our [Private Marketplace](/marketplace/create-manage-private-azure-marketplace) functionality to ensure internal users are only purchasing specific offers that are approved by your administrator.
+
 ### How do I get support assistance for the commercial marketplace?
 
 To contact our marketplace publisher support team, you can [submit a support ticket](https://aka.ms/marketplacepublishersupport) from within Partner Center. 
@@ -110,6 +116,8 @@ Depending on your product's delivery model, a subscription to Azure Cloud Servic
 ### Who's responsible for supporting customers?
 
 Commercial marketplace publishers are responsible for supporting their software, and Microsoft is responsible for supporting the purchase, billing, payments, and subscription management experiences.
+
+When the offer removal is initiated by the publisher, the publisher owns communication of the removal to the customer.
 
 ### What's the process of validating the end-to-end purchase and setup flow?
 

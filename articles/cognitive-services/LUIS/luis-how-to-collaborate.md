@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 05/17/2021
 
 ---
 
@@ -76,6 +76,6 @@ Learn more about Azure active directory users and consent:
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-* Understand the concepts including the [authoring resource](luis-how-to-azure-subscription.md#authoring-key) and [contributors](luis-how-to-azure-subscription.md#contributions-from-other-authors) on that resource.
+* Understand the about [authoring resources](luis-how-to-azure-subscription.md) and [adding contributors](luis-how-to-collaborate.md) on that resource.
 * Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
 * Migrate to the new [authoring resource](luis-migration-authoring.md)

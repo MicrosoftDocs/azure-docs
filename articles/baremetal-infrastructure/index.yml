@@ -56,7 +56,18 @@ landingContent:
             url: workloads/oracle/options-considerations-high-availability.md
           - text: Choose how to recover
             url: workloads/oracle/oracle-high-availability-recovery.md
-
+      - linkListType: how-to-guide
+        links:
+          - text: SnapCenter overview
+            url: workloads/oracle/netapp-snapcenter-integration-oracle-baremetal.md
+          - text: Set up SnapCenter to route traffic
+            url: workloads/oracle/set-up-snapcenter-to-route-traffic.md
+          - text: Configure SnapCenter
+            url: workloads/oracle/configure-snapcenter-oracle-baremetal.md
+          - text: Create on-demand backup
+            url: workloads/oracle/create-on-demand-backup-oracle-baremetal.md
+          - text: Restore Oracle Database
+            url: workloads/oracle/restore-oracle-database-baremetal.md
 
 # card 3
   - title: SAP HANA on Azure (Large Instances)
@@ -119,8 +130,8 @@ landingContent:
         links:
           - text: HA Setup with STONITH
             url: ../virtual-machines/workloads/sap/ha-setup-with-stonith.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
-          - text: OS Backup for Type II SKUs
-            url: ../virtual-machines/workloads/sap/os-backup-type-ii-skus.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
+          - text: OS Backup
+            url: ../virtual-machines/workloads/sap/large-instance-os-backup.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: Enable Kdump for HANA Large Instances
             url: ../virtual-machines/workloads/sap/hana-large-instance-enable-kdump.md?context=%2fazure%2fbaremetal-infrastructure%2fworkloads%2fsap%2fcontext%2fcontext
           - text: OS Upgrade for HANA Large Instances

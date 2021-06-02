@@ -249,6 +249,16 @@ The value for this setting indicates a custom package index URL for Python apps.
 
 To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
+## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES
+
+The configuration is specific to Python function apps. It defines the prioritization of module loading order. When your Python function apps face issues related to module collision (e.g. when you're using protobuf, tensorflow, or grpcio in your project), configuring this app setting to `1` should resolve your issue. By default, this value is set to `0`.
+
+|Key|Value|Description|
+|---|-----|-----------|
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|0| Prioritize loading the Python libraries from internal Python worker's dependencies. Third-party libraries defined in requirements.txt may be shadowed. |
+|PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|1| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
+
+
 ## PYTHON\_THREADPOOL\_THREAD\_COUNT
 
 Specifies the maximum number of threads that a Python language worker would use to execute function invocations, with a default value of `1` for Python version `3.8` and below. For Python version `3.9` and above, the value is set to `None`. Note that this setting does not guarantee the number of threads that would be set during executions. The setting allows Python to expand the number of threads to the specified value. The setting only applies to Python functions apps. Additionally, the setting applies to synchronous functions invocation and not for coroutines.
@@ -308,6 +318,10 @@ Sets the DNS server used by an app when resolving IP addresses. This setting is 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_DNS\_SERVER|168.63.129.16|
+
+## WEBSITE\_ENABLE\_BROTLI\_ENCODING 
+
+Controls whether Brotli encoding is used for compression instead of the default gzip compression. When `WEBSITE_ENABLE_BROTLI_ENCODING` is set to `1`, Brotli encoding is used; otherwise gzip encoding is used. 
 
 ## WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 

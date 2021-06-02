@@ -7,7 +7,8 @@ ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
-ms.author: tagore 
+ms.author: tagore  
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -25,7 +26,7 @@ Planning is the most important step for a successful migration experience. Revie
 ## 2) Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0&preserve-view=true).
+For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps?preserve-view=true&view=azuresmps-4.0.0).
 
 ## 3) Ensure Admin permissions
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
@@ -190,4 +191,4 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 
 ## Next steps
-Review the [Post migration changes](in-place-migration-overview.md#post-migration-changes) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment. 
+Review the [Post migration changes](in-place-migration-overview.md#post-migration-changes) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.

@@ -32,7 +32,7 @@ information and status to Device Update services.
 |resultCode|integer|device to cloud|A code that contains information about the result of the last update action. Can be populated for either success or failure and should follow [http status code specification](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).|500|
 |extendedResultCode|integer|device to cloud|A code that contains additional information about the result. Can be populated for either success or failure.|0x80004005|
 |state|integer|device to cloud|It is an integer that indicates the current state of the Device Update Agent. See below for details |Idle|
-|installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be null for a device that has never taken an update through Device Update.|Null|
+|installedUpdateId|string|device to cloud|An ID of the update that is currently installed (through Device Update). This value will be a string capturing the Update Id JSON or null for a device that has never taken an update through Device Update.|"{\"provider\":\"contoso\",\"name\":\"image-update\",\"version\":\"1.0.0\"}"|
 |`deviceProperties`|Map|device to cloud|The set of properties that contain the manufacturer and model.|See below for details
 
 #### State

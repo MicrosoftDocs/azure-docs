@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)
@@ -119,10 +119,10 @@ As you configure the account, choose these values:
 
 |Setting | Premium performance | Standard performance  
 |----|---|---|
-|Location|All available regions |One of the following regions: Australia East, Korea Central, East US, and South Central US   
+|Location|All available regions |All available regions    
 |Performance|Premium| Standard
 |Account kind|BlockBlobStorage| General-purpose V2
-|Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS)
+|Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS), Zone-redundant storage (ZRS)
 |Connectivity method|Public endpoint (selected networks) or Private endpoint |Public endpoint (selected networks) or Private endpoint
 |Secure transfer required|Disabled|Disabled
 |Hierarchical namespace|Enabled|Enabled

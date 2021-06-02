@@ -8,7 +8,7 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: victorh
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure WAF v2 on Application Gateway using an ARM template
@@ -33,7 +33,7 @@ This template creates a simple Web Application Firewall v2 on Azure Application 
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
-:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/demos/ag-docs-wafv2/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 

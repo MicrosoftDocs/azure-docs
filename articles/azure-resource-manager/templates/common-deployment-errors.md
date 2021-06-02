@@ -3,7 +3,8 @@ title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 01/20/2021
+ms.date: 01/20/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
