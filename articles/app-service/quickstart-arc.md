@@ -30,7 +30,7 @@ az group create --name myResourceGroup --location eastus
 
 ## 3. Create an App Service plan
 
-Run the following command and replace `$customLocationId` obtained from the previous step.
+Run the following command replacing `$customLocationId` obtained from the previous step.
 
 ```azurecli-interactive
 az appservice plan create -g myResourceGroup -n myPlan \
