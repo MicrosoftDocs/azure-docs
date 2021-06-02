@@ -65,7 +65,7 @@ Soft-deleted resources are retained for a set period of time, 90 days. During th
   
 Unless a Managed HSM or key is recovered, at the end of the retention interval the service performs a purge of the soft-deleted HSM or key. Resource deletion may not be rescheduled.
 
-## Billing implications
+### Billing implications
 
 Managed HSM is a single-tenant service. When you create a Managed HSM, the service reserves underlying resources allocated to your HSM. These resources remain allocated even when the HSM is in deleted state. Therefore, you will be billed for the HSM while it is in deleted state.
 
