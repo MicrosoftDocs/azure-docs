@@ -63,7 +63,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 
 > [!IMPORTANT]
-> Do not cancel the cmdlet while the upgrade is in progress.  Doing so puts the health of the health at risk.
+> The upgrade will take at least 10 - 15 minutes to complete. Do not cancel the cmdlet while the upgrade is in progress. Doing so puts the health of the health at risk.
 
 ## Next steps
 
