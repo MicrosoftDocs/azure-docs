@@ -13,35 +13,6 @@ ms.date: 04/23/2021
 
 This article describes how to create and deploy a user-provided virtual machine (VM) image.
 
-> [!NOTE]
-> Before you start this procedure, review the [technical requirements](marketplace-virtual-machines.md#technical-requirements) for Azure VM offers, including virtual hard disk (VHD) requirements.
-
-To use an approved base image instead, follow the instructions in [Create a VM image from an approved base](azure-vm-create-using-approved-base.md).
-
-## Configure the VM
-
-This section describes how to size, update, and generalize an Azure VM. These steps are necessary to prepare your VM to be deployed on Azure Marketplace.
-
-### Size the VHDs
-
-[!INCLUDE [Discussion of VHD sizing](includes/vhd-size.md)]
-
-### Install the most current updates
-
-[!INCLUDE [Discussion of most current updates](includes/most-current-updates.md)]
-
-### Perform more security checks
-
-[!INCLUDE [Discussion of addition security checks](includes/additional-security-checks.md)]
-
-### Perform custom configuration and scheduled tasks
-
-[!INCLUDE [Discussion of custom configuration and scheduled tasks](includes/custom-config.md)]
-
-### Generalize the image
-
-All images in the Azure Marketplace must be reusable in a generic fashion. To achieve this, the operating system VHD must be generalized, an operation that removes all instance-specific identifiers and software drivers from a VM.
-
 ## Bring your image into Azure
 
 > [!NOTE]
