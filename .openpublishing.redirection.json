@@ -61715,6 +61715,11 @@
       "redirect_document_id": false
     },
     {
+    "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-test.md",
+    "redirect_url": "/azure/cognitive-services/LUIS/luis-interactive-test",
+    "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-get-started-javascript-add-utterance.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
       "redirect_document_id": false
