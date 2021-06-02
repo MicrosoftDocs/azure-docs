@@ -91,6 +91,7 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 1. View connection status in **Output**.
 1. Enter value in **Payload**. 
 1. Click **Send**.
+1. View received messages in **Output**.
 1. Repeat preceding steps to test different payloads.
 1. When testing is complete, select **Disconnect**.
 
