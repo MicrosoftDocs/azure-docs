@@ -41,7 +41,7 @@ Select **Go to resource**. You can now view the resource properties.
 
 Copy the resource's **Account ID** value into a text editor for later use.
 
-![Screenshot of the resource properties pane.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![Screenshot of the resource properties pane.](./media/spatial-anchors-get-started-create-resource/view-resource-accountid.png)
 
 Also copy the resource's **Account Domain** value into a text editor for later use.
 
