@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 05/25/2021
+ms.date: 05/02/2021
 ---
 
 # Maintenance window (Preview)
@@ -79,6 +79,7 @@ Choosing a maintenance window other than the default is currently available in t
 - East US
 - East US2
 - East Asia
+- Germany West Central
 - Japan East
 - NorthCentral US
 - North Europe
