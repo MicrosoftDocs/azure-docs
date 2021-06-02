@@ -1274,6 +1274,5 @@ groups:
     title: PowerShell
   - id: platform-azarm
     title: Azure resource manager
-    title: REST
   - id: platform-rest
     title: REST
