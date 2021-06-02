@@ -125,7 +125,7 @@ $RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivabl
 ### Move to archive
 
 ```azurepowershell
-Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
 
 Where, `$rp[0]` is the first recovery point in the list. If you want to move other recovery points, use `$rp[1]`, `$rp[2]`, and so on.
