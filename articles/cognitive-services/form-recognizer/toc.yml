@@ -1,9 +1,9 @@
-- name: Form Recognizer Documentation
+- name: Azure Form Recognizer Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Form Recognizer?
+  - name: What is Azure Form Recognizer?
     href: overview.md
   - name: Language support
     href: language-support.md
@@ -13,10 +13,10 @@
     href: whats-new.md
 - name: Quickstarts
   items:
+  - name: Get started with Azure Form Recognizer
+    href: quickstarts/get-started-with-form-recognizer.md
   - name: Client libraries and REST API
     href: quickstarts/client-library.md
-  - name: Get started with Form Recognizer
-    href: quickstarts/get-started-with-form-recognizer.md
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -31,7 +31,7 @@
   items:
   - name: Transparency notes
     items:
-    - name: Form Recognizer use cases
+    - name: Azure Form Recognizer use cases
       href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Characteristics and limitations
       href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
@@ -83,30 +83,34 @@
     href: concept-identification-cards.md
 - name: Tutorials
   items:
-  - name: Extract form data in bulk
-    href: tutorial-bulk-processing.md
-  - name: Use Form Recognizer with Cognitive Search
+  - name: Use Azure Form Recognizer with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
-  - name: Use Form Recognizer with AI Builder
+  - name: Use Azure Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
-  - name: Use Form Recognizer with Azure Functions
+  - name: Use Azure Form Recognizer with Azure Functions
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Form Recognizer API v2.1.3
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
-  - name: Form Recognizer API v2.0
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
-  - name: SDKs
+  - name: Azure Form Recognizer REST API v2.1
     items:
-    - name: .NET
-      href: /dotnet/api/overview/azure/ai.formrecognizer-readme
-    - name: Python
-      href: /python/api/azure-ai-formrecognizer/
-    - name: Java
-      href: /java/api/overview/azure/ai-formrecognizer-readme
-    - name: JavaScript
-      href: /javascript/api/overview/azure/ai-form-recognizer-readme
+    - name: REST API v2.1 reference
+      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
+    - name: SDKs v3.1.0
+      items:
+      - name: .NET
+        href: /dotnet/api/overview/azure/ai.formrecognizer-readme
+      - name: Python
+        href: /python/api/azure-ai-formrecognizer/
+      - name: Java
+        href: /java/api/overview/azure/ai-formrecognizer-readme
+      - name: JavaScript
+        href: /javascript/api/overview/azure/ai-form-recognizer-readme
+  - name: Azure Form Recognizer REST API v2.0
+    items:
+    - name: REST API v2.0 reference
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+    - name: SDK v3.0.0 guide
+      href: api-v2-0/reference-sdk-api-v2-0.md
 - name: Resources
   items:
   - name:  Customer spotlight

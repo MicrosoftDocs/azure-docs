@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 ms.author: thweiss
 ---
 
@@ -108,9 +108,9 @@ When creating a custom role definition, you need to provide:
     - `/dbs/<database-name>/colls/<container-name>` (container-level).
 
 > [!NOTE]
-> The operations described below are currently available in:
-> - Azure PowerShell: [Az.CosmosDB version 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - Azure CLI: ['cosmosdb-preview' extension version 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> The operations described below are available in:
+> - Azure PowerShell: [Az.CosmosDB version 1.2.0](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) or higher
+> - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli): version 2.24.0 or higher
 
 ### Using Azure PowerShell
 
@@ -294,9 +294,9 @@ You can associate built-in or custom role definitions with your Azure AD identit
 > If you want to create a role assignment for a service principal, make sure to use its **Object ID** as found in the **Enterprise applications** section of the **Azure Active Directory** portal blade.
 
 > [!NOTE]
-> The operations described below are currently available in:
-> - Azure PowerShell: [Az.CosmosDB version 2.0.1-preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
-> - Azure CLI: ['cosmosdb-preview' extension version 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+> The operations described below are available in:
+> - Azure PowerShell: [Az.CosmosDB version 1.2.0](https://www.powershellgallery.com/packages/Az.CosmosDB/1.2.0) or higher
+> - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli): version 2.24.0 or higher
 
 ### Using Azure PowerShell
 
@@ -305,12 +305,12 @@ Assign a role to an identity:
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
 $accountName = "<myCosmosAccount>"
-$readOnlyRoleDefinitionId = "<roleDefinitionId>" // as fetched above
+$readOnlyRoleDefinitionId = "<roleDefinitionId>" # as fetched above
 $principalId = "<aadPrincipalId>"
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
     -RoleDefinitionId $readOnlyRoleDefinitionId `
-    -Scope $accountName `
+    -Scope "/" `
     -PrincipalId $principalId
 ```
 
@@ -321,7 +321,7 @@ Assign a role to an identity:
 ```azurecli
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
+readOnlyRoleDefinitionId = '<roleDefinitionId>' # as fetched above
 principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
@@ -395,9 +395,12 @@ The Azure Cosmos DB RBAC is currently supported with the `2021-03-15` version of
 ## Use data explorer
 
 > [!NOTE]
-> The data explorer exposed in the Azure portal does not support the Azure Cosmos DB RBAC yet. To use your Azure AD identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/) instead.
+> The data explorer exposed in the Azure portal does not support the Azure Cosmos DB RBAC yet. To use your Azure AD identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) instead.
 
-When browsing the data stored in your account, the [Azure Cosmos DB Explorer](https://cosmos.azure.com/) initially tries to fetch your account's primary key on behalf of the user who's logged in, and use this key to access the data. If that user is not allowed to fetch the primary key, their Azure AD identity will be used instead to access the data.
+When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) with the specific `?feature.enableAadDataPlane=true` query parameter and sign in, the following logic is used to access your data:
+
+1. A request to fetch the account's primary key is attempted on behalf of the identity signed in. If this request succeeds, the primary key is used to access the account's data.
+1. If the identity signed in isn't allowed to fetch the account's primary key, this identity is directly used to authenticate data access. In this mode, the identity must be [assigned with proper role definitions](#role-assignments) to ensure data access.
 
 ## Audit data requests
 

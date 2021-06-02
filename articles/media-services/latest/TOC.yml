@@ -261,6 +261,9 @@
         href: job-error-codes-reference.md
   - name: High availability
     items:
+    - name: Availability Zones
+      displayName: Availability, Availability Zones, AZ, az, HA, high availability
+      href: concept-availability-zones.md
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: architecture-high-availability-encoding-concept.md

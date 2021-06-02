@@ -31,7 +31,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Language                 | Locale (BCP-47) | Customizations  | [Language detection](how-to-automatic-language-detection.md) |
+| Language                 | Locale (BCP-47) | Customizations  | [Language identification](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
 | Arabic (Bahrain), modern standard  | `ar-BH` | Text                                   |                           | 
 | Arabic (Egypt)                     | `ar-EG` | Text                                   | Yes                          |
@@ -69,7 +69,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | English (South Africa)             | `en-ZA` | Text                                   |                           |
 | English (Tanzania)                 | `en-TZ` | Text                                   |                           |
 | English (United Kingdom)           | `en-GB` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |
-| English (United States)            | `en-US` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |
+| English (United States)            | `en-US` | Audio (20201019, 20210223)<br>Text<br>Pronunciation| Yes                          |
 | Estonian(Estonia)                  | `et-EE` | Text                                   |                           |
 | Filipino (Philippines)             | `fil-PH`| Text                                   |                           |
 | Finnish (Finland)                  | `fi-FI` | Text                                   |     Yes                      |
@@ -281,8 +281,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Slovenian (Slovenia) | `sl-SI` | Male | `sl-SI-RokNeural` | General |
 | Spanish (Argentina) | `es-AR` | Female | `es-AR-ElenaNeural` <sup>New</sup> | General |
 | Spanish (Argentina) | `es-AR` | Male | `es-AR-TomasNeural` <sup>New</sup> | General |
-| Spanish (Columbia) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>New</sup> | General |
-| Spanish (Columbia) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>New</sup> | General |
+| Spanish (Colombia) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>New</sup> | General |
+| Spanish (Colombia) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>New</sup> | General |
 | Spanish (Mexico) | `es-MX` | Female | `es-MX-DaliaNeural` | General |
 | Spanish (Mexico) | `es-MX` | Male | `es-MX-JorgeNeural` | General |
 | Spanish (Spain) | `es-ES` | Female | `es-ES-ElviraNeural` | General |
@@ -309,8 +309,8 @@ Neural voices can be used to make interactions with chatbots and voice assistant
 | Urdu (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` | General | 
 | Vietnamese (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | General |
 | Vietnamese (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | General |
-| Welsh (UK) | `cy-GB` | Female | `cy-GB-NiaNeural` | General | 
-| Welsh (UK) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
+| Welsh (United Kingdom) | `cy-GB` | Female | `cy-GB-NiaNeural` | General | 
+| Welsh (United Kingdom) | `cy-GB` | Male | `cy-GB-AledNeural` | General | 
 
 #### Neural voices in preview
 
@@ -444,30 +444,30 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 ### Customization
 
-Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Check below for the languages supported. 
+Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based on the Neural TTS technology and the multi-lingual multi-speaker universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. Check below for the languages supported.  
 
 > [!IMPORTANT]
 > The standard tier including the statistical parametric and the concatenative training methods of custom voice is being deprecated and will be retired on 2/29/2024. If you are using non-neural/standard Custom Voice, migrate to Custom Neural Voice immediately to enjoy the better quality and deploy the voices responsibly. 
 
-| Language | Locale | Neural |
-|--|--|--|
-| Bulgarian (Bulgaria)| `bg-BG` | Yes |
-| Chinese (Mandarin, Simplified) | `zh-CN` | Yes |
-| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes |
-| Dutch (Netherlands)	| `nl-NL` | Yes |
-| English (Australia) | `en-AU` | Yes |
-| English (India) | `en-IN` | Yes |
-| English (United Kingdom) | `en-GB` | Yes |
-| English (United States) | `en-US` | Yes |
-| French (Canada) | `fr-CA` | Yes |
-| French (France) | `fr-FR` | Yes |
-| German (Germany) | `de-DE` | Yes |
-| Italian (Italy) | `it-IT` | Yes |
-| Japanese (Japan) | `ja-JP` | Yes |
-| Korean (Korea) | `ko-KR` | Yes |
-| Portuguese (Brazil) | `pt-BR` | Yes |
-| Spanish (Mexico) | `es-MX` | Yes |
-| Spanish (Spain) | `es-ES` | Yes |
+| Language | Locale | Neural | Cross-lingual |
+|--|--|--|--|
+| Bulgarian (Bulgaria)| `bg-BG` | Yes | No |
+| Chinese (Mandarin, Simplified) | `zh-CN` | Yes | Yes |
+| Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes | Yes |
+| Dutch (Netherlands)	| `nl-NL` | Yes | No |
+| English (Australia) | `en-AU` | Yes | Yes |
+| English (India) | `en-IN` | Yes | No |
+| English (United Kingdom) | `en-GB` | Yes | Yes |
+| English (United States) | `en-US` | Yes | Yes |
+| French (Canada) | `fr-CA` | Yes | Yes |
+| French (France) | `fr-FR` | Yes | Yes |
+| German (Germany) | `de-DE` | Yes | Yes |
+| Italian (Italy) | `it-IT` | Yes | Yes |
+| Japanese (Japan) | `ja-JP` | Yes | Yes |
+| Korean (Korea) | `ko-KR` | Yes | Yes |
+| Portuguese (Brazil) | `pt-BR` | Yes | Yes |
+| Spanish (Mexico) | `es-MX` | Yes | Yes |
+| Spanish (Spain) | `es-ES` | Yes | Yes |
 
 Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 

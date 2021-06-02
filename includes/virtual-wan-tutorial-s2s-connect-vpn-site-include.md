@@ -5,13 +5,13 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 02/04/2021
+ ms.date: 05/26/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
 1. Select **Connect VPN Sites** to open the **Connect sites** page.
 
-    ![Screenshot shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "connect")
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings." border="false":::
 
    Complete the following fields:
 
@@ -22,7 +22,7 @@
 2. Select **Connect**.
 3. After a few minutes, the site will show the connection and connectivity status.
 
-   ![Screenshot shows a site to site connection and connectivity status.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="Screenshot shows a site to site connection and connectivity status." lightbox="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png"border="false":::
 
    **Connection Status:** This is the status of the Azure resource for the connection that connects the VPN site to the Azure hub’s VPN gateway. Once this control plane operation is successful, Azure VPN gateway and the on-premises VPN device will proceed to establish connectivity.
 

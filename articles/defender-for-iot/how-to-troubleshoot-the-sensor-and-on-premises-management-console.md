@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 04/22/2021
+ms.date: 05/10/2021
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -28,11 +28,13 @@ To recover your password:
 
 1. Navigate to the Azure portal and select **Sites and Sensors**.  
 
-1. Select the **Recover on-premises management console password** tab.
+1. Select the **More Actions** drop down menu and select **Recover on-premises management console password**.
 
-   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Select the recover on-premises management button to download the recovery file.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Select your sensor and select the recover on-premises management console password option.":::
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
+
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::    
 
     > [!NOTE]
     > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
@@ -44,7 +46,7 @@ To recover your password:
 1. Select **Next**, and your user, and system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX or Support user you will need to select that subscription. For more information on recovering a CyberX or Support user password, see [Resetting passwords](how-to-create-and-manage-users.md#resetting-passwords).
+    > When you sign in to a sensor or on-premise management console for the first time it will be linked to the subscription you connected it to. If you need to reset the password for the CyberX, or Support user you will need to select that subscription. For more information on recovering a CyberX, or Support user password, see [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
 
 ### Investigate a lack of traffic
 
