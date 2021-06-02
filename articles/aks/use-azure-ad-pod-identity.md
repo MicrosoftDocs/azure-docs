@@ -22,7 +22,7 @@ Azure Active Directory pod-managed identities uses Kubernetes primitives to asso
 You must have the following resource installed:
 
 * The Azure CLI, version 2.20.0 or later
-* The `azure-preview` extension version 0.5.5 or later
+* The `aks-preview` extension version 0.5.5 or later
 
 ### Limitations
 
@@ -40,7 +40,7 @@ az feature register --name EnablePodIdentityPreview --namespace Microsoft.Contai
 
 ### Install the `aks-preview` Azure CLI
 
-You also need the *aks-preview* Azure CLI extension version 0.4.64 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+You also need the *aks-preview* Azure CLI extension version 0.5.5 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
