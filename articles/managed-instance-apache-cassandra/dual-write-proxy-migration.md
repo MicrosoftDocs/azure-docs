@@ -19,7 +19,7 @@ Where possible, we recommend using Apache Cassandra native capability to migrate
 
 This article describes how to migrate data to Azure Managed Instance for Apache Cassandra in a live fashion using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. The benefits of this approach are:
 
-- **minimal application changes** - the proxy can accept connections from your application code with little or no configuration changes, and will route all requests to your source database, as well as asynchronously routing writes to a secondary target. 
+- **minimal application changes** - the proxy can accept connections from your application code with little or no configuration changes, and will route all requests to your source database, and asynchronously route writes to a secondary target. 
 - **client wire protocol dependent** - since this approach is not dependent on backend resources or internal protocols, it can be used with any source or target Cassandra system that implements the Apache Cassandra wire protocol.
 
 The image below illustrates the approach.
@@ -29,9 +29,9 @@ The image below illustrates the approach.
 
 ## Prerequisites
 
-* Provision an Azure Managed Instance for Apache Cassandra cluster using [Azure Portal](create-cluster-portal.md) or [Azure CLI](create-cluster-cli.md) and ensure you can [connect to your cluster with CQLSH](/azure/managed-instance-apache-cassandra/create-cluster-portal#connecting-to-your-cluster).
+* Provision an Azure Managed Instance for Apache Cassandra cluster using [Azure portal](create-cluster-portal.md) or [Azure CLI](create-cluster-cli.md) and ensure you can [connect to your cluster with CQLSH](/azure/managed-instance-apache-cassandra/create-cluster-portal#connecting-to-your-cluster).
 
-* [Provision an Azure Databricks account inside your Managed Cassandra VNet](deploy-cluster-databricks.md). Ensure it also has network access to your source Cassandra cluster. We will use this for the historic data load.
+* [Provision an Azure Databricks account inside your Managed Cassandra VNet](deploy-cluster-databricks.md). Ensure it also has network access to your source Cassandra cluster. We will create a Spark cluster in this account for the historic data load.
 
 * Ensure you've already migrated the keyspace/table scheme from your source Cassandra database to your target Cassandra Managed Instance database.
 
@@ -77,18 +77,18 @@ mvn package
 
 ## Start Dual-write proxy
 
-It is recommended that you install the proxy on all nodes in your source Cassandra cluster. At minimum you need to run the following command in order to start the proxy on each node. Replace `<target-server>` with an IP or server address from one of the nodes in the target cluster. Replace `<path to JKS file>` with path to a local jks file, and `<keystore password>` with the corresponding password:  
+It is recommended that you install the proxy on all nodes in your source Cassandra cluster. At minimum, you need to run the following command in order to start the proxy on each node. Replace `<target-server>` with an IP or server address from one of the nodes in the target cluster. Replace `<path to JKS file>` with path to a local jks file, and `<keystore password>` with the corresponding password:  
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password>
 ```
-For SSL you can either implement an existing keystore (for example the one used by your source cluster), or you can create self-signed certificate using keytool:
+For SSL, you can either implement an existing keystore (for example the one used by your source cluster), or you can create self-signed certificate using keytool:
 
 ```bash
 keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
 ```
 
-Starting the proxy in this way assumes the following:
+Starting the proxy in this way assumes the following are true:
 
 - source and target endpoints have the same username and password
 - source and target endpoints implement SSL
@@ -111,7 +111,7 @@ You can also disable SSL for source or target endpoints if they do not implement
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password> --disable-source-tls true  --disable-target-tls true 
 ```
 
-There may be circumstances in which you do not want to install the proxy on the cluster nodes themselves, either because this is not possible, or you prefer to install it on a separate machine. In that scenario, you would need need to specify the IP of the `<source-server>`:
+There may be circumstances in which you do not want to install the proxy on the cluster nodes themselves, and prefer to install it on a separate machine. In that scenario, you would need need to specify the IP of the `<source-server>`:
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar <source-server> <destination-server>
@@ -165,8 +165,7 @@ val targetCassandra = Map(
     //throughput related settings below - tweak these depending on data volumes. 
     "spark.cassandra.output.batch.size.rows"-> "1",
     "spark.cassandra.output.concurrent.writes" -> "1000",
-    //"spark.cassandra.connection.remoteConnectionsPerExecutor" -> "1", // Spark 3.x
-    "spark.cassandra.connection.connections_per_executor_max"-> "1", // Spark 2.x
+    "spark.cassandra.connection.remoteConnectionsPerExecutor" -> "1",
     "spark.cassandra.concurrent.reads" -> "512",
     "spark.cassandra.output.batch.grouping.buffer.size" -> "1000",
     "spark.cassandra.connection.keep_alive_ms" -> "600000000"

@@ -31,7 +31,7 @@
         - name: Live Migration
           items:
             - name: Using Dual-write proxy
-            - href: dual-write-proxy.md          
+            - href: dual-write-proxy-migration.md          
         - name: Offline Migration
           items:
             - name: Using Apache Spark

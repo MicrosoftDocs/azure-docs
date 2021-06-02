@@ -19,7 +19,7 @@ Where possible, we recommend using Apache Cassandra native capability to migrate
 
 ## Prerequisites
 
-* Provision an Azure Managed Instance for Apache Cassandra cluster using [Azure Portal](create-cluster-portal.md) or [Azure CLI](create-cluster-cli.md) and ensure you can [connect to your cluster with CQLSH](/azure/managed-instance-apache-cassandra/create-cluster-portal#connecting-to-your-cluster).
+* Provision an Azure Managed Instance for Apache Cassandra cluster using [Azure portal](create-cluster-portal.md) or [Azure CLI](create-cluster-cli.md) and ensure you can [connect to your cluster with CQLSH](/azure/managed-instance-apache-cassandra/create-cluster-portal#connecting-to-your-cluster).
 
 * [Provision an Azure Databricks account inside your Managed Cassandra VNet](deploy-cluster-databricks.md). Ensure it also has network access to your source Cassandra cluster.
 
@@ -97,23 +97,7 @@ DFfromSourceCassandra
   .save
 ```
 
-## Troubleshoot
-
-### Rate limiting (429 error)
-
-You might see a 429 error code or "request rate is large" error text even if you reduced settings to their minimum values. The following scenarios can cause rate limiting:
-
-* **Throughput allocated to the table is less than 6,000 [request units](./request-units.md)**. Even at minimum settings, Spark can write at a rate of around 6,000 request units or more. If you have provisioned a table in a keyspace with shared throughput, it's possible that this table has fewer than 6,000 RUs available at runtime.
-
-    Ensure that the table you are migrating to has at least 6,000 RUs available when you run the migration. If necessary, allocate dedicated request units to that table.
-
-* **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data (that is, a large number of records being written for the same partition key value), then you might still experience rate limiting even if you have several [request units](./request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single partition.
-
-    In this scenario, reduce to minimal throughput settings in Spark and force the migration to run slowly. This scenario can be more common when you're migrating reference or control tables, where access is less frequent and skew can be high. However, if a significant skew is present in any other type of table, you might want to review your data model to avoid hot partition issues for your workload during steady-state operations.
-
 ## Next steps
 
-* [Provision throughput on containers and databases](set-throughput.md)
-* [Partition key best practices](partitioning-overview.md#choose-partitionkey)
-* [Estimate RU/s using the Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
-* [Elastic Scale in Azure Cosmos DB Cassandra API](manage-scale-cassandra.md)
+> [!div class="nextstepaction"]
+> [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
