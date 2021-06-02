@@ -282,7 +282,7 @@ The following templates should be used for this purpose (edit as needed to provi
 
 Following the migration process, you can view your smart detection alerts by selecting the Alerts entry in your Application Insights resource left-side menu. Select **Signal Type** to be **Smart Detector** to filter and present only the smart detection alerts. You can select an alert to see its detection details.
 
-![Smart detection alerts](media/alerts-smart-detections-migration/smart-detection-alerts.png)
+![Smart detection alerts](media/alerts-smart-detections-migration/smart-detector-alerts.png)
 
 You can also still see the available detections in the smart detection feed of your Application Insights resource.
 
@@ -300,7 +300,7 @@ After the migration is complete, you access the new smart detection alert rules 
 
 2. Select **Manage Alert Rules**
 
-![Manage alert rules](media/alerts-smart-detections-migration/Manage-Alert-Rules.png)
+![Manage alert rules](media/alerts-smart-detections-migration/manage-alert-rules.png)
 
 3. Select **Signal Type** to be **Smart Detector** 
 4. 	to filter and present the smart detection alert rules.
