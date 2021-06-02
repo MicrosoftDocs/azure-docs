@@ -5,7 +5,7 @@
     expanded: true
     items:
     - name: What is the Azure private MEC?
-      href: azure-private-multi-access-edge-compute.md
+      href: overview.md
     - name: Azure Private MEC partner solutions
       href: partner-programs.md   
   - name: Edge connectivity using Metaswitch 5G Fusion Core
