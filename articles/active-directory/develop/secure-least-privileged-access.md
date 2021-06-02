@@ -66,4 +66,4 @@ Organizations often hesitate to modify existing applications as it might affect 
 
 - For more information on consent and permissions in Azure Active Directory, see [Understanding Azure AD application consent experiences](../develop/application-consent-experience.md).
 - For more information on permissions and consent in Microsoft identity, see [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md).
-- For more information on Zero Trust, see [Zero Trust Deployment Center](/security/zero-trust/)
+- For more information on Zero Trust, see [Zero Trust Deployment Center](/security/zero-trust/).
