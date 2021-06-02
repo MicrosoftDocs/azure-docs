@@ -1,0 +1,32 @@
+---
+title: Windows Virtual Desktop management - Azure
+description: How to manage your Windows Virtual Desktop environment.
+author: heidilohr
+
+ms.topic: conceptual
+ms.date: 06/03/2021
+ms.author: helohr
+manager: femila
+---
+# Windows Virtual Desktop management recommendations
+
+We recommend using [Microsoft Endpoint Manager](https://www.microsoft.com/endpointmanager) to manage your Windows Virtual Desktop environment after deployment. Microsoft Endpoint Manager is a unified management platform that includes Microsoft Endpoint Configuration Manager and Microsoft InTune.
+
+## Microsoft Endpoint Configuration Manager
+
+Starting in version 1906 <!---of what?--->, you can use Microsoft Endpoint Configuration Manager to manage your Windows Virtual Desktop devices. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-virtual-desktop).
+
+## Microsoft InTune
+
+InTune supports Windows 10 Enterprise virtual machines (VMs) for Windows Virtual Desktop. For more information about support, see [Using Windows Virtual Desktop with InTune](/mem/intune/fundamentals/windows-virtual-desktop).
+
+Intune support for Windows 10 Enterprise multi-session VMs on Windows Virtual Desktop is currently in public preview. To see what the public preview version currently supports, check out [Using Windows Virtual Desktop with Microsoft Endpoint Manager](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+
+## Licensing
+
+[Microsoft Endpoint Configuration Manager and Microsoft InTune licenses](https://microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) are included with most Microsoft 365 subscriptions. 
+
+Learn more about licensing requirements at the following resources:
+
+- [Frequently asked questions for Configuration Manager branches and licensing](/mem/configmgr/core/understand/product-and-licensing-faq#bkmk_equiv-sub) 
+- [Microsoft InTune licensing](/mem/intune/fundamentals/licenses)
