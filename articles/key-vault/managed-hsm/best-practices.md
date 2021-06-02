@@ -47,4 +47,4 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 - See [Managed HSM logging](logging.md) to learn how to use Azure Monitor to configure logging
 - See [Manage managed HSM keys](key-management.md) for key management.
 - See [Managed HSM role management](role-management.md) for managing role assignments.
-- See [Managed HSM soft-delete overview](soft-delete-overview) for recovery options.
+- See [Managed HSM soft-delete overview](soft-delete-overview.md) for recovery options.
