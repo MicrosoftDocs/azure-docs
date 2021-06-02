@@ -5,7 +5,7 @@ ms.topic: article
 author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
-ms.date: 05/24/2021
+ms.date: 06/02/2021
 ---
 
 # Pull images from an Azure container registry to a Kubernetes cluster using a pull secret
@@ -16,6 +16,8 @@ This example creates a pull secret using Azure Active Directory [service princip
 
 > [!NOTE]
 > While pull secrets are commonly used, they bring additional management overhead. If you're using [Azure Kubernetes Service](../aks/intro-kubernetes.md), we recommend [other options](authenticate-kubernetes-options.md) such as using the cluster's managed identity or service principal to securely pull the image without an additional `imagePullSecrets` setting on each pod.
+
+## Prerequisites
 
 This article assumes you already created a private Azure container registry. You also need to have a Kubernetes cluster running and accessible via the `kubectl` command-line tool.
 
