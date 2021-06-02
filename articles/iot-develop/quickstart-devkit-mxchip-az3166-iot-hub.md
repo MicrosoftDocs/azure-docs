@@ -103,7 +103,7 @@ To create an IoT hub:
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your unique IoT hub name.
 
-    ```azurecli-interactive
+    ```azurecli
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
 
@@ -121,10 +121,10 @@ To register a device:
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
 
-    *MyMXCHIPDevice*. You can use this name directly for the device in CLI commands in this quickstart. Optionally, use a different name.
+    *mydevice*. You can use this name directly for the device in CLI commands in this quickstart. Optionally, use a different name.
 
-    ```azurecli-interactive
-    az iot hub device-identity create --device-id MyMXCHIPDevice --hub-name {YourIoTHubName}
+    ```azurecli
+    az iot hub device-identity create --device-id mydevice --hub-name {YourIoTHubName}
     ```
 
 1. After the device is created, view the JSON output in the console, and copy the `deviceId` and `primaryKey` values to use in a later step.
@@ -144,6 +144,12 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
 1. Open the following file in a text editor:
 
     > *getting-started\MXChip\AZ3166\app\azure_config.h*
+
+1. Comment out the following line near the top of the file as shown:
+
+    ```c
+    // #define ENABLE_DPS
+    ```
 
 1. Set the Wi-Fi constants to the following values from your local environment.
 
@@ -210,39 +216,32 @@ You can use the **Termite** app to monitor communication and confirm that your d
     Starting Azure thread
 
     Initializing WiFi
-    	Connecting to SSID 'iot'
+	    MAC address: C8:93:46:8A:4C:43
+	    Connecting to SSID 'iot'
     SUCCESS: WiFi connected to iot
 
     Initializing DHCP
-    	IP address: 10.0.0.123
-    	Mask: 255.255.255.0
-    	Gateway: 10.0.0.1
+	    IP address: 192.168.0.18
+	    Mask: 255.255.255.0
+	    Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
 
     Initializing DNS client
-    	DNS address: 10.0.0.1
+	    DNS address: 75.75.75.75
     SUCCESS: DNS client initialized
 
     Initializing SNTP client
-    	SNTP server 0.pool.ntp.org
-    	SNTP IP address: 185.242.56.3
-    	SNTP time update: Nov 16, 2020 23:47:35.385 UTC 
+	    SNTP server 0.pool.ntp.org
+	    SNTP IP address: 157.245.166.169
+	    SNTP time update: Jun 2, 2021 20:18:58.687 UTC 
     SUCCESS: SNTP initialized
 
-    Initializing Azure IoT DPS client
-    	DPS endpoint: global.azure-devices-provisioning.net
-    	DPS ID scope: ***
-    	Registration ID: ***
-    SUCCESS: Azure IoT DPS client initialized
-
     Initializing Azure IoT Hub client
-    	Hub hostname: ***
-    	Device id: ***
-    	Model id: dtmi:azurertos:devkit:gsgmxchip;1
-    Connected to IoTHub
+	    Hub hostname: ***.azure-devices.net
+	    Device id: mydevice
+	    Model id: dtmi:azurertos:devkit:gsgmxchip;1
+    Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
-
-    Starting Main loop
     ```
 
 Keep Termite open to monitor device output in the following steps.
@@ -256,10 +255,10 @@ You can use the Azure IoT Explorer to view and manage the properties of your dev
 
 To add a connection to your IoT hub:
 
-1. In your CLI app, run the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string for your IoT hub.
+1. In your CLI app, run the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) command to get the connection string for your IoT hub.
 
-    ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName}
+    ```azurecli
+    az iot hub connection-string  show --hub-name {YourIoTHubName}
     ```
 
 1. Copy the connection string without the surrounding quotation characters.
@@ -267,7 +266,7 @@ To add a connection to your IoT hub:
 1. Paste the connection string into the **Connection string** box.
 1. Select **Save**.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/azure-iot-explorer-create-connection.png" alt-text="Azure IoT Explorer connection string":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-add-connection.png" alt-text="Azure IoT Explorer connection string":::
 
 If the connection succeeds, the Azure IoT Explorer switches to a **Devices** view and lists your device.
 
@@ -275,7 +274,7 @@ To view device properties using Azure IoT Explorer:
 
 1. Select the link for your device identity. IoT Explorer displays details for the device.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/azure-iot-explorer-device-identity.png" alt-text="Azure IoT Explorer device identity":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-identity.png" alt-text="Azure IoT Explorer device identity":::
 
 1. Inspect the properties for your device in the **Device identity** panel. 
 1. Optionally, select the **Device twin** panel and inspect additional device properties.
@@ -284,8 +283,8 @@ To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-identity show](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show) command.
 
-    ```azurecli-interactive
-    az iot hub device-identity show --device-id MyMXCHIPDevice --hub-name {YourIoTHubName}
+    ```azurecli
+    az iot hub device-identity show --device-id mydevice --hub-name {YourIoTHubName}
     ```
 
 1. Inspect the properties for your device in the console output.
@@ -300,7 +299,7 @@ To view telemetry in Azure IoT Explorer:
 1. Select **Start**.
 1. View the telemetry as the device sends messages to the cloud.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/azure-iot-explorer-device-telemetry.png" alt-text="Azure IoT Explorer device telemetry":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-device-telemetry.png" alt-text="Azure IoT Explorer device telemetry":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -311,8 +310,8 @@ To use Azure CLI to view device telemetry:
 
 1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
-    ```azurecli-interactive
-    az iot hub monitor-events --device-id MyMXCHIPDevice --hub-name {YourIoTHubName}
+    ```azurecli
+    az iot hub monitor-events --device-id mydevice --hub-name {YourIoTHubName}
     ```
 
 1. View the JSON output in the console.
@@ -320,8 +319,11 @@ To use Azure CLI to view device telemetry:
     ```json
     {
         "event": {
-            "origin": "MyMXCHIPDevice",
-            "payload": "{\"temperature\": 25}"
+            "origin": "mydevice",
+            "module": "",
+            "interface": "dtmi:azurertos:devkit:gsgmxchip;1",
+            "component": "",
+            "payload": "{\"humidity\":41.21,\"temperature\":31.37,\"pressure\":1005.18}"
         }
     }
     ```
@@ -341,7 +343,7 @@ To call a method in Azure IoT Explorer:
     * **Payload**: `true`
 1. Select **Invoke method**. The yellow User LED light should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/azure-iot-explorer-invoke-method.png" alt-text="Azure IoT Explorer invoke method":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/iot-explorer-invoke-method.png" alt-text="Azure IoT Explorer invoke method":::
 
 1. Change **Payload** to *false*, and again select **Invoke method**. The yellow User LED should turn off.
 1. Optionally, you can view the output in Termite to monitor the status of the methods.
@@ -350,17 +352,17 @@ To use Azure CLI to call a method:
 
 1. Run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az_iot_hub_invoke_device_method) command, and specify the method name and payload. For this method, setting `method-payload` to `true` turns on the LED, and setting it to `false` turns it off.
 
-    ```azurecli-interactive
-    az iot hub invoke-device-method --device-id MyMXCHIPDevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
+    ```azurecli
+    az iot hub invoke-device-method --device-id mydevice --method-name setLedState --method-payload true --hub-name {YourIoTHubName}
     ```
 
     The CLI console shows the status of your method call on the device, where `204` indicates success.
 
     ```json
     {
-      "payload": {},
-      "status": 204
-    }
+        "payload": {},
+        "status": 200
+    }    
     ```
 
 1. Check your device to confirm the LED state.
@@ -368,11 +370,10 @@ To use Azure CLI to call a method:
 1. View the Termite terminal to confirm the output messages:
 
     ```output
-    Received direct method=setLedState, id=1, message=true
+    Receive direct method: setLedState
+	    Payload: true
     LED is turned ON
-    Sending device twin update with bool value
-    Sending message {"ledState":true}
-    Direct method=setLedState invoked
+    Device twin property sent: {"ledState":true}
     ```
 
 ## Troubleshoot and debug
@@ -393,8 +394,6 @@ To delete a resource group by name:
 1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This removes the resource group, the IoT Hub, and the device registration you created.
 
     ```azurecli-interactive
-    
-    ```
     az group delete --name MyResourceGroup
     ```
 
