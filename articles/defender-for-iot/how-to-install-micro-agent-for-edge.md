@@ -11,6 +11,26 @@ This article explains how to install, and authenticate the Defender micro agent 
 
 ## Prerequisites 
 
+1. [Create an IoT Hub](../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
+
+1. [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine) and [connect to the VM](../virtual-machines/linux/quick-create-portal.md#connect-to-virtual-machine).
+
+1. Register an IoT Edge device in IoT Hub.
+
+    1. [Register an Iot Edge device in the IoT hub](../iot-edge/how-to-register-device.md) and [retrieve connection strings](../iot-edge/how-to-register-device.md#view-registered-devices-and-retrieve-connection-strings).
+    
+1. Install Azure IoT Edge for Linux.
+
+    1. [Prerequisites](../iot-edge/how-to-install-iot-edge.md#prerequisites).
+    
+    1. [Install a container engine](../iot-edge/how-to-install-iot-edge.md#install-a-container-engine).
+    
+    1. [Install the IoT Edge service](../iot-edge/how-to-install-iot-edge.md#install-iot-edge).
+    
+    1. [Provision the device with its cloud identity](../iot-edge/how-to-install-iot-edge.md#provision-the-device-with-its-cloud-identity).
+    
+    1. [Verify that you configuration is successful](../iot-edge/how-to-install-iot-edge.md#verify-successful-configuration).
+    
 1. Add the appropriate Microsoft package repository, and install Edge runtime version 1.2, prior to installing the Defender for IoT micro agent for Edge. 
 
     1. Download the repository configuration that matches your device operating system.  
@@ -44,32 +64,6 @@ This article explains how to install, and authenticate the Defender micro agent 
         ```bash
         sudo apt-get update
         ```
-    
-    1. Install and configure [Edge runtime version 1.2](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true ). 
-
-1. Create an [IoT Hub](../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
-
-1. [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine).
-
-1. [Connect to the VM](../virtual-machines/linux/quick-create-portal.md#connect-to-virtual-machine).
-
-1. Register an IoT Edge device in IoT Hub.
-
-    1. [Register your device](../iot-edge/how-to-register-device.md).
-    
-    1. [View registered devices, and retrieve connection strings](../iot-edge/how-to-register-device.md#view-registered-devices-and-retrieve-connection-strings).
-    
-1. [Install Azure IoT Edge for Linux](../iot-edge/how-to-install-iot-edge.md).
-
-    1. [Prerequisites](../iot-edge/how-to-install-iot-edge.md#prerequisites).
-    
-    1. [Install a container engine](../iot-edge/how-to-install-iot-edge.md#install-a-container-engine).
-    
-    1. [Install IoT Edge](../iot-edge/how-to-install-iot-edge.md#install-iot-edge).
-    
-    1. [Provision the device with its cloud identity](../iot-edge/how-to-install-iot-edge.md#provision-the-device-with-its-cloud-identity).
-    
-    1. [Verify successful configuration](../iot-edge/how-to-install-iot-edge.md#verify-successful-configuration).
 
 ## Installation 
 
