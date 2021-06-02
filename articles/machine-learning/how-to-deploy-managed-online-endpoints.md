@@ -97,6 +97,8 @@ Attributes of the `deployment`:
 | scale_settings.scale_type | Currently, this value must be `manual`. To scale up or scale down after the endpoint and deployment are created, update the `instance_count` in the YAML and run the command `az ml endpoint update -n $ENDPOINT_NAME --file <yaml filepath>`.|
 | scale_settings.instance_count | Number of instances in the deployment. Base the value on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. |
 
+For more information on the YAML schema, see [online endpoint YAML reference](reference-online-endpoint-yaml.md) document.
+
 > [!Note]
 > To use Azure Kubernetes Service (AKS) as a compute target instead of managed endpoints:
 > 1. Create and attach your AKS cluster as a compute target to your Azure Machine Learning workspace [using Azure ML Studio](how-to-create-attach-compute-studio.md#whats-a-compute-target)

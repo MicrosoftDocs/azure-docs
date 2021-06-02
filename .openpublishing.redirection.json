@@ -7214,6 +7214,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-devops-with-github.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-devops-automation",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
       "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
       "redirect_document_id": false
@@ -10214,6 +10219,111 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/compare-template-syntax.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/compare-template-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-decompile.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/decompile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-file.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-install.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-modules.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-comparison.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-comparison",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-logical.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-logical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-operators-numeric.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/operators-numeric",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-overview.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/quickstart-create-bicep-use-visual-studio-code.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-functions-any.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/template-functions-any",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-modules.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-outputs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-tags.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-tags",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-add-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-add-variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-create-first-bicep.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-create-first-bicep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-export-template.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-export-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-quickstart-template.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-quickstart-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/bicep-tutorial-use-parameter-file.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/tutorial-use-parameter-file",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/grant-access-to-create-subscription.md",
       "redirect_url": "/azure/azure-resource-manager/management/grant-access-to-create-subscription",
       "redirect_document_id": false
@@ -10474,6 +10584,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/add-resource-extensions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/resource-extensions",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/vs-resource-groups-project-devops-pipelines.md",
       "redirect_url": "/azure/azure-resource-manager/templates/add-template-to-azure-pipelines",
       "redirect_document_id": false
@@ -10513,6 +10628,16 @@
       "redirect_url": "/azure/azure-resource-manager/templates/complete-mode-deletion",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/complete-mode-deletion.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deployment-complete-mode-deletion",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/convert-to-template-spec.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-spec-convert",
+      "redirect_document_id": false
+    },          
     {
       "source_path_from_root": "/articles/azure-resource-manager/conditional-resource-deployment.md",
       "redirect_url": "/azure/azure-resource-manager/templates/conditional-resource-deployment",
@@ -10573,6 +10698,11 @@
       "redirect_url": "/azure/azure-resource-manager/templates/define-resource-dependency",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/define-resource-dependency.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/resource-dependency",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-group-template-deploy-cli.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deploy-cli",
@@ -10954,10 +11084,20 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-best-practices.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/best-practices",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/template-deploy-what-if.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-deploy-what-if",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-deploy-what-if.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-what-if",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/template-expressions.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-expressions",
@@ -11019,6 +11159,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/outputs",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-templates-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-parameters",
       "redirect_document_id": false
@@ -11029,6 +11174,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-parameters.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/parameters",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/template-samples.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-samples",
       "redirect_document_id": false
@@ -11038,6 +11188,11 @@
       "redirect_url": "/azure/azure-resource-manager/templates/templates-cloud-consistency",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/templates-cloud-consistency.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-cloud-consistency",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/best-practices-resource-manager-design-templates.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
@@ -11073,6 +11228,11 @@
       "redirect_url": "/azure/azure-resource-manager/templates/template-syntax#resources",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-syntax.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/syntax",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/template-tutorial-add-functions.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-add-functions",
@@ -11189,6 +11349,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-user-defined-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/user-defined-functions",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-templates-variables.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-variables",
       "redirect_document_id": false
@@ -11198,6 +11363,11 @@
       "redirect_url": "/azure/azure-resource-manager/templates/template-variables",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/variables",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-resource-manager/vs-azure-tools-update-deploy-script-to-az-powershell.md",
       "redirect_url": "/azure/azure-resource-manager/templates/update-visual-studio-deployment-script",
