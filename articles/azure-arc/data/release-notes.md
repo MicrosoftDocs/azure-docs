@@ -1,5 +1,5 @@
 ---
-title: Azure Arc enabled data services - Release notes
+title: Azure Arc-enabled data services - Release notes
 description: Latest release notes 
 author: twright-msft
 ms.author: twright
@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 06/02/2021
 ms.topic: conceptual
-# Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
+# Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 
-# Release notes - Azure Arc enabled data services (Preview)
+# Release notes - Azure Arc-enabled data services (Preview)
 
-This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc enabled data services. 
+This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services. 
 
 ## May 2021
 
@@ -34,19 +34,19 @@ As a preview feature, the technology presented in this article is subject to [Su
 
 - Create and delete data controller, SQL managed instance, and PostgreSQL Hyperscale server groups from Azure portal. 
 - Validate portal actions when deleting Azure Arc data services. For instance, the portal alerts when you attempt to delete the data controller when there are SQL Managed Instances deployed using the data controller.
-- Create custom configuration profiles to support custom settings when you deploy Arc enabled data controller using the Azure portal.
+- Create custom configuration profiles to support custom settings when you deploy Arc-enabled data controller using the Azure portal.
 - Optionally, automatically upload your logs to Azure Log analytics workspace in the directly connected mode.
 
-#### 	Azure Arc enabled PostgreSQL Hyperscale
+#### 	Azure Arc-enabled PostgreSQL Hyperscale
 
 This release introduces the following features or capabilities:
 
 - Delete an Azure Arc PostgreSQL Hyperscale from the Azure portal when its Data Controller was configured for Direct connectivity mode.
-- Deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
-- Specify storage classes and Postgres extensions when deploying Azure Arc enabled PostgreSQL Hyperscale from the Azure portal.
-- Reduce the number of worker nodes in your Azure Arc enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command line.
+- Deploy Azure Arc-enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
+- Specify storage classes and Postgres extensions when deploying Azure Arc-enabled PostgreSQL Hyperscale from the Azure portal.
+- Reduce the number of worker nodes in your Azure Arc-enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command line.
 
-#### Azure Arc enabled SQL Managed Instance
+#### Azure Arc-enabled SQL Managed Instance
 
 - New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Arc-enabled SQL Managed Instance has the same commands as `azdata arc sql mi <command>`. All Arc-enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
 
@@ -77,7 +77,7 @@ This release introduces the following features or capabilities:
 
 #### Platform
 
-- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment with other Azure Arc-enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
    - Azure Data Studio
    - Azure Data CLI (`azdata`)
    - Kubernetes native tools (`kubectl`)
@@ -88,10 +88,10 @@ This release introduces the following features or capabilities:
 
 - In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
 - Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
-- Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
+- Azure Arc-enabled SQL Managed instance and Azure Arc-enabled PostgreSQL Hyperscale are not GB18030 certified.
 - Currently, only one Azure Arc data controller in direct connected mode per kubernetes cluster is supported.
 
-#### Azure Arc enabled PostgreSQL Hyperscale
+#### Azure Arc-enabled PostgreSQL Hyperscale
 
 - Point in time restore is not supported for now on NFS storage.
 - It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
@@ -126,16 +126,16 @@ This section describes the new features introduced or enabled for this release.
 
 - Direct connected clusters automatically upload telemetry information automatically Azure. 
 
-#### 	Azure Arc enabled PostgreSQL Hyperscale
+#### 	Azure Arc-enabled PostgreSQL Hyperscale
 
-- Azure Arc enabled PostgreSQL Hyperscale is now supported in Direct connect mode. You now can deploy Azure Arc enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure portal. 
-- Azure Arc enabled PostgreSQL Hyperscale ships with the Citus 10.0 extension which features columnar table storage
-- Azure Arc enabled PostgreSQL Hyperscale  now supports full user/role management.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports additional extensions with `Tdigest` and  `pg_partman`.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
-- Azure Arc enabled PostgreSQL Hyperscale  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
+- Azure Arc-enabled PostgreSQL Hyperscale is now supported in Direct connect mode. You now can deploy Azure Arc-enabled PostgreSQL Hyperscale from the Azure Market Place in the Azure portal. 
+- Azure Arc-enabled PostgreSQL Hyperscale ships with the Citus 10.0 extension which features columnar table storage
+- Azure Arc-enabled PostgreSQL Hyperscale  now supports full user/role management.
+- Azure Arc-enabled PostgreSQL Hyperscale  now supports additional extensions with `Tdigest` and  `pg_partman`.
+- Azure Arc-enabled PostgreSQL Hyperscale  now supports configuring vCore and memory settings per role of the PostgreSQL instance in the server group.
+- Azure Arc-enabled PostgreSQL Hyperscale  now supports configuring database engine/server settings per role of the PostgreSQL instance in the server group.
 
-#### Azure Arc enabled SQL Managed Instance
+#### Azure Arc-enabled SQL Managed Instance
 
 - Restore a database to SQL Managed Instance with three replicas and it will be automatically added to the availability group. 
 - Connect to a secondary read-only endpoint on SQL Managed Instances deployed with three replicas. Use `azdata arc sql endpoint list` to see the secondary read-only connection endpoint.
@@ -148,9 +148,9 @@ Azure Data CLI (`azdata`) version number: 20.3.2. You can install `azdata` from 
 
 ### Data controller
 
-- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
+- Deploy Azure Arc-enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
 
-### Azure Arc enabled PostgreSQL Hyperscale
+### Azure Arc-enabled PostgreSQL Hyperscale
 
 Both custom resource definitions (CRD) for PostgreSQL have been consolidated into a single CRD. See the following table.
 
@@ -161,7 +161,7 @@ Both custom resource definitions (CRD) for PostgreSQL have been consolidated int
 
 You will delete the previous CRDs as you cleanup past installations. See [Cleanup from past installations](create-data-controller-using-kubernetes-native-tools.md#cleanup-from-past-installations).
 
-### Azure Arc enabled SQL Managed Instance
+### Azure Arc-enabled SQL Managed Instance
 
 - You can now create a SQL managed instance from the Azure portal in the direct connected mode.
 
@@ -177,10 +177,10 @@ Azure Data CLI (`azdata`) version number: 20.3.1. You can install `azdata` from 
 
 Additional updates include:
 
-- Azure Arc enabled SQL Managed Instance
+- Azure Arc-enabled SQL Managed Instance
    - High availability with Always On availability groups
 
-- Azure Arc enabled PostgreSQL Hyperscale
+- Azure Arc-enabled PostgreSQL Hyperscale
    Azure Data Studio: 
    - The overview page shows the status of the server group itemized per node
    - A new properties page shows more details about the server group
@@ -205,7 +205,7 @@ Additional updates include:
 
 - PostgreSQL deployments honor the volume size parameters indicated in create commands
 - The engine version parameters are now honored when editing a server group
-- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed
+- The naming convention of the pods for Azure Arc-enabled PostgreSQL Hyperscale has changed
 
     It is now in the form: `ServergroupName{c, w}-n`. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
    - `Postgres01c-0` (coordinator node)
@@ -222,9 +222,9 @@ View endpoints for SQL Managed Instance and PostgreSQL Hyperscale using the Azur
 
 Edit SQL Managed Instance resource (CPU core and memory) requests and limits using Azure Data Studio.
 
-Azure Arc enabled PostgreSQL Hyperscale now supports point in time restore in addition to full backup restore for both versions 11 and 12 of PostgreSQL. The point in time restore capability allows you to indicate a specific date and time to restore to.
+Azure Arc-enabled PostgreSQL Hyperscale now supports point in time restore in addition to full backup restore for both versions 11 and 12 of PostgreSQL. The point in time restore capability allows you to indicate a specific date and time to restore to.
 
-The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed. It is now in the form: ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+The naming convention of the pods for Azure Arc-enabled PostgreSQL Hyperscale has changed. It is now in the form: ServergroupName{r, s}-_n_. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
 - `postgres02r-0` (coordinator node)
 - `postgres02s-0` (worker node)
 - `postgres02s-1` (worker node)
@@ -288,12 +288,12 @@ This release introduces the following breaking changes:
 
 ## September 2020
 
-Azure Arc enabled data services is released for public preview. Arc enabled data services allow you to manage data services anywhere.
+Azure Arc-enabled data services is released for public preview. Arc-enabled data services allow you to manage data services anywhere.
 
 - SQL Managed Instance
 - PostgreSQL Hyperscale
 
-For instructions see [What are Azure Arc enabled data services?](overview.md)
+For instructions see [What are Azure Arc-enabled data services?](overview.md)
 
 ## Next steps
 
