@@ -1,7 +1,7 @@
 ---
 title: Install Defender for IoT micro agent for Edge (Preview)
 description: Learn how to install, and authenticate the Defender Micro agent for Edge.
-ms.date: 05/02/2021
+ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
@@ -11,41 +11,65 @@ This article explains how to install, and authenticate the Defender micro agent 
 
 ## Prerequisites 
 
-You must add the appropriate Microsoft package repository, and install Edge runtime version 1.2, prior to installing the Defender for IoT micro agent for Edge. 
+1. Add the appropriate Microsoft package repository, and install Edge runtime version 1.2, prior to installing the Defender for IoT micro agent for Edge. 
 
-1. Download the repository configuration that matches your device operating system.  
-
-    - For Ubuntu 18.04
+    1. Download the repository configuration that matches your device operating system.  
+    
+        - For Ubuntu 18.04
+        
+            ```bash
+            curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+            ```
+    
+        - For Ubuntu 20.04
+        
+            ```bash
+             curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
+            ```
+    
+        - For Debian 9 (both AMD64 and ARM64)
+        
+            ```bash
+            curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+            ```
+    
+    1. Copy the repository configuration to the `sources.list.d` directory.
     
         ```bash
-        curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+        sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
         ```
-
-    - For Ubuntu 20.04
+    
+    1. Update the list of packages from the repository that you added with the following command:
     
         ```bash
-         curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > ./microsoft-prod.list
+        sudo apt-get update
         ```
-
-    - For Debian 9 (both AMD64 and ARM64)
     
-        ```bash
-        curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-        ```
+    1. Install and configure [Edge runtime version 1.2](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true ). 
 
-1. Copy the repository configuration to the `sources.list.d` directory.
+1. Create an [IoT Hub](../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
 
-    ```bash
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    ```
+1. [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine).
 
-1. Update the list of packages from the repository that you added with the following command:
+1. [Connect to the VM](../virtual-machines/linux/quick-create-portal.md#connect-to-virtual-machine).
 
-    ```bash
-    sudo apt-get update
-    ```
+1. Register an IoT Edge device in IoT Hub.
 
-1. Install and configure [Edge runtime version 1.2](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true ). 
+    1. [Register your device](../iot-edge/how-to-register-device.md).
+    
+    1. [View registered devices, and retrieve connection strings](../iot-edge/how-to-register-device.md#view-registered-devices-and-retrieve-connection-strings).
+    
+1. [Install Azure IoT Edge for Linux](../iot-edge/how-to-install-iot-edge.md).
+
+    1. [Prerequisites](../iot-edge/how-to-install-iot-edge.md#prerequisites).
+    
+    1. [Install a container engine](../iot-edge/how-to-install-iot-edge.md#install-a-container-engine).
+    
+    1. [Install IoT Edge](../iot-edge/how-to-install-iot-edge.md#install-iot-edge).
+    
+    1. [Provision the device with its cloud identity](../iot-edge/how-to-install-iot-edge.md#provision-the-device-with-its-cloud-identity).
+    
+    1. [Verify successful configuration](../iot-edge/how-to-install-iot-edge.md#verify-successful-configuration).
 
 ## Installation 
 
