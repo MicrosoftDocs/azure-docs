@@ -53,7 +53,6 @@ The configuration steps for each of the individual connectors are longer and are
 Use one of the links below to create and configure a connector.
 
 - [Generic SQL connector](on-premises-sql-connector-configure.md) - a connector that will work with SQL databases such as Microsoft SQL or MySQL.
-- Generic LDAP connector - a connector that will work with LDAP directories such as OpenLDAP and Active Directory Lightweight Directory Services.
 
 
 ## Establish connectivity between Azure AD and the Azure AD ECMA Connector Host
