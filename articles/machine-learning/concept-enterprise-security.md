@@ -54,7 +54,9 @@ We don't recommend that admins revoke the access of the managed identity to the 
 > [!NOTE]
 > If your Azure Machine Learning workspaces has compute targets (compute cluster, compute instance, Azure Kubernetes Service, etc.) that were created __before May 14th, 2021__, you may also have an additional Azure Active Directory account. The account name starts with `Microsoft-AzureML-Support-App-` and has contributor-level access to your subscription for every workspace region.
 > 
-> If your workspaces has attached Azure Kubernetes Service (AKS) clusters, and those clusters were created or attached __before May 14th, 2021__, you must can __delete and recreate__ the AKS clusters to remove its dependency on the account.
+> If your workspace does not have an Azure Kubernetes Service (AKS) attached, you can safely delete this Azure AD account. 
+> 
+> If your workspace has attached AKS clusters, _and they were created before May 14th, 2021_, __do not delete this Azure AD account__. In this scenario, you must first delete and recreate the AKS cluster before you can delete the Azure AD account.
 
 You can provision the workspace to use user-assigned managed identity, and grant the managed identity additional roles, for example to access your own Azure Container Registry for base Docker images. For more information, see [Use managed identities for access control](how-to-use-managed-identities.md).
 
