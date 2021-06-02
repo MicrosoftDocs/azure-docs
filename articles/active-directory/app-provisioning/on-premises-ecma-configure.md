@@ -78,28 +78,28 @@ The following sections will guide you through establishing connectivity with the
   3. On the **Provisioning page**, change the mode to **Automatic**
    ![Change mode](.\media\on-premises-ecma-configure\configure-7.png)
   4. In the on-premises connectivity section, select the agent that you just deployed and click assign agent(s).
-   >[!NOTE]
-   >After adding the agent, you need to wait 10-20 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
-   >
-   >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
-   
-   ![Assign an agent](.\media\on-premises-ecma-configure\configure-8.png)
+     ![Assign an agent](.\media\on-premises-ecma-configure\configure-8.png)</br>
+
+  >[!NOTE]
+  >After adding the agent, you need to wait 10-20 minutes for the registration to complete.  The connectivity test will not work until the registration completes.
+  >
+  >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
+  
+
   5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
  
-   https://localhost:8585/ecma2host_connectorName/scim
+          https://localhost:8585/ecma2host_connectorName/scim
 
-   For example, if the connector you created was named SQL, the url would be:
- 
-   https://localhost:8585/ecma2host_SQL/scim
-  
+          For example, if the connector you created was named SQL, the url would be: https://localhost:8585/ecma2host_SQL/scim
+
   6. Enter the secret token value that you defined when creating the connector.
   7. Click Test Connection and wait one minute.
-  ![Test the connection](.\media\on-premises-ecma-configure\configure-5.png)
+     ![Test the connection](.\media\on-premises-ecma-configure\configure-5.png)
 
-   >[!NOTE]
-   >Be sure to wait 10-20 minutes after assigning the agent to test the connection.  The connection will fail if registration has not completed.
-  8. Once connection test is successful, click **save**.
- ![Successful test](.\media\on-premises-ecma-configure\configure-9.png)
+     >[!NOTE]
+     >Be sure to wait 10-20 minutes after assigning the agent to test the connection.  The connection will fail if registration has not completed.
+  8. Once connection test is successful, click **save**.</br>
+   ![Successful test](.\media\on-premises-ecma-configure\configure-9.png)
 
 ## Configure who is in scope for provisioning
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD you can move on to configuring who is in scope for provisioning.  The sections below will provide information on how scope your users.
@@ -125,7 +125,7 @@ You will need to map the user attributes in Azure AD to the attributes in the ta
    ![provision a user](.\media\on-premises-ecma-configure\configure-10.png)
  4. Click **Add new mapping**
    ![Add a mapping](.\media\on-premises-ecma-configure\configure-11.png)
- 5. Specify the source and target attributes and click **OK**.
+ 5. Specify the source and target attributes and click **OK**.</br>
    ![Edit attributes](.\media\on-premises-ecma-configure\configure-12.png)
 
 

@@ -195,10 +195,13 @@ Azure AD allows you to monitor the provisioning service in the cloud as well as 
 * The error `System.ComponentModel.Win32Exception: The specified service already exists` indicates that the previous ECMA Host was unsuccessfully uninstalled. Please uninstall the host application. Navigate to program files and remove the ECMA Host folder. You may want to store the configuration file for backup. 
 * The following error indicates a pre-req has not been fulfilled. Ensure that you have .NET 4.7.1 installed.
 
-`Method Name : <>c__DisplayClass0_1 : RegisterNotLoadedAssemblies Error during load assembly: System.Management.Automation.resources.dll
---------- Outer Exception Data ---------
-Message: Could not load file or assembly 'file:///C:\Program Files\Microsoft ECMA2Host\Service\ECMA\System.Management.Automation.resources.dll' or one of its dependencies. The system cannot find the file specified.`
+  ```
+    Method Name : <>c__DisplayClass0_1 : 
+    RegisterNotLoadedAssemblies Error during load assembly: System.Management.Automation.resources.dll
+    --------- Outer Exception Data ---------
+    Message: Could not load file or assembly 'file:///C:\Program Files\Microsoft ECMA2Host\Service\ECMA\System.Management.Automation.resources.dll' or one of its dependencies. The system cannot find the file specified.
 
+  ```
 
 
 ## Next Steps

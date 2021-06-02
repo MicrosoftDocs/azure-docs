@@ -26,9 +26,9 @@ The following diagram shows an over view of how on-premises application provisio
 
 There are three primary components to provisioning users into an on-premises application.
 
-1. The Provisioning agent provides connectivity between Azure AD and your on-premises environment.
-2. The ECMA host converts provisioning requests from Azure AD to requests made to your target application. It serves as a gateway between Azure AD and your application. It allows you to import existing ECMA2 connectors used with Microsoft Identity Manager. Note, the ECMA host is not required if you have built a SCIM application or SCIM gateway.
-3.  The Azure AD provisioning service serves as the synchronization engine.
+- The Provisioning agent provides connectivity between Azure AD and your on-premises environment.
+- The ECMA host converts provisioning requests from Azure AD to requests made to your target application. It serves as a gateway between Azure AD and your application. It allows you to import existing ECMA2 connectors used with Microsoft Identity Manager. Note, the ECMA host is not required if you have built a SCIM application or SCIM gateway.
+- The Azure AD provisioning service serves as the synchronization engine.
 
 >[!NOTE]
 > MIM Sync is not required. However, you can use MIM sync to build and test your ECMA connector before importing it into the ECMA host.
@@ -52,9 +52,9 @@ Refer to [Azure AD Connect Provisioning Agent: Version release history](provisio
 
 **How do I know the version of my Provisioning Agent?**
 
-- Sign in to the Windows server where the Provisioning Agent is installed.
-- Go to Control Panel -> Uninstall or Change a Program menu
-- Look for the version corresponding to the entry Microsoft Azure AD Connect Provisioning Agent
+ 1. Sign in to the Windows server where the Provisioning Agent is installed.
+ 2. Go to Control Panel -> Uninstall or Change a Program menu
+ 3. Look for the version corresponding to the entry Microsoft Azure AD Connect Provisioning Agent
 
 **Does Microsoft automatically push Provisioning Agent updates?**
 
@@ -83,9 +83,9 @@ The Provisioning Agent supports use of outbound proxy. You can configure it by e
 You can also check whether all of the required ports are open.
 
 **How do I uninstall the Provisioning Agent?**
-- Sign in to the Windows server where the Provisioning Agent is installed.
-- Go to Control Panel -> Uninstall or Change a Program menu
-- Uninstall the following programs:
+1. Sign in to the Windows server where the Provisioning Agent is installed.
+2. Go to Control Panel -> Uninstall or Change a Program menu
+3. Uninstall the following programs:
      - Microsoft Azure AD Connect Provisioning Agent
      - Microsoft Azure AD Connect Agent Updater
      - Microsoft Azure AD Connect Provisioning Agent Package

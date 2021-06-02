@@ -231,7 +231,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 6. Enter the secret token value that you defined when creating the connector.
 7. Click Test Connection and wait one minute.
      ![Assign an agent](.\media\on-premises-ecma-configure\configure-5.png)
-8. Once connection test is successful, click **save**.
+8. Once connection test is successful, click **save**.</br>
      ![Test an agent](.\media\on-premises-ecma-configure\configure-9.png)
 
 ## Step 9 - Assign users to application
@@ -244,7 +244,7 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD you can
      ![Add user](.\media\tutorial-ecma-sql-connector\app-2.png)
 5. Under **Users** click **None selected**
      ![None selected](.\media\tutorial-ecma-sql-connector\app-3.png)
-6. Select users from the right and click **Select**.
+6. Select users from the right and click **Select**.</br>
      ![Select users](.\media\tutorial-ecma-sql-connector\app-4.png)
 7. Now click **Assign**.
      ![Assign users](.\media\tutorial-ecma-sql-connector\app-5.png)
