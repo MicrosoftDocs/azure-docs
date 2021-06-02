@@ -20,9 +20,9 @@ As described in [Distributed functions architecture](service-tier-hyperscale.md)
 
 A secondary replica can be of three different types:
 
-- [High Availability replica](#high-availability-replica)
-- [Named replica (in Preview)](#named-replica)
-- [Geo-replica (in Preview)](#geo-replica)
+- High Availability replica
+- Named replica (in Preview)
+- Geo-replica (in Preview)
 
 Each type has a different architecture, feature set, purpose, and cost. Based on the features you need, you may use just one or even all of the three together.
 
@@ -46,7 +46,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 Given that for a given Hyperscale database all HA replicas are identical in their resource capacity, if more than one secondary replica is present, the read-intent workload is distributed across all available HA secondaries. When there are multiple HA replicas, keep in mind that each one could have different data latency with respect to data changes made on the primary. Each HA replica uses the same data as the primary on the same set of page servers. Local caches on each HA replica reflect the changes made on the primary via the transaction log service, which forwards log records from the primary replica to HA replicas. As a result, depending on the workload being processed by an HA replica, application of log records may happen at different speeds and thus different replicas could have different data latency relative to the primary replica.
 
-## <a id="named-replica">Named replica (in Preview)</a>
+## Named replica (in Preview)
 
 A named replica, just like an HA replica, uses the same page servers as the primary replica. Similar to HA replicas, there is no data copy needed to add a named replica. 
 
@@ -143,7 +143,7 @@ az sql db delete -g MyResourceGroup -s MyServer -n WideWorldImporters_NR
 During Public Preview, row values returned from `sys.databases`, for named replicas, in columns other than `name` and `database_id`, may be inconsistent and incorrect. For example, the `compatibility_level` column for a named replica could be reported as 140 even if the primary database from which the named replica has been created is set to 150. A workaround, when possible, is to get the same data using the system function `databasepropertyex`, that will return the correct data instead. 
 
 
-## <a id="geo-replica">Geo-replica (in Preview)</a>
+## Geo-replica (in Preview)
 
 With [active geo-replication](active-geo-replication-overview.md), you can create a readable secondary replica of the primary Hyperscale database in the same or in a different region. Geo-replicas must be created on a different logical server. The database name of a geo-replica always matches the database name of the primary.
 
