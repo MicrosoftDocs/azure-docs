@@ -70,7 +70,7 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
    
 1. Select **Set Subnets** to specify the DHCP IP address for the subnet. 
    
-   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="Screenshot showing how to set the subnets to specify the DHCP IP address." border="true":::
+   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="Screenshot showing how to set the subnets to specify the DHCP IP address  for using a DHCP server." border="true":::
       
 1. Modify the gateway IP address if needed, and enter the DHCP range IP. 
       
