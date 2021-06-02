@@ -43,14 +43,14 @@ For more information on deploying a model, see [How to deploy managed online end
  
 | Key | Description |
 | --- | --- |
-| name  | Name of the deployment |
+| name  | The name of the deployment. |
 | model | The name of the registered model version in the form `model: azureml:my-model:1`. You can also specify model properties inline: `name`, `version`, and `local_path`. The model files will be uploaded and registered automatically. A downside of inline specification is that you must increment the version manually if you want to update the model files.|
 | code_configuration.code.local_path | The directory that contains all the Python source code for scoring the model. Nested directories/packages are supported. |
 | code_configuration.scoring_script | The Python file in the above scoring directory. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, and so forth). The `run()` function is called at every invocation of the endpoint to do the actual scoring/prediction. |
 | environment | Contains the details of the Azure Machine Learning environment to host the model and code. As a best practice for production, you should separately register the model and environment and specify the registered name and version in the YAML. For example, `environment: azureml:my-env:1`. |
 | instance_type | The VM SKU to host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md).|
 | scale_settings.scale_type | Currently, this value must be `manual`. To scale up or scale down after the endpoint and deployment are created, update the `instance_count` in the YAML and run the command `az ml endpoint update -n $ENDPOINT_NAME --file <yaml filepath>`. |
-| scale_settings.instance_count | Number of instances in the deployment. Base the value on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. |
+| scale_settings.instance_count | The number of instances in the deployment. Base the value on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. |
 | scale_settings.min_instances | The minimum number of instances to always be present. |
 | scale_settings.max_instances | The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances. |
 | request_settings.request_timeout_ms | The scoring timeout in milliseconds. The default value is 5000 for managed online endpoints. |
@@ -63,7 +63,7 @@ For more information on deploying a model, see [How to deploy managed online end
 | liveness_probe.failure_threshold | The system will try failure_threshold times before giving up. Defaults to 30. Minimum value is 1. |
 | liveness_probe.success_threshold | The minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
 | readiness_probe | Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe. |
-| tags | Dictionary of Azure Tags you want associated with the deployment. |
+| tags | A dictionary of Azure Tags you want associated with the deployment. |
 | description | Description of the deployment. |
 
 ## Next steps
