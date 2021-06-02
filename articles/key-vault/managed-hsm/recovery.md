@@ -79,7 +79,9 @@ For more information about soft-delete, see [Managed HSM soft-delete overview](s
     az keyvault recover --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME}
     ```
 
-* Purge soft-deleted HSM **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR HSM)**
+* Purge soft-deleted HSM
+> [!WARNING] 
+> This operation will permanently delete your HSM
 
     ```azurecli
     az keyvault purge --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME}
@@ -111,7 +113,9 @@ For more information about soft-delete, see [Managed HSM soft-delete overview](s
     az keyvault key recover --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME} --name {KEY NAME}
     ```
 
-* Purge soft-deleted key **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY)**
+* Purge soft-deleted key 
+> [!WARNING] 
+> This operation will permanently delete your key
 
     ```azurecli
     az keyvault key purge --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME} --name {KEY NAME}

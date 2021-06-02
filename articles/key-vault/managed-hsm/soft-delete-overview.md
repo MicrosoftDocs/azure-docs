@@ -23,7 +23,7 @@ Managed HSM's soft-delete feature allows recovery of the deleted HSMs and keys. 
 - Two operations must be performed to permanently delete a key. First a user must delete the key, which puts it into the soft-deleted state. Second, a user must purge the key in the soft-deleted state. The purge operation requires user to have a "Managed HSM Crypto Officer" role assigned. These extra protections reduce the risk of a user accidentally or maliciously deleting a key or an HSM.
 
 
-### Soft-delete behavior
+## Soft-delete behavior
 
 For Managed-HSM soft-delete is on by default. You cannot create a Managed HSM resource with soft-delete disabled.
 
@@ -33,7 +33,7 @@ The default retention period is 90 days, however, during HSM resource creation, 
 
 You cannot reuse the name of an HSM resource that has been soft-deleted until the retention period has passed and the HSM resource is purged.
 
-### Purge protection
+## Purge protection
 
 Purge protection is an optional behavior and is **not enabled by default**. It can be turned on via [CLI](./recovery.md?tabs=azure-cli) or [PowerShell](./recovery.md?tabs=azure-powershell).
 
@@ -43,17 +43,17 @@ The default retention period is 90 days, but it is possible to set the retention
 
 See [How to use Managed HSM soft-delete with CLI](./recovery.md?tabs=azure-cli#managed-hsm-cli) or [How to use Managed HSM soft-delete with PowerShell](./recovery.md?tabs=azure-powershell#managed-hsm-powershell).
 
-### Managed HSM recovery
+## Managed HSM recovery
 
 Upon deleting an HSM, the service creates a proxy resource under the subscription, adding sufficient metadata for recovery. The proxy resource is a stored object, available in the same location as the deleted HSM. 
 
-### Key recovery
+## Key recovery
 
 Upon deleting a key, the service will place the it in a deleted state, making it inaccessible to any  operations. While in this state, the keys can be listed, recovered, or purged (permanently deleted). To view the objects, use the Azure CLI `az keyvault key list-deleted` command (as documented in [Managed HSM soft-delete and purge protection with CLI](./recovery.md?tabs=azure-cli#keys-cli)), or the Azure PowerShell `-InRemovedState` parameter (as described in [Managed HSM soft-delete and purge protection with PowerShell](./recovery.md?tabs=azure-powershell#keys-powershell)).  
 
 At the same time, Managed HSM will schedule the deletion of the underlying data corresponding to the deleted HSM or key for execution after a predetermined retention interval. The DNS record corresponding to the HSM is also retained during the retention interval.
 
-### Soft-delete retention period
+## Soft-delete retention period
 
 Soft-deleted resources are retained for a set period of time, 90 days. During the soft-delete retention interval, the following apply:
 
@@ -65,7 +65,7 @@ Soft-deleted resources are retained for a set period of time, 90 days. During th
   
 Unless a Managed HSM or key is recovered, at the end of the retention interval the service performs a purge of the soft-deleted HSM or key. Resource deletion may not be rescheduled.
 
-### Billing implications
+## Billing implications
 
 Managed HSM is a single-tenant service. When you create a Managed HSM, the service reserves underlying resources allocated to your HSM. These resources remain allocated even when the HSM is in deleted state. Therefore, you will be billed for the HSM while it is in deleted state.
 
