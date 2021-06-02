@@ -86,6 +86,9 @@ The Timestamp column indicates the point in time UTC at which the backup was tak
 ## Restore a backup
 In this section we are showing you how to do a full restore or a point in time restore. When you restore a full backup, you restore the entire content of the backup. When you do a point in time restore, you restore up to the point in time you indicate. Any transaction that was done later than this point in time is not restored.
 
+> [!CAUTION]
+> You can only restore to a server group that has the same number of worker nodes that it had when the backup was taken. If you increased or reduced the number of worker nodes since the backup was taken, before you restore, you need to increase/reduce the number of worker nodes - or create a new server group - to match the content of the backup. The restore will fail when the number of worker nodes do not match.
+
 ### Restore a full backup
 To restore the entire content of a backup run the command:
 ```console
@@ -211,5 +214,5 @@ azdata arc postgres backup delete --help
 ```
 
 ## Next steps
-- Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
+- Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group

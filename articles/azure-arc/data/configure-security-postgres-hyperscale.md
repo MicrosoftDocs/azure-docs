@@ -218,6 +218,7 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md).
 
 
+
 ## Next steps
 - See [`pgcrypto` extension](https://www.postgresql.org/docs/current/pgcrypto.html)
 - See [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md)
