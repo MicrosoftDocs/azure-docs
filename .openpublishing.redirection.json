@@ -29126,8 +29126,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/marketplace/azure-consumption-commitment-benefit.md",
-      "redirect_url": "/azure/marketplace/macc-enrollment",
+      "source_path_from_root": "/articles/marketplace/azure-consumption-commitment-benefit.md",
+      "redirect_url": "/azure/marketplace/azure-consumption-commitment-enrollment",
       "redirect_document_id": false
     },    
     {

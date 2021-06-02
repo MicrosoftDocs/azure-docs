@@ -86,7 +86,7 @@
     - name: Connect Program onboarding guide  
       href: business-applications-isv-program.md
     - name: Azure consumption commitment enrollment
-      href: macc-enrollment.md
+      href: azure-consumption-commitment-enrollment.md
     - name: Preferred solutions
       href: preferred-solutions.md
     - name: Integrated solutions

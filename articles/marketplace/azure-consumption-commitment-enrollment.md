@@ -37,7 +37,7 @@ To be enrolled in MACC and offer must be:
 1. In the **Offers** section, select the offer you want to see.
 1. On the **Offer overview** page, in the **Marketplace programs** section the **Microsoft Azure consumption commitment** status will show either _Enrolled_ or _Not Enrolled_.
 
-    :::image type="content" source="media/azure-benefit/macc-enrolled.png" alt-text="Screenshot of the Offer overview page in Partner Center that shows the Microsoft Azure Consumption Commitment status.":::
+    :::image type="content" source="media/azure-benefit/enrolled.png" alt-text="Screenshot of the Offer overview page in Partner Center that shows the Microsoft Azure Consumption Commitment status.":::
 
     ***Figure 1: Offer that is enrolled in the MACC program***
 
