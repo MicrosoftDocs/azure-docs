@@ -27,7 +27,7 @@ Azure Active Directory is available in the list of External Identities identity 
 
 ### Azure AD account in the invitation flow
 
-When you [invite a guest user](add-users-administrator.md) to B2B collaboration, you can specify their Azure AD account as the email address they'll use to sign in. In the following example, the user is invited to B2B collaboration using their Fabrikam work account, which is an Azure AD account.  through an organization (Fabrikam) that uses Azure AD.
+When you [invite a guest user](add-users-administrator.md) to B2B collaboration, you can specify their Azure AD account as the email address they'll use to sign in.
 
 ![Invite using a Azure AD account](media/azure-ad-account/azure-ad-account-invite.png)
 
