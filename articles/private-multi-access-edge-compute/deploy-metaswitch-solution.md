@@ -2,11 +2,11 @@
 title: 'Deploy Metaswitch solution'
 description: Learn how to deploy cloud solutions from Microsoft Azure and Metaswitch Networks that can help future-proof your network, drive down costs, and create new business models and revenue streams.
 services: vnf-manager
-author: KumudD
+author: djrmetaswitch
 ms.service: vnf-manager
 ms.topic: how-to
 ms.date: 05/26/2021
-ms.author: kumud
+ms.author: drichards
 
 ---
 # Deploy Fusion Core on an Azure Stack Edge (ASE) device
