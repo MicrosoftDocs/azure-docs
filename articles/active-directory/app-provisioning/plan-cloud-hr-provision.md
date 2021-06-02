@@ -235,7 +235,8 @@ This topology supports business requirements where attribute mapping and provisi
 * Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
->[!NOTE] If you do not have a test AD domain and use a TEST OU container in AD, then you use this topology to create two separate apps *HR2AD (Prod)* and *HR2AD (Test)*. Use the *HR2AD (Test)* app to test your attribute mapping changes before promoting it to the *HR2AD (Prod)* app.  
+> [!NOTE] 
+> If you do not have a test AD domain and use a TEST OU container in AD, then you use this topology to create two separate apps *HR2AD (Prod)* and *HR2AD (Test)*. Use the *HR2AD (Test)* app to test your attribute mapping changes before promoting it to the *HR2AD (Prod)* app.  
 
 ### Deployment topology 3: Separate apps to provision distinct user sets from Cloud HR to multiple AD domains (no cross-domain visibility)
 
