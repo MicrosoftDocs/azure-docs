@@ -7,7 +7,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/01/2021
+ms.date: 06/02/2021
 ms.author: apimpm
 ---
 
@@ -24,7 +24,7 @@ This topic provides a reference for the following API Management policies. For i
 -   [Set usage quota by subscription](#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
 -   [Validate JWT](#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
--  [Validate client certificate](#validate-client-certificate) - Enforces....
+-  [Validate client certificate](#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
 > [!TIP]
 > You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with AAD authentication by applying the `validate-jwt` policy on the API level or you can apply it on the API operation level and use `claims` for more granular control.
@@ -583,9 +583,16 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 ## Validate client certificate
 
-Use the `validate-client-certificate` policy to enforce that a client certificate matches the specified validation rules and claims such as thumbprint or issuer for one or more identities.
+Use the `validate-client-certificate` policy to enforce that a certificate presented by a client to an API Management instance matches specified validation rules and claims such as subject or issuer for one or more identities.
 
 To be considered valid, a client certificate must match all the validation rules defined by the attributes at the top-level element and match all defined claims for at least one of the defined identities. 
+
+Use this policy to check incoming certificate properties against desired properties. Also use this policy to override default validation of client certificates in these cases:
+
+* If you have uploaded custom CA certificates to validate client requests to the managed gateway
+* If you configured custom certificate authorities to validate client requests to a self-managed gateway.
+
+For more information, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md). 
 
 ### Policy statement
 
@@ -612,7 +619,7 @@ To be considered valid, a client certificate must match all the validation rules
 
 ### Example
 
-The following example validates a client certificate to match the policy's default validation rules and checks whether the thumbprint matches a specified value.
+The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer match specified values    .
 
 ```xml
 <validate-client-certificate> 
@@ -620,7 +627,7 @@ The following example validates a client certificate to match the policy's defau
     validate-trust="true" 
     validate-not-before="true" 
     validate-not-after="true" 
-    ignore-error="false"> 
+    ignore-error="false"
     <identities> 
         <identity 
             thumbprint="BEFC6215108D7CA1DAD7A01AFBDC74F13E8681BC" /> 
@@ -633,7 +640,7 @@ The following example validates a client certificate to match the policy's defau
 | Element             | Description                                  | Required |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-client-certificate        | Root element.      | Yes      |
-|   identities      |  Contains a list of identities with defined claims on the client certificaate.       |    No        |
+|   identities      |  Contains a list of identities with defined claims on the client certificate.       |    No        |
 
 ### Attributes
 

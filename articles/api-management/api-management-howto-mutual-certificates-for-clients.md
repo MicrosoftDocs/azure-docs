@@ -34,15 +34,15 @@ For information about securing access to the back-end service of an API using cl
 
 ## Policy to validate client certificates
 
-Use the [validate-client-certificate](api-management-howto-access-restriction-policies.md#validate-client-certificate) policy to validate one or more attributes of a client certificate used to access APIs hosted in your API Management instance.
+Use the [validate-client-certificate](api-management-access-restriction-policies.md#validate-client-certificate) policy to validate one or more attributes of a client certificate used to access APIs hosted in your API Management instance.
 
 You can configure the policy to validate attributes including certificate issuer, subject, thumbprint, whether the certificate is validated against online revocation list, and others.
 
-For more information, see [API Management access restriction policies](api-management-howto-access-restriction-policies.md).
+For more information, see [API Management access restriction policies](api-management-access-restriction-policies.md).
 
 ## Certificate validation with context variables
 
-You can also create policy expressions with the [`context` variable](api-management-policy-expressions.md#context-variable) to check client certificates. Examples in the following sections show expressions using the `context.Request.Certificate` property and other `context` properties.
+You can also create policy expressions with the [`context` variable](api-management-policy-expressions.md#ContextVariables) to check client certificates. Examples in the following sections show expressions using the `context.Request.Certificate` property and other `context` properties.
 
 > [!IMPORTANT]
 > Starting May 2021, the `context.Request.Certificate` property only requests the certificate when the API Management instance's [`hostnameConfiguration`](/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) sets the `negotiateClientCertificate` property to True. By default, `negotiateClientCertificate` is set to False.
@@ -105,11 +105,6 @@ The following example shows how to check the thumbprint of a client certificate 
 > [!TIP]
 > Client certificate deadlock issue described in this [article](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) can manifest itself in several ways, e.g. requests freeze, requests result in `403 Forbidden` status code after timing out, `context.Request.Certificate` is `null`. This problem usually affects `POST` and `PUT` requests with content length of approximately 60KB or larger.
 > To prevent this issue from occurring turn on "Negotiate client certificate" setting for desired hostnames on the "Custom domains" blade as shown in the first image of this document. This feature is not available in the Consumption tier.
-
-## Certificate validation in self-hosted gateway
-
-The default API Management [self-hosted gateway](self-hosted-gateway-overview.md) image doesn't support validating server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to an API Management instance.
-
 
 ## Next steps
 

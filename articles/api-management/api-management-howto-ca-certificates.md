@@ -59,15 +59,14 @@ To delete a certificate, click context menu **...** and select **Delete** beside
 
 ![Delete CA certificates](media/api-management-howto-ca-certificates/04.png) 
 
-## Custom CAs for self-hosted gateway 
+## Create custom CA for self-hosted gateway 
 
-If you use a [self-hosted gateway](self-hosted-gateway-overview.md), validation of server and client certificates using CA root certificates uploaded to API Management service is not supported. Instead, you can configure specific client certificates to be trusted by the gateway as "certificate authorities."
+If you use a [self-hosted gateway](self-hosted-gateway-overview.md), validation of server and client certificates using CA root certificates uploaded to API Management service is not supported. To establish trust, configure a specific client certificate so that it's trusted by the gateway as a custom "certificate authority".
 
-Use the [Gateway Certificate Authority](/rest/api/apimanagement/2021-01-01-preview/gateway-certificate-authority) REST APIs to create and manage custom CAs for a self-hosted gateway.
+Use the [Gateway Certificate Authority](/rest/api/apimanagement/2021-01-01-preview/gateway-certificate-authority) REST APIs to create and manage custom CAs for a self-hosted gateway. For example, to create a custom CA:
 
-## Next steps
-
-* Learn about [access restriction policies](api-management-access-restriction-policies.md), including policies to validate client certificates.
+1. [Add a certificate](api-management-howto-mutual-certificates.md) .pfx file to your API Management instance.
+1. Use the [Gateway Certificate Authority - Create Or Update](/rest/api/apimanagement/2021-01-01-preview/gateway-certificate-authority/create-or-update) REST API to associate the certificate with the self-managed gateway.
 
 [Upload a CA certificate]: #step1
 [Delete a CA certificate]: #step1a
