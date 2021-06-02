@@ -23,7 +23,7 @@ zone_pivot_groups: platform-identity
 ::: zone pivot="platform-idazp"
 
 "Does the user have enough information to make a decision before reading the document?"
- [!INCLUDE [Portal](../../../includes/managed-identities/create-user-assigned-managed-identities-portal.md)
+ [!INCLUDE [Portal](../../../includes/create-user-assigned-managed-identities-portal.md)
 
 ::: zone-end
 
