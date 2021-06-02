@@ -39,7 +39,7 @@ Before completing this article, complete the following prerequisites:
 
 Here are the components that will be included in this solution.
 
-<TODO: Architecture diagram coming soon>
+ :::image type="content" source="media/how-to-ingest-opcua-data/opcua-to-adt-diagram-1.png" alt-text="Drawing of the opc ua to Azure Digital Twins architecture" lightbox="media/how-to-ingest-opcua-data/opcua-to-adt-diagram-1.png":::    
 
 | Component | Description |
 | --- | --- |
@@ -69,7 +69,7 @@ For more detailed information on installing each of these pieces, see the follow
 
 For this article, you do not need access to physical devices running a real OPC UA Server. Instead, you can install the free [Prosys OPC UA Simulation Server](https://www.prosysopc.com/products/opc-ua-simulation-server/) on a Windows VM to generate the OPC UA data. This section walks through this setup.
 
-If you already have a physical OPC UA device or another OPC UA simulation server you'd like to use, you can ahead to the next section, [Set up IoT Edge device](#set-up-iot-edge-device).(#set-up-iot-edge-device).
+If you already have a physical OPC UA device or another OPC UA simulation server you'd like to use, you can ahead to the next section, [Set up IoT Edge device](#set-up-iot-edge-device).
 
 #### Create Windows 10 virtual machine
 
