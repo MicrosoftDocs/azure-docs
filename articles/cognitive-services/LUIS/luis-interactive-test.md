@@ -30,8 +30,6 @@ Interactive testing is done from the **Test** panel of the LUIS portal. You can 
 
 See [batch testing](luis-concept-batch-test.md) if you are testing more than one utterance at a time, and the [Prediction scores](luis-concept-prediction-score.md) article to learn more about prediction scores.
 
-## Endpoint testing
-
 You can test using the [endpoint](luis-glossary.md#endpoint) with a maximum of two versions of your app. With your main or live version of your app set as the **production** endpoint, add a second version to the **staging** endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the [LUIS](luis-reference-regions.md) portal, and the two versions at the two different endpoints. 
 
 All endpoint testing counts toward your usage quota. 
