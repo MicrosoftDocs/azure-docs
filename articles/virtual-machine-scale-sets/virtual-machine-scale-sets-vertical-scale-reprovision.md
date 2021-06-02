@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurepowershell
 
 ---
 # Vertical autoscale with virtual machine scale sets

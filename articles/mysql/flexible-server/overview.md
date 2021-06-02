@@ -29,7 +29,7 @@ Flexible servers are best suited for
 
 ## High availability within and across availability zones
 
-The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability at all times. 
+The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a Linux virtual machine, while data files reside on remote Azure premium storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability at all times. 
 
 Within a single availability zone, if the server goes down due to planned or unplanned events, the service maintains high availability of the servers using following automated procedure:
 
@@ -140,6 +140,8 @@ One of the advantage of running your workload in Azure is it's global reach. The
 | Korea Central | :heavy_check_mark: | :x: | 
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | 
 | Australia East | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :x:|
+| Brazil South | :heavy_check_mark: | :x: |
 
 We are working on adding new regions soon.
 

@@ -128,7 +128,7 @@ If you have pre-existing routes in Routing section for the hub in the Azure port
 
 ## <a name="faq"></a>FAQ
 
-[!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+For frequently asked questions, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 
 ## <a name="new"></a>What's new?
 

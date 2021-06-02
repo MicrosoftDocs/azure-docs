@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 05/17/2021
 ---
 # Mount or unmount a volume for Windows or Linux virtual machines 
 
@@ -33,7 +33,7 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
     * If you are mounting an NFS volume, ensure that you use the `vers` option in the `mount` command to specify the NFS protocol version that corresponds to the volume you want to mount. 
     * If you are using NFSv4.1, use the following command to mount your file system:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
         > [!NOTE]
-        > If you use NFSv4.1, ensure that all VMs mounting the export use unique hostnames.
+        > If you use NFSv4.1 and your use case involves leveraging VMs with the same hostnames (for example, in a DR test), see [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes).
 
 3. If you want to have an NFS volume automatically mounted when an Azure VM is started or rebooted, add an entry to the `/etc/fstab` file on the host. 
 
@@ -57,3 +57,4 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 * [NFS FAQs](./azure-netapp-files-faqs.md#nfs-faqs)
 * [Network File System overview](/windows-server/storage/nfs/nfs-overview)
 * [Mount an NFS Kerberos volume](configure-kerberos-encryption.md#kerberos_mount)
+* [Configure two VMs with the same hostname to access NFSv4.1 volumes](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 

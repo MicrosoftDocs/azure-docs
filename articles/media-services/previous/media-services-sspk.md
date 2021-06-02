@@ -108,15 +108,16 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * ZTE Corporation
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
-* Advanced Digital Broadcast SA
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
 * Arcelik A.S
 * Compal Electronics, Inc.
+* Enseo, LLC
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
+* Hisense Broadband Multimedia Technologies Co.,Ltd.
 * Hisense International Co., Ltd.
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
@@ -124,14 +125,16 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Innolux Corporation
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
 * K-Tronics (Suzhou) Technology Co., Ltd. 
-* Kaonmedia Co., Ltd.
+* KAONMEDIA CO., Ltd.
 * KDDI Corporation
 * Mega Fame Electronics Co. Limited
+* MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited
 * MOKA INTERNATIONAL LIMITED
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., Ltd.
+* Sharp Consumer Electronics Poland Sp. z o.o.
 * Shenzhen ATEKO PHOTO Electricity Co.,Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
 * Shenzhen Jiuzhou Electric Co., Ltd
@@ -147,7 +150,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Sony Corporation
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
-* UMC Poland sp. z .o.o.
 * Vizio, Inc.
 * ZTE Corporation
 

@@ -80,6 +80,24 @@ Windows node pools do not support service principal rotation. To update the serv
 
 Instead, use managed identities, which are essentially wrappers around service principals. For more information, see [Use managed identities in Azure Kubernetes Service][managed-identity].
 
+## How do I change the administrator password for Windows Server nodes on my cluster?
+
+When you create your AKS cluster, you specify the `--windows-admin-password` and `--windows-admin-username` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you did not specify administrator credentials, such as when creating a cluster using the Azure Portal or when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure` using the Azure CLI, the username defaults to *azureuser* and a randomized password.
+
+To change the administrator password, use the `az aks update` command:
+
+```azurecli
+az aks update \
+    --resource-group $RESOURCE_GROUP \
+    --name $CLUSTER_NAME \
+    --windows-admin-password $NEW_PW
+```
+
+> [!IMPORTANT]
+> Performing this operation upgrades all Windows Server node pools. Linux node pools are not affected.
+> 
+> When changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
+
 ## How many node pools can I create?
 
 The AKS cluster can have a maximum of 10 node pools. You can have a maximum of 1000 nodes across those node pools. [Node pool limitations][nodepool-limitations].
@@ -95,10 +113,6 @@ Kubenet is currently not supported with Windows nodes.
 ## Can I run ingress controllers on Windows nodes?
 
 Yes, an ingress-controller that supports Windows Server containers can run on Windows nodes in AKS.
-
-## Can I use Azure Dev Spaces with Windows nodes?
-
-Azure Dev Spaces is currently only available for Linux-based node pools.
 
 ## Can my Windows Server containers use gMSA?
 
@@ -159,6 +173,22 @@ If the cluster has Azure Hybrid Benefit enabled, the output of `az vmss show` wi
 
 Yes, you can use the [Kubernetes Web Dashboard][kubernetes-dashboard] to access information about Windows containers, but at this time you can't run *kubectl exec* into a running Windows container directly from the Kubernetes Web Dashboard. For more details on connecting to your running Windows container, see [Connect with RDP to Azure Kubernetes Service (AKS) cluster Windows Server nodes for maintenance or troubleshooting][windows-rdp].
 
+## How do I change the time zone of a running container?
+
+To change the time zone of a running Windows Server container, connect to the running container with a PowerShell session. For example:
+    
+```azurecli-interactive
+kubectl exec -it CONTAINER-NAME -- powershell
+```
+
+In the running container, use [Set-TimeZone](/powershell/module/microsoft.powershell.management/set-timezone) to set the time zone of the running container. For example:
+
+```powershell
+Set-TimeZone -Id "Russian Standard Time"
+```
+
+To see the current time zone of the running container or an available list of time zones, use [Get-TimeZone](/powershell/module/microsoft.powershell.management/get-timezone).
+
 ## What if I need a feature that's not supported?
 
 We work hard to bring all the features you need to Windows in AKS, but if you do encounter gaps, the open-source, upstream [aks-engine][aks-engine] project provides an easy and fully customizable way of running Kubernetes in Azure, including Windows support. Be sure to check out our roadmap of features coming [AKS roadmap][aks-roadmap].
@@ -197,3 +227,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference

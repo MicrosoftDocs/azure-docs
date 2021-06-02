@@ -25,6 +25,8 @@
     href: route-server-faq.md
   - name: ExpressRoute and Azure VPN support
     href: expressroute-vpn-support.md
+  - name: Dual-homed network
+    href: about-dual-homed-network.md
 - name: How-to guides
   items:
   - name: Troubleshoot Route Server issues

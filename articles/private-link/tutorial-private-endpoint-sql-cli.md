@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure CLI'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure CLI
 services: private-link

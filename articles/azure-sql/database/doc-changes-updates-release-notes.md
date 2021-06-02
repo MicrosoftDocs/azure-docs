@@ -3,14 +3,14 @@ title: What's new?
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn about the new features and documentation improvements for Azure SQL Database & SQL Managed Instance.
 services: sql-database
-author: stevestein
+author: MashaMSFT
+ms.author: mathoma
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/17/2021
-ms.author: sstein
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -55,8 +55,8 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
-| [Distributed transactions](/azure/azure-sql/database/elastic-transactions-overview) | Distributed transactions across Managed Instances. |
-| [Instance pools](/azure/sql-database/sql-database-instance-pools) | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
+| [Distributed transactions](./elastic-transactions-overview.md) | Distributed transactions across Managed Instances. |
+| [Instance pools](../managed-instance/instance-pools-overview.md) | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | [Instance-level Azure AD server principals (logins)](/sql/t-sql/statements/create-login-transact-sql) | Create instance-level logins using a [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) statement. |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Managed Instance](../managed-instance/threat-detection-configure.md).|
@@ -124,7 +124,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 ### Changing the connection type does not affect connections through the failover group endpoint
 
-If an instance participates in an [auto-failover group](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), changing the instance's [connection type](https://docs.microsoft.com/azure/azure-sql/managed-instance/connection-types-overview) does not take effect for the connections established through the failover group listener endpoint.
+If an instance participates in an [auto-failover group](./auto-failover-group-overview.md), changing the instance's [connection type](../managed-instance/connection-types-overview.md) does not take effect for the connections established through the failover group listener endpoint.
 
 **Workaround**: Drop and recreate auto-failover group afer changing the connection type.
 

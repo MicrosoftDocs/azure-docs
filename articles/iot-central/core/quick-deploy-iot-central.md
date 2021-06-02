@@ -71,6 +71,3 @@ In this quickstart, you created an IoT Central application. Here's the suggested
 > [!div class="nextstepaction"]
 > [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md)
 
-If you're a device developer and want to dive into some code, the suggested next step is to:
-> [!div class="nextstepaction"]
-> [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md)

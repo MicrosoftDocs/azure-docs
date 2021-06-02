@@ -2,7 +2,7 @@
 author: amitbapat
 ms.service: key-vault
 ms.topic: include
-ms.date: 03/09/2021
+ms.date: 05/28/2021
 ms.author: ambapat
 ---
 
@@ -75,7 +75,7 @@ This section describes service limits for resource type `managed HSM`.
 
 |Item|Limits|
 |----|------:|
-Number of HSM instances per subscription per region|1
+Number of HSM instances per subscription per region|1 
 Number of keys per HSM Pool|5000
 Number of versions per key|100
 Number of custom role definitions per HSM|50

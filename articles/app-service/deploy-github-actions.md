@@ -20,7 +20,7 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions/learn-githu
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - A working Azure App Service app. 
     - .NET: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md)
-    - ASP.NET: [Create an ASP.NET Framework web app in Azure](quickstart-dotnet-framework.md)
+    - ASP.NET: [Create an ASP.NET Framework web app in Azure](./quickstart-dotnetcore.md?tabs=netframework48)
     - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md)  
     - Java: [Create a Java app on Azure App Service](quickstart-java.md)
     - Python: [Create a Python app in Azure App Service](quickstart-python.md)

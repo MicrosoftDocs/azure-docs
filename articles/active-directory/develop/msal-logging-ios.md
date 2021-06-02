@@ -15,6 +15,7 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ---
+
 # Logging in MSAL for iOS/macOS
 
 [!INCLUDE [MSAL logging introduction](../../../includes/active-directory-develop-error-logging-introduction.md)]
@@ -28,7 +29,7 @@ Set a callback to capture MSAL logging and incorporate it in your own applicatio
 ```objc
 /*!
     The LogCallback block for the MSAL logger
- 
+
     @param  level           The level of the log message
     @param  message         The message being logged
     @param  containsPII     If the message might contain Personally Identifiable Information (PII)
@@ -85,7 +86,7 @@ For example:
 
 ```objc
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
- ```
+```
 
  ### Log message format
 
@@ -106,7 +107,7 @@ Set a callback to capture MSAL logging and incorporate it in your own applicatio
 ```objc
 /*!
     The LogCallback block for the MSAL logger
- 
+
     @param  level           The level of the log message
     @param  message         The message being logged
     @param  containsPII     If the message might contain Personally Identifiable Information (PII)
@@ -162,7 +163,7 @@ For example:
 
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
- ```
+```
 
 ### Log message format
 

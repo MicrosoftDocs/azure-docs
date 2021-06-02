@@ -9,8 +9,9 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/27/2021
 ms.author: tamram
-ms.subservice: blobs 
-ms.custom: "devx-track-azurecli"
+ms.subservice: blobs  
+ms.custom: devx-track-azurepowershell
+
 ---
 
 # Enable soft delete for blobs

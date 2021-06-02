@@ -89,5 +89,5 @@ Note that when an order is placed with the issuer provider, it may honor or over
 
 ## See Also
 
- - How-to guide to create certificates in Key Vault using [Portal](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal), [Azure CLI](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-cli), [Azure PowerShell](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-powershell)
+ - How-to guide to create certificates in Key Vault using [Portal](./quick-create-portal.md), [Azure CLI](./quick-create-cli.md), [Azure PowerShell](./quick-create-powershell.md)
  - [Monitor and manage certificate creation](create-certificate-scenarios.md)

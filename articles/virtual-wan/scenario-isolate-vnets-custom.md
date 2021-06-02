@@ -1,19 +1,19 @@
 ---
 title: 'Scenario: Custom isolation for VNets'
 titleSuffix: Azure Virtual WAN
-description: Scenarios for routing - prevent selected VNets from being able to reach each other
+description: Learn about Virtual WAN routing custom isolation scenarios to prevent specific set of VNets from being able to reach another specific set of VNets, but the VNets are required to reach all branches.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
 
 ---
 # Scenario: Custom isolation for VNets
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent specific set of VNets from being able to reach other specific set of VNets. However, the VNets are required to reach all branches (VPN/ER/User VPN). For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent a specific set of VNets from being able to reach other specific set of VNets. However, the VNets are required to reach all branches (VPN/ER/User VPN). For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 ## <a name="design"></a>Design
 

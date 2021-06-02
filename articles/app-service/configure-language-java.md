@@ -19,6 +19,40 @@ Azure App Service lets Java developers to quickly build, deploy, and scale their
 
 This guide provides key concepts and instructions for Java developers using App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.md).
 
+## Show Java version
+
+::: zone pivot="platform-windows"  
+
+To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --name <app-name> --resource-group <resource-group-name> --query "[javaVersion, javaContainer, javaContainerVersion]"
+```
+
+To show all supported Java versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes | grep java
+```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+To show all supported Java versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
+```
+
+::: zone-end
+
 ## Deploying your app
 
 You can use [Azure Web App Plugin for Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy your .war or .jar files. Deployment with popular IDEs is also supported with the [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
@@ -42,7 +76,7 @@ To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your 
 
 To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
 
-To deploy .ear files, [use FTP](deploy-ftp.md).
+To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application wil be deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want you web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
@@ -117,7 +151,7 @@ During the 30 second interval, you can validate the recording is taking place by
 
 #### Continuous Recording
 
-You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). To do so, run the following Azure CLI command to create an App Setting named JAVA_OPTS with the necessary configuration. The contents of the JAVA_OPTS App Setting are passed to the `java` command when your app is started.
+You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance. To do so, run the following Azure CLI command to create an App Setting named JAVA_OPTS with the necessary configuration. The contents of the JAVA_OPTS App Setting are passed to the `java` command when your app is started.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -150,7 +184,7 @@ Azure Blob Storage logging for Linux based App Services can only be configured u
 
 ::: zone-end
 
-If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/java-trace-logs.md).
+If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/java-2x-trace-logs.md).
 
 ## Customization and tuning
 
@@ -322,7 +356,54 @@ You can interact or debug the Java Key Tool by [opening an SSH connection](confi
 
 ## Configure APM platforms
 
-This section shows how to connect Java applications deployed on Azure App Service on Linux with the NewRelic and AppDynamics application performance monitoring (APM) platforms.
+This section shows how to connect Java applications deployed on Azure App Service with Azure Monitor application insights, NewRelic, and AppDynamics application performance monitoring (APM) platforms.
+
+### Configure Application Insights
+
+Azure Monitor application insights is a cloud native application monitoring service which enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app.
+
+#### Azure Portal
+
+To enable Application Insights from the Azure Portal, go to **Application Insights** on the left-side menu and select **Turn on Application Insights**. By default, a new application insights resource of the same name as your Web App will be used. You can choose to use an existing application insights resource, or change the name. Click **Apply** at the bottom
+
+#### Azure CLI
+
+To enable via the Azure CLI, you will need to create an Application Insights resource and set a couple app settings on the Portal to connect Application Insights to your web app.
+
+1. Enable the Applications Insights extension
+
+    ```bash
+    az extension add -n application-insights
+    ```
+
+2. Create an Application Insights resource using the CLI command below. Replace the placeholders with your desired resource name and group.
+
+    ```bash
+    az monitor app-insights component create --app <resource-name> -g <resource-group> --location westus2  --kind web --application-type web
+    ```
+
+    Note the values for `connectionString` and `instrumentationKey`, you will need these values in the next step.
+
+    > To retrieve a list of other locations, run `az account list-locations`.
+
+::: zone pivot="platform-windows"
+    
+3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
+
+    ```bash
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
+    ```
+
+::: zone-end
+::: zone pivot="platform-linux"
+    
+3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
+
+    ```bash
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
+    ```
+
+::: zone-end
 
 ### Configure New Relic
 
@@ -477,25 +558,25 @@ Here's a PowerShell script that completes these steps:
 
 ```powershell
     # Check for marker file indicating that config has already been done
-    if(Test-Path "$LOCAL_EXPANDED\tomcat\config_done_marker"){
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
         return 0
     }
 
     # Delete previous Tomcat directory if it exists
     # In case previous config could not be completed or a new config should be forcefully installed
-    if(Test-Path "$LOCAL_EXPANDED\tomcat"){
-        Remove-Item "$LOCAL_EXPANDED\tomcat" --recurse
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
     }
 
     # Copy Tomcat to local
     # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
-    Copy-Item -Path "$AZURE_TOMCAT90_HOME\*" -Destination "$LOCAL_EXPANDED\tomcat" -Recurse
+    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
 
     # Perform the required customization of Tomcat
     {... customization ...}
 
     # Mark that the operation was a success
-    New-Item -Path "$LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+    New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
 ```
 
 ##### Transforms
@@ -565,7 +646,7 @@ This example transform adds a new connector node to `server.xml`. Note the *Iden
                  clientAuth="false" sslProtocol="TLS" />
     </xsl:template>
 
-</xsl:stylesheet>
+    </xsl:stylesheet>
 ```
 
 ###### Function for XSL transform
@@ -628,61 +709,65 @@ The following example script copies a custom Tomcat to a local folder, performs 
 
 ```powershell
     # Locations of xml and xsl files
-    $target_xml="$LOCAL_EXPANDED\tomcat\conf\server.xml"
-    $target_xsl="$HOME\site\server.xsl"
-
+    $target_xml="$Env:LOCAL_EXPANDED\tomcat\conf\server.xml"
+    $target_xsl="$Env:HOME\site\server.xsl"
+    
     # Define the transform function
     # Useful if transforming multiple files
     function TransformXML{
         param ($xml, $xsl, $output)
-
+    
         if (-not $xml -or -not $xsl -or -not $output)
         {
             return 0
         }
-
+    
         Try
         {
             $xslt_settings = New-Object System.Xml.Xsl.XsltSettings;
             $XmlUrlResolver = New-Object System.Xml.XmlUrlResolver;
             $xslt_settings.EnableScript = 1;
-
+    
             $xslt = New-Object System.Xml.Xsl.XslCompiledTransform;
             $xslt.Load($xsl,$xslt_settings,$XmlUrlResolver);
             $xslt.Transform($xml, $output);
         }
-
+    
         Catch
         {
             $ErrorMessage = $_.Exception.Message
             $FailedItem = $_.Exception.ItemName
-            Write-Host  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
+            echo  'Error'$ErrorMessage':'$FailedItem':' $_.Exception;
             return 0
         }
         return 1
     }
-
+    
+    $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
+    
     # Check for marker file indicating that config has already been done
-    if(Test-Path "$LOCAL_EXPANDED\tomcat\config_done_marker"){
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker"){
         return 0
     }
-
+    
     # Delete previous Tomcat directory if it exists
     # In case previous config could not be completed or a new config should be forcefully installed
-    if(Test-Path "$LOCAL_EXPANDED\tomcat"){
-        Remove-Item "$LOCAL_EXPANDED\tomcat" --recurse
+    if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
     }
-
+    
+    md -Path "$Env:LOCAL_EXPANDED\tomcat"
+    
     # Copy Tomcat to local
     # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
-    Copy-Item -Path "$AZURE_TOMCAT90_HOME\*" -Destination "$LOCAL_EXPANDED\tomcat" -Recurse
-
+    Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" "$Env:LOCAL_EXPANDED\tomcat" -Recurse
+    
     # Perform the required customization of Tomcat
     $success = TransformXML -xml $target_xml -xsl $target_xsl -output $target_xml
-
+    
     # Mark that the operation was a success if successful
     if($success){
-        New-Item -Path "$LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
+        New-Item -Path "$Env:LOCAL_EXPANDED\tomcat\config_done_marker" -ItemType File
     }
 ```
 
@@ -913,13 +998,18 @@ To confirm that the datasource was added to the JBoss server, SSH into your weba
 
 ## Choosing a Java runtime version
 
-App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, as well as the minor version, such as 1.8.0_232 or 11.0.5. You can also choose to have the minor version automatically updated as new minor versions become available. In most cases, production sites should use pinned minor JVM versions. This will prevent unnanticipated outages during a minor version auto-update.
+App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, as well as the minor version, such as 1.8.0_232 or 11.0.5. You can also choose to have the minor version automatically updated as new minor versions become available. In most cases, production sites should use pinned minor JVM versions. This will prevent unnanticipated outages during a minor version auto-update. All Java web apps use 64-bit JVMs, this is not configurable.
 
 If you choose to pin the minor version, you will need to periodically update the JVM minor version on the site. To ensure that your application runs on the newer minor version, create a staging slot and increment the minor version on the staging site. Once you have confirmed the application runs correctly on the new minor version, you can swap the staging and production slots.
 
-## JBoss EAP hardware options
+::: zone pivot="platform-linux"
 
-JBoss EAP is only available on the Premium and Isolated hardware options. Customers that created a JBoss EAP site on a Free, Shared, Basic, or Standard tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
+## JBoss EAP App Service Plans
+<a id="jboss-eap-hardware-options"></a>
+
+JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
+
+::: zone-end
 
 ## Java runtime statement of support
 

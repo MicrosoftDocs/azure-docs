@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 05/03/2021
 
 ms.author: justinha
 author: justinha
@@ -141,6 +141,9 @@ A text message that contains a verification code is sent to the user, the user i
 
 1. Click on **Save**.
 1. Close the **service settings** tab.
+
+> [!WARNING]
+> Do not disable methods for your organization if you are using [Security Defaults](../fundamentals/concept-fundamentals-security-defaults.md). Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the MFA service settings portal.
 
 ## Plan registration policy
 

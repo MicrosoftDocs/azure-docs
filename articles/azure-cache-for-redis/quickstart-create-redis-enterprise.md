@@ -39,16 +39,25 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
    
    :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Enterprise tier Basics tab":::
 
-   > [!NOTE] 
-   > Be sure to check the box under "Terms" before proceeding.
+   > [!IMPORTANT] 
+   > Be sure to select **Terms** before you proceed.
    >
 
 1. Select **Next: Networking** and skip.
 
-1. Select **Next: Advanced** and set **Clustering policy** to **Enterprise**. Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. This is not recommended, however.
+1. Select **Next: Advanced** and set **Clustering policy** to **Enterprise** for a non-clustered cache. Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. This is not recommended, however.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier Advanced tab":::
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
+   > [!NOTE] 
+   > Redis Enterprise supports two clustering policies. Use the **Enterprise** policy to access
+   > your cache using the regular Redis API, and **OSS** the OSS Cluster API.
+   >
+
+   > [!NOTE] 
+   > You can't change modules after you create the cache instance. The setting is create-only.
+   >
+ 
 1. Select **Next: Tags** and skip.
 
 1. Select **Next: Review + create**.
