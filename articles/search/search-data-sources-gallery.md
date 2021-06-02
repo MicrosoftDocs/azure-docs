@@ -377,89 +377,39 @@ Data source connectors are also provided by third-party Microsoft partners. See 
 
 ---
 
-### TBD-1
+### Adobe AEM
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from the Adobe Active Experience Manager (AEM) and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes pages, attachments and other generated document types from Adobe AEM in near real time. The connector fully supports Adobe AEM’s permission model, its built-in user and group management, as well as AEM installations based on Active Directory or other directory services.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/adobe-experience-manager-aem)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-2
+### Alfresco
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Alfresco One and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes files, folders and user profiles from Alfresco One in near real time. The connector fully supports Alfresco One’s permission model, its built-in user and group management, as well as Alfresco One installations based on Active Directory and other directory services.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-alfresco-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-3
+### Azure AD
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Microsoft Azure Active Directory (Azure AD) and intelligently searching it with Microsoft Azure Cognitive Search. It indexes objects from Azure AD via the Microsoft Graph API. The connector can be used for ingesting principals into Microsoft Graph in near real time to implement use cases like expert search, equipment search, and location search or to provide early-binding security trimming in conjunction with custom data sources. The connector supports federated authentication against Microsoft 365.
 
-[More details](https://www.bainsight.com/)
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### TBD-4
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-5
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-6
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.bainsight.com/)
+[More details](https://www.raytion.com/connectors/raytion-azure-ad-connector)
 
 :::column-end:::
 :::row-end:::
@@ -477,89 +427,39 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ---
 
-### TBD-7
+### Box
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Box and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes files, folders, comments, users, groups, and tasks from Box in near real time. The connector fully supports Box’ built-in user and group management.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-box-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-8
+### Confluence Cloud
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Atlassian Confluence Cloud and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes pages, blog posts, attachments, comments, spaces, profiles, and hub sites for tags from Confluence Cloud instances in near real time. The connector fully supports Atlassian Confluence Cloud’s built-in user and group management.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-confluence-cloud-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-9
+### Confluence
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Atlassian Confluence and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes pages, blog posts, attachments, comments, spaces, profiles, and hub sites for tags from on-premise Confluence instances in near real time. The connector fully supports Atlassian Confluence’s built-in user and group management, as well as Confluence installations based on Active Directory and other directory services.
 
-[More details](https://www.bainsight.com/)
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### TBD-11
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-12
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-13
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.bainsight.com/)
+[More details](https://www.raytion.com/connectors/raytion-confluence-connector)
 
 :::column-end:::
 :::row-end:::
@@ -577,89 +477,39 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ---
 
-### TBD-14
+### Documentum
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from OpenText Documentum and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes repositories, folders and files together with their meta data and properties from Documentum in near real time. The connector fully supports OpenText Documentum’s built-in user and group management.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-documentum-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-15
+### Facebook Workplace
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Facebook Workplace and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes project groups, conversations and shared documents from Facebook Workplace in near real time. The connector fully supports Facebook Workplace’s built-in user and group management.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-facebook-workplace-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-16
+### File System
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from locally mounted file systems and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes files and folders from file systems in near real time.
 
-[More details](https://www.bainsight.com/)
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### TBD-17
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-18
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-19
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.bainsight.com/)
+[More details](https://www.raytion.com/connectors/raytion-file-system-connector)
 
 :::column-end:::
 :::row-end:::
@@ -677,89 +527,39 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ---
 
-### TBD-20
+### FirstSpirit
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from e-Spirit FirstSpirit and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes pages, attachments and other generated document types from FirstSpirit in near real time. The connector fully supports e-Spirit FirstSpirit’s built-in user, group and permission management, as well as FirstSpirit installations based on Active Directory and other directory services.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-firstspirit-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-21
+### GitLab
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from GitLab and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes projects, files, folders, commit messages, issues, and wiki pages from GitLab in near real time. The connector fully supports GitLab’s built-in user and group management.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-gitlab-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-22
+### Google Drive
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Google Drive and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes files, folders, and comments on personal drives and team drives from Google Drive in near real time. The connector fully supports Google Drive’s built-in permission model and the user and group management by the Google Admin Directory.
 
-[More details](https://www.bainsight.com/)
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### TBD-23
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-24
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-25
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.bainsight.com/)
+[More details](https://www.raytion.com/connectors/raytion-google-drive-connector)
 
 :::column-end:::
 :::row-end:::
@@ -777,89 +577,39 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ---
 
-### TBD-26
+### IBM Connections Cloud
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from IBM Connections Cloud and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes public and personal files, blogs, wikis, forums, communities, profiles, and status updates from Connections Cloud in near real time. The connector fully supports IBM Connections Cloud’s built-in user and group management.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-ibm-connections-cloud-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-27
+### IBM Connections
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from IBM Connections and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes public and personal files, blogs, wikis, forums, communities, bookmarks, profiles, and status updates from on-premises Connections instances in near real time. The connector fully supports IBM Connection’s built-in user and group management, as well as Connections installations based on Active Directory and other directory services.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-ibm-connections-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-28
+### Jira Cloud
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Atlassian Jira Cloud and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes projects, issues, attachments, comments, work logs, issue histories, links and profiles from Jira Cloud in near real time. The connector fully supports Atlassian Jira Cloud’s built-in user and group management.
 
-[More details](https://www.bainsight.com/)
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### TBD-29
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-30
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-31
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.bainsight.com/)
+[More details](https://www.raytion.com/connectors/raytion-jira-cloud-connector)
 
 :::column-end:::
 :::row-end:::
@@ -877,89 +627,39 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ---
 
-### TBD-32
+### Jira
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Atlassian Jira and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes projects, issues, attachments, comments, work logs, issue histories, links, and profiles from on-premise Jira instances in near real time. The connector fully supports Atlassian Jira’s built-in user and group management, as well as Jira installations based on Active Directory and other directory services.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-jira-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-33
+### Jive
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Jive and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes discussions, polls, files, blogs, spaces, groups, projects, tasks, videos, messages, ideas, profiles, and status updates from on-premise and cloud-hosted Jive instances in near real time. The connector fully supports Jive’s built-in user and group management and supports Jive’s native authentication models, OAuth and Basic authentication.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-jive-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-34
+### LDAP
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from directory services compatible with the Lightweight Directory Access Protocol (LDAP) and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes LDAP objects from Active Directory, Novell E-Directory and other LDAP-compatible directory services in near real time. The connector can be used for ingesting principals into Google Cloud Search for use cases like expert, equipment and location searches or for implementing security trimming for custom data sources. The connector supports LDAP over SSL.
 
-[More details](https://www.bainsight.com/)
-
-:::column-end:::
-:::row-end:::
-:::row:::
-:::column span="":::
-
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-
-:::row-end:::
-
-:::row:::
-:::column span="":::
-
----
-
-### TBD-35
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-36
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.raytion.com/)
-
-:::column-end:::
-:::column span="":::
-
----
-
-### TBD-37
-
-by [Raytion](https://www.raytion.com/contact)
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-[More details](https://www.bainsight.com/)
+[More details](https://www.raytion.com/connectors/raytion-ldap-connector)
 
 :::column-end:::
 :::row-end:::
@@ -977,39 +677,339 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ---
 
-### TBD-38
+### MediaWiki
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from MediaWiki and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes pages, discussion pages, and attachments from MediaWiki instances in near real time. The connector fully supports MediaWiki’s built-in permission model, as well as MediaWiki installations based on Active Directory and other directory services.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-mediawiki-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-39
+### Microsoft Windows File Server
 
 by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from Microsoft Windows File Server including its Distributed File System (DFS) and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes files and folders from Windows File Server in near real time. The connector fully supports Microsoft Windows File Server’s document-level security and the latest versions of the SMB2 and SMB3 protocols.
 
-[More details](https://www.raytion.com/)
+[More details](https://www.raytion.com/connectors/raytion-windows-file-server-connector)
 
 :::column-end:::
 :::column span="":::
 
 ---
 
-### TBD-40
+### Notes
 
-by TBD
+by [Raytion](https://www.raytion.com/contact)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Secure enterprise search connector for reliably indexing content from IBM Notes (formerly Lotus Note) and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes records from a configurable set of Notes databases in near real time. The connector fully supports IBM Notes’ built-in user and group management.
 
-[More details](TBD)
+[More details](https://www.raytion.com/connectors/raytion-notes-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### OpenText Content Server
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from OpenText Content Server and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes files, folders, virtual folders, compound documents, news, emails, volumes, collections, classifications, and many more objects from Content Server instances in near real time. The connector fully supports OpenText Content Server’s built-in user and group management.
+
+[More details](https://www.raytion.com/connectors/raytion-opentext-content-server-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### OpenText Documentum eRoom
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from OpenText Documentum eRoom and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes repositories, folders and files together with their meta data and properties from Documentum eRoom in near real time. The connector fully supports OpenText Documentum eRoom’s built-in user and group management.
+
+[More details](https://www.raytion.com/connectors/raytion-opentext-documentum-eroom-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Oracle KA Cloud
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Oracle Knowledge Advanced (KA) Cloud and intelligently searching it Microsoft Azure Cognitive Search. It robustly indexes pages and attachments from Oracle KA Cloud in near real time. The connector fully supports Oracle KA Cloud’s built-in user and group management. In particular, the connector handles snippet-based permissions within Oracle KA Cloud pages.
+
+[More details](https://www.raytion.com/connectors/raytion-oracle-ka-cloud-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### pirobase CMS
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from pirobase CMS and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes pages, attachments, and other generated document types from pirobase CMS in near real time. The connector fully supports pirobase CMS’ built-in user and group management.
+
+[More details](https://www.raytion.com/connectors/raytion-pirobase-cms-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Salesforce
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Salesforce and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes accounts, chatter messages, profiles, leads, cases, and all other record objects from Salesforce in near real time. The connector fully supports Salesforce’s built-in user and group management.
+
+[More details](https://www.raytion.com/connectors/raytion-salesforce-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### SAP NetWeaver Portal
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from the SAP NetWeaver Portal (NWP) and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes pages, attachments, and other document types from SAP NWP, its Knowledge Management and Collaboration (KMC) and Portal Content Directory (PCD) areas in near real time. The connector fully supports SAP NetWeaver Portal’s built-in user and group management, as well as SAP NWP installations based on Active Directory and other directory services.
+
+[More details](https://www.raytion.com/connectors/raytion-sap-netweaver-portal-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### SAP PLM DMS
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from SAP PLM DMS and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes documents, attachments, and other records from SAP PLM DMS in near real time.
+
+[More details](https://www.raytion.com/connectors/raytion-sap-plm-dms-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### ServiceNow
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from ServiceNow and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes issues, tasks, attachments, knowledge management articles, pages, among others from ServiceNow in near real time. The connector supports ServiceNow’s built-in user and group management.
+
+[More details](https://www.raytion.com/connectors/raytion-servicenow-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### SharePoint
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Microsoft SharePoint and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes sites, webs, modern (SharePoint 2016 and later) and classic pages, wiki pages, OneNote documents, list items, tasks, calendar items, attachments, and files from SharePoint on-premises instances in near real time. The connector fully supports Microsoft SharePoint’s built-in user and group management, as well as Active Directory and also OAuth providers like SiteMinder and Okta. The connector comes with support for Basic, NTLM and Kerberos authentication.
+
+[More details](https://www.raytion.com/connectors/raytion-sharepoint-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### Sitecore
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Sitecore and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes pages, attachments, and further generated document types in near real time. The connector fully supports Sitecore’s permission model and the user and group management in the associated Active Directory.
+
+[More details](https://www.raytion.com/connectors/raytion-sitecore-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Slack
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Slack and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes messages, threads, and shared files from all public channels from Slack in near real time.
+
+[More details](https://www.raytion.com/connectors/raytion-slack-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### SMB File Share
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from SMB file shares and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes files and folders from file shares in near real time. The connector fully supports SMB’s document-level security and the latest versions of the SMB2 and SMB3 protocols.
+
+[More details](https://www.raytion.com/connectors/raytion-smb-file-share-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### SQL Database
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from SQL databases, such as Microsoft SQL Server or Oracle, and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes records and fields including binary documents from SQL databases in near real time. The connector supports the implementation of a custom document-level security model.
+
+[More details](https://www.raytion.com/connectors/raytion-sql-database-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Symantec Enterprise Vault
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Symantec Enterprise Vault and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes archived data, such as e-mails, attachments, files, calendar items and contacts from Enterprise Vault in near real time. The connector fully supports Symantec Enterprise Vault’s authentication models Basic, NTLM and Kerberos authentication.
+
+[More details](https://www.raytion.com/connectors/raytion-symantec-enterprise-vault-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Veritas Enterprise Vault
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Veritas Enterprise Vault and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes archived data, such as e-mails, attachments, files, calendar items and contacts from Enterprise Vault in near real time. The connector fully supports Veritas Enterprise Vault’s authentication models Basic, NTLM and Kerberos authentication.
+
+[More details](https://www.raytion.com/connectors/raytion-veritas-enterprise-vault-connector)
+
+:::column-end:::
+:::row-end:::
+:::row:::
+:::column span="":::
+
+   :::column-end:::
+   :::column span="":::
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+:::column span="":::
+
+---
+
+### windream ECM-System
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from windream ECM-System and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes files and folders including the comprehensive sets of metadata associated by windream ECM-System in near real time. The connector fully supports windream ECM-System’s permission model and the user and group management in the associated Active Directory.
+
+[More details](https://www.raytion.com/connectors/raytion-windream-ecm-system-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Xerox DocuShare
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Xerox DocuShare and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes data repositories, folders, profiles, groups, and files from DocuShare in near real time. The connector fully supports Xerox DocuShare’s built-in user and group management.
+
+[More details](https://www.raytion.com/connectors/raytion-xerox-docushare-connector)
+
+:::column-end:::
+:::column span="":::
+
+---
+
+### Yammer
+
+by [Raytion](https://www.raytion.com/contact)
+
+Secure enterprise search connector for reliably indexing content from Microsoft Yammer and intelligently searching it with Microsoft Azure Cognitive Search. It robustly indexes channels, posts, replies, attachments, polls and announcements from Yammer in near real time. The connector fully supports Microsoft Yammer’s built-in user and group management and in particular federated authentication against Microsoft 365.
+
+[More details](https://www.raytion.com/connectors/raytion-yammer-connector)
 
 :::column-end:::
 :::row-end:::
