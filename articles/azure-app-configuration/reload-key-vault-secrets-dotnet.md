@@ -1,5 +1,5 @@
 ---
-title: Reload secrets and certificates from Key Vault automatically
+title: Reload secrets and certificates automatically
 titleSuffix: Azure App Configuration
 description: Learn how to set up your application to automatically reload secrets and certificates from Key Vault.
 services: azure-app-configuration
@@ -73,9 +73,9 @@ config.AddAzureAppConfiguration(options =>
 
 The first argument in `SetSecretRefreshInterval` method is the key of the Key Vault reference in App Configuration. This argument is optional. If the key parameter is omitted, the refresh interval will apply to all those secrets and certificates which do not have individual refresh intervals.
 
-Refresh interval defines the frequency at which your secrets and certificates will be reloaded from Key Vault regardless of their values in Key Vault or App Configuration. If you want to reload secrets and certificates when their value changes in App Configuration, you can monitor them using the `ConfigureRefresh` method. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
+Refresh interval defines the frequency at which your secrets and certificates will be reloaded from Key Vault, regardless of any changes to their values in Key Vault or App Configuration. If you want to reload secrets and certificates when their value changes in App Configuration, you can monitor them using the `ConfigureRefresh` method. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
 
-The frequency of reloading secrets and certificates from Key Vault should be chosen appropriately based on your needs. If refresh interval is too large, your application may not get the rotated secrets before the old secrets expire in Key Vault. If the refresh interval is too low, there's a risk of being throttled by Key Vault. For more information on throttling, refer to the [service limits for Key Vault](../key-vault/general/service-limits.md).
+Choose the refresh interval according to your acceptable delay after your secrets and certificates have been updated in Key Vault. It's also important to consider the [Key Vault service limits](../key-vault/general/service-limits.md) to avoid being throttled.
 
 
 ## Clean up resources

@@ -66,7 +66,7 @@
               href: use-key-vault-references-dotnet-core.md
             - name: Spring Boot
               href: use-key-vault-references-spring-boot.md
-        - name: Reload secrets and certificates from Key Vault
+        - name: Reload secrets and certificates automatically
           items:
             - name: .NET
               href: reload-key-vault-secrets-dotnet.md
