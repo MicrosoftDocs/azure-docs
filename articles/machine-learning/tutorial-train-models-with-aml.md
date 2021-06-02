@@ -74,7 +74,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 ### <a name="open"></a> Open the cloned notebook
 
-1. Open the **tutorials** folder that was closed into your **User files** section.
+1. Open the **tutorials** folder that was cloned into your **User files** section.
 
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you can't run a notebook from there. To run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
