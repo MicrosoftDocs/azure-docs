@@ -1272,6 +1272,8 @@ groups:
     title: Azure CLI
   - id: platform-idpowershell
     title: PowerShell
-  - id: platform-idnet
-    title: .NET
-    
+  - id: platform-azarm
+    title: Azure resource manager
+    title: REST
+  - id: platform-rest
+    title: REST

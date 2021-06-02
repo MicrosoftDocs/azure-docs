@@ -17,10 +17,10 @@ In this article we go over how to create a user assigned managed identity using 
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](../overview.md#managed-identity-types)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](../overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](../overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To run the example scripts, you have two options:
-    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Use the [Azure Cloud Shell](../../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
     - Run scripts locally with Azure PowerShell, as described in the next section.
 
 ### Configure Azure PowerShell locally
@@ -51,7 +51,7 @@ To use Azure PowerShell locally for this article (rather than using Cloud Shell)
 
 ## Create a user-assigned managed identity
 
-To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
+To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
 To create a user-assigned managed identity, use the `New-AzUserAssignedIdentity` command. The `ResourceGroupName` parameter specifies the resource group where to create the user-assigned managed identity, and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
 
@@ -63,7 +63,7 @@ New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGN
 
 ## List user-assigned managed identities
 
-To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) or [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
+To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](../../../role-based-access-control/built-in-roles.md#managed-identity-operator) or [Managed Identity Contributor](../../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
 To list user-assigned managed identities, use the [Get-AzUserAssigned] command.  The `-ResourceGroupName` parameter specifies the resource group where the user-assigned managed identity was created. Replace the `<RESOURCE GROUP>` with your own value:
 
@@ -77,7 +77,7 @@ In the response, user-assigned managed identities have `"Microsoft.ManagedIdenti
 
 ## Delete a user-assigned managed identity
 
-To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
+To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
 To delete a user-assigned managed identity, use the `Remove-AzUserAssignedIdentity` command.  The `-ResourceGroupName` parameter specifies the resource group where the user-assigned identity was created and the `-Name` parameter specifies its name. Replace the `<RESOURCE GROUP>` and the `<USER ASSIGNED IDENTITY NAME>` parameters values with your own values:
 
