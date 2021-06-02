@@ -172,7 +172,7 @@ There are two ways to modify users' Intranet zone settings:
 
 #### Mozilla Firefox (all platforms)
 
-If you are using the [Authentication](https://github.com/mozilla/policy-templates/blob/master/README.md#authentication) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to the SPNEGO section. You can also set the PrivateBrowsing option to true to allow seamless SSO in private browsing mode.
+If you are using the [Authentication](https://github.com/mozilla/policy-templates/blob/master/README.md#authentication) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to the **SPNEGO** section. You can also set the **PrivateBrowsing** option to true to allow seamless SSO in private browsing mode.
 
 #### Safari (macOS)
 
