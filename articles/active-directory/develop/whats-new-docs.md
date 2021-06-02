@@ -18,6 +18,28 @@ ms.author: marsma
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
+## May 2021
+
+### New articles
+
+- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
+- [Developers’ guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
+- [Microsoft identity platform refresh tokens](refresh-tokens.md)
+- [Microsoft identity platform and OAuth 2.0 SAML bearer assertion flow](v2-saml-bearer-assertion.md)
+- [Tutorial: Sign in users and call the Microsoft Graph API from a React single-page app (SPA) using auth code flow](tutorial-v2-react.md)
+- [Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application (SPA) using auth code flow](tutorial-v2-angular-auth-code.md)
+
+### Updated articles
+
+- [Developers’ guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
+- [How to: Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)
+- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
+- [Microsoft identity platform ID tokens](id-tokens.md)
+- [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](quickstart-v2-android.md)
+- [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
+- [Quickstart: Call an ASP.NET web API that's protected by Microsoft identity platform](quickstart-v2-dotnet-native-aspnet.md)
+- [Tutorial: Sign in users and call the Microsoft Graph API from an Android application](tutorial-v2-android.md)
+
 ## April 2021
 
 ### New articles
@@ -67,24 +89,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Support and help options for developers](developer-support-help-options.md)
 - [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md)
 - [Web app that signs in users: Sign-in and sign-out](scenario-web-app-sign-user-sign-in.md)
-
-## February 2021
-
-### New articles
-
-- [Quickstart: Acquire an access token and call the Microsoft Graph API from an Electron desktop app](quickstart-v2-nodejs-desktop.md)
-- [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
-- [Quickstart: Acquire a token and call Microsoft Graph API from a Node.js console app using app's identity](quickstart-v2-nodejs-console.md)
-- [Tutorial: Call the Microsoft Graph API in a Node.js console app](tutorial-v2-nodejs-console.md)
-- [Tutorial: Sign-in users in a Node.js & Express web app](tutorial-v2-nodejs-webapp-msal.md)
-- [Support passwordless authentication with FIDO2 keys in apps you develop](support-fido2-authentication.md)
-
-### Updated articles
-
-- [What's new for authentication?](reference-breaking-changes.md)
-- [Use MSAL.NET to sign in users with social identities](msal-net-aad-b2c-considerations.md)
-- [Microsoft identity platform code samples (v2.0 endpoint)](sample-v2-code.md)
-- [Microsoft identity platform videos](identity-videos.md)
-- [Quickstart: Set up a tenant](quickstart-create-new-tenant.md)
-- [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
-- [Quickstart: Acquire a token and call Microsoft Graph API from a Java console app using app's identity](quickstart-v2-java-daemon.md)

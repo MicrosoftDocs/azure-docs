@@ -161,5 +161,5 @@ To obtain information on customer subscriptions currently participating in a fre
 
 ## Next steps
 
-- To learn how to add or update plans on an existing offer, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
+- To learn how to add or update plans on an existing offer, see [Update an existing offer in the commercial marketplace](./update-existing-offer.md).
 - To learn more about transaction options and associated pricing models, see [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
