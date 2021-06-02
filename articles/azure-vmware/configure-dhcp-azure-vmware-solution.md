@@ -41,7 +41,7 @@ If you want to use NSX-T to host your DHCP server, you'll create a DHCP server a
 
 1. Select **Tier 1 Gateways**, select the vertical ellipsis on the Tier-1 gateway, and then select **Edit**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Screenshot showing how to edit the Tier-1 Gateway." border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Screenshot showing how to edit the Tier-1 Gateway for using a DHCP server." border="true":::
 
 1. Select **No IP Allocation Set** to add a subnet.
 
