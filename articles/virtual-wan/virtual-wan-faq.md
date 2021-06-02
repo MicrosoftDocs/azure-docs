@@ -14,3 +14,7 @@ ms.author: cherylmc
 # Virtual WAN FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+
+## NVA FAQ
+
+[!INCLUDE [NVA FAQ](../../includes/virtual-wan-nva-hub-faq.md)]
