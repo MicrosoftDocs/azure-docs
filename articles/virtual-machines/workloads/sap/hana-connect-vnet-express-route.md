@@ -30,9 +30,9 @@ First, create an Azure ExpressRoute gateway on your virtual network. This gatewa
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-1. If a gateway already exists, check whether it's an ExpressRoute gateway. If it isn't an ExpressRoute gateway, delete the gateway and recreate it as an ExpressRoute gateway. If an ExpressRoute gateway is already established, skip to the following section of this article, [Link virtual networks](#link-virtual-networks). 
+- If a gateway already exists, check whether it's an ExpressRoute gateway. If it isn't an ExpressRoute gateway, delete the gateway and recreate it as an ExpressRoute gateway. If an ExpressRoute gateway is already established, skip to the following section of this article, [Link virtual networks](#link-virtual-networks). 
 
-2. Use either the [Azure portal](https://portal.azure.com/) or PowerShell to create an ExpressRoute VPN gateway connected to your virtual network.
+- Use either the [Azure portal](https://portal.azure.com/) or PowerShell to create an ExpressRoute VPN gateway connected to your virtual network.
     - If you use the Azure portal, add a new **Virtual Network Gateway**, and then select **ExpressRoute** as the gateway type.
     - If you use PowerShell, first download and use the latest [Azure PowerShell SDK](https://azure.microsoft.com/downloads/). 
  
