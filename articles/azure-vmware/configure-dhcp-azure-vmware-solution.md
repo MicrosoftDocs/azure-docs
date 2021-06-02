@@ -78,7 +78,7 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
       
 1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
       
-   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment." border="true":::
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment for using a DHCP server." border="true":::
 
 
 ## Use a third-party external DHCP server
