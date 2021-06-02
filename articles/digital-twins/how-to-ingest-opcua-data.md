@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Ingesting OPC UA data using Azure Digital Twins
+title: Ingesting OPC UA data with Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: Steps to get your Azure OPC UA Data into Azure Digital Twins
+description: Steps to get your Azure OPC UA data into Azure Digital Twins
 author: danhellem
 ms.author: dahellem # Microsoft employees only
 ms.date: 5/20/2021
@@ -14,7 +14,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Ingesting OPC UA data using Azure Digital Twins
+# Ingesting OPC UA data with Azure Digital Twins
 
 The [OPC Unified Architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a platform independent, service-oriented architecture for the manufacturing space. It is used to get telemetry data from devices. 
 
@@ -97,7 +97,7 @@ From your new Windows virtual machine, install the [Prosys OPC UA Simulation Ser
 
 Once the download and install are completed, launch the server. It may take a few moments for the OPC UA Server to start. Once it's ready, the Server Status should show as **Running**.
 
-Next, copy the value of **Connection Address (UA TCP)**. Paste it somewhere safe to use later. In the pasted value, replace the machine name part of the address with with the **Public IP** of your VM from earlier, like this: 
+Next, copy the value of **Connection Address (UA TCP)**. Paste it somewhere safe to use later. In the pasted value, replace the machine name part of the address with the **Public IP** of your VM from earlier, like this: 
 
 `opc.tcp://<ip-address>:53530/OPCUA/SimulationServer`
 
@@ -112,7 +112,7 @@ Capture the `NodeId` values for the simulated nodes that you want to publish. Yo
 
 #### Verify completion
 
-In this section, you setup the OPC UA Server for simulating data. Verify that you've completed the following checklist:
+In this section, you set up the OPC UA Server for simulating data. Verify that you've completed the following checklist:
 
 > [!div class="checklist"]
 > * Prosys Simulation Server is set up and running
