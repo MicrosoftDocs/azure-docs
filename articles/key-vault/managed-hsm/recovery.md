@@ -41,7 +41,7 @@ For more information about Managed HSM, see [Managed HSM overview](overview.md)
 > [!NOTE]
 > Since the underlying resources remain allocated to your HSM, even when it is in deleted state, the HSM resource will continue to accrue hourly charges while in deleted state.
 
-It is important to note that **Managed HSM names are globally unique** in every cloud environment, so you won't be able to create a Managed HSM with the same name if one exists in a soft deleted state. Similarly, the names of keys are unique within an HSM. You won't be able to create a new keyif one exists in the soft deleted state.
+It is important to note that **Managed HSM names are globally unique** in every cloud environment, so you won't be able to create a Managed HSM with the same name if one exists in a soft deleted state. Similarly, the names of keys are unique within an HSM. You won't be able to create a new key if one exists in the soft deleted state.
 
 **Purge protection** is designed to prevent the deletion of your HSMs and keys by a malicious insider. Think of this as a recycle bin with a time based lock. You can recover items at any point during the configurable retention period. **You will not be able to permanently delete or purge an HSM or a key until the retention period elapses.** Once the retention period elapses the HSM or key will be purged automatically.
 

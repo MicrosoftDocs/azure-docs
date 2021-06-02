@@ -19,7 +19,7 @@ ms.date: 06/01/2021
 
 Managed HSM's soft-delete feature allows recovery of the deleted HSMs and keys. Specifically, this safeguard offer the following protections:
 
-- Once an HSM or a key is deleted, it remains recoverable for a configurable period of 7 to 90 calendar days. Retention period can be set during HSM creation. If no vaule is specified, the default retention period will be set to 90 days. This provides users with sufficient time to notice an accidental key or HSM deletion and respond.
+- Once an HSM or a key is deleted, it remains recoverable for a configurable period of 7 to 90 calendar days. Retention period can be set during HSM creation. If no value is specified, the default retention period will be set to 90 days. This provides users with sufficient time to notice an accidental key or HSM deletion and respond.
 - Two operations must be performed to permanently delete a key. First a user must delete the key, which puts it into the soft-deleted state. Second, a user must purge the key in the soft-deleted state. The purge operation requires user to have a "Managed HSM Crypto Officer" role assigned. These extra protections reduce the risk of a user accidentally or maliciously deleting a key or an HSM.
 
 
