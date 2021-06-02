@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 04/01/2021
+ms.date: 06/02/2021
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
@@ -15,34 +15,39 @@ ms.custom: references_regions
 
 # Use Azure Storage blob inventory to manage blob data (preview)
 
-The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements. 
+The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements. 
 
 ## Availability
 
-Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled.
+Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled on the account.
 
 > [!IMPORTANT]
-> Blob inventory is currently in public preview and is available on storage accounts in all regions
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Blob inventory is currently in PREVIEW and is available on storage accounts in all public regions.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-### Pricing and billing
+## Pricing and billing
 
-The blob inventory preview is available on storage accounts in all public regions.
+The fee for inventory reports isn't charged during the preview period. Pricing will be determined when this feature is generally available. 
 
-Azure Storage inventory supports generating inventory reports for blobs and containers. Blob inventory contains base blobs, snapshots, blob versions and their associated properties such as creation time, last modified time, etc. Container Inventory contains containers and their associated properties such as immutability policy status, legal hold status, etc.
+## Inventory features
 
-### Custom Schema
+The following list describes features and capabilities that are available in the current release of Azure Storage blob inventory.
 
-Users can choose the schema fields from the supported list of schema fields to publish in inventory. Schema fields currently supported for blob inventory and container inventory are mentioned later.
+- **Inventory reports for blobs and containers**
 
-### CSV and Apache Parquet format
+  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status. 
 
-Inventory report can be generated in either CSV or Apache Parquet output format, as configured by user on a per inventory rule basis.
+- **Custom Schema**
 
-### Manifest file and Azure Event Grid event per rule
+  You can choose schema fields from a list of supported schema fields to publish in inventory reports. The list of supported fields are described later in this article. 
 
-Azure Storage Inventory has now been updated to generate a manifest file and Azure Event Grid event per rule. This is different from previous behavior of having only a single manifest and single Azure Event Grid event across rules.
+- **CSV and Apache Parquet output format per rule**
+
+  For each rule, you can generate an inventory report in either CSV or Apache Parquet output format. 
+
+- **Manifest file and Azure Event Grid event per rule**
+
+  For each rule, a manifest file and an Azure Event Grid event are generated. Previously, only one manifest and one Azure Event Grid event was generated across all rules. 
 
 ## Enable inventory reports
 
@@ -95,7 +100,6 @@ View the JSON for an inventory policy by selecting the **Code view** tab in the 
 
 | Parameter name | Parameter type        | Notes | Required? |
 |----------------|-----------------------|-------|-----------|
-| Yes |
 | enabled        | Boolean               | Used to disable the entire policy. When set to **true**, the rule level enabled field overrides this parameter. When disabled, inventory for all rules will be disabled. | Yes |
 | rules          | Array of rule objects | At least one rule is required in a policy. Up to 10 rules are supported. | Yes |
 
@@ -213,28 +217,101 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ## Inventory output
 
-Each inventory rule generates a set of files in the specified inventory destination container. The inventory output is generated under the following path:
-`https://<accountName>.blob.core.windows.net/<inventory-destination-container>/YYYY/MM/DD/HH-MM-SS/` where:
+Each inventory rule generates a set of files in the specified inventory destination container for that rule. The inventory output is generated under the following path:
+`https://<accountName>.blob.core.windows.net/<inventory-destination-container>/YYYY/MM/DD/HH-MM-SS/<ruleName` where:
 
-- *accountName* is your Azure Blob Storage account name
-- *inventory-destination-container* is the destination container you specified in the inventory policy
-- *YYYY/MM/DD/HH-MM-SS* is the time when the inventory began to run
+- *accountName* is your Azure Blob Storage account name.
+- *inventory-destination-container* is the destination container you specified in the inventory rule.
+- *YYYY/MM/DD/HH-MM-SS* is the time when the inventory began to run.
+- ruleName is the inventory rule name.
 
 ### Inventory files
 
-Each inventory rule generates the following files:
+Each inventory run for a rule generates the following files:
 
-- **Inventory file**: An inventory run for a rule generates one or more CSV or Apache Parquet files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. For a CS formatted file, the first row in every is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
+- **Inventory file**: An inventory run for a rule generates one or more CSV or Apache Parquet formatted files. If the matched object count is large, then multiple files are generated instead of a single file. Each such file contains matched objects and their metadata. For a CS formatted file, the first row is always the schema row. The following image shows an inventory CSV file opened in Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
 
-- **Manifest file**: A manifest.json file contains the details of the inventory file(s) generated for that rule. The manifest file also captures the rule definition provided by the user and the path to the inventory for that rule.
+- **Checksum file**: A manifest.checksum contains the MD5 checksum of the contents of manifest.json file. Generation of the manifest.checksum file marks the completion of an inventory rule run.
 
-- **Checksum file**: A manifest.checksum contains the MD5 checksum of the contents of manifest.json file. Generation of the manifest.checksum file marks the completion of an inventory rule.
+- **Manifest file**: A manifest.json file contains the details of the inventory file(s) generated for that rule. The manifest file also captures the rule definition provided by the user and the path to the inventory for that rule. The following json shows the contents of a sample manifest.json file.
+
+  ```json 
+  { 
+  "destinationContainer" : "inventory-destination-container", 
+  "endpoint" : "https://testaccount.blob.core.windows.net", 
+  "files" : [ 
+		{ 
+			"blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv", 
+			"size" : 12710092 
+		} 
+	], 
+	"inventoryCompletionTime" : "2021-05-26T13:35:56Z", 
+	"inventoryStartTime" : "2021-05-26T13:25:36Z", 
+	"ruleDefinition" : { 
+		"filters" : { 
+			"blobTypes" : [ "blockBlob" ], 
+			"includeBlobVersions" : false, 
+			"includeSnapshots" : false, 
+			"prefixMatch" : [ "penner-test-container-100003" ] 
+		}, 
+		"format" : "csv", 
+		"objectType" : "blob", 
+		"schedule" : "daily", 
+		"schemaFields" : [ 
+			"Name", 
+			"Creation-Time", 
+			"BlobType", 
+			"Content-Length", 
+			"LastAccessTime", 
+			"Last-Modified", 
+			"Metadata", 
+			"AccessTier" 
+		] 
+	}, 
+	"ruleName" : "Rule_1", 
+	"status" : "Succeeded", 
+	"summary" : { 
+		"objectCount" : 110000, 
+		"totalObjectSize" : 23789775 
+	}, 
+	"version" : "1.0" 
+	} 
+   ```
 
 ## Inventory completed event
 
-An inventory completed event is generated when the inventory run completes for a rule. The inventory completed event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic.
+An inventory completed event is generated when the inventory run completes for a rule. The inventory completed event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic. The following json shows an example inventory completed event.
+
+```json
+{ 
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic", 
+  "subject": "BlobDataManagement/BlobInventory", 
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted", 
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
+  "data": { 
+    "scheduleDateTime": "2021-05-28T03:50:27Z", 
+    "accountName": "testaccount", 
+    "ruleName": "Rule_1", 
+    "policyRunStatus": "Succeeded", 
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.", 
+    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+"manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
+  }, 
+  "dataVersion": "1.0", 
+  "metadataVersion": "1", 
+  "eventTime": "2021-05-28T15:03:18Z" 
+} 
+```
+
+## Upgrading inventory policy for existing users 
+
+If you are an existing Azure Storage blob inventory user who has configured inventory already, you can start using the new features by loading the policy, and then saving the policy back after making changes. When an existing policy is loaded again, the new fields in the policy will be populated with default values. You can change these values if you want. After you reload the policy, the following two capabilities will be available.
+
+- A destination container is now supported for every rule instead of just being supported for the policy.
+
+- A manifest file and Azure Event Grid event are now generated per rule instead of per policy. 
 
 ## Known issues
 
