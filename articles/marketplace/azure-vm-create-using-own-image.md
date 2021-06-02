@@ -11,7 +11,7 @@ ms.date: 06/02/2021
 
 # Create a virtual machine using your own image
 
-This article describes how to create and deploy a user-provided virtual machine (VM) image.
+This article describes how to publish a virtual machine (VM) image that you built on your premises.
 
 ## Bring your image into Azure
 
@@ -26,16 +26,35 @@ Upload your VHD to an Azure shared image gallery.
 7. Select **Review + create**. Once validation finishes, select **Create**.
 
 > [!TIP]
-> Publisher account must have “Owner” access to publish the SIG Image. If required, follow the below steps to grant access:
->
-> 1. Go to the Shared Image Gallery (SIG).
-> 2. Select **Access control** (IAM) on the left panel.
-> 3. Select **Add**, then **Add role assignment**.
-> 4. For **Role**, select **Owner**.
-> 5. For **Assign access to**, select **User, group, or service principal**.
-> 6. Enter the Azure email of the person who will publish the image.
-> 7. Select **Save**.<br><br>
-> :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
+> Publisher account must have “Owner” access to publish the SIG Image. If required, follow the steps in the following section, **Set the right permissions**, to grant access.
+
+## Set the right permissions
+
+These steps require owner access to the Shared image gallery. You will need read access before you can publish these images. An owner can use one of the following commands to assign access. In both cases, use the SusbscriptionId of the subscription where you created the Shared image gallery.
+
+### Azure CLI Command
+
+```azurecli
+az login
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
+```
+ 
+### Powershell
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId {subscriptionId}
+Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
+```
+
+1. Go to the Shared Image Gallery (SIG).
+2. Select **Access control** (IAM) on the left panel.
+3. Select **Add**, then **Add role assignment**.
+:::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
+4. For **Role**, select **Owner**.
+5. For **Assign access to**, select **User, group, or service principal**.
+6. For **Select**, enter the Azure email of the person who will publish the image.
+7. Select **Save**.
 
 > [!NOTE]
 > You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
