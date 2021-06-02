@@ -45,7 +45,7 @@ To complete this tutorial, you need to:
 
 * Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * Have an on-premises MySQL database with version 5.7. If not, then download and install [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.7.
-* The MySQL Offline migration is only suported on Premium DMS Sku.
+* The MySQL Offline migration is supported only on the Premium DMS SKU.
 * [Create an instance in Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Refer to the article [Use MySQL Workbench to connect and query data](../mysql/connect-workbench.md) for details about how to connect and create a database using the Workbench application. The Azure Database for MySQL version should be equal to or higher than the on-premises MySQL version . For example, MySQL 5.7 can migrate to Azure Database for MySQL 5.7 or upgraded to 8. 
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Virtual Network Documentation](../virtual-network/index.yml), and especially the quickstart articles with step-by-step details.
 
@@ -153,7 +153,7 @@ Registration of the resource provider needs to be done on each Azure subscriptio
   
 3. On the **Create Migration Service** screen, specify a name for the service, the subscription, and a new or existing resource group.
 
-4. Select a pricing tier and move to the networking screen. Offline migration capability is available only on Premium pricing tier.
+4. Select a pricing tier and move to the networking screen. Offline migration capability is available only on the Premium pricing tier.
 
     For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
