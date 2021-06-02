@@ -39,10 +39,10 @@ Do the following steps to create a Windows VM image:
    The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).  
 
 2. Generalize the virtual machine. To generalize the VM, [connect to the virtual machine](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm), open a command prompt, and run the following `sysprep` command:
-    
-    `c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm`
 
-<!--Convert to a code block, if it works visually.-->
+   ```dos
+   c:\windows\system32\sysprep\sysprep.exe /oobe /generalize /shutdown /mode:vm
+   ```
 
    > [!IMPORTANT]
    > After the command is complete, the VM will shut down. **Do not restart the VM.** Restarting the VM will corrupt the disk you just prepared.
