@@ -35,6 +35,6 @@ Test the expression by providing values and selecting **Test expression**. The o
 
 When you're satisfied with the expression, move it to an attribute mapping. Copy and paste it into the expression box for the attribute mapping you're working on.
 
-## Next Steps
+## Next steps
 
 [Reference for writing expressions for attribute mappings](functions-for-customizing-application-data.md)
