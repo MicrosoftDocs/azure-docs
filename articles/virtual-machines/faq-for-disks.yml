@@ -612,7 +612,8 @@ sections:
 
       - question: |
           How many exports or imports using the same disk access object can happen at the same time?
-        answer: 5
+        answer: |
+          5
 
       - question: |
           Can I use a SAS URI of a disk/snapshot to download the underlying VHD of a VM in the same subnet as the subnet of the private endpoint associated with the disk?
