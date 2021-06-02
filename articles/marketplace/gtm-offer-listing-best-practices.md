@@ -71,7 +71,7 @@ This table shows the combinations of options that are applicable to the differen
 |  |  | X |  |  | Azure Marketplace |
 |  |  |  | X |  | AppSource<sup>1</sup><br>Azure Marketplace<sup>1</sup> |
 |  |  |  |  | X | AppSource<sup>1</sup><br>Azure Marketplace<sup>1,2</sup> |
-|  |  |  |  | X | AppSource<sup>1</sup><br>Azure Marketplace<sup>1</sup> | |
+|  |  |  |  | X | AppSource<sup>1</sup><br>Azure Marketplace<sup>1</sup> |
 
 1. Depending on category/subcategory and industry selection
 2. Offers with private plans will be published to the Azure portal
