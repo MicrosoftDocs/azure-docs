@@ -66,13 +66,13 @@ To migrate smart detection in your resource, take the following steps:
 
 2. Click on the banner reading **"Migrate smart detection to alerts (Preview)**. The migration dialog is opened.
 
-![Smart detection feed banner](media/alerts-smart-detections-migration/Smart-Detection-Feed-Banner.png)
+![Smart detection feed banner](media/alerts-smart-detections-migration/smart-detection-feed-banner.png)
 
 3. Select an action group to be configured for the new alert rules. You can choose between using the default action group (as explained above) or using one of your existing action groups.
 
 4. Select **Migrate** to start the migration process.
 
-![Smart detection migration dialog](media/alerts-smart-detections-migration/Smart-Detection-Migration-Dialog.png)
+![Smart detection migration dialog](media/alerts-smart-detections-migration/smart-detection-migration-dialog.png)
 
 After the migration, new alert rules are created for your Application Insight resource, as explained above.
 
