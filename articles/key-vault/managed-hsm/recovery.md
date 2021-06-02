@@ -168,6 +168,7 @@ For more information about soft-delete, see [Managed HSM soft-delete overview](s
     ```
     > [!WARNING] 
     > This operation will permanently delete your key
+    
 ---
 
 ## Next steps
