@@ -17,7 +17,7 @@ ms.reviewer: arvinh
 
 You can use expressions to map attributes. Previously, you had to create these expressions manually and enter them into the expression box. Expression builder is a tool you can use to help you create expressions.
 
-:::image type="content" source="./media/expression-builder/expression-builder.png" alt-text="The default expression builder page before selecting a function." lightbox="media/expression-builder/expression-builder.png":::
+:::image type="content" source="media/expression-builder/expression-builder.png" alt-text="The default expression builder page before selecting a function." lightbox="media/expression-builder/expression-builder.png":::
 
 For reference on building expressions, see [Reference for writing expressions for attribute mappings](functions-for-customizing-application-data.md). 
 
@@ -25,7 +25,7 @@ For reference on building expressions, see [Reference for writing expressions fo
 
 In application provisioning, you use expressions for attribute mappings. You access Express Builder on the Attribute Mapping page by selecting **Show advanced options** and then select **Expression builder**.
 
-:::image type="content" source="./media/expression-builder/access-expression-builder.png" alt-text="The checkbox to show advanced settings is selected and a link is shown that says expression builder" lightbox="media/expression-builder/access-expression-builder.png":::
+:::image type="content" source="media/expression-builder/accessing-expression-builder.png" alt-text="The checkbox to show advanced settings is selected and a link is shown that says expression builder" lightbox="media/expression-builder/accessing-expression-builder.png":::
 
 To use expression builder, select a function and attribute and then enter a suffix if needed. Then select **Add expression** to add the expression to the code box. To learn more about the functions available and how to use them, see [Reference for writing expressions for attribute mappings](functions-for-customizing-application-data.md).
 
