@@ -9,14 +9,14 @@ ms.author: anithaa
 
 ---
 
-# Configure private endpoints for Azure Cosmos DB analytical store
+# Configure Azure Private Link for Azure Cosmos DB analytical store
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-In this article, you will learn how to set up managed private endpoints for Azure Cosmos DB analytical store. If you are using the transactional store, see [Private endpoints for the transactional store](how-to-configure-private-endpoints.md) article. Using managed private endpoints, you can restrict network access of Azure Cosmos DB analytical store, to Azure Synapse managed virtual network. Managed private endpoints establish a private link to your analytical store.
+In this article, you will learn how to set up managed private endpoints for Azure Cosmos DB analytical store. If you are using the transactional store, see [Private endpoints for the transactional store](how-to-configure-private-endpoints.md) article. Using [managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md), you can restrict network access of your Azure Cosmos DB analytical store, to a Managed Virtual Network associated with your Azure Synapse workspace. Managed private endpoints establish a private link to your analytical store.
 
-## Enable private endpoint for the analytical store
+## Enable a private endpoint for the analytical store
 
-### Set up an Azure Synapse Analytics workspace with a managed virtual network
+### Set up Azure Synapse Analytics workspace with a managed virtual network
 
 [Create a workspace in Azure Synapse Analytics with data-exfiltration enabled.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) With [data-exfiltration protection](../synapse-analytics/security/workspace-data-exfiltration-protection.md), you can ensure that malicious users cannot copy or transfer data from your Azure resources to locations outside your organization’s scope.
 

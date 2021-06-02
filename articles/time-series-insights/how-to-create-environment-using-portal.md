@@ -1,9 +1,9 @@
 ---
 title: 'Set up a Gen2 environment using the Azure portal - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: 'Learn how to set up an environment in Azure Time Series Insights Gen2 using Azure portal.'
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: riserrad
+ms.author: riserrad
+manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -72,6 +72,11 @@ Alternatively, you can also bring your own storage (BYOS) through an [Azure Reso
    * Azure Time Series Insights supports [Azure IoT Hub](./how-to-ingest-data-iot-hub.md) and [Azure Event Hubs](./how-to-ingest-data-event-hub.md) as event source options. Although you can add only a single event source when you create the environment, you can add another event source later.
 
      You can select an existing consumer group or create a new consumer group when you add the event source. Be sure that the event source uses a unique consumer group for your environment to read data into it.
+
+   * Choose when to start collecting data from the event source. The default is to begin collecting from the time the event source is created.
+
+     > [!TIP]
+     > If you choose the **All my data** option to collect any pre-existing data from your event source, you could experience high initial latency as your Azure Time Series Insights Gen2 environment processes all of the data. The latency should eventually subside as your data is indexed.
 
    * Choose the appropriate Timestamp property. By default, Azure Time Series Insights uses the message-enqueued time for each event source.
 

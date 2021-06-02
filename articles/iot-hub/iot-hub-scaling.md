@@ -50,7 +50,7 @@ IoT Hub also offers a free tier that is meant for testing and evaluation. It has
 
 Azure IoT Hubs contain many core components of [Azure Event Hubs](../event-hubs/event-hubs-features.md), including [Partitions](../event-hubs/event-hubs-features.md#partitions). Event streams for IoT Hubs are generally populated with incoming telemetry data that is reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occur when concurrently reading and writing to event streams.
 
-The partition limit is chosen when IoT Hub is created, and cannot be changed. The maximum partition limit for basic tier IoT Hub and standard tier IoT Hub is 32. Most IoT hubs only need 4 partitions. For more information on determining the partitions, see the Event Hubs FAQ [How many partitions do I need?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+The partition limit is chosen when IoT Hub is created, and cannot be changed. The maximum partition limit for basic tier IoT Hub and standard tier IoT Hub is 32. Most IoT hubs only need 4 partitions. For more information on determining the partitions, see the Event Hubs FAQ [How many partitions do I need?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)
 
 ## Tier upgrade
 

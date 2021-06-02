@@ -19,8 +19,8 @@ You can continue doing business in Partner Center:
 
 | Area | Changes |
 | --- | --- |
-| Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
-| Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md). |
+| Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](manage-account.md). |
+| Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the commercial marketplace](update-existing-offer.md). |
 | Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace, it will continue to be live. |
 | New purchases and deployments | No changes. Your customers can continue purchasing and deploying your offers with no interruptions. |
 | Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
@@ -75,15 +75,15 @@ For the offer types supported in Partner Center, all offers were moved regardles
 | SaaS | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). |
 | Virtual Machine | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a virtual machine offer](marketplace-virtual-machines.md). |
 | Azure application | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure application offer](create-new-azure-apps-offer.md). |
-| Dynamics 365 Business Central | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md). |
-| Dynamics 365 for Customer Engagement & PowerApps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md). |
+| Dynamics 365 Business Central | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md). |
+| Dynamics 365 for Customer Engagement & PowerApps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Customer Engagement & PowerApps offer](dynamics-365-customer-engage-offer-setup.md). |
 | Dynamics 365 for Operations | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md). |
 | Power BI App | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Power BI app for AppSource](partner-center-portal/create-power-bi-app-offer.md). |
-| IoT Edge module | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create, configure, and publish an IoT Edge module offer in Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
-| Container | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure container offer](./create-azure-container-offer.md). |
+| IoT Edge module | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create, configure, and publish an IoT Edge module offer in Azure Marketplace](iot-edge-offer-setup.md). |
+| Container | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure container offer](./azure-container-offer-setup.md). |
 | Consulting Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a consulting service offer](./create-consulting-service-offer.md). |
 | Managed Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Managed Service offer](./plan-managed-service-offer.md). |
-| Dynamics Nav Managed Service | No | Microsoft has evolved Dynamics NAV Managed Service into [Dynamics 365 Business Central](/dynamics365/business-central/), so we de-listed Dynamics NAV Managed Service live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in AppSource, adapt them to Dynamics 365 Business Central offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md). |
+| Dynamics Nav Managed Service | No | Microsoft has evolved Dynamics NAV Managed Service into [Dynamics 365 Business Central](/dynamics365/business-central/), so we de-listed Dynamics NAV Managed Service live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in AppSource, adapt them to Dynamics 365 Business Central offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md). |
 | Cortana Intelligence | No | Microsoft has evolved the product road map for Cortana Intelligence, so we de-listed Cortana Intelligence live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in the commercial marketplace, adapt your offers to Software as a Service (SaaS) offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [SaaS offer creation checklist in Partner Center](./plan-saas-offer.md). |
 
 ## I can't find my Cloud Partner Portal offers in Partner Center
@@ -138,7 +138,7 @@ The updates that you don't publish are saved as drafts. Continue to use your off
 
 ### Enhanced preview options
 
-Partner Center includes a [compare feature](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
+Partner Center includes a [compare feature](update-existing-offer.md#compare-changes-to-your-offer) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
 
 [![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
 
@@ -167,7 +167,7 @@ Your offer ID is now shown on the left-navigation bar of the offer:
 
 ### Stop selling an offer
 
-You can request to [stop selling an offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
+You can request to [stop selling an offer](update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
 
 [![Screenshot shows the Partner Center page to stop selling an offer.](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>

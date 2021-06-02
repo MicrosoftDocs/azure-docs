@@ -6,7 +6,7 @@ ms.author: shasb
 ms.service: azure-arc
 ms.topic: tutorial 
 ms.date: 03/02/2021
-ms.custom: template-tutorial 
+ms.custom: template-tutorial , devx-track-azurecli
 ---
 
 # Tutorial: Deploy configurations using GitOps on an Azure Arc enabled Kubernetes cluster 
@@ -144,7 +144,7 @@ Just like private keys, you can provide your known_hosts content directly or in 
 >[!NOTE]
 >* Helm operator chart version 1.2.0+ supports the HTTPS Helm release private auth.
 >* HTTPS Helm release is not supported for AKS managed clusters.
->* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server).
 
 
 ## Additional Parameters
@@ -176,6 +176,9 @@ Customize the configuration with the following optional parameters:
 If you don't want Flux to write to the repository and `--git-user` or `--git-email` aren't set, then `--git-readonly` will automatically be set.
 
 For more information, see the [Flux documentation](https://aka.ms/FluxcdReadme).
+
+>[!NOTE]
+> Flux defaults to sync from the `master` branch of the git repo. However, newer git repositories have the root branch named `main`, in which case you need to set `--git-branch=main` in the --operator-params. 
 
 > [!TIP]
 > You can create a configuration in the Azure portal in the **GitOps** tab of the Azure Arc enabled Kubernetes resource.

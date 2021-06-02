@@ -1,7 +1,7 @@
 ---
 title: Azure Certified Device program - Tutorial - Testing your device
 description: A step-by-step guide to test you device with AICS service on the Azure Certified Device portal
-author: nikuntjo
+author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial

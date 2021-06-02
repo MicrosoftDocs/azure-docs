@@ -2,7 +2,8 @@
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.
 ms.topic: article
-ms.date: 07/17/2020
+ms.date: 07/17/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure DevTest Labs FAQ
@@ -103,7 +104,7 @@ $policyRoleDef.Id = $null
 $policyRoleDef.Name = "DevTest Labs Advanced User"
 $policyRoleDef.IsCustom = $true
 $policyRoleDef.AssignableScopes.Clear()
-$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>")
+$policyRoleDef.AssignableScopes.Add("/subscriptions/<subscription Id>")
 $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action")
 $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action")
 $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef  

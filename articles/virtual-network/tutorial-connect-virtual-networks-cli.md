@@ -167,6 +167,8 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 
 Take note of the **publicIpAddress**. This address is used to access the VM from the internet in a later step.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Communicate between VMs
 
 Use the following command to create an SSH session with the *myVm2* VM. Replace `<publicIpAddress>` with the public IP address of your VM. In the previous example, the public IP address is *13.90.242.231*.

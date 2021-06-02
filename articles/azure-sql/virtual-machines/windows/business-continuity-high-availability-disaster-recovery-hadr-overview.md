@@ -35,6 +35,10 @@ It's possible for the SQL Server instance to fail while the VM is online and hea
 
 Geo-redundant storage (GRS) in Azure is implemented with a feature called geo-replication. GRS might not be an adequate disaster recovery solution for your databases. Because geo-replication sends data asynchronously, recent updates can be lost in a disaster. More information about geo-replication limitations is covered in the [Geo-replication support](#geo-replication-support) section.
 
+> [!NOTE]
+> It's now possible to lift and shift both your [failover cluster instance](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) and [availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) solution to SQL Server on Azure VMs using Azure Migrate. 
+
+
 ## Deployment architectures
 Azure supports these SQL Server technologies for business continuity:
 
@@ -43,6 +47,7 @@ Azure supports these SQL Server technologies for business continuity:
 * [Log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server)
 * [SQL Server backup and restore with Azure Blob storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
 * [Database mirroring](/sql/database-engine/database-mirroring/database-mirroring-sql-server) - Deprecated in SQL Server 2016
+* [Azure Site Recovery](../../../site-recovery/site-recovery-sql.md)
 
 You can combine the technologies to implement a SQL Server solution that has both high-availability and disaster recovery capabilities. Depending on the technology that you use, a hybrid deployment might require a VPN tunnel with the Azure virtual network. The following sections show you some example deployment architectures.
 

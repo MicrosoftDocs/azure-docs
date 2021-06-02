@@ -1,11 +1,11 @@
 ---
 title: Delimited text format in Azure Data Factory 
 description: 'This topic describes how to deal with delimited text format in Azure Data Factory.'
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Delimited text format in Azure Data Factory
@@ -14,7 +14,7 @@ ms.author: jingwang
 
 Follow this article when you want to **parse the delimited text files or write the data into delimited text format**. 
 
-Delimited text format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
+Delimited text format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
 
 ## Dataset properties
 
@@ -180,8 +180,7 @@ The below table lists the properties supported by a delimited text sink. You can
 | Clear the folder | If the destination folder is cleared prior to write | no | `true` or `false` | truncate |
 | File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>` | no | Pattern: String <br> Per partition: String[] <br> Name file as column data: String <br> Output to single file: `['<fileName>']` <br> Name folder as column data: String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Quote all | Enclose all values in quotes | no | `true` or `false` | quoteAll |
-
-rowFolderUrlColumn:
+| Header | Add customer headers to output files | no | `[<string array>]` | header |
 
 ### Sink example
 

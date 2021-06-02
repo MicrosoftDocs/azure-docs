@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.author: laobri
 author: lobrien
 ms.date: 8/25/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1
+ms.topic: how-to
+ms.custom: contperf-fy21q1
 
 ---
 

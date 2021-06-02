@@ -18,7 +18,7 @@ With Azure Monitor for SAP Solutions, customers can collect telemetry data from 
 
 Azure Monitor for SAP Solutions is offered through Azure Marketplace. It provides a simple, intuitive setup experience and takes only a few clicks to deploy the resource for Azure Monitor for SAP Solutions (known as **SAP monitor resource**).
 
-Customers can monitor different components of an SAP landscape such as Azure Virtual Machines, High-availability cluster, SAP HANA database, and so on, by adding the corresponding **provider** for that component.
+Customers can monitor different components of an SAP landscape such as Azure Virtual Machines, High-availability cluster, SAP HANA database, SAP NetWeaver and so on, by adding the corresponding **provider** for that component.
 
 Supported infrastructure:
 
@@ -29,7 +29,7 @@ Supported databases:
 - SAP HANA Database
 - Microsoft SQL server
 
-Azure Monitor for SAP Solutions uses the power of existing [Azure Monitor](../../../azure-monitor/overview.md) capabilities such as Log Analytics and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md) to provide more monitoring capabilities. Customers can create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions, write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md) and create [custom alerts](../../../azure-monitor/alerts/tutorial-response.md) by using Azure Log Analytics workspace, take advantage of [flexible retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) and connect monitoring data with their ticketing system.
+Azure Monitor for SAP Solutions uses the power of existing [Azure Monitor](../../../azure-monitor/overview.md) capabilities such as Log Analytics and [Workbooks](../../../azure-monitor/visualize/workbooks-overview.md) to provide more monitoring capabilities. Customers can create [custom visualizations](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions, write [custom queries](../../../azure-monitor/logs/log-analytics-tutorial.md) and create [custom alerts](../../../azure-monitor/alerts/alerts-log.md) by using Azure Log Analytics workspace, take advantage of [flexible retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) and connect monitoring data with their ticketing system.
 
 ## What data does Azure Monitor for SAP solutions collect?
 
@@ -66,6 +66,13 @@ Operating system Telemetry (Linux)
 - Ongoing I/O count, Persistent memory read/write bytes. 
 - Network packets in/out, Network bytes in/out 
 
+SAP NetWeaver telemetry:
+
+- SAP system and application server availability including instance process availability of Dispatcher, ICM, Gateway, Message Server, Enqueue Server, IGS Watchdog
+- Work process utilization statistics and trends
+- Enqueue Lock statistics and trends
+- Queue Utilization statistics and trends
+
 ## Data sharing with Microsoft
 
 Azure Monitor for SAP Solutions collects system metadata to provide improved support for our SAP on Azure customers. No PII/EUII is collected.
@@ -76,7 +83,7 @@ It is highly recommended that customers enable data sharing, as it gives Microso
 
 At a high level, the following diagram explains how Azure Monitor for SAP Solutions collects telemetry from SAP HANA database. The architecture is agnostic to whether SAP HANA is deployed on Azure Virtual Machines or Azure Large Instances.
 
-![Azure Monitor for SAP solutions architecture](./media/azure-monitor-sap/azure-monitor-architecture.png)
+![Azure Monitor for SAP solutions architecture](https://user-images.githubusercontent.com/75772258/115046700-62ff3280-9ef5-11eb-8d0d-cfcda526aeeb.png)
 
 The key components of the architecture are:
 - Azure portal – the starting point for customers. Customers can navigate to marketplace within Azure portal and discover Azure Monitor for SAP Solutions
@@ -98,8 +105,8 @@ The key components of the architecture are:
 ### Architecture Highlights
 
 Following are the key highlights of the architecture:
- - **Multi-instance** - Customers can create monitor for multiple instances of a given component type (for example, HANA DB, HA cluster, Microsoft SQL server) across multiple SAP SIDs within a VNET with a single resource of Azure Monitor for SAP Solutions.
- - **Multi-provider** - The above architecture diagram shows the SAP HANA provider as an example. Similarly, customers can configure more providers for corresponding components (for example, HANA DB, HA cluster, Microsoft SQL server) to collect data from those components.
+ - **Multi-instance** - Customers can create monitor for multiple instances of a given component type (for example, HANA DB, HA cluster, Microsoft SQL server, SAP NetWeaver) across multiple SAP SIDs within a VNET with a single resource of Azure Monitor for SAP Solutions.
+ - **Multi-provider** - The above architecture diagram shows the SAP HANA provider as an example. Similarly, customers can configure more providers for corresponding components (for example, HANA DB, HA cluster, Microsoft SQL server, SAP NetWeaver) to collect data from those components.
  - **Open source** - The source code of Azure Monitor for SAP Solutions is available in [GitHub](https://github.com/Azure/AzureMonitorForSAPSolutions). Customers can refer to the provider code and learn more about the product, contribute or share feedback.
  - **Extensible query framework** - SQL queries to collect telemetry data are written in [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). More SQL queries to collect more telemetry data can be easily added. Customers can request specific telemetry data to be added to Azure Monitor for SAP Solutions, by leaving feedback through link in the end of this document or contacting their account team.
 

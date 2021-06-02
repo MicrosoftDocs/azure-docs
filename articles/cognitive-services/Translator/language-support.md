@@ -46,8 +46,8 @@ Translator supports the following languages for text to text translation.
 | Chinese Traditional | `zh-Hant` |
 | Croatian | `hr` |
 | Czech | `cs` |
-| Dari | `prs` |
 | Danish | `da` |
+| Dari | `prs` |
 | Dutch | `nl` |
 | English | `en` |
 | Estonian | `et` |
@@ -123,6 +123,9 @@ Translator supports the following languages for text to text translation.
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
+
+> [!NOTE]
+> The following languages are not currently available in containers: Samoan, Tahitian, Klingon, Klingon (plqaD), and Thai.
 
 ### Detect
 
@@ -334,6 +337,7 @@ The following languages are available for customization to or from English using
 | Hungarian      | `hu`          |
 | Icelandic | `is` |
 | Indonesian|	`id`	|
+| Inuktitut|	`iu`	|
 | Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |

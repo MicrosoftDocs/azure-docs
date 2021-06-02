@@ -68,5 +68,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## Next steps
 
-* Learn how to create an [Create an Azure VM technical asset](../create-azure-container-technical-assets.md)
-* Learn how to Create an [Azure Container offer](../create-azure-container-offer.md)
+* [Create an Azure Container technical asset](../azure-container-technical-assets.md)
+* [Create an Azure Container offer](../azure-container-offer-setup.md)

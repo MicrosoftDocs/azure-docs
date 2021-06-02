@@ -25,7 +25,7 @@ To set up a function with a storage account restricted to a private network:
 
 1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
 
-1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
+1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) in the secured storage account.
 
 1. Enable service endpoints or private endpoint for the storage account.  
     * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` sub-resources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.

@@ -94,9 +94,9 @@
         href: google-federation.md
       - name: Facebook federation
         href: facebook-federation.md
-      - name: Direct federation
+      - name: SAML/WS-Fed IdP federation
         href: direct-federation.md
-      - name: Example of direct federation with AD FS
+      - name: Example of SAML/WS-Fed IdP federation (AD FS)
         href: direct-federation-adfs.md
     - name: Enable one-time passcodes (OTP)
       href: one-time-passcode.md
@@ -114,8 +114,6 @@
         href: self-service-sign-up-add-approvals.md
     - name: Manage guest user accounts
       items:
-      - name: Add a B2B user to a role
-        href: add-guest-to-role.md
       - name: Dynamic groups and B2B users
         href: use-dynamic-groups.md
       - name: Understand the B2B user
@@ -143,7 +141,7 @@
   - name: Resources
     items:
     - name: FAQ
-      href: faq.md
+      href: /azure/active-directory/external-identities/faq
     - name: Getting support
       href: ../fundamentals/active-directory-troubleshooting-support-howto.md
     - name: Azure feedback forum

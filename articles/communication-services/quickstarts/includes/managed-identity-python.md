@@ -21,7 +21,7 @@ The examples below are using the [DefaultAzureCredential](/python/api/azure-iden
 For an easy way to jump into using managed identity authentication, see [Authorize access with managed identity](../managed-identity-from-cli.md)
 
 For a more in-depth look on how the DefaultAzureCredential object works and how you can use it in ways that are not specified in this quickstart, see 
-[Azure Identity client library for Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)
+[Azure Identity client library for Python](/python/api/overview/azure/identity-readme)
 
 ### Create an identity and issue a token
 

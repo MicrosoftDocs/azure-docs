@@ -20,6 +20,8 @@ ms.author: yelevin
 ---
 # Connect data sources
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 Once you have enabled Azure Sentinel, the first thing you need to do is connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel.
 
 1. On the menu, select **Data connectors**. This page lets you see the full list of connectors that Azure Sentinel provides and their status. Select the connector you want to connect and select **Open connector page**. 
@@ -52,7 +54,7 @@ The following data connection methods are supported by Azure Sentinel:
     - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (formerly Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Domain name server](connect-dns.md)
-    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and MDE raw data
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and Defender for Endpoint raw data
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (formerly Microsoft Defender Advanced Threat Protection)
     - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
     - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
@@ -181,7 +183,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/agents/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](/sysinternals/downloads/sysmon). |
 | ConfigurationData  | [Automate VM inventory](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfigurationChange  | [Automate VM tracking](../automation/change-tracking/overview.md) | &#10007; | |
-| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
+| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10003; | |
 | McasShadowItReporting  |  | &#10007; | |
 | Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | &#10003; | |
 

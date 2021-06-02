@@ -275,6 +275,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **2** |**3**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create outbound rule configuration
 Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
 
@@ -560,6 +562,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** |**myVM3**|
     | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### Add virtual machines to the backend pool
 

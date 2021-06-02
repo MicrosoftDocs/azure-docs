@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: application-gateway
   ms.topic: article
-  ms.date: 01/08/2021
+  ms.date: 04/12/2021
   ms.author: victorh
   ms.custom: references_regions
     
@@ -398,8 +398,19 @@ sections:
           Please see the differences between AGIC deployed through Helm versus deployed as an AKS add-on [here](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), especially the tables documenting which scenario(s) are supported by AGIC deployed through Helm as opposed to an AKS add-on. In general, deploying through Helm will allow you to test out beta features and release candidates before an official release. 
           
       - question: Can I control which version of AGIC will be deployed with the add-on?
-        answer: No, AGIC add-on is a managed service which means Microsoft will automatically update the add-on to the latest stable version. 
+        answer: No, AGIC add-on is a managed service which means Microsoft will automatically update the add-on to the latest stable version.
 
+  - name: Configuration - mutual authentication
+    questions:
+      - question: What is mutual authentication?
+        answer: |
+          Mutual authentication is two-way authentication between a client and a server. Mutual authentication with Application Gateway currently allows the gateway to verify the client sending the request, which is client authentication. Typically, the client is the only one that authenticates the Application Gateway. Because Application Gateway can now also authenticate the client, it becomes mutual authentication where Application Gateway and the client are mutually authenticating each other.
+
+      - question: Is mutual authentication available between Application Gateway and its backend pools?
+        answer: |
+          No, mutual authentication is currently only between the frontend client and the Application Gateway. Backend mutual authentication is currently not supported.      
+
+  
   - name: Diagnostics and logging
     questions:
       - question: What types of logs does Application Gateway provide?

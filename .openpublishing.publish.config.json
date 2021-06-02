@@ -232,6 +232,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-openapi-turbine-repair",
+      "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-functions-templates-v3",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "v3.x",
@@ -243,6 +249,18 @@
       "branch": "master",
       "branch_mapping": {}
     },
+    {
+      "path_to_root": "azure-search-dotnet-samples",
+      "url": "https://github.com/Azure-Samples/azure-search-dotnet-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-search-python-samples",
+      "url": "https://github.com/Azure-Samples/azure-search-python-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },     
     {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
@@ -324,7 +342,7 @@
     {
       "path_to_root": "media-services-v3-dotnet-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -358,6 +376,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-node-tutorials",
+      "url": "https://github.com/Azure-Samples/media-services-v3-node-tutorials",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -379,6 +403,12 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-cli-preview",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "cli-preview",
       "branch_mapping": {}
     },
     {
@@ -710,6 +740,12 @@
       "url": "https://github.com/Azure-Samples/digital-twins-iothub-integration",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-spring-cloud-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-cloud-reference-architecture",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -734,6 +770,7 @@
   "redirection_files": [
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.healthcare-apis.json",
+    ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.media-services.json"
   ]
 }

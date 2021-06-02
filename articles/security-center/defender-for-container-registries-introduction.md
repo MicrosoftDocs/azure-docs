@@ -3,7 +3,7 @@ title: Azure Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Azure Defender for container registries.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -43,7 +43,7 @@ There are three triggers for an image scan:
 
 - **On push** - Whenever an image is pushed to your registry, Security Center automatically scans that image. To trigger the scan of an image, push it to your repository.
 
-- **Recently pulled** - Since new vulnerabilities are discovered every day, **Azure Defender for container registries** also scans any image that has been pulled within the last 30 days. There's no additional charge for a rescan; as mentioned above, you're billed once per image.
+- **Recently pulled** - Since new vulnerabilities are discovered every day, **Azure Defender for container registries** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no additional charge for these rescans; as mentioned above, you're billed once per image.
 
 - **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Azure Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
  
@@ -61,7 +61,7 @@ Below is a high-level diagram of the components and benefits of protecting your 
 
 
 
-## FAQ for Azure Container Registry image scanning
+## FAQ - Azure Container Registry image scanning
 
 ### How does Security Center scan an image?
 Security Center pulls the image from the registry and runs it in an isolated sandbox with the Qualys scanner. The scanner extracts a list of known vulnerabilities.
@@ -84,6 +84,9 @@ Yes. If you have an organizational need to ignore a finding, rather than remedia
 ### Why is Security Center alerting me to vulnerabilities about an image that isn’t in my registry?
 Security Center provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
 
+### What should I do if the scan results for my image aren’t shown?
+Wait a few minutes and if the results don’t appear, try pushing the image again to trigger a new scan. 
+If they still don’t appear, contact our support team. 
 
 ## Next steps
 

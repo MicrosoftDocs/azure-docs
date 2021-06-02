@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/06/2021
 ms.author: memildin
 ---
 
 # Defend Azure Arc enabled Kubernetes clusters running in on-premises and multi-cloud environments
 
-To defend your on-premises clusters with the same threat detection capabilities offered today for Azure Kubernetes Service clusters, enable Azure Arc on the clusters and deploy the **Azure Defender for Kubernetes cluster extension**
+The **Azure Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
 
-You can also use the extension to protect Kubernetes clusters deployed on machines in other cloud providers, although not on their managed Kubernetes services.
+The extension can also protect Kubernetes clusters on other cloud providers, although not on their managed Kubernetes services.
 
 > [!TIP]
 > We've put some sample files to help with the installation process in [Installation examples on GitHub](https://aka.ms/kubernetes-extension-installation-examples).
@@ -22,10 +22,10 @@ You can also use the extension to protect Kubernetes clusters deployed on machin
 
 | Aspect | Details |
 |--------|---------|
-| Release state | **Preview** [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+| Release state | **Preview**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Required roles and permissions | [Security admin](../role-based-access-control/built-in-roles.md#security-admin) can dismiss alerts<br>[Security reader](../role-based-access-control/built-in-roles.md#security-reader) can view findings |
 | Pricing | Requires [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md) |
-| Supported Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer) |
+| Supported Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | Limitations | Azure Arc enabled Kubernetes and the Azure Defender extension **don't support** managed Kubernetes offerings like Google Kubernetes Engine and Elastic Kubernetes Service. [Azure Defender is natively available for Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) and doesn't require connecting the cluster to Azure Arc. |
 | Environments and regions | Availability for this extension is the same as [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md)|
 
@@ -51,12 +51,12 @@ You can deploy the Azure Defender extension using a range of methods. For detail
 
 ### [**Azure portal**](#tab/k8s-deploy-asc)
 
-### Use the "Quick fix" option from the Security Center recommendation
+### Use the fix button from the Security Center recommendation
 
 A dedicated recommendation in Azure Security Center provides:
 
 - **Visibility** about which of your clusters has the Defender for Kubernetes extension deployed
-- **A "Quick fix" option** to deploy it to those clusters without the extension
+- **Fix** button to deploy it to those clusters without the extension
 
 1. From Azure Security Center's recommendations page, open the **Enable Azure Defender** security control.
 
@@ -65,7 +65,7 @@ A dedicated recommendation in Azure Security Center provides:
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
-    > Notice the Quick Fix icon in the actions column
+    > Notice the **Fix** icon in the actions column
 
 1. Select the extension to see the details of the healthy and unhealthy resources - clusters with and without the extension.
 
@@ -73,14 +73,14 @@ A dedicated recommendation in Azure Security Center provides:
 
 1. Select the relevant Log Analytics workspace and select **Remediate x resource**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Azure Defender extension for Azure Arc with Security Center's quick fix option.":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Azure Defender extension for Azure Arc with Security Center's fix option.":::
 
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
 ### Use Azure CLI to deploy the Azure Defender extension
 
-1. Login to Azure:
+1. Log in to Azure:
 
     ```azurecli
     az login
@@ -269,7 +269,7 @@ A full list of supported alerts is available in the [reference table of all secu
 
 ## Removing the Azure Defender extension
 
-You can remove the extension using Azure portal, Azure CLI or REST API as explained in the tabs below.
+You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
 
 ### [**Azure portal - Arc**](#tab/k8s-remove-arc)
 

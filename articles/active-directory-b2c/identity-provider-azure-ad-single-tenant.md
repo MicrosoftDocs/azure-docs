@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 05/26/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -110,7 +110,7 @@ At this point, the Azure AD identity provider has been set up, but it's not yet 
 1. Under the **Social identity providers**, select **Contoso Azure AD**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
-1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`. 
 1. Select the **Run user flow** button.
 1. From the sign-up or sign-in page, select **Contoso Azure AD** to sign in with Azure AD Contoso account.
 
@@ -226,7 +226,7 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Contoso Employee** to sign in with Azure AD Contoso account.
 

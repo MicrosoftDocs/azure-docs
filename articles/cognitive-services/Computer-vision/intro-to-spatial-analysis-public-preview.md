@@ -40,7 +40,7 @@ The core operations of Spatial Analysis are all built on a pipeline that ingests
 
 ### Public preview gating
 
-To ensure Spatial Analysis is used for scenarios it was designed for, we are making this technology available to customers through an application process. To get access to Spatial Analysis, you'll need to start by filling out our online intake form. [Begin your application here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u).
+To ensure Spatial Analysis is used for scenarios it was designed for, we are making this technology available to customers through an application process. To get access to Spatial Analysis, you'll need to start by filling out our online intake form. [Begin your application here](https://aka.ms/csgate).
 
 Access to the Spatial Analysis public preview is subject to Microsoft's sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview. In public preview, we are looking for customers who have a significant relationship with Microsoft, are interested in working with us on the recommended use cases, and additional scenarios that keep with our responsible AI commitments.
 

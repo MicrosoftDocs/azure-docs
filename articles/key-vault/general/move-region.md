@@ -2,15 +2,15 @@
 title: Move a key vault to a different region - Azure Key Vault | Microsoft Docs
 description: This article offers guidance on moving a key vault to a different region.
 services: key-vault
-author: ShaneBala-keyvault
+author: msmbaldwin
 manager: ravijan
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/24/2020
-ms.author: sudbalas
+ms.date: 03/31/2021
+ms.author: mbaldwin
 # Customer intent: As a key vault administrator, I want to move my vault to another region.
 ---
 

@@ -2,15 +2,14 @@
 title: Azure Key Vault moving a vault to a different resource group | Microsoft Docs
 description: Guidance on moving a key vault to a different resource group.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/29/2020
-ms.author: sudbalas
+ms.date: 03/31/2021
+ms.author: mbaldwin
 # Customer intent: As a key vault administrator, I want to move my vault to another resource group.
 ---
 

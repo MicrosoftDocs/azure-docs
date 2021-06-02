@@ -372,7 +372,7 @@ Azure Functions supports the following Python versions:
 
 <sup>*</sup>Official CPython distributions
 
-To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.
+To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az_functionapp_create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.
 
 When running locally, the runtime uses the available Python version.
 
@@ -597,6 +597,9 @@ The Functions Python worker requires a specific set of libraries. You can also u
 
 > [!NOTE]
 > If your function app's requirements.txt contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in requirements.txt may cause unexpected issues.
+
+> [!NOTE]
+>  If your package contains certain libraries that may collide with worker's dependencies (e.g. protobuf, tensorflow, grpcio), please configure `PYTHON_ISOLATE_WORKER_DEPENDENCIES` to `1` in app settings to prevent your application from referring worker's dependencies.
 
 ### Azure Functions Python library
 

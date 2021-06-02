@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 ---
 
 # Customer responsibilities for running Azure Spring Cloud in VNET
@@ -28,7 +28,7 @@ The following is a list of resource requirements for Azure Spring Cloud services
 ## Azure Spring Cloud network requirements
 
   | Destination Endpoint | Port | Use | Note |
-  |------|------|------|
+  |------|------|------|------|
   | *:1194 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:1194 | UDP:1194 | Underlying Kubernetes Cluster management. | |
   | *:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443 | TCP:443 | Azure Spring Cloud Service Management. | Information of service instance "requiredTraffics" could be known in resource payload, under "networkProfile" section. |
   | *:9000 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:9000 | TCP:9000 | Underlying Kubernetes Cluster management. |

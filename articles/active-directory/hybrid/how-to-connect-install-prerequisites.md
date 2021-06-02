@@ -226,7 +226,7 @@ The following table shows the minimum requirements for the Azure AD Connect sync
 | Fewer than 10,000 |1.6 GHz |4 GB |70 GB |
 | 10,000–50,000 |1.6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1.6 GHz |16 GB |100 GB |
-| For 100,000 or more objects, the full version of SQL Server is required | | | |
+| For 100,000 or more objects, the full version of SQL Server is required. For performance reasons, installing locally is preferred. | | | |
 | 100,000–300,000 |1.6 GHz |32 GB |300 GB |
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |

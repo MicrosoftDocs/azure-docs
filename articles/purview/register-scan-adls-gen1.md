@@ -6,7 +6,7 @@ ms.author: sandeepshah
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 05/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen1 into the catalog.
 ---
 # Register and scan Azure Data Lake Storage Gen1
@@ -124,10 +124,12 @@ To register a new ADLS Gen1 account in your data catalog, do the following:
 On the Register sources (Azure Data Lake Storage Gen1) screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog.
-2. Choose your subscription to filter down storage accounts
-3. Select a storage account
-4. Select a collection or create a new one (Optional)
-5. Finish to register the data source.
+2. Choose your subscription to filter down storage accounts.
+3. Select a storage account.
+4. Select a collection or create a new one (Optional).
+5. Select **Register** to register the data source.
+
+:::image type="content" source="media/register-scan-adls-gen1/register-sources.png" alt-text="register sources options" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 

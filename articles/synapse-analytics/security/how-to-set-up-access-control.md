@@ -125,7 +125,7 @@ To create SQL pools, Apache Spark pools and Integration runtimes, users must hav
 
 - Open the Azure portal
 - Locate the workspace, `workspace1`
-- Assign the **Azure Contributor** role on `workspace1` to `workspace1_SynapseAdministrators`. 
+- Assign the Azure **Contributor** role on `workspace1` to `workspace1_SynapseAdministrators`. 
 
 ## STEP 6: Assign SQL Active Directory Admin role
 

@@ -30,7 +30,7 @@ You can also enable Storage Analytics logs programmatically via the REST API or 
  Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its Blob endpoint but not in its Table or Queue endpoints, only logs pertaining to the Blob service will be created.
 
 > [!NOTE]
->  Storage Analytics logging is currently available only for the Blob, Queue, and Table services. Storage Analytics logging is also available for premium-performance [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) accounts. However, it isn't available for general-purpose v2 accounts with premium performance.
+>  Storage Analytics logging is currently available only for the Blob, Queue, and Table services. Storage Analytics logging is also available for premium-performance [BlockBlobStorage](./storage-account-create.md) accounts. However, it isn't available for general-purpose v2 accounts with premium performance.
 
 ## Requests logged in logging
 ### Logging authenticated requests

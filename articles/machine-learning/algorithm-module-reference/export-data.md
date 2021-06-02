@@ -56,6 +56,10 @@ Before exporting your data, you need to first register a datastore in your Azure
  
 1. Submit the pipeline.
 
+## Limitations
+
+Due to datstore access limitation, if your inference pipeline contains **Export Data** module, it will be auto-removed when deploy to real-time endpoint.
+
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 

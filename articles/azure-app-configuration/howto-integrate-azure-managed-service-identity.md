@@ -7,7 +7,7 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
-ms.date: 2/25/2020
+ms.date: 04/08/2021
 ---
 # Use managed identities to access App Configuration
 
@@ -33,7 +33,7 @@ In this article, you learn how to:
 
 To complete this tutorial, you must have:
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* [.NET Core SDK](https://dotnet.microsoft.com/download).
 * [Azure Cloud Shell configured](../cloud-shell/quickstart.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
