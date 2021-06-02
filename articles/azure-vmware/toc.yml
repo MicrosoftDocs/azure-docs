@@ -104,8 +104,6 @@
         href: /azure/site-recovery/avs-tutorial-reprotect?context=/azure/azure-vmware/context/context
       - name: Fail back from Azure 
         href: /azure/site-recovery/avs-tutorial-failback?context=/azure/azure-vmware/context/context
-  - name: Azure native integration
-    items:
     - name: Protect VMs with Azure Security Center
       href: azure-security-integration.md
     - name: Monitor and manage VMs
