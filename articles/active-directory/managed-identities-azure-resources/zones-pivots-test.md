@@ -35,7 +35,7 @@ zone_pivot_groups: platform-identity
 
 ::: zone pivot="platform-idpowershell"
 
- [!INCLUDE [Azure CLI](includes/create-user-assigned-managed-identities-powershell.md)
+ [!INCLUDE [PowerShell](includes/create-user-assigned-managed-identities-powershell.md)
 
 ::: zone-end
 

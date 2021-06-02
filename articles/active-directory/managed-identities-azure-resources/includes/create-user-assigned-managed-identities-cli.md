@@ -13,3 +13,4 @@
 
 ## Create a managed identity using the Azure CLI
 
+CLI
