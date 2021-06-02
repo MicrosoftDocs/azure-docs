@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 06/01/2021
 ms.author: apimpm 
 ms.custom: devx-track-azurepowershell
 ---
@@ -20,7 +20,9 @@ ms.custom: devx-track-azurepowershell
 
 Azure API Management allows installing CA certificates on the machine inside the trusted root and intermediate certificate stores. This functionality should be used if your services require a custom CA certificate.
 
-The article shows how to manage CA certificates of an Azure API Management service instance in the Azure portal.
+The article shows how to manage CA certificates of an Azure API Management service instance in the Azure portal. 
+
+CA certificates uploaded to API Management can only be used for certificate validation by the managed API Management gateway. If you use the [self-hosted gateway](self-hosted-gateway-overview.md), see [Custom CAs for self-hosted gateway](#custom-cas-for-self-hosted-gateway) later in this article.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -55,7 +57,17 @@ Follow the steps below to upload a new CA certificate. If you have not created a
 
 To delete a certificate, click context menu **...** and select **Delete** beside the certificate.
 
-![Delete CA certificates](media/api-management-howto-ca-certificates/04.png)  
+![Delete CA certificates](media/api-management-howto-ca-certificates/04.png) 
+
+## Custom CAs for self-hosted gateway 
+
+If you use a [self-hosted gateway](self-hosted-gateway-overview.md), validation of server and client certificates using CA root certificates uploaded to API Management service is not supported. Instead, you can configure specific client certificates to be trusted by the gateway as "certificate authorities."
+
+Use the [Gateway Certificate Authority](/rest/api/apimanagement/2021-01-01-preview/gateway-certificate-authority) REST APIs to create and manage custom CAs for a self-hosted gateway.
+
+## Next steps
+
+* Learn about [access restriction policies](api-management-access-restriction-policies.md), including policies to validate client certificates.
 
 [Upload a CA certificate]: #step1
 [Delete a CA certificate]: #step1a
