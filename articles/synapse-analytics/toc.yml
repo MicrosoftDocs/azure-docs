@@ -66,6 +66,7 @@ items:
         href: quickstart-create-workspace-powershell.md
         displayName: quickstart
       - name: ARM template
+        displayname: Resource Manager
         href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace
