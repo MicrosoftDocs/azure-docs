@@ -10,7 +10,7 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
-ms.custom: devx-track-python, data4ml, synapse-azureml
+ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
 
 
 # Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
