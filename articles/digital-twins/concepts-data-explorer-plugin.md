@@ -28,15 +28,7 @@ Combining data from a twin graph in Azure Digital Twins with time series data in
 
 ## Using the plugin
 
-In order to get the plugin running on your own ADX cluster that contains time series data, start by running the following command in ADX in order to enable the plugin:
-
-```kusto
-.enable plugin azure_digital_twins_query_request. 
-```
-
-This command requires **All Databases admin** permission. For more information on the command, see the [.enable plugin documentation](/azure/data-explorer/kusto/management/enable-plugin). 
-
-Once the plugin is enabled, you can invoke it within an ADX Kusto query like this: 
+You can use the plugin on your own ADX cluster that contains time series data. It is invoked within an ADX Kusto query like this: 
 
 ```kusto
 evaluate azure_digital_twins_query_request(Azure Digital Twinsendpoint, Azure Digital Twinsquery) 
