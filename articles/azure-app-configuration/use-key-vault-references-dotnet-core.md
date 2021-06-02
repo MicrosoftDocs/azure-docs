@@ -292,20 +292,15 @@ You can now access Key Vault references just like any other App Configuration ke
 
 > [!NOTE]
 > The `ManagedIdentityCredential` works only in Azure environments of services that support managed identity authentication. It doesn't work in the local environment. Use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) for the code to work in both local and Azure environments as it will fall back to a few authentication options including managed identity.
-> 
-> If you want to use a **user-asigned managed identity** with the `DefaultAzureCredential` when deployed to Azure, [specify the clientId](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential).
->```
->config.AddAzureAppConfiguration(options =>
->   {
->       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>))
->           .ConfigureKeyVault(kv =>
->               {
->                   kv.SetCredential(new DefaultAzureCredential());
->               });
->        });
->```
->
+
 
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
+
+## Next steps
+
+In this tutorial, you created an App Configuration key that references a value stored in Key Vault. To learn how to add an Azure-managed service identity that streamlines access to App Configuration and Key Vault, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
