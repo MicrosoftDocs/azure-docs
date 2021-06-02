@@ -47,22 +47,33 @@ The following list describes features and capabilities that are available in the
 
 - **Manifest file and Azure Event Grid event per rule**
 
-  For each rule, a manifest file and an Azure Event Grid event are generated. Previously, only one manifest and one Azure Event Grid event was generated across all rules. 
+  For each rule, a manifest file and an Azure Event Grid event are generated. Previously, only a single manifest and Azure Event Grid event was generated across all rules. 
 
 ## Enable inventory reports
 
 Enable blob inventory reports by adding a policy to your storage account. Add, edit, or remove a policy by using the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to the [Azure portal](https://portal.azure.com/)
-1. Select one of your storage accounts
-1. Under **Blob service**, select **Blob inventory**
-1. Make sure **Blob inventory enabled** is selected
-1. Select **Add a rule**
-1. Name your new rule
-1. Select the **Blob types** for your inventory report
-1. Add a prefix match to filter your inventory report
-1. Select whether to **Include blob versions** and **Include snapshots** in your inventory report. Versions and snapshots must be enabled on the account to save a new rule with the corresponding option enabled.
-1. Select **Save**
+1. Navigate to the [Azure portal](https://portal.azure.com/).
+
+2. Select one of your storage accounts.
+
+3. Under **Blob service**, select **Blob inventory**.
+
+4. Make sure that **Blob inventory enabled** is selected.
+
+5. Select **Add a rule**.
+
+6. Name your new rule.
+
+7. Select the **Blob types** for your inventory report.
+
+8. Add a prefix match to filter your inventory report.
+
+9. Select whether to **Include blob versions** and **Include snapshots** in your inventory report. 
+
+   Versions and snapshots must be enabled on the account to save a new rule with the corresponding option enabled.
+
+10. Select **Save**.
 
 :::image type="content" source="./media/blob-inventory/portal-blob-inventory.png" alt-text="Screenshot showing how to add a blob inventory rule by using the Azure portal":::
 
@@ -305,9 +316,9 @@ An inventory completed event is generated when the inventory run completes for a
 } 
 ```
 
-## Upgrading inventory policy for existing users 
+## Upgrading an inventory policy 
 
-If you are an existing Azure Storage blob inventory user who has configured inventory already, you can start using the new features by loading the policy, and then saving the policy back after making changes. When an existing policy is loaded again, the new fields in the policy will be populated with default values. You can change these values if you want. After you reload the policy, the following two capabilities will be available.
+If you are an existing Azure Storage blob inventory user who has configured inventory already, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. The following two features will be available.
 
 - A destination container is now supported for every rule instead of just being supported for the policy.
 
