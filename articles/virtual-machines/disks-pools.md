@@ -47,7 +47,7 @@ Disk pools are currently available in the following regions:
 
 ## Billing
 
-When you deploy a disk pool, there are two main areas that will incur billing costs, the first are the disks inside the disk pool, and the second are the Azure artifacts deployed in the managed resource group that accompany the disk pool. You will be billed for the resources inside this managed resource group. Other than these resources and your disks, there are no additional service charges for a disk pool. For details on the managed resource group, see the how does it work section. 
+When you deploy a disk pool, there are two main areas that will incur billing costs, the first are the disks inside the disk pool, and the second are the Azure artifacts deployed in the managed resource group that accompany the disk pool. You will be billed for the resources inside this managed resource group. Other than these resources and your disks, there are no additional service charges for a disk pool. For details on the managed resource group, see the how does it work section.
 
 The resources in the managed resource group are:
 
