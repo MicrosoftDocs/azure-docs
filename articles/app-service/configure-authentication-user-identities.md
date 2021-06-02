@@ -1,6 +1,6 @@
 ---
 title: User identities in AuthN/AuthZ
-description: 
+description: Learn how to access user identities when using the built-in authentication and authorization in App Service.
 ms.topic: article
 ms.date: 03/29/2021
 ---

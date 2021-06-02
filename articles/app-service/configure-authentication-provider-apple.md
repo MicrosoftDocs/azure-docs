@@ -134,7 +134,7 @@ Add the client secret as an [application setting](./configure-common.md#configur
 ## <a name="configure"> </a>Add provider information to your application
 
 > [!NOTE]
-> The required configuration is in a new API format, currently only supported by [file-based configuration (preview)](.\app-service-authentication-how-to.md#config-file). You will need to follow the below steps using such a file.
+> The required configuration is in a new API format, currently only supported by [file-based configuration (preview)](configure-authentication-file-based.md). You will need to follow the below steps using such a file.
 
 This section will walk you through updating the configuration to include your new IDP. An example configuration follows.
 

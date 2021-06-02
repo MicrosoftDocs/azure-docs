@@ -1,6 +1,6 @@
 ---
 title: File-based configuration of AuthN/AuthZ
-description: 
+description: Configure authentication and authorization in App Service using a configuration file to enable certain preview capabilities. 
 ms.topic: article
 ms.date: 03/29/2021
 ---

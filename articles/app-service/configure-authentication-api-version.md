@@ -1,6 +1,6 @@
 ---
 title: Manage AuthN/AuthZ API versions
-description: 
+description: Upgrade your App Service authentication API to V2 or pin it to a specific version, if needed.
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
@@ -156,7 +156,7 @@ If your existing configuration contains a Microsoft Account provider and does no
 
 Once the above steps have been performed, navigate to the app in the Azure portal. Select the "Authentication (preview)" section. 
 
-Alternatively, you may make a PUT request against the `config/authsettingsv2` resource under the site resource. The schema for the payload is the same as captured in the [Configure using a file](#config-file) section.
+Alternatively, you may make a PUT request against the `config/authsettingsv2` resource under the site resource. The schema for the payload is the same as captured in [File-based configuration](configure-authentication-file-based.md).
 
 ## Pin your app to a specific authentication runtime version
 

@@ -1,6 +1,6 @@
 ---
 title: Customize sign-ins and sign-outs
-description: 
+description: Use the built-in authentication and authorization in App Service and at the same time customize the sign-in and sign-out behavior.
 ms.topic: article
 ms.date: 03/29/2021
 ---
@@ -178,7 +178,7 @@ The identity provider may provide certain turn-key authorization. For example:
 
 ### Application level
 
-If either of the other levels don't provide the authorization you need, or if your platform or identity provider isn't supported, you must write custom code to authorize users based on the [user claims](#access-user-claims).
+If either of the other levels don't provide the authorization you need, or if your platform or identity provider isn't supported, you must write custom code to authorize users based on the [user claims](configure-authentication-user-identities.md).
 
 ## Next steps
 

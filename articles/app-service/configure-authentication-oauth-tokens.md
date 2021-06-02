@@ -1,6 +1,6 @@
 ---
 title: OAuth tokens in AuthN/AuthZ
-description: 
+description: Learn how to retrieve tokens and refresh tokens and extend sessions when using the built-in authentication and authorization in App Service.
 ms.topic: article
 ms.date: 03/29/2021
 ---

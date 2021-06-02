@@ -1,6 +1,6 @@
 ---
 title: Authenticate native client apps
-description: 
+description: Authenticate client apps using the built-in authentication and authorization in App Service.
 ms.topic: article
 ms.date: 03/29/2021
 ---
