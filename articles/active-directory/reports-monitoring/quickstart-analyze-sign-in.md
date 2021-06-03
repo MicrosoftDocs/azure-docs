@@ -37,7 +37,7 @@ The goal of this step is to create a record of a failed sign-in in the Azure AD 
 
 1. Sign in to your [Azure portal](https://portal.azure.com/) as Isabella Simonsen using an incorrect password.
 
-2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activitiy reports](reference-reports-latencies.md#activity-reports).
+2. Wait for 5 minutes to ensure that you can find a record of the sign-in in the sign-ins log. For more information, see [Activity reports](reference-reports-latencies.md#activity-reports).
 
 
 
@@ -76,7 +76,7 @@ This section provides you with the steps to analyze a failed sign-in:
 
 5. Paste the error code into the textbox of the [sign-in error lookup tool](https://login.microsoftonline.com/error), and then click **Submit**.
 
-Review the outcome of the tool and determine whether it provides you with addional information.
+Review the outcome of the tool and determine whether it provides you with additional information.
 
 ![Error code lookup tool](./media/concept-all-sign-ins/error-code-lookup-tool.png)
 
