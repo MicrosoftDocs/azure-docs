@@ -291,7 +291,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## Troubleshooting
 
-* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
+**Dataset initialization failed:  Waiting for mount point to be ready has timed out**: 
   * If you don't have any outbound [network security group](../virtual-network/network-security-groups-overview.md) rules and are using `azureml-sdk>=1.12.0`, update `azureml-dataset-runtime` and its dependencies to be the latest for the specific minor version, or if you are using it in a run, recreate your environment so it can have the latest patch with the fix. 
   * If you are using `azureml-sdk<1.12.0`, upgrade to the latest version.
   * If you have outbound NSG rules, make sure there is an outbound rule that allows all traffic for the service tag `AzureResourceMonitor`.
@@ -304,7 +304,7 @@ If you are using file share for other workloads, such as data transfer, the re
 
 ### Passing data as input
 
-*  **TypeError: FileNotFound: No such file or directory**: This error occurs if the file path you provide isn't where the file is located. You need to make sure the way you refer to the file is consistent with where you mounted your dataset on your compute target. To ensure a deterministic state, we recommend using the abstract path when mounting a dataset to a compute target. For example, in the following code we mount the dataset under the root of the filesystem of the compute target, `/tmp`. 
+**TypeError: FileNotFound: No such file or directory**: This error occurs if the file path you provide isn't where the file is located. You need to make sure the way you refer to the file is consistent with where you mounted your dataset on your compute target. To ensure a deterministic state, we recommend using the abstract path when mounting a dataset to a compute target. For example, in the following code we mount the dataset under the root of the filesystem of the compute target, `/tmp`. 
     
     ```python
     # Note the leading / in '/tmp/dataset'
