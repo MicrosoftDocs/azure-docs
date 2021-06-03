@@ -20,11 +20,13 @@ To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create
 
 ## VM image workflow
 
-1.	Connect to Azure Cloud Shell or a client with Azure CLI installed
-2.	Search the Azure Marketplace and identify your preferred image
-3.	Create a new managed disk from the Marketplace image
-4.	Export a VHD from the managed disk to a cloud storage account
-5.	Clean up the managed disk
+The following steps describe the VM image workflow using an Azure Marketplace workflow:
+
+1.	Connect to the Azure Cloud Shell or a client with Azure CLI installed.
+2.	Search the Azure Marketplace and identify your preferred image.
+3.	Create a new managed disk from the Marketplace image.
+4.	Export a VHD from the managed disk to Azure Storage account.
+5.	Clean up the managed disk.
 
 
 For more information, go to [Deploy a VM on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
@@ -32,11 +34,14 @@ For more information, go to [Deploy a VM on your Azure Stack Edge Pro device usi
 ## Prerequisites
 
 Before you can use Azure Marketplace images for Azure Stack Edge, make sure that you are connected to Azure in either of the following ways.
-1.	Using the Azure Cloud Shell terminal available on the Azure Portal 
-2.	Using a client machine with Azure CLI and Azure PowerShell installed. If you have previously connected to an Azure Stack Edge device via ARM on this client, you will need to run the command Disconnect-AzureRmAccount before proceeding.
+
+1.	Using the Azure Cloud Shell terminal available on the Azure portal. 
+2.	Using a client machine with Azure CLI and Azure PowerShell installed. If you have previously connected to an Azure Stack Edge device via the Azure Resource Manager from this client, run the `Disconnect-AzureRmAccount` command before you proceed.
 
 
 ## Connect to Azure
+
+[!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment.md)]
 
 ### Using Azure Cloud Shell
 Click the button in the Azure Portal toolbar to launch Azure Cloud Shell in PowerShell mode.
@@ -47,13 +52,14 @@ With Azure CLI installed on your client machine, run the command az login. This 
 
 ## Search for Azure Marketplace images
 
-In this step, you will identify a specific Azure Marketplace image which you wish to use. Azure Marketplace hosts thousands of VM images. We will provide some examples to find some of the most common.
+You will now identify a specific Azure Marketplace image which you wish to use. Azure Marketplace hosts thousands of VM images. We will provide some examples to find some of the most common.
 
-The below command returns a list of Azure Marketplace VM images that matches your search criteria. Note that the last three flags are optional but excluding them will result in a very long list returned.
+To find some of the most common Marketplace images that match your search criteria, run the following command.  
 
 ```azurecli
 az vm image list --all [--publisher <Publisher>] [--offer <Offer>] [--sku <SKU>]
 ```
+The last three flags are optional but excluding them returns a very long list.
 
 Some example queries are:
 
@@ -68,8 +74,9 @@ az vm image list --all --publisher "MicrosoftWindowsserver" --offer "WindowsServ
 az vm image list --all --publisher "Canonical" 
 ```
 
+>[!IMPORTANT]
+> Use only the Gen 1 images. Any images specified as Gen 2, do not work on Azure Stack Edge.
 
-[[! Important – any images specified as “Gen 2” will not work on Azure Stack Edge.]]
 In this example, we will select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We will identify this image by its Universal Resource Number (“URN”). 
  
 
@@ -94,16 +101,16 @@ Below is a list of URNs for some of the most common images. If you just want the
 
 Create an Azure Managed Disk from your chosen Marketplace image. 
 
-1. Set some parameters 
+1. Set some parameters.
 
     ```azurecli
-    $urn = <the URN of the Marketplace image> #Example: “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
+    $urn = <URN of the Marketplace image> #Example: “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
     $diskName = <disk name> #Name for new disk to be created
-    $diskRG = <resource group> #Resource group to put the new disk
+    $diskRG = <resource group> #Resource group that contains the new disk
     ```
 
 
-1. Create the disk and generate a SAS access URL
+1. Create the disk and generate a SAS access URL.
 
     ```azurecli
     az disk create -g $diskRG -n $diskName --image-reference $urn
@@ -124,7 +131,7 @@ This step will export a VHD from the managed disk to your preferred Azure blob s
     $storageAccountKey = <storage account key>
     ```
 
-1. Copy the VHD to the destination storage account
+1. Copy the VHD to the destination storage account.
 
     ```azurecli
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
@@ -139,7 +146,7 @@ This step will export a VHD from the managed disk to your preferred Azure blob s
 
 ## Clean up the managed disk
 
-This step will delete the managed disk you created, as it is no longer needed.
+To delete the managed disk you created, follow these steps:
 
 ```azurecli
 az disk revoke-access --name $diskName --resource-group $diskRG 
