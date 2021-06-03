@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) stores customer data in a geographical location based on the address an organization provides when subscribing to a Microsoft online service such as Microsoft 365 or Azure. For information on where your customer data is stored, see [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) in the Microsoft Trust Center.
 
-Cloud-based Azure AD multifactor authentication and Azure Multifactor Authentication Server process and store personal data and organizational data. This article outlines what and where data is stored.
+Cloud-based Azure AD multifactor authentication and Azure Multi-Factor Authentication Server process and store personal data and organizational data. This article outlines what and where data is stored.
 
 The Azure AD multifactor authentication service has datacenters in the United States, Europe, and Asia Pacific. The following activities originate from the regional datacenters except where noted:
 
@@ -62,9 +62,9 @@ For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure operate
 | Voice call                           | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported) |
 | Microsoft Authenticator notification | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported)<br/>Change requests when the Microsoft Authenticator device token changes |
 
-### Data stored by Azure Multifactor Authentication Server
+### Data stored by Azure Multi-Factor Authentication Server
 
-If you use Azure Multifactor Authentication Server, the following personal data is stored.
+If you use Azure Multi-Factor Authentication Server, the following personal data is stored.
 
 > [!IMPORTANT]
 > As of July 1, 2019, Microsoft no longer offers Multifactor Authentication Server for new deployments. New customers who want to require multifactor authentication from their users should use cloud-based Azure AD multifactor authentication. Existing customers who activated Multifactor Authentication Server before July 1, 2019, can download the latest version and updates, and generate activation credentials as usual.
@@ -85,7 +85,7 @@ Organizational data is tenant-level information that can expose configuration or
 * Notifications
 * Phone call settings
 
-For Azure Multifactor Authentication Server, the following Azure portal pages might contain organizational data:
+For Azure Multi-Factor Authentication Server, the following Azure portal pages might contain organizational data:
 
 * Server settings
 * One-time bypass
@@ -131,4 +131,4 @@ The following table shows the location for service logs for sovereign clouds.
 
 ## Next steps
 
-For more information about what user information is collected by cloud-based Azure AD multifactor authentication and Azure Multifactor Authentication Server, see [Azure AD multifactor authentication user data collection](howto-mfa-reporting-datacollection.md).
+For more information about what user information is collected by cloud-based Azure AD multifactor authentication and Azure Multi-Factor Authentication Server, see [Azure AD multifactor authentication user data collection](howto-mfa-reporting-datacollection.md).
