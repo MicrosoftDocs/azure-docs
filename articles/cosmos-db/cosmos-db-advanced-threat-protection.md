@@ -71,7 +71,7 @@ Use the following PowerShell cmdlets:
 
 Use an Azure Resource Manager (ARM) template to set up Cosmos DB with Advanced Threat Protection enabled.
 For more information, see
-[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
+[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
 
 # [Azure Policy](#tab/azure-policy)
 
