@@ -60,10 +60,6 @@ Follow these steps to create a blob container for your storage account:
 
 After creating a container, follow the instructions in [Configure file uploads using the Azure portal](iot-hub-configure-file-upload.md). Make sure that a blob container is associated with your IoT hub and that file notifications are enabled.
 
-## Get the IoT hub connection string
-
-[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
-
 ## Create a project using Maven
 
 Create a directory for your project, and start a shell in that directory. On the command line, execute the following
