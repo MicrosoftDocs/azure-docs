@@ -11,7 +11,7 @@ ms.author: kryalama
 # Telemetry processor examples - Azure Monitor Application Insights for Java
 
 This article provides examples of telemetry processors in Application Insights for Java. You'll find samples for include and exclude configurations. You'll also find samples for attribute processors and span processors.
-## Include and exclude samples
+## Include and exclude Span samples
 
 In this section, you'll see how to include and exclude spans. You'll also see how to exclude multiple spans and apply selective processing.
 ### Include spans
@@ -99,7 +99,7 @@ This span doesn't match the exclude properties, and the processor actions are ap
 This section demonstrates how to exclude spans for an attribute processor. Spans that match the properties aren't processed by this processor.
 
 A match requires the following conditions to be met:
-* An attribute (for example, `env` or `dev`) must exist in the span.
+* An attribute (for example, `env` with value `dev`) must exist in the span.
 * The span must have an attribute that has key `test_request`.
 
 The following spans match the exclude properties, and the processor actions aren't applied.
@@ -199,11 +199,197 @@ These spans don't match the include properties, and processor actions aren't app
   }
 }
 ```
+
+## Include and exclude Log samples
+
+In this section, you'll see how to include and exclude log. You'll also see how to exclude multiple logs and apply selective processing.
+### Include logs
+
+This section shows how to include logs for an attribute processor. Logs that don't match the properties aren't processed by the processor.
+
+A match requires the log name to be equal to `logA` or `logB`. 
+
+These logs match the include properties, and the processor actions are applied:
+* Log1 Name: 'logA' Attributes: {LoggingLevel: INFO}
+* Log2 Name: 'logB' Attributes: {LoggingLevel: INFO}
+
+This log doesn't match the include properties, and the processor actions aren't applied:
+* Log3 Name: 'logC' Attributes: {LoggingLevel: INFO}
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "include": {
+          "matchType": "strict",
+          "logNames": [
+            "logA",
+            "logB"
+          ]
+        },
+        "actions": [
+          {
+            "key": "attribute1",
+            "value": "value1",
+            "action": "insert"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Exclude logs
+
+This section demonstrates how to exclude logs for an attribute processor. Logs that match the properties aren't processed by this processor.
+
+A match requires the log name to be equal to `logA` or `logB`.
+
+The following logs match the exclude properties, and the processor actions aren't applied:
+* Log1 Name: 'logA' Attributes: {LoggingLevel: INFO}
+* Log2 Name: 'logB' Attributes: {LoggingLevel: INFO}
+
+This log doesn't match the exclude properties, and the processor actions are applied:
+* Log3 Name: 'logC' Attributes: {LoggingLevel: INFO}
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "exclude": {
+          "matchType": "strict",
+          "logNames": [
+            "logA",
+            "logB"
+          ]
+        },
+        "actions": [
+          {
+            "key": "attribute1",
+            "value": "value1",
+            "action": "insert"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Exclude logs by using multiple criteria
+
+This section demonstrates how to exclude logs for an attribute processor. Logs that match the properties aren't processed by this processor.
+
+A match requires the following conditions to be met:
+* An attribute with `LoggingLevel` as `INFO` must exist in the log.
+* Log Names should match either `logA` or `logB`.
+
+
+The following logs match the exclude properties, and the processor actions aren't applied.
+* Log1 Name: 'logA' Attributes: {LoggingLevel: INFO}
+* Log2 Name: 'logB' Attributes: {LoggingLevel: INFO}
+
+The following log doesn't match the exclude properties, and the processor actions are applied:
+* Log3 Name: 'logC' Attributes: {LoggingLevel: INFO}
+* Log4 Name: 'logB' Attributes: {LoggingLevel: DEBUG}
+
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "exclude": {
+          "matchType": "strict",
+          "logNames": [
+            "logA",
+            "logB"
+          ],
+          "attributes": [
+            {
+              "key": "LoggingLevel",
+              "value": "INFO"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "key": "attribute1",
+            "value": "value1",
+            "action": "insert"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Selective processing
+
+This section shows how to specify the set of log properties that
+indicate which logs this processor should be applied to. The include 
+properties indicate which logs should be processed. The exclude properties filter out logs that shouldn't be processed.
+
+In the following configuration, these logs match the properties, and processor actions are applied:
+
+* Log1 Name: 'logA' Attributes: {LoggingLevel: INFO, LoggerName: com.test.example1}
+* Log2 Name: 'logB' Attributes: {LoggingLevel: INFO, LoggerName: com.test.example2}
+
+These spans don't match the include properties, and processor actions aren't applied:
+* Log3 Name: 'logC' Attributes: {LoggingLevel: INFO, LoggerName: com.test.example1}
+* Log4 Name: 'logB' Attributes: {LoggingLevel: DEBUG, LoggerName: com.test.example.dontinclude}
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "include": {
+          "matchType": "strict",
+          "logNames": [
+            "logA",
+            "logB"
+          ]
+        },
+        "exclude": {
+          "matchType": "strict",
+          "attributes": [
+            {
+              "key": "LoggerName",
+              "value": "com.test.example.dontinclude"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "key": "attribute1",
+            "value": "value1",
+            "action": "insert"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 ## Attribute processor samples
 
 ### Insert
 
-The following sample inserts the new attribute `{"attribute1": "attributeValue1"}` into spans where the key `attribute1` doesn't exist.
+The following sample inserts the new attribute `{"attribute1": "attributeValue1"}` into spans and logs where the key `attribute1` doesn't exist.
 
 ```json
 {
@@ -227,7 +413,7 @@ The following sample inserts the new attribute `{"attribute1": "attributeValue1"
 
 ### Insert from another key
 
-The following sample uses the value from attribute `anotherkey` to insert the new attribute `{"newKey": "<value from attribute anotherkey>"}` into spans where the key `newKey` doesn't exist. If the attribute `anotherkey` doesn't exist, no new attribute is inserted into spans.
+The following sample uses the value from attribute `anotherkey` to insert the new attribute `{"newKey": "<value from attribute anotherkey>"}` into spans and logs where the key `newKey` doesn't exist. If the attribute `anotherkey` doesn't exist, no new attribute is inserted into spans and logs.
 
 ```json
 {
@@ -251,7 +437,7 @@ The following sample uses the value from attribute `anotherkey` to insert the ne
 
 ### Update
 
-The following sample updates the attribute to `{"db.secret": "redacted"}`. It updates the attribute `boo` by using the value from attribute `foo`. Spans that don't have the attribute `boo` don't change.
+The following sample updates the attribute to `{"db.secret": "redacted"}`. It updates the attribute `boo` by using the value from attribute `foo`. Spans and logs that don't have the attribute `boo` don't change.
 
 ```json
 {
@@ -472,6 +658,56 @@ The following sample shows how to change the span name to `{operation_website}`.
           "toAttributes": {
             "rules": [
               "(?<operation_website>.*?)$"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+
+## Log processor samples
+
+### Name a log
+
+The following sample specifies the values of attributes `LoggerName` and `SourceType`. It forms the new name of the log by using those attributes, in that order, separated by the value `::`.
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "name": {
+          "fromAttributes": [
+            "LoggerName",
+            "SourceType"
+          ],
+          "separator": "::"
+        }
+      }
+    ]
+  }
+}
+```
+
+### Extract attributes from a log name
+
+Let's assume the input log name is `Starting PetClinicApplication on WorkLaptop with PID 27984 (C:\randompath\target\classes started by userx in C:\randompath)`. The following sample results in the output span name `Starting PetClinicApplication on WorkLaptop with PID PIDVALUE (C:\randompath\target\classes started by userx in C:\randompath)`. It adds the new attribute `PIDVALUE=27984` to the log.
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "log",
+        "name": {
+          "toAttributes": {
+            "rules": [
+              "^Starting PetClinicApplication on WorkLaptop with PID (?<PIDVALUE>\\d+) .*"
             ]
           }
         }
