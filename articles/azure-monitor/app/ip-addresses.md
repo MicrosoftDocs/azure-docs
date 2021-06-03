@@ -73,16 +73,16 @@ After downloading the appropriate file, open it using your favorite text editor 
 > These addresses are listed using Classless Inter-Domain Routing (CIDR) notation. This means that an entry like `51.144.56.112/28` is equivalent to 16 IPs starting at `51.144.56.112` and ending at `51.144.56.127`.
 
 #### Azure Public Cloud
-Download from [here](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+Download [Public Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=56519).
 
 #### Azure US Government Cloud
-Download from [here](https://www.microsoft.com/en-us/download/details.aspx?id=57063).
+Download [Government Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57063).
 
 #### Azure China Cloud
-Download from [here](https://www.microsoft.com/en-us/download/details.aspx?id=57062).
+Download [China Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
 
 ### Discovery API
-You may also want to [programmatically retrieve](https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) the current list of service tags together with IP address range details.
+You may also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) the current list of service tags together with IP address range details.
 
 ## Application Insights & Log Analytics APIs
 
