@@ -58,7 +58,7 @@ A DTDL model interface may contain zero, one, or many of each of the following f
 * **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. Relationships can also have properties of their own. For more information, see [Relationships](#relationships) below.
 * **Component** - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a model for a *phone*. You must first define an interface for *frontCamera* as though it were its own model, and then you can reference it when defining *Phone*.
 
-    Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by **relationships**
+    Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by **relationships**.
     
     >[!TIP] 
     >Components can also be used for organization, to group sets of related properties within a model interface. In this situation, you can think of each component as a namespace or "folder" inside the interface.
@@ -87,7 +87,7 @@ The fields of the model are:
 
 This section contains an example of a basic model, written as a DTDL interface. 
 
-This model describes a **home**, with one property for an ID. The home model also defines a relationship to a **floor** model, which can be used to indicate that a home twin is connected to certain floor twins.
+This model describes a Home, with one **property** for an ID. The home model also defines a **relationship** to a Floor model, which can be used to indicate that a Home twin is connected to certain Floor twins.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json":::
 
@@ -95,23 +95,9 @@ This model describes a **home**, with one property for an ID. The home model als
 
 This section goes into more detail about **properties** and **telemetry** in DTDL models.
 
-### Basic property example
-
-Here is a basic example of a property on a DTDL model. This example shows the ID property of a home.
-
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="7-11":::
-
-### Basic telemetry example
-
-Here is a basic example of a telemetry field on a DTDL model. This example shows Temperature telemetry on a sensor.
-
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/ISensor.json" highlight="7-11":::
-
 ### Difference between properties and telemetry
 
-Here is some additional guidance on distinguishing between DTDL **property** and **telemetry** fields in Azure Digital Twins.
-
-The difference between properties and telemetry for Azure Digital Twins models is as follows:
+Here's some additional guidance on conceptually distinguishing between DTDL **property** and **telemetry** in Azure Digital Twins.
 * **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writeable, you can also store a value in the property.  
 * **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back to it and read it later. 
   - In C# terms, telemetry is like a C# event. 
@@ -137,7 +123,17 @@ In addition to primitive types, property and telemetry fields can have these [co
 
 They can also be [semantic types](#semantic-types), which allow you to annotate values with units.
 
-### Complex (object) types
+### Basic property and telemetry examples
+
+Here is a basic example of a **property** on a DTDL model. This example shows the ID property of a home.
+
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="7-11":::
+
+Here is a basic example of a **telemetry** field on a DTDL model. This example shows Temperature telemetry on a sensor.
+
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/ISensor.json" highlight="7-11":::
+
+### Complex (object) type example
 
 Properties and telemetry can be of complex types, including an `Object` type.
 
@@ -145,7 +141,7 @@ The following example shows another version of the Home model, with a property f
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
 
-### Semantic types
+### Semantic type example
 
 Semantic types make it possible to express a value with a unit. Properties and telemetry can be represented with any of the semantic types that are supported by DTDL. For more information on semantic types in DTDL and what values are supported, see [Semantic types in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#semantic-types).
 
@@ -206,7 +202,7 @@ The following example re-imagines the home model from the earlier DTDL example a
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" range="1-8" highlight="6":::
 
-In this case, ICore contributes an ID and name to IHome. Other models can also extend the ICore model to get these properties as well.
+In this case, ICore contributes an ID and name to IHome. Other models can also extend the ICore model to get these properties as well. Here is an IRoom model extending the same parent interface:
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-9" highlight="6":::
 
