@@ -115,13 +115,13 @@ You can also publish a telemetry event from the Azure Digital Twins API. As with
 
 As per DTDL, the schema for **property** and **telemetry** attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
 
-In addition to primitive types, property and telemetry fields can have these [complex types](#complex-object-types):
+In addition to primitive types, property and telemetry fields can have these [complex types](#complex-object-type-example):
 * `Object`
 * `Map`
 * `Enum`
 * (**telemetry** only) `Array`
 
-They can also be [semantic types](#semantic-types), which allow you to annotate values with units.
+They can also be [semantic types](#semantic-type-example), which allow you to annotate values with units.
 
 ### Basic property and telemetry examples
 
