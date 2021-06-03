@@ -153,6 +153,8 @@ Acknowledge that you need to update tools and scripts for these resources. To st
 
 When the move has completed, you're notified of the result.
 
+:::image type="content" source="./media/move-resource-group-and-subscription/view-notification.png" alt-text="view move results":::
+
 ## Use Azure PowerShell
 
 ### Validate
