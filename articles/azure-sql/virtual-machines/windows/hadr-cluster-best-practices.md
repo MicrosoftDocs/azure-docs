@@ -89,6 +89,8 @@ The following table lists the quorum options available for SQL Server on Azure V
 - The **disk witness** is the most resilient quorum option and is preferred for any cluster that uses Azure Shared Disks (or any shared-disk solution like shared SCSI, iSCSI, or fiber channel SAN).  A Clustered Shared Volume cannot be used as a disk witness. 
 - The **fileshare witness** is suitable for when the disk witness and cloud witness are unavailable options. 
 
+To get started, see [Configure cluster quorum](hadr-cluster-quorum-configure-how-to.md). 
+
 ## Quorum Voting
 
 It's possible to change the quorum vote of a node participating in a Windows Server Failover Cluster. 
