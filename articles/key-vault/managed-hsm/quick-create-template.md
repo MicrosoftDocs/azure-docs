@@ -47,7 +47,7 @@ For more information on login options via the CLI, see [sign in with Azure CLI](
 
 ## Create a manage HSM
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-managed-hsm-create/).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/managed-hsm-create/).
 
 The Azure resource defined in the template:
 
