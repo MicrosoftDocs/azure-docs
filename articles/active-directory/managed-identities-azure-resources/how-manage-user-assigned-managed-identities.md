@@ -50,13 +50,13 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 ::: zone pivot="platform-azarm"
 
-[!INCLUDE [Azure resource manager](includes/create-user-assigned-managed-identities-powershell.md)]
+[!INCLUDE [Azure resource manager](includes/create-user-assigned-managed-identities-arm.md)]
 
 ::: zone-end
 
 ::: zone pivot="platform-rest"
 
-[!INCLUDE [REST](includes/create-user-assigned-managed-identities-powershell.md)]
+[!INCLUDE [REST](includes/create-user-assigned-managed-identities-rest.md)]
 
 ::: zone-end
 
