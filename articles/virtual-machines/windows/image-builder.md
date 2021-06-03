@@ -1,5 +1,5 @@
 ---
-title: Create a Windows VM with Azure Image Builder (preview)
+title: Create a Windows VM with Azure Image Builder 
 description: Create a Windows VM with the Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
@@ -9,7 +9,7 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ---
-# Preview: Create a Windows VM with Azure Image Builder
+# Create a Windows VM with Azure Image Builder
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
@@ -29,11 +29,6 @@ You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 > [!NOTE]
 > For Windows users, the Azure CLI examples below can be run on [Azure Cloud Shell](https://shell.azure.com) using Bash.
@@ -41,7 +36,7 @@ We will be using a sample .json template to configure the image. The .json file 
 
 ## Register the features
 
-To use Azure Image Builder during the preview, you need to register the new feature.
+To use Azure Image Builder, you need to register the feature.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 

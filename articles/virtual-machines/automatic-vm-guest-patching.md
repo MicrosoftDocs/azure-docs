@@ -8,7 +8,8 @@ ms.collection: windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.author: manayar
+ms.author: manayar 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Preview: Automatic VM guest patching for Azure VMs

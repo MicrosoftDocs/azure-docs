@@ -126,7 +126,7 @@ The `readResults` node contains all of the recognized text. Text is organized by
 
 ```json
 {
-   "status": "succeeded",
+  "status": "succeeded",
   "createdDateTime": "2021-03-04T22:29:33Z",
   "lastUpdatedDateTime": "2021-03-04T22:29:36Z",
   "analyzeResult": {
@@ -168,6 +168,8 @@ The `readResults` node contains all of the recognized text. Text is organized by
               }
             ],
           ...
+          }
+        ]
       }
     ],
 

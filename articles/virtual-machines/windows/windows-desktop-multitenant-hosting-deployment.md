@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 2/2/2021
 ms.author: mimckitt
-ms.custom: rybaker, chmimckitt
+ms.custom: rybaker, chmimckitt, devx-track-azurepowershell
 
 ---
 # How to deploy Windows 10 on Azure with Multitenant Hosting Rights 

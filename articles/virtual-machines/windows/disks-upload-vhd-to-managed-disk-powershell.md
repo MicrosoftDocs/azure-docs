@@ -6,8 +6,8 @@ ms.author: rogarana
 ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
+ms.custom: devx-track-azurepowershell
 ms.subservice: disks
-ms.collection: windows
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure PowerShell

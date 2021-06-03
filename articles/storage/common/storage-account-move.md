@@ -8,7 +8,8 @@ ms.subservice: common
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta 
-ms.reviewer: dineshm
+ms.reviewer: dineshm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move an Azure Storage account to another region

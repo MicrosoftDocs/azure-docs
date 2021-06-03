@@ -8,7 +8,8 @@ ms.collection: windows
 ms.topic: article
 ms.date: 09/02/2020
 ms.author: kirpas
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 
 ---
 # How to expand the OS drive of a virtual machine

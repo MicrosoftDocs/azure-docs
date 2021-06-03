@@ -1,5 +1,5 @@
 ---
-title: Learn about Azure Image Builder (preview)
+title: Learn about Azure Image Builder 
 description: Learn more about Azure Image Builder for virtual machines in Azure.
 author: kof-f
 ms.author: kofiforson
@@ -11,7 +11,7 @@ ms.custom: references_regions
 ms.reviewer: cynthn
 ---
 
-# Preview: Azure Image Builder overview
+# Azure Image Builder overview
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -19,27 +19,24 @@ Standardized virtual machine (VM) images allow organizations to migrate to the c
  
 The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/) you will see some similarities, but have the benefit of a managed service. You can also specify where you would like your images hosted, in the [Azure Shared Image Gallery](shared-image-galleries.md), as a managed image or a VHD.
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Preview features
+## Features
 
-For the preview, these features are supported:
+Azure Image Builder supports the following features:
 
 - Creation of baseline images, that includes your minimum security and corporate configurations, and allow departments to customize it further.
 - Integration of core applications, so VM can take on workloads after creation, or add configurations to support Windows Virtual Desktop images.
 - Patching of existing images, Image Builder will allow you to continually patch existing custom images.
 - Connect image builder to your existing virtual networks, so you can connect to existing configuration servers (DSC, Chef, Puppet etc.), file shares, or any other routable servers/services.
 - Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
-- Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Preview Image Builder Azure DevOps Task.
+- Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Image Builder Azure DevOps Task.
 - Migrate an existing image customization pipeline to Azure. Use your existing scripts, commands, and processes to customize images.
 - Creation of images in VHD format to support Azure Stack.
  
 
 ## Regions
-The Azure Image Builder Service will be available for preview in [these](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#location) regions. Images can be distributed outside of these regions.
+
+The Azure Image Builder Service is available in [these](./linux/image-builder-json.md#location) regions. Images can be distributed outside of these regions.
 
 ## OS support
 AIB will support Azure Marketplace base OS images:

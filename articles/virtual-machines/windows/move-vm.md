@@ -7,7 +7,8 @@ ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/03/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 ---
 # Move a Windows VM to another Azure subscription or resource group
 

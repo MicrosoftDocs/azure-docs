@@ -7,7 +7,7 @@ ms.date: 05/26/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Redundancy options for managed disks

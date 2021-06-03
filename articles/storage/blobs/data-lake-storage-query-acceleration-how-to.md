@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration

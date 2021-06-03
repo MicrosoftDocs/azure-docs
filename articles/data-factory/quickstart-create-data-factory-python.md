@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/12/2021
+ms.date: 05/27/2021
 ms.custom: seo-python-october2019, devx-track-python
 ---
 
@@ -35,7 +35,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (optional).
 
-* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **application ID (service principal id below), authentication key (client secret below), and tenant ID.**
+* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Create the application by following the steps in this link, using Authentication Option 2 (application secret), and assign the application to the  **Contributor** role by following instructions in the same article. Make note of the following values as shown in the article to use in later steps: **Application (client) ID, client secret value, and tenant ID.**
 
 ## Create and upload an input file
 
@@ -134,7 +134,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
         df_name = '<factory name>'
 
         # Specify your Active Directory client ID, client secret, and tenant ID
-        credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+        credentials = ClientSecretCredential(client_id='<Application (client) ID>', client_secret='<client secret value>', tenant_id='<tenant ID>') 
         
         # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
         # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD

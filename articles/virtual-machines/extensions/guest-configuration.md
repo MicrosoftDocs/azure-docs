@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: mgreenegit
 ms.author: migreene
-ms.date: 04/15/2021
+ms.date: 04/15/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 

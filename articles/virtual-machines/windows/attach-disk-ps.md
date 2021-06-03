@@ -7,7 +7,8 @@ ms.collection: windows
 ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Attach a data disk to a Windows VM with PowerShell

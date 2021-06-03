@@ -6,7 +6,8 @@ author: cynthn
 ms.topic: how-to
 ms.date: 3/8/2021
 ms.author: cynthn
-ms.reviewer: mimckitt
+ms.reviewer: mimckitt 
+ms.custom: devx-track-azurepowershell
 ---
 # Change the availability set for a VM using Azure PowerShell    
 

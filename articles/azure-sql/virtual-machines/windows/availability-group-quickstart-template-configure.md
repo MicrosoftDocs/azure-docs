@@ -15,7 +15,7 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 
 ---
 # Use Azure quickstart templates to configure an availability group for SQL Server on Azure VM
