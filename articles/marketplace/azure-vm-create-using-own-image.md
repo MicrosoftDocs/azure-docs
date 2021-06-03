@@ -51,12 +51,12 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 
 1. Go to the Shared Image Gallery (SIG).
 2. Select **Access control** (IAM) on the left panel.
-3. Select **Add**, then **Add role assignment**.
+3. Select **Add**, then **Add role assignment**.<br>
     :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
-4. For **Role**, select **Owner**.
-5. For **Assign access to**, select **User, group, or service principal**.
-6. For **Select**, enter the Azure email of the person who will publish the image.
-7. Select **Save**.
+1. For **Role**, select **Owner**.
+1. For **Assign access to**, select **User, group, or service principal**.
+1. For **Select**, enter the Azure email of the person who will publish the image.
+1. Select **Save**.
 
 > [!NOTE]
 > You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
