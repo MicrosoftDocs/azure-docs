@@ -28,7 +28,7 @@ Use this article to find the settings and requirements for connecting different 
 | **Service principal**| Store your [Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of Credential entity can view the credentials, but enables authorized viewers to create data feed without needing to know the credential details.|
 | **Service principal from key vault**|Store your [Service Principal in a Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) as a **credential entity** in Metrics Advisor and use it directly each time when onboarding metrics data. Only admins of a **credential entity** can view the credentials, but also leave viewers able to create data feed without needing to know detailed credentials. |
 
-## Create a credential entity to manage your credential in secure
+## <span id ='jump1'>Create a credential entity to manage your credential in secure</span>
 
 You can create a **credential entity** to store credential related information, and use it for authenticating to your data sources. You can share the credential entity to others and enable them to connect to your data sources without sharing the real credentials. It can be created in 'Adding data feed' tab or 'Credential entity' tab. After creating a credential entity for a specific authentication type, you can just choose one credential entity you created when adding new data feed, this will be helpful when creating multiple data feeds. The procedure of creating and using a credential entity is shown below:
 
@@ -182,7 +182,7 @@ The following sections specify the parameters required for all authentication ty
 
         Then, you can go through [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions) to know about Service Principal and set service principals. 
 
-        Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        Also, you need to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
         Here's an example of connection string:
         
@@ -225,7 +225,7 @@ The following sections specify the parameters required for all authentication ty
     
     * **Basic**: The **Account Name** of your Azure Data Lake Storage Gen2. This can be found in your Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys**. 
 
-    * **Azure Data Lake Storage Gen2 Shared Key**: First, you should specify the account key to access your Azure Data Lake Storage Gen2 （the same as Account Key in *Basic* authentication type）. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting. Then you should create a credential entity for *Azure Data Lake Storage Gen2 Shared Key* type and fill in the account key. 
+    * **Azure Data Lake Storage Gen2 Shared Key**: First, you should specify the account key to access your Azure Data Lake Storage Gen2 （the same as Account Key in *Basic* authentication type）. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting. Then you should [create a credential entity](#jump1) for *Azure Data Lake Storage Gen2 Shared Key* type and fill in the account key. 
 
         The account name is the same as *Basic* authentication type.
     
@@ -247,7 +247,7 @@ The following sections specify the parameters required for all authentication ty
         5. Set the **Select** field to the Azure AD application name and set role to **Storage Blob Data Contributor**. Click **Save**.
         ![lake-service-principals](media/datafeeds/adls-gen2-app-reg-assign-roles.png)
 
-        Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        Also, you need to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
     
     * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
@@ -327,7 +327,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ![lake-service-principals](media/datafeeds/adls-gen2-app-reg-assign-roles.png)
 
     
-    Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+    Also, you need to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
 * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secrets that cloud apps and services use. By using Key Vault, you can encrypt keys and secrets. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Store service principal credentials in Azure Stack Hub Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-store-credentials) to follow detailed procedure to set service principal from key vault. 
 
@@ -354,7 +354,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         Data Source=<Server>;Initial Catalog=<db-name>;User ID=<user-name>;Password=<password>
         ```
     
-    * **Managed Identity**: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), you can refer to following steps:
+    * <span id='jump'>**Managed Identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), you can refer to following steps:
     1. Enabling a system-assigned managed identity is a one-click experience. In Azure portal for your Metrics Advisor workspace, set the status as `on` in **Settings > Identity > System assigned**.
     
         ![set status as on](media/datafeeds/set-identity-status.png)
@@ -363,7 +363,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
         ![set admin](media/datafeeds/set-admin.png)
 
-    1. In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, louis@microsoft.com.
+    1. In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, louis@microsoft.com
     
         ![set connection detail](media/datafeeds/connection-details.png)
 
@@ -400,9 +400,9 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     
         First, you need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database, see detail in [Create an AAD app registration in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
-        Then, you should follow the same steps with managed identity in SQL Server, which is mentioned above. 
+        Then, you should follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
 
-        Also, you need to **create a credential entity** in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        Also, you need to [create a credential entity](#jump1) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
 
         Here's an example of connection string: 
         
