@@ -36,7 +36,7 @@ You need to drop and recreate your clusters if you’d like to move existing HDI
 After creating the new cluster, you can SSH to your cluster and run `sudo lsb_release -a` to verify that it runs on Ubuntu 18.04. We recommend that you test your applications in your test subscriptions first before moving to production. [Learn more about the HDInsight Ubuntu 18.04 update](./hdinsight-ubuntu-1804-qa.md).
 
 ### Scaling optimizations on HBase accelerated writes clusters
-HDInsight made some improvements and optimizations on scaling for HBase accelerated write enabled clusters. [Learn more about HBase accelerated write](./hbase/apache-hbase-accelerated-writes.md)
+HDInsight made some improvements and optimizations on scaling for HBase accelerated write enabled clusters. [Learn more about HBase accelerated write](./hbase/apache-hbase-accelerated-writes.md).
 
 ### Moving to Azure virtual machine scale sets
 HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
@@ -46,7 +46,7 @@ No deprecation in this release.
 
 ## Behavior changes
 ### Disable Stardard_A5 VM size as Head Node for HDInsight 4.0
-HDInsight cluster Head Node is responsible for initializing and managing the cluster. Standard_A5 VM size has reliability issues as Head Node for HDInsight 4.0. Starting from the next release in May 2021, customers will not be able to create new clusters with Standard_A5 VM size as Head Node. You can use other two-core VMs like E2_v3 or E2s_v3. Existing clusters will run as is. A four-core VM is highly recommended for Head Node to ensure the high availability and reliability of your production HDInsight clusters.
+HDInsight cluster Head Node is responsible for initializing and managing the cluster. Standard_A5 VM size has reliability issues as Head Node for HDInsight 4.0. Starting from this release, customers will not be able to create new clusters with Standard_A5 VM size as Head Node. You can use other two-core VMs like E2_v3 or E2s_v3. Existing clusters will run as is. A four-core VM is highly recommended for Head Node to ensure the high availability and reliability of your production HDInsight clusters.
 
 ### Network interface resource not visible for clusters running on Azure virtual machine scale sets
 HDInsight is gradually migrating to Azure virtual machine scale sets. Network interfaces for virtual machines are no longer visible to customers for clusters that use Azure virtual machine scale sets.
@@ -68,11 +68,10 @@ Starting July 1, 2021, Microsoft will offer [Basic support](hdinsight-component-
 We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
 
 ### VM host naming will be changed on July 1, 2021
-HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). This migration will change the cluster host name FQDN name format, and the numbers in the host name will not be guarantee in sequence.  
+HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). This migration will change the cluster host name FQDN name format, and the numbers in the host name will not be guarantee in sequence. If you want to get the FQDN names for each node, refer to [Find the Host names of Cluster Nodes](./find-host-name.md).
 
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ## Component version change
 You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
-
