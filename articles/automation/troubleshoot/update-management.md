@@ -291,7 +291,7 @@ Machines do appear in Azure Resource Graph query results, but still don't show u
 
    - Using the **Enable-AutomationSolution** [runbook](../update-management/enable-from-runbook.md) to automate onboarding Azure VMs.
 
-   - For a [selected Azure VM](../update-management-enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
+   - For a [selected Azure VM](../update-management/enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
 
    - For [multiple Azure VMs](../update-management/enable-from-portal.md) by selecting them from the **Virtual machines** page in the Azure portal.
 
