@@ -6,12 +6,11 @@ services: sql-database
 author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-db-mi
-ms.subservice: service-overview
+ms.subservice: service-overview, references_regions
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 ms.date: 06/02/2021
-ms.custom: references_regions
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
