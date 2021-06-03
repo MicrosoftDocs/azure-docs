@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 ## Teams Embed call or meeting status events capturing
 
-Joined group call or meeting status can be captured from `MeetingUIClientCallDelegate` delegate. The status includes connection states, participants count and modalities like microphone or camera state.   
+Joined group call or meeting status can be captured from `MeetingUIClientCallDelegate` delegate. The status includes connection states, participants count, and modalities like microphone or camera state.   
 
 Add the `MeetingUIClientCallDelegate` to your class and add needed variables.
 
@@ -83,7 +83,7 @@ Implement `MeetingUIClientCallDelegate` protocol methods that your app needs and
 
 ## Bring your own identity from the app to the participants in the SDK call.
 
-The app can assign its users identity values to the participants in the call or meeting and override the default values. This includes avatar, name, subtitle and role.  
+The app can assign its users identity values to the participants in the call or meeting and override the default values. The values includes avatar, name, subtitle, and role.  
 
 ### Assigning avatars for call participants
 
@@ -181,7 +181,7 @@ class ViewController: UIViewController {
     
 ```
 
-Initialization is done by creating new `CallClient`. This can be done in `viewDidLoad` or in any other method.
+Initialization is done by creating new `CallClient`. Add the creation to `viewDidLoad` or to any other method.
 
 ```swift
 override func viewDidLoad() {
@@ -189,7 +189,7 @@ override func viewDidLoad() {
     self.callClient = CallClient()
 }
 ```
-Use all ACS APIs like they are described in its documentation. This is not discussed in this documentation. 
+Use all ACS APIs like they are described in its documentation. The API usage is not discussed in this documentation. 
 
 Dispose the ACS SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use Teams Embed SDK.
 ```swift
@@ -204,7 +204,7 @@ Dispose the ACS SDK and set `nil` to its variables after the usage is not needed
 
 ```
 
-Teams Embed SDK initialization is also done during creating `MeetingUIClient`. This can be done in `viewDidLoad` or in any other method.
+Teams Embed SDK initialization is also done during creating `MeetingUIClient`. Add the creation to `viewDidLoad` or to any other method.
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
@@ -228,7 +228,7 @@ private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
 }
 
 ```
-Use the Teams Embed SDK APIs like they are described in its documentation.  This is not discussed as part of this section. 
+Use the Teams Embed SDK APIs like they are described in its documentation. The API usage is not discussed in this documentation. 
 
 Dispose the Teams Embed SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use ACS SDK.
 ```swift
