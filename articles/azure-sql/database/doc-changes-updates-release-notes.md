@@ -164,11 +164,11 @@ Managed Instance scaling operations that include changing service tier or number
 Currently, it is not supported to use `DATABASE SCOPED CREDENTIAL` syntax with Managed Identity to authenticate to Azure storage. Microsoft recommends using a [shared access signature](../../storage/common/storage-sas-overview.md) for the [database scoped credential](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token), when accessing Azure storage for bulk insert, `BACKUP` and `RESTORE` statements, or the `OPENROWSET` function. For example:
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+CREATE DATABASE SCOPED CREDENTIAL sas_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
  SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=2016-12-29T16:55:34Z***************';
 GO
 CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
-  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/invoices', CREDENTIAL= msi_cred );
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/invoices', CREDENTIAL= sas_cred );
 GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
