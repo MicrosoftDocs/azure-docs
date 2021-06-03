@@ -64,6 +64,9 @@ To help you estimate more accurate consumption costs, review these tips:
 ## Standard pricing (single-tenant)
 
 When you create the **Logic App (Standard)** resource in the Azure portal or deploy from Visual Studio Code, you must choose a hosting plan and pricing tier for your logic app. These choices determine the pricing that applies when running your workflows in single-tenant Azure Logic Apps.
+  
+> [!NOTE]
+> The Logic App (Standard) resource currently doesn't support using an App Service Plan and App Service Environment.
 
 <a name="hosting-plans"></a>
 
