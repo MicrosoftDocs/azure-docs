@@ -418,7 +418,10 @@ In this section, you create a Java console app that receives file upload notific
 
 4. Save and close the `pom.xml` file.
 
-5. Using a text editor, open the `my-app\src\main\java\com\mycompany\app\App.java` file and replace the code with the following.
+5. Get the IoT Hub service connection string.
+    [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+6. Using a text editor, open the `my-app\src\main\java\com\mycompany\app\App.java` file and replace the code with the following.
 
     ```java
     package com.mycompany.app;
@@ -465,9 +468,9 @@ In this section, you create a Java console app that receives file upload notific
     ```
 
 
-6. Save and close the `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` file.
+7. Save and close the `my-app\src\main\java\com\mycompany\app\App.java` file.
 
-7. Use the following command to build the app and check for errors:
+8. Use the following command to build the app and check for errors:
     ```cmd/sh
     mvn clean package -DskipTests
     ```
