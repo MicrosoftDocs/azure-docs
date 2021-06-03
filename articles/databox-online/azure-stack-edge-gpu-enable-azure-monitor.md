@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 06/03/2021
 ms.author: alkohli
 ---
 
@@ -20,7 +20,7 @@ Monitoring containers on your Azure Stack Edge Pro GPU device is critical, speci
 This article describes the steps required to enable Azure Monitor on your device and gather container logs in Log Analytics workspace. The Azure Monitor metrics store is currently not supported with your Azure Stack Edge Pro GPU device. 
 
 > [!NOTE]
-> For an Azure Arc enabled Kubernetes cluster, follow the steps in [Azure Monitor Container Insights for Azure Arc enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json) to set up monitoring of containers.
+> If Azure Arc is enabled on the Kubernetes cluster on your device, follow the steps in [Azure Monitor Container Insights for Azure Arc enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json) to set up container monitoring.
 
 
 ## Prerequisites
