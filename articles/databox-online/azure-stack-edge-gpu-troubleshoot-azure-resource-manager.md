@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Resource Manager configuration on an Azure Stack Edge Pro GPU device| Microsoft Docs 
-description: Describes how to run diagnostics and use logs to troubleshoot Azure Stack Edge Pro GPU issues.
+description: Describes how to troubleshoot the Azure Resource Manager configuration on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 

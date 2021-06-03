@@ -132,5 +132,5 @@ Any errors experienced during the upload and refresh processes are included in t
 
 - Learn more on how to [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
 - [Troubleshoot Azure Resource Manager issues](azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md)
-- [Troubleshoot Blob storage issues](azure-stack-edge-gpu-troubleshoot-azure-blob-storage.md)
+- [Troubleshoot Blob storage issues](azure-stack-edge-gpu-troubleshoot-blob-storage.md)
 - [Troubleshoot compute issues in IoT Edge](azure-stack-edge-gpu-troubleshoot-iot-edge.md)
