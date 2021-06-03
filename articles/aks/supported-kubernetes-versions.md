@@ -139,12 +139,17 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
+| 1.18  | Mar-23-20  | May 2020   | Aug 2020  | *1.21 GA | 
 | 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
 | 1.21  | Apr-08-21 | May 2021   | Jun 2021  | 1.24 GA |
 
 
+>[!NOTE]
+>AKS version 1.18 will continue to be available until July 31st 2021. After this date, AKS will return to its regular three version window support. It is important to note the following as the support from June 30th to July 31st 2021 will be limited in scope. The following is what users will be limited to:
+> - Creation of new clusters and nodepools on 1.18.
+> - CRUD operations on 1.18 clusters.
+> - Azure Support of non-Kubernetes related, platform issues. Platform issues include trouble with networking, storage, or compute running on Azure. Any support requests for K8s patching and troubleshooting will be requested to upgrade into a supported version.
 
 ## FAQ
 
