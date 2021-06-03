@@ -544,8 +544,6 @@
         href: cognitive-search-skill-entity-linking-v3.md
       - name: Entity Recognition (V3)
         href: cognitive-search-skill-entity-recognition-v3.md
-      - name: Entity Recognition
-        href: cognitive-search-skill-entity-recognition.md
       - name: Image Analysis
         href: cognitive-search-skill-image-analysis.md
       - name: Key Phrase Extraction 
@@ -577,6 +575,8 @@
       items:
       - name: Named Entity Recognition
         href: cognitive-search-skill-named-entity-recognition.md
+      - name: Entity Recognition
+        href: cognitive-search-skill-entity-recognition.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
