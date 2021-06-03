@@ -8,7 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 08/01/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Get customer-managed key information from indexes and synonym maps

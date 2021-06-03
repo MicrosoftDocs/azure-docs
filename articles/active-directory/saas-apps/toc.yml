@@ -163,6 +163,8 @@
         href: assetbank-tutorial.md
       - name: AssetSonar
         href: assetsonar-tutorial.md
+      - name: Astra Schedule
+        href: astra-schedule-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-tutorial.md
       - name: Atlassian Jira and Confluence
@@ -335,7 +337,9 @@
         href: check-point-harmony-connect-tutorial.md
       - name: Check Point Identity Awareness
         href: check-point-identity-awareness-tutorial.md
-      - name: Check Point Remote Secure Access VPN
+      - name: CheckPoint Infinity Portal
+        href: checkpoint-infinity-portal-tutorial.md
+      - name: Check Point Remote Access VPN
         href: check-point-remote-access-vpn-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
@@ -896,6 +900,8 @@
         href: idrive-tutorial.md
       - name: Igloo Software
         href: igloo-software-tutorial.md
+      - name: iHASCO Training
+        href: ihasco-training-tutorial.md
       - name: Illusive Networks
         href: illusive-networks-tutorial.md
       - name: iLMS
@@ -1022,8 +1028,6 @@
         href: jostle-tutorial.md
       - name: Juno Journey
         href: juno-journey-tutorial.md
-      - name: JustLogin
-        href: justlogin-tutorial.md
       - name: JuriBlox
         href: juriblox-tutorial.md  
       - name: Kallidus
@@ -1500,7 +1504,7 @@
         href: pulse-secure-pcs-tutorial.md
       - name: Pulse Secure Virtual Traffic Manager
         href: pulse-secure-virtual-traffic-manager-tutorial.md
-      - name: PureCloud by Genesys
+      - name: Genesys Cloud for Azure
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
         href: purelyhr-tutorial.md
@@ -1874,6 +1878,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: Teamgo
+        href: teamgo-tutorial.md
       - name: Teamphoria
         href: teamphoria-tutorial.md
       - name: TeamSeer
@@ -2088,8 +2094,6 @@
         href: workplacebyfacebook-tutorial.md
       - name: Workrite
         href: workrite-tutorial.md
-      - name: Workshop
-        href: workshop-tutorial.md
       - name: Workspot Control
         href: workspotcontrol-tutorial.md
       - name: Workstars

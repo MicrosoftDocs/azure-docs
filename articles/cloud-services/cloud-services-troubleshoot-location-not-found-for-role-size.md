@@ -6,7 +6,8 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 02/22/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot LocationNotFoundForRoleSize when deploying a Cloud service (classic) to Azure

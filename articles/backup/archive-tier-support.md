@@ -2,7 +2,8 @@
 title: Archive Tier support (Preview)
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 05/24/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Archive Tier support (Preview)

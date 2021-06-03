@@ -2,14 +2,14 @@
 title: Scalability - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to scale Azure Event Hubs by using partitions and throughput units. 
 ms.topic: article
-ms.date: 03/16/2021
+ms.date: 05/26/2021
 ---
 
 # Scaling with Event Hubs
 
 There are two factors which influence scaling with Event Hubs.
-*	Throughput units
-*	Partitions
+* Throughput units (standard tier) or processing units (premium tier) 
+* Partitions
 
 ## Throughput units
 
@@ -35,10 +35,12 @@ For more information about the auto-inflate feature, see [Automatically scale th
 
  [Event Hubs Premium](./event-hubs-premium-overview.md) provides superior performance and better isolation with in a managed multitenant PaaS environment. The resources in a Premium tier are isolated at the CPU and memory level so that each tenant workload runs in isolation. This resource container is called a *Processing Unit*(PU). You can purchase 1, 2, 4, 8 or 16 processing Units for each Event Hubs Premium namespace. 
 
-How much you can ingest and stream with a processing unit depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
-One processing unit can approximately offer core capacity of ~5-10 MB/s ingress and 10-20 MB/s egress, given that we have sufficient partitions so that storage is not a throttling factor.  
+How much you can ingest and stream with a processing unit depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. One processing unit can approximately offer core capacity of ~5-10 MB/s ingress and 10-20 MB/s egress, given that we have sufficient partitions so that storage is not a throttling factor.  
 
+To learn about configuring PUs for a premium tier namespace, see [Configure processing units](configure-processing-units-premium-namespace.md).
 
+> [!NOTE]
+> To learn more about quotas and limits, see [Azure Event Hubs - quotas and limits](event-hubs-quotas.md).
 
 ## Partitions
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -49,5 +51,5 @@ One processing unit can approximately offer core capacity of ~5-10 MB/s ingress 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-- [Automatically scale throughput units](event-hubs-auto-inflate.md)
-- [Event Hubs service overview](./event-hubs-about.md)
+- [Automatically scale throughput units for a standard tier namespace](event-hubs-auto-inflate.md)
+- [Configure processing units for a premium tier namespace](configure-processing-units-premium-namespace.md)

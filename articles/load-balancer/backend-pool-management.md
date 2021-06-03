@@ -7,7 +7,8 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Backend pool management

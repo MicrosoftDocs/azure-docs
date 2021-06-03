@@ -154,7 +154,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --release-train stable \
         --auto-upgrade-minor-version true \
         --scope cluster \
-        --release-namespace "${namespace}" \
+        --release-namespace $namespace \
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${namespace}" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
@@ -212,7 +212,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 You can use `kubectl` to see the pods that have been created in your Kubernetes cluster:
 
 ```bash
-kubectl get pods -n ${namespace}
+kubectl get pods -n $namespace
 ```
 
 You can learn more about these pods and their role in the system from [Pods created by the App Service extension](overview-arc-integration.md#pods-created-by-the-app-service-extension).
@@ -238,7 +238,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
         --resource-group $groupName \
         --name $customLocationName \
         --host-resource-id $connectedClusterId \
-        --namespace ${namespace} \
+        --namespace $namespace \
         --cluster-extension-ids $extensionId
     ```
     
@@ -273,7 +273,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
         --resource-group $groupName \
         --name $kubeEnvironmentName \
         --custom-location $customLocationId \
-        --static-ip "$staticIp"
+        --static-ip $staticIp
     ```
     
 2. Validate that the App Service Kubernetes environment is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.

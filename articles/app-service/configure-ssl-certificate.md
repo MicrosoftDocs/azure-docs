@@ -58,7 +58,9 @@ To secure a custom domain in a TLS binding, the certificate has additional requi
 > [!NOTE]
 > Before creating a free managed certificate, make sure you have [fulfilled the prerequisites](#prerequisites) for your app.
 
-The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional TLS/SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
+The free App Service managed certificate is a turn-key solution for securing your custom DNS name in App Service. It's a TLS/SSL server certificate that's fully managed by App Service and renewed continuously and automatically in six-month increments, 45 days before expiration. You create the certificate and bind it to a custom domain, and let App Service do the rest.
+
+The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
 - Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).

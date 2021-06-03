@@ -81,7 +81,7 @@ The Cognitive Services extension processor node enables you to extend the pipeli
 
 #### Signal gate processor
 
-The signal gate processor node enables you to conditionally forward media from one node to another. An example use case is to insert a signal gate processor node between the RTSP source node and the video sink node, and using the output of a motion detector processor node to trigger the gate. With such a pipeline, you would be recording video only when motion is detected. You can also use the output from HTTP or gRPC extension node to trigger the gate, instead of motion detection processor node, thus enabling recording of video when something interesting is detected.
+The signal gate processor node enables you to conditionally forward media from one node to another. The signal gate processor node must be immediately followed by a video sink or file sink. An example use case is to insert a signal gate processor node between the RTSP source node and the video sink node, and using the output of a motion detector processor node to trigger the gate. With such a pipeline, you would be recording video only when motion is detected. You can also use the output from HTTP or gRPC extension node to trigger the gate, instead of motion detection processor node, thus enabling recording of video when something interesting is detected.
 
 #### Object tracker processor
 

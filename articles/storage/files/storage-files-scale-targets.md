@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure Files
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/28/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -30,7 +30,7 @@ Azure supports multiple types of storage accounts for different storage scenario
 | Maximum storage account capacity | 5 PiB<sup>1</sup> | 100 TiB (provisioned) |
 | Maximum number of file shares | Unlimited | Unlimited, total provisioned size of all shares must be less than max than the max storage account capacity |
 | Maximum concurrent request rate | 20,000 IOPS<sup>1</sup> | 100,000 IOPS |
-| Maximum ingress | <ul><li>US/Europe: 9,536 MiB/sec<sup>1</sup></li><li>Other regions (LRS/ZRS): 9,536 MiB/sec<sup>1</sup></li><li>Other regions (GRS): 4,768 GiB/sec<sup>1</sup></li></ul> | 4,136 MiB/sec |
+| Maximum ingress | <ul><li>US/Europe: 9,536 MiB/sec<sup>1</sup></li><li>Other regions (LRS/ZRS): 9,536 MiB/sec<sup>1</sup></li><li>Other regions (GRS): 4,768 MiB/sec<sup>1</sup></li></ul> | 4,136 MiB/sec |
 | Maximum egress | 47,683 MiB/sec<sup>1</sup> | 6,204 MiB/sec |
 | Maximum number of virtual network rules | 200 | 200 |
 | Maximum number of IP address rules | 200 | 200 |
