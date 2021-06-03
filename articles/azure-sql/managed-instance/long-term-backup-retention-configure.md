@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Managed Instance: Long-term backup retention"
-description: "Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Managed Instance using PowerShell."
+description: "Learn how to store and restore automated backups on separate Azure Blob storage containers for an Azure SQL Managed Instance using Azure Portal and PowerShell."
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -12,15 +12,15 @@ ms.author: shkale
 ms.reviewer: mathoma, sstein
 ms.date: 02/25/2021
 ---
-# Manage Azure SQL Managed Instance long-term backup retention (PowerShell)
+# Manage Azure SQL Managed Instance long-term backup retention
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md) policy (LTR) as a public preview feature. This allows you to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
+In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md) policy (LTR) as a public preview feature. This allows you to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with Azure Portal and PowerShell.
 
    > [!IMPORTANT]
    > LTR for managed instances is currently available in public preview in Azure Public regions. 
 
-The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
+The following sections show you how to use Azure Portal and PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
 
 ## Using the Azure portal
