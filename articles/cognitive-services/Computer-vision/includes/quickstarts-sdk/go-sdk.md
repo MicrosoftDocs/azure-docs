@@ -25,7 +25,6 @@ Use the OCR client library to read printed and handwritten text from images.
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-    * To create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) you must agree in Azure Portal that you have reviewed the [Responsible AI (RAI) documentation](https://docs.microsoft.com/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/cognitive-services/computer-vision/context/context) and will use this service in accordance with it. This acknowledgement applies to all resources created under that same subscription through the various Azure tools such as CLI, ARM template and Azure Portal. To review and agree to the Responsible AI terms create a create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) through the Azure Portal.
 
 ## Setting up
 
