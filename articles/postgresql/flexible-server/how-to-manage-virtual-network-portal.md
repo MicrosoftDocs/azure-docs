@@ -1,7 +1,7 @@
 ---
 title: Manage virtual networks - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal
-author: sunilagarwal 
+author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
@@ -9,9 +9,6 @@ ms.date: 04/22/2021
 ---
 
 # Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal
-
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
@@ -36,8 +33,8 @@ To create a flexible server in a virtual network, you need:
      4. On the pull-out screen, under **Service endpoint**, choose `Microsoft.storage` from the drop-down.
      5. Save the changes.
 
-- If you want to setup your own private DNS zone to use with the flexible server, please see [private DNS overview](https://docs.microsoft.com/azure/dns/private-dns-overview) documentation for more details. 
-  
+- If you want to setup your own private DNS zone to use with the flexible server, please see [private DNS overview](https://docs.microsoft.com/azure/dns/private-dns-overview) documentation for more details.
+
 ## Create Azure Database for PostgreSQL - Flexible Server in an already existing virtual network
 
 1. Select **Create a resource** (+) in the upper-left corner of the  portal.

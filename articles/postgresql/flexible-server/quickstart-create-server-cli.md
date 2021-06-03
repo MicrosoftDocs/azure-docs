@@ -14,9 +14,6 @@ ms.custom: mvc, devx-track-azurecli
 
 This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-> [!IMPORTANT] 
-> Azure Database for PostgreSQL Flexible Server is currently in preview.
-
 ## Launch Azure Cloud Shell
 
 The [Azure Cloud Shell](../../cloud-shell/overview.md) is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
@@ -47,21 +44,21 @@ Create an [Azure resource group](../../azure-resource-manager/management/overvie
 az group create --name myresourcegroup --location westus
 ```
 
-Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context): 
+Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context):
 
 ```azurecli
 az postgres flexible-server create
 ```
 
-The server created has the below attributes: 
-- Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group 
+The server created has the below attributes:
+- Auto-generated server name, admin username, admin password, resource group name (if not already specified in local context), and in the same location as your resource group
 - Service defaults for remaining server configurations: compute tier (General Purpose), compute size/SKU (D2s_v3 - 2 vCore, 8 GB RAM), backup retention period (7 days), and PostgreSQL version (12)
 - The default connectivity method is Private access (VNet Integration) with an auto-generated virtual network and subnet
 
-> [!NOTE] 
+> [!NOTE]
 > The connectivity method cannot be changed after creating the server. For example, if you selected *Private access (VNet Integration)* during create then you cannot change to *Public access (allowed IP addresses)* after create. We highly recommend creating a server with Private access to securely access your server using VNet Integration. Learn more about Private access in the [concepts article](./concepts-networking.md).
 
-If you'd like to change any defaults, please refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters. 
+If you'd like to change any defaults, please refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters.
 
 > [!NOTE]
 > Connections to Azure Database for PostgreSQL communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed. If this is the case, you can't connect to your server unless your IT department opens port 5432.
@@ -107,11 +104,11 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 
 ## Connect using PostgreSQL command-line client
 
-As the flexible server was created with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the virtual network created. 
+As the flexible server was created with *Private access (VNet Integration)*, you will need to connect to your server from a resource within the same VNet as your server. You can create a virtual machine and add it to the virtual network created.
 
 Once your VM is created, you can SSH into the machine and install the **[psql](https://www.postgresql.org/download/)** command-line tool.
 
-With psql, connect using the below command. Replace values with your actual server name and password. 
+With psql, connect using the below command. Replace values with your actual server name and password.
 
 ```bash
 psql -h mydemoserver.postgres.database.azure.com -u mydemouser -p

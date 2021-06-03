@@ -12,9 +12,6 @@ ms.date: 09/22/2020
 
 Audit logging of database activities in Azure Database for PostgreSQL - Flexible server is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session and/or object audit logging.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible server is in preview
-
 If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Usage considerations
@@ -31,7 +28,7 @@ CREATE EXTENSION pgaudit;
 
 ## pgAudit settings
 
-pgAudit allows you to configure session or object audit logging. [Session audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emits detailed logs of executed statements. [Object audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging) is audit scoped to specific relations. You can choose to set up one or both types of logging. 
+pgAudit allows you to configure session or object audit logging. [Session audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emits detailed logs of executed statements. [Object audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging) is audit scoped to specific relations. You can choose to set up one or both types of logging.
 
 > [!NOTE]
 > pgAudit settings are specified globally and cannot be specified at a database or role level.
@@ -49,7 +46,7 @@ Once you have [enabled pgAudit](#enabling-pgaudit), you can configure its parame
 Each audit entry is indicated by `AUDIT:` near the beginning of the log line. The format of the rest of the entry is detailed in the [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
 ## Getting started
-To quickly get started, set `pgaudit.log` to `WRITE`, and open your server logs to review the output. 
+To quickly get started, set `pgaudit.log` to `WRITE`, and open your server logs to review the output.
 
 ## Viewing audit logs
 The way you access the logs depends on which endpoint you choose. For Azure Storage, see the [logs storage account](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) article. For Event Hubs, see the [stream Azure logs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) article.
@@ -62,7 +59,7 @@ Search for all pgAudit entries in Postgres logs for a particular server in the l
 ```kusto
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
-| where TimeGenerated > ago(1d) 
+| where TimeGenerated > ago(1d)
 | where Message contains "AUDIT:"
 ```
 

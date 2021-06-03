@@ -36,7 +36,7 @@
     href: how-to-upgrade-using-dump-and-restore.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
-    displayName: issues, limitations, postgresql 
+    displayName: issues, limitations, postgresql
 - name: Single Server
   expanded: true
   items:
@@ -410,7 +410,7 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-- name: Flexible Server (Preview)
+- name: Flexible Server
   expanded: true
   items:
   - name: Flexible Server documentation
@@ -418,7 +418,7 @@
   - name: Overview
     href: flexible-server/overview.md
   - name: Release notes
-    href: flexible-server/release-notes.md   
+    href: flexible-server/release-notes.md
   - name: Quickstarts
     expanded: true
     items:
@@ -471,7 +471,7 @@
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)
-      href: flexible-server/concepts-pgbouncer.md      
+      href: flexible-server/concepts-pgbouncer.md
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -552,7 +552,7 @@
       - name: Azure portal
         href: flexible-server/how-to-restart-server-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-restart-server-cli.md        
+        href: flexible-server/how-to-restart-server-cli.md
     - name: Restore a server
       items:
       - name: Azure portal
@@ -570,7 +570,7 @@
       - name: Azure portal
         href: flexible-server/how-to-manage-high-availability-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-configure-high-availability-cli.md        
+        href: flexible-server/how-to-configure-high-availability-cli.md
     - name: Monitor
       items:
       - name: Create alerts on metrics using portal

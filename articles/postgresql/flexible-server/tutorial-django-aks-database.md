@@ -11,20 +11,19 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
 
-In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL - Flexible Server (Preview) using the Azure CLI.
+In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL - Flexible Server using the Azure CLI.
 
-**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for PostgreSQL - Flexible Server (Preview)](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
+**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for PostgreSQL - Flexible Server](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
-> - Azure Database for PostgreSQL Flexible Server is currently in public preview
-> - This quickstart assumes a basic understanding of Kubernetes concepts, Django and PostgreSQL.
+> This quickstart assumes a basic understanding of Kubernetes concepts, Django and PostgreSQL.
 
 ## Pre-requisites
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 - Use [Azure Cloud Shell](../../cloud-shell/quickstart.md) using the bash environment.
 
-   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)  
+   [![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 - If you prefer, [install](/cli/azure/install-azure-cli) Azure CLI to run CLI reference commands.
   - If you're using a local install, sign in with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal.  See [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli) for additional sign-in options.
   - When you're prompted, install Azure CLI extensions on first use.  For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -51,7 +50,7 @@ The following example output shows the resource group created successfully:
   "id": "/subscriptions/<guid>/resourceGroups/django-project",
   "location": "eastus",
   "managedBy": null,
-  
+
   "name": "django-project",
   "properties": {
     "provisioningState": "Succeeded"
@@ -139,7 +138,7 @@ Create a new [Django application](https://docs.djangoproject.com/en/3.1/intro/) 
     └─── Dockerfile
     └─── requirements.txt
     └─── manage.py
-    
+
 ```
 Update ```ALLOWED_HOSTS``` in ```settings.py``` to make sure the Django application uses the external IP that gets assigned to kubernetes app.
 
@@ -316,7 +315,7 @@ When the *EXTERNAL-IP* address changes from *pending* to an actual public IP add
 django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Now open a web browser to the external IP address of your service view the Django application.  
+Now open a web browser to the external IP address of your service view the Django application.
 
 >[!NOTE]
 > - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
@@ -324,7 +323,7 @@ Now open a web browser to the external IP address of your service view the Djang
 
 ## Run database migrations
 
-For any django application, you would need to run database migration or collect static files. You can run these django shell commands using ```$ kubectl exec <pod-name> -- [COMMAND]```.  Before running the command you need to find the pod name using ```kubectl get pods```. 
+For any django application, you would need to run database migration or collect static files. You can run these django shell commands using ```$ kubectl exec <pod-name> -- [COMMAND]```.  Before running the command you need to find the pod name using ```kubectl get pods```.
 
 ```bash
 $ kubectl get pods
@@ -342,8 +341,8 @@ Once the pod name has been found you can run django database migrations with the
 $ kubectl exec django-app-5d9cd6cd8-l6x4b -- python /code/manage.py migrate
 ```
 
-The output would look like 
-```output 
+The output would look like
+```output
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, sessions
 Running migrations:
@@ -352,7 +351,7 @@ Running migrations:
   Applying admin.0001_initial... OK
   Applying admin.0002_logentry_remove_auto_add... OK
   Applying admin.0003_logentry_add_action_flag_choices... OK
-  . . . . . . 
+  . . . . . .
 ```
 
 If you run into issues, please run ```kubectl logs <pod-name>```  to see what exception is thrown by your application. If the application is working successfully you would see an output like this when running ```kubectl logs```.

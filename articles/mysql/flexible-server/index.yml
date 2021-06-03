@@ -16,7 +16,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Flexible Server (Preview)
+  - title: About Flexible Server
     linkLists:
       - linkListType: overview
         links:

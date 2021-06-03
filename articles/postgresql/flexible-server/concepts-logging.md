@@ -10,9 +10,6 @@ ms.date: 09/22/2020
 
 # Logs in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
-
 Azure Database for PostgreSQL allows you to configure and access Postgres' standard logs. The logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. Logging information you can configure and access includes errors, query information, autovacuum records, connections, and checkpoints. (Access to transaction logs is not available).
 
 Audit logging is made available through a Postgres extension, `pgaudit`. To learn more, visit the [auditing concepts](concepts-audit.md) article.
@@ -24,15 +21,15 @@ You can configure Postgres standard logging on your server using the logging ser
 To learn how to configure parameters in Azure Database for PostgreSQL, see the [portal documentation](howto-configure-server-parameters-using-portal.md) or the [CLI documentation](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
-> Configuring a high volume of logs, for example statement logging, can add significant performance overhead. 
+> Configuring a high volume of logs, for example statement logging, can add significant performance overhead.
 
 ## Accessing logs
 
-Azure Database for PostgreSQL is integrated with Azure Monitor diagnostic settings. Diagnostic settings allows you to send your Postgres logs in JSON format to Azure Monitor Logs for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving. 
+Azure Database for PostgreSQL is integrated with Azure Monitor diagnostic settings. Diagnostic settings allows you to send your Postgres logs in JSON format to Azure Monitor Logs for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving.
 
 ### Log format
 
-The following table describes the fields for the **PostgreSQLLogs** type. Depending on the output endpoint you choose, the fields included and the order in which they appear may vary. 
+The following table describes the fields for the **PostgreSQLLogs** type. Depending on the output endpoint you choose, the fields included and the order in which they appear may vary.
 
 |**Field** | **Description** |
 |---|---|
@@ -49,13 +46,13 @@ The following table describes the fields for the **PostgreSQLLogs** type. Depend
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Logging level, example: LOG, ERROR, NOTICE |
-| Message | Primary log message | 
+| Message | Primary log message |
 | Domain | Server version, example: postgres-10 |
 | Detail | Secondary log message (if applicable) |
 | ColumnName | Name of the column (if applicable) |
 | SchemaName | Name of the schema (if applicable) |
 | DatatypeName | Name of the datatype (if applicable) |
-| LogicalServerName | Name of the server | 
+| LogicalServerName | Name of the server |
 | _ResourceId | Resource URI |
 | Prefix | Log line's prefix |
 

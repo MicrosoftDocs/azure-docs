@@ -10,10 +10,7 @@ ms.date: 09/22/2020
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
-
-Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL - Flexible Server automatically backs up your server and retains the backups for the duration of up to 35 days. While restoring, you can specify the date and time to which you want to restore within the retention period. The overall time to restore and recover depends on the size of the database files and the amount of recovery to be performed. 
+Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL - Flexible Server automatically backs up your server and retains the backups for the duration of up to 35 days. While restoring, you can specify the date and time to which you want to restore within the retention period. The overall time to restore and recover depends on the size of the database files and the amount of recovery to be performed.
 
 ### Backup process in flexible server
 The first snapshot backup is scheduled immediately after the flexible server is created. Subsequently, a daily snapshot backup of data files is performed. Backups are stored in a zone redundant storage within a region. Transaction logs (write ahead logs - WAL) are also archived continuously, so that you will be able to restore to the last committed transaction. These data and logs backups allow you to restore a server to any point-in-time within your configured backup retention period. All backups are encrypted using AES 256-bit encryption.
@@ -30,7 +27,7 @@ The backups can only be used for restore operations within the Flexible server. 
 
 Backups are retained based on the backup retention period setting for the server. You can select a retention period between 7 and 35 days. The default retention period is seven days. You can set the retention period during server creation or you can update it at a later time. Backups are retained even for stopped servers.
 
-The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it\'s based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in the backup storage. For example - if the backup retention period is set to seven days, the recovery window is considered as last seven days. In this scenario, all the data and logs required to restore and recover the server in last seven days are retained. 
+The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it\'s based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in the backup storage. For example - if the backup retention period is set to seven days, the recovery window is considered as last seven days. In this scenario, all the data and logs required to restore and recover the server in last seven days are retained.
 
 
 ### Backup storage cost
@@ -46,16 +43,16 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 ## Point-in-time restore overview
 
-In Flexible server, performing a point-in-time restore creates a new server from the flexible server\'s backups in the same region as your source server. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server. 
+In Flexible server, performing a point-in-time restore creates a new server from the flexible server\'s backups in the same region as your source server. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server.
 
  > [!IMPORTANT]
-> If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured without high availability, and in the same region as your primary server. 
+> If you are restoring a flexible server configured with zone redundant high availability, the restored server will be configured without high availability, and in the same region as your primary server.
 
  ### Restore process
 
-The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. A recovery process is then initiated using WAL files to bring the database to a consistent state. 
+The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. A recovery process is then initiated using WAL files to bring the database to a consistent state.
 
- For example, let us assume the backups are performed at 11pm every night. If the restore point is for August 15, 2020 at 10:00 am, the daily backup of August 14, 2020 is restored. The database will be recovered until 10am of August 25, 2020 using the transaction logs backup between August 24, 11pm until August 25, 10am. 
+ For example, let us assume the backups are performed at 11pm every night. If the restore point is for August 15, 2020 at 10:00 am, the daily backup of August 14, 2020 is restored. The database will be recovered until 10am of August 25, 2020 using the transaction logs backup between August 24, 11pm until August 25, 10am.
 
  Please see [these steps](./how-to-restore-server-portal.md) to restore your database server.
 
@@ -66,9 +63,9 @@ Point-in-time restore is useful in multiple scenarios. For example, when a user 
 
 You can choose between a latest restore point and a custom restore point.
 
--   **Latest restore point (now)**: This is the default option which allows you to restore the server to the latest point-in-time. 
+-   **Latest restore point (now)**: This is the default option which allows you to restore the server to the latest point-in-time.
 
--   **Custom restore point**: This option allows you to choose any point-in-time within the retention period defined for this flexible server. By default, the latest time in UTC is auto-selected, and useful if you want to restore to the last committed transaction for your test purposes. You can optionally choose other days and time. 
+-   **Custom restore point**: This option allows you to choose any point-in-time within the retention period defined for this flexible server. By default, the latest time in UTC is auto-selected, and useful if you want to restore to the last committed transaction for your test purposes. You can optionally choose other days and time.
 
 The estimated time to recover depends on several factors including database size, volume of transaction logs to process, the network bandwidth, and the total number of databases recovering in the same region at the same time. The overall recovery time usually takes from few minutes up to few hours.
 
@@ -83,13 +80,13 @@ After restoring the database, you can perform the following tasks to get your us
 -   If the new server is meant to replace the original server, redirect clients and client applications to the new server.
 
 -   Ensure appropriate server-level firewall and VNet rules are in place for users to connect. These rules are not copied over from the original server.
-  
+
 -   The restored server's compute can be scaled up / down as needed.
 
 -   Ensure appropriate logins and database level permissions are in place.
 
 -   Configure alerts, as appropriate.
-  
+
 -  If you had restored the database configured with high availability, and if you want to configure the restored server with high availability, you can then follow [the steps](./how-to-manage-high-availability-portal.md).
 
 

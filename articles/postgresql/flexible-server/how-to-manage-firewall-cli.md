@@ -1,19 +1,16 @@
 ---
 title: Manage firewall rules - Azure CLI - Azure Database for PostgreSQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using Azure CLI command line.
-author: sunilagarwal 
+author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 09/22/2020 
+ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
 ---
 
 # Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure CLI
-
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
@@ -109,11 +106,11 @@ az postgres flexible-server firewall-rule create --name mydemoserver --start-ip-
 
 > [!IMPORTANT]
 > This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
-> 
+>
 Upon success, each create command output lists the details of the firewall rule you have created, in JSON format (by default). If there is a failure, the output shows error message text instead.
 
-### List firewall rules 
-Use the `az postgres flexible-server firewall-rule list` command to list the existing server firewall rules on the server. Notice that the server name attribute is specified in the **--name** switch. 
+### List firewall rules
+Use the `az postgres flexible-server firewall-rule list` command to list the existing server firewall rules on the server. Notice that the server name attribute is specified in the **--name** switch.
 ```azurecli-interactive
 az postgres flexible-server firewall-rule list --name mydemoserver
 ```

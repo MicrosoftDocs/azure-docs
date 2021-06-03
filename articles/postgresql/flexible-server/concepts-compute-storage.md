@@ -10,9 +10,6 @@ ms.date: 02/19/2021
 
 # Compute and Storage options in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
-
 You can create an Azure Database for PostgreSQL server in one of three different pricing tiers: Burstable, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the PostgreSQL server level. A server can have one or many databases.
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
@@ -116,7 +113,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 When marked with a \*, IOPS are limited by the VM type you selected. Otherwise IOPS are limited by the selected storage size.
 
 >[!NOTE]
-> You may see higher IOPS in the metrics due to disk level bursting. Please see the [documentation](../../virtual-machines/disk-bursting.md#disk-level-bursting) for more details. 
+> You may see higher IOPS in the metrics due to disk level bursting. Please see the [documentation](../../virtual-machines/disk-bursting.md#disk-level-bursting) for more details.
 
 ### Maximum I/O bandwidth (MiB/sec) for your configuration
 

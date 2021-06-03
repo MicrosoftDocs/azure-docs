@@ -10,18 +10,15 @@ ms.date: 09/22/2020
 
 # Manage an Azure Database for PostgreSQL - Flexible Server by using the Azure CLI
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview.
-
 This article shows you how to manage your flexible server deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin. 
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 You'll need to be running the Azure CLI version 2.0, or later, locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Sign in to your account by using the [az login](/cli/azure/reference-index#az_login) command. 
+Sign in to your account by using the [az login](/cli/azure/reference-index#az_login) command.
 
 ```azurecli-interactive
 az login
@@ -54,7 +51,7 @@ sku-name|Standard_D4ds_v3|Enter the name of the compute tier and size. The value
 storage-size | 6144 | Enter the storage capacity of the server in megabytes. The minimum is 5120, increasing in increments of 1024.
 
 > [!IMPORTANT]
-> You cannot scale down storage. 
+> You cannot scale down storage.
 
 ## Manage PostgreSQL databases on a server
 
@@ -67,7 +64,7 @@ There are a number of applications you can use to connect to your Azure Database
    ```
 
    For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** through your access credentials. When you're prompted, enter the `<server_admin_password>` that you chose.
-  
+
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```
@@ -118,7 +115,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 ```
 
 > [!IMPORTANT]
-> Choose a password that has a minimum of 8 characters and a maximum of 128 characters. The password must contain characters from three of the following categories: 
+> Choose a password that has a minimum of 8 characters and a maximum of 128 characters. The password must contain characters from three of the following categories:
 > - English uppercase letters
 > - English lowercase letters
 > - Numbers

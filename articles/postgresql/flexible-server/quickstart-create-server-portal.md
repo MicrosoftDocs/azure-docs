@@ -11,9 +11,6 @@ ms.date: 06/02/2021
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
-
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Flexible Server in about five minutes using the Azure portal.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
@@ -57,7 +54,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
     Compute + storage | **General Purpose**, **4 vCores**, **512 GB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *General Purpose*, *4 vCores*, *512 GB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
 
     :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="The Pricing tier pane":::
-    
+
 5. Configuring Networking options
 
     On the Network tab, you can choose how your server is reachable. Azure Database for PostgreSQL creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses. We recommend making the server publicly accessible:
@@ -68,7 +65,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
     :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select Add current client IP address":::
 
-    If you choose private access 
+    If you choose private access
 6. Select **Review + create** to review your selections. Select **Create** to provision the server. This operation may take a few minutes.
 
 7. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this server on your Azure portal dashboard as a shortcut to the server's **Overview** page. Selecting **Go to resource** opens the server's **Overview** page.
@@ -100,7 +97,7 @@ There are a number of applications you can use to connect to your Azure Database
    ```
 
    For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
-  
+
    ```bash
    psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```

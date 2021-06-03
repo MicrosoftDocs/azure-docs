@@ -14,17 +14,14 @@ ms.date: 04/22/2021
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - [Single Server](../overview-single-server.md)
-- Flexible Server (Preview)
+- Flexible Server
 - Hyperscale (Citus)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
-
 ## Overview
 
-Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11 and 12. The service is currently in preview, available today in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11 and 12. The service is currently available today in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 ![Flexible Server - Overview](./media/overview/overview-flexible-server.png)
 
@@ -34,7 +31,7 @@ Flexible servers are best suited for
 - Application developments requiring better control and customizations.
 - Zone redundant high availability
 - Managed maintenance windows
-  
+
 ## High availability
 
 The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a Linux virtual machine, while data files reside on Azure storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability.
@@ -89,26 +86,26 @@ The flexible server comes with a built-in PgBouncer, a connection pooler. You ca
 
 One of the advantage of running your workload in Azure is it's global reach. The flexible server is available today in following Azure regions:
 
-| Region | Availability | Zone-redundant HA | 
+| Region | Availability | Zone-redundant HA |
 | --- | --- | --- |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | 
+| UK South | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :heavy_check_mark: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| Central US | :heavy_check_mark: | :heavy_check_mark: | 
-| East US | :heavy_check_mark: | :heavy_check_mark: | 
+| Central US | :heavy_check_mark: | :heavy_check_mark: |
+| East US | :heavy_check_mark: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | 
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
-| France Central | :heavy_check_mark: | :heavy_check_mark: | 
+| Japan East | :heavy_check_mark: | :heavy_check_mark: |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: |
 
 We continue to add more regions for flexible server.
 
 ## Migration
 
-The service runs the community version of PostgreSQL. This allows full application compatibility and requires minimal refactoring cost to migrate an existing application developed on PostgreSQL engine to Flexible Server. 
+The service runs the community version of PostgreSQL. This allows full application compatibility and requires minimal refactoring cost to migrate an existing application developed on PostgreSQL engine to Flexible Server.
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like pg_dump and pg_restore can provide fastest way to migrate. See [Migrate using dump and restore](../howto-migrate-using-dump-and-restore.md) for details.
 - **Azure Database Migration Service** – For seamless and simplified migrations to flexible server with minimal downtime, Azure Database Migration Service can be leveraged. See [DMS via portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) and [DMS via CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). You can migrate from your Azure Database for PostgreSQL - Single Server to Flexible Server. See this [DMS article](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) for details.
@@ -121,7 +118,7 @@ In addition, consider the following points of contact as appropriate:
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 - To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
-  
+
 
 ## Next steps
 

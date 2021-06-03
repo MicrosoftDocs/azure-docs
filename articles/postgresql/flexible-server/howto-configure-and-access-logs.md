@@ -10,9 +10,6 @@ ms.date: 09/22/2020
 
 # Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
-
 PostgreSQL logs are available on every node of a flexible server. You can ship logs to a storage server, or to an analytics service. The logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance.
 
 ## Configure diagnostic settings
@@ -22,13 +19,13 @@ You can enable diagnostic settings for your Postgres server using the Azure port
 To enable resource logs using the Azure portal:
 
 1. In the portal, go to *Diagnostic Settings* in the navigation menu of your Postgres server.
-   
+
 2. Select *Add Diagnostic Setting*.
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Add diagnostic settings button":::
 
-3. Name this setting. 
+3. Name this setting.
 
-4. Select your preferred endpoint (storage account, event hub, log analytics). 
+4. Select your preferred endpoint (storage account, event hub, log analytics).
 
 5. Select the log type **PostgreSQLLogs**.
    :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Choose PostgreSQL logs":::
@@ -51,7 +48,7 @@ Search for all Postgres logs for a particular server in the last day
 AzureDiagnostics
 | where LogicalServerName_s == "myservername"
 | where Category == "PostgreSQLLogs"
-| where TimeGenerated > ago(1d) 
+| where TimeGenerated > ago(1d)
 ```
 
 Search for all non-localhost connection attempts
