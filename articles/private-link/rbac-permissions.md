@@ -43,34 +43,34 @@ This section lists the granular permissions required to deploy a private endpoin
 Here is the JSON format of the above permissions. Imput your own roleName, description, and assignableScopes:
 
   ```JSON
-  {
-    "properties": {
-      "roleName": "Role Name",
-      "description": "Description",
-      "assignableScopes": [
-        "/subscriptions/SubscriptionID/resourceGroups/ResourceGroupName"
-      ],
-      "permissions": [
-        {
-          "actions": [
-            "Microsoft.Resources/deployments/*",
-            "Microsoft.Resources/subscriptions/resourceGroups/read",
-            "Microsoft.Network/virtualNetworks/read",
-            "Microsoft.Network/virtualNetworks/subnets/read",
-            "Microsoft.Network/virtualNetworks/subnets/write",
-            "Microsoft.Network/virtualNetworks/subnets/join/action",
-            "Microsoft.Network/privateEndpoints/read",
-            "Microsoft.Network/privateEndpoints/write",
-            "Microsoft.Network/locations/availablePrivateEndpointTypes/read"
-          ],
-          "notActions": [],
-          "dataActions": [],
-          "notDataActions": []
-        }
-      ]
-    }
-  }
-  ```
+ {
+   "properties": {
+     "roleName": "Role Name",
+     "description": "Description",
+     "assignableScopes": [
+       "/subscriptions/SubscriptionID/resourceGroups/ResourceGroupName"
+     ],
+     "permissions": [
+       {
+         "actions": [
+           "Microsoft.Resources/deployments/*",
+           "Microsoft.Resources/subscriptions/resourceGroups/read",
+           "Microsoft.Network/virtualNetworks/read",
+           "Microsoft.Network/virtualNetworks/subnets/read",
+           "Microsoft.Network/virtualNetworks/subnets/write",
+           "Microsoft.Network/virtualNetworks/subnets/join/action",
+           "Microsoft.Network/privateEndpoints/read",
+           "Microsoft.Network/privateEndpoints/write",
+           "Microsoft.Network/locations/availablePrivateEndpointTypes/read"
+         ],
+         "notActions": [],
+         "dataActions": [],
+         "notDataActions": []
+       }
+     ]
+   }
+ }
+ ```
 
 ## Private link service
 
@@ -93,39 +93,39 @@ This section lists the granular permissions required to deploy a private link se
 
 Here is the JSON format of the above permissions. Imput your own roleName, description, and assignableScopes:
 
-  ```JSON
-  {
-    "properties": {
-      "roleName": "Role Name",
-      "description": "Description",
-      "assignableScopes": [
-        "/subscriptions/SubscriptionID/resourceGroups/ResourceGroupName"
-      ],
-      "permissions": [
-        {
-          "actions": [
-            "Microsoft.Resources/deployments/*",
-  					"Microsoft.Resources/subscriptions/resourceGroups/read",
-	  				"Microsoft.Network/virtualNetworks/read",
-		  			"Microsoft.Network/virtualNetworks/subnets/read",
-			  		"Microsoft.Network/virtualNetworks/subnets/write",
-				  	"Microsoft.Network/virtualNetworks/subnets/join/action",
-				  	"Microsoft.Network/privateLinkServices/read",
-				  	"Microsoft.Network/privateLinkServices/write",
-				  	"Microsoft.Network/privateLinkServices/privateEndpointConnections/read",
-				  	"Microsoft.Network/privateLinkServices/privateEndpointConnections/write",
-				  	"Microsoft.Network/networkSecurityGroups/join/action",
-				  	"Microsoft.Network/loadBalancers/read",
-				  	"Microsoft.Network/loadBalancers/write"
-				  ],
-          "notActions": [],
-          "dataActions": [],
-          "notDataActions": []
-        }
-      ]
-    }
+```JSON
+{
+  "properties": {
+    "roleName": "Role Name",
+    "description": "Description",
+    "assignableScopes": [
+      "/subscriptions/SubscriptionID/resourceGroups/ResourceGroupName"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Network/virtualNetworks/read",
+          "Microsoft.Network/virtualNetworks/subnets/read",
+          "Microsoft.Network/virtualNetworks/subnets/write",
+          "Microsoft.Network/virtualNetworks/subnets/join/action",
+          "Microsoft.Network/privateLinkServices/read",
+          "Microsoft.Network/privateLinkServices/write",
+          "Microsoft.Network/privateLinkServices/privateEndpointConnections/read",
+          "Microsoft.Network/privateLinkServices/privateEndpointConnections/write",
+          "Microsoft.Network/networkSecurityGroups/join/action",
+          "Microsoft.Network/loadBalancers/read",
+          "Microsoft.Network/loadBalancers/write"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
   }
-  ```
+}
+```
 
 ## Next steps
 
