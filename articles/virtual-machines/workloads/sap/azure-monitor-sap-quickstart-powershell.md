@@ -7,7 +7,7 @@ ms.date: 09/08/2020
 ms.topic: quickstart
 ms.service: virtual-machines-sap
 ms.devlang: azurepowershell
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - devx-track-azurepowershell
   - mode-api
 ---

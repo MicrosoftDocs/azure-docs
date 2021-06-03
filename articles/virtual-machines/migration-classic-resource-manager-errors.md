@@ -8,7 +8,8 @@ ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
-ms.author: tagore
+ms.author: tagore 
+ms.custom: devx-track-azurepowershell
 
 ---
 

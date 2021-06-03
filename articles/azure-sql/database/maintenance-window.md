@@ -3,7 +3,7 @@ title: Maintenance Window
 description: Understand how the Azure SQL Database and managed instance maintenance window can be configured.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf

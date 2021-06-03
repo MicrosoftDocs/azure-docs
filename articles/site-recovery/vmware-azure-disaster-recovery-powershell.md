@@ -6,7 +6,8 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
-ms.date: 05/27/2021
+ms.date: 05/27/2021 
+ms.custom: devx-track-azurepowershell
 
 
 ---

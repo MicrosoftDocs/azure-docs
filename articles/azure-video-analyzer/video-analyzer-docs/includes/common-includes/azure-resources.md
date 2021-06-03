@@ -23,4 +23,4 @@ In addition to the resources mentioned above, following items are also created i
 <!-- TODO: provide a link to the readme.md in github.com/azure-video-analyzer/setup/readme.md where we can list out all resources like virtual network etc. -->
 
 > [!TIP]
-> If you run into issues with Azure resources that get created, please view our [troubleshooting guide](../../troubleshoot.md) to resolve some commonly encountered issues.
+> If you run into issues creating all of the required Azure resources, please use the manual steps in this [quickstart](../../get-started-detect-motion-emit-events-portal.md).

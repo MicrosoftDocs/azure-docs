@@ -4,7 +4,8 @@ description: How to delegate administrative capabilities on a Windows Virtual De
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 # Delegated access in Windows Virtual Desktop

@@ -85,14 +85,14 @@
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
       href: business-applications-isv-program.md
-    - name: Azure consumption commitment benefit
-      href: azure-consumption-commitment-benefit.md
+    - name: Azure consumption commitment enrollment
+      href: azure-consumption-commitment-enrollment.md
     - name: Preferred solutions
       href: preferred-solutions.md
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
   - name: Activate marketplace rewards
-    href: partner-center-portal/marketplace-rewards.md
+    href: marketplace-rewards.md
   - name: Getting paid
     items:
     - name: Getting paid
@@ -325,10 +325,20 @@
       href: create-managed-service-offer-plans.md
   - name: Power BI app offers
     items:
-    - name: Plan a Power BI app offer
-      href: partner-center-portal/create-power-bi-app-overview.md
-    - name: Create a Power BI app offer
-      href: partner-center-portal/create-power-bi-app-offer.md
+    - name: Plan the offer
+      href: marketplace-power-bi.md
+    - name: Create the offer
+      items:
+      - name: Offer setup
+        href: power-bi-app-offer-setup.md
+      - name: Properties
+        href: power-bi-app-properties.md
+      - name: Offer listing
+        href: power-bi-app-offer-listing.md
+      - name: Technical configuration
+        href: power-bi-app-technical-configuration.md
+      - name: Supplemental content
+        href: power-bi-app-supplemental-content.md
   - name: SaaS offers
     items:
     - name: Plan the offer
@@ -364,7 +374,7 @@
   - name: Review and publish offers
     href: review-publish-offer.md
   - name: Update existing offers
-    href: partner-center-portal/update-existing-offer.md   
+    href: update-existing-offer.md   
 - name: Sell and market your offers
   items: 
   - name: Marketing best practices
@@ -556,4 +566,4 @@
   - name: Supported HTML tags
     href: supported-html-tags.md
   - name: Reference architecture diagram
-    href: reference-architecture-diagram.md  
+    href: reference-architecture-diagram.md

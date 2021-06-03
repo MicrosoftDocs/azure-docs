@@ -7,9 +7,9 @@ ms.subservice: elastic-pools
 ms.custom: sqldbrb=1, references_regions
 ms.devlang: 
 ms.topic: reference
-author: oslake
-ms.author: moslake
-ms.reviewer: sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 04/16/2021
 ---
 # Resource limits for elastic pools using the vCore purchasing model

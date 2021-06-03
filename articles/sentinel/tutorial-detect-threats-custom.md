@@ -213,6 +213,10 @@ In the **Alert grouping** section, if you want a single incident to be generated
 > [!NOTE]
 > Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](/graph/security-concept-overview). For more information, see the [Microsoft Graph Security alerts documentation](/graph/api/resources/security-api-overview).
 
+## Export the rule to an ARM template
+
+If you want to package your rule to be managed and deployed as code, you can easily [export the rule to an Azure Resource Manager (ARM) template](import-export-analytics-rules.md). You can also import rules from template files in order to view and edit them in the user interface.
+
 ## Troubleshooting
 
 ### Issue: No events appear in query results
