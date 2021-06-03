@@ -13,6 +13,8 @@ ms.custom: seodec18
 
 # Azure Disk Encryption for Linux virtual machines FAQ
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Linux virtual machines (VMs). For more information about this service, see [Azure Disk Encryption overview](disk-encryption-overview.md).
 
 ## What is Azure Disk Encryption for Linux VMs?

@@ -11,6 +11,9 @@ ms.author: cynthn
 
 ---
 # Frequently asked question about Linux Virtual Machines
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article addresses some common questions about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](../windows/faq.md)
 
 ## What can I run on an Azure VM?

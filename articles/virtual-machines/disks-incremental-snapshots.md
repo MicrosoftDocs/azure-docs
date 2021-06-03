@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 
 # Create an incremental snapshot for managed disks
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](../../includes/virtual-machines-disks-incremental-snapshots-description.md)]
 
 ## Restrictions

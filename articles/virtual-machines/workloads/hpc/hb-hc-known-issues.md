@@ -13,6 +13,8 @@ ms.reviewer: cynthn
 
 # Known issues with H-series and N-series VMs
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article attempts to list recent common issues and their solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
 ## Cache topology on Standard_HB120rs_v3

@@ -12,6 +12,8 @@ ms.custom: contperf-fy21q3-portal, devx-track-azurecli
 ---
 # Find Azure Marketplace image information using the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This topic describes how to use the Azure CLI to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with the CLI, Resource Manager templates, or other tools.
 
 You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or  [Azure PowerShell](../windows/cli-ps-findimage.md). 

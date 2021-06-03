@@ -13,6 +13,8 @@ ms.reviewer: cynthn
 
 # HC-series virtual machine sizes
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Several performance tests have been run on HC-series sizes. The following are some of the results of this performance testing.
 
 | Workload                                        | HB                    |

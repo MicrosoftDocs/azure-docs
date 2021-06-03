@@ -14,6 +14,8 @@ ms.author: genli
 
 # Prepare a Windows VHD or VHDX to upload to Azure
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the
 virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in
 VHD file format and that have a fixed-size disk. The maximum size allowed for the OS VHD on a generation 1 VM is 2 TB.

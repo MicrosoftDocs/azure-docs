@@ -12,6 +12,8 @@ ms.collection: linux
 
 # Azure Image Builder Service networking options
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 You need to choose to deploy Azure Image Builder with or without an existing VNET.
 
 ## Deploy without specifying an existing VNET

@@ -13,6 +13,9 @@ ms.author: kyliel
 ---
 
 # How to use FreeBSD's Packet Filter to create a secure firewall in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article introduces how to deploy a NAT firewall using FreeBSD’s Packer Filter through Azure Resource Manager template for common web server scenario.
 
 ## What is PF?
