@@ -6,23 +6,40 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 06/03/2021
 
 ---
 
 # Azure Sentinel costs and billing
 
-Azure Sentinel provides intelligent security analytics across your enterprise. Azure Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Azure Sentinel stores its data for analysis in an Azure Monitor Log Analytics workspace, and bills based on the volume of data stored in the workspace for analysis.
+Azure Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Azure Sentinel stores its data in Azure Monitor Log Analytics workspaces.
 
-When you connect Azure Sentinel to a Log Analytics workspace, Azure Sentinel automatically analyzes and bills for all data the workspace ingests from then on. To save costs, you can use separate Log Analytics workspaces for data you don't need Azure Sentinel to analyze.
+When you enable Azure Sentinel on a Log Analytics workspace, Azure Sentinel automatically analyzes all the data that workspace ingests. Azure Sentinel bills based on the volume of data that the Log Analytics workspace ingests and stores. This article describes ways you can monitor, understand, and save on usage and costs for Azure Sentinel analytics and Log Analytics workspaces.
 
 ## Azure Sentinel pricing model
 
 Azure Sentinel offers a flexible and predictable pricing model. For more information, see the [Azure Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/). For the related Log Analytics charges, see [Azure Monitor Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-The default pricing for Log Analytics and Azure Sentinel is a Pay-As-You-Go model based on the actual data volume stored, and optionally for data retention beyond 90 days. Data volume is measured in GB (10\\^9 bytes). Log Analytics and Azure Sentinel also have Commitment Tier pricing, formerly called Capacity Reservations, which is more predictable and saves as much as 65% compared to Pay-As-You-Go pricing. For more information, see [Commitment Tiers](#pay-as-you-go-and-commitment-tiers).
+### Pay-As-You-Go and Commitment Tiers
 
-Azure Sentinel integrates with many other Azure services to provide enhanced capabilities, and some of these services may have additional charges. These services include Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of Azure Sentinel's data connectors and solutions use Azure Functions for data ingestion, which has a separate associated cost.
+There are two ways to pay for the Azure Sentinel service: Pay-As-You-Go and Commitment Tiers.
+
+Pay-As-You-Go is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10\\^9 bytes).
+
+Log Analytics and Azure Sentinel also have Commitment Tier pricing, formerly called Capacity Reservations, which is more predictable and saves as much as 65% compared to Pay-As-You-Go pricing. With Commitment Tier pricing, you can buy a commitment starting at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100GB/day bills you for the committed 100GB/day data volume, plus any additional GB/day at the discounted rate for that tier.
+
+You can increase your commitment tier anytime, and decrease it every 31 days, to optimize costs as your data volume increases or decreases. To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
+
+To set and change your Commitment Tier, see [Set or change pricing tier](#set-or-change-pricing-tier).
+
+![Screenshot showing the Pricing page in Azure Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
+
+> [!NOTE]
+> Azure Sentinel data ingestion volumes appear under **Security Insights** in some Azure portal Usage Charts.
+
+### Integration with other services
+
+Azure Sentinel integrates with many other Azure services to provide enhanced capabilities. These services include Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have additional charges. Some of Azure Sentinel's data connectors and solutions use Azure Functions for data ingestion, which has a separate associated cost.
 
 For pricing details for these services, see:
 
@@ -81,18 +98,6 @@ The following table lists the free data sources you can enable in Azure Sentinel
 | **Microsoft Cloud App Security**   | SecurityAlert (MCAS)           | Free             |
 ||MCASShadowITReporting           | Paid|
 
-### Pay-As-You-Go and Commitment Tiers
-
-There are two ways to pay for the Azure Sentinel service: Pay-As-You-Go and Commitment Tiers. Pay-As-You-Go is the default model.
-
-Log Analytics and Azure Sentinel capacity Commitment Tiers save you as much as 65% compared to the Pay-As-You-Go price. With Commitment Tier pricing, you can buy a commitment starting at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100GB/day bills you for the committed 100GB/day data volume, plus any additional GB/day at the discounted rate for that tier.
-
-You can increase your commitment tier anytime, and decrease it every 31 days, to optimize costs as your data volume increases or decreases. To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
-
-![Screenshot showing the Pricing page in Azure Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
-
-To set and change your Commitment Tier, see [Set or change pricing tier](#set-or-change-pricing-tier).
-
 ## Estimate Azure Sentinel costs
 
 If you're not yet using Azure Sentinel, you can use the [Azure Sentinel pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-sentinel) to estimate the potential cost of using Azure Sentinel. Enter *Azure Sentinel* in the Search box and select the resulting Azure Sentinel tile. The pricing calculator helps you estimate your likely costs based on your expected data ingestion and retention.
@@ -112,7 +117,7 @@ Manage data ingestion and retention:
 - [Use Commitment Tier pricing to optimize costs](#set-or-change-pricing-tier) based on your data ingestion volume.
 - [Define a Log Analytics data volume cap](#define-a-data-volume-cap-in-log-analytics) to manage ingestion, although security data is excluded from the cap.
 - [Optimize Log Analytics costs with dedicated clusters](#optimize-log-analytics-costs-with-dedicated-clusters).
-- [Put non-security data in a different workspace](#put-non-security-data-in-a-separate-workspace).
+- [Separate non-security data in a different workspace](#separate-non-security-data-in-a-different-workspace).
 - [Reduce long-term data retention costs with Azure Data Explorer (ADX)](#reduce-long-term-data-retention-costs-with-adx).
 
 Understand, monitor, and alert for data ingestion and cost changes:
@@ -175,11 +180,11 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 
 For more information about dedicated clusters, see [Log Analytics dedicated clusters](/azure/azure-monitor/logs/manage-cost-storage#log-analytics-dedicated-clusters).
 
-#### Put non-security data in a separate workspace
+#### Separate non-security data in a different workspace
 
 Azure Sentinel analyzes all the data ingested into Azure Sentinel-enabled Log Analytics workspaces. It's best to have a separate workspace for non-security operations data, to ensure it doesn't incur Azure Sentinel costs.
 
-When hunting or investigating threats in Azure Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, cross-workspace analytic rules and hunting queries require Azure Sentinel to be enabled on all workspaces.
+When hunting or investigating threats in Azure Sentinel, you might need to access operational data stored in these standalone Azure Log Analytics workspaces. You can access this data by using cross-workspace querying in the log exploration experience and workbooks. However, you can't use cross-workspace analytics rules and hunting queries unless Azure Sentinel is enabled on all workspaces.
 
 #### Reduce long-term data retention costs with ADX
 
@@ -256,25 +261,37 @@ CEF is a supported Syslog events format in Azure Sentinel. You can use CEF to br
 
 Many device and data sources allow for logging fields beyond the standard CEF schema. These additional fields land in the AdditionalExtensions table. These fields could have higher ingestion volumes than the standard CEF fields, because the event content within these fields can be variable.
 
-## Understand your Azure Sentinel usage
+## Understand your Azure Sentinel costs and bill
 
-It's important to understand and track your Azure Sentinel usage. The [Azure Cost Management + Billing](/azure/cost-management-billing/costs/quick-acm-cost-analysis) hub provides useful functionality. After you open **Cost Management + Billing** in the Azure portal, select **Cost Management** in the left navigation and then select the [scope](/azure//cost-management-billing/costs/understand-work-scopes) or set of resources to investigate, such as your Azure subscription.
+It's important to understand and track your Azure Sentinel costs. The [Azure Cost Management + Billing](/azure/cost-management-billing/costs/quick-acm-cost-analysis) hub provides useful functionality. After you open **Cost Management + Billing** in the Azure portal, select **Cost Management** in the left navigation and then select the [scope](/azure//cost-management-billing/costs/understand-work-scopes) or set of resources to investigate, such as an Azure subscription or resource group.
 
-To see your Azure Sentinel costs for the past 30 days, select the **Cost analysis** tile. In **Cost analysis**, select **Daily costs** under **View** and select **Last 30 days** under **Relative dates**. Select **Add filter**, and add the **Service names**: **log analytics** and **azure sentinel**.
-
-Azure Sentinel data ingestion volumes appear under **Security Insights** in some usage charts.
-
-![Screenshot showing a Cost Management + Billing Cost analysis screen for Log Analytics.](media/billing/cost-management.png)
-
-## View your Azure Sentinel bill
-
-Azure Sentinel charges appear on your Azure bill as a separate line item based on your selected pricing plan. You can find Azure Sentinel under the **sentinel** Service name and tier on your Azure bill. For Pay-as-You-Go workspaces, the **meter** column indicates **analysis**. For workspaces with a specific Azure Sentinel Commitment Tier, the specific Commitment Tier appears in the **meter** column.
-
-If you exceed your Commitment Tier usage in a month, the Azure bill show one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the ingestion beyond the Commitment Tier, at the Commitment Tier rate you selected.
+To see your Azure bill, select **Cost Analysis** in the left navigation of **Cost Management + Billing**. On the **Cost analysis** screen, select the drop-down carat in the **View** field, and select **Invoice details**.
 
 ![Screenshot showing the Azure Sentinel section of a sample Azure bill.](media/billing/sample-bill.png)
 
+Azure Sentinel and Log Analytics charges appear on your Azure bill as separate line items based on your selected pricing plan. If you exceed your workspace's Commitment Tier usage in a given month, the Azure bill shows one line item for the Commitment Tier with its associated fixed cost, and a separate line item for the ingestion beyond the Commitment Tier, at the same Commitment Tier rate you selected.
+
+The following table shows how Azure Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure invoice:
+
+|Cost|Service name|Meter|
+|----|------------|----------------|
+|Azure Sentinel Commitment Tier|**sentinel**|**`n` gb commitment tier**|
+|Log Analytics Commitment Tier|**azure monitor**|**`n` gb commitment tier**|
+|Azure Sentinel overage over the Commitment Tier, or Pay-As-You-Go|**sentinel**|**analysis**|
+|Log Analytics overage over the Commitment Tier, or Pay-As-You-Go|**log analytics**|**data ingestion**|
+
 For more information on viewing and downloading your Azure bill, see [Azure cost and billing information](/azure/cost-management-billing/understand/download-azure-daily-usage).
+
+The **Cost Analysis** screen also shows detailed views of your Azure usage and costs, with the option to apply a variety of controls and filters.
+
+For example, to see charts of your daily costs for a certain time frame:
+1. Select the drop-down carat in the **View** field and select **Accumulated costs** or **Daily costs**.
+1. Select the drop-down carat in the date field and select a date range.
+1. Select the drop-down carat next to **Granularity** and select **Daily**.
+
+You could also apply further controls. For example, to view only the costs associated with Azure Sentinel, select **Add filter**, select **Service name**, and then select the service names **sentinel**, **log analytics**, and **azure monitor**.
+
+![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing/cost-management.png)
 
 ## Next steps
 For more tips on reducing Log Analytics data volume, see [Tips for reducing data volume](/azure/azure-monitor/logs/manage-cost-storage#tips-for-reducing-data-volume).
