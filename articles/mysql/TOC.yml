@@ -203,20 +203,20 @@
       - name: Monitoring overview
         href: concepts-monitoring.md
         displayName: monitor, alerts, audit log, slow query log
-        - name: Slow query logs
-          href: concepts-server-logs.md
-          displayName: monitor, slow query log, alert
-        - name: Query Store
-          href: concepts-query-store.md
-          displayName: performance, query store
-        - name: Query performance insights
-          href: concepts-query-performance-insight.md
-          displayName: query performance insights
-        - name: Performance recommendations
-          href: concepts-performance-recommendations.md
-          displayName:  recommendation
-        - name: Azure Advisor recommendations
-          href: concepts-azure-advisor-recommendations.md
+      - name: Slow query logs
+        href: concepts-server-logs.md
+        displayName: monitor, slow query log, alert
+      - name: Query Store
+        href: concepts-query-store.md
+        displayName: performance, query store
+      - name: Query performance insights
+        href: concepts-query-performance-insight.md
+        displayName: query performance insights
+      - name: Performance recommendations
+        href: concepts-performance-recommendations.md
+        displayName:  recommendation
+      - name: Azure Advisor recommendations
+        href: concepts-azure-advisor-recommendations.md
     - name: Best Practices
       items:
       - name: Monitoring best practices
