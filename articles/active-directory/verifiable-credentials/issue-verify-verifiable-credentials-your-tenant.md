@@ -132,6 +132,7 @@ Now when a user is presented with the "sign in" to get issued your verifiable cr
 ## Set up your node app with access to Azure Key Vault
 
 To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
+
 First we need to register another application. This registration is for the website. The registration for the wallet app earlier is only to allow users to sign in to the directory with the wallet app, in our case it happens to be in the same directory but the wallet app registration could have been done in a different directory as well. A good practice is to seperate app registrations if the responsibility of the applications is different. In this case we need our website to get access to Key Vault.
 
 1. Follow the instructions for registering an application with [Azure AD](../develop/quickstart-register-app.md) When registering, use the values below.
@@ -139,15 +140,18 @@ First we need to register another application. This registration is for the webs
    - Name: "VC Website"
    - Supported account types: Accounts in this organizational directory only
 
-   ![register an application](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appregistration.PNG)
+   ![Screenshot that shows how to register an application.](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-registration.png)
 
-2. After you register the application, write down the Application (client) ID. You need this value later.
+1. After you register the application, write down the Application (client) ID. You need this value later.
 
-   ![application client ID](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appdetails.PNG)
+   ![Screenshot that shows the application client ID.](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-details.png)
 
-3. While viewing the VC website app overview page select **Certificates & secrets**.
-    ![certificates and secrets](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-cert-secrets.PNG)
-4. In the **Client secrets** section choose **New client secret**
+1. While viewing the VC website app overview page select **Certificates & secrets**.
+
+
+    ![Screenshot that shows the Certificates and Secrets pane.](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-certificates-secrets.png)
+
+1. In the **Client secrets** section choose **New client secret**
     1. Add a description like "Node VC client secret"
     1. Expires: in one year.
      
