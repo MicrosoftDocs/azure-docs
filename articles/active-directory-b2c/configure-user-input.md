@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 06/03/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -165,7 +165,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 </BuildingBlocks>-->
 ```
 
-To pre-select one of the list items, add the `SelectByDefault="true"` attribute. For example, to pre-select the *London* city change the `Enumeration` as the following example:
+Include the [SelectByDefault](claimsschema.md#enumeration) attribute on an `Enumeration` element to make it selected by default when the page first loads. For example, to pre-select the *London* item, change the `Enumeration` element as the following example:
 
 ```xml
 <Restriction>
