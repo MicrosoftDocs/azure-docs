@@ -182,7 +182,7 @@ dns-docs-tm45t-worker-eastus2-ln2kq   Ready    worker   6h2m   v1.19.0+a5a0987
 dns-docs-tm45t-worker-eastus3-gg75h   Ready    worker   6h3m   v1.19.0+a5a0987
 ```
 
-#### (Optional) Confirm Changes on a Node
+#### Confirm Changes on a Node (Optional)
 
 To validate the new DNS server on a node we will use the `oc debug` pod.
 
