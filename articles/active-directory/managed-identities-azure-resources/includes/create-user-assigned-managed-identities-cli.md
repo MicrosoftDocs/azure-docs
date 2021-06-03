@@ -11,7 +11,6 @@
  ms.custom: include
 ---
 
-## Create a managed identity using the Azure CLI
 
 
 ## Prerequisites

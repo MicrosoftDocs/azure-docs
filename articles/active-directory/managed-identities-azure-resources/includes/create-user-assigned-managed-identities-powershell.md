@@ -11,8 +11,6 @@
  ms.custom: include
 ---
 
-## Create a managed identity using PowerShell
-
 In this article we go over how to create a user assigned managed identity using PowerShell. You can then use the new idenity in your solutions.
 
 ## Prerequisites
