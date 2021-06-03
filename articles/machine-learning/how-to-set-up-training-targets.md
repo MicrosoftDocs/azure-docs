@@ -175,6 +175,9 @@ See these notebooks for examples of configuring runs for various training scenar
 
 ## Troubleshooting
 
+* **AttributeError: 'RoundTripLoader' object has no attribute 'comment_handling'**: This error comes from the new version (v0.17.5) of `ruamel-yaml`, an `azureml-core` dependency, that introduces a breaking change to `azureml-core`. In order to fix this error, please uninstall `ruamel-yaml` by running `pip uninstall ruamel-yaml` and installing a different version of `ruamel-yaml`; the supported versions are v0.15.35 to v0.17.4 (inclusive). You can do this by running `pip install "ruamel-yaml>=0.15.35,<0.17.5"`.
+
+
 * **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
     
     Consider upgrading to the latest version of azureml-core: `pip install -U azureml-core`.
