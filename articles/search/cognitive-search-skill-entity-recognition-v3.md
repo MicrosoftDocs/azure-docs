@@ -46,7 +46,7 @@ Parameters are case-sensitive and are all optional.
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | Optional. Default is `"en"`. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. |
+| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
 | `text`          | The text to analyze.          |
 
 ## Skill outputs
