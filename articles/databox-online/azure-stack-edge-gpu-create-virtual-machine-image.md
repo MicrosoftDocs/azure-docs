@@ -29,6 +29,7 @@ Complete the following prerequisite before you create your VM image:
 
 - [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy gives you a fast way to download of an OS disk to an Azure Storage account.
 
+---
 
 ## Create a custom VM image
 
@@ -94,7 +95,7 @@ Do the following steps to create a Linux VM image:
       
    1. Download the VHD to your Azure Storage account using one of these methods:
    
-      - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to Blob container](#use-azcopy-to-copy-vm-image-to-blob-container), below. 
+      - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-vm-image-to-storage-account), below. 
 
       - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
 
@@ -111,8 +112,9 @@ To create a VM image using the RHEL BYOS image, follow these steps:
 
 1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access). 
 
-You can now use the VM that you provisioned to [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
+You can now use the VM that you provisioned to [Create a VM custom image](#create-a-custom-vm-image) in Linux.
 
+---
 
 ## Download OS disk to storage account
 
@@ -126,13 +128,13 @@ To download the OS disk for the VM to an Azure storage account, do the following
       
 1. Download the VHD to your Azure Storage account using one of these methods:
    
-   - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to Blob container](#use-azcopy-to-copy-vm-image-to-blob-container), below. 
+   - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-vm-image-to-storage-account), below. 
 
    - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
 
 You can now use this VHD to create and deploy VMs on your Azure Stack Edge Pro GPU device.
 
-## Use AzCopy to copy VM image to storage account
+## Use AzCopy to copy OS disk to storage account
 
 The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
 
@@ -147,7 +149,7 @@ To create the target URI for your prepared VHD, do the following steps:
 
    1. In the Azure portal, open the storage account, and select **Containers**. Select and then right-click the blob container you want to use, and select **Generate SAS**.
 
-      ![Screenshot of the Generate SAS option for a Blob container in the Azure portal](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-01.png)
+      ![Screenshot of the Generate SAS option for a blob container in the Azure portal](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-01.png)
 
    1. On the **Generate SAS** screen, select **Read** and **Write** in **Permissions**.  
 
@@ -177,9 +179,9 @@ To copy your VHD to a blob container using AzCopy, do the following steps:
 
     where:
     * `<source URI>` is the download URL that you generated earlier.
-    * `<target URI>` tells which Blob container to copy the new image to in your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to Blob container](#use-azcopy-to-copy-vm-image-to-blob-container). 
+    * `<target URI>` tells which blob container to copy the new image to in your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-vm-image-to-storage-account).
 
-    For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** Blob container in the **mystorageaccount** storage account:
+    For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** blob container in the **mystorageaccount** storage account:
 
     ```azcopy 
     .\azcopy copy "https://md-h1rvdq3wwtdp.z24.blob.storage.azure.net/gxs3kpbgjhkr/abcd?sv=2018-03-28&sr=b&si=f86003fc-a231-43b0-baf2-61dd51e3a05a&sig=o5Rj%2BNZSook%2FVNMcuCcwEwsr0i7sy%2F7gIDzak6JhlKg%3D" "https://mystorageaccount.blob.core.windows.net/virtualmachines/osdisk.vhd?sp=rw&st=2021-05-21T16:52:24Z&se=2021-05-22T00:52:24Z&spr=https&sv=2020-02-10&sr=c&sig=PV3Q3zpaQ%2FOLidbQJDKlW9nK%2BJ7PkzYv2Eczxko5k%2Bg%3D" --recursive
