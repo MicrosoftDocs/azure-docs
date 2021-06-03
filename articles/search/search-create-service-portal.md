@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/15/2021
+ms.date: 06/03/2021
 ---
 
 # Create an Azure Cognitive Search service in the portal
@@ -79,25 +79,25 @@ Service name requirements:
 
 ## Choose a location
 
-Azure Cognitive Search is available in most regions, as documented in the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Generally, if you're using multiple Azure services, choose a region that is also hosting your data or application service. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
+Azure Cognitive Search is available in most regions, as documented in the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search). 
 
-+ [AI enrichment](cognitive-search-concept-intro.md) requires Cognitive Services to be in the same physical region as Azure Cognitive Search. There are just a few regions that don't provide both. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates dual availability by showing two stacked check marks. An unavailable combination has a missing check mark:
+As a general rule, if you're using multiple Azure services, choose a region that is also hosting your data or application service. Doing so minimizes or voids bandwidth charges for outbound data (there are no charges for outbound data when services are in the same region).
+
++ [AI enrichment](cognitive-search-concept-intro.md) requires Cognitive Services to be in the same physical region as Azure Cognitive Search. There are just a few regions that *don't* provide both. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=search) page indicates dual availability by showing two stacked check marks. An unavailable combination has a missing check mark:
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Regional availability" border="true":::
 
 + Business continuity and disaster recovery (BCDR) requirements should be met by creating multiple search services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
 
-A few features have limited availability based on regions. Restrictions are outlined in feature documentation:
-
-+ [Double encryption](search-security-overview.md#double-encryption)
+Features that have limited availability based on regions are listed below. Supported regions are listed in the feature article: 
 
 + ["Availability Zones" in Scale for Performance](search-performance-optimization.md#availability-zones).
 
 ## Choose a pricing tier
 
-Azure Cognitive Search is currently offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). See [Choose a pricing tier](search-sku-tier.md) for guidance.
+Azure Cognitive Search is currently offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). Also the tier you select may impact the availability of certain features. See [Feature availability by tier](search-sku-tier.md#feature-availability-by-tier) for guidance.
 
-Basic and Standard are the most common choices for production workloads, but most customers start with the Free service. Key differences among tiers are partition size and speed, and limits on the number of objects you can create.
+Basic and Standard are the most common choices for production workloads, but initially many customers start with the Free service for evaluation purposes. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
 
 Remember, a pricing tier cannot be changed once the service is created. If you need a higher or lower tier, you will have to re-create the service.
 
