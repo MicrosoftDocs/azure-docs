@@ -56,7 +56,7 @@
     items:
     - name: CMS Interoperability and Patient Access rule introduction
       href: cms-tutorial-introduction.md
-    - name: Carin Implementation Guide for Blue Button (C4BB IG)
+    - name: Carin Implementation Guide for Blue Button
       href: carin-implementation-guide-bb-tutorial.md
     - name: $member-match operation
       href: tutorial-$member-match.md

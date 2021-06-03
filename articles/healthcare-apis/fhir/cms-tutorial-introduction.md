@@ -69,4 +69,7 @@ resource. Throughout the upcoming tutorials, we'll focus on ensuring that the Az
 
 ## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the Carin Blue Button IG. For more information, see [C4BB Organization](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html).
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the Carin Blue Button IG. For more information, see [C4BB Organization](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html).  Additionally, you can learn about all the Azure API for FHIR features.
+
+>[ !div class="nextstepaction"]
+>[Supported features](fhir-features-supported.md)  

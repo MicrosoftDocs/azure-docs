@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Sarin Implementation Guide for Blue Button  
+title: Tutorial - Carin Implementation Guide for Blue Button  
 description: This tutorial walks through the steps of setting up the Azure API for FHIR to pass the Touchstone tests for the Carin Implementation Guide for Blue Button (C4BB IG). 
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -11,7 +11,7 @@ author: caitlinv39
 ms.date: 05/27/2021
 ---
 
-# Carin Implementation Guide for Blue Button (C4BB IG)
+# Carin Implementation Guide for Blue Button
 
 In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Carin Implementation Guide for Blue Button (C4BB IG).
 
@@ -22,7 +22,7 @@ The first test that we'll focus on is testing the Azure API for FHIR against the
 
 ### Define search parameters
 
-As part of the C4BB IG, you'll need to define three [new search parameters](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-do-custom-search) for the `ExplanationOfBenefit` resource. Two of these are tested in the capability statement (type and service-date), and one is needed for `_include` searches (insurer).  
+As part of the C4BB IG, you'll need to define three [new search parameters](how-to-do-custom-search.md) for the `ExplanationOfBenefit` resource. Two of these are tested in the capability statement (type and service-date), and one is needed for `_include` searches (insurer).  
 
 * [type](https://build.fhir.org/ig/HL7/carin-bb/SearchParameter-explanationofbenefit-type.json)
 * [service-date](https://build.fhir.org/ig/HL7/carin-bb/SearchParameter-explanationofbenefit-service-date.json)
@@ -35,7 +35,7 @@ The rest of the search parameters needed for the C4BB IG are defined by the base
  
 ### Store profiles
 
-Outside of defining search parameters, the other update you need to make to pass this test is to load the [required profiles](https://docs.microsoft.com/azure/healthcare-apis/fhir/validation-against-profiles#storing-profiles). There are eight profiles used as part of the C4BB IG. 
+Outside of defining search parameters, the other update you need to make to pass this test is to load the [required profiles](validation-against-profiles#storing-profiles.md). There are eight profiles defined within the C4BB IG. 
 
 * [C4BB Coverage](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Coverage.html) 
 
@@ -80,5 +80,8 @@ The final test we'll walk through is testing [error handling](https://touchstone
 
 ## Next steps
 
-In this tutorial, we walked through how to pass the Carin IG for Blue Button tests in Touchstone. Next, you can review how to test the Da Vinci formulary tests.       
+In this tutorial, we walked through how to pass the Carin IG for Blue Button tests in Touchstone. Next, you can review how to test the Da Vinci formulary tests.
+
+>[ !div class="nextstepaction"]
+>[DaVinci PDex](davinci-pdex-tutorial.md)       
  
