@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 05/28/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Windows Virtual Desktop
@@ -154,7 +154,7 @@ When configuring AD FS single sign-on you must choose shared key or certificate:
 
 The shared key or certificate used to generate the token to sign in to Windows must be stored securely in [Azure Key Vault](../key-vault/general/overview.md). You can store the secret in an existing Key Vault or deploy a new one. In either case, you must ensure to set the right access policy so the Windows Virtual Desktop service can access it.
 
-When using a certificate, you can use any general purpose certificate. While not required, it's recommended to create a certificate issued by a valid Certificate Authority. This certificate can be created directly in Azure Key Vault and needs to have an exportable private key. The public key can be exported and used to configure the AD FS server.
+When using a certificate, you can use any general purpose certificate and there is no requirement on the subject name or Subject Alternative Name (SAN). While not required, it's recommended to create a certificate issued by a valid Certificate Authority. This certificate can be created directly in Azure Key Vault and needs to have an exportable private key. The public key can be exported and used to configure the AD FS server using the script below. Note that this certificate is different from the AD FS SSL certificate that must have a proper subject name and valid Certificate Authority.
 
 The PowerShell script **ConfigureWVDSSO.ps1** available in the [PowerShell Gallery](https://www.powershellgallery.com/packages/ConfigureWVDSSO) will configure your AD FS server for the relying-party trust and install the certificate if needed.
 
@@ -199,16 +199,23 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
    Set-AzKeyVaultAccessPolicy -VaultName "<Key Vault Name>" -ServicePrincipalName 9cdead84-a844-4324-93f2-b2e6bb768d07 -PermissionsToSecrets get -PermissionsToKeys sign
    ```
 
-4. Store the shared key or certificate in Azure Key Vault.
+4. Store the shared key or certificate in Azure Key Vault with a Tag containing a coma separated list of subscription IDs allowed to use the secret.
 
-   * If you're using a shared key in the Key Vault, run the following PowerShell cmdlet:
+   * If you're using a shared key in the Key Vault, run the following PowerShell cmdlet to store the shared key and set the tag:
 
      ```powershell
      $hp = Get-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" 
      $secret = Set-AzKeyVaultSecret -VaultName "<Key Vault Name>" -Name "adfsssosecret" -SecretValue (ConvertTo-SecureString -String $config.SSOClientSecret  -AsPlainText -Force) -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]}
      ```
 
-   * If you're using a certificate in the Key Vault, run the following PowerShell cmdlet:
+   * If your certificate is already in the Key Vault, run the following PowerShell cmdlet to set the tag:
+
+     ```powershell
+     $hp = Get-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>"
+     $secret = Update-AzKeyVaultCertificate -VaultName "<Key Vault Name>" -Name "<Certificate Name>" -Tag @{ 'AllowedWVDSubscriptions' = $hp.Id.Split('/')[2]} -PassThru
+     ```
+
+   * If you have a local certificate, run the following PowerShell cmdlet to import the certificate in the Key Vault and set the tag:
 
      ```powershell
      $hp = Get-AzWvdHostPool -Name "<Host Pool Name>" -ResourceGroupName "<Host Pool Resource Group Name>" 

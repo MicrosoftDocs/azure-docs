@@ -144,12 +144,13 @@ For linked products, search on AppSource will return with one result that includ
 IT admins can review and deploy both the SaaS and linked add-ins within the same process through an integrated and connected experience within the Microsoft 365 admin center. To learn more, see [Test and deploy Microsoft 365 Apps - Microsoft 365 admin](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
 
 ### Microsoft 365 integration support limitations
+
 Discovery as a single E2E solution is supported on AppSource for all cases, however, simplified deployment of the E2E solution as described above via the Microsoft 365 admin center is not supported for the following scenarios:
 
+   - “Contact me” list-only offers. 
    - The same add-in is linked to more than one SaaS offer.
    - The SaaS offer is linked to add-ins, but it does not integrate with Microsoft Graph and no AAD App ID is provided.
   - The SaaS offer is linked to add-ins, but AAD App ID provided for Microsoft Graph integration is shared across multiple SaaS offers.
-
  
 ## Offer listing details
 

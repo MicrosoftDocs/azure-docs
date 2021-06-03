@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Configure route filters for Microsoft peering - Azure PowerShell'
 description: This tutorial describes how to configure route filters for Microsoft Peering using PowerShell.
 services: expressroute
@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Tutorial: Configure route filters for Microsoft peering using PowerShell

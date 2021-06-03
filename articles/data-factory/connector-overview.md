@@ -4,7 +4,7 @@ description: Learn the supported connectors in Data Factory.
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 05/26/2021
 ms.author: jianleishen
 ---
 
