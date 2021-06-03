@@ -140,23 +140,23 @@ First we need to register another application. This registration is for the webs
    - Name: "VC Website"
    - Supported account types: Accounts in this organizational directory only
 
-   ![Screenshot that shows how to register an application.](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-registration.png)
+   :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-registration.png" alt-text="Screenshot that shows how to register an application.":::
 
 1. After you register the application, write down the Application (client) ID. You need this value later.
 
-   ![Screenshot that shows the application client ID.](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-details.png)
+   :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-details.png" alt-text="Screenshot that shows the application client ID.":::
 
 1. While viewing the VC website app overview page select **Certificates & secrets**.
 
-
-    ![Screenshot that shows the Certificates and Secrets pane.](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-certificates-secrets.png)
+    :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-certificates-secrets.png" alt-text="Screenshot that shows the Certificates and Secrets pane.":::
 
 1. In the **Client secrets** section choose **New client secret**
     1. Add a description like "Node VC client secret"
     1. Expires: in one year.
-     
+
     ![Application secret with a one year expiration](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
-5. Copy down the SECRET. You need this information to update your sample node app.
+
+1. Copy down the SECRET. You need this information to update your sample node app.
 
 >[!WARNING]
 > You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
@@ -172,10 +172,10 @@ After creating your application and client secret in Azure AD, you need to grant
 7. Select **Add**.
 8. Choose **SAVE**.
 
-For more information about Key Vault permissions and access control read the [key vault RBAC guide](../../key-vault/general/rbac-guide.md)
+:::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png" alt-text="Screenshot that shows adding an access policy.":::
 
-![assign key vault permissions](media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png)
-## Make changes to the sample app
+For more information about Key Vault permissions and access control read the [key vault RBAC guide](../../key-vault/general/rbac-guide.md)## Make changes to the sample app
+
 We need to put a few values together before we can make the necessary code changes. We use these values in the next section to make the sample code use your own keys stored in your vault. So far we should have the following values ready.
 
 - **Contract URI** from the credential that we just created(Issue Credential URL)
