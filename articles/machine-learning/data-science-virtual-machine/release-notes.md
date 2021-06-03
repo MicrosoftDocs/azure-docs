@@ -6,7 +6,7 @@ author: timoklimmer
 ms.service: data-science-vm
 
 ms.author: tklimmer
-ms.date: 05/12/2021
+ms.date: 05/25/2021
 ms.topic: reference
 ---
 
@@ -15,6 +15,45 @@ ms.topic: reference
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## 2021-05-22
+
+New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
+
+Selected version updates are:
+
+Version: 21.05.22
+
+Selected version updates are:
+- CUDA 11.1
+- Python 3.8
+- PyTorch 1.8.1
+- TensorFlow 2.5.0
+- Spark 3.1.1
+- Java 11
+- R 4.1.0
+- Julia 1.0.5
+- NodeJS 16.2.0
+- Visual Studio Code 1.56.2 incl. Azure ML extension
+- PyCharm Community Edition 2021.1.1
+- Jupyter Lab 2.2.6
+- RStudio 1.4.1106
+- Visual Studio Community Edition 2019 (version 16.9.6)
+- Azure CLI 2.23.0
+- Storage Explorer 1.19.1
+- AzCopy 10.10.0
+- Power BI Desktop 2.93.641.0 64-bit (May 2021)
+- Azure Data Studio 1.28.0
+- Microsoft Edge browser
+
+<br/>
+Removed Firefox, Apache Drill and Microsoft Integration Runtime.
+
+<br/>
+Dark mode, changed icons on desktop, wallpaper background change.
+
+<br/>
+Enabled the image for use in a Gen2 virtual machine.
 
 ## 2021-05-12
 

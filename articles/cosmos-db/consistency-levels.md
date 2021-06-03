@@ -86,7 +86,7 @@ Clients outside of the session performing writes will see the following guarante
 - Consistency for clients in same region for an account with single write region = Consistent Prefix
 - Consistency for clients in different regions for an account with single write region = Consistent Prefix
 - Consistency for clients writing to a single region for an account with multiple write regions = Consistent Prefix
-- Consistency for clients writing to multiple regions for a account with multiple write regions = Eventual
+- Consistency for clients writing to multiple regions for an account with multiple write regions = Eventual
 
   Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "West US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 

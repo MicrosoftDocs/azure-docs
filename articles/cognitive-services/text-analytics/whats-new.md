@@ -19,6 +19,8 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## May 2021
 
+* [Custom question answering](../qnamaker/custom-question-answering.md) (previously QnA maker) can now be accessed using a Text Analytics resource. 
+
 ### General API updates
 
 * Release of the new API v3.1-preview.5 which includes 

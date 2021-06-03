@@ -2,7 +2,7 @@
 title: High availability and disaster recovery for Oracle on BareMetal
 description: Learn about high availability and disaster recovery for Oracle on Azure BareMetal Infrastructure.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/15/2021
 ---
 
