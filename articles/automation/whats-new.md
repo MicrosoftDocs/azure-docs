@@ -17,6 +17,14 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly.
 
+## May 2021
+
+### Start/Stop VMs during off-hours (v1)
+
+**Type:** Plan for change
+
+Start/Stop VMs during off-hours (v1) will deprecate on 5/21/2022. Customers should evaluate and plan for migration to the Start/Stop VMs v2 (preview), and for further guidance please refer to [Start/Stop v2 overview](../azure-functions/start-stop-vms/overview.md) (preview).
+
 ## March 2021
 
 ### New Azure Automation built-in policies

@@ -30,6 +30,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use a RHEL compute node.
+* Don't place policies within your subscription or management group that prevent SREs from performing normal maintenance against the ARO cluster, such as requiring tags on the ARO RP-managed cluster resource group.
 
 ## Supported virtual machine sizes
 

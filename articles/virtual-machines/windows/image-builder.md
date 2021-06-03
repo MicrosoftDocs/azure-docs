@@ -33,6 +33,10 @@ We will be using a sample .json template to configure the image. The .json file 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
+> [!NOTE]
+> For Windows users, the Azure CLI examples below can be run on [Azure Cloud Shell](https://shell.azure.com) using Bash.
+
+
 ## Register the features
 
 To use Azure Image Builder during the preview, you need to register the new feature.

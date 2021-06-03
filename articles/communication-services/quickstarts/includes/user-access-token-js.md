@@ -12,6 +12,8 @@ ms.custom: include file
 ms.author: tchladek
 ---
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart)
 
 ## Prerequisites
 

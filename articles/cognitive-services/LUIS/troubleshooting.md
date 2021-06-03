@@ -4,7 +4,7 @@ description: This article contains answers to frequently asked questions about L
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
-ms.date: 04/16/2021
+ms.date: 05/17/2021
 ---
 
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -39,7 +39,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7.
 
 ### How do I edit my LUIS app programmatically?
-To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md#azure-resources-for-luis) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-how-to-azure-subscription.md).
+To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-how-to-azure-subscription.md).
 
 ### Where is the Pattern feature that provided regular expression matching?
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**.

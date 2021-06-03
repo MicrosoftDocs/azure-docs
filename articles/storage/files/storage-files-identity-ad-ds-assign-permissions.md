@@ -6,7 +6,8 @@ ms.service: storage
 ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.author: rogarana
+ms.author: rogarana 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Part two: assign share-level permissions to an identity

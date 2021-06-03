@@ -55,7 +55,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Source code for [Quickstart: Create a search index in JavaScript](search-get-started-javascript.md). This article covers the basic workflow for creating, loading, and querying a search index using sample data. |
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=javascript&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=javascript&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples
 

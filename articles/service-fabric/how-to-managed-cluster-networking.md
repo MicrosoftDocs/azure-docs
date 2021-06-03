@@ -20,7 +20,7 @@ Be aware of these considerations when creating new NSG rules for your managed cl
 
 ## Apply NSG rules
 
-With classic (non-managed) Service Fabric clusters, you must declare and manage a separate *Microsoft.Network/networkSecurityGroups* resource in order to [apply Network Security Group (NSG) rules to your cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Service Fabric managed clusters enable you to assign NSG rules directly within the cluster resource of your deployment template.
+With classic (non-managed) Service Fabric clusters, you must declare and manage a separate *Microsoft.Network/networkSecurityGroups* resource in order to [apply Network Security Group (NSG) rules to your cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Service Fabric managed clusters enable you to assign NSG rules directly within the cluster resource of your deployment template.
 
 Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) property of your *Microsoft.ServiceFabric/managedclusters* resource (version `2021-05-01` or later) to assign NSG rules. For example:
 
@@ -40,7 +40,7 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
                         "destinationPortRange": "33000-33499",
                         "access": "Allow",
                         "priority": 2001,
-                        "direction": "Inbound" 
+                        "direction": "Inbound"
                     },
                     {
                         "name": "AllowARM",
@@ -51,7 +51,7 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
                         "destinationPortRange": "33500-33699",
                         "access": "Allow",
                         "priority": 2002,
-                        "direction": "Inbound" 
+                        "direction": "Inbound"
                     },
                     {
                         "name": "DenyCustomers",
@@ -88,14 +88,14 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
 Service Fabric managed clusters do not allow access to the RDP ports by default. You can open RDP ports to the internet by setting the following property on a Service Fabric managed cluster resource.
 
 ```json
-"allowRDPAccess": true 
+"allowRDPAccess": true
 ```
 
-When the allowRDPAccess property is set to true, the following NSG rule will be added to your cluster deployment.  
+When the allowRDPAccess property is set to true, the following NSG rule will be added to your cluster deployment.
 
 ```json
 {
-    "name": "SFMC_AllowRdpPort", 
+    "name": "SFMC_AllowRdpPort",
     "type": "Microsoft.Network/networkSecurityGroups/securityRules",
     "properties": {
         "description": "Optional rule to open RDP ports.",
@@ -122,59 +122,59 @@ A default NSG rule is added to allow the Service Fabric resource provider to acc
 >This rule is always added and cannot be overridden.
 
 ```json
-{ 
-    "name": "SFMC_AllowServiceFabricGatewayToSFRP", 
-    "type": "Microsoft.Network/networkSecurityGroups/securityRules", 
-    "properties": { 
-        "description": "This is required rule to allow SFRP to connect to the cluster. This rule cannot be overridden.", 
-        "protocol": "TCP", 
-        "sourcePortRange": "*", 
-        "sourceAddressPrefix": "ServiceFabric", 
-        "destinationAddressPrefix": "VirtualNetwork", 
-        "access": "Allow", 
-        "priority": 500, 
-        "direction": "Inbound", 
-        "sourcePortRanges": [], 
-        "destinationPortRanges": [ 
-            "19000", 
-            "19080" 
-        ] 
-    } 
+{
+    "name": "SFMC_AllowServiceFabricGatewayToSFRP",
+    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+    "properties": {
+        "description": "This is required rule to allow SFRP to connect to the cluster. This rule cannot be overridden.",
+        "protocol": "TCP",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "ServiceFabric",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 500,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [
+            "19000",
+            "19080"
+        ]
+    }
 }
 ```
 
 ### NSG rule: SFMC_AllowServiceFabricGatewayPorts
 
-This is an optional NSG rule to allow access to the clientConnectionPort, and httpGatewayPort from the internet. This rule allows customers to access SFX, connect to the cluster using PowerShell, and use Service Fabric cluster API endpoints from outside of the. 
+This is an optional NSG rule to allow access to the clientConnectionPort, and httpGatewayPort from the internet. This rule allows customers to access SFX, connect to the cluster using PowerShell, and use Service Fabric cluster API endpoints from outside of the.
 
 >[!NOTE]
->This rule will not be added if there is a custom rule with the same access, direction, and protocol values for the same port. You can override this rule with custom NSG rules. 
+>This rule will not be added if there is a custom rule with the same access, direction, and protocol values for the same port. You can override this rule with custom NSG rules.
 
 ```json
-{ 
-    "name": "SFMC_AllowServiceFabricGatewayPorts", 
-    "type": "Microsoft.Network/networkSecurityGroups/securityRules", 
-    "properties": { 
-        "description": "Optional rule to open SF cluster gateway ports. To override add a custom NSG rule for gateway ports in priority range 1000-3000.", 
-        "protocol": "tcp", 
-        "sourcePortRange": "*", 
-        "sourceAddressPrefix": "*", 
-        "destinationAddressPrefix": "VirtualNetwork", 
-        "access": "Allow", 
-        "priority": 3001, 
-        "direction": "Inbound", 
-        "sourcePortRanges": [], 
-        "destinationPortRanges": [ 
-            "19000", 
-            "19080" 
-        ] 
-    } 
+{
+    "name": "SFMC_AllowServiceFabricGatewayPorts",
+    "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+    "properties": {
+        "description": "Optional rule to open SF cluster gateway ports. To override add a custom NSG rule for gateway ports in priority range 1000-3000.",
+        "protocol": "tcp",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 3001,
+        "direction": "Inbound",
+        "sourcePortRanges": [],
+        "destinationPortRanges": [
+            "19000",
+            "19080"
+        ]
+    }
 }
 ```
 
 ## Load balancer ports
 
-Service Fabric managed clusters create an NSG rule in default priority range for all the load balancer (LB) ports configured under "loadBalancingRules" section under *ManagedCluster* properties. This rule opens LB ports for inbound traffic from the internet.  
+Service Fabric managed clusters create an NSG rule in default priority range for all the load balancer (LB) ports configured under "loadBalancingRules" section under *ManagedCluster* properties. This rule opens LB ports for inbound traffic from the internet.
 
 >[!NOTE]
 >This rule is added in the optional priority range and can be overridden by adding custom NSG rules.
@@ -185,7 +185,7 @@ Service Fabric managed clusters create an NSG rule in default priority range for
     "type": "Microsoft.Network/networkSecurityGroups/securityRules",
     "properties": {
         "description": "Optional rule to open LB ports",
-        "protocol": "*", 
+        "protocol": "*",
         "sourcePortRange": "*",
         "sourceAddressPrefix": "*",
         "destinationAddressPrefix": "VirtualNetwork",
@@ -205,58 +205,58 @@ Service Fabric managed clusters create an NSG rule in default priority range for
 Service Fabric managed clusters automatically create load balancer probes for fabric gateway ports as well as all ports configured under the "loadBalancingRules" section of managed cluster properties.
 
 ```json
-{ 
-  "value": [ 
-    { 
-        "name": "FabricTcpGateway", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 19000, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-                { 
+{
+  "value": [
+    {
+        "name": "FabricTcpGateway",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 19000,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+                {
                     "id": "<>"
-                } 
-            ] 
-        }, 
-        "type": "Microsoft.Network/loadBalancers/probes" 
-    }, 
-    { 
-        "name": "FabricHttpGateway", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 19080, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-                { 
-                    "id": "<>" 
-                } 
+                }
             ]
         },
-        "type": "Microsoft.Network/loadBalancers/probes" 
+        "type": "Microsoft.Network/loadBalancers/probes"
     },
     {
-        "name": "probe1_tcp_8080", 
-        "properties": { 
-            "provisioningState": "Succeeded", 
-            "protocol": "Tcp", 
-            "port": 8080, 
-            "intervalInSeconds": 5, 
-            "numberOfProbes": 2, 
-            "loadBalancingRules": [ 
-            { 
-                "id": "<>" 
-            } 
-        ] 
-      }, 
-      "type": "Microsoft.Network/loadBalancers/probes" 
-    } 
-  ] 
-} 
+        "name": "FabricHttpGateway",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 19080,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+                {
+                    "id": "<>"
+                }
+            ]
+        },
+        "type": "Microsoft.Network/loadBalancers/probes"
+    },
+    {
+        "name": "probe1_tcp_8080",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "protocol": "Tcp",
+            "port": 8080,
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2,
+            "loadBalancingRules": [
+            {
+                "id": "<>"
+            }
+        ]
+      },
+      "type": "Microsoft.Network/loadBalancers/probes"
+    }
+  ]
+}
 ```
 
 ## Next steps

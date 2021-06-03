@@ -34,7 +34,7 @@ This Amazon S3 connector is supported for the following activities:
 Specifically, this Amazon S3 connector supports copying files as is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). You can also choose to [preserve file metadata during copy](#preserve-metadata-during-copy). The connector uses [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate requests to S3.
 
 >[!TIP]
->You can use this Amazon S3 connector to copy data from *any S3-compatible storage provider*, such as [Google Cloud Storage](connector-google-cloud-storage.md). Specify the corresponding service URL in the linked service configuration.
+>If you want to copy data from *any S3-compatible storage provider*, see [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md).
 
 ## Required permissions
 
@@ -61,12 +61,9 @@ The following properties are supported for an Amazon S3 linked service:
 | accessKeyId | ID of the secret access key. |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | sessionToken | Applicable when using [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) authentication. Learn how to [request temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) from AWS.<br>Note AWS temporary credential expires between 15 minutes to 36 hours based on settings. Make sure your credential is valid when activity executes， especially for operationalized workload - for example, you can refresh it periodically and store it in Azure Key Vault.<br>Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
-| serviceUrl | Specify the custom S3 endpoint if you're copying data from an S3-compatible storage provider other than the official Amazon S3 service. For example, to copy data from Google Cloud Storage, specify `https://storage.googleapis.com`. | No |
-| forcePathStyle | Indicates whether to use S3 [path-style access](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) instead of virtual hosted-style access. Allowed values are: **false** (default), **true**.<br>If you're connecting to S3-compatible storage provider other than the official Amazon S3 service, and that data store requires path-style access (for example, [Oracle Cloud Storage](https://docs.oracle.com/iaas/Content/Object/Tasks/s3compatibleapi.htm)), set this property to true. Check each data store’s documentation on if path-style access is needed or not. |No |
+| serviceUrl | Specify the custom S3 endpoint `https://<service url>`. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
->[!TIP]
->Specify the custom S3 service URL if you're copying data from an S3-compatible storage other than the official Amazon S3 service.
 
 **Example: using access key authentication**
 

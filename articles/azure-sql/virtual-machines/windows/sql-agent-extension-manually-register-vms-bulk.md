@@ -13,7 +13,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Register multiple SQL VMs in Azure with the SQL IaaS Agent extension
