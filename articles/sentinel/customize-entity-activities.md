@@ -41,6 +41,13 @@ In addition to the activities tracked and presented in the timeline by Azure Sen
 
 1. You'll see a page with a list of any activities you've created in the **My activities** tab. In the **Activity templates** tab, you'll see the collection of activities offered out-of-the-box by Microsoft security researchers. These are the activities that are already being tracked and displayed on the timelines in your entity pages.
 
+    > [!NOTE]
+    > - As long as you have not created any user-defined activities, your entity pages will display all the activities listed under the **Activity templates** tab.
+    >
+    > - Once you define a single custom activity, your entity pages will display **only** those activities that appear in the **My activities** tab.
+    >
+    > - If you want to continue seeing the out-of-the-box activities in your entity pages, you must create an activity for each template you want to be tracked and displayed. Follow the instructions under "Create an activity from a template" below.
+
 ## Create an activity from a template
 
 1. Click on the **Activity templates** tab to see the various activities available by default. You can filter the list by entity type as well as by data source. Selecting an activity from the list will display the following details in the preview pane:
@@ -53,9 +60,11 @@ In addition to the activities tracked and presented in the timeline by Azure Sen
 
     - The query that results in the detection of this activity
 
-1. Click the **Create activity** button at the bottom of the preview pane to start the activity creation wizard. 
+1. Click the **Create activity** button at the bottom of the preview pane to start the activity creation wizard.
 
-1. The **Activity wizard - Create new activity from template** will open, with its fields already populated from the template. You can make changes as you like in the **General** and **Activity configuration** tabs.
+    :::image type="content" source="./media/customize-entity-activities/activity-details.png" alt-text="View activity details":::
+
+1. The **Activity wizard - Create new activity from template** will open, with its fields already populated from the template. You can make changes as you like in the **General** and **Activity configuration** tabs, or leave everything as is to continue viewing the out-of-the-box activity.
 
 1. When you are satisfied, select the **Review and create** tab. When you see the **Validation passed** message, click the **Create** button at the bottom.
 
