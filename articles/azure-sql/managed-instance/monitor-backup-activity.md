@@ -13,16 +13,16 @@ ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 12/14/2018
 ---
-# Monitor backup activity for Azure SQL Managed Intsance 
+# Monitor backup activity for Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you to configure extended event (XEvent) sessions to monitor backup activity for Azure SQL Managed Instance. 
+This article teaches you to configure extended event (XEvent) sessions to monitor backup activity for [Azure SQL Managed Instance](sql-managed-instance-paas-overview). 
 
 ## Overview
 
-Azure SQL Managed Instance emits events (also known as Extended Events or XEvents) during backup activity for the purpose of reporting. Configure an XEvent sessions to track information such as backup status, backup type, size, time and location within the msdb database. This information can be integrated with backup monitoring software, as well as for the purpose of Enterprise Audit. 
+Azure SQL Managed Instance emits events (also known as [Extended Events or XEvents](../database/xevent-db-diff-from-svr.md)) during backup activity for the purpose of reporting. Configure an XEvent session to track information such as backup status, backup type, size, time, and location within the msdb database. This information can be integrated with backup monitoring software and also used for the purpose of Enterprise Audit. 
 
-Enterprise Audits may require proof of successful backups, time of back up, and duration of the backup.
+Enterprise Audits may require proof of successful backups, time of backup, and duration of the backup.
 
 ## Configure XEvent session
 
@@ -42,14 +42,14 @@ ALTER EVENT SESSION [Backup trace] ON SERVER
 STATE = start;
 ```
 
-This T-SQL snippet stores the XEvent session in the ring buffer, but it's also possible to write to Azure Blob Storage
+This T-SQL snippet stores the XEvent session in the ring buffer, but it's also possible to write to [Azure Blob Storage](../database/xevent-code-event-file.md). 
 
 
 ## Monitor backup progress 
 
-After the XEvent session is created, you can use Transact-SQL to query ring buffer results and monitor the progress of the back up.
+After the XEvent session is created, you can use Transact-SQL to query ring buffer results and monitor the progress of the backup.
 
-Use Transact-SQL to monitor backup progress. The following query returns the name of the database, the total number of bytes processed, and the time the backup completed: 
+The following Transact-SQL (T-SQL) query returns the name of the database, the total number of bytes processed, and the time the backup completed: 
 
 ```sql 
 WITH
@@ -75,3 +75,7 @@ The following screenshot shows an example of the output of the above query:
 
 
 ## Next steps
+
+Once your backup has completed, you can then [restore to a point in time](point-in-time-restore.md) or [configure a long-term retention policy](long-term-backup-retention-configure.md). 
+
+To learn more, see [automated backups](../database/automated-backups-overview.md). 
