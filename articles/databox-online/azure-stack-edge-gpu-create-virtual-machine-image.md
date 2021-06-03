@@ -110,7 +110,7 @@ To download the OS disk for the VM to an Azure storage account, do the following
 
 1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). 
 
-1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
+1. [Generate a download URL for the OS disk](/azure/virtual-machines/windows/download-vhd#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
       
 1. Download the VHD to your Azure Storage account using one of these methods:
    
@@ -120,7 +120,7 @@ To download the OS disk for the VM to an Azure storage account, do the following
 
 You can now use this VHD to create and deploy VMs on your Azure Stack Edge Pro GPU device.
 
-## Use AzCopy to copy OS disk to storage account
+## Copy VHD to storage account using AzCopy
 
 The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
 
