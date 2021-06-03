@@ -21,13 +21,52 @@ Share-level permissions must be assigned to the Azure AD identity representing t
 
 ## Share-level permissions
 
-Generally, we recommend using share level permissions for high-level access management to an Azure AD group representing a group of users and identities, then leveraging Windows ACLs for granular access control to the directory/file level. 
+### Default share-level permissions
 
-There are three Azure built-in roles for granting share-level permissions to users:
+You can add a default share-level permission on your storage account itself, instead of configuring share-level permissions per Azure AD user or group. A share-level permission assigned to the storage account will apply to file shares contained in the storage account. 
 
-- **Storage File Data SMB Share Reader** allows read access in Azure Storage file shares over SMB.
-- **Storage File Data SMB Share Contributor** allows read, write, and delete access in Azure Storage file shares over SMB.
-- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete, and modify Windows ACLs in Azure Storage file shares over SMB.
+When you set a default share-level permission, all authenticated users or groups will have the same permission. Authenticated users or groups are identified as the identity can be successfully authenticated against the AD DS the storage account is associated with.
+
+The following table depicts the type of default share-level permissions and how they align with the built-in RBAC roles:
+
+
+|Supported default share-level permission  |Description  |
+|---------|---------|
+|None (Default setting)     |Doesn't allow access to files and directories in Azure file shares.         |
+|Storage File Data SMB Share Reader     |Allows for read access to files and directories in Azure file shares. This role is analogous to a file share ACL of read on Windows File servers. Learn more.         |
+|Storage File Data SMB Share Contributor     |Allows for read, write, and delete access on files and directories in Azure file shares. Learn more.         |
+|Storage File Data SMB Share Elevated Contributor     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers. Learn more.         |
+
+You can configure share-level permissions through the RBAC workflow on individual Azure AD users or groups. The user/group will have the superset of permissions allowed from the default share-level permission and RBAC assignment. For example, user A is granted Storage File Data SMB Reader role on the target file share. The file share has a default share-level permission configured as Storage File Data SMB Share Elevated Contributor. Because of this, User A will have the Storage File Data SMB Share Elevated Contributor access to the file share. The higher level permission will always take precedence.
+
+You can use the following scripts to configure default share-level permissions on your storage account. Azure portal support is not currently available.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Before running the following script, make sure your Az.Storage module is version 3.7.0 or newer.
+
+```azurepowershell
+$defaultPermission = None|StorageFileDataSmbShareContributor|StorageFileDataSmbShareReader|StorageFileDataSmbShareElevatedContributor # Set the default permission of your choice
+
+$account = Set-AzStorageAccount -ResourceGroupName "<resource-group-name-here>" -AccountName "<storage-account-name-here>" -DefaultSharePermission $defaultPermission -EnableAzureActiveDirectoryDomainServicesForFile $true
+
+$account.AzureFilesIdentityBasedAuth
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Before running the following script, make sure your Azure CLI is version 2.24.1 or newer.
+
+```azurecli
+# Declare variables
+storageAccountName="YourStorageAccountName"
+resourceGroupName="YourResourceGroupName"
+defaultPermission="None|StorageFileDataSmbShareContributor|StorageFileDataSmbShareReader|StorageFileDataSmbShareElevatedContributor" # Set the default permission of your choice
+
+
+az storage account update --name $storageAccountName --resource-group $resourceGroupName --default-share-permission $defaultPermission
+```
+---
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
