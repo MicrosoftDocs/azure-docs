@@ -85,6 +85,10 @@ The **Activity wizard - Create new activity** will open, with its fields blank.
 
 1. You can select the initial status of the activity to **Enabled** or **Disabled**.
 
+1. Select **Next : Activity configuration** to proceed to the next tab.
+
+    :::image type="content" source="./media/customize-entity-activities/create-new-activity.png" alt-text="Screenshot - Create a new activity":::
+
 ### Activity configuration tab
 
 #### Writing the activity query
