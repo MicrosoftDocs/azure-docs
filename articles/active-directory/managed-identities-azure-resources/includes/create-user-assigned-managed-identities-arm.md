@@ -23,7 +23,7 @@ It is not possible to list and delete a user-assigned managed identity using an 
 
 ## Prerequisites
 
-- If you are unfamiliar with managed identities for Azure resources, check out the [overview section](../overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
+- If you are unfamiliar with managed identities for Azure resources, check out the [overview section](../overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](../overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
 ## Template creation and editing
