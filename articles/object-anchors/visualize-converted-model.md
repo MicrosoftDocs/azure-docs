@@ -13,7 +13,7 @@ ms.service: azure-object-anchors
 
 # How to visualize an Object Anchors model
 
-Although not required to use an Object Anchors model to detect an object, there's an easy way to visualize the model before using it if you want.
+You don't need to look into a converted model to use it. However, there's an easy way to visualize its mesh before using it if you want.
 
 Follow the steps in our [Unity app Quickstart](quickstarts/get-started-unity-hololens.md), with one minor change. When building the sample scene, instead of opening **AOASampleScene**, add the **VisualizeScene** to the scene build list. Then, in **Build Settings**, ensure that *only* **VisualizeScene** has a checkmark next to it: all other scenes shouldn't be included.
 
@@ -34,3 +34,5 @@ Select the **Play** button at the top of the Unity Editor, and then ensure the *
 :::image type="content" source="../../includes/media/object-anchors-quickstarts-unity/aoa-unity-editor.png" alt-text="play and scene view":::
 
 Using [Unity's scene view navigation controls](https://docs.unity3d.com/Manual/SceneViewNavigation.html), you're now able to inspect your Object Anchors model.
+
+:::image type="content" source="./media/aoa-visualize.png" alt-text="visualize model":::
