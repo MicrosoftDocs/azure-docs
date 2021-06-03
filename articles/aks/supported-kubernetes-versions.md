@@ -146,7 +146,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 
 >[!NOTE]
->AKS version 1.18 will continue to be available until July 31st 2021. After this date, AKS will return to its regular three version window support. It is important to note the following as the support from June 30th to July 31st 2021 will be limited in scope. The following is what users will be limited to:
+>AKS version 1.18 will continue to be available until July 31st 2021. After this date, AKS will return to its regular three version window support. It is important to note the following as the support from June 30th to July 31st 2021 will be limited in scope. Below lists what the users will be limited to:
 > - Creation of new clusters and nodepools on 1.18.
 > - CRUD operations on 1.18 clusters.
 > - Azure Support of non-Kubernetes related, platform issues. Platform issues include trouble with networking, storage, or compute running on Azure. Any support requests for K8s patching and troubleshooting will be requested to upgrade into a supported version.
