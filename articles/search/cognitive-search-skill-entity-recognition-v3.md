@@ -1,9 +1,9 @@
 ---
 title: Entity Recognition (V3) cognitive skill
 titleSuffix: Azure Cognitive Search
-description: Extract different types of entities from text in an enrichment pipeline in Azure Cognitive Search.
+description: Extract different types of entities from text  using Text Analytics V3 in an enrichment pipeline in Azure Cognitive Search.
 
-manager: jenmar
+manager: jennmar
 author: ayokande
 ms.author: aakande
 ms.service: cognitive-search
@@ -11,7 +11,10 @@ ms.topic: conceptual
 ms.date: 05/19/2021
 ---
 
-#    Entity Recognition cognitive skill
+#    Entity Recognition cognitive skill (V3)
+
+> [!IMPORTANT] 
+> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
 
 The **Entity Recognition** skill extracts entities of different types from text. These entities fall under 14 distinct categories, ranging from people and organizations to URLs and phone numbers. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 
@@ -34,7 +37,7 @@ Parameters are case-sensitive and are all optional.
 | Parameter name     | Description |
 |--------------------|-------------|
 | `categories`    | Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"DateTime"`, `"URL"`, `"Email"`, `"PersonType"`, `"Event"`, `"Product"`, `"Skill"`, `"Address"`, `"Phone Number"`, `"IP Address"`. If no category is provided, all types are returned.|
-| `defaultLanguageCode` |    Language code of the input text. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. For most up-to-date list of supported languages, view [TA Supported Languages](../cognitive-services/text-analytics/language-support.md). Not all entity categories are supported for all languages; see note below.|
+| `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). Not all entity categories are supported for all languages; see note below.|
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `namedEntities` output) is lower than this value, the entity is not returned. The default is 0. |
 | `modelVersion` | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details.|
 
@@ -49,7 +52,7 @@ Parameters are case-sensitive and are all optional.
 ## Skill outputs
 
 > [!NOTE]
-> As of this writing, not all entity categories are supported for all languages. The `"Person"`, `"Location"`, and `"Organization"` entity category types are supported for the full list of languages above. Only _de_, _en_, _es_, _fr_, and _zh-hans_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, and `"Email"` types. For more information, refer to the most up to date list: [Language and region support for the Text Analytics API](../cognitive-services/text-analytics/language-support.md).  
+>Not all entity categories are supported for all languages. Please refer to [Supported entity categories in the Text Analytics API v3](../cognitive-services/text-analytics/named-entity-types.md) to know which entity categories are supported for the language you will be using.
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
@@ -114,7 +117,7 @@ Parameters are case-sensitive and are all optional.
         "recordId": "1",
         "data":
            {
-             "text": "Contoso Corporation was founded by John Smith. They can be reached at contact@contoso.com",
+             "text": "Contoso Corporation was founded by Jean Martin. They can be reached at contact@contoso.com",
              "languageCode": "en"
            }
       }
@@ -131,23 +134,23 @@ Parameters are case-sensitive and are all optional.
       "recordId": "1",
       "data" : 
       {
-        "persons": [ "John Smith"],
+        "people": [ "Jean Martin"],
         "emails":["contact@contoso.com"],
         "namedEntities": 
         [
           {
             "category": "Person",
             "subcategory": null,
-            "length": 10,
+            "length": 11,
             "offset": 35,
             "confidenceScore": 0.98,
-            "text": "John Smith"
+            "text": "Jean Martin"
           },
           {
             "category": "Email",
             "subcategory": null,
             "length": 19,
-            "offset": 70,
+            "offset": 71,
             "confidenceScore": 0.8,
             "text": "contact@contoso.com"
           }

@@ -85,6 +85,7 @@ The following is a consolidated list of the documentation for AI enrichment.
 
 + [Deprecated skills](cognitive-search-skill-deprecated.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
 
 ## APIs
 
