@@ -34,7 +34,7 @@ If you have already installed Azure PowerShell, you must have Azure PowerShell v
     Get-Module Az | format-table version
 ```
 
-First, you must log in to Azure with this command.
+First, you must sign in to Azure with this command.
 
 ```azurepowershell
     Connect-AzAccount
@@ -54,7 +54,7 @@ To specify the subscription, run the following command. In the following example
     Select-AzSubscription -SubscriptionName ContosoSubscription
 ```
 
-Before you can use Windows PowerShell with Azure Resource Manager, you need the following:
+Before you can use Windows PowerShell with Azure Resource Manager, you need verify your set-up:
 
 * Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
 
@@ -72,7 +72,7 @@ For example, to get help for the `New-AzRedisCache` cmdlet, type:
 
 ### How to connect to other clouds
 
-By default the Azure environment is `AzureCloud`, which represents the global Azure cloud instance. To connect to a different instance, use the `Connect-AzAccount` command with the `-Environment` or -`EnvironmentName` command line switch with the desired environment or environment name.
+By default the Azure environment is `AzureCloud`, which represents the global Azure cloud instance. To connect to a different instance, use the `Connect-AzAccount` command with the `-Environment` or -`EnvironmentName` command-line switch with the desired environment or environment name.
 
 To see the list of available environments, run the `Get-AzEnvironment` cmdlet.
 
@@ -141,7 +141,7 @@ For more information about Microsoft Azure Germany, see [Microsoft Azure Germany
 
 ### Properties used for Azure Cache for Redis PowerShell
 
-The following table contains properties and descriptions for commonly used parameters when creating and managing your Azure Cache for Redis instances using Azure PowerShell.
+The following table contains Azure PowerShell properties and descriptions for common parameters when creating and managing your Azure Cache for Redis instances.
 
 | Parameter | Description | Default |
 | --- | --- | --- |
@@ -269,15 +269,15 @@ To create a cache with default parameters, run the following command.
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 ```
 
-`ResourceGroupName`, `Name`, and `Location` are required parameters, but the rest are optional and have default values. Running the previous command creates a Standard SKU Azure Cache for Redis instance with the specified name, location, and resource group, that is 1 GB in size with the non-SSL port disabled.
+`ResourceGroupName`, `Name`, and `Location` are required parameters, but the rests are optional and have default values. Running the previous command creates a Standard SKU Azure Cache for Redis instance with the specified name, location, and resource group. The instance is 1 GB in size with the non-SSL port disabled.
 
-To create a premium cache, specify a size of P1 (6 GB - 60 GB), P2 (13 GB - 130 GB), P3 (26 GB - 260 GB), or P4 (53 GB - 530 GB). To enable clustering, specify a shard count using the `ShardCount` parameter. The following example creates a P1 premium cache with 3 shards. A P1 premium cache is 6 GB in size, and since we specified three shards the total size is 18 GB (3 x 6 GB).
+To create a premium cache, specify a size of P1 (6 GB - 60 GB), P2 (13 GB - 130 GB), P3 (26 GB - 260 GB), or P4 (53 GB - 530 GB). To enable clustering, specify a shard count using the `ShardCount` parameter. The following example creates a P1 premium cache with three shards. A P1 premium cache is 6 GB in size, and since we specified three shards the total size is 18 GB (3 x 6 GB).
 
 ```azurepowershell
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 ```
 
-To specify values for the `RedisConfiguration` parameter, enclose the values inside `{}` as key/value pairs like `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. The following example creates a standard 1 GB cache with `allkeys-random` maxmemory policy and keyspace notifications configured with `KEA`. For more information, see [Keyspace notifications (advanced settings)](cache-configure.md#keyspace-notifications-advanced-settings) and [Memory policies](cache-configure.md#memory-policies).
+To specify values for the `RedisConfiguration` parameter, enclose the values inside `{}` as key/value pairs like `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. The following example creates a standard 1-GB cache with `allkeys-random` maxmemory policy and keyspace notifications configured with `KEA`. For more information, see [Keyspace notifications (advanced settings)](cache-configure.md#keyspace-notifications-advanced-settings) and [Memory policies](cache-configure.md#memory-policies).
 
 ```azurepowershell
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
@@ -383,13 +383,13 @@ The following command updates the maxmemory-policy for the Azure Cache for Redis
 > 
 > 
 
-The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. Note that this command works for both a Basic or a Standard cache.
+The following example shows how to scale a cache named `myCache` to a 2.5-GB cache. This command works for both a Basic or a Standard cache.
 
 ```azurepowershell
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 ```
 
-After this command is issued, the status of the cache is returned (similar to calling `Get-AzRedisCache`). Note that the `ProvisioningState` is `Scaling`.
+After this command is issued, the status of the cache is returned---similar to calling `Get-AzRedisCache`. The `ProvisioningState` is set to `Scaling`.
 
 ```azurepowershell
     PS C:\> Set-AzRedisCache -Name myCache -ResourceGroupName myGroup -Size 2.5GB
@@ -420,7 +420,7 @@ After this command is issued, the status of the cache is returned (similar to ca
     ShardCount         :
 ```
 
-When the scaling operation is complete, the `ProvisioningState` changes to `Succeeded`. If you need to make a subsequent scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete or you receive an error similar to the following.
+When the scaling operation is complete, the `ProvisioningState` changes to `Succeeded`. If you need to make another scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete or you receive an error similar to the following.
 
 ```azurepowershell
     Set-AzRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
