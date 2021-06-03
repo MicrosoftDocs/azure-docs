@@ -189,5 +189,5 @@ Sign-in Frequency will be honored with or without CAE.
 ## Next steps
 
 - [Announcing continuous access evaluation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
-- [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/concept-continuous-access-evaluation.md)
+- [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 - [Claims challenges, claims requests, and client capabilities](../develop/claims-challenge.md)
