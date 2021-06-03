@@ -71,7 +71,7 @@ on.
 > 
 > To grant permission to scan files and folders that will be added in future, **include a default permission entry**.
 > 
-> For more information, see the [permissions documentation.](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control#default-permissions-on-new-files-and-folders)
+> For more information, see the [permissions documentation.](../data-lake-store/data-lake-store-access-control.md#default-permissions-on-new-files-and-folders)
 
 5. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 
@@ -125,7 +125,7 @@ To use a service principal, you must first create one following these steps:
 > 
 > To grant permission to scan files and folders that will be added in future, **include a default permission entry**.
 > 
-> For more information, see the [permissions documentation.](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control#default-permissions-on-new-files-and-folders)
+> For more information, see the [permissions documentation.](../data-lake-store/data-lake-store-access-control.md#default-permissions-on-new-files-and-folders)
 
 5. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 
