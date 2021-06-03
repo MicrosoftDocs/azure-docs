@@ -10,9 +10,6 @@ ms.date: 9/21/2020
 
 # Create and manage firewall rules for Azure Database for MySQL - Flexible Server using the Azure portal
 
-> [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview.
-
 Azure Database for MySQL Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
 1. Public access (allowed IP addresses)

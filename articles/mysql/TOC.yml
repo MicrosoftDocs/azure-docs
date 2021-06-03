@@ -158,7 +158,7 @@
       - name: Virtual Network Service Endpoints
         items:
         - name: Concepts
-          href: concepts-data-access-and-security-vnet.md 
+          href: concepts-data-access-and-security-vnet.md
         - name: Configure VNet Service Endpoints using Azure portal
           href: howto-manage-vnet-using-portal.md
           displayName: vnet, virtual network, service endpoint
@@ -204,7 +204,7 @@
             href: ../security-center/defender-for-databases-introduction.md
           - name: Configuring Azure Defender using Azure portal
             href: howto-database-threat-protection-portal.md
-            displayName: atp, advanced thread, security      
+            displayName: atp, advanced thread, security
       - name: Encryption at rest
         items:
         - name: Data Encryption
@@ -254,7 +254,7 @@
         - name: High availability
           href: concepts-high-availability.md
           displayName: backup, restore,high availability
-  - name: Server Management 
+  - name: Server Management
     items:
         - name: Servers
           href: concepts-servers.md
@@ -391,7 +391,7 @@
          displayName: application
        - name: Operational best practices
          href: concept-operation-excellence-best-practices.md
-- name: Flexible Server (Preview)
+- name: Flexible Server
   items:
   - name: Flexible Server documentation
     href: flexible-server/index.yml
@@ -449,11 +449,11 @@
       - name: Build PHP (Laravel) app with database
         href: flexible-server/tutorial-php-database-app.md
       - name: Connect with private web app
-        href: flexible-server/tutorial-webapp-server-vnet.md 
+        href: flexible-server/tutorial-webapp-server-vnet.md
   - name: Server Management
     items:
       - name: Concepts
-        href: flexible-server/concept-servers.md 
+        href: flexible-server/concept-servers.md
       - name: Server parameters
         href: flexible-server/concepts-server-parameters.md
       - name: Limitations
@@ -472,7 +472,7 @@
         href: flexible-server/how-to-restart-stop-start-server-cli.md
   - name: Networking
     items:
-      - name: Concepts 
+      - name: Concepts
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
       - name: Private access (VNet Integration)
@@ -538,7 +538,7 @@
       - name: Concepts
         href: flexible-server/concepts-backup-restore.md
       - name: Restore a server using Azure portal
-        href: flexible-server/how-to-restore-server-portal.md  
+        href: flexible-server/how-to-restore-server-portal.md
       - name: Restore a server using Azure CLI
         href: flexible-server/how-to-restore-server-cli.md
   - name: Troubleshooting

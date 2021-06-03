@@ -10,8 +10,6 @@ ms.date: 9/29/2020
 
 # Configure and access audit logs for Azure Database for MySQL - Flexible Server using the Azure portal
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can configure the Azure Database for MySQL Flexible Server [audit logs](concepts-audit-logs.md) and diagnostic settings from the Azure portal.
 
@@ -65,7 +63,7 @@ Audit logs are integrated with Azure Monitor diagnostic settings to allow you to
 
 1. Access the audit logs by exploring them in the data sinks you configured. It may take up to 10 minutes for the logs to appear.
 
-If you piped your audit logs to Azure Monitor Logs (Log Analytics), refer to some [sample queries](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) you can use for analysis.  
+If you piped your audit logs to Azure Monitor Logs (Log Analytics), refer to some [sample queries](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) you can use for analysis.
 
 ## Next steps
 

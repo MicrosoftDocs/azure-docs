@@ -17,12 +17,12 @@ When making your decision, consider the following two options:
 - **Azure Database for MySQL**. This option is a fully managed MySQL database engine based on the stable version of MySQL community edition. This relational database as a service (DBaaS), hosted on the Azure cloud platform, falls into the industry category of PaaS.
 
   With a managed instance of MySQL on Azure, you can use built-in features viz automated patching, high availability, automated backups, elastic scaling, enterprise grade security, compliance and governance, monitoring and alerting that otherwise require extensive configuration when MySQL Server is either on-premises or in an Azure VM. When using MySQL as a service, you pay-as-you-go, with options to scale up or scale out for greater control with no interruption.
-  
+
   [Azure Database for MySQL](overview.md), powered by the MySQL community edition is available in two deployment modes:
 
   - [Single Server](single-server-overview.md) is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom MySQL configuration settings.
 
-  - [Flexible Server (Preview)](flexible-server/overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations compared to the single server deployment based on the user requirements. The flexible server architecture allows users to opt for high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with the ability to start/stop your server and burstable SKUs, ideal for workloads that do not need full compute capacity continuously.
+  - [Flexible Server](flexible-server/overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations compared to the single server deployment based on the user requirements. The flexible server architecture allows users to opt for high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with the ability to start/stop your server and burstable SKUs, ideal for workloads that do not need full compute capacity continuously.
 
   Flexible servers are best suited for:
 
@@ -41,24 +41,24 @@ The main differences between these options are listed in the following table:
 | MySQL Version Support | 5.6, 5.7 & 8.0| 5.7 & 8.0 | Any version|
 | Compute scaling | Supported (Scaling from and to Basic tier is not supported)| Supported | Supported|
 | Storage size | 5 GiB to 16 TiB| 5 GiB to 16 TiB | 32 GiB to 32,767 GiB|
-| Online Storage scaling | Supported| Supported| Not supported|
-| Auto storage scaling | Supported| Not supported in preview| Not supported|
-| Additional IOPs scaling | Not Supported| Supported| Not supported|
+| Online Storage scaling | Supported| Supported | Not supported |
+| Auto storage scaling | Supported | Not supported Not supported|
+| Additional IOPs scaling | Not Supported | Supported | Not supported|
 | Network Connectivity | - Public endpoints with server firewall.<br/> - Private access with Private Link support.|- Public endpoints with server firewall.<br/> - Private access with Virtual Network integration.| - Public endpoints with server firewall.<br/> - Private access with Private Link support.|
-| Service-level agreement (SLA) | 99.99% availability SLA |No SLA in preview| 99.99% using Availability Zones|
+| Service-level agreement (SLA) | 99.99% availability SLA |No SLA 99.99% using Availability Zones|
 | Operating system patching| Automatic  | Automatic with custom maintenance window control | Managed by end users |
 | MySQL patching     | Automatic  | Automatic with custom maintenance window control | Managed by end users |
 | High availability | Built-in HA within single availability zone| Built-in HA within and across availability zones | Custom managed using clustering, replication, etc.|
 | Zone redundancy | Not supported | Supported | Supported|
 | Zone placement | Not supported | Supported | Supported|
-| Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Not available in preview | Managed by end users |
+| Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Not available| Managed by end users |
 | Read replicas | Supported (up to 5 replicas)| Supported (up to 10 replicas)| Managed by end users |
 | Backup | Automated with 7-35 days retention | Automated with 1-35 days retention | Managed by end users |
 | Monitoring database operations | Supported | Supported | Managed by end users |
-| Disaster recovery | Supported with geo-redundant backup storage and cross region read replicas | Not supported in preview| Custom Managed with replication technologies |
-| Query Performance Insights | Supported | Not available in preview| Managed by end users |
-| Reserved Instance Pricing | Supported | Not available in preview | Supported |
-| Azure AD Authentication | Supported | Not available in preview | Not Supported|
+| Disaster recovery | Supported with geo-redundant backup storage and cross region read replicas | Not supported Custom Managed with replication technologies |
+| Query Performance Insights | Supported | Not available Managed by end users |
+| Reserved Instance Pricing | Supported | Not available | Supported |
+| Azure AD Authentication | Supported | Not available | Not Supported|
 | Data Encryption at rest | Supported with customer managed keys | Supported with service managed keys | Not Supported|
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enforced with TLS v1.2 | Supported with TLS v1.2, 1.1 and 1.0 |
 | Fleet Management | Supported with Azure CLI, PowerShell, REST, and Azure Resource Manager | Supported with Azure CLI, PowerShell, REST, and Azure Resource Manager  | Supported for VMs with Azure CLI, PowerShell, REST, and Azure Resource Manager |
@@ -93,7 +93,7 @@ With IaaS, Microsoft:
 
 - Administers the underlying infrastructure.
 - Provides automated patching for underlying hardware and OS.
-  
+
 With PaaS, Microsoft:
 
 - Administers the underlying infrastructure.

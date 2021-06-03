@@ -8,18 +8,15 @@ ms.topic: conceptual
 ms.date: 9/23/2020
 ---
 
-# Connectivity and networking concepts for Azure Database for MySQL - Flexible Server (Preview)
+# Connectivity and networking concepts for Azure Database for MySQL - Flexible Server
 
 This article describes public and private connectivity options for your server. You will learn in detail the networking concepts for Azure Database for MySQL Flexible server to create a server securely in Azure.
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is in preview.
-
 ## Choosing a networking option
-You have two networking options for your Azure Database for MySQL Flexible Server. The options are **private access (VNet integration)** and **public access (allowed IP addresses)**. At server creation, you must pick one option. 
+You have two networking options for your Azure Database for MySQL Flexible Server. The options are **private access (VNet integration)** and **public access (allowed IP addresses)**. At server creation, you must pick one option.
 
 > [!NOTE]
-> Your networking option cannot be changed after the server is created. 
+> Your networking option cannot be changed after the server is created.
 
 * **Private access (VNet Integration)** – You can deploy your flexible server into your [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses.
 
@@ -28,11 +25,11 @@ You have two networking options for your Azure Database for MySQL Flexible Serve
    * Use VPN or ExpressRoute to connect from non-Azure resources to your flexible server
    * No public endpoint
 
-* **Public access (allowed IP addresses)** – Your flexible server is accessed through a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase “allowed IP addresses” refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**. 
+* **Public access (allowed IP addresses)** – Your flexible server is accessed through a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase “allowed IP addresses” refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**.
 
    Choose the public access method if you want the following capabilities:
    * Connect from Azure resources that do not support virtual networks
-   * Connect from resources outside of an Azure that are not connected by VPN or ExpressRoute 
+   * Connect from resources outside of an Azure that are not connected by VPN or ExpressRoute
    * The flexible server has a public endpoint
 
 The following characteristics apply whether you choose to use the private access or the public access option:
@@ -48,13 +45,13 @@ Private access with virtual network (vnet) integration provides private and secu
 ### Virtual network concepts
 Here are some concepts to be familiar with when using virtual networks with MySQL flexible servers.
 
-* **Virtual network** - 
+* **Virtual network** -
    An Azure Virtual Network (VNet) contains a private IP address space that is configured for your use. Visit the [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md) to learn more about Azure virtual networking.
 
     Your virtual network must be in the same Azure region as your flexible server.
 
-* **Delegated subnet** - 
-   A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
+* **Delegated subnet** -
+   A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network.
 
    Your MySQL flexible server must be in a subnet that is **delegated** for MySQL flexible server use only. This delegation means that only Azure Database for MySQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforMySQL/flexibleServers.
 
@@ -125,12 +122,12 @@ Consider the following points when access to the Microsoft Azure Database for My
 
    * Ask your Internet Service Provider (ISP) for the IP address range assigned to your client computers that access the Azure Database for MySQL Server, and then add the IP address range as a firewall rule.
    * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
-  
+
 * **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 
 ## Hostname
-Regardless of the networking option you choose, we recommend you always use a fully qualified domain name (FQDN) as hostname when connecting to your flexible server. The server’s IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string. 
+Regardless of the networking option you choose, we recommend you always use a fully qualified domain name (FQDN) as hostname when connecting to your flexible server. The server’s IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 Example
 * Recommended `hostname = servername.mysql.database.azure.com`
@@ -140,7 +137,7 @@ Example
 ## TLS and SSL
 Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security(TLS) encryption. TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 will be denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed. 
+Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 will be denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be configured and changed.
 
 Following are the different configurations of SSL and TLS settings you can have for your flexible server:
 
@@ -154,7 +151,7 @@ Following are the different configurations of SSL and TLS settings you can have 
 > [!Note]
 > Changes to SSL Cipher on flexible server is not supported. FIPS cipher suites is enforced by default when tls_version is set to TLS version 1.2 . For TLS versions other than version 1.2, SSL Cipher is set to default settings which comes with MySQL community installation.
 
-Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more. 
+Review how to [connect using SSL/TLS](how-to-connect-tls-ssl.md) to learn more.
 
 
 ## Next steps

@@ -10,13 +10,10 @@ ms.date: 10/26/2020
 
 # How to create and manage read replicas in Azure Database for MySQL Flexible Server using the Azure portal
 
-> [!IMPORTANT]
-> Read replicas in Azure Database for MySQL - Flexible Server is in preview.
-
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure portal.
 
 > [!Note]
-> Replica is not supported on high availability enabled server. 
+> Replica is not supported on high availability enabled server.
 
 ## Prerequisites
 
@@ -59,7 +56,7 @@ Once the replica server has been created, it can be viewed from the **Replicatio
 
 To stop replication between a source and a replica server from the Azure portal, use the following steps:
 
-1. In the Azure portal, select your source Azure Database for MySQL flexible server. 
+1. In the Azure portal, select your source Azure Database for MySQL flexible server.
 
 2. Select **Replication** from the menu, under **SETTINGS**.
 
@@ -91,7 +88,7 @@ To delete a read replica server from the Azure portal, use the following steps:
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL - Delete replica":::
 
-5. Type the name of the replica and click **Delete** to confirm deletion of the replica.  
+5. Type the name of the replica and click **Delete** to confirm deletion of the replica.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL - Delete replica confirm":::
 
@@ -108,7 +105,7 @@ To delete a source server from the Azure portal, use the following steps:
 
    [:::image type="content" source="./media/how-to-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL - Delete source":::](./media/how-to-read-replica-portal/delete-master-overview.png#lightbox)
 
-3. Type the name of the source server and click **Delete** to confirm deletion of the source server.  
+3. Type the name of the source server and click **Delete** to confirm deletion of the source server.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - Delete source confirm":::
 

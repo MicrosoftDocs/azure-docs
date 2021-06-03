@@ -10,12 +10,9 @@ ms.date: 09/21/2020
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections
 
-> [!IMPORTANT]
-> Azure Database for MySQL Flexible Server is currently in public preview
-
 Azure Database for MySQL Flexible Server supports connecting your client applications to the MySQL server using Secure Sockets Layer (SSL) with Transport layer security(TLS) encryption. TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications, allowing you to adhere to compliance requirements.
 
-Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 will be denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be changed as discussed in this article. 
+Azure Database for MySQL Flexible Server supports encrypted connections using Transport Layer Security (TLS 1.2) by default and all incoming connections with TLS 1.0 and TLS 1.1 will be denied by default. The encrypted connection enforcement or TLS version configuration on your flexible server can be changed as discussed in this article.
 
 Following are the different configurations of SSL and TLS settings you can have for your flexible server:
 
@@ -30,10 +27,10 @@ Following are the different configurations of SSL and TLS settings you can have 
 > Changes to SSL Cipher on flexible server is not supported. FIPS cipher suites is enforced by default when tls_version is set to TLS version 1.2 . For TLS versions other than version 1.2, SSL Cipher is set to default settings which comes with MySQL community installation.
 
 In this article, you will learn how to:
-* Configure your flexible server 
-  * With SSL disabled 
+* Configure your flexible server
+  * With SSL disabled
   * With SSL enforced with TLS version < 1.2
-* Connect to your flexible server using mysql command-line 
+* Connect to your flexible server using mysql command-line
   * With encrypted connections disabled
   * With encrypted connections enabled
 * Verify encryption status for your connection
@@ -46,10 +43,10 @@ If your client application doesn't support encrypted connections, you will need 
 
 ### Connect using mysql command-line client with SSL disabled
 
-The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=DISABLED` connection string setting to disable TLS/SSL connection from mysql client. Replace values with your actual server name and password. 
+The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=DISABLED` connection string setting to disable TLS/SSL connection from mysql client. Replace values with your actual server name and password.
 
 ```bash
- mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED
 ```
 It is important to note that setting require_secure_transport to OFF doesn't mean encrypted connections will not supported on server side. If you set require_secure_transport to OFF on flexible server but if the client connects with encrypted connection, it will still be accepted. The following connection using mysql client to a flexible server configured with require_secure_transport=OFF will also work as shown below.
 
@@ -99,9 +96,9 @@ If you created your flexible server with *Private access (VNet Integration)*, yo
 
 If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server.
 
-You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment. 
+You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md)--> to connect to the server from your local environment.
 
-The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=REQUIRED` connection string setting to enforce TLS/SSL certificate verification. Pass the local certificate file path to the `--ssl-ca` parameter. Replace values with your actual server name and password. 
+The following example shows how to connect to your server using the mysql command-line interface. Use the `--ssl-mode=REQUIRED` connection string setting to enforce TLS/SSL certificate verification. Pass the local certificate file path to the `--ssl-ca` parameter. Replace values with your actual server name and password.
 
 ```bash
 sudo apt-get install mysql-client

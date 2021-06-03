@@ -18,7 +18,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 - Automated maintenance for underlying hardware, operating system and database engine to keep the service secure and up to date.
 - Predictable performance, using inclusive pay-as-you-go pricing.
 - Elastic scaling within seconds.
-- Cost optimization controls with ability to stop/start server. 
+- Cost optimization controls with ability to stop/start server.
 - Enterprise grade security and industry-leading compliance to protect sensitive data at-rest and in-motion.
 - Monitoring and automation to simplify management and monitoring for large-scale deployments.
 - Industry-leading support experience.
@@ -30,24 +30,24 @@ These capabilities require almost no administration and all are provided at no a
 ## Deployment models
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
-- Single Server 
-- Flexible Server (Preview)
-  
+- Single Server
+- Flexible Server
+
 ### Azure Database for MySQL - Single Server
 
 Azure Database for MySQL Single Server is a fully managed database service with minimal requirements for customizations of database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized for built-in high availability with 99.99% availability on single availability zone. It supports community version of MySQL 5.6, 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 The Single Server deployment option offers three pricing tiers: Basic, General Purpose, and Memory Optimized. Each tier offers different resource capabilities to support your database workloads. You can build your first app on a small database for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Pricing tiers](concepts-pricing-tiers.md) for details.
 
-Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom MySQL configuration settings. 
+Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom MySQL configuration settings.
 
 For detailed overview of single server deployment mode, refer [single server overview](single-server-overview.md).
 
-### Azure Database for MySQL - Flexible Server (Preview)
+### Azure Database for MySQL - Flexible Server
 
-Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. The service supports community version of MySQL 5.7 and 8.0. The service is currently in public preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. The service supports community version of MySQL 5.7 and 8.0. The service is currently available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
-Flexible servers are best suited for 
+Flexible servers are best suited for
 - Application developments requiring better control and customizations.
 - Zone redundant high availability
 - Managed maintenance windows

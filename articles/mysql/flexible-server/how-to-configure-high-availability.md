@@ -9,11 +9,11 @@ ms.date: 09/21/2020
 ms.custom: references_regions
 ---
 
-# Manage zone redundant high availability in Azure Database for MySQL Flexible Server (Preview)
+# Manage zone redundant high availability in Azure Database for MySQL Flexible Server
 
 This article describes how you can enable or disable zone redundant high availability configuration in your flexible server.
 
-High availability feature provisions physically separate primary and standby replica in different zones. For more details, see [high availability concepts documentation](./concepts/../concepts-high-availability.md). 
+High availability feature provisions physically separate primary and standby replica in different zones. For more details, see [high availability concepts documentation](./concepts/../concepts-high-availability.md).
 
 > [!IMPORTANT]
 > You can only enable zone redundant high availability during flexible server creation.
@@ -21,7 +21,7 @@ High availability feature provisions physically separate primary and standby rep
 This page provides guidelines how you can enable or disable high availability. This operation does not change your other settings including VNET configuration, firewall settings, and backup retention. Similarly, disabling of high availability is an online operation and does not impact your application connectivity and operations.
 
 > [!IMPORTANT]
-> Zone redundant high availability is available in limited set of regions : Southeast Asia, WestUS 2, West Europe and East US.  
+> Zone redundant high availability is available in limited set of regions : Southeast Asia, WestUS 2, West Europe and East US.
 
 ## Enable high availability during server creation
 
@@ -41,7 +41,7 @@ This section provides details specifically for HA-related fields. You can follow
 
 5.  Select the **Compute size** for your choice from the dropdown.
 
-6.  Select **Storage size** in GiB using the sliding bar and select the **Backup retention period** between 7 days and 35 days.   
+6.  Select **Storage size** in GiB using the sliding bar and select the **Backup retention period** between 7 days and 35 days.
 
 ## Disable high availability
 
@@ -71,14 +71,14 @@ Follow these steps to force failover from your primary to standby flexible serve
 3.  Check the **Primary availability zone** and the **Standby availability zone**
 
 4.  Click on **Forced Failover** to initiate the manual failover procedure. A pop up will inform you on the failover expected time depending on the current workload on the primary and the recency of the last checkpoint, read the message and click Ok.
- 
+
 5. A notification will show up mentioning that failover is in progress.
 
 6. Once failover to the standby server is successful, a notification will pop up.
 
 7. Check the new **Primary availability zone** and the **Standby availability zone**.
 
-![How to forced failover](media/how-to-configure-high-availability/how-to-forced-failover.png) 
+![How to forced failover](media/how-to-configure-high-availability/how-to-forced-failover.png)
 
 ## Next steps
 

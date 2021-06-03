@@ -8,10 +8,7 @@ ms.topic: conceptual
 ms.date: 1/28/2021
 ---
 
-# Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
-
-> [!IMPORTANT] 
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+# Compute and storage options in Azure Database for MySQL - Flexible Server
 
 You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Memory Optimized. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
@@ -43,8 +40,8 @@ The detailed specifications of the available server types are as follows:
 
 | Compute size         | vCores | Memory Size (GiB) | Max Supported IOPS | Max Supported I/O bandwidth (MBps)|
 |----------------------|--------|-------------------| ------------------ |-----------------------------------|
-| **Burstable**        |        |                   | 
-| Standard_B1s         | 1      | 1                 | 320                | 10                                | 
+| **Burstable**        |        |                   |
+| Standard_B1s         | 1      | 1                 | 320                | 10                                |
 | Standard_B1ms        | 1      | 2                 | 640                | 10                                |
 | Standard_B2s         | 2      | 4                 | 1280               | 15                                |
 | **General Purpose**  |        |                   |                    |                                   |
@@ -76,7 +73,7 @@ The storage you provision is the amount of storage capacity available to your fl
 >[!NOTE]
 > Storage can only be scaled up, not down.
 
-You can monitor your storage consumption in the Azure portal (with Azure Monitor) using the storage limit, storage percentage, and storage used metrics. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics. 
+You can monitor your storage consumption in the Azure portal (with Azure Monitor) using the storage limit, storage percentage, and storage used metrics. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics.
 
 ### Reaching the storage limit
 
@@ -84,11 +81,11 @@ When storage consumed on the server is close to reaching the provisioned limit, 
 
 For example, if you have provisioned 110 GiB of storage, and the actual utilization goes over 105 GiB, the server is marked read-only. Alternatively, if you have provisioned 5 GiB of storage, the server is marked read-only when the free storage reaches less than 256 MB.
 
-While the service attempts to make the server read-only, all new write transaction requests are blocked and existing active transactions will continue to execute. When the server is set to read-only, all subsequent write operations and transaction commits fail. Read queries will continue to work uninterrupted. 
+While the service attempts to make the server read-only, all new write transaction requests are blocked and existing active transactions will continue to execute. When the server is set to read-only, all subsequent write operations and transaction commits fail. Read queries will continue to work uninterrupted.
 
 To get the server out of read-only mode, you should increase the provisioned storage on the server. This can be done using the Azure portal or Azure CLI. Once increased, the server will be ready to accept write transactions again.
 
-We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics available. 
+We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics available.
 
 We recommend that you <!--turn on storage auto-grow or to--> set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](how-to-alert-on-metric.md).
 
@@ -98,34 +95,34 @@ Storage auto-grow is not yet available for Azure Database for MySQL Flexible Ser
 
 ## IOPS
 
-Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
+Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time.
 
 The minimum IOPS is 100 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
 
-To learn more about the maximum IOPS per compute size is shown below: 
+To learn more about the maximum IOPS per compute size is shown below:
 
-| Compute size         | Maximum IOPS        | 
+| Compute size         | Maximum IOPS        |
 |----------------------|---------------------|
 | **Burstable**        |                     |
 | Standard_B1s         | 320                 |
 | Standard_B1ms        | 640                 |
-| Standard_B2s         | 1280                | 
+| Standard_B2s         | 1280                |
 | **General Purpose**  |                     |
 | Standard_D2ds_v4     | 3200                |
 | Standard_D4ds_v4     | 6400                |
 | Standard_D8ds_v4     | 12800               |
 | Standard_D16ds_v4    | 20000               |
 | Standard_D32ds_v4    | 20000               |
-| Standard_D48ds_v4    | 20000               | 
-| Standard_D64ds_v4    | 20000               | 
-| **Memory Optimized** |                     | 
-| Standard_E2ds_v4     | 3200                | 
-| Standard_E4ds_v4     | 6400                | 
-| Standard_ E8ds_v4    | 12800               | 
-| Standard_ E16ds_v4   | 20000               | 
-| Standard_E32ds_v4    | 20000               | 
-| Standard_E48ds_v4    | 20000               | 
-| Standard_E64ds_v4    | 20000               |  
+| Standard_D48ds_v4    | 20000               |
+| Standard_D64ds_v4    | 20000               |
+| **Memory Optimized** |                     |
+| Standard_E2ds_v4     | 3200                |
+| Standard_E4ds_v4     | 6400                |
+| Standard_ E8ds_v4    | 12800               |
+| Standard_ E16ds_v4   | 20000               |
+| Standard_E32ds_v4    | 20000               |
+| Standard_E48ds_v4    | 20000               |
+| Standard_E64ds_v4    | 20000               |
 
 The maximum IOPS is dependent on the maximum available IOPS per compute size. Refer to the column *Max uncached disk throughput: IOPS/MBps* in the [B-series](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-series](../../virtual-machines/ddv4-ddsv4-series.md), and [Edsv4-series](../../virtual-machines/edv4-edsv4-series.md) documentation.
 
@@ -147,7 +144,7 @@ After you create your server, you can independently change the compute tier, com
 > [!NOTE]
 > The storage size can only be increased. You cannot go back to a smaller storage size after the increase.
 
-When you change the compute tier or compute size, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is between 60-120 seconds. 
+When you change the compute tier or compute size, the server is restarted for the new server type to take effect. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is between 60-120 seconds.
 
 Scaling storage and changing the backup retention period are online operations and do not require a server restart.
 
