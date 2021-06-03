@@ -57,5 +57,5 @@ Azure Cognitive Services provides information and guidelines on how to responsib
 * [Disclosure of voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [Disclosure of design guidelines](./speech-service/concepts-disclosure-guidelines.md)
 * [Disclosure of design patterns](./speech-service/concepts-disclosure-patterns.md)
-* [Cdode of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context)
+* [Code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
