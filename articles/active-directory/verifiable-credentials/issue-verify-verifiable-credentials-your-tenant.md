@@ -133,7 +133,7 @@ Now when a user is presented with the "sign in" to get issued your verifiable cr
 
 To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
-First we need to register another application. This registration is for the website. The registration for the wallet app earlier is only to allow users to sign in to the directory with the wallet app, in our case it happens to be in the same directory but the wallet app registration could have been done in a different directory as well. A good practice is to seperate app registrations if the responsibility of the applications is different. In this case we need our website to get access to Key Vault.
+First we need to register another application. This registration is for the website. The registration for the wallet app earlier is only to allow users to sign in to the directory with the wallet app, in our case it happens to be in the same directory but the wallet app registration could have been done in a different directory as well. A good practice is to separate app registrations if the responsibility of the applications is different. In this case we need our website to get access to Key Vault.
 
 1. Follow the instructions for registering an application with [Azure AD](../develop/quickstart-register-app.md) When registering, use the values below.
 
@@ -204,7 +204,7 @@ There are a few other values we need to get before we can make the changes one t
 2. Paste your DID in the search bar.
 
 4. From the formatted response find the section called **verificationMethod**
-5. Under "verificationMethod" copy the id and label it as the kvSigningKeyId
+5. Under "verificationMethod" copy the `id` and label it as the kvSigningKeyId
     
     ```json=
     "verificationMethod": [
