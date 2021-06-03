@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 4/20/2021
 ms.author: jeffpatt
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure File Sync

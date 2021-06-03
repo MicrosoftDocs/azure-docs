@@ -1079,6 +1079,8 @@
         href: containers/container-insights-azure-redhat-setup.md
       - name: Enable for Azure Red Hat OpenShift v4
         href: containers/container-insights-azure-redhat4-setup.md
+      - name: Enable with Azure Policy
+        href: containers/container-insights-enable-aks-policy.md
       - name: Region mappings
         href: containers/container-insights-region-mapping.md
     - name: Monitor performance

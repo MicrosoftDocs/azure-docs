@@ -51,7 +51,10 @@ The following are the prerequisites and the steps if you want to use Conditional
 
 Once your application is integrated using the supported authentication protocols and registered in an Azure AD tenant that has the Conditional Access feature available for use, you can kick start the process to integrating this feature in your applications that sign-in users.
 
-**First**, declare and make the authentication contexts available in your tenant. For more information, see [Configure authentication contexts](../conditional-access/concept-conditional-access-cloud-apps.md#configure-authentication-contexts)
+> [!NOTE]
+> A detailed walkthrough of this feature is also available as a recorded session at [Use Conditional Access Auth Context in your app for step\-up authentication](https://www.youtube.com/watch?v=_iO7CfoktTY).
+
+**First**, declare and make the authentication contexts available in your tenant. For more information, see [Configure authentication contexts](../conditional-access/concept-conditional-access-cloud-apps.md#configure-authentication-contexts).
 
 Values **C1-C25** are available for use as **Auth Context IDs** in a tenant. Examples of auth context may be:
 
@@ -84,7 +87,7 @@ These steps are the changes that you need to carry in your code base. The steps 
 
 **Third**: Your application, and for this example, we’d assume it’s a web API, then needs to evaluate calls against the saved mapping and accordingly raise claim challenges for its client apps. To prepare for this action, the following steps are to be taken:
 
-1. In a sensitive and protected by auth context operation, evaluate the values in the acrs claim against the auth context ID mapping saved earlier and raise a claims challenge as provided in the code snippet below. 
+1. In a sensitive and protected by auth context operation, evaluate the values in the **acrs** claim against the Auth Context ID mappings saved earlier and raise a [Claims Challenge](claims-challenge.md) as provided in the code snippet below. 
 
 1. The following diagram shows the interaction between the user, client app, and the web API.
 

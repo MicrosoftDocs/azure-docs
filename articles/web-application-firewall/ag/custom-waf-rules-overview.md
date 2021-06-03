@@ -6,7 +6,8 @@ ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
 ms.date: 04/14/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway
@@ -17,7 +18,7 @@ Custom rules allow you to create your own rules that are evaluated for each requ
 
 For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic. You also set the rule's name and priority.
 
-Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, (Condition 1 **and** Condition 2) **or** Condition 3). This means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
+Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, ((Condition 1 **and** Condition 2) **or** Condition 3). This means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
 
 Different matching conditions within the same rule are always compounded using **and**. For example, block traffic from a specific IP address, and only if they're using a certain browser.
 
