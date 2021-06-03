@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 05/27/2021
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell
 ---
@@ -33,10 +33,10 @@ The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data
   - Number of VMs monitored
   - Type of data collected from each monitored VM 
   
-In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level (overage) will be billed at that same price per GB as provided by the current capacity reservation level. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. Billing for the Capacity Reservation tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
+In addition to the Pay-As-You-Go model, Log Analytics has **Commitment Tiers** which enable you to save as much as 25% compared to the Pay-As-You-Go price. The commitment tier pricing enables you to make a commitment to buy data ingestion starting at 100 GB/day at a lower price than Pay-As-You-Go pricing. Any usage above the commitment level (overage) will be billed at that same price per GB as provided by the current commitment tier. The commitment tiers have a 31-day commitment period. During the commitment period, you can change to a higher commitment tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower commitment tier until after the commitment period is finished. Billing for the commitment tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Commitment Tier pricing. 
 
 > [!NOTE]
-> Until early May 2021, capacity reservation overage was billed at the Pay-As-You-Go price. The change to bill overage at the same price-per-GB as the current capacity reservation level reduces the need for users with large reservation levels to fine-tune their reservation level. 
+> Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Additionally, three new larger commitment tiers have been added at 1000, 2000 and 5000 GB/day.
 
 In all pricing tiers, an event's data size is calculated from a string representation of the properties which are stored in Log Analytics for this event, whether the data is sent from an agent or added during the ingestion process. This  includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the AzureActivity, Heartbeat and Usage types. To determine whether an event was excluded from billing for data ingestion, you can use the `_IsBillable` property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (1.0E9 bytes). 
 
@@ -44,15 +44,15 @@ Also, note that some solutions, such as [Azure Defender (Security Center)](https
 
 ### Log Analytics Dedicated Clusters
 
-Log Analytics Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters use a Capacity Reservation pricing model which must be configured to at least 1000 GB/day. This capacity level has a 25% discount compared to Pay-As-You-Go pricing. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The cluster Capacity Reservation has a 31-day commitment period after the reservation level is increased. During the commitment period the capacity reservation level cannot be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces are done at the cluster level using the configured capacity reservation level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). Capacity Reservation pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
+Log Analytics Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters use a commitment tier pricing model which must be configured to at least 1000 GB/day. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period the commitment tier level cannot be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces are done at the cluster level using the configured commitment tier level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). Commitment tier pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).
 
-The cluster capacity reservation level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
+The cluster commitment tier level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster).
 
 There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](customer-managed-keys.md#customer-managed-key-operations). The two modes are: 
 
 1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
 
-2. **Workspaces**: the Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) for each workspace.) If the total data volume ingested into a workspace for a day is less than the Capacity Reservation, then each workspace is billed for its ingested data at the effective per-GB Capacity Reservation rate by billing them a fraction of the Capacity Reservation, and the unused part of the Capacity Reservation is billed to the cluster resource. If the total data volume ingested into a workspace for a day is more than the Capacity Reservation, then each workspace is billed for a fraction of the Capacity Reservation based on it’s fraction of the ingested data that day, and each workspace for a fraction of the ingested data above the Capacity Reservation. There is nothing billed to the cluster resource if the total data volume ingested into a workspace for a day is over the Capacity Reservation.
+2. **Workspaces**: the commitment tier costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) for each workspace.) If the total data volume ingested into a workspace for a day is less than the commitment tier, then each workspace is billed for its ingested data at the effective per-GB commitment tier rate by billing them a fraction of the commitment tier, and the unused part of the commitment tier is billed to the cluster resource. If the total data volume ingested into a workspace for a day is more than the commitment tier, then each workspace is billed for a fraction of the commitment tier based on it’s fraction of the ingested data that day, and each workspace for a fraction of the ingested data above the commitment tier. There is nothing billed to the cluster resource if the total data volume ingested into a workspace for a day is over the commitment tier.
 
 In cluster billing options, data retention is billed at per-workspace. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. Also, note that workspaces associated to a cluster no longer have a pricing tier.
 
@@ -79,7 +79,7 @@ Log Analytics charges are added to your Azure bill. You can see details of your 
 Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. First, add a filter by "Resource type" (to microsoft.operationalinsights/workspace for Log Analytics and microsoft.operationalinsights/cluster for Log Analytics Clusters) will allow you to track your Log Analytics spend. Then for "Group by" select "Meter category" or "Meter".  Note that other services such as Azure Defender (Security Center) and Azure Sentinel also bill their usage against Log Analytics workspace resources. To see the mapping to Service name, you can select the Table view instead of a chart. 
 
 More understanding of your usage can be gained by [downloading your usage from the Azure portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). 
-In the downloaded spreadsheet you can see usage per Azure resource (e.g. Log Analytics workspace) per day. In this Excel spreadsheet, usage from your Log Analytics workspaces can be found by first filtering on the "Meter Category" column to show "Log Analytics", "Insight and Analytics" (used by some of the legacy pricing tiers) and "Azure Monitor" (used by Capacity Reservation pricing tiers), and then adding a filter on the "Instance ID" column which is "contains workspace" or "contains cluster" (the latter to include Log Analytics Cluster usage). The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](../../cost-management-billing/understand/review-individual-bill.md). 
+In the downloaded spreadsheet you can see usage per Azure resource (e.g. Log Analytics workspace) per day. In this Excel spreadsheet, usage from your Log Analytics workspaces can be found by first filtering on the "Meter Category" column to show "Log Analytics", "Insight and Analytics" (used by some of the legacy pricing tiers) and "Azure Monitor" (used by commitment tier pricing tiers), and then adding a filter on the "Instance ID" column which is "contains workspace" or "contains cluster" (the latter to include Log Analytics Cluster usage). The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](../../cost-management-billing/understand/review-individual-bill.md). 
 
 ## Changing pricing tier
 
@@ -87,17 +87,48 @@ To change the Log Analytics pricing tier of your workspace,
 
 1. In the Azure portal, open **Usage and estimated costs** from your workspace where you'll see a list of each of the pricing tiers available to this workspace.
 
-2. Review the estimated costs for each of the pricing tiers. This estimate is based on the last 31 days of usage, so this cost estimate relies on the last 31 days being representative of your typical usage. In the example below you can see how, based on the data patterns from the last 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) compared to the 100 GB/day Capacity Reservation tier (#2).  
+2. Review the estimated costs for each of the pricing tiers. This estimate is based on the last 31 days of usage, so this cost estimate relies on the last 31 days being representative of your typical usage. In the example below you can see how, based on the data patterns from the last 31 days, this workspace would cost less in the Pay-As-You-Go tier (#1) compared to the 100 GB/day commitment tier tier (#2).  
 
 :::image type="content" source="media/manage-cost-storage/pricing-tier-estimated-costs.png" alt-text="Pricing tiers":::
     
 3. After reviewing the estimated costs based on the last 31 days of usage, if you decide to change the pricing tier, click **Select**.  
 
-You can also [set the pricing tier via Azure Resource Manager](./resource-manager-workspace.md) using the `sku` parameter (`pricingTier` in the Azure Resource Manager template). 
+### Changing pricing tier via ARM
+
+You can also [set the pricing tier via Azure Resource Manager](./resource-manager-workspace.md) using the `sku` object to set the pricing tier, and the `capacityReservationLevel` parameter if the pricing tier is `capacityresrvation`. (Learn more about [setting workspace properties via ARM](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces?tabs=json#workspacesku-object).) Here is a sample ARM template to set your workspace to a 300 GB/day commitment tier (which in ARM is called `capacityreservation`). 
+
+```
+{
+  "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "name": "YourWorkspaceName",
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "apiVersion": "2020-08-01",
+      "location": "yourWorkspaceRegion",
+      "properties": {
+                    "sku": {
+                      "name": "capacityreservation",
+                      "capacityReservationLevel": 300
+                    }
+      }
+    }
+  ]
+}
+```
+
+To use this template via PowerShell, after [installing the Azure Az PowerShell module](/powershell/azure/install-az-ps), log into Azure using `Connect-AzAccount`, select the subscription containing your workspace using `Select-AzSubscription -SubscriptionId YourSubscriptionId`, and apply the template (saved in a file named template.json):
+
+```
+New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -TemplateFile "template.json"
+```
+
+To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018` for the sku), omit the  `capacityReservationLevel` property. Learn more about [creating ARM templates](/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell),  [/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell](adding a resource to your template), and [applying templates](https://docs.microsoft.com/azure/azure-monitor/resource-manager-samples). 
 
 ## Legacy pricing tiers
 
-Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)** and **Per Node (OMS)**. Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to 7 days. The Free Trial pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
 
 Usage on the Standalone pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
 
@@ -116,7 +147,7 @@ There are also some behaviors between the use of legacy Log Analytics tiers and 
 
 1. If the workspace is in the legacy Standard or Premium tier, Azure Defender will be billed only for Log Analytics data ingestion, not per node.
 2. If the workspace is in the legacy Per Node tier, Azure Defender will be billed using the current [Azure Defender node-based pricing model](https://azure.microsoft.com/pricing/details/security-center/). 
-3. In other pricing tiers (including Capacity Reservations), if Azure Defender was enabled before June 19, 2017, Azure Defender will be billed only for Log Analytics data ingestion. Otherwise Azure Defender will be billed using the current Azure Defender node-based pricing model.
+3. In other pricing tiers (including commitment tiers), if Azure Defender was enabled before June 19, 2017, Azure Defender will be billed only for Log Analytics data ingestion. Otherwise Azure Defender will be billed using the current Azure Defender node-based pricing model.
 
 More details of pricing tier limitations are available at [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
 
@@ -266,7 +297,7 @@ To get you started, here are the recommended settings for the alert querying the
 - Target: Select your Log Analytics resource
 - Criteria: 
    - Signal name: Custom log search
-   - Search query: `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"`
+   - Search query: `_LogOperation | where Operation == "Data collection Stopped" | where Detail contains "OverQuota"`
    - Based on: Number of results
    - Condition: Greater than
    - Threshold: 0
@@ -280,8 +311,10 @@ Once alert is defined and the limit is reached, an alert is triggered and perfor
 ## Troubleshooting why usage is higher than expected
 
 Higher usage is caused by one, or both of:
-- More nodes than expected sending data to Log Analytics workspace
-- More data than expected being sent to Log Analytics workspace (perhaps due to starting to use a new solution or a configuration change to an existing solution)
+- More nodes than expected sending data to Log Analytics workspace: see [Understanding nodes sending data](#understanding-nodes-sending-data)
+- More data than expected being sent to Log Analytics workspace (perhaps due to starting to use a new solution or a configuration change to an existing solution): see [Understanding ingested data volume](#understanding-ingested-data-volume) 
+
+If you observe high data ingestion reported using the `Usage` records (see [below](#data-volume-by-solution)), but you don't observed the same results summing `_BilledSize` directly on the [data type](#data-volume-for-specific-events), it's possible you have significant late arriving data. [Here](#late-arriving-data) is more information on how to diagnose this. 
 
 ## Understanding nodes sending data
 
@@ -459,8 +492,24 @@ You can also parse the `_ResourceId` more fully if needed as well using
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
 > These are **Computer** as well as fields related to ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** and **AverageProcessingTimeMs**.
 
+## Late arriving data 	
 
-### Querying for common data types
+Situations can arise where data is ingested with old timestamps, for instance if an agent cannot communicate to Log Analytics due to a connectivity issue, or situations when a host has an incorrectly time date/time. This can manifest itself by an apparent discrepency between the ingested data reported by the `Usage` data type, and a query summing `_BilledSize` over the raw data for a particular day specified by `TimeGenerated`, the timestamp when the event was generated.
+
+To diagnose late arriving data issues, use the `_TimeReceived` column ([learn more](./log-standard-columns.md#_timereceived)) in addition to the `TimeGenerated` column. `_TimeReceived` is the time when the the record was received by the Azure Monitor ingestion point in the Azure cloud. For instance, when using the `Usage` records, you have observed high ingested data volumes of `W3CIISLog` data on May 2, 2021, here is a query that will identify the timestamps on this ingested data: 
+
+```Kusto
+W3CIISLog
+| where TimeGenerated > datetime(1970-01-01)
+| where _TimeReceived >= datetime(2021-05-02) and _TimeReceived < datetime(2021-05-03) 
+| where _IsBillable == true
+| summarize BillableDataMB = sum(_BilledSize)/1.E6 by bin(TimeGenerated, 1d)
+| sort by TimeGenerated asc 
+```
+
+The `where TimeGenerated > datetime(1970-01-01)` is just present to provide the clue to the Log Analytics user interface to look over all data.  
+
+## Querying for common data types
 
 To dig deeper into the source of data for a particular data type, here are some useful example queries:
 
@@ -557,7 +606,7 @@ To see the number of distinct Automation nodes, use the query:
 
 ## Evaluating the legacy Per Node pricing tier
 
-The decision of whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Capacity Reservation** tier is often difficult for customers to assess.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier. 
+The decision of whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Commitment Tier**  is often difficult for customers to assess.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier. 
 
 To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns.  This query looks at the monitored nodes and data ingested into a workspace in the last 7 days, and for each day evaluates which pricing tier would have been optimal. To use the query, you need to specify
 
@@ -575,11 +624,11 @@ let workspaceHasSecurityCenter = false;  // Specify if the workspace has Azure S
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
 let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
-let CarRes100Price = 196.; // Enter your price for the 100 GB/day Capacity Reservation
-let CarRes200Price = 368.; // Enter your price for the 200 GB/day Capacity Reservation
-let CarRes300Price = 540.; // Enter your price for the 300 GB/day Capacity Reservation
-let CarRes400Price = 704.; // Enter your price for the 400 GB/day Capacity Reservation
-let CarRes500Price = 865.; // Enter your price for the 500 GB/day Capacity Reservation
+let CarRes100Price = 196.; // Enter your price for the 100 GB/day commitment tier
+let CarRes200Price = 368.; // Enter your price for the 200 GB/day commitment tier
+let CarRes300Price = 540.; // Enter your price for the 300 GB/day commitment tier
+let CarRes400Price = 704.; // Enter your price for the 400 GB/day commitment tier
+let CarRes500Price = 865.; // Enter your price for the 500 GB/day commitment tier
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
 let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
@@ -626,11 +675,11 @@ union *
 | extend Recommendation = case(
     MinCost == PerNodeDailyCost, "Per node tier",
     MinCost == PerGBDailyCost, "Pay-as-you-go tier",
-    MinCost == CapRes100DailyCost, "Capacity Reservation (100 GB/day)",
-    MinCost == CapRes200DailyCost, "Capacity Reservation (200 GB/day)",
-    MinCost == CapRes300DailyCost, "Capacity Reservation (300 GB/day)",
-    MinCost == CapRes400DailyCost, "Capacity Reservation (400 GB/day)",
-    MinCost == CapRes500AndAboveDailyCost, strcat("Capacity Reservation (",CapResLevel500AndAbove," GB/day)"),
+    MinCost == CapRes100DailyCost, "Cap**ommitment tier (100 GB/day)",
+    MinCost == CapRes200DailyCost, "Commitment tier (200 GB/day)",
+    MinCost == CapRes300DailyCost, "Commitment tier (300 GB/day)",
+    MinCost == CapRes400DailyCost, "Commitment tier (400 GB/day)",
+    MinCost == CapRes500AndAboveDailyCost, strcat("Commitment tier (",CapResLevel500AndAbove," GB/day)"),
     "Error"
 )
 | project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, 
@@ -688,10 +737,6 @@ When data collection stops, the OperationStatus is **Warning**. When data collec
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 
 To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops. Use the steps described in [create an action group](../alerts/action-groups.md) to configure an e-mail, webhook, or runbook action for the alert rule. 
-
-## Late arriving data 	
-
-Situations can arise where data is ingested with very old timestamps, for instance if an agent cannot communicate to Log Analytics due to a connectivity issue, or situations when a host has an incorrectly time date/time. To diagnose these issues, use the `_TimeReceived` column ([learn more](./log-standard-columns.md#_timereceived)) in addition to the `TimeGenerated` column. `TimeReceived` is the time when the the record was received by the Azure Monitor ingestion point in the Azure cloud.  
 
 ## Limits summary
 

@@ -153,8 +153,8 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Virtual Machines: [Ev4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)                                | :large_blue_diamond:  |
 |     Virtual Machines: [Fsv2-Series](../virtual-machines/windows/create-powershell-availability-zone.md)                               | :large_blue_diamond:  |
 |     Virtual Machines: [M-Series](../virtual-machines/windows/create-powershell-availability-zone.md)                                  | :large_blue_diamond:  |
-|     [Virtual WAN](../virtual-wan/virtual-wan-about.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                                 | :large_blue_diamond:  |
-|     Virtual WAN: [ExpressRoute](../virtual-wan/virtual-wan-about.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                   | :large_blue_diamond:  |
+|     [Virtual WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                                 | :large_blue_diamond:  |
+|     Virtual WAN: [ExpressRoute](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)                                   | :large_blue_diamond:  |
 |     Virtual WAN: [Point-to-Site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)                      | :large_blue_diamond:  |
 |     Virtual WAN: [Site-to-Site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)                       | :large_blue_diamond:  |
 
