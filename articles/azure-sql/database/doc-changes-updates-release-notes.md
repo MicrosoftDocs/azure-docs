@@ -126,7 +126,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 If an instance participates in an [auto-failover group](./auto-failover-group-overview.md), changing the instance's [connection type](../managed-instance/connection-types-overview.md) does not take effect for the connections established through the failover group listener endpoint.
 
-**Workaround**: Drop and recreate auto-failover group afer changing the connection type.
+**Workaround**: Drop and recreate auto-failover group after changing the connection type.
 
 ### Procedure sp_send_dbmail may transiently fail when @query parameter is used
 
@@ -153,7 +153,7 @@ END
 
 ### Distributed transactions can be executed after removing Managed Instance from Server Trust Group
 
-[Server Trust Groups](../managed-instance/server-trust-group-overview.md) are used to establish trust between Managed Instances that is prerequisite for executing [distributed transactions](./elastic-transactions-overview.md). After removing Managed Instance from Server Trust Group or deleting the group you still might be able to execute distributed transactions. There is a workaround you can apply to be sure that distributed transactions are disabled and that is [user-initiated manual failover](../managed-instance/user-initiated-failover.md) on Managed Instance.
+[Server Trust Groups](../managed-instance/server-trust-group-overview.md) are used to establish trust between Managed Instances that is prerequisite for executing [distributed transactions](./elastic-transactions-overview.md). After removing Managed Instance from Server Trust Group or deleting the group, you still might be able to execute distributed transactions. There is a workaround you can apply to be sure that distributed transactions are disabled and that is [user-initiated manual failover](../managed-instance/user-initiated-failover.md) on Managed Instance.
 
 ### Distributed transactions cannot be executed after Managed Instance scaling operation
 
@@ -161,7 +161,7 @@ Managed Instance scaling operations that include changing service tier or number
 
 ### BULK INSERT and BACKUP/RESTORE statements should use SAS Key to access Azure storage
 
-Currently, it is not supported to use `DATABASE SCOPED CREDENTIAL` syntax with Managed Identity to authenticate to Azure storage. Microsoft recommends using [shared access signature](../../storage/common/storage-sas-overview.md) for the [database scoped credential](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token), when accessing Azure storage for bulk insert, BACKUP and RESTORE statements, or the OPENROWSET function. For example:
+Currently, it is not supported to use `DATABASE SCOPED CREDENTIAL` syntax with Managed Identity to authenticate to Azure storage. Microsoft recommends using a [shared access signature](../../storage/common/storage-sas-overview.md) for the [database scoped credential](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token), when accessing Azure storage for bulk insert, BACKUP and RESTORE statements, or the OPENROWSET function. For example:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
@@ -177,9 +177,9 @@ For another example of using `BULK INSERT` with an SAS key, see [Shared Access S
 
 ### Service Principal cannot access Azure AD and AKV
 
-In some circumstances there might exist an issue with Service Principal used to access Azure AD and Azure Key Vault (AKV) services. As a result, this issue impacts usage of Azure AD authentication and Transparent Database Encryption (TDE) with SQL Managed Instance. This might be experienced as an intermittent connectivity issue, or not being able to run statements such are `CREATE LOGIN/USER FROM EXTERNAL PROVIDER` or `EXECUTE AS LOGIN/USER`. Setting up TDE with customer-managed key on a new Azure SQL Managed Instance might also not work in some circumstances.
+In some circumstances, there might exist an issue with Service Principal used to access Azure AD and Azure Key Vault (AKV) services. As a result, this issue impacts usage of Azure AD authentication and Transparent Database Encryption (TDE) with SQL Managed Instance. This might be experienced as an intermittent connectivity issue, or not being able to run statements such are `CREATE LOGIN/USER FROM EXTERNAL PROVIDER` or `EXECUTE AS LOGIN/USER`. Setting up TDE with customer-managed key on a new Azure SQL Managed Instance might also not work in some circumstances.
 
-**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin blade](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal". In case you have encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
+**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin page](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal". In case you have encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
 
 ### Restoring manual backup without CHECKSUM might fail
 
@@ -205,7 +205,7 @@ If a failover group spans across instances in different Azure subscriptions or r
 
 ### SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins
 
-If non-sysadmin logins are added to any [SQL Agent fixed database roles](/sql/ssms/agent/sql-server-agent-fixed-database-roles), there exists an issue in which explicit EXECUTE permissions need to be granted to the master stored procedures for these logins to work. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown.
+If non-sysadmin logins are added to any [SQL Agent fixed database roles](/sql/ssms/agent/sql-server-agent-fixed-database-roles), there exists an issue in which explicit EXECUTE permissions need to be granted to three stored procedures in the master database for these logins to work. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown.
 
 **Workaround**: Once you add logins to a SQL Agent fixed database role (SQLAgentUserRole, SQLAgentReaderRole, or SQLAgentOperatorRole), for each of the logins added to these roles, execute the below T-SQL script to explicitly grant EXECUTE permissions to the stored procedures listed.
 
