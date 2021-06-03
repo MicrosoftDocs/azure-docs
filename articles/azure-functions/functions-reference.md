@@ -108,6 +108,9 @@ Some connections in Azure Functions are configured to use an identity instead of
 
 Identity-based connections are supported by the following trigger and binding extensions in all plans:
 
+> [!NOTE]
+> Identity-based connections are not supported with Durable Functions.
+
 | Extension name | Extension version                                                                                     |
 |----------------|-------------------------------------------------------------------------------------------------------|
 | Azure Blob     | [Version 5.0.0-beta1 or later](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  |
