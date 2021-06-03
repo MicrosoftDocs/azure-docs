@@ -206,7 +206,7 @@ sections:
           The old VM's restore points will be available for restore if needed. If you don't need this backup data, you can stop protecting your old VM with delete data.
 
       - question: Is there a limit on number of VMs that can be associated with the same backup policy?
-        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.
+        answer: Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.<br><br>There is a daily limit of 1000 for overall configure/modify protections in a vault.
 
       - question: How can I view the retention settings for my backups?
         answer: |
