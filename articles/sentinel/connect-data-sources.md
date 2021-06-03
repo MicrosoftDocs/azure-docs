@@ -72,25 +72,28 @@ Some services connect natively, such as Amazon Web Services and Microsoft servic
 
 - [Amazon Web Services - CloudTrail](connect-aws.md)
 - [Azure Active Directory](connect-azure-active-directory.md) - audit logs and sign-in logs
+- [Azure Active Directory Identity Protection](connect-azure-ad-identity-protection.md)
 - [Azure Activity](connect-azure-activity.md)
-- [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
 - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+- [Azure Defender](connect-azure-security-center.md) alerts from Azure Security Center
 - [Azure Defender for IoT](connect-asc-iot.md) (formerly Azure Security Center for IoT)
-- [Azure Information Protection](connect-azure-information-protection.md). InformationProtectionLogs_CL usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
 - [Azure Firewall](connect-azure-firewall.md)
-- [Azure Security Center](connect-azure-security-center.md) - alerts from Azure Defender solutions
+- [Azure Information Protection](connect-azure-information-protection.md). InformationProtectionLogs_CL usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
+- [Azure Key Vault](connect-azure-key-vault.md)
+- [Azure Kubernetes Service (AKS)](connect-azure-kubernetes-service.md)
+- [Azure SQL Databases](connect-azure-sql-logs.md)
+- [Azure Storage Account](connect-azure-storage-account.md)
 - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (formerly Microsoft WAF)
-- [Cloud App Security](connect-cloud-app-security.md)
 - [Domain name server](connect-dns.md)
+- [Dynamics 365](connect-dynamics-365.md)
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes M365D incidents and Defender for Endpoint raw data
+- [Microsoft Cloud App Security (MCAS)](connect-cloud-app-security.md)
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (formerly Microsoft Defender Advanced Threat Protection)
 - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
 - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
-- [Office 365](connect-office-365.md) (now with Teams!)
+- [Office 365](connect-office-365.md) (includes Teams)
+- [Security events (Windows)](connect-windows-security-events.md). For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](./quickstart-get-visibility.md#use-built-in-workbooks).
 - [Windows firewall](connect-windows-firewall.md)
-- [Windows security events](connect-windows-security-events.md). For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](./quickstart-get-visibility.md#use-built-in-workbooks).
-- For VMConnection, ServiceMapComputer_CL, and ServiceMapProcess_CL, see [Azure Monitor service map](../azure-monitor/vm/service-map.md), [Azure Monitor VM insights](../azure-monitor/vm/vminsights-enable-overview.md), and the VM insights workbook.
-- For [Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center), get the [Sysmon parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt) and see [Connect Windows Events](../azure-monitor/agents/data-sources-windows-events.md). Sysmon (event) collection isn't installed by default on virtual machines. For more information on how to install the Sysmon agent, see [Sysmon](/sysinternals/downloads/sysmon).
 
 ### External solutions via API
 
@@ -129,6 +132,13 @@ To connect your external appliance to Azure Sentinel, the agent must be deployed
 Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
 ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
+
+> [!NOTE]
+> - The data types VMConnection, ServiceMapComputer_CL, and ServiceMapProcess_CL don't have native data connectors. For more information about connecting these data types, see [Azure Monitor service map](../azure-monitor/vm/service-map.md), [Azure Monitor VM insights](../azure-monitor/vm/vminsights-enable-overview.md), and the VM insights workbook.
+> 
+> - Sysmon (event) collection isn't installed by default on virtual machines. For [Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center), get the [Sysmon parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt), and see [Connect Windows Events](../azure-monitor/agents/data-sources-windows-events.md).
+>   
+>   For more information on how to install the Sysmon agent, see [Sysmon](/sysinternals/downloads/sysmon).
 
 ## Next steps
 
