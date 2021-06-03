@@ -6,9 +6,9 @@ ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: MashaMSFT
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: cawrites
 ms.date: 12/15/2020
 ---
 # Assessment rules for SQL Server to Azure SQL Database migration

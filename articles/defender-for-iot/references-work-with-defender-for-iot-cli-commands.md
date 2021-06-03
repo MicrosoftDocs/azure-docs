@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT CLI commands
 description: This article describes Defender for IoT CLI commands for sensors and on-premises management consoles.  
-ms.date: 12/12/2020
+ms.date: 05/20/2021
 ms.topic: article
 ---
 
@@ -108,7 +108,7 @@ The following table describes the commands available to configure your network o
 |Import a certificate |`certificate import FILE` |Imports the HTTPS certificate. You'll need to specify the full path, which leads to a \*.crt file. |
 |Show the date |`date` |Returns the current date on the host in GMT format. |
 
-## Filter network configurations
+## Network capture filter configuration
 
 The `network capture-filter` command allows administrators to eliminate network traffic that doesn't need to be analyzed. You can filter traffic by using an include list, or an exclude list.
 

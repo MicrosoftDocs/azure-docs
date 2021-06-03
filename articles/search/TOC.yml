@@ -5,7 +5,7 @@
   items:
   - name: What is Cognitive Search?
     href: search-what-is-azure-search.md
-  - name: Feature list
+  - name: Features in Search
     href: search-features-list.md
   - name: New in Search
     href: whats-new.md
@@ -63,7 +63,17 @@
       - name: Deploy static web app
         href: tutorial-javascript-deploy-static-web-app.md
       - name: Integration cheat sheet
-        href: tutorial-javascript-search-query-integration.md     
+        href: tutorial-javascript-search-query-integration.md
+    - name: Python 
+      items:         
+      - name: Website overview
+        href: tutorial-python-overview.md
+      - name: Create a search index
+        href: tutorial-python-create-load-index.md
+      - name: Deploy static web app
+        href: tutorial-python-deploy-static-web-app.md
+      - name: Integration cheat sheet
+        href: tutorial-python-search-query-integration.md                
   - name: Create a C# app
     items:
     - name: 1 - Basic search page
