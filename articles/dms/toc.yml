@@ -169,6 +169,6 @@
     - name: Monitor an online migration and perform cutover
       href: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
     - name: Migrate Oracle to Azure SQL DB
-      href: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
+      href: /azure/postgresql/howto-migrate-from-oracle
     - name: Migrate MongoDB to Azure Cosmos DB
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
