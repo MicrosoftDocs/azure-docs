@@ -89,7 +89,7 @@ Once the tracer has been initialized, you can create the span that will be in ch
 
 ```python
 with tracer.start_as_current_span(name="MyIdentityApplication"):
-    user = identity_client.create_user()  
+    user = identity_client.create_user()
 ```
 
 ## Run the code

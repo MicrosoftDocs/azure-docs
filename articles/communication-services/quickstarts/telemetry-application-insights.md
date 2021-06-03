@@ -22,6 +22,18 @@ Azure Application Insights is a feature of Azure Monitor which is used to monito
 [!INCLUDE [.NET](./includes/telemetry-app-insights-net.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript](./includes/telemetry-app-insights-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java](./includes/telemetry-app-insights-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python](./includes/telemetry-app-insights-python.md)]
+::: zone-end
+
 The output of the app describes each action that is completed:
 <!---cSpell:disable --->
 ```console
