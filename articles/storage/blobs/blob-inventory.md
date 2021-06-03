@@ -145,10 +145,10 @@ Several filters are available for customizing a blob inventory report:
 
 | Filter name         | Filter type                     | Notes | Required? |
 |---------------------|---------------------------------|-------|-----------|
-| blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType : `container`). | Yes |
+| blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType: `container`). | Yes |
 | prefixMatch         | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container` `container1/foo`| No |
-| includeSnapshots    | boolean                         | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType : `container`).| No |
-| includeBlobVersions | boolean                         | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType : `container`).| No |
+| includeSnapshots    | boolean                         | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`).| No |
+| includeBlobVersions | boolean                         | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`).| No |
 
 View the JSON for inventory rules by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal. Filters are specified within a rule definition.
 
@@ -230,7 +230,7 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - HasLegalHold
 - Metadata
 
-## Inventory runs
+## Inventory run
 
 A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. An inventory report is configured by adding an inventory policy with one or more rules.
 
@@ -238,6 +238,43 @@ Inventory policies are read or written in full. Partial updates aren't supported
 
 > [!IMPORTANT]
 > If you enable firewall rules for your storage account, inventory requests might be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+
+## Inventory completed event
+
+The `BlobInventoryPolicyCompleted` event is generated when the inventory run completes for a rule. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event. The following json shows an example `BlobInventoryPolicyCompleted` event.
+
+```json
+{ 
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic", 
+  "subject": "BlobDataManagement/BlobInventory", 
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted", 
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
+  "data": { 
+    "scheduleDateTime": "2021-05-28T03:50:27Z", 
+    "accountName": "testaccount", 
+    "ruleName": "Rule_1", 
+    "policyRunStatus": "Succeeded", 
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.", 
+    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+"manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
+  }, 
+  "dataVersion": "1.0", 
+  "metadataVersion": "1", 
+  "eventTime": "2021-05-28T15:03:18Z" 
+} 
+```
+
+The following table describes the schema of the `BlobInventoryPolicyCompleted` event.
+
+|Field|Type|Description|
+|---|---|
+|scheduleDateTime|string|The time that the inventory policy was scheduled.|
+|accountName|string|The storage account name.|
+|ruleName|string|The rule name.|
+|policyRunStatus|string|The status of inventory run. Possible values are `Succeeded`, `PartiallySucceeded`, and `Failed`.|
+|policyRunStatusMessage|string|The status message for the inventory run.|
+|policyRunId|string|The policy run ID for the inventory run.|
+|manifestBlobUrl|string|The blob URL for manifest file for inventory run.|
 
 ## Inventory output
 
@@ -308,43 +345,6 @@ Each inventory run for a rule generates the following files:
 	} 
    ```
 
-## Inventory completed event
-
-The `BlobInventoryPolicyCompleted` event is generated when the inventory run completes for a rule. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event. The event is published to Blob Inventory Topic. The following json shows an example `BlobInventoryPolicyCompleted` event.
-
-```json
-{ 
-  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic", 
-  "subject": "BlobDataManagement/BlobInventory", 
-  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted", 
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
-  "data": { 
-    "scheduleDateTime": "2021-05-28T03:50:27Z", 
-    "accountName": "testaccount", 
-    "ruleName": "Rule_1", 
-    "policyRunStatus": "Succeeded", 
-    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.", 
-    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
-"manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
-  }, 
-  "dataVersion": "1.0", 
-  "metadataVersion": "1", 
-  "eventTime": "2021-05-28T15:03:18Z" 
-} 
-```
-
-The following table describes the schema of the `BlobInventoryPolicyCompleted` event.
-
-|Field|Type|Description|
-|---|---|
-|scheduleDateTime|string|The time that the inventory policy was scheduled.|
-|accountName|string|The storage account name.|
-|ruleName|string|The rule name.|
-|policyRunStatus|string|The status of inventory run. Possible values are `Succeeded`, `PartiallySucceeded`, and `Failed`.|
-|policyRunStatusMessage|string|The status message for the inventory run.|
-|policyRunId|string|The policy run id for the inventory run.|
-|manifestBlobUrl|string|The blob URL for manifest file for inventory run.|
-
 ## Known issues
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
@@ -353,9 +353,9 @@ This section describes limitations and known issues of the Azure Storage blob in
 
 The inventory job may not complete within 24 hours for an account with millions of blobs and hierarchical namespaces enabled. If this happens, no inventory file is created.
 
-### Inventory job cannot write Inventory reports
+### Inventory job cannot write inventory reports
 
-An object replication policy can prevent Inventory job from writing Inventory reports to the destination container. Some other scenarios can archive the inventory created reports or make them immutable when they are partially completed and this can lead to inventory job failure.
+An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make them immutable when they are partially completed. This can lead to inventory job failure.
 
 ## Next steps
 

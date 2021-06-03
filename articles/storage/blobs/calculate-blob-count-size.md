@@ -22,7 +22,7 @@ Blob metadata is not included in this method. The Azure Blob Storage inventory f
 
 ## Enable inventory reports
 
-The first step in this method is to [enable inventory reports](blob-inventory.md#enable-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
+The first step in this method is to [enable inventory reports](blob-inventory.md#enabling-inventory-reports) on your storage account. You may have to wait up to 24 hours after enabling inventory reports for your first report to be generated.
 
 When you have an inventory report to analyze, grant yourself blob read access to the container where the report CSV file resides.
 
