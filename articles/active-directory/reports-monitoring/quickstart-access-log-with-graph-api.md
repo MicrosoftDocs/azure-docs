@@ -68,10 +68,6 @@ Review the outcome of your query.
  ![Microsoft Graph explorer response preview](./media/quickstart-access-log-with-graph-api/response-preview.png)   
 
 
-
-
-
-
 ## Clean up resources
 
 When no longer needed, delete the test user. If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
