@@ -10,7 +10,7 @@ ms.date: 06/02/2021
 ---
 # Configure custom dns for your Azure Red Hat OpenShift (ARO) cluster
 
-This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use a custom DNS server. It contains the cluster requirements for a basic ARO deployment. An [example](#Example) will be provided at the end on how to configure these requirements with your custom DNS. 
+This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use a custom DNS server. It contains the cluster requirements for a basic ARO deployment. An [example](#example) will be provided at the end on how to configure these requirements with your custom DNS.
 
 ## Before you begin
 
@@ -62,7 +62,7 @@ You should receive a notification that your update was successful.
 
 ### Gracefully reboot your Azure Red Hat OpenShift cluster
 
-These steps require having a valid kubeconfig to your cluster, see [this tutorial ](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster) for details on how to obtain a kubeconfig.
+These steps require having a valid kubeconfig to your cluster, see [this tutorial](./tutorial-connect-cluster) for details on how to obtain a kubeconfig.
 
 The following code snippets create noop `machineconfig`'s for master and worker nodes. This allows you to initiate rolling reboots for either the worker or master nodes. For more information about the Machine Config Operator (MCO), please see either [the source code](https://github.com/openshift/machine-config-operator) or the [OpenShift docs for MCO
 ](https://docs.openshift.com/container-platform/4.6/architecture/control-plane.html).
