@@ -53,7 +53,7 @@ The Backup service creates a separate resource group (RG), different than the re
 Points to note:
 
 1. You can either use the default name of the RG, or edit it according to your company requirements.<br>If you have not created an RG, to specify an RG for restorepointcollection, follow these steps:
-   1. Create a resource group for restorepointcollection. For example, "rpcrg".
+   1. Create an RG for restorepointcollection. For example, "rpcrg".
    1. Mention the name of RG in the VM backup policy.
    >[!NOTE]
    >This will create an RG with the numeric appended and will use it for restorepointcollection.
