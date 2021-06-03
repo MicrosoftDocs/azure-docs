@@ -87,10 +87,10 @@ The creation of the Azure Cosmos account takes a while, once the operation is su
 
 ### <a id="create-dotnet-core-app"></a>Create a new .NET app
 
-Create a new .NET application in your preferred editor or IDE. Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal.  Run the following dotnet new command to create a new app with the name `todo`. The --langVersion parameter sets the LangVersion property in the created project file.
+Create a new .NET application in your preferred editor or IDE. Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal.  Run the following dotnet new command to create a new app with the name `todo`. The `--langVersion` parameter sets the LangVersion property in the created project file.
 
    ```bash
-   dotnet new console â€“langVersion:8 -n todo
+   dotnet new console --langVersion:8 -n todo
    ```
 
 Change your directory to the newly created app folder. You can build the application with:

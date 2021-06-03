@@ -118,13 +118,13 @@ Resource usage unit costs vary by time intervals, such as seconds, minutes, hour
 
 After you start incurring costs for resources that create or start using in Azure, you can review and monitor these costs in these ways:
 
-* [Monitor logic app executions and storage consumption](#monitor-billing-metrics) by using Azure Monitor
+* [Monitor logic app executions and storage usage](#monitor-billing-metrics) by using Azure Monitor
 
 * Run [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) by using [Azure Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <a name="monitor-billing-metrics"></a>
 
-### Monitor logic app executions and storage consumption
+### Monitor logic app executions and storage usage
 
 Using Azure Monitor, you can view these metrics for a specific logic app:
 

@@ -15,7 +15,7 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 
 ---
 # Use Azure quickstart templates to configure an availability group for SQL Server on Azure VM
@@ -229,7 +229,8 @@ After you make these changes, try to deploy the Azure quickstart template once m
 
 To learn more, see:
 
-- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
-- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
-- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)
+* [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
+* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
+* [Pricing guidance for SQL Server VMs](pricing-guidance.md)
+* [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
+* [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)

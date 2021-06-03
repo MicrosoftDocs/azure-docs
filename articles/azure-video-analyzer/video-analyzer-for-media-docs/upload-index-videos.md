@@ -346,6 +346,10 @@ The status codes listed in the following table may be returned by the Upload ope
 >
 > If you must use older .NET frameworks, add one line into your code before making the REST API call:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
+## Firewall
+
+See [Storage account that is behind a firewall](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
+
 ## Next steps
 
 [Examine the Azure Video Analyzer for Media output produced by API](video-indexer-output-json-v2.md)
