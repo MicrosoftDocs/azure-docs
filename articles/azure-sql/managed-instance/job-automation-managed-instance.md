@@ -1,5 +1,6 @@
 ---
-title: Job automation with SQL Agent jobs in Azure SQL Managed Instance
+title: Job automation with SQL Agent jobs 
+titleSuffix: Azure SQL Managed Instance
 description: 'Automation options to run Transact-SQL (T-SQL) scripts in Azure SQL Managed Instance'
 services: sql-database
 ms.service: sql-db-mi
@@ -11,25 +12,25 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer:
-ms.date: 02/01/2021
+ms.date: 06/03/2021
 ---
 # Automate management tasks using SQL Agent jobs in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Using [SQL Server Agent](/sql/ssms/agent/sql-server-agent) in SQL Server and [SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), you can create and schedule jobs that could be periodically executed against one or many databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. This article introduced SQL Agent for SQL Managed Instance.
+Using [SQL Server Agent](/sql/ssms/agent/sql-server-agent) in SQL Server and [SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), you can create and schedule jobs that could be periodically executed against one or many databases to run Transact-SQL (T-SQL) queries and perform maintenance tasks. This article covers the use of SQL Agent for SQL Managed Instance.
 
 > [!Note]
 > SQL Agent is not available in Azure SQL Database or Azure Synapse Analytics. Instead, we recommend [Job automation with Elastic Jobs](job-automation-overview.md).
 
-### SQL Agent job limitations in Azure SQL managed instance
+### SQL Agent job limitations in SQL Managed Instance
 
 It is worth noting the differences between SQL Agent available in SQL Server and as part of SQL Managed Instance. For more on the supported feature differences between SQL Server and SQL Managed Instance, see [Azure SQL Managed Instance T-SQL differences from SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent). 
 
 Some of the SQL Agent features that are available in SQL Server are not supported in SQL Managed Instance:
 
 - SQL Agent settings are read only. 
-    - The system stored procedure `sp_set_agent_properties` is not supported in SQL Managed Instance.
-- Enabling/disabling SQL Agent is currently not supported in SQL Managed Instance. SQL Agent is always running.
+    - The system stored procedure `sp_set_agent_properties` is not supported.
+- Enabling/disabling SQL Agent is currently not supported. SQL Agent is always running.
 - Notifications are partially supported:
   - Pager is not supported.
   - NetSend is not supported.
@@ -44,8 +45,8 @@ There are several scenarios when you could use SQL Agent jobs:
 
 - Automate management tasks and schedule them to run every weekday, after hours, etc.
   - Deploy schema changes, credentials management, performance data collection or tenant (customer) telemetry collection.
-  - Update reference data (information common across all databases), load data from Azure Blob storage.
-  - Common maintenance tasks including DBCC CHECKDB to ensure data integrity or index maintenance to improve query performance. Configure jobs to execute across a collection of databases on a recurring basis, such as during off-peak hours.
+  - Update reference data (information common across all databases), load data from Azure Blob storage. Microsoft recommends using [SHARED ACCESS SIGNATURE authentication to authenticate to Azure Blob storage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
+  - Common maintenance tasks including `DBCC CHECKDB` to ensure data integrity or index maintenance to improve query performance. Configure jobs to execute across a collection of databases on a recurring basis, such as during off-peak hours.
   - Collect query results from a set of databases into a central table on an on-going basis. Performance queries can be continually executed and configured to trigger additional tasks to be executed.
 - Collect data for reporting
   - Aggregate data from a collection of databases into a single destination table.
@@ -54,7 +55,7 @@ There are several scenarios when you could use SQL Agent jobs:
   - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changes in the database.
   - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
 
-## SQL Agent jobs in Azure SQL managed instance
+## SQL Agent jobs in SQL Managed Instance
 
 SQL Agent Jobs are executed by the SQL Agent service that continues to be used for task automation in SQL Server and SQL Managed Instance. 
 
@@ -75,9 +76,9 @@ SQL Agent Job steps are sequences of actions that SQL Agent should execute. Ever
 SQL Agent enables you to create different types of job steps, such as Transact-SQL job steps that execute a single Transact-SQL batch against the database, or OS command/PowerShell steps that can execute custom OS script, [SSIS job steps](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) that enable you to load data using SSIS runtime, or [replication](../managed-instance/replication-transactional-overview.md) steps that can publish changes from your database to other databases.
 
 > [!Note]
-> For more information on leveraging the Azure SSIS Integration Runtime with SSISDB hosted by Azure SQL Managed Instance, see [Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
+> For more information on leveraging the Azure SSIS Integration Runtime with SSISDB hosted by SQL Managed Instance, see [Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
 
-[Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in Azure SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
+[Transactional replication](../managed-instance/replication-transactional-overview.md) can replicate the changes from your tables into other databases in SQL Managed Instance, Azure SQL Database, or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
 
 Other types of job steps are not currently supported in SQL Managed Instance, including:
 
@@ -102,7 +103,7 @@ A schedule can define the following conditions for the time when a job runs:
 
 SQL Agent Jobs enable you to get notifications when the job finishes successfully or fails. You can receive notifications via email.
 
-If it isn't already enabled, first you would need to configure [the Database Mail feature](/sql/relational-databases/database-mail/database-mail) on Azure SQL Managed Instance:
+If it isn't already enabled, first you would need to configure [the Database Mail feature](/sql/relational-databases/database-mail/database-mail) on SQL Managed Instance:
 
 ```sql
 GO
@@ -176,13 +177,13 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 ### SQL Agent job history
 
-Azure SQL Managed Instance currently doesn't allow you to change any SQL Agent properties because they are stored in the underlying registry values. This means options for adjusting the Agent retention policy for job history records are fixed at the default of 1000 total records and max 100 history records per job.
+SQL Managed Instance currently doesn't allow you to change any SQL Agent properties because they are stored in the underlying registry values. This means options for adjusting the Agent retention policy for job history records are fixed at the default of 1000 total records and max 100 history records per job.
 
 ### SQL Agent fixed database role membership
 
-If users linked to non-sysadmin logins are added to any of the three SQL Agent fixed database roles in the msdb system database, there exists an issue in which explicit EXECUTE permissions need to be granted to the master stored procedures for these logins to work. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown. 
+If users linked to non-sysadmin logins are added to any of the three SQL Agent fixed database roles in the msdb system database, there exists an issue in which explicit EXECUTE permissions need to be granted to three system stored procedures in the master database. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown. 
 
-Once you add users to a SQL Agent fixed database role (SQLAgentUserRole, SQLAgentReaderRole, or SQLAgentOperatorRole) in msdb, for each of the user's logins added to these roles, execute the below T-SQL script to explicitly grant EXECUTE permissions to the system stored procedures listed. This example assumes that the user name and login name are the same. 
+Once you add users to a SQL Agent fixed database role (SQLAgentUserRole, SQLAgentReaderRole, or SQLAgentOperatorRole) in msdb, for each of the user's logins added to these roles, execute the below T-SQL script to explicitly grant EXECUTE permissions to the system stored procedures listed. This example assumes that the user name and login name are the same:
 
 ```sql
 USE [master]
