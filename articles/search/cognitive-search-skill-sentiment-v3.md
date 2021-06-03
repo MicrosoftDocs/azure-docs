@@ -37,7 +37,7 @@ Parameters are case-sensitive.
 | Parameter Name | Description |
 |----------------|----------------------|
 | `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) |
-| `modelVersion`   | (optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
+| `modelVersion`   | (optional) The version of the model to use when calling the Text Analytics service. It will default to the most recent version when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
 | `includeOpinionMining` | If set to `true`, enables [the opinion mining feature of TextAnalytics](../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining), which allows aspect-based sentiment analysis to be included in your output results. Defaults to `false`. |
 
 ## Skill inputs 
@@ -52,7 +52,7 @@ Parameters are case-sensitive.
 | Output	Name | Description |
 |--------------------|-------------|
 | `sentiment` | A string value that represents the sentiment label of the entire analyzed text (either positive, neutral or negative). |
-| `confidenceScores` | A complex type with three double values, one for the positive rating, one for the neutral rating, and one for the negative rating. Values close to 0 mean the text is less likely to be that particular sentiment label, and values close to 1 mean the text is more likely to be of that particular sentiment label. |
+| `confidenceScores` | A complex type with three double values, one for the positive rating, one for the neutral rating, and one for the negative rating. Values range from 0 to 1.00, where 1.00 represents the highest possible confidence in a given label assignment. |
 | `sentences` | A collection of complex types that breaks down the sentiment of the text sentence by sentence. This is also where opinion mining results are returned in the form of targets and assessments if `includeOpinionMining` is set to `true`.|
 
 
