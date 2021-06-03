@@ -23,128 +23,63 @@ This article assumes that you have an existing AKS cluster with a Windows Server
 
 You also need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Deploy a virtual machine to the same subnet as your cluster
+## Establish a jump server to your AKS cluster
 
-The Windows Server nodes of your AKS cluster don't have externally accessible IP addresses. To make an RDP connection, you can deploy a virtual machine with a publicly accessible IP address to the same subnet as your Windows Server nodes.
+The Windows Server nodes of your AKS cluster don't have externally accessible IP addresses. To make an RDP connection, you can deploy an SSH container on a Linux node to establish a jump server to enble RDP.
 
 The following example creates a virtual machine named *myVM* in the *myResourceGroup* resource group.
 
-First, get the subnet used by your Windows Server node pool. To get the subnet id, you need the name of the subnet. To get the name of the subnet, you need the name of the vnet. Get the vnet name by querying your cluster for its list of networks. To query the cluster, you need its name. You can get all of these by running the following in the Azure Cloud Shell:
+First, follow the steps to [establish an SSH connection to a Linux Node][ssh-linux-kubectl-debug]. Once you have the pod running you are ready to set up the connection to the Windows nodes.
 
-```azurecli-interactive
-CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
-VNET_NAME=$(az network vnet list -g $CLUSTER_RG --query [0].name -o tsv)
-SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
-SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
+Open a new terminal window and use `kubectl get pods` to get the name of the Linux pod started by `kubectl debug`.
+```output
+$ kubectl get pods
+NAME                                                    READY   STATUS    RESTARTS   AGE
+node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx   1/1     Running   0          21s
 ```
 
-Now that you have the SUBNET_ID, run the following command in the same Azure Cloud Shell window to create the VM:
+Using portforwarding you can open a connnection to the pod deployed above:
 
-```azurecli-interactive
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --image win2019datacenter \
-    --admin-username azureuser \
-    --admin-password myP@ssw0rd12 \
-    --subnet $SUBNET_ID \
-    --query publicIpAddress -o tsv
+```
+kubectl port-forward node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx 2022:22
+Forwarding from 127.0.0.1:2022 -> 22
+Forwarding from [::1]:2022 -> 22
 ```
 
-The following example output shows the VM has been successfully created and displays the public IP address of the virtual machine.
+Open a third terminal window and use `kubectl get nodes` to show the internal IP address of the Windows Server node:
 
-```console
-13.62.204.18
-```
-
-Record the public IP address of the virtual machine. You will use this address in a later step.
-
-## Allow access to the virtual machine
-
-AKS node pool subnets are protected with NSGs (Network Security Groups) by default. To get access to the virtual machine, you'll have to enabled access in the NSG.
-
-> [!NOTE]
-> The NSGs are controlled by the AKS service. Any change you make to the NSG will be overwritten at any time by the control plane.
->
-
-First, get the resource group and nsg name of the nsg to add the rule to:
-
-```azurecli-interactive
-CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
-NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
-```
-
-Then, create the NSG rule:
-
-```azurecli-interactive
-az network nsg rule create --name tempRDPAccess --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --priority 100 --destination-port-range 3389 --protocol Tcp --description "Temporary RDP access to Windows nodes"
-```
-
-## Get the node address
-
-To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli][az-aks-install-cli] command:
-    
-```azurecli-interactive
-az aks install-cli
-```
-
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
-
-```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
-```
-
-List the internal IP address of the Windows Server nodes using the [kubectl get][kubectl-get] command:
-
-```console
-kubectl get nodes -o wide
-```
-
-The follow example output shows the internal IP addresses of all the nodes in the cluster, including the Windows Server nodes.
-
-```console
+```output
 $ kubectl get nodes -o wide
-NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION      CONTAINER-RUNTIME
-aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS          4.15.0-1040-azure   docker://3.0.4
-aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
+NAME                                STATUS   ROLES   AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
+aks-nodepool1-12345678-vmss000000   Ready    agent   13m     v1.19.9   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aks-nodepool1-12345678-vmss000001   Ready    agent   13m     v1.19.9   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.67   <none>        Windows Server 2019 Datacenter   10.0.17763.1935    docker://19.3.1
 ```
 
-Record the internal IP address of the Windows Server node you wish to troubleshoot. You will use this address in a later step.
+In the above example, *10.240.0.67* is the internal IP address of the Windows Server node.
 
-## Connect to the virtual machine and node
+Use ssh to forward the RDP port of the Windows machine to your local network (you may need to change the first local port 3389 if it is being used on your computer):
 
-Connect to the public IP address of the virtual machine you created earlier using an RDP client such as [Microsoft Remote Desktop][rdp-mac].
+```
+ssh -p 2022 -L 3389:10.240.0.67:3389 -A azureuser@127.0.0.1
+```
 
-![Image of connecting to the virtual machine using an RDP client](media/rdp/vm-rdp.png)
+## Connect to Windows node
 
-After you've connected to your virtual machine, connect to the *internal IP address* of the Windows Server node you want to troubleshoot using an RDP client from within your virtual machine.
+Now that you have the RDP port forwarded, connect to the Windows Server node you want to troubleshoot using an RDP client from with your localaddress:
 
+[should update this image to be to 127.0.0.1 from a mac connection to be consistent]
 ![Image of connecting to the Windows Server node using an RDP client](media/rdp/node-rdp.png)
 
 You are now connected to your Windows Server node.
 
 ![Image of cmd window in the Windows Server node](media/rdp/node-session.png)
 
-You can now run any troubleshooting commands in the *cmd* window. Since Windows Server nodes use Windows Server Core, there's not a full GUI or other GUI tools when you connect to a Windows Server node over RDP.
+You can now run any troubleshooting commands in the *cmd* window. Since Windows Server nodes use Windows Server Core, there's not a full GUI or other GUI tools when you connect to a Windows Server node over RDP. You can open tools like notepad.exe by typing `start notepad.exe` into the cmd prompt.
 
 ## Remove RDP access
 
-When done, exit the RDP connection to the Windows Server node then exit the RDP session to the virtual machine. After you exit both RDP sessions, delete the virtual machine with the [az vm delete][az-vm-delete] command:
-
-```azurecli-interactive
-az vm delete --resource-group myResourceGroup --name myVM
-```
-
-And the NSG rule:
-
-```azurecli-interactive
-CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
-NSG_NAME=$(az network nsg list -g $CLUSTER_RG --query [].name -o tsv)
-```
-
-```azurecli-interactive
-az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --name tempRDPAccess
-```
+When done, exit the RDP connection to the Windows Server node then close the portforwarding terminal and exit the Linux ssh container.  The Linux pod will be deleted from the cluster when you exit.
 
 ## Next steps
 
