@@ -48,6 +48,15 @@ This release introduces the following features or capabilities:
 
 #### Azure Arc enabled SQL Managed Instance
 
+- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Arc enabled SQL Managed Instance has the same commands as `azdata arc sql mi <command>`. All Arc enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
+
+   To add the extension:
+  
+   ```azurecli
+   az extension add --name arcdata
+   az sql mi-arc --help
+   ```
+
 - Manually trigger a failover of using Transact-SQL. Do the following commands in order:
 
    1. On the primary replica endpoint connection:
