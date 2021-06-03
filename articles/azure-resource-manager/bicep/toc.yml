@@ -38,16 +38,8 @@
       href: variables.md
     - name: Outputs
       href: outputs.md
-    - name: Scopes
-      items:
-      - name: Resource group
-        href: deploy-to-resource-group.md
-      - name: Subscription
-        href: deploy-to-subscription.md
-      - name: Management group
-        href: deploy-to-management-group.md
-      - name: Tenant
-        href: deploy-to-tenant.md
+    - name: Modules
+      href: modules.md
     - name: Loops
       items:
       - name: Resources
@@ -62,8 +54,16 @@
       - name: Outputs
         displayName: iteration,copy,multiple
         href: loop-outputs.md
-    - name: Modules
-      href: modules.md
+    - name: Scopes
+      items:
+      - name: Resource group
+        href: deploy-to-resource-group.md
+      - name: Subscription
+        href: deploy-to-subscription.md
+      - name: Management group
+        href: deploy-to-management-group.md
+      - name: Tenant
+        href: deploy-to-tenant.md
     - name: Best practices
       href: best-practices.md
   - name: Deploy

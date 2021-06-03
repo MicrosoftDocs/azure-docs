@@ -113,10 +113,6 @@ The Hybrid Connections feature requires a relay agent in the network that hosts 
 
 This tool runs on Windows Server 2012 and later. The HCM runs as a service and connects outbound to Azure Relay on port 443.  
 
-> [!NOTE]
-> Hybrid Connection Manager cannot coexist with Biztalk Hybrid Connection Manager or Service Bus for Windows Server. Hence when installing HCM, any versions of these packages should be removed first.
->
-
 After installing HCM, you can run HybridConnectionManagerUi.exe to use the UI for the tool. This file is in the Hybrid Connection Manager installation directory. In Windows 10, you can also just search for *Hybrid Connection Manager UI* in your search box.
 
 :::image type="content" source="media/app-service-hybrid-connections/hybridconn-hcm.png" alt-text="Screenshot of Hybrid Connection Manager":::
@@ -205,6 +201,8 @@ The status of "Connected" means that at least one HCM is configured with that Hy
 
 * Does your host have outbound access to Azure on port 443? You can test from your HCM host using the PowerShell command *Test-NetConnection Destination -P Port* 
 * Is your HCM potentially in a bad state? Try restarting the ‘Azure Hybrid Connection Manager Service" local service.
+
+* Do you have conflicting software installed? Hybrid Connection Manager cannot coexist with Biztalk Hybrid Connection Manager or Service Bus for Windows Server. Hence when installing HCM, any versions of these packages should be removed first.
 
 If your status says **Connected** but your app cannot reach your endpoint then:
 
