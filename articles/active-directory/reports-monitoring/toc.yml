@@ -14,6 +14,8 @@
   items:
   - name: Analyze sign-ins 
     href: quickstart-analyze-sign-in.md
+  - name: Access logs with the Graph API
+    href: quickstart-access-log-with-graph-api.md
   - name: Download a sign-in report
     href: quickstart-download-sign-in-report.md
   - name: Download an audit report
