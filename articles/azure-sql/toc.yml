@@ -304,6 +304,8 @@
         href: database/service-tier-hyperscale-replicas.md        
       - name: Hyperscale replicas FAQ
         href: database/service-tier-hyperscale-named-replicas-faq.yml
+      - name: vCore
+        href: database/service-tiers-sql-database-vcore.md
     - name: Plan and manage costs 
       href: database/cost-management.md
 
@@ -860,6 +862,8 @@
     items:
     - name: Resource limits
       href: managed-instance/resource-limits.md
+    - name: Compute Hardware
+      href: managed-instance/service-tiers-managed-instance-vcore.md
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
@@ -1460,6 +1464,8 @@
       href: database/troubleshoot-common-connectivity-issues.md
     - name: Import/Export service hangs
       href: database/database-import-export-hang.md
+    - name: Transaction log errors
+      href: database/troubleshoot-transaction-log-errors-issues.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring
