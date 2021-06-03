@@ -53,7 +53,7 @@ There are some cases where the invitation email is recommended over a direct lin
 ### Just-in-time redemption limitation with conflicting Contact object
 Sometimes the invited external guest user's email may conflict with an existing [Contact object](https://docs.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), resulting in the guest user being created without a proxyAddress. This is a known limitation that prevents guest users from signing in or redeeming an invitation through a direct link using [SAML/WS-Fed IdP](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/direct-federation), [Microsoft Accounts](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/microsoft-account), [Google Federation](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/google-federation), or [Email One-Time Passcode](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/one-time-passcode) accounts.
 
-When this occurs, follow these steps to unblock users who aren't able to redeem due to a conflicting [Contact object](https://docs.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true):
+To unblock users who can't redeem an invitation due to a conflicting [Contact object](https://docs.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), follow these steps:
 1. Delete the conflicting Contact object
 2. Delete the guest user in the Azure portal (that should be in pending state under "Invitation accepted")
 3. Re-invite the guest user
