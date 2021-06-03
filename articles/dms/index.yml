@@ -134,4 +134,4 @@ landingContent:
       - linkListType: video
         links:
           - text: Migrate to SQL Database single database
-            url: /azure/postgresql/howto-migrate-from-oracle
+            url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
