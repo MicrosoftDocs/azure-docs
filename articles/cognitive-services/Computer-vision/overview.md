@@ -45,9 +45,6 @@ Computer Vision can analyze images that meet the following requirements:
 
 As with all of the Cognitive Services, developers using the Computer Vision service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
-## Responsible AI
-Microsoft provides documentation regarding how to use Computer Vision technology like [Spatial Analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/cognitive-services/computer-vision/context/context) responsibly. Going forward, in the creation of any new Computer Vision resource, you must acknowledge and agree in Azure Portal that you have reviewed the Responsible AI (RAI) documentation and will use this service in accordance with it. Per our Cognitive Services agreement terms, Microsoft provides technical documentation regarding the appropriate operation applicable to this Cognitive Service (including applicable developer guides), which is made available by Microsoft here and updated from time to time. This acknowledgement applies to all resources created under that same subscription through the various Azure tools such as CLI, ARM template and Azure Portal. To review and agree to the Responsible AI terms create a create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) through the Azure Portal.
-
 ## Next steps
 
 Follow a quickstart to implement and run a service in your preferred development language.
