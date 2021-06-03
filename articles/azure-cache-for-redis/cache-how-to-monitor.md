@@ -13,13 +13,13 @@ Azure Cache for Redis uses [Azure Monitor](../azure-monitor/index.yml) to provid
 
 Use Azure Monitor to:
 
-- view metrics 
-- pin metrics charts to the Startboard 
-- customize the date and time range of monitoring charts 
-- add and remove metrics from the charts 
-- and set alerts when certain conditions are met 
+- view metrics
+- pin metrics charts to the Startboard
+- customize the date and time range of monitoring charts
+- add and remove metrics from the charts
+- and set alerts when certain conditions are met
 
-Metrics for Azure Cache for Redis instances are collected using the Redis [INFO](https://redis.io/commands/info) command. Metrics are collected approximately twice per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules. 
+Metrics for Azure Cache for Redis instances are collected using the Redis [INFO](https://redis.io/commands/info) command. Metrics are collected approximately twice per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules.
 
 To configure a different retention policy, see [Export cache metrics](#export-cache-metrics).  
 
@@ -68,7 +68,7 @@ For more information on working with metrics using Azure Monitor, see [Overview 
 
 ## Export cache metrics
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) and specify a **Retention (days)** policy for your cache metrics. 
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, you can [designate a storage account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) and specify a **Retention (days)** policy for your cache metrics.
 
 To configure a storage account for your cache metrics:
 
@@ -94,23 +94,23 @@ To access your metrics, you can view them in the Azure portal as previously desc
 
 ## Available metrics and reporting intervals
 
-Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. On the left, you find the **Metric** selection for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval. 
+Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. On the left, you find the **Metric** selection for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval.
 
 Each metric includes two versions. One metric measures performance for the entire cache, and for caches that use [clustering](cache-how-to-premium-clustering.md), a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` is just the hits for that shard of the cache.
 
 > [!NOTE]
-> When you're seeing the aggregation type : 
+> When you're seeing the aggregation type :
 >
 > - Count” show 2, it indicates the metric received 2 data points for your time granularity (1 minute).
-> - “Max” shows the maximum value of a data point in the time granularity, 
-> - “Min” shows the minimum value of a data point in the time granularity, 
-> - “Average” shows the average value of all data points in the time granularity. 
-> - “Sum” shows the sum of all data points in the time granularity and may be misleading depending on the specific metric. 
+> - “Max” shows the maximum value of a data point in the time granularity,
+> - “Min” shows the minimum value of a data point in the time granularity,
+> - “Average” shows the average value of all data points in the time granularity.
+> - “Sum” shows the sum of all data points in the time granularity and may be misleading depending on the specific metric.
 > Under normal conditions, “Average” and “Max” will be very similar because only one node emits these metrics (the master node). In a scenario where the number of connected clients changes rapidly, “Max,” “Average,” and “Min” would show very different values and this is also expected behavior.
-> 
+>
 > Generally, “Average” will show you a smooth chart of your desired metric and reacts well to changes in time granularity. “Max” and “Min” may hide large changes in the metric if the time granularity is large but can be used with a small time granularity to help pinpoint exact times when large changes occur in the metric.
 >
-> “Count” and “Sum” may be misleading for certain metrics (connected clients included). 
+> “Count” and “Sum” may be misleading for certain metrics (connected clients included).
 >
 > Hence, we suggested you to have a look at the Average metrics and not the Sum metrics.
 
@@ -142,6 +142,7 @@ Each metric includes two versions. One metric measures performance for the entir
 | Used Memory RSS |The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command. |
 
 <a name="operations-and-alerts"></a>
+
 ## Alerts
 
 You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
@@ -157,7 +158,8 @@ To configure Alert rules for your cache, select **Alert rules** from the **Resou
 For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/alerts/alerts-classic-portal.md).
 
 ## Activity Logs
-Activity logs provide insight into the operations that completed on your Azure Cache for Redis instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Cache for Redis instances. 
+
+Activity logs provide insight into the operations that completed on your Azure Cache for Redis instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Cache for Redis instances.
 
 > [!NOTE]
 > Activity logs do not include read (GET) operations.
