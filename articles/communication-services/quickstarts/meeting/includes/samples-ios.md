@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 ## Teams Embed call or meeting status events capturing
 
-Joined group call or meeting status can be captured from `MeetingUIClientCallDelegate` delegate. The status includes conneting states, participants count and modalities like microphone or camera state.   
+Joined group call or meeting status can be captured from `MeetingUIClientCallDelegate` delegate. The status includes connection states, participants count and modalities like microphone or camera state.   
 
 Add the `MeetingUIClientCallDelegate` to your class and add needed variables.
 
@@ -51,7 +51,7 @@ private func joinMeeting() {
 }
 ```
 
-Implement `MeetingUIClientCallDelegate` protocol mehtods which your app needs and add stubs for ones that are not needed.
+Implement `MeetingUIClientCallDelegate` protocol methods that your app needs and add stubs for ones that are not needed.
 
 ```swift
     func meetingUIClient(didUpdateCallState callState: MeetingUIClientCallState) {
@@ -83,7 +83,7 @@ Implement `MeetingUIClientCallDelegate` protocol mehtods which your app needs an
 
 ## Bring your own identity from the app to the participants in the SDK call.
 
-The app can assign it's users identity values to the participants in the call or meeting and override the default values. This icludes avatar, name, subtitle and role.  
+The app can assign its users identity values to the participants in the call or meeting and override the default values. This includes avatar, name, subtitle and role.  
 
 ### Assigning avatars for call participants
 
@@ -367,9 +367,9 @@ func onParticipantViewLongPressed(identifier: CommunicationIdentifier) {
         }
 }
 ```
-## User experince customization
+## User experience customization
 
-The user experience in the SDK can be customized by providing app specific icons or replacing call controls bars. 
+The user experience in the SDK can be customized by providing app-specific icons or replacing call controls bars. 
 
 ### Customize UI icons in a call or meeting
 
