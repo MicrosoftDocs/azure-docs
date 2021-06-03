@@ -53,10 +53,10 @@ In this quickstart you create a *Basic* registry, which is a cost-optimized opti
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to your registry with the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet. The following example uses the same credentials you logged in with when authentication to Azure with the `Connect-AzAccount` cmdlet.
+Before pushing and pulling container images, you must log in to your registry with the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet. The following example uses the same credentials you logged in with when authenticating to Azure with the `Connect-AzAccount` cmdlet.
 
 > [!NOTE]
-> In the following example, $registry.Name is the resource name, not the full qualified registry name.
+> In the following example, the value of `$registry.Name` is the resource name, not the fully qualified registry name.
 
 ```powershell
 Connect-AzContainerRegistry -Name $registry.Name
