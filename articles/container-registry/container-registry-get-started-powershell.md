@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create registry - PowerShell
 description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
-ms.date: 01/22/2019
+ms.date: 06/03/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
   - mvc
@@ -53,16 +53,16 @@ In this quickstart you create a *Basic* registry, which is a cost-optimized opti
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to your registry. To keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command. In production scenarios you should use an alternative [authentication method](container-registry-authentication.md) for registry access, such as a service principal. 
+Before pushing and pulling container images, you must log in to your registry. To keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command. In production scenarios you should use an alternative [authentication method](container-registry-authentication.md) for registry access, such as a service principal.
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-Next, run [docker login][docker-login] to log in:
+Next, run [Connect-AzContainerRegistry][connect-azcontainerregistry] to log in:
 
 ```powershell
-$creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
+Connect-AzContainerRegistry -Name $registry.Name -UserName $registry.Name -Password $creds.Password
 ```
 
 The command returns `Login Succeeded` once completed.
@@ -111,3 +111,4 @@ In this quickstart, you created an Azure Container Registry with Azure PowerShel
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
 [container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
+[connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry
