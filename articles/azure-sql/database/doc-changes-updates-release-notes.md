@@ -6,8 +6,8 @@ services: sql-database
 author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-db-mi
-ms.subservice: service-overview, references_regions
-ms.custom: sqldbrb=2
+ms.subservice: service-overview
+ms.custom: sqldbrb=2, references_regions
 ms.devlang: 
 ms.topic: conceptual
 ms.date: 06/02/2021
