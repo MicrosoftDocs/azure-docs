@@ -3,7 +3,7 @@ title: Orchestration modes for virtual machine scale sets in Azure
 description: Learn how to use Flexible and Uniform orchestration modes for virtual machine scale sets in Azure.
 author: fitzgeraldsteele
 ms.author: fisteele
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.date: 02/12/2021
 ms.reviewer: jushiman

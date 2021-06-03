@@ -17,6 +17,12 @@ ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 
 Virtual machine scale sets with Flexible orchestration allows you to combine the scalability of [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) with the regional availability guarantees of [availability sets](availability-set-overview.md).
 
+Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide the following key benefits:
+- Easy to create and manage multiple VMs
+- Provides high availability and application resiliency by distributing VMs across fault domains
+- Allows your application to automatically scale as resource demand changes
+- Works at large-scale
+
 With Flexible orchestration, Azure provides a unified experience across the Azure VM ecosystem. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an Availability Zone. This enables you to scale out your application while maintaining fault domain isolation that is essential to run quorum-based or stateful workloads, including:
 - Quorum-based workloads
 - Open-Source databases
@@ -36,89 +42,6 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 
 > [!CAUTION]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
-
-
-## What has changed with Flexible orchestration mode?
-One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with [Uniform orchestration](..\virtual-machine-scale-sets\virtual-machine-scale-sets-orchestration-modes.md). During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
-
-### Assign fault domain during VM creation
-You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
-
-```azurecli-interactive
-az vm create –vmss "myVMSS"  –-platform_fault_domain 1
-```
-
-### Instance naming
-When you create a VM and add it to a Flexible scale set, you have full control over instance names within the Azure Naming convention rules. When VMs are automatically added to the scale set via autoscaling, you provide a prefix and Azure appends a unique number to the end of the name. 
-
-### List scale sets VM API changes
-Virtual Machine Scale Sets allows you to list the instances that belong to the scale set. With Flexible orchestration, the list Virtual Machine Scale Sets VM command provides a list of scale sets VM IDs. You can then call the GET Virtual Machine Scale Sets VM commands to get more details on how the scale set is working with the VM instance. To get the full details of the VM, use the standard GET VM commands or [Azure Resource Graph](../governance/resource-graph/overview.md).
-
-### Query instances for power state
-The preferred method is to use Azure Resource Graph to query for all VMs in a Virtual Machine Scale Set. Azure Resource Graph provides efficient query capabilities for Azure resources at scale across subscriptions.
-
-```
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| where properties.virtualMachineScaleSet contains "demo"
-| extend powerState = properties.extended.instanceView.powerState.code
-| project name, resourceGroup, location, powerState
-| order by resourceGroup desc, name desc
-```
-
-Querying resources with [Azure Resource Graph](../governance/resource-graph/overview.md) is a convenient and efficient way to query Azure resources and minimizes API calls to the resource provider. Azure Resource Graph is an eventually consistent cache where new or updated resources may not be reflected for up to 60 seconds. You can:
-- List VMs in a resource group or subscription.
-- Use the expand option to retrieve the instance view (fault domain assignment, power and provisioning states) for all VMs in your subscription.
-- Use the Get VM API and commands to get model and instance view for a single instance.
-
-### Scale sets VM Batch operations
-Use the standard VM commands to start, stop, restart, delete instances, instead of the Virtual Machine Scale Set VM APIs. The Virtual Machine Scale Set VM Batch operations (start all, stop all, reimage all, etc.) are not used with Flexible orchestration mode.
-
-### Monitor application health
-Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For Flexible scale set instances, you must install and configure the Application Health Extension on the virtual machine. For Uniform scale set instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe.
-
-### Retrieve boot diagnostics data
-Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data and screenshots. The Virtual Machine Scale Sets VM boot diagnostic APIs and commands are not used with Flexible orchestration mode instances.
-
-### VM extensions
-Use extensions targeted for standard virtual machines, instead of extensions targeted for Uniform orchestration mode instances.
-
-
-## Features
-The following table lists the Flexible orchestration mode features and links to the appropriate documentation.
-
-| Feature | Supported by Flexible orchestration (Preview) |
-|-|-|
-| Virtual machine type | Standard Azure IaaS VM (Microsoft.compute /virtualmachines) |
-| SKUs supported | D series, E series, F series, A series,   B series, Intel, AMD |
-| Availability Zones | Optionally specify all instances land in   a single availability zone |
-| Full control over VM, NICs, Disks | Yes |
-| Automatic Scaling | No |
-| Assign VM to a   Specific Fault Domain | Yes |
-| Remove NICs and Disks when deleting   VM instances | No |
-| Upgrade Policy (VM scale sets) | No |
-| Automatic OS Updates (VM scale sets) | No |
-| In Guest Security Patching | Yes |
-| Terminate Notifications (VM scale sets) | No |
-| Instance Repair (VM scale sets) | No |
-| Accelerated networking | Yes |
-| Spot instances and pricing  | Yes, you can have both Spot and Regular priority instances |
-| Mix operating systems | Yes, Linux and Windows can reside in the same Flexible scale set |
-| Monitor Application Health | Application health extension |
-| UltraSSD Disks  | Yes |
-| Infiniband  | No |
-| Write Accelerator  | No |
-| Proximity Placement Groups  | Yes |
-| Azure Dedicated Hosts  | No |
-| Basic SLB  | No |
-| Azure Load Balancer Standard SKU | Yes |
-| Application Gateway | No |
-| Maintenance Control  | No |
-| List VMs in Set | Yes |
-| Azure Alerts | No |
-| VM Insights | No |
-| Azure Backup | Yes |
-| Azure Site Recovery |  No |
-| Add/remove existing VM to the group | No |
 
 
 ## Register for Flexible orchestration mode
@@ -185,13 +108,87 @@ Get started with Flexible orchestration mode for your scale sets through the Azu
 - [REST API](flexible-virtual-machine-scale-sets-rest-api.md) 
 
 
-## Autoscaling 
+## What has changed with Flexible orchestration mode?
+One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with [Uniform orchestration](..\virtual-machine-scale-sets\virtual-machine-scale-sets-orchestration-modes.md). During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
 
-Create a Flexible scale set with a VM Profile and autoscaling. Flexible orchestration uses the same API as Uniform orchestration that is Generally Available. The following parameters are required: 
-- Api-version 2021-03-01 (or greater) 
-- Single placement group: false 
-- orchestrationMode: Flexible 
-- virtualMachineProfile.networkProfile.networkApiVersion: 2020-11-01 or later 
+### Assign fault domain during VM creation
+You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
+
+```azurecli-interactive
+az vm create –vmss "myVMSS"  –-platform_fault_domain 1
+```
+
+### Instance naming
+When you create a VM and add it to a Flexible scale set, you have full control over instance names within the Azure Naming convention rules. When VMs are automatically added to the scale set via autoscaling, you provide a prefix and Azure appends a unique number to the end of the name. 
+
+### List scale sets VM API changes
+Virtual Machine Scale Sets allows you to list the instances that belong to the scale set. With Flexible orchestration, the list Virtual Machine Scale Sets VM command provides a list of scale sets VM IDs. You can then call the GET Virtual Machine Scale Sets VM commands to get more details on how the scale set is working with the VM instance. To get the full details of the VM, use the standard GET VM commands or [Azure Resource Graph](../governance/resource-graph/overview.md).
+
+### Query instances for power state
+The preferred method is to use Azure Resource Graph to query for all VMs in a Virtual Machine Scale Set. Azure Resource Graph provides efficient query capabilities for Azure resources at scale across subscriptions.
+
+```
+| where type =~ 'Microsoft.Compute/virtualMachines'
+| where properties.virtualMachineScaleSet contains "demo"
+| extend powerState = properties.extended.instanceView.powerState.code
+| project name, resourceGroup, location, powerState
+| order by resourceGroup desc, name desc
+```
+
+Querying resources with [Azure Resource Graph](../governance/resource-graph/overview.md) is a convenient and efficient way to query Azure resources and minimizes API calls to the resource provider. Azure Resource Graph is an eventually consistent cache where new or updated resources may not be reflected for up to 60 seconds. You can:
+- List VMs in a resource group or subscription.
+- Use the expand option to retrieve the instance view (fault domain assignment, power and provisioning states) for all VMs in your subscription.
+- Use the Get VM API and commands to get model and instance view for a single instance.
+
+### Scale sets VM Batch operations
+Use the standard VM commands to start, stop, restart, delete instances, instead of the Virtual Machine Scale Set VM APIs. The Virtual Machine Scale Set VM Batch operations (start all, stop all, reimage all, etc.) are not used with Flexible orchestration mode.
+
+### Monitor application health
+Application health monitoring allows your application to provide Azure with a heartbeat to determine whether your application is healthy or unhealthy. Azure can automatically replace VM instances that are unhealthy. For Flexible scale set instances, you must install and configure the Application Health Extension on the virtual machine. For Uniform scale set instances, you can use either the Application Health Extension, or measure health with an Azure Load Balancer Custom Health Probe.
+
+### Retrieve boot diagnostics data
+Use the standard VM APIs and commands to retrieve instance Boot Diagnostics data and screenshots. The Virtual Machine Scale Sets VM boot diagnostic APIs and commands are not used with Flexible orchestration mode instances.
+
+### VM extensions
+Use extensions targeted for standard virtual machines, instead of extensions targeted for Uniform orchestration mode instances.
+
+
+## Features
+The following table lists the Flexible orchestration mode features and links to the appropriate documentation.
+
+| Feature | Supported by Flexible orchestration (Preview) |
+|-|-|
+| Virtual machine type | Standard Azure IaaS VM (Microsoft.compute /virtualmachines) |
+| SKUs supported | D series, E series, F series, A series,   B series, Intel, AMD |
+| Availability Zones | Optionally specify all instances land in   a single availability zone |
+| Full control over VM, NICs, Disks | Yes |
+| Assign VM to a   Specific Fault Domain | Yes |
+| Accelerated networking | Yes |
+| In Guest Security Patching | Yes |
+| Spot instances and pricing  | Yes, you can have both Spot and Regular priority instances |
+| Mix operating systems | Yes, Linux and Windows can reside in the same Flexible scale set |
+| Monitor Application Health | Application health extension |
+| UltraSSD Disks  | Yes |
+| Proximity Placement Groups  | Yes, [use this documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) |
+| Azure Load Balancer Standard SKU | Yes |
+| List VMs in Set | Yes |
+| Azure Backup | Yes |
+| Terminate Notifications (VM scale sets) | Yes, [use this documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) |
+| Instance Repair (VM scale sets) | Yes, [use this documentation](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) |
+| Automatic Scaling | No |
+| Remove NICs and Disks when deleting   VM instances | No |
+| Upgrade Policy (VM scale sets) | No |
+| Automatic OS Updates (VM scale sets) | No |
+| Infiniband  | No |
+| Write Accelerator  | No |
+| Azure Dedicated Hosts  | No |
+| Basic SLB  | No |
+| Application Gateway | No |
+| Maintenance Control  | No |
+| Azure Alerts | No |
+| VM Insights | No |
+| Azure Site Recovery |  No |
+| Add/remove existing VM to the group | No |
 
 
 ## Troubleshoot scale sets with Flexible orchestration

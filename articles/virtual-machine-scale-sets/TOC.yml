@@ -168,6 +168,8 @@
     items:
     - name: Overview 
       href: virtual-machine-scale-sets-orchestration-modes.md
+    - name: API comparison
+      href: orchestration-modes-api-comparison.md
     - name: Flexible orchestration 
       href: ../virtual-machines/flexible-virtual-machine-scale-sets.md
   - name: Maintenance and updates
