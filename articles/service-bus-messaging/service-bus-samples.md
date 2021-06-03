@@ -16,6 +16,8 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | ------- | ---------------- | 
 | Azure.Messaging.ServiceBus (latest) | https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/ | 
 | Microsoft.Azure.ServiceBus (legacy) |  https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus |
+| Using Service Bus with NServiceBus | https://github.com/Azure/azure-service-bus/tree/master/samples/NServiceBus/send-receive-with-nservicebus |
+| Using Service Bus with Azure Functions and NServiceBus | https://docs.particular.net/samples/azure-functions/service-bus/ |
 
 ## Java samples
 | Package | Samples location | 
