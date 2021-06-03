@@ -130,9 +130,9 @@ If an instance participates in an [auto-failover group](./auto-failover-group-ov
 
 ### Procedure sp_send_dbmail may transiently fail when @query parameter is used
 
-Procedure sp_send_dbmail may transiently fail when `@query` parameter is used. When this issue occurs, every second execution of procedure sp_send_dbmail fails with error `Msg 22050, Level 16, State 1` and message `Failed to initialize sqlcmd library with error number -2147467259`. To be able to see this error properly, the procedure should be called with default value 0 for the parameter `@exclude_query_output`, otherwise the error will not be propagated.
-This problem is caused by a known bug related to how sp_send_dbmail is using impersonation and connection pooling.
-To work around this issue wrap code for sending email into a retry logic that relies on output parameter `@mailitem_id`. If the execution fails, then parameter value will be NULL, indicating sp_send_dbmail should be called one more time to successfully send an email. Here is an example this retry logic.
+Procedure `sp_send_dbmail` may transiently fail when `@query` parameter is used. When this issue occurs, every second execution of procedure sp_send_dbmail fails with error `Msg 22050, Level 16, State 1` and message `Failed to initialize sqlcmd library with error number -2147467259`. To be able to see this error properly, the procedure should be called with default value 0 for the parameter `@exclude_query_output`, otherwise the error will not be propagated.
+This problem is caused by a known bug related to how `sp_send_dbmail` is using impersonation and connection pooling.
+To work around this issue wrap code for sending email into a retry logic that relies on output parameter `@mailitem_id`. If the execution fails, then parameter value will be NULL, indicating `sp_send_dbmail` should be called one more time to successfully send an email. Here is an example this retry logic.
 ```sql
 CREATE PROCEDURE send_dbmail_with_retry AS
 BEGIN
@@ -159,11 +159,9 @@ END
 
 Managed Instance scaling operations that include changing service tier or number of vCores will reset Server Trust Group settings on the backend and disable running [distributed transactions](./elastic-transactions-overview.md). As a workaround, delete and create new [Server Trust Group](../managed-instance/server-trust-group-overview.md) on Azure portal.
 
-### BULK INSERT and BACKUP/RESTORE statements cannot use Managed Identity to access Azure storage
+### BULK INSERT and BACKUP/RESTORE statements should use SAS Key to access Azure storage
 
-Currently, it is not supported to use bulk insert, BACKUP and RESTORE statements, or the OPENROWSET function with the syntax `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. 
-
-The following example is not currently supported on Azure SQL (both Database and Managed Instance):
+Currently, it is not supported to use `DATABASE SCOPED CREDENTIAL` syntax with Managed Identity to authenticate to Azure storage for bulk insert, BACKUP and RESTORE statements, or the OPENROWSET function. The following example is not currently supported on Azure SQL Database or SQL Managed Instance:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
@@ -174,11 +172,23 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Workaround**: As a workaround, Microsoft recommends using SHARED ACCESS SIGNATURE authentication. Use [Shared Access Signature to authenticate to storage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
+**Workaround**: As a workaround, Microsoft recommends using [shared access signature](../../storage/common/storage-sas-overview.md) for the [database scoped credential](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token). For example:
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+ SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=2016-12-29T16:55:34Z***************';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/invoices', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+For another example of using `BULK INSERT` with an SAS key, see [Shared Access Signature to authenticate to storage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage). 
 
 ### Service Principal cannot access Azure AD and AKV
 
-In some circumstances there might exist an issue with Service Principal used to access Azure AD and Azure Key Vault (AKV) services. As a result, this issue impacts usage of Azure AD authentication and Transparent Database Encryption (TDE) with SQL Managed Instance. This might be experienced as an intermittent connectivity issue, or not being able to run statements such are CREATE LOGIN/USER FROM EXTERNAL PROVIDER or EXECUTE AS LOGIN/USER. Setting up TDE with customer-managed key on a new Azure SQL Managed Instance might also not work in some circumstances.
+In some circumstances there might exist an issue with Service Principal used to access Azure AD and Azure Key Vault (AKV) services. As a result, this issue impacts usage of Azure AD authentication and Transparent Database Encryption (TDE) with SQL Managed Instance. This might be experienced as an intermittent connectivity issue, or not being able to run statements such are `CREATE LOGIN/USER FROM EXTERNAL PROVIDER` or `EXECUTE AS LOGIN/USER`. Setting up TDE with customer-managed key on a new Azure SQL Managed Instance might also not work in some circumstances.
 
 **Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin blade](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal". In case you have encountered this error message, click on it, and follow the step-by-step instructions provided until this error have been resolved.
 
@@ -213,11 +223,11 @@ If non-sysadmin logins are added to any [SQL Agent fixed database roles](/sql/ss
 ```tsql
 USE [master]
 GO
-CREATE USER [login_name] FOR LOGIN [login_name]
+CREATE USER [login_name] FOR LOGIN [login_name];
 GO
-GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name];
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name];
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ```
 
 ### SQL Agent jobs can be interrupted by Agent process restart
@@ -310,12 +320,12 @@ You can [identify the number of remaining files](https://medium.com/azure-sqldb-
 
 Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Don't rely on these GUID identifiers because they're replaced with actual database names in the future.
 
-**Workaround**: Use sys.databases view to resolve the actual database name from the physical database name, specified in the form of GUID database identifiers:
+**Workaround**: Use `sys.databases` view to resolve the actual database name from the physical database name, specified in the form of GUID database identifiers:
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
 FROM sys.databases
-WHERE database_id > 4
+WHERE database_id > 4;
 ```
 
 ### Error logs aren't persisted
