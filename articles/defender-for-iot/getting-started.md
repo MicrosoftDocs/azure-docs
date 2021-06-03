@@ -2,7 +2,7 @@
 title: 'Quickstart: Getting started'
 description: In this quickstart, learn how to get started with understanding the basic workflow for Defender for IoT deployment.
 ms.topic: quickstart
-ms.date: 05/10/2021
+ms.date: 06/03/2021
 ---
 
 # Quickstart: Get started with Defender for IoT
@@ -51,7 +51,7 @@ Registration includes:
 - Defining committed devices.
 - Downloading an activation file for the on-premises management console.
 
-To register:
+**To register**:
 
 1. Go to the Azure Defender for IoT portal.
 
@@ -71,7 +71,7 @@ After you acquire your on-premises management console appliance:
 - Install the software.
 - Activate and carry out initial management console setup.
 
-To install and set up:
+**To install and set up**:
 
 1. Select **Getting Started** from the Defender for IoT portal.
 

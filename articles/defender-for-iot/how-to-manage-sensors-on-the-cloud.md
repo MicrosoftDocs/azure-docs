@@ -45,11 +45,13 @@ You onboard a sensor by registering it with Azure Defender for IoT and downloadi
 
 ### Download the sensor activation file
 
-The sensor activation file contains instructions about the management mode of the sensor. You download a unique activation file for each sensor that you deploy. A user who signs in to the sensor console for the first time uploads the activation file to the sensor.
+After registering a sensor you will be able to download an activation file. The sensor activation file contains instructions about the management mode of the sensor. You download a unique activation file for each sensor that you deploy. A user who signs in to the sensor console for the first time uploads the activation file to the sensor.
 
 **To download an activation file:**
 
-1. On the **Onboard Sensor** page, select **download activation file**.
+1. On the **Onboard Sensor** page, select **Register**
+
+1. Select **download activation file**.
 
 1. Make the file accessible to the user who's signing in to the sensor console for the first time.
 
