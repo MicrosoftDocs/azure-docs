@@ -161,7 +161,7 @@ Managed Instance scaling operations that include changing service tier or number
 
 ### BULK INSERT and BACKUP/RESTORE statements should use SAS Key to access Azure storage
 
-Currently, it is not supported to use `DATABASE SCOPED CREDENTIAL` syntax with Managed Identity to authenticate to Azure storage. Microsoft recommends using a [shared access signature](../../storage/common/storage-sas-overview.md) for the [database scoped credential](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token), when accessing Azure storage for bulk insert, BACKUP and RESTORE statements, or the OPENROWSET function. For example:
+Currently, it is not supported to use `DATABASE SCOPED CREDENTIAL` syntax with Managed Identity to authenticate to Azure storage. Microsoft recommends using a [shared access signature](../../storage/common/storage-sas-overview.md) for the [database scoped credential](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token), when accessing Azure storage for bulk insert, `BACKUP` and `RESTORE` statements, or the `OPENROWSET` function. For example:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
