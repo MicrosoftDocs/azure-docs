@@ -6,12 +6,13 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 06/03/2021
 
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
+ms.custom: references_regions
 
 ms.collection: M365-identity-device-management
 ---
