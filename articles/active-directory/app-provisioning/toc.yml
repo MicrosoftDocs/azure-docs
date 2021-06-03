@@ -33,6 +33,8 @@
        href: application-provisioning-log-analytics.md
      - name: On-premises application provisioning architecture
        href: on-premises-application-provisioning-architecture.md 
+     - name: Understand expression builder
+       href: expression-builder.md
   - name: How-to guides
     expanded: true
     items:
