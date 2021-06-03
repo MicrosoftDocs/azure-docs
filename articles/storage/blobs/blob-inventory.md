@@ -145,7 +145,7 @@ Several filters are available for customizing a blob inventory report:
 | Filter name         | Filter type                     | Notes | Required? |
 |---------------------|---------------------------------|-------|-----------|
 | blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType : "container"). | Yes |
-| prefixMatch         | Array of up to 10 strings for prefixes to be matched. A prefix must start with a container name, for example, "container1/foo" | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. | No |
+| prefixMatch         | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, "container" "container1/foo"| No |
 | includeSnapshots    | Boolean                         | Specifies whether the inventory should include snapshots. Default is **false**. This field is not applicable for inventory on a container, (objectType : "container").| No |
 | includeBlobVersions | Boolean                         | Specifies whether the inventory should include blob versions. Default is **false**. This field is not applicable for inventory on a container, (objectType : "container").| No |
 
@@ -192,8 +192,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ```
 
-### Custom schema fields for Blob inventory
+### Custom schema fields supported for blob inventory
 
+- Name (Required)
 - Creation-Time
 - Last-Modified
 - Content-Length
@@ -208,14 +209,16 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - Group
 - Permissions
 - Acl
-- Snapshot
-- VersionId
-- IsCurrentVersion
+- Snapshot (Required if you choose to include snapshots in your report)
+- VersionId (Required if you choose to include blob versions in your report)
+- IsCurrentVersion (Required if you choose to include blob versions in your report)
 - Metadata
 - Tags
 - LastAccessTime
 
-### Custom schema fields for container inventory
+
+
+### Custom schema fields supported for container inventory
 
 - Last-Modified
 - LeaseStatus
@@ -234,7 +237,7 @@ Each inventory rule generates a set of files in the specified inventory destinat
 - *accountName* is your Azure Blob Storage account name.
 - *inventory-destination-container* is the destination container you specified in the inventory rule.
 - *YYYY/MM/DD/HH-MM-SS* is the time when the inventory began to run.
-- ruleName is the inventory rule name.
+- *ruleName* is the inventory rule name.
 
 ### Inventory files
 
@@ -244,9 +247,13 @@ Each inventory run for a rule generates the following files:
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
 
-- **Checksum file**: A manifest.checksum contains the MD5 checksum of the contents of manifest.json file. Generation of the manifest.checksum file marks the completion of an inventory rule run.
+  > [!NOTE] 
+  > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
 
-- **Manifest file**: A manifest.json file contains the details of the inventory file(s) generated for that rule. The manifest file also captures the rule definition provided by the user and the path to the inventory for that rule. The following json shows the contents of a sample manifest.json file.
+
+- **Checksum file**: A checksum file contains the MD5 checksum of the contents of manifest.json file. The name of the checksum file is `<ruleName>-manifest.checksum`. Generation of the checksum file marks the completion of an inventory rule run.
+
+- **Manifest file**: A manifest.json file contains the details of the inventory file(s) generated for that rule. The name of the file is `<ruleName>-manifest.json`. This file also captures the rule definition provided by the user and the path to the inventory for that rule. The following json shows the contents of a sample manifest.json file.
 
   ```json 
   { 
@@ -291,9 +298,9 @@ Each inventory run for a rule generates the following files:
 	} 
    ```
 
-## Inventory completed event
+## BlobInventoryPolicyCompleted event
 
-An inventory completed event is generated when the inventory run completes for a rule. The inventory completed event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic. The following json shows an example inventory completed event.
+The `BlobInventoryPolicyCompleted` event is generated when the inventory run completes for a rule. This event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic. The following json shows an example `BlobInventoryPolicyCompleted` event.
 
 ```json
 { 
@@ -316,9 +323,22 @@ An inventory completed event is generated when the inventory run completes for a
 } 
 ```
 
+The following table describes the schema of the `BlobInventoryPolicyCompleted` event.
+
+|Field|Type|Description|
+|---|---|
+|scheduleDateTime|string|The time that the inventory policy was scheduled.|
+|accountName|string|The storage account name.|
+|ruleName|string|The rule name.|
+|policyRunStatus|string|The status of inventory run. Possible values are `Succeeded`, `PartiallySucceeded`, and `Failed`.|
+|policyRunStatusMessage|string|The status message for the inventory run.|
+|policyRunId|string|The policy run id for the inventory run.|
+|manifestBlobUrl|string|The blob URL for manifest file for inventory run.|
+
+
 ## Upgrading an inventory policy 
 
-If you are an existing Azure Storage blob inventory user who has configured inventory already, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. The following two features will be available.
+If you are an existing Azure Storage blob inventory user who has configured inventory prior to June 2021, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. The following two features will be available.
 
 - A destination container is now supported for every rule instead of just being supported for the policy.
 
