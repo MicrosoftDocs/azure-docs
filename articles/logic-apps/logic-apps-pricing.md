@@ -93,6 +93,9 @@ Based on the preceding information, the following table breaks down the monthly 
 | **Virtual CPU** | 1 core | $140.16 |
 | **Memory** | 3.5 GB | $35.04 |
 ||||
+  
+> [!NOTE]
+> Currently Logic App (Standard) cannot be deployed on App Service Plan and App Service Environment.
 
 <a name="storage-transactions"></a>
 
