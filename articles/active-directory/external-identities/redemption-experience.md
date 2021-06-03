@@ -50,6 +50,16 @@ There are some cases where the invitation email is recommended over a direct lin
  - Sometimes the invited user object may not have an email address because of a conflict with a contact object (for example, an Outlook contact object). In this case, the user must click the redemption URL in the invitation email.
  - The user may sign in with an alias of the email address that was invited. (An alias is an additional email address associated with an email account.) In this case, the user must click the redemption URL in the invitation email.
 
+### Just-in-time redemption limitation with conflicting Contact object
+Sometimes the invited external guest user's email may conflict with an existing [Contact object](https://docs.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), resulting in the guest user being created without a proxyAddress. This is a known limitation that prevents guest users from signing in or redeeming an invitation through a direct link using [SAML/WS-Fed IdP](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/direct-federation), [Microsoft Accounts](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/microsoft-account), [Google Federation](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/google-federation), or [Email One-Time Passcode](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/one-time-passcode) accounts.
+
+To unblock users who can't redeem an invitation due to a conflicting [Contact object](https://docs.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), follow these steps:
+1. Delete the conflicting Contact object.
+2. Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
+3. Re-invite the guest user.
+4. Wait for the user to redeem invitation
+5. Add the user's Contact email back into Exchange and any DLs they should be a part of
+
 ## Redemption through the invitation email
 
 When you add a guest user to your directory by [using the Azure portal](./b2b-quickstart-add-guest-users-portal.md), an invitation email is sent to the guest in the process. You can also choose to send invitation emails when you’re [using PowerShell](./b2b-quickstart-invite-powershell.md) to add guest users to your directory. Here’s a description of the guest’s experience when they redeem the link in the email.
