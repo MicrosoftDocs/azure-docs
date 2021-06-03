@@ -41,9 +41,6 @@ To configure the KDC proxy:
 
 3. Select the host pool you want to enable the KDC proxy for, then select **RDP Properties**.
 
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Azure portal page showing a user selecting host pools, then the name of the example host pool, then RDP properties.](media/rdp-properties.png)
-
 4. Select the **Advanced** tab, then enter a value in the following format without spaces:
 
     
