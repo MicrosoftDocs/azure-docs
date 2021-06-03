@@ -280,7 +280,7 @@
         href: howto-connect-with-managed-identity.md
         displayName: managed identity, msi
       - name: Configure TLS
-	href: howto-tls-configurations.md
+        href: howto-tls-configurations.md
         displayName: TLS, security, development
       - name: Deny Public Network Access
         href: howto-deny-public-network-access.md
