@@ -139,7 +139,7 @@ The `zone` feature class defines a virtual area, like a WiFi zone or emergency a
 
 ## level
 
-The `level` class feature defines aAn area of a building at a set elevation. For example, the floor of a building, which contains a set of features, such as [`units`](#unit).  
+The `level` class feature defines an area of a building at a set elevation. For example, the floor of a building, which contains a set of features, such as [`units`](#unit).  
 
 **Geometry Type**: MultiPolygon
 
