@@ -1,74 +1,63 @@
-# Authorize an account for Azure FIles.
+---
+title: How to authorize a Windows Virtual Desktop host pool for Azure Files - Azure
+description: How to authorize a Windows Virtual Desktop host pool to use.
+author: Heidilohr
+ms.topic: how-to
+ms.date: 06/03/2021
+ms.author: helohr
+manager: femila
+---
 
-This article will tell you how to authenticate a Windows Virtual Desktop host pool for Azure Files.
+# Authorize an account for Azure Files
+
+This article will show you how to authorize a Windows Virtual Desktop host pool to use Azure Files.
 
 ## Requirements
 
 Before you get started, you'll need the following things:
 
--   An Active Directory Domain Services (AD DS) account synced to Azure Active Directory (Azure AD)
--   Permissions to create a group in AD DS
--   A storage account and the permissions needed to create a new storage account, if required
--   A virtual machine (VM) or physical machine joined to AD DS, as well as the required permissions to access it
--   A Windows Virtual Desktop host pool in which all session hosts have been domain joined
+- An Active Directory Domain Services (AD DS) account synced to Azure Active Directory (Azure AD)
+- Permissions to create a group in AD DS
+- A storage account and the permissions needed to create a new storage account, if required
+- A virtual machine (VM) or physical machine joined to AD DS that you have permission to access
+- A Windows Virtual Desktop host pool in which all session hosts have been domain joined
 
-Process overview
-----------------
+## Create a security group in Active Directory Domain Services
 
-1. Create AD DS security group.
-
-2. Add the computer accounts for all session hosts as members of the group
-
-3. Synch AD DS group to Azure AD
-
-4. Create storage account
-
-5. Create file share under the storage account
-
-6. Join storage account to AD DS
-
-7. Assign the AD DS group that has been synched to Azure AD, the Storage File
-    Data SMB Share Contributor role assignment on the storage account
-
-8. Mount file share on any session host
-
-9. Grant NTFS permissions on the file share to the AD DS group
-
-## Create a group in Active Directory Domain Services
-
-This group will be used in later steps to grant share level and NTFS (files share) permissions.
-
-1. Remote into the VM or physical machine joined to AD DS.
-
-2. Open the **Active Directory Users and Computers** utility.
-
-3. Under the domain node right-click and select **New**, and then **Group**.
-
->   **Note**: it is not mandatory to create a new group, an existing group can
->   be used.
-
-1. In the **New Object – Group** enter group name and select:
-
-    1. Group scope: Global
-
-    2. Group type: Security
-
-2. Right-click on the new group and select **Properties.**
-
-3. In the properties screen select the **Members** tab.
-
-4. Select **Add…**
-
-5. In the **Select Users, Contacts, Computers, Service Accounts, or Groups** dialog select **Object Types…** and select **Computers.** Select **OK.**
-
-6. In the **Enter the object names to select** enter the names of all session hosts.
-
-7. Select **Check Names** and if multiple entries are present select the “correct” one from the results dialog.
-
-8. Select **Ok**, then select **Apply**.
+First, you'll need to create a security group in AD DS. This security group will be used in later steps to grant share-level and New Technology File System (NTFS) file share permissions.
 
 >[!NOTE]
->If this is a new group it may take up to 1 hour to sync with Azure AD.
+>If you have an existing security group you'd prefer to use, select the name of that group instead of creating a new group.
+
+To create a security group:
+
+1. Open a remote session with the VM or physical machine joined to AD DS that you want to add to the security group.
+
+2. Open **Active Directory Users and Computers**.
+
+3. Under the domain node, right-click the name of your machine. In the drop-down menu, select **New** > **Group**.
+
+4. In the **New Object – Group** window, enter the name of the new group, then select the following values:
+
+    - For **Group scope**, select **Global**
+    - For **Group type**, select **Security**
+
+5. Right-click on the new group and select **Properties**.
+
+6. In the **Properties** window, select the **Members** tab.
+
+7. Select **Add…**.
+
+8. In the **Select Users, Contacts, Computers, Service Accounts, or Groups** window, select **Object Types…** > **Computers**. When you're finished, select **OK**.
+
+9. In the **Enter the object names to select** window, enter the names of all session hosts you want to include in the security group.
+
+10. Select **Check Names**, then select the name of the session host you want to use from the list that appears.
+
+11. Select **OK**, then select **Apply**.
+
+>[!NOTE]
+>New security groups may take up to 1 hour to sync with Azure AD.
 
 ## Create a storage account
 
@@ -83,18 +72,18 @@ If you haven't created a storage account already, follow the directions for how 
 
 To get RBAC permissions:
 
-1. Select the desired storage account
+1. Select the storage account you want to use.
 
-2. Select **Access Control (IAM)** and then **Add.** From the drop down select **Add role assignments.**
+2. Select **Access Control (IAM)**, then select **Add**. Next, select **Add role assignments** from the drop-down menu.
 
 ![](media/a4a78f167eab9602b5555c76c58254f3.png)
 
-3. In the **Add role assignment** screen:
+3. In the **Add role assignment** screen, select the following values:
 
-    - Role: **Storage File Data SMB Share Contributor**
-    - Assign access to: **User, Group, or Service Principal**
-    - Subscription: **Based on your environment**
-    - Select: **pick the AD group that you created which contains your session hosts**
+    - For **Role**, select **Storage File Data SMB Share Contributor**.
+    - For **Assign access to**, select **User, Group, or Service Principal**.
+    - For **Subscription**, select **Based on your environment**.
+    - For **Select**, select the name of the Active Directory group that contains your session hosts.
 
     ![](media/4890d22e04a668a1bb354b23b8366271.png)
 
@@ -102,35 +91,42 @@ To get RBAC permissions:
 
 ## Join your storage account to AD DS
 
-In this step we are going to join our storage account to AD DS. The full article
-is available [here](https://github.com/Azure-Samples/azure-files-samples/releases). Please note our steps here have been modified to achieve the desired scenario.
+Next, you'll need to join storage account to AD DS. To join your account to AD DS:
 
-1. Remote into the VM or physical machine joined to AD DS.
+1. Open a remote session in a VM or physical machine joined to AD DS.
 
->[!NOTE]
-> Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either the storage account owner or the contributor Azure role permissions.
+      >[!NOTE]
+      > Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either storage account owner or contributor Azure role permissions.
 
-1. Download and unzip the latest version on AzFilesHybrid from [here](https://github.com/Azure-Samples/azure-files-samples/releases).
+2. Download and unzip [the latest version on AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases).
 
-2. Open **PowerShell** in elevated mode.
+3. Open **PowerShell** in elevated mode.
 
-3. Run the following command to set the execution policy:
+4. Run the following cmdlet to set the execution policy:
     
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
     ```
 
-4. Navigate to where AzfileHybrid was unzipped and run
+5. Next, go to the folder where you unzipped AzfileHybrid and run this command:
 
     ```powershell
     .\\CopyToPSPath.ps1
     ```
 
-5. Import the AzFilesHybrid module via Import-Module -Name AzFilesHybrid
+6. After that, import the AzFilesHybrid module by running this cmdlet:
+   
+   ```powershell
+   Import-Module -Name AzFilesHybrid
+   ```
 
-6. Connect to Azure AD via Connect-AzAccount
+7. Next, run this cmdlet to connect to Azure AD:
+   
+   ```powershell
+   Connect-AzAccount
+   ```
 
-7. Set the following parameters according to your setup:
+8. Set the following parameters, making sure to replace the placeholders with the values relevant to your scenario:
 
     ```powershell
     $SubscriptionId = "<your-subscription-id-here>"
@@ -140,7 +136,7 @@ is available [here](https://github.com/Azure-Samples/azure-files-samples/release
     $StorageAccountName = "<storage-account-name-here>"
     ```
 
-8. Run **Join-AzStorageAccountForAuth**
+9.  Finally, run this command:
 
     ```powershell
     Join-AzStorageAccountForAuth `
@@ -156,25 +152,19 @@ is available [here](https://github.com/Azure-Samples/azure-files-samples/release
     -EncryptionType "'RC4','AES256'"
     ```
 
-9. The output of the above command must look like the screenshot below. If it doesn’t, joining the storage account to AD DS was not successful.
-
-    ![](media/af03d4aa7a60e0173b112cc1d728be27.png)
-
 ## Get NTFS-level permissions
 
 To be able to authenticate with AD DS computer accounts against an Azure Files storage account, we must also assign NTFS level permission in addition to the RBAC permission we set up earlier.
 
 1. Open the Azure portal and navigate to the storage account that we added to AD DS.
 
-2. Select **Access keys** and copy **Key1**
+2. Select **Access keys** and copy the value in the **Key1** field.
 
-![](media/be74c591246fa5fea3ee6fd93c0dfcfa.png)
+3. Start a remote session in the VM or physical machine joined to AD DS.
 
-1. Remote into the VM or physical machine joined to AD DS.
+4. Open a command prompt in elevated mode.
 
-2. Open command prompt in elevated mode.
-
-3. Execute the following command replacing the values in it with those applicable to your environment:
+5. Run the following command, with the placeholders replaced with the values relevant to your deployment:
 
     ```cmd
     net use <desired-drive-letter>:
@@ -183,28 +173,27 @@ To be able to authenticate with AD DS computer accounts against an Azure Files s
     ```
 
     >[!NOTE]
-    >Make sure that the output of the command above says "The command completed successfully." If not, repeat and verify input.
+    >When you run this command, the output should say "The command completed successfully." If not, check your input and try again.
 
-1. Open **File Explorer** and find the drive letter specified in the command above.
+6. Open **File Explorer** and find the drive letter you used in the command in step 5.
 
-2. Right-click on the drive letter and select **Properties** and then **Security**.
+7. Right-click the drive letter, then select **Properties** > **Security** from the drop-down menu.
 
-3. Select **Edit** and after that **Add…**
-
-    ![](media/5a31fca5eb0ee15e44cd1b6f34dc8ead.png)
+8. Select **Edit**, then select **Add…**.
 
     >[!NOTE]
-    >Make sure that domain name matches your AD DS domain name, if it doesn’t the storage account has not been domain joined.
+    >Make sure that domain name matches your AD DS domain name. If it doesn’t, then that means the storage account hasn't been domain joined. You'll need to use a domain-joined account in order to continue.
 
-4. If prompted, enter admin credentials.
+9. If prompted, enter your admin credentials.
 
-5. In the **Select Users, Computers, Service Accounts, or Groups** window enter the name of the group we created in the **Create Group in AD DS** section.
+10. In the **Select Users, Computers, Service Accounts, or Groups** window, enter the name of the group from [Create a security group in Active Directory Domain Services](#create-a-security-group-in-active-directory-domain-services).
 
-6. Select **OK** and confirm the group has **Read & execute** permissions.
+11. Select **OK**. After that, confirm the group has the **Read & execute** permission. If the group has permissions, the "Allow" check box should be selected, as shown in the following image:
 
-    ![](media/6fcc4b07786ed735f594b4978b886e2f.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Security window. Under a list marked "Permissions," the "Read & execute" permission has a green check mark under the "Allow" column.](media/read-and-execute.png)
 
-7. Add the AD group with the computer accounts with **Read & execute** permissions.
+12. Add the Active Directory group with the computer accounts with **Read & execute** permissions to the security group.
 
-8. Select **Apply** and if prompted by **Windows Security** confirm by pressing **Yes.**
+13. Select **Apply**. If you see a Windows Security prompt, select **Yes** to confirm your changes.
 
