@@ -42,7 +42,7 @@ For ease and security, you may want to use Purview MSI to authenticate with your
 
 To set up a scan using the Data Catalog's MSI, you must first give your Purview account the permission to scan the data source. This step must be done *before* you set up your scan or your scan will fail.
 
-#### Adding the Data Catalog MSI to an Azure Data Lake Storage Gen1 account
+#### Adding the Purview MSI to an Azure Data Lake Storage Gen1 account
 
 You can add the Catalog's MSI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions
 on.
@@ -60,7 +60,7 @@ on.
 
    :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Click on Access":::
 
-4. Click on **Add**. Add the **Purview Catalog** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry* in the Add to option as shown in the below screenshot. Click on **OK**
+4. Click on **Add**. Add the **Purview Catalog** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry** in the Add to option as shown in the below screenshot. Click on **OK**
    :::image type="content" source="./media/register-scan-adls-gen1/gen1-managed-service-identity-authentication.png" alt-text="MSI authentication details":::
    
 > [!Tip]
@@ -103,7 +103,7 @@ To use a service principal, you must first create one following these steps:
 
 9. Copy the values from both the display name and the application ID.
 
-#### Adding the Data Catalog service principal to an Azure Data Lake Storage Gen1 account
+#### Adding the Purview service principal to an Azure Data Lake Storage Gen1 account
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure Data Lake Storage Gen1 storage account) that you would like to allow the catalog to scan.
 
 2. Click on **Overview** and then select **Data explorer**
@@ -114,7 +114,7 @@ To use a service principal, you must first create one following these steps:
 
    :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Click on Access":::
 
-4. Click on **Add**. Add the **Service principal application** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry* in the Add to option as shown in the below screenshot. Click on **OK**
+4. Click on **Add**. Add the **Service principal application** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry** in the Add to option as shown in the below screenshot. Click on **OK**
    :::image type="content" source="./media/register-scan-adls-gen1/gen1-service-principal-permissions.png" alt-text="service principal authentication details":::
    
 > [!Tip]
