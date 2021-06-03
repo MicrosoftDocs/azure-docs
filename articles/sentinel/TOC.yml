@@ -29,12 +29,12 @@
       href: roles.md
     - name: Security baseline
       href: https://docs.microsoft.com/security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json
-  - name: Data collection
+  - name: Data collection and analysis
     items:
     - name: Normalizing and parsing data
       href: normalization.md
-  - name: Detection and analysis
-    items:
+    - name: Response and automation (SOAR)
+      href: automation-in-azure-sentinel.md
     - name: Visualizing data
       href: quickstart-get-visibility.md
     - name: Classifying data with entities
@@ -45,10 +45,8 @@
       href: fusion.md
     - name: Incident metrics
       href: manage-soc-with-incident-metrics.md
-  - name: Investigation and response
+  - name: Investigation and orchestration
     items:
-    - name: Response and automation (SOAR)
-      href: automation-in-azure-sentinel.md
     - name: Automation rules
       href: automate-incident-handling-with-automation-rules.md
     - name: Playbooks
@@ -73,6 +71,8 @@
         href: sentinel-solutions.md
       - name: Solutions catalog
         href: sentinel-solutions-catalog.md
+  - name: Compare Azure Sentinel and Azure Security Center
+    href: difference-sentinel-security-center.md
 - name: How-Tos
   items:
   - name: Collect data
@@ -368,7 +368,7 @@
     - name: Azure CLI
       href: /cli/azure/sentinel
     - name: Azure Sentinel PowerShell
-      href: /powershell/module/az.securityinsights/  
+      href: /powershell/module/az.securityinsights/
     - name: Azure RBAC roles
       items:
       - name: All Azure roles
