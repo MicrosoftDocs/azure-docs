@@ -4,10 +4,9 @@ description: Learn about the Azure Database for MySQL Flexible server, a relatio
 author: savjani
 ms.service: mysql
 ms.author: pariks
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 8/21/2020
-ms.custom: references_regions
 ---
 # Azure Database for MySQL - Flexible Server (Preview)
 
