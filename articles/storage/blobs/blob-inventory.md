@@ -39,7 +39,7 @@ The following list describes features and capabilities that are available in the
 
 - **Custom Schema**
 
-  You can choose schema fields from a list of supported schema fields to publish in inventory reports. The list of supported fields are described later in this article. 
+  You can choose which fields appear in reports. Choose from a list of supported fields. That list appears later in this article. 
 
 - **CSV and Apache Parquet output format per rule**
 
@@ -49,7 +49,7 @@ The following list describes features and capabilities that are available in the
 
   For each rule, a manifest file and an Azure Event Grid event are generated. Previously, only a single manifest and Azure Event Grid event was generated across all rules. 
 
-## Enable inventory reports
+## Enabling inventory reports
 
 Enable blob inventory reports by adding a policy to your storage account. Add, edit, or remove a policy by using the [Azure portal](https://portal.azure.com/).
 
@@ -75,14 +75,15 @@ Enable blob inventory reports by adding a policy to your storage account. Add, e
 
 10. Select **Save**.
 
-:::image type="content" source="./media/blob-inventory/portal-blob-inventory.png" alt-text="Screenshot showing how to add a blob inventory rule by using the Azure portal":::
+    :::image type="content" source="./media/blob-inventory/portal-blob-inventory.png" alt-text="Screenshot showing how to add a blob inventory rule by using the Azure portal":::
 
-Inventory policies are read or written in full. Partial updates aren't supported.
+## Upgrading an inventory policy 
 
-> [!IMPORTANT]
-> If you enable firewall rules for your storage account, inventory requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+If you are an existing Azure Storage blob inventory user who has configured inventory prior to June 2021, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. The following two features will be available.
 
-A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. An inventory report is configured by adding an inventory policy with one or more rules.
+- A destination container is now supported for every rule instead of just being supported for the policy.
+
+- A manifest file and Azure Event Grid event are now generated per rule instead of per policy. 
 
 ## Inventory policy
 
@@ -111,7 +112,7 @@ View the JSON for an inventory policy by selecting the **Code view** tab in the 
 
 | Parameter name | Parameter type        | Notes | Required? |
 |----------------|-----------------------|-------|-----------|
-| enabled        | Boolean               | Used to disable the entire policy. When set to **true**, the rule level enabled field overrides this parameter. When disabled, inventory for all rules will be disabled. | Yes |
+| enabled        | boolean               | Used to disable the entire policy. When set to **true**, the rule level enabled field overrides this parameter. When disabled, inventory for all rules will be disabled. | Yes |
 | rules          | Array of rule objects | At least one rule is required in a policy. Up to 10 rules are supported. | Yes |
 
 ## Inventory rules
@@ -122,10 +123,10 @@ Each rule within the policy has several parameters:
 
 | Parameter name | Parameter type                 | Notes | Required? |
 |----------------|--------------------------------|-------|-----------|
-| name           | String                         | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
-| enabled        | Boolean                        | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
+| name           | string                         | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
+| enabled        | boolean                        | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
 | definition     | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
-| destination    | String                | The destination container where all inventory files will be generated. The destination container must already exist.|
+| destination    | string                | The destination container where all inventory files will be generated. The destination container must already exist.|
 
 The global **Blob inventory enabled** flag takes precedence over the *enabled* parameter in a rule.
 
@@ -134,8 +135,8 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 | Parameter name | Parameter type | Notes | Required |
 |--|--|--|--|
 | filters | json | Filters decide whether a blob or container is part of inventory or not. | Yes |
-| format | String | Determines the output of the inventory file. Acceptable values are csv (For CSV format) and **parquet** (For Apache Parquet format).| Yes |
-| objectType | String | Denotes whether this is an inventory rule for blobs or containers. Valid values are "blob" and "container". |Yes |
+| format | string | Determines the output of the inventory file. Acceptable values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
+| objectType | string | Denotes whether this is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
 | schemaFields | Json array | List of Schema fields to be part of inventory. | Yes |
 
 ### Rule filters
@@ -144,10 +145,10 @@ Several filters are available for customizing a blob inventory report:
 
 | Filter name         | Filter type                     | Notes | Required? |
 |---------------------|---------------------------------|-------|-----------|
-| blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType : "container"). | Yes |
-| prefixMatch         | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, "container" "container1/foo"| No |
-| includeSnapshots    | Boolean                         | Specifies whether the inventory should include snapshots. Default is **false**. This field is not applicable for inventory on a container, (objectType : "container").| No |
-| includeBlobVersions | Boolean                         | Specifies whether the inventory should include blob versions. Default is **false**. This field is not applicable for inventory on a container, (objectType : "container").| No |
+| blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType : `container`). | Yes |
+| prefixMatch         | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container` `container1/foo`| No |
+| includeSnapshots    | boolean                         | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType : `container`).| No |
+| includeBlobVersions | boolean                         | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType : `container`).| No |
 
 View the JSON for inventory rules by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal. Filters are specified within a rule definition.
 
@@ -229,6 +230,15 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - HasLegalHold
 - Metadata
 
+## Inventory runs
+
+A blob inventory run is automatically scheduled every day. It can take up to 24 hours for an inventory run to complete. An inventory report is configured by adding an inventory policy with one or more rules.
+
+Inventory policies are read or written in full. Partial updates aren't supported.
+
+> [!IMPORTANT]
+> If you enable firewall rules for your storage account, inventory requests might be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
+
 ## Inventory output
 
 Each inventory rule generates a set of files in the specified inventory destination container for that rule. The inventory output is generated under the following path:
@@ -298,9 +308,9 @@ Each inventory run for a rule generates the following files:
 	} 
    ```
 
-## BlobInventoryPolicyCompleted event
+## Inventory completed event
 
-The `BlobInventoryPolicyCompleted` event is generated when the inventory run completes for a rule. This event also occurs if the inventory run fails into user error before it starts to run. For example, an invalid policy, or destination container not present error will trigger the event. The event is published to Blob Inventory Topic. The following json shows an example `BlobInventoryPolicyCompleted` event.
+The `BlobInventoryPolicyCompleted` event is generated when the inventory run completes for a rule. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event. The event is published to Blob Inventory Topic. The following json shows an example `BlobInventoryPolicyCompleted` event.
 
 ```json
 { 
@@ -334,15 +344,6 @@ The following table describes the schema of the `BlobInventoryPolicyCompleted` e
 |policyRunStatusMessage|string|The status message for the inventory run.|
 |policyRunId|string|The policy run id for the inventory run.|
 |manifestBlobUrl|string|The blob URL for manifest file for inventory run.|
-
-
-## Upgrading an inventory policy 
-
-If you are an existing Azure Storage blob inventory user who has configured inventory prior to June 2021, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. The following two features will be available.
-
-- A destination container is now supported for every rule instead of just being supported for the policy.
-
-- A manifest file and Azure Event Grid event are now generated per rule instead of per policy. 
 
 ## Known issues
 
