@@ -66,10 +66,10 @@ The studio supports reading data from the following datastore types in a virtual
 
 ### Firewall settings
 
-Some storage services, such as Azure Storage Account, have firewall settings that you can configure to allow/disallow access from specific IP addresses. __This is not supported__ when using Azure Machine Learning studio. It is supported when using the Azure Machine Learning SDK or CLI.
+Some storage services, such as Azure Storage Account, have firewall settings that apply to the public endpoint for that specific service instance. Usually this setting allows you to allow/disallow access from specific IP addresses from the public internet. __This is not supported__ when using Azure Machine Learning studio. It is supported when using the Azure Machine Learning SDK or CLI.
 
 > [!TIP]
-> Azure Machine Learning studio is supported when using the Azure Firewall service.
+> Azure Machine Learning studio is supported when using the Azure Firewall service. For more information, see [Use your workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
 
 ### Configure datastores to use workspace-managed identity
 

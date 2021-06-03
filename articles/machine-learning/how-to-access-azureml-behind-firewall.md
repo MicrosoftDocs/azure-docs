@@ -20,9 +20,9 @@ In this article, learn how to configure Azure Firewall to control access to your
 ## Azure Firewall
 
 > [!IMPORTANT]
-> Azure Firewall is an Azure service that provides security _for Azure Virtual Network resources_. Some other Azure Services, such as Azure Storage Accounts, have their own firewall settings that _apply to the public endpoint for that specific service instance_.
+> Azure Firewall is an Azure service that provides security _for Azure Virtual Network resources_. Some other Azure Services, such as Azure Storage Accounts, have their own firewall settings that _apply to the public endpoint for that specific service instance_. The information in this document is specific to Azure Firewall.
 > 
-> Enabling firewall settings _on a service instance_ is not supported with Azure Machine Learning studio. For more information, see [Use studio in a virtual network](how-to-enable-studio-virtual-network.md).
+> For information on service instance firewall settings, see [Use studio in a virtual network](how-to-enable-studio-virtual-network.md#firewall-settings).
 
 When using Azure Firewall, use __destination network address translation (DNAT)__ to create NAT rules for inbound traffic. For outbound traffic, create __network__ and/or __application__ rules. These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
