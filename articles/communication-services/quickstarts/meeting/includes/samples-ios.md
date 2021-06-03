@@ -17,6 +17,8 @@ ms.service: azure-communication-services
 
 ## Teams Embed call or meeting status events capturing
 
+Joined group call or meeting status can be captured from `MeetingUIClientCallDelegate` delegate. The status includes conneting states, participants count and modalities like microphone or camera state.   
+
 Add the `MeetingUIClientCallDelegate` to your class and add needed variables.
 
 ```swift
@@ -49,7 +51,7 @@ private func joinMeeting() {
 }
 ```
 
-Implement the `didUpdateCallState` and `didUpdateRemoteParticipantCount` methods of the `MeetingUIClientCallDelegate` protocol.
+Implement `MeetingUIClientCallDelegate` protocol mehtods which your app needs and add stubs for ones that are not needed.
 
 ```swift
     func meetingUIClient(didUpdateCallState callState: MeetingUIClientCallState) {
@@ -68,9 +70,22 @@ Implement the `didUpdateCallState` and `didUpdateRemoteParticipantCount` methods
     func meetingUIClient(didUpdateRemoteParticipantCount remoteParticipantCount: UInt) {
         print("Remote participant count has changed to: \(remoteParticipantCount)")
     }
+    
+    func onIsMutedChanged() {
+    }
+    
+    func onIsSendingVideoChanged() {
+    }
+    
+    func onIsHandRaisedChanged(_ participantIds: [Any]) {
+    }
 ```
 
-## Assigning avatars for users
+## Bring your own identity from the app to the participants in the SDK call.
+
+The app can assign it's users identity values to the participants in the call or meeting and override the default values. This icludes avatar, name, subtitle and role.  
+
+### Assigning avatars for call participants
 
 Add the `MeetingUIClientCallIdentityProviderDelegate` to your class.
 
@@ -143,9 +158,9 @@ Add other mandatory MeetingUIClientCallIdentityProviderDelegate protocol methods
 	}
 ```
 
-## Use Azure Communication Calling SDK via Teams Embed SDK
+## Use Teams Embed SDK and Azure Communication Calling SDK in the same app
 
-Teams Embed SDK provides also Azure Communication Calling SDK (ACS) within it, which allows to use both SDK features in the same app. 
+Teams Embed SDK provides also Azure Communication Calling SDK (ACS) within it, which allows to use both of the SDK features in the same app. 
 Only one SDK can be initialized and used at the time. Having both SDKs initialized and used at the same time will result in unexpected behavior. 
 
 Import `TeamsAppSDK` to access Azure Communication Calling SDK from Teams Embed SDK. 
@@ -166,12 +181,15 @@ class ViewController: UIViewController {
     
 ```
 
-Initialization is done by creating new `CallClient`
+Initialization is done by creating new `CallClient`. This can be done in `viewDidLoad` or in any other method.
 
 ```swift
-self.callClient = CallClient()
+override func viewDidLoad() {
+    super.viewDidLoad()
+    self.callClient = CallClient()
+}
 ```
-Use all ACS APIs like they are described in its documentation.
+Use all ACS APIs like they are described in its documentation. This is not discussed in this documentation. 
 
 Dispose the ACS SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use Teams Embed SDK.
 ```swift
@@ -186,17 +204,19 @@ Dispose the ACS SDK and set `nil` to its variables after the usage is not needed
 
 ```
 
-Teams Embed SDK initialization is also done during creating `MeetingUIClient`.
+Teams Embed SDK initialization is also done during creating `MeetingUIClient`. This can be done in `viewDidLoad` or in any other method.
 ```swift
-do {
-    let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
-	let credential = try CommunicationTokenCredential(withOptions: communicationTokenRefreshOptions)
-    meetingUIClient = MeetingUIClient(with: credential)
+override func viewDidLoad() {
+    super.viewDidLoad()
+    do {
+        let communicationTokenRefreshOptions = CommunicationTokenRefreshOptions(initialToken: "<USER_ACCESS_TOKEN>", refreshProactively: true, tokenRefresher: fetchTokenAsync(completionHandler:))
+        let credential = try CommunicationTokenCredential(withOptions: communicationTokenRefreshOptions)
+        meetingUIClient = MeetingUIClient(with: credential)
+    }
+    catch {
+        print("Failed to create communication token credential")
+    }
 }
-catch {
-    print("Failed to create communication token credential")
-}
-
 
 private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
     func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
@@ -208,7 +228,7 @@ private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
 }
 
 ```
-Use the Teams Embed SDK APIs like they are described in its documentation. 
+Use the Teams Embed SDK APIs like they are described in its documentation.  This is not discussed as part of this section. 
 
 Dispose the Teams Embed SDK and set `nil` to its variables after the usage is not needed anymore or the app needs to use ACS SDK.
 ```swift
@@ -263,7 +283,7 @@ Implement `MeetingUIClientCallDelegate` protocol method `meetingUIClientCall(did
     }
 ```
 
-Add other mandatory MeetingUIClientCallIdentityProviderDelegate protocol methods to the class
+Add other mandatory `MeetingUIClientCallDelegate` protocol methods to the class
 
 ```swift
     func meetingUIClientCall(didUpdateRemoteParticipantCount remoteParticipantCount: UInt) {
@@ -347,8 +367,11 @@ func onParticipantViewLongPressed(identifier: CommunicationIdentifier) {
         }
 }
 ```
+## User experince customization
 
-## Add UI icon customizations in a call or meeting
+The user experience in the SDK can be customized by providing app specific icons or replacing call controls bars. 
+
+### Customize UI icons in a call or meeting
 
 The icons shown in the call or meeting could be customized through method `public func set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposed in `MeetingUIClient`.
 The list of possible icons that could be customized are available in `MeetingUIClientIconType`.
@@ -379,7 +402,7 @@ func getIconConfig() -> Dictionary<MeetingUIClientIconType, String> {
 }
 ```
 
-## Add UI customizations on main call screen
+### Customize main call screen
 
 The `MeetingUIClient` provides support to customize the main call screen UI. Currently it supports customizing the UI using `MeetingUIClientInCallScreenDelegate` protocol methods.
 Call screen control actions are exposed through the methods present in `MeetingUIClientCall`.
@@ -424,7 +447,7 @@ func provideControlTopBar() -> UIView? {
 }
 ```
 
-Add other mandatory MeetingUIClientInCallScreenDelegate protocol methods to the class and they may be left with empty implementations to return nil.
+Add other mandatory `MeetingUIClientInCallScreenDelegate` protocol methods to the class and they may be left with empty implementations to return nil.
 ```swift
 func provideControlBottomBar() -> UIView? {
     return nil
@@ -435,7 +458,7 @@ func provideScreenBackgroudColor() -> UIColor? {
 }
 ```
 
-## Add UI customizations on staging call screen
+## Customize on staging call screen
 
 The `MeetingUIClient` provides support to customize the staging call screen UI. Currently it supports customizing the UI using `MeetingUIClientStagingScreenDelegate` protocol methods.
 While joining the call or meeting, set the join options property `enableCallStagingScreen` to `true` to display the staging screen.
@@ -478,7 +501,7 @@ func provideJoinButtonCornerRadius() -> CGFloat {
 }
 ```
 
-Add other mandatory MeetingUIClientStagingScreenDelegate protocol methods to the class and they may be left with empty implementations to return nil.
+Add other mandatory `MeetingUIClientStagingScreenDelegate` protocol methods to the class and they may be left with empty implementations to return nil.
 ```swift
 func provideJoinButtonBackgroundColor() -> UIColor? {
     return nil
@@ -489,7 +512,7 @@ func provideStagingScreenBackgroundColor() -> UIColor? {
 }
 ```
 
-## Add UI customizations on connecting call screen
+## Customize on connecting call screen
 
 The `MeetingUIClient` provides support to customize the connecting call screen UI. Currently it supports customizing the UI using `MeetingUIClientConnectingScreenDelegate` protocol methods.
 Use the icon configuration method `set(iconConfig: Dictionary<MeetingUIClientIconType, String>)` exposed in `MeetingUIClient` to change only the icons displayed and use the functionality provided by the `MeetingUIClient`.
@@ -533,11 +556,12 @@ func provideConnectingScreenBackgroundColor() -> UIColor?
 }
 ```
 
-## APIs to control the call
+## Perform operations with the call
 
 Call control actions are exposed through the methods present in `MeetingUIClientCall`.
 These methods are useful in controlling the call actions if the UI had been customized using the `MeetingUIClient` customization delegates.
 
+Added needed variables to the calls.
 ```swift
 class ViewController: UIViewController {
 
@@ -545,8 +569,7 @@ class ViewController: UIViewController {
     private var meetingUIClientCall: MeetingUIClientCall?
 ```
 
-Use the `meetingUIClientCall` to invoke the supported methods
-
+Assign the `self.meetingUIClientCall` variable the `meetingUIClientCall` value from the `join` method `completionHandler`
 ```swift
 private func joinGroupCall() {
     let groupJoinOptions = MeetingUIClientGroupCallJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true, enableCallStagingScreen: true)
@@ -564,6 +587,7 @@ private func joinGroupCall() {
     })
 }
 ```
+### Mute and unmute
 
 Invoke the `mute` method to mute the microphone for an active call if one exists.
 Microphone status changes in notified in the `onIsMutedChanged` method of `MeetingUIClientCallDelegate`
@@ -572,10 +596,10 @@ Microphone status changes in notified in the `onIsMutedChanged` method of `Meeti
 // Mute the microphone for an active call.
 public func mute(completionHandler: @escaping (Error?) -> Void)
 
-meetingUIClientCall?.mute { [weak self] (error) in
-    if error != nil {
-        print("Mute call failed: \(error!)")
-    }
+    meetingUIClientCall?.mute { [weak self] (error) in
+        if error != nil {
+            print("Mute call failed: \(error!)")
+        }
 }
 ```
 
@@ -592,7 +616,8 @@ meetingUIClientCall?.unmute { [weak self] (error) in
 }
 ```
 
-Other methods available in the MeetingUIClientCall class.
+### Other operations available in from the  `MeetingUIClientCall` class.
+
 ```swift
 // Start the video for an active call.
 public func startVideo(completionHandler: @escaping (Error?) -> Void)
