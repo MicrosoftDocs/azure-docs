@@ -31,7 +31,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 > You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
 
 ## Preparing your IoT Edge device
-Azure Video Analyzer module should be configured to run on the IoT Edge device with a non-privileged local user account. The module needs certain local folders for storing application configuration data.
+Azure Video Analyzer module should be configured to run on the IoT Edge device with a non-privileged local user account. The module needs certain local folders for storing application configuration data. The RTSP camera simulator module needs video files with which it can synthesize a live video feed.
 
 https://aka.ms/ava/prepare-device  
   
@@ -64,20 +64,20 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
     - **Subscription**: Choose the subscription to create the Video Analyzer account under.
     - **Resource group**: Choose a resource group to create the Video Analyzer account in or click **Create new** to create a new resource group.
     - **Video Analyzer account name**: This is the name for your Video Analyzer account. The name must be all lowercase letters or numbers with no spaces and 3 to 24 characters in length.
-    - **Location**: Choose a location to deploy your Video Analyzer account, for example **West US**.
+    - **Location**: Choose a location to deploy your Video Analyzer account, for example **West US 2**.
     - **Storage account**: Create a new storage account. It is recommended to select a [standard general-purpose v2](/azure/storage/common/storage-account-overview#types-of-storage-accounts) storage account.
-    - **User identity**: Create and name a new user identity.
+    - **User identity**: Create and name a new user-assigned managed identity.
 
 1. Click **Review + create** at the bottom of the form.
 
 ### Create a container registry
-1. Select **Create a resource** > **Containers** > **Container Registry**.\
+1. Select **Create a resource** > **Containers** > **Container Registry**.
 1. In the **Basics** tab, enter values for **Resource group** ***(use the same **Resource group** from the previous sections)*** and **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters.
 1. Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
 
-## Deploying Edge Modules
+## Deploying edge modules
 
-### Deploying Video Analyzer Edge Module
+### Deploying Video Analyzer edge module
 
 1. Navigate to your Video Analyzer account
 1. Select **Edge Modules** under the **Edge** blade
@@ -144,7 +144,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 1. Under **NAME**, enter **AVAToHub**, and under **VALUE**, enter **FROM /messages/modules/avaedge/outputs/* INTO $upstream**
 1. Select **Review + create**, then select **Create** and your **avaedge** edge module will be deployed
 
-### Deploying RTSP SIM Edge Module
+### Deploying RTSP camera simulator edge module
 1. Navigate to your IoT Hub
 1. Select **IoT Edge** under the **Automatic Device Management**
 1. Select the **Device ID** for your IoT Edge Device
@@ -167,7 +167,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 ### Verify your deployment
 
-On the device details page, verify that the **avaedge** module is listed as both, **Specified in Deployment** and **Reported by Device**.  
+On the device details page, verify that the **avaedge** and **rtspsim** modules are listed as both, **Specified in Deployment** and **Reported by Device**.  
 
 It may take a few moments for the modules to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.  

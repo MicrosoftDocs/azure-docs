@@ -29,6 +29,8 @@
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           
+    - name: Required outbound network rules
+      href: network-rules.md
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md
 - name: Reference

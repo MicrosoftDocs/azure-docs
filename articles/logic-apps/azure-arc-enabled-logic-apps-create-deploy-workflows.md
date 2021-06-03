@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/03/2021
 
 ## Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
@@ -384,7 +384,7 @@ In your Azure Resource Manager template (ARM template), include the following re
 }
 ```
 
-For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation. 
+For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/azure/templates/microsoft.web/connections?tabs=json) documentation. 
 
 #### Azure portal
 
@@ -426,7 +426,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 #### ARM template
 
-The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (JSON)](/templates/microsoft.web/sites?tabs=json) documentation.
+The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (JSON)](/azure/templates/microsoft.web/sites?tabs=json) documentation.
 
 ```json
 {
@@ -509,7 +509,7 @@ To reference your Docker registry and container image, include these values in y
 
 #### ARM template
 
-The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (ARM template)](/templates/microsoft.web/sites?tabs=json) documentation.
+The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (ARM template)](/azure/templates/microsoft.web/sites?tabs=json) documentation.
 
 ```json
 {
@@ -594,7 +594,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 #### ARM template
 
-The following example describes a sample App Service plan resource definition that you can use with your app deployment. For more information, review the [Microsoft.Web/serverfarms template format (ARM template)](/templates/microsoft.web/serverfarms?tabs=json) documentation.
+The following example describes a sample App Service plan resource definition that you can use with your app deployment. For more information, review the [Microsoft.Web/serverfarms template format (ARM template)](/azure/templates/microsoft.web/serverfarms?tabs=json) documentation.
 
 ```json
 {

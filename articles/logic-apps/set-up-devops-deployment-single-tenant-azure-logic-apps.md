@@ -149,7 +149,7 @@ For more information, review the [Continuous delivery by using GitHub Action](..
 
 #### [Azure DevOps](#tab/azure-devops)
 
-For Azure DevOps deployments, you can deploy your logic app by using the [Azure Function App Deploy task](/devops/pipelines/tasks/deploy/azure-function-app&preserve-view=true?view=azure-devops) in Azure Pipelines. This action requires that you pass through the following information:
+For Azure DevOps deployments, you can deploy your logic app by using the [Azure Function App Deploy task](/azure/devops/pipelines/tasks/deploy/azure-function-app&preserve-view=true?view=azure-devops) in Azure Pipelines. This action requires that you pass through the following information:
 
 - The logic app name to use for deployment
 - The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files.
@@ -166,7 +166,7 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
      deploymentMethod: 'zipDeploy'
 ```
 
-For more information, review the [Deploy an Azure Function using Azure Pipelines](/devops/pipelines/targets/azure-functions-windows) documentation.
+For more information, review the [Deploy an Azure Function using Azure Pipelines](/azure/devops/pipelines/targets/azure-functions-windows) documentation.
 
 #### [Azure CLI](#tab/azure-cli)
 

@@ -244,7 +244,7 @@
         - name: Generalized image from ISO
           href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
         - name: Use specialized image
-          href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
+          href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md 
       - name: Deploy VMs
         items:
         - name: Via Azure portal
@@ -273,6 +273,8 @@
           href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: Install custom script extension
           href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+        - name: Install GPU extension
+          href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
         - name: Back up VM disks 
           href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
         - name: Troubleshoot
@@ -280,7 +282,11 @@
           - name: Connect to VM console
             href: azure-stack-edge-gpu-connect-virtual-machine-console.md
           - name: VM image upload
-            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md    
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+          - name: VM deployment
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+          - name: GPU extension issues
+            href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
     - name: Manage certificates
       items:
       - name: Requirements
