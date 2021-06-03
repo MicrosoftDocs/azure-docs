@@ -226,7 +226,7 @@ The following template can be used to create a Conditional Access policy with di
 
 Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk is a calculation of probability that an identity has been compromised. B2C tenants with P2 licenses can create Conditional Access policies incorporating user risk. When a user is detected as at risk, you can require that they securely change their password to remediate the risk and gain access to their account. We highly recommend setting up a user risk policy to require a secure password change so users can self-remediate.
 
-Learn more about [user risk in Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks#user-risk), taking into account the [limitations on Identity Protection detections for B2C](https://docs.microsoft.com/azure/active-directory-b2c/identity-protection-investigate-risk?pivots=b2c-user-flow#service-limitations-and-considerations).
+Learn more about [user risk in Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks#user-risk), taking into account the [limitations on Identity Protection detections for B2C](https://docs.microsoft.com/azure/active-directory-b2c/identity-protection-investigate-risk?pivots=b2c-user-flow#service-limitations-and-considerations).
 
 Configure Conditional Access through Azure Portal or Microsoft Graph APIs to enable a user risk-based Conditional Access policy requiring multi-factor authentication (MFA) and password change when user risk is medium OR high.
 
@@ -250,7 +250,7 @@ To configure your user based conditional access:
 
 ### Enable with Conditional Access APIs
 
-To create a user risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api).
+To create a user risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api).
 
 The following template can be used to create a Conditional Access policy with display name "Template 2: Require secure password change for medium+ user risk" in report-only mode.
 
@@ -288,7 +288,7 @@ The following template can be used to create a Conditional Access policy with di
 ### Template 3: Block locations with Conditional Access
 
 With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. More information about the location condition in Conditional Access can be found in the article, 
-[Using the location condition in a Conditional Access policy] (https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition)
+[Using the location condition in a Conditional Access policy] (https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 Configure Conditional Access through Azure Portal or Microsoft Graph APIs to enable a Conditional Access policy blocking access to specific locations.
 
@@ -322,7 +322,7 @@ To enable with condition access policy:
 
 ### Enable with Conditional Access APIs
 
-To create a location-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). To set up Named Locations, please refer to the documentations for [Named Locations](https://docs.microsoft.com/en-us/graph/api/resources/namedlocation?view=graph-rest-1.0).
+To create a location-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). To set up Named Locations, please refer to the documentations for [Named Locations](https://docs.microsoft.com/graph/api/resources/namedlocation?view=graph-rest-1.0).
 
 The following template can be used to create a Conditional Access policy with display name "Template 3: Block unallowed locations" in report-only mode.
 
