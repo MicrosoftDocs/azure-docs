@@ -16,7 +16,7 @@ ms.date: 12/14/2018
 # Monitor backup activity for Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article teaches you to configure extended event (XEvent) sessions to monitor backup activity for [Azure SQL Managed Instance](sql-managed-instance-paas-overview). 
+This article teaches you to configure extended event (XEvent) sessions to monitor backup activity for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). 
 
 ## Overview
 
