@@ -5,14 +5,23 @@
   - name: Apache Kafka on Confluent Cloud
     items:
     - name: Overview
-      displayName: Apache, Kafka, Confluent
-      href: ./apache-kafka-confluent-cloud/overview.md
-    - name: Create
-      href: ./apache-kafka-confluent-cloud/create.md
-    - name: Manage
-      href: ./apache-kafka-confluent-cloud/manage.md
-    - name: Troubleshoot
-      href: ./apache-kafka-confluent-cloud/troubleshoot.md
+      items:
+      - name: What is Apache Kafka for Confluent Cloud?
+        href: ./apache-kafka-confluent-cloud/overview.md
+    - name: Quickstarts
+      items:
+      - name: Create Apache Kafka for Confluent Cloud
+        href: ./apache-kafka-confluent-cloud/create.md
+    - name: How to
+      items:
+      - name: Manage
+        href: ./apache-kafka-confluent-cloud/manage.md
+      - name: Troubleshoot
+        href: ./apache-kafka-confluent-cloud/troubleshoot.md
+    - name: Reference
+      items:
+      - name: Azure CLI
+        href: /cli/azure/confluent
   - name: Datadog
     items:
     - name: Overview
@@ -38,6 +47,10 @@
           href: ./datadog/get-support.md
         - name: Fix common errors
           href: ./datadog/troubleshoot.md
+    - name: Reference
+      items:
+      - name: Azure CLI
+        href: /cli/azure/datadog
   - name: Elastic
     items:
     - name: Overview
@@ -54,7 +67,4 @@
         href: ./elastic/manage.md
       - name: Troubleshoot
         href: ./elastic/troubleshoot.md
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/confluent
+  
