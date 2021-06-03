@@ -18,9 +18,9 @@ ms.author: alkohli
 
 To deploy VMs on your Azure Stack Edge Pro GPU device, you need to be able to create custom VM images that you can use to create VMs in Azure. To deploy VMs with the VM images, you must store the images in an Azure Storage account. This article describes the steps to create custom VM images in Azure for Windows and Linux VMs and download or copy those images to an Azure Storage account. 
 
-There's a required workflow for preparing the image. You must create a virtual machine in Azure, customize the VM, generalize the OS VHD, and then download the OS VHD to an Azure storage account.
+There's a required workflow for preparing the image. You must create a virtual machine in Azure, customize the VM, generalize the OS VHD, and then download the OS VHD to an Azure Storage account.
 
-For the image source, you need to use a fixed VHD from a Gen1 VM of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+For the image source, you need to use a fixed VHD from a Gen1 VM of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).<!--Either or both of the final two sentences might go. The information is covered elsewhere. The main point that needs to stay in the intro is that they need to follow the process, and that might be made in the first paragraph.-->
  
 
 ## Prerequisites
@@ -33,7 +33,7 @@ Complete the following prerequisite before you create your VM image:
 
 ## Create a custom VM image
 
-Depending on the operating system for your VM, the steps to prepare the VM image vary slightly.
+The steps to create a custom VM image vary slightly for Windows and Linux VMs.
 
 
 ### [Windows](#tab/windows)
