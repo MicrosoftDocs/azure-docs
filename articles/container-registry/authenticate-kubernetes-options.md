@@ -14,6 +14,7 @@ You can use an Azure container registry as a source of container images for Kube
 
 To pull images to your Kuberentes cluster from an Azure container registry, an authentication and authorization mechanism needs to be established. Depending on your cluster environment, choose one of the following methods:
 
+## Scenarios
 
 | Kubernetes cluster |Authentication method  | Description  | Example | 
 |---------|---------|---------|----------|

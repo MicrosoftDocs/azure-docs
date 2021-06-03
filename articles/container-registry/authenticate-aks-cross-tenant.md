@@ -7,9 +7,9 @@ ms.author: danlep
 ms.date: 05/21/2021
 ---
 
-# Pull images from a container registry to an AKS cluster in a different AD tenant
+# Pull images from a container registry to an AKS cluster in a different Azure AD tenant
 
-In some cases, you might have your Azure AKS cluster in one Azure Active Directory (tenant) and your Azure container registry in a different tenant. This article walks through the steps to enable cross-tenant authentication using the AKS service principal credential to pull from the container registry.
+In some cases, you might have your Azure AKS cluster in one Azure Active Directory (Azure AD) tenant and your Azure container registry in a different tenant. This article walks through the steps to enable cross-tenant authentication using the AKS service principal credential to pull from the container registry.
 
 ## Scenario overview
 Assumptions for this example:
