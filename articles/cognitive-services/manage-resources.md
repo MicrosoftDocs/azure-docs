@@ -75,7 +75,7 @@ To purge a deleted cognitive service resource, use the following commands. Where
 
 * `{subscriptionID}` with your Azure subscription ID
 * `{resourceGroup}` with your resource group
-* `{resourceName}` with your account name
+* `{resourceName}` with your resource name
 * `{location}` with the location of your resource
 
 > [!NOTE]
