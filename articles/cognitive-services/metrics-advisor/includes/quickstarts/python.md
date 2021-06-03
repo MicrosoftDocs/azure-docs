@@ -243,7 +243,7 @@ return detection_config
 
 ## Create a hook
 
-In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link which will show in the alert.
+In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link which will appear in the alert.
 
 ```python
 def sample_create_hook():
