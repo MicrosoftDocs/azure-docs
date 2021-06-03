@@ -287,13 +287,13 @@ Machines do appear in Azure Resource Graph query results, but still don't show u
 
 5. If the machine is not set up as a system Hybrid Runbook Worker, review the methods to enable using one of the following methods:
 
-   - From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
+   - From your [Automation account](../update-management/enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
 
-   - Using the **Enable-AutomationSolution** [runbook](enable-from-runbook.md) to automate onboarding Azure VMs.
+   - Using the **Enable-AutomationSolution** [runbook](../update-management/enable-from-runbook.md) to automate onboarding Azure VMs.
 
-   - For a [selected Azure VM](enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
+   - For a [selected Azure VM](../update-management-enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
 
-   - For [multiple Azure VMs](enable-from-portal.md) by selecting them from the **Virtual machines** page in the Azure portal.
+   - For [multiple Azure VMs](../update-management/enable-from-portal.md) by selecting them from the **Virtual machines** page in the Azure portal.
 
    The method to enable is based on the environment the machine is running in.
 
@@ -519,7 +519,7 @@ The default maintenance window for updates is 120 minutes. You can increase the 
 
 To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
 
-You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 
@@ -554,7 +554,7 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |Exception  |Resolution or action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in [Windows update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find additional details about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/overview.md#ports) section for a list of required ports and addresses.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../update-management/plan-deployment.md#ports) section for a list of required ports and addresses.        |
 |`0x8024001E`| The update operation didn't complete because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
