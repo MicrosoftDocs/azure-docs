@@ -259,14 +259,16 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You also used the IoT Central portal to create Azure resources, connect the STM DevKit securely to Azure, view telemetry, and send messages.
 
-> [!IMPORTANT]
-> Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+
+
+> [!IMPORTANT]
+> Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
+
 
 
