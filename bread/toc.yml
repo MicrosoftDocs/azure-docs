@@ -960,7 +960,7 @@
   - name: Confidential Computing
     tocHref: /azure/confidential-computing/
     topicHref: /azure/confidential-computing/overview
-  - name: Azure Virtual Desktop
+  - name: Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
   - name: Cost Management and Billing
