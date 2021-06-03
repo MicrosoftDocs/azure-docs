@@ -76,11 +76,11 @@ As you progress, you'll complete these high-level tasks:
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by Azure Functions, which uses the same app naming convention. |
-   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is the only currently available portal option and deploys to single-tenant Azure Logic Apps. <p><p>**Note**: Azure creates an empty logic app resource where you have to add your first workflow. |
-   | **Region** | Yes | <*Azure-region*> | The Azure region to use when creating your resource group and resources. <p><p>This example uses **West US**. |
+   | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Preview)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
+   | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. If you selected **Docker Container**, select your custom location. <p><p>This example deploys the sample logic app to Azure and uses **West US**. |
    |||||
 
-   Here's an example:
+   The following example shows the **Create Logic App (Standard)** page:
 
    ![Screenshot that shows the Azure portal and "Create Logic App" page.](./media/create-single-tenant-workflows-azure-portal/create-logic-app-resource-portal.png)
 

@@ -53,7 +53,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | Source code for [Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK](cognitive-search-tutorial-blob-dotnet.md).  |
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples
 

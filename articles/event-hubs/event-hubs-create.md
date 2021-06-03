@@ -50,7 +50,7 @@ An Event Hubs namespace provides a unique scoping container, in which you create
    1. Enter a **name** for the namespace. The system immediately checks to see if the name is available.  
    1. Select a **location** for the namespace.
    1. Choose **Basic** for the **pricing tier**. To learn about differences between tiers, see [Quotas and limits](event-hubs-quotas.md), [Event Hubs Premium](event-hubs-premium-overview.md), and [Event Hubs Dedicated](event-hubs-dedicated-overview.md) articles. 
-   1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) settings as it is. Throughput units are pre-purchased units of capacity. To learn about throughput units or processing units, see [Event Hubs scalability](event-hubs-scalability.md).  
+   1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) settings as it is. To learn about throughput units or processing units: [Event Hubs scalability](event-hubs-scalability.md).  
    1. Select **Review + Create** at the bottom of the page.
       
       ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)

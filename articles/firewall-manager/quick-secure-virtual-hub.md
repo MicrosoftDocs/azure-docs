@@ -7,7 +7,7 @@ ms.author: victorh
 ms.date: 08/28/2020
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - mode-arm
 ---

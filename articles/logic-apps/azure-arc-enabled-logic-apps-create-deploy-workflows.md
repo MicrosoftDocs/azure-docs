@@ -37,20 +37,21 @@ This section describes the common prerequisites across all the approaches and to
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A Kubernetes environment with an Azure Arc enabled Kubernetes cluster and *custom location* where you can host and run Azure Logic Apps, Azure App Service, and Azure Functions. Make sure that you use the same location for your Kubernetes environment, custom location, and logic app resource.
+- A Kubernetes environment with an Azure Arc enabled Kubernetes cluster and *custom location* where you can host and run Azure Logic Apps, Azure App Service, and Azure Functions.
 
-  For example, to deploy and run in West Europe, use West Europe as the location for all three resources.
+  > [!IMPORTANT]
+  > Make sure that you use the same resource location for your Kubernetes environment, custom location, and logic app.
 
-  Also, when you create the App Service bundle extension on your Kubernetes cluster, you can [change the default scaling behavior](#change-scaling) for running your logic app workflows. When you create the extension by using the Azure CLI command, [**`az k8s-extension create`**](/cli/azure/k8s-extension), make sure to include the configuration setting, `keda.enabled=true`:
+  When you create the App Service bundle extension on your Kubernetes cluster, you can [change the default scaling behavior](#change-scaling) for running your logic app workflows. When you create the extension by using the Azure CLI command, [**`az k8s-extension create`**](/cli/azure/k8s-extension), make sure to include the configuration setting, `keda.enabled=true`:
 
   `az k8s-extension create {other-command-options} --configuration-settings "keda.enabled=true"`
 
   For more information, review the following documentation:
 
-  * [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
-  * [Cluster extensions on Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md)
-  * [Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
-  * [Change the default scaling behavior](#change-scaling)
+  - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
+  - [Cluster extensions on Azure Arc enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md)
+  - [Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)](../app-service/manage-create-arc-environment.md)
+  - [Change the default scaling behavior](#change-scaling)
 
 - Your own Azure Active Directory (Azure AD) identity
 
@@ -60,15 +61,22 @@ This section describes the common prerequisites across all the approaches and to
   > Managed identity support is currently unavailable for Azure Arc enabled Logic Apps.
 
   To create an Azure Active Directory (Azure AD) app registration using the Azure CLI, follow these steps:
-    1. Create an app registration by using the [`az ad sp create`](/cli/azure/ad/sp#az_ad_sp_create) command.
-    1. To review all the details, run the [`az ad sp show`](/cli/azure/ad/sp#az_ad_sp_show) command.
-    1. From the output of both commands, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
+
+  1. Create an app registration by using the [`az ad sp create`](/cli/azure/ad/sp#az_ad_sp_create) command.
+
+  1. To review all the details, run the [`az ad sp show`](/cli/azure/ad/sp#az_ad_sp_show) command.
+
+  1. From the output of both commands, find and save the client ID, object ID, tenant ID, and client secret values, which you need to keep for later use.
 
   To create an Azure Active Directory (Azure AD) app registration using the Azure portal, follow these steps:
-    1. Create a new Azure AD app registration by using the [Azure portal](../active-directory/develop/quickstart-register-app.md).
-    1. After creation finishes, find the new app registration in the portal.
-    1. On the registration menu, select **Overview**, and save the client ID, tenant ID, and client secret values.
-    1. To find the object ID, next to the **Managed application in local directory** field, select the name for your app registration. From the properties view, copy the object ID.
+
+  1. Create a new Azure AD app registration by using the [Azure portal](../active-directory/develop/quickstart-register-app.md).
+
+  1. After creation finishes, find the new app registration in the portal.
+
+  1. On the registration menu, select **Overview**, and save the client ID, tenant ID, and client secret values.
+
+  1. To find the object ID, next to the **Managed application in local directory** field, select the name for your app registration. From the properties view, copy the object ID.
 
 ## Create and deploy logic apps
 
@@ -76,7 +84,7 @@ Based on whether you want to use Azure CLI, Visual Studio Code, or the Azure por
 
 ### [Azure CLI](#tab/azure-cli)
 
-#### Prerequisites
+Before you start, you need to have the following items:
 
 - The [Azure CLI installed](/cli/azure/install-azure-cli) on your local computer.
 - An [Azure resource group](#create-resource-group) where to create your logic app.
@@ -142,9 +150,7 @@ az logicapp create --resource-group MyResourceGroupName --name MyLogicAppName
 ```
 
 > [!IMPORTANT]
-> Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. 
-> The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. 
-> This value is *not the same* as the *name* for your custom location.
+> The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
 
 Make sure to provide the following required parameters in your command:
 
@@ -177,7 +183,7 @@ az logicapp show --name MyLogicAppName
 
 #### Deploy logic app
 
-To deploy your logic app using Kudu's zip deployment, run the command `az logicapp deployment source config-zip`. For example:
+To deploy your logic app using Kudu's zip deployment, run the command `az logicapp deployment source config-zip`, for example:
 
 ```azurecli
 az logicapp deployment source config-zip --name MyLogicAppName 
@@ -217,8 +223,6 @@ az logicapp restart --name MyLogicAppName
 
 To delete your Azure Arc enabled logic app, run the command `az logicapp delete` with the following required parameters:
 
-For example: 
-
 ```azurecli
 az logicapp delete --name MyLogicAppName --resource-group MyResourceGroupName --subscription MySubscription
 ```
@@ -226,8 +230,6 @@ az logicapp delete --name MyLogicAppName --resource-group MyResourceGroupName --
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 You can create, deploy, and monitor your logic app workflows from end to end in Visual Studio Code. There is no change or difference in the designer experience between developing logic app workflows that run in single-tenant Azure Logic Apps versus Azure Arc enabled Logic Apps.
-
-#### Create and deploy logic app workflows
 
 1. To create a logic app project, follow the prerequisites and steps in the [Create integration workflows in single-tenant Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md) documentation.
 
@@ -261,16 +263,14 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
 
 ### [Azure portal](#tab/azure-portal)
 
-#### Create and deploy logic app workflows
-
 The portal-based designer's editing capability is currently under development for Azure Arc enabled Logic Apps. You can create, deploy, and view your logic apps using the portal-based designer, but you can't edit them in the portal after deployment. For now, you can create and edit a logic app project locally in Visual Studio Code, and then deploy using Visual Studio Code, Azure CLI, or automated deployments.
 
-1. [In the portal, create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md), but make sure to use the custom location that you created earlier as your app's location.
+1. In the Azure portal, [create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md). However, for the **Publish** destination, select **Docker Container**. For **Region**, select your previously created custom location as your app's location.
+
+   By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, you don't need to create an App Service plan, which is created for you.
 
    > [!IMPORTANT]
-   > The locations for your logic app resource, custom location, and Kubernetes environment must all be the same.
-
-   By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, You don't need to create an App Service plan, which is created for you.
+   > The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
 
 1. [Edit and deploy the logic app using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
@@ -360,7 +360,7 @@ In your Azure Resource Manager template (ARM template), include the following re
 }
 ```
 
-For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation. 
+For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/azure/templates/microsoft.web/connections?tabs=json) documentation. 
 
 #### Azure portal
 
@@ -393,7 +393,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The location for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is not the same as the *name* for your custom location. |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is not the same as the *name* for your custom location. |
 | App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,workflowapp,linux` |
 | Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have the `"type"` set to `"CustomLocation"`. |
 | Hosting plan resource ID | `serverFarmId` | The resource ID of the associated App Service plan, formatted as follows: <p><p>`"/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}"` |
@@ -402,7 +402,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 #### ARM template
 
-The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (JSON)](/templates/microsoft.web/sites?tabs=json) documentation.
+The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (JSON)](/azure/templates/microsoft.web/sites?tabs=json) documentation.
 
 ```json
 {
@@ -485,7 +485,7 @@ To reference your Docker registry and container image, include these values in y
 
 #### ARM template
 
-The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (ARM template)](/templates/microsoft.web/sites?tabs=json) documentation.
+The following example describes a sample Azure Arc enabled Logic Apps resource definition that you can use in your ARM template. For more information, review the [Microsoft.Web/sites template format (ARM template)](/azure/templates/microsoft.web/sites?tabs=json) documentation.
 
 ```json
 {
@@ -560,7 +560,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The location for your logic app resource, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is not the same as the *name* for your custom location. |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is not the same as the *name* for your custom location. |
 | Kind | `kind` | The kind of app service plan being deployed which needs to be `kubernetes,linux` |
 | Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have `"type"` set to `"CustomLocation"`. |
 | Hosting plan name | `name` | The name for the App Service plan |
@@ -570,7 +570,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 #### ARM template
 
-The following example describes a sample App Service plan resource definition that you can use with your app deployment. For more information, review the [Microsoft.Web/serverfarms template format (ARM template)](/templates/microsoft.web/serverfarms?tabs=json) documentation.
+The following example describes a sample App Service plan resource definition that you can use with your app deployment. For more information, review the [Microsoft.Web/serverfarms template format (ARM template)](/azure/templates/microsoft.web/serverfarms?tabs=json) documentation.
 
 ```json
 {
