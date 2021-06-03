@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 06/03/2021
 
 ms.author: justinha
 author: justinha
@@ -22,8 +22,6 @@ To reduce help desk calls and loss of productivity when a user can't sign in to 
 This article details the different ways that self-service password reset can be licensed and used. For specific details about pricing and billing, see the [Azure AD pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Compare editions and features
-
-SSPR requires a license only for the tenant. 
 
 The following table outlines the different SSPR scenarios for password change, reset, or on-premises writeback, and which SKUs provide the feature.
 
