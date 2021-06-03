@@ -55,7 +55,7 @@ Sometimes the invited external guest user's email may conflict with an existing 
 
 To unblock users who can't redeem an invitation due to a conflicting [Contact object](https://docs.microsoft.com/en-us/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), follow these steps:
 1. Delete the conflicting Contact object.
-2. Delete the guest user in the Azure portal (that should be in pending state under "Invitation accepted")
+2. Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
 3. Re-invite the guest user.
 4. Wait for the user to redeem invitation
 5. Add the user's Contact email back into Exchange and any DLs they should be a part of
