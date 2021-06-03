@@ -128,7 +128,8 @@ The probe defines how Azure verifies which of the SQL Server instances currently
 > Make sure that the port you specify is open on the firewall of both SQL Server instances. Both instances require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)). 
 > 
 
-> [!NOTE] The health probe status may show as unhealthy if you have multiple probes setup for multiple availability groups due to the SQL Availability groups having only one listener on for each node.
+> [!NOTE] 
+> The health probe status may show as unhealthy if you have multiple probes set up for multiple availability groups due to the SQL Availability groups having only one listener on for each node.
 
 Azure creates the probe and then uses it to test which SQL Server instance has the listener for the availability group.
 
