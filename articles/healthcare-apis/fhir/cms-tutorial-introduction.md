@@ -34,6 +34,13 @@ There are three main pieces to the Interoperability and Patient Access ruling:
 
 As mentioned above, FHIR version R4 is required to meet this mandate. In addition, there have been several implementation guides developed that provide guidance for the rule. [Implementation guides](https://www.hl7.org/fhir/implementationguide.html) provide extra context on top of the base FHIR specification. This includes defining additional search parameters, profiles, extensions, operations, value sets, and code systems.
 
+The Azure API for FHIR has the following capabilities to help you configure your database for the various implementation guides:
+
+1. [Support for RESTful interactions](fhir-features-supported.md)
+1. [Storing and validating profiles](validation-against-profiles.md)
+1. [Defining and indexing custom search parameters](how-to-do-custom-search.md)
+1. [Converting data](convert-data.md)
+
 ## Patient Access API Implementation Guides
 
 The Patient Access API describes adherence to four FHIR implementation guides.
@@ -69,7 +76,7 @@ resource. Throughout the upcoming tutorials, we'll focus on ensuring that the Az
 
 ## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the Carin Blue Button IG. For more information, see [C4BB Organization](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html).  Additionally, you can learn about all the Azure API for FHIR features.
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the Carin Blue Button IG. For more information, see [C4BB Organization](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html). Additionally, you can learn about all the Azure API for FHIR features.
 
->[ !div class="nextstepaction"]
+>[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)  

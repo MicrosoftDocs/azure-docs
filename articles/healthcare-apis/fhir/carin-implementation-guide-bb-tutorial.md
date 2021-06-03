@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Carin Implementation Guide for Blue Button  
+title: Tutorial - Carin Implementation Guide for Blue Button&#174;  
 description: This tutorial walks through the steps of setting up the Azure API for FHIR to pass the Touchstone tests for the Carin Implementation Guide for Blue Button (C4BB IG). 
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -11,9 +11,9 @@ author: caitlinv39
 ms.date: 05/27/2021
 ---
 
-# Carin Implementation Guide for Blue Button
+# Carin Implementation Guide for Blue Button&#174;
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Carin Implementation Guide for Blue Button (C4BB IG).
+In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Carin Implementation Guide for Blue Button ](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
 
 ## Touchstone capability statement
 
@@ -61,7 +61,7 @@ To assist with creation of these search parameters and profiles, we have a [samp
 
 ## Touchstone read test
 
-After testing the capabilities statement, we will test the [read capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) of the Azure API for FHIR against the C4BB IG. This test is testing conformance against the eight profiles you loaded in the first test. You will need to have resources loaded that conform to the profiles. The best path would be to test against resources that you already have in your database, but we also have an http file available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
+After testing the capabilities statement, we will test the [read capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) of the Azure API for FHIR against the C4BB IG. This test is testing conformance against the eight profiles you loaded in the first test. You will need to have resources loaded that conform to the profiles. The best path would be to test against resources that you already have in your database, but we also have an [http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
 
 :::image type="content" source="media/cms-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone read test execution results.":::
 
@@ -82,6 +82,6 @@ The final test we'll walk through is testing [error handling](https://touchstone
 
 In this tutorial, we walked through how to pass the Carin IG for Blue Button tests in Touchstone. Next, you can review how to test the Da Vinci formulary tests.
 
->[ !div class="nextstepaction"]
+>[!div class="nextstepaction"]
 >[DaVinci PDex](davinci-pdex-tutorial.md)       
  
