@@ -206,6 +206,6 @@ For the example AzCopy command above, the following output indicates a successfu
 
 ## Next steps
 
-- [Deploy VMs on your device using the Azure Portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
+- [Deploy VMs on your device using the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)
 - [Deploy VMs on your device via PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)
 - [Deploy GPU VMs on your device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md)
