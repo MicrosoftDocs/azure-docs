@@ -21,7 +21,7 @@ This tutorial covers the following tasks:
 > [!div class="checklist"]
 > * Prepare a GitHub repository
 > * Create an Azure DevOps project
-> * Create an Azure pipeline
+> * Create an Azure Pipeline
 > * Verify the pipeline deployment
 > * Update the template and redeploy
 > * Clean up resources
