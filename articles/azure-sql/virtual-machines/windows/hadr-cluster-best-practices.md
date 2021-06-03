@@ -49,7 +49,9 @@ For your SQL Server availability group or failover cluster instance, consider th
 
 * If you're experiencing frequent unexpected failures, follow the performance best practices outlined in the rest of this article. 
 * If optimizing SQL Server VM performance does not resolve your unexpected failovers, consider [relaxing the monitoring](#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so may not address the underlying source of the issue and could mask symptoms by reducing the likelihood of failure. You may still need to investigate and address the underlying root cause. For Windows Server 2012 or higher, use the following recommended values: 
-   - **Lease timeout**: Use this equation to calculate the maximum lease time out value: `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
+   - **Lease timeout**: Use this equation to calculate the maximum lease time out value: 
+   `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. 
+   Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
    - **Max failures in a specified period**: Set this value to 6. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
    - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
@@ -93,15 +95,15 @@ It's possible to change the quorum vote of a node participating in a Windows Ser
 
 When modifying the node vote settings, follow these guidelines: 
 
-| Guidelines |
+| Qurom voting guidelines |
 |-|
-| - Start with each node having no vote by default. Each node should only have a vote with explicit justification.|
-| - Enable votes for cluster nodes that host the primary replica of an availability group, or the preferred owners of a failover cluster instance. |
-| - Enable votes for automatic failover owners. Each node that may host a primary replica or FCI as a result of an automatic failover should have a vote. | 
-| - If an availability group has more than one secondary replica, only enable votes for the replicas that have automatic failover. | 
-| - Disable votes for nodes that are in secondary disaster recovery sites. Nodes in secondary sites should not contribute to the decision of taking a cluster offline if there's nothing wrong with the primary site. | 
-| - Have an odd number of votes, with three quorum votes minimum. Add a [quorum witness](hadr-cluster-quorum-configure-how-to.md) for an additional vote if necessary in a two-node cluster. | 
-| - Reassess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
+| Start with each node having no vote by default. Each node should only have a vote with explicit justification.|
+| Enable votes for cluster nodes that host the primary replica of an availability group, or the preferred owners of a failover cluster instance. |
+| Enable votes for automatic failover owners. Each node that may host a primary replica or FCI as a result of an automatic failover should have a vote. | 
+| If an availability group has more than one secondary replica, only enable votes for the replicas that have automatic failover. | 
+| Disable votes for nodes that are in secondary disaster recovery sites. Nodes in secondary sites should not contribute to the decision of taking a cluster offline if there's nothing wrong with the primary site. | 
+| Have an odd number of votes, with three quorum votes minimum. Add a [quorum witness](hadr-cluster-quorum-configure-how-to.md) for an additional vote if necessary in a two-node cluster. | 
+| Reassess vote assignments post-failover. You don't want to fail over into a cluster configuration that doesn't support a healthy quorum. |
 
 
 ## Connectivity
