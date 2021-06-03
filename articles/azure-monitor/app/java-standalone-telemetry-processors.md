@@ -316,11 +316,11 @@ The values in the span name are replaced by extracted attribute names. Each rule
 Here's how values are replaced by extracted attribute names:
 
 1. The span name is checked against the regex. 
-1. If the regex matches, all named subexpressions of the regex are extracted as attributes. 
-1. The extracted attributes are added to the span. 
-1. Each subexpression name becomes an attribute name. 
-1. The subexpression matched portion becomes the attribute value. 
-1. The matched portion in the span name is replaced by the extracted attribute name. If the attributes already exist in the span, they're overwritten. 
+2. If the regex matches, all named subexpressions of the regex are extracted as attributes. 
+3. The extracted attributes are added to the span. 
+4. Each subexpression name becomes an attribute name. 
+5. The subexpression matched portion becomes the attribute value. 
+6. The matched portion in the span name is replaced by the extracted attribute name. If the attributes already exist in the span, they're overwritten. 
  
 This process is repeated for all rules in the order they're specified. Each subsequent rule works on the span name that's the output of the previous rule.
 
@@ -408,11 +408,11 @@ The values in the log name are replaced by extracted attribute names. Each rule 
 Here's how values are replaced by extracted attribute names:
 
 1. The log name is checked against the regex. 
-1. If the regex matches, all named subexpressions of the regex are extracted as attributes. 
-1. The extracted attributes are added to the log. 
-1. Each subexpression name becomes an attribute name. 
-1. The subexpression matched portion becomes the attribute value. 
-1. The matched portion in the log name is replaced by the extracted attribute name. If the attributes already exist in the log, they're overwritten. 
+2. If the regex matches, all named subexpressions of the regex are extracted as attributes. 
+3. The extracted attributes are added to the log. 
+4. Each subexpression name becomes an attribute name. 
+5. The subexpression matched portion becomes the attribute value. 
+6. The matched portion in the log name is replaced by the extracted attribute name. If the attributes already exist in the log, they're overwritten. 
  
 This process is repeated for all rules in the order they're specified. Each subsequent rule works on the log name that's the output of the previous rule.
 
