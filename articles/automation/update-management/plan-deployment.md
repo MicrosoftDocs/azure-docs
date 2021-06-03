@@ -61,7 +61,7 @@ VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images available 
 
 To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
-## Step 8 - Plan deployment targets
+## Step 9 - Plan deployment targets
 
 Update Management allows you to target updates to a dynamic group representing Azure or non-Azure machines, so you can ensure that specific machines always get the right updates at the most convenient times. A dynamic group is resolved at deployment time and is based on the following criteria:
 
