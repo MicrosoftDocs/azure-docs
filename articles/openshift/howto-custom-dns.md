@@ -1,7 +1,7 @@
-
+---
 title: Configure custom dns resources in an Azure Red Hat OpenShift (ARO) cluster
 description: Discover how to add a custom DNS server on all of your nodes in Azure Red Hat OpenShift (ARO).
-author: b-rossbryan
+author: bryanro92
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: article
@@ -14,7 +14,7 @@ This article provides the necessary details that allow you to configure your Azu
 
 ## Before you begin
 
-This article assumes that you're creating a new cluster or have an existing cluster with latest updates applied. If you need an ARO cluster, for a public cluster see the [ARO quickstart](./tutorial-create-cluster.md), or for a [private cluster](./howto-create-private-cluster-4x.md). These steps are the same for both private and public clusters.
+This article assumes that you're creating a new cluster or have an existing cluster with latest updates applied. If you need an ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](./howto-create-private-cluster-4x.md) for a private cluster. These steps to configure your cluster to use a custom DNS server are the same for both private and public clusters.
 
 ## DNS Overview
 
@@ -24,7 +24,7 @@ Below is the process flow overview of how the configuration is obtained:
 
 ![DNS](media/concepts-networking/custom-dns-pfd.jpg)
 
-An important trade off of using your own DNS server instead of the default DNS server in the virtual network is that you lose the configuration that DNS server provided. You must know that virtual machine names will no longer resolve through DNS on the network.
+An important trade-off of using your own DNS server instead of the default DNS server in the virtual network is that you lose the configuration that DNS server provided. The virtual machine names will no longer resolve through DNS on the network.
 
 ### Update Process Overview
 
@@ -40,7 +40,7 @@ The following steps can be performed through the command line as well, but this 
 
 ### Update DNS Configuration in Virtual Network
 
-Log into the azure portal and navigate to the desired virtual network you want to update. Select **DNS servers** from the virtual networks settings list.
+Log into the Azure portal and navigate to the desired virtual network you want to update. Select **DNS servers** from the virtual networks settings list.
 
 ![Select DNS](media/concepts-networking/vnet-dns-config.png)
 
@@ -62,7 +62,7 @@ You should receive a notification that your update was successful.
 
 ### Gracefully reboot your Azure Red Hat OpenShift cluster
 
-These steps require having a valid kubeconfig to your cluster, please see [this tutorial ](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster) for details on how to obtain a kubeconfig.
+These steps require having a valid kubeconfig to your cluster, see [this tutorial ](https://docs.microsoft.com/en-us/azure/openshift/tutorial-connect-cluster) for details on how to obtain a kubeconfig.
 
 The following code snippets create noop `machineconfig`'s for master and worker nodes. This allows you to initiate rolling reboots for either the worker or master nodes. For more information about the Machine Config Operator (MCO), please see either [the source code](https://github.com/openshift/machine-config-operator) or the [OpenShift docs for MCO
 ](https://docs.openshift.com/container-platform/4.6/architecture/control-plane.html).
@@ -122,7 +122,7 @@ Create the worker restart file, this example calls the file `worker-restarts.yml
 machineconfig.machineconfiguration.openshift.io/25-machineconfig-worker-reboot created
 ```
 
-The MCO will move workloads and then reboot each node one at a time. Once the workers have come back online we will follow the same procedure to reboot the master nodes. You can verify the status of the workers by querying the nodes and validate they are all in the `Ready` state.
+The MCO will move workloads and then reboot each node one at a time. Once the workers have come back online, we will follow the same procedure to reboot the master nodes. You can verify the status of the workers by querying the nodes and validate they are all in the `Ready` state.
 
 >[!NOTE]
 > Depending on the size of the workload the cluster has, it can take several minutes for each node to reboot.
@@ -184,7 +184,7 @@ dns-docs-tm45t-worker-eastus3-gg75h   Ready    worker   6h3m   v1.19.0+a5a0987
 
 #### Confirm Changes on a Node (Optional)
 
-To validate the new DNS server on a node we will use the `oc debug` pod.
+To validate the new DNS server on a node, we will use the `oc debug` pod.
 
 ```
 [user@bastion ~]$ oc debug node/dns-docs-tm45t-worker-eastus2-ln2kq
