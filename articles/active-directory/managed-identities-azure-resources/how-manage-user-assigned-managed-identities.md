@@ -8,8 +8,7 @@ editor:
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: 
-ms.topic: conceptual
-ms.tgt_pltfrm: 
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/03/2021
 ms.author: barclayn
