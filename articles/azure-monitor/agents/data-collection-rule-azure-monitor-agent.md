@@ -118,6 +118,38 @@ Follow the steps below to create a data collection rule and association
 You can create an association between an Azure virtual machine or Azure Arc enabled server using a Resource Manager template. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates.
 
 
+## Manage rules and association using PowerShell
+
+> [!NOTE]
+> If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
+
+**Data collection rules**
+
+| Action | Command |
+|:---|:---|
+| Get rule(s) | [Get-AzDataCollectionRule](https://docs.microsoft.com/en-us/powershell/module/az.monitor/get-azdatacollectionrule?view=azps-5.4.0) |
+| Create a rule | [New-AzDataCollectionRule](https://docs.microsoft.com/en-us/powershell/module/az.monitor/new-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0) |
+| Update a rule | [Set-AzDataCollectionRule](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0) |
+| Delete a rule | [Remove-AzDataCollectionRule](https://docs.microsoft.com/en-us/powershell/module/az.monitor/remove-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0) |
+| Update 'Tags' for a rule | [Update-AzDataCollectionRule](https://docs.microsoft.com/en-us/powershell/module/az.monitor/update-azdatacollectionrule?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0) |
+
+**Data collection rule associations**
+
+| Action | Command |
+|:---|:---|
+| Get association(s) | [Get-AzDataCollectionRuleAssociation](https://docs.microsoft.com/en-us/powershell/module/az.monitor/get-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0) |
+| Create an association | [New-AzDataCollectionRuleAssociation](https://docs.microsoft.com/en-us/powershell/module/az.monitor/new-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0) |
+| Delete an association | [Remove-AzDataCollectionRuleAssociation](https://docs.microsoft.com/en-us/powershell/module/az.monitor/remove-azdatacollectionruleassociation?view=azps-6.0.0&viewFallbackFrom=azps-5.4.0) |
+
+
+
+## Manage rules and association using Azure CLI
+
+> [!NOTE]
+> If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
+
+This is enabled as part of Azure CLI **monitor-control-service** Extension. [View all commands](https://docs.microsoft.com/en-us/cli/azure/monitor/data-collection/rule?view=azure-cli-latest)
+
 
 ## Next steps
 
