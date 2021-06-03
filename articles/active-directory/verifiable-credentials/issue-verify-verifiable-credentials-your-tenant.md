@@ -65,48 +65,6 @@ Register an application called 'VC Wallet App' in Azure AD and obtain a client I
 
    ![issuer endpoints](media/issue-verify-verifable-credentials-your-tenant/application-endpoints.png)
 
-## Set up your node app with access to Azure Key Vault
-
-To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
-First we need to register another application. This registration is for the website. The registration for the wallet app earlier is only to allow users to sign in to the directory with the wallet app, in our case it happens to be in the same directory but the wallet app registration could have been done in a different directory as well. A good practice is to seperate app registrations if the responsibility of the applications is different. In this case we need our website to get access to Key Vault.
-
-1. Follow the instructions for registering an application with [Azure AD](../develop/quickstart-register-app.md) When registering, use the values below.
-
-   - Name: "VC Website"
-   - Supported account types: Accounts in this organizational directory only
-
-   ![register an application](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appregistration.PNG)
-
-2. After you register the application, write down the Application (client) ID. You need this value later.
-
-   ![application client ID](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appdetails.PNG)
-
-3. While viewing the VC website app overview page select **Certificates & secrets**.
-    ![certificates and secrets](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-cert-secrets.PNG)
-4. In the **Client secrets** section choose **New client secret**
-    1. Add a description like "Node VC client secret"
-    1. Expires: in one year.
-  ![Application secret with a one year expiration](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
-5. Copy down the SECRET. You need this information to update your sample node app.
-
->[!WARNING]
-> You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
-
-After creating your application and client secret in Azure AD, you need to grant the application the necessary permissions to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
-
-1. Go to Key Vault.
-2. Select the key vault we are using for these tutorials.
-3. Choose **Access Policies** on left nav
-4. Choose **+Add Access Policy**.
-5. In the **Key permissions** section choose **Get**, and **Sign**.
-6. Select **Principal** and use the application ID to search for the application we registered earlier. Select it.
-7. Select **Add**.
-8. Choose **SAVE**.
-
-For more information about Key Vault permissions and access control read the [key vault RBAC guide](../../key-vault/general/rbac-guide.md)
-
-![assign key vault permissions](media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png)
-## Make changes to match your environment
 
 So far, we have been working with our sample app. The app uses [Azure Active Directory B2C](../../active-directory-b2c/overview.md) and we are now switching to use Azure AD so we need to make some changes not just to match your environment but also to support additional claims that were not used before.
 
@@ -171,8 +129,48 @@ Now when a user is presented with the "sign in" to get issued your verifiable cr
 1. From the verifiable credentials page create a new credential called **modifiedCredentialExpert** using the old display file and the new rules file (**modified-credentialExpert.json**).
 1. After the credential creation process completes from the **Overview** page copy the **Issue Credential URL** and save it because we need it in the next section.
 
-## Before we continue
+## Set up your node app with access to Azure Key Vault
 
+To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
+First we need to register another application. This registration is for the website. The registration for the wallet app earlier is only to allow users to sign in to the directory with the wallet app, in our case it happens to be in the same directory but the wallet app registration could have been done in a different directory as well. A good practice is to seperate app registrations if the responsibility of the applications is different. In this case we need our website to get access to Key Vault.
+
+1. Follow the instructions for registering an application with [Azure AD](../develop/quickstart-register-app.md) When registering, use the values below.
+
+   - Name: "VC Website"
+   - Supported account types: Accounts in this organizational directory only
+
+   ![register an application](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appregistration.PNG)
+
+2. After you register the application, write down the Application (client) ID. You need this value later.
+
+   ![application client ID](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appdetails.PNG)
+
+3. While viewing the VC website app overview page select **Certificates & secrets**.
+    ![certificates and secrets](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-cert-secrets.PNG)
+4. In the **Client secrets** section choose **New client secret**
+    1. Add a description like "Node VC client secret"
+    1. Expires: in one year.
+  ![Application secret with a one year expiration](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
+5. Copy down the SECRET. You need this information to update your sample node app.
+
+>[!WARNING]
+> You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
+
+After creating your application and client secret in Azure AD, you need to grant the application the necessary permissions to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
+
+1. Go to Key Vault.
+2. Select the key vault we are using for these tutorials.
+3. Choose **Access Policies** on left nav
+4. Choose **+Add Access Policy**.
+5. In the **Key permissions** section choose **Get**, and **Sign**.
+6. Select **Principal** and use the application ID to search for the application we registered earlier. Select it.
+7. Select **Add**.
+8. Choose **SAVE**.
+
+For more information about Key Vault permissions and access control read the [key vault RBAC guide](../../key-vault/general/rbac-guide.md)
+
+![assign key vault permissions](media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png)
+## Make changes to the sample app
 We need to put a few values together before we can make the necessary code changes. We use these values in the next section to make the sample code use your own keys stored in your vault. So far we should have the following values ready.
 
 - **Contract URI** from the credential that we just created(Issue Credential URL)
