@@ -162,18 +162,14 @@ Your output should contain a temperature value like this:
   "result": [
     {
       "$dtId": "thermostat67",
-      "$etag": "W/\"0000000-1e83-4f7f-b448-524371f64691\"",
+      "$etag": "W/\"dbf2fea8-d3f7-42d0-8037-83730dc2afc5\"",
       "$metadata": {
         "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
         "Temperature": {
-          "ackCode": 200,
-          "ackDescription": "Auto-Sync",
-          "ackVersion": 1,
-          "desiredValue": 69.75806974934324,
-          "desiredVersion": 1
+          "lastUpdateTime": "2021-06-03T17:05:52.0062638Z"
         }
       },
-      "Temperature": 69.75806974934324
+      "Temperature": 70.20518558807913
     }
   ]
 }
