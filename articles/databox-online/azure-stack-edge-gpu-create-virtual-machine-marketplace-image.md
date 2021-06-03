@@ -80,6 +80,7 @@ az vm image list --all --publisher "Canonical"
 In this example, we will select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We will identify this image by its Universal Resource Number (“URN”). 
  
 
+
 Below is a list of URNs for some of the most common images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
 
 
