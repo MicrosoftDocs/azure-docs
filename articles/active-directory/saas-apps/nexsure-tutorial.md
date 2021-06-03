@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 06/03/2021
 ms.author: jeedes
 
 ---
@@ -34,9 +34,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Nexsure supports **IDP** initiated SSO.
-
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add Nexsure from the gallery
 
@@ -72,14 +69,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up single sign-on with SAML** page, perform the following steps:
-
-    a. In the **Identifier** text box, type a value:
-    `Nexsure`
-
-    b. In the **Reply URL** text box, type the URL:
-    `https://login.nexsure.com/shared/SAMLAssertionConsumer.aspx`
-
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+ 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
