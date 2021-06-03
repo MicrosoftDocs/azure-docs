@@ -80,4 +80,3 @@ When no longer needed, delete the test user. If you don't know how to delete an 
 
 > [!div class="nextstepaction"]
 > [What are Azure Active Directory reports?](overview-reports.md)
-> [Use Graph Explorer to try Microsoft Graph APIs](https://docs.microsoft.com/graph/graph-explorer/graph-explorer-overview)
