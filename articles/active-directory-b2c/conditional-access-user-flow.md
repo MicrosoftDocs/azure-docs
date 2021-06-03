@@ -250,7 +250,7 @@ To configure your user based conditional access:
 
 ### Enable with Conditional Access APIs
 
-To create a user risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api).
+To create a user risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](//docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api).
 
 The following template can be used to create a Conditional Access policy with display name "Template 2: Require secure password change for medium+ user risk" in report-only mode.
 
@@ -322,7 +322,7 @@ To enable with condition access policy:
 
 ### Enable with Conditional Access APIs
 
-To create a location-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). To set up Named Locations, please refer to the documentations for [Named Locations](https://docs.microsoft.com/graph/api/resources/namedlocation?view=graph-rest-1.0).
+To create a location-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](//docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). To set up Named Locations, please refer to the documentations for [Named Locations](//docs.microsoft.com/graph/api/resources/namedlocation?view=graph-rest-1.0).
 
 The following template can be used to create a Conditional Access policy with display name "Template 3: Block unallowed locations" in report-only mode.
 
