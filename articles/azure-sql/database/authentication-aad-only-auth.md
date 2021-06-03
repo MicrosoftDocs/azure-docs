@@ -394,7 +394,7 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 
 ## Known issues
 
-- When Azure AD-only authentication is enabled, the server administrator password cannot be reset. Currently, the password resent operation succeeds in portal but fails in the SQL engine. The failure is indicated in the server activity log. This defect will be fixed later. In order to reset the server admin password, the Azure AD-only authentication feature must be disabled.
+- When Azure AD-only authentication is enabled, the server administrator password cannot be reset. Currently, the password resent operation succeeds in portal but fails in the SQL engine. The failure is indicated in the server activity log. In order to reset the server admin password, the Azure AD-only authentication feature must be disabled.
 
 
 ## Next steps
