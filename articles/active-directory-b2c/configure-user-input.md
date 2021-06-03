@@ -404,7 +404,7 @@ The following example demonstrates how to provide the list of cities for English
 </BuildingBlocks>-->
 ```
 
-After you add the localiztion element, [edit the content definition with the localization](language-customization.md#edit-the-content-definition-with-the-localization). In the following example, English (en) and Spanish (es) custom localized resources are added to the sign-up page:
+After you add the localization element, [edit the content definition with the localization](language-customization.md#edit-the-content-definition-with-the-localization). In the following example, English (en) and Spanish (es) custom localized resources are added to the sign-up page:
    
 ```xml
 <!-- 
