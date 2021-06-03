@@ -30,8 +30,8 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
 + **Bug fixes and improvements**
   + **azureml-core**
     + Pin dependency `ruamel-yaml` to < 0.17.5 as a breaking change was released in 0.17.5.
-    + aml_k8s_config property is being replaced with namespace, default_instance_type, instance_types
-    + Workspace sync keys is changed to a long running operation.
+    + `aml_k8s_config` property is being replaced with `namespace`, `default_instance_type`, and `instance_types` parameters for `KubernetesCompute` attach.
+    + Workspace sync keys was changed to a long running operation.
   + **azureml-automl-runtime**
     + Fixed problems where runs with big data may fail with `Elements of y_test cannot be NaN`.
   + **azureml-mlflow**
