@@ -118,6 +118,13 @@ This part of the query specifies the columns that will get exported. The columns
 **Example**:
 - **SELECT** `OfferName`, `NormalizedUsage`
 
+#### DISTINCT
+
+Adding DISTINCT keyword after SELECT ensures the final exported data will not have any duplicate rows. DISTINCT keyword works irrespective of whether or not a metric column is selected.
+
+**Example**:
+- **SELECT DISTINCT** `MarketplaceSubscriptionId, OfferType`
+
 #### FROM
 
 This part of the query indicates the dataset from which data needs to be exported. The dataset name given here needs to be a valid dataset name returned by the datasets API.
