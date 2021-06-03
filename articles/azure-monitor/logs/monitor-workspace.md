@@ -51,7 +51,7 @@ Ingestion operations are issues that occurred during data ingestion including no
 #### Operation: Data collection stopped  
 Data collection stopped due to reaching the daily limit.
 
-In the past 7 Days, logs collection reached the the daily set limit. The limit is set either as the workspace is set to "free tier", or daily collection limit was configured for this workspace.
+In the past 7 days, logs collection reached the daily set limit. The limit is set either as the workspace is set to "free tier", or daily collection limit was configured for this workspace.
 Note, after reaching the set limit, your data collection will automatically stop for the day and will resume only during the next collection day. 
  
 Recommended Actions: 
@@ -105,7 +105,7 @@ Description: In some situations, like moving a subscription to a different tenan
 Recommended Actions: 
 * If the subscription mentioned on the warning message no longer exists, navigate to the ‘Azure Activity log’ blade under ‘Workspace Data Sources’, select the relevant subscription, and finally select the ‘Disconnect’ button.
 * If you no longer have access to the subscription mentioned on the warning message:
-  * Follow step 1 to disconnet the subscription. 
+  * Follow step 1 to disconnect the subscription. 
   * To continue collecting logs from this subscription, contact the subscription owner to fix the permissions, re-enable activity log collection.
 * [Create a diagnostic setting](../essentials/activity-log.md#send-to-log-analytics-workspace) to send the Activity log to a Log Analytics workspace. 
 
@@ -120,7 +120,7 @@ Check _LogOperation table for agent event.</br>
 
  `_LogOperation | where TimeGenerated >= ago(6h) | where Category == "Agent" | where Operation == "Linux Agent"  | distinct _ResourceId`
 
-The list will list the resource Ids where the Agent has the wrong configuration.
+The list will list the resource IDs where the Agent has the wrong configuration.
 To mitigate the issue, you will need to reinstall the Agents listed.
 
    
