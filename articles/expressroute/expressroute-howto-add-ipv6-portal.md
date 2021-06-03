@@ -69,7 +69,7 @@ Follow the steps below if you have an existing environment of Azure resources th
 
     :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/add-ipv6-gateway-space.png" alt-text="Screenshot of add Ipv6 address space to the subnet.":::
     
-1. If you have an existing zone-redundant gateway, run the following in PowerShell to enable IPv6 connectivity (note that it may take up to 1 hour for changes to reflect). Otherwise, [create the virtual network gateway](./expressroute-howto-add-gateway-portal-resource-manager.md) using any ZKU. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this option is only available for circuits using ExpressRoute Direct).
+1. If you have an existing zone-redundant gateway, run the following in PowerShell to enable IPv6 connectivity (note that it may take up to 1 hour for changes to reflect). Otherwise, [create the virtual network gateway](./expressroute-howto-add-gateway-portal-resource-manager.md) using any SKU and a Standard, Static public IP address. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this option is only available for circuits using ExpressRoute Direct).
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -83,13 +83,14 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 
 1. [Create the dual-stack gateway subnet](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
 
-1. [Create the virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this option is only available for circuits using ExpressRoute Direct).
+1. [Create the virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU and a Standard, Static public IP address. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this option is only available for circuits using ExpressRoute Direct).
 
 1. [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md).
 
 ## Limitations
 While IPv6 support is available for connections to deployments in Public Azure regions, it doesn't support the following use cases:
 
+* Connections to existing ExpressRoute gateways that are *not* zone-redundant
 * Global Reach connections between ExpressRoute circuits
 * Use of ExpressRoute with virtual WAN
 * FastPath with non-ExpressRoute Direct circuits
