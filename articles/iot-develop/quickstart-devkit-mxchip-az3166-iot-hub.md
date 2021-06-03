@@ -408,7 +408,7 @@ To delete a resource group by name:
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the Azure CLI and/or IoT Explorer to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
-As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
 > [!div class="nextstepaction"]
 > [Connect an MXCHIP AZ3166 devkit to IoT Central](quickstart-devkit-mxchip-az3166.md)
