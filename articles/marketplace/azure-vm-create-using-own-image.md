@@ -30,16 +30,16 @@ Upload your VHD to an Azure shared image gallery.
 
 ## Set the right permissions
 
-These steps require owner access to the Shared image gallery. You will need read access before you can publish these images. An owner can use one of the following commands to assign access. In both cases, use the SusbscriptionId of the subscription where you created the Shared image gallery.
+These steps require owner access to the Shared image gallery. You will need read access before you can publish these images. An owner can use one of the following three methods to assign access. In both cases, use the SusbscriptionId of the subscription where you created the Shared image gallery.
 
-### Azure CLI Command
+### One – Azure CLI Command
 
 ```azurecli
 az login
 az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
 ```
  
-### Powershell
+### Two – Powershell
 
 ```powershell
 Connect-AzAccount
@@ -47,10 +47,12 @@ Select-AzSubscription -SubscriptionId {subscriptionId}
 Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
+### Three – The Azure portal
+
 1. Go to the Shared Image Gallery (SIG).
 2. Select **Access control** (IAM) on the left panel.
 3. Select **Add**, then **Add role assignment**.
-:::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
+    :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
 4. For **Role**, select **Owner**.
 5. For **Assign access to**, select **User, group, or service principal**.
 6. For **Select**, enter the Azure email of the person who will publish the image.
