@@ -8,7 +8,7 @@ ms.topic: conceptual
 
 # Understand how metric alerts work in Azure Monitor
 
-Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](../essentials/metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](./alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful by defult, that is, they only send out notifications when the state changes (fired, resolved). If you want to make them stateless, see [make metric alerts occur every time my condition is met](alerts-troubleshoot-metric.md#make-metric-alerts-occur-every-time-my-condition-is-met).
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](../essentials/metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](./alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful by default, that is, they only send out notifications when the state changes (fired, resolved). If you want to make them stateless, see [make metric alerts occur every time my condition is met](alerts-troubleshoot-metric.md#make-metric-alerts-occur-every-time-my-condition-is-met).
 
 ## How do metric alerts work?
 
@@ -172,7 +172,7 @@ You can find the full list of supported resource types in this [article](./alert
 ## Next steps
 
 - [Learn how to create, view, and manage metric alerts in Azure](../alerts/alerts-metric.md)
-- [Learn how to create alerts within Azure Montior Metrics Explorer](../essentials/metrics-charts.md#alert-rules)
+- [Learn how to create alerts within Azure Monitor Metrics Explorer](../essentials/metrics-charts.md#alert-rules)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](./action-groups.md)
 - [Learn more about Dynamic Thresholds condition type](../alerts/alerts-dynamic-thresholds.md)
