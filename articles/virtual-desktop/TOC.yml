@@ -68,6 +68,8 @@
         href: create-file-share.md
       - name: Install Office with FSLogix app containers
         href: fslogix-office-app-rule-editor.md
+      - name: Authorize an account to use Azure Files
+        href: azure-files-authorization.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
