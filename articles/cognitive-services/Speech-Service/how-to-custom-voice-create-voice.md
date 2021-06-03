@@ -140,7 +140,7 @@ After your dataset has been validated, you can use it to build your custom neura
 
 2. Select the neural training method for your model and target language.
 
-By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language (preview) for your voice model.  Check the languages supported for custom neural voice: [language for customization](language-support.md#customization).
+By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language (preview) for your voice model.  Check the languages supported for custom neural voice and cross-lingual feature: [language for customization](language-support.md#customization).
 
 3. Next, choose the dataset you want to use for training, and specify a speaker file.
 

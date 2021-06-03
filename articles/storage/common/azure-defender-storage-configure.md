@@ -10,7 +10,8 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: tamram
-ms.reviewer: ozgun
+ms.reviewer: ozgun 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure Azure Defender for Storage

@@ -37,6 +37,12 @@
       href: performance-oracle-single-volumes.md
     - name: FAQs about SMB performance
       href: azure-netapp-files-smb-performance.md
+    - name: Performance reference for Azure NetApp Files
+      items:
+      - name: Linux NFS mount options best practices
+        href: performance-linux-mount-options.md
+      - name: Linux concurrency best practices
+        href: performance-linux-concurrency-session-slots.md
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Understand volume quota

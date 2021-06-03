@@ -415,10 +415,10 @@ groups:
   pivots:
   - id: development-environment-vscode
     title: Visual Studio Code
-  - id: development-environment-cli
-    title: Command line
   - id: development-environment-vs
     title: Visual Studio
+  - id: development-environment-cli
+    title: Command line
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
   title: Programming Languages
@@ -1252,5 +1252,14 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+# Owner: philmea
+- id: facility-ontology-schema
+  title: Creator Facility Ontology
+  prompt: Choose a Facility Ontology Version
+  pivots:
+  - id: facility-ontology-v1
+    title: Facility Ontology 1.0 
+  - id: facility-ontology-v2
+    title: Facility Ontology 2.0 
 
     

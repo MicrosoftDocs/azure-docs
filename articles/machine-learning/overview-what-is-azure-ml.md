@@ -129,7 +129,7 @@ Start with [Quickstart: Get started with Azure Machine Learning](quickstart-crea
   + [Manage resources in Visual Studio Code](how-to-manage-resources-vscode.md)
   + [Use Visual Studio Code to train and deploy an image classification model](tutorial-train-deploy-image-classification-model-vscode.md)
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
-  + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
+  + [Use the machine learning CLI to train a model](how-to-train-cli.md)
 
 - Learn about [machine learning pipelines](concept-ml-pipelines.md) to build, optimize, and manage your machine learning scenarios.
 

@@ -251,7 +251,7 @@ In this section, you'll set up Time Series Insights instance to receive data fro
 
 To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values.
 
-Use the following CLI command to update the *Temperature* property on the thermostat67 twin that you added to your instance in the [Prerequisites](#prerequisites) section.
+Use the following CLI command to update the *Temperature* property on the thermostat67 twin that you added to your instance in the [Prerequisites section](#prerequisites).
 
 ```azurecli-interactive
 az dt twin update --dt-name <your-Azure-Digital-Twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'

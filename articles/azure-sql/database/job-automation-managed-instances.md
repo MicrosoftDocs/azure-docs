@@ -3,7 +3,7 @@ title: Job automation with SQL Agent jobs in Azure SQL Managed Instance
 description: 'Automation options to run Transact-SQL (T-SQL) scripts in Azure SQL Managed Instance'
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 dev_langs:
     - TSQL 

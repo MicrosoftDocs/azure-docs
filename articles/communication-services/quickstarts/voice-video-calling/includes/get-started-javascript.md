@@ -11,8 +11,10 @@ ms.service: azure-communication-services
 In this quickstart, you'll learn how start a call using the Azure Communication Services Calling SDK for JavaScript.
 
 > [!NOTE]
-> This document uses version 1.0.0-beta.10 of the Calling SDK.
+> This document uses version 1.1.0-beta.1 of the Calling SDK.
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling)
 
 ## Prerequisites
 
