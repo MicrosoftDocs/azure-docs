@@ -174,7 +174,9 @@ After creating your application and client secret in Azure AD, you need to grant
 
 :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png" alt-text="Screenshot that shows adding an access policy.":::
 
-For more information about Key Vault permissions and access control read the [key vault RBAC guide](../../key-vault/general/rbac-guide.md)## Make changes to the sample app
+For more information about Key Vault permissions and access control read the [key vault RBAC guide](../../key-vault/general/rbac-guide.md).
+
+## Make changes to the sample app
 
 We need to put a few values together before we can make the necessary code changes. We use these values in the next section to make the sample code use your own keys stored in your vault. So far we should have the following values ready.
 
