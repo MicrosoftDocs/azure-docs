@@ -13,15 +13,15 @@ ms.author: nitinme
 
 # Recover deleted Cognitive Services resources
 
-This articles provides instructions on how to recover a Cognitive Services resource that is already deleted. The article also provides instructions on how to purge a deleted resource.
+This article provides instructions on how to recover a Cognitive Services resource that is already deleted. The article also provides instructions on how to purge a deleted resource.
 
 > [!NOTE]
 > The instructions in this article are applicable to both a multi-service resource and a single-service resource. A multi-service resource enables access to multiple cognitive services using a single key and endpoint. On the other hand, a single-service resource enables access to just that specific cognitive service for which the resource was created.
 
 ## Prerequisites
 
-* The resource to be recovered should have been deleted within the past 48 hours.
-* The resource to be recovered should not have been purged already. A purged resource cannot be recovered.
+* The resource to be recovered must have been deleted within the past 48 hours.
+* The resource to be recovered must not have been purged already. A purged resource cannot be recovered.
 * Before you attempt to recover a deleted resource, make sure that the resource group for that account exists. If the resource group was deleted, you must recreate it. Recovering a resource group is not possible. For more information, see [Manage resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * If the deleted resource used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the Cognitive Services resource. For more information, see [Azure Key Vault recovery management](../key-vault/general/key-vault-recovery.md).
 * If the deleted resource used a customer-managed storage and storage account has also been deleted, you must restore the storage account before you restore the Cognitive Services resource. For instructions, see [Recover a deleted storage account](../storage/common/storage-account-recover.md).
@@ -39,7 +39,9 @@ To recover a deleted cognitive service resource, use the following commands. Whe
 
 Use the following `PUT` command:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{accountName} ?Api-Version=2021-04-30`
+```rest-api
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{accountName}?Api-Version=2021-04-30
+```
 
 In the request body, use the following JSON format:
 
@@ -54,17 +56,18 @@ In the request body, use the following JSON format:
 
 ### Using PowerShell
 
-1. List deleted resources (optional): 
+Use the following command to restore the resource: 
 
-    ```powershell
-    Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/deletedAccounts -ApiVersion 2021-04-30 
-    ```
-    
-2. Restore the resource: 
+```powershell
+New-AzResource -Location {location}-Properties @{restore=$true} -ResourceId /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{accountName}   -ApiVersion 2021-04-30 
+```
 
-    ```powershell
-    New-AzResource -Location {location}-Properties @{restore=$true} -ResourceId /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{accountName}   -ApiVersion 2021-04-30 
-    ```
+If you need to find the name of your deleted resources, you can get a list of deleted resource names with the following command: 
+
+```powershell
+Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/deletedAccounts -ApiVersion 2021-04-30 
+```
+
 
 ## Purge a deleted resource 
 
@@ -78,11 +81,13 @@ To purge a deleted cognitive service resource, use the following commands. Where
 > [!NOTE]
 > After a resource is purged, you will not be able to create another resource with the same name for 48 hours.
 
-### using the REST API
+### Using the REST API
 
 Use the following `DELETE` command:
 
-`https://management.azure.com/subscriptions/{subscirptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{accountName}?Api-Version=2021-04-30`
+```rest-api
+https://management.azure.com/subscriptions/{subscirptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{accountName}?Api-Version=2021-04-30`
+```
 
 ### Using PowerShell
 
