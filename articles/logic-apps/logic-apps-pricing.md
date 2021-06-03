@@ -95,7 +95,7 @@ Based on the preceding information, the following table breaks down the monthly 
 ||||
   
 > [!NOTE]
-> Currently Logic App (Standard) cannot be deployed on App Service Plan and App Service Environment.
+> The Logic App (Standard) resource currently doesn't support using an App Service Plan and App Service Environment.
 
 <a name="storage-transactions"></a>
 
