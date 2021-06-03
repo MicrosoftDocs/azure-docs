@@ -6,7 +6,8 @@ ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/27/2021
-ms.author: jingwang
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 

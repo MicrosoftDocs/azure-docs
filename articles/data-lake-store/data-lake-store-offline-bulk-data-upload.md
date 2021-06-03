@@ -6,7 +6,8 @@ author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: twooley 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use the Azure Import/Export service for offline copy of data to Data Lake Storage Gen1

@@ -5,7 +5,8 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
+ms.author: abnarain 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Data Management Gateway

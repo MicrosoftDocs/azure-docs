@@ -33,11 +33,11 @@ The .zip file that you use for push deployment must contain all of the files nee
 
 A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself. When deploying a C# class library project, you must include the compiled library files and dependencies in a `bin` subfolder in your .zip package.
 
+When you are developing on a local computer, you can manually create a .zip file of the function app project folder using built-in .zip compression functionality or third-party tools.
+
 ## Download your function app files
 
-When you are developing on a local computer, it's easy to create a .zip file of the function app project folder on your development computer.
-
-However, you might have created your functions by using the editor in the Azure portal. You can download an existing function app project in one of these ways:
+If you created your functions by using the editor in the Azure portal, you can download your existing function app project as a .zip file in one of these ways:
 
 + **From the Azure portal:**
 

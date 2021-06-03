@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -34,7 +35,7 @@ You can combine firewall rules that allow access from specific virtual networks 
 
 Storage firewall rules apply to the public endpoint of a storage account. You don't need any firewall access rules to allow traffic for private endpoints of a storage account. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint.
 
-Network rules are enforced on all network protocols for Azure storage, including REST and SMB. To access data using tools such as the Azure portal, Storage Explorer, and AZCopy, explicit network rules must be configured.
+Network rules are enforced on all network protocols for Azure storage, including REST and SMB. To access data using tools such as the Azure portal, Storage Explorer, and AzCopy, explicit network rules must be configured.
 
 Once network rules are applied, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but don't grant new access beyond configured network rules.
 
