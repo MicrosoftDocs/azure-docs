@@ -16,7 +16,7 @@ ms.author: pafarley
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* 
+
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
 [!INCLUDE [Create a resource group](./create-resource-group.md)]
