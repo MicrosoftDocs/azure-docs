@@ -61,7 +61,7 @@ on.
    :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Click on Access":::
 
 4. Click on **Add**. Add the **Purview Catalog** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry* in the Add to option as shown in the below screenshot. Click on **OK**
-   :::image type="content" source="./media/register-scan-adls-gen1/managed-instance-authentication.png" alt-text="MSI authentication details":::
+   :::image type="content" source="./media/register-scan-adls-gen1/gen1-managed-service-identity-authentication.png" alt-text="MSI authentication details":::
    
 > [!Tip]
 > An **access permission entry** is a permission entry on *current* files and folders.
@@ -71,7 +71,7 @@ on.
 > 
 > To grant permission to scan files and folders that will be added in future, **include a default permission entry**.
 > 
-> For more information, see the [permissions documentation.](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-access-control#default-permissions-on-new-files-and-folders)
+> For more information, see the [permissions documentation.](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control#default-permissions-on-new-files-and-folders)
 
 5. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 
@@ -115,7 +115,7 @@ To use a service principal, you must first create one following these steps:
    :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Click on Access":::
 
 4. Click on **Add**. Add the **Service principal application** in the Select user or group selection. Select **Read** and **Execute** permissions. Make sure to choose **This folder and all children**, and **An access permission entry and a default permission entry* in the Add to option as shown in the below screenshot. Click on **OK**
-   :::image type="content" source="./media/register-scan-adls-gen1/service-principal-authentication.png" alt-text="service principal authentication details":::
+   :::image type="content" source="./media/register-scan-adls-gen1/gen1-service-principal-permissions.png" alt-text="service principal authentication details":::
    
 > [!Tip]
 > An **access permission entry** is a permission entry on *current* files and folders.
@@ -125,7 +125,7 @@ To use a service principal, you must first create one following these steps:
 > 
 > To grant permission to scan files and folders that will be added in future, **include a default permission entry**.
 > 
-> For more information, see the [permissions documentation.](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-access-control#default-permissions-on-new-files-and-folders)
+> For more information, see the [permissions documentation.](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control#default-permissions-on-new-files-and-folders)
 
 5. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 
