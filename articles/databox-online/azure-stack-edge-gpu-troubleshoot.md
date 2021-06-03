@@ -1,20 +1,20 @@
 ---
-title: Run diagnostics, collect logs to troubleshoot Azure Stack Edge Pro with GPU| Microsoft Docs 
-description: Describes how to run diagnostics and use logs to troubleshoot Azure Stack Edge Pro GPU issues.
+title: Run diagnostics, gather security logs to troubleshoot device issues on Azure Stack Edge Pro with GPU| Microsoft Docs 
+description: Describes how to run diagnostics and use advanced security logs to troubleshoot Azure Stack Edge Pro GPU device issues.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/02/2021
+ms.date: 06/03/2021
 ms.author: alkohli
 ---
 # Run diagnostics, collect logs to troubleshoot Azure Stack Edge Pro GPU 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to run diagnostics, collect a Support Package, and use logs to troubleshoot issues on your Azure Stack Edge Pro GPU device. 
+This article describes how to run diagnostics, collect a Support Package, and review advanced security logs to troubleshoot device issues on your Azure Stack Edge Pro GPU device.
 
 
 ## Run diagnostics
