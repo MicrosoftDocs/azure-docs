@@ -95,7 +95,7 @@ Do the following steps to create a Linux VM image:
       
    1. Download the VHD to your Azure Storage account using one of these methods:
    
-      - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-vm-image-to-storage-account), below. 
+      - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-os-disk-to-storage-account), below. 
 
       - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
 
@@ -128,7 +128,7 @@ To download the OS disk for the VM to an Azure storage account, do the following
       
 1. Download the VHD to your Azure Storage account using one of these methods:
    
-   - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-vm-image-to-storage-account), below. 
+   - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-os-disk-to-storage-account), below. 
 
    - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
 
@@ -179,7 +179,7 @@ To copy your VHD to a blob container using AzCopy, do the following steps:
 
     where:
     * `<source URI>` is the download URL that you generated earlier.
-    * `<target URI>` tells which blob container to copy the new image to in your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-vm-image-to-storage-account).
+    * `<target URI>` tells which blob container to copy the new image to in your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-os-disk-to-storage-account).
 
     For example, the following URI will copy a file named **windowsosdisk.vhd** to the **virtual machines** blob container in the **mystorageaccount** storage account:
 
