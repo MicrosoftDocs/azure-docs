@@ -60,3 +60,6 @@ The second test is the [query capabilities](https://touchstone.aegis.net/touchst
 ## Next Step
 
 In this tutorial, we walked through how to pass the DaVinci Payer Data Exchange US Drug Formulary in Touchstone. Next, you can learn how to test the Da Vinci formulary tests.
+
+>[ !div class="nextstepaction"]
+>[DaVinci PDex](davinci-pdex-tutorial.md)
