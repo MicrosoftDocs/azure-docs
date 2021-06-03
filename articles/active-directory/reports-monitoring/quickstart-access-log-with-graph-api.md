@@ -65,7 +65,7 @@ This section provides you with the steps to get information about your sign-in u
 
 Review the outcome of your query.
 
- ![Microsoft Graph explorer authentication](./media/quickstart-access-log-with-graph-api/response-preview.png)   
+ ![Microsoft Graph explorer response preview](./media/quickstart-access-log-with-graph-api/response-preview.png)   
 
 
 
