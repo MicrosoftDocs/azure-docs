@@ -382,7 +382,7 @@ In this article, you can find the information needed to restrict a user's admini
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Submit support ticket | Service Administrator | Application Administrator<br/>Azure Information Protection Administrator<br/>Billing Administrator<br/>Cloud Application Administrator<br/>Compliance Administrator<br/>Dynamics 365 Administrator<br/>Desktop Analytics Administrator<br/>Exchange Administrator<br/>Intune Administrator<br/>Password Administrator<br/>Power BI Administrator<br/>Privileged Authentication Administrator<br/>SharePoint Administrator<br/>Skype for Business Administrator<br/>Teams Administrator<br/>Teams Communications Administrator<br/>User Administrator<br/>Workplace Analytics Administrator |
+> | Submit support ticket | Service Support Administrator | Application Administrator<br/>Azure Information Protection Administrator<br/>Billing Administrator<br/>Cloud Application Administrator<br/>Compliance Administrator<br/>Dynamics 365 Administrator<br/>Desktop Analytics Administrator<br/>Exchange Administrator<br/>Intune Administrator<br/>Password Administrator<br/>Power BI Administrator<br/>Privileged Authentication Administrator<br/>SharePoint Administrator<br/>Skype for Business Administrator<br/>Teams Administrator<br/>Teams Communications Administrator<br/>User Administrator<br/>Workplace Analytics Administrator |
 
 ## Next steps
 
