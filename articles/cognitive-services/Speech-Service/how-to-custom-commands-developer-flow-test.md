@@ -43,7 +43,7 @@ The tool can run manually as a console command or automated as part of Azure Dev
 To setup the tool, see [Voice Assistant Test Tool](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/main/clients/csharp-dotnet-core/voice-assistant-test).
 
 ## Test with Speech SDK-enabled client applications 
-The Speech software development kit (SDK) exposes many of the Speech service capabilities, which allows you to develop speech-enabled applications. It's also available in many programming languages and across all platforms.
+The Speech software development kit (SDK) exposes many of the Speech service capabilities, which allows you to develop speech-enabled applications. It's available in many programming languages on most platforms.
 
 To set up a Universal Windows Platform (UWP) client application with Speech SDK, and integrate it with your custom command application:  
 - [How to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
