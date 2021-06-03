@@ -34,7 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * LinkedIn Elevate supports **SP and IDP** initiated SSO.
 * LinkedIn Elevate supports **Just In Time** user provisioning.
-* LinkedIn Elevate supports [**Automated** user provisioning](../active-directory/saas-apps/linkedinelevate-provisioning-tutorial).
+* LinkedIn Elevate supports [**Automated** user provisioning](linkedinelevate-provisioning-tutorial.md).
 
 ## Add LinkedIn Elevate from the gallery
 
@@ -149,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create LinkedIn Elevate test user
 
-LinkedIn Elevate Application supports Just in time user provisioning and after authentication users will be created in the application automatically. On the admin settings page on the LinkedIn Elevate portal flip the switch **Automatically Assign licenses** to active Just in time provisioning and this will also assign a license to the user. LinkedIn Elevate also supports automatic user provisioning, you can find more details [here](../active-directory/saas-apps/linkedinelevate-provisioning-tutorial) on how to configure automatic user provisioning.
+LinkedIn Elevate Application supports Just in time user provisioning and after authentication users will be created in the application automatically. On the admin settings page on the LinkedIn Elevate portal flip the switch **Automatically Assign licenses** to active Just in time provisioning and this will also assign a license to the user. LinkedIn Elevate also supports automatic user provisioning, you can find more details [here](linkedinelevate-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
    ![Creating an Azure AD test user](./media/linkedinelevate-tutorial/switch.png)
 
