@@ -30,7 +30,12 @@ Complete the following prerequisite before you create your VM image:
 - [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy gives you a fast way to download of an OS disk to an Azure Storage account.
 
 
-## Create a Windows custom VM image
+## Create a custom VM image
+
+Depending on the operating system for your VM, the steps to prepare the VM image vary slightly.
+
+
+### [Windows](#tab/windows)
 
 Do the following steps to create a Windows VM image:
 
@@ -47,22 +52,8 @@ Do the following steps to create a Windows VM image:
    > [!IMPORTANT]
    > After the command is complete, the VM will shut down. **Do not restart the VM.** Restarting the VM will corrupt the disk you just prepared.
 
-3. Download the OS disk from Azure by doing the following steps:
 
-   1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). This step is required, even after the VM is generalized and shut down, to deallocate the OS disk so that the disk can be downloaded. 
-
-   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
-      
-   1. Download the VHD to your Azure Storage account using one of these methods:
-   
-      - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to Blob container](#use-azcopy-to-copy-vm-image-to-blob-container), below.
-
-      - Method 2: For a simpler, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
-
-You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro device.
-
-
-## Create a Linux custom VM image
+### [Linux](#tab/linux)
 
 Do the following steps to create a Linux VM image:
 
@@ -107,17 +98,7 @@ Do the following steps to create a Linux VM image:
 
       - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
 
-
 You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro GPU device.
-
-<!--Moving this to under Step 1, Linux. - You can use the following two Azure Marketplace images to create Linux custom images:
-
-|Item name  |Description  |Publisher  |
-|---------|---------|---------|
-|[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server is the world's most popular Linux for cloud environments.|Canonical|
-|[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux is one of the most popular Linux distributions.     |credativ|
-
-For a full list of Azure Marketplace images that could work (presently not tested), go to [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).-->
 
 ### Using RHEL BYOS images
 
@@ -133,12 +114,30 @@ To create a VM image using the RHEL BYOS image, follow these steps:
 You can now use the VM that you provisioned to [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
 
 
+## Download OS disk to storage account
+
+To use your custom VM image to deploy VMs on your device, you must download the OS disk to an Azure Storage account. We recommend that you use the same storage account that  you used for your device.
+
+To download the OS disk for the VM to an Azure storage account, do the following steps:
+
+1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). 
+
+1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
+      
+1. Download the VHD to your Azure Storage account using one of these methods:
+   
+   - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to Blob container](#use-azcopy-to-copy-vm-image-to-blob-container), below. 
+
+   - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
+
+You can now use this VHD to create and deploy VMs on your Azure Stack Edge Pro GPU device.
+
 ## Use AzCopy to copy VM image to storage account
 
 The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
 
 
-### Create a target URI for a container
+### Create target URI for a container
 
 AzCopy requires a *target URI* that tells where to copy the new image to in your storage account. Before you run AzCopy, you'll generate a shared-access signature (SAS) URL for the blob container you want to copy the file to. To create the target URI, you'll add the filename to the SAS URL.
 
@@ -166,7 +165,7 @@ To create the target URI for your prepared VHD, do the following steps:
 
    Insert the filename, in the format `/<filename>.vhd` before the question mark that begins the query string. The filename extension must be VHD.
 
-### Copy VHD to blob container using AzCopy
+### Copy VHD to blob container
 
 To copy your VHD to a blob container using AzCopy, do the following steps:
 
