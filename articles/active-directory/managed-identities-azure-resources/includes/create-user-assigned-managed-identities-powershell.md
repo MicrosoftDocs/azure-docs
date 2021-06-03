@@ -11,7 +11,9 @@
  ms.custom: include
 ---
 
-In this article we go over how to create a user assigned managed identity using PowerShell. You can then use the new idenity in your solutions.
+Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without having to store credentials in your code.
+
+In this article, you learn how to create, list, and delete a user-assigned managed identity using PowerShell.
 
 ## Prerequisites
 
