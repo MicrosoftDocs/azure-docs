@@ -216,7 +216,7 @@ Depending on the number of Active Directory domains involved in the inbound user
 
 This is the most common deployment topology. Use this topology, if you need to provision all users from Cloud HR to a single AD domain and same provisioning rules apply to all users. 
 
-![Single app to provision users from Cloud HR to single AD domain](media/plan-cloud-hr-provision/topology-1-single-app-for-all-users-single-ad-domain.png)
+:::image type="content" source="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png" alt-text="Single app to provision users from Cloud HR to single AD domain" lightbox="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png":::
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
@@ -228,7 +228,7 @@ This is the most common deployment topology. Use this topology, if you need to p
 
 This topology supports business requirements where attribute mapping and provisioning logic differs based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country basis.
 
-![Separate apps to provision users from Cloud HR to single AD domain](media/plan-cloud-hr-provision/topology-2-separate-apps-for-all-users-single-ad-domain.png)
+:::image type="content" source="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png" alt-text="Separate apps to provision users from Cloud HR to single AD domain" lightbox="media/plan-cloud-hr-provision/topology-2-separate-apps-with-single-ad-domain.png":::
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
@@ -242,7 +242,7 @@ This topology supports business requirements where attribute mapping and provisi
 
 Use this topology to manage multiple independent child AD domains belonging to the same forest. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. For example: In the diagram below, *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region. 
 
-![Separate apps to provision users from Cloud HR to multiple AD domains](media/plan-cloud-hr-provision/topology-3-separate-apps-for-all-users-multiple-ad-domains-no-cross-domain.png)
+:::image type="content" source="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png" alt-text="Separate apps to provision users from Cloud HR to multiple AD domains" lightbox="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png":::
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
@@ -256,7 +256,7 @@ Use this topology to manage multiple independent child AD domains belonging to t
 
 Use this topology to manage multiple child AD domains with cross-domain visibility for resolving cross-domain manager references and checking for forest-wide uniqueness when generating values for attributes like *userPrincipalName*, *samAccountName* and *mail*. 
 
-![Separate apps to provision users from Cloud HR to multiple AD domains with cross domain support](media/plan-cloud-hr-provision/topology-4-separate-apps-for-all-users-multiple-ad-domains-cross-domain.png)
+:::image type="content" source="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png" alt-text="Separate apps to provision users from Cloud HR to multiple AD domains with cross domain support" lightbox="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png":::
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
@@ -271,7 +271,7 @@ Use this topology to manage multiple child AD domains with cross-domain visibili
 
 Use this topology if you want to use a single provisioning app to manage users belonging to all your child AD domains. This topology is recommended if provisioning rules are consistent across all domains and there is no requirement for delegated administration of provisioning jobs. This topology supports resolving cross-domain manager references and can perform forest-wide uniqueness check. 
 
-![Single app to provision users from Cloud HR to multiple AD domains with cross domain support](media/plan-cloud-hr-provision/topology-5-single-app-for-all-users-multiple-ad-domains-cross-domain.png)
+:::image type="content" source="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png" alt-text="Single app to provision users from Cloud HR to multiple AD domains with cross domain support" lightbox="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png":::
 
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
@@ -285,7 +285,7 @@ Use this topology if you want to use a single provisioning app to manage users b
 
 Use this topology if your IT infrastructure has disconnected/disjoint AD forests and you need to provision users to different forests based on business affiliation. For example: Users working for subsidiary *Contoso* need to be provisioned into the *contoso.com* domain, while users working for subsidiary *Fabrikam* need to be provisioned into the *fabrikam.com* domain. 
 
-![Separate apps to provision users from Cloud HR to disconnected AD forests](media/plan-cloud-hr-provision/topology-6-separate-apps-for-disconnected-ad-forests.png)
+:::image type="content" source="media/plan-cloud-hr-provision/topology-6-separate-apps-with-disconnected-ad-forests.png" alt-text="Separate apps to provision users from Cloud HR to disconnected AD forests" lightbox="media/plan-cloud-hr-provision/topology-6-separate-apps-with-disconnected-ad-forests.png":::
 
 **Salient configuration aspects**
 * Setup two different sets of provisioning agents for high availability and failover, one for each forest. 
