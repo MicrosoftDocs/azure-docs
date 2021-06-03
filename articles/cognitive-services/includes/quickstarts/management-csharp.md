@@ -12,11 +12,12 @@ ms.author: pafarley
 
 [Reference documentation](/dotnet/api/overview/azure/cognitiveservices/management) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
-## C# prerequisites
+## Prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-
+* To create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) or [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)  resource you must agree in Azure Portal that you have reviewed the [Responsible AI (RAI) documentation](https://docs.microsoft.com/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/cognitive-services/computer-vision/context/context) and will use this service in accordance with it. This acknowledgement applies to all resources created under that same subscription through the various Azure tools such as CLI, ARM template and Azure Portal. To review and agree to the Responsible AI terms create a create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) through the Azure Portal.
+ 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
 [!INCLUDE [Create a resource group](./create-resource-group.md)]
