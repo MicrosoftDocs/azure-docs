@@ -1,6 +1,6 @@
 ---
-title: Integrate with Azure Private Link Service
-description: Learn how to integrate Azure Key Vault with Azure Private Link Service
+title: Configure Managed HSM with private endpoints
+description: Learn how to integrate Managed HSM with Azure Private Link Service
 author: amitbapat
 ms.author: ambapat
 ms.date: 06/21/2021
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Integrate Managed HSM with Azure Private Link
 
-Azure Private Link Service enables you to access Azure Services (for example, Azure Key Vault, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
+Azure Private Link Service enables you to access Azure Services (for example, Managed HSM, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 
 An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
@@ -21,14 +21,14 @@ For more information, see [What is Azure Private Link?](../../private-link/priva
 
 ## Prerequisites
 
-To integrate a key vault with Azure Private Link, you will need the following:
+To integrate a managed HSM with Azure Private Link, you will need the following:
 
 - A Managed HSM. See [Provision and activate a managed HSM using Azure CLI for more details](quick-create-cli).
 - An Azure virtual network.
 - A subnet in the virtual network.
-- Owner or contributor permissions for both the key vault and the virtual network.
+- Owner or contributor permissions for both the managed HSM and the virtual network.
 
-Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your key vault can be in a different region.
+Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your HSM can be in a different region.
 
 Your private endpoint uses a private IP address in your virtual network.
 
@@ -170,7 +170,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     
 * Check to make sure the A record has the correct IP Address. 
     1. You can confirm the IP address by opening the Private Endpoint resource in Azure portal.
-    2. Navigate to the Microsoft.Network/privateEndpoints resource, in the Azure portal (not the Key Vault resource)
+    2. Navigate to the Microsoft.Network/privateEndpoints resource, in the Azure portal
     3. In the overview page look for Network interface and click that link. 
     4. The link will show the Overview of the NIC resource, which contains the property Private IP address. 
     5. Verify that this is the correct IP address that is specified in the A record.
