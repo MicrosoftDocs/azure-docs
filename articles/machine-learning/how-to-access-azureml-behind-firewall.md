@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/11/2021
+ms.date: 06/03/2021
 ms.custom: devx-track-python
 ---
 
@@ -17,28 +17,12 @@ ms.custom: devx-track-python
 
 In this article, learn how to configure Azure Firewall to control access to your Azure Machine Learning workspace and the public internet. To learn more about securing Azure Machine Learning, see [Enterprise security for Azure Machine Learning](concept-enterprise-security.md).
 
-## Azure Firewall and service firewalls
-
-Azure Firewall is an Azure service that provides security _for Azure Virtual Network resources_. 
-
-Some other Azure Services, such as Azure Storage Accounts, have their own firewall settings that _apply to the public endpoint for that specific service instance_.
-
-The guidance in this document is primarily for Azure Firewall. However, since `firewall` is a common term, this section contains information specific to various service-level firewalls that effect Azure Machine Learning.
-
-### Azure Storage Account firewall
-
-Using Azure Machine Learning studio with an Azure Storage Account, when the firewall settings of the storage account are enabled, is not supported. Using the Azure Machine Learning SDK or CLI will work with this configuration.
-
-> [!TIP]
-> Azure Machine Learning studio is supported when using the Azure Firewall service.
-
-To work around this problem while still limiting access to the storage account, put the service account and Azure Machine Learning workspace behind an Azure Virtual Network. For more information, see the following articles:
-
-* [Virtual network isolation and privacy](how-to-network-security-overview.md).
-* [Secure workspace resources](how-to-secure-workspace-vnet.md).
-* [Use studio in a virtual network](how-to-enable-studio-virtual-network.md).
-
 ## Azure Firewall
+
+> [!IMPORTANT]
+> Azure Firewall is an Azure service that provides security _for Azure Virtual Network resources_. Some other Azure Services, such as Azure Storage Accounts, have their own firewall settings that _apply to the public endpoint for that specific service instance_.
+> 
+> Enabling firewall settings _on a service instance_ can cause problems with Azure Machine Learning studio. For more information, see [Use studio in a virtual network](how-to-enable-studio-virtual-network.md).
 
 When using Azure Firewall, use __destination network address translation (DNAT)__ to create NAT rules for inbound traffic. For outbound traffic, create __network__ and/or __application__ rules. These rule collections are described in more detail in [What are some Azure Firewall concepts](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
