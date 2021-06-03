@@ -35,7 +35,7 @@ The rest of the search parameters needed for the C4BB IG are defined by the base
  
 ### Store profiles
 
-Outside of defining search parameters, the other update you need to make to pass this test is to load the [required profiles](validation-against-profiles#storing-profiles.md). There are eight profiles defined within the C4BB IG. 
+Outside of defining search parameters, the other update you need to make to pass this test is to load the [required profiles](validation-against-profiles#accessing-profiles-and-storing-profiles.md). There are eight profiles defined within the C4BB IG. 
 
 * [C4BB Coverage](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Coverage.html) 
 
