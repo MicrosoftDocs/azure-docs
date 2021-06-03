@@ -131,18 +131,18 @@ To set up a release pipeline that deploys to Azure, choose the associated option
 
 For GitHub deployments, you can deploy your logic app by using [GitHub Actions](https://docs.github.com/actions), for example, the GitHub Action in Azure Functions. This action requires that you pass through the following information:
 
-- Your build artifact
 - The logic app name to use for deployment
-- Your publish profile
+- The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files.
+- Your [publish profile](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), which is used for authentication
 
 ```yaml
 - name: 'Run Azure Functions Action'
   uses: Azure/functions-action@v1
   id: fa
   with:
-   app-name: {your-logic-app-name}
-   package: '{your-build-artifact}.zip'
-   publish-profile: {your-logic-app-publish-profile}
+   app-name: 'MyLogicAppName'
+   package: 'MyBuildArtifact.zip'
+   publish-profile: 'MyLogicAppPublishProfile'
 ```
 
 For more information, review the [Continuous delivery by using GitHub Action](../azure-functions/functions-how-to-github-actions.md) documentation.
@@ -151,18 +151,18 @@ For more information, review the [Continuous delivery by using GitHub Action](..
 
 For Azure DevOps deployments, you can deploy your logic app by using the [Azure Function App Deploy task](/devops/pipelines/tasks/deploy/azure-function-app) in Azure Pipelines. This action requires that you pass through the following information:
 
-- Your build artifact
 - The logic app name to use for deployment
-- Your publish profile
+- The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files.
+- Your [publish profile](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), which is used for authentication
 
 ```yaml
 - task: AzureFunctionApp@1
   displayName: 'Deploy logic app workflows'
   inputs:
-     azureSubscription: '{your-service-connection}'
+     azureSubscription: 'MyServiceConnection'
      appType: 'workflowapp'
-     appName: '{your-logic-app-name}'
-     package: '{your-build-artifact}.zip'
+     appName: 'MyLogicAppName'
+     package: 'MyBuildArtifact.zip'
      deploymentMethod: 'zipDeploy'
 ```
 
