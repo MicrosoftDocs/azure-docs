@@ -75,14 +75,14 @@ First we need to register another application. This registration is for the webs
    - Name: "VC Website"
    - Supported account types: Accounts in this organizational directory only
 
-   ![register an application](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appregistration.png)
+   ![register an application](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appregistration.PNG)
 
 2. After you register the application, write down the Application (client) ID. You need this value later.
 
-   ![application client ID](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appdetails.png)
+   ![application client ID](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-appdetails.PNG)
 
 3. While viewing the VC website app overview page select **Certificates & secrets**.
-    ![certificates and secrets](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-cert-secrets.png) UPDATE PICTURE
+    ![certificates and secrets](media/issue-verify-verifable-credentials-your-tenant/vc-website-app-cert-secrets.PNG)
 4. In the **Client secrets** section choose **New client secret**
     1. Add a description like "Node VC client secret"
     1. Expires: in one year.
