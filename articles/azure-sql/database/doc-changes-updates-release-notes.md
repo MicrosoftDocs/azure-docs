@@ -7,10 +7,10 @@ author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-db-mi
 ms.subservice: service-overview
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/17/2021
+ms.date: 06/02/2021
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -158,21 +158,6 @@ END
 ### Distributed transactions cannot be executed after Managed Instance scaling operation
 
 Managed Instance scaling operations that include changing service tier or number of vCores will reset Server Trust Group settings on the backend and disable running [distributed transactions](./elastic-transactions-overview.md). As a workaround, delete and create new [Server Trust Group](../managed-instance/server-trust-group-overview.md) on Azure portal.
-
-### BULK INSERT and BACKUP/RESTORE statements cannot use Managed Identity to access Azure storage
-
-Bulk insert, BACKUP, and RESTORE statements, and OPENROWSET function cannot use `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. As a workaround, switch to SHARED ACCESS SIGNATURE authentication. The following example will not work on Azure SQL (both Database and Managed Instance):
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
-GO
-CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
-  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
-GO
-BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
-```
-
-**Workaround**: Use [Shared Access Signature to authenticate to storage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### Service Principal cannot access Azure AD and AKV
 
