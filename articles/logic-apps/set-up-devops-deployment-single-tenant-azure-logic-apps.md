@@ -167,7 +167,7 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
      deploymentMethod: 'zipDeploy'
 ```
 
-For more information, review the [Deploy an Azure Function using Azure Pipelines](/devops/pipelines/targets/azure-functions-windows) documentation.
+For more information, review the [Deploy an Azure Function using Azure Pipelines](/azure/devops/pipelines/targets/azure-functions-windows) documentation.
 
 #### [Azure CLI](#tab/azure-cli)
 
