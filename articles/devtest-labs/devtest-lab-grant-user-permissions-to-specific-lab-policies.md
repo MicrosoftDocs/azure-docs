@@ -2,7 +2,8 @@
 title: Grant user permissions to specific lab policies | Microsoft Docs
 description: Learn how to grant user permissions to specific lab policies in DevTest Labs based on each user's needs
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Grant user permissions to specific lab policies

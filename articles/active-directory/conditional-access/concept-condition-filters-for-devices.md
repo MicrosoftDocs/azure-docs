@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 05/19/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
@@ -67,7 +67,7 @@ Policy 1: All users with the directory role of Global administrator, accessing t
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
-Policy 2: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, excluding filters for devices using rule expression device.extensionAttribute1 not equals SAW and for Access controls, Block.
+Policy 2: All users with the directory role of Global administrator, accessing the Microsoft Azure Management cloud app, excluding filters for devices using rule expression device.extensionAttribute1 equals SAW and for Access controls, Block.
 
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.

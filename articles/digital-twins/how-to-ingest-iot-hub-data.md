@@ -3,8 +3,8 @@
 title: Ingest telemetry from IoT Hub
 titleSuffix: Azure Digital Twins
 description: See how to ingest device telemetry messages from IoT Hub.
-author: alexkarcher-msft
-ms.author: alkarche # Microsoft employees only
+author: baanders
+ms.author: baanders # Microsoft employees only
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
@@ -26,7 +26,7 @@ This how-to document walks through the process for writing a function that can i
 ## Prerequisites
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
-* **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
+* **An IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
 * **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
 
 ### Example telemetry scenario
@@ -40,7 +40,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 
 Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry through IoT Hub to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
 ## Add a model and twin
 
@@ -53,7 +53,7 @@ To create a thermostat-type twin, you'll first need to upload the thermostat [mo
 You'll then need to **create one twin using this model**. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value.
 
 ```azurecli-interactive
-az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
+az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name <Digital-Twins-instance-name>
 ```
 
 > [!Note]
@@ -61,7 +61,7 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 >
 > Create twin:
 > ```azurecli-interactive
-> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name {digital_twins_instance_name}
+> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name <Digital-Twins-instance-name>
 > ```
 
 When the twin is created successfully, the CLI output from the command should look something like this:
@@ -130,7 +130,7 @@ In the **Create Event Subscription** page, fill the fields as follows:
   1. For **Endpoint Type**, Select _Azure Function_.
   1. For **Endpoint**, use the _Select an endpoint_ link to choose what Azure Function to use for the endpoint.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details.":::
 
 In the _Select Azure Function_ page that opens up, verify or fill in the below details.
  1. **Subscription**: Your Azure subscription.
@@ -147,7 +147,7 @@ Select the _Create_ button to create the event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by [this Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by this [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
 1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -158,7 +158,7 @@ In the end-to-end tutorial, complete the following steps:
 While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value.
 
 ```azurecli-interactive
-az dt twin query --query-command "select * from digitaltwins" --dt-name {digital_twins_instance_name}
+az dt twin query --query-command "select * from digitaltwins" --dt-name <Digital-Twins-instance-name>
 ```
 
 Your output should contain a temperature value like this:
@@ -190,4 +190,4 @@ To see the value change, repeatedly run the query command above.
 ## Next steps
 
 Read about data ingress and egress with Azure Digital Twins:
-* [Concepts: Integration with other services](concepts-integration.md)
+* [Concepts: Data ingress and egress](concepts-data-ingress-egress.md)

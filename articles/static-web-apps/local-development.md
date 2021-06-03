@@ -32,7 +32,7 @@ To provide a similar experience as to what you get in Azure, the [Azure Static W
 - Local routes and configuration settings enforcement
 
 > [!NOTE]
-> The Azure Static Web Apps CLI is currently a preview feature.
+> The Azure Static Web Apps CLI is currently a preview feature and doesn't read configuration defined in the _staticwebapp.config.json_ file.
 
 ## How it works
 

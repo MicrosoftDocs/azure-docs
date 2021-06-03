@@ -249,8 +249,7 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
 
 ## Event Hubs limits
-
-[!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
+[!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
 
 ## IoT Central limits
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
