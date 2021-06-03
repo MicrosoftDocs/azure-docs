@@ -46,7 +46,7 @@ Different professional roles can benefit from serverless SQL pool:
 
 Serverless SQL pool endpoint is provided within every Azure Synapse workspace. You can create a workspace and start querying data instantly using tools you are familiar with.
 
-Make sure that you are applyng [the best practices](best-practices-serverless-sql-pool.md) to get the best performance.
+Make sure that you are applying [the best practices](best-practices-serverless-sql-pool.md) to get the best performance.
 
 ## Client tools
 
@@ -91,7 +91,7 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [Query PARQUET file format](query-data-storage.md#query-parquet-files)
 
-[Query DELTA format](query-delta-lake-format.md#query-parquet-files)
+[Query DELTA format](query-delta-lake-format.md)
 
 [Various delimited text formats (with custom field terminator, row terminator, escape char)](query-data-storage.md#query-csv-files)
 
@@ -143,7 +143,11 @@ A user that is logged into the serverless SQL pool service must be authorized to
 
 - **[User Identity](develop-storage-files-storage-access-control.md?tabs=user-identity)** (also known as "pass-through") is an authorization type where the identity of the Azure AD user that logged into serverless SQL pool is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to Azure AD user for accessing the data. This authorization type uses the Azure AD user that logged into serverless SQL pool, therefore it's not supported for SQL user types.
 
-- **[Workspace Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity)** is an authorization type where the identity of the Synapse workspace  is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to workpsace identity for accessing the data.
+- **[Workspace Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity)** is an authorization type where the identity of the Synapse workspace  is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to workspace identity for accessing the data.
+
+### Access to Cosmos DB
+
+You need to create server-level or database-scoped credential with the Cosmos DB account read-only key to [access Cosmos DB analytical store](query-cosmos-db-analytical-store.md?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=openrowset-key).
 
 ## Next steps
 Additional information on endpoint connection and querying files can be found in the following articles: 
