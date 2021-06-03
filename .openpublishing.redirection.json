@@ -66904,6 +66904,11 @@
       "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-libraries.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/database/job-automation-managed-instances.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/job-automation-managed-instance",
+      "redirect_document_id": true
     }
 
   ]
