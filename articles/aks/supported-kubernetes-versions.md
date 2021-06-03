@@ -144,7 +144,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 | 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA |
 | 1.21  | Apr-08-21 | May 2021   | Jun 2021  | 1.24 GA |
 | 1.22  | Aug-04-21 | Sept 2021   | Oct 2021  | 1.25 GA |
-
+| 1.23  | Dec 2021 | Jan 2022   | Feb 2022  | 1.26 GA |
 
 >[!NOTE]
 >AKS version 1.18 will continue to be available until July 31st 2021. After this date, AKS will return to its regular three version window support. It is important to note the following as the support from June 30th to July 31st 2021 will be limited in scope. Below lists what the users will be limited to:
