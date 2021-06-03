@@ -57,7 +57,7 @@ To configure and test Azure AD SSO with Meta4 Global HR, perform the following s
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Meta4 Global HR SSO](#configure-meta4-global-hr-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Meta4 Global HR test user](#createmeta4-global-hr-test-user)** - to have a counterpart of B.Simon in Meta4 Global HR that is linked to the Azure AD representation of user.
+    1. **[Create Meta4 Global HR test user](#create-meta4-global-hr-test-user)** - to have a counterpart of B.Simon in Meta4 Global HR that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
