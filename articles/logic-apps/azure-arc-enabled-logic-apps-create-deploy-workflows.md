@@ -98,6 +98,12 @@ Before you start, you need to have the following items:
 
 - An [Azure resource group](#create-resource-group) for where to create your logic app.
 
+  If you don't have this resource group, follow the [steps to create the resource group](#create-resource-group).
+
+- An Azure storage account to use with your logic app for data and run history retention.
+
+  You can create a storage account when you create your logic app, or follow the [steps to create a storage account](/cli/azure/storage/account#az_storage_account_create).
+
 <a name="check-environment-cli-version"></a>
 
 #### Check environment and CLI version
@@ -166,7 +172,7 @@ To create an Azure Arc enabled logic app, run the command, `az logicapp create`,
 |------------|-------------|
 | `--name -n` | A unique name for your logic app |
 | `--resource-group -g` | The name of the [resource group](../azure-resource-manager/management/manage-resource-groups-cli.md) where you want to create your logic app. If you don't have one to use, [create a resource group](#create-resource-group). |
-| `--storage-account -s` | The [storage account](/cli/azure/storage/account) that you want to use with your logic app. For storage accounts in the same resource group, use a string value. For storage accounts in a different resource group, use a resource ID. |
+| `--storage-account -s` | The [storage account](/cli/azure/storage/account) to use with your logic app. For storage accounts in the same resource group, use a string value. For storage accounts in a different resource group, use a resource ID. |
 |||
 
 ```azurecli
