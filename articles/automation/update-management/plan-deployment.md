@@ -82,7 +82,7 @@ Enable Update Management and select machines to be managed using one of the foll
 
 - From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
 
-- Using the **Enable-AutomationSolution** [runbook](enable-from-runbook.md) method.
+- Using the **Enable-AutomationSolution** [runbook](enable-from-runbook.md) to automate onboarding Azure VMs.
 
 - For a [selected Azure VM](enable-from-vm.md) from the **Virtual machines** page in the Azure portal. This scenario is available for Linux and Windows VMs.
 
