@@ -30,24 +30,13 @@ Upload your VHD to an Azure shared image gallery.
 
 ## Set the right permissions
 
-These steps require owner access to the Shared image gallery. You will need read access before you can publish these images. An owner can use one of the following three methods to assign access. In both cases, use the SusbscriptionId of the subscription where you created the Shared image gallery.
+If your Partner Center account is the owner of the subscription hosting Shared Image Gallery, nothing further is needed for permissions.
 
-### One – Azure CLI Command
+If you only have read access to the subscription, use one of the following two options.
 
-```azurecli
-az login
-az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
-```
- 
-### Two – Powershell
+### Option one – Ask the owner to grant owner permission
 
-```powershell
-Connect-AzAccount
-Select-AzSubscription -SubscriptionId {subscriptionId}
-Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
-```
-
-### Three – The Azure portal
+Steps for the owner to grant owner permission:
 
 1. Go to the Shared Image Gallery (SIG).
 2. Select **Access control** (IAM) on the left panel.
@@ -57,6 +46,21 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 1. For **Assign access to**, select **User, group, or service principal**.
 1. For **Select**, enter the Azure email of the person who will publish the image.
 1. Select **Save**.
+
+### Option Two – Run a command
+
+Ask the owner to run either one of these commands (in either case, use the SusbscriptionId of the subscription where you created the Shared image gallery).
+
+```azurecli
+az login
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
+```
+ 
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId {subscriptionId}
+Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
+```
 
 > [!NOTE]
 > You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
