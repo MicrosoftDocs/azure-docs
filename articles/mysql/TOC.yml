@@ -442,107 +442,135 @@
         displayName: users
       - name: Monitor Server
         href: flexible-server/how-to-alert-on-metric.md
-  - name: Application Development
+  - name: Concepts
     items:
-      - name : WordPress on Azure Kubernetes
-        href: flexible-server/tutorial-deploy-wordpress-on-aks.md
-      - name: Build PHP (Laravel) app with database
-        href: flexible-server/tutorial-php-database-app.md
-      - name: Connect with private web app
-        href: flexible-server/tutorial-webapp-server-vnet.md 
-  - name: Server Management
-    items:
-      - name: Concepts
+    - name: Server Management
+      items:
+      - name: Servers
         href: flexible-server/concept-servers.md 
       - name: Server parameters
         href: flexible-server/concepts-server-parameters.md
       - name: Limitations
         href: flexible-server/concepts-limitations.md
-      - name: Manage a server
-        items:
-          - name: Azure portal
-            href: flexible-server/how-to-manage-server-portal.md
-          - name: Azure CLI
-            href: flexible-server/how-to-manage-server-cli.md
-      - name: Stop/start server using Azure portal
-        href: flexible-server/how-to-stop-start-server-portal.md
-      - name: Restart server using Azure portal
-        href: flexible-server/how-to-restart-server-portal.md
-      - name: Start/Stop/Restart with Azure CLI
-        href: flexible-server/how-to-restart-stop-start-server-cli.md
-  - name: Networking
-    items:
-      - name: Concepts 
+    - name: Networking
+      items:
+      - name: Networking concepts 
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
-      - name: Private access (VNet Integration)
-        items:
-          - name: Configure Private access using Azure portal
-            href: flexible-server/how-to-manage-virtual-network-portal.md
-          - name: Configure Private access using Azure CLI
-            href: flexible-server/how-to-manage-virtual-network-cli.md
-      - name: Public access (allowed IP addresses)
-        items:
-          - name: Configure Public access using Azure portal
-            href: flexible-server/how-to-manage-firewall-portal.md
-          - name: Configure Public access using Azure CLI
-            href: flexible-server/how-to-manage-firewall-cli.md
-  - name: Service Maintenance
-    items:
+    - name: Service Maintenance
+      items:
       - name: Scheduled Maintenance
         href: flexible-server/concepts-maintenance.md
-      - name: Configure Scheduled Maintenance using Azure portal
-        href: flexible-server/how-to-maintenance-portal.md
-  - name: High Availability
-    items:
+    - name: High Availability
+      items:
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
-      - name: Configure High Availability using Azure portal
-        href: flexible-server/how-to-configure-high-availability.md
-      - name: Configure high availability with Azure CLI
-        href: flexible-server/how-to-configure-high-availability-cli.md
-  - name: Monitoring & Logs
-    items:
-      - name: Concepts
+    - name: Monitoring & Logs
+      items:
+      - name: Monitoring overview
         href: flexible-server/concepts-monitoring.md
       - name: Slow query Logs
-        items:
-          - name: Concepts
-            href: flexible-server/concepts-slow-query-logs.md
-          - name: Configure slow query logs using Azure portal
-            href: flexible-server/how-to-configure-slow-query-logs-portal.md
-          - name: Configure slow query logs with Azure CLI
-            href: flexible-server/how-to-configure-slow-query-log-cli.md
+        href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
-        items:
-          - name: Concepts
-            href: flexible-server/concepts-audit-logs.md
-          - name: Configure audit logs
-            href: flexible-server/how-to-configure-audit-logs-portal.md
-          - name: Configure audit logs with Azure CLI
-            href: flexible-server/how-to-configure-audit-log-cli.md
-  - name: Replication
-    items:
+        href: flexible-server/concepts-audit-logs.md    
+    - name: Replication
+      items:
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
+    - name: Backup & Restore
+      items:
+      - name: Backup & Restore concepts
+        href: flexible-server/concepts-backup-restore.md    
+  - name: Tutorials
+    items:
+    - name: Application Development
+      items:
+      - name: WordPress on Azure Kubernetes
+        href: flexible-server/tutorial-deploy-wordpress-on-aks.md
+      - name: Build PHP (Laravel) app with database
+        href: flexible-server/tutorial-php-database-app.md
+      - name: Connect with private web app
+        href: flexible-server/tutorial-webapp-server-vnet.md
+    - name: Server Management
+      items:
+      - name: Manage a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-server-cli.md
+      - name: Stop/start server
+        items: 
+        - name: Azure portal
+          href: flexible-server/how-to-stop-start-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-restart-stop-start-server-cli.md
+      - name: Restart server 
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restart-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-restart-stop-start-server-cli.md
+    - name: Networking
+      items:
+      - name: Configure Private access (VNet Integration)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-virtual-network-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-virtual-network-cli.md
+      - name: Configure Public access (allowed IP addresses)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-firewall-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-firewall-cli.md
+    - name: Service Maintenance
+      items:
+      - name: Configure Scheduled Maintenance using Azure portal
+        href: flexible-server/how-to-maintenance-portal.md
+    - name: High Availability
+      items:
+      - name: Configure Zone redundant high availability
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-high-availability.md
+        - name: Azure CLI
+          href: flexible-server/how-to-configure-high-availability-cli.md
+    - name: Monitoring & Logs
+      items:
+      - name: Configure slow query logs 
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-slow-query-logs-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-configure-slow-query-log-cli.md
+      - name: Configure Audit logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-audit-logs-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-configure-audit-log-cli.md
+    - name: Replication
+      items:
       - name: Create read replicas
         items:
-          - name: Create read replicas using Azure portal
-            href: flexible-server/how-to-read-replicas-portal.md
-          - name: Create read replicas using Azure CLI
-            href: flexible-server/how-to-read-replicas-cli.md
-  - name: Backup & Restore
-    items:
-      - name: Concepts
-        href: flexible-server/concepts-backup-restore.md
-      - name: Restore a server using Azure portal
-        href: flexible-server/how-to-restore-server-portal.md  
-      - name: Restore a server using Azure CLI
-        href: flexible-server/how-to-restore-server-cli.md
-  - name: Troubleshooting
-    items:
+        - name: Azure portal
+          href: flexible-server/how-to-read-replicas-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-read-replicas-cli.md
+    - name: Backup & Restore
+      items:
+      - name: Restore a server 
+        items: 
+        - name: Azure portal
+          href: flexible-server/how-to-restore-server-portal.md  
+        - name: Azure CLI
+          href: flexible-server/how-to-restore-server-cli.md
+    - name: Troubleshooting
+      items:
       - name: Troubleshoot Connection errors
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
 - name: Migration
