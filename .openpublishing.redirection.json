@@ -66907,7 +66907,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-sql/database/job-automation-managed-instances.md",
-      "redirect_url": "/articles/azure-sql/managed-instance/job-automation-managed-instance",
+      "redirect_url": "/azure/azure-sql/managed-instance/job-automation-managed-instance",
       "redirect_document_id": true
     }
 
