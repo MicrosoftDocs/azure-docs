@@ -103,7 +103,9 @@ Here is a basic example of a property on a DTDL model. This example shows the ID
 
 ### Basic telemetry example
 
-Here is a basic example of a telemetry field on a DTDL model. This example shows ...
+Here is a basic example of a telemetry field on a DTDL model. This example shows Temperature telemetry on a sensor.
+
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/ISensor.json" highlight="7-11":::
 
 ### Difference between properties and telemetry
 
@@ -147,9 +149,9 @@ The following example shows another version of the Home model, with a property f
 
 Semantic types make it possible to express a value with a unit. Properties and telemetry can be represented with any of the semantic types that are supported by DTDL. For more information on semantic types in DTDL and what values are supported, see [Semantic types in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#semantic-types).
 
-The following example shows a Room model with a semantic-type property for Humidity.
+The following example shows a Sensor model with a semantic-type telemetry for Temperature, and a semantic-type property for Humidity.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-27" highlight="9-14":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ISensor.json" highlight="7-18":::
 
 ## Relationships
 
@@ -206,7 +208,7 @@ The following example re-imagines the home model from the earlier DTDL example a
 
 In this case, ICore contributes an ID and name to IHome. Other models can also extend the ICore model to get these properties as well.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-9" highlight="7":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-9" highlight="6":::
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
