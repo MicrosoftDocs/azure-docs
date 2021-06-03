@@ -19,7 +19,7 @@ ms.subservice: B2C
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
 > [!IMPORTANT]
-> Azure AD B2C deployes improvements and fixes with every new page layout version. Therefore, we highly recommend that you keep the page layout versions up to date. The new versions ensure that all page elements are updated according to the latest security, accessibility standards and your feedback.
+> Azure Active Directory B2C releases improvements and fixes with each new page layout version. We highly recommend you keep your page layout versions up-to-date so that all page elements reflect the latest security enhancements, accessibility standards, and your feedback.
 >
 
 ## jQuery version
