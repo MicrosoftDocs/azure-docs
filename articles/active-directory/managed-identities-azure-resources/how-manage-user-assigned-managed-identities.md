@@ -2,7 +2,6 @@
 title: Manage user assigned managed identities
 description: Create user assigned managed identities
 services: active-directory
-documentationcenter: 
 author: barclayn
 manager: daveba
 editor: 
@@ -12,12 +11,12 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/02/2021
+ms.date: 06/03/2021
 ms.author: barclayn
 zone_pivot_groups: platform-identity
 ---
 
-# Create user assigned managed identities
+# Manage user-assigned managed identities
 
 
 ::: zone pivot="platform-idazp"
