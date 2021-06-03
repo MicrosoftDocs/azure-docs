@@ -82,6 +82,11 @@ To enable Azure AD-only authentication in Azure SQL Database using Azure CLI, se
 
 For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-aad-only-auth.md#managing-azure-ad-only-authentication-using-apis).
 
+> [!NOTE]
+> The Azure AD admin must be set for the server before enabling Azure AD-only authentication. Otherwise, the Azure CLI command will fail.
+>
+> For permissions and actions required of the user performing these commands to enable Azure AD-only authentication, see the [Azure AD-only authentication](authentication-aad-only-auth.md#permissions) article.
+
 1. [Sign into Azure](/cli/azure/authenticate-azure-cli) using the account with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role.
 
    ```azurecli
