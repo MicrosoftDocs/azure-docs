@@ -16,6 +16,23 @@ This article provides the necessary details that allow you to configure your Azu
 
 This article assumes that you're creating a new cluster or have an existing cluster with latest updates applied. If you need an ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](./howto-create-private-cluster-4x.md) for a private cluster. These steps to configure your cluster to use a custom DNS server are the same for both private and public clusters.
 
+### Confirm Cluster Compatability with Custom DNS
+Confirm your cluster is eligible to support this feature by validating the existence of the `99-master-aro-dns` and `99-worker-aro-dns` `machineconfigs`.
+
+```
+oc get machineconfig
+```
+
+If the results of the above command include the following machineconfigs, your cluster is eligible for custom DNS support.
+
+```
+NAME                 GENERATEDBYCONTROLLER                      IGNITIONVERSION   AGE
+...
+99-master-aro-dns                                               2.2.0             54d
+99-worker-aro-dns                                               2.2.0             54d
+...
+```
+
 ## DNS Overview
 
 As each node in the Azure Red Hat OpenShift cluster powers on and joins the network, DHCP configures the virtual machine with information such as IP address and which DNS server to use.
