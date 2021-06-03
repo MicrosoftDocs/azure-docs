@@ -32,7 +32,7 @@ Although this example uses an Azure Function to host a web API, it isn't require
 
 1. In Visual Studio, select **New** > **Project** from the File menu.
 
-1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other non-alphanumeric characters.
+1. In the New Project dialog, select **Azure Functions** as the template, type a name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other non-alphanumeric characters.
 
 1. Select **Azure Functions v2 (.NET Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
 
@@ -72,7 +72,7 @@ namespace SampleSkills
     {
         #region Credentials
         // IMPORTANT: Make sure to enter your credential and to verify the API endpoint matches yours.
-        static readonly string bingApiEndpoint = "https://api.cognitive.microsoft.com/bing/v7.0/entities/";
+        static readonly string bingApiEndpoint = "https://api.bing.microsoft.com/v7.0/entities";
         static readonly string key = "<enter your api key here>";  
         #endregion
 
