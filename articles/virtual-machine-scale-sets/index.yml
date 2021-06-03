@@ -98,10 +98,10 @@ landingContent:
       - linkListType: concept
         links:
           - text: Flexible orchestration mode
-            url: flexible-virtual-machine-scale-sets.md
+            url: ../virtual-machines/flexible-virtual-machine-scale-sets.md
           - text: Get started with CLI
-            url: flexible-virtual-machine-scale-sets-cli.md
+            url: ../virtual-machines/flexible-virtual-machine-scale-sets-cli.md
           - text: Get started with Portal 
-            url: flexible-virtual-machine-scale-sets-portal.md
+            url: ../virtual-machines/flexible-virtual-machine-scale-sets-portal.md
           - text: Virtual Machine Scale Sets Orchestration modes 
-            url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md
+            url: virtual-machine-scale-sets-orchestration-modes.md

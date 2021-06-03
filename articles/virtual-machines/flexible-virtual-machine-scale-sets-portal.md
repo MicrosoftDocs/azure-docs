@@ -63,7 +63,7 @@ Create a virtual machine scale set in Flexible orchestration mode through the Az
 1. On the **Create a virtual machine scale set** page, view the **Orchestration** section.
 1. For the **Orchestration mode**, select the **Flexible** option.
 1. Set the **Fault domain count**.
-1. Finish creating your scale set. See [create a scale set in the Azure portal](quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
+1. Finish creating your scale set. See [create a scale set in the Azure portal](../virtual-machine-scale-sets/quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
 
 :::image type="content" source="./media/flexible-virtual-machine-scale-sets-portal/portal-create-orchestration-mode-flexible.png" alt-text="Orchestration mode in Portal when creating a scale set":::
 

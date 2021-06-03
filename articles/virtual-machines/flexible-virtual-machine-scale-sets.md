@@ -39,7 +39,7 @@ Learn more about the differences between Uniform scale sets and Flexible scale s
 
 
 ## What has changed with Flexible orchestration mode?
-One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with [Uniform orchestration](.\virtual-machine-scale-sets\virtual-machine-scale-sets-orchestration-modes.md). During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
+One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with [Uniform orchestration](..\virtual-machine-scale-sets\virtual-machine-scale-sets-orchestration-modes.md). During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
 
 ### Assign fault domain during VM creation
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
@@ -181,7 +181,7 @@ Get started with Flexible orchestration mode for your scale sets through the Azu
 - [Azure Portal](flexible-virtual-machine-scale-sets-portal.md)
 - [Azure CLI](flexible-virtual-machine-scale-sets-cli.md)
 - [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md)
-- [Terraform](](flexible-virtual-machine-scale-sets-terraform.md))
+- [Terraform](flexible-virtual-machine-scale-sets-terraform.md)
 - [REST API](flexible-virtual-machine-scale-sets-rest-api.md) 
 
 
