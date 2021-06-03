@@ -26,7 +26,7 @@ There's a required workflow for preparing a custom VM image. For the image sourc
 
 Complete the following prerequisite before you create your VM image:
 
-- [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy gives you a fast way to download of an OS disk to an Azure Storage account.
+- [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy gives you a fast way to copy an OS disk to an Azure Storage account.
 
 ---
 
