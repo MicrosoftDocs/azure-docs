@@ -102,7 +102,7 @@ Before you start, you need to have the following items:
 
 - An Azure storage account to use with your logic app for data and run history retention.
 
-  You can create a storage account when you create your logic app, or follow the [steps to create a storage account](/cli/azure/storage/account#az_storage_account_create).
+  If you don't have this storage account, you can create this account when you create your logic app, or you can follow the [steps to create a storage account](/cli/azure/storage/account#az_storage_account_create).
 
 <a name="check-environment-cli-version"></a>
 
