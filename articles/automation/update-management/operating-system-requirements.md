@@ -3,7 +3,7 @@ title: Azure Automation Update Management Supported Clients
 description: This article describes the supported Windows and Linux operating systems with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 05/13/2021
+ms.date: 06/03/2021
 ms.topic: conceptual
 ---
 
@@ -24,7 +24,7 @@ The following table lists the supported operating systems for update assessments
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
 |CentOS 6, 7, and 8 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6, 7, and 8 (x64)     | Linux agents require access to an update repository.        |
-|SUSE Linux Enterprise Server 12, 15, and 15.1 (x64)     | Linux agents require access to an update repository. For SUSE 15.x, Python 3 is required on the machine.      |
+|SUSE Linux Enterprise Server 12, 15, and 15.1 (x64)     | Linux agents require access to an update repository.     |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x64)      |Linux agents require access to an update repository.         |
 
 > [!NOTE]
@@ -66,14 +66,12 @@ Software Requirements:
 
 - The machine requires access to an update repository, either private or public.
 - TLS 1.1 or TLS 1.2 is required to interact with Update Management.
-- Python 2.x installed.
+- Python 2.x installed for all supported Linux distros except SUSE 15.x. For SUSE 15.x, Python 3 is required on the machine.  
 
 > [!NOTE]
 > Update assessment of Linux machines is only supported in certain regions. See the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).
 
 For hybrid machines, we recommend installing the Log Analytics agent for Linux by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
-
-VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by the distribution.
 
 ## Next steps
 

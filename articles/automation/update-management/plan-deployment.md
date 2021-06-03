@@ -3,7 +3,7 @@ title: Azure Automation Update Management Deployment Plan
 description: This article describes the considerations and decisions to be made to prepare deployment of Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 05/13/2021
+ms.date: 06/03/2021
 ms.topic: conceptual
 ---
 
@@ -27,7 +27,7 @@ Update Management supports specific versions of the Windows Server and Linux ope
 
 The [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) for Windows and Linux is required to support Update Management. The agent is used for both data collection, and the Automation system Hybrid Runbook Worker role to support Update Management runbooks used to manage the assessment and update deployments on the machine. 
 
-On Azure VMs, if the Log Analytics agent isn't already installed, when you enable Update Management for the VM it is automatically installed using the Log Analytics VM extension. The agent is configured to report to the Log Analytics workspace linked to the Automation account Update Management is enabled in.
+On Azure VMs, if the Log Analytics agent isn't already installed, when you enable Update Management for the VM it is automatically installed using the Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md). The agent is configured to report to the Log Analytics workspace linked to the Automation account Update Management is enabled in.
 
 Non-Azure VMs or servers need to have the Log Analytics agent for Windows or Linux installed and reporting to the linked workspace. We recommend installing the Log Analytics agent for Windows or Linux by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. Alternatively, if you plan to monitor the machines with [VM insights](../../azure-monitor/vm/vminsights-overview.md), instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
@@ -54,6 +54,12 @@ To create and manage update deployments, you need specific permissions. To learn
 ## Step 7 - Windows Update client
 
 Azure Automation Update Management relies on the Windows Update client to download and install Windows updates. There are specific group policy settings that are used by Windows Update Agent (WUA) on machines to connect to Windows Server Update Services (WSUS) or Microsoft Update. These group policy settings are also used to successfully scan for software update compliance, and to automatically update the software updates. To review our recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
+
+## Step 8 - Linux repository
+
+VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images available in Azure Marketplace are registered to access the Red Hat Update Infrastructure (RHUI) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by that distribution.
+
+To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
 ## Step 8 - Plan deployment targets
 
