@@ -672,6 +672,10 @@
               href: how-to-manage-conflicts.md
             - name: Convert session token format
               href: how-to-convert-session-token.md
+        - name: Best Practices
+          items:
+            - name: .NET
+              href: best-practice-dotnet.md
         - name: Capacity
           items:
             - name: Provisioned throughput
