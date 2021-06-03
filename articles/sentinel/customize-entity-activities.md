@@ -122,24 +122,40 @@ At least one identifier is required in a query.
 Based on the entity selected you will see the available identifiers. Clicking on the relevant identifiers will paste the identifier into the query, at the location of the cursor.
 
 > [!NOTE]
-> - The query must contain the **TimeGenerated** field, in order to place the detected activity in the entity's timeline.
+> - The query can contain **up to 10 fields**, so you must project the fields you want.
 >
-> - You can project **up to 10 fields** in the query.
+> - The projected fields must include the **TimeGenerated** field, in order to place the detected activity in the entity's timeline.
+
+```kusto
+SecurityEvent
+| where EventID == "4728"
+| where (SubjectUserSid == '{{Account_Sid}}' ) or (SubjectUserName == '{{Account_Name}}' and SubjectDomainName == '{{Account_NTDomain}}' )
+| project TimeGenerated, SubjectUserName, MemberName, MemberSid, GroupName=TargetUserName
+```
+
+:::image type="content" source="./media/customize-entity-activities/new-activity-query.png" alt-text="Screenshot - Enter a query to detect the activity":::
 
 #### Presenting the activity in the timeline
 
 You can determine how the activity will be presented in the timeline for your convenience.
 
-You can add dynamic parameters to the activity output with the following format: `{{ParameterName}}`
+You can add dynamic parameters to the activity output with the following format: `{{ParameterName}}`. The parameters include built-in ones provided by Azure Sentinel, plus others based on the fields you projected in the query.
+
+Once the activity query passes validation (you'll know it has if you see the "View query results" link below the query window), the **Available values** section can be expanded, and you'll see the different parameters you can use to create a dynamic activity title. Clicking on the **copy** icon next to a particular parameter will copy that parameter to your clipboard, and you can then paste it into the **Activity title** field above.
 
 You can add the following parameters: 
+- Any field you projected in the query.
+- Entity identifiers of any entities mentioned in the query.
+- Count – use this parameter to summarize the count of the KQL query output. The bucket size is determined in the entity page.
+- StartTimeUTC – Start time of the activity in UTC.
+- EndTimeUTC – End time of the activity in UTC.
+- StartTimeISO - TBD
+- EndTimeISO - TBD
+- ReferenceTime - TBD
 
-- Any field you projected in the query  
-- Count – use this parameter to summarize the count of the KQL query output 
-- StartTimeUTC – Start time of the activity in UTC 
-- EndTimeUTC – End time of the activity in UTC 
+:::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="Screenshot - See the available values for your activity title":::
 
-**Example**: "User `{{TargetUsername}}` was added to group `{{GroupName}}` by `{{SubjectUsername}}`"
+When you are satisfied with your query and activity title, select **Next : Review**.
 
 ### Review and create tab 
 
