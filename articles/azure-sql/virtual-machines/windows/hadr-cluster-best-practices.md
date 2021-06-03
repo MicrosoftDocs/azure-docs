@@ -49,9 +49,9 @@ For your SQL Server availability group or failover cluster instance, consider th
 
 * If you're experiencing frequent unexpected failures, follow the performance best practices outlined in the rest of this article. 
 * If optimizing SQL Server VM performance does not resolve your unexpected failovers, consider [relaxing the monitoring](#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so may not address the underlying source of the issue and could mask symptoms by reducing the likelihood of failure. You may still need to investigate and address the underlying root cause. For Windows Server 2012 or higher, use the following recommended values: 
-   - **Lease timeout**: Use this equation to calculate the maximum lease time out value: 
-   `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. 
-   Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
+   - **Lease timeout**: Use this equation to calculate the maximum lease time out value:   
+   `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.   
+   Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value.   
    - **Max failures in a specified period**: Set this value to 6. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
    - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
@@ -206,7 +206,7 @@ If tuning your cluster heartbeat and threshold settings as recommended is insuff
 > [!WARNING]
 > Changing these settings may mask an underlying problem, and should be used as a temporary solution to reduce, rather than eliminate, the likelihood of failure. Underlying issues should still be investigated and addressed. 
 
-Increase the following parameters from their default values for relaxed monitoring: 
+Start by increase the following parameters from their default values for relaxed monitoring, and adjust as necessary: 
 
 
 |Parameter |Default value  |Description  |
@@ -230,7 +230,7 @@ ALTER SERVER CONFIGURATION SET FAILOVER CLUSTER PROPERTY HealthCheckTimeout = 60
 ALTER SERVER CONFIGURATION SET FAILOVER CLUSTER PROPERTY FailureConditionLevel = 2; 
 ```
 
-Specific to availability groups, review the following recommended parameters: 
+Specific to **availability groups**, start with the following recommended parameters, and adjust as necessary: 
 
 |Parameter |Default value  |Description  |
 |---------|---------|---------|
@@ -240,10 +240,16 @@ Specific to availability groups, review the following recommended parameters:
 
 Before making any changes, consider the following: 
 - Do not lower any timeout values below their default values. 
-- Use this equation to calculate the maximum lease time out value: `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
+- Use this equation to calculate the maximum lease time out value: 
+ `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. 
+  Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
 - For synchronous-commit replicas, changing session-timeout to a high value can increase HADR_sync_commit waits.
 
+**Lease timeout** 
+
 Use the **Failover Cluster Manager** to modify the **lease timeout** settings for your availability group. See the SQL Server [availability group lease health check](/sql/database-engine/availability-groups/windows/availability-group-lease-healthcheck-timeout#lease-timeout) documentation for detailed steps.
+
+**Session timeout** 
 
 Use Transact-SQL (T-SQL) to modify the **session timeout** for an availability group: 
 
@@ -252,13 +258,12 @@ ALTER AVAILABILITY GROUP AG1
 MODIFY REPLICA ON 'INSTANCE01' WITH (SESSION_TIMEOUT = 15);
 ```
 
+**Max failures in specified period**
+
 Use the Failover Cluster Manager to modify the **Max failures in specified period** value: 
 1. Select **Roles** in the navigation pane.
 1. Under **Roles**, right-click the clustered resource and choose **Properties**. 
 1. Select the **Failover** tab, and increase the **Max failures in specified period** value as desired. 
-
-
-
 
 ## Resource limits
 
