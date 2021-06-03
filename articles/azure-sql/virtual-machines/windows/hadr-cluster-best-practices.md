@@ -123,8 +123,8 @@ If you're using using DNN, or using an AG or FCI that spans across multiple subn
 To learn more, see the [Windows Server Failover Cluster overview](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn). 
 
 To configure connectivity, see the following articles:
-- Availability group:  [Configure DNN  for AG](availability-group-distributed-network-name-dnn-listener-configure.md), [Configure VNN for AG](availability-group-vnn-azure-load-balancer-configure.md)
-- Failover cluster instance: [Configure DNN for FCI](failover-cluster-instance-distributed-network-name-dnn-configure.md), [Configure VNN for FCI](failover-cluster-instance-vnn-azure-load-balancer-configure.md). 
+- Availability group:  [Configure DNN](availability-group-distributed-network-name-dnn-listener-configure.md), [Configure VNN](availability-group-vnn-azure-load-balancer-configure.md)
+- Failover cluster instance: [Configure DNN](failover-cluster-instance-distributed-network-name-dnn-configure.md), [Configure VNN](failover-cluster-instance-vnn-azure-load-balancer-configure.md). 
 
 Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
@@ -240,9 +240,9 @@ Specific to **availability groups**, start with the following recommended parame
 
 Before making any changes, consider the following: 
 - Do not lower any timeout values below their default values. 
-- Use this equation to calculate the maximum lease time out value: 
- `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`. 
-  Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
+- Use this equation to calculate the maximum lease time out value:   
+ `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.   
+  Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value.    
 - For synchronous-commit replicas, changing session-timeout to a high value can increase HADR_sync_commit waits.
 
 **Lease timeout** 
