@@ -83,7 +83,7 @@ Implement `MeetingUIClientCallDelegate` protocol methods that your app needs and
 
 ## Bring your own identity from the app to the participants in the SDK call.
 
-The app can assign its users identity values to the participants in the call or meeting and override the default values. The values includes avatar, name, subtitle, and role.  
+The app can assign its users identity values to the participants in the call or meeting and override the default values. The values include avatar, name, subtitle, and role.  
 
 ### Assigning avatars for call participants
 
