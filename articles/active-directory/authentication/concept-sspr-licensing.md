@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 06/03/2021
 
 ms.author: justinha
 author: justinha
@@ -23,7 +23,7 @@ This article details the different ways that self-service password reset can be 
 
 ## Compare editions and features
 
-SSPR requires a license only for the tenant. 
+SSPR requires a license per user. 
 
 The following table outlines the different SSPR scenarios for password change, reset, or on-premises writeback, and which SKUs provide the feature.
 
