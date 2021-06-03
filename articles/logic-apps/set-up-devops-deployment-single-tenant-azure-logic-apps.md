@@ -112,14 +112,13 @@ After you push your logic app project to your source repository, you can set up 
 
 ### Build your project
 
-To set up a build pipeline based on your logic app project type, follow the corresponding actions:
+To set up a build pipeline based on your logic app project type, complete the corresponding actions listed in the following table:
 
-- Nuget-based: The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation.
-
-- Bundle-based: The extension bundle-based project isn't language specific and doesn't require any language-specific build steps. You can use any method to zip your project files.
-
-  > [!IMPORTANT]
-  > Make sure that the .zip file includes all workflow folders, configuration files such as host.json, connections.json, and any other related files.
+| Project type | Description and steps |
+|--------------|-----------------------|
+| Nuget-based | The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation. |
+| Bundle-based | The extension bundle-based project isn't language specific and doesn't require any language-specific build steps. You can use any method to zip your project files. <p><p>**Important**: Make sure that your .zip file contains the actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files. |
+|||
 
 ### Release to Azure
 
@@ -183,6 +182,14 @@ If you use other deployment tools, you can deploy your single-tenant based logic
 
   If you don't have this extension, follow the [steps to install the extension](#install-logic-apps-cli-extension). Although single-tenant Azure Logic Apps is generally available, the single-tenant Azure Logic Apps extension for Azure CLI is still in preview.
 
+- An Azure resource group to use for deploying your logic app.
+
+  If you don't have this resource group, follow the [steps to create the resource group](#create-resource-group).
+
+- An Azure storage account to use with your logic app for data and run history retention.
+
+  If you don't have a storage account, follow the [steps to create a storage account](/cli/azure/storage/account#az_storage_account_create).
+
 <a name="check-environment-cli-version"></a>
 
 ##### Check environment and CLI version
@@ -213,14 +220,45 @@ Install the *preview* single-tenant Azure Logic Apps (Standard) extension for Az
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
+<a name="create-resource-group"></a>
+
+#### Create resource group
+
+If you don't already have a resource group for your logic app, create the group by running the command, `az group create`. Unless you already set a default subscription for your Azure account, make sure to use the `--subscription` parameter with your subscription name or identifier. Otherwise, you don't have to use the `--subscription` parameter.
+
+> [!TIP]
+> To set a default subscription, run the following command, and replace `MySubscription` with your subscription name or identifier.
+>
+> `az account set --subscription MySubscription`
+
+For example, the following command creates a resource group named `MyResourceGroupName` using the Azure subscription named `MySubscription` in the location `eastus`:
+
+```azurecli
+az group create --name MyResourceGroupName 
+   --subscription MySubscription 
+   --location eastus
+```
+
+If your resource group is successfully created, the output shows the `provisioningState` as `Succeeded`:
+
+```output
+<...>
+   "name": "testResourceGroup",
+   "properties": {
+      "provisioningState": "Succeeded"
+    },
+<...>
+```
+
 <a name="deploy-logic-app"></a>
 
 ##### Deploy logic app
 
 To deploy your zipped artifact to an Azure resource group, run the command, `az logicapp deployment`, with the following required parameters:
 
-> [!NOTE]
-> Make sure that your zip file contains the actual build artifacts, such as your workflow folders, connections.json file, and so on.
+> [!IMPORTANT]
+> Make sure that your zip file contains the actual build artifacts, including all workflow folders, 
+> configuration files such as host.json, connections.json, and any other related files.
 
 ```azurecli-interactive
 az logicapp deployment source config-zip --name MyLogicAppName 

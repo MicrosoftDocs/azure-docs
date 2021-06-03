@@ -199,8 +199,9 @@ az logicapp show --name MyLogicAppName
 
 To deploy your Azure Arc enabled logic app using [Azure App Service's Kudu zip deployment](../app-service/resources-kudu.md), run the command, `az logicapp deployment source config-zip`, with the following required parameters:
 
-> [!NOTE]
-> Make sure that your zip file contains the actual build artifacts, such as your workflow folders, connections.json file, and so on.
+> [!IMPORTANT]
+> Make sure that your zip file contains the actual build artifacts, including all workflow folders, 
+> configuration files such as host.json, connections.json, and any other related files.
 
 ```azurecli
 az logicapp deployment source config-zip --name MyLogicAppName 
