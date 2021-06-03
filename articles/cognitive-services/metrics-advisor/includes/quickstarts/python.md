@@ -262,7 +262,7 @@ hook = client.create_hook(
         name="email hook",
         description="my email hook",
         emails_to_alert=["alertme@alertme.com"],
-        external_link="https://example.com/handleAlerts"   #A customized field configured by users, which will be displayed in anomaly alert. It's usually been used to link to a trouble shooting guide to help further diagnose the issue.
+        external_link="https://example.com/handleAlerts"   #A customized field configured by users, which will be displayed in the anomaly alert. It's usually been used to link to a troubleshooting guide to help further diagnose the issue.
     )
 )
 ```
