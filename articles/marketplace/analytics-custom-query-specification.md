@@ -113,7 +113,7 @@ Each part is described below.
 
 #### SELECT
 
-This part of the query specifies the columns that will get exported. The columns that can be selected are the fields listed in `selectableColumns` and `availableMetrics` sections of a dataset. The final exported rows will always contain distinct values in the selected columns. For example, there will be no duplicate rows in the exported file. Metrics will be calculated for every distinct combination of the selected columns.
+This part of the query specifies the columns that will get exported. The columns that can be selected are the fields listed in `selectableColumns` and `availableMetrics` sections of a dataset. If there is a metric column that has been included in the selected field list, then, metrics will be calculated for every distinct combination of the non-metric columns. 
 
 **Example**:
 - **SELECT** `OfferName`, `NormalizedUsage`
