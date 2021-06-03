@@ -308,7 +308,7 @@ For more information, see [Set up your payout account and tax forms](/partner-ce
 
 Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase. 
 
-Refunds are not issued for variable charges resulting from usage from either virtual machine or metered billing offers).
+Refunds are not issued for variable charges resulting from usage (from either virtual machine offers or metered billing).
 
 ## Resources
 
