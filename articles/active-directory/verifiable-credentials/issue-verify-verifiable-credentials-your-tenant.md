@@ -150,7 +150,8 @@ First we need to register another application. This registration is for the webs
 4. In the **Client secrets** section choose **New client secret**
     1. Add a description like "Node VC client secret"
     1. Expires: in one year.
-  ![Application secret with a one year expiration](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
+     
+    ![Application secret with a one year expiration](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
 5. Copy down the SECRET. You need this information to update your sample node app.
 
 >[!WARNING]
