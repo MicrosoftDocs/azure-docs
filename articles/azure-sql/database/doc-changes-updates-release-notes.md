@@ -7,10 +7,10 @@ author: MashaMSFT
 ms.author: mathoma
 ms.service: sql-db-mi
 ms.subservice: service-overview
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, references_regions
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/17/2021
+ms.date: 06/03/2021
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -161,7 +161,9 @@ Managed Instance scaling operations that include changing service tier or number
 
 ### BULK INSERT and BACKUP/RESTORE statements cannot use Managed Identity to access Azure storage
 
-Bulk insert, BACKUP, and RESTORE statements, and OPENROWSET function cannot use `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. As a workaround, switch to SHARED ACCESS SIGNATURE authentication. The following example will not work on Azure SQL (both Database and Managed Instance):
+Currently, it is not supported to use bulk insert, BACKUP and RESTORE statements, or the OPENROWSET function with the syntax `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. 
+
+The following example is not currently supported on Azure SQL (both Database and Managed Instance):
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
@@ -172,7 +174,7 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Workaround**: Use [Shared Access Signature to authenticate to storage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
+**Workaround**: As a workaround, Microsoft recommends using SHARED ACCESS SIGNATURE authentication. Use [Shared Access Signature to authenticate to storage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### Service Principal cannot access Azure AD and AKV
 
