@@ -288,7 +288,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Azure Connected Machine Agent Service |himds |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |gcad.servce |GC Arc Service |gc_linux_service |Monitors the desired state configuration of the machine. |
+    |gcad.service |GC Arc Service |gc_linux_service |Monitors the desired state configuration of the machine. |
     |extd.service |Extension Service |gc_linux_service | Installs the required extensions targeting the machine.|
 
 * There are several log files available for troubleshooting. They are described in the following table.
