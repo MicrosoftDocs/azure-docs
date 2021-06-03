@@ -12,6 +12,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Analyze sign-ins 
+    href: quickstart-analyze-sign-in.md
   - name: Download a sign-in report
     href: quickstart-download-sign-in-report.md
   - name: Download an audit report

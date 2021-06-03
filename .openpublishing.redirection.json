@@ -29184,6 +29184,7 @@
       "redirect_url": "/azure/marketplace/azure-ad-saas",
       "redirect_document_id": true
     },
+
     {
       "source_path_from_root": "/articles/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md",
       "redirect_url": "/azure/marketplace/azure-resource-manager-test-drive",
@@ -29214,6 +29215,11 @@
       "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/marketplace/azure-consumption-commitment-benefit.md",
+      "redirect_url": "/azure/marketplace/azure-consumption-commitment-enrollment",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting.md",
       "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
@@ -66898,6 +66904,11 @@
       "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-libraries.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/database/job-automation-managed-instances.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/job-automation-managed-instance",
+      "redirect_document_id": true
     }
 
   ]
