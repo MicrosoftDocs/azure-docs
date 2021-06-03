@@ -17,7 +17,7 @@ ms.custom: include file
 |[Python](../articles/azure-functions/functions-reference-python.md#python-version)|N/A|GA (Python 3.7 & 3.6)| GA (Python 3.8, 3.7, & 3.6) <br/> Preview (Python 3.9)|
 |[TypeScript](../articles/azure-functions/functions-reference-node.md#typescript) |N/A|GA<sup>3</sup>| GA<sup>3</sup> |
 
-<sup>1</sup> A version of Azure Functions is available that lets you use the .NET 6.0 preview. To learn more, see the [C# class library article](functions-dotnet-class-library.md#supported-versions).
+<sup>1</sup> A version of Azure Functions is available that lets you use the .NET 6.0 preview. To learn more, see the [C# class library article](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions).
 <sup>2</sup> .NET class library apps targeting runtime version 2.x runs on .NET Core 3.1 in .NET Core 2.x compatibility mode. To learn more, see [Functions v2.x considerations](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations).  
 <sup>3</sup> Supported through transpiling to JavaScript.
 
