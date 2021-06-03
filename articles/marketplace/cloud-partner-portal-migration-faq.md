@@ -20,7 +20,7 @@ You can continue doing business in Partner Center:
 | Area | Changes |
 | --- | --- |
 | Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](manage-account.md). |
-| Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md). |
+| Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the commercial marketplace](update-existing-offer.md). |
 | Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace, it will continue to be live. |
 | New purchases and deployments | No changes. Your customers can continue purchasing and deploying your offers with no interruptions. |
 | Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
@@ -138,7 +138,7 @@ The updates that you don't publish are saved as drafts. Continue to use your off
 
 ### Enhanced preview options
 
-Partner Center includes a [compare feature](partner-center-portal/update-existing-offer.md#compare-changes-to-your-offer) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
+Partner Center includes a [compare feature](update-existing-offer.md#compare-changes-to-your-offer) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
 
 [![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
 
@@ -167,7 +167,7 @@ Your offer ID is now shown on the left-navigation bar of the offer:
 
 ### Stop selling an offer
 
-You can request to [stop selling an offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
+You can request to [stop selling an offer](update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
 
 [![Screenshot shows the Partner Center page to stop selling an offer.](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>

@@ -13,7 +13,7 @@ ms.date: 05/23/2021
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
-- Azure Sentinel
+- [Azure Sentinel](#azure-sentinel)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
@@ -44,6 +44,7 @@ For more information about Office 365 US Government environments, see:
 
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
+
 ## Azure Sentinel
 
 Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
@@ -96,7 +97,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Akamai Security Events](/azure/sentinel/connect-akamai-security-events)                           | Public Preview | Public Preview |
 | - [Alcide kAudit](/azure/sentinel/connect-alcide-kaudit)                                   | Public Preview | Not Available      |
 | - [Alsid for Active Directory](/azure/sentinel/connect-alsid-active-directory)                      | Public Preview | Not Available      |
-| - [Apache HHTP Server](/azure/sentinel/connect-apache-http-server)                               | Public Preview | Not Available      |
+| - [Apache HTTP Server](/azure/sentinel/connect-apache-http-server)                               | Public Preview | Not Available      |
 | - [Aruba ClearPass](/azure/sentinel/connect-aruba-clearpass)                                  | Public Preview | Public Preview |
 | - [AWS](/azure/sentinel/connect-data-sources)                                             | GA             | GA             |
 | - [Barracuda CloudGen Firewall](/azure/sentinel/connect-barracuda-cloudgen-firewall)                      | GA             | GA             |

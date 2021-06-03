@@ -31,7 +31,7 @@ Once the plugin is developed, you can use Horizon web console to:
 
     :::image type="content" source="media/how-to-manage-proprietary-protocols/horizon-plugin.png" alt-text="Upload through your horizon plugin."::: 
 
-This feature is available to Administrator, cyberx or Support Users.
+This feature is available to Administrator, Cyberx, or Support users.
 
 To sign in to the Horizon console:
 

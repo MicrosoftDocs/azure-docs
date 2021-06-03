@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
-ms.author: blehr
+ms.author: blehr 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Quickstart: Create a public IP address using Azure PowerShell
