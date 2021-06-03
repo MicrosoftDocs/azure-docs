@@ -16,6 +16,7 @@ ms.author: pafarley
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [Node.js](https://nodejs.org/)
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
