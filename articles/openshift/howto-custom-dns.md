@@ -1,5 +1,5 @@
 ---
-title: Configure custom dns resources in an Azure Red Hat OpenShift (ARO) cluster
+title: Configure custom DNS resources in an Azure Red Hat OpenShift (ARO) cluster
 description: Discover how to add a custom DNS server on all of your nodes in Azure Red Hat OpenShift (ARO).
 author: bryanro92
 ms.author: suvetriv
@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 06/02/2021
 #Customer intent: As an operator or developer, I need a custom DNS configured for an Azure Red Hat OpenShift cluster
 ---
-# Configure custom dns for your Azure Red Hat OpenShift (ARO) cluster
+# Configure custom DNS for your Azure Red Hat OpenShift (ARO) cluster
 
 This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use a custom DNS server. It contains the cluster requirements for a basic ARO deployment. An [example](#example) will be provided at the end on how to configure these requirements with your custom DNS.
 
@@ -16,7 +16,8 @@ This article provides the necessary details that allow you to configure your Azu
 
 This article assumes that you're creating a new cluster or have an existing cluster with latest updates applied. If you need an ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](./howto-create-private-cluster-4x.md) for a private cluster. These steps to configure your cluster to use a custom DNS server are the same for both private and public clusters.
 
-### Confirm Cluster Compatability with Custom DNS
+### Confirm cluster compatibility with custom DNS
+
 Confirm your cluster is eligible to support this feature by validating the existence of the `99-master-aro-dns` and `99-worker-aro-dns` `machineconfigs`.
 
 ```
@@ -33,7 +34,7 @@ NAME                 GENERATEDBYCONTROLLER                      IGNITIONVERSION 
 ...
 ```
 
-## DNS Overview
+## DNS architecture overview
 
 As each node in the Azure Red Hat OpenShift cluster powers on and joins the network, DHCP configures the virtual machine with information such as IP address and which DNS server to use.
 
@@ -43,7 +44,7 @@ Below is the process flow overview of how the configuration is obtained:
 
 An important trade-off of using your own DNS server instead of the default DNS server in the virtual network is that you lose the configuration that DNS server provided. The virtual machine names will no longer resolve through DNS on the network.
 
-### Update Process Overview
+### Update process overview
 
 Configuring a custom dns server for the cluster is broken down into two steps.
 
@@ -51,11 +52,11 @@ Configuring a custom dns server for the cluster is broken down into two steps.
 2. Restarting nodes in cluster to take changes.
 
 
-## Example
+## Configure a custom DNS server
 
 The following steps can be performed through the command line as well, but this documentation will be walking through using the portal web interface.
 
-### Update DNS Configuration in Virtual Network
+### Update DNS configuration in virtual network
 
 Log into the Azure portal and navigate to the desired virtual network you want to update. Select **DNS servers** from the virtual networks settings list.
 
@@ -77,9 +78,9 @@ You should receive a notification that your update was successful.
 
 ![Confirm DNS Changes](media/concepts-networking/vnet-dns-confirm-saved.png)
 
-### Gracefully reboot your Azure Red Hat OpenShift cluster
+### Gracefully reboot your cluster
 
-These steps require having a valid kubeconfig to your cluster, see [this tutorial](tutorial-connect-cluster) for details on how to obtain a kubeconfig.
+These steps require having a valid kubeconfig to your cluster, see [this tutorial](./tutorial-connect-cluster.md) for details on how to obtain a kubeconfig.
 
 The following code snippets create noop `machineconfig`'s for master and worker nodes. This allows you to initiate rolling reboots for either the worker or master nodes. For more information about the Machine Config Operator (MCO), please see either [the source code](https://github.com/openshift/machine-config-operator) or the [OpenShift docs for MCO
 ](https://docs.openshift.com/container-platform/4.6/architecture/control-plane.html).
@@ -129,7 +130,7 @@ spec:
         path: /etc/mco-master-noop-restart.txt
 ```
 
-#### Reboot Workers
+#### Reboot worker nodes
 
 Create the worker restart file, this example calls the file `worker-restarts.yml`, and apply it.
 
@@ -176,7 +177,7 @@ dns-docs-tm45t-worker-eastus2-ln2kq   Ready    worker   5h40m   v1.19.0+a5a0987
 dns-docs-tm45t-worker-eastus3-gg75h   Ready    worker   5h41m   v1.19.0+a5a0987
 ```
 
-#### Reboot masters
+#### Reboot master nodes
 
 Now, repeat the same process for the master nodes:
 
@@ -199,7 +200,7 @@ dns-docs-tm45t-worker-eastus2-ln2kq   Ready    worker   6h2m   v1.19.0+a5a0987
 dns-docs-tm45t-worker-eastus3-gg75h   Ready    worker   6h3m   v1.19.0+a5a0987
 ```
 
-#### Confirm Changes on a Node (Optional)
+#### Confirm changes on a node (optional)
 
 To validate the new DNS server on a node, we will use the `oc debug` pod.
 
@@ -217,3 +218,39 @@ sh-4.4# cat /etc/resolv.conf.dnsmasq
 search reddog.microsoft.com
 nameserver 192.168.0.1
 ```
+## Modifying the custom DNS server
+
+The procedure for modifying the custom DNS on a cluster that already has custom DNS in place follows the same [process](#update-process-overview).
+
+### Modify DNS
+
+Follow the procedure outlined [here](#update-dns-configuration-in-virtual-network) to update the DNS configuration on the virtual network.
+
+### Reboot nodes
+
+Instead of creating the `machineconfig`, we will instead delete the `machineconfig`s we created the first time. We'll start with the worker nodes.
+
+```
+oc delete machineconfig 25-machineconfig-worker-reboot
+```
+
+The output:
+```
+machineconfig.machineconfiguration.openshift.io "25-machineconfig-worker-reboot" deleted
+```
+
+Wait for all of the worker nodes to reboot. This is similar to the the [reboot of worker nodes](#reboot-worker-nodes) above.
+
+Now we'll reboot the master nodes.
+
+```
+oc delete machineconfig 25-machineconfig-master-reboot
+```
+
+The output:
+
+```
+machineconfig.machineconfiguration.openshift.io "25-machineconfig-master-reboot" deleted
+```
+
+Wait for all of the master nodes to reboot and return to a Ready state.
