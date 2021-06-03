@@ -54,9 +54,8 @@ Configure and test Azure AD SSO with Learning Pool LMS with an existing Azure us
 To configure and test Azure AD SSO with Learning Pool LMS, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Assign an Azure AD user](#assign-an-azure-ad-user)** - to enable that user to use Azure AD single sign-on.
+1. **[Assign an Azure AD user](#assign-an-azure-ad-user)** - to enable that user to use Azure AD single sign-on.
 1. **[Configure Learning Pool LMS SSO](#configure-learning-pool-lms-sso)** - to configure the single sign-on settings on application side.
-
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -80,8 +79,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![choose metadata file](common/browse-upload-metadata.png)
 
 	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in Basic SAML Configuration section.
-
-	![[Application Name] Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	In the **Sign-on URL** text box, type the URL:
     `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
