@@ -370,6 +370,14 @@ For more information, see [Microsoft.Sql managedInstances/azureADOnlyAuthenticat
 
 ---
 
+### Checking Azure AD-only authentication using T-SQL
+
+The [SEVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql) `IsExternalAuthenticationOnly` has been added to check if Azure AD-only authentication is enabled for your server or managed instance. `1` indicates that the feature is enabled, and `0` represents the feature is disabled.
+
+```sql
+SELECT SERVERPROPERTY('IsExternalAuthenticationOnly') 
+```
+
 ## Remarks
 
 - A [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) can set or remove an Azure AD admin, but can't set the **Azure Active Directory authentication only** setting. The [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) can't set or remove an Azure AD admin, but can set the **Azure Active Directory authentication only** setting. Only accounts with higher Azure RBAC roles or custom roles that contain both permissions can set or remove an Azure AD admin and set the **Azure Active Directory authentication only** setting. One such role is the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role.
