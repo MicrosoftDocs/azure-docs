@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 09/11/2020
+ms.date: 05/28/2021
 ---
 
 # Common questions about the Microsoft commercial marketplace
@@ -116,6 +116,8 @@ Depending on your product's delivery model, a subscription to Azure Cloud Servic
 ### Who's responsible for supporting customers?
 
 Commercial marketplace publishers are responsible for supporting their software, and Microsoft is responsible for supporting the purchase, billing, payments, and subscription management experiences.
+
+When the offer removal is initiated by the publisher, the publisher owns communication of the removal to the customer.
 
 ### What's the process of validating the end-to-end purchase and setup flow?
 

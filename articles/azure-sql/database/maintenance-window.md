@@ -3,13 +3,13 @@ title: Maintenance Window
 description: Understand how the Azure SQL Database and managed instance maintenance window can be configured.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 04/28/2021
+ms.date: 05/25/2021
 ---
 
 # Maintenance window (Preview)
@@ -40,7 +40,7 @@ You can further adjust the maintenance updates to a time suitable to your Azure 
 * Weekday window, 10PM to 6AM local time Monday - Thursday
 * Weekend window, 10PM to 6AM local time Friday - Sunday
 
-Once the maintenance window selection is made and service configuration completed, planned maintenance will occur only during the window of your choice.   
+Once the maintenance window selection is made and service configuration completed, planned maintenance will occur only during the window of your choice. While maintenance events typically complete within a single window, some of them may span two or more adjacent windows.   
 
 > [!Important]
 > In very rare circumstances where any postponement of action could cause serious impact, like applying critical security patch, configured maintenance window may be temporarily overriden. 
@@ -103,7 +103,7 @@ For more on the client connection policy in Azure SQL Managed Instance see [Azur
 
 ## Considerations for Azure SQL Managed Instance
 
-Azure SQL Managed Instance consists of service components hosted on a dedicated set of isolated virtual machines that run inside the customer's virtual network subnet. These virtual machines form [virtual cluster(s)](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) that can host multiple managed instances. Maintenance window configured on instances of one subnet can influence the number of virtual clusters within the subnet and distribution of instances among virtual clusters. This may require a consideration of few effects.
+Azure SQL Managed Instance consists of service components hosted on a dedicated set of isolated virtual machines that run inside the customer's virtual network subnet. These virtual machines form [virtual cluster(s)](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) that can host multiple managed instances. Maintenance window configured on instances of one subnet can influence the number of virtual clusters within the subnet, distribution of instances among virtual clusters, and virtual cluster management operations. This may require a consideration of few effects.
 
 ### Maintenance window configuration is long running operation 
 All instances hosted in a virtual cluster share the maintenance window. By default, all managed instances are hosted in the virtual cluster with the default maintenance window. Specifying another maintenance window for managed instance during its creation or afterwards means that it must be placed in virtual cluster with corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance. Accommodating additional instance in the existing virtual cluster may require cluster resize. Both operations contribute to the duration of configuring maintenance window for a managed instance.
@@ -120,6 +120,10 @@ Configuring and changing maintenance window causes change of the IP address of t
 
 > [!Important]
 >  Make sure that NSG and firewall rules won't block data traffic after IP address change. 
+
+### Serialization of virtual cluster management operations
+Operations affecting the virtual cluster, like service upgrades and virtual cluster resize (adding new or removing unneeded compute nodes) are serialized. In other words, a new virtual cluster management operation cannot start until the previous one is completed. In case that maintenance window closes before the ongoing service upgrade or maintenance operation is completed, any other virtual cluster management operations submitted in the meantime will be put on hold until next maintenance window opens and service upgrade or maintenance operation completes. It is not common for a maintenance operation to take longer than a single window per virtual cluster, but it can happen in case of very complex maintenance operations.
+The serialization of virtual cluster management operations is general behavior that applies to the default maintenance policy as well. With a maintenance window schedule configured, the period between two adjacent windows can be few days long. Submitted operations can also be on hold for few days if the maintenance operation spans two windows. That is very rare case, but creation of new instances or resize of the existing instances (if additional compute nodes are needed) may be blocked during this period.
 
 ## Next steps
 

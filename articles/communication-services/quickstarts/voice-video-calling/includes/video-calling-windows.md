@@ -111,11 +111,11 @@ namespace CallingQuickstart
             // End the current call
         }
 
-        CallClient call_client_;
-        CallAgent call_agent_;
-        Call call_;
-        DeviceManager deviceManager_;
-        LocalVideoStream[] localVideoStream_;
+        CallClient callClient;
+        CallAgent callAgent;
+        Call call;
+        DeviceManager deviceManager;
+        LocalVideoStream[] localVideoStream;
     }
 }
 ```
@@ -139,18 +139,18 @@ Initialize a `CallAgent` instance with a User Access Token which will enable us 
 private async void InitCallAgentAndDeviceManager()
 {
     CallClient callClient = new CallClient();
-    deviceManager_ = await callClient.GetDeviceManager();
+    deviceManager = await callClient.GetDeviceManager();
 
     CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
-    call_client_ = new CallClient();
+    callClient = new CallClient();
 
     CallAgentOptions callAgentOptions = new CallAgentOptions()
     {
         DisplayName = "<DISPLAY_NAME>"
     };
-    call_agent_ = await call_client_.CreateCallAgent(token_credential, callAgentOptions);
-    call_agent_.OnCallsUpdated += Agent_OnCallsUpdated;
-    call_agent_.OnIncomingCall += Agent_OnIncomingCall;
+    callAgent = await callClient.CreateCallAgent(token_credential, callAgentOptions);
+    callAgent.OnCallsUpdated += Agent_OnCallsUpdated;
+    callAgent.OnIncomingCall += Agent_OnIncomingCall;
 }
 ```
 
@@ -162,17 +162,17 @@ By attaching `LocalVideoStream` to a `MediaElement` we can see the preview of th
 ```C#
 private async void CallButton_ClickAsync(object sender, RoutedEventArgs e)
 {
-    Debug.Assert(deviceManager_.Microphones.Count > 0);
-    Debug.Assert(deviceManager_.Speakers.Count > 0);
-    Debug.Assert(deviceManager_.Cameras.Count > 0);
+    Debug.Assert(deviceManager.Microphones.Count > 0);
+    Debug.Assert(deviceManager.Speakers.Count > 0);
+    Debug.Assert(deviceManager.Cameras.Count > 0);
 
-    if (deviceManager_.Cameras.Count > 0)
+    if (deviceManager.Cameras.Count > 0)
     {
-        VideoDeviceInfo videoDeviceInfo = deviceManager_.Cameras[0];
-        localVideoStream_ = new LocalVideoStream[1];
-        localVideoStream_[0] = new LocalVideoStream(videoDeviceInfo);
+        VideoDeviceInfo videoDeviceInfo = deviceManager.Cameras[0];
+        localVideoStream = new LocalVideoStream[1];
+        localVideoStream[0] = new LocalVideoStream(videoDeviceInfo);
 
-        Uri localUri = await localVideoStream_[0].CreateBindingAsync();
+        Uri localUri = await localVideoStream[0].CreateBindingAsync();
 
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
@@ -183,13 +183,13 @@ private async void CallButton_ClickAsync(object sender, RoutedEventArgs e)
     }
 
     StartCallOptions startCallOptions = new StartCallOptions();
-    startCallOptions.VideoOptions = new VideoOptions(localVideoStream_);
+    startCallOptions.VideoOptions = new VideoOptions(localVideoStream);
     ICommunicationIdentifier[] callees = new ICommunicationIdentifier[1]
     {
         new CommunicationUserIdentifier(CalleeTextBox.Text)
     };
 
-    call_ = await call_agent_.StartCallAsync(callees, startCallOptions);
+    call = await callAgent.StartCallAsync(callees, startCallOptions);
 }
 ```
 
@@ -200,17 +200,17 @@ To answer an incoming call with video, pass the `LocalVideoStream` to `acceptCal
 ```C#
 private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall)
 {
-    Debug.Assert(deviceManager_.Microphones.Count > 0);
-    Debug.Assert(deviceManager_.Speakers.Count > 0);
-    Debug.Assert(deviceManager_.Cameras.Count > 0);
+    Debug.Assert(deviceManager.Microphones.Count > 0);
+    Debug.Assert(deviceManager.Speakers.Count > 0);
+    Debug.Assert(deviceManager.Cameras.Count > 0);
 
-    if (deviceManager_.Cameras.Count > 0)
+    if (deviceManager.Cameras.Count > 0)
     {
-        VideoDeviceInfo videoDeviceInfo = deviceManager_.Cameras[0];
-        localVideoStream_ = new LocalVideoStream[1];
-        localVideoStream_[0] = new LocalVideoStream(videoDeviceInfo);
+        VideoDeviceInfo videoDeviceInfo = deviceManager.Cameras[0];
+        localVideoStream = new LocalVideoStream[1];
+        localVideoStream[0] = new LocalVideoStream(videoDeviceInfo);
 
-        Uri localUri = await localVideoStream_[0].CreateBindingAsync();
+        Uri localUri = await localVideoStream[0].CreateBindingAsync();
 
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
         {
@@ -220,9 +220,9 @@ private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall
 
     }
     AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
-    acceptCallOptions.VideoOptions = new VideoOptions(localVideoStream_);
+    acceptCallOptions.VideoOptions = new VideoOptions(localVideoStream);
 
-    call_ = await incomingcall.Accept(acceptCallOptions);
+    call = await incomingcall.Accept(acceptCallOptions);
 }
 ```
 
@@ -307,7 +307,7 @@ End the current call when the `Hang Up` button is clicked.
 private async void HangupButton_Click(object sender, RoutedEventArgs e)
 {
     var hangUpOptions = new HangUpOptions();
-    await call_.HangUp(hangUpOptions);
+    await call.HangUp(hangUpOptions);
 }
 ```
 

@@ -228,7 +228,7 @@ Following section is not valid because package.json folder is not valid.
 ```
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
 
-#### Git Repository or Purview Connection Disconnected
+### Git Repository or Purview Connection Disconnected
 
 #### Issue
 When deploying your Data Factory, your git repository or purview connection is disconnected.
