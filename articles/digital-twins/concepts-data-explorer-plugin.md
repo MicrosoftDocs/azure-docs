@@ -53,13 +53,15 @@ To see example queries and complete a walkthrough with sample data, see [Azure D
 
 ## Using ADX IoT data with Azure Digital Twins
 
-To prepare IoT data in ADX for use with Azure Digital Twins, start by directly ingesting telemetry data into your ADX cluster. It's not necessary to route the telemetry through twins in Azure Digital Twins first—instead, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/ADX queries. 
+There are various ways to ingest IoT data into ADX. Here are two that you might use when using ADX with Azure Digital Twins:
+* Historize digital twin property values to ADX with an Azure function that handles twin change events and writes the twin data to ADX, similar to the process used in [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md). This path will be suitable for customers who use telemetry data to bring their digital twins to life.
+* [Ingest IoT data directly into your ADX cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub) or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/ADX queries. This path may be suitable for direct-ingestion workloads. 
 
 You can use whatever data schema you want to in ADX, but you'll need to define the mapping between time series IDs and the twin IDs in order to make the joint Azure Digital Twins/ADX queries. For more information on this process, continue to the next section.
 
 ### Mapping data across ADX and Azure Digital Twins
 
-After ingesting time series data directly into ADX, you'll need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/ADX queries.
+If you're ingesting time series data directly into ADX, you'll likely need to convert this raw time series data into a schema suitable for joint Azure Digital Twins/ADX queries.
 
 An [update policy](/azure/data-explorer/kusto/management/updatepolicy.md) in ADX allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
