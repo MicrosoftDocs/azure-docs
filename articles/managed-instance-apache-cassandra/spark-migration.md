@@ -81,14 +81,14 @@ val targetCassandra = Map(
     "spark.cassandra.connection.keep_alive_ms" -> "600000000"
 )
 
-//Read from native Cassandra
+//Read from source Cassandra
 val DFfromSourceCassandra = sqlContext
   .read
   .format("org.apache.spark.sql.cassandra")
   .options(sourceCassandra)
   .load
   
-//Write to CosmosCassandra
+//Write to target Cassandra
 DFfromSourceCassandra
   .write
   .format("org.apache.spark.sql.cassandra")
@@ -96,6 +96,9 @@ DFfromSourceCassandra
   .mode(SaveMode.Append) // only required for Spark 3.x
   .save
 ```
+
+> [!NOTE]
+> If you have a need to preserve or backdate the `writetime` of each row, refer to the [live migration](dual-write-proxy-migration.md) article. 
 
 ## Next steps
 

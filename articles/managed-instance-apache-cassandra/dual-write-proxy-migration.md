@@ -15,9 +15,7 @@ ms.date: 06/02/2021
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Where possible, we recommend using Apache Cassandra native capability to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This will use Apache Cassandra's gossip protocol to replicate data from your source data-center into your new managed instance datacenter in a seamless way. However, there may be some scenarios where your source database version is not compatible, or a hybrid cluster setup is otherwise not feasible. 
-
-This article describes how to migrate data to Azure Managed Instance for Apache Cassandra in a live fashion using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. The benefits of this approach are:
+Where possible, we recommend using Apache Cassandra native capability to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This will use Apache Cassandra's gossip protocol to replicate data from your source data-center into your new managed instance datacenter in a seamless way. However, there may be some scenarios where your source database version is not compatible, or a hybrid cluster setup is otherwise not feasible. This article describes how to migrate data to Azure Managed Instance for Apache Cassandra in a live fashion using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. The benefits of this approach are:
 
 - **minimal application changes** - the proxy can accept connections from your application code with little or no configuration changes, and will route all requests to your source database, and asynchronously route writes to a secondary target. 
 - **client wire protocol dependent** - since this approach is not dependent on backend resources or internal protocols, it can be used with any source or target Cassandra system that implements the Apache Cassandra wire protocol.
@@ -72,7 +70,6 @@ cd cassandra-proxy
 
 #compile the proxy
 mvn package
-
 ```
 
 ## Start Dual-write proxy
@@ -87,6 +84,9 @@ For SSL, you can either implement an existing keystore (for example the one used
 ```bash
 keytool -genkey -keyalg RSA -alias selfsigned -keystore keystore.jks -storepass password -validity 360 -keysize 2048
 ```
+
+> [!NOTE]
+> Make sure your client application uses the same keystore and password as the one used for the dual-write proxy when building SSL connections to the database via the proxy.
 
 Starting the proxy in this way assumes the following are true:
 
@@ -129,8 +129,13 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-
 > [!NOTE]
 > Installing the proxy on cluster nodes does not require restart of the nodes. However, if you have many application clients and prefer to have the proxy running on the standard Cassandra port 9042 in order to eliminate any application level code changes, you would need to restart your cluster. 
 
-Once you have the dual-write proxy up and running, then you will need to change port on your application client and restart (or change Cassandra port and restart cluster if you have chosen this approach). The proxy will then start forwarding writes to the target endpoint. You can learn about monitoring and metrics available in the proxy tool [here](https://github.com/Azure-Samples/cassandra-proxy#monitoring).
+The proxy has some functionality to force protocols which may be necessary if the source endpoint is more advanced then the target. In that case you can specify `--protocol-version` and `--cql-version`:
 
+```bash
+java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-server --protocol-version 4 --cql-version 3.11
+```
+
+Once you have the dual-write proxy up and running, then you will need to change port on your application client and restart (or change Cassandra port and restart cluster if you have chosen this approach). The proxy will then start forwarding writes to the target endpoint. You can learn about monitoring and metrics available in the proxy tool [here](https://github.com/Azure-Samples/cassandra-proxy#monitoring).
 
 
 ## Run the historic data load.
@@ -174,14 +179,14 @@ val targetCassandra = Map(
 //set timestamp to ensure it is before read job starts
 val timestamp: Long = System.currentTimeMillis / 1000
 
-//Read from native Cassandra
+//Read from source Cassandra
 val DFfromSourceCassandra = sqlContext
   .read
   .format("org.apache.spark.sql.cassandra")
   .options(sourceCassandra)
   .load
   
-//Write to Cassandra MI - 3 nodes
+//Write to target Cassandra
 DFfromSourceCassandra
   .write
   .format("org.apache.spark.sql.cassandra")
