@@ -44,7 +44,12 @@ evaluate azure_digital_twins_query_request(Azure Digital Twinsendpoint, Azure Di
 
 where `Azure Digital Twinsendpoint` and `Azure Digital Twinsquery` are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
 
-The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API. The user of the plugin must be granted the Azure Digital Twins Data Reader role or the Azure Digital Twins Data Owner role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins). 
+The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API. 
+
+>[!IMPORTANT]
+>The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
+
+To see example queries and complete a walkthrough with sample data, see [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) in GitHub.
 
 ## Using ADX IoT data with Azure Digital Twins
 
@@ -117,6 +122,9 @@ You may want to store a property in your schema with multiple fields. These prop
 For instance, if you want to represent a property with three fields for roll, pitch, and yaw, the value object would look like this: `{"roll": 20, "pitch": 15, "yaw": 45}`.
 
 ## Next steps
+
+View sample queries using the Azure Digital Twins query plugin for ADX, including a walkthrough that runs the queries in an example scenario:
+* [Azure Digital Twins query plugin for ADX: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 
 
 Read about another strategy for analyzing historical data in Azure Digital Twins:
 * [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)
