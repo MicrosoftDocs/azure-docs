@@ -53,23 +53,16 @@ In this quickstart you create a *Basic* registry, which is a cost-optimized opti
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to your registry. To keep this quickstart brief, enable the admin user on your registry with the [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] command. In production scenarios you should use an alternative [authentication method](container-registry-authentication.md) for registry access, such as a service principal.
+Before pushing and pulling container images, you must log in to your registry with the [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet. The following example uses the same credentials you logged in with when authentication to Azure with the `Connect-AzAccount` cmdlet.
+
+> [!NOTE]
+> In the following example, $registry.Name is the resource name, not the full qualified registry name.
 
 ```powershell
-$creds = Get-AzContainerRegistryCredential -Registry $registry
-```
-
-Next, run [Connect-AzContainerRegistry][connect-azcontainerregistry] to log in:
-
-```powershell
-Connect-AzContainerRegistry -Name $registry.Name -UserName $registry.Name -Password $creds.Password
+Connect-AzContainerRegistry -Name $registry.Name
 ```
 
 The command returns `Login Succeeded` once completed.
-
-> [!TIP]
-> The Azure CLI provides the `az acr login` command, a convenient way to log in to a container registry using your [individual identity](container-registry-authentication.md#individual-login-with-azure-ad), without passing docker credentials.
-
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
@@ -103,7 +96,6 @@ In this quickstart, you created an Azure Container Registry with Azure PowerShel
 
 <!-- Links - internal -->
 [Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
-[Get-AzContainerRegistryCredential]: /powershell/module/az.containerregistry/get-azcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzContainerRegistry]: /powershell/module/az.containerregistry/New-AzContainerRegistry
 [New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
