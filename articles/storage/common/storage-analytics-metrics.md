@@ -20,7 +20,7 @@ Azure Storage uses the Storage Analytics solution to store metrics that include 
 - Diagnose issues with requests made against the storage service.
 - Improve the performance of applications that use a service.
 
- Storage Analytics metrics are enabled by default for new storage accounts. You can configure metrics in the [Azure portal](https://portal.azure.com/), by using PowerShell, or by using the Azure CLI. For step-by-step guidance, see [Enable and manage Azure Storage Analytic metrics (classic)](./storage-monitor-storage-account.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operations to enable Storage Analytics for each service.  
+ Storage Analytics metrics are enabled by default for new storage accounts. You can configure metrics in the [Azure portal](https://portal.azure.com/), by using PowerShell, or by using the Azure CLI. For step-by-step guidance, see [Enable and manage Azure Storage Analytic metrics (classic)](./manage-storage-analytics-logs.md). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operations to enable Storage Analytics for each service.  
 
 > [!NOTE]
 > Storage Analytics metrics are available for Azure Blob storage, Azure Queue storage, Azure Table storage, and Azure Files.
@@ -64,7 +64,7 @@ Azure Storage uses the Storage Analytics solution to store metrics that include 
  These tables are automatically created when Storage Analytics is enabled for a storage service endpoint. They're accessed via the namespace of the storage account, for example, `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. The metrics tables don't appear in a listing operation and must be accessed directly via the table name.
 
 ## Metrics alerts
-Consider setting up alerts in the [Azure portal](https://portal.azure.com) so you'll be automatically notified of important changes in the behavior of your storage services. For step-by-step guidance, see [Create metrics alerts](storage-monitor-storage-account.md#create-metric-alerts).
+Consider setting up alerts in the [Azure portal](https://portal.azure.com) so you'll be automatically notified of important changes in the behavior of your storage services. For step-by-step guidance, see [Create metrics alerts](./manage-storage-analytics-logs.md).
 
 If you use a Storage Explorer tool to download this metrics data in a delimited format, you can use Microsoft Excel to analyze the data. For a list of available Storage Explorer tools, see [Azure Storage client tools](./storage-explorers.md).
 

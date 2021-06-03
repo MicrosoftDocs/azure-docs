@@ -8,8 +8,7 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -21,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 # Azure HANA Large Instances control through Azure portal
 
 >[!NOTE]
->For Rev 4.2, follow the instructions in the [Manage BareMetal Instances through the Azure portal](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md) topic.
+>For Rev 4.2, follow the instructions in the [Manage BareMetal Instances through the Azure portal](../../../baremetal-infrastructure/connect-baremetal-infrastructure.md) topic.
 
 This document covers the way how [HANA Large Instances](./hana-overview-architecture.md) are presented in [Azure portal](https://portal.azure.com) and what activities can be conducted through Azure portal with HANA Large Instance units that are deployed for you. Visibility of HANA Large Instances in Azure portal is provided through an Azure resource provider for HANA Large Instances, which currently is in public preview
 

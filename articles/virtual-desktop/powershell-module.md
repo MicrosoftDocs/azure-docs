@@ -4,8 +4,9 @@ description: How to install and set up the PowerShell module for Windows Virtual
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
-ms.author: helohr
-manager: lizross
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
 # Set up the PowerShell module for Windows Virtual Desktop
 

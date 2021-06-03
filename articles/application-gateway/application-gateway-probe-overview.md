@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 07/09/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Application Gateway health monitoring overview

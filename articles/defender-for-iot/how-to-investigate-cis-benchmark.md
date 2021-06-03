@@ -1,13 +1,8 @@
 ---
 title: Investigate CIS benchmark recommendation
-titleSuffix: Azure Defender for IoT
 description: Perform basic and advanced investigations based on OS baseline recommendations.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Investigate OS baseline (based on CIS benchmark) recommendation 

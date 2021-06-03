@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Create a tenant in Windows Virtual Desktop (classic)
 

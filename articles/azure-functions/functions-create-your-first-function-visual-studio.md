@@ -1,24 +1,36 @@
 ---
-title: "Quickstart: Create your first function in Azure using Visual Studio"
-description: In this quickstart, you learn how to create and publish an HTTP trigger Azure Function by using Visual Studio.
+title: "Quickstart: Create your first C# function in Azure using Visual Studio"
+description: In this quickstart, you learn how to use Visual Studio to create and publish a C# HTTP triggered function to Azure Functions that runs on .NET Core 3.1.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 09/30/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f"
+ms.date: 05/18/2021
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal"
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
 ---
-# Quickstart: Create your first function in Azure using Visual Studio
+# Quickstart: Create your first C# function in Azure using Visual Studio
 
-In this article, you use Visual Studio to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.  
+Azure Functions lets you run your C# code in a serverless environment in Azure. 
 
+In this article, you learn how to:
+
+> [!div class="checklist"]
+> * Use Visual Studio to create a C# class library (.NET Core 3.1) project.
+> * Create a function that responds to HTTP requests. 
+> * Run your code locally to verify function behavior.
+> * Deploy your code project to Azure Functions. 
+ 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+ 
+The project you create runs on .NET Core 3.1. If you instead want to create a project that runs on .NET 5.0, see [Develop and publish .NET 5 functions using Azure Functions](dotnet-isolated-process-developer-howtos.md).
 
 ## Prerequisites
 
-To complete this tutorial, first install [Visual Studio 2019](https://azure.microsoft.com/downloads/). Ensure you select the **Azure development** workload during installation. If you want to create an Azure Functions project by using Visual Studio 2017 instead, you must first install the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/). Make sure to select the **Azure development** workload during installation. 
 
-![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet/) before you begin.
++ [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't already have an account [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
 
 ## Create a function app project
 
@@ -32,10 +44,14 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 1. In **File Explorer**, right-click the Function1.cs file and rename it to `HttpExample.cs`.
 
-1. In the code, rename the Function1 class to `HttpExample'.
+1. In the code, rename the Function1 class to `HttpExample`.
 
-1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`.
+1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`. 
 
+Your function definition should now look like the following code:
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
+ 
 Now that you've renamed the function, you can test it on your local computer.
 
 ## Run the function locally
@@ -52,7 +68,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## Test your function in Azure
+## Verify your function in Azure
 
 1. In Cloud Explorer, your new function app should be selected. If not, expand your subscription > **App Services**, and select your new function app.
 
@@ -66,7 +82,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
     `http://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 
-2. Go to this URL and you see a response in the browser to the remote GET request returned by the function, which looks like the following example:
+1. Go to this URL and you see a response in the browser to the remote GET request returned by the function, which looks like the following example:
 
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Function response in the browser":::
 
@@ -76,19 +92,9 @@ Other quickstarts in this collection build upon this quickstart. If you plan to 
 
 *Resources* in Azure refer to function apps, functions, storage accounts, and so forth. They're grouped into *resource groups*, and you can delete everything in a group by deleting the group. 
 
-You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
+You created resources to complete these quickstarts. You may be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). 
 
-1. In the Cloud Explorer, expand your subscription > **App Services**, right-click your function app, and choose **Open in Portal**. 
-
-1. In the function app page, select the **Overview** tab and then select the link under **Resource group**.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Select the resource group to delete from the function app page":::
-
-2. In the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
- 
-3. Select **Delete resource group**, and follow the instructions.
-
-   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
 ## Next steps
 

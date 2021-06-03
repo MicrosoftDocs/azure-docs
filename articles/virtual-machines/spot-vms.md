@@ -4,6 +4,7 @@ description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: JagVeerappan
 ms.author: jagaveer
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
@@ -20,7 +21,7 @@ The amount of available capacity can vary based on size, region, time of day, an
 
 ## Eviction policy
 
-VMs can be evicted based on capacity or the max price you set. When creating a Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
+VMs can be evicted based on capacity or the max price you set. When creating an Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
 The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing you to redeploy it later. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your quota and you will be charged storage costs for the underlying disks. 
 
@@ -33,8 +34,8 @@ You can opt-in to receive in-VM notifications through [Azure Scheduled Events](.
 |--------|---------|
 | Max price is set to >= the current price. | VM is deployed if capacity and quota are available. |
 | Max price is set to < the current price. | The VM is not deployed. You will get an error message that the max price needs to be >= current price. |
-| Restarting a stop/deallocate VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
-| Restarting a stop/deallocate VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
+| Restarting a stopped/deallocated VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
+| Restarting a stopped/deallocated VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
 | After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You will never be charged above the standard price.| 
@@ -53,9 +54,9 @@ Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azur
 
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
--	Enterprise Agreement
--	Pay-as-you-go offer code 003P
--	Sponsored
+-	Enterprise Agreement 
+-	Pay-as-you-go offer code (003P)
+-	Sponsored (0036P and 0136P)
 - For Cloud Service Provider (CSP), contact your partner
 
 

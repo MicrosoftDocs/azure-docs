@@ -4,25 +4,36 @@ description: This page describes some common vCore resource limits for elastic p
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: 
 ms.topic: reference
-author: oslake
-ms.author: moslake
-ms.reviewer: sstein
-ms.date: 01/22/2021
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
+ms.date: 04/16/2021
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article provides the detailed resource limits for Azure SQL Database elastic pools and pooled databases using the vCore purchasing model.
 
-For DTU purchasing model limits, see [SQL Database DTU resource limits - elastic pools](resource-limits-dtu-elastic-pools.md).
+* For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits single databases](resource-limits-dtu-single-databases.md) and [DTU resource limits elastic pools](resource-limits-dtu-elastic-pools.md).
+* For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
+* For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 
-You can set the service tier, compute size (service objective), and storage amount using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), the [Azure CLI](elastic-pool-manage.md#azure-cli), or the [REST API](elastic-pool-manage.md#rest-api).
+Each read-only replica has its own resources, such as vCores, memory, data IOPS, TempDB, workers, and sessions. Each read-only replica is subject to the resource limits detailed later in this article.
+
+You can set the service tier, compute size (service objective), and storage amount using:
+
+* [Transact-SQL](elastic-pool-scale.md) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
+* [Azure portal](elastic-pool-manage.md#azure-portal)
+* [PowerShell](elastic-pool-manage.md#powershell)
+* [Azure CLI](elastic-pool-manage.md#azure-cli)
+* [REST API](elastic-pool-manage.md#rest-api)
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md).
@@ -80,7 +91,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|2800|3200|3600|4000|6400|9600|
-|Max log rate per pool (MBps)|42|48|48|48|48|48|
+|Max log rate per pool (MBps)|42|48|54|60|62.5|62.5|
 |Max concurrent workers per pool (requests) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Max concurrent logins pool (requests) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -114,7 +125,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
-|Max log rate per pool (MBps)|12|24|36|48|48|48|48|
+|Max log rate per pool (MBps)|12|24|36|48|60|62.5|62.5|
 |Max concurrent workers per pool (requests) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Max concurrent logins per pool (requests) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -146,7 +157,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup> |6,400|7,200|8,000|9,600|12,800|16,000|16,000|
-|Max log rate per pool (MBps)|48|48|48|48|48|48|48|
+|Max log rate per pool (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|62.5|
 |Max concurrent workers per pool (requests) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent logins per pool (requests) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -176,11 +187,11 @@ You can set the service tier, compute size (service objective), and storage amou
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1024|1024|1024|1024|1536|
 |Max log size (GB)|336|336|336|336|512|
-|TempDB max data size (GB)|333|333|333|333|333|
+|TempDB max data size (GB)|37|46|56|65|74|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|2560|3200|3840|4480|5120|
-|Max log rate per pool (MBps)|48|48|48|48|48|
+|Max log rate per pool (MBps)|48|60|62.5|62.5|62.5|
 |Max concurrent workers per pool (requests) <sup>3</sup>|400|500|600|700|800|
 |Max concurrent logins per pool (requests) <sup>3</sup>|800|1000|1200|1400|1600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
@@ -189,7 +200,6 @@ You can set the service tier, compute size (service objective), and storage amou
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
-
 
 <sup>1</sup> See [Resource management in dense elastic pools](elastic-pool-resource-management.md) for additional considerations.
 
@@ -209,11 +219,11 @@ You can set the service tier, compute size (service objective), and storage amou
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1536|1536|1536|3072|3072|4096|
 |Max log size (GB)|512|512|512|1024|1024|1024|
-|TempDB max data size (GB)|83.25|92.5|111|148|166.5|333|
+|TempDB max data size (GB)|83|93|111|148|167|333|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|5760|6400|7680|10240|11520|12800|
-|Max log rate per pool (MBps)|48|48|48|48|48|48|
+|Max log rate per pool (MBps)|62.5|62.5|62.5|62.5|62.5|62.5|
 |Max concurrent workers per pool (requests) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Max concurrent logins per pool (requests) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -228,7 +238,6 @@ You can set the service tier, compute size (service objective), and storage amou
 <sup>2</sup> The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
 
 <sup>3</sup> For the max concurrent workers (requests) for any individual database, see [Single database resource limits](resource-limits-vcore-single-databases.md). For example, if the elastic pool is using Gen5 and the max vCore per database is set at 2, then the max concurrent workers value is 200.  If max vCore per database is set to 0.5, then the max concurrent workers value is 50 since on Gen5 there are a max of 100 concurrent workers per vCore. For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
-
 
 ## General purpose - provisioned compute - DC-series
 
@@ -246,7 +255,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|800|1600|2400|3200|
-|Max log rate per pool (MBps)|9.4|18.8|28.1|32.8|
+|Max log rate per pool (MBps)|12|24|36|48|
 |Max concurrent workers per pool (requests) <sup>3</sup>|168|336|504|672|
 |Max concurrent logins per pool (requests) <sup>3</sup>|168|336|504|672|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|
@@ -281,6 +290,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Max data size (GB)|1024|1024|1024|1024|1024|
 |Max log size (GB)|307|307|307|307|307|
 |TempDB max data size (GB)|64|96|128|160|192|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|1356|1356|1356|1356|1356|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|9,000|13,500|18,000|22,500|27,000|
 |Max log rate per pool (MBps)|20|30|40|50|60|
@@ -313,6 +323,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size (GB)|307|307|307|307|307|307|
 |TempDB max data size (GB)|224|256|288|320|512|768|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|1356|1356|1356|1356|1356|1356|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|31,500|36,000|40,500|45,000|72,000|96,000|
 |Max log rate per pool (MBps)|70|80|80|80|80|80|
@@ -346,6 +357,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Max data size (GB)|1024|1536|1536|1536|3072|3072|
 |Max log size (GB)|307|307|461|461|922|922|
 |TempDB max data size (GB)|128|192|256|320|384|448|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|4829|4829|4829|4829|4829|4829|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|18,000|27,000|36,000|45,000|54,000|63,000|
@@ -378,6 +390,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Max log size (GB)|922|922|922|1229|1229|1229|1229|
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|4829|4829|4829|4829|4829|4829|4829|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|72,000|81,000|90,000|108,000|144,000|180,000|256,000|
@@ -412,6 +425,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Max data size (GB)|512|640|768|896|1024|1152|
 |Max log size (GB)|171|213|256|299|341|384|
 |TempDB max data size (GB)|256|320|384|448|512|576|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|13836|13836|13836|13836|13836|13836|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|12,499|15,624|18,748|21,873|24,998|28,123|
@@ -440,12 +454,13 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Compute generation|M-series|M-series|M-series|M-series|M-series|
 |vCores|20|24|32|64|128|
 |Memory (GB)|588.6|706.3|941.8|1883.5|3767.0|
-|Max number DBs per pool <sup>1</sup>|100|100|100|100|100|100|
+|Max number DBs per pool <sup>1</sup>|100|100|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|172|216|304|704|1768|
 |Max data size (GB)|1280|1536|2048|4096|4096|
 |Max log size (GB)|427|512|683|1024|1024|
-|TempDB max data size (GB)|4096|2048|1024|768|640|
+|TempDB max data size (GB)|640|768|1024|2048|4096|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|13836|13836|13836|13836|13836|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|31,248|37,497|49,996|99,993|160,000|
@@ -479,6 +494,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 |Max data size (GB)|768|768|768|768|
 |Max log size (GB)|230|230|230|230|
 |TempDB max data size (GB)|64|128|192|256|
+|[Max local storage size](resource-limits-logical-server.md#storage-space-governance) (GB)|1406|1406|1406|1406|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|15750|31500|47250|56000|

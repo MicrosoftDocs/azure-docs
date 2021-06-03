@@ -7,7 +7,6 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
-ms.subservice: logs
 ---
 # Prepare for format change to Azure Monitor platform logs archived to a storage account
 

@@ -6,7 +6,7 @@ ms.date: 03/16/2020
 ms.author: larryfr
 ---
 
-The entries in the `deploymentconfig.json` document map to the parameters for [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+The entries in the `deploymentconfig.json` document map to the parameters for [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
 
 | JSON entity | Method parameter | Description |
 | ----- | ----- | ----- |

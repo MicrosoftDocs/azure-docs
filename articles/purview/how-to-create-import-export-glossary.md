@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 04/02/2021
 ---
 
 # How to create, import, and export glossary terms
@@ -29,7 +29,7 @@ To create a new glossary term, do the following steps:
 
 5. Set the **Status** for the term. New terms default to **Draft** status.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-options.png" alt-text="Screenshot of the status choices." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Screenshot of the status choices.":::
 
    These status markers are metadata associated with the term. Currently you can set the following status on each term:
 
@@ -75,6 +75,9 @@ Notice that term names are case-sensitive. For example, `Sample` and `saMple` co
 4. Once you've finished filling out your .csv file, select your file to import and then select **OK**.
 
 5. The system will upload the file and add all the terms to your catalog.
+ 
+   > [!Important]
+   > The email address for Stewards and Experts should be the primary address of the user from AAD group. Alternate email, user principal name and non-AAD emails are not yet supported. 
 
 ## Export terms from glossary with custom attributes
 
@@ -83,6 +86,11 @@ You should be able to export terms from glossary as long as the selected terms b
 1. When you are in the Glossary, by default the **Export** button is disabled. Once you select the terms you want to export, the **Export** button is enabled if the selected terms belong to same template.
 
 2. Select **Export** to download the selected terms.
+
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the Glossary terms page, select file for Export.":::
+
+   > [!Important]
+   > If the terms in a hierarchy belong to different term templates then you need to split them into different .CSV files for import. Also, updating a parent of a term is currently not supported using import process.
 
 ## Next steps
 

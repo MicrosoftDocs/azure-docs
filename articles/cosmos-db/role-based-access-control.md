@@ -4,12 +4,16 @@ description: Learn how Azure Cosmos DB provides database protection with Active 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.author: mjbrown
+ms.date: 05/27/2021
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure role-based access control in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> This article is about role-based access control for management plane operations in Azure Cosmos DB. If you are using data plane operations, see [Azure Cosmos DB RBAC](how-to-setup-rbac.md) for role-based access control applied to your data plane operations.
 
 Azure Cosmos DB provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
 
@@ -26,7 +30,7 @@ The following are the built-in roles supported by Azure Cosmos DB:
 |[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Can provision Azure Cosmos accounts, databases, and containers. Cannot access any data or use Data Explorer.|
 
 > [!IMPORTANT]
-> Azure RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using primary keys or resource tokens. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
+> Azure RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using primary keys, resource tokens or the Cosmos DB RBAC. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
 
 ## Identity and access management (IAM)
 
@@ -64,7 +68,7 @@ This setting will prevent any changes to any Cosmos resource from any client con
 
 - Modifying stored procedures, triggers or user-defined functions.
 
-If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST, or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](/azure/?product=featured#languages-and-tools).
+If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST, or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](/azure/index?product=developer-tools#languages-and-tools).
 
 ### Set via ARM Template
 

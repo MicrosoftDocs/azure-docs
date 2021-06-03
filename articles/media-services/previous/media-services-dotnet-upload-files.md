@@ -3,20 +3,18 @@ title: Upload files into a Media Services account using .NET  | Microsoft Docs
 description: Learn how to get media content into Media Services by creating and uploading assets using .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: c9c86380-9395-4db8-acea-507c52066f73
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Upload files into a Media Services account using .NET
 

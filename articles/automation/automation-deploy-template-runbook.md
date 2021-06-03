@@ -4,7 +4,8 @@ description: This article describes how to deploy an Azure Resource Manager temp
 services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 keywords: powershell,  runbook, json, azure automation
 ---
 

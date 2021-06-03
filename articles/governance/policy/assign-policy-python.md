@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: New policy assignment with Python"
 description: In this quickstart, you use Python to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 10/14/2020
+ms.date: 03/02/2021
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-python
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Python
 
@@ -43,7 +43,7 @@ Python can be used, including [bash on Windows 10](/windows/wsl/install-win10) o
    az login
    ```
 
-1. In your Python environment of choice, install the required libraries for Azure Resource Graph:
+1. In your Python environment of choice, install the required libraries for Azure Policy:
 
    ```bash
    # Add the Python library for Python
@@ -101,7 +101,7 @@ The preceding commands use the following information:
 Assignment details:
 - **display_name** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **policy_definition_id** – The policy definition path, based on which you're using to create the
+- **policy_definition_id** - The policy definition path, based on which you're using to create the
   assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
   disks_. In this example, the policy definition is a built-in and the path doesn't include
   management group or subscription information.

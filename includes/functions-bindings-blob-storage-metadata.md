@@ -11,7 +11,7 @@ ms.author: cshoe
 ms.custom: include file
 ---
 
-The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) type.
+The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](/dotnet/api/microsoft.azure.storage.blob.cloudblob) type.
 
 |Property  |Type  |Description  |
 |---------|---------|---------|

@@ -61,7 +61,7 @@ az disk update --resource-group MyResourceGroup --name myDataDisk --size-gb 200
 az vmss restart --resource-group MyResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-To use the expanded disk, expand the underlying partition. For more information, see [Expand a disk partition and filesystem](/azure/virtual-machines/linux/expand-disks#expand-a-disk-partition-and-filesystem).
+To use the expanded disk, expand the underlying partition. For more information, see [Expand a disk partition and filesystem](../../virtual-machines/linux/expand-disks.md#expand-a-disk-partition-and-filesystem).
 
 This example resized a data disk. You can use this same procedure to update an OS disk. For more information for a Windows virtual machine, see [How to expand the OS drive of a virtual machine](../../virtual-machines/windows/expand-os-disk.md). For more information for Linux virtual machines, see [Expand virtual hard disks on a Linux VM with the Azure CLI](../../virtual-machines/linux/expand-disks.md).
 

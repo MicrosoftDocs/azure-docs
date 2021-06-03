@@ -32,7 +32,7 @@ In the preceding step, if you can't find a storage account connection string, it
 
 * Required:
     * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* Required for Consumption and Premium plan functions:
+* Required for Premium plan functions:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
     * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
@@ -55,6 +55,7 @@ Your function app must be able to access the storage account. Common issues that
 * The function app is deployed to your App Service Environment (ASE) without the correct network rules to allow traffic to and from the storage account.
 
 * The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* Verify that the `allowSharedKeyAccess` setting is set to `true` which is its default value. For more information, see [Prevent Shared Key authorization for an Azure Storage account](../storage/common/shared-key-authorization-prevent.md?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## Daily execution quota is full
 

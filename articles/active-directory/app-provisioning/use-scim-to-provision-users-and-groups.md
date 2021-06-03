@@ -1,19 +1,18 @@
 ---
-title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azure AD
+title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azure Active Directory
 description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
 ---
-# Tutorial: Develop and plan provisioning for a SCIM endpoint
+# Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory
 
 As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD (AAD). This article describes how to build a SCIM endpoint and integrate with the AAD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
@@ -56,7 +55,7 @@ The SCIM standard defines a schema for managing users and groups.
 The **core** user schema only requires three attributes (all other attributes are optional):
 
 - `id`, service provider defined identifier
-- `externalId`, client defined identifier
+- `userName`, a unique identifier for the user (generally maps to the Azure AD user principal name)
 - `meta`, *read-only* metadata maintained by the service provider
 
 In addition to the **core** user schema, the SCIM standard defines an **enterprise** user extension with a model for extending the user schema to meet your application’s needs. 
@@ -78,7 +77,7 @@ To design your schema, follow these steps:
 |lastName|name.familyName|surName|
 |workMail|emails[type eq “work”].value|Mail|
 |manager|manager|manager|
-|tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
+|tag|urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag|extensionAttribute1|
 |status|active|isSoftDeleted (computed value not stored on user)|
 
 **Example list of required attributes**
@@ -98,7 +97,7 @@ To design your schema, follow these steps:
      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
      "Manager": "123456"
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "tag": "701984",
    },
    "meta": {
@@ -162,10 +161,10 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 |--|--|
 |/User|Perform CRUD operations on a user object.|
 |/Group|Perform CRUD operations on a group object.|
-|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
-|/ResourceTypes|Specifies metadata about each resource|
 |/Schemas|The set of attributes supported by each client and service provider can vary. One service provider might include `name`, `title`, and `emails`, while another service provider uses `name`, `title`, and `phoneNumbers`. The schemas endpoint allows for discovery of the attributes supported.|
 |/Bulk|Bulk operations allow you to perform operations on a large collection of resource objects in a single operation (e.g. update memberships for a large group).|
+|/ServiceProviderConfig|Provides details about the features of the SCIM standard that are supported, for example the resources that are supported and the authentication method.|
+|/ResourceTypes|Specifies metadata about each resource.|
 
 **Example list of endpoints**
 
@@ -192,6 +191,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 |The filter [excludedAttributes=members](#get-group) when querying the group resource|section 3.4.2.5|
 |Accept a single bearer token for authentication and authorization of AAD to your application.||
 |Soft-deleting a user `active=false` and restoring the user `active=true`|The user object should be returned in a request whether or not the user is active. The only time the user should not be returned is when it is hard deleted from the application.|
+|Support the /Schemas endpoint|[section 7](https://tools.ietf.org/html/rfc7643#page-30) The schema discovery endpoint will be used to discover additional attributes.|
 
 Use the general guidelines when implementing a SCIM endpoint to ensure compatibility with AAD:
 
@@ -203,8 +203,15 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). AAD emits the values of `op` as **Add**, **Replace**, and **Remove**.
 * Microsoft AAD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
-* Support HTTPS on your SCIM endpoint
-
+* The entitlements attribute is not supported.
+* Support HTTPS on your SCIM endpoint.
+* [Schema discovery](#schema-discovery)
+  * Schema discovery is not currently supported on the custom application, but it is being used on certain gallery applications. Going forward, schema discovery will be used as the sole method to add additional attributes to an existing connector. 
+  * If a value is not present, do not send null values.
+  * Property values should be camel cased (e.g. readWrite).
+  * Must return a list response.
+  * The /schemas request will be made by the Azure AD SCIM client every time someone saves the provisioning configuration in the Azure Portal or every time  a user lands on the edit provisioning page in the Azure Portal. Any additional attributes discovered will be surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to additional target attributes being added. It will not result in attributes being removed. 
+  
 ### User provisioning and deprovisioning
 
 The following illustration shows the messages that AAD sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
@@ -246,6 +253,9 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
   - [Update Group [Add Members]](#update-group-add-members) ([Request](#request-11) / [Response](#response-11))
   - [Update Group [Remove Members]](#update-group-remove-members) ([Request](#request-12) / [Response](#response-12))
   - [Delete Group](#delete-group) ([Request](#request-13) / [Response](#response-13))
+
+[Schema discovery](#schema-discovery)
+  - [Discover schema](#discover-schema) ([Request](#request-15) / [Response](#response-15))
 
 ### User Operations
 
@@ -744,6 +754,105 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 
 *HTTP/1.1 204 No Content*
 
+### Schema discovery
+#### Discover schema
+
+##### <a name="request-15"></a>Request
+*GET /Schemas* 
+##### <a name="response-15"></a>Response
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "itemsPerPage": 50,
+    "startIndex": 1,
+    "totalResults": 3,
+    "Resources": [
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:User",
+    "name" : "User",
+    "description" : "User Account",
+    "attributes" : [
+      {
+        "name" : "userName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Unique identifier for the User, typically
+used by the user to directly authenticate to the service provider.
+Each User MUST include a non-empty userName value.  This identifier
+MUST be unique across the service provider's entire set of Users.
+REQUIRED.",
+        "required" : true,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "server"
+      },                
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:User"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "name" : "Group",
+    "description" : "Group",
+    "attributes" : [
+      {
+        "name" : "displayName",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "A human-readable name for the Group.
+REQUIRED.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+        "/v2/Schemas/urn:ietf:params:scim:schemas:core:2.0:Group"
+    }
+  },
+  {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Schema"],
+    "id" : "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+    "name" : "EnterpriseUser",
+    "description" : "Enterprise User",
+    "attributes" : [
+      {
+        "name" : "employeeNumber",
+        "type" : "string",
+        "multiValued" : false,
+        "description" : "Numeric or alphanumeric identifier assigned
+to a person, typically based on order of hire or association with an
+organization.",
+        "required" : false,
+        "caseExact" : false,
+        "mutability" : "readWrite",
+        "returned" : "default",
+        "uniqueness" : "none"
+      },
+    ],
+    "meta" : {
+      "resourceType" : "Schema",
+      "location" :
+"/v2/Schemas/urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+    }
+  }
+]
+}
+```
+
 ### Security requirements
 **TLS Protocol Versions**
 
@@ -877,7 +986,7 @@ In the sample code, requests are authenticated using the Microsoft.AspNetCore.Au
 
 A bearer token is also required to use of the provided [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) and perform local debugging using localhost. The sample code uses ASP.NET Core environments to change the authentication options during development stage and enable the use a self-signed token.
 
-For more information on multiple environments in ASP.NET Core, see [Use multiple environments in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+For more information on multiple environments in ASP.NET Core, see [Use multiple environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 The following code enforces that requests to any of the service’s endpoints are authenticated using a bearer token signed with a custom key:
 
@@ -1217,9 +1326,9 @@ Use the checklist to onboard your application quickly and customers have a smoot
 > * 3 Non-expiring test credentials for your application (Required)
 > * Support the OAuth authorization code grant or a long lived token as described below (Required)
 > * Establish an engineering and support point of contact to support customers post gallery onboarding (Required)
+> * [Support schema discovery (required)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Support updating multiple group memberships with a single PATCH
 > * Document your SCIM endpoint publicly
-> * [Support schema discovery](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### Authorization to provisioning connectors in the application gallery
 The SCIM spec doesn't define a SCIM-specific scheme for authentication and authorization and relies on the use of existing industry standards.

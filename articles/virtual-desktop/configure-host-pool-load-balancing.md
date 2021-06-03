@@ -4,8 +4,9 @@ description: How to configure the load-balancing method for a Windows Virtual De
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/12/2020
-ms.author: helohr
-manager: lizross
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
 # Configure the Windows Virtual Desktop load-balancing method
 

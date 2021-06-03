@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 05/05/2021
 ms.topic: how-to
 ---
 
@@ -32,7 +32,7 @@ Currently, the supported list of Kubernetes services and distributions are the f
 
 > [!IMPORTANT]
 > * The minimum supported version of Kubernetes is v1.17. See [Known issues](./release-notes.md#known-issues) for additional information. 
-> * The minimum supported version of OCP is 4.3.
+> * The minimum supported version of OCP is 4.5.
 > * See the [connectivity requirements](connectivity.md) to understand what connectivity is required between your environment and Azure.
 > * See the [storage configuration guidance](storage-configuration.md) to understand the details of how to configure your persistent storage.
 > * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** The cluster should not span multiple availability zones. 
@@ -52,7 +52,7 @@ Regardless of the option you choose, during the creation process you will need t
 - **Connectivity mode** - Connectivity mode determines the degree of connectivity from your Azure Arc enabled data services environment to Azure. Preview currently only supports indirectly connected and directly connected modes.  For information, see [connectivity mode](./connectivity.md). 
 - **Azure subscription ID** - The Azure subscription GUID for where you want the data controller resource in Azure to be created.
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
-- **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+- **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). The metadata and billing information about the Azure resources managed by the data controller that you are deploying will be stored only in the location in Azure that you specify as the location parameter. If you are deploying in the directly connected mode, the location parameter for the data controller will be the same as the location of the custom location resource that you target.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Azure Defender for SQL - the benefits and features
 description: Learn about the benefits and features of Azure Defender for SQL.
 author: memildin
 ms.author: memildin
-ms.date: 12/13/2020
+ms.date: 05/27/2021
 ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
@@ -22,7 +22,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 |Aspect|Details|
 |----|:----|
 |Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Generally available (GA) |
-|Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected SQL versions:|[SQL on Azure virtual machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc enabled SQL servers](/sql/sql-server/azure-arc/overview)<br>On-premises SQL servers on Windows machines without Azure Arc<br>Azure SQL [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
 |||
@@ -39,7 +39,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 - **Azure Defender for SQL servers on machines** extends the protections for your Azure-native SQL Servers to fully support hybrid environments and protect SQL servers (all supported version) hosted in Azure, other cloud environments, and even on-premises machines:
     - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - On-premises SQL servers:
-        - [Azure Arc enabled SQL Server (preview)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [Azure Arc enabled SQL Server (preview)](/sql/sql-server/azure-arc/overview)
         - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/agents/agent-windows.md)
 
 
@@ -52,6 +52,20 @@ These two plans include functionality for identifying and mitigating potential d
 - [Advanced threat protection](../azure-sql/database/threat-detection-overview.md) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel. 
     > [!TIP]
     > View the list of security alerts for SQL servers [in the alerts reference page](alerts-reference.md#alerts-sql-db-and-warehouse).
+
+
+## Is there a performance impact from deploying Azure Defender for SQL on machines?
+
+The focus of **Azure Defender for SQL on machines** is obviously security. But we also care about your business and so we've prioritized performance to ensure the minimal impact on your SQL servers. 
+
+The service has a split architecture to balance data uploading and speed with performance: 
+
+- some of our detectors run on the machine for real-time speed advantages
+- others run in the cloud to spare the machine from heavy computational loads
+
+Lab tests of our solution, comparing it against benchmark loads, showed CPU usage averaging 3% for peak slices. An analysis of the telemetry for our current users shows a negligible impact on CPU and memory usage.
+
+Of course, performance always varies between environments, machines, and loads. The statements and numbers above are provided as a general guideline, not a guarantee for any individual deployment.
 
 
 ## What kind of alerts does Azure Defender for SQL provide?

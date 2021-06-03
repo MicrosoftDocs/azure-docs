@@ -27,7 +27,6 @@ See the list of SKUs and pricing information below.
 | Custom Vision - Training   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
-| Ink Recognizer             | `InkRecognizer`           |
 
 #### Search
 
@@ -50,7 +49,6 @@ See the list of SKUs and pricing information below.
 
 | Service            | Kind                |
 |--------------------|---------------------|
-| Form Understanding | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
 | Text Analytics     | `TextAnalytics`     |

@@ -59,7 +59,7 @@ The Visual Studio Azure project has associations to the role projects in the sol
 - **Service definition file** - Defines the run-time settings for your application, including what roles are required, endpoints, and virtual machine size.
 - **Service configuration file** - Configures how many instances of a role are run and the values of the settings defined for a role.
 
-For more information about these files, see [Configure the Roles for an Azure Cloud Service with Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
+For more information about these files, see [Configure the Roles for an Azure Cloud Service with Visual Studio](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
 ## Publish a Cloud Service
 
@@ -71,7 +71,7 @@ For more information about these files, see [Configure the Roles for an Azure Cl
 
 1. **Account** - Select an account or select **Add an account** in the account dropdown list.
 
-1. **Choose your subscription** - Choose the subscription to use for your deployment. The subscription you use for deploying Cloud Services (extended support) needs to have Owner or Contributor roles assigned via role-based access control (RBAC). If your subscription does not have any one of these roles, see [Steps to add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) to add this before proceeding further.
+1. **Choose your subscription** - Choose the subscription to use for your deployment. The subscription you use for deploying Cloud Services (extended support) needs to have Owner or Contributor roles assigned via role-based access control (RBAC). If your subscription does not have any one of these roles, see [Steps to add a role assignment](../role-based-access-control/role-assignments-steps.md) to add this before proceeding further.
 
 1. Choose **Next** to move to the **Settings** page.
 
@@ -101,7 +101,7 @@ For more information about these files, see [Configure the Roles for an Azure Cl
 
    ![Diagnostics settings](./media/diagnostics-settings.png)
 
-   Diagnostics enables you to troubleshoot an Azure Cloud Service (or Azure virtual machine). For information about diagnostics, see [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). For information about Application Insights, see [What is Application Insights?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview).
+   Diagnostics enables you to troubleshoot an Azure Cloud Service (or Azure virtual machine). For information about diagnostics, see [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines). For information about Application Insights, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 1. Choose **Next** to move to the **Summary** page.
 
@@ -122,4 +122,4 @@ To clean up the Azure resources you created by following this tutorial, go to th
 
 ## Next steps
 
-Set up continuous integration (CI) using the **Configure** button on the **Publish** screen. For more information, see [Azure Pipelines documentation](https://docs.microsoft.com/azure/devops/pipelines).
+Set up continuous integration (CI) using the **Configure** button on the **Publish** screen. For more information, see [Azure Pipelines documentation](/azure/devops/pipelines).

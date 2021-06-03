@@ -3,7 +3,7 @@ title: Create predictive data pipelines using Azure Data Factory
 description: Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning Studio (classic)
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018

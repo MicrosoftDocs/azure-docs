@@ -8,14 +8,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/10/2021
+ms.date: 03/17/2021
 ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
-
-
 # Monitoring application sign-in health for resilience
 
 To increase infrastructure resilience, set up monitoring of application sign-in health for your critical applications so that you receive an alert if an impacting incident occurs. To assist you in this effort, you can configure alerts based on the sign-in health workbook. 
@@ -39,7 +37,7 @@ During an impacting event, two things may happen:
 
 This article walks through setting up the sign-in health workbook to monitor for disruptions to your users’ sign-ins.
 
-## Prerequisites 
+## Prerequisites
 
 * An Azure AD tenant.
 
@@ -47,13 +45,11 @@ This article walks through setting up the sign-in health workbook to monitor for
 
 * A Log Analytics workspace in your Azure subscription to send logs to Azure Monitor logs. 
 
-   * Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Azure AD logs integrated with Azure Monitor logs
 
    * Learn how to [Integrate Azure AD Sign- in Logs with Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-
- 
 
 ## Configure the App sign in health workbook 
 
@@ -74,11 +70,11 @@ By default the workbook presents two graphs. These graphs compare what is happen
 
 **The first graph is Hourly usage (number of successful users)**. Comparing your current number of successful users to a typical usage period helps you to spot a drop in usage that may require investigation. A drop in successful usage rate can help detect performance and utilization issues that the failure rate can't. For example if users can't reach your application to attempt to sign in, there would be no failures, only a drop in usage. A sample query for this data can be found in the following section.
 
-The second graph is Hourly failure rate. A spike in failure rate may indicate an issue with your authentication mechanisms. Failure rate can only be measured if users can attempt to authenticate. If users Can't gain access to make the attempt, failures Won't show.
+**The second graph is hourly failure rate**. A spike in failure rate may indicate an issue with your authentication mechanisms. Failure rate can only be measured if users can attempt to authenticate. If users Can't gain access to make the attempt, failures Won't show.
 
 You can configure an alert that notifies a specific group when the usage or failure rate exceeds a specified threshold. A sample query for this data can be found in the following section.
 
- ## Configure the query and alerts
+## Configure the query and alerts
 
 You create alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals.
 
@@ -90,118 +86,20 @@ Use the following instructions to create email alerts based on the queries refle
 
  To configure the underlying query and set alerts, complete the following steps. You'll use the Sample Query as the basis for your configuration. An explanation of the query structure appears at the end of this section.
 
-For more information on how to create, view, and manage log alerts using Azure Monitor see [Manage log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+For more information on how to create, view, and manage log alerts using Azure Monitor see [Manage log alerts](../../azure-monitor/alerts/alerts-log.md).
 
- 
 1. In the workbook, select **Edit**, then select the **query icon** just above the right-hand side of the graph.   
 
    [![Screenshot showing edit workbook.](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)
 
    The query log opens.
 
-  [![Screenshot showing the query log.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![Screenshot showing the query log.](./media/monitor-sign-in-health-for-resilience/query-log.png)](./media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
-2. Copy one of the following sample scripts for a new Kusto query.
-
-**Kusto query for drop in usage**
-
-```Kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1h)
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1h) - totimespan(2d))..(now() - totimespan(2d)))
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize usersPriorWeek = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join
-
-(
-
- lastWeek
-
-)
-
-on rn
-
-| project TimeGenerated, users, usersPriorWeek, difference = abs(users - usersPriorWeek), max = max_of(users, usersPriorWeek)
-
-| where (difference * 2.0) / max > 0.9
-
-```
-
- 
-
-**Kusto query for increase in failure rate**
-
-
-```kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1 h)
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1 h) - totimespan(2d))..(ago(1h) - totimespan(2d)))
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRatePriorWeek = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join (lastWeek) on rn
-
-| project TimeGenerated, failureRate, failureRatePriorWeek
-
-| where abs(failureRate – failureRatePriorWeek) > **THRESHOLD VALUE**
-
-```
+2. Copy one of the sample scripts for a new Kusto query.  
+   * [Kusto query for increase in failure rate](#kusto-query-for-increase-in-failure-rate)
+   * [Kusto query for drop in usage](#kusto-query-for-drop-in-usage)
 
 3. Paste the query in the window and select **Run**. Ensure you see the Completed message shown in the image below, and results below that message.
 
@@ -219,7 +117,7 @@ thisWeek
  
    * **Threshold value**: 0. This value will alert on any results.
 
-   * **Evaluation period (in minutes)**: 60. This value looks at an hour of time
+   * **Evaluation period (in minutes)**: 2880. This value looks at an hour of time
 
    * **Frequency (in minutes)**: 60. This value sets the evaluation period to once per hour for the previous hour.
 
@@ -251,9 +149,8 @@ thisWeek
 
    [![Screenshot showing the save query button.](./media/monitor-sign-in-health-for-resilience/save-query.png)](./media/monitor-sign-in-health-for-resilience/save-query.png)
 
-
-
 ### Refine your queries and alerts
+
 Modify your queries and alerts for maximum effectiveness.
 
 * Be sure to test your alerts.
@@ -264,11 +161,95 @@ Modify your queries and alerts for maximum effectiveness.
 
 * Alerts query in Azure Monitor can only include results from past 48 hours. [This is a current limitation by design](https://github.com/MicrosoftDocs/azure-docs/issues/22637).
 
+## Sample scripts
+
+### Kusto query for increase in failure rate
+
+   The ratio at the bottom can be adjusted as necessary and represents the percent change in traffic in the last hour as compared to the same time yesterday. 0.5 means that there is a 50% difference in the traffic.
+
+```kusto
+
+let today = SigninLogs
+| where TimeGenerated > ago(1h) // Query failure rate in the last hour 
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+// Optionally filter by a specific application
+//| where AppDisplayName == **APP NAME**
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate
+| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
+| sort by TimeGenerated desc
+| serialize rowNumber = row_number();
+let yesterday = SigninLogs
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Query failure rate at the same time yesterday
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+// Optionally filter by a specific application
+//| where AppDisplayName == **APP NAME**
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate at same time yesterday
+| project TimeGenerated, failureRateYesterday = (failure * 1.0) / ((failure + success) * 1.0)
+| sort by TimeGenerated desc
+| serialize rowNumber = row_number();
+today
+| join (yesterday) on rowNumber // join data from same time today and yesterday
+| project TimeGenerated, failureRate, failureRateYesterday
+// Set threshold to be the percent difference in failure rate in the last hour as compared to the same time yesterday
+// Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
+| extend day = dayofweek(now())
+| where day != time(6.00:00:00) // exclude Sat
+| where day != time(0.00:00:00) // exclude Sun
+| where day != time(1.00:00:00) // exclude Mon
+| where abs(failureRate - failureRateYesterday) > 0.5
+
+```
+
+### Kusto query for drop in usage
+
+In the following query, we are comparing traffic in the last hour to the same time yesterday.
+We are excluding Saturday, Sunday, and Monday because it’s expected on those days that there would be large variability in the traffic at the same time the previous day. 
+
+The ratio at the bottom can be adjusted as necessary and represents the percent change in traffic in the last hour as compared to the same time yesterday. 0.5 means that there is a 50% difference in the traffic.
+
+*You should adjust these values to fit your business operation model*.
+
+```Kusto
+ let today = SigninLogs // Query traffic in the last hour
+| where TimeGenerated > ago(1h)
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+// Optionally filter by AppDisplayName to scope query to a single application
+//| where AppDisplayName contains "Office 365 Exchange Online"
+| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr) // Count distinct users in the last hour
+| sort by TimeGenerated desc
+| serialize rn = row_number();
+let yesterday = SigninLogs // Query traffic at the same hour yesterday
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Count distinct users in the same hour yesterday
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+// Optionally filter by AppDisplayName to scope query to a single application
+//| where AppDisplayName contains "Office 365 Exchange Online"
+| summarize usersYesterday = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
+| sort by TimeGenerated desc
+| serialize rn = row_number();
+today
+| join // Join data from today and yesterday together
+(
+yesterday
+)
+on rn
+// Calculate the difference in number of users in the last hour compared to the same time yesterday
+| project TimeGenerated, users, usersYesterday, difference = abs(users - usersYesterday), max = max_of(users, usersYesterday)
+| extend ratio = (difference * 1.0) / max // Ratio is the percent difference in traffic in the last hour as compared to the same time yesterday
+// Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
+| extend day = dayofweek(now())
+| where day != time(6.00:00:00) // exclude Sat
+| where day != time(0.00:00:00) // exclude Sun
+| where day != time(1.00:00:00) // exclude Mon
+| where ratio > 0.7 // Threshold percent difference in sign-in traffic as compared to same hour yesterday
+
+```
+
 ## Create processes to manage alerts
 
 Once you have set up the query and alerts, create business processes to manage the alerts.
 
 * Who will monitor the workbook and when?
+
 * When an alert is generated, who will investigate?
 
 * What are the communication needs? Who will create the communications and who will receive them?
@@ -277,10 +258,4 @@ Once you have set up the query and alerts, create business processes to manage t
 
 ## Next steps
 
-[Learn more about workbooks](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
-
- 
-
- 
-
- 
+[Learn more about workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md)

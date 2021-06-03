@@ -140,7 +140,7 @@ _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## See also
 * [Filesystem operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK Reference](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK Reference](/dotnet/api/overview/azure/data-lake-store)
 
 ## Next steps
 * [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)

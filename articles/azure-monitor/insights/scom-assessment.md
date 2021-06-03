@@ -1,7 +1,6 @@
 ---
 title: Assess System Center Operations Manager with Azure Monitor
 description: You can use the System Center Operations Manager Health Check solution to assess the risk and health of your environments on a regular interval.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

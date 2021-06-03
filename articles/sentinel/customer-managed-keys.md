@@ -78,7 +78,7 @@ Follow the Cosmos DB instruction to [Register the Azure Cosmos DB](../cosmos-db/
 
 ### STEP 4: Add an access policy to your Azure Key Vault instance
 
-Make sure to add access from Cosmos DB to your Azure Key Vault instance. Follow the Cosmos DB instruction to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance) with Azure Cosmos DB principal.
+Make sure to add access from Cosmos DB to your Azure Key Vault instance. Follow the Cosmos DB instruction to [add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-access-policy) with Azure Cosmos DB principal.
 
 ### STEP 5: Enable CMK in Azure Sentinel
 

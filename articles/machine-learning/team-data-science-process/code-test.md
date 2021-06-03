@@ -118,7 +118,7 @@ Use the following steps to set up and run code testing and an automated build by
 
     ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Name the build and select the agent. You can choose the default here if you want to use a DSVM to complete the build process. For more information about setting agents, see [Build and release agents](/azure/devops/pipelines/agents/agents).
 	
     ![Build and agent selections](./media/code-test/select_agent.PNG)
 

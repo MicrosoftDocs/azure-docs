@@ -4,9 +4,9 @@ description: Learn how to use the Set Variable activity to set the value of an e
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/07/2020
-author: dcstwh
-ms.author: weetok
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ---
 # Set Variable Activity in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

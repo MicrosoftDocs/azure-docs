@@ -1,11 +1,13 @@
 ---
-title: Use direct methods in Live Video Analytics on IoT Edge - Azure  
-description: Live Video Analytics on IoT Edge exposes several direct methods. The direct methods are based on the conventions described in this topic.
+title: Use direct methods in Azure Live Video Analytics on IoT Edge
+description: Azure Live Video Analytics on IoT Edge exposes several direct methods. The direct methods are based on the conventions described in this topic.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Direct methods
+# Direct methods with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics on IoT Edge exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
@@ -376,7 +378,7 @@ Key aspects:
 | Graph Validation Errors | 400 | GraphValidationError |
 | Module Validation Errors | 400 | ModuleValidationError |
 | Resource validation errors | 409 | ResourceValidationError |
-| General server errors | 500 range |  |  |
+| General server errors | 500 range |  | 
 
 ### GraphInstanceDelete
 

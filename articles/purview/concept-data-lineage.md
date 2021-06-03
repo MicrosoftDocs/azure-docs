@@ -10,7 +10,7 @@ ms.date: 11/30/2020
 ---
 # Data lineage in Azure Purview Data Catalog client
 
-This article provides an overview of data lineage in Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Purview can capture lineage for data in different parts of your organizations data estate, and at different levels of preparation including:
+This article provides an overview of data lineage in Azure Purview Data Catalog. It also details how data systems can integrate with the catalog to capture lineage of data. Purview can capture lineage for data in different parts of your organization's data estate, and at different levels of preparation including:
 
 - Completely raw data staged from various platforms
 - Transformed and prepared data

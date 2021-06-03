@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample
 description: Deploy steps for the DoD Impact Level 4 blueprint sample including blueprint artifact parameter details.
-ms.date: 01/08/2021
+ms.date: 04/13/2021
 ms.topic: sample
 ---
 # Deploy the DoD Impact Level 4 blueprint sample
@@ -13,8 +13,9 @@ To deploy the Azure Blueprints Department of Defense Impact Level 4 (DoD IL4) bl
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
+If you don't have an Azure Government subscription, request a
+[trial subscription](https://azure.microsoft.com/global-infrastructure/government/request/) before
+you begin.
 
 ## Create blueprint from sample
 
@@ -120,10 +121,10 @@ The following table provides a list of the blueprint artifact parameters:
 |-|-|-|-|
 |Allowed locations|Policy Assignment|Allowed Locations|This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.|
 |Allowed Locations for resource groups|Policy Assignment |Allowed Locations|This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.|
-|Deploy Auditing on SQL servers|Policy assignment|The value in days of the retention period (0 indicates unlimited retention)|Retention days (optional, 180 days if unspecified)|
+|Deploy Auditing on SQL servers|Policy assignment|The value in days of the retention period (0 indicates unlimited retention) |Retention days (optional, 180 days if unspecified) |
 |Deploy Auditing on SQL servers|Policy assignment|Resource group name for storage account for SQL server auditing|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region). Important - for proper operation of Auditing do not delete or rename the resource group or the storage accounts.|
 |Deploy diagnostic settings for Network Security Groups|Policy assignment|Storage account prefix for network security group diagnostics|This prefix will be combined with the network security group location to form the created storage account name.|
-|Deploy diagnostic settings for Network Security Groups|Policy assignment|Resource group name for storage account for network security group diagnostics (must exist)|The resource group that the storage account will be created in. This resource group must already exist.|
+|Deploy diagnostic settings for Network Security Groups|Policy assignment|Resource group name for storage account for network security group diagnostics (must exist) |The resource group that the storage account will be created in. This resource group must already exist.|
 |Deploy Log Analytics agent for Linux virtual machine scale sets|Policy assignment|Log Analytics workspace for Linux virtual machine scale sets|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
 |Deploy Log Analytics agent for Linux virtual machine scale sets|Policy assignment|Optional: List of VM images that have supported Linux OS to add to scope|An empty array may be used to indicate no optional parameters: \[\]|
 |Deploy Log Analytics Agent for Linux VMs|Policy assignment|Log Analytics workspace for Linux VMs|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|

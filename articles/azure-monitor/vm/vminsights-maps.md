@@ -1,7 +1,6 @@
 ---
-title: View app dependencies with Azure Monitor for VMs
-description: Map is a feature of Azure Monitor for VMs. It automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use the Map feature in various scenarios.
-ms.subservice: 
+title: View app dependencies with VM insights
+description: Map is a feature of VM insights. It automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use the Map feature in various scenarios.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,10 +8,10 @@ ms.date: 03/20/2020
 
 ---
 
-# Use the Map feature of Azure Monitor for VMs to understand application components
-In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. You can observe the VMs in two ways. View a map directly from a VM or view a map from Azure Monitor to see the components across groups of VMs. This article will help you understand these two viewing methods and how to use the Map feature. 
+# Use the Map feature of VM insights to understand application components
+In VM insights, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. You can observe the VMs in two ways. View a map directly from a VM or view a map from Azure Monitor to see the components across groups of VMs. This article will help you understand these two viewing methods and how to use the Map feature. 
 
-For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](../insights/vminsights-enable-overview.md).
+For information about configuring VM insights, see [Enable VM insights](./vminsights-enable-overview.md).
 
 ## Sign in to Azure
 Sign in to the [Azure portal](https://portal.azure.com).
@@ -45,7 +44,7 @@ To make the Map feature display relevant alerts, create an alert rule that appli
 - Include a clause to group alerts by computer (for example, **by Computer interval 1 minute**).
 - Base the alert on a metric.
 
-For more information about Azure Alerts and creating alert rules, see [Unified alerts in Azure Monitor](../platform/alerts-overview.md).
+For more information about Azure Alerts and creating alert rules, see [Unified alerts in Azure Monitor](../alerts/alerts-overview.md).
 
 In the upper-right corner, the **Legend** option describes the symbols and roles on the map. For a closer look at your map and to move it around, use the zoom controls in the lower-right corner. You can set the zoom level and fit the map to the size of the page.  
 
@@ -81,7 +80,7 @@ If the group includes monitored and unmonitored servers, you can select the appr
 
 ## View a map from a VM 
 
-To access Azure Monitor for VMs directly from a VM:
+To access VM insights directly from a VM:
 
 1. In the Azure portal, select **Virtual Machines**. 
 2. From the list, choose a VM. In the **Monitoring** section, choose **Insights**.  
@@ -95,7 +94,7 @@ By default, the map shows the last 30 minutes. If you want to see how dependenci
 
 ## View a map from a virtual machine scale set
 
-To access Azure Monitor for VMs directly from a virtual machine scale set:
+To access VM insights directly from a virtual machine scale set:
 
 1. In the Azure portal, select **Virtual machine scale sets**.
 2. From the list, choose a VM. Then in the **Monitoring** section, choose **Insights**.  
@@ -124,11 +123,10 @@ In Azure Monitor, the Map feature provides a global view of your VMs and their d
 
 Choose a workspace by using the **Workspace** selector at the top of the page. If you have more than one Log Analytics workspace, choose the workspace that's enabled with the solution and that has VMs reporting to it. 
 
-The **Group** selector returns subscriptions, resource groups, [computer groups](../platform/computer-groups.md), and virtual machine scale sets of computers that are related to the selected workspace. Your selection applies only to the Map feature and doesn't carry over to Performance or Health.
+The **Group** selector returns subscriptions, resource groups, [computer groups](../logs/computer-groups.md), and virtual machine scale sets of computers that are related to the selected workspace. Your selection applies only to the Map feature and doesn't carry over to Performance or Health.
 
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.  
 
 ## Next steps
 
-To identify bottlenecks, check performance, and understand overall utilization of your VMs, see [View performance status for Azure Monitor for VMs](vminsights-performance.md). 
-
+To identify bottlenecks, check performance, and understand overall utilization of your VMs, see [View performance status for VM insights](vminsights-performance.md).

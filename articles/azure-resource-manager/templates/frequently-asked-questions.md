@@ -2,7 +2,7 @@
 title: ARM template frequently asked questions
 description: Frequently asked questions (FAQ) about Azure Resource Manager templates (ARM templates).
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -43,7 +43,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
   To learn about the new template language, [sign up for notifications](https://aka.ms/armLangUpdates).
 
-  To learn about template specs, see [Azure Resource Manager template specs (Preview)](template-specs.md).
+  To learn about template specs, see [Azure Resource Manager template specs](template-specs.md).
 
 ## Creating and testing templates
 
@@ -83,7 +83,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **I've heard you're working on a new template language. Where can I find out more about it?**
 
-  To preview the new language, see [Project Bicep repository](https://github.com/Azure/bicep). To stay informed about the new language, [sign up for notifications](https://aka.ms/armLangUpdates).
+  To learn about the new language, see [What is Bicep (Preview)?](../bicep/overview.md).
 
 * **Is there a plan to support creating templates in YAML?**
 
@@ -95,13 +95,9 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Will you offer a tool to convert my JSON templates to the new template language?**
 
-  Yes.
+  Yes. See [Converting ARM templates between JSON and Bicep](../bicep/decompile.md).
 
 ## Template Specs
-
-* **How can I get started with the preview release of Template Specs?**
-
-  Install the latest version of PowerShell or Azure CLI. For Azure PowerShell, use [version 5.0.0 or later](/powershell/azure/install-az-ps). For Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 * **How are template specs and Azure Blueprints related?**
 
@@ -119,7 +115,7 @@ This article answers frequently asked questions about Azure Resource Manager tem
 
 * **Can I include a script in my template to do tasks that aren't possible in a template?**
 
-  Yes, use [deployment scripts](deployment-script-template.md). You can include Azure PowerShell or Azure CLI scripts in your templates. The feature is in preview.
+  Yes, use [deployment scripts](deployment-script-template.md). You can include Azure PowerShell or Azure CLI scripts in your templates.
 
 * **Can I still use custom script extensions and desired state configuration (DSC)?**
 

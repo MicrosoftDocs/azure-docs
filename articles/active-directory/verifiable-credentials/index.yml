@@ -1,0 +1,51 @@
+### YamlMime:Landing
+
+title: Azure Active Directory Verifiable Credentials documentation
+summary: Verifiable credentials helps you build solutions that empower customers to manage their own data.
+
+metadata: 
+  author: barclayn
+  description: "Learn how to incorporate verifiable credentials into your solutions empowering customers to control information about themselves"
+  manager: daveba
+  ms.author: barclayn
+  ms.collection: na
+  ms.date: 03/30/2021
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent: 
+  # Card
+  - title: About Verifiable Credentials
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Introduction to Azure Active Directory Verifiable Credentials
+            url: decentralized-identifier-overview.md
+      - linkListType: video
+        links:
+          - text: Govern access to your resources
+            url: https://www.youtube.com/watch?v=r20hCF9NbTo
+  
+  # Card
+  - title: Verifiable credentials put people in control of their personal information
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Get started with verifiable credentials
+            url: get-started-verifiable-credentials.md
+      - linkListType: concept
+        links:
+          - text: Issuer service communication examples
+            url: issuer-openid.md
+ 
+  # Card
+  - title: How to link your DID
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Link your Domain to your Distributed Identifier
+            url: how-to-dnsbind.md

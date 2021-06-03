@@ -1,7 +1,6 @@
 ---
 title: Connect SCSM with IT Service Management Connector
 description: This article provides information about how to SCSM with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage the ITSM work items.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur

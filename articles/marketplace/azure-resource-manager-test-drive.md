@@ -70,7 +70,7 @@ You can use any valid name for your parameters; test drive recognizes parameter 
 
 | Metadata Type   | Parameter Type  | Description     | Sample Value    |
 |---|---|---|---|
-| **baseuri**     | string          | Base URI of your deployment package| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseuri**     | string          | Base URI of your deployment package| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | string          | New random user name.| admin68876      |
 | **password**    | secure string    | New random password | Lp!ACS\^2kh     |
 | **session id**   | string          | Unique test drive session ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |

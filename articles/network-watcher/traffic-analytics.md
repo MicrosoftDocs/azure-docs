@@ -13,7 +13,7 @@ ms.workload:  infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Traffic Analytics
@@ -66,35 +66,38 @@ You can use traffic analytics for NSGs in any of the following supported regions
       Central India  
       Central US  
       China East 2  
-      China North 2  
+	  China North   
+	  China North 2 	  
    :::column-end:::
    :::column span="":::
       East Asia  
-      East US  
+	  East US  
       East US 2  
       East US 2 EUAP  
       France Central  
-      Japan East  
+      Germany West Central  
+	  Japan East  
       Japan West  
       Korea Central  
       Korea South  
-      North Central US  
+	  North Central US 	  
    :::column-end:::
    :::column span="":::
       North Europe  
-      South Africa North  
+	  South Africa North  
       South Central US  
       South India  
       Southeast Asia  
       Switzerland North  
       Switzerland West  
-      UK South  
-      UK West  
-      USGov Arizona  
+	  UAE North  
+	  UK South  
+      UK West     
+	  USGov Arizona
    :::column-end:::
    :::column span="":::
       USGov Texas  
-      USGov Virginia  
+	  USGov Virginia  
       USNat East  
       USNat West  
       USSec East  
@@ -115,39 +118,43 @@ The Log Analytics workspace must exist in the following regions:
       Australia East  
       Australia Southeast  
       Brazil South  
+	  Brazil Southeast  
       Canada Central  
       Central India  
       Central US  
-      China East 2  
+      China East 2      
       East Asia  
-      East US  
    :::column-end:::
    :::column span="":::
-      East US 2  
+      East US  
+	  East US 2  
       East US 2 EUAP  
       France Central  
-      Germany West Central  
-      Japan East  
-      Korea Central  
+	  Germany West Central  
+	  Japan East  
+	  Japan West  
+	  Korea Central  
       North Central US  
       North Europe  
-      South Africa North  
-      South Central US  
    :::column-end:::
    :::column span="":::
-      Southeast Asia  
+      Norway East  
+      South Africa North  
+      South Central US  
+	  Southeast Asia  
       Switzerland North  
       Switzerland West  
       UAE Central  
-      UK South  
-      UK West  
+	  UAE North  
+	  UK South  
+      UK West      
+   :::column-end:::
+   :::column span="":::
       USGov Arizona  
       USGov Virginia  
       USNat East  
-      USNat West  
-   :::column-end:::
-   :::column span="":::
-      USSec East  
+	  USNat West   
+	  USSec East  
       USSec West  
       West Central US  
       West Europe  
@@ -155,6 +162,9 @@ The Log Analytics workspace must exist in the following regions:
       West US 2  
    :::column-end:::
 :::row-end:::
+
+> [!NOTE]
+> If NSGs support a region but the log analytics workspace does not support that region for traffic analytics as per above lists, then you can use log analytics workspace of any other supported region as a workaround.
 
 ## Prerequisites
 

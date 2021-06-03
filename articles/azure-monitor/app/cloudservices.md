@@ -48,9 +48,8 @@ The telemetry from your app is stored, analyzed, and displayed in an Azure resou
 Each resource belongs to a resource group. Resource groups are used to manage costs, to grant access to team members, and to deploy updates in a single coordinated transaction. For example, you could [write a script to deploy](../../azure-resource-manager/templates/deploy-powershell.md) an Azure cloud service and its Application Insights monitoring resources all in one operation.
 
 ### Resources for components
-We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](./overview-dashboard.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
 
-An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
+We recommend that you [add a dimension property to each telemetry item](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
 
 Browser telemetry is usually included in the same resource as its server-side web role.
 

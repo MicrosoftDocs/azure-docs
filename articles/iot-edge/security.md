@@ -12,6 +12,8 @@ services: iot-edge
 
 # Security standards for Azure IoT Edge
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Azure IoT Edge addresses the risks that are inherent when moving your data and analytics to the intelligent edge. The IoT Edge security standards balance flexibility for different deployment scenarios with the protection that you expect from all Azure services.
 
 IoT Edge runs on various makes and models of hardware, supports several operating systems, and applies to diverse deployment scenarios. Rather than offering concrete solutions for specific scenarios, IoT Edge is an extensible security framework based on well-grounded principles that are designed for scale. The risk of a deployment scenario depends on many factors, including:

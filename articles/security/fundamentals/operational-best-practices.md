@@ -120,7 +120,7 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Use [Azure Monitor to gather and export data](../../azure-monitor/overview.md#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
 
 **Best practice**: Speed up your investigation and hunting processes and reduce false positives by integrating Endpoint Detection and Response (EDR) capabilities into your attack investigation.   
-**Detail**: [Enabling the Microsoft Defender for Endpoint integration](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
+**Detail**: [Enable the Microsoft Defender for Endpoint integration](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
 
 ## Monitor end-to-end scenario-based network monitoring
 Customers build an end-to-end network in Azure by combining network resources like a virtual network, ExpressRoute, Application Gateway, and load balancers. Monitoring is available on each of the network resources.

@@ -2,14 +2,14 @@
 title: Test cases for test toolkit
 description: Describes the tests that are run by the ARM template test toolkit.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 05/17/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
 
 # Default test cases for ARM template test toolkit
 
-This article describes the default tests that are run with the [template test toolkit](test-toolkit.md). It provides examples that pass or fail the test. It includes the name of each test.
+This article describes the default tests that are run with the [template test toolkit](test-toolkit.md) for Azure Resource Manager templates (ARM templates). It provides examples that pass or fail the test. It includes the name of each test. To run a specific test, see [Test parameters](test-toolkit.md#test-parameters).
 
 ## Use correct schema
 
@@ -35,30 +35,6 @@ The schema property in the template must be set to one of the following schemas:
 * `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json`
-
-## Parameters must exist
-
-Test name: **Parameters Property Must Exist**
-
-Your template should have a parameters element. Parameters are essential for making your templates reusable in different environments. Add parameters to your template for values that change when deploying to different environments.
-
-The following example **passes** this test:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "vmName": {
-          "type": "string",
-          "defaultValue": "linux-vm",
-          "metadata": {
-            "description": "Name for the Virtual Machine."
-          }
-      }
-  },
-  ...
-```
 
 ## Declared parameters must be used
 
@@ -132,7 +108,7 @@ The following example **passes** this test.
 
 Test name: **Location Should Not Be Hardcoded**
 
-Your templates should have a parameter named location. Use this parameter for setting the location of resources in your template. In the main template (named azuredeploy.json or mainTemplate.json), this parameter can default to the resource group location. In linked or nested templates, the location parameter shouldn't have a default location.
+Your templates should have a parameter named location. Use this parameter for setting the location of resources in your template. In the main template (named _azuredeploy.json_ or _mainTemplate.json_), this parameter can default to the resource group location. In linked or nested templates, the location parameter shouldn't have a default location.
 
 Users of your template may have limited regions available to them. When you hard code the resource location, users may be blocked from creating a resource in that region. Users could be blocked even if you set the resource location to `"[resourceGroup().location]"`. The resource group may have been created in a region that other users can't access. Those users are blocked from using the template.
 
@@ -388,11 +364,11 @@ When you include parameters for `_artifactsLocation` and `_artifactsLocationSasT
 * if you provide one parameter, you must provide the other
 * `_artifactsLocation` must be a **string**
 * `_artifactsLocation` must have a default value in the main template
-* `_artifactsLocation` can't have a default value in a nested template 
+* `_artifactsLocation` can't have a default value in a nested template
 * `_artifactsLocation` must have either `"[deployment().properties.templateLink.uri]"` or the raw repo URL for its default value
 * `_artifactsLocationSasToken` must be a **secureString**
 * `_artifactsLocationSasToken` can only have an empty string for its default value
-* `_artifactsLocationSasToken` can't have a default value in a nested template 
+* `_artifactsLocationSasToken` can't have a default value in a nested template
 
 ## Declared variables must be used
 
@@ -515,7 +491,7 @@ The next example **passes** this test.
 
 Test name: **ResourceIds should not contain**
 
-When generating resource IDs, don't use unnecessary functions for optional parameters. By default, the [resourceId](template-functions-resource.md#resourceid) function uses the current subscription and resource group. You don't need to provide those values.  
+When generating resource IDs, don't use unnecessary functions for optional parameters. By default, the [resourceId](template-functions-resource.md#resourceid) function uses the current subscription and resource group. You don't need to provide those values.
 
 The following example **fails** this test, because you don't need to provide the current subscription ID and resource group name.
 
@@ -632,7 +608,7 @@ The following example **passes** this test.
 
 Test name: **ManagedIdentityExtension must not be used**
 
-Don't apply the ManagedIdentity extension to a virtual machine. For more information, see [How to stop using the virtual machine managed identities extension and start using the Azure Instance Metadata Service](../../active-directory/managed-identities-azure-resources/howto-migrate-vm-extension.md).
+Don't apply the ManagedIdentity extension to a virtual machine. The extension was deprecated in 2019 and should no longer be used.
 
 ## Outputs can't include secrets
 
@@ -686,7 +662,40 @@ The following example **fails** because it uses a [list*](template-functions-res
 }
 ```
 
+## Use protectedSettings for commandToExecute secrets
+
+Test name: **CommandToExecute Must Use ProtectedSettings For Secrets**
+
+In a Custom Script Extension, use the encrypted property `protectedSettings` when `commandToExecute` includes secret data such as a password. Examples of secret data types are `secureString`, `secureObject`, `list()` functions, or scripts.
+
+For more information about Custom Script Extension for virtual machines, see [Windows](
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](../../virtual-machines/extensions/custom-script-linux.md), and the schema [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+
+In this example, a template with a parameter named `adminPassword` and type `secureString` **passes** the test because the encrypted property `protectedSettings` includes `commandToExecute`.
+
+```json
+"properties": [
+  {
+    "protectedSettings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
+The test **fails** if the unencrypted property `settings` includes `commandToExecute`.
+
+```json
+"properties": [
+  {
+    "settings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
 ## Next steps
 
-- To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
-- For a Microsoft Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
+* To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
+* For a Microsoft Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).

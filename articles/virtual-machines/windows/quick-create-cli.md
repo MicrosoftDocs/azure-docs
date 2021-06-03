@@ -2,7 +2,8 @@
 title: Quickstart - Create a Windows VM using the Azure CLI 
 description: In this quickstart, you learn how to use the Azure CLI to create a Windows virtual machine
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/02/2019
@@ -61,6 +62,8 @@ It takes a few minutes to create the VM and supporting resources. The following 
 ```
 
 Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Open port 80 for web traffic
 

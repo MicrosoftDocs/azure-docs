@@ -1,7 +1,6 @@
 ---
 title: Create views to analyze log data in Azure Monitor | Microsoft Docs
 description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article contains an overview of View Designer and presents procedures for creating and editing custom views.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -34,10 +33,10 @@ The views that you create with View Designer contain the elements that are descr
 |:--- |:--- |
 | Tiles | Are displayed on your Azure Monitor **Overview** page. Each tile displays a visual summary of the custom view it represents. Each tile type provides a different visualization of your records. You select a tile to display a custom view. |
 | Custom view | Displayed when you select a tile. Each view contains one or more visualization parts. |
-| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log queries](../log-query/log-query-overview.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log query that provides detailed records. |
+| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log queries](../logs/log-query-overview.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log query that provides detailed records. |
 
 ## Required permissions
-You require at least [contributor level permissions](../platform/manage-access.md#manage-access-using-azure-permissions) in the Log Analytics workspace to create or modify views. If you don't have this permission, then the View Designer option won't be displayed in the menu.
+You require at least [contributor level permissions](../logs/manage-access.md#manage-access-using-azure-permissions) in the Log Analytics workspace to create or modify views. If you don't have this permission, then the View Designer option won't be displayed in the menu.
 
 
 ## Work with an existing view
@@ -50,7 +49,7 @@ The options are described in the following table:
 | Option | Description |
 |:--|:--|
 | Refresh   | Refreshes the view with the latest data. | 
-| Logs      | Opens the [Log Analytics](../log-query/log-query-overview.md) to analyze data with log queries. |
+| Logs      | Opens the [Log Analytics](../logs/log-query-overview.md) to analyze data with log queries. |
 | Edit       | Opens the view in View Designer to edit its contents and configuration.  |
 | Clone      | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
 | Date range | Set the date and time range filter for the data that's included in the view. This date range is applied before any date ranges set in queries in the view.  |

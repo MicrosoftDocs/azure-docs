@@ -1,7 +1,6 @@
 ---
 title: Connect Operations Manager to Azure Monitor | Microsoft Docs
 description: To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -36,8 +35,8 @@ Before starting, review the following requirements.
 * Azure Monitor only supports System Center Operations Manager 2016 or later, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * Integrating System Center Operations Manager 2016 with US Government cloud requires an updated Advisor management pack included with Update Rollup 2 or later. System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../platform/design-logs-deployment.md).
-* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../platform/manage-access.md#manage-access-using-azure-permissions).
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../logs/design-logs-deployment.md).
+* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../logs/manage-access.md#manage-access-using-azure-permissions).
 
 * Supported Regions - Only the following Azure regions are supported by System Center Operations Manager to connect to a Log Analytics workspace:
     - West Central US
@@ -91,11 +90,15 @@ The information below list the proxy and firewall configuration information requ
 
 ### TLS 1.2 protocol
 
-To insure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12).
+To insure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12).
 
 ## Connecting Operations Manager to Azure Monitor
 
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your Log Analytics workspaces.
+
+> [!NOTE]
+> If you notice that Log Analytics data stops coming in from a specific agent or management server, you can try resetting the Winsock Catalog (use `netsh winsock reset`), and then reboot the server. Resetting the Winsock Catalog allows network connections that were broken to be reestablished.
+
 
 During initial registration of your Operations Manager management group with a Log Analytics workspace, the option to specify the proxy configuration for the management group is not available in the Operations console.  The management group has to be successfully registered with the service before this option is available.  To work around this, you need to update the system proxy configuration using Netsh on the system your running the Operations console from to configure integration, and all management servers in the management group.  
 
@@ -341,4 +344,3 @@ In the future if you plan on reconnecting your management group to a Log Analyti
 ## Next steps
 
 To add functionality and gather data, see [Add Azure Monitor solutions from the Solutions Gallery](../insights/solutions.md).
-

@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus topics and subscriptions | Microsoft Docs
 description: Write a C# .NET Core console application that uses Service Bus messaging topics and subscriptions.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/02/2020
 ms.custom: devx-track-csharp
@@ -25,7 +25,7 @@ This tutorial covers the following steps:
     3. Create a **topic** in the namespace.
     4. Create **one subscription** to the topic in the namespace.
 3. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
-4. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
+4. [NET Core SDK](https://dotnet.microsoft.com/download), version 2.0 or later.
  
 ## Send messages to the topic
 

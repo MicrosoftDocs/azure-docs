@@ -1,12 +1,8 @@
 ---
 title: Horizon API
 description: This guide describes commonly used Horizon methods.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/5/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # Horizon API 

@@ -18,6 +18,10 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 
 At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
 
+### Can I use Azure Bastion with Azure Private DNS Zones?
+
+The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone.
+
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
 No. You don't need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal](https://portal.azure.com) to let you get RDP/SSH access to your virtual machine directly in the browser.
@@ -42,7 +46,7 @@ This feature doesn't work with AADJ VM extension-joined machines using Azure AD 
 
 ### <a name="browsers"></a>Which browsers are supported?
 
-Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
+The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
 
 ### <a name="data"></a>Where does Azure Bastion store customer data?
 

@@ -1,13 +1,8 @@
 ---
 title: About the ServiceNow integration
-titleSuffix: Azure Defender for IoT
 description: The Defender for IoT ICS Management application for ServiceNow provides SOC analysts with multidimensional visibility into the specialized OT protocols and IoT devices deployed in industrial environments, along with ICS-aware behavioral analytics to rapidly detect suspicious or anomalous behavior.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # The Defender for IoT ICS management application for ServiceNow

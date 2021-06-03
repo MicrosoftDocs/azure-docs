@@ -1,8 +1,8 @@
 ---
 title: 'Monitoring - Azure Database for MySQL - Flexible Server'
 description: This article describes the metrics for monitoring and alerting for Azure Database for MySQL Flexible Server, including CPU, storage, and connection statistics.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020

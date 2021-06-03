@@ -1,7 +1,6 @@
 ---
 title: Monitor an Azure resource with Azure Monitor
 description: Learn how to collect and analyze data for an Azure resource in Azure Monitor.
-ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
@@ -62,7 +61,7 @@ Metrics are numerical values that describe some aspect of your resource at a par
 
 
 ## Next steps
-In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Continue to the next quickstart which shows you how to collect the Activity log into a Log Analytics workspace where they can be analyzed using [log queries](../log-query/log-query-overview.md).
+In this quickstart, you viewed the Activity log and metrics for an Azure resource which are automatically collected by Azure Monitor. Continue to the next quickstart which shows you how to collect the Activity log into a Log Analytics workspace where they can be analyzed using [log queries](../logs/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Send Azure Activity log to Log Analytics workspace](../learn/quick-collect-activity-log-portal.md)
+> [Send Azure Activity log to Log Analytics workspace](./quick-collect-activity-log-portal.md)

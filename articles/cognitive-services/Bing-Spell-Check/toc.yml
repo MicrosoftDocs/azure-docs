@@ -55,15 +55,15 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-spellcheck/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-spellcheck/
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python
+      href: /python/api/overview/azure/cognitiveservices/spellcheck
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/bingspellcheck
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
@@ -84,7 +84,5 @@
     href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598195-bing-spell-check
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

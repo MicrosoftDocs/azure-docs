@@ -13,13 +13,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# What is Azure Application Consistent Snapshot tool (preview)
+# What is Azure Application Consistent Snapshot tool
 
-Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).  
+Azure Application Consistent Snapshot tool (AzAcSnap) is a command-line tool that enables data protection for third-party databases by handling all the orchestration required to put them into an application consistent state before taking a storage snapshot, after which it returns them to an operational state.
+
+## Supported Platforms and OS
+
+- **Databases**
+  - SAP HANA (refer to [support matrix](azacsnap-get-started.md#snapshot-support-matrix-from-sap) for details)
+
+- **Operating Systems**
+  - SUSE Linux Enterprise Server 12+
+  - Red Hat Enterprise Linux 7+
 
 ## Benefits of using AzAcSnap
 
@@ -36,7 +45,7 @@ AzAcSnap leverages the volume snapshot and replication functionalities in Azure 
 - **Support for disaster recovery**
     AzAcSnap leverages storage volume replication to provide options for recovering replicated application-consistent snapshots at a remote site.
 
-AzAcSnap is a single binary.  It does not need additional agents or plug-ins to interact with the database or the storage (Azure NetApp Files via Azure Resource Manager, and Azure Large Instance via SSH).  AzAcSnap must be installed on a system that has connectivity to the database and the storage.  However, the flexibility of installation and configuration allows for either a single centralized installation or a fully distributed installation with copies installed on each database installation.
+AzAcSnap is a single binary.  It does not need additional agents or plug-ins to interact with the database or the storage (Azure NetApp Files via Azure Resource Manager, and Azure Large Instance via SSH).  AzAcSnap must be installed on a system that has connectivity to the database and the storage.  However, the flexibility of installation and configuration allows for either a single centralized installation (Azure NetApp Files only) or a fully distributed installation (Azure NetApp Files and Azure Large Instance) with copies installed on each database installation.
 
 ## Architecture overview
 
@@ -73,7 +82,7 @@ The command options are as follows with the commands as the main bullets and the
   - refer to [details command reference](azacsnap-cmd-ref-details.md).
 - **`-c delete`** This command deletes a storage snapshot or a set of snapshots. You can use either the SAP HANA Backup ID as found in HANA Studio or the storage snapshot name. The Backup ID is only tied to the `hana` snapshots, which are created for the data and shared volumes. Otherwise, if the snapshot name is entered, it searches for all snapshots that match the entered snapshot name.
   - see the [delete](azacsnap-cmd-ref-delete.md).
-- **`-c restore`** provides two methods to restore a snapshot to a volume, by either creating a new volume based on the snapshot or rolling back a volume to a preview state.
+- **`-c restore`** provides two methods to restore a snapshot to a volume, by either creating a new volume based on the snapshot or rolling back a volume to a previous state.
   - **`--restore snaptovol`** Creates a new volume based on the latest snapshot on the target volume.
   - **`-c restore --restore revertvolume`** Reverts the target volume to a prior state based on the most recent snapshot.
   - refer to [restore command reference](azacsnap-cmd-ref-restore.md).

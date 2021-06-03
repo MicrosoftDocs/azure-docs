@@ -1,7 +1,6 @@
 ---
 title: Create and share dashboards of Azure Log Analytics data | Microsoft Docs
 description: This tutorial helps you understand how Log Analytics dashboards can visualize all of your saved log queries, giving you a single lens to view your environment.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
@@ -83,7 +82,7 @@ Now that we have a query pinned to the dashboard, you will notice it has a gener
 ![Completed configuration of sample dashboard](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## Next steps
-In this tutorial, you learned how to create a dashboard in the Azure portal and add a log query to it.  Advance to the next tutorial to learn the different responses you can implement based on log query results.  
+In this tutorial, you learned how to create a dashboard in the Azure portal and add a log query to it.  Follow this link to see pre-built Log Analytics script samples.
 
 > [!div class="nextstepaction"]
-> [Respond to events with Log Analytics Alerts](../alerts/tutorial-response.md)
+> [Log Analytics script samples](../powershell-samples.md)

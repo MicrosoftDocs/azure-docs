@@ -1,7 +1,7 @@
 - name: Overview
   items:
   - name: About Azure networking
-    href: networking-overview.md
+    href: fundamentals/networking-overview.md
   - name: Architecture
     items:
     - name: Azure for network engineers

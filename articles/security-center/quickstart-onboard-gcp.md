@@ -131,7 +131,7 @@ To view all the active recommendations for your resources by resource type, use 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options"::: 
 
 
-## FAQ for connecting GCP accounts to Azure Security Center
+## FAQ - Connecting GCP accounts to Azure Security Center
 
 ### Can I connect multiple GCP organizations to Security Center?
 Yes. Security Center's GCP connector connects your Google Cloud resources at the *organization* level. 

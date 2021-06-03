@@ -52,7 +52,7 @@ The *Airline 2012 On-Time Data Set* consists of 12 comma-separated files that co
 
 1. In the right pane, select the **Environment** tab. The variables are displayed under **Values**.
 
-    ![HDInsight R studio web console](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    :::image type="content" source="./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png" alt-text="HDInsight R studio web console" border="true":::
 
 1. Create a local directory, and download the sample data. In RStudio, enter the following code:
 

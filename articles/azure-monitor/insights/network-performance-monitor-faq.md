@@ -1,7 +1,6 @@
 ---
 title: FAQs - Network Performance Monitor solution in Azure | Microsoft Docs
 description: This article captures the frequently asked questions about Network Performance Monitor in Azure. Network Performance Monitor (NPM) helps you monitor the performance of your networks in near real time and detect and locate network performance bottlenecks.
-ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
@@ -14,7 +13,7 @@ ms.date: 10/12/2018
 ![Network Performance Monitor symbol](media/network-performance-monitor-faq/npm-symbol.png)
 
 > [!IMPORTANT]
-> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) in Azure Network Watcher before 29 February 2024.
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
@@ -92,9 +91,6 @@ If a hop is red, it signifies that it is part of at-least one unhealthy path. NP
 
 ### How does fault localization in Performance Monitor work?
 NPM uses a probabilistic mechanism to assign fault-probabilities to each network path, network segment, and the constituent network hops based on the number of unhealthy paths they are a part of. As the network segments and hops become part of more number of unhealthy paths, the fault-probability associated with them increases. This algorithm works best when you have many nodes with NPM agent connected to each other as this increases the data points for calculating the fault-probabilities.
-
-### How can I create alerts in NPM?
-Currently, creating alerts from the NPM UI is failing due to a known issue. Please [create alerts manually](../alerts/alerts-log.md).
 
 ### What are the default Log Analytics queries for alerts
 Performance monitor query

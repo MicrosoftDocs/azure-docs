@@ -1,30 +1,26 @@
 - name: Immersive Reader Documentation
   href: index.yml
-- name: What is Immersive Reader?
-  href: Overview.md
+- name: Overview
+  items:
+  - name: What is Immersive Reader?
+    href: Overview.md
+  - name: Language support
+    href: language-support.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/
+  - name: Release notes 
+    href: release-notes.md
 - name: Quickstart
   href: ./quickstarts/client-libraries.md
-- name: Tutorials
-  items:
-  - name: Launch the Immersive Reader (Android)
-    href: tutorial-android.md
-  - name: Launch the Immersive Reader (iOS)
-    href: tutorial-ios.md
-  - name: Launch the Immersive Reader (Python)
-    href: tutorial-python.md
-  - name: Use multiple Immersive Reader resources
-    href: tutorial-multiple-resources.md
 - name: How-To
   items:
   - name: Create an Immersive Reader resource
     href: how-to-create-immersive-reader.md
-  - name: Set the cookie policy
-    href: how-to/set-cookie-policy.md
-  - name: Display math
-    href: how-to/display-math.md
-  - name: Launch the Immersive Reader with HTML content
-    href: how-to-launch-with-html.md
-  - name: Customize the Immersive Reader button
+  - name: Launch the Immersive Reader
+    href: how-to-launch-immersive-reader.md
+  - name: Prepare HTML content
+    href: how-to-prepare-html.md
+  - name: Edit the Immersive Reader launch button
     href: how-to-customize-launch-button.md
   - name: Cache the authentication token
     href: how-to-cache-token.md
@@ -32,21 +28,33 @@
     href: how-to-configure-read-aloud.md
   - name: Configure translation
     href: how-to-configure-translation.md
+  - name: Display math
+    href: how-to/display-math.md
+  - name: Set the cookie policy
+    href: how-to/set-cookie-policy.md
   - name: Store user preferences
     href: how-to-store-user-preferences.md
+  - name: Use multiple Immersive Reader resources
+    href: how-to-multiple-resources.md
+  - name: Enterprise readiness
+    items:
+      - name: Set up Virtual Networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/immersive-reader/context/context
+      - name: Use Azure AD authentication
+        href: ../authentication.md?context=/azure/cognitive-services/immersive-reader/context/context
 - name: Reference
   items:
   - name: JavaScript SDK
     href: reference.md
-  - name: Release notes
-    href: release-notes.md
 - name: Resources
   items:
-  - name: Support & help options
+  - name: Enterprise readiness
+    items:
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
-  - name: Azure roadmap
+  - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Language support
-    href: language-support.md
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services

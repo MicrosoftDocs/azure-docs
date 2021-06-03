@@ -48,10 +48,10 @@ The following procedure shows you how to install HDInsight applications to an ex
 3. Select an HDInsight cluster from the list.  If you don't have one, you must create one first.  see [Create clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 4. Under the **Settings** category, select **Applications**. You can see a list of installed applications in the main window. 
    
-    ![HDInsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png" alt-text="HDInsight applications portal menu":::
 5. Select **+Add** from the menu. You can see a list of available applications.  If **+Add** is greyed out, that means there are no applications for this version of the HDInsight cluster.
    
-    ![HDInsight applications available applications](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png" alt-text="HDInsight applications available applications":::
 6. Select one of the available applications, and then follow the instructions to accept the legal terms.
 
 You can see the installation status from the portal notifications (select the bell icon on the top of the portal). After the application is installed, the application  appears on the Installed Apps list.
@@ -60,7 +60,7 @@ You can see the installation status from the portal notifications (select the be
 
 You have the option to install HDInsight applications when you create a cluster. During the process, HDInsight applications are installed after the cluster is created and is in the running state. To install applications during cluster creation using the Azure portal, from the **Configuration + pricing** tab, select **+ Add application**.
 
-![Azure portal cluster configuration applications](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
+:::image type="content" source="./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png" alt-text="Azure portal cluster configuration applications":::
 
 ## List installed HDInsight apps and properties
 The portal shows a list of the installed HDInsight applications for a cluster, and the properties of each installed application.
@@ -72,7 +72,7 @@ The portal shows a list of the installed HDInsight applications for a cluster, a
 3. Select an HDInsight cluster from the list.
 4. Under the **Settings** category, select **Applications**. You can see a list of installed applications in the main window. 
    
-    ![HDInsight applications installed apps](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png" alt-text="HDInsight applications installed apps":::
 5. Select one of the installed applications to show the property. The property lists:
 
     |Property | Description |

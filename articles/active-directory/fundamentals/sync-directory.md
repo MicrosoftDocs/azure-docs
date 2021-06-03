@@ -50,7 +50,7 @@ You need to synchronize identity data from your on-premises Active Directory env
 
 ## Implement directory synchronization with Azure AD
 
-* [What is identity provisioning?](../cloud-provisioning/what-is-provisioning.md) 
+* [What is identity provisioning?](../cloud-sync/what-is-provisioning.md) 
 
 * [Hybrid identity directory integration tools](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 

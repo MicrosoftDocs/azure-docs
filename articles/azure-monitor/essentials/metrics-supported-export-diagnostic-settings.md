@@ -4,15 +4,14 @@ description: Discussion of NULL vs. zero values when exporting metrics and a poi
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
-ms.subservice: metrics
 ---
 # Azure Monitor platform metrics exportable via Diagnostic Settings
 
-Azure Monitor provides [platform metrics](../essentials/data-platform-metrics.md) by default with no configuration. It provides several ways to interact with platform metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. See [metrics-supported](../platform/metrics-supported.md) for a complete list of platform metrics currently available with Azure Monitor's consolidated metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics may be available in the portal or using legacy APIs.
+Azure Monitor provides [platform metrics](../essentials/data-platform-metrics.md) by default with no configuration. It provides several ways to interact with platform metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. See [metrics-supported](./metrics-supported.md) for a complete list of platform metrics currently available with Azure Monitor's consolidated metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics may be available in the portal or using legacy APIs.
 
 ## Metrics not exportable via diagnostic settings
 
-The content that used to be at this location has been moved to [Supported list of Azure Monitor Metrics](../platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+The content that used to be at this location has been moved to [Supported list of Azure Monitor Metrics](./metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
 There are limitations when exporting metrics via diagnostic settings. All metrics are exportable using the REST API. 
 
@@ -542,5 +541,4 @@ Following is a list of the metrics whose behavior changed.
 | Microsoft.Sql/servers/elasticPools | xtp_storage_percent | In-Memory OLTP storage percent | 
 | Microsoft.Sql/servers | dtu_consumption_percent | DTU percentage | 
 | Microsoft.Sql/servers | dtu_used | DTU used | 
-| Microsoft.Sql/managedInstances | avg_cpu_percent | Average CPU percentage | 
-
+| Microsoft.Sql/managedInstances | avg_cpu_percent | Average CPU percentage |

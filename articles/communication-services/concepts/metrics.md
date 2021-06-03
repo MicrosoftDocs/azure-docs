@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 05/19/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -82,6 +82,8 @@ The following operations are available on Authentication API request metrics:
 | DeleteIdentity       | Deletes an identity. |
 | CreateToken          | Creates an access token. |
 | RevokeToken          | Revokes all access tokens created for an identity before a time given. |
+
+:::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
 
 ## Next Steps
 

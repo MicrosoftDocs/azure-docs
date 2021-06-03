@@ -2,7 +2,7 @@
 title: Tutorial - Network planning checklist
 description: Learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 04/23/2021
 ---
 
 # Networking planning checklist for Azure VMware Solution 
@@ -80,17 +80,13 @@ The subnets:
 | On-premises vCenter network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter to Private Cloud vCenter   |     
 
 ## DHCP and DNS resolution considerations
-Applications and workloads running in a private cloud environment require name resolution and DHCP services for lookup and IP address assignments. A proper DHCP and DNS infrastructure are required to provide these services. You can configure a virtual machine to provide these services in your private cloud environment.  
 
-Use the DHCP service built-in to NSX or use a local DHCP server in the private cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
+[!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
 
 ## Next steps
 
-In this tutorial, you learned about the considerations and requirements for deploying an Azure VMware Solution private cloud. 
-
-
-Once you have the proper networking in place, continue to the next tutorial to create your Azure VMware Solution private cloud.
+In this tutorial, you learned about the considerations and requirements for deploying an Azure VMware Solution private cloud. Once you have the proper networking in place, continue to the next tutorial to create your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
 > [Create an Azure VMware Solution private cloud](tutorial-create-private-cloud.md)

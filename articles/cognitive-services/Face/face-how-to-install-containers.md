@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 04/28/2021
 ms.author: aahi
 keywords: on-premises, Docker, container, identify
 ---
 
-# Install and run Face containers (Preview)
+# Install and run Face containers (Retiring)
 
 > [!IMPORTANT]
-> The limit for Face container users has been reached. We are not currently accepting new applications for the Face container.
+> The Face container preview is no longer accepting applications and the container has been deprecated as of April 29th 2021. The Face container will be fully retired on July 26th 2021.
 
 Azure Cognitive Services Face API provides a Linux Docker container that detects and analyzes human faces in images. It also identifies attributes, which include face landmarks such as noses and eyes, gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score. Face also can compare faces against a database to see if a similar-looking or identical face already exists. It also can organize similar faces into groups by using shared visual traits.
 

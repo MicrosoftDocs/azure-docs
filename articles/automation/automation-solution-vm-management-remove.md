@@ -3,7 +3,7 @@ title: Remove Azure Automation Start/Stop VMs during off-hours overview
 description: This article describes how to remove the Start/Stop VMs during off-hours feature and unlink an Automation account from the Log Analytics workspace.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
 ---
 
@@ -17,23 +17,12 @@ After you enable the Start/Stop VMs during off-hours feature to manage the runni
 
 Deleting this feature only removes the associated runbooks, it doesn't delete the schedules or variables that were created during deployment or any custom-defined ones created after.
 
+> [!NOTE]
+> Before proceeding, verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource which prevents accidental deletion or modification of critical resources. When you deploy the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Any locks need to be removed before you can delete the Automation account.
+
 ## Delete the dedicated resource group
 
-1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
-
-2. Navigate to your Automation account, and select **Linked workspace** under **Related resources**.
-
-3. Select **Go to workspace**.
-
-4. Click **Solutions** under **General**.
-
-5. On the Solutions page, select **Start-Stop-VM[Workspace]**.
-
-6. On the **VMManagementSolution[Workspace]** page, select **Delete** from the menu.
-
-    ![Delete VM management feature](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-7. To delete the resource group created to only support Start/Stop VMs during off-hours, follow the steps outlined in the [Azure Resource Manager resource group and resource deletion](../azure-resource-manager/management/delete-resource-group.md) article.
+To delete the resource group, follow the steps outlined in the [Azure Resource Manager resource group and resource deletion](../azure-resource-manager/management/delete-resource-group.md) article.
 
 ## Delete the Automation account
 
@@ -89,7 +78,7 @@ While the information is verified and the account is deleted, you can track the 
 
 ## Delete the feature
 
-To delete Start/Stop VMs during off-hours from your Automation account, perform the following steps. The Automation account and Log Analytics workspace aren't deleted as part of this process. If you don't want to keep the Log Analytics workspace, you must manually delete it. For more information about deleting your workspace, see [Delete and recover Azure Log Analytics workspace](../azure-monitor/platform/delete-workspace.md).
+To delete Start/Stop VMs during off-hours from your Automation account, perform the following steps. The Automation account and Log Analytics workspace aren't deleted as part of this process. If you don't want to keep the Log Analytics workspace, you must manually delete it. For more information about deleting your workspace, see [Delete and recover Azure Log Analytics workspace](../azure-monitor/logs/delete-workspace.md).
 
 1. Navigate to your Automation account, and select **Linked workspace** under **Related resources**.
 

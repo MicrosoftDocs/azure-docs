@@ -1,7 +1,6 @@
 ---
-title: Change analysis in Azure Monitor for VMs
-description: Azure Monitor for VMs integration with Application Change Analysis integration allows you to view any changes made to a virtual machine that may have affected it performance.
-ms.subservice: 
+title: Change analysis in VM insights
+description: VM insights integration with Application Change Analysis integration allows you to view any changes made to a virtual machine that may have affected it performance.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,19 +8,19 @@ ms.date: 09/23/2020
 
 ---
 
-# Change analysis in Azure Monitor for VMs
-Azure Monitor for VMs integration with [Application Change Analysis](../app/change-analysis.md) integration allows you to view any changes made to a virtual machine that may have affected it performance.
+# Change analysis in VM insights
+VM insights integration with [Application Change Analysis](../app/change-analysis.md) integration allows you to view any changes made to a virtual machine that may have affected it performance.
 
 ## Overview
-Suppose you have a VM that beings running slow and want to investigate whether recent changes to its configuration could have affected its performance. You view the performance of the VM using Azure Monitor for VMs and find that there is an increase in memory usage in the past hour. Change analysis can help you determine whether any configuration changes made around this time were the cause of this increase.
+Suppose you have a VM that beings running slow and want to investigate whether recent changes to its configuration could have affected its performance. You view the performance of the VM using VM insights and find that there is an increase in memory usage in the past hour. Change analysis can help you determine whether any configuration changes made around this time were the cause of this increase.
 
 The Application Change Analysis service aggregates changes from [Azure Resource Graph](../../governance/resource-graph/how-to/get-resource-changes.md) as well as nested properties changes such as network security rules from Azure Resource Manager. 
 
 ## Enabling change analysis
-To onboard change analysis in Azure Monitor for VMs, you must register the *Microsoft.ChangeAnalysis* resource provider. The first time you launch Azure Monitor for VMs or Application Change Analysis in the Azure portal, this resource provider will automatically be registered for you. Application Change Analysis is a free service that has no performance overhead on resources.
+To onboard change analysis in VM insights, you must register the *Microsoft.ChangeAnalysis* resource provider. The first time you launch VM insights or Application Change Analysis in the Azure portal, this resource provider will automatically be registered for you. Application Change Analysis is a free service that has no performance overhead on resources.
 
 ## View change analysis
-Change analysis is available from the **Performance** or **Map** tab of Azure Monitor for VMs by selecting the **Change** option. 
+Change analysis is available from the **Performance** or **Map** tab of VM insights by selecting the **Change** option. 
 
 [![Investigate changes](media/vminsights-change-analysis/investigate-changes-screenshot.png)](media/vminsights-change-analysis/investigate-changes-screenshot-zoom.png#lightbox)
 

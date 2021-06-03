@@ -1,7 +1,6 @@
 ---
-title: How to Query Logs from Azure Monitor for VMs
-description: Azure Monitor for VMs solution collects metrics and log data to and this article describes the records and includes sample queries.
-ms.subservice: 
+title: How to Query Logs from VM insights
+description: VM insights solution collects metrics and log data to and this article describes the records and includes sample queries.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,13 +8,13 @@ ms.date: 03/12/2020
 
 ---
 
-# How to query logs from Azure Monitor for VMs
+# How to query logs from VM insights
 
-Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+VM insights collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../logs/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Map records
 
-One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Azure Monitor for VMs Map feature. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
+One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to VM insights Map feature. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
 There are internally generated properties you can use to identify unique processes and computers:
 
@@ -469,6 +468,6 @@ The performance counters currently collected into the *InsightsMetrics* table ar
 
 ## Next steps
 
-* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../log-query/log-analytics-tutorial.md) in the Azure portal to write log queries.
+* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../logs/log-analytics-tutorial.md) in the Azure portal to write log queries.
 
-* Learn about [writing search queries](../log-query/get-started-queries.md).
+* Learn about [writing search queries](../logs/get-started-queries.md).

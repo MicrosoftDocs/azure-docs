@@ -26,7 +26,7 @@ This topic provides instructions on how to:
 The Python client library has been tested under the following environments:
 
 * Windows, Mac, and Linux
-* Python 2.7, 3.3 and 3.4
+* Python 2.7 and 3.6+
 
 It has a dependency on the following packages:
 

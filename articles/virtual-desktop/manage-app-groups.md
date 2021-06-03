@@ -3,9 +3,9 @@ title: Manage app groups for Windows Virtual Desktop portal - Azure
 description: How to manage Windows Virtual Desktop app groups with the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 05/28/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Tutorial: Manage app groups with the Azure portal
 
@@ -22,9 +22,7 @@ In this tutorial, learn how to:
 
 ## Create a RemoteApp group
 
-If you've already created a host pool and session host VMs using the Azure
-portal or PowerShell, you can add application groups from the Azure portal with
-the following process:
+If you've already created a host pool and session host VMs using the Azure portal or PowerShell, you can add application groups from the Azure portal with the following process:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com/).
    
@@ -121,6 +119,30 @@ The deployment process will do the following things for you:
 
 >[!IMPORTANT]
 >You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Windows Virtual Desktop (classic).
+
+## Edit or remove an app
+
+To edit or remove an app from an app group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+   
+   >[!NOTE]
+   >If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us) instead.
+
+2. Search for and select **Windows Virtual Desktop**.
+
+3. You can either add an application group directly or from an existing host pool by choosing one of the following options:
+
+    - To add a new application group directly, select **Application groups** in the menu on the left side of the page, then select the app group you want to edit.
+    - To edit an app group in an existing host pool, select **Host pools** in the menu on the left side of the screen, select the name of the host pool, then select **Application groups** in the menu that appears on the left side of the screen, and then select the app group you want to edit.
+
+4. Select **Applications** in the menu on the left side of the page.
+
+5. If you want to remove an application, select the check box next to the application, then select **Remove** from the menu on the top of the page.
+
+6. If you want to edit the details of an application, select the application name. This will open up the editing menu.
+
+7. When you're done making changes, select **Save**.
 
 ## Next steps
 

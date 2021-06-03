@@ -7,11 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.author: alkohli
+ms.date: 02/22/2021
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage access, power, and connectivity mode for your Azure Stack Edge Pro GPU
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro with GPU device. These operations are performed via the local web UI or the Azure portal.
 
@@ -31,7 +34,9 @@ In this article, you learn how to:
 
 The access to your Azure Stack Edge Pro device is controlled by the use of a device password. You can change the password via the local web UI. You can also reset the device password in the Azure portal.
 
-The access to data on the device disks is also controlled by encryption-at-rest keys.
+The access to data on the device disks is also controlled by encryption-at-rest keys. 
+
+You can access the device by opening a remote PowerShell session over HTTP or HTTPS from the local web UI of the device.
 
 ### Change device password
 
@@ -90,6 +95,21 @@ Follow these steps to rotate the encryption-at-rest keys.
     Save the `.json` key file in a secure location. This file is used to facilitate a potential future recovery of the device.
 
     ![Screenshot shows the Reset device password dialog box.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+
+## Enable device access via remote PowerShell over HTTP
+
+You can open a remote PowerShell session to your device over HTTP or HTTPS. By default, you access the device via a PowerShell session over HTTPS. However, in trusted networks, it is acceptable to enable remote PowerShell over HTTP.
+
+Follow these steps in the local UI to enable remote PowerShell over HTTP:
+
+1. In the local UI of your device, go to **Settings** from the top right corner of the page.
+1. Select **Enable** to allow you to open a remote PowerShell session for your device over HTTP. This setting should be enabled only in trusted networks.
+
+    ![Screenshot shows Enable remote PowerShell over HTTP setting.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/enable-remote-powershell-http-1.png)
+
+1. Select **Apply**.
+
+You can now connect to the PowerShell interface of the device over HTTP. For details, see [Connect to the PowerShell interface of your device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 ## Manage resource access
 

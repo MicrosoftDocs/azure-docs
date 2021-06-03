@@ -333,7 +333,7 @@ Examples of services that can be added using the next hop of Internet are:
 |Resource|Link|
 |---|---|
 | Outbound connections in Azure | [https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections](../load-balancer/load-balancer-outbound-connections.md) |
-| Use Azure custom routes to enable KMS activation | [https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md) |
+| Use Azure custom routes to enable KMS activation | [https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation) |
 | Locking down an App Service Environment  | [https://docs.microsoft.com/azure/app-service/environment/firewall-integration](../app-service/environment/firewall-integration.md) |
 |
 

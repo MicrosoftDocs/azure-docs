@@ -6,7 +6,6 @@ ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
 ms.service: industrial-iot 
-ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
 ---
@@ -177,7 +176,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 ### Prerequisites
 
-1. Install the latest version of the [Azure command line interface (AZ)](/cli/azure/?view=azure-cli-latest) from [here](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Install the latest version of the [Azure command line interface (AZ)](/cli/azure/) from [here](/cli/azure/install-azure-cli).
 
 ### Quickstart
 

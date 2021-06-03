@@ -2,7 +2,7 @@
 title: Azure Service Bus - Automatically update messaging units 
 description: This article shows you how you can use automatically update messaging units of a Service Bus namespace.
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 03/03/2021
 ---
 
 # Automatically update messaging units of an Azure Service Bus namespace 
@@ -52,7 +52,7 @@ You can configure automatic scaling of messaging units by using conditions. This
 You can't set a schedule to autoscale on a specific days or date range for a default condition. This scale condition is executed when none of the other scale conditions with schedules match. 
 
 ### Scale based on a metric
-The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, and 4 to 8. Similarly, decrements are done from 8 to 4, 4 to 2, and 2 to 1. 
+The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, 4 to 8, and 8 to 16. Similarly, decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
 
 1. On the **Autoscale setting** page, select **Custom auto scale** for the **Choose how to scale your resource** option. 
 1. In the **Default** section of the page, specify a **name** for the default condition. Select the **pencil** icon to edit the text. 
@@ -69,7 +69,7 @@ The following procedure shows you how to add a condition to automatically increa
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Default - scale out if CPU usage is greater than 75%":::       
 
         > [!NOTE]
-        > The autoscale feature increases the messaging units for the namespace if the overall CPU usage goes above 75% in this example. Increments are done from 1 to 2, 2 to 4, and 4 to 8. 
+        > The autoscale feature increases the messaging units for the namespace if the overall CPU usage goes above 75% in this example. Increments are done from 1 to 2, 2 to 4, 4 to 8, and 8 to 16. 
 1. Select **+ Add a rule** again, and follow these steps on the **Scale rule** page:
     1. Select a metric from the **Metric name** drop-down list. In this example, it's **CPU**. 
     1. Select an operator and threshold values. In this example, they're **Less than** and **25** for **Metric threshold to trigger scale action**. 
@@ -79,7 +79,7 @@ The following procedure shows you how to add a condition to automatically increa
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Default - scale in if CPU usage is less than 25%":::       
 
         > [!NOTE]
-        > The autoscale feature decreases the messaging units for the namespace if the overall CPU usage goes below 25% in this example. Decrements are done from 8 to 4, 4 to 2, and 2 to 1. 
+        > The autoscale feature decreases the messaging units for the namespace if the overall CPU usage goes below 25% in this example. Decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
 1. Set the **minimum** and **maximum** and **default** number of messaging units.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Default rule based on a metric":::
@@ -131,8 +131,14 @@ The previous section shows you how to add a default condition for the autoscale 
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scale to specific messaging units - repeat specific days":::
 
-> [!IMPORTANT]
-> To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    
+    To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+
+    > [!NOTE]
+    > - The metrics you review to make decisions on autoscaling may be 5-10 minutes old. When you are dealing with spiky workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down (> 10 minutes) to ensure that there are enough messaging units to process spiky workloads. 
+    > 
+    > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us.  
+
 
 ## Next steps
 To learn about messaging units, see the [Premium messaging](service-bus-premium-messaging.md)

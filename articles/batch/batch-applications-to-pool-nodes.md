@@ -2,7 +2,7 @@
 title: Copy applications and data to pool nodes
 description: Learn how to copy applications and data to pool nodes.
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/18/2021
 ---
 
 # Copy applications and data to pool nodes
@@ -28,10 +28,6 @@ If every job that runs on the pool runs an application (.exe) that must first be
 For applications or data that need to be installed on every node in the pool, consider using [application packages](batch-application-packages.md). There is no install command associated with an application package, but you can use a start task to run any install command. If your application doesn't require installation, or consists of a large number of files, you can use this method.
 
 Application packages are useful when you have a large number of files, because they can combine many file references into a small payload. If you try to include more than 100 separate resource files into one task, the Batch service might come up against internal system limitations for a single task. Application packages are also useful when you have many different versions of the same application and need to choose between them.
-
-## Extensions
-
-[Extensions](create-pool-extensions.md) are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes. When you create a pool, you can select a supported extension to be installed on the compute nodes as they are provisioned. After that, the extension can perform its intended operation.
 
 ## Job preparation task resource files
 

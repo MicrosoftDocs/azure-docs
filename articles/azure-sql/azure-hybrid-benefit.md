@@ -4,11 +4,11 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Use existing SQL Server licenses for Azure SQL Database and SQL Managed Instance discounts.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=4
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: sashan, moslake
 ms.date: 02/16/2021
 ---
@@ -45,10 +45,9 @@ To set or update the license type by using PowerShell:
 
 To set or update the license type by using the Azure CLI:
 
-- [az sql db create](/cli/azure/sql/db#az-sql-db-create)
-- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
-- [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
-- [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
+- [az sql db create](/cli/azure/sql/db#az_sql_db_create)
+- [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create)
+- [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)
 
 # [REST API](#tab/rest)
 

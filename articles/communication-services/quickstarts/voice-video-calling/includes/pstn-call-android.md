@@ -2,10 +2,14 @@
 author: nikuklic
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/14/2020
+ms.date: 03/10/2021
 ms.author: nikuklic
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
+
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Telephone%20Calling)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -26,12 +30,12 @@ Add the `PhoneNumber` type to your app by modifying **MainActivity.java**:
 
 
 ```java
-import com.azure.android.communication.common.PhoneNumber;
+import com.azure.android.communication.common.PhoneNumberIdentifier;
 ```
 
 <!--
 > [!TBD]
-> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUser" or "com.azure.communication.common.client.CommunicationUserCredential". Double-chek this.
+> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUserIdentifier" or "com.azure.communication.common.client.CommunicationTokenCredential". Double-chek this.
 -->
 
 ## Start a call to phone
@@ -47,13 +51,13 @@ Modify `startCall()` event handler in **MainActivity.java**, so that it handles 
     private void startCall() {
         EditText calleePhoneView = findViewById(R.id.callee_id);
         String calleePhone = calleePhoneView.getText().toString();
-        PhoneNumber callerPhone = new PhoneNumber("+12223334444");
+        PhoneNumberIdentifier callerPhone = new PhoneNumberIdentifier("+12223334444");
         StartCallOptions options = new StartCallOptions();
         options.setAlternateCallerId(callerPhone);
         options.setVideoOptions(new VideoOptions(null));
-        call = agent.call(
+        call = agent.startCall(
                 getApplicationContext(),
-                new PhoneNumber[] {new PhoneNumber(calleePhone)},
+                new PhoneNumberIdentifier[] {new PhoneNumberIdentifier(calleePhone)},
                 options);
     }
 ```

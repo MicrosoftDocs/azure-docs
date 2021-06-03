@@ -3,12 +3,13 @@ title: Copy an image from another gallery using PowerShell
 description: Copy an image from another gallery using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurepowershell
 #SIG to SIG
 ---
 
@@ -119,7 +120,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## Create the image version
 
-Create an image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `--managed-image` parameter for creating the image version in your destination gallery. 
+Create an image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `-Source` parameter for creating the image version in your destination gallery. 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 

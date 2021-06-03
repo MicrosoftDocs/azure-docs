@@ -477,7 +477,7 @@ The topology ties the spouts and bolts together into a graph. The graph defines 
 
 The following image is a basic diagram of the graph of components for this topology.
 
-![diagram showing the spouts and bolts arrangement](./media/apache-storm-develop-java-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-java-topology/word-count-topology1.png" alt-text="diagram showing the spouts and bolts arrangement" border="false":::
 
 To implement the topology, enter the command below to create and open a new file `WordCountTopology.java`:
 

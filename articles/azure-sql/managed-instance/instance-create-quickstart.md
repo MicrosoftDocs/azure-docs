@@ -3,13 +3,13 @@ title: "Quickstart: Create an Azure SQL Managed Instance (portal)"
 description: Create a managed instance, network environment, and client VM for access using the Azure portal in this quickstart. 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
 author: danimir
 ms.author: danil
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 1/29/2021
 ---
 # Quickstart: Create an Azure SQL Managed Instance
@@ -107,7 +107,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ### Tags
 
-- Add tags to resources in your Azure Resource Manager template (ARM template). [Tags](/azure/azure-resource-manager/management/tag-resources) help you logically organize your resources. The tag values show up in cost reports and allow for other management activities by tag. 
+- Add tags to resources in your Azure Resource Manager template (ARM template). [Tags](../../azure-resource-manager/management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports and allow for other management activities by tag. 
 
 - Consider at least tagging your new SQL Managed Instance with the Owner tag to identify who created, and the Environment tag to identify whether this system is Production, Development, etc. For more information, see [Develop your naming and tagging strategy for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
  

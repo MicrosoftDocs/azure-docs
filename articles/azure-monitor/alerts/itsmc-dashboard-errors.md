@@ -1,7 +1,6 @@
 ---
 title: Connector status errors in the ITSMC dashboard
 description: Learn about common errors that exist in the IT Service Management Connector dashboard. 
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
@@ -52,7 +51,9 @@ The following sections describe common errors that appear in the connector statu
 
 ## Invalid refresh token
 
-**Error**: "AccessToken and RefreshToken invalid. User needs to authenticate again."
+**Error**: 
+  * "AccessToken and RefreshToken invalid. User needs to authenticate again."
+  * "Could not sync templates configuration for Event,Alert,Incident. See Exception Message for more details."
 
 **Cause**: A refresh token is expired.
 
@@ -83,3 +84,11 @@ The following sections describe common errors that appear in the connector statu
 
 * When a new ITSMC instance is created, it starts syncing information from the ITSM system, such as work item templates and work items. [Sync ITSMC to generate a new refresh token](./itsmc-resync-servicenow.md).
 * [Review your connection details in ITSMC](./itsmc-connections-servicenow.md#create-a-connection) and check that ITSMC can successfully [sync](./itsmc-resync-servicenow.md).
+
+
+## IP restrictions
+**Error**: "Failed to add ITSM Connection named "XXX" due to Bad Request. Error: Bad request. Invalid parameters provided for connection. Http Exception: Status Code Forbidden."
+
+**Cause**: The IP address of ITSM application is not allow ITSM connections from partners ITSM tools.
+
+**Resolution**: In order to list the ITSM IP addresses in order to allow ITSM connections from partners ITSM tools, we recommend the to list the whole public IP range of Azure region where their LogAnalytics workspace belongs. [details here](https://www.microsoft.com/download/details.aspx?id=56519) For regions EUS/WEU/EUS2/WUS2/US South Central the customer can list ActionGroup network tag only.

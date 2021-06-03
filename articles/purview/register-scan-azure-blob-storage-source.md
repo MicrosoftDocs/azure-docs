@@ -6,7 +6,7 @@ ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/25/2020
+ms.date: 05/08/2021
 ---
 
 # Register and scan Azure Blob Storage
@@ -114,10 +114,10 @@ To register a new blob account in your data catalog, do the following:
 On the **Register sources (Azure Blob Storage)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed with in the Catalog. 
-1. Choose your subscription to filter down storage accounts
-1. Select a storage account
-1. Select a collection or create a new one (Optional)
-1. **Finish** to register the data source.
+1. Choose your subscription to filter down storage accounts.
+1. Select a storage account.
+1. Select a collection or create a new one (Optional).
+1. Select **Register** to register the data source.
 
 :::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="register sources options" border="true":::
 

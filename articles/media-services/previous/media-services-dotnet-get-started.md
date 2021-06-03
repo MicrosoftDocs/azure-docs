@@ -3,7 +3,7 @@ title: Get started with delivering content on demand using .NET | Microsoft Docs
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
@@ -12,10 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 
 # Get started with delivering content on demand using .NET SDK
@@ -58,7 +57,7 @@ Click the image to view it full size.
 
 [![Diagram showing some of the most commonly used objects in the Azure Media Services object data model for developing Video on Demand applications.](./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png)](./media/media-services-dotnet-get-started/media-services-overview-object-model.png#lightbox)
 
-You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
+You can view the whole model [here](https://m.eet.com/media/1170326/ms-part1.pdf).  
 
 ## Start streaming endpoints using the Azure portal
 

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -39,7 +39,8 @@ The following diagram shows the refresh token sliding window lifetime behavior.
 ![Refresh token lifetime](./media/configure-tokens/refresh-token-lifetime.png)
 
 > [!NOTE]
-> Single-page applications using the authorization code flow with PKCE always have a refresh token lifetime of 24 hours. [Learn more about the security implications of refresh tokens in the browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+> >Single-page applications using the authorization code flow with PKCE always have a refresh token lifetime of 24 hours while mobile apps, desktop apps, and web apps do not experience this limitation. [Learn more about the security implications of refresh tokens in the browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
 
 ## Configure token lifetime
 
@@ -223,6 +224,10 @@ The OutputClaim element contains the following attributes:
 - **AlwaysUseDefaultValue** - Force the use of the default value.
 
 ::: zone-end
+
+## Authorization code lifetime
+
+When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), the app can use the authorization code to request an access token for a target resource. Authorization codes are short-lived that expire after about 10 minutes. The authorization code lifetime cannot be configured. Make sure your application redeems the authorization codes within 10 minutes. 
 
 ## Next steps
 

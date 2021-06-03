@@ -6,8 +6,7 @@ documentationcenter:
 author: msjuergent
 manager: bburns
 editor: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -53,7 +52,7 @@ The different documents of HANA Large Instance guidance cover the following area
 - [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md)
 - [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md)
 - [High availability set up in SUSE by using the STONITH](./ha-setup-with-stonith.md)
-- [OS backup and restore for Type II SKUs of Revision 3 stamps](./os-backup-type-ii-skus.md)
+- [OS Backup](./large-instance-os-backup.md)
 - [Save on SAP HANA Large Instances with an Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Next steps**

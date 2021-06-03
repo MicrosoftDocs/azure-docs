@@ -233,11 +233,11 @@ The error message displayed is: "A verified publisher cannot be added to this ap
 
 First, verify you've met the [publisher verification requirements](publisher-verification-overview.md#requirements).
 
-When a request to add a verified publisher is made, an number of signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft does not disclose the specific criteria used to determine whether a request is risky or not.
+When a request to add a verified publisher is made, a number of signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft does not disclose the specific criteria used to determine whether a request is risky or not.
 
 ## Next steps
 
-If you have reviewed all of the previous information and are still receiving an error from Microsoft Graph, gather as much of the following information as possible related to the failing request and [contact Microsoft support](developer-support-help-options.md#open-a-support-request).
+If you have reviewed all of the previous information and are still receiving an error from Microsoft Graph, gather as much of the following information as possible related to the failing request and [contact Microsoft support](developer-support-help-options.md#create-an-azure-support-request).
 
 - Timestamp 
 - CorrelationId 

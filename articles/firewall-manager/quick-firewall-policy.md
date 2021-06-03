@@ -3,11 +3,13 @@ title: 'Quickstart: Create an Azure Firewall and a firewall policy - Resource Ma
 description: In this quickstart, you deploy an Azure Firewall and a firewall policy.
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
-ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 02/16/2021
 ms.author: victorh
+ms.date: 02/17/2021
+ms.topic: quickstart
+ms.service: firewall-manager
+ms.custom: devx-track-azurepowershell
+  - subject-armqs
+  - mode-arm
 ---
 
 # Quickstart: Create an Azure Firewall and a firewall policy - ARM template
@@ -34,11 +36,11 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-This template creates a secured virtual hub using Azure Firewall Manager, along with the necessary resources to support the scenario.
+This template creates a hub virtual network, along with the necessary resources to support the scenario.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/).
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 

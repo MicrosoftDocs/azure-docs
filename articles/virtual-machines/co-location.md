@@ -1,19 +1,16 @@
 ---
-title: Co-locate VMs 
-description: Learn about how co-locating Azure VM resources for improved latency.
+title: Proximity placement groups 
+description: Learn about using proximity placement groups in Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 3/07/2021
 ms.reviewer: zivr
 ---
 
-# Co-locate resources for improved latency
-
-When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. 
-
-## Proximity placement groups
+# Proximity placement groups
 
 Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
 
@@ -21,28 +18,26 @@ To get VMs as close as possible, achieving the lowest possible latency, you shou
 
 A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 
-
 - Low latency between stand-alone VMs.
 - Low Latency between VMs in a single availability set or a virtual machine scale set. 
 - Low latency between stand-alone VMs, VMs in multiple Availability Sets, or multiple scale sets. You can have multiple compute resources in a single placement group to bring together a multi-tiered application. 
 - Low latency between multiple application tiers using different hardware types. For example, running the backend using M-series in an availability set and the front end on a D-series instance, in a scale set, in a single proximity placement group.
 
-
 ![Graphic for proximity placement groups](./media/virtual-machines-common-ppg/ppg.png)
 
 ## Using Proximity Placement Groups 
 
-A proximity placement group is a new resource type in Azure. You need to create one before using it with other resources. Once created, it could be used with virtual machines, availability sets, or virtual machine scale sets. 
+A proximity placement group is a resource in Azure. You need to create one before using it with other resources. Once created, it could be used with virtual machines, availability sets, or virtual machine scale sets. 
 You specify a proximity placement group when creating compute resources providing the proximity placement group ID. 
 
 You can also move an existing resource into a proximity placement group. When moving a resource into a proximity placement group, you should stop (deallocate) the asset first since it will be redeployed potentially into a different data center in the region to satisfy the colocation constraint. 
 
 In the case of availability sets and virtual machine scale sets, you should set the proximity placement group at the resource level rather than the individual virtual machines. 
 
-A proximity placement group is a co-location constraint rather than a pinning mechanism. It is pinned to a specific data center with the deployment of the first resource to use it. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it is no longer pinned. Therefore, when using a proximity placement group with multiple VM series, it is important to specify all the required types upfront in a template when possible or follow a deployment sequence which will improve your chances for a successful deployment. If your deployment fails, restart the deployment with the VM size which has failed as the first size to be deployed.
+A proximity placement group is a colocation constraint rather than a pinning mechanism. It is pinned to a specific data center with the deployment of the first resource to use it. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it is no longer pinned. Therefore, when using a proximity placement group with multiple VM series, it is important to specify all the required types upfront in a template when possible or follow a deployment sequence which will improve your chances for a successful deployment. If your deployment fails, restart the deployment with the VM size which has failed as the first size to be deployed.
 
 ## What to expect when using Proximity Placement Groups 
-Proximity placement groups offer co-location in the same data center. However, because proximity placement groups represent an additional deployment constraint, allocation failures can occur. There are few use cases where you may see allocation failures when using proximity placement groups:
+Proximity placement groups offer colocation in the same data center. However, because proximity placement groups represent an additional deployment constraint, allocation failures can occur. There are few use cases where you may see allocation failures when using proximity placement groups:
 
 - When you ask for the first virtual machine in the proximity placement group, the data center is automatically selected. In some cases, a second request for a different virtual machine SKU, may fail if it doesn't exist in that data center. In this case, an **OverconstrainedAllocationRequest** error is returned. To avoid this, try changing the order in which you deploy your SKUs or have both resources deployed using a single ARM template.
 - 	In the case of elastic workloads, where you add and remove VM instances, having a proximity placement group constraint on your deployment may result in a failure to satisfy the request resulting in **AllocationFailure** error. 
@@ -56,12 +51,11 @@ Planned maintenance events, like hardware decommissioning at an Azure datacenter
 
 You can do the following to check the alignment status of your proximity placement groups.
 
-
 - Proximity placement group colocation status can be viewed using the portal, CLI, and PowerShell.
 
-    -   When using PowerShell, co-location status can be obtained using Get-AzProximityPlacementGroup cmdlet by including the optional parameter ‘-ColocationStatus`.
+    -   When using PowerShell, colocation status can be obtained using Get-AzProximityPlacementGroup cmdlet by including the optional parameter ‘-ColocationStatus`.
 
-    -   When using CLI, co-location status can be obtained using `az ppg show` by including the optional parameter ‘--include-colocation-status`.
+    -   When using CLI, colocation status can be obtained using `az ppg show` by including the optional parameter ‘--include-colocation-status`.
 
 - For each proximity placement group, a **colocation status** property
     provides the current alignment status summary of the grouped resources. 
@@ -75,7 +69,6 @@ You can do the following to check the alignment status of your proximity placeme
 - For Availability Sets, you can see information about alignment of individual VMs in the the Availability Set Overview page.
 
 - For scale sets, information about alignment of individual instances can be seen in the **Instances** tab of the **Overview** page for the scale set. 
-
 
 ### Re-align resources 
 
@@ -92,10 +85,7 @@ If there is an allocation failure due to deployment constraints, you may have to
 
 ## Next steps
 
-Deploy a VM to a proximity placement group using the [Azure CLI](./linux/proximity-placement-groups.md) or [PowerShell](./windows/proximity-placement-groups.md)
-
-Learn how to [test network latency](../virtual-network/virtual-network-test-latency.md).
-
-Learn how to [optimize network throughput](../virtual-network/virtual-network-optimize-network-bandwidth.md).  
-
-Learn how to [use proximity placement groups with SAP applications](./workloads/sap/sap-proximity-placement-scenarios.md).
+- Deploy a VM to a proximity placement group using the [Azure CLI](./linux/proximity-placement-groups.md) or [PowerShell](./windows/proximity-placement-groups.md).
+- Learn how to [test network latency](../virtual-network/virtual-network-test-latency.md).
+- Learn how to [optimize network throughput](../virtual-network/virtual-network-optimize-network-bandwidth.md).
+- Learn how to [use proximity placement groups with SAP applications](./workloads/sap/sap-proximity-placement-scenarios.md).

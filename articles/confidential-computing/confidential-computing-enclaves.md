@@ -4,7 +4,7 @@ description: Learn about Intel SGX hardware to enable your confidential computin
 services: virtual-machines
 author: JenCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020

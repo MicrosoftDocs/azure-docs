@@ -3,6 +3,7 @@ title: Get maintenance notifications using the CLI
 description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the Azure CLI.
 author: shants123
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
@@ -14,7 +15,7 @@ ms.author: shants
 
 **This article applies to virtual machines running both Linux and Windows.**
 
-You can use the CLI to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view).
+You can use the CLI to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view).
  
 Maintenance information is returned only if there is maintenance planned. 
 

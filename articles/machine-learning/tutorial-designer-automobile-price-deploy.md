@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 05/25/2021
 ms.custom: designer
 ---
 
@@ -38,7 +38,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Screenshot showing where to find the create pipeline button":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png" alt-text="Screenshot showing where to find the create pipeline button":::
 
     Your pipeline should now look like this: 
 
@@ -52,8 +52,8 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
     * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the pipeline and where data is returned.
 
     > [!NOTE]
-    > By default, the **Web Service Input** will expect the same data schema as the training data used to create the predictive pipeline. In this scenario, price is included in the schema. However, price isn't used as a factor during prediction.
-    >
+    > By default, the **Web Service Input** will expect the same data schema as the module output data which connects to the same downstream port as it. In this sample, **Web Service Input** and **Automobile price data (Raw)** connect to the same downstream module, hence **Web Service Input** expect the same data schema as **Automobile price data (Raw)** and target variable column `price` is included in the schema.
+    > However, usually When you score the data, you won't know the target variable values. For such case, you can remove the target variable column in the inference pipeline using **Select Columns in Dataset** module. Make sure that the output of **Select Columns in Dataset** removing target variable column is connected to the same port as the output of the **Web Service Intput** module.
 
 1. Select **Submit**, and use the same compute target and experiment that you used in part one.
 
@@ -93,13 +93,13 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select the AKS cluster you created.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot showing how to set up a new real-time endpoint":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Screenshot showing how to set up a new real-time endpoint":::
 
     You can also change **Advanced** setting for your real-time endpoint.
     
     |Advanced setting|Description|
     |---|---|
-    |Enable Application Insights diagnostics and data collection| Whether to enable Azure Application Ingishts to collect data from the deployed endpoints. </br> By default: false |
+    |Enable Application Insights diagnostics and data collection| Whether to enable Azure Application Insights to collect data from the deployed endpoints. </br> By default: false |
     |Scoring timeout| A timeout in milliseconds to enforce for scoring calls to the web service.</br>By default: 60000|
     |Auto scale enabled|   Whether to enable autoscaling for the web service.</br>By default: true|
     |Min replicas| The minimum number of containers to use when autoscaling this web service.</br>By default: 1|
@@ -133,6 +133,28 @@ After deployment finishes, you can view your real-time endpoint by going to the 
 1. To test your endpoint, go to the **Test** tab. From here, you can enter test data and select **Test** verify the output of your endpoint.
 
 For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md)
+
+## Limitations
+
+### Update inference pipeline
+
+If you make some modifications in your training pipeline, you should resubmit the training pipeline, **Update** the inference pipeline and run the inference pipeline again.
+
+Note that only trained models will be updated in the inference pipeline, while data transformation will not be updated.
+
+To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation module as dataset.
+
+![Screenshot showing how to register transformation dataset](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Then manually replace the **TD-** module in inference pipeline with the registered dataset.
+
+![Screenshot showing how to replace transformation module](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+Then you can submit the inference pipeline with the updated model and transformation, and deploy.
+
+### Deploy real-time endpoint
+
+Due to datstore access limitation, if your inference pipeline contains **Import Data** or **Export Data** module, they will be auto-removed when deploy to real-time endpoint.
 
 ## Clean up resources
 

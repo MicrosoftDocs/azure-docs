@@ -1,12 +1,8 @@
 ---
 title: Configure Azure Defender for IoT agent-based solution
 description: Learn how to configure data collection in Azure Defender for IoT agent-based solution
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
-ms.service: azure
 ---
 
 # Configure Azure Defender for IoT agent-based solution  
@@ -82,7 +78,7 @@ To access your alerts in your Log Analytics workspace after configuration:
 
 1. Select **Investigate recommendations in Log Analytics workspace**. 
  
-For more information on querying data from Log Analytics, see [Get started with queries in Log Analytics](../azure-monitor/log-query/get-started-queries.md). 
+For more information on querying data from Log Analytics, see [Get started with queries in Log Analytics](../azure-monitor/logs/get-started-queries.md). 
 
 ## Turn off Defender for IoT 
 
@@ -94,4 +90,4 @@ To turn a Defender for IoT service on, or off on a specific IoT Hub:
 
 ## Next steps 
 
-Advance to the next article to [configure your solution](quickstart-configure-your-solution.md). 
+Advance to the next article to [configure your solution](quickstart-configure-your-solution.md).

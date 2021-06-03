@@ -8,7 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Built-in roles for Windows Virtual Desktop
 
@@ -141,7 +141,7 @@ The following list describes which permissions this role can access:
 
 ## Session Host Operator
 
-The Session Host Contributor role lets you view and remove session hosts, as well as change drain mode. They can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), you can use this role to add session hosts to the host pool outside of Azure portal if the admin has compute permissions  through the Virtual Machine Contributor role.
+The Session Host Operator role lets you view and remove session hosts, as well as change drain mode. They can't add session hosts using the Azure portal because they don't have write permission for host pool objects. If the registration token is valid (generated and not expired), you can use this role to add session hosts to the host pool outside of Azure portal if the admin has compute permissions  through the Virtual Machine Contributor role.
 
 The following list describes which permissions this role can access:
 

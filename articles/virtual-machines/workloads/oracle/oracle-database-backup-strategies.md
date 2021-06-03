@@ -2,8 +2,9 @@
 title: Oracle Database in Azure Virtual Machines backup strategies
 description:  Options to back up Oracle Databases in an Azure Linux VM environment.
 author: cro27
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse

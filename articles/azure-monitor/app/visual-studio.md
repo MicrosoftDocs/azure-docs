@@ -61,17 +61,6 @@ In the Code Lens line above each handler method, you see a count of the requests
 
 [More about Application Insights in Code Lens](./visual-studio-codelens.md)
 
-## Trends
-Trends is a tool for visualizing how your app behaves over time. 
-
-Choose **Explore Telemetry Trends** from the Application Insights toolbar button or Application Insights Search window. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties. 
-
-To find anomalies in your data, choose one of the anomaly options under the "View Type" dropdown. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
-
-![Trends](./media/visual-studio/51.png)
-
-[More about Trends](./visual-studio-trends.md).
-
 ## Local monitoring
 (From Visual Studio 2015 Update 2) If you haven't configured the SDK to send telemetry to the Application Insights portal (so that there is no instrumentation key in ApplicationInsights.config) then the diagnostics window displays telemetry from your latest debugging session. 
 

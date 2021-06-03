@@ -259,9 +259,10 @@ The `dataType` property determines which binding is used. The following values a
 
 | Binding value | Default | Description | Example |
 | --- | --- | --- | --- |
-| `undefined` | Y | Uses rich binding | `def main(input: func.InputStream)` |
 | `string` | N | Uses generic binding and casts the input type as a `string` | `def main(input: str)` |
 | `binary` | N | Uses generic binding and casts the input blob as `bytes` Python object | `def main(input: bytes)` |
+
+If the `dataType` property is not defined in function.json, the default value is `string`.
 
 Here's the Python code:
 
@@ -270,8 +271,10 @@ import logging
 import azure.functions as func
 
 
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
+# The input binding field inputblob can either be 'bytes' or 'str' depends
+# on dataType in function.json, 'binary' or 'string'.
+def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     return inputblob
 ```
 
@@ -374,7 +377,7 @@ Access the blob data via a parameter that matches the name designated by binding
 
 # [Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Refer to the [input example](#example) for details.
+Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream). Refer to the [input example](#example) for details.
 
 ---
 

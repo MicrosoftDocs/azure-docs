@@ -6,13 +6,13 @@ services: load-balancer
 documentationcenter: na
 author: asudbring 
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
 ---
@@ -44,26 +44,29 @@ In this section, you create a load balancer that load balances virtual machines.
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
-
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+1. Select **Create a resource**. 
+2. In the search box, enter **Load balancer**. Select **Load balancer** in the search results.
+3. In the **Load balancer** page, select **Create**.
+4. On the **Create load balancer** page enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **Create new** and enter **CreatePubLBQS-rg** in the text box.|
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West Europe**.                                        |
+    | Region         | Select **(Europe) West Europe**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard** |
+    | SKU           | Leave the default **Standard**. |
+    | Tier          | Leave the default **Regional**. |
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
     | Public IP address name | Type **myPublicIP** in the text box.|
     | Availability zone | Select **Zone-redundant** to create a resilient load balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
     | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
+    | Routing preference | Leave the default of **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](../virtual-network/routing-preference-overview.md). |
 
-3. Accept the defaults for the remaining settings, and then select **Review + create**.
+5. Accept the defaults for the remaining settings, and then select **Review + create**.
 
-4. In the **Review + create** tab, select **Create**.   
+6. In the **Review + create** tab, select **Create**.   
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Create a standard load balancer" border="true":::
  
@@ -272,6 +275,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **2** |**3**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Create outbound rule configuration
 Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
 
@@ -329,9 +334,10 @@ In this section, you create a load balancer that load balances virtual machines.
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
-
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+1. Select **Create a resource**. 
+2. In the search box, enter **Load balancer**. Select **Load balancer** in the search results.
+3. In the **Load balancer** page, select **Create**.
+4. On the **Create load balancer** page enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -346,9 +352,9 @@ When you create a public load balancer, you create a new public IP address that 
     | Assignment | Select **Dynamic** |
     | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
 
-3. Accept the defaults for the remaining settings, and then select **Review + create**.
+5. Accept the defaults for the remaining settings, and then select **Review + create**.
 
-4. In the **Review + create** tab, select **Create**.   
+6. In the **Review + create** tab, select **Create**.   
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Create a basic load balancer" border="true":::
 
@@ -556,6 +562,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** |**myVM3**|
     | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ### Add virtual machines to the backend pool
 

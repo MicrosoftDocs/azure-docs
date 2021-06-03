@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Certificate requirements
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes the certificate requirements that must be met before certificates can be installed on your Azure Stack Edge Pro device. The requirements are related to PFX certificates, issuing authority,  certificate subject name and subject alternative name, and supported certificate algorithms.
 

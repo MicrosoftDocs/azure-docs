@@ -8,8 +8,8 @@ ms.subservice: core
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Transform data in Azure Machine Learning designer
@@ -71,7 +71,7 @@ In this section, you use the [Split Data module](algorithm-module-reference/spli
 
 Your pipeline should look like this:
 
-:::image type="content" source="./media/how-to-designer-transform-data/split-data.png"alt-text="Screenshot showing how to configure the pipeline and the Split Data module":::
+:::image type="content" source="./media/how-to-designer-transform-data/split-data.png" alt-text="Screenshot showing how to configure the pipeline and the Split Data module":::
 
 
 ## Save the datasets

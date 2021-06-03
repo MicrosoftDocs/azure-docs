@@ -7,7 +7,9 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-nodejs-uiex
 ---
 # Create a Node.js web app in Azure
 
@@ -306,11 +308,11 @@ You can deploy changes to this app by using the same process and choosing the ex
 
 In this section, you learn how to view (or "tail") the logs from the running App Service app. Any calls to `console.log` in the app are displayed in the output window in Visual Studio Code.
 
-Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
+Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **Start Streaming Logs**.
 
 The VS Code output window opens with a connection to the log stream.
 
-![View Streaming Logs](./media/quickstart-nodejs/view-logs.png)
+![Start Streaming Logs](./media/quickstart-nodejs/view-logs.png)
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot of the VS Code prompt to enable file logging and restart the web app, with the yes button selected.":::
 

@@ -2,16 +2,16 @@
 title: Move a key vault to a different region - Azure Key Vault | Microsoft Docs
 description: This article offers guidance on moving a key vault to a different region.
 services: key-vault
-author: ShaneBala-keyvault
+author: msmbaldwin
 manager: ravijan
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/24/2020
-ms.author: sudbalas
-Customer intent: As a key vault administrator, I want to move my vault to another region.
+ms.date: 03/31/2021
+ms.author: mbaldwin
+# Customer intent: As a key vault administrator, I want to move my vault to another region.
 ---
 
 # Move an Azure key vault across regions
@@ -31,7 +31,7 @@ Before you begin, keep in mind the following concepts:
 
 ## Option 1: Use the key vault backup and restore commands
 
-You can back up each individual secret, key, and certificate in your vault by using the backup command. Your secrets are downloaded as an encrypted blob. You can then restore the blob into your new key vault. For a list of commands, see [Azure Key Vault commands](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
+You can back up each individual secret, key, and certificate in your vault by using the backup command. Your secrets are downloaded as an encrypted blob. You can then restore the blob into your new key vault. For a list of commands, see [Azure Key Vault commands](/powershell/module/azurerm.keyvault#key_vault).
 
 Using the backup and restore commands has two limitations:
 

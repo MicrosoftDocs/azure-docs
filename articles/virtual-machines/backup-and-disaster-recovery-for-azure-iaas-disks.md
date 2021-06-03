@@ -43,7 +43,7 @@ Because of this architecture, Azure has consistently delivered enterprise-grade 
 
 Localized hardware faults on the compute host or in the Storage platform can sometimes result in of the temporary unavailability of the VM that is covered by the [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) for VM availability. Azure also provides an industry-leading SLA for single VM instances that use Azure premium SSDs.
 
-To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use [availability sets](./manage-availability.md). Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components.
+To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use [availability sets](./availability.md). Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components.
 
 Because of these separate fault domains, localized hardware failures typically do not affect multiple VMs in the set at the same time. Having separate fault domains provides high availability for your application. It's considered a good practice to use availability sets when high availability is required. The next section covers the disaster recovery aspect.
 

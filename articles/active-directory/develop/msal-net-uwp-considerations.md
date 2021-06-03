@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 03/03/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: "devx-track-csharp, aaddev"
@@ -21,7 +21,7 @@ ms.custom: "devx-track-csharp, aaddev"
 Developers of applications that use Universal Windows Platform (UWP) with MSAL.NET should consider the concepts this article presents.
 
 ## The UseCorporateNetwork property
-On the Windows Runtime (WinRT) platform, `PublicClientApplication` has the Boolean property `UseCorporateNetwork`. This property enables Windows 8.1 applications and UWP applications to benefit from Integrated Windows authentication (IWA) if the user is signed in to an account that has a federated Azure Active Directory (Azure AD) tenant. Users who are signed in to the operating system can also use single sign-on (SSO). When you set the `UseCorporateNetwork` property, MSAL.NET uses a web authentication broker (WAB).
+On the Windows Runtime (WinRT) platform, `PublicClientApplication` has the Boolean property `UseCorporateNetwork`. This property enables Windows 10 applications and UWP applications to benefit from Integrated Windows authentication (IWA) if the user is signed in to an account that has a federated Azure Active Directory (Azure AD) tenant. Users who are signed in to the operating system can also use single sign-on (SSO). When you set the `UseCorporateNetwork` property, MSAL.NET uses a web authentication broker (WAB).
 
 > [!IMPORTANT]
 > Setting the `UseCorporateNetwork` property to true assumes that the application developer has enabled IWA in the application. To enable IWA:

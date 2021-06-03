@@ -99,7 +99,7 @@ To configure Azure AD single sign-on with Getabstract, perform the following ste
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier"and "Reply URL" highlighted and the "Save" button selected.](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier" and "Reply URL" highlighted and the "Save" button selected.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL:
 

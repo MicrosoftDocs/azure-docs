@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Connect with the Microsoft Store client
 

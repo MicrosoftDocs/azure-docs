@@ -19,6 +19,8 @@ WAF prevents malicious attacks close to the attack sources, before they enter yo
 
 ![Azure web application firewall](../media/overview/wafoverview.png)
 
+Azure Front Door introduces [two new SKUs in preview](../../frontdoor/standard-premium/overview.md): Front Door Standard and Front Door Premium SKU. WAF is natively integrated with Front Door Premium SKU with full capabilities. For Front Door Standard SKU, only [custom rules](#custom-authored-rules) are supported.
+
 ## WAF policy and rules
 
 You can configure a [WAF policy](waf-front-door-create-portal.md) and associate that policy to one or more Front Door front-ends for protection. A WAF policy consists of two types of security rules:

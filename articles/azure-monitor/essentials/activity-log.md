@@ -7,13 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.subservice: logs
 ---
 
 # Azure Activity log
-The Activity log is a [platform log](../platform/platform-logs-overview.md) in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. For additional functionality, you should create a diagnostic setting to send the Activity log to [Azure Monitor Logs](../platform/data-platform-logs.md), to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving. This article provides details on viewing the Activity log and sending it to different destinations.
+The Activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. For additional functionality, you should create a diagnostic setting to send the Activity log to [Azure Monitor Logs](../logs/data-platform-logs.md), to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving. This article provides details on viewing the Activity log and sending it to different destinations.
 
-See [Create diagnostic settings to send platform logs and metrics to different destinations](../platform/diagnostic-settings.md) for details on creating a diagnostic setting.
+See [Create diagnostic settings to send platform logs and metrics to different destinations](./diagnostic-settings.md) for details on creating a diagnostic setting.
 
 > [!NOTE]
 > Entries in the Activity Log are system generated and cannot be changed or deleted.
@@ -24,6 +23,11 @@ You can access the Activity log from most menus in the Azure portal. The menu th
 ![View Activity Log](./media/activity-log/view-activity-log.png)
 
 For a description of Activity log categories see [Azure Activity Log event schema](activity-log-schema.md#categories).
+
+## Download the Activity log
+Select **Download as CSV** to download the events in the current view.
+
+![Download Activity log](media/activity-log/download-activity-log.png)
 
 ### View change history
 
@@ -39,13 +43,13 @@ If there are any associated changes with the event, you'll see a list of changes
 ### Other methods to retrieve Activity log events
 You can also access Activity log events using the following methods.
 
-- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the Activity Log from PowerShell. See [Azure Monitor PowerShell samples](../samples/powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the Activity Log from CLI.  See [Azure Monitor CLI samples](../samples/cli-samples.md#view-activity-log).
+- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the Activity Log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
+- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the Activity Log from CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
 - Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the Activity Log from a REST client. 
 
 
 ## Send to Log Analytics workspace
- Send the Activity log to a Log Analytics workspace to enable the features of [Azure Monitor Logs](../platform/data-platform-logs.md) which includes the following:
+ Send the Activity log to a Log Analytics workspace to enable the features of [Azure Monitor Logs](../logs/data-platform-logs.md) which includes the following:
 
 - Correlate Activity log data with other monitoring data collected by Azure Monitor.
 - Consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together.
@@ -55,9 +59,9 @@ You can also access Activity log events using the following methods.
 - No data ingestion charges for Activity log data stored in a Log Analytics workspace.
 - No data retention charges till 90 days for Activity log data stored in a Log Analytics workspace.
 
-[Create a diagnostic setting](../platform/diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](../../lighthouse/index.yml).
+[Create a diagnostic setting](./diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](../../lighthouse/index.yml).
 
-Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/log-analytics-tutorial.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
+Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-tutorial.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
 
 For example, to view a count of Activity log records for each category, use the following query.
 
@@ -396,6 +400,6 @@ You will soon no longer be able to add the Activity Logs Analytics solution to y
 
 ## Next steps
 
-* [Read an overview of platform logs](../platform/platform-logs-overview.md)
+* [Read an overview of platform logs](./platform-logs-overview.md)
 * [Review Activity log event schema](activity-log-schema.md)
-* [Create diagnostic setting to send Activity logs to other destinations](../platform/diagnostic-settings.md)
+* [Create diagnostic setting to send Activity logs to other destinations](./diagnostic-settings.md)

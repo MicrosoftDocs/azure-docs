@@ -1,7 +1,6 @@
 ---
 title: Continuous monitoring with Azure Monitor | Microsoft Docs
 description: Describes specific steps for using Azure Monitor to enable Continuous monitoring throughout your workflows.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -24,7 +23,7 @@ In order to gain observability across your entire environment, you need to enabl
 - [Azure DevOps Projects](../devops-project/overview.md) give you a simplified experience with your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
 - [Continuous monitoring in your DevOps release pipeline](./app/continuous-monitoring.md) allows you to gate or rollback your deployment based on monitoring data.
 - [Status Monitor](./app/monitor-performance-live-website-now.md)  allows you to instrument a live .NET app on Windows with Azure Application Insights, without having to modify or redeploy your code.
-- If you have access to the code for your application, then enable full monitoring with [Application Insights](./app/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](./app/asp-net.md), [.NET Core](./app/asp-net-core.md), [Java](./app/java-get-started.md), [Node.js](./app/nodejs-quick-start.md), or [any other programming languages](./app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
+- If you have access to the code for your application, then enable full monitoring with [Application Insights](./app/app-insights-overview.md) by installing the Azure Monitor Application Insights SDK for [.NET](./app/asp-net.md), [.NET Core](./app/asp-net-core.md), [Java](./app/java-in-process-agent.md), [Node.js](./app/nodejs-quick-start.md), or [any other programming languages](./app/platforms.md). This allows you to specify custom events, metrics, or page views that are relevant to your application and your business.
 
 
 
@@ -32,8 +31,8 @@ In order to gain observability across your entire environment, you need to enabl
 Applications are only as reliable as their underlying infrastructure. Having monitoring enabled across your entire infrastructure will help you achieve full observability and make it easier to discover a potential root cause when something fails. Azure Monitor helps you track the health and performance of your entire hybrid infrastructure including resources such as VMs, containers, storage, and network.
 
 - You automatically get [platform metrics, activity logs and diagnostics logs](agents/data-sources.md) from most of your Azure resources with no configuration.
-- Enable deeper monitoring for VMs with [Azure Monitor for VMs](vm/vminsights-overview.md).
--  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](containers/container-insights-overview.md).
+- Enable deeper monitoring for VMs with [VM insights](vm/vminsights-overview.md).
+-  Enable deeper monitoring for AKS clusters with [Container insights](containers/container-insights-overview.md).
 - Add [monitoring solutions](./monitor-reference.md) for different applications and services in your environment.
 
 
@@ -46,7 +45,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 ##	Combine resources in Azure Resource Groups
 A typical application on Azure today includes multiple resources such as VMs and App Services or microservices hosted on Cloud Services, AKS clusters, or Service Fabric. These applications frequently utilize dependencies like Event Hubs, Storage, SQL, and Service Bus.
 
-- Combine resources in Azure Resource Groups to get full visibility across all your resources that make up your different applications. [Azure Monitor for Resource Groups](./insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
+- Combine resources in Azure Resource Groups to get full visibility across all your resources that make up your different applications. [Resource Group insights](./insights/resource-group-insights.md) provides a simple way to keep track of the health and performance of your entire full-stack application and enables drilling down into respective components for any investigations or debugging.
 
 ## Ensure quality through Continuous Deployment
 Continuous Integration / Continuous Deployment allows you to automatically integrate and deploy code changes to your application based on the results of automated testing. It streamlines the deployment process and ensures the quality of any changes before they move into production.

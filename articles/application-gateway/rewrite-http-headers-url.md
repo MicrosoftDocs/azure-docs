@@ -2,16 +2,16 @@
 title: Rewrite HTTP headers and URL with Azure Application Gateway | Microsoft Docs
 description: This article provides an overview of rewriting HTTP headers and URL in Azure Application Gateway
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/16/2020
-ms.author: surmb
+ms.date: 04/05/2021
+ms.author: azhussai
 ---
 
 # Rewrite HTTP headers and URL with Application Gateway
 
- Application Gateway allows you to rewrite selected content of requests and responses. With this feature, you can translate URLs, query string parameters as well as modify request and response headers. It also allows you to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. These conditions are based on the request and response information.
+Application Gateway allows you to rewrite selected content of requests and responses. With this feature, you can translate URLs, query string parameters as well as modify request and response headers. It also allows you to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. These conditions are based on the request and response information.
 
 >[!NOTE]
 >HTTP header and URL rewrite features are only available for the [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md)
@@ -33,22 +33,19 @@ To learn how to rewrite request and response headers with Application Gateway us
 
 You can rewrite all headers in requests and responses, except for the Connection, and Upgrade headers. You can also use the application gateway to create custom headers and add them to the requests and responses being routed through it.
 
-### URL path and query string (Preview)
+### URL path and query string
 
 With URL rewrite capability in Application Gateway, you can:
 
 * Rewrite the host name, path and query string of the request URL 
 
-* Choose to rewrite URL of all requests on a listener or only those requests which match one or more of the conditions you set. These conditions are based on the request and response properties (request, header, response header and server variables).
+* Choose to rewrite the URL of all requests on a listener or only those requests which match one or more of the conditions you set. These conditions are based on the request and response properties (request, header, response header and server variables).
 
 * Choose to route the request (select the backend pool) based on either the original URL or the rewritten URL
 
 To learn how to rewrite URL with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
 
 ![Diagram that describes the process for rewriting a URL with Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
-
->[!NOTE]
-> URL rewrite feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended for use in production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Rewrite actions
 
@@ -108,12 +105,12 @@ Application gateway supports the following server variables:
 | client_port               | The client port.                                             |
 | client_tcp_rtt            | Information about the client TCP connection. Available on   systems that support the TCP_INFO socket option. |
 | client_user               | When HTTP authentication is used, the user name supplied   for authentication. |
-| host                      | In this order of precedence: the host name from the   request line, the host name from the Host request header field, or the server   name matching a request. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   host value will be is `contoso.com` |
+| host                      | In this order of precedence: the host name from the   request line, the host name from the Host request header field, or the server   name matching a request. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   host value will be is `contoso.com` |
 | cookie_*name*             | The *name* cookie.                                           |
 | http_method               | The method used to make the URL request. For example, GET   or POST. |
 | http_status               | The session status. For example, 200, 400, or 403.           |
 | http_version              | The request protocol. Usually HTTP/1.0, HTTP/1.1, or   HTTP/2.0. |
-| query_string              | The list of variable/value pairs that follows the   "?" in the requested URL. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   query_string value will be `id=123&title=fabrikam` |
+| query_string              | The list of variable/value pairs that follows the   "?" in the requested URL. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   query_string value will be `id=123&title=fabrikam` |
 | received_bytes            | The length of the request (including the request line,   header, and request body). |
 | request_query             | The arguments in the request line.                           |
 | request_scheme            | The request scheme: http or https.                           |
@@ -122,9 +119,22 @@ Application gateway supports the following server variables:
 | server_port               | The port of the server that accepted a request.              |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |
 | ssl_enabled               | “On” if the connection operates in TLS mode. Otherwise, an   empty string. |
-| uri_path                  | Identifies the specific resource in the host that the web   client wants to access. This is the part of the request URI without the   arguments. Example: in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   uri_path value will be `/article.aspx` |
+| uri_path                  | Identifies the specific resource in the host that the web   client wants to access. This is the part of the request URI without the   arguments. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   uri_path value will be `/article.aspx` |
 
- 
+### Mutual authentication server variables (Preview)
+
+Application Gateway supports the following server variables for mutual authentication scenarios. Use these server variables the same way as above with the other server variables. 
+
+|   Variable name    |                   Description                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| client_certificate        | The client certificate in PEM format for an established SSL connection. |
+| client_certificate_end_date| The end date of the client certificate. |
+| client_certificate_fingerprint| The SHA1 fingerprint of the client certificate for an established SSL connection. |
+| client_certificate_issuer | The "issuer DN" string of the client certificate for an established SSL connection. |
+| client_certificate_serial | The serial number of the client certificate for an established SSL connection.  |
+| client_certificate_start_date| The start date of the client certificate. |
+| client_certificate_subject| The "subject DN" string of the client certificate for an established SSL connection. |
+| client_certificate_verification| The result of the client certificate verification: *SUCCESS*, *FAILED:<reason>*, or *NONE* if a certificate was not present. | 
 
 ## Rewrite configuration
 
@@ -136,13 +146,32 @@ A rewrite rule set contains:
 
 * **Rewrite Condition**: It is an optional configuration. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action will occur if the HTTP(S) request or response matches the rewrite condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
 
-* **Rewrite type**:  There are 3 types of rewrites available:
+* **Rewrite type**: There are 3 types of rewrites available:
    * Rewriting request headers 
-   * Rewriting response headers.
-   * Rewriting URL: URL rewrite type has 3 components
+   * Rewriting response headers
+   * Rewriting URL components
       * **URL path**: The value to which the path is to be rewritten to. 
       * **URL Query String**: The value to which the query string is to be rewritten to. 
       * **Re-evaluate path map**: Used to determine whether the URL path map is to be re-evaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
+
+## Rewrite configuration common pitfalls
+
+* Enabling 'Re-evaluate path map' is not allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
+
+* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which does not have 'Re-evaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
+
+* Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway will continue to serve other requests without any degradation in such a scenario.
+
+### Using URL rewrite or Host header rewrite with Web Application Firewall (WAF_v2 SKU)
+
+When you configure URL rewrite or host header rewrite, the WAF evaluation will happen after the modification to the request header or URL parameters (post-rewrite). And when you remove the URL rewrite or host header rewrite configuration on your Application Gateway, the WAF evaluation will be done before the header rewrite (pre-rewrite). This order ensures that WAF rules are applied to the final request that would be received by your backend pool.
+
+For example, say you have the following header rewrite rule for the header `"Accept" : "text/html"` - if the value of header `"Accept"` is equal to `"text/html"`, then rewrite the value to `"image/png"`.
+
+Here, with only header rewrite configured, the WAF evaluation will be done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation will be done on `"Accept" : "image/png"`.
+
+>[!NOTE]
+> URL rewrite operations are expected to cause a minor increase in the CPU utilization of your WAF Application Gateway. It is recommended that you monitor the [CPU utilization metric](high-traffic-support.md) for a brief period of time after enabling the URL rewrite rules on your WAF Application Gateway.
 
 ### Common scenarios for header rewrite
 
@@ -157,9 +186,9 @@ Application Gateway inserts an X-Forwarded-For header into all requests before i
 
 When a back-end application sends a redirection response, you might want to redirect the client to a different URL than the one specified by the back-end application. For example, you might want to do this when an app service is hosted behind an application gateway and requires the client to do a redirection to its relative path. (For example, a redirect from contoso.azurewebsites.net/path1 to contoso.azurewebsites.net/path2.)
 
-Because App Service is a multitenant service, it uses the host header in the request to route the request to the correct endpoint. App services have a default domain name of *.azurewebsites.net (say contoso.azurewebsites.net) that's different from the application gateway's domain name (say contoso.com). Because the original request from the client has the application gateway's domain name (contoso.com) as the hostname, the application gateway changes the hostname to contoso.azurewebsites.net. It makes this change so that the app service can route the request to the correct endpoint.
+Because App Service is a multitenant service, it uses the host header in the request to route the request to the correct endpoint. App services have a default domain name of \*.azurewebsites.net (say contoso.azurewebsites.net) that's different from the application gateway's domain name (say contoso.com). Because the original request from the client has the application gateway's domain name (contoso.com) as the hostname, the application gateway changes the hostname to contoso.azurewebsites.net. It makes this change so that the app service can route the request to the correct endpoint.
 
-When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to contoso.azurewebsites.net/path2 instead of going through the application gateway (contoso.com/path2). Bypassing the application gateway isn't desirable.
+When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
 
 You can resolve this issue by setting the hostname in the location header to the application gateway's domain name.
 
@@ -192,7 +221,7 @@ You can evaluate an HTTP request or response header for the presence of a header
 
 #### Parameter based path selection
 
-To accomplish scenarios where you want to choose the backend pool based on the value of a header, part of the URL, or query string in the request, you can use the combination of URL Rewrite capability and  path-based routing.  For example, if you have a shopping website, and the product category is passed as query string in the URL and you want to route the request to backend based on the query string ,then:
+To accomplish scenarios where you want to choose the backend pool based on the value of a header, part of the URL, or query string in the request, you can use the combination of URL Rewrite capability and path-based routing. For example, if you have a shopping website and the product category is passed as query string in the URL, and you want to route the request to backend based on the query string, then:
 
 **Step1:**  Create a path-map as shown in the image below
 
@@ -200,11 +229,11 @@ To accomplish scenarios where you want to choose the backend pool based on the v
 
 **Step 2 (a):** Create a rewrite set which has 3 rewrite rules: 
 
-* The first rule has a condition that checks the *query_string*  variable for *category=shoes* and has an action that rewrites the URL path to /*listing1* and has **Re-evaluate path map** enabled
+* The first rule has a condition that checks the *query_string* variable for *category=shoes* and has an action that rewrites the URL path to /*listing1* and has **Re-evaluate path map** enabled
 
-* The second rule has a condition that checks the *query_string*  variable for *category=bags* and has an action that rewrites the URL path to /*listing2*  and has **Re-evaluate path map** enabled
+* The second rule has a condition that checks the *query_string* variable for *category=bags* and has an action that rewrites the URL path to /*listing2*  and has **Re-evaluate path map** enabled
 
-* The third rule has a condition that checks the *query_string*  variable for *category=accessories* and has an action that rewrites the URL path to /*listing3* and has **Re-evaluate path map** enabled
+* The third rule has a condition that checks the *query_string* variable for *category=accessories* and has an action that rewrites the URL path to /*listing3* and has **Re-evaluate path map** enabled
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL rewrite scenario 1-2.":::
 
@@ -216,10 +245,10 @@ To accomplish scenarios where you want to choose the backend pool based on the v
 
 Now, if the user requests *contoso.com/listing?category=any*, then it will be matched with the default path since none of the path patterns in the path map (/listing1, /listing2, /listing3) will match. Since you associated the above rewrite set with this path, this rewrite set will be evaluated. As the query string will not match the condition in any of the 3 rewrite rules in this rewrite set, no rewrite action will take place and therefore, the request will be routed unchanged to the backend associated with the default path (which is *GenericList*).
 
- If the user requests *contoso.com/listing?category=shoes,* then again the default path will be matched. However, in this case the condition in the first rule will match and therefore, the action associated with the condition will be executed which will rewrite the URL path to /*listing1*  and re-evaluate the path-map. When the path-map is re-evaluated, the request will now match the path associated with pattern */listing1* and the request will be routed to the backend associated with this pattern, which is ShoesListBackendPool
+If the user requests *contoso.com/listing?category=shoes*, then again the default path will be matched. However, in this case the condition in the first rule will match and therefore, the action associated with the condition will be executed which will rewrite the URL path to /*listing1*  and re-evaluate the path-map. When the path-map is re-evaluated, the request will now match the path associated with pattern */listing1* and the request will be routed to the backend associated with this pattern, which is ShoesListBackendPool.
 
 >[!NOTE]
->This scenario can be extended to any header or cookie value, URL path, query string or server variables based on the condition defined and essentially enables you to route requests based on those conditions.
+>This scenario can be extended to any header or cookie value, URL path, query string or server variables based on the conditions defined and essentially enables you to route requests based on those conditions.
 
 #### Rewrite query string parameters based on the URL
 
@@ -239,9 +268,9 @@ For a step-by-step guide to achieve the scenario described above, see [Rewrite U
 
 ### URL rewrite vs URL redirect
 
-In case of URL rewrite, Application Gateway rewrites the URL before the request is sent to the backend. This will not change what users see in the browser because the changes are hidden from the user.
+In the case of a URL rewrite, Application Gateway rewrites the URL before the request is sent to the backend. This will not change what users see in the browser because the changes are hidden from the user.
 
-In case of URL redirect, Application Gateway sends a redirect response to the client with the new URL. That, in turn, requires the client to resend its request to the new URL provided in the redirect. URL that user sees in the browser will update to the new URL
+In the case of a URL redirect, Application Gateway sends a redirect response to the client with the new URL. That, in turn, requires the client to resend its request to the new URL provided in the redirect. The URL that the user sees in the browser will update to the new URL.
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Rewrite vs Redirect.":::
 
@@ -249,7 +278,7 @@ In case of URL redirect, Application Gateway sends a redirect response to the cl
 
 - If a response has more than one header with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you are using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain two Set-Cookie headers: one used by the app service, for example: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, for example, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
 - Rewrites are not supported when the application gateway is configured to redirect the requests or to show a custom error page.
-- Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (_) special character in Header names.
+- Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (\_) special character in Header names.
 - Connection and upgrade headers cannot be rewritten
 
 ## Next steps

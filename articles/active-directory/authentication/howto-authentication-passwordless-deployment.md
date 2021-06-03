@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 
 ms.author: baselden
 author: justinha
@@ -147,7 +147,7 @@ There are three types of passwordless sign-in deployments available with securit
 
 -    Azure Active Directory web apps on a supported browser
 -    Azure Active Directory Joined Windows 10 devices
--    Hybrid Azure Active Directory Joined Windows 10 devices (preview)
+-    Hybrid Azure Active Directory Joined Windows 10 devices
      -    Provides access to both cloud-based and on premises resources. For more information about access to on-premises resources, see [SSO to on-premises resources using FIDO2 keys](./howto-authentication-passwordless-security-key-on-premises.md)
 
 You must enable **Compatible FIDO2 security keys**. Microsoft announced [key partnerships with FIDO2 key vendors](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
@@ -191,7 +191,7 @@ Enabling Windows 10 sign-in using FIDO2 security keys requires enabling the cred
 
 #### Enable on-premises integration
 
-To enable access to on-premises resources, follow the steps to [Enable passwordless security key sign in to on-premises resources (preview)](howto-authentication-passwordless-security-key-on-premises.md).
+To enable access to on-premises resources, follow the steps to [Enable passwordless security key sign in to on-premises resources](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
 > These steps must also be completed for any hybrid Azure AD joined devices to utilize FIDO2 security keys for Windows 10 sign in.
@@ -281,7 +281,7 @@ Though passwordless authentication is a lightweight feature with minimal impact 
 Rolling back requires the administrator to sign in to the Azure Active Directory portal, select the desired strong authentication methods, and change the enable option to **No**. This process turns off the passwordless functionality for all users.
 
 Users that have already registered FIDO2 security devices are prompted to use the security device at their next sign-in, and then see the following error:
-
+  
 ![choose a different way to sign in](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
 ## Deploy and troubleshoot passwordless authentication
@@ -328,4 +328,4 @@ Follow the steps in the article, [Enable passwordless security key sign in for A
 
 - [Enable passwordless security keys for sign in for Azure AD](howto-authentication-passwordless-security-key.md)
 - [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md)
-- [Learn more about Authentication methods usage & insights](howto-authentication-methods-usage-insights.md)
+- [Learn more about Authentication methods usage & insights](./howto-authentication-methods-activity.md)

@@ -7,9 +7,9 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Scale out databases with the shard map manager
@@ -19,7 +19,7 @@ To easily scale out databases on Azure SQL Database, use a shard map manager. Th
 
 ![Shard map management](./media/elastic-scale-shard-map-management/glossary.png)
 
-Understanding how these maps are constructed is essential to shard map management. This is done using the ShardMapManager class ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), found in the [Elastic Database client library](elastic-database-client-library.md) to manage shard maps.  
+Understanding how these maps are constructed is essential to shard map management. This is done using the ShardMapManager class ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)), found in the [Elastic Database client library](elastic-database-client-library.md) to manage shard maps.  
 
 ## Shard maps and shard mappings
 
@@ -30,7 +30,7 @@ For each shard, you must select the type of shard map to create. The choice depe
    1. List mapping
    2. Range mapping
 
-For a single-tenant model, create a **list-mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies management.
+For a single-tenant model, create a **list-mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies shard map management.
 
 ![List mapping][1]
 

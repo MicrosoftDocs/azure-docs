@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://saml.marketo.com/sp`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    `https://login.marketo.com/saml/assertion/<munchkinid>`
 
     c. In the **Relay State** text box, type a URL using the following pattern:
     `https://<munchkinid>.marketo.com/`

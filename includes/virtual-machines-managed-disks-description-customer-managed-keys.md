@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/05/2020
+ ms.date: 03/02/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -37,3 +37,7 @@ The following list explains the diagram in more detail:
 1. For reading or writing data, managed disks sends requests to Azure Key Vault to encrypt (wrap) and decrypt (unwrap) the data encryption key in order to perform encryption and decryption of the data. 
 
 To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
+
+#### Automatic key rotation of customer-managed keys (preview)
+
+You can choose to enable automatic key rotation to the latest key version. A disk references a key via its disk encryption set. When you enable automatic rotation for a disk encryption set, the system will automatically update all managed disks, snapshots, and images referencing the disk encryption set to use the new version of the key within one hour. The feature is currently available in limited regions in preview. For regional availability, see the [Supported Regions](#supported-regions) section.

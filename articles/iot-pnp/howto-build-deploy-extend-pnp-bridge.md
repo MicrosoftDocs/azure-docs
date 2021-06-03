@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device builder, I want to understand the IoT Plug and Play bridge, learn how to extend it, and learn how to run it on IoT devices, gateways, and as an IoT Edge module.
+#Customer intent: As a device builder, I want to understand the IoT Plug and Play bridge, learn how to extend it, and learn how to run it on IoT devices, gateways, and as an IoT Edge module.
 ---
 
 # Build and deploy the IoT Plug and Play bridge
@@ -224,7 +224,7 @@ The steps in this section assume you have the following development environment 
   sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
   ```
 
-- The [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest&preserve-view=true) installed in your WSL 2 environment to manage your Azure resources.
+- The [Azure CLI](/cli/azure/install-azure-cli-apt) installed in your WSL 2 environment to manage your Azure resources.
 
   > [!TIP]
   > If you prefer, you can run the `az` commands in the [Azure Cloud Shell](https://shell.azure.com/) where the CLI is pre-installed.

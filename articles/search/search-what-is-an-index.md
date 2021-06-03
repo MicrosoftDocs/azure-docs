@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/05/2021
 ---
 # Creating search indexes in Azure Cognitive Search
 
@@ -56,7 +56,7 @@ Other elements are collapsed for brevity, but the following links can provide th
 
 ## Choose a client
 
-There are several methodologies for creating a search index. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+There are several ways to create a search index. We recommend the Azure portal or SDKs for early development and proof-of-concept testing.
 
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary for most modifications to an existing field definition. You might consider working with a subset of your data to make rebuilds go faster.
 
@@ -105,7 +105,7 @@ For Cognitive Search, the Azure SDKs implement generally available features. As 
 
 A search document is defined by the `fields` collection. You will need fields for queries and keys. You will probably also need fields to support filters, facets, and sorts. You might also need fields for data that a user never sees, for example you might want fields for profit margins or marketing promotions that you can use to modify search rank.
 
-One field of type Edm.String must be designated as the document key. It's used to uniquely identify each search document. You can retrieve a document by its key to populate a details page.  
+One field of type Edm.String must be designated as the document key. It's used to uniquely identify each search document and is case-sensitive. You can retrieve a document by its key to populate a details page.
 
 If incoming data is hierarchical in nature, assign the [complex type](search-howto-complex-data-types.md) data type to represent the nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
 

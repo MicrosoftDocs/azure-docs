@@ -6,7 +6,7 @@ ms.date: 10/16/2020
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
 # Migrate storage resources to global Azure
@@ -140,13 +140,13 @@ To begin, install [Azure Storage Explorer](https://azure.microsoft.com/features/
 
 You use Storage Explorer to copy tables from the source Azure Storage account. 
 
-Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-a-specific-resource). 
+Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource). 
 
 ### Connect to target
 
 You use Storage Explorer to paste tables to the target Azure Storage account.
 
-Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-a-specific-resource). 
+Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource). 
 
 
 ### Migrate tables

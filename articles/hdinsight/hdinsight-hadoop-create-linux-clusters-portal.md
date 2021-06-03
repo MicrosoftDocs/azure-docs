@@ -27,13 +27,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. From the top menu, select **+ Create a resource**.
 
-    ![Create a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Creating a new cluster in the Azure portal")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png" alt-text="Create a new cluster in the Azure portal":::
 
 1. Select **Analytics** > **Azure HDInsight** to go to the **Create HDInsight cluster** page.
 
 ## Basics
 
-![HDInsight create cluster basics](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Creating a new cluster in the Azure portal")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png" alt-text="HDInsight create cluster basics":::
 
 From the **Basics** tab, provide the following information:
 
@@ -58,7 +58,7 @@ Select **Next: Storage >>** to advance to the next tab.
 > [!WARNING] 
 > Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](../active-directory/develop/howto-create-service-principal-portal.md) using Azure Active Directory.
 
-![HDInsight create cluster storage](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Creating a new cluster in the Azure portal - storage")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png" alt-text="HDInsight create cluster storage":::
 
 ### Primary storage
 
@@ -85,7 +85,7 @@ Select **Next: Security + networking >>** to advance to the next tab.
 
 ## Security + networking
 
-![HDInsight create cluster security networking](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png "HDInsight create cluster security networking")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png" alt-text="HDInsight create cluster security networking":::
 
 From the **Security + networking** tab, provide the following information:
 
@@ -102,7 +102,7 @@ Select **Next: Configuration + pricing >>** to advance to the next tab.
 
 ## Configuration + pricing
 
-![HDInsight create cluster configuration](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png "Configuration and pricing tab")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png" alt-text="HDInsight create cluster configuration":::
 
 From the **Configuration + pricing** tab, provide the following information:
 
@@ -118,7 +118,7 @@ Select **Review + create >>** to validate the cluster configuration and advance 
 
 ## Review + create
 
-![HDInsight create cluster summary](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "Specify number of cluster nodes")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="HDInsight create cluster summary":::
 
 Review the settings. Select **Create** to create the cluster.
 
@@ -128,7 +128,7 @@ It takes some time for the cluster to be created, usually around 20 minutes. Mon
 
 After the creation process finishes, select **Go to Resource** from the **Deployment succeeded** notification. The cluster window provides the following information.
 
-![HDI Azure portal cluster overview](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Cluster properties")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png" alt-text="HDI Azure portal cluster overview":::
 
 Some of the icons in the window are explained as follows:
 

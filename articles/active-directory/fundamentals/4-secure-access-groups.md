@@ -49,7 +49,7 @@ As you develop your group strategy to secure external access to your resources, 
 
    * *By default all users can create M365 Groups and groups are open for all (internal and external) users in your tenant to join*. 
 
-      * [You can restrict Microsoft 365 Group creation](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide) to the members of a particular security group. Use Windows PowerShell to configure this setting. 
+      * [You can restrict Microsoft 365 Group creation](/microsoft-365/solutions/manage-creation-of-groups) to the members of a particular security group. Use Windows PowerShell to configure this setting. 
 
 * **Who should be able to invite people to groups?** Can all group members be able to add other members, or can only group owners add members?
 
@@ -145,13 +145,13 @@ Hybrid organizations have both an on-premises infrastructure and an Azure AD clo
 
 ## Microsoft 365 Groups
 
-[Microsoft 365 Groups](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) are the foundational membership service that drives all access across M365. They can be created from the [Azure portal](https://portal.azure.com/), or the [M365 portal](https://admin.microsoft.com/). When an M365 group is created, you grant access to a group of resources used to collaborate. See [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide) for a complete listing of these resources.
+[Microsoft 365 Groups](/microsoft-365/admin/create-groups/office-365-groups) are the foundational membership service that drives all access across M365. They can be created from the [Azure portal](https://portal.azure.com/), or the [M365 portal](https://admin.microsoft.com/). When an M365 group is created, you grant access to a group of resources used to collaborate. See [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups) for a complete listing of these resources.
 
 M365 Groups have the following nuances for their roles
 
 * **Owners** - Group owners can add or remove members and have unique permissions like the ability to delete conversations from the shared inbox or change group settings. Group owners can rename the group, update the description or picture and more.
 
-* **Members** - Members can access everything in the group but can't change group settings. By default group members can invite guests to join your group, though you can [control that setting](/microsoft-365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide).
+* **Members** - Members can access everything in the group but can't change group settings. By default group members can invite guests to join your group, though you can [control that setting](/microsoft-365/admin/create-groups/manage-guest-access-in-groups).
 
 * **Guests** - Group guests are members who are from outside your organization. Guests by default have some limits to functionality in Teams.
 

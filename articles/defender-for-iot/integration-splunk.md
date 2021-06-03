@@ -1,13 +1,8 @@
 ---
 title: About the Splunk integration
-titleSuffix: Azure Defender for IoT
 description: To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS threat monitoring application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # Defender for IoT and ICS threat monitoring application for Splunk
@@ -153,7 +148,7 @@ To create a forwarding rule:
     | **Select Severity** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
     | **Protocols** | By default, all the protocols are selected. To select a specific protocol, select **Specific** and select the protocol for which this rule is applied. |
     | **Engines** | By default, all the security engines are involved. To select a specific security engine for which this rule is applied, select **Specific** and select the engine. |
-    | **System Notifications** | Forward sensor online/offline status. This option is only available if you have logged into the Central Manager. |                                            |
+    | **System Notifications** | Forward sensor online/offline status. This option is only available if you have logged into the Central Manager. |
 
 1. To instruct Defender for IoT to send asset information to Splunk, select **Action**, and then select **Send to Splunk Server**.
 

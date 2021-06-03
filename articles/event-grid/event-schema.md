@@ -83,6 +83,7 @@ All events have the same following top-level data:
 
 To learn about the properties in the data object, see the event source:
 
+* [Azure Policy](./event-schema-policy.md)
 * [Azure subscriptions (management operations)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
 * [Blob storage](event-schema-blob-storage.md)

@@ -8,7 +8,8 @@ ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 11/17/2020
-ms.author: alkohli
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to configure VPN on my Azure Stack Edge Mini R device so that I can have a second layer of encryption for my data-in-flight.
 ---
 
@@ -300,7 +301,7 @@ Follow these steps on the local UI of your Azure Stack Edge device.
 
 ## Validate data transfer through VPN
 
-To confirm that VPN is working, copy data to an SMB share. Follow the steps in [Add a share](azure-stack-edge-j-series-manage-shares.md#add-a-share) on your Azure Stack Edge device. 
+To confirm that VPN is working, copy data to an SMB share. Follow the steps in [Add a share](azure-stack-edge-gpu-manage-shares.md#add-a-share) on your Azure Stack Edge device. 
 
 1. Copy a file, for example \data\pictures\waterfall.jpg to the SMB share that you mounted on your client system. 
 2. To validate that the data is going through VPN, while the data is being copied:

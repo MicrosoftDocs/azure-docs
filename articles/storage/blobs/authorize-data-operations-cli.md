@@ -59,7 +59,7 @@ The following example shows how to create a container from Azure CLI using your 
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.
 
-1. Call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
+1. Call the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
     ```azurecli
     az storage container create \

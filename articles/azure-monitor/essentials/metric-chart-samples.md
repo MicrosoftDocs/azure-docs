@@ -7,12 +7,11 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Metric chart examples 
 
-The Azure platform offers [over a thousand metrics](../platform/metrics-supported.md), many of which have dimensions. By using [dimension filters](./metrics-charts.md), applying [splitting](./metrics-charts.md), controlling chart type, and adjusting chart settings you can create powerful diagnostic views and dashboards that provide insight into the health of your infrastructure and applications. This article shows some examples of the charts that you can build using [Metrics Explorer](./metrics-charts.md) and explains the necessary steps to configure each of these charts.
+The Azure platform offers [over a thousand metrics](./metrics-supported.md), many of which have dimensions. By using [dimension filters](./metrics-charts.md), applying [splitting](./metrics-charts.md), controlling chart type, and adjusting chart settings you can create powerful diagnostic views and dashboards that provide insight into the health of your infrastructure and applications. This article shows some examples of the charts that you can build using [Metrics Explorer](./metrics-charts.md) and explains the necessary steps to configure each of these charts.
 
 Want to share your great charts examples with the world? Contribute to this page on GitHub and share your own chart examples here!
 
@@ -50,4 +49,3 @@ In the metric picker, select your storage account and the **Transactions** metri
 
 * Learn about Azure Monitor [Workbooks](../visualize/workbooks-overview.md)
 * Learn more about [Metric Explorer](metrics-charts.md)
-

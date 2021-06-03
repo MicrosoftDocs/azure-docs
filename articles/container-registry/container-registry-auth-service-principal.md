@@ -2,12 +2,12 @@
 title: Authenticate with service principal
 description: Provide access to images in your private container registry by using an Azure Active Directory service principal.
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 03/15/2021
 ---
 
 # Azure Container Registry authentication with service principals
 
-You can use an Azure Active Directory (Azure AD) service principal to provide container image `docker push` and `pull` access to your container registry. By using a service principal, you can provide access to "headless" services and applications.
+You can use an Azure Active Directory (Azure AD) service principal to provide push, pull, or other access to your container registry. By using a service principal, you can provide access to "headless" services and applications.
 
 ## What is a service principal?
 
@@ -47,10 +47,10 @@ Once you have a service principal that you've granted access to your container r
 * **User name** - service principal application ID (also called *client ID*)
 * **Password** - service principal password (also called *client secret*)
 
-Each value is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command.
+> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) command.
 >
 
 ### Use credentials with Azure services
@@ -61,7 +61,7 @@ For example, use the credentials to pull an image from an Azure container regist
 
 ### Use with docker login
 
-You can run `docker login` using a service principal. In the following example, the service principal application ID is passed in the environment variable `$SP_APP_ID`, and the password in the variable `$SP_PASSWD`. For best practices to manage Docker credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
+You can run `docker login` using a service principal. In the following example, the service principal application ID is passed in the environment variable `$SP_APP_ID`, and the password in the variable `$SP_PASSWD`. For recommended practices to manage Docker credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -101,6 +101,6 @@ The CLI uses the token created when you ran `az login` to authenticate your sess
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-login]: /cli/azure/reference-index#az_login
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset

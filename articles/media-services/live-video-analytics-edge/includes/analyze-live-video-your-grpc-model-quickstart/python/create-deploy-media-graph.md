@@ -17,11 +17,11 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 1. Edit the *operations.json* file:
  
     * Change the link to the graph topology:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-with-grpcExtension/2.0/topology.json"`
     * Under GraphInstanceSet, edit the name of the graph topology to match the value in the preceding link:
-    * `"topologyName"` : `"InferencingWithGrpcExtension"`
+    * `"topologyName"` : `"EVROnMotionPlusGrpcExtension"`
     * Under GraphTopologyDelete, edit the name:
-    * `"name"` : `"InferencingWithGrpcExtension"`
+    * `"name"` : `"EVROnMotionPlusGrpcExtension"`
 
 > [!NOTE]
 > <p>
@@ -42,7 +42,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 > 	},
 > 	"dataTransfer": {
 > 		"mode": "sharedMemory",
-> 		"SharedMemorySizeMiB": "5"
+> 		"SharedMemorySizeMiB": "256"
 > 	},
 > 	"image": {
 > 		"scale": {
@@ -99,10 +99,10 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
         > The above steps are assuming you are using the virtual machine created by the setup script. If you are using your own edge device instead, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
 
         ```
-        mkdir /home/lvaadmin/samples
-        mkdir /home/lvaadmin/samples/input    
-        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
-        chown -R lvaadmin /home/lvaadmin/samples/  
+        mkdir /home/lvaedgeuser/samples
+        mkdir /home/lvaedgeuser/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
+        chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
         ```
     * The **lvaExtension** module, which is the YOLOv3 object detection model that uses gRPC as the communication method and applies computer vision to the images and returns multiple classes of object types.
     
@@ -159,7 +159,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
       "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
-        "topologyName": "InferencingWithGrpcExtension",
+        "topologyName": "EVROnMotionPlusGrpcExtension",
         "description": "Sample graph description",
         "parameters": [
           {

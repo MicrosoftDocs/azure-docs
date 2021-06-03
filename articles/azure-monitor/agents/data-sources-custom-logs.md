@@ -1,7 +1,6 @@
 ---
 title: Collect custom logs with Log Analytics agent in Azure Monitor
 description: Azure Monitor can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -14,7 +13,7 @@ ms.date: 10/21/2020
 The Custom Logs data source for the Log Analytics agent in Azure Monitor allows you to collect events from text files on both Windows and Linux computers. Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
 
 > [!IMPORTANT]
-> This article covers collecting custom logs with the [Log Analytics agent](../platform/log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
+> This article covers collecting custom logs with the [Log Analytics agent](./log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](../agents/agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![Custom log collection](media/data-sources-custom-logs/overview.png)
 
@@ -101,7 +100,7 @@ Once Azure Monitor starts collecting from the custom log, its records will be av
 > If the RawData property is missing from the query, you may need to close and reopen your browser.
 
 ### Step 6. Parse the custom log entries
-The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties for each record. Refer to [Parse text data in Azure Monitor](../log-query/parse-text.md) for options on parsing **RawData** into multiple properties.
+The entire log entry will be stored in a single property called **RawData**.  You will most likely want to separate the different pieces of information in each entry into individual properties for each record. Refer to [Parse text data in Azure Monitor](../logs/parse-text.md) for options on parsing **RawData** into multiple properties.
 
 ## Removing a custom log
 Use the following process in the Azure portal to remove a custom log that you previously defined.
@@ -112,7 +111,7 @@ Use the following process in the Azure portal to remove a custom log that you pr
 ## Data collection
 Azure Monitor will collect new entries from each custom log approximately every 5 minutes.  The agent will record its place in each log file that it collects from.  If the agent goes offline for a period of time, then Azure Monitor will collect entries from where it last left off, even if those entries were created while the agent was offline.
 
-The entire contents of the log entry are written to a single property called **RawData**.  See [Parse text data in Azure Monitor](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
+The entire contents of the log entry are written to a single property called **RawData**.  See [Parse text data in Azure Monitor](../logs/parse-text.md) for methods to parse each imported log entry into multiple properties.
 
 ## Custom log record properties
 Custom log records have a type with the log name that you provide and the properties in the following table.
@@ -121,7 +120,7 @@ Custom log records have a type with the log name that you provide and the proper
 |:--- |:--- |
 | TimeGenerated |Date and time that the record was collected by Azure Monitor.  If the log uses a time-based delimiter then this is the time collected from the entry. |
 | SourceSystem |Type of agent the record was collected from. <br> OpsManager – Windows agent, either direct connect or System Center Operations Manager <br> Linux – All Linux agents |
-| RawData |Full text of the collected entry. You will most likely want to [parse this data into individual properties](../log-query/parse-text.md). |
+| RawData |Full text of the collected entry. You will most likely want to [parse this data into individual properties](../logs/parse-text.md). |
 | ManagementGroupName |Name of the management group for System Center Operations Manage agents.  For other agents, this is AOI-\<workspace ID\> |
 
 
@@ -167,8 +166,8 @@ While custom logs are useful if your data fits the criteria listed above, there 
 In the cases where your data can't be collected with custom logs, consider the following alternate strategies:
 
 - Use a custom script or other method to write data to [Windows Events](data-sources-windows-events.md) or [Syslog](data-sources-syslog.md) which are collected by Azure Monitor. 
-- Send the data directly to Azure Monitor using [HTTP Data Collector API](../platform/data-collector-api.md). 
+- Send the data directly to Azure Monitor using [HTTP Data Collector API](../logs/data-collector-api.md). 
 
 ## Next steps
-* See [Parse text data in Azure Monitor](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
-* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
+* See [Parse text data in Azure Monitor](../logs/parse-text.md) for methods to parse each imported log entry into multiple properties.
+* Learn about [log queries](../logs/log-query-overview.md) to analyze the data collected from data sources and solutions.

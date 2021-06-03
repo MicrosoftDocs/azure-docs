@@ -40,7 +40,7 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 
 1. **Retrieve the Traffic Manager endpoint:**
 
-    To enable the subnet override, retrieve the endpoint you wish to add the override to and store it in a variable using [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    To enable the subnet override, retrieve the endpoint you wish to add the override to and store it in a variable using [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
     Replace the Name, ProfileName, and ResourceGroupName with the values of the endpoint that you're changing.
 
@@ -51,7 +51,7 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
     ```
 2. **Add the IP address range to the endpoint:**
     
-    To add the IP address range to the endpoint, you'll use [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) to add the range.
+    To add the IP address range to the endpoint, you'll use [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange) to add the range.
 
     ```powershell
 
@@ -65,18 +65,18 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Once the ranges are added, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) to update the endpoint.
+    Once the ranges are added, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-Removal of the IP address range can be completed by using [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+Removal of the IP address range can be completed by using [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange).
 
 1.  **Retrieve the Traffic Manager endpoint:**
 
-    To enable the subnet override, retrieve the endpoint you wish to add the override to and store it in a variable using [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    To enable the subnet override, retrieve the endpoint you wish to add the override to and store it in a variable using [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint).
 
     Replace the Name, ProfileName, and ResourceGroupName with the values of the endpoint that you're changing.
 
@@ -99,7 +99,7 @@ Removal of the IP address range can be completed by using [Remove-AzTrafficManag
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     Once the ranges are removed, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) to update the endpoint.
+     Once the ranges are removed, use [Set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint) to update the endpoint.
 
     ```powershell
 

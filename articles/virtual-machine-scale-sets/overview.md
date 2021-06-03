@@ -1,14 +1,13 @@
 ---
 title: Azure virtual machine scale sets overview
 description: Learn about Azure virtual machine scale sets and how to automatically scale your applications
-author: mimckitt
-ms.author: mimckitt
+author: ju-shim
+ms.author: jushiman
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.subservice:
 ms.date: 06/30/2020
-ms.reviewer: jushiman
-ms.custom: mimckitt
+ms.reviewer: mimckitt
 
 ---
 # What are virtual machine scale sets?
@@ -58,7 +57,7 @@ Enable monitoring for your [virtual machine scale set application](../azure-moni
 
 ## Data residency
 
-In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ## Next steps
 To get started, create your first virtual machine scale set in the Azure portal.

@@ -4,7 +4,6 @@ description: This article provides an overview of data encryption models In Micr
 services: security
 documentationcenter: na
 author: msmbaldwin
-manager: rkarlin
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
+ms.date: 04/27/2021
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -86,7 +85,7 @@ When Server-side encryption with service-managed keys is used, the key creation,
 
 For scenarios where the requirement is to encrypt the data at rest and control the encryption keys customers can use server-side encryption using customer-managed Keys in Key Vault. Some services may store only the root Key Encryption Key in Azure Key Vault and store the encrypted Data Encryption Key in an internal location closer to the data. In that scenario customers can bring their own keys to Key Vault (BYOK – Bring Your Own Key), or generate new ones, and use them to encrypt the desired resources. While the Resource Provider performs the encryption and decryption operations, it uses the configured key encryption key as the root key for all encryption operations.
 
-Loss of key encryption keys means loss of data. For this reason, keys should not be deleted. Keys should be backed up whenever created or rotated. [Soft-Delete](../../key-vault/general/soft-delete-overview.md) should be enabled on any vault storing key encryption keys. Instead of deleting a key, set enabled to false or set the expiry date.
+Loss of key encryption keys means loss of data. For this reason, keys should not be deleted. Keys should be backed up whenever created or rotated. [Soft-Delete and purge protection](../../key-vault/general/soft-delete-overview.md) must be enabled on any vault storing key encryption keys to protect against accidental or malicious cryptographic erasure. Instead of deleting a key, it is recommended to set enabled to false on the key encryption key.
 
 ### Key Access
 
@@ -97,7 +96,7 @@ For operations using encryption keys, a service identity can be granted access t
 To obtain a key for use in encrypting or decrypting data at rest the service identity that the Resource Manager service instance will run as must have UnwrapKey (to get the key for decryption) and WrapKey (to insert a key into key vault when creating a new key).
 
 >[!NOTE]
->For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/general/secure-your-key-vault.md).
+>For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/general/security-features.md).
 
 **Advantages**
 
@@ -193,9 +192,6 @@ The Azure services that support each encryption model:
 | Azure Cosmos DB                  | Yes                | Yes                | -                  |
 | Azure Databricks                 | Yes                | Yes                | -                  |
 | Azure Database Migration Service | Yes                | N/A\*              | -                  |
-| **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Yes                | -                  | Yes                |
-| Azure Repos                      | Yes                | -                  | Yes                |
 | **Identity**                     |                    |                    |                    |
 | Azure Active Directory           | Yes                | -                  | -                  |
 | Azure Active Directory Domain Services | Yes          | Yes                | -                  |

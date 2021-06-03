@@ -34,9 +34,9 @@ The following screenshot helps you locate monitoring information in the portal. 
 
 * **Monitoring** tab, on the main Overview page, shows query volume, latency, and whether the service is under pressure.
 * **Activity log**, in the left navigation pane, is connected to Azure Resource Manager. The activity log reports on actions undertaken by Resource Manager: service availability and status, changes to capacity (replicas and partitions), and API key-related activities.
-* **Monitoring** settings, further down, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
+* **Monitoring** settings, further down, provides configurable alerts, metrics visualization, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
 
-![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
+  ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
  "Azure Monitor integration in a search service")
 
 > [!NOTE]
@@ -91,7 +91,7 @@ Azure Monitor has its own billing structure and the diagnostic logs referenced i
 
 ## Monitor user access
 
-Because search indexes are a component of a larger client application, there is no built-in methodology for controlling or monitoring per-user access to an index. Requests are assumed to come from a client application, for either admin or query requests. Admin read-write operations include creating, updating, deleting objects across the entire service. Read-only operations are queries against the documents collection, scoped to a single index. 
+Because search indexes are a component of a larger client application, there is no built-in methodology for controlling or monitoring per-user access to an index. Requests are assumed to come from a client application that present either an admin or query request. Admin read-write operations include creating, updating, deleting objects across the entire service. Read-only operations are queries against the documents collection, scoped to a single index. 
 
 As such, what you'll see in the activity logs are references to calls using admin keys or query keys. The appropriate key is included in requests originating from client code. The service is not equipped to handle identity tokens or impersonation.
 

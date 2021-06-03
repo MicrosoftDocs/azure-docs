@@ -2,7 +2,8 @@
 title: Frequently asked questions for Linux VMs in Azure 
 description: Provides answers to some of the common questions about Linux virtual machines created with the Resource Manager model.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
@@ -26,13 +27,13 @@ Azure storage accounts can also provide storage for the operating system disk an
 Establish a remote connection to sign on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](ssh-from-windows.md) or
 [from Linux and Mac](mac-create-ssh-keys.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
-If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connections](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Can I use the temporary disk (/dev/sdb1) to store data?
 Don't use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage. You risk losing data that can’t be recovered.
 
 ## Can I copy or clone an existing Azure VM?
-Yes. For instructions, see [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](copy-vm.md).
+Yes. For instructions, see [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](/previous-versions/azure/virtual-machines/linux/copy-vm).
 
 ## Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
 The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.

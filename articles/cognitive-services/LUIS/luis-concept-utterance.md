@@ -48,7 +48,7 @@ Take these example utterances:
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?|
 
-The core term here, "computer," isn't varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS can intelligently infer synonyms from context, but when you create utterances for training, it's always better to vary them.
+The core term here, *computer*, isn't varied. Use alternatives such as desktop computer, laptop, workstation, or even just machine. LUIS can intelligently infer synonyms from context, but when you create utterances for training, it's always better to vary them.
 
 ## Example utterances in each intent
 

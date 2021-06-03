@@ -4,7 +4,6 @@ description: Learn how Azure Spatial Anchors can be used within Unity Apps. Revi
 author: msftradford
 ms.author: parkerra
 manager: MehranAzimi-msft
-services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
 ms.date: 2/4/2021
 ms.topic: conceptual
