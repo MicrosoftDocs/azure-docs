@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 6/02/2021
+ms.date: 6/03/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -131,33 +131,22 @@ To create a VM image using the RHEL BYOS image, follow these steps:
 1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access). 
 
 You can now use the VM that you provisioned to [Create a Linux VM custom image](#create-a-linux-custom-vm-image).
- 
-### Set Provisioning flags for a Linux custom VM image
-
-<!--Requested by the product team instead of introducing this in "Troubleshooting". Need a heading to link to. This placement is a bit awkward.-->
-
-Before you deploy a Linux VM using a custom VM image, make sure the Provisioning flags in the */etc/waagent.conf* file have the following values. You don't need to do this if you're using a standard image from Azure Marketplace; the flags are already set correctly.<!--Verify: They're talking about standard images that they select from Azure Marketplae?-->
-
-   | Capability                      | Required value                |
-   |---------------------------------|-------------------------------|
-   | Enable instance creation        | `Provisioning.Enabled=n`      |
-   | Rely on cloud-init to provision | `Provisioning.UseCloudInit=y` |
 
 
-## Use AzCopy to copy VM image to Blob container
+## Use AzCopy to copy VM image to storage account
 
 The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
 
 
-### Create a target URI for a Blob container
+### Create a target URI for a container
 
-AzCopy requires a *target URI* that tells where to copy the new image to in your storage account. Before you run AzCopy, you'll generate a shared-access signature (SAS) URL for the Blob container you want to copy the file to. To create the target URI, you'll add the filename to the SAS URL.
+AzCopy requires a *target URI* that tells where to copy the new image to in your storage account. Before you run AzCopy, you'll generate a shared-access signature (SAS) URL for the blob container you want to copy the file to. To create the target URI, you'll add the filename to the SAS URL.
 
 To create the target URI for your prepared VHD, do the following steps:
 
 1. Generate a SAS URL for a container in an Azure Storage account, do the following steps:
 
-   1. In the Azure portal, open the storage account, and select **Containers**. Select and then right-click the Blob container you want to use, and select **Generate SAS**.
+   1. In the Azure portal, open the storage account, and select **Containers**. Select and then right-click the blob container you want to use, and select **Generate SAS**.
 
       ![Screenshot of the Generate SAS option for a Blob container in the Azure portal](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-01.png)
 
@@ -177,9 +166,9 @@ To create the target URI for your prepared VHD, do the following steps:
 
    Insert the filename, in the format `/<filename>.vhd` before the question mark that begins the query string. The filename extension must be VHD.
 
-### Copy VHD to Blob container using AzCopy
+### Copy VHD to blob container using AzCopy
 
-To use AzCopy to copy your VHD to Blob storage, do the following steps:
+To copy your VHD to a blob container using AzCopy, do the following steps:
 
  1. [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) if you haven't done that already.
  
