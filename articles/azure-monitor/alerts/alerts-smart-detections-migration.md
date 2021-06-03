@@ -66,13 +66,13 @@ To migrate smart detection in your resource, take the following steps:
 
 2. Click on the banner reading **"Migrate smart detection to alerts (Preview)**. The migration dialog is opened.
 
-![Smart detection feed banner](media/alerts-smart-detections-migration/smart-detection-feed-banner.png)
+   ![Smart detection feed banner](media/alerts-smart-detections-migration/smart-detection-feed-banner.png)
 
 3. Select an action group to be configured for the new alert rules. You can choose between using the default action group (as explained above) or using one of your existing action groups.
 
 4. Select **Migrate** to start the migration process.
 
-![Smart detection migration dialog](media/alerts-smart-detections-migration/smart-detection-migration-dialog.png)
+   ![Smart detection migration dialog](media/alerts-smart-detections-migration/smart-detection-migration-dialog.png)
 
 After the migration, new alert rules are created for your Application Insight resource, as explained above.
 
@@ -296,16 +296,16 @@ After the migration is complete, you access the new smart detection alert rules 
 
 1. Select **Alerts** under the **Monitoring** heading in your Application Insights resource left-side menu.
 
-![Alerts menu](media/alerts-smart-detections-migration/application-insights-alerts.png)
+   ![Alerts menu](media/alerts-smart-detections-migration/application-insights-alerts.png)
 
 2. Select **Manage Alert Rules**
 
-![Manage alert rules](media/alerts-smart-detections-migration/manage-alert-rules.png)
+   ![Manage alert rules](media/alerts-smart-detections-migration/manage-alert-rules.png)
 
 3. Select **Signal Type** to be **Smart Detector** 
 4. 	to filter and present the smart detection alert rules.
 
-![Smart Detector rules](media/alerts-smart-detections-migration/smart-detector-rules.png)
+   ![Smart Detector rules](media/alerts-smart-detections-migration/smart-detector-rules.png)
 
 ### Enabling / disabling smart detection alert rules 
 
