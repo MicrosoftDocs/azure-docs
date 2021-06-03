@@ -76,7 +76,7 @@ To remove a FIDO2 key associated with a user account, delete the key from the us
 1.	Login to the Azure AD portal and search for the user account from which the FIDO key is to be removed.
 2.	Select **Authentication methods** > right-click **FIDO2 security key** and click **Delete**. 
 
-   ![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)
+    ![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)
 
 ## Security key Authenticator Attestation GUID (AAGUID)
 
