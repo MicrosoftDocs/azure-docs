@@ -1,6 +1,6 @@
 ---
-title: SAP BusinessObjects BI Platform Deployment on Azure for Linux | Microsoft Docs
-description: Deploy and configure SAP BusinessObjects BI Platform on Azure for Linux
+title: SAP BusinessObjects BI platform deployment on Azure for Linux | Microsoft Docs
+description: Deploy and configure SAP BusinessObjects BI platform on Azure for Linux
 services: virtual-machines-windows,virtual-network,storage,azure-netapp-files,azure-files,mysql
 documentationcenter: saponazure
 author: dennispadia
@@ -17,78 +17,74 @@ ms.author: depadia
 
 ---
 
-# SAP BusinessObjects BI platform deployment guide for linux on Azure
+# SAP BusinessObjects BI platform deployment guide for Linux on Azure
 
-This article describes the strategy to deploy SAP BusinessObjects BI Platform on Azure for Linux. In this example, two virtual machines with Premium SSD Managed Disks as its install directory are configured. Azure Database for MySQL is used for CMS database, and Azure NetApp Files for File Repository Server is shared across both servers. The default Tomcat Java web application and BI Platform application are installed together on both virtual machines. To load balance the user request, Application Gateway is used that has native TLS/SSL offloading capabilities.
+This article describes the strategy to deploy SAP BusinessObjects BI platform on Azure for Linux. In this example, you configure two virtual machines with premium solid-state drive (SSD) managed disks as the install directory. You use Azure Database for MySQL for your CMS database, and you share Azure NetApp Files for your file repository server across both servers. On both virtual machines, you install the default Tomcat Java web application and BI platform application together. To load-balance user requests, you use Application Gateway with native TLS/SSL offloading capabilities.
 
-This type of architecture is effective for small deployment or non-production environment. For Production or large-scale deployment, you can have separate hosts for Web Application and can as well have multiple BOBI applications hosts allowing server to process more information.
+This type of architecture is effective for small deployments or non-production environments. For large deployments or production environments, you can have separate hosts for your web application. You can also have multiple BOBI application hosts, allowing the server to process more information.
 
-![SAP BOBI Deployment on Azure for Linux](media/businessobjects-deployment-guide/businessobjects-deployment-linux.png)
+![Diagram of the SAP BOBI deployment on Azure for Linux](media/businessobjects-deployment-guide/businessobjects-deployment-linux.png)
 
-In this example, below product version and file system layout is used
+Here's the product version and file system layout for this example:
 
 - SAP BusinessObjects Platform 4.3
 - SUSE Linux Enterprise Server 12 SP5
 - Azure Database for MySQL (Version: 8.0.15)
 - MySQL C API Connector - libmysqlclient (Version: 6.1.11)
 
-| File System        | Description                                                                                                               | Size (GB)             | Owner  | Group  | Storage                    |
+| File system        | Description                                                                                                               | Size (GB)             | Owner  | Group  | Storage                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
-| /usr/sap           | The  file system for installation of SAP BOBI instance, default Tomcat Web Application, and database drivers (if necessary) | SAP Sizing Guidelines | bl1adm | sapsys | Managed Premium Disk - SSD |
-| /usr/sap/frsinput  | The mount directory is for the shared files across all BOBI hosts that will be used as Input File Repository Directory  | Business Need         | bl1adm | sapsys | Azure NetApp Files         |
-| /usr/sap/frsoutput | The mount directory is for the shared files across all BOBI hosts that will be used as Output File Repository Directory | Business Need         | bl1adm | sapsys | Azure NetApp Files         |
+| /usr/sap           | The  file system for installation of the SAP BOBI instance, the default Tomcat web application, and the database drivers (if necessary). | SAP sizing guidelines | bl1adm | sapsys | Managed premium disk - SSD |
+| /usr/sap/frsinput  | The mount directory is for the shared files across all BOBI hosts that will be used as the input file repository directory.  | Business need         | bl1adm | sapsys | Azure NetApp Files         |
+| /usr/sap/frsoutput | The mount directory is for the shared files across all BOBI hosts that will be used as the output file repository directory | Business need         | bl1adm | sapsys | Azure NetApp Files         |
 
-## Deploy linux virtual machine via Azure portal
+## Deploy Linux virtual machine via Azure portal
 
-In this section, we'll create two virtual machines (VMs) with Linux Operating System (OS) image for SAP BOBI Platform. The high-level steps to create Virtual Machines are as follows -
+In this section, you create two virtual machines with the Linux operating system image for the SAP BOBI platform. The high-level steps to create the virtual machines are as follows -
 
-1. Create a [Resource Group](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)
+1. Create a [resource group](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups).
 
-2. Create a [Virtual Network](../../../virtual-network/quick-create-portal.md#create-a-virtual-network).
+2. Create a [virtual network](../../../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
-   - Don't use single subnet for all Azure services in SAP BI Platform deployment. Based on SAP BI Platform architecture, you need to create multiple subnets. In this deployment, we'll create three subnets - Application Subnet, File Repository Store Subnet, and Application Gateway Subnet.
-   - In Azure, Application Gateway and Azure NetApp Files always need to be on separate subnet. Check [Azure Application Gateway](../../../application-gateway/configuration-overview.md) and [Guidelines for Azure NetApp Files Network Planning](../../../azure-netapp-files/azure-netapp-files-network-topologies.md) article for more details.
+   - Don't use a single subnet for all Azure services in the SAP BI platform deployment. Based on SAP BI platform architecture, you need to create multiple subnets. In this deployment, you create three subnets: one each for the application, the file repository store, and Application Gateway.
+   - In Azure, Application Gateway and Azure NetApp Files must always be on a separate subnet. For more information, see [Azure Application Gateway](../../../application-gateway/configuration-overview.md) and [Guidelines for Azure NetApp Files Network Planning](../../../azure-netapp-files/azure-netapp-files-network-topologies.md).
 
-3. Create an Availability Set.
+3. Create an availability set. To achieve redundancy for each tier in a multi-instance deployment, place virtual machines for each tier in an availability set. Make sure you separate the availability sets for each tier based on your architecture.
 
-   - To achieve redundancy for each tier in multi-instance deployment, place virtual machines for each tier in an availability set. Make sure you separate the availability sets for each tier based on your architecture.
+4. Create virtual machine 1, called **(azusbosl1)**.
 
-4. Create Virtual Machine 1 **(azusbosl1).**
+   - You can either use a custom image or choose an image from Azure Marketplace. For more information, see [Deploying a VM from the Azure Marketplace for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap).
 
-   - You can either use custom image or choose an image from Azure Marketplace. Refer to [Deploying a VM from the Azure Marketplace for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-1-deploying-a-vm-from-the-azure-marketplace-for-sap) or [Deploying a VM with a custom image for SAP](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/deployment-guide.md#scenario-2-deploying-a-vm-with-a-custom-image-for-sap) based on your need.
-
-5. Create Virtual Machine 2 **(azusbosl2).**
-6. Add one Premium SSD disk. It will be used as SAP BOBI Installation directory.
+5. Create virtual machine 2, called **(azusbosl2)**.
+6. Add one premium SSD disk. You'll use it as your SAP BOBI Installation directory.
 
 ## Provision Azure NetApp Files
 
-Before you continue with the setup for Azure NetApp Files, familiarize yourself with the Azure [NetApp Files documentation](../../../azure-netapp-files/azure-netapp-files-introduction.md).
+Before you continue with the setup for Azure NetApp Files, familiarize yourself with the  [Azure NetApp Files documentation](../../../azure-netapp-files/azure-netapp-files-introduction.md).
 
 Azure NetApp Files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Check to see whether your selected Azure region offers Azure NetApp Files.
 
-Use [Azure NetApp Files availability by Azure Region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) page to check the availability of Azure NetApp Files by region.
+Use [Azure NetApp Files availability by Azure Region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) to check the availability of Azure NetApp Files by region.
 
-Request onboarding to Azure NetApp Files by going to [Register for Azure NetApp Files instructions](../../../azure-netapp-files/azure-netapp-files-register.md) before you deploy Azure NetApp Files.
+Before you deploy Azure NetApp Files, see [Register for Azure NetApp Files instructions](../../../azure-netapp-files/azure-netapp-files-register.md).
 
 ### Deploy Azure NetApp Files resources
 
-The following instructions assume that you've already deployed your [Azure virtual network](../../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
+The following instructions assume that you've already deployed your [Azure virtual network](../../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources, and the VMs where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
 
-1. If you haven't already deployed the resources, request [onboarding to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
+1. If you haven't already deployed the resources, [register for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-register.md).
 
-2. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+2. [Create an Azure NetApp Files account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md) in your selected Azure region.
 
-3. Set up an Azure NetApp Files capacity pool by following the instructions in [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
+3. [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md). The SAP BI platform architecture presented in this article uses a single Azure NetApp Files capacity pool at the Premium service level. For SAP BI File Repository Server on Azure, we recommend using an Azure NetApp Files Premium or Ultra [service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
-   - The SAP BI Platform architecture presented in this article uses a single Azure NetApp Files capacity pool at the *Premium* Service level. For SAP BI File Repository Server on Azure, we recommend using an Azure NetApp Files *Premium* or *Ultra* [service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
-
-4. Delegate a subnet to Azure NetApp Files, as described in the instructions in [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
+4. [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
 5. Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
-   ANF volume can be deployed as NFSv3 and NFSv4.1, as both protocol are supported for SAP BOBI Platform. Deploy the volumes in respective Azure NetApp Files subnet. The IP addresses of the Azure NetApp Volumes are assigned automatically.
+   You can deploy the volumes as NFSv3 and NFSv4.1, because both protocols are supported for the SAP BOBI platform. Deploy the volumes in their respective Azure NetApp Files subnets. The IP addresses of the Azure NetApp volumes are assigned automatically.
 
-Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, azusbobi-frsinput, azusbobi-frsoutput are the volume names and nfs://10.31.2.4/azusbobi-frsinput, nfs://10.31.2.4/azusbobi-frsoutput are the file paths for the Azure NetApp Files Volumes.
+Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, *azusbobi-frsinput* and *azusbobi-frsoutput* are the volume names, and *nfs://10.31.2.4/azusbobi-frsinput* and *nfs://10.31.2.4/azusbobi-frsoutput* are the file paths for the Azure NetApp Files volumes.
 
 - Volume azusbobi-frsinput (nfs://10.31.2.4/azusbobi-frsinput)
 - Volume azusbobi-frsoutput (nfs://10.31.2.4/azusbobi-frsoutput)
