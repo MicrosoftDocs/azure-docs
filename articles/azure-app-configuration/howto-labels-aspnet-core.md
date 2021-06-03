@@ -41,12 +41,13 @@ using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
 Load configuration values with the label corresponding to the current environment by passing the environment name into the `Select` method:
 
-### [.NET Core 2.x](#tab/core2x)
+### [.NET Core 5.x](#tab/core5x)
 
 ```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-        .ConfigureAppConfiguration((hostingContext, config) =>
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
         {
             var settings = config.Build();
             config.AddAzureAppConfiguration(options =>
@@ -58,7 +59,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                     .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
             );
         })
-        .UseStartup<Startup>();
+        .UseStartup<Startup>());
 ```
 
 ### [.NET Core 3.x](#tab/core3x)
@@ -82,13 +83,12 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         .UseStartup<Startup>());
 ```
 
-### [.NET Core 5.x](#tab/core5x)
+### [.NET Core 2.x](#tab/core2x)
 
 ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+        .ConfigureAppConfiguration((hostingContext, config) =>
         {
             var settings = config.Build();
             config.AddAzureAppConfiguration(options =>
@@ -100,7 +100,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                     .Select(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName)
             );
         })
-        .UseStartup<Startup>());
+        .UseStartup<Startup>();
 ```
 ---
 

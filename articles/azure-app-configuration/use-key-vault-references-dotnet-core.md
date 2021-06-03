@@ -59,7 +59,6 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
     - In the **Region** drop-down list, choose a location.
 1. Leave the other **Create key vault** options with their default values.
 1. Click **Review + Create**.
-    ![The Create Key Vault form with values filled in, showing the "Review + Create" button.](./media/create-key-vault-form.png)
 1. The system will validate and display the data you entered. Click **Create**.
 
 At this point, your Azure account is the only one authorized to access this new vault.
@@ -219,12 +218,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 To use both App Configuration values and Key Vault references, update *Program.cs* as shown below. This code calls `SetCredential` as part of `ConfigureKeyVault` to tell the config provider what credential to use when authenticating to Key Vault.
 
-### [.NET Core 2.x](#tab/core2x)
+### [.NET Core 5.x](#tab/core5x)
 
 ```csharp
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
                 var credentials = new ManagedIdentityCredential();
@@ -238,7 +238,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                             });
                 });
             })
-            .UseStartup<Startup>();
+            .UseStartup<Startup>());
 ```
 
 ### [.NET Core 3.x](#tab/core3x)
@@ -264,13 +264,12 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
             .UseStartup<Startup>());
 ```
 
-### [.NET Core 5.x](#tab/core5x)
+### [.NET Core 2.x](#tab/core2x)
 
 ```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
                 var credentials = new ManagedIdentityCredential();
@@ -284,7 +283,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
                             });
                 });
             })
-            .UseStartup<Startup>());
+            .UseStartup<Startup>();
 ```
 ---
 

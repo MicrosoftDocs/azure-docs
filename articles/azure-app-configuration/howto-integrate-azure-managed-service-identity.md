@@ -42,7 +42,7 @@ To complete this tutorial, you must have:
 
 To set up a managed identity in the portal, you first create an application and then enable the feature.
 
-1. Access your App Services resource in the [Azure portal](https://portal.azure.com). If you don't have an existing App Services resource to work with, create one 
+1. Access your App Services resource in the [Azure portal](https://portal.azure.com). If you don't have an existing App Services resource to work with, create one. 
 
 1. Scroll down to the **Settings** group in the left pane, and select **Identity**.
 
@@ -68,7 +68,6 @@ To set up a managed identity in the portal, you first create an application and 
 
     ![Add a managed identity](./media/add-managed-identity.png)
 
-1. Optional: If you wish to grant access to Key Vault as well, follow the directions in [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md).
 
 ## Use a managed identity
 
@@ -99,18 +98,19 @@ To set up a managed identity in the portal, you first create an application and 
     > [!IMPORTANT]
     > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
 
-    ### [.NET Core 2.x](#tab/core2x)
+    ### [.NET Core 5.x](#tab/core5x)
 
     ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-               .ConfigureAppConfiguration((hostingContext, config) =>
-               {
-                   var settings = config.Build();
-                   config.AddAzureAppConfiguration(options =>
-                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-               })
-               .UseStartup<Startup>();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+                })
+                .UseStartup<Startup>());
     ```
 
     ### [.NET Core 3.x](#tab/core3x)
@@ -128,20 +128,20 @@ To set up a managed identity in the portal, you first create an application and 
                 .UseStartup<Startup>());
     ```
 
-    ### [.NET Core 5.x](#tab/core5x)
+    ### [.NET Core 2.x](#tab/core2x)
 
     ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>());
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   config.AddAzureAppConfiguration(options =>
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+               })
+               .UseStartup<Startup>();
     ```
+
     ---
 
     > [!NOTE]
