@@ -87,19 +87,6 @@ Do the following steps to create a Linux VM image:
     3. Enter **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
     4. After the command completes, enter **exit** to close the SSH client.  The VM will still be running at this point.
 
-1. Download the OS disk from Azure by doing the following steps:
-
-   1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). 
-
-   1. [Generate a download URL](/azure/virtual-machines/windows/download-vhd#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
-      
-   1. Download the VHD to your Azure Storage account using one of these methods:
-   
-      - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#use-azcopy-to-copy-os-disk-to-storage-account), below. 
-
-      - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
-
-You can now use this VHD to create and deploy a VM on your Azure Stack Edge Pro GPU device.
 
 ### Using RHEL BYOS images
 
