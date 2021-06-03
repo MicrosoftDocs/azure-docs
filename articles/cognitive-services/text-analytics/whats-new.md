@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/03/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -18,6 +18,10 @@ ms.custom: references_regions
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## June 2021
+
+### General API updates
+
+* New model-version `2021-06-01` for key phrase extraction, with expanded [language support](language-support.md). 
 
 ### Text Analytics for health updates
 
