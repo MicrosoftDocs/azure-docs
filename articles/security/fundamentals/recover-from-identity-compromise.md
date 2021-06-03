@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2021
+ms.date: 06/03/2021
 ms.author: bagol
 
 ---
@@ -30,7 +30,7 @@ Many organizations have transitioned to a cloud-based approach for stronger secu
 > This information is provided as-is and constitutes generalized guidance; the ultimate determination about how to apply this guidance to your IT environment and tenant(s) must consider your unique environment and needs, which each Customer is in the best position to determine.
 >
 
-## A systemic identity compromise and its response
+## About systemic identity compromise
 
 A systemic identity compromise attack on an organization occurs when an attacker successfully gains a foothold into the administration of an organization's identity infrastructure.
 
@@ -68,7 +68,7 @@ For example:
 
 1. For initial one-on-one and group communications, you may want to use PSTN calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
 
-    Communications outside these frameworks should be treated as compromised and un-trusted, unless verified through a secure channel .
+    Communications outside these frameworks should be treated as compromised and un-trusted, unless verified through a secure channel.
 
 2. After those initial conversations, you may want to create an entirely new Microsoft 365 tenant, isolated from the organization's production tenant. Create accounts only for key personnel who need to be part of the response.
 
@@ -96,7 +96,7 @@ Therefore, we recommend also taking the following actions:
 
 - Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Azure Security Center](/azure/security-center/).
 
-- Incorporate threat intelligence feeds into your SIEM, such as in [Azure Sentinel](/azure/sentinel/import-threat-intelligence).
+- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft 365 data connectors in [Azure Sentinel](/azure/sentinel/import-threat-intelligence).
 
 For more information, see Microsoft's security documentation:
 
@@ -151,8 +151,8 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 
 |Environment  |Description  |
 |---------|---------|
-|**All cloud environments**    |       - Review any privileged access rights in the cloud and remove any unnecessary permissions. <br>    - Implement Privileged Identity Management (PIM)<br>    - Set up Conditional Access policies to limit administrative access during hardening      |
-|**All on-premises environments**     |       - Review privileged access on-premise and remove unnecessary permissions.<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
+|**All cloud environments**    |       - Review any privileged access rights in the cloud and remove any unnecessary permissions<br>    - Implement Privileged Identity Management (PIM)<br>    - Set up Conditional Access policies to limit administrative access during hardening      |
+|**All on-premises environments**     |       - Review privileged access on-premise and remove unnecessary permissions<br>   - Reduce membership of built-in groups<br>    - Verify Active Directory delegations<br>    - Harden your Tier 0 environment, and limit who has access to Tier 0 assets      |
 |**All Enterprise applications**     | Review for delegated permissions and consent grants that allow any of the following actions: <br><br>  Modifying privileged users and roles <br>- Reading or accessing all mailboxes <br>- Sending or forwarding email on behalf of other users <br>- Accessing all OneDrive or SharePoint site content <br>- Adding service principals that can read/write to the directory      |
 |**Microsoft 365 environments**     |Review access and configuration settings for your Microsoft 365 environment, including: <br>- SharePoint Online Sharing <br>- Microsoft Teams <br>- PowerApps <br>- Microsoft OneDrive for Business          |
 | **Review user accounts in your environments**   |- Review and remove guest user accounts that are no longer needed. <br>- Review email configurations for delegates, mailbox folder permissions, ActiveSync mobile device registrations, Inbox rules, and Outlook on the Web options <br>- Validate that both MFA and self-service password reset (SSPR) contact information for all users is correct.         |
@@ -177,9 +177,9 @@ For more information, see:
 - [Visualize and analyze your environment](/azure/sentinel/quickstart-get-visibility.md)
 - [Detect threats out of the box](/azure/sentinel/tutorial-detect-threats-built-in.md).
 
-### Monitoring with Microsoft Defender
+### Monitoring with Microsoft 365 Defender
 
-We recommend that you check Microsoft Defender for Endpoint and Microsoft Defender Antivirus for have specific guidance relevant to your attack.
+We recommend that you check Microsoft 365 Defender for Endpoint and Microsoft Defender Antivirus for specific guidance relevant to your attack.
 
 Check for other examples of detections, hunting queries, and threat analytics reports in the Microsoft security center, such as in Microsoft 365 Defender, Microsoft 365 Defender for Identity, and Microsoft Cloud App Security.
 
@@ -286,7 +286,7 @@ If there was an attack, you don't want the attacker to retain access at all. Mak
         12/9/2021 7:57:13 PM
 
     [Thumbprint]
-        3UD1JG5MEFONKT6DQEF6D98EI8AHNTY22XPQWJFK6
+        3UD1JG5MEFHSBW7HEPF6D98EI8AHNTY22XPQWJFK6
     ```
 
 1. Replace the primary token signing certificate using the **Urgent** switch. This command causes ADFS to replace the primary certificate immediately, without making it a secondary certificate:
@@ -327,7 +327,7 @@ If there was an attack, you don't want the attacker to retain access at all. Mak
 
 ### Replace your ADFS servers
 
-If, instead of [rotating your SAML token-signing certificate](#rotate-your-saml-token-signing-certificate), you decide to replace the ADFS servers with clean systems, remove the existing ADFS from your environment, and then build a new one. 
+If, instead of [rotating your SAML token-signing certificate](#rotate-your-saml-token-signing-certificate), you decide to replace the ADFS servers with clean systems, you'll need to remove the existing ADFS from your environment, and then build a new one. 
 
 For more information, see [Remove a configuration](/azure/active-directory/cloud-provisioning/how-to-configure#remove-a-configuration). 
 
@@ -341,7 +341,7 @@ In addition to the recommendations listed earlier in this article, we also recom
 |**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premise accounts that are synced or federated to Azure Active Directory.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
 |**Limit administrative access**     |    Implement [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
-|**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles. <br>- Reading, sending email, or accessing all mailboxes. <br>- Accessing OneDrive, Teams, or SharePoint content. <br>- Adding Service Principals that can read/write to the directory. <br>- Application Permissions versus Delegated Access.       |
+|**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles <br>- Reading, sending email, or accessing all mailboxes <br>- Accessing OneDrive, Teams, or SharePoint content <br>- Adding Service Principals that can read/write to the directory <br>- Application Permissions versus Delegated Access       |
 |     |         |
 
 ### On-premises remediation activities
@@ -397,7 +397,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
 
-- **Ensure that your organization has EDR and SIEM solutions in place**.
+- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) and [Azure Sentinel](/azure/sentinel/overview).
 
 - **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
 
@@ -434,7 +434,7 @@ stream the Windows Firewall logs to a SIEM for historical and proactive monitori
 
 - If you are using a Service Account and your environment supports it, **migrate from a Service Account to a group-Managed Service Account (gMSA)**. If you cannot move to a gMSA, rotate the password on the Service Account to a complex password.
 
-- **Ensure Verbose logging is enabled on your ADFS systems** by running the following commands:
+- **Ensure Verbose logging is enabled on your ADFS systems**. For example, run the following commands:
 
     ```powershell
     Set-AdfsProperties -AuditLevel verbose
