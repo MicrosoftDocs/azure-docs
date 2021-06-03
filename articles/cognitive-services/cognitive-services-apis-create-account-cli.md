@@ -28,6 +28,7 @@ In this quickstart, you'll learn how to sign up for Azure Cognitive Services and
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
 * The [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli)
+* To create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) you must agree in Azure Portal that you have reviewed the [Responsible AI (RAI) documentation](https://docs.microsoft.com/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=/azure/cognitive-services/computer-vision/context/context) and will use this service in accordance with it. This acknowledgement applies to all resources created under that same subscription through the various Azure tools such as CLI, ARM template and Azure Portal. To review and agree to the Responsible AI terms create a create a [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) through the Azure Portal.
 
 ## Install the Azure CLI and sign in
 
