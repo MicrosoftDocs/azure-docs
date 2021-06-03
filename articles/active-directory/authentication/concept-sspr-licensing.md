@@ -23,7 +23,10 @@ This article details the different ways that self-service password reset can be 
 
 ## Compare editions and features
 
-SSPR requires a license per user. 
+SSPR requires a license for the tenant. When purchased for any user in the tenant (standalone or as part of Office 365 or Microsoft 365 plans), it is activated in part or in full for all users in the tenant. Although some unlicensed users may technically be able to access the service, a license is required for any user that you intend to benefit from the service.
+
+>[!NOTE] 
+>Some tenant services are not currently capable of limiting benefits to specific users. Efforts should be taken to limit the service benefits to licensed users. This will help avoid potential service disruption to your organization once targeting capabilities are available.
 
 The following table outlines the different SSPR scenarios for password change, reset, or on-premises writeback, and which SKUs provide the feature.
 
