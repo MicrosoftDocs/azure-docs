@@ -31,7 +31,6 @@ This document focuses on enabling security key based passwordless authentication
 To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. 
 These include Microsoft Edge, Chrome, Firefox, and Safari.
 
-
 ## Prepare devices
 
 For Azure AD joined devices the best experience is on Windows 10 version 1903 or higher.
@@ -75,13 +74,13 @@ There are some optional settings for managing security keys per tenant.
 To remove a FIDO2 key associated with a user account, delete the key from the user’s authentication method.
 
 1.	Login to the Azure AD portal and search for the user account from which the FIDO key is to be removed.
-2.	Select Authentication methods, FIDO2 security key, right-click and select Delete. 
+2.	Select **Authentication methods** > right-click **FIDO2 security key** and click **Delete**. 
 
    ![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)
 
 ## Security key Authenticator Attestation GUID (AAGUID)
 
-The FIDO2 specification requires each security key provider to provide an Authenticator Attestation GUID (AAGUID) during attestation. An AAGUID is a 128-bit identifier indicating the key type, for example the make and model. 
+The FIDO2 specification requires each security key provider to provide an Authenticator Attestation GUID (AAGUID) during attestation. An AAGUID is a 128-bit identifier indicating the key type, such as the make and model. 
 
 >[!NOTE]
 >The manufacturer must ensure that the AAGUID is identical across all substantially identical keys made by that manufacturer, and different (with high probability) from the AAGUIDs of all other types of keys. To ensure, the AAGUID for a given type of security key should be randomly generated. For more information, see [Web Authentication: An API for accessing Public Key Credentials - Level 2 (w3.org)](https://w3c.github.io/webauthn/).
