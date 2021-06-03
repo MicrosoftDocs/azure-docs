@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This document describes various aspects related to security of your server group:
 - Encryption at rest
-- User management
+- Postgres roles and users management
    - General perspectives
    - Change the password of the _postgres_ administrative user
 - Audit
@@ -144,9 +144,9 @@ When I connect with my application and I pass a password, it will look up in the
 
 This small example demonstrates that you can encrypt data at rest (store encrypted data) in Azure Arc enabled PostgreSQL Hyperscale using the Postgres `pgcrypto` extension and your applications can use functions offered by `pgcrypto` to manipulate this encrypted data.
 
-## User management
+## Postgres roles and users management
 ### General perspectives
-You can use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. During preview, these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that in preview, the user definition is not replicated to the Worker nodes.
+To configure roles and users in your Azure Arc enabled PostgreSQL Hyperscale serber group, use the standard Postgres way to manage roles and users. For more details, read [here](https://www.postgresql.org/docs/12/user-manag.html). The definition and configuration of the roles will be automatically be propagated to all the Postgres instances that constitute your Azure Arc enabled PostgreSQL Hyperscale server group.
 
 ### Change the password of the _postgres_ administrative user
 Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
