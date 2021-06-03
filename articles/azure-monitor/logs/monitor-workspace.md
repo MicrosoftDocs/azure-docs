@@ -9,7 +9,7 @@ ms.date: 10/20/2020
 ---
 
 # Monitor health of Log Analytics workspace in Azure Monitor
-To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](/azure/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. You should regularly review this data and create alerts to be proactively notified when there are any important incidents in your workspace.
+To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](/azure/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. It is recommended to create alerts for issues in level "Warning" and "Error".
 
 ## _LogOperation function
 
@@ -51,16 +51,16 @@ Ingestion operations are issues that occurred during data ingestion including no
 #### Operation: Data collection stopped  
 Data collection stopped due to reaching the daily limit.
 
-In the past 7 Days, the daily ingestion limit was reached; the limit reached is either due to your workspace being in the free tier or that you have set a daily ingestion limit.
+In the past 7 Days, logs collection reached the the daily set limit. The limit is set either as the workspace is set to "free tier", or daily collection limit was configured for this workspace.
 Note, after reaching the set limit, your data collection will automatically stop for the day and will resume only during the next collection day. 
  
 Recommended Actions: 
 *	Check _LogOperation table for collection stopped and collection resumed events.</br>
 `_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Data collection"`
-*	[Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection stopped" Operation event, this alert will allow you to get notified when the limit is reached.
-*	Reaching the daily limit is not recommended and will result in data loss, you might want to either check why the limit is reached, you can use the ‘workspace insights’ blade to review your usage patterns and try to reduce them.
-Or, you can decide to ([increase your daily ingestion limit](./manage-cost-storage.md#manage-your-maximum-daily-data-volume) \ [change the pricing tier](./manage-cost-storage.md#changing-pricing-tier) to one that will suite your ingestion pattern). 
-* As mentioned, data ingestion will resume during the start of the next day, you can also monitor this event by [Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection resumed" Operation event, this alert will allow you to get notified when the limit is reached.
+*	[Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection stopped" Operation event, this alert will allow you to get notified when the collection limit was reached.
+*	Data collected after the daily collection limit is reached will be lost, use ‘workspace insights’ blade to review usage rates from each source. 
+Or, you can decide to ([Manage your maximum daily data volume](./manage-cost-storage.md#manage-your-maximum-daily-data-volume) \ [change the pricing tier](./manage-cost-storage.md#changing-pricing-tier) to one that will suite your collection rates pattern). 
+* Data collection rate is calculated per day, and will reset at the start of the next day, you can also monitor collection resume event by [Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection resumed" Operation event.
 
 #### Operation: Ingestion rate
 Ingestion rate limit approaching\passed the limit.
@@ -72,9 +72,9 @@ Recommended Actions:
 `_LogOperation | where TimeGenerated >= ago(7d) | where Category == "Ingestion" | where Operation has "Ingestion rate"` 
       Note: Operation table in the workspace every 6 hours while the threshold continues to be exceeded. 
 *	[Create an alert](./manage-cost-storage.md#alert-when-daily-cap-reached) on "Data collection stopped" Operation event, this alert will allow you to get notified when the limit is reached.
-*	We recommend making sure not to exceed the ingestion rate limit, reaching the limit will result in data loss.
+*	Data collected while ingestion rate reached 100% will be dropped and lost. 
 
-You might want to either check why the limit is reached, you can use the workspace insights blade to review your usage patterns and try to reduce them.</br>
+'workspace insights' blade to review your usage patterns and try to reduce them.</br>
 For further information: </br>
 [Azure Monitor service limits](../service-limits.md#data-ingestion-volume-rate) </br>
 [Manage usage and costs for Azure Monitor Logs](./manage-cost-storage.md#alert-when-daily-cap-reached)  
@@ -94,8 +94,8 @@ Log Analytics limits ingested fields size to 32 Kb, larger size fields will be t
 Recommended Actions:
 Check the source of the affected data type:
 *	If the data is being sent through the HTTP Data Collector API, you will need to change your code\script to split the data before it’s ingested.
-*	In case it’s a custom log, collected from a Log Analytics agent, then you’ll need to change the logging settings of the application\tool to resolve this issue.
-*	For any other data type, a support case should be raised.
+*	For custom logs, collected by Log Analytics agent, change the logging settings of the application\tool.
+*	For any other data type, raise a support case. 
 </br>Read more: [Azure Monitor service limits](../service-limits.md#data-ingestion-volume-rate) 
 
 ### Data collection
@@ -105,9 +105,9 @@ Description: In some situations, like moving a subscription to a different tenan
 Recommended Actions: 
 * If the subscription mentioned on the warning message no longer exists, navigate to the ‘Azure Activity log’ blade under ‘Workspace Data Sources’, select the relevant subscription, and finally select the ‘Disconnect’ button.
 * If you no longer have access to the subscription mentioned on the warning message:
-  * If you no longer want to collect logs from this subscription, then follow the same actions as step 1
-  * If you still want to collect logs from this subscription, then follow the same actions as step 1, contact the subscription owner to verify, and fix your permissions and re-enable activity log collection 
-* If you need to enable or re-enable activity log collection, we strongly recommend that you switch to the new collection method that applies diagnostic settings, as it includes: [Azure Activity log](../essentials/activity-log.md#send-to-log-analytics-workspace)
+  * Follow step 1 to disconnet the subscription. 
+  * To continue collecting logs from this subscription, contact the subscription owner to fix the permissions, re-enable activity log collection.
+* [Create a diagnostic setting](../essentials/activity-log.md#send-to-log-analytics-workspace) to send the Activity log to a Log Analytics workspace. 
 
 ### Agent
 #### Operation: Linux Agent
@@ -126,7 +126,7 @@ To mitigate the issue, you will need to reinstall the Agents listed.
    
 
 ## Alert rules
-Use [log query alerts](../alerts/alerts-log-query.md) in Azure Monitor to be proactively notified when an issue is detected in your Log Analytics workspace. Use a strategy that allows you to respond in a timely manner to issues while minimizing your costs. Your subscription is charged for each alert rule with a cost depending on the frequency that it's evaluated.
+Use [log query alerts](../alerts/alerts-log-query.md) in Azure Monitor to be proactively notified when an issue is detected in your Log Analytics workspace. Use a strategy that allows you to respond in a timely manner to issues while minimizing your costs. Your subscription will be charged for each alert rule as listed in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
 A recommended strategy is to start with two alert rules based on the level of the issue. Use a short frequency such as every 5 minutes for Errors and a longer frequency such as 24 hours for Warnings. Since Errors indicate potential data loss, you want to respond to them quickly to minimize any loss. Warnings typically indicate an issue that does not require immediate attention, so you can review them daily.
 
