@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This topic shows you how to perform common tasks such as create, update, and scale your Azure Cache for Redis instances, how to regenerate access keys, and how to view information about your caches. For a complete list of Azure Cache for Redis PowerShell cmdlets, see [Azure Cache for Redis cmdlets](/powershell/module/az.rediscache).
+This article shows you how to do common tasks such as create, update, and scale your Azure Cache for Redis instances. The article also shows how to regenerate access keys, and how to view information about your caches. For a complete list of Azure Cache for Redis PowerShell cmdlets, see [Azure Cache for Redis cmdlets](/powershell/module/az.rediscache).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -28,7 +28,7 @@ For more information about the classic deployment model, see [Azure Resource Man
 
 ## Prerequisites
 
-If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
+If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell you've installed with this command at the Azure PowerShell command prompt.
 
 ```azurepowershell
     Get-Module Az | format-table version
@@ -40,7 +40,7 @@ First, you must sign in to Azure with this command.
     Connect-AzAccount
 ```
 
-Specify the email address of your Azure account and its password in the Microsoft Azure sign-in dialog.
+Specify the email address of your Azure account and your password in the Microsoft Azure sign-in dialog.
 
 Next, if you have multiple Azure subscriptions, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
 
@@ -72,7 +72,7 @@ For example, to get help for the `New-AzRedisCache` cmdlet, type:
 
 ### How to connect to other clouds
 
-By default the Azure environment is `AzureCloud`, which represents the global Azure cloud instance. To connect to a different instance, use the `Connect-AzAccount` command with the `-Environment` or -`EnvironmentName` command-line switch with the desired environment or environment name.
+By default the Azure environment is `AzureCloud`, which represents the global Azure cloud instance. To connect to a different instance, use the `Connect-AzAccount` command with the `-Environment` or -`EnvironmentName` command-line switch with the environment or environment name you want.
 
 To see the list of available environments, run the `Get-AzEnvironment` cmdlet.
 
@@ -97,9 +97,9 @@ To create a cache in the Azure Government Cloud, use one of the following locati
 
 For more information about the Azure Government Cloud, see [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) and [Microsoft Azure Government Developer Guide](../azure-government/documentation-government-developer-guide.md).
 
-### To connect to the Azure China Cloud
+### To connect to the Azure 21Vianet China Cloud
 
-To connect to the Azure China Cloud, use one of the following commands.
+To connect to the Azure China 21Vianet cloud, use one of the following commands.
 
 ```azurepowershell
     Connect-AzAccount -EnvironmentName AzureChinaCloud
@@ -420,7 +420,7 @@ After this command is issued, the status of the cache is returned---similar to c
     ShardCount         :
 ```
 
-When the scaling operation is complete, the `ProvisioningState` changes to `Succeeded`. If you need to make another scaling operation, such as changing from Basic to Standard and then changing the size, you must wait until the previous operation is complete or you receive an error similar to the following.
+When the scaling operation is complete, the `ProvisioningState` changes to `Succeeded`. If you need to make another scaling operation---for example, changing from Basic to Standard and then changing the size---you must wait until the previous operation is complete or you receive an error similar to the following.
 
 ```azurepowershell
     Set-AzRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
