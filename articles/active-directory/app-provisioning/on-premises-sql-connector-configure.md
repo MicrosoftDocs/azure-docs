@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/28/2021
+ms.date: 06/06/2021
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -80,7 +80,7 @@ To create a generic SQL connector use the following steps:
      |Property|Description|
      |-----|-----|
      |User:Attribute Detection|This should be set to Table.|
-     |User:Table/View/SP|his should contain Employees.|
+     |User:Table/View/SP|This should contain Employees.|
      |User:Name of Multi-Values Table/Views||
      |User:Stored Procedure Parameters||
      |User:Provide SQL query for detecting object types||
