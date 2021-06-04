@@ -61,7 +61,7 @@
         href: adpfederatedsso-tutorial.md
       - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
-      - name: Agiloft Contract Management Suite
+      - name: Agiloft
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
@@ -251,8 +251,6 @@
         href: bomgarremotesupport-tutorial.md
       - name: Bonusly
         href: bonus-tutorial.md
-      - name: Bonos
-        href: bonos-tutorial.md
       - name: Boomi
         href: boomi-tutorial.md
       - name: BorrowBox
@@ -1534,6 +1532,8 @@
         href: raketa-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
+      - name: ReadCube Papers
+        href: readcube-papers-tutorial.md  
       - name: Real Links
         href: real-links-tutorial.md
       - name: Recognize
