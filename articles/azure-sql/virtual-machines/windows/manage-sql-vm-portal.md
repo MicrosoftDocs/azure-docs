@@ -116,12 +116,9 @@ To learn more, see the [Security best practices](security-considerations-best-pr
 
 ## Security Center 
 
-Use the **Security Center** page of the SQL virtual machines resource to view SQL Vulnerability Assessment recommendations. Enable [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to leverage this feature. 
+Use the **Security Center** page of the SQL virtual machines resource to view Security Center recommendations directly in the SQL virtual machine blade. Enable [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to leverage this feature. 
 
 ![Configure SQL Server Security Center settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
-
-
-
 
 
 ## Next steps

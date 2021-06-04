@@ -27,31 +27,15 @@ Azure complies with several industry regulations and standards that can enable y
 
 In addition to the practices described in this topic, we recommend that you review and implement the security best practices from both traditional on-premises security practices, as well as virtual machine security best practices. 
 
-## SQL vulnerability assessment
+## Azure Defender for SQL 
 
-SQL vulnerability assessment is a capability of [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) that provides visibility into your security state. Vulnerability assessment includes actionable steps to resolve security issues and enhance your database security. It can help you to monitor a dynamic database environment where changes are difficult to track and improve your SQL security posture.
-
-The rules are based on Microsoft's best practices and focus on the security issues that present the biggest risks to your database and its valuable data. They cover database-level issues and server-level security issues, like server firewall settings and server-level permissions.
-
-Results of the scan include actionable steps to resolve each issue and provide customized remediation scripts where applicable. You can customize an assessment report for your environment by setting an acceptable baseline for:
-
-- Permission configurations
-- Feature configurations
-- Database settings
-
-See [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
-
-## Advanced Threat Protection
-
-Advanced Threat Protection is a capability of [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) that provides a new layer of security. Advanced Threat Protection enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection integrates alerts with Azure Security Center, which include details of suspicious activity and recommend action on how to investigate and mitigate the threat. Advanced Threat Protection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
-
-See [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
+[Azure Defender for SQL](../../../security-center/defender-for-sql-introduction.md) enables Azure Security Center security features such as vulnerability assessments and security alerts. See [enable Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
 
 ## Portal management
 
 After you've [registered your SQL Server VM with the SQL IaaS extension](sql-agent-extension-manually-register-single-vm.md), you can configure a number of security settings using the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as enabling Azure Key Vault integration, or SQL authentication. 
 
-Additionally, after you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) you can view Security Center alerts directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal. This includes both SQL vulnerability assessments and Advanced Threat Protection notifications. 
+Additionally, after you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) you can view Security Center features directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as vulnerability assessments and security alerts. 
 
 See [manage SQL Server VM in the portal](manage-sql-vm-portal.md) to learn more. 
 
