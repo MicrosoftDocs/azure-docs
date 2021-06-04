@@ -21,6 +21,8 @@
         href: quickstart-device-development.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
+      - name: NXP MIMXRT1050-EVKB
+        href: quickstart-devkit-nxp-mimxrt1050-evkb.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk.md
       - name: ST Microelectronics B-L475E/L4S5I-IOT01A
