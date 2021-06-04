@@ -69,7 +69,7 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
    Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> `
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
-For adding permissions to your server on a Managed HSM, add the 'Managed HSM Crypto Service Encryption' local RBAC role to the server. This will enable the server to perform get, wrap key, unwrap key operations on the keys in the Managed HSM.
+For adding permissions to your server on a Managed HSM, add the 'Managed HSM Crypto Service Encryption User' local RBAC role to the server. This will enable the server to perform get, wrap key, unwrap key operations on the keys in the Managed HSM.
 [Instructions for provisioning server access on Managed HSM](../../key-vault/managed-hsm/role-management.md)
 
 ## Add the Key Vault key to the server and set the TDE Protector
