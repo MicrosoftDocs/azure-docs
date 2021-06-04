@@ -7,16 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/03/2021
+ms.date: 06/04/2021
 ms.author: alkohli
 ---
-# Troubleshoot Azure Resource Manager issues for an Azure Stack Edge Pro GPU device 
+# Troubleshoot Azure Resource Manager issues on an Azure Stack Edge Pro GPU device 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to troubleshoot configuration issues preventing successful use of Azure Resource Manager (ARM) to manage your Azure Stack Edge Pro GPU device. ARM provides a management layer that enables you to create, update, and delete resources in your Azure account.
-
-<!-- This is how ARM configuration is described in the setup tutorial for Azure Stack Edge Pro GPU (https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-connect-resource-manager#connecting-to-azure-resource-manager-workflow): "This tutorial describes how to connect to the local APIs on your Azure Stack Edge Pro device via Azure Resource Manager using Azure PowerShell."-->
+This article describes how to troubleshoot configuration issues that may be keeping you from using Azure Resource Manager to manage your Azure Stack Edge Pro GPU device. Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure account.
  
 ## Azure Resource Manager configuration errors
 
@@ -25,24 +23,24 @@ Here are the errors that may show up during the configuration of Azure Resource 
 | **Issue / Errors** |  **Resolution** | 
 |------------|-----------------|
 |General issues|<li>[Verify that the Edge device is configured properly](#verify-the-device-is-configured-properly).<li> [Verify that the client is configured properly](#verify-the-client-is-configured-properly)|
-|Add-AzureRmEnvironment: An error occurred while sending the request.<br>At line:1 char:1<br>+ Add-AzureRmEnvironment -Name Az3 -ARMEndpoint "https://management.dbe ...|This error means that your Azure Stack Edge Pro device is not reachable or configured properly. Verify that the Edge device and the client are configured correctly. For guidance, see the **General issues** row in this table.|
-|Service returned error. Check InnerException for more details: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. |   This error is likely due to one or more bring your own certificate steps incorrectly performed. You can find guidance [here](./azure-stack-edge-gpu-connect-resource-manager.md#step-2-create-and-install-certificates). |
+|Add-AzureRmEnvironment: An error occurred while sending the request.<br>At line:1 char:1<br>+ Add-AzureRmEnvironment -Name Az3 -ARMEndpoint "https://management.dbe ...|This error means that your Azure Stack Edge Pro device isn't reachable or isn't configured properly. Verify that the Edge device and the client are configured correctly. For guidance, see the **General issues** row in this table.|
+|Service returned error. Check InnerException for more details: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. |   This error likely happened because one or more bring your own certificate steps was incorrectly performed. You can find guidance [here](./azure-stack-edge-gpu-connect-resource-manager.md#step-2-create-and-install-certificates). |
 |Operation returned an invalid status code 'ServiceUnavailable' <br> Response status code does not indicate success: 503 (Service Unavailable). | This error could be the result of any of these conditions.<li>ArmStsPool is in stopped state.</li><li>Either of the Azure Resource Manager/Security token services websites are down.</li><li>The Azure Resource Manager cluster resource is down.</li><br><strong>Note:</strong> Restarting the appliance might fix the issue, but you should collect the support package so that you can debug it further.|
-|AADSTS50126: Invalid username or password.<br>Trace ID: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>Correlation ID: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>Timestamp: 2019-11-15 09:21:57Z: The remote server returned an error: (400) Bad Request.<br>At line:1 char:1 |This error could be the result of any of these conditions.<li>For an invalid username and password, validate that the customer has changed the password from Azure portal by following the steps [here](./azure-stack-edge-gpu-set-azure-resource-manager-password.md) and then by using the correct password.<li>For an invalid tenant ID, the tenant ID is a fixed GUID and should be set to `c0257de7-538f-415c-993a-1b87a031879d`</li>|
+|AADSTS50126: Invalid username or password.<br>Trace ID: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>Correlation ID: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>Timestamp: 2019-11-15 09:21:57Z: The remote server returned an error: (400) Bad Request.<br>At line:1 char:1 |This error could be the result of any of these conditions.<li>For an invalid username and password, validate that the customer has changed the password from Azure portal by [following the steps](./azure-stack-edge-gpu-set-azure-resource-manager-password.md) and then by using the correct password.<li>For an invalid tenant ID, the tenant ID is a fixed GUID and should be set to `c0257de7-538f-415c-993a-1b87a031879d`</li>|
 |connect-AzureRmAccount: AADSTS90056: The resource is disabled or does not exist. Check your app's code to ensure that you have specified the exact resource URL for the resource you are trying to access.<br>Trace ID: e19bdbc9-5dc8-4a74-85c3-ac6abdfda115<br>Correlation ID: 75c8ef5a-830e-48b5-b039-595a96488ff9 Timestamp: 2019-11-18 07:00:51Z: The remote server returned an error: (400) Bad |The resource endpoints used in the `Add-AzureRmEnvironment` command are incorrect.|
-|Unable to get endpoints from the cloud.<br>Please ensure you have network connection. Error detail: HTTPSConnectionPool(host='management.dbg-of4k6suvm.microsoftdatabox.com', port=30005): Max retries exceeded with url: /metadata/endpoints?api-version=2015-01-01 (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",),)) |This error appears mostly in a Mac/Linux environment, and is due to the following issues:<li>A PEM format certificate wasn't added to the python certificate store.</li> |
+|Unable to get endpoints from the cloud.<br>Ensure you have network connection. Error detail: HTTPSConnectionPool(host='management.dbg-of4k6suvm.microsoftdatabox.com', port=30005): Max retries exceeded with url: /metadata/endpoints?api-version=2015-01-01 (Caused by SSLError(SSLError("bad handshake: Error([('SSL routines', 'tls_process_server_certificate', 'certificate verify failed')],)",),)) |This error appears mostly in a Mac/Linux environment, and is caused by the following issues:<li>A PEM format certificate wasn't added to the python certificate store.</li> |
 
 
-## General troubleshooting for ARM
+## Troubleshooting general issues
 
-After an ARM configuration failure, make sure your Azure Stack Edge Pro GPU device and the client are configured properly for ARM configuration. 
+For general issues with Azure Resource Manager, the first to do is to make sure your Azure Stack Edge Pro GPU device and the client are configured properly. For end-to-end procedures, see [Connect to Azure Resource Manager on your Azure Stack Edge Pro device](azure-stack-edge-gpu-connect-resource-manager.md).
 
 
 ### Verify the device is configured properly
 
 1. From the local UI, verify that the device network is configured correctly.
 
-2. Verify that certificates are updated for all the endpoints as mentioned [here](./azure-stack-edge-gpu-connect-resource-manager.md#step-2-create-and-install-certificates).
+2. [Verify that certificates are updated for all the endpoints](./azure-stack-edge-gpu-connect-resource-manager.md#step-2-create-and-install-certificates).
 
 3. Get the Azure Resource Manager management and login endpoint from the **Device** page in local UI.
 
@@ -51,20 +49,20 @@ After an ARM configuration failure, make sure your Azure Stack Edge Pro GPU devi
 
 ### Verify the client is configured properly
 
-1. Validate that the correct PowerShell version is installed as mentioned [here](./azure-stack-edge-gpu-connect-resource-manager.md#step-3-install-powershell-on-the-client).
+1. [Validate that the correct PowerShell version is installed](./azure-stack-edge-gpu-connect-resource-manager.md#step-3-install-powershell-on-the-client).<!--Any problem with using "verify" throughout these steps? I think of validation as a process/routine performed by a program.-->
 
-2. Validate that the correct PowerShell modules are installed as mentioned [here](./azure-stack-edge-gpu-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client).
+2. [Validate that the correct PowerShell modules are installed](./azure-stack-edge-gpu-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client).
 
 3. Validate that Azure Resource Manager and login endpoints are reachable. You can try to ping the endpoints. For example:
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
    
-   If they aren't reachable, add DNS / host file entries as mentioned [here](./azure-stack-edge-gpu-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution).
+   If they aren't reachable, [add DNS / host file entries](./azure-stack-edge-gpu-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution).
    
-4. Validate that client certificates are installed as mentioned [here](./azure-stack-edge-gpu-connect-resource-manager.md#import-certificates-on-the-client-running-azure-powershell).
+4. [Validate that client certificates are installed](./azure-stack-edge-gpu-connect-resource-manager.md#import-certificates-on-the-client-running-azure-powershell).
 
-5. If the customer is using PowerShell, you should enable the debug preference to see detailed messages by running this PowerShell command. 
+5. If you're using PowerShell, enable the debug preference to see detailed messages by running this PowerShell command:<!--Ambiguous antecedent.--> 
 
     `$debugpreference = "continue"`
 
