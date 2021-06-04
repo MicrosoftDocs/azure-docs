@@ -1,6 +1,6 @@
 ---
 title: Sell your Azure application offer 
-description: Learn about the co-sell with Microsoft and resell through Cloud Solution Providers (CSP) program options for anh Azure application offer in the Microsoft commercial marketplace (Azure Marketplace).
+description: Learn about the co-sell with Microsoft and resell through Cloud Solution Providers (CSP) program options for an Azure application offer in the Microsoft commercial marketplace (Azure Marketplace).
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
