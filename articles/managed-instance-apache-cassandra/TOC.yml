@@ -30,7 +30,7 @@
       items:
         - name: Live Migration
           items:
-            - name: Using Dual-write proxy
+            - name: Using dual-write proxy
               href: dual-write-proxy-migration.md          
         - name: Offline Migration
           items:
