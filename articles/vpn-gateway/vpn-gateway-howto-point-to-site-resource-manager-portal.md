@@ -88,11 +88,11 @@ The client address pool is a range of private IP addresses that you specify. The
 
 ## <a name="type"></a>Specify tunnel type and authentication type
 
-On the **Point-to-site configuration** page, if you don't see **Tunnel type** or **Authentication type**, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
+In this section, you specify the tunnel type and the authentication type. If you don't see tunnel type or authentication type on the Point-to-site configuration page, your gateway is using the Basic SKU. The Basic SKU does not support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and recreate the gateway using a different gateway SKU.
 
 ### <a name="tunneltype"></a>Tunnel type
 
-On the **Point-to-site configuration** page, select the tunnel type.
+On the **Point-to-site configuration** page, select the **Tunnel type**. When selecting the tunnel type, note the following:
 
 * The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and maxOS will use only the IKEv2 tunnel type to connect.
 * Windows clients will try IKEv2 first and if that doesn't connect, they fall back to SSTP.
