@@ -34,7 +34,7 @@ When you perform forensics activities with ledger-enabled tables, data is captur
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Conditions triggering the event**: Creating a new ledger table or converting a regular table to a ledger table
+**Conditions that trigger the event**: When you create a new ledger table or convert a regular table to a ledger table.
 
 ## Alter ledger
 
@@ -50,7 +50,7 @@ When you perform forensics activities with ledger-enabled tables, data is captur
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Conditions triggering the event**: Dropping or renaming a ledger table, converting a ledger table to a normal table, and adding, dropping, or renaming a column in a ledger table
+**Conditions that trigger the event**: When you drop or rename a ledger table, convert a ledger table to a normal table, and add, drop, or rename a column in a ledger table.
 
 
 ## Generate ledger digest
@@ -67,7 +67,7 @@ When you perform forensics activities with ledger-enabled tables, data is captur
 | **configuration_group_name** | LEDGER_OPERATION_GROUP  |
 | **action_in_log** | 1 |
 
-**Condition triggering the event**: Generating a ledger digest
+**Condition that triggers the event**: When you generate a ledger digest.
 
 ## Verify ledger
 
@@ -83,7 +83,7 @@ When you perform forensics activities with ledger-enabled tables, data is captur
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 1 |
 
-**Condition triggering the event**: Verifying a ledger digest
+**Condition that triggers the event**: When you verify a ledger digest.
 
 ## Ledger operation group
 
@@ -99,7 +99,7 @@ When you perform forensics activities with ledger-enabled tables, data is captur
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
 
-**Condition triggering the event**: N/A
+**Condition that triggers the event**: N/A
 
 | Column | Value |
 |--|--|
@@ -113,7 +113,7 @@ When you perform forensics activities with ledger-enabled tables, data is captur
 | **configuration_group_name** | LEDGER_OPERATION_GROUP |
 | **action_in_log** | 0 |
 
-**Condition triggering the event**: N/A 
+**Condition that triggers the event**: N/A 
 
 ## Next steps
 
