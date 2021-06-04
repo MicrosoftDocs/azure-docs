@@ -207,6 +207,10 @@ To delete a certain maintenance configuration window in your AKS Cluster, use th
 az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name default
 ```
 
+## Using Planned Maintenance with Cluster Auto-Upgrade
+
+Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically. For more details on about Cluster Auto-Upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+
 ## Next steps
 
 - To get started with upgrading your AKS cluster, see [Upgrade an AKS cluster][aks-upgrade]

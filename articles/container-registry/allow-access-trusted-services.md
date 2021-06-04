@@ -40,7 +40,7 @@ Instances of the following services can access a network-restricted container re
 |Azure Container Registry | [Import images from another Azure container registry](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]
-> Curently, enabling the allow trusted services setting does not allow instances of other managed Azure services including App Service, Azure Container Instances, and Azure Security Center to access a network-restricted container registry.
+> Currently, enabling the allow trusted services setting does not allow instances of other managed Azure services including App Service, Azure Container Instances, and Azure Security Center to access a network-restricted container registry.
 
 ## Allow trusted services - CLI
 
