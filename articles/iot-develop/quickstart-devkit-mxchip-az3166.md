@@ -16,7 +16,7 @@ ms.date: 06/02/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
-In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
+In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT.
 
 You'll complete the following tasks:
 
@@ -247,13 +247,13 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the MXCHIP DevKit device. You also used the IoT Central portal to create Azure resources, connect the MXCHIP DevKit securely to Azure, view telemetry, and send messages.
 
-> [!IMPORTANT]
-> Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+
+> [!IMPORTANT]
+> Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
 
