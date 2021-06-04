@@ -20,7 +20,7 @@ This article describes the networking in a Kubernetes cluster in general and spe
 
 ## Networking requirements
 
-Here is an example of a typical 2-tier app that is deployed to the Kubernetes cluster.
+Here is an example of a typical two-tier app that is deployed to the Kubernetes cluster.
 
 - The app has a web server front end and a database application in the backend. 
 - Every pod is assigned an IP but these IPs can change on restart and failover of the pod. 
@@ -40,7 +40,7 @@ To solve both the above needs, we introduce a Kubernetes service.
 
 There are two types of Kubernetes services: 
 
-- **Cluster IP service** - think of this as providing a constant endpoint for the application pods. Any pod associated with these services cannot be accessed from outside of the Kubernetes cluster. The IP address used with these services comes from the address space in the private network. 
+- **Cluster IP service** - think of this service as providing a constant endpoint for the application pods. Any pod associated with these services cannot be accessed from outside of the Kubernetes cluster. The IP address used with these services comes from the address space in the private network. 
     
     To expose the pods within the Kubernetes cluster for access as other pods and not as an externally exposed load balancer service, see how to [Expose Kubernetes service as cluster IP service for internal communication]().
 
@@ -66,7 +66,7 @@ The IP addresses used for Kubernetes nodes and the external services are provide
 
 The IP assignment is for:
 
-- **Kubernetes node IPs**: This IP range is used for Kubernetes master and worker nodes. These IP are used when Kubernetes nodes communicate with each other.
+- **Kubernetes node IPs**: This IP range is used for Kubernetes master and worker nodes. These IPs are used when Kubernetes nodes communicate with each other.
 - **Kubernetes external service IPs**: This IP range is used for external services (also known as the Load Balancer services) that are exposed outside of the Kubernetes cluster.
 
 ## Kubernetes networking components
@@ -83,7 +83,7 @@ When you connect to the PowerShell interface of your device, you can see the abo
 
 Your device is available as a 1-node configuration that constitutes the infrastructure cluster. The Kubernetes cluster is separate from the infrastructure cluster and is deployed on top of the infrastructure cluster. The Kubernetes cluster has a master node and a worker node. Both the Kubernetes nodes are virtual machines that run your applications and cloud workflows.
 
-The master and worker VMs each have 2 network interfaces, one that connects to the internal virtual switch and another that connects to the external virtual switch. 
+The master and worker VMs each have two network interfaces, one that connects to the internal virtual switch and another that connects to the external virtual switch. 
 
 - **External virtual switch**: This switch is created when we enable a device port for compute via the **Compute** page in the local UI. This is the switch that you use for your compute infrastructure, for example, this switch is used for the virtual machines that you deploy on your device. 
 - **Internal virtual switch**: This switch is created as a part of the factory default settings on your device. The internal virtual switch uses Network Address Translation (NAT) to route the traffic through the port that is configured with a default gateway. For example, this switch routes all the IoT runtime requests from VMs to the Azure portal. 
