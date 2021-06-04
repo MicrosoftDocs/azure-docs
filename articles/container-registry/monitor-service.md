@@ -202,4 +202,4 @@ The following table lists common and recommended alert rules for Azure Container
 ## Next steps
 
 - See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for a reference of the metrics, logs, and other important values created by Azure Container Registry.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
