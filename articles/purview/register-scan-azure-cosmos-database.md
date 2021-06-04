@@ -82,7 +82,7 @@ To create and run a new scan, do the following:
 
 1. You can scope your scan to specific databases by choosing the appropriate items in the list.
 
-   :::image type="content" source="media/register-scan-azure-cosmos-database/cosmosdb-scope-your-scan.png" alt-text="Scope your scan":::
+   :::image type="content" source="media/register-scan-azure-cosmos-database/cosmos-database-scope-your-scan.png" alt-text="Scope your scan":::
 
 1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
 
