@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 06/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
