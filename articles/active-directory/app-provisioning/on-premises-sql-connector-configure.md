@@ -141,7 +141,7 @@ To create a generic SQL connector use the following steps:
  14. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you would like to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.  On the **Select Attributes** page, select attributes from the drop-down to add. 
      ![Enter attributes](.\media\on-premises-sql-connector-configure\sql-13.png)
 
-15. On the **Deprovisioning** page, review the deprovisioning information and make adjustments as necessary. Click Finish.
+15. On the **Deprovisioning** page, review the deprovisioning information and make adjustments as necessary. Attributes selected in the previous page will not be available to select in the deprovisioning page. Click Finish.
      ![Enter deprovisioning information](.\media\on-premises-sql-connector-configure\sql-14.png)
 
 
