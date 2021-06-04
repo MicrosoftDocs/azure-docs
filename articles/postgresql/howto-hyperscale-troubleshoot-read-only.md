@@ -33,7 +33,7 @@ continue to work.
 
 * [Increase storage
   size](howto-hyperscale-scale-grow.md#increase-storage-on-nodes)
-  on the coordinator node
+  on the coordinator node, and/or
 * Distribute local tables to worker nodes, or drop data. For either option,
   you'll need to run `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE`
   after you've connected to the database and before you execute other commands.
@@ -42,7 +42,7 @@ continue to work.
 
 * [Increase storage
   size](howto-hyperscale-scale-grow.md#increase-storage-on-nodes)
-  on the worker nodes
+  on the worker nodes, and/or
 * [Rebalance data](howto-hyperscale-scale-rebalance.md) to other nodes, or drop
   some data.
 	* For either option, you'll need to set the worker node as read-write
