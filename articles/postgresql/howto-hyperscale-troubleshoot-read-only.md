@@ -31,17 +31,20 @@ continue to work.
 
 ### On the coordinator node
 
-* Increase storage size on the coordinator node
+* [Increase storage
+  size](howto-hyperscale-scale-grow.md#increase-storage-on-nodes)
+  on the coordinator node
 * Distribute local tables to worker nodes, or drop data. For either option,
   you'll need to run `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE`
   after you've connected to the database and before you execute other commands.
 
 ### On a worker node
 
-* Increase storage size on the worker nodes
-* [Rebalance
-  data](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-scale-rebalance)
-  to other nodes, or drop some data.
+* [Increase storage
+  size](howto-hyperscale-scale-grow.md#increase-storage-on-nodes)
+  on the worker nodes
+* [Rebalance data](howto-hyperscale-scale-rebalance.md) to other nodes, or drop
+  some data.
 	* For either option, you'll need to set the worker node as read-write
 	  temporarily. Submit a support request to do this. Alternately, if you're
       running a preview Hyperscale (Citus) server group you can connect directly to
@@ -52,9 +55,8 @@ continue to work.
 
 We recommend that you set up an alert to notify you when server storage is
 approaching the threshold. That way you can act early to avoid getting into the
-read-only state. For more information, see the documentation about
-[recommended
-alerts](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts).
+read-only state. For more information, see the documentation about [recommended
+alerts](howto-hyperscale-alert-on-metric.md#suggested-alerts).
 
 ## Next steps
 
