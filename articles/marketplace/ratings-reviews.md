@@ -68,7 +68,7 @@ The response will appear under the text of the original review in the product de
 
 ### Editing or deleting a response to a review
 
-You can edit or delete a response to a review by selecting “Edit” or “Delete”.
+You can edit or delete a response to a review by selecting **Edit** or **Delete**.
 
 :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/edit-or-delete-reply.png" alt-text="Illustrates options to edit or delete a reply":::
 
