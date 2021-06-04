@@ -18,23 +18,11 @@ Intro goes here
 
 Tasks for determining use and capacity
 
-#### Identify unused storage accounts
+#### Identify storage accounts with no or low use
 
-Details go here
+Monitor for accounts that have low or now traffic. This includes write and read operations and even storage levels.
 
-#### Identify storage accounts with low use
-
-Details go here
-
-#### Get the amount of used capacity for Blob Storage
-
-Details go here
-
-#### Monitor ingress and egress
-
-Details go here.
-
-#### Receive an alert when a Blob Storage is approaching a capacity limit
+#### Monitor the capacity of a container
 
 Details go here
 
@@ -44,39 +32,21 @@ Tasks for monitoring account activity
 
 #### Audit activities for Blob Storage
 
-Details go here
+This is about compliance auditing. Compliance auditing companies will often time be hired to audit a companies cloud platform based on controls. A popular control that relates to this scenario is about "access management". We need to use this section to discuss both data plane and control plane operations audit. The key elements of logs - who why what when.
 
-#### Receive an alert when a large blob is uploaded
+#### Analyze traffic per source
 
-Details go here
+This where we can suggest different approaches to determining traffic (bytes - operation type etc) by source. Source could be a service principal or AD identity. If no AD is used, we can show how to identity traffic by IP address. We'll have to call out that multiple people can use an IP address so this might not always be the best identifier. They can also identify traffic by agent. An agent also has challenges. Discuss exactly what those are with Francis.
 
-#### Determine the number of bytes read per request by a specific service principal
+##### Identify the client associated with a request
 
-Details go here
-
-#### Determine the number of bytes read per request as part of a particular connection  
-
-Details go here
-
-#### Identify the client associated with a request
-
-Details go here
-
-#### Audit with a user identity
-
-Not sure what this is. Need clarification.
+This is a subheading of the "Analyze traffic per source".
 
 ## Optimize cost
 
-Tasks for controlling costs
+#### Optimize cost for infrequent queries
 
-#### Optimize the cost of storing log data
-
-Details go here
-
-#### Optimize the cost of querying data
-
-Details go here.
+This is a scenario that applies in cases where there may be an annual compliance audit. The cost of query analytics is high. It could be lower cost to store these logs in storage archive and use tiering to save. Then at the time a query is needed, to use whatever mechanism makes sense to query the logs. This could be more cost effective.
 
 ## See also
 

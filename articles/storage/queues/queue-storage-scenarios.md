@@ -14,53 +14,13 @@ ms.custom: "monitoring"
 
 Intro goes here.
 
-## Monitor use and capacity
-
-Tasks for determining use and capacity
-
-#### Identify unused storage accounts
+## Monitor queue messages in near real-time
 
 Details go here
 
-#### Identify storage accounts with low use
+## Optimize cost for infrequent queries
 
-Details go here
-
-#### Get the amount of used capacity for Queue Storage
-
-Details go here
-
-## Monitor activity
-
-Tasks for monitoring account activity
-
-#### Audit activities for queue storage
-
-Details go here
-
-#### Monitor queue messages in near real-time
-
-Details go here
-
-#### Auditing with a user identity
-
-Not sure what this is. Need clarification.
-
-#### Identify the client associated with a request
-
-Details go here
-
-## Optimize cost
-
-Tasks for controlling costs
-
-#### Optimize the cost of storing log data
-
-Details go here
-
-#### Optimize the cost of querying data
-
-Details go here.
+This is a scenario that applies in cases where there may be an annual compliance audit. The cost of query analytics is high. It could be lower cost to store these logs in storage archive and use tiering to save. Then at the time a query is needed, to use whatever mechanism makes sense to query the logs. This could be more cost effective.
 
 ## See also
 
