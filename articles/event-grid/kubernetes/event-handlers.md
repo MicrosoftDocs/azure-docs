@@ -74,18 +74,18 @@ To publish to a WebHook endpoint, set the `endpointType` to `WebHook` and provid
 
 To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `WebHook` and provide:
 
-* **endpointUrl**: Azure event grid topic URL in the cloud
+* **endpointUrl**: Azure event grid topic URL in the cloud with the API version parameter set to **2018-01-01** and `aeg-sas-key` set to the URL encoded SAS key. 
 
    ```json
-        {
-          "properties": {
-            "destination": {
-              "endpointType": "WebHook",
-              "properties": {
-                 "endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01",
-              }
-            }
-          }
+    {
+    	"properties": {
+    		"destination": {
+    			"endpointType": "WebHook",
+    			"properties": {
+    				"endpointUrl": "<your-event-grid-cloud-topic-endpoint-url>?api-version=2018-01-01&aeg-sas-key=urlencoded(sas-key-value)"
+    			}
+    		}
+    	}
     }
    ```
 

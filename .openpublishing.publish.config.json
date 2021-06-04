@@ -260,7 +260,7 @@
       "url": "https://github.com/Azure-Samples/azure-search-python-samples",
       "branch": "master",
       "branch_mapping": {}
-    },
+    },     
     {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
@@ -342,7 +342,7 @@
     {
       "path_to_root": "media-services-v3-dotnet-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -738,6 +738,12 @@
     {
       "path_to_root": "digital-twins-docs-samples-dps",
       "url": "https://github.com/Azure-Samples/digital-twins-iothub-integration",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-spring-cloud-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-cloud-reference-architecture",
       "branch": "main",
       "branch_mapping": {}
     }

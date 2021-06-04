@@ -53,8 +53,8 @@ To run this application, follow these steps:
 // Replace the subscriptionKey string value with your valid subscription key.
 $subscriptionKey = 'ENTER KEY HERE';
 
-$host = "https://api.cognitive.microsoft.com";
-$path = "/bing/v7.0/entities";
+$host = "https://api.bing.microsoft.com";
+$path = "/v7.0/search";
 
 $mkt = "en-US";
 $query = "italian restaurants near me";

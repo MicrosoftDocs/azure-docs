@@ -195,10 +195,10 @@
       href: cdn-pop-locations.md
     - name: POP locations by abbreviation
       items:
-      - name: Verizon
-        href: cdn-pop-abbreviations.md
       - name: Microsoft
         href: microsoft-pop-abbreviations.md
+      - name: Verizon
+        href: cdn-pop-abbreviations.md
   - name: Azure Content Delivery Network billing
     href: cdn-billing.md
   - name: Azure Roadmap
