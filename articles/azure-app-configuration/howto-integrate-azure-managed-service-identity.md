@@ -145,8 +145,8 @@ To set up a managed identity in the portal, you first create an application and 
     ---
 
     > [!NOTE]
-    > In the case you want to use a **user-assigned managed identity**, be sure to specify the clientId when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
-    >```
+    > If you want to use a **user-assigned managed identity**, be sure to specify the clientId when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
+    >```csharp
     >config.AddAzureAppConfiguration(options =>
     >       {
     >           options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential("< your_clientId >"))

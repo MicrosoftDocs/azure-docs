@@ -51,7 +51,6 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 1. In the search box, type **Key Vault** and select **Key Vault** from the drop-down.
 1. From the results list, select **Key vaults** on the left.
 1. In **Key vaults**, select **Add**.
-    ![The Create Key Vault page showing a description of the service a button labeled "Create".](./media/create-key-vault.png)
 1. On the right in **Create key vault**, provide the following information:
     - Select **Subscription** to choose a subscription.
     - In **Resource Group**, enter an existing resource group name or select **Create new** and enter a resource group name.
@@ -88,6 +87,8 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     - **Label**: Leave this value blank.
     - **Subscription**, **Resource group**, and **Key vault**: Enter the values corresponding to those in the key vault you created in the previous section.
     - **Secret**: Select the secret named **Message** that you created in the previous section.
+
+![Screen shot of the create a new Key Vault reference form](./media/create-key-vault-reference.png)
 
 ## Update your code to use a Key Vault reference
 
