@@ -1,5 +1,5 @@
 ---
-title: Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET (preview)
+title: Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET
 description: Create Linux VM images with Azure Image Builder allowing access to an existing Azure VNET
 author: danielsollondon
 ms.author: danis
@@ -14,11 +14,6 @@ ms.reviewer: danis
 # Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET
 
 This article shows you how you can use the Azure Image Builder to create a basic customized Linux image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
-
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 

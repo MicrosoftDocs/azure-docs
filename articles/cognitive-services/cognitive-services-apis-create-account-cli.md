@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: quickstart
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: aahi
 ---
 
@@ -188,6 +188,8 @@ To remove the resource group and its associated resources, use the az group dele
 ```azurecli-interactive
 az group delete --name cognitive-services-resource-group
 ```
+
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
 
 ## See also
 
