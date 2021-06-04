@@ -30,7 +30,7 @@ The following Azure services support managed identities for Azure resources:
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
-| User assigned | Preview | Preview | Not available | Preview |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
 Refer to the following list to configure managed identity for Azure API Management (in regions where available):
 
@@ -456,25 +456,18 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://eventhubs.azure.net` | ![Available][check] |
-| Azure Government |  | Not Available |
-| Azure Germany |   | Not Available |
-| Azure China 21Vianet |  | Not Available |
+| Azure Government | `https://eventhubs.azure.net` | ![Available][check] |
+| Azure Germany | `https://eventhubs.azure.net` | ![Available][check] |
+| Azure China 21Vianet | `https://eventhubs.azure.net` | ![Available][check] |
 
 ### Azure Service Bus
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
 | Azure Global | `https://servicebus.azure.net`  | ![Available][check] |
-| Azure Government |  | ![Available][check] |
-| Azure Germany |   | Not Available |
-| Azure China 21Vianet |  | Not Available |
-
-
-
-
-
-
-
+| Azure Government | `https://servicebus.azure.net`  | ![Available][check] |
+| Azure Germany |  `https://servicebus.azure.net`  | ![Available][check] |
+| Azure China 21Vianet | `https://servicebus.azure.net`  | ![Available][check] |
 
 
 ### Azure Storage blobs and queues

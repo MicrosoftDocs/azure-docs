@@ -29,12 +29,12 @@ mkdir calling-quickstart && cd calling-quickstart
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.0.0.beta-10`. 
+> This quickstart uses the Azure Communication Services Calling SDK version `1.1.0.beta-1`. 
 
 
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling --save
+npm install @azure/communication-calling@1.1.0.beta-1 --save
 ```
 ### Set up the app framework
 
@@ -141,9 +141,44 @@ async function init() {
     const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
     
+    // Receive an incoming call
+    // To handle incoming calls you need to listen to the `incomingCall` event of `callAgent`. Once there is an incoming call, you need to enumerate local cameras and construct 
+    // a `LocalVideoStream` instance to send a video stream to the other participant. You also need to subscribe to `remoteParticipants` to handle remote video streams. You can 
+    // accept or reject the call through the `incomingCall` instance. 
+    callAgent.on('incomingCall', async e => {
+        const videoDevices = await deviceManager.getCameras();
+        const videoDeviceInfo = videoDevices[0];
+        localVideoStream = new LocalVideoStream(videoDeviceInfo);
+        localVideoView();
+
+        stopVideoButton.disabled = false;
+        callButton.disabled = true;
+        hangUpButton.disabled = false;
+
+        const addedCall = await e.incomingCall.accept({videoOptions: {localVideoStreams:[localVideoStream]}});
+        call = addedCall;
+
+        subscribeToRemoteParticipantInCall(addedCall);  
+    });
+    
+    // Subscribe to call updates
+    // You need to subscribe to the event when the remote participant ends the call to dispose of video renderers and toggle button states. 
+    callAgent.on('callsUpdated', e => {
+        e.removed.forEach(removedCall => {
+            // dispose of video renders
+            rendererLocal.dispose();
+            rendererRemote.dispose();
+            // toggle button states
+            hangUpButton.disabled = true;
+            callButton.disabled = false;
+            stopVideoButton.disabled = true;
+        })
+    })
+
     deviceManager = await callClient.getDeviceManager();
     callButton.disabled = false;
 }
+
 init();
 ```
 ## Place a 1:1 outgoing video call to a user
@@ -236,28 +271,7 @@ async function remoteVideoView(remoteVideoStream) {
     document.getElementById("remoteVideo").appendChild(view.target);
 }
 ```
-## Receive an incoming call
-To handle incoming calls you need to listen to the `incomingCall` event of `callAgent`. Once there is an incoming call, you need to enumerate local cameras and construct a `LocalVideoStream` instance to send a video stream to the other participant. You also need to subscribe to `remoteParticipants` to handle remote video streams. You can accept or reject the call through the `incomingCall` instance. 
 
-Put the implementation in `init()` to handle incoming calls. 
-
-```JavaScript
-callAgent.on('incomingCall', async e => {
-    const videoDevices = await deviceManager.getCameras();
-    const videoDeviceInfo = videoDevices[0];
-    localVideoStream = new LocalVideoStream(videoDeviceInfo);
-    localVideoView();
-
-    stopVideoButton.disabled = false;
-    callButton.disabled = true;
-    hangUpButton.disabled = false;
-
-    const addedCall = await e.incomingCall.accept({videoOptions: {localVideoStreams:[localVideoStream]}});
-    call = addedCall;
-
-    subscribeToRemoteParticipantInCall(addedCall);  
-});
-```
 ## End the current call
 Add an event listener to end the current call when the `hangUpButton` is clicked:
 ```JavaScript
@@ -272,23 +286,6 @@ hangUpButton.addEventListener("click", async () => {
     callButton.disabled = false;
     stopVideoButton.disabled = true;
 });
-```
-## Subscribe to call updates
-You need to subscribe to the event when the remote participant ends the call to dispose of video renderers and toggle button states. 
-
-Put the implementation in init() to subscribe to the `callsUpdated` event. 
- ```JavaScript 
-callAgent.on('callsUpdated', e => {
-    e.removed.forEach(removedCall => {
-        // dispose of video renders
-        rendererLocal.dispose();
-        rendererRemote.dispose();
-        // toggle button states
-        hangUpButton.disabled = true;
-        callButton.disabled = false;
-        stopVideoButton.disabled = true;
-    })
-})
 ```
 
 ## Start and end video during the call

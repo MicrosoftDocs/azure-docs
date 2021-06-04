@@ -1,23 +1,14 @@
 ---
-title: "Azure Monitor docs: What's new for March 2021"
-description: "What's new in the Azure Monitor docs for March 2021."
+title: "Azure Monitor docs: What's new for April 2021"
+description: "What's new in the Azure Monitor docs for April 2021"
 ms.topic: conceptual
-ms.date: 04/10/2021
+ms.date: 05/01/2021
 ---
 
-# Azure Monitor docs: What's new for March 2021
+# Azure Monitor docs: What's new for April 2021
 
-Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March 31, 2021. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Azure Monitor docs for April 2021. This article lists some of the significant changes to docs during this period.
 
-## General
-
-**Updated articles**
-
-- [Azure Monitor Frequently Asked Questions](faq.md)
-- [Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)
-- [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
-- [Deploy Azure Monitor](deploy.md)
-   
 ## Agents
 
 **Updated articles**
@@ -52,7 +43,7 @@ Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March
 - [Java codeless application monitoring Azure Monitor Application Insights](app/java-in-process-agent.md)
 - [Enable Snapshot Debugger for .NET apps in Azure App Service](app/snapshot-debugger-appservice.md)
 - [Enable Snapshot Debugger for .NET and .NET Core apps in Azure Functions](app/snapshot-debugger-function-app.md)
-- [<a id=troubleshooting></a> Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](app/snapshot-debugger-troubleshoot.md)
+- [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](app/snapshot-debugger-troubleshoot.md)
 - [Release notes for Azure Web App extension for Application Insights](app/web-app-extension-release-notes.md)
 - [Set up Azure Monitor for your Python application](app/opencensus-python.md)
 - [Upgrading from Application Insights Java 2.x SDK](app/java-standalone-upgrade-from-2x.md)
@@ -85,6 +76,15 @@ Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March
 - [Application Insights log-based metrics](essentials/app-insights-metrics.md)
 - [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md)
 
+## General
+
+**Updated articles**
+
+- [Azure Monitor Frequently Asked Questions](faq.md)
+- [Azure Monitor docs: What's new for February 1, 2021 - February 28, 2021](whats-new.md)
+- [Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)
+- [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
+- [Deploy Azure Monitor](deploy.md)
 
 ## Insights
 
@@ -131,3 +131,13 @@ Welcome to what's new in the Azure Monitor docs from March 1, 2021 through March
 
 - [Programmatically manage workbooks](visualize/workbooks-automate.md)
 
+## Community contributors
+
+The following people contributed to the Azure Monitor docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
+
+- [Amrinder-Singh29](https://github.com/Amrinder-Singh29) (1)
+- [artemious7](https://github.com/artemious7) - Artem (1)
+- [burnhamrobertp](https://github.com/burnhamrobertp) - Robert Burnham (1)
+- [kchopein](https://github.com/kchopein) - KchoPein! (1)
+- [kmadof](https://github.com/kmadof) - Krzysztof Madej (1)
+- [stversch](https://github.com/stversch) - Steve Verschaeve - MSFT (1)

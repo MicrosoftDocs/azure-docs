@@ -5,7 +5,7 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: helohr
-ms.reviewer: sefriend
+ms.reviewer: denisgun
 manager: femila
 ---
 
@@ -106,8 +106,8 @@ The following table shows which Azure Virtual Desktop clients support proxy serv
 | Windows Desktop | Yes |
 | Web client | Yes |
 | Android | No |
-| iOS | No |
-| macOS | No |
+| iOS | Yes |
+| macOS | Yes |
 | Windows Store | Yes |
 
 For more information about proxy support on Linux based thin clients, see [Thin client support](linux-overview.md).
