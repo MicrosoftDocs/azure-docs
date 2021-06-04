@@ -14,7 +14,7 @@ This feature requires no special setup, other than [configuring your app to send
 
 ## When would I get this type of smart detection notification?
 There are three types of security issues that are detected:
-1. Insecure URL access: a URL in the applications accessible via both HTTP and HTTPS. Typically, a URL that accepts HTTPS requests shouldn't accept HTTP requests. This detection may indicate a bug or security issue in your application.
+1. Insecure URL access: a URL in the application is accessible via both HTTP and HTTPS. Typically, a URL that accepts HTTPS requests shouldn't accept HTTP requests. This detection may indicate a bug or security issue in your application.
 2. Insecure form: a form (or other "POST" request) in the application uses HTTP instead of HTTPS. Using HTTP can compromise the user data that is sent by the form.
 3. Suspicious user activity: the same user accesses the application from multiple countries or regions, around the same time. For example, the same user accessed the application from Spain and the United States within the same hour. This detection indicates a potentially malicious access attempt to your application.
 
