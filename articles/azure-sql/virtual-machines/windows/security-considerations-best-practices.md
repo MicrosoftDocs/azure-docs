@@ -39,19 +39,19 @@ Results of the scan include actionable steps to resolve each issue and provide c
 - Feature configurations
 - Database settings
 
-See [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) to learn more. 
+See [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
 
 ## Advanced Threat Protection
 
-Advanced Threat Protection is a capability of [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) that provides a new layer of security. Advanced Threat Protection enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection integrates alerts with Azure Security Center, which include details of suspicious activity and recommend action on how to investigate and mitigate the threat. Advanced Threat Protection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
+Advanced Threat Protection is a capability of [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) that provides a new layer of security. Advanced Threat Protection enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and queries patterns. Advanced Threat Protection integrates alerts with Azure Security Center, which include details of suspicious activity and recommend action on how to investigate and mitigate the threat. Advanced Threat Protection makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems.
 
-See [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) to learn more. 
+See [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
 
 ## Portal management
 
-After you've [registered your SQL Server VM with the SQL IaaS extension](sql-agent-extension-manually-register-single-vm.md), you can configure a number of security settings using the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as enabling Azure Key Vault integration, or enabling SQL authentication. 
+After you've [registered your SQL Server VM with the SQL IaaS extension](sql-agent-extension-manually-register-single-vm.md), you can configure a number of security settings using the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as enabling Azure Key Vault integration, or SQL authentication. 
 
-Additionally, after you've enabled [Azure Defender for SQL](/security-center/defender-for-sql-usage.md) you can view Security Center alerts directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal. This includes both SQL vulnerability assessments and Advanced Threat Protection notifications. 
+Additionally, after you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) you can view Security Center alerts directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal. This includes both SQL vulnerability assessments and Advanced Threat Protection notifications. 
 
 See [manage SQL VM in the portal](manage-sql-vm-portal.md) to learn more. 
 
@@ -97,11 +97,9 @@ Managed disks offer Server-Side Encryption, and Azure Disk Encryption. [Server-S
 
 By default, SQL Server listens on a well-known port, 1433. For increased security, configure SQL Server to listen on a non-default port, such as 1401. If you provision a SQL Server gallery image in the Azure portal, you can specify this port in the **SQL Server settings** blade.
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
 To configure this after provisioning, you have two options:
 
-- For Resource Manager VMs, you can select **Security** from the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). This provides an option to change the port.
+- For Resource Manager VMs, you can select **Security** from the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource). This provides an option to change the port.
 
   ![TCP port change in portal](./media/security-considerations-best-practices/sql-vm-change-tcp-port.png)
 

@@ -186,7 +186,7 @@ SQL Server VMs that have registered the extension in *lightweight* mode can upgr
 To upgrade the extension to full mode using the Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to your [SQL virtual machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) resource.
+1. Go to your [SQL virtual machines](manage-sql-vm-portal.md#access-the-resource) resource.
 1. Select your SQL Server VM, and select **Overview**.
 1. For SQL Server VMs with the NoAgent or lightweight IaaS mode, select the **Only license type and edition updates are available with the SQL IaaS extension** message.
 
