@@ -70,7 +70,7 @@ sections:
           To submit feature requests and other feedback, go to the [Data Catalog on the Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
           
       - question: |
-          Why do I get an error *Catalog already exists* when I try to create a new catalog?
+          Why do I get an error 'Catalog already exists' when I try to create a new catalog?
         answer: |
           When you purchase Office 365 E5 with Power BI Pro License, Microsoft creates a default catalog in the subscription's region automatically. This catalog uses the free SKU. The Office 365 / Power BI user license is managed in the administration page. 
           
