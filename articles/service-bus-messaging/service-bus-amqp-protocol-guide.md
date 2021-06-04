@@ -399,12 +399,7 @@ With this functionality, you create a sender and establish the link to the `via-
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## Next steps
-
-To learn more about AMQP, visit the following links:
-
-* [Service Bus AMQP overview]
-* [AMQP 1.0 support for Service Bus partitioned queues and topics]
-* [AMQP in Service Bus for Windows Server]
+To learn more about AMQP, see [Service Bus AMQP overview](service-bus-amqp-overview.md).
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -412,6 +407,3 @@ To learn more about AMQP, visit the following links:
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
-[Service Bus AMQP overview]: service-bus-amqp-overview.md
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: 
-[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

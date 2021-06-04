@@ -9,7 +9,7 @@ ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 04/12/2021
 ms.author: yuajia
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
 ---
 

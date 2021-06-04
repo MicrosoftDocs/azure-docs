@@ -58,7 +58,7 @@ Multiple blobs can be distributed across many servers to scale out access to the
 
 Azure Storage has a WebHDFS API layer for the blob storage. All HDInsight services can access files in Azure Blob storage for data cleaning and data processing. This is similar to how those services would use Hadoop Distributed File System (HDFS).
 
-Data is typically ingested into Azure Storage through PowerShell, the Azure Storage SDK, or AZCopy.
+Data is typically ingested into Azure Storage through PowerShell, the Azure Storage SDK, or AzCopy.
 
 ### Azure Data Lake Storage
 

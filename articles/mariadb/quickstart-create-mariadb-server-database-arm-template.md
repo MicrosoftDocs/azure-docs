@@ -6,7 +6,7 @@ ms.author: pariks
 ms.date: 05/14/2020
 ms.topic: quickstart
 ms.service: mariadb
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - mode-arm
 ---

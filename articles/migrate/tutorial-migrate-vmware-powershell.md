@@ -5,7 +5,8 @@ author: rahulg1190
 ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 05/11/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Migrate VMware VMs to Azure (agentless) - PowerShell

@@ -5,7 +5,7 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 02/15/2021
+ms.date: 06/04/2021
 ---
 
 # Getting started with Azure IoT embedded device development
@@ -25,10 +25,6 @@ The following tutorials are included in the getting started guide:
 
 |Quickstart|Device|
 |---------------|-----|
-|[Getting started with the ST Microelectronics B-L475E-IOT01 Discovery kit](https://go.microsoft.com/fwlink/p/?linkid=2129536) |[ST Microelectronics B-L475E-IOT01](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-discovery-kits/b-l475e-iot01a.html)|
-|[Getting started with the ST Microelectronics B-L4S5I-IOT01 Discovery kit](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4+) |[ST Microelectronics B-L4S5I-IOT01](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html)|
-|[Getting started with the NXP MIMXRT1060-EVK Evaluation kit](https://go.microsoft.com/fwlink/p/?linkid=2129821) |[NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK)|
-|[Getting started with the NXP MIMXRT1050-EVKB Evaluation kit](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1050-EVKB) |[NXP MIMXRT1050-EVKB](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-rt1050-evaluation-kit:MIMXRT1050-EVK)|
 |[Getting started with the Microchip ATSAME54-XPRO Evaluation kit](https://go.microsoft.com/fwlink/p/?linkid=2129537) |[Microchip ATSAME54-XPRO](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro)|
 
 ## Next steps

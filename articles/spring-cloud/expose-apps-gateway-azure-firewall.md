@@ -65,6 +65,10 @@ Create an application gateway using `az network application-gateway create` and 
 
 ```
 APPLICATION_GATEWAY_NAME='my-app-gw'
+APPLICATION_GATEWAY_PROBE_NAME='my-probe'
+APPLICATION_GATEWAY_REWRITE_SET_NAME='my-rewrite-set'
+APPLICATION_GATEWAY_REWRITE_RULE_NAME='remove-request-header'
+APPLICATION_GATEWAY_RULE_NAME='rule1'
 az network application-gateway create \
     --name ${APPLICATION_GATEWAY_NAME} \
     --resource-group ${RESOURCE_GROUP} \
@@ -78,11 +82,34 @@ az network application-gateway create \
     --vnet-name ${VIRTUAL_NETWORK_NAME} \
     --subnet ${APPLICATION_GATEWAY_SUBNET_NAME} \
     --servers ${SPRING_APP_PRIVATE_FQDN}
+az network application-gateway probe create \
+    --gateway-name ${APPLICATION_GATEWAY_NAME} \
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${APPLICATION_GATEWAY_PROBE_NAME} \
+    --protocol https \
+    --host-name-from-http-settings true \
+    --path /
 az network application-gateway http-settings update \
     --gateway-name ${APPLICATION_GATEWAY_NAME} \
     --resource-group ${RESOURCE_GROUP} \
     --name appGatewayBackendHttpSettings \
-    --host-name-from-backend-pool true
+    --host-name-from-backend-pool true \
+    --probe ${APPLICATION_GATEWAY_PROBE_NAME}
+az network application-gateway rewrite-rule set create \
+    --gateway-name ${APPLICATION_GATEWAY_NAME} \
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${APPLICATION_GATEWAY_REWRITE_SET_NAME}
+az network application-gateway rewrite-rule create \
+    --gateway-name ${APPLICATION_GATEWAY_NAME} \
+    --resource-group ${RESOURCE_GROUP} \
+    --rule-set-name ${APPLICATION_GATEWAY_REWRITE_SET_NAME} \
+    --name ${APPLICATION_GATEWAY_REWRITE_RULE_NAME} \
+    --request-headers X-Forwarded-Proto="https"
+az network application-gateway rule update \
+    --gateway-name ${APPLICATION_GATEWAY_NAME} \
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${APPLICATION_GATEWAY_RULE_NAME} \
+    --rewrite-rule-set ${APPLICATION_GATEWAY_REWRITE_SET_NAME}
 ```
 
 It can take up to 30 minutes for Azure to create the application gateway. After it's created, check the backend health using `az network application-gateway show-backend-health`.  This examines whether the application gateway reaches your application through its private FQDN.
