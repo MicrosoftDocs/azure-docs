@@ -161,7 +161,7 @@ To create and run a new scan, do the following:
 
 1. Select the Azure Data Lake Storage Gen1 source that you registered.
 
-1. Select **+ New scan**
+1. Select **New scan**
 
 1. Select the credential to connect to your data source.
 
