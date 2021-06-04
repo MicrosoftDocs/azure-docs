@@ -166,7 +166,7 @@ We recommend this architecture because it meets SCCA requirements. It’s highly
 
 Azure Discription here. 
 
-![MLZ SACA diagram](media/mlz.png)
+![MLZ SACA diagram](media/MLZ.png)
 
 For the Azure documentation and deployment scripts, see [this GitHub link](https://github.com/Azure/missionlz).
 
