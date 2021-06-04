@@ -1,7 +1,7 @@
 ---
-title: "How to: Identify apps running on ADAL using Azure portal | Azure"
+title: "How to: Get a complete list of all apps using ADAL in your tenant | Azure"
 titleSuffix: Microsoft identity platform
-description: In this how-to guide, you get to identify apps that are running on ADAL using Azure portal.
+description: In this how-to guide, you get a complete list of all apps that are using ADAL in your tenant.
 services: active-directory
 author: SHERMANOUKO
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.date: 05/27/2021
 ms.author: shermanouko
 ms.custom: aaddev
 ms.reviewer: aiwang, marsma
-# Customer intent: As an application developer / IT admin, I need to know / identify which of my apps are running on ADAL via the Azure portal.
+# Customer intent: As an application developer / IT admin, I need to know / identify which of my apps are using ADAL.
 ---
 
-# How to: Identify apps running on ADAL using Azure portal
+# How to: Get a complete list of apps using ADAL in your tenant
 
-Azure portal provides a workbook to identify apps using ADAL for their authentication. This article provides guidance on determining apps that run on ADAL using the self-service portal. Support for ADAL is ending on June 30 2022. Apps using ADAL on existing OS versions will continue to work, but technical support or security updates will be unavailable after June 30 2022.
+We are ending support for Active Directory Authentication Library (ADAL) on June 30th, 2022. Apps using ADAL on existing OS versions will continue to work, but we will not provide any technical support or security updates. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. This article provides guidance on how to obtain a list of all apps in your tenant that are using ADAL using Azure Monitor workbooks.
 
 ## Prerequisites
 
@@ -27,9 +27,9 @@ The following article is recommended before going through this article:
 
 - [MSAL overview](./msal-overview.md)
 
-## Sign-ins Monitoring workbook
+## Sign-ins workbook
 
-Migrating your app from ADAL to MSAL requires you to identify apps that use ADAL for authentication. The Sign-ins workbook is one of the Monitoring workbooks accessible via the Azure portal. Sign-ins workbook now has a new table. This table contains a list of applications that use ADAL and how often these applications are used. The information in this workbook is available in [sign in logs](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md), but the workbook helps you collect and visualize the information in one view.  
+Workbooks are a set of queries that collect and visualize information that is available in Azure AD logs. [Learn more about the sign-in logs schema here.](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) We have added a new table to the existing Sign-ins workbook in the Azure AD admin portal to assist you in determining which applications use ADAL and how often they are used. First, we’ll detail how to access the workbook before showing the visualization for the list of applications.
 
 ### Accessing the workbook
 
