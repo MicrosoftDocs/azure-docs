@@ -11,7 +11,7 @@ ms.date: 06/03/2021
 ms.author: cherylmc
 
 ---
-# Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: Azure portal
+# Configure a Point-to-Site VPN connection to a VNet using Azure certificate authentication: Azure portal
 
 This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-Site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2. For more information about Point-to-Site VPN, see [About Point-to-Site VPN](point-to-site-about.md).
 
@@ -133,9 +133,9 @@ For install steps, see [Install a client certificate](point-to-site-how-to-vpn-c
 
 ## <a name="clientconfig"></a>Configure settings for VPN clients
 
-To connect to the virtual network gateway using P2S, each computer uses the VPN client that natively installed as a part of their operating system. For example, when you go to VPN settings on your Windows computer, you can add VPN connections. Each VPN client must be configured using a VPN client configuration package. The client configuration package contains settings that are specific to the VPN gateway that you created. 
+To connect to the virtual network gateway using P2S, each computer uses the VPN client that is natively installed as a part of the operating system. For example, when you go to VPN settings on your Windows computer, you can add VPN connections without installing a separate VPN client. Each VPN client must be configured using a VPN client configuration package. The client configuration package contains settings that are specific to the VPN gateway that you created. 
 
-For steps to generate and install VPN client configuration files, see [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
+For steps to generate and install VPN client configuration files, see [Create and install VPN client configuration files for Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md).
 
 ## <a name="connect"></a>Connect to Azure
 

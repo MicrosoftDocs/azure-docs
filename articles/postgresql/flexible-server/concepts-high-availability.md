@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 06/04/2021
 ---
 
 # High availability concepts in Azure Database for PostgreSQL - Flexible Server
@@ -60,15 +60,18 @@ For other user initiated operations such as scale-compute or scale-storage, the 
 
 ### Reducing planned downtime with managed maintenance window
 
- With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
+With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
  
- For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and the service is failed over to the standby to which applications can reconnect.
+For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and the service is failed over to the standby to which applications can reconnect.
 
 ## Failover process - unplanned downtimes
 
 Unplanned outages include software bugs or infrastructure component failures that impact the availability of the database. In the event of the primary server becomes unavailable, it is detected by the monitoring system and initiates a failover process.  The process includes a few seconds of wait time to make sure it is not a false positive. The replication to the standby replica is severed and the standby replica is activated to be the primary database server. That includes the standby to recovery any residual WAL files. Once it is fully recovered, DNS for the same end point is updated with the standby server's IP address. Clients can then retry connecting to the database server using the same connection string and resume their operations. 
 
-The failover time is expected to take 60-120s in typical cases. However, depending on the activity in the primary database server at the time of the failover such as large transactions and recovery time, the failover may take longer. Application can still connect to the primary server and proceed with their read/write operations while the standby server is being provisioned. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
+>[!NOTE]
+> Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss.The recovery tome objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
+
+After the failover, while a new standby server is being provisioned, applications can still connect to the primary server and proceed with their read/write operations. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
 
 :::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zone redundant high availability - failover"::: 
 
@@ -77,6 +80,7 @@ The failover time is expected to take 60-120s in typical cases. However, dependi
 3. Standby server is established in the same zone as the old primary server and the streaming replication is initiated. 
 4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both the sites.
 
+ 
 ## Point-in-time restore 
 
 Flexible servers that are configured with high availability, log data is replicated in real time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates are replicated to the standby replica as well. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform point-in-time restore from the backup.  Using flexible server's point-in-time restore capability, you can restore to the time before the error occurred. For databases configured with high availability, a new database server will be restored as a single zone flexible server with a new user-provided server name. You can use the restored server for few use cases:
