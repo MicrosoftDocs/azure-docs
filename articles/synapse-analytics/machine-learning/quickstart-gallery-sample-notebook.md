@@ -25,8 +25,8 @@ The sample notebook ingests an Open Dataset of NYC Taxi trips and uses visualiza
 ## Copy the notebook to your workspace
 
 1. Open your workspace and select **Learn** from the home page.
-1. Click **Browse gallery** from the Knowledge Center.
-1. Click **Notebooks** in the Gallery.
+1. In the **Knowledge center**, select **Browse gallery**.
+1. In the gallery, select **Notebooks**.
 1. Find and select the notebook "Data Exploration and ML Modeling - NYC taxi predict using Spark MLib".
 1. Click **Continue**.
 1. Click **Open notebook**. The sample notebook is copied into your workspace and opened.
