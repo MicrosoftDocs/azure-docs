@@ -78,23 +78,23 @@ You need an SAP S-user or other user, which allows you to access the SAP Marketp
     ```
     ./hdblcmgui 
     ```
-3. At this point, you'll progress through a sequence of screens in which you provide the data for the installation. In this example, we're installing the SAP HANA database server and the SAP HANA client components. So our selection is **SAP HANA Database**.
+3. Now you'll progress through a sequence of screens in which you provide the data for the installation. In this example, we're installing the SAP HANA database server and the SAP HANA client components. So our selection is **SAP HANA Database**.
 
     ![Screenshot of SAP HANA Lifecycle Management screen, with SAP HANA Database selected.](./media/hana-installation/image18_hana_selection.PNG)
 
-4. On the next screen, select **Install New System**.
+4. Select **Install New System**.
 
     ![Screenshot of SAP HANA Lifecycle Management screen, with Install New System selected.](./media/hana-installation/image19_select_new.PNG)
 
-5. Next, select among several other components that you can install.
+5. Select among several other components that you can install.
 
     ![Screenshot of SAP HANA Lifecycle Management screen, with list of additional components](./media/hana-installation/image20_select_components.PNG)
 
-6. Here, choose the SAP HANA Client and the SAP HANA Studio. You also install a scale-up instance. Then select **Single-Host System**. 
+6. Choose the SAP HANA Client and the SAP HANA Studio. Also install a scale-up instance. Then select **Single-Host System**. 
 
     ![Screenshot of SAP HANA Lifecycle Management screen, with Single Host System selected.](./media/hana-installation/image21_single_host.PNG)
 
-7. Now you'll provide some data. For the installation path, use the /hana/shared directory.
+7. Next you'll provide some data. For the installation path, use the /hana/shared directory.
 
     ![Screenshot of SAP HANA Lifecycle Management screen, with system properties fields to define.](./media/hana-installation/image22_provide_sid.PNG)
 
