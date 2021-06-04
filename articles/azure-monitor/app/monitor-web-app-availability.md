@@ -61,6 +61,15 @@ The following population tags can be used for the geo-location attribute when de
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
+### Azure China
+
+| Display Name   | Population Name     |
+|----------------|---------------------|
+| China East     | mc-cne-azr          |
+| China East 2   | mc-cne2-azr         |
+| China North    | mc-cnn-azr          |
+| China North 2  | mc-cnn2-azr         |
+
 #### Azure
 
 | Display Name                           | Population Name   |
