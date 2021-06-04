@@ -65,9 +65,6 @@ To add the MSIX image:
 
 2. Enter **Azure Virtual Desktop** into the search bar, then select the service name.
 
-      > [!div class="mx-imgBorder"]
-      > ![A screenshot of a user selecting "Azure Virtual Desktop" from the search bar drop-down menu in the Azure portal. "Azure Virtual Desktop" is highlighted in red.](media/find-and-select.png)
-
 3. Select the host pool where you plan to put the MSIX apps.
 
 4. Select **MSIX packages** to open the data grid with all **MSIX packages** currently added to the

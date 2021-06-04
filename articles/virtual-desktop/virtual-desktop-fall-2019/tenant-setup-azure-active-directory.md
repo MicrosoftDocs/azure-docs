@@ -75,13 +75,7 @@ To assign the TenantCreator application role:
 
 2. Within **Enterprise applications**, search for **Azure Virtual Desktop**. You'll see the two applications that you provided consent for in the previous section. Of these two apps, select **Azure Virtual Desktop**.
 
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the search results when searching for "Azure Virtual Desktop" in "Enterprise applications." The app named "Azure Virtual Desktop" is highlighted.](../media/tenant-enterprise-app.png)
-
 3. Select **Users and groups**. You might see that the administrator who granted consent to the application is already listed with the **Default Access** role assigned. This is not enough to create a Azure Virtual Desktop tenant. Continue following these instructions to add the **TenantCreator** role to a user.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the users and groups assigned to manage the "Azure Virtual Desktop" enterprise application. The screenshot shows only one assignment, which is for "Default Access."](../media/tenant-default-access.png)
 
 4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** tab.
 5. Search for a user account that will create your Azure Virtual Desktop tenant. For simplicity, this can be the global administrator account.
@@ -95,9 +89,6 @@ To assign the TenantCreator application role:
 
 6. Select the user account, choose the **Select** button, and then select **Assign**.
 7. On the **Azure Virtual Desktop - Users and groups** page, verify that you see a new entry with the **TenantCreator** role assigned to the user who will create the Azure Virtual Desktop tenant.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the users and groups assigned to manage the "Azure Virtual Desktop" enterprise application. The screenshot now includes a second entry of a user assigned to the "TenantCreator" role.](../media/tenant-tenant-creator-added.png)
 
 Before you continue on to create your Azure Virtual Desktop tenant, you need two pieces of information:
 
