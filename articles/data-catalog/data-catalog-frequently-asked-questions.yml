@@ -139,7 +139,7 @@ sections:
       - question: |
           How do I share information with the Data Catalog team if I encounter problems?
         answer: |
-          To report problems, share information, and ask questions, go to the [Azure Data Catalog forum](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+          To report problems, share information, and ask questions, go to the [Azure Data Catalog Q&A forum](/answers/topics/azure-data-catalog.html), or open a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
           
       - question: |
           Does the catalog work with another data source that I’m interested in?
@@ -178,4 +178,4 @@ sections:
       - question: |
           My question isn’t answered here. Where can I go for answers?
         answer: |
-          Go to the [Azure Data Catalog forum](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.
+          Go to the [Azure Data Catalog Q&A forum](/answers/topics/azure-data-catalog.html). Questions asked there will find their way here.
