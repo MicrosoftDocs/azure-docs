@@ -136,7 +136,7 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin?vie
 
     ```azurecli-interactive
     az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
-    az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":"80", "HumidityLevel":"60"}'
+    az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":80, "HumidityLevel":60}'
     az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
     az dt twin create --dt-name <Azure-Digital-Twins-instance-name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
     ```
