@@ -19,7 +19,7 @@ ms.custom: azure-synapse
 View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
 
 > [!NOTE]
-> Workload management workload groups provide more flexibility for configuring resources per request and concurrency than dynamic or static resource classes.  See [Workload groups](sql-data-warehouse-workload-isolation.md) and [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql) for further details.
+> Workload management workload groups provide more flexibility for configuring resources per request and concurrency than dynamic or static resource classes.  See [Workload Groups](sql-data-warehouse-workload-isolation.md) and the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql) syntax for further details.
 
 ## Data warehouse capacity settings
 
