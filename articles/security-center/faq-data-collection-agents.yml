@@ -161,7 +161,7 @@ sections:
           
           For existing machines on subscriptions onboarded to Security Center before March 17 2019, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
           
-          For more information, see the next section [What happens if a System Center Operations Manager or OMS direct agent is already installed on my VM?](#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm--a-name--scomomsinstalled----a-)
+          For more information, see the next section [What happens if a System Center Operations Manager or OMS direct agent is already installed on my VM?](#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm-)
           
       - question: |
           What if a System Center Operations Manager agent is already installed on my VM?
@@ -245,7 +245,7 @@ sections:
           
           1.    Select the VMs that you don't want to monitor and select **Disconnect**.
           
-             ![Remove the agent][./media/security-center-platform-migration-faq/remove-the-agent.png]
+             ![Remove the agent](./media/security-center-platform-migration-faq/remove-the-agent.png)
           
           > [!NOTE]
           > If a Linux VM already has a non-extension OMS agent, removing the extension removes the agent as well and you'll have to reinstall it.
