@@ -49,7 +49,7 @@ For general issues with Azure Resource Manager, the first to do is to make sure 
 
 ### Verify the client is configured properly
 
-1. [Validate that the correct PowerShell version is installed](./azure-stack-edge-gpu-connect-resource-manager.md#step-3-install-powershell-on-the-client).<!--Any problem with using "verify" throughout these steps? I think of validation as a process/routine performed by a program.-->
+1. [Validate that the correct PowerShell version is installed](./azure-stack-edge-gpu-connect-resource-manager.md#step-3-install-powershell-on-the-client).
 
 2. [Validate that the correct PowerShell modules are installed](./azure-stack-edge-gpu-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client).
 
