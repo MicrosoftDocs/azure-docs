@@ -28,7 +28,7 @@ Use the table below to find which model versions are supported by each hosted en
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
 | `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`  | `2021-01-15`   |
 | `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
-| `/entities/health`              | `2021-03-01`                           | `2021-03-01`   |
+| `/entities/health`              | `2021-05-15`                           | `2021-05-15`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 

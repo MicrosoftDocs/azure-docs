@@ -5,7 +5,7 @@ description: Overview of how to manage and control network access for Azure SQL 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=3
+ms.custom: sqldbrb=3, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: rohitnayakmsft

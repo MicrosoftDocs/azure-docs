@@ -8,7 +8,8 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick 
+ms.reviewer: jrasnick  
+ms.custom: devx-track-azurepowershell
 ---
 
 # Control storage account access for serverless SQL pool in Azure Synapse Analytics

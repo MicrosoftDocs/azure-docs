@@ -47,11 +47,9 @@ DTDL is used for data models throughout other Azure IoT services, including [IoT
 
 Digital models in Azure Digital Twins are live, up-to-date representations of the real world. Using the relationships in your custom DTDL models, you'll connect twins into a **live graph** representing your environment.
 
-You can view a visualization of your Azure Digital Twins graph through the help of a sample application, [Azure Digital Twins explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+You can visualize your Azure Digital Twins graph in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), which provides the following interface for interacting with your graph:
 
-Here's a view of what the sample visualization looks like:
-
-:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="Screenshot of the Azure Digital Twins explorer sample application, showing a graph of nodes representing digital twins" lightbox="media/includes/azure-digital-twins-explorer.png":::
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer, showing a graph of nodes representing digital twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 Azure Digital Twins provides a rich **event system** to keep that graph current with data processing and business logic. You can connect external compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), to drive this data processing in flexible, customized ways.
 
@@ -70,11 +68,11 @@ You can also drive Azure Digital Twins from other data sources, using REST APIs 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for additional analytics or storage. This is provided through **event routes**, which use [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to drive your desired data flows.
 
 Some things you can do with event routes include:
+* [Connecting Azure Digital Twins to Time Series Insights](how-to-integrate-time-series-insights.md) to track time series history of each twin
+* Aligning a Time Series Model in Time Series Insights with a source in Azure Digital Twins
 * Storing Azure Digital Twins data in [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
 * Analyzing Azure Digital Twins data with [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), or other Microsoft data analytics tools
 * Integrating larger workflows with Logic Apps​
-* Connecting Azure Digital Twins to Time Series Insights to track time series history of each twin
-* Aligning a Time Series Model in Time Series Insights with a source in Azure Digital Twins
 
 This is another way that Azure Digital Twins can connect into a larger solution, and support your custom needs for continued work with these insights.
 
@@ -103,6 +101,6 @@ You can view a list of **common IoT terms** and their uses across the Azure IoT 
 
 ## Next steps
 
-* Dive into working with Azure Digital Twins in the quickstart: [Quickstart: Explore a sample scenario](quickstart-azure-digital-twins-explorer.md).
+* Dive into working with Azure Digital Twins in the quickstart: [Quickstart: Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 
 * Or, start reading about Azure Digital Twins concepts with [Concepts: Custom models](concepts-models.md).

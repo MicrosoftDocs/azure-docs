@@ -25,20 +25,25 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Right-click on the subscription name then select **Create Static Web App (Advanced)**.":::
 
+1. If you see a pop-up window in VS Code asking which branch you want to deploy from, select the default branch, usually **master** or **main**. 
+
+    This setting means only changes you commit to that branch are deployed to your static web app. 
+
+1. If you see a pop-up window asking you to commit your changes, do not do this. The secrets from the bulk import step should not be committed to the repository. 
+
+    To rollback the changes, in VS Code select the Source Control icon in the Activity bar, then select each changed file in the Changes list and select the **Discard changes** icon.
+
 1. Follow the prompts to provide the following information:
 
     |Prompt|Enter|
     |--|--|
-    |How do you want to create a Static Web App?|Use existing GitHub repository|
-    |Choose organization|Select your _own_ GitHub alias as the organization.|
-    |Choose repository|Select **azure-search-dotnet-samples** from the list. |
-    |Choose branch of repository|Select **master** from the list. |
     |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-dotnet-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
+    |Select a SKU| Select the free SKU for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
-    |Select the location of your application code|`search-website`|
-    |Select the location of your Azure Function code|`search-website/api`|
-    |Enter the path of your build output...|build|
+    |Select the location of your application code|`search-website`<br><br>This is the path, from the root of the repository, to your Azure Static web app. |
+    |Select the location of your Azure Function code|`search-website/api`<br><br>This is the path, from the root of the repository, to your Azure Function app. |
+    |Enter the path of your build output...|`build`<br><br>This is the path, from your Azure Static web app, to your generated files.|
     |Select a location for new resources.|Select a region close to you.|
 
 1. The resource is created, select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 

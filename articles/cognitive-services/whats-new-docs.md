@@ -35,7 +35,7 @@ Welcome to what's new in the Cognitive Services docs from February 1, 2021 throu
 
 - [Deploy the sample labeling tool](./form-recognizer/deploy-label-tool.md)
 - [What is Form Recognizer?](./form-recognizer/overview.md)
-- [Train a Form Recognizer model with labels using the sample labeling tool](./form-recognizer/quickstarts/label-tool.md)
+- [Train a Form Recognizer model with labels using the sample labeling tool](./form-recognizer/label-tool.md)
 
 ## Text Analytics
 
