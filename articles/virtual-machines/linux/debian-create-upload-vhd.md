@@ -55,7 +55,7 @@ $ cd ./debian-cloud-images
 
 
 
-# An example of a script to customize the image is:
+## An example of a script to customize the image is:
 
 ```
 $ mkdir -p ./config_space/scripts/AZURE
@@ -70,7 +70,7 @@ $ sudo chmod 755 ./config_space/scripts/AZURE/10-custom
 Note that it is important to prefix any commands you want to have customizing the image with `$ROOTCMD` as this is aliased as `chroot $target`.
 
 
-# Build the Azure Debian 10 image:
+## Build the Azure Debian 10 image:
 
 ```
 $ make image_buster_azure_amd64
