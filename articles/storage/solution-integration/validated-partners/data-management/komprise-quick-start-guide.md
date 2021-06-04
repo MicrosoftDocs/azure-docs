@@ -31,7 +31,7 @@ The following diagram provides a reference architecture for on-premises to Azure
 
 Komprise is a software solution that is easily deployed in a virtual environment. The solutions consist of:
 - **Director** - The administration console for the Komprise Grid. It is used to configure the environment, monitor activities, view reports and graphs, and set policies.
-- **Observers** - Manage and analyze shares, summarize reports, communicates with the Director and handle NFS data traffic.
+- **Observers** - Manage and analyze shares, summarize reports, communicate with the Director and handle NFS data traffic.
 - **Proxies** - Simplify and accelerate SMB/CIFS data flow, easily scale to meet performance requirements of a growing environment.
 
 ## Before you begin
@@ -70,42 +70,37 @@ Use the following methods to identify the bandwidth headroom to Azure that is fr
 
 ## Migration planning guide
 
-Komprise is simple to set up and run multiple migrations simultaneously in three steps:
+Komprise is simple to set up and enables running multiple migrations simultaneously in three steps:
 
-1.	Analyze data to identify files to migrate or archive,
+1.	Analyze your data to identify files to migrate or archive,
 1.	Define policies to migrate, move, or copy unstructured data to Azure Storage,
-1.	Activate policies.
+1.	Activate policies that automatically move your data.
 
-First step is critical to find and prioritize the right data. Analysis will provide the information on data that you need to:
+The first step is critical in finding and prioritizing the right data to migrate. Komprise analysis provides:
 
-- Cache on-premises or fully move the data to Azure determined by access time,
-- Archive your cold data to Azure Blob Storage.
-
-Information of the analysis is useful and can help with the migration significantly. For example:
-
-- Information on access time can identify:
-  - Files you need to cache on-premises or store on fast file service
-  - Files you can archive to blob storage
-- Information on top users, groups, or shares can determine the order of the migration and the most impacted group within the organization to assess business impact
-- Number of files, or capacity per file type can determine type of stored files and if there are any possibilities to clean up the content. Cleaning up will reduce the migration effort, and reduce the cost of the target storage
-- Number of files, or capacity per file size can determine the duration of migration. Large number of small files will take longer to migrate than small number of large files
+- Information on access time to identify:
+  - Less frequently accessed files that you can cache on-premises or store on fast file service
+  - Cold data you can archive to blob storage
+- Information on top users, groups, or shares to determine the order of the migration and the most impacted group within the organization to assess business impact
+- Number of files, or capacity per file type to determine type of stored files and if there are any possibilities to clean up the content. Cleaning up will reduce the migration effort, and reduce the cost of the target storage
+- Number of files, or capacity per file size to determine the duration of migration. Large number of small files will take longer to migrate than small number of large files
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-1.png" alt-text="Analysis by file type and access time":::
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-shares.png" alt-text="Example of share analysis":::
 
-- Custom query capability filter data to your needs
+- Custom query capability filter to filter exact set of files for your specific needs
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-analyze-custom.png" alt-text="Analysis for custom query":::
 
 ## Deployment guide
 
-Before deploying Komprise, target service has to be deployed. You can learn more here:
+Before deploying Komprise, the target service has to be deployed. You can learn more here:
 
 - How to create [Azure File Share](/azure/storage/files/storage-how-to-create-file-share)
 - How to create an [SMB volume](/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) or [NFS export](/azure/azure-netapp-files/azure-netapp-files-create-volumes) in Azure NetApp Files
 
-The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. If setting up the environment in Azure, deployment using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management) is recommended.
+The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) for speed, scalability, and resilience. Alternatively, you may setup the environment in your Azure subscription using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management).
 
 1. Open the Azure portal, and search for  **storage accounts**. 
 
@@ -160,23 +155,25 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-1.png" alt-text="Download appropriate image for Komprise Observer from Director":::
 
-1. To determine the shares to analyze and migrate, two options are possible:
-   1. **Discover** all the shares by entering:
+1. To add the shares to analyze and migrate, you have two options:
+   1. **Discover** all the shares in your storage environment by entering:
        - Platform for the source NAS
        - Hostname or IP address
-       - (_Optional_) Display name
+       - Display name
+       - Credentials (for SMB shares)
 
         :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-2.png" alt-text="Specify NAS system to discover":::
 
-    1. **Specify** the file share by adding:
+    1. **Specify** a file share by entering:
+       - Storage information
        - Protocol
        - Path
        - Display Name
-       - Username / Password for the user with access to the shares
+       - Credentials (for SMB shares)
   
         :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-3.png" alt-text="Specify NAS solutions to discover":::
 
-    This step must be repeated for source and destination shares. To add Azure Files as a target, you need to provide storage account and shares details:
+    This step must be repeated to add additional source and destination shares. To add Azure Files as a destination, you need to provide the Azure storage account and file share details:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-azure-files-1.png" alt-text="Select Azure Files as a target service":::
 
@@ -188,7 +185,7 @@ Komprise provides live migration, where end users and applications are not disru
 
 To configure and run a migration, follow these steps:
 
-1. Log into your Komprise console. Information needed to access is sent with the welcome email once you purchase the solution.
+1. Log into your Komprise console. Information needed to access the console is sent with the welcome email once you purchase the solution.
 1. Navigate to **Migrate** and click on **Add Migration**.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-new-migrate.png" alt-text="Add new migration job":::
@@ -199,15 +196,15 @@ To configure and run a migration, follow these steps:
 
    (_Optional_) Define if you want to preserve access time and SMB ACLs on the destination (this option depends on the selected source and destination file service and protocol).
 
-2. Once the migration started, you can use **Migrations** to monitor the progress.
+2. Once the migration started, you can go to **Migrate** to monitor the progress.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-monitor-migrations.png" alt-text="Monitor all migration jobs":::
 
-3. Once all changes have been migrated, perform one final migration by clicking on **Actions** and selecting **Start final iteration**. Before final migration, we recommend either stopping access to source file shares or moving them to read-only mode to make sure no changes happen that will not get migrated.
+3. Once all changes have been migrated, perform one final migration by clicking on **Actions** and selecting **Start final iteration**. Before final migration, we recommend either stopping access to source file shares or moving them to read-only mode (for users and applications) to make sure no changes happen that will not get migrated.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-final-migration.png" alt-text="Do one last migration before switching over":::
 
-    Once the final migration job finishes, transition all users and applications to the destination share. Switch over to the new file service usually requires changing the configuration of DNS servers, DFS servers, or changing the mount points to the new destination. 
+    Once the final migration finishes, transition all users and applications to the destination share. Switch over to the new file service usually requires changing the configuration of DNS servers, DFS servers, or changing the mount points to the new destination. 
 
 4. As a last step, mark the migration completed.
 
