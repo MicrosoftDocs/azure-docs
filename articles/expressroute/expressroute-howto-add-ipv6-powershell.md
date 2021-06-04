@@ -164,6 +164,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 ## Limitations
 While IPv6 support is available for connections to deployments in Public Azure regions, it does not support the following use cases:
 
+* Connections to existing ExpressRoute gateways that are *not* zone-redundant
 * Global Reach connections between ExpressRoute circuits
 * Use of ExpressRoute with virtual WAN
 * FastPath with non-ExpressRoute Direct circuits
