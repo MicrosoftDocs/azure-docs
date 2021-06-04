@@ -288,7 +288,6 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 
 [Service Fabric managed clusters overview](overview-managed-cluster.md)
 
-
 <!--Image references-->
 [Inbound-NAT-Rules]: ./media/how-to-managed-cluster-networking/inbound-nat-rules.png
 [sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
