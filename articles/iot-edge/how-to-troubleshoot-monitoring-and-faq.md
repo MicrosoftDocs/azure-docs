@@ -1,0 +1,168 @@
+---
+title: Monitoring troubleshooting and FAQ - Azure IoT Edge
+description: Troubleshooting Azure Monitor integration and FAQ
+author: veyalla
+manager: philmea
+ms.author: veyalla
+ms.date: 05/12/2021
+ms.topic: conceptual
+ms.reviewer: veyalla
+ms.service: iot-edge 
+services: iot-edge
+zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg
+
+#- id: how-to-troubleshoot-monitoring-and-faq-zpg
+## Owner: veyalla
+#  title: What does your question relate to?
+#  prompt: What does your question relate to?
+#  pivots:
+#  - id: troubleshoot
+#    title: Troubleshooting
+#  - id: metrics-collection
+#    title: Metrics collection
+#  - id: custom-metrics
+#    title: Custom metrics
+#  - id: alerts
+#    title: Alerts
+#  - id: workbooks
+#    title: Workbooks
+---
+# FAQ and troubleshooting
+
+:::zone pivot="metrics-collection"
+
+<br>
+
+---
+
+## Collector module is unable to collect metrics from built-in endpoints
+
+#### Check if modules are on the same Docker network
+
+The metrics-collector module relies on Docker's embedded DNS resolver for user-defined networks. The DNS resolver provides the IP address for metrics endpoints that include module name. For example, *http://**edgeHub**:9600/metrics*.
+
+When modules aren't running in the same network namespace, this mechanism will fail. For instance, some scenarios require running modules on the Host network. Collection will fail in such scenarios if metrics-collector module is on a different network. 
+
+#### Verify that *httpSettings__enabled* environment variable isn't set to *false*
+
+The built-in metrics endpoints use http protocol. They won't be available, even within the module network, if http is explicitly disabled via the environment variable setting.
+
+#### Set *NO_PROXY* environment variable if using http proxy server
+
+For more information, see [proxy considerations](how-to-collect-and-transport-metrics.md#proxy-considerations).
+
+<br>
+
+---
+
+## How do I collect logs along with metrics?
+
+You could use [built-in log pull features](how-to-retrieve-iot-edge-logs.md). A sample solution that uses the built-in log retrieval features is available at [**https://aka.ms/iot-elms**](https://aka.ms/iot-elms).
+
+<br>
+
+---
+
+## Why can't I see device metrics in Metrics page in Azure portal?
+
+Azure Monitor's [native metrics](../azure-monitor/essentials/data-platform-metrics.md) technology doesn't yet support Prometheus data format directly. Log-based metrics are currently better suited for IoT Edge metrics because of:
+
+* Native support for Prometheus metrics format via the standard *InsightsMetrics* table 
+* Advanced data processing via [KQL](https://aka.ms/kql) for visualizations and alerts
+
+The use of Log Analytics as the metrics database is the reason why metrics appear in the Logs page in Azure portal rather than Metrics.
+
+<br>
+
+---
+
+## How do I configure metrics-collector in a layered deployment? 
+
+The metrics collector doesn't have any service discovery functionality. Recommend including the module in the base or *lower* deployment layer. Include all metrics endpoints that the module might be deployed with in the module's configuration. If a module doesn't appear in a final deployment but its endpoint appears in the collection list, the collector will try to collect, fail, and move on.
+
+<br>
+
+---
+
+:::zone-end
+
+:::zone pivot="custom-metrics"
+
+<br>
+
+---
+
+## How do I augment the monitoring solution with custom metrics?
+
+See the [custom metrics](how-to-add-custom-metrics.md) doc.
+
+<br>
+
+---
+
+## How can I tell which device a particular metric belongs to? 
+
+Encode device information in the metric's labels. For more information, see [context in metric name and labels](how-to-add-custom-metrics.md#include-context-in-metric-name-and-labels).
+
+<br>
+
+---
+
+:::zone-end
+
+:::zone pivot="alerts"
+
+
+<br>
+
+---
+
+## How do I create a alert rule that spans devices from multiple IoT Hubs?
+
+When [creating an alert rule](how-to-create-alerts.md#create-an-alert-rule), you can [change its scope](how-to-create-alerts.md#select-alert-rule-scope) to a resource group or subscription. The alert rule will then apply to all IoT Hubs in that scope. 
+
+<br>
+
+---
+
+## Alerts aren't firing when they should
+
+* When creating an alert rule, verify the alert logic will trigger by checking the preview graph.
+
+* Create a [technical support incident](https://azure.microsoft.com/support/create-ticket/) for the **Log Analytics** service if you aren't able to find the problem.
+
+<br>
+
+---
+
+:::zone-end
+
+:::zone pivot="workbooks"
+
+<br>
+
+---
+
+## My device isn't showing up in the monitoring workbook
+
+* The workbook relies on device metrics being linked to the correct IoT Hub using *ResourceId*. Confirm that the metrics-collector is [configured](how-to-collect-and-transport-metrics.md#metrics-collector-configuration) with the correct *ResourceId*.
+
+* There can be an ingestion delay of a few minutes before metrics show up.
+
+* Using metrics-collector module logs, confirm that the device sent metrics during the selected time range.
+
+<br>
+
+---
+
+## I found a bug or have a question about metrics being shown in the workbook
+
+* Open an issue on the [Azure IoT Edge GitHub repo](https://github.com/azure/iotedge/issues) with '[monitor-workbook]' in the title. 
+
+* The 'code' for the workbooks is [publicly available on GitHub](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks/IoTHub). Pull requests with improvements/fixes are very welcome!
+
+<br>
+
+---
+
+:::zone-end
