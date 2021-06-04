@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 06/04/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Blackboard Learn - Shibboleth
@@ -31,7 +31,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Blackboard Learn - Shibboleth supports **SP** initiated SSO
+* Blackboard Learn - Shibboleth supports **SP** initiated SSO.
 
 ## Add Blackboard Learn - Shibboleth from the gallery
 
@@ -120,7 +120,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Configure Blackboard Learn - Shibboleth SSO
 
-To configure single sign-on on **Blackboard Learn - Shibboleth** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Blackboard Learn - Shibboleth support team](https://www.blackboard.com/forms/contact-us_form.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure Blackboard Learn - Shibboleth single sign-on, please refer to this [document](https://help.blackboard.com/Learn/Administrator/SaaS/Authentication/Implement_Authentication/SAML_Authentication_Provider_Type).
 
 ### Create Blackboard Learn - Shibboleth test user
 
