@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect using Python - Azure Database for PostgreSQL - Flexible Server'
 description: This quickstart provides several Python code samples you can use to connect and query data from Azure Database for PostgreSQL - Flexible Server.
-author: sunilagarwal
+author: sunilagarwal 
 ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
@@ -12,7 +12,10 @@ ms.date: 09/22/2020
 
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server
 
-In this quickstart, you connect to an Azure Database for PostgreSQL - Flexible Server by using Python. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms.
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
+In this quickstart, you connect to an Azure Database for PostgreSQL - Flexible Server by using Python. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
 This article assumes that you're familiar with developing using Python, but you're new to working with Azure Database for PostgreSQL - Flexible Server.
 
@@ -28,17 +31,17 @@ This article assumes that you're familiar with developing using Python, but you'
 - If you created your flexible server with *Public access (allowed IP addresses)*, you can add your local IP address to the list of firewall rules on your server. Refer to [Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure CLI](./how-to-manage-firewall-cli.md).
 
 ## Install the Python libraries for PostgreSQL
-The [psycopg2](https://pypi.python.org/pypi/psycopg2/) module enables connecting to and querying a PostgreSQL database, and is available as a Linux, macOS, or Windows [wheel](https://pythonwheels.com/) package. Install the binary version of the module, including all the dependencies. For more information about `psycopg2` installation and requirements, see [Installation](http://initd.org/psycopg/docs/install.html).
+The [psycopg2](https://pypi.python.org/pypi/psycopg2/) module enables connecting to and querying a PostgreSQL database, and is available as a Linux, macOS, or Windows [wheel](https://pythonwheels.com/) package. Install the binary version of the module, including all the dependencies. For more information about `psycopg2` installation and requirements, see [Installation](http://initd.org/psycopg/docs/install.html). 
 
 To install `psycopg2`, open a terminal or command prompt and run the command `pip install psycopg2`.
 
 ## Get database connection information
 Connecting to an Azure Database for PostgreSQL - Flexible Server requires the fully qualified server name and login credentials. You can get this information from the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), search for and select your flexible server name.
+1. In the [Azure portal](https://portal.azure.com/), search for and select your flexible server name. 
 2. On the server's **Overview** page, copy the fully qualified **Server name** and the **Admin username**. The fully qualified **Server name** is always of the form *\<my-server-name>.postgres.database.azure.com*.
 
-   You also need your admin password. If you forget it, you can reset it from overview page.
+   You also need your admin password. If you forget it, you can reset it from overview page. 
 
    <!--![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)-->
 
@@ -46,23 +49,23 @@ Connecting to an Azure Database for PostgreSQL - Flexible Server requires the fu
 
 For each code example in this article:
 
-1. Create a new file in a text editor.
+1. Create a new file in a text editor. 
 
 1. Add the code example to the file. In the code, replace:
    - `<server-name>` and `<admin-username>` with the values you copied from the Azure portal.
    - `<admin-password>` with your server password.
-   - `<database-name>` with the name of your Azure Database for PostgreSQL - Flexible Server database. A default database named *postgres* was automatically created when you created your server. You can rename that database or create a new database by using SQL commands.
+   - `<database-name>` with the name of your Azure Database for PostgreSQL - Flexible Server database. A default database named *postgres* was automatically created when you created your server. You can rename that database or create a new database by using SQL commands. 
 
-1. Save the file in your project folder with a *.py* extension, such as *postgres-insert.py*. For Windows, make sure UTF-8 encoding is selected when you save the file.
+1. Save the file in your project folder with a *.py* extension, such as *postgres-insert.py*. For Windows, make sure UTF-8 encoding is selected when you save the file. 
 
 1. To run the file, change to your project folder in a command-line interface, and type `python` followed by the filename, for example `python postgres-insert.py`.
 
 ## Create a table and insert data
-The following code example connects to your Azure Database for PostgreSQL - Flexible Server database using the [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function, and loads data with a SQL **INSERT** statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function executes the SQL query against the database.
+The following code example connects to your Azure Database for PostgreSQL - Flexible Server database using the [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) function, and loads data with a SQL **INSERT** statement. The [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) function executes the SQL query against the database. 
 
 ```Python
 import psycopg2
-# Update connection string information
+# Update connection string information 
 host = "<server-name>"
 dbname = "<database-name>"
 user = "<admin-username>"
@@ -70,7 +73,7 @@ password = "<admin-password>"
 sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-conn = psycopg2.connect(conn_string)
+conn = psycopg2.connect(conn_string) 
 print("Connection established")
 cursor = conn.cursor()
 # Drop previous table of same name if one exists
@@ -95,7 +98,7 @@ When the code runs successfully, it produces the following output:
 ![Command-line output](media/connect-python/2-example-python-output.png)
 
 ## Read data
-The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall).
+The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
 
 ```Python
 import psycopg2
@@ -107,7 +110,7 @@ password = "<admin-password>"
 sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-conn = psycopg2.connect(conn_string)
+conn = psycopg2.connect(conn_string) 
 print("Connection established")
 cursor = conn.cursor()
 # Fetch all rows from table
@@ -123,7 +126,7 @@ conn.close()
 ```
 
 ## Update data
-The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **UPDATE** statement to update data.
+The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **UPDATE** statement to update data. 
 
 ```Python
 import psycopg2
@@ -135,7 +138,7 @@ password = "<admin-password>"
 sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-conn = psycopg2.connect(conn_string)
+conn = psycopg2.connect(conn_string) 
 print("Connection established")
 cursor = conn.cursor()
 # Update a data row in the table
@@ -148,7 +151,7 @@ conn.close()
 ```
 
 ## Delete data
-The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **DELETE** statement to delete an inventory item that you previously inserted.
+The following code example connects to your Azure Database for PostgreSQL - Flexible Server database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **DELETE** statement to delete an inventory item that you previously inserted. 
 
 ```Python
 import psycopg2
@@ -160,7 +163,7 @@ password = "<admin-password>"
 sslmode = "require"
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
-conn = psycopg2.connect(conn_string)
+conn = psycopg2.connect(conn_string) 
 print("Connection established")
 cursor = conn.cursor()
 # Delete data row from table

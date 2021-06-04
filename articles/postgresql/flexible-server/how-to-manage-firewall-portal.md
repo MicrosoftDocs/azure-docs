@@ -1,7 +1,7 @@
 ---
 title: Manage firewall rules - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using the Azure portal
-author: sunilagarwal
+author: sunilagarwal 
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
@@ -9,6 +9,9 @@ ms.date: 09/22/2020
 ---
 
 # Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using the Azure portal
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is currently in public preview.
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
@@ -57,7 +60,7 @@ In this article, we will focus on creation of PostgreSQL server with **Public ac
 
 ## Connecting from Azure
 
-You may want to enable resources or applications deployed in Azure to connect to your flexible server. This includes web applications hosted in Azure App Service, running on an Azure VM, an Azure Data Factory data management gateway and many more.
+You may want to enable resources or applications deployed in Azure to connect to your flexible server. This includes web applications hosted in Azure App Service, running on an Azure VM, an Azure Data Factory data management gateway and many more. 
 
 When an application within Azure attempts to connect to your server, the firewall verifies that Azure connections are allowed. You can enable this setting by selecting the **Allow public access from Azure services and resources within Azure to this server** option in the portal from the **Networking** tab and hit **Save**.
 

@@ -1,5 +1,5 @@
 ---
-title: Servers in Azure Database for PostgreSQL - Flexible Server
+title: Servers in Azure Database for PostgreSQL - Flexible Server (Preview)
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Flexible Server.
 author: sunilagarwal
 ms.author: sunila
@@ -9,6 +9,9 @@ ms.date: 09/22/2020
 ---
 
 # Servers - Azure Database for PostgreSQL - Flexible Server
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
 
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL - Flexible Server.
 
@@ -45,11 +48,11 @@ The following elements help ensure safe access to your database:
 
 You can manage Azure Database for PostgreSQL servers by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/postgres).
 
-While creating a server, you set up the credentials for your admin user. The admin user is the highest privilege user you have on the server. It belongs to the role azure_pg_admin. This role does not have full superuser permissions.
+While creating a server, you set up the credentials for your admin user. The admin user is the highest privilege user you have on the server. It belongs to the role azure_pg_admin. This role does not have full superuser permissions. 
 
 The PostgreSQL superuser attribute is assigned to the azure_superuser, which belongs to the managed service. You do not have access to this role.
 
-An Azure Database for PostgreSQL server has default databases:
+An Azure Database for PostgreSQL server has default databases: 
 
 - **postgres** - A default database you can connect to once your server is created.
 - **azure_maintenance** - This database is used to separate the processes that provide the managed service from user actions. You do not have access to this database.

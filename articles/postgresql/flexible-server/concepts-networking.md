@@ -9,13 +9,17 @@ ms.date: 05/25/2021
 ---
 
 # Networking overview - Azure Database for PostgreSQL - Flexible Server
-This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server.
+
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
+This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. 
 
 ## Choosing a networking option
-You have two networking options for your Azure Database for PostgreSQL - Flexible Server. The options are **private access (VNet integration)** and **public access (allowed IP addresses)**. At server creation, you must pick one option.
+You have two networking options for your Azure Database for PostgreSQL - Flexible Server. The options are **private access (VNet integration)** and **public access (allowed IP addresses)**. At server creation, you must pick one option. 
 
 > [!NOTE]
-> Your networking option cannot be changed after the server is created.
+> Your networking option cannot be changed after the server is created. 
 
 * **Private access (VNet integration)** – You can deploy your flexible server into your [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses.
 
@@ -24,11 +28,11 @@ You have two networking options for your Azure Database for PostgreSQL - Flexibl
    * Use VPN or ExpressRoute to connect from non-Azure resources to your flexible server
    * The flexible server has no public endpoint
 
-* **Public access (allowed IP addresses)** – Your flexible server is accessed through a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase “allowed IP addresses” refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**.
+* **Public access (allowed IP addresses)** – Your flexible server is accessed through a public endpoint. The public endpoint is a publicly resolvable DNS address. The phrase “allowed IP addresses” refers to a range of IPs you choose to give permission to access your server. These permissions are called **firewall rules**. 
 
    Choose the public access method if you want the following capabilities:
    * Connect from Azure resources that do not support virtual networks
-   * Connect from resources outside of an Azure that are not connected by VPN or ExpressRoute
+   * Connect from resources outside of an Azure that are not connected by VPN or ExpressRoute 
    * The flexible server has a public endpoint
 
 The following characteristics apply whether you choose to use the private access or the public access option:
@@ -47,27 +51,27 @@ In the above diagram,
 1. Flexible servers are injected into a delegated subnet - 10.0.1.0/24 of VNET **VNet-1**.
 2. Applications that are deployed on different subnets within the same vnet can access the Flexible servers directly.
 3. Applications that are deployed on a different VNET **VNet-2** do not have direct access to flexible servers. You have to perform [private DNS zone VNET peering](#private-dns-zone-and-vnet-peering) before they can access the flexible server.
-
+   
 ### Virtual network concepts
 Here are some concepts to be familiar with when using virtual networks with PostgreSQL flexible servers.
 
-* **Virtual network** -
+* **Virtual network** - 
    An Azure Virtual Network (VNet) contains a private IP address space that is configured for your use. Visit the [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md) to learn more about Azure virtual networking.
 
     Your virtual network must be in the same Azure region as your flexible server.
 
-* **Delegated subnet** -
-   A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network.
+* **Delegated subnet** - 
+   A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
 
    Your PostgreSQL flexible server must be in a subnet that is **delegated** for PostgreSQL flexible server use only. This delegation means that only Azure Database for PostgreSQL Flexible Servers can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as Microsoft.DBforPostgreSQL/flexibleServers.
 
    > [!IMPORTANT]
    > The names including `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` and `GatewaySubnet` are reserved names within Azure. Please do not use these as your subnet name.
 
-* **Network security groups (NSG)** -
+* **Network security groups (NSG)** - 
    Security rules in network security groups enable you to filter the type of network traffic that can flow in and out of virtual network subnets and network interfaces. See [network security group overview](../../virtual-network/network-security-groups-overview.md) documentation for more information.
 
-* **Private DNS zone integration** -
+* **Private DNS zone integration** - 
    Azure private DNS zone integration allows you to resolve the private DNS within the current VNET or any in-region peered VNET where the private DNS Zone is linked. See [private DNS zone documentation](../../dns/private-dns-overview.md) for more details.
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
@@ -129,7 +133,7 @@ Consider the following points when access to the Microsoft Azure Database for Po
 * **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 ## Hostname
-Regardless of the networking option you choose, we recommend you always use a fully qualified domain name (FQDN) as hostname when connecting to your flexible server. The server’s IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
+Regardless of the networking option you choose, we recommend you always use a fully qualified domain name (FQDN) as hostname when connecting to your flexible server. The server’s IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string. 
 
 Example
 * Recommended `hostname = servername.postgres.database.azure.com`
@@ -139,7 +143,7 @@ Example
 ## TLS and SSL
 Azure Database for PostgreSQL - Flexible Server supports connecting your client applications to the PostgreSQL service using Transport Layer Security (TLS). TLS is an industry standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of SSL (Secure Sockets Layer).
 
-Azure Database for PostgreSQL - Flexible Server only supports encrypted connections using Transport Layer Security. All incoming connections with TLS 1.0 and TLS 1.1 will be denied.
+Azure Database for PostgreSQL - Flexible Server only supports encrypted connections using Transport Layer Security. All incoming connections with TLS 1.0 and TLS 1.1 will be denied. 
 
 ## Next steps
 * Learn how to create a flexible server with **private access (VNet integration)** in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).

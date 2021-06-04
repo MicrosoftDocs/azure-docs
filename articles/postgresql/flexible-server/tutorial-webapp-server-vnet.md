@@ -12,6 +12,9 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Create an Azure Database for PostgreSQL - Flexible Server with App Services Web App in Virtual network
 
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
 This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
 In this tutorial you will learn how to:
@@ -20,7 +23,7 @@ In this tutorial you will learn how to:
 > * Create a subnet to delegate to App Service
 > * Create a web app
 > * Add the web app to the virtual network
-> * Connect to Postgres from the web app
+> * Connect to Postgres from the web app 
 
 ## Prerequisites
 
@@ -56,21 +59,21 @@ This command performs the following actions, which may take a few minutes:
 
 > [!NOTE]
 > - Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az postgres flexible-server update``` command
-> - If you are not using App Service Environment , you would need to enable Allow access from any Azure IPs using this command.
+> - If you are not using App Service Environment , you would need to enable Allow access from any Azure IPs using this command. 
 >  ```azurecli
 >  az postgres flexible-server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 >  ```
 
 ## Create Subnet for App Service Endpoint
-We now need to have subnet that is delegated to App Service Web App endpoint. Run the following command to create a new subnet in the same virtual network as the database server was created.
+We now need to have subnet that is delegated to App Service Web App endpoint. Run the following command to create a new subnet in the same virtual network as the database server was created. 
 
 ```azurecli
 az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
 ```
-Make a note of the virtual network name and subnet name after this command as would need it to add VNET integration rule for the web app after it is created.
+Make a note of the virtual network name and subnet name after this command as would need it to add VNET integration rule for the web app after it is created. 
 
 ## Create a Web App
-In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host. Make sure you're in the repository root of your application code in the terminal. Note Basic Plan does not support VNET integration. Please use Standard or Premium.
+In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host. Make sure you're in the repository root of your application code in the terminal. Note Basic Plan does not support VNET integration. Please use Standard or Premium. 
 
 Create an App Service app (the host process) with the az webapp up command
 

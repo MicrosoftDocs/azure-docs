@@ -1,5 +1,5 @@
 ---
-title: Restore Azure Database for PostgreSQL - Flexible Server with Azure CLI
+title: Restore Azure Database for PostgreSQL - Flexible Server with Azure CLI 
 description: This article describes how to perform restore operations in Azure Database for PsotgreSQL through the Azure CLI.
 author: mksuni
 ms.author: sumuth
@@ -9,6 +9,10 @@ ms.date: 05/29/2021
 ---
 
 # Point-in-time restore of a Azure Database for PostgreSQL - Flexible Server with Azure CLI
+
+
+> [!IMPORTANT]
+> Azure Database for PostgreQL - Flexible Server is currently in public preview.
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 
@@ -72,5 +76,5 @@ After the restore is completed, you should perform the following tasks to get yo
 
 ## Next steps
 * Learn about [business continuity](concepts-business-continuity.md)
-* Learn about [backup & recovery](concepts-backup-restore.md)
+* Learn about [backup & recovery](concepts-backup-restore.md)  
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title:  Flexible Server documentation
-summary: "Azure Database for PostgreSQL - Flexible Server is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Flexible servers with our quickstarts, tutorials, and samples."
+title:  Flexible Server (Preview) documentation
+summary: "Azure Database for PostgreSQL - Flexible Server (Preview) is a fully managed PostgreSQL database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice. Learn how to use Flexible servers with our quickstarts, tutorials, and samples."
 metadata:
-  title: Azure Database for PostgreSQL - Flexible Server
-  description: "Azure Database for PostgreSQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
+  title: Azure Database for PostgreSQL - Flexible Server (Preview)
+  description: "Azure Database for PostgreSQL - Flexible Server (Preview) is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
   author: sunilagarwal
   ms.author: sunila
   ms.date: 09/22/2020
@@ -16,7 +16,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Flexible Server
+  - title: About Flexible Server (Preview)
     linkLists:
       - linkListType: overview
         links:
@@ -63,7 +63,7 @@ landingContent:
           - text: Scale up
             url: how-to-scale-compute-storage-portal.md
           - text: Restart a server
-            url: how-to-restart-server-portal.md
+            url: how-to-restart-server-portal.md            
           - text: Configure and access logs
             url: howto-configure-and-access-logs.md
           - text: Schedule maintenance
@@ -114,7 +114,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI developer reference
-            url: /cli/azure/postgres
+            url: /cli/azure/postgres 
           - text: REST API developer reference
             url: /rest/api/postgresql/
           - text: Azure Resource Manager templates

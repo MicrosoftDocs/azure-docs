@@ -10,6 +10,9 @@ ms.date: 09/22/2020
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server
 
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
 The alert triggers when the value of a specified metric crosses a threshold you assign. The alert triggers both when the condition is first met, and then afterwards when that condition is no longer being met.
@@ -68,7 +71,7 @@ You can configure and get information about alert rules using:
 
 11. Specify an Alert rule name, Description, and Severity.
 
-    :::image type="content" source="./media/howto-alert-on-metrics/11-name-description-severity.png" alt-text="Specify, name description and severity":::
+    :::image type="content" source="./media/howto-alert-on-metrics/11-name-description-severity.png" alt-text="Specify, name description and severity"::: 
 
 12. Select **Create alert rule** to create the alert.
 

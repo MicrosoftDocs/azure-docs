@@ -10,6 +10,9 @@ ms.date: 05/25/2021
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a command. After being loaded in the database, extensions function like built-in features.
 
 ## How to use PostgreSQL extensions
@@ -19,7 +22,7 @@ Azure Database for PostgreSQL supports a subset of key extensions as listed belo
 
 ## Postgres 13 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 13.
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 13. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -58,7 +61,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[postgis](https://www.postgis.net/)                      | 3.1.1           | PostGIS geometry, geography |
-> |[postgis_raster](https://www.postgis.net/)               | 3.1.1           | PostGIS raster types and functions|
+> |[postgis_raster](https://www.postgis.net/)               | 3.1.1           | PostGIS raster types and functions| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.1.1           | PostGIS SFCGAL functions|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.1.1           | PostGIS tiger geocoder and reverse geocoder|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.1.1           | PostGIS topology spatial types and functions|
@@ -71,7 +74,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 12 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 12.
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 12. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -110,7 +113,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS geometry, geography |
-> |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | PostGIS raster types and functions|
+> |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | PostGIS raster types and functions| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | PostGIS SFCGAL functions|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | PostGIS tiger geocoder and reverse geocoder|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | PostGIS topology spatial types and functions|
@@ -123,7 +126,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 11 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 11.
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 11. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -175,7 +178,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 
 ## dblink and postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. Flexible server supports both incoming and outgoing connections to any PostgreSQL server. The sending server needs to allow outbound connections to the receiving server. Similarly, the receiving server needs to allow connections from the sending server.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. Flexible server supports both incoming and outgoing connections to any PostgreSQL server. The sending server needs to allow outbound connections to the receiving server. Similarly, the receiving server needs to allow connections from the sending server. 
 
 We recommend deploying your servers with [VNet integration](concepts-networking.md) if you plan to use these two extensions. By default VNet integration allows connections between servers in the VNET. You can also choose to use [VNet network security groups](../../virtual-network/manage-network-security-group.md) to customize access.
 

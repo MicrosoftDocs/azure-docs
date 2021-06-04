@@ -11,13 +11,16 @@ ms.date: 03/06/2021
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for PostgreSQL - Flexible Server
 
-This quickstart demonstrates how to connect to an Azure Database for PostgreSQL Flexible Server using Azure CLI with ```az postgres flexible-server connect``` and execute single query or sql file with ```az postgres flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode.
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is currently in public preview.
+
+This quickstart demonstrates how to connect to an Azure Database for PostgreSQL Flexible Server using Azure CLI with ```az postgres flexible-server connect``` and execute single query or sql file with ```az postgres flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode. 
 
 
 ## Prerequisites
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or above)
-- Login using Azure CLI with ```az login``` command
+- Login using Azure CLI with ```az login``` command 
 - Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location.
 
 ## Create an PostgreSQL Flexible Server
@@ -30,7 +33,7 @@ az postgres flexible-server create --public-access <your-ip-address>
 You can provide additional arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create).
 
 ## View all the arguments
-You can view all the arguments for this command with ```--help``` argument.
+You can view all the arguments for this command with ```--help``` argument. 
 
 ```azurecli
 az postgresql flexible-server connect --help
@@ -42,7 +45,7 @@ You can test and validate the connection to the database from your development e
 ```azurecli
 az postgres flexible-server connect -n <servername> -u <username> -p "<password>" -d <databasename>
 ```
-**Example:**
+**Example:** 
 ```azurecli
 az postgres flexible-server connect -n postgresdemoserver -u dbuser -p "dbpassword" -d postgres
 ```
@@ -98,7 +101,7 @@ You can execute a single query with the command using ```--querytext``` argument
 az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
 ```
 
-**Example:**
+**Example:** 
 ```azurecli
 az postgres flexible-server execute -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -q "select * from table1;" --output table
 ```
@@ -131,7 +134,7 @@ You can execute a sql file with the command using ```--file-path``` argument, ``
 az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"
 ```
 
-**Example:**
+**Example:** 
 ```azurecli
 az postgres flexible-server execute -n postgresdemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
 ```

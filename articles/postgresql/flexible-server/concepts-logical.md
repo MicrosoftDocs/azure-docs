@@ -10,11 +10,14 @@ ms.date: 04/22/2021
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
 
+> [!IMPORTANT]
+> Azure Database for PostgreSQL - Flexible Server is in preview
+
 Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
 1. **Logical replication**
    1. Using PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) to replicate data objects. Logical replication allows fine-grained control over the data replication, including table-level data replication.
    2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc.
-2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL).
+2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL). 
 
 ## Comparing logical replication and logical decoding
 Logical replication and logical decoding have several similarities. They both
@@ -26,12 +29,12 @@ Logical replication and logical decoding have several similarities. They both
 
 
 The two technologies have their differences:
-Logical replication
+Logical replication 
 * allows you to specify a table or set of tables to be replicated
 * replicates data between PostgreSQL instances
 
-Logical decoding
-* extracts changes across all tables in a database
+Logical decoding 
+* extracts changes across all tables in a database 
 * cannot directly send data between PostgreSQL instances.
 
 ## Pre-requisites for logical replication and logical decoding
@@ -47,8 +50,8 @@ Logical decoding
 ## Using logical replication and logical decoding
 
 ### Native logical replication
-Logical replication uses the terms 'publisher' and 'subscriber'.
-* The publisher is the PostgreSQL database you are sending data **from**.
+Logical replication uses the terms 'publisher' and 'subscriber'. 
+* The publisher is the PostgreSQL database you are sending data **from**. 
 * The subscriber is the PostgreSQL database you are sending data **to**.
 
 Here's some sample code you can use to try out logical replication.
@@ -110,21 +113,21 @@ Here is an example of configuring pglogical at the provider database server and 
    select pglogical.create_subscription( subscription_name := 'subscription1', provider_dsn := ' host=myProviderDB.postgres.database.azure.com port=5432 dbname=myDB');
    ```
 ### Logical decoding
-Logical decoding can be consumed via the streaming protocol or SQL interface.
+Logical decoding can be consumed via the streaming protocol or SQL interface. 
 
 #### Streaming protocol
-Consuming changes using the streaming protocol is often preferable. You can create your own consumer / connector, or use a third-party service like [Debezium](https://debezium.io/).
+Consuming changes using the streaming protocol is often preferable. You can create your own consumer / connector, or use a third-party service like [Debezium](https://debezium.io/). 
 
 Visit the wal2json documentation for [an example using the streaming protocol with pg_recvlogical](https://github.com/eulerto/wal2json#pg_recvlogical).
 
-#### SQL interface
+#### SQL interface 
 In the example below, we use the SQL interface with the wal2json plugin.
-
+ 
 1. Create a slot.
    ```SQL
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
-
+ 
 2. Issue SQL commands. For example:
    ```SQL
    CREATE TABLE a_table (
@@ -132,7 +135,7 @@ In the example below, we use the SQL interface with the wal2json plugin.
       item varchar(40),
       PRIMARY KEY (id)
    );
-
+   
    INSERT INTO a_table (id, item) VALUES ('id1', 'item1');
    DELETE FROM a_table WHERE id='id1';
    ```
@@ -178,7 +181,7 @@ In the example below, we use the SQL interface with the wal2json plugin.
 
 4. Drop the slot once you are done using it.
    ```SQL
-   SELECT pg_drop_replication_slot('test_slot');
+   SELECT pg_drop_replication_slot('test_slot'); 
    ```
 
 Visit the PostgreSQL documentation to understand more about [logical decoding](https://www.postgresql.org/docs/current/logicaldecoding.html).
@@ -192,7 +195,7 @@ The 'active' column in the pg_replication_slots view will indicate whether there
 SELECT * FROM pg_replication_slots;
 ```
 
-[Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds.
+[Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds. 
 
 ## Limitations
 * **Logical replication** limitations apply as documented [here](https://www.postgresql.org/docs/12/logical-replication-restrictions.html).
