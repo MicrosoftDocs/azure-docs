@@ -60,9 +60,9 @@ For other user initiated operations such as scale-compute or scale-storage, the 
 
 ### Reducing planned downtime with managed maintenance window
 
- With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
+With flexible server, you can optionally schedule Azure initiated maintenance activities by choosing a 30-minute window in a day of your preference where the activities on the databases are expected to be low. Azure maintenance tasks such as patching or minor version upgrades would happen during that maintenance window. If you do not choose a custom window, a system allocated 1-hr window between 11pm-7am local time is chosen for your server. 
  
- For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and the service is failed over to the standby to which applications can reconnect.
+For flexible servers configured with high availability, these maintenance activities are performed on the standby replica first and the service is failed over to the standby to which applications can reconnect.
 
 ## Failover process - unplanned downtimes
 
@@ -77,6 +77,9 @@ The failover time is expected to take 60-120s in typical cases. However, dependi
 3. Standby server is established in the same zone as the old primary server and the streaming replication is initiated. 
 4. Once the steady-state replication is established, the client application commits and writes are acknowledged after the data is persisted on both the sites.
 
+>[!NOTE]
+> Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss. The time to recover (RTO) in typical case is expected to be **< 120s**. In some cases, it can be longer and the RTO depends on the amount of WAL files to be processed by the standby server before it can be promoted.
+ 
 ## Point-in-time restore 
 
 Flexible servers that are configured with high availability, log data is replicated in real time to the standby server. Any user errors on the primary server - such as an accidental drop of a table or incorrect data updates are replicated to the standby replica as well. So, you cannot use standby to recover from such logical errors. To recover from such errors, you have to perform point-in-time restore from the backup.  Using flexible server's point-in-time restore capability, you can restore to the time before the error occurred. For databases configured with high availability, a new database server will be restored as a single zone flexible server with a new user-provided server name. You can use the restored server for few use cases:
