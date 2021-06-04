@@ -1,16 +1,16 @@
 ---
 title: How to configure your Azure Application offer properties
-description: Learn how to configure the properties for your Azure application offer in Partner Center.
+description: Learn how to configure the properties for your Azure application offer in Partner Center (Azure Marketplace). 
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 06/01/2021
 ---
 
-# How to configure your Azure Application offer properties
+# Configure Azure application offer properties
 
 This article describes how to configure the properties for an Azure Application offer in the commercial marketplace.
 
@@ -75,4 +75,4 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 ## Next steps
 
-- [How to configure your Azure Application offer listing details](create-new-azure-apps-offer-listing.md)
+- [Configure Azure application listing details](azure-app-offer-listing.md)

@@ -17,7 +17,7 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 - Reviews are posted on the Reviews tab on the product display page of the offer in Azure Marketplace or AppSource. Customers can include their name or post anonymously.  
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](../analytics-faq.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.md).
 
 ## Access the dashboard
 
@@ -68,7 +68,7 @@ The response will appear under the text of the original review in the product de
 
 ### Editing or deleting a response to a review
 
-You can edit or delete a response to a review by selecting “Edit” or “Delete”.
+You can edit or delete a response to a review by selecting **Edit** or **Delete**.
 
 :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/edit-or-delete-reply.png" alt-text="Illustrates options to edit or delete a reply":::
 
@@ -80,10 +80,8 @@ When posting a review, a user can give consent to be contacted by the publisher.
 
 ## Next steps
 
-- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./analytics.md).
-- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in commercial marketplace analytics](../summary-dashboard.md).
-- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](../orders-dashboard.md).
-- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](../usage-dashboard.md).
-- For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](../customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](../analytics-faq.md).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in commercial marketplace analytics](summary-dashboard.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](downloads-dashboard.md).

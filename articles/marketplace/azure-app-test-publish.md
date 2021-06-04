@@ -1,20 +1,20 @@
 ---
-title: How to test and publish an Azure Application offer 
-description: Use Partner Center to submit your Azure application offer to preview, preview your offer, test, and then publish it to the Microsoft commercial marketplace. 
+title: Test and publish an Azure application offer 
+description: Submit your Azure application offer to preview, preview your offer, test, and publish it to Azure Marketplace. 
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 06/01/2021
 ---
 
-# How to test and publish an Azure Application offer
+# Test and publish an Azure application offer
 
 This article explains how to use Partner Center to submit your Azure Application offer for publishing, preview your offer, test it, and then publish it live to the commercial marketplace. You must have already created an offer that you want to publish.
 
-## Submit your offer for publishing
+## Submit the offer for publishing
 
 1. Sign in to the commercial marketplace dashboard in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 1. On the **Overview** page, select the offer you want to publish.
@@ -29,7 +29,7 @@ This article explains how to use Partner Center to submit your Azure Application
 
 Your offer's publish status will change as it moves through the publication process. For detailed information on this process, see [Validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 
-## Preview and test your offer
+## Preview and test the offer
 
 When the offer is ready for your sign off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview link will be available. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
@@ -37,14 +37,11 @@ The following screenshot shows the **Offer overview** page for an offer, with tw
 
 [![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](media/create-new-azure-app-offer/azure-app-publish-status.png)](media/create-new-azure-app-offer/azure-app-publish-status.png#lightbox)
 
-Use the following steps to preview your offer.
+Use the following steps to preview your offer:
 
 1. On the **Offer overview** page, select a preview link under the **Go live** button. 
-
 1. To validate the end-to-end purchase and setup flow, purchase your offer while it's in preview. First, notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
-
-1. If your Azure application supports [metered billing using the commercial marketplace metering service](./partner-center-portal/azure-app-metered-billing.md), review and follow the testing best practices detailed in [Marketplace metered billing APIs](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
-
+1. If your Azure application supports [metered billing using the commercial marketplace metering service](marketplace-metering-service-apis.md), review and follow the testing best practices detailed in [Marketplace metered billing APIs](marketplace-metering-service-apis.md#development-and-testing-best-practices).
 1. If you need to make changes after previewing and testing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./update-existing-offer.md).
 
 ## Publish your offer live
@@ -60,11 +57,11 @@ After these validation checks are complete, your offer will be live in the marke
 
 ### Errors and review feedback
 
-The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template) issues are typically presented as pull request (PR) links. An explanation of how to view and respond to these PRs, see [Handling review feedback](partner-center-portal/azure-apps-review-feedback.md).
+The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template) issues are typically presented as pull request (PR) links. An explanation of how to view and respond to these PRs, see [Handling review feedback](azure-app-review-feedback.md).
 
 If you have errors in one or more of the publishing steps, correct them before republishing your offer.
 
 ## Next step
 
-- [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
-- Learn [How to sell your Azure Application offer](create-new-azure-apps-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.
+- [Access analytic reports for the commercial marketplace](analytics.md)
+- [Sell your Azure application offer](azure-app-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.

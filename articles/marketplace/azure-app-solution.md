@@ -1,18 +1,30 @@
 ---
 title: Configure a solution template plan
-description: Learn how to configure a solution template plan for your Azure application offer in Partner Center. 
+description: Configure a solution template plan for your Azure application offer in Partner Center (Azure Marketplace). 
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 06/01/2021
 ---
 
 # Configure a solution template plan
 
-This article applies only to solution template plans for an Azure application offer. If you are configuring a managed application plan, go to [Configure a managed application plan](create-new-azure-apps-offer-managed.md).
+This article applies only to solution template plans for an Azure application offer. If you are configuring a managed application plan, go to [Configure a managed application plan](azure-app-managed.md).
+
+## Re-use technical configuration (optional)
+
+If you’ve created more than one plan of the same type within this offer and the technical configuration is identical between them, you can reuse the technical configuration from another plan. This setting cannot be changed after this plan is published.
+
+To re-use a technical configuration:
+
+1. Select the **This plan reuses the technical configuration from another plan of the same type** check box.
+1. In the list that appears, select the base plan you want.
+
+> [!NOTE]
+> If a plan is currently reusing or has reused the technical configuration from another plan of the same type, go to that base plan to view history of previously published packages.
 
 ## Choose who can see your plan
 
@@ -58,9 +70,6 @@ Select **Save draft** before continuing to the next section: Define the technica
 
 On the **Technical configuration** tab, you’ll upload the deployment package that lets customers deploy your plan and provide a version number for the package.
 
-> [!NOTE]
-> This tab won’t be visible if you chose to re-use packages from another plan on the **Plan setup** tab. If so, go to [View your plans](#view-your-plans).
-
 ### Assign a version number for the package
 
 In the **Version** box provide the current version of the technical configuration. Increment this version each time you publish a change to this page. The version number must be in the format: integer.integer.integer. For example, `1.0.2`.
@@ -86,9 +95,9 @@ The actions that are available in the **Action** column of the **Plan overview**
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
 - If the plan status is **Live**, the link in the **Action** column will be either **Stop selling plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
-- To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](create-new-azure-apps-offer-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
+- To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](azure-app-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
 
 ## Next steps
 
-- [How to test and publish your Azure Application offer](create-new-azure-apps-offer-test-publish.md).
-- Learn [How to sell your Azure Application offer](create-new-azure-apps-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.
+- [Test and publish this offer](azure-app-test-publish.md)
+- [Sell this offer](azure-app-marketing.md) through the **Co-sell with Microsoft** and/or **Resell through CSPs** programs

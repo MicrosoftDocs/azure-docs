@@ -1,12 +1,12 @@
 ---
 title: Partner Center submission API to onboard Azure apps in the Microsoft commercial marketplace 
-description: Learn the prerequisites to use the Partner Center submission API for Azure apps in commercial marketplace on Microsoft Partner Center. 
+description: Learn the prerequisites to use the Partner Center submission API for Azure apps in Azure Marketplace. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
+ms.date: 06/01/2021
 ---
 
 # Partner Center submission API to onboard Azure apps in Partner Center
@@ -24,7 +24,7 @@ There are a few programmatic assets that you need in order to use the Partner Ce
 
 Before you start writing code to call the Partner Center submission API, make sure that you have completed the following prerequisites.
 
-- You (or your organization) must have an Azure AD directory and you must have [Global administrator](../../active-directory/roles/permissions-reference.md) permission for the directory. If you already use Microsoft 365 or other business services from Microsoft, you already have Azure AD directory. Otherwise, you can [create a new Azure AD in Partner Center](/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) at no additional charge.
+- You (or your organization) must have an Azure AD directory and you must have [Global administrator](../active-directory/roles/permissions-reference.md) permission for the directory. If you already use Microsoft 365 or other business services from Microsoft, you already have Azure AD directory. Otherwise, you can [create a new Azure AD in Partner Center](/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) at no additional charge.
 
 - You must [associate an Azure AD application with your Partner Center account](/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) and obtain your tenant ID, client ID and key. You need these values to obtain an Azure AD access token, which you will use in calls to the Microsoft Store submission API.
 
@@ -44,7 +44,7 @@ To use the Microsoft Store submission API, you must associate an Azure AD applic
 
 Before you call any of the methods in the Partner Center submission API, you must first obtain an Azure AD access token that you pass to the **Authorization** header of each method in the API. After you obtain an access token, you have 60 minutes to use it before it expires. After the token expires, you can refresh the token so you can continue to use it in future calls to the API.
 
-To obtain the access token, follow the instructions in [Service to Service Calls Using Client Credentials](../../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) to send an `HTTP POST` to the `https://login.microsoftonline.com/<tenant_id>/oauth2/token` endpoint. Here is a sample request:
+To obtain the access token, follow the instructions in [Service to Service Calls Using Client Credentials](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) to send an `HTTP POST` to the `https://login.microsoftonline.com/<tenant_id>/oauth2/token` endpoint. Here is a sample request:
 
 JSONCopy
 ```Json
@@ -68,5 +68,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## Next steps
 
-* [Create an Azure Container technical asset](../azure-container-technical-assets.md)
-* [Create an Azure Container offer](../azure-container-offer-setup.md)
+* [Create an Azure Container technical asset](azure-container-technical-assets.md)
+* [Create an Azure Container offer](azure-container-offer-setup.md)

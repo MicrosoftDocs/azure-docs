@@ -1,6 +1,6 @@
 ---
 title: Metered billing for managed applications using the marketplace metering service | Azure Marketplace
-description: This documentation is a guide for ISVs publishing Azure applications with flexible billing models. 
+description: This documentation is a guide for ISVs publishing Azure applications with flexible billing models (Azure Marketplace). 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -17,7 +17,7 @@ With the Marketplace metering service, you can create managed application plans 
 
 In order for a managed application plan to use metered billing, it must:
 
-* Meet all of the offer requirements as outlined in [Create an Azure application offer](../create-new-azure-apps-offer.md).
+* Meet all of the offer requirements as outlined in [Create an Azure application offer](azure-app-offer-setup.md).
 * Configure **Pricing** for charging customers the per-month cost for your service. Price can be zero if you don't want to charge a fixed fee and instead rely entirely on metered billing.
 * Set **Billing dimensions** for the metering events the customer will pay for on top of the flat rate.
 * Integrate with the [Marketplace metering service APIs](./marketplace-metering-service-apis.md) to inform Microsoft of billable events.
@@ -112,8 +112,8 @@ If you have one of the following issues, you can open a support ticket.
 * An issue that needs to be escalated because of an error or bug on your side (ex. wrong usage event).
 * Any other issues related to metered billing.
 
-Follow the instruction in [Support for the commercial marketplace program in Partner Center](../support.md) to understand publisher support options and open support ticket with Microsoft.
+Follow the instruction in [Support for the commercial marketplace program in Partner Center](support.md) to understand publisher support options and open support ticket with Microsoft.
 
 ## Next steps
 
-- See [Marketplace metering service APIs](./marketplace-metering-service-apis.md) for more information.
+- See [Marketplace metering service APIs](marketplace-metering-service-apis.md) for more information.

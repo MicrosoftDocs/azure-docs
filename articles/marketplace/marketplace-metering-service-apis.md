@@ -13,9 +13,9 @@ ms.author: mingshen
 
 The metered billing APIs should be used when the publisher creates custom metering dimensions for an offer to be published in Partner Center. Integration with the metered billing APIs is required for any purchased offer that has one or more plans with custom dimensions to emit usage events.
 
-For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](saas-metered-billing.md).
+For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](partner-center-portal/saas-metered-billing.md).
 
-For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see [Configure your Azure application offer setup details](../create-new-azure-apps-offer.md#configure-your-azure-application-offer-setup-details).
+For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see [Configure your Azure application offer setup details](azure-app-offer-setup.md#configure-your-azure-application-offer-setup-details).
 
 ## Enforcing TLS 1.2 Note
 
@@ -44,7 +44,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
-| `authorization`   | A unique access token that identifies the ISV that is making this API call. The format is `"Bearer <access_token>"` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](./pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](./marketplace-metering-service-authentication.md). </li> </ul> |
+| `authorization`   | A unique access token that identifies the ISV that is making this API call. The format is `"Bearer <access_token>"` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](marketplace-metering-service-authentication.md). </li> </ul> |
 | | |
 
 *Request body example:*
@@ -64,7 +64,7 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 
 For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
-For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
 ### Responses
 
@@ -156,7 +156,7 @@ The batch usage event API allows you to emit usage events for more than one purc
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated, and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated, and provided in the response headers. |
-| `authorization`      | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](./pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](./marketplace-metering-service-authentication.md). </li> </ul> |
+| `authorization`      | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](./marketplace-metering-service-authentication.md). </li> </ul> |
 | | |
 
 
@@ -186,9 +186,9 @@ The batch usage event API allows you to emit usage events for more than one purc
 >[!NOTE]
 >`resourceId` has different meaning for SaaS app and for Managed app emitting custom meter. 
 
-For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+For Azure Application Managed Apps plans, the `resourceId` is the Managed App `resource group Id`. An example script for fetching it can be found in [using the Azure-managed identities token](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
-For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+For SaaS offers, the `resourceId` is the SaaS subscription ID. For more details on SaaS subscriptions, see [list subscriptions](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
 ### Responses
 
@@ -268,8 +268,8 @@ You can also use private plan for an existing live offer to limit the access to 
 
 ## Get support
 
-Follow the instruction in [Support for the commercial marketplace program in Partner Center](../support.md) to understand publisher support options and open a support ticket with Microsoft.
+Follow the instruction in [Support for the commercial marketplace program in Partner Center](support.md) to understand publisher support options and open a support ticket with Microsoft.
 
 ## Next steps
 
-For more information on metering service APIs , see [Marketplace metering service APIs FAQ](./marketplace-metering-service-apis-faq.md).
+For more information on metering service APIs , see [Marketplace metering service APIs FAQ](marketplace-metering-service-apis-faq.md).
