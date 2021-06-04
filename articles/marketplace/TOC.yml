@@ -85,8 +85,8 @@
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
       href: business-applications-isv-program.md
-    - name: Azure consumption commitment benefit
-      href: azure-consumption-commitment-benefit.md
+    - name: Azure consumption commitment enrollment
+      href: azure-consumption-commitment-enrollment.md
     - name: Preferred solutions
       href: preferred-solutions.md
     - name: Integrated solutions
@@ -566,4 +566,4 @@
   - name: Supported HTML tags
     href: supported-html-tags.md
   - name: Reference architecture diagram
-    href: reference-architecture-diagram.md  
+    href: reference-architecture-diagram.md

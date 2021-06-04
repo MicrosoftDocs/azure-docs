@@ -1,6 +1,6 @@
 ---
-title: Data-in Replication - Azure Database for MySQL Flexible
-description: Learn about using Data-in Replication to synchronize from an external server into the Azure Database for MySQL Flexible service.
+title: Data-in replication - Azure Database for MySQL Flexible
+description: Learn about using Data-in replication to synchronize from an external server into the Azure Database for MySQL Flexible service.
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
@@ -10,14 +10,14 @@ ms.date: 05/26/2021
 
 # Replicate data into Azure Database for MySQL Flexible  Server (Preview)
 
-Data-in Replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in Replication is based on the binary log (binlog) file position-based or GTID-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based or GTID-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-## When to use Data-in Replication
+## When to use Data-in replication
 
-The main scenarios to consider about using Data-in Replication are:
+The main scenarios to consider about using Data-in replication are:
 
-- **Hybrid Data Synchronization:** With Data-in Replication, you can keep data synchronized between your on-premises servers and Azure Database for MySQL Flexible Server. This synchronization is useful for creating hybrid applications. This method is appealing when you have an existing local database server but want to move the data to a region closer to end users.
-- **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-in Replication to synchronize data between Azure Database for MySQL Flexible Server and different cloud providers, including virtual machines and database services hosted in those clouds.
+- **Hybrid Data Synchronization:** With Data-in replication, you can keep data synchronized between your on-premises servers and Azure Database for MySQL Flexible Server. This synchronization is useful for creating hybrid applications. This method is appealing when you have an existing local database server but want to move the data to a region closer to end users.
+- **Multi-Cloud Synchronization:** For complex cloud solutions, use Data-in replication to synchronize data between Azure Database for MySQL Flexible Server and different cloud providers, including virtual machines and database services hosted in those clouds.
 - **Migration:** Customers can do Minimal Time migration using open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with Data-in replication. A selective cutover of production load from source to destination database is possible with Data-in replication. 
 
 For migration scenarios, use the [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/)(DMS).

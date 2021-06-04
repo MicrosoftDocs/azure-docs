@@ -305,6 +305,8 @@
   items:
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
+  - name: Enterprise-scale - Reference implementation
+    href: https://github.com/Azure/Enterprise-Scale#enterprise-scale---reference-implementation
   - name: Community tools
     items:
     - name: GitHub - Community Policy repo

@@ -293,7 +293,7 @@ In this section, you define a set of enrichment steps that you want to apply to 
 
 * [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the entity recognition skill. Key phrase extraction and entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
-* [Entity Recognition](cognitive-search-skill-entity-recognition.md) for extracting the names of organizations from content in the blob container.
+* [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) for extracting the names of organizations from content in the blob container.
 
 * [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases.
 
