@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/03/2021
 ms.author: b-juche
 ---
 # Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries
@@ -30,7 +30,7 @@ By default, modern Linux kernels define the per-connection `sunrpc` slot table e
 |-|-|
 | 128 | 65,536 |
 
-These slot table entries define the limits of concurrency. Values this high are unnecessary.  For example, using a queueing theory *Littles Law*, you will find that the I/O rate is determined by concurrency (that is, outstanding I/O) and latency. As such, the algorithm proves that 65,536 slots are orders of magnitude higher than what is needed to drive even extremely demanding workloads.
+These slot table entries define the limits of concurrency. Values this high are unnecessary.  For example, using a queueing theory known as *Littles Law*, you will find that the I/O rate is determined by concurrency (that is, outstanding I/O) and latency. As such, the algorithm proves that 65,536 slots are orders of magnitude higher than what is needed to drive even extremely demanding workloads.
 
 `Littles Law: (concurrency = operation rate × latency in seconds)`
 
