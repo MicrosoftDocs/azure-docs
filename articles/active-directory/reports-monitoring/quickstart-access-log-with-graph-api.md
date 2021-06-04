@@ -59,7 +59,7 @@ This section provides you with the steps to get information about your sign-in u
 
 4. In the **API version drop-down list**, select **beta**.
 
-5. In the **Request query address bar**, type `https://graph.microsoft.com/beta/auditLogs/signIns?$top=100&$filter= userDisplayName eq 'Isabella Simonsen'
+5. In the **Request query address bar**, type `https://graph.microsoft.com/beta/auditLogs/signIns?$top=100&$filter=userDisplayName eq 'Isabella Simonsen'
  
 6. Click **Run query**.
 
