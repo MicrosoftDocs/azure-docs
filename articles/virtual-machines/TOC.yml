@@ -1461,6 +1461,12 @@
       - name: PowerShell (Preview)
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
+      - name: CLI (Preview)
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-cli.md
+      - name: Portal (Preview)
+        displayName: Maintenance control for OS image upgrade, OS, image, upgrade
+        href: virtual-machine-scale-sets-maintenance-control-portal.md
   - name: Automatic VM guest patching (Preview)
     items:
     - name: Overview
