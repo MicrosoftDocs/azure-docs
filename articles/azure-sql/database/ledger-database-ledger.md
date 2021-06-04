@@ -46,7 +46,7 @@ SELECT * FROM sys.database_ledger_blocks
 GO
 ```
 
-The following example of a ledger table consists of four transactions that made up one block in the blockchain of the database ledger.
+The following example of a ledger table consists of four transactions that made up one block in the blockchain of the database ledger:
 
 :::image type="content" source="media/ledger/database-ledger-1.png" alt-text="Screenshot of an example ledger table.":::
 
