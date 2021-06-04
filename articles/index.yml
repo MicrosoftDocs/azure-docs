@@ -639,7 +639,7 @@ productDirectory:
         - web
       url: app-service/index.yml
     # Card
-    - title: Windows Virtual Desktop
+    - title: Azure Virtual Desktop
       summary: The best virtual desktop experience, delivered on Azure
       imageSrc: https://static.docs.com/ui/media/product/azure/windows-virtual-desktop.svg
       azureCategories:
