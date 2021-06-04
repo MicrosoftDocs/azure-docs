@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-To deploy VMs on your Azure Stack Edge Pro device, you need to be able to create a VM image that you can use to create VMs. This article describes the steps that are required to create a VM image starting from an Azure Marketplace image. You can then use this VM image to deploy VMs on your Azure Stack Edge Pro GPU device.
+To deploy VMs on your Azure Stack Edge Pro GPU device, you need to create a VM image that you can use to create VMs. This article describes the steps that are required to create a VM image starting from an Azure Marketplace image. You can then use this VM image to deploy VMs on your Azure Stack Edge Pro GPU device.
 
 ## VM image workflow
 
@@ -52,7 +52,7 @@ With Azure CLI installed on your client machine, run the command az login. This 
 
 ## Search for Azure Marketplace images
 
-You will now identify a specific Azure Marketplace image which you wish to use. Azure Marketplace hosts thousands of VM images. We will provide some examples to find some of the most common.
+You will now identify a specific Azure Marketplace image which you wish to use. Azure Marketplace hosts thousands of VM images. 
 
 To find some of the most common Marketplace images that match your search criteria, run the following command.  
 
@@ -79,7 +79,7 @@ az vm image list --all --publisher "Canonical"
 
 In this example, we will select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We will identify this image by its Universal Resource Number (“URN”). 
  
-
+:::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="List of marketplace images":::
 
 Below is a list of URNs for some of the most common images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”. 
 
