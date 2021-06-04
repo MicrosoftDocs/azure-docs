@@ -298,9 +298,11 @@ Run the following command in Azure Cloud Shell to get the _device connection str
     
     Copy the device connection string, which looks like the following, and place it in the code sample where noted.
   
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}`
+    ```cmd/sh
+    HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}
+    ```
 
-    Place the path to the file to be uploaded in the code sample where noted.
+    Place the path to the file to upload in the code sample where noted.
     
 ## Build and Run the application
 
