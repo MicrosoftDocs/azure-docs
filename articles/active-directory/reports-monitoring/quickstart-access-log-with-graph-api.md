@@ -29,6 +29,7 @@ To complete the scenario in this quickstart, you need:
 - **Access to an Azure AD tenant** - If you don't have access to an Azure AD tenant, see [Create your Azure free account today](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
+
 ## Perform a failed sign-in
 
 The goal of this step is to create a record of a failed sign-in in the Azure AD sign-ins log.
