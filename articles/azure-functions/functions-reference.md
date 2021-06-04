@@ -109,7 +109,7 @@ Some connections in Azure Functions are configured to use an identity instead of
 Identity-based connections are supported by the following trigger and binding extensions in all plans:
 
 > [!NOTE]
-> Identity-based connections are not supported with Durable Functions. Apps using Azure Files `contentshare` will still need the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` connection string setting. User-assigned identities are also currently not supported in Consumption.
+> Identity-based connections are not supported with Durable Functions.
 
 | Extension name | Extension version                                                                                     |
 |----------------|-------------------------------------------------------------------------------------------------------|
@@ -119,7 +119,7 @@ Identity-based connections are supported by the following trigger and binding ex
 | Azure Service Bus    | [Version 5.0.0-beta2 or later](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) |
 
 
-The storage connections used by the Functions runtime (`AzureWebJobsStorage`) may also be configured using an identity-based connection. By default, `AzureWebJobsStorage` uses secrets. In order to have a fully identity-based function app, `AzureWebJobsStorage` must be configured for identity-based connections as outlined in [connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity) below.
+The storage connections used by the Functions runtime (`AzureWebJobsStorage`) may also be configured using an identity-based connection. See [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity) below.
 
 When hosted in the Azure Functions service, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity is used by default. When run in other contexts, such as local development, your developer identity is used instead, although this can be customized using alternative connection parameters.
 
@@ -144,8 +144,10 @@ An identity-based connection for an Azure service accepts the following properti
 
 | Property    | Required for Extensions | Environment variable | Description |
 |---|---|---|---|
-| Service URI | Azure Blob, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri`* |  * **Note:** *blob and queue service URI's are required for Azure Blob.* <br /><br /> The data plane URI of the service to which you are connecting. |
+| Service URI | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | The data plane URI of the service to which you are connecting. |
 | Fully Qualified Namespace | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs and Service Bus namespace. |
+
+<sup>1</sup> Both blob and queue service URI's are required for Azure Blob.
 
 Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
 
