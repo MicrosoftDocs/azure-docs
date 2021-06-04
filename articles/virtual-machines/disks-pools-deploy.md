@@ -12,7 +12,9 @@ ms.subservice: disks
 
 This article covers how to deploy and configure a disk pool. Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
-## Initial setup
+In this article you will configure and deploy a disk pool. In order for a disk pool to work correctly, each pool must have a subnet delegated to it and RBAC permissions must be assigned to the disk pool resources. Once you've 
+
+## Register for the preview
 
 Register your subscription to the **Microsoft.StoragePool** provider to get access to and use disk pools.
 
