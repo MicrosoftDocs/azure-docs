@@ -92,7 +92,7 @@ In Azure Storage, a knowledge store has two manifestations: a blob container, or
 
 + A blob container captures enriched documents in their entirety, which is useful if you want to feed into other processes. 
 
-+ In contrast, Table storage can accommodate physical projections of enriched documents. You can create slices or layers of enriched documents that include or exclude specific parts. For analysis in Power BI, the tables in Azure Table storage become the data source for further visualization and exploration.
++ In contrast, Table storage can accommodate physical projections of enriched documents. You can create slices or layers of enriched documents that include or exclude specific parts. For analysis in Power BI, the tables in Azure Table Storage become the data source for further visualization and exploration.
 
 An enriched document at the end of the pipeline differs from its original input version by the presence of additional fields containing new information that was extracted or generated during enrichment. As such, you can work with a combination of original and created content, regardless of which output structure you use.
 

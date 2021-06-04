@@ -192,7 +192,7 @@ Your projections have a lifecycle that is tied to the source data in your data s
 
 After the indexer is run, you can read the projected data in the containers or tables you specified through projections.
 
-For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
+For analytics, exploration in Power BI is as simple as setting Azure Table Storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
 
 Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
 

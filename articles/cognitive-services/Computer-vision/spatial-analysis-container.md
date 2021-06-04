@@ -22,7 +22,6 @@ The Spatial Analysis container enables you to analyze real-time streaming video 
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to run the Spatial Analysis container. You'll use your key and endpoint later.
 
-
 ### Spatial Analysis container requirements
 
 To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We will refer to this device as the host computer.
@@ -65,21 +64,6 @@ In our example, we will utilize an [NC series VM](../../virtual-machines/nc-seri
 |--|--|
 | Camera | The Spatial Analysis container is not tied to a specific camera brand. The camera device needs to: support Real-Time Streaming Protocol(RTSP) and H.264 encoding, be accessible to the host computer, and be capable of streaming at 15FPS and 1080p resolution. |
 | Linux OS | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) must be installed on the host computer.  |
-
-
-## Request approval to run the container
-
-Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container.
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
-
-> [!IMPORTANT]
-> * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Computer Vision resource you use to run the container must have been created with the approved Azure subscription ID.
-
-After you're approved, you will be able to run the container after downloading it from the Microsoft Container Registry (MCR), described later in the article.
-
-You won't be able to run the container if your Azure subscription has not been approved.
 
 ## Set up the host computer
 

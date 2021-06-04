@@ -14,7 +14,7 @@ ms.date: 01/25/2021
 
 # Tutorial: Index JSON blobs from Azure Storage using REST
 
-Azure Cognitive Search can index JSON documents and arrays in Azure blob Storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
+Azure Cognitive Search can index JSON documents and arrays in Azure Blob Storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
 This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
