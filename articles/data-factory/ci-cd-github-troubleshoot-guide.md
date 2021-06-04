@@ -228,6 +228,16 @@ Following section is not valid because package.json folder is not valid.
 ```
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
 
+### Git Repository or Purview Connection Disconnected
+
+#### Issue
+When deploying your Data Factory, your git repository or purview connection is disconnected.
+
+#### Cause
+If you have **Include in ARM template** selected for deploying global parameters, your factory is included in the ARM template. As a result, other factory properties will be removed upon deployment.
+
+#### Resolution
+Unselect **Include in ARM template** and deploy global parameters with PowerShell as described in Global parameters in CI/CD. 
 
 ## Next steps
 

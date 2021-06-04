@@ -4,8 +4,9 @@ description: Learn how Azure Cosmos DB provides database protection with Active 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.author: mjbrown
+ms.date: 05/27/2021
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure role-based access control in Azure Cosmos DB
@@ -29,7 +30,7 @@ The following are the built-in roles supported by Azure Cosmos DB:
 |[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Can provision Azure Cosmos accounts, databases, and containers. Cannot access any data or use Data Explorer.|
 
 > [!IMPORTANT]
-> Azure RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using primary keys or resource tokens. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
+> Azure RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using primary keys, resource tokens or the Cosmos DB RBAC. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
 
 ## Identity and access management (IAM)
 

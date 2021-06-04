@@ -22,7 +22,7 @@ To access and use the **Administration** section, you must be in the **Administr
 
 In the **Application Settings** page, you can change the name and URL of your application, then select **Save**.
 
-![Application settings page](media/howto-administer/image0-a.png)
+![Application settings page](media/howto-administer/image-a.png)
 
 If your administrator creates a custom theme for your application, this page includes an option to hide the **Application Name** in the UI. This option is useful if the application logo in the custom theme includes the application name. For more information, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
 

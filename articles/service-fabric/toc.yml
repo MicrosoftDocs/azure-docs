@@ -225,6 +225,8 @@
       href: service-fabric-concept-resource-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
+    - name: Service Configuration using StartupServices model
+      href: service-fabric-startupservices-model.md
     - name: Application and service manifest examples
       href: service-fabric-manifest-examples.md
       items:
@@ -864,29 +866,6 @@
       href: service-fabric-sfctl-container.md
     - name: sfctl is
       href: service-fabric-sfctl-is.md
-    - name: sfctl mesh
-      href: service-fabric-sfctl-mesh.md
-      items:
-      - name: sfctl mesh app  
-        href: service-fabric-sfctl-mesh-app.md
-      - name: sfctl mesh code-package-log  
-        href: service-fabric-sfctl-mesh-code-package-log.md
-      - name: sfctl mesh deployment  
-        href: service-fabric-sfctl-mesh-deployment.md
-      - name: sfctl mesh gateway  
-        href: service-fabric-sfctl-mesh-gateway.md
-      - name: sfctl mesh network  
-        href: service-fabric-sfctl-mesh-network.md
-      - name: sfctl mesh secret  
-        href: service-fabric-sfctl-mesh-secret.md
-      - name: sfctl mesh secretvalue  
-        href: service-fabric-sfctl-mesh-secretvalue.md
-      - name: sfctl mesh service  
-        href: service-fabric-sfctl-mesh-service.md
-      - name: sfctl mesh service-replica  
-        href: service-fabric-sfctl-mesh-service-replica.md
-      - name: sfctl mesh volume  
-        href: service-fabric-sfctl-mesh-volume.md
     - name: sfctl node
       href: service-fabric-sfctl-node.md
     - name: sfctl partition
@@ -958,13 +937,11 @@
     href: release-notes.md
   - name: Sample code
     href: /samples/browse/?products=azure
-  - name: Support options
-    href: service-fabric-support.md
   - name: Service Fabric versions
     href: service-fabric-versions.md
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
-  - name: Troubleshooting guides
-    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
+- name: Support and troubleshooting
+  href: service-fabric-support.md 

@@ -1,7 +1,7 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 05/01/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -123,8 +123,9 @@ is configured with the **resultFormat** parameter as part of the request options
 is the default value for **resultFormat**.
 
 Results from Azure CLI are provided in JSON by default. Results in Azure PowerShell are a
-**PSCustomObject** by default, but they can quickly be converted to JSON using the `ConvertTo-Json`
-cmdlet. For other SDKs, the query results can be configured to output the _ObjectArray_ format.
+**PSResourceGraphResponse** object, but they can quickly be converted to JSON using the
+`ConvertTo-Json` cmdlet on the **Data** property. For other SDKs, the query results can be
+configured to output the _ObjectArray_ format.
 
 ### Format - Table
 

@@ -1443,7 +1443,7 @@ Jump to a resource provider namespace:
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | No | No | No |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP addresses. |
+> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU | Yes<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | Yes | Yes | No |
 > | routefilters | No | No | No |
 > | routetables | Yes | Yes | No |

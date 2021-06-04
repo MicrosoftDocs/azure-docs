@@ -45,7 +45,7 @@ A condition evaluating to a `Boolean` value.
 
 ### Examples
 
-Here is an example using properties and operators. The following query specifies in the WHERE clause to only return the twin with a `$dtId` value of *Room1*.
+Here is an example using properties and operators. The following query specifies in the WHERE clause to only return the twin with a `$dtId` value of Room1.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereExample":::
 

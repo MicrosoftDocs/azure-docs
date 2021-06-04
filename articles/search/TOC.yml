@@ -5,7 +5,7 @@
   items:
   - name: What is Cognitive Search?
     href: search-what-is-azure-search.md
-  - name: Feature list
+  - name: Features in Search
     href: search-features-list.md
   - name: New in Search
     href: whats-new.md
@@ -42,28 +42,38 @@
     href: search-get-started-arm.md
 - name: Tutorials
   items:
-  - name: Add Search to a website
+  - name: Add search to web apps
     items: 
     - name: C#
       items: 
-      - name: Website overview
+      - name: Overview
         href: tutorial-csharp-overview.md
       - name: Create a search index
         href: tutorial-csharp-create-load-index.md
       - name: Deploy static web app
         href: tutorial-csharp-deploy-static-web-app.md
-      - name: Integration cheat sheet
+      - name: Explore the code
         href: tutorial-csharp-search-query-integration.md          
     - name: JavaScript 
       items:         
-      - name: Website overview
+      - name: Overview
         href: tutorial-javascript-overview.md
       - name: Create a search index
         href: tutorial-javascript-create-load-index.md
       - name: Deploy static web app
         href: tutorial-javascript-deploy-static-web-app.md
-      - name: Integration cheat sheet
-        href: tutorial-javascript-search-query-integration.md     
+      - name: Explore the code
+        href: tutorial-javascript-search-query-integration.md
+    - name: Python 
+      items:         
+      - name: Overview
+        href: tutorial-python-overview.md
+      - name: Create a search index
+        href: tutorial-python-create-load-index.md
+      - name: Deploy static web app
+        href: tutorial-python-deploy-static-web-app.md
+      - name: Explore the code
+        href: tutorial-python-search-query-integration.md                
   - name: Create a C# app
     items:
     - name: 1 - Basic search page
@@ -264,6 +274,8 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
+    - name: Power Query data sources
+      href: search-how-to-index-power-query-data-sources.md
     - name: SharePoint Online
       href: search-howto-index-sharepoint-online.md
     - name: Azure Blobs
@@ -302,6 +314,8 @@
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Azure SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: Azure MySQL
+      href: search-howto-index-mysql.md
     - name: Troubleshoot indexer issues
       href: search-indexer-troubleshooting.md
     - name: Troubleshoot indexer errors and warnings
@@ -430,7 +444,7 @@
       href: search-traffic-analytics.md
   - name: Security
     items:
-    - name: Admin rights
+    - name: Assign roles
       href: search-security-rbac.md
     - name: Data encryption
       items:
@@ -540,8 +554,10 @@
         href: cognitive-search-skill-custom-entity-lookup.md 
       - name: Document Extraction
         href: cognitive-search-skill-document-extraction.md
-      - name: Entity Recognition
-        href: cognitive-search-skill-entity-recognition.md
+      - name: Entity Linking (V3)
+        href: cognitive-search-skill-entity-linking-v3.md
+      - name: Entity Recognition (V3)
+        href: cognitive-search-skill-entity-recognition-v3.md
       - name: Image Analysis
         href: cognitive-search-skill-image-analysis.md
       - name: Key Phrase Extraction 
@@ -552,8 +568,8 @@
         href: cognitive-search-skill-ocr.md
       - name: PII Detection
         href: cognitive-search-skill-pii-detection.md  
-      - name: Sentiment
-        href: cognitive-search-skill-sentiment.md
+      - name: Sentiment (V3)
+        href: cognitive-search-skill-sentiment-v3.md
       - name: Shaper
         href: cognitive-search-skill-shaper.md
       - name: Text Merger
@@ -573,6 +589,10 @@
       items:
       - name: Named Entity Recognition
         href: cognitive-search-skill-named-entity-recognition.md
+      - name: Entity Recognition
+        href: cognitive-search-skill-entity-recognition.md
+      - name: Sentiment
+        href: cognitive-search-skill-sentiment.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

@@ -14,58 +14,63 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/04/2021
+ms.date: 05/10/2021
 ms.author: yelevin
 ---
 
 # Azure Sentinel UEBA enrichments reference
 
-This article describes the **Behavior analytics** table found on the [entity details pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages), as well as other entity enrichments you can use to focus and sharpen your security incident investigations.
+This article describes the Azure Sentinel **BehaviorAnalytics** table found in **Logs** and mentioned on the [entity details pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages), and provides the details of the entity enrichments fields in that table, the contents of which you can use to focus and sharpen your security incident investigations.
 
-The [User insights table](#user-insights-table) and the [Device insights table](#device-insights-table) contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
+The following three dynamic fields from the BehaviorAnalytics table are described in the [tables below](#entity-enrichments-dynamic-fields).
 
-Other tables, described under [Activity insights tables](#activity-insights-tables), contain entity information based on the behavioral profiles built by Azure Sentinel's entity behavior analytics. 
+The [UsersInsights](#usersinsights-field) and  [DevicesInsights](#devicesinsights-field) fields contain entity information from Active Directory / Azure AD and Microsoft Threat Intelligence sources.
 
-<a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activity-insights-tables) column in this table.
+The [ActivityInsights](#activityinsights-field) field contains entity information based on the behavioral profiles built by Azure Sentinel's entity behavior analytics. 
+
+<a name="baseline-explained"></a>User activities are analyzed against a baseline that is dynamically compiled each time it is used. Each activity has its defined lookback period from which the dynamic baseline is derived. The lookback period is specified in the [**Baseline**](#activityinsights-field) column in this table.
 
 > [!NOTE] 
-> The **Enrichment name** field in the [User insights table](#user-insights-table), [Device insights table](#device-insights-table), and the [Activity insights tables](#activity-insights-tables) displays two rows of information. 
+> The **Enrichment name** column in all the [entity enrichment field](#entity-enrichments-dynamic-fields) tables displays two rows of information. 
 > 
-> The first, in **bold**, is the "friendly name" of the enrichment. The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](#behavior-analytics-table).
+> - The first, in **bold**, is the "friendly name" of the enrichment.
+> - The second *(in italics and parentheses)* is the field name of the enrichment as stored in the [**Behavior Analytics table**](#behavioranalytics-table).
 
-## Behavior analytics table
+## BehaviorAnalytics table
 
 The following table describes the behavior analytics data displayed on each [entity details page](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages) in Azure Sentinel.
 
-| Field                     | Description                                                         |
-|---------------------------|---------------------------------------------------------------------|
-| **TenantId**                  | unique ID number of the tenant                                      |
-| **SourceRecordId**            | unique ID number of the EBA event                                   |
-| **TimeGenerated**             | timestamp of the activity's occurrence                              |
-| **TimeProcessed**             | timestamp of the activity's processing by the EBA engine            |
-| **ActivityType**              | high-level category of the activity                                 |
-| **ActionType**                | normalized name of the activity                                     |
-| **UserName**                  | username of the user that initiated the activity                    |
-| **UserPrincipalName**         | full username of the user that initiated the activity               |
-| **EventSource**               | data source that provided the original event                        |
-| **SourceIPAddress**           | IP address from which activity was initiated                        |
-| **SourceIPLocation**          | country from which activity was initiated, enriched from IP address |
-| **SourceDevice**              | hostname of the device that initiated the activity                  |
-| **DestinationIPAddress**      | IP address of the target of the activity                            |
-| **DestinationIPLocation**     | country of the target of the activity, enriched from IP address     |
-| **DestinationDevice**         | name of the target device                                           |
-| **UsersInsights**         | contextual enrichments of involved users                            |
-| **DevicesInsights**       | contextual enrichments of involved devices                          |
-| **ActivityInsights**      | contextual analysis of activity based on our profiling              |
-| **InvestigationPriority** | anomaly score, between 0-10 (0=benign, 10=highly anomalous)         |
+| Field                     | Type | Description                                                  |
+|---------------------------|------|--------------------------------------------------------------|
+| **TenantId**              | string | unique ID number of the tenant                             |
+| **SourceRecordId**        | string | unique ID number of the EBA event                          |
+| **TimeGenerated**         | datetime | timestamp of the activity's occurrence                   |
+| **TimeProcessed**         | datetime | timestamp of the activity's processing by the EBA engine |
+| **ActivityType**          | string | high-level category of the activity                        |
+| **ActionType**            | string | normalized name of the activity                            |
+| **UserName**              | string | username of the user that initiated the activity           |
+| **UserPrincipalName**     | string | full username of the user that initiated the activity      |
+| **EventSource**           | string | data source that provided the original event               |
+| **SourceIPAddress**       | string | IP address from which activity was initiated               |
+| **SourceIPLocation** | string | country from which activity was initiated, enriched from IP address |
+| **SourceDevice**          | string | hostname of the device that initiated the activity         |
+| **DestinationIPAddress**  | string | IP address of the target of the activity                   |
+| **DestinationIPLocation** | string | country of the target of the activity, enriched from IP address |
+| **DestinationDevice**     | string | name of the target device                                  |
+| **UsersInsights**         | dynamic | contextual enrichments of involved users ([details below](#usersinsights-field)) |
+| **DevicesInsights**       | dynamic | contextual enrichments of involved devices ([details below](#devicesinsights-field)) |
+| **ActivityInsights**      | dynamic | contextual analysis of activity based on our profiling ([details below](#activityinsights-field)) |
+| **InvestigationPriority** | int | anomaly score, between 0-10 (0=benign, 10=highly anomalous)   |
 |
 
-## User insights table
+## Entity enrichments dynamic fields
 
-The following table describes the  <?> listed in the **User insights** table in Azure Sentinel (where?)
+### UsersInsights field
+
+The following table describes the enrichments featured in the **UsersInsights** dynamic field in the BehaviorAnalytics table:
 
 | Enrichment name | Description | Sample value |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Account display name**<br>*(AccountDisplayName)* | The account display name of the user. | Admin, Hayden Cook |
 | **Account domain**<br>*(AccountDomain)* | The account domain name of the user. |  |
 | **Account object ID**<br>*(AccountObjectID)* | The account object ID of the user. | a58df659-5cab-446c-9dd0-5a3af20ce1c2 |
@@ -76,10 +81,12 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **On premises SID**<br>*(OnPremisesSID)* | The on-premises SID of the user related to the action. | S-1-5-21-1112946627-1321165628-2437342228-1103 |
 |
 
-## Device insights table
+### DevicesInsights field
+
+The following table describes the enrichments featured in the **DevicesInsights** dynamic field in the BehaviorAnalytics table:
 
 | Enrichment name | Description | Sample value |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Browser**<br>*(Browser)* | The browser used in the action. | Edge, Chrome |
 | **Device family**<br>*(DeviceFamily)* | The device family used in the action. | Windows |
 | **Device type**<br>*(DeviceType)* | The client device type used in the action | Desktop |
@@ -91,9 +98,11 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **User agent family**<br>*(UserAgentFamily)* | The user agent family used in the action. | Chrome, Edge, Firefox |
 |
 
-## Activity insights tables
+### ActivityInsights field
 
-### Action performed
+The following tables describe the enrichments featured in the **ActivityInsights** dynamic field in the BehaviorAnalytics table:
+
+#### Action performed
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -104,7 +113,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Action uncommonly performed in tenant**<br>*(ActionUncommonlyPerformedInTenant)* | 180 | The action is not commonly performed in the organization. | True, False |
 |
 
-### App used
+#### App used
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -115,7 +124,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **App uncommonly used in tenant**<br>*(AppUncommonlyUsedInTenant)* | 180 | The app is not commonly used in the organization. | True, False |
 | 
 
-### Browser used
+#### Browser used
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -126,7 +135,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Browser uncommonly used in tenant**<br>*(BrowserUncommonlyUsedInTenant)* | 30 | The browser is not commonly used in the organization. | True, False |
 | 
 
-### Country connected from
+#### Country connected from
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -137,7 +146,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Country uncommonly connected from in tenant**<br>*(CountryUncommonlyConnectedFromInTenant)* | 90 | The geo location, as resolved from the IP address, is not commonly connected from in the organization. | True, False |
 | 
 
-### Device used to connect
+#### Device used to connect
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -148,7 +157,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Device uncommonly used in tenant**<br>*(DeviceUncommonlyUsedInTenant)* | 180 | The device is not commonly used in the organization. | True, False |
 | 
 
-### Other device-related
+#### Other device-related
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -156,7 +165,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Device family uncommonly used in tenant**<br>*(DeviceFamilyUncommonlyUsedInTenant)* | 30 | The device family is not commonly used in the organization. | True, False |
 | 
 
-### Internet Service Provider used to connect
+#### Internet Service Provider used to connect
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -167,7 +176,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **ISP uncommonly used in tenant**<br>*(ISPUncommonlyUsedInTenant)* | 30 | The ISP is not commonly used in the organization. | True, False |
 | 
 
-### Resource accessed
+#### Resource accessed
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -178,7 +187,7 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Resource uncommonly accessed in tenant**<br>*(ResourceUncommonlyAccessedInTenant)* | 180 | The resource is not commonly accessed in the organization. | True, False |
 | 
 
-### Miscellaneous
+#### Miscellaneous
 
 | Enrichment name | [Baseline](#baseline-explained) (days) | Description | Sample value |
 | --- | --- | --- | --- |
@@ -191,3 +200,10 @@ The following table describes the  <?> listed in the **User insights** table in 
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
 |
+
+## Next steps
+
+This document described the Azure Sentinel entity behavior analytics table schema.
+
+- Learn more about [entity behavior analytics](identify-threats-with-entity-behavior-analytics.md).
+- [Put UEBA to use](investigate-with-ueba.md) in your investigations.

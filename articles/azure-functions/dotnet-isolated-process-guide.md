@@ -6,6 +6,7 @@ ms.service: azure-functions
 ms.topic: conceptual 
 ms.date: 03/01/2021
 ms.custom: template-concept 
+recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
 ---
 

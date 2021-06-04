@@ -37,7 +37,7 @@ The following diagram illustrates how Update Management assesses and applies sec
 
 ![Update Management workflow](./media/overview/update-mgmt-updateworkflow.png)
 
-Update Management can be used to natively deploy to machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+Update Management can be used to natively deploy to machines in multiple subscriptions in the same tenant, or across tenants using [Azure Lighthouse](../../lighthouse/overview.md).
 
 After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to show up for assessment after it's been released. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes.
 

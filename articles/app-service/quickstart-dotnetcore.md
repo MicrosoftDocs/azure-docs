@@ -124,7 +124,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET Core 3.1](#tab/netcore31)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Web Core App**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET Core 3.1 web app" border="true":::
@@ -141,7 +141,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET 5.0](#tab/net50)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Web Core App**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Visual Studio - Configure ASP.NET 5.0 web app." border="true":::
