@@ -85,10 +85,10 @@ Your device is available as a 1-node configuration that constitutes the infrastr
 
 The master and worker VMs each have 2 network interfaces, one that connects to the internal virtual switch and another that connects to the external virtual switch. 
 
-- **External virtual switch**: This switch is created when we enable a device port for compute via the **Compute** page in the local UI. The external virtual switch connects to the intranet or the private network. 
-- **Internal virtual switch**: This switch is created as a part of the factory default settings on your device. The internal virtual switch provides connectivity to the internet. The internal virtual switch uses Network Address Translation (NAT) to route the internet traffic to the port on the device that is configured with a default gateway. The port with the default gateway configured is used to route all the IoT runtime requests from the VMs to the internet or the Azure portal.
+- **External virtual switch**: This switch is created when we enable a device port for compute via the **Compute** page in the local UI. This is the switch that you use for your compute infrastructure, for example, this switch is used for the virtual machines that you deploy on your device. 
+- **Internal virtual switch**: This switch is created as a part of the factory default settings on your device. The internal virtual switch uses Network Address Translation (NAT) to route the traffic through the port that is configured with a default gateway. For example, this switch routes all the IoT runtime requests from VMs to the Azure portal. 
 
-    ![Azure Stack Edge networking simplified diagram](./media/azure-stack-edge-gpu-kubernetes-networking/azure-stack-edge-networking-0.png)
+   <!--![Azure Stack Edge networking simplified diagram](./media/azure-stack-edge-gpu-kubernetes-networking/azure-stack-edge-networking-0.png)-->
 
 ## Network routes 
 
@@ -114,7 +114,7 @@ Use the `Add-HcsNetRoute` cmdlet to modify the routing on the Kubernetes worker 
 - Port 3 is connected to a private network that has cameras and other sensors that are feeding raw data to the Azure Stack Edge device for processing. 
 
 
-If a gateway is configured in your environment in the private network, consider setting custom routes for the Kubernetes master and worker VMs so that they can communicate with your gateway for only the relevant traffic. This lets you be in control of the traffic that flows on the compute network vs the other ports that you might have configured on your Azure Stack Edge device. For example, you may want all other internet-facing traffic to flow over the other physical ports your device. In this case, internet-facing traffic can go through Port 2. 
+If a gateway is configured in your environment in the private network, consider setting custom routes for the Kubernetes master and worker VMs so that they can communicate with your gateway for only the relevant traffic. This lets you be in control of the traffic that flows on the compute network versus the other ports that you might have configured on your Azure Stack Edge device. For example, you may want all other internet-facing traffic to flow over the other physical ports on your device. In this case, internet-facing traffic can go through Port 2. 
 
 You should also factor these other considerations:
 
