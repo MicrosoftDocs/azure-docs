@@ -1196,6 +1196,8 @@ items:
       href: machine-learning/what-is-machine-learning.md
   - name: Quickstarts
     items:
+    - name: Use a sample notebook from the gallery
+      href: machine-learning/quickstart-gallery-sample-notebook.md
     - name: Create a new Azure Machine Learning linked service
       href: machine-learning/quickstart-integrate-azure-machine-learning.md
   - name: Concepts
