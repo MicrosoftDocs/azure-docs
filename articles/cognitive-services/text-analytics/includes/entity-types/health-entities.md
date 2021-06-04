@@ -20,6 +20,7 @@ Text Analytics for health detects medical concepts in the following categories. 
 | [ANATOMY](#anatomy) | concepts that capture information about body and anatomic systems, sites, locations, or regions. |
  | [DEMOGRAPHICS](#demographics) | concepts that capture information about gender and age. |
  | [EXAMINATION](#examinations) | concepts that capture information about diagnostic procedures and tests. |
+ | [EXTERNAL INFLUENCE](#external-influence) | concepts related to medically relevant external factors, such as allergens.|
  | [GENERAL ATTRIBUTES](#general-attributes) | concepts that provide more information about other concepts from the above categories. |
  | [GENOMICS](#genomics) | concepts that capture information about genes and variants. |
  | [HEALTHCARE](#healthcare) | concepts that capture information about administrative events, care environments, and healthcare professions. |
@@ -66,9 +67,18 @@ You will find more information and examples below.
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Another example of an examination name entity.":::
 
+## External Influence
+
+### Entities
+
+**ALLERGEN** – an antigen triggering an allergic reaction. For example, cats, peanuts.
+
+
 ## General attributes
 
 ### Entities
+
+**COURSE** - Description of a change in another entity over time, such as condition progression (e.g., improvement, worsening, resolution, remission), a course of treatment or medication (e.g., increase in medication dosage). 
 
 **DATE** - Full date relating to a medical condition, examination, treatment, medication, or administrative event.
 
@@ -92,7 +102,11 @@ You will find more information and examples below.
 
 :::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity.":::
 
-**VARIANT** – All mentions of gene variations and mutations. For example, `c.524C>T`, `(MTRR):r.1462_1557del96`
+**MUTATION_TYPE** - Description of the mutation, including its type, effect, and location. For example, trisomy, germline mutation, loss of function.
+
+**EXPRESSION** - Gene expression level. For example, positive for-, negative for-, overexpressed, detected in high/low levels, elevated.
+
+**VARIANT** - All mentions of gene variations and mutations. For example, `c.524C>T`, `(MTRR):r.1462_1557del96`
   
 ## Healthcare
 
@@ -147,6 +161,8 @@ You will find more information and examples below.
 :::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="This screenshot shows another example of a condition qualifier attribute with a diagnosis entity.":::
 
 :::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="This screenshot shows an additional example of a condition qualifier attribute with a diagnosis entity.":::
+
+**CONDITION_SCALE** – Qualitative terms that characterize the condition by a scale, which is a finite ordered list of values.
 
 ## Medication
 
