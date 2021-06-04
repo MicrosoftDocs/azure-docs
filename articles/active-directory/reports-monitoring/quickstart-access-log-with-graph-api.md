@@ -1,5 +1,5 @@
 ---
-title: Access logs with the Graph API
+title: Access Azure AD logs with the Microsoft Graph API  | Microsoft Docs
 description: In this quickstart, you learn how you can access the sign-ins log using the Graph API.
 
 services: active-directory
@@ -17,7 +17,7 @@ ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
-# Quickstart: Access logs with the Graph API 
+# Quickstart: Access Azure AD logs with the Microsoft Graph API 
 
 With the information in the Azure AD sign-ins log, you can figure out what happened if a sign-in of a user failed. This quickstart shows how to you can access the sign-ins log using the Graph API.
 
