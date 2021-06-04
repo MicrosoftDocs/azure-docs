@@ -12,9 +12,9 @@ ms.date: 06/03/2021
 
 # Azure Sentinel costs and billing
 
-Azure Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Azure Sentinel stores its data in Azure Monitor Log Analytics workspaces.
+Azure Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Azure Sentinel stores its data for analysis in Azure Monitor Log Analytics workspaces.
 
-When you enable Azure Sentinel on a Log Analytics workspace, Azure Sentinel automatically analyzes all the data that workspace ingests. Azure Sentinel bills based on the volume of data that the Log Analytics workspace ingests and stores. This article describes ways you can monitor, understand, and save on usage and costs for Azure Sentinel analytics and Log Analytics workspaces.
+When enabled on a Log Analytics workspace, Azure Sentinel automatically analyzes all the data that workspace ingests, and bills on the volume of data that workspace ingests and stores. This article describes ways you can monitor, understand, and save on usage and costs for Azure Sentinel and its Log Analytics workspaces.
 
 ## Azure Sentinel pricing model
 
@@ -35,11 +35,11 @@ To set and change your Commitment Tier, see [Set or change pricing tier](#set-or
 ![Screenshot showing the Pricing page in Azure Sentinel Settings, with Pay-As-You-Go indicated as the current pricing tier.](media/billing/pricing.png)
 
 > [!NOTE]
-> Azure Sentinel data ingestion volumes appear under **Security Insights** in some Azure portal Usage Charts.
+> Azure Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
 ### Integration with other services
 
-Azure Sentinel integrates with many other Azure services to provide enhanced capabilities. These services include Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have additional charges. Some of Azure Sentinel's data connectors and solutions use Azure Functions for data ingestion, which has a separate associated cost.
+Azure Sentinel integrates with many other Azure services to provide enhanced capabilities. These services include Azure Logic Apps, Azure Notebooks, and bring your own machine learning (BYOML) models. Some of these services may have additional charges. Some of Azure Sentinel's data connectors and solutions use Azure Functions for data ingestion, which also has a separate associated cost.
 
 For pricing details for these services, see:
 
@@ -48,7 +48,7 @@ For pricing details for these services, see:
 - [BYOML pricing](https://azure.microsoft.com/pricing/details/machine-learning-studio/)
 - [Azure Functions pricing](https://azure.microsoft.com/en-us/pricing/details/functions/)
 
-Any other additional services you use could have associated costs.
+Any other services you use could have associated costs.
 
 ### Data retention costs
 
@@ -69,9 +69,7 @@ The following data sources are free with Azure Sentinel:
 - Microsoft Defender alerts, including alerts from Azure Defender, Microsoft 365 Defender, Microsoft Defender for Office 365, Microsoft Defender for Identity, and Microsoft Defender for Endpoint.
 - Azure Security Center and Microsoft Cloud App Security (MCAS) alerts. However, raw logs for some Microsoft 365 Defender, MCAS, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
 
-The following table lists the free data sources you can enable in Azure Sentinel. Some of the data connectors, such as Microsoft 365 Defender and MCAS, include both free and paid data types, and you can select which data types you want to enable.
-
-![Screenshot showing the Data connector page for MCAS, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
+The following table lists the free data sources you can enable in Azure Sentinel. Some of the data connectors, such as Microsoft 365 Defender and MCAS, include both free and paid data types.
 
 | Azure Sentinel Data Connector   | Data type | Free or paid |
 |-------------------------------------|--------------------------------|------------------|
@@ -97,6 +95,10 @@ The following table lists the free data sources you can enable in Azure Sentinel
 | **Microsoft Defender for Identity** | SecurityAlert (AATP)           | Free             |
 | **Microsoft Cloud App Security**   | SecurityAlert (MCAS)           | Free             |
 ||MCASShadowITReporting           | Paid|
+
+For data connectors that include both free and paid data types, you can select which data types you want to enable.
+
+![Screenshot showing the Data connector page for MCAS, with the free Security Alerts selected and the paid MCASShadowITReporting not selected.](media/billing/data-types.png)
 
 ## Estimate Azure Sentinel costs
 
