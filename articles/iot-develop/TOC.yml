@@ -21,6 +21,8 @@
         href: quickstart-device-development.md
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
+      - name: ST Microelectronics B-L475E/L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l475e.md
 - name: Tutorials
   items:
     - name: Securely connect IoT devices to the cloud

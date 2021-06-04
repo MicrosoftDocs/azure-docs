@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshoot Azure Bastion | Microsoft Docs'
-description: In this article, learn how to troubleshoot Azure Bastion.
+description: Learn how to troubleshoot Azure Bastion.
 services: bastion
 author: charwen
 
@@ -64,7 +64,7 @@ The key's randomart image is:
 
 **Q:** I am unable to connect to my Windows virtual machine that is domain-joined.
 
-**A:** Azure Bastion supports domain-joined VM sign in for username-password based domain sign-in only. When specifying the domain credentials in  the Azure portal, use the UPN (username@domain) format instead of *domain\username* format to sign in. This is supported for domain-joined or hybrid-joined (both domain-joined as well as Azure AD-joined) virtual machines. It is not supported for Azure AD-joined-only virtual machines.
+**A:** Azure Bastion supports domain-joined VM sign-in for username-password based domain sign-in only. When specifying the domain credentials in  the Azure portal, use the UPN (username@domain) format instead of *domain\username* format to sign in. This is supported for domain-joined or hybrid-joined (both domain-joined as well as Azure AD-joined) virtual machines. It is not supported for Azure AD-joined-only virtual machines.
 
 ## <a name="filetransfer"></a>File transfer issues
 
@@ -74,7 +74,7 @@ The key's randomart image is:
 
 ## <a name="blackscreen"></a>Black screen in the Azure portal
 
-**Q:** When I try to connect using Azure Bastion, I can't connnect to the target VM and I get a black screen in the Azure portal.
+**Q:** When I try to connect using Azure Bastion, I can't connect to the target VM and I get a black screen in the Azure portal.
 
 **A:** This happens when there is either a network connectivity issue between your web browser and Azure Bastion (your client Internet firewall may be blocking WebSockets traffic or similar), or between the Azure Bastion and your target VM. Most cases include an NSG applied either to AzureBastionSubnet, or on your target VM subnet that is blocking the RDP/SSH traffic in your virtual network. Allow WebSockets traffic on your client internet firewall, and check the NSGs on your target VM subnet.
 

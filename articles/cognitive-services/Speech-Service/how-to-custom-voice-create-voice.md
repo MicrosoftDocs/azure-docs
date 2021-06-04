@@ -14,12 +14,12 @@ ms.author: erhopf
 
 # Create and use your voice model
 
-In [Prepare data for your training](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a Custom Neural Voice through the Speech Studio portal. See the [supported languages](language-support.md#customization) for custom neural voice.
+In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a Custom Neural Voice through the Speech Studio portal. See the [supported languages](language-support.md#customization) for custom neural voice.
 
 ## Prerequisites
 
 * Complete [get started with Custom Neural Voice](how-to-custom-voice.md)
-* [Prepare data for training](how-to-custom-voice-prepare-data.md)
+* [Prepare training data](how-to-custom-voice-prepare-data.md)
 
 ## Set up voice talent
 
@@ -68,7 +68,7 @@ You can do the following to create and review your training data.
 >- Duplicate audio names will be removed from the training. Make sure the datasets you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicate, they'll be rejected.
 >- If you've created datasets in the previous version of Speech Studio, you must specify a training set for your datasets in advance to use them. Or else, an exclamation mark will be appended to the dataset name, and the dataset could not be used.
 
-Each dataset you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Custom Neural Voice service. Go to [Prepare data for your training](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
+Each dataset you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Custom Neural Voice service. Go to [Prepare training data](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
 
 > [!NOTE]
 > - Standard subscription (S0) users can upload five datasets simultaneously. If you reach the limit, wait until at least one of your datasets finishes importing. Then try again.
@@ -140,7 +140,7 @@ After your dataset has been validated, you can use it to build your custom neura
 
 2. Select the neural training method for your model and target language.
 
-By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language (preview) for your voice model.  Check the languages supported for custom neural voice: [language for customization](language-support.md#customization).
+By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language (preview) for your voice model.  Check the languages supported for custom neural voice and cross-lingual feature: [language for customization](language-support.md#customization).
 
 3. Next, choose the dataset you want to use for training, and specify a speaker file.
 
@@ -187,12 +187,12 @@ After you've successfully created and tested your voice model, you deploy it in 
 
 You can do the following to create a custom neural voice endpoint.
 
-1. On the **Deploy model** tab, click **Add endpoint**. 
-2. Next, select a voice model you would like to associate with this endpoint.
-3. Then, enter a **Name** and **Description** for your custom endpoint. 
-4. Finally, you can review the settings and click **Create** to create your endpoint.
+1. On the **Deploy model** tab, click **Deploy models**. 
+2. Next, enter a **Name** and **Description** for your custom endpoint.
+3. Then, select a voice model you would like to associate with this endpoint. 
+4. Finally, click **Deploy** to create your endpoint.
 
-After you've clicked the **Create** button, in the endpoint table, you'll see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
+After you've clicked the **Deploy** button, in the endpoint table, you'll see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
 
 You can **Suspend** and **Resume** your endpoint if you don't use it all the time. When an endpoint is reactivated after suspension, the endpoint URL will be kept the same so you don't need to change your code in your apps. 
 
@@ -210,6 +210,6 @@ We also provide an online tool, [Audio Content Creation](https://speech.microsof
 
 ## Next steps
 
-- [Tutorial for voice sample recording](record-custom-voice-samples.md)
+- [How to record voice samples](record-custom-voice-samples.md)
 - [Text-to-Speech API reference](rest-text-to-speech.md)
 - [Long Audio API](long-audio-api.md)

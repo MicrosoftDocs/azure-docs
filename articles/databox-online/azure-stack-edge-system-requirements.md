@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Stack Edge Pro FPGA system requirements| Microsoft Docs
+title: Azure Stack Edge Pro FPGA system requirements
 description: Learn about the software and networking requirements for your Azure Stack Edge Pro FPGA
 services: databox
 author: alkohli

@@ -68,10 +68,9 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 | Component | Description |  
 | ----------------- | ------------- |  
-| `kubelet`                                                                                 | The Kubernetes agent that processes the orchestration requests from the control plane and scheduling of running the requested containers.                                                        |  
-| *kube-proxy* | Handles virtual networking on each node. The proxy routes network traffic and manages IP addressing for services and pods.                                      |  
-| *container runtime*                                                                            | Allows containerized applications to run and interact with additional resources, such as the virtual network and storage. AKS clusters using Kubernetes version 1.19+ node pools use `containerd` as their container runtime. AKS clusters using Kubernetes prior to node pool version 1.19 for node pools use [Moby](https://mobyproject.org/) (upstream docker) as their container runtime.                                                                                    |  
-
+| `kubelet` | The Kubernetes agent that processes the orchestration requests from the control plane and scheduling of running the requested containers. |  
+| *kube-proxy* | Handles virtual networking on each node. The proxy routes network traffic and manages IP addressing for services and pods. |  
+| *container runtime* | Allows containerized applications to run and interact with additional resources, such as the virtual network and storage. AKS clusters using Kubernetes version 1.19+ for Linux node pools use `containerd` as their container runtime. Beginning in Kubernetes version 1.20 for Windows node pools, `containerd` can be used in preview for the container runtime, but Docker is still the default container runtime. AKS clusters using prior versions of Kubernetes for node pools use Docker as their container runtime. |  
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -79,7 +78,7 @@ The Azure VM size for your nodes defines the storage CPUs, memory, size, and typ
 
 In AKS, the VM image for your cluster's nodes is based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform automatically creates and configures the requested number of VMs. Agent nodes are billed as standard VMs, so any VM size discounts (including [Azure reservations][reservation-discounts]) are automatically applied.
 
-Deploy your own Kubernetes cluster with [aks-engine][aks-engine] if using a different host OS, container runtime, or including different custom packages. The upstream `aks-engine` releases features and provides configuration options ahead of support in AKS clusters. So, if you wish to use a container runtime other than `containerd` or [Moby](https://mobyproject.org/), you can run `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
+Deploy your own Kubernetes cluster with [aks-engine][aks-engine] if using a different host OS, container runtime, or including different custom packages. The upstream `aks-engine` releases features and provides configuration options ahead of support in AKS clusters. So, if you wish to use a container runtime other than `containerd` or Docker, you can run `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
 ### Resource reservations
 
