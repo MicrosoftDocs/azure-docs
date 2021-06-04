@@ -240,7 +240,8 @@ Make sure the following settings are configured correctly for remote access:
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
+   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP -Enabled True
+   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
 
 1. Enable the following firewall rules to allow the RDP traffic:
