@@ -36,18 +36,6 @@ This notebook demonstrates the basic steps used in creating a model: **data impo
     :::image type="content" source="media\quickstart-gallery-sample-notebook\gallery-open-ml-notebook.png" alt-text="Open the machine learning sample notebook into your workspace.":::
 1. In the **Attach to** menu in the open notebook, select your Apache Spark pool.
 
-## Copy the notebook to your workspace (smaller images)
-
-1. Open your workspace and select **Learn** from the home page.
-1. In the **Knowledge center**, select **Browse gallery**.
-1. In the gallery, select **Notebooks**.
-1. Find and select the notebook "Data Exploration and ML Modeling - NYC taxi predict using Spark MLib".
-   :::image type="content" source="media\quickstart-gallery-sample-notebook\gallery-select-ml-notebook-small.png" alt-text="Select the machine learning sample notebook in the gallery.":::
-1. Select **Continue**.
-1. On the notebook preview page, select **Open notebook**. The sample notebook is copied into your workspace and opened.
-    :::image type="content" source="media\quickstart-gallery-sample-notebook\gallery-open-ml-notebook-small.png" alt-text="Open the machine learning sample notebook into your workspace.":::
-1. In the **Attach to** menu in the open notebook, select your Apache Spark pool.
-
 ## Run the notebook
 
 The notebook is divided into multiple cells that each perform a specific function.
