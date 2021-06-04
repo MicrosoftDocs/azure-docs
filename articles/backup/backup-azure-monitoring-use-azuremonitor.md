@@ -156,7 +156,8 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 - Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least *once per day.*
 - A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
 
-Note that the same delays apply to other destinations for diagnostics data, such as Storage accounts and Event Hubs.
+> [!NOTE]
+> The same delay applies to other destinations for diagnostics data, such as Storage accounts and Event Hubs.
 
 ## Using the Recovery Services vault's activity logs
 
