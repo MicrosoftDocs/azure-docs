@@ -10,7 +10,7 @@ ms.date: 04/29/2019
 # Azure Cache for Redis FAQ
 Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.
 
-* [Planning FAQs](cache-planning-faq.md)
+* [Planning FAQs](cache-planning-faq.yml)
 * [Development FAQs](cache-development-faq.md)
 * [Management FAQs](cache-management-faq.md)
 * [Monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.md)
