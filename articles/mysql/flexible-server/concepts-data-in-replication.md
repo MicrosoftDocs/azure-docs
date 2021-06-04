@@ -41,11 +41,11 @@ To learn more about this parameter, review the [MySQL documentation](https://dev
 - Our recommendation is to have a primary key in each table. If we have table without primary key, you might face slowness in replication.
 - The source server should use the MySQL InnoDB engine.
 - User must have permissions to configure binary logging and create new users on the source server.
-- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure. Refer to the following [examples](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
+- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure. Refer to the following [examples](./how-to-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure that the machine hosting the source server allows both inbound and outbound traffic on port 3306.
 - Ensure that the source server has a **public IP address**, that DNS is publicly accessible, or that the source server has a fully qualified domain name (FQDN).
 
 ## Next steps
 
-- Learn how to [set up data-in replication](howto-data-in-replication.md)
+- Learn how to [set up data-in replication](how-to-data-in-replication.md)
 - Learn about [replicating in Azure with read replicas](concepts-read-replicas.md)
