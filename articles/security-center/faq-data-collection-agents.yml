@@ -206,9 +206,9 @@ sections:
           - If you have a custom workspace external to the subscription (a centralized workspace), then you should opt out of automatic provisioning. You can manually install the Log Analytics agent extension and connect it your workspace without Security Center overriding the connection.
           - If you want to avoid creation of multiple workspaces per subscription and you have your own custom workspace within the subscription, then you have two options:
           
-             1. You can opt out of automatic provisioning. After migration, set the default workspace settings as described in [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace-)
+             - You can opt out of automatic provisioning. After migration, set the default workspace settings as described in [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace-)
           
-             1. Or, you can allow the migration to complete, the Log Analytics agent to be installed on the VMs, and the VMs connected to the created workspace. Then, select your own custom workspace by setting the default workspace setting with opting in to reconfiguring the already installed agents. For more information, see [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace-)
+             - Or, you can allow the migration to complete, the Log Analytics agent to be installed on the VMs, and the VMs connected to the created workspace. Then, select your own custom workspace by setting the default workspace setting with opting in to reconfiguring the already installed agents. For more information, see [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace-)
           
           
       - question: |
