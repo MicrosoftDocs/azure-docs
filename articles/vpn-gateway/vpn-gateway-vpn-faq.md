@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/04/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
