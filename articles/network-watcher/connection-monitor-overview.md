@@ -72,7 +72,7 @@ Rules for a network security group (NSG) or firewall can block communication bet
 
 To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines.  Then enable the Network Performance Monitor solution. These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
-To install the Log Analytics agent for Windows machines, see [Azure Monitor virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
+To install the Log Analytics agent for Windows machines, see [Install Log Analytics agent on Windows](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/agent-windows) .
 
 If the path includes firewalls or network virtual appliances (NVAs), then make sure that the destination is reachable.
 
