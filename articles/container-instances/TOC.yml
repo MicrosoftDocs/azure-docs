@@ -178,6 +178,6 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
   - name: FAQ
-    href: container-instances-faq.md
+    href: container-instances-faq.yml
 - name: Support and troubleshooting
   href: container-instances-support-help.md
