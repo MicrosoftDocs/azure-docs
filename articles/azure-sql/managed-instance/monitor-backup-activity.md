@@ -70,8 +70,7 @@ SELECT * FROM b
 ```
 
 The following screenshot shows an example of the output of the above query: 
-
-
+![Screenshot of the xEvent output](./media/monitor-backup-activity/present-xevents-output.png)
 
 
 ## Next steps
