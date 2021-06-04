@@ -302,8 +302,7 @@ After the migration is complete, you access the new smart detection alert rules 
 
    ![Manage alert rules](media/alerts-smart-detections-migration/manage-alert-rules.png)
 
-3. Select **Signal Type** to be **Smart Detector** 
-4. 	to filter and present the smart detection alert rules.
+3. Select **Signal Type** to be **Smart Detector** to filter and present the smart detection alert rules.
 
    ![Smart Detector rules](media/alerts-smart-detections-migration/smart-detector-rules.png)
 
