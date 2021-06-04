@@ -6,7 +6,7 @@ ms.service: api-management
 author: v-hhunter
 ms.author: v-hhunter
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/02/2021
 ms.custom: template-how-to 
 ---
 
@@ -24,6 +24,8 @@ In this article, you will:
 > [!div class="checklist"]
 > * Understand Websocket passthrough flow.
 > * Add a WebSocket API to your API Management instance.
+> * Test your WebSocket API.
+> * View the metrics and logs for your WebSocket API.
 > * Learn the limitations of WebSocket API.
 
 ## Prerequisites
@@ -75,6 +77,23 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
     | Gateways | Associate your WebSocket API with existing gateways. |
  
 1. Click **Create**.
+
+## Test your WebSocket API
+
+1. Navigate to your WebSocket API.
+1. Within your WebSocket API, select the onHandshake operation.
+1. Select the **Test** tab to access the Test console. 
+1. Optionally, provide query string parameters required for the WebSocket handshake.
+
+    :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="test API example":::
+
+1. Click **Connect**.
+1. View connection status in **Output**.
+1. Enter value in **Payload**. 
+1. Click **Send**.
+1. View received messages in **Output**.
+1. Repeat preceding steps to test different payloads.
+1. When testing is complete, select **Disconnect**.
 
 ## Limitations
 

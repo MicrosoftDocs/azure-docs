@@ -61,7 +61,7 @@
         href: adpfederatedsso-tutorial.md
       - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
-      - name: Agiloft
+      - name: Agiloft Contract Management Suite
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
@@ -123,6 +123,8 @@
         href: appian-tutorial.md
       - name: Appinux
         href: appinux-tutorial.md
+      - name: Applied Mental Health
+        href: applied-mental-health-tutorial.md
       - name: AppNeta Performance Monitor
         href: appneta-tutorial.md
       - name: Appraisd
@@ -251,6 +253,8 @@
         href: bomgarremotesupport-tutorial.md
       - name: Bonusly
         href: bonus-tutorial.md
+      - name: Bonos
+        href: bonos-tutorial.md
       - name: Boomi
         href: boomi-tutorial.md
       - name: BorrowBox
@@ -544,7 +548,9 @@
       - name: Dow Jones Factiva
         href: dowjones-factiva-tutorial.md
       - name: Darwinbox
-        href: darwinbox-tutorial.md  
+        href: darwinbox-tutorial.md
+      - name: Draup, Inc
+        href: draup-inc-tutorial.md  
       - name: Drift
         href: drift-tutorial.md
       - name: Dropbox Business

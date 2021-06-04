@@ -26,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 - Bicep version `0.3` or higher installed. If you don't yet have Bicep CLI or need to update, see
-  [Install Bicep (Preview)](../../azure-resource-manager/templates/bicep-install.md).
+  [Install Bicep (Preview)](../../azure-resource-manager/bicep/install.md).
 
 ## Review the Bicep file
 

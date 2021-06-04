@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # User-defined restore points for a dedicated SQL pool (formerly SQL DW)

@@ -7,7 +7,7 @@ author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/05/2021
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Override SKU information over CSCFG/CSDEF in Cloud Services (extended support) 

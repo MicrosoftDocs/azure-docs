@@ -43,7 +43,7 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 1. On the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal). Then return to the **New Azure Cache for Redis** pane to create and configure your Premium-tier cache.
 
    > [!IMPORTANT]
-   > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, the deployment fails.
+   > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, or has a NAT Gateway assigned, the deployment fails.
    > 
    > 
 
@@ -103,6 +103,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Can I use virtual networks with a standard or basic cache?](#can-i-use-virtual-networks-with-a-standard-or-basic-cache)
 * Why does creating an Azure Cache for Redis instance fail in some subnets but not others?
 * [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)
+* [Can I connect to my cache from a peered virtual network?](#can-i-connect-to-my-cache-from-a-peered-virtual-network)
 * [Do all cache features work when a cache is hosted in a virtual network?](#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
 
 ### What are some common misconfiguration issues with Azure Cache for Redis and virtual networks?
@@ -222,6 +223,12 @@ You must also have enough IP addresses available in the subnet.
 Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
 In addition to the IP addresses used by the Azure virtual network infrastructure, each Azure Cache for Redis instance in the subnet uses two IP addresses per cluster shard, plus additional IP addresses for additional replicas, if any. One additional IP address is used for the load balancer. A nonclustered cache is considered to have one shard.
+
+### Can I connect to my cache from a peered virtual network?
+
+If the virtual networks are in the same region, you can connect them using virtual network peering or a VPN Gateway VNET-to-VNET connection.
+
+If the peered Azure virtual networks are in *different* regions, a client VM in region 1 will not be able to access the cache in region 2 via its load balanced IP address because of a constraint with basic load balancers, unless it is a cache with a standard load balancer, which is currently only a cache that was created with *availability zones*. For more information about virtual network peering constraints, see Virtual Network - Peering - Requirements and constraints. One solution is to use a VPN Gateway VNET-to-VNET connection instead of virtual network peering.
 
 ### Do all cache features work when a cache is hosted in a virtual network?
 
