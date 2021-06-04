@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 06/04/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
@@ -27,7 +27,6 @@ This tutorial covers how to setup and use the generic SQL connector with the Azu
 
 ![Architecure](.\media\tutorial-ecma-sql-connector\sql-1.png)
 
-- This tutorial uses 2 virtual machines.  One is the domain controller (DC1.contoso.com) and the second is an application server(APP1.contoso.com).
 - SQL Server 2019 and SQL Server Management Studio is installed on APP1.  
 - Both VMs have connectivity to the internet.
 - SQL Server Agent has been started
