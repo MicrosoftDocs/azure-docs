@@ -349,7 +349,7 @@ Before you proceed consider the following design decisions.
 
 * **Storage - Azure Managed Disks**
 
-   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/availability.md).
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For more information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/availability.md).
 
 * **Network - Private IP addresses in production**
 
@@ -539,7 +539,7 @@ Repeat these steps on the second SQL Server VM.
 
 ## Next steps
 
-Now that you've configured the prerequistes, get started with [configuring your availability group](availability-group-manually-configure-tutorial.md)
+Now that you've configured the prerequisites, get started with [configuring your availability group](availability-group-manually-configure-tutorial.md)
 
 To learn more, see:
 
