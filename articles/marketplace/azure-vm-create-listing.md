@@ -1,6 +1,6 @@
 ---
 title: Configure virtual machine offer listing details on Azure Marketplace
-description: Configure  virtual machine offer listing details on Azure Marketplace.
+description: Configure virtual machine offer listing details on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: mingshen
 ms.date: 10/19/2020
 ---
 
-# How to configure virtual machine offer listing details
+# Configure virtual machine offer listing details
 
 On the **Offer listing** page (select from the left-nav menu in Partner Center), you define the offer details such as offer name, description, links, and contacts.
 
