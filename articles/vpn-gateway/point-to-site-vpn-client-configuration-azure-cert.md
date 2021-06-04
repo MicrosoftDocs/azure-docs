@@ -1,7 +1,7 @@
 ---
 title: 'Create & install P2S VPN client configuration files: certificate authentication'
 titleSuffix: Azure VPN Gateway
-description: Learn how to generate and install VPN client configuration files for Windows, Linux (strongSwan), and macOS X. This article applies to VPN Gateway P2S configurations that use certificate authentication.
+description: Learn how to generate and install VPN client configuration files for Windows, Linux (strongSwan), and macOS. This article applies to VPN Gateway P2S configurations that use certificate authentication.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -55,7 +55,7 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 [!INCLUDE [Windows instructions](../../includes/vpn-gateway-p2s-client-configuration-windows.md)]
 
-## <a name="installmac"></a>Mac (OS X)
+## <a name="installmac"></a>Mac (macOS)
 
  You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. Azure does not provide mobileconfig file for native Azure certificate authentication. The **Generic** folder contains all of the information that you need for configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder.<br>The Generic folder contains the following files:
 
