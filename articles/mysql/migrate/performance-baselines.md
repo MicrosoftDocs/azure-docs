@@ -57,7 +57,7 @@ Run the following command to export the server parameters to a file for review. 
 
 `mysql -u root -p -A -e "SHOW GLOBAL VARIABLES;" > settings.txt`
 
-The MySQL 5.5.60 default installed server parameters can be found in Appendix C.
+The MySQL 5.5.60 default installed server parameters can be found in the [appendix](appendix.md#default-server-parameters-mysql-55-and-azure-database-for-mysql).
 
 Before migration begins, export the source MySQL configuration settings. Compare those values to the Azure landing zone instance settings after the migration. If any settings were modified from the default in the target Azure landing zone instance, ensure that these are set back after the migration. Also, the migration user should verify the server parameters can be set before the migration.
 

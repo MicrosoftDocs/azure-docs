@@ -56,6 +56,4 @@ You can also browse the technical forums and social groups for more detailed rea
 
 ## Next steps
 
-To deploy a sample application with an end-to-end MySQL migration guide, visit [Appendix A](appendix-a-environment-setup.md) and [Appendix B](appendix-b-arm-templates.md).
-
-To review available server parameters, visit [Appendix C](appendix-c-default-server-parameters-mysql-55-and-azure-database-for-mysql.md).
+To deploy a sample application with an end-to-end MySQL migration guide and to review available server parameters, visit the [appendix](appendix.md).
