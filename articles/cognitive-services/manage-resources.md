@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/04/2021
 ms.author: nitinme
 ---
 
