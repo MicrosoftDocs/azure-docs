@@ -23,6 +23,8 @@
         href: quickstart-devkit-mxchip-az3166.md
       - name: NXP MIMXRT1050-EVKB
         href: quickstart-devkit-nxp-mimxrt1050-evkb.md
+      - name: ST Microelectronics B-L475E/L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l475e.md
 - name: Tutorials
   items:
     - name: Securely connect IoT devices to the cloud

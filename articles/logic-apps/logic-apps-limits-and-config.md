@@ -31,18 +31,18 @@ The following tables list the values for a single workflow definition:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Workflows per region per subscription | 1,000 workflows | |
+| Workflows per region per subscription | 1,000 workflows ||
 | Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
-| Trigger or action - Maximum name length | 80 characters | |
-| Trigger or action - Maximum input or output size | 104,857,600 bytes <br>(105 MB) |
-| Action - Maximum combined inputs and outputs size | 209,715,200 bytes <br>(210 MB) |
-| Expression character limit | 8,192 characters | |
-| `description` - Maximum length | 256 characters | |
-| `parameters` - Maximum number of items | 50 parameters | |
-| `outputs` - Maximum number items | 10 outputs | |
-| `trackedProperties` - Maximum size | 16,000 characters |
+| Trigger or action - Maximum name length | 80 characters ||
+| Trigger or action - Maximum input or output size | 104,857,600 bytes <br>(105 MB) | For more information about editing the default limit in the single-tenant model, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Action - Maximum combined inputs and outputs size | 209,715,200 bytes <br>(210 MB) ||
+| Expression character limit | 8,192 characters ||
+| `description` - Maximum length | 256 characters ||
+| `parameters` - Maximum number of items | 50 parameters ||
+| `outputs` - Maximum number items | 10 outputs ||
+| `trackedProperties` - Maximum size | 16,000 characters ||
 ||||
 
 <a name="run-duration-retention-limits"></a>
@@ -129,6 +129,8 @@ The following table lists the values for a single workflow run:
 
 ### Loop actions
 
+<a name="for-each-loop"></a>
+
 #### For each loop
 
 The following table lists the values for a **For each** loop:
@@ -138,6 +140,8 @@ The following table lists the values for a **For each** loop:
 | Array items | 100,000 items | - Stateful workflow: 100,000 items <p><p>- Stateless workflow: 100 items | 100,000 items | The number of array items that a **For each** loop can process. <p><p>To filter larger arrays, you can use the [query action](logic-apps-perform-data-operations.md#filter-array-action). |
 | Concurrent iterations | Concurrency off: 20 <p><p>Concurrency on: <p>- Default: 20 <br>- Min: 1 <br>- Max: 50 | Concurrency off: 20 <p><p>Concurrency on: <p><p>- Default: 20 <br>- Min: 1 <br>- Max: 50 | Concurrency off: 20 <p><p>Concurrency on: <p>- Default: 20 <br>- Min: 1 <br>- Max: 50 | The number of **For each** loop iterations that can run at the same time, or in parallel. <p><p>To change this value in the multi-tenant service, see [Change **For each** concurrency limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) or [Run **For each** loops sequentially](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 ||||||
+
+<a name="until-loop"></a>
 
 #### Until loop
 
@@ -275,7 +279,7 @@ The following tables list the values for a single inbound or outbound call:
 
 ### Timeout duration
 
-By default, the HTTP action and APIConnection actions follow the [standard asynchronous operation pattern](/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
+By default, the HTTP action and APIConnection actions follow the [standard asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
 
 > [!NOTE]
 > For the **Logic App (Standard)** resource type in the single-tenant model, stateless workflows can only run *synchronously*.

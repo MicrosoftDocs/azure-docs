@@ -10,7 +10,7 @@ ms.date: 05/25/2021
 
 # Create parameters for values that change in workflows across environments for single-tenant Azure Logic Apps
 
-In Azure Logic Apps, you can use parameters to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. 
+In Azure Logic Apps, you can use parameters to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later.
 
 In *multi-tenant* Azure Logic Apps, you can create and reference parameters in the workflow designer, and then set the variables in your Azure Resource Manager (ARM) template and parameters files. Parameters are defined and set at deployment. So, even if you need to only change one variable, you have to redeploy your logic app's ARM template.
 
@@ -18,8 +18,11 @@ In *single-tenant* Azure Logic Apps, you can work with environment variables bot
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A [logic app workflow hosted in single-tenant Azure Logic Apps](single-tenant-overview-compare.md). If you don't have one, [create your logic app (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md) or [in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- A [logic app workflow hosted in single-tenant Azure Logic Apps](single-tenant-overview-compare.md).
+
+  If you don't have a logic app, [create your logic app (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md) or [in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
 ## Parameters versus app settings
 
@@ -27,7 +30,12 @@ Before you decide where to store your environment variables, review the followin
 
 If you already use Azure Functions or Azure Web Apps, you might be familiar with app settings. In Azure Logic Apps, app settings integrate with Azure Key Vault. You can [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. However, app settings have size limitations and can't be referenced from certain areas in Azure Logic Apps.
 
-If you're familiar with workflows in multi-tenant Azure Logic Apps, you might also be familiar with parameters. You can use parameters in a wider range of use cases than app settings, such as supporting complex objects and values of large sizes. In Visual Studio Code, you can also reference parameters in your logic app project's **workflow.json** and **connection.json** files. If you're developing your workflows locally, these references also work in the workflow designer. If you want to use both options in your solution, you can also reference app settings using parameters.
+If you're familiar with workflows in multi-tenant Azure Logic Apps, you might also be familiar with parameters. You can use parameters in a wider range of use cases than app settings, such as supporting complex objects and values of large sizes. If you use Visual Studio Code as your local development tool, you can also reference parameters in your logic app project's **workflow.json** and **connections.json** files. If you want to use both options in your solution, you can also reference app settings using parameters.
+
+> [!NOTE]
+> For development, if you parameterize the **connections.json** file, the designer experience becomes restricted, both locally and in the Azure portal. 
+> If you need to use the designer for development, use a non-parameterized **connections.json** file. Then, in your deployment pipelines, replace with 
+> the parameterized file. The runtime still works with parameterization. Designer improvements are in development.
 
 Consider the recommendation to use parameters as the default mechanism for parameterization. That way, when you need to store secure keys or strings, you can follow the recommendation to reference app settings from your parameters.
 
@@ -35,7 +43,7 @@ Consider the recommendation to use parameters as the default mechanism for param
 
 If you use Visual Studio Code, in your logic app project, you can define parameters in the **parameters.json** file. You can reference any parameter in **parameters.json** file from any workflow or connection object in your logic app. Parameterizing your workflow inputs in single-tenant Azure Logic Apps works similarly to multi-tenant Azure Logic Apps.
 
-To reference parameters in your trigger or action inputs, use the expression `@parameters('<parameter-name>')`. 
+To reference parameters in your trigger or action inputs, use the expression `@parameters('<parameter-name>')`.
 
 > [!IMPORTANT]
 > Make sure that you also include any parameters that you reference in your **parameters.json** file.
@@ -84,40 +92,18 @@ az functionapp deploy --resource-group MyResourceGroup --name MyLogicApp --src-p
 > [!NOTE]
 > Currently, the capability to dynamically replace parameter files is not yet available in the Azure portal or the workflow designer.
 
-## Define app settings
+For more information about setting up your logic apps for DevOps deployments, review the following documentation:
 
-In single-tenant Azure Logic Apps, app settings contain global configuration options for *all the workflows* in the same logic app. When you run workflows locally, these settings are accessible as local environment variables in the **local.settings.json** file. You can then reference these app settings in your parameters.
+- [DevOps deployment overview for single-tenant based logic apps](devops-deployment-single-tenant-azure-logic-apps.md)
+- [Set up DevOps deployment for single-tenant based logic apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
 
-To add, update, or delete app settings, review the following sections:
+## Manage app settings
 
-* [ARM templates](#app-settings-in-an-arm-template-or-bicep-template)
-* [Azure portal](#app-settings-in-the-azure-portal)
-* [Azure CLI](#app-settings-using-azure-cli)
+In single-tenant Azure Logic Apps, app settings contain global configuration options for *all the workflows* in the same logic app. When you run workflows locally in Visual Studio Code, these settings are accessible as local environment variables in the **local.settings.json** file. You can then reference these app settings in your parameters.
 
-### App settings in an ARM template or Bicep template
+To add, update, or delete app settings, select and review the following sections for Visual Studio Code, Azure portal, Azure CLI, or ARM (Bicep) template.
 
-To review and define your app settings in an ARM template or Bicep template, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
-
-This example shows file settings for either ARM templates or Bicep templates:
-
-```json
-"appSettings": [
-    {
-        "name": "string",
-        "value": "string"
-    },
-    <...>
-],
-"appSettings": [  
-    {  
-    "name": "string",  
-    "value": "string"  
-    },  
-    <...>
-], 
-```
-
-### App settings in the Azure portal
+### [Azure portal](#tab/azure-portal)
 
 To review the app settings for your logic app in the Azure portal, follow these steps:
 
@@ -135,7 +121,7 @@ To add a new setting, follow these steps:
 
 :::image type="content" source="./media/parameterize-workflow-app/portal-app-settings-values.png" alt-text="Screenshot showing the Azure portal and the configuration pane with the app settings and values for a single-tenant based logic app." lightbox="./media/parameterize-workflow-app/portal-app-settings-values.png":::
 
-### App settings using Azure CLI
+### [Azure CLI](#tab/azure-cli)
 
 To review your current app settings using the Azure CLI, run the command, `az logicapp config appsettings list`. Make sure that your command includes the `--name -n` and `--resource-group -g` parameters, for example:
 
@@ -149,9 +135,27 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
 
-For more information about setting up your logic apps for DevOps deployments, see:
-* [DevOps deployment overview for single-tenant based logic apps](devops-deployment-single-tenant-azure-logic-apps.md)
-* [Set up DevOps deployment for single-tenant based logic apps](set-up-devops-deployment-single-tenant-azure-logic-apps.md)
+### [Resource Manager or Bicep template](#tab/azure-resource-manager)
+
+To review and define your app settings in an ARM template or Bicep template, find your logic app's resource definition, and update the `appSettings` JSON object. For the full resource definition, see the [ARM template reference](/azure/templates/microsoft.web/sites).
+
+This example shows file settings for either ARM templates or Bicep templates:
+
+```json
+"appSettings": [
+    {
+        "name": "string",
+        "value": "string"
+    },
+    {
+        "name": "string",
+        "value": "string"
+    },
+    <...>
+], 
+```
+
+---
 
 ## Next steps
 

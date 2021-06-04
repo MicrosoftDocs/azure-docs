@@ -1,7 +1,7 @@
 ---
 title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-ms.date: 04/09/2021
+ms.date: 05/24/2021
 ms.topic: conceptual
 ---
 
@@ -60,6 +60,15 @@ And to these IP addresses:
 
 - 20.190.128.0/18
 - 40.126.0.0/18
+
+If you are a US Government customer, ensure that you have access to the following URLs:
+
+- `http://www.msftncsi.com`
+- *.Microsoft.com
+- *.WindowsAzure.us
+- *.microsoftonline.us
+- *.windows.net
+- *.usgovcloudapi.net
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 

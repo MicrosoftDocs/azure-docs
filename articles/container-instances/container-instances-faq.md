@@ -30,12 +30,12 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 ### What Windows base OS images are supported?
 
 > [!NOTE]
-> Due to issues with backwards compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. 
+> Due to issues with backward compatibility after the Windows updates in 2020, the following image versions include the minimum version number that we recommend you use in your base image. Current deployments using older image versions are not impacted, but new deployments should adhere to the following base images. After June 14th, 2021, ACI will no longer support deployments using older version numbers. 
 
 #### Windows Server 2016 base images
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016`, `10.0.14393.3506` or newer
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.3506` or newer
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016`, `10.0.14393.3568` or newer
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.3568` or newer
 
 > [!NOTE]
 > Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
