@@ -477,6 +477,12 @@
         href: flexible-server/concepts-audit-logs.md    
     - name: Replication
       items:
+      - name: Data-in replication
+        href: flexible-server/concepts-data-in-replication.md
+        displayName: replication, read replica
+      - name: Configure data-in replication
+        href: flexible-server/how-to-data-in-replication.md
+        displayName: data-in replication, replica, failover
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
     - name: Backup & Restore
