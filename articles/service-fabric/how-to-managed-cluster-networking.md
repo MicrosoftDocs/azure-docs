@@ -112,6 +112,29 @@ When the allowRDPAccess property is set to true, the following NSG rule will be 
 }
 ```
 
+Service Fabric managed clusters automatically creates inbound NAT rules for each instance in a node type. 
+To find the port mappings to reach specific instances (cluster nodes) follow the steps below:
+
+Locate the managed cluster created inbound NAT rules for Remote Desktop Protocol (RDP).
+
+1. Navigate to the managed cluster resource group within your subscription named with the following format: SFC_{cluster-id}
+
+2. Select the load balancer for the cluster with the following format: LB-{cluster-name}
+
+3. On the page for your load balancer in Azure portal, select Inbound NAT rules:
+
+Review the inbound NAT rules to confirm the inbound Frontend port to target port mapping for a node. The following screenshot shows the inbound NAT rules for three different node types:
+
+![Inbound Nat Rules][Inbound-NAT-Rules]
+
+By default, for Windows clusters, the Frontend Port is in the 50000 and higher range and the target port is port 3389, which maps to the RDP service on the target node.
+
+4. Remotely connect to the specific node (scale set instance). You can use the user name and password that you set when you created the cluster or any other credentials you have configured.
+
+The following screenshot shows using Remote Desktop Connection to connect to the apps (Instance 0) node in a Windows cluster:
+
+![Remote Desktop Connection][sfmc-rdp-connect]
+
 ## ClientConnection and HttpGatewayConnection ports
 
 ### NSG rule: SFMC_AllowServiceFabricGatewayToSFRP
@@ -264,3 +287,8 @@ Service Fabric managed clusters automatically create load balancer probes for fa
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
 
 [Service Fabric managed clusters overview](overview-managed-cluster.md)
+
+
+<!--Image references-->
+[Inbound-NAT-Rules]: ./media/how-to-managed-cluster-networking/inbound-nat-rules.png
+[sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
