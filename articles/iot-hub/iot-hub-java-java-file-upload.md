@@ -292,17 +292,17 @@ public class App
 
 Run the following command in Azure Cloud Shell to get the _device connection string_ for your device. Replace the placeholders below with the name you chose for your IoT hub and the name of your device.
 
-    ```azurecli-interactive
-    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id {YourDevice} --output table
-    ```
+```azurecli-interactive
+az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id {YourDevice} --output table
+```
     
-    Copy the device connection string, which looks like the following, and place it in the code sample where noted.
+Copy the device connection string, which looks like the following, and place it in the code sample where noted.
   
-    ```cmd/sh
-    HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}
-    ```
+```cmd/sh
+HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDotnetDevice;SharedAccessKey={YourSharedAccessKey}
+```
 
-    Place the path to the file to upload in the code sample where noted.
+Place the path to the file to upload in the code sample where noted.
     
 ## Build and Run the application
 
