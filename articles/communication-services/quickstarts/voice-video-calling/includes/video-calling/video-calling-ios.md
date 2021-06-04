@@ -235,7 +235,7 @@ do {
 }
 ```
 
-Replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp) documentation if you don't already have a token available.
+Replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md?pivots=programming-language-csharp) documentation if you don't already have a token available.
 
 ### Initialize the CallAgent and access Device Manager
 To create a CallAgent instance from a CallClient, use the `callClient.createCallAgent` method that asynchronously returns a CallAgent object once it's initialized. DeviceManager lets you enumerate local devices that can be used in a call to transmit audio/video streams. It also allows you to request permission from a user to access microphone/camera. 

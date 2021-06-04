@@ -150,7 +150,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 }
 ```
 
-You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
+You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
 
 ## Start a call
 
