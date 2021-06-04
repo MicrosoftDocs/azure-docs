@@ -63,7 +63,6 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
 At this point, your Azure account is the only one authorized to access this new vault.
 
-![Screenshot shows your key vault.](./media/quickstarts/vault-properties.png)
 
 ## Add a secret to Key Vault
 
@@ -106,12 +105,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `ConfigureKeyVault` option, and pass the correct credentials to your Key Vault.
 
-    #### [.NET Core 2.x](#tab/core2x)
+     #### [.NET Core 5.x](#tab/core5x)
 
     ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
 
@@ -124,7 +124,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
                             });
                 });
             })
-            .UseStartup<Startup>();
+            .UseStartup<Startup>());
     ```
 
     #### [.NET Core 3.x](#tab/core3x)
@@ -148,14 +148,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
             })
             .UseStartup<Startup>());
     ```
-
-    #### [.NET Core 5.x](#tab/core5x)
+    
+    #### [.NET Core 2.x](#tab/core2x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
 
@@ -168,7 +167,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
                             });
                 });
             })
-            .UseStartup<Startup>());
+            .UseStartup<Startup>();
     ```
 
 1. When you initialized the connection to App Configuration, you set up the connection to Key Vault by calling the `ConfigureKeyVault` method. After the initialization, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys.
