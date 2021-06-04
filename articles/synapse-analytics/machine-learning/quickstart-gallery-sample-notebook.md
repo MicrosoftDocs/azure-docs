@@ -41,6 +41,8 @@ This notebook demonstrates the basic steps used in creating a model: **data impo
 The notebook is divided into multiple cells that each perform a specific function.
 You can run each cell separately, or select **Run all** to have the cells run sequentially.
 
+Here are descriptions for each of the cells in the notebook:
+
 1. Import PySpark functions that the notebook uses.
 1. **Ingest Date** - Ingest data from the Azure Open Dataset **NycTlcYellow** into a local dataframe for processing. The code extracts data within a specific time period - you can modify the start and end dates to get different data.
 1. Downsample the dataset to make development faster. You can modify this step to change the sample size or the sampling seed.
@@ -52,15 +54,19 @@ You can run each cell separately, or select **Run all** to have the cells run se
 1. **Train the Model** - Train a Logistic Regression model and display its "Area under ROC" metric to see how well the model is working. This step also saves the trained model in case you want to use it elsewhere.
 1. **Evaluate and Visualize** - Plot the model's ROC curve to further evaluate the model.
 
-Remember to save your notebook by selecting **Publish** on the workspace command bar.
+## Save the notebook
+
+To save your notebook by selecting **Publish** on the workspace command bar.
 
 ## Copying the sample notebook
 
-To make a copy of this notebook, you can select **Clone** to create a copy in your workspace or **Export** to download a copy of the notebook (`.ipynb`) file.
+To make a copy of this notebook, click the elipsis in the top command bar and select **Clone** to create a copy in your workspace or **Export** to download a copy of the notebook (`.ipynb`) file.
+
+:::image type="content" source="media\quickstart-gallery-sample-notebook\copy-notebook.png" alt-text="Make a copy of the notebook with the Export or Clone command.":::
 
 ## Clean up resources
 
-To ensure the Spark instance is shut down, end any connected sessions (notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **stop session** from the status bar at the upper right of the notebook.
+To ensure the Spark instance is shut down when you're finished, end any connected sessions (notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **stop session** from the status bar at the upper right of the notebook.
 
 ![screenshot-showing-stop-session](./media/tutorial-build-applications-use-mmlspark/stop-session.png)
 
