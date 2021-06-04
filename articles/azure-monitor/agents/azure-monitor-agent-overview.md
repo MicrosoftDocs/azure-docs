@@ -125,43 +125,21 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
 1. Use this simple flowchart to determine the values of *setting* and *protectedSetting* parameters first:
 ![Flowchart to determine the values of setting and protectedSetting parameters when enabling the extension](media/azure-monitor-agent/proxyflowchart.png)
 
-2. Once the values *setting* and *protectedSetting* parameters are determined, update the values during the deployment of the the Azure Monitor agent on Azure virtual machines using the PowerShell command for adding a virtual machine extension:
+2. Once the values *setting* and *protectedSetting* parameters are determined, provide these additional parameters when deploying the Azure Monitor agent using PowerShell commands (examples below for Azure virtual machines):
+| Parameter | Value |
+|:---|:---|
+| SettingString | JSON object from flowchart above, converted to string; skip if not applicable |
+| ProtectedSettingString | JSON object from flowchart above, converted to string; skip if not applicable |
+
+
 # [Windows](#tab/PowerShellWindows)
 ```powershell
-$resourceGroupName = '[resourceGroupName]'
-$resourceGroupLocation = '[resourceGroupLocation]'
-$vmName = '[vmName]'
-$setting = 'from flowchart if applicable; otherwise skip argument'
-$protectedSetting = 'from flowchart if applicable; otherwise skip argument '
-Set-AzVMExtension `
-        -ResourceGroupName $resourceGroupName `
-        -Location $resourceGroupLocation `
-        -VMName $vmName `
-        -ExtensionName "AzureMonitorWindowsAgent" `
-        -Publisher "Microsoft.Azure.Monitor" `
-        -ExtensionType "AzureMonitorWindowsAgent" `
-        -TypeHandlerVersion 1.0 `
-        -SettingString $setting `
-        -ProtectedSettingString $protectedSetting
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
 ```
 
 # [Linux](#tab/PowerShellLinux)
 ```powershell
-$resourceGroupName = '[resourceGroupName]'
-$resourceGroupLocation = '[resourceGroupLocation]'
-$vmName = '[vmName]'
-$setting = 'from flowchart if applicable; otherwise skip argument'
-$protectedSetting = 'from flowchart if applicable; otherwise skip argument '
-Set-AzVMExtension `
-        -ResourceGroupName $resourceGroupName `
-        -Location $resourceGroupLocation `
-        -VMName $vmName `
-        -ExtensionName "AzureMonitorLinuxAgent" `
-        -Publisher "Microsoft.Azure.Monitor" `
-        -ExtensionType "AzureMonitorLinuxAgent" `
-        -TypeHandlerVersion 1.0 `
-        -SettingString $setting `
-        -ProtectedSettingString $protectedSetting
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
 ```
 
 ## Next steps
