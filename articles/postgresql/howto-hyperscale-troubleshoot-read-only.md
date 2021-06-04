@@ -61,7 +61,7 @@ alerts](howto-hyperscale-alert-on-metric.md#suggested-alerts).
 ## Next steps
 
 * [Set up Azure
-  alerts](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts)
+  alerts](howto-hyperscale-alert-on-metric.md#suggested-alerts)
   for advance notice so you can take action before reaching the read-only state.
 * Learn about [disk
   usage](https://www.postgresql.org/docs/current/diskusage.html) in PostgreSQL
