@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 05/28/2021
+ms.date: 06/02/2021
 ---
 
 # Common questions about the Microsoft commercial marketplace
@@ -78,7 +78,7 @@ You can also [join our active community forum](https://www.microsoftpartnercommu
 
 ### What analytics are available to my organization from the commercial marketplace?
 
-We provide reporting on your offers within the commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](partner-center-portal/analytics.md).
+We provide reporting on your offers within the commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](analytics.md).
 
 ### What is Microsoft's relationship with my customers?
 
@@ -306,7 +306,9 @@ For more information, see [Set up your payout account and tax forms](/partner-ce
 
 ### Are returns and refunds supported with the commercial marketplace?
 
-Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase or renewal. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase or renewal. This type of refunds doesn't apply to charges resulting from usage (either from virtual machine offers or metered billing).
+Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase. 
+
+Refunds are not issued for variable charges resulting from usage (from either virtual machine offers or metered billing).
 
 ## Resources
 
