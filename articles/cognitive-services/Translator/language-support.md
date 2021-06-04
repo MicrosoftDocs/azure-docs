@@ -124,6 +124,9 @@ Translator supports the following languages for text to text translation.
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
+> [!NOTE]
+> The following languages are not currently available in containers: Samoan, Tahitian, Klingon, Klingon (plqaD), and Thai.
+
 ### Detect
 
 Translator detects the following languages for translation and transliteration.

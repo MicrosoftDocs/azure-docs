@@ -22,7 +22,7 @@ The following list describes just a few example tasks, business processes, and w
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-Based on the logic app resource type that you choose and create, your logic apps run in either a multi-tenant, single-tenant, or dedicated integration service environment. For example, when you containerize single-tenant logic apps, you can deploy your apps as containers and run them anywhere that Azure Functions can run. For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
+Based on the logic app resource type that you choose and create, your logic apps run in either a multi-tenant, single-tenant, or dedicated integration service environment. For example, when you containerize single-tenant based logic apps, you can deploy your apps as containers and run them anywhere that Azure Functions can run. For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
 To securely access and run operations in real time on various data sources, you can choose [*managed connectors*](#logic-app-concepts) from a [400+ and growing Azure connectors ecosystem](/connectors/connector-reference/connector-reference-logicapps-connectors) to use in your workflows, for example:
 
@@ -47,7 +47,7 @@ For more information about the ways workflows can access and work with apps, dat
 
 ## Key terms
 
-* *Logic app*: The Azure resource to create when you want to develop a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in the multi-tenant, single-tenant (preview), or integration service environment (ISE). For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
+* *Logic app*: The Azure resource to create when you want to develop a workflow. Based on your scenario's needs and solution's requirements, you can create logic apps that run in multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or an integration service environment (ISE). For more information, review [Resource type and host environment differences for logic apps](#resource-environment-differences).
 
 * *Workflow*: A series of steps that defines a task or process, starting with a single trigger and followed by one or multiple actions.
 
@@ -85,7 +85,7 @@ You can visually create workflows using the Logic Apps designer in the Azure por
 
 To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
 
-The following table briefly summarizes differences between the original **Logic App (Consumption)** resource type and the new **Logic App (Preview)** resource type. You'll also learn how the *single-tenant* (preview) environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows. 
+The following table briefly summarizes differences between the original **Logic App (Consumption)** resource type and the **Logic App (Standard)** resource type. You'll also learn how the *single-tenant* model compares to the *multi-tenant* and *integration service environment (ISE)* models for deploying, hosting, and running your logic app workflows.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -105,7 +105,7 @@ The following sections provide more information about the capabilities and benef
 
 Save time and simplify complex processes by using the visual design tools in Logic Apps. Create your workflows from start to finish by using the Logic Apps Designer in the Azure portal, Visual Studio Code, or Visual Studio. Just start your workflow with a trigger, and add any number of actions from the [connectors gallery](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-If you're creating a multi-tenant logic app, get started faster when you [create a workflow from the templates gallery](../logic-apps/logic-apps-create-logic-apps-from-templates.md). These templates are available for common workflow patterns, which range from simple connectivity for Software-as-a-Service (SaaS) apps to advanced B2B solutions plus "just for fun" templates.
+If you're creating a multi-tenant based logic app, get started faster when you [create a workflow from the templates gallery](../logic-apps/logic-apps-create-logic-apps-from-templates.md). These templates are available for common workflow patterns, which range from simple connectivity for Software-as-a-Service (SaaS) apps to advanced B2B solutions plus "just for fun" templates.
 
 #### Connect different systems across various environments
 
@@ -134,7 +134,7 @@ If no suitable connector is available to run the code you want, you can create a
 
 #### Access resources inside Azure virtual networks
 
-Logic app workflows can access secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a dedicated instance of the Logic Apps service that uses dedicated resources and runs separately from the global multi-tenant Logic Apps service.
+Logic app workflows can access secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md) when you create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a dedicated instance of the Azure Logic Apps service that uses dedicated resources and runs separately from the global multi-tenant Azure Logic Apps service.
 
 Running logic apps in your own dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
@@ -146,7 +146,7 @@ When you create an ISE, Azure *injects* or deploys that ISE into your Azure virt
 
 #### Pricing options
 
-Each logic app type, which differs by capabilities and where they run (multi-tenant, single-tenant, integration service environment), has a different [pricing model](../logic-apps/logic-apps-pricing.md). For example, multi-tenant logic apps use consumption pricing, while logic apps in an integration service environment use fixed pricing. Learn more about [pricing and metering](../logic-apps/logic-apps-pricing.md) for Logic Apps.
+Each logic app type, which differs by capabilities and where they run (multi-tenant, single-tenant, integration service environment), has a different [pricing model](../logic-apps/logic-apps-pricing.md). For example, multi-tenant based logic apps use consumption pricing, while logic apps in an integration service environment use fixed pricing. Learn more about [pricing and metering](../logic-apps/logic-apps-pricing.md) for Logic Apps.
 
 ## How does Logic Apps differ from Functions, WebJobs, and Power Automate?
 
