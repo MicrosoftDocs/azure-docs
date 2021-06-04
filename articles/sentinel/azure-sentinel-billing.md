@@ -291,9 +291,9 @@ For example, to see charts of your daily costs for a certain time frame:
 1. Select the drop-down carat in the date field and select a date range.
 1. Select the drop-down carat next to **Granularity** and select **Daily**.
 
-You could also apply further controls. For example, to view only the costs associated with Azure Sentinel, select **Add filter**, select **Service name**, and then select the service names **sentinel**, **log analytics**, and **azure monitor**.
-
 ![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing/cost-management.png)
+
+You could also apply further controls. For example, to view only the costs associated with Azure Sentinel, select **Add filter**, select **Service name**, and then select the service names **sentinel**, **log analytics**, and **azure monitor**.
 
 ## Next steps
 For more tips on reducing Log Analytics data volume, see [Tips for reducing data volume](/azure/azure-monitor/logs/manage-cost-storage#tips-for-reducing-data-volume).
