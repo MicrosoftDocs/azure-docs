@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 # Azure SQL Database and SQL Server connector for Apache Spark
 The Apache Spark connector for Azure SQL Database and SQL Server enables these databases to act as input data sources and output data sinks for Apache Spark jobs. It allows you to use real-time transactional data in big data analytics and persist results for ad-hoc queries or reporting.
 
-Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into SQL databases. It can outperform row-by-row insertion with 10x to 20x faster performance. The Spark connector for SQL Server and Azure SQL Database also supports Azure Active Directory (Azure AD) [authentication](https://docs.microsoft.com/sql/connect/spark/connector?view=sql-server-ver15#azure-active-directory-authentication), enabling you to connect securely to your Azure SQL databases from Azure Synapse Analytics. 
+Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into SQL databases. It can outperform row-by-row insertion with 10x to 20x faster performance. The Spark connector for SQL Server and Azure SQL Database also supports Azure Active Directory (Azure AD) [authentication](/sql/connect/spark/connector#azure-active-directory-authentication), enabling you to connect securely to your Azure SQL databases from Azure Synapse Analytics. 
 
 This article covers how to use the DataFrame API to connect to SQL databases using the MS SQL connector. This article provides detailed examples using the PySpark API. For all of the supported arguments and samples for connecting to SQL databases using the MS SQL connector, see [Azure Data SQL samples](https://github.com/microsoft/sql-server-samples#azure-data-sql-samples-repository).
 
@@ -125,5 +125,5 @@ jdbc_df = spark.read \
 ```
 
 ## Next steps
-- [Learn more about the SQL Server and Azure SQL connector](https://docs.microsoft.com/sql/connect/spark/connector?view=sql-server-ver15)
+- [Learn more about the SQL Server and Azure SQL connector](/sql/connect/spark/connector)
 - [View Azure Data SQL Samples](https://github.com/microsoft/sql-server-samples)

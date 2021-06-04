@@ -4,7 +4,8 @@ description: How to customize feed for Windows Virtual Desktop users with PowerS
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/14/2019
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 # Customize the feed for Windows Virtual Desktop users

@@ -6,7 +6,8 @@ author: jocortems
 ms.service: firewall
 ms.topic: how-to
 ms.date: 04/23/2021
-ms.author: jocorte
+ms.author: jocorte 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Scale SNAT ports with Azure NAT Gateway

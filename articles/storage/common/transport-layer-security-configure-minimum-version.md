@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account

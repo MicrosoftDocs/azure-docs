@@ -49,7 +49,7 @@ Below is a list of scenarios checked by the Troubleshooting Tool:
 6. Agent custom logs aren't working
 7. Collect Agent logs
 
-For more details, please check out our [Github documentation](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+For more details, please check out our [GitHub documentation](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
 
  > [!NOTE]
  > Please run the Log Collector tool when you experience an issue. Having the logs initially will greatly help our support team troubleshoot your issue quicker.
