@@ -171,17 +171,13 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
-## How do I change the authentication type for my point-to-site connections?
-
-You can change the authentication method for your point-to-site connections by going to the **Point-to-site configuration** section under the VPN Gateway and checking the desired radio button. Current options are **Azure certificate, RADIUS authentication and Azure Active Directory**. Please note that current clients **may not be able to connect** after the change until the new profile has been downloaded and configured on the client.
-
-## <a name="P2S"></a>Point-to-Site using native Azure certificate authentication
+## <a name="P2S"></a>Point-to-Site - Certificate authentication
 
 This section applies to the Resource Manager deployment model.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Point-to-Site using RADIUS authentication
+## <a name="P2SRADIUS"></a>Point-to-Site - RADIUS authentication
 
 This section applies to the Resource Manager deployment model.
 

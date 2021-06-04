@@ -69,6 +69,10 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of supported client operating systems.
 
+### Can I change the authentication type?
+
+You can change the authentication method for your Point-to-Site connections. In the portal, navigate to the **VPN gateway -> Point-to-site configuration** section and select the desired radio button. Please note that current clients may not be able to connect after the change until a new VPN client configuration profile has been generated, downloaded, and applied to the VPN client.
+
 ### Does Azure support IKEv2 VPN with Windows?
 
 IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP or **OpenVPN® Protocol**.
