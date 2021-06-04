@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 06/02/2021
 ---
 
-# Live Migration to Azure Managed Instance for Apache Cassandra
+# Live migration to Azure Managed Instance for Apache Cassandra using dual-write proxy
 
 > [!IMPORTANT]
 > Azure Managed Instance for Apache Cassandra is currently in public preview.
