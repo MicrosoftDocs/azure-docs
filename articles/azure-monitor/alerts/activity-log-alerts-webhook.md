@@ -298,5 +298,5 @@ For specific schema details on all other activity log alerts, see [Overview of t
 * [Learn more about the activity log](../essentials/platform-logs-overview.md).
 * [Execute Azure automation scripts (Runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Use a logic app to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
-* [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
+* [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
 * [Use a logic app to send a message to an Azure queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.

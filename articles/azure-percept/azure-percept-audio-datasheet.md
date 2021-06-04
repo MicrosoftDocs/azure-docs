@@ -24,7 +24,7 @@ ms.date: 02/16/2021
 |Sensors, Visual Indicators, and Components   |4x MEM Sensing Microsystems Microphones (MSM261D3526Z1CM) <br> 2x Buttons <br> USB Hub <br> DAC <br> 3x LEDs <br> LED Driver          |
 |Security Crypto-Controller      |ST-Microelectronics STM32L462CE       |
 |Ports                           |1x USB 2.0 Type Micro B <br> 3.5 mm Audio Out     |
-|Certification                   |FCC <br> IC <br> RoHS <br> REACH <br> UL  <br> CE <br> ACMA <br> FCC <br> IC <br> VCCI  <br> NRTL <br> CB  |
+|Certification                   |CE <br> ACMA <br> FCC <br> IC <br> VCCI  <br> NRTL <br> CB  |
 |Operating Temperature           |0 degrees to 35 degrees C     |
 |Non-Operating Temperature       |-40 degrees to 85 degrees C     |
 |Relative Humidity               |10% to 95%    |

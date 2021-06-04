@@ -168,10 +168,7 @@ You can select the several "top" items in a query using the `Select TOP` clause.
 
 ## Filter results: specify return set with projections
 
-By using projections in the `SELECT` statement, you can choose which columns a query will return.
-
->[!NOTE]
->At this time, complex properties are not supported. To make sure that projection properties are valid, combine the projections with an `IS_PRIMITIVE` check.
+By using projections in the `SELECT` statement, you can choose which columns a query will return. Projection is now supported for both primitive and complex properties. For more information about projections with Azure Digital Twins, see the [SELECT clause reference documentation](reference-query-clause-select.md#select-columns-with-projections).
 
 Here is an example of a query that uses projection to return twins and relationships. The following query projects the Consumer, Factory and Edge from a scenario where a Factory with an ID of *ABC* is related to the Consumer through a relationship of *Factory.customer*, and that relationship is presented as the *Edge*.
 
@@ -234,11 +231,11 @@ Once you have decided on a query string, you execute it by making a call to the 
 
 You can call the API directly, or use one of the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis) available for Azure Digital Twins.
 
-The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) call from a client app:
+The following code snippet illustrates the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call from a client app:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
+The query used in this call returns a list of digital twins, which the above example represents with [BasicDigitalTwin](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) objects. The return type of your data for each query will depend on what terms you specify with the `SELECT` statement:
 * Queries that begin with `SELECT * FROM ...` will return a list of digital twins (which can be serialized as `BasicDigitalTwin` objects, or other custom digital twin types that you may have created).
 * Queries that begin in the format `SELECT <A>, <B>, <C> FROM ...` will return a dictionary with keys `<A>`, `<B>`, and `<C>`.
 * Other formats of `SELECT` statements can be crafted to return custom data. You might consider creating your own classes to handle very customized result sets. 

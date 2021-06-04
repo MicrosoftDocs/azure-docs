@@ -1,3 +1,4 @@
+items:
 - name: Azure Communication Services Documentation
   href: index.yml
 - name: Overview
@@ -9,7 +10,7 @@
     href: support.md
 - name: Quickstarts
   expanded: true
-  items:
+  items: 
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
   - name: Create and manage access tokens
@@ -18,6 +19,8 @@
     href: quickstarts/managed-identity.md
   - name: Set up managed identities from CLI
     href: quickstarts/managed-identity-from-cli.md
+  - name: Get a relay token
+    href: quickstarts/relay-token.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -48,6 +51,14 @@
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
+  - name: UI Library
+    items:
+      - name: Get started with Composites
+        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
+      - name: Get started with Stateful Client
+        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
+      - name: Get started with UI Components
+        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
 - name: Tutorials
   expanded: false
   items:
@@ -98,12 +109,12 @@
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
-  - name: UI Framework
+  - name: UI Library
     items:
-      - name: UI Framework overview
-        href: concepts/ui-framework/ui-sdk-overview.md
-      - name: UI Framework capabilities
-        href: concepts/ui-framework/ui-sdk-features.md
+      - name: UI Library overview
+        href: concepts/ui-library/ui-library-overview.md
+      - name: UI Library use cases
+        href: concepts/ui-library/ui-library-use-cases.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md 
   - name: Client and server architecture
@@ -165,6 +176,8 @@
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat
     - name: Chat (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat
+    - name: Chat (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html
   - name: SMS libraries
     items:
     - name: SMS (JavaScript)

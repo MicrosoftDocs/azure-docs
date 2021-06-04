@@ -54,6 +54,8 @@
       href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Admission control policies using Azure Policy
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - name: Deploy Arc enabled Open Service Mesh
+      href: tutorial-arc-enabled-open-service-mesh.md
     - name: Securely connect to cluster from anywhere
       href: cluster-connect.md
     - name: Use Azure AD RBAC for authorization checks

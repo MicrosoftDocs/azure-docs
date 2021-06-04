@@ -35,7 +35,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
 **A:** Sometimes, the addition or removal of one or more members of an administrative unit might take a few minutes to be reflected on the **Administrative units** pane. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about users and groups in administrative units, see [View a list of administrative units for a user](admin-units-add-manage-users.md) and [View a list of administrative units for a group](admin-units-add-manage-groups.md).
 
-**Q: I am a delegated password administrator on an administrative unit. Why am I unable to reset a specific user's password?**
+**Q: I am a delegated Password Administrator on an administrative unit. Why am I unable to reset a specific user's password?**
 
 **A:** As an administrator of an administrative unit, you can reset passwords only for users who are assigned to your administrative unit. Make sure that the user whose password reset is failing belongs to the administrative unit to which you've been assigned. If the user belongs to the same administrative unit but you still can't reset the user's password, check the roles that are assigned to the user. 
 

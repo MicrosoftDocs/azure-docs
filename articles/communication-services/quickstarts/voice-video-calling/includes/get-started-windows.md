@@ -1,4 +1,15 @@
+---
+author: mikben
+ms.service: azure-communication-services
+ms.topic: include
+ms.date: 03/10/2021
+ms.author: mikben
+---
+
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Windows.
+
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/VoiceCalling)
 
 ## Prerequisites
 
@@ -19,7 +30,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 ### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Microsoft.IC3.Azure.Communication.Calling.UAP`. 
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling`. 
 
 ### Request access
 
@@ -70,11 +81,17 @@ namespace CallingQuickstart
         public MainPage()
         {
             this.InitializeComponent();
+            this.InitCallAgent();
         }
-
+        
+        private async void InitCallAgent()
+        {
+            // Create Call Client and initialize Call Agent
+        }
+        
         private async void CallButton_ClickAsync(object sender, RoutedEventArgs e)
         {
-            // Authenticate the client and start call
+            // Start call
         }
 
         private async void HangupButton_Click(object sender, RoutedEventArgs e)
@@ -102,7 +119,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `CallButton_ClickAsync` function. 
+Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `InitCallAgent` function. 
 
 ```C#
 CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
@@ -135,7 +152,7 @@ End the current call when the `Hang Up` button is clicked.
 ```C#
 private async void HangupButton_Click(object sender, RoutedEventArgs e)
 {
-    await call_.HangUp(new HangUpOptions());
+    await call_.HangUpAsync(new HangUpOptions());
 }
 ```
 

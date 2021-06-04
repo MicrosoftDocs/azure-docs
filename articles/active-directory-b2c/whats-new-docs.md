@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 06/04/2021
+ms.date: 06/02/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,23 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## May 2021
+
+### New articles
+
+- [Define an OAuth2 custom error technical profile in an Azure Active Directory B2C custom policy](oauth2-error-technical-profile.md)
+- [Configure authentication in a sample web application using Azure Active Directory B2C](configure-authentication-sample-web-app.md)
+- [Configure authentication in a sample web application using Azure Active Directory B2C options](enable-authentication-web-application-options.md)
+- [Enable authentication in your own web application using Azure Active Directory B2C](enable-authentication-web-application.md)
+- [Azure Active Directory B2C TLS and cipher suite requirements](https-cipher-tls-requirements.md)
+
+### Updated articles
+
+- [Add Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)
+- [Mitigate credential attacks in Azure AD B2C](threat-management.md)
+- [Azure Active Directory B2C service limits and restrictions](service-limits.md)
+
 
 ## April 2021
 

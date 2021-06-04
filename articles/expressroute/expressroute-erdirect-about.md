@@ -64,7 +64,7 @@ The functionality in most scenarios is equivalent to circuits that use an Expres
 
 ## Circuit SKUs
 
-ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100-Gbps circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
+ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
 
 | **100-Gbps ExpressRoute Direct** | **10-Gbps ExpressRoute Direct** | 
 | --- | --- |
