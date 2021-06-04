@@ -20,12 +20,12 @@ Search is foundational to any app that surfaces content to users, with common sc
 When you create a search service, you'll work with the following capabilities:
 
 + A search engine for full text search
-+ Persistent storage of searchable, user-owned indexed content
-+ An indexing layer that supports text analysis
-+ APIs for indexing and querying content using simple or rich query syntax
-+ Optional [AI enrichment](cognitive-search-concept-intro.md) that creates text-searchable content out of images, raw unstructured text, application files
-+ Optional integration with other Azure services for data, machine learning/AI, monitoring, and security
-+ Optional implementation of [semantic search (preview)](semantic-search-overview.md) for improved relevance
++ Persistent storage of user-owned content in a search index
++ Rich indexing, with text analysis and optional [AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
++ Rich query capabilities, including simple syntax, full Lucene syntax, and typeahead search
++ Programmability through REST APIs and client libraries in Azure SDKs for .NET, Python, Java, and JavaScript
++ Azure integration at the data layer, machine learning layer, and AI (Cognitive Services)
++ State-of-art ranking algorithms through [semantic search (preview)](semantic-search-overview.md)
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and your client app that sends query requests to a search index and handles the response.
 

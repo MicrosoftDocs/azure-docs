@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
-ms.date: 05/25/2021
+ms.date: 06/04/2021
 ---
 
 # Run the emulator on Docker for Linux (Preview)
@@ -184,9 +184,23 @@ This section provides tips to troubleshoot errors when using the Linux emulator.
 
 - Make sure that the emulator self-signed certificate has been properly added to [KeyChain](#consume-endpoint-ui).
 
-- Ensure that the emulator self-signed certificate has been properly imported into the expected location:
-  - .NET: See the [certificates section](#run-on-linux)
-  - Java: See the [Java Certificates Store section](#run-on-linux)
+- For Java applications, make sure you imported the certificate to the [Java Certificates Store section](#run-on-linux).
+
+- For .NET applications you can disable SSL validation:
+
+# [.NET Standard 2.1+](#tab/ssl-netstd21)
+
+For any application running in a framework compatible with .NET Standard 2.1 or later, we can leverage the `CosmosClientOptions.HttpClientFactory`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# [.NET Standard 2.0](#tab/ssl-netstd20)
+
+For any application running in a framework compatible with .NET Standard 2.0, we can leverage the `CosmosClientOptions.HttpClientFactory`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+---
 
 #### My Node.js app is reporting a self-signed certificate error
 
