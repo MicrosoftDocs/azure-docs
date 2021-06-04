@@ -141,9 +141,9 @@ The following table shows the **default regional limits** for supported subscrip
 |Enterprise Dev/Test|6|320|
 |Pay-as-you-go|6|320|
 |Pay-as-you-go Dev/Test|6|320|
-|Azure Pass|2|64|
-|BizSpark|2|64|
-|BizSpark Plus|2|64|
+|Azure Pass|3|64|
+|BizSpark|3|64|
+|BizSpark Plus|3|64|
 |Microsoft Azure Sponsorship|3|64|
 |Microsoft Partner Network|3|64|
 |Visual Studio Enterprise (MPN)|3|64|
