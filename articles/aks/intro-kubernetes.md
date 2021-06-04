@@ -29,7 +29,7 @@ For more information on Kubernetes basics, see [Kubernetes core concepts for AKS
 
 For improved security and management, AKS lets you integrate with Azure AD to:
 * Use Kubernetes role-based access control (Kubernetes RBAC). 
-* Monitor the health of your cluster and resources.
+* Monitor the health of your cluster and resources. Test
 
 ### Identity and security management
 
