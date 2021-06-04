@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 6/03/2021
+ms.date: 6/04/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
@@ -57,18 +57,18 @@ Do the following steps to create a Windows VM image:
 
 Do the following steps to create a Linux VM image:
 
-1. Create a Linux virtual machine. For more information, go to [Tutorial: Create and manage Linux VMs with the Azure CLI](../virtual-machines/linux/tutorial-manage-vm.md).
+1. Create a Linux virtual machine. For more information, see [Quickstart: Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
 
-   The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
+   The virtual machine must be a Gen1 VM with a fixed-size VHD.
 
-   You can use the following two Azure Marketplace images to create Linux custom images:
+   You can use these fully tested Azure Marketplace images to create Linux custom images:
 
    |Item name  |Description  |Publisher  |
    |---------|---------|---------|
    |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server is the world's most popular Linux for cloud environments.|Canonical|
    |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux is one of the most popular Linux distributions.     |credativ|
 
-   For a full list of Azure Marketplace images that could work (presently not tested), go to [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
+   For a full list of Azure Marketplace images that could work (presently not tested), see [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
    If you're using Red Hat Enterprise Linux (RHEL) images, you'll need to use standard pay-as-you-go RHEL images, which are not supported on Azure Marketplace. For steps to get a supported RHEL image, see [Using RHEL BYOS images](#using-rhel-byos-images), below.  
 
@@ -116,7 +116,7 @@ To download the OS disk for the VM to an Azure storage account, do the following
    
    - Method 1: For a faster transfer, use AzCopy to copy the VHD to your Azure Storage account. For instructions, see [Use AzCopy to copy VM image to storage account](#copy-vhd-to-storage-account-using-azcopy), below. 
 
-   - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time.**
+   - Method 2: For a simple, one-click method, you can select **Download the VHD file** when you generate a download URL (in step 3b) to download the disk from the portal. **When you use this method, the disk copy can take quite a long time, and you'll need to [upload the VHD to your Azure storage account](../articles/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md) to be able to create VMs using the portal.**
 
 You can now use this VHD to create and deploy VMs on your Azure Stack Edge Pro GPU device.
 
@@ -151,7 +151,12 @@ To create the target URI for your prepared VHD, do the following steps:
 
    ![Graphic of a Blob SAS URL, with container path and place to insert the new filename labeled](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-04.png)
 
-   Insert the filename, in the format `/<filename>.vhd` before the question mark that begins the query string. The filename extension must be VHD.
+   Insert the filename, in the format `/<filename>.vhd` before the question mark that begins the query string. The filename extension must be VHD. 
+
+   For example, the following Blob SAS URL will copy the **osdisk.vhd** file to the **virtualmachines** blob container in **mystorageaccount**.
+
+   ![Graphic of a Blob SAS URL example for a VHD named osdisk](./media/azure-stack-edge-gpu-create-virtual-machine-image/blob-sas-url-05.png)
+
 
 ### Copy VHD to blob container
 
