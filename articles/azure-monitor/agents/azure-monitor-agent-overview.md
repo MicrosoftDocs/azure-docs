@@ -123,13 +123,14 @@ The Azure Monitor agent supports Azure service tags (both AzureMonitor and Azure
 The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol (for Azure virtual machines, Azure virtual machine scalesets and Azure Arc for servers). This is configured using extensions settings as described below, and supports both anonymous and basic authentication (username/password) are supported.  
 
 1. Use this simple flowchart to determine the values of *setting* and *protectedSetting* parameters first:
-![Flowchart to determine the values of setting and protectedSetting parameters when enabling the extension](media/azure-monitor-agent/proxyflowchart.png)
+![Flowchart to determine the values of setting and protectedSetting parameters when enabling the extension](media/azure-monitor-agent-overview/proxyflowchart.png)
 
 2. Once the values *setting* and *protectedSetting* parameters are determined, provide these additional parameters when deploying the Azure Monitor agent using PowerShell commands (examples below for Azure virtual machines):
+
 | Parameter | Value |
 |:---|:---|
-| SettingString | JSON object from flowchart above, converted to string; skip if not applicable |
-| ProtectedSettingString | JSON object from flowchart above, converted to string; skip if not applicable |
+| SettingString | JSON object from flowchart above, converted to string; skip if not applicable. Example: {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}} |
+| ProtectedSettingString | JSON object from flowchart above, converted to string; skip if not applicable. Example: {"proxy":{"username": "[username]","password": "[password]"}} |
 
 
 # [Windows](#tab/PowerShellWindows)
