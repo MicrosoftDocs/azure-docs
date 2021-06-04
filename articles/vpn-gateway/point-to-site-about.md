@@ -179,14 +179,14 @@ See the following articles:
 
 There are multiple FAQ sections for P2S, based on authentication.
 
-* [FAQ for native Azure certificate authentication](vpn-gateway-vpn-faq.md#P2S)
+* [FAQ - Certificate authentication](vpn-gateway-vpn-faq.md#P2S)
 
-* [FAQ for RADIUS authentication](vpn-gateway-vpn-faq.md#P2SRADIUS)
+* [FAQ - RADIUS authentication](vpn-gateway-vpn-faq.md#P2SRADIUS)
  
 ## Next Steps
 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
-* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - Azure certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**
