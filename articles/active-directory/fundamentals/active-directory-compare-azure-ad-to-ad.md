@@ -45,5 +45,5 @@ Most IT administrators are familiar with Active Directory Domain Services concep
 
 - [What is Azure Active Directory?](./active-directory-whatis.md)
 - [Compare self-managed Active Directory Domain Services, Azure Active Directory, and managed Azure Active Directory Domain Services](../../active-directory-domain-services/compare-identity-solutions.md)
-- [Frequently asked questions about Azure Active Directory](./active-directory-faq.md)
+- [Frequently asked questions about Azure Active Directory](./active-directory-faq.yml)
 - [What's new in Azure Active Directory?](./whats-new.md)
