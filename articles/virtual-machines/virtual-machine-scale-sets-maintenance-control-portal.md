@@ -1,5 +1,5 @@
 ---
-title: Maintenance control for OS image upgrades on Azure virtual machine scale sets using Azure Portal
+title: Maintenance control for OS image upgrades on Azure virtual machine scale sets using Azure portal
 description: Learn how to control when automatic OS image upgrades are rolled out to your Azure virtual machine scale sets using Maintenance control and Azure portal.
 author: ju-shim
 ms.service: virtual-machine-scale-sets
@@ -27,7 +27,7 @@ Maintenance control lets you decide when to apply automatic guest OS image upgra
 
 1. Search for **Maintenance Configurations**.
     
-    :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-search.png" alt-text="Screenshot showing how to open Maintenance Configurations":::
+    :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-search-bar.png" alt-text="Screenshot showing how to open Maintenance Configurations":::
 
 1. Click **Add**.
 
@@ -35,20 +35,20 @@ Maintenance control lets you decide when to apply automatic guest OS image upgra
 
 1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select *OS image upgrade* for the scope. Click **Next**.
     
-    :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-basics.png" alt-text="Screenshot showing Maintenance Configuration basics":::
+    :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
 1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence. Once you create a scheduled window, you no longer have to apply the updates manually. Click **Next**. 
 
     > [!IMPORTANT]
     > Maintenance window **duration** must be *5 hours* or longer. Maintenance **recurrence** must be set to repeat at least once a day. 
 
-    :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-schedule.png" alt-text="Screenshot showing Maintenance Configuration schedule":::
+    :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-schedule-tab.png" alt-text="Screenshot showing Maintenance Configuration schedule":::
 
 1. In the Assignment tab, assign resources now or skip this step and assign resources later after maintenance configuration deployment. Click **Next**.
 
 1. Add tags and values. Click **Next**.
     
-    :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-tags.png" alt-text="Screenshot showing how to add tags to a maintenance configuration":::
+    :::image type="content" source="media/virtual-machine-scale-sets-maintenance-control-portal/maintenance-configurations-tags-tab.png" alt-text="Screenshot showing how to add tags to a maintenance configuration":::
 
 1. Review the summary. Click **Create**.
 
