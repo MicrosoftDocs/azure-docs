@@ -34,7 +34,7 @@ The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. 
 - Support custom serializer to allow System.Text.JSON usage
 - Integrated batch and bulk support
 
-## Hosting recommendations
+## <a id="hosting"></a> Hosting recommendations
 
 **For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32-bit host processing**
 
