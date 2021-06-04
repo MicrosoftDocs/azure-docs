@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 05/03/2021
+ms.date: 06/02/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -54,6 +54,65 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 ## FSLogix updates
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## May 2021
+
+Here's what's new for May 2021:
+
+### Smart card authentication
+
+We've now officially released the Key Distribution Center (KDC) Proxy Remote Desktop Protocol (RDP) properties. These properties enable Kerberos authentication for the RDP portion of a Windows Virtual Desktop session, which includes permitting Network Level Authentication without a password. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/new-feature-smart-card-authentication-for-windows-virtual/m-p/2323226).
+
+### The web client now supports file transfer
+
+Starting with the public preview version of the web client, version 1.0.24.7 (preview), users can now transfer files between their remote session and local computer. To upload files to the remote session, select the upload icon in the menu at the top of the web client page. To download files, search for **Remote Desktop Virtual Drive** in the Start menu on your remote session. After you've opened your virtual drive, just drag and drop your files into the Downloads folder and the browser will begin downloading the files to your local computer.
+
+### Start VM on connect support updates
+
+Start VM on connect (preview) now supports pooled host pools and the Azure Government Cloud. To learn more, read our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/leverage-start-vm-on-connect-for-pooled-host-pools-and-azure-gov/m-p/2349866).
+
+### Latency improvements for the United Arab Emirates region
+
+We've expanded our Azure control plane presence to the United Arab Emirates (UAE), so customers in that region can now experience improved latency. Learn more at our [Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop&searchterms=64545).
+
+### Ending Internet Explorer 11 support
+
+On September 30th, 2021, the Windows Virtual Desktop web client will no longer support Internet Explorer 11. We recommend you start using the [Microsoft Edge](https://www.microsoft.com/edge?form=MY01R2&OCID=MY01R2&r=1) browser for your web client and remote sessions instead. For more information, see the announcement in [this blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-web-client-to-end-support-for-internet/m-p/2369007).
+
+### Microsoft Endpoint Manager public preview
+
+We've started the public preview for Microsoft Endpoint Manager support in Windows 10 Enterprise multi-session. This new feature will let you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+
+### FSLogix agent public preview
+
+We have released a public preview of the latest version of the FSLogix agent. Check out our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/public-preview-fslogix-release-2105-is-now-available-in-public/m-p/2380996/thread-id/7105) for more information and to submit the form you'll need to access the preview.
+
+### May 2021 updates for Teams for Windows Virtual Desktop
+
+For this update, we resolved an issue that caused the screen to remain black while sharing video. We also fixed a mismatch in video resolutions between the session client and the Teams server. Teams on Windows Virtual Desktop should now change resolution and bit rates based on input from the Teams server.
+
+### Azure portal deployment updates
+
+We've made the following updates to the deployment process in the Azure portal:
+
+- Added new images (including GEN2) to the drop-down list box of "image" when creating a new Windows Virtual Desktop session host VM.
+- You can now configure boot diagnostics for virtual machines when creating a host pool.
+- Added a tool tip to the RDP proxy in the advanced host pool RDP properties tab.
+- Added an information bubble for the icon path when adding an application from an MSIX package.
+- You can no longer do managed boot diagnostics with an unmanaged disk.
+- Updated the template for creating a host pool in Azure Resource Manager so that the Azure portal can now support creating host pools with third-party marketplace images.
+
+### Single sign-on using Active Directory Federation Services public preview
+
+We've started a public preview for Active Directory Federation Services (AD FS) support for single sign-on (SSO) per host pool. Learn more at [Configure AD FS single sign-on for Windows Virtual Desktop](configure-adfs-sso.md). 
+
+### Enterprise-scale support
+
+We've released an updated section of the Cloud Adoption framework for Enterprise-scale support for Windows Virtual Desktop. For more information, see [Enterprise-scale support for the Windows Virtual Desktop construction set](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone).
+
+### Customer adoption kit
+
+We've recently released the Windows Virtual Desktop Customer adoption kit to help customers and partners set up Windows Virtual Desktop for their customers. You can download the kit [here](https://www.microsoft.com/azure/partners/resources/customer-adoption-kit-windows-virtual-desktop).
 
 ## April 2021
 

@@ -13,7 +13,7 @@ ms.custom: support-help-page
 
 Here are suggestions for where you can get help when developing your Azure Virtual Machines solutions.
 
-## Self help troubleshooting Content
+## Self help troubleshooting
 <div class='icon is-large'>
     <img alt='Self help content' src='./media/logos/i-article.svg'>
 </div>

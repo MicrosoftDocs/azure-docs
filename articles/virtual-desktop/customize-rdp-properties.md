@@ -4,7 +4,8 @@ description: How to customize RDP Properties for Azure Virtual Desktop with Powe
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 # Customize Remote Desktop Protocol (RDP) properties for a host pool
