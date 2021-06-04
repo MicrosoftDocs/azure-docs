@@ -47,7 +47,7 @@ Any other services you use could have associated costs.
 
 ### Data retention costs
 
-When you first enable Azure Sentinel on a Log Analytics workspace, you can retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
+After you enable Azure Sentinel on a Log Analytics workspace, you can retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 
 You can specify different retention settings for individual data types. For more information, see [Retention by data type](/azure/azure-monitor/logs/manage-cost-storage#retention-by-data-type).
 
@@ -210,7 +210,7 @@ Run the following query to show data ingestion volume by solution:
 
 ```kusto
 Usage
-| where StartTime &gt;= startofday(ago(31d)) and EndTime &lt; startofday(now())
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution
 | extend Solution = iif(Solution == "SecurityInsights", "AzureSentinel", Solution)
@@ -221,7 +221,7 @@ Run the following query to show data ingestion volume by data type:
 
 ```kusto
 Usage
-| where StartTime &gt;= startofday(ago(31d)) and EndTime &lt; startofday(now())
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType
 | render columnchart
@@ -230,8 +230,8 @@ Run the following query to show data ingestion volume by both solution and data 
 
 ```kusto
 Usage
-| where TimeGenerated &gt; ago(32d)
-| where StartTime &gt;= startofday(ago(31d)) and EndTime &lt; startofday(now())
+| where TimeGenerated > ago(32d)
+| where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
 | summarize BillableDataGB = sum(Quantity) by Solution, DataType
 | extend Solution = iif(Solution == "SecurityInsights", "AzureSentinel", Solution)
@@ -261,7 +261,7 @@ The Azure Sentinel GitHub community provides the [Send-IngestionCostAlert](https
 
 CEF is a supported Syslog events format in Azure Sentinel. You can use CEF to bring in valuable security information from a variety of sources to your Azure Sentinel workspace. CEF logs land in the CommonSecurityLog table in Azure Sentinel, which includes all the standard up-to-date CEF fields.
 
-Many device and data sources allow for logging fields beyond the standard CEF schema. These additional fields land in the AdditionalExtensions table. These fields could have higher ingestion volumes than the standard CEF fields, because the event content within these fields can be variable.
+Many devices and data sources allow for logging fields beyond the standard CEF schema. These additional fields land in the AdditionalExtensions table. These fields could have higher ingestion volumes than the standard CEF fields, because the event content within these fields can be variable.
 
 ## Understand your Azure Sentinel costs and bill
 
