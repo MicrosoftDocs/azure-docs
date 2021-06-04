@@ -15,7 +15,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 ## Prerequisites
 
-- A working [Communication Services calling Android app](../getting-started-with-calling.md).
+- A working [Communication Services calling Android app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
 
@@ -258,6 +258,6 @@ The Communication Services Calling SDK accepts a full Teams meeting link. This l
 
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). You should see the following:
 
-:::image type="content" source="../media/android/acs-join-teams-meeting-quickstart.png" alt-text="Screenshot showing the completed application.":::
+:::image type="content" source="../../media/android/acs-join-teams-meeting-quickstart.png" alt-text="Screenshot showing the completed application.":::
 
 Insert the Teams context into the text box and press *Join Meeting* to join the Teams meeting from within your Communication Services application.

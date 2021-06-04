@@ -15,7 +15,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 ## Prerequisites
 
-- A working [Communication Services calling web app](../getting-started-with-calling.md).
+- A working [Communication Services calling web app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
 
@@ -124,6 +124,6 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="../media/javascript/acs-join-teams-meeting-quickstart.PNG" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="../../media/javascript/acs-join-teams-meeting-quickstart.PNG" alt-text="Screenshot of the completed JavaScript Application.":::
 
 Insert the Teams context into the text box and press *Join Teams Meeting* to join the Teams meeting from within your Communication Services application.

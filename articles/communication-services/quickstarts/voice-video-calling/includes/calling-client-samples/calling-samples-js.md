@@ -8,9 +8,9 @@ ms.author: mikben
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../access-tokens.md).
-- Optional: Complete the quickstart to [add voice calling to your application](../getting-started-with-calling.md).
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../../access-tokens.md).
+- Optional: Complete the quickstart to [add voice calling to your application](../../getting-started-with-calling.md).
 
 ## Install the SDK
 
@@ -42,7 +42,7 @@ Create a new `CallClient` instance. You can configure it with custom options lik
 
 When you have a `CallClient` instance, you can create a `CallAgent` instance by calling the `createCallAgent` method on the `CallClient` instance. This asynchronously returns a `CallAgent` instance object.
 
-The `createCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../access-tokens.md).
+The `createCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../../access-tokens.md).
 
 You can use the `getDeviceManager` method on the `CallClient` instance to access `deviceManager`.
 
@@ -66,7 +66,7 @@ Call creation and start are synchronous. The call instance allows you to subscri
 
 ### Place a 1:n call to a user or PSTN
 
-To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../access-tokens.md).
+To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../access-tokens.md).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }

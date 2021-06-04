@@ -15,22 +15,22 @@ Get started with Azure Communication Services by using the Communication Service
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service.
 
 ### Create an Android app with an empty activity
 
 From Android Studio, select Start a new Android Studio project.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Screenshot showing the 'Start a new Android Studio Project' button selected in Android Studio.":::
+:::image type="content" source="../../media/android/studio-new-project.png" alt-text="Screenshot showing the 'Start a new Android Studio Project' button selected in Android Studio.":::
 
 Select "Empty Activity" project template under "Phone and Tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
+:::image type="content" source="../../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
 Select Minimum SDK of "API 26: Android 8.0 (Oreo)" or greater.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
+:::image type="content" source="../../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
 
 ### Install the package
 
@@ -380,7 +380,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create an agent from the user access token
 
-With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
+With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
 /**

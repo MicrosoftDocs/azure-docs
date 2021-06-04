@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
 ---
-[!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
+[!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
 
 > [!NOTE]
 > Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)
@@ -13,12 +13,12 @@ ms.author: nikuklic
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A phone number acquired in your Communication Services resource. [how to get a phone number](../../telephony-sms/get-phone-number.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- A phone number acquired in your Communication Services resource. [how to get a phone number](../../../telephony-sms/get-phone-number.md).
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
 
 
-[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
+[!INCLUDE [Calling with JavaScript](../get-started/get-started-javascript-setup.md)]
 
 Here's the code:
 
@@ -127,7 +127,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to `http://localhost:8080/`. You should see the following:
 
-:::image type="content" source="../media/javascript/pstn-calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="../../media/javascript/pstn-calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 You can place a call to a real phone number by providing a phone number in the added text field and clicking the **Start Phone Call** button.
 

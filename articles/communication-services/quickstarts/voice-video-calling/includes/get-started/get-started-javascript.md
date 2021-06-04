@@ -20,8 +20,8 @@ In this quickstart, you'll learn how start a call using the Azure Communication 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-- An active Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../access-tokens.md).
+- An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../access-tokens.md).
 
 
 [!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
@@ -96,7 +96,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
+You need to input a valid user access token for your resource into the text field and click 'Submit'. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
 
 ```javascript
 submitToken.addEventListener("click", async () => {
@@ -159,7 +159,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="../media/javascript/calling-javascript-app-2.png" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="../../media/javascript/calling-javascript-app-2.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 You can make an outbound VOIP call by providing a valid user access token and user ID in the corresponding text fields and clicking the **Start Call** button. Calling `8:echo123` connects you with an echo bot, this is great for getting started and verifying your audio devices are working.
 

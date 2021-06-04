@@ -9,9 +9,9 @@ ms.author: mikben
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Azure Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A user access token to enable the call client. [Get a user access token](../../access-tokens.md).
-- Optional: Complete the [Add voice calling to your app](../getting-started-with-calling.md) quickstart.
+- A deployed Azure Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
+- A user access token to enable the call client. [Get a user access token](../../../access-tokens.md).
+- Optional: Complete the [Add voice calling to your app](../../getting-started-with-calling.md) quickstart.
 
 ## Set up your system
 
@@ -21,7 +21,7 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 You're not going to create unit tests or UI tests during this quickstart. Feel free to clear the **Include Unit Tests** and **Include UI Tests** text boxes.
 
-:::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot that shows the window for creating a project within Xcode.":::
+:::image type="content" source="../../media/ios/xcode-new-ios-project.png" alt-text="Screenshot that shows the window for creating a project within Xcode.":::
 
 ### Install the package and dependencies with CocoaPods
 
@@ -268,7 +268,7 @@ The following sections describe how to register for, handle, and unregister push
 2. Add another capability by selecting **+ Capability**, and then select **Background Modes**.
 3. Under **Background Modes**, select the **Voice over IP** and **Remote notifications** checkboxes.
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Screenshot that shows how to add capabilities in Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../../media/ios/xcode-push-notification.png" alt-text="Screenshot that shows how to add capabilities in Xcode." lightbox="../../media/ios/xcode-push-notification.png":::
 
 ### Register for push notifications
 

@@ -12,7 +12,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 ## Prerequisites
 
-- A working [Communication Services calling iOS app](../getting-started-with-calling.md).
+- A working [Communication Services calling iOS app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
 
 We will use beta.12 of AzureCommunicationCalling SDK for this quickstart so we need to update the podfile and install the Pods again. 
@@ -126,7 +126,7 @@ struct ContentView: View {
                 }
             })
         } else {
-            self.message = "No active call to hanup"
+            self.message = "No active call to hangup"
         }
     }
 }
@@ -191,6 +191,6 @@ The Communication Services Calling SDK accepts a full Teams meeting link. This l
 
 You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
 
-:::image type="content" source="../media/ios/acs-join-teams-meeting-quickstart.png" alt-text="Screenshot showing the completed application.":::
+:::image type="content" source="../../media/ios/acs-join-teams-meeting-quickstart.png" alt-text="Screenshot showing the completed application.":::
 
 Insert the Teams context into the text box and press *Join Teams Meeting* to join the Teams meeting from within your Communication Services application.
