@@ -4,7 +4,7 @@ description: This article tells how to delete your Automation account across the
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-ms.date: 06/104/2021
+ms.date: 06/04/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -27,10 +27,10 @@ Removing your Automation account can be done using one of the following methods 
 This article tells you how to completely remove your Automation account through the Azure portal, using Azure PowerShell, the Azure CLI, or the REST API.
 
 ## Prerequisite
-Verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource, which prevents accidental deletion or modification of critical resources. If you've deployed the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Any locks need to be removed before you can delete the Automation account.
+Verify there aren't any [Resource Manager locks](../azure-resource-manager/management/lock-resources.md) applied at the subscription, resource group, or resource, which prevents accidental deletion or modification of critical resources. If you've deployed the Start/Stop VMs during off-hours solution, it sets the lock level to **CanNotDelete** against several dependent resources in the Automation account (specifically its runbooks and variables). Remove any locks before deleting the Automation account.
 
 > [!NOTE]
-> If you receive an error message similar to: `The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions`, then your Automation account is linked to a Log Analytics workspace with either the Update Management and/or Change Tracking and Inventory features enabled. For more information, see [Delete a shared capability Automation account](#Delete-a-shared-capability-Automation-account), below.
+> If you receive an error message similar to: `The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions`, then your Automation account is linked to a Log Analytics workspace with either the Update Management and/or Change Tracking and Inventory features enabled. For more information, see [Delete a shared capability Automation account](#delete-a-shared-capability-automation-account), below.
 
 ## Delete the dedicated resource group
 
