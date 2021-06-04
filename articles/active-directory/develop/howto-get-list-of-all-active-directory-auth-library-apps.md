@@ -35,17 +35,17 @@ To access the workbook:
 2. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks** 
 3. In the Usage section, open the **Sign-ins** workbook 
 
-   :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure Active Directory monitoring workbooks interface highlighting the Sign Ins workbook.":::
+   :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure Active Directory portal workbooks interface highlighting the sign-ins workbook.":::
 
 ### Identify apps running on ADAL
 
 The Sign-ins workbook has a new table at the bottom of the page that can show you which recently used apps are using ADAL as shown below. Update these apps to use MSAL.
 
-:::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/active-directory-auth-library-apps-present.png" alt-text="Screenshot of the Azure Active Directory monitoring Sign Ins workbook displaying Sign ins from apps that use Active Directory Authentication Library.":::
+:::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/active-directory-auth-library-apps-present.png" alt-text="Screenshot of sign-ins workbook displaying apps that use Active Directory Authentication Library.":::
 
 If there are no apps running on ADAL, the workbook will display a view as shown below. 
 
-:::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/no-active-directory-auth-library-apps.png" alt-text="Screenshot of the Azure Active Directory monitoring Sign Ins workbook displaying workbook interface when no app is using Active Directory Authentication Library.":::
+:::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/no-active-directory-auth-library-apps.png" alt-text="Screenshot of sign-ins workbook when no app is using Active Directory Authentication Library.":::
 
 ## Next steps
 
