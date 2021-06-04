@@ -31,18 +31,18 @@ This notebook demonstrates the basic steps used in creating a model: **data impo
 1. In the gallery, select **Notebooks**.
 1. Find and select the notebook "Data Exploration and ML Modeling - NYC taxi predict using Spark MLib".
    :::image type="content" source="media\quickstart-gallery-sample-notebook\gallery-select-ml-notebook.png" alt-text="Select the machine learning sample notebook in the gallery.":::
-1. Click **Continue**.
-1. Click **Open notebook**. The sample notebook is copied into your workspace and opened.
+1. Select **Continue**.
+1. On the notebook preview page, select **Open notebook**. The sample notebook is copied into your workspace and opened.
     :::image type="content" source="media\quickstart-gallery-sample-notebook\gallery-open-ml-notebook.png" alt-text="Open the machine learning sample notebook into your workspace.":::
-1. In the **Attach to** menu, select your Apache Spark pool.
+1. In the **Attach to** menu in the open notebook, select your Apache Spark pool.
 
 ## Run the notebook
 
 The notebook is divided into multiple cells that each perform a specific function.
 You can run each cell separately, or select **Run all** to have the cells run sequentially.
 
-1. Import PySpark functions that you'll be using.
-1. **Ingest Date** - Ingest data from the Azure Open Dataset NycTlcYellow into a local dataframe for processing. The code extracts data within a specific time period - you can modify the start and end dates to get different data.
+1. Import PySpark functions that the notebook uses.
+1. **Ingest Date** - Ingest data from the Azure Open Dataset **NycTlcYellow** into a local dataframe for processing. The code extracts data within a specific time period - you can modify the start and end dates to get different data.
 1. Downsample the dataset to make development faster. You can modify this step to change the sample size or the sampling seed.
 1. **Exploratory Data Analysis** - Display charts to view the data. This can give you an idea what data prep might be needed before creating the model.
 1. **Data Prep and Featurization** - Filter out outlier data discovered through visualization and create some useful derived variables.
