@@ -42,9 +42,12 @@ A log is a type of telemetry that represents:
 For telemetry processors, these span/log components are important:
 
 * Name
+* Body
 * Attributes
 
 The span name is the primary display for requests and dependencies in the Azure portal. Span attributes represent both standard and custom properties of a given request or dependency.
+
+The trace message or body is the primary display for logs in the Azure portal. Log attributes represent both standard and custom properties of a given log
 
 ## Telemetry processor types
 
@@ -372,11 +375,11 @@ This section lists some common span attributes that telemetry processors can use
 > [!NOTE]
 > This feature is available only in version 3.1.1.BETA-5 and later.
 
-The log processor modifies either the log name or attributes of a log based on the log name. It can support the ability to include or exclude logs.
+The log processor modifies either the log message body or attributes of a log based on the log message body. It can support the ability to include or exclude logs.
 
-### Name a log
+### Update Log message body
 
-The `name` section requires the `fromAttributes` setting. The values from these attributes are used to create a new name, concatenated in the order that the configuration specifies. The processor will change the log name only if all of these attributes are present on the log.
+The `body` section requires the `fromAttributes` setting. The values from these attributes are used to create a new body, concatenated in the order that the configuration specifies. The processor will change the log body only if all of these attributes are present on the log.
 
 The `separator` setting is optional. This setting is a string. It's specified to split values.
 > [!NOTE]
@@ -386,7 +389,7 @@ The `separator` setting is optional. This setting is a string. It's specified to
 "processors": [
   {
     "type": "log",
-    "name": {
+    "body": {
       "fromAttributes": [
         "attributeKey1",
         "attributeKey2",
@@ -397,17 +400,17 @@ The `separator` setting is optional. This setting is a string. It's specified to
 ] 
 ```
 
-### Extract attributes from the log name
+### Extract attributes from the log message body
 
-The `toAttributes` section lists the regular expressions to match the log name against. It extracts attributes based on subexpressions.
+The `toAttributes` section lists the regular expressions to match the log message body. It extracts attributes based on subexpressions.
 
-The `rules` setting is required. This setting lists the rules that are used to extract attribute values from the log name. 
+The `rules` setting is required. This setting lists the rules that are used to extract attribute values from the body. 
 
-The values in the log name are replaced by extracted attribute names. Each rule in the list is a regular expression (regex) pattern string. 
+The values in the log message body are replaced by extracted attribute names. Each rule in the list is a regular expression (regex) pattern string. 
 
 Here's how values are replaced by extracted attribute names:
 
-1. The log name is checked against the regex. 
+1. The log message body is checked against the regex. 
 2. If the regex matches, all named subexpressions of the regex are extracted as attributes. 
 3. The extracted attributes are added to the log. 
 4. Each subexpression name becomes an attribute name. 
@@ -420,7 +423,7 @@ This process is repeated for all rules in the order they're specified. Each subs
 "processors": [
   {
     "type": "log",
-    "name": {
+    "body": {
       "toAttributes": {
         "rules": [
           "rule1",
@@ -433,14 +436,4 @@ This process is repeated for all rules in the order they're specified. Each subs
 ]
 
 ```
-
-## Common log attributes
-
-This section lists some common log attributes that telemetry processors can use.
-
-| Attribute  | Type | Description | 
-|---|---|---|
-| `LoggerName` | string | Logger name.|
-| `LoggingLevel` | string | Logging level.|
-| `SourceType` | number | Source type|
 

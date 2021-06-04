@@ -485,9 +485,9 @@ The following sample shows how to change the span name to `{operation_website}`.
 
 ## Log processor samples
 
-### Name a log
+### Update log message body
 
-The following sample specifies the values of attributes `LoggerName` and `SourceType`. It forms the new name of the log by using those attributes, in that order, separated by the value `::`.
+The following sample specifies the values of attributes `LoggerName` and `SourceType`. It forms the new body of the log by using those attributes, in that order, separated by the value `::`.
 ```json
 {
   "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
@@ -495,7 +495,7 @@ The following sample specifies the values of attributes `LoggerName` and `Source
     "processors": [
       {
         "type": "log",
-        "name": {
+        "body": {
           "fromAttributes": [
             "LoggerName",
             "SourceType"
@@ -508,9 +508,9 @@ The following sample specifies the values of attributes `LoggerName` and `Source
 }
 ```
 
-### Extract attributes from a log name
+### Extract attributes from a log message body
 
-Let's assume the input log name is `Starting PetClinicApplication on WorkLaptop with PID 27984 (C:\randompath\target\classes started by userx in C:\randompath)`. The following sample results in the output span name `Starting PetClinicApplication on WorkLaptop with PID PIDVALUE (C:\randompath\target\classes started by userx in C:\randompath)`. It adds the new attribute `PIDVALUE=27984` to the log.
+Let's assume the input log message body is `Starting PetClinicApplication on WorkLaptop with PID 27984 (C:\randompath\target\classes started by userx in C:\randompath)`. The following sample results in the output message body `Starting PetClinicApplication on WorkLaptop with PID PIDVALUE (C:\randompath\target\classes started by userx in C:\randompath)`. It adds the new attribute `PIDVALUE=27984` to the log.
 
 ```json
 {
@@ -519,7 +519,7 @@ Let's assume the input log name is `Starting PetClinicApplication on WorkLaptop 
     "processors": [
       {
         "type": "log",
-        "name": {
+        "body": {
           "toAttributes": {
             "rules": [
               "^Starting PetClinicApplication on WorkLaptop with PID (?<PIDVALUE>\\d+) .*"
