@@ -5029,11 +5029,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
-      "redirect_url": "/azure/logic-apps/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/logic-apps/logic-apps-architectures-simple-enterprise-integration.md",
       "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
       "redirect_document_id": false
@@ -6436,6 +6431,11 @@
     {
       "source_path_from_root": "/articles/azure-functions/functions-bindings-external-table.md",
       "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-api-definition.md",
+      "redirect_url": "/azure/azure-functions/functions-openapi-definition",
       "redirect_document_id": false
     },
     {
@@ -61080,13 +61080,13 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-train-extract.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#train-a-custom-model",
+       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/curl-receipts.md",
-      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/form-recognizer/quickstarts/client-library?pivots=programming-language-rest-api#analyze-receipts",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/python-business-cards.md",
@@ -66005,6 +66005,192 @@
     },
     {
       "source_path": "articles/app-service/quickstart-dotnet-framework.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/animated-characters-recognition-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/animated-characters-recognition-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/animated-characters-recognition.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/animated-characters-recognition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/compare-video-indexer-with-media-services-presets.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/concepts-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/concepts-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/connect-to-azure.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/considerations-when-use-at-scale.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/considerations-when-use-at-scale",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-brands-model-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-brands-model-with-api.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-brands-model-with-website.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-brands-model-with-website",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-content-models-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-content-models-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-language-model-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-language-model-with-api.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-language-model-with-website.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-language-model-with-website",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-person-model-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-person-model-with-api.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-with-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/customize-person-model-with-website.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/customize-person-model-with-website",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/faq.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/invite-users.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/invite-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/language-identification-model.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/live-stream-analysis.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/live-stream-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/logic-apps-connector-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/logic-apps-connector-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/manage-account-connected-to-azure.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/manage-account-connected-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/manage-multiple-tenants.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/manage-multiple-tenants",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/multi-language-identification-transcription.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/multi-language-identification-transcription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/regions.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/release-notes.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/scenes-shots-keyframes.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/scenes-shots-keyframes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/upload-index-videos.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/upload-index-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/use-editor-create-project.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/use-editor-create-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-disaster-recovery.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-embed-widgets.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-embed-widgets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-get-started.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-output-json-v2.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-output-json-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-search.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-use-apis.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-use-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-view-edit.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-view-edit",
       "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48"
     },
     {
@@ -66118,18 +66304,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/create-your-own-components.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/form-recognizer-tool.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/label-tool",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-components.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/communication-services/quickstarts/ui-framework/get-started-with-composites.md",
-      "redirect_url": "https://azure.github.io/communication-ui-sdk",
+      "source_path_from_root": "/articles/machine-learning/tutorial-setup-vscode-extension.md",
+      "redirect_url": "/azure/machine-learning/how-to-setup-vs-code",
       "redirect_document_id": false
     },
     {

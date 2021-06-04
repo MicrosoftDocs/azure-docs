@@ -47,7 +47,7 @@ File names may not include the following characters:
 The maximum number of files that can be extracted and maximum file size is based on your **[QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
 
 > [!NOTE]
-> QnA Maker managed (Preview) is a free service with no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
+> Custom question answering (preview) is a free service with no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
 
 ### Maximum number of deep-links from URL
 
@@ -123,6 +123,9 @@ These represent the limits when Prebuilt API is used to *Generate response* or c
 * Number of documents: 5
 * Maximum size of a single document:  5,120 characters
 * Maximum 3 responses per document.
+
+> [!IMPORTANT]
+> Support for unstructured file/content and Prebuilt API is available only in Custom question answering (preview)
 
 ## Next steps
 

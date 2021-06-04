@@ -45,7 +45,7 @@ QnAMaker service endpoint is useful for debugging purposes when you contact QnAM
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 <details>
 <summary><b>How can I improve the throughput performance for query predictions?</b></summary>
@@ -181,7 +181,7 @@ If you have content from multiple languages, be sure to create a separate servic
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 <details>
 <summary><b>Why is my URL(s)/file(s) not extracting question-answer pairs?</b></summary>
@@ -375,7 +375,7 @@ Please follow the below given steps:
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 
 <details>
@@ -467,7 +467,7 @@ Follow these steps to embed the QnA Maker service as a web-chat control in your 
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 
 <details>
@@ -534,7 +534,7 @@ When you create your QnA Maker service, you selected an Azure region. Your knowl
 
 </details>
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 <details>
 <summary><b>What data is stored and where is it stored?</b></summary>

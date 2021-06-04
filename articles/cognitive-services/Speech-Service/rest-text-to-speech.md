@@ -123,9 +123,38 @@ This response has been truncated to illustrate the structure of a response.
     "Status": "GA"
   },
 
-  ...
+    ...
 
-     {
+    {
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyMultilingualNeural)",
+    "ShortName": "en-US-JennyMultilingualNeural",
+    "DisplayName": "JennyMultilingualNeural",
+    "LocalName": "JennyMultilingualNeural",
+    "Gender": "Female",
+    "Locale": "en-US",
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "SecondaryLocaleList": [
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-GB",
+        "es-ES",
+        "es-MX",
+        "fr-CA",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "zh-CN"
+      ],
+    "Status": "Preview"
+    },
+    
+  ...
+    
+    {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
     "LocalName": "Orla",
