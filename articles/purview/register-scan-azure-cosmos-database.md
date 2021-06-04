@@ -62,7 +62,6 @@ On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following
 4. Select a collection or create a new one (Optional).
 5. Select **Register** to register the data source.
 
-
 :::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="register sources options" border="true":::
 
 
