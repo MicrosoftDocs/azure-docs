@@ -109,9 +109,11 @@ sections:
           
           > [!IMPORTANT]
           > If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
+
+          ## Increasing concurrency
           
-  - name: Increasing concurrency
-    questions:
+          See [Speech Services Quotas and Limits](speech-services-quotas-and-limits.md).
+
   - name: Importing data
     questions:
       - question: |
