@@ -146,7 +146,7 @@ For more information about Ethernet details for your architecture, see [HLI supp
 
 ## Storage
 
-The storage layout for SAP HANA (Large Instances) is configured by SAP HANA on Azure service management through SAP recommended guidelines. These guidelines are documented in [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
+The storage layout for SAP HANA (Large Instances) is configured by SAP HANA on Azure Service Management through SAP recommended guidelines. These guidelines are documented in [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
 
 The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md).
 
@@ -174,7 +174,7 @@ The HANA/log/backup volume isn't supposed to be the volume for database backups.
 
 You can increase your storage by purchasing extra capacity in 1-TB increments. This extra storage can be added as new volumes to a HANA Large Instance.
 
-During onboarding with SAP HANA on Azure service management, you'll specify a user ID (UID) and group ID (GID) for the sidadm user and sapsys group (for example: 1000,500). During installation of the SAP HANA system, you must use these same values. Because you want to deploy multiple HANA instances on a unit, you get multiple sets of volumes (one set for each instance). So at deployment time, you need to define:
+During onboarding with SAP HANA on Azure Service Management, you'll specify a user ID (UID) and group ID (GID) for the sidadm user and sapsys group (for example: 1000,500). During installation of the SAP HANA system, you must use these same values. Because you want to deploy multiple HANA instances on a unit, you get multiple sets of volumes (one set for each instance). So at deployment time, you need to define:
 
 - The SID of the different HANA instances (sidadm is derived from it).
 - The memory sizes of the different HANA instances. The memory size per instance defines the size of the volumes in each individual volume set.
