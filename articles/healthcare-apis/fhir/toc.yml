@@ -57,7 +57,7 @@
     - name: CMS Interoperability and Patient Access rule introduction
       href: cms-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
-      href: carin-implementation-guide-bluebutton-tutorial.md
+      href: carin-implementation-guide-blue-button-tutorial.md
     - name: DaVinci Drug Formulary
       href: davinci-drug-formulary-tutorial.md
     - name: DaVinci PDex
