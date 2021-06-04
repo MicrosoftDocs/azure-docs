@@ -29,6 +29,8 @@ The following configurations are currently supported with Azure AD joined VMs:
 * Personal Desktops with local profiles.
 * Pooled desktop or apps with local profiles, generally used as a jump box or for stateless applications.
 
+User accounts can be cloud-only or hybrid users.
+
 ## Deploy Azure AD joined VMs
 
 > [!IMPORTANT]
@@ -37,7 +39,8 @@ The following configurations are currently supported with Azure AD joined VMs:
 You can deploy Azure AD joined VMs directly from the Azure Portal when [creating a new host pool](create-host-pools-azure-marketplace.md) or [expanding an existing host pool](expand-existing-host-pool.md). On the Virtual Machines tab, the **Select which directory you would like to join** option allows you to select between Active Directory and Azure Active Directory. Selecting Azure Active Directory provides you with the option to **Enroll the VM with Intune** automatically so you can easily manage [Windows 10 ENT](/mem/intune/fundamentals/windows-virtual-desktop.md) and [Windows 10 ENT multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session.md) VMs. Note that the VMs will be joined to the same Azure AD tenant as the subscription.
 
 > [!NOTE]
-> Host pools should only contain VMs of the same domain join type, be that Active Directory or Azure Active Directory.
+> * Host pools should only contain VMs of the same domain join type, be that Active Directory or Azure Active Directory.
+> * The host pool VMs must be using Windows 10, version 2004 or above, single or multi-session.
 
 Once the host pool is created, you must assign user access. This is done in 2 parts for Azure AD joined VMs, giving users access to the App Group and providing users access to the VMs.
 
@@ -58,12 +61,9 @@ To enable access from Windows devices not joined or registered to Azure AD and a
 > [!NOTE]
 > Single sign-on is not currently supported for Azure AD joined VMs.
 
-## Configure user profiles
+## User profiles
 
-This section is under construction.
-
-- Hybrid user identities synced from AD to AAD using Azure AD Connect
-- FSLogix profiles must be stored in Azure Files. We do not currently support Azure NetApp Files for this scenario.
+Azure AD joined VMs currently only support local profiles. Support for FSLogix profiles will be available in a future update.
 
 ## Troubleshooting
 

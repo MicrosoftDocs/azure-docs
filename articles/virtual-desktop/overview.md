@@ -3,7 +3,7 @@ title: What is Windows Virtual Desktop? - Azure
 description: An overview of Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/14/2020
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -48,8 +48,8 @@ You can deploy and manage virtual desktops:
 
 You can also assign and connect users to your virtual desktops:
 
-* Once assigned, users can launch any Windows Virtual Desktop client to connect users to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Windows Virtual Desktop HTML5 web client.
-* Securely establish users through reverse connections to the service, so you never have to leave any inbound ports open.
+* Once assigned, users can launch any Windows Virtual Desktop client to connect to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Windows Virtual Desktop HTML5 web client.
+* Securely access resources through reverse connections to the service, so you never have to leave any inbound ports open.
 
 ## Requirements
 
@@ -79,7 +79,7 @@ User requirements to connect to Windows Virtual Desktop:
 
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* [Standard domain-joined](../active-directory-domain-services/compare-identity-solutions.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](../active-directory-domain-services/compare-identity-solutions.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). [Azure AD-joined](deploy-azure-ad-joined-vm.md) virtual machines are available in preview.
 * Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
