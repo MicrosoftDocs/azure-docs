@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: container-instances
 ms.topic: troubleshooting
-ms.date: 4/28/2021
+ms.date: 6/4/2021
 ms.custom: support-help-page
 ---
 
@@ -15,7 +15,7 @@ Here are suggestions for where you can get help when developing your Azure Conta
 
 ## Self help troubleshooting
 <div class='icon is-large'>
-    <img alt='Self help content' src='./media/logos/i-article.svg'>
+    <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
 See a list of [common issues in Azure Container instances](container-instances-troubleshooting.md) and how to resolve them. 
@@ -33,7 +33,7 @@ If you can't find an answer to your problem using search, submit a new question 
 ## Create an Azure support request
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='./media/logos/logo-azure.svg'>
+    <img alt='Azure support' src='./media/logos/azure-logo.png'>
 </div>
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
@@ -44,7 +44,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Check the Stack Overflow forum
 <div class='icon is-large'>
-    <img alt='Stack Overflow' src='./media/logos/logo-stack-overflow.svg'>
+    <img alt='Stack Overflow' src='./media/logos/stack-overflow-logo.png'>
 </div>
 
 The [**azure-container-instances**](https://stackoverflow.com/questions/tagged/azure-container-instances) tag on [Stack Overflow](https://stackoverflow.com/) is used for asking general questions about how the platform works and how you may use it to accomplish certain tasks.
@@ -75,7 +75,7 @@ If you need help with the language and tools used to develop and manage Azure Co
 ## Submit feature requests on Azure Feedback
 
 <div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/logo-uservoice.svg'>
+    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
 </div>
 
 To request new features, post them on Azure Feedback. Share your ideas for improving Azure Container Instances.
@@ -87,10 +87,12 @@ To request new features, post them on Azure Feedback. Share your ideas for impro
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
-    <img alt='Stay informed' src='./media/logos/i-blog.svg'>
+    <img alt='Stay informed' src='./media/logos/updates-logo.png'>
 </div>
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=containers).
+
+News and information about Azure Container Instances is shared at the [Azure blog](https://azure.microsoft.com/blog).
 
 ## Next steps
 
