@@ -53,8 +53,6 @@ In the **Support contact** section, provide the **Support website** where Azure 
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
-[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
-
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 

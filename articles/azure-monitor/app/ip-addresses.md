@@ -63,144 +63,26 @@ If you are using Azure Network Security Groups, simply add an **inbound port rul
 
 Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
 
-### Addresses grouped by location
+### IP Addresses
+
+If you're looking for the actual IP addresses so you can add them to the list of allowed IP's in your firewall, please download the JSON file describing Azure IP Ranges. These files contain the most up-to-date information.
+
+After downloading the appropriate file, open it using your favorite text editor and search for "ApplicationInsightsAvailability" to go straight to the section of the file describing the service tag for availability tests.
 
 > [!NOTE]
 > These addresses are listed using Classless Inter-Domain Routing (CIDR) notation. This means that an entry like `51.144.56.112/28` is equivalent to 16 IPs starting at `51.144.56.112` and ending at `51.144.56.127`.
 
-```
-Australia East
-20.40.124.176/28
-20.40.124.240/28
-20.40.125.80/28
+#### Azure Public Cloud
+Download [Public Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Brazil South
-191.233.26.176/28
-191.233.26.128/28
-191.233.26.64/28
+#### Azure US Government Cloud
+Download [Government Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57063).
 
-France Central (Formerly France South)
-20.40.129.96/28
-20.40.129.112/28
-20.40.129.128/28
-20.40.129.144/28
+#### Azure China Cloud
+Download [China Cloud IP addresses](https://www.microsoft.com/download/details.aspx?id=57062).
 
-France Central
-20.40.129.32/28
-20.40.129.48/28
-20.40.129.64/28
-20.40.129.80/28
-
-East Asia
-52.229.216.48/28
-52.229.216.64/28
-52.229.216.80/28
-
-North Europe
-52.158.28.64/28
-52.158.28.80/28
-52.158.28.96/28
-52.158.28.112/28
-
-Japan East
-52.140.232.160/28
-52.140.232.176/28
-52.140.232.192/28
-
-West Europe
-51.144.56.96/28
-51.144.56.112/28
-51.144.56.128/28
-51.144.56.144/28
-51.144.56.160/28
-51.144.56.176/28
-
-UK South
-51.105.9.128/28
-51.105.9.144/28
-51.105.9.160/28
-
-UK West
-20.40.104.96/28
-20.40.104.112/28
-20.40.104.128/28
-20.40.104.144/28
-
-Southeast Asia
-52.139.250.96/28
-52.139.250.112/28
-52.139.250.128/28
-52.139.250.144/28
-
-West US
-40.91.82.48/28
-40.91.82.64/28
-40.91.82.80/28
-40.91.82.96/28
-40.91.82.112/28
-40.91.82.128/28
-
-Central US
-13.86.97.224/28
-13.86.97.240/28
-13.86.98.48/28
-13.86.98.0/28
-13.86.98.16/28
-13.86.98.64/28
-
-North Central US
-23.100.224.16/28
-23.100.224.32/28
-23.100.224.48/28
-23.100.224.64/28
-23.100.224.80/28
-23.100.224.96/28
-23.100.224.112/28
-23.100.225.0/28
-
-South Central US
-20.45.5.160/28
-20.45.5.176/28
-20.45.5.192/28
-20.45.5.208/28
-20.45.5.224/28
-20.45.5.240/28
-
-East US
-20.42.35.32/28
-20.42.35.64/28
-20.42.35.80/28
-20.42.35.96/28
-20.42.35.112/28
-20.42.35.128/28
-
-```  
-
-#### Azure Government
-
-Not needed if you are an Azure Public cloud customer.
-
-```
-USGov Virginia
-52.227.229.80/31
-
-
-USGov Arizona
-52.244.35.112/31
-
-
-USGov Texas
-52.243.157.80/31
-
-
-USDoD Central
-52.182.23.96/31
-
-
-USDoD East
-52.181.33.96/31
-
-```
+### Discovery API
+You may also want to [programmatically retrieve](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) the current list of service tags together with IP address range details.
 
 ## Application Insights & Log Analytics APIs
 

@@ -8,7 +8,8 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 05/06/2021
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 ---
 
 # List Azure role definitions
@@ -35,7 +36,7 @@ The **Roles** tab was recently updated with some additional features. If you wan
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
-   ![Screenshot showing Roles list using new experience.](./media/role-definitions-list/roles-list.png)
+   ![Screenshot showing Roles list using new experience.](./media/shared/roles-list.png)
 
 1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
 

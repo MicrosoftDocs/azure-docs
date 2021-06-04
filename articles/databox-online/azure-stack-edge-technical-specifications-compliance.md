@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Stack Edge Pro FPGA technical specifications and compliance| Microsoft Docs
+title: Azure Stack Edge Pro FPGA technical specifications and compliance
 description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro FPGA
 services: databox
 author: alkohli

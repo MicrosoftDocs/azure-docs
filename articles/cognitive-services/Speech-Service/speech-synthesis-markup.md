@@ -197,14 +197,11 @@ Currently, speaking style adjustments are supported for the following neural voi
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
-* `zh-CN-YunxiNeural` (Preview)
-* `zh-CN-XiaohanNeural` (Preview)
-* `zh-CN-XiaomoNeural` (Preview)
-* `zh-CN-XiaoxuanNeural` (Preview)
-* `zh-CN-XiaoruiNeural` (Preview)
-
-> [!NOTE]
-> Voices in preview are only available in these 3 regions: East US, West Europe and Southeast Asia.
+* `zh-CN-YunxiNeural` 
+* `zh-CN-XiaohanNeural` 
+* `zh-CN-XiaomoNeural` 
+* `zh-CN-XiaoxuanNeural` 
+* `zh-CN-XiaoruiNeural`
 
 The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Currently, speaking style adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
@@ -367,6 +364,65 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
         <mstts:express-as role="OlderAdultMale" style="calm">
             “刚打车过来的，路上还挺顺畅。”
         </mstts:express-as>
+    </voice>
+</speak>
+```
+
+## Adjust speaking languages
+
+You can adjust speaking languages for neural voices.
+Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) using the `<lang xml:lang>` element. This is an optional element unique to the Speech service. Without this element, the voice will speak its primary language.
+Currently, speaking language adjustments are supported for these neural voices: `en-US-JennyMultilingualNeural`. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
+
+> [!NOTE]
+> Currently, the `<lang xml:lang>` element is incompatible with `prosody` and `break` element, you cannot adjust pause and prosody like pitch, contour, rate, duration, volume in this element.
+
+**Syntax**
+
+```xml
+<lang xml:lang="string"></lang>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `lang` | Specifies the speaking languages. Currently, speaking different languages are voice-specific. | Required if adjusting the speaking language for a neural voice. If using `lang xml:lang`, then locale must be provided. |
+
+Use this table to determine which speaking languages are supported for each neural voice.
+
+| Voice                            | Locale language           | Description                                                 |
+|----------------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Speak en-US locale, which is the primary locale of this voice |
+|                                  | `lang="en-CA"`            | Speak en-CA locale language                                  |
+|                                  | `lang="en-AU"`            | Speak en-AU locale language                                  |
+|                                  | `lang="en-GB"`            | Speak en-GB locale language                                  |
+|                                  | `lang="de-DE"`            | Speak de-DE locale language                                  |
+|                                  | `lang="fr-FR"`            | Speak fr-FR locale language                                  |
+|                                  | `lang="fr-CA"`            | Speak fr-CA locale language                                  |
+|                                  | `lang="es-ES"`            | Speak es-ES locale language                                  |
+|                                  | `lang="es-MX"`            | Speak es-MX locale language                                  |
+|                                  | `lang="zh-CN"`            | Speak zh-CN locale language                                  |
+|                                  | `lang="ko-KR"`            | Speak ko-KR locale language                                  |
+|                                  | `lang="ja-JP"`            | Speak ja-JP locale language                                  |
+|                                  | `lang="it-IT"`            | Speak it-IT locale language                                  |
+|                                  | `lang="pt-BR"`            | Speak pt-BR locale language                                  |
+
+**Example**
+
+This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX` and `de-DE`.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        I am looking forward to the exciting things.
+        <lang xml:lang="es-MX">
+            Estoy deseando que lleguen las cosas emocionantes.
+        </lang>
+        <lang xml:lang="de-DE">
+            Ich freue mich auf die spannenden Dinge.
+        </lang>
     </voice>
 </speak>
 ```
