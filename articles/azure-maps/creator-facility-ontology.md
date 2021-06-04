@@ -15,7 +15,7 @@ zone_pivot_groups: facility-ontology-schema
 
 Facility ontology defines how Azure Maps Creator internally stores facility data in a Creator dataset.  In addition to defining internal facility data structure, facility ontology is also exposed externally through the WFS API. When WFS API is used to query facility data in a dataset, the response format is defined by the ontology supplied to that dataset.
 
-At a high level, facility ontology divides the dataset into feature classes. All feature classes share a common set of properties, such as `ID` and `Geometry`.  In addition to the common property set, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependant on other feature classes. Dependant properties evaluate to the `ID` of another feature class.  
+At a high level, facility ontology divides the dataset into feature classes. All feature classes share a common set of properties, such as `ID` and `Geometry`.  In addition to the common property set, each feature class defines a set of properties. Each property is defined by its data type and constraints. Some feature classes have properties that are dependent on other feature classes. Dependant properties evaluate to the `ID` of another feature class.  
 
 ## Changes and Revisions
 
@@ -65,7 +65,7 @@ The `unit` feature class defines a physical and non-overlapping area that can be
 |`isOpenArea`        | boolean (Default value is `null`.)                    |false     | Represents whether the unit is an open area. If set to `true`, [structures](#structure) don't surround the unit boundary, and a navigating agent can enter the `unit` without the need of an [`opening`](#opening). By default, units are surrounded by physical barriers and are open only where an opening feature is placed on the boundary of the unit. If walls are needed in an open area unit, they can be represented as a [`lineElement`](#lineelement) or [`areaElement`](#areaelement) with an `isObstruction` property equal to `true`.|
 |`navigableBy`        | enum ["pedestrian", "wheelchair", "machine", "bicycle", "automobile", "hiredAuto", "bus", "railcar", "emergency", "ferry", "boat"]  | false      |Indicates the types of navigating agents that can traverse the unit. If unspecified, the unit is assumed to be traversable by any navigating agent. |
 |`isRoutable`        | boolean (Default value is `null`.)                      | false    |  Determines if the unit is part of the routing graph. If set to `true`, the unit can be used as source/destination or intermediate node in the routing experience. |
-|`routeThroughBehavior`        | enum ["disallowed", "allowed", "preferred"] |  false     | Determines if navigating through the unit is allowed. If unspecified, it inherits inherits its value from the category feature referred to in the `categoryId` property. If specified, it overrides the value given in its category feature." |
+|`routeThroughBehavior`        | enum ["disallowed", "allowed", "preferred"] |  false     | Determines if navigating through the unit is allowed. If unspecified, it inherits its value from the category feature referred to in the `categoryId` property. If specified, it overrides the value given in its category feature." |
 |`nonPublic`        |  boolean| false       | If `true`, the unit is navigable only by privileged users.  Default value is `false`. |
 | `levelId`          | [level.Id](#level)        | true     | The ID of a level feature. |
 |`occupants`         |  array of [directoryInfo.Id](#directoryinfo) |    false |    The IDs of [directoryInfo](#directoryinfo) features. Used to represent one or many occupants in the feature. |
@@ -139,7 +139,7 @@ The `zone` feature class defines a virtual area, like a WiFi zone or emergency a
 
 ## level
 
-The `level` class feature defines aAn area of a building at a set elevation. For example, the floor of a building, which contains a set of features, such as [`units`](#unit).  
+The `level` class feature defines an area of a building at a set elevation. For example, the floor of a building, which contains a set of features, such as [`units`](#unit).  
 
 **Geometry Type**: MultiPolygon
 
