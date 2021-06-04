@@ -18,9 +18,9 @@ ms.author: inhenkel
 
 ## Introduction
  
-This quickstart shows how to deploy an event-based solution on Azure. Videos uploaded to a storage account will be transformed using a Job in Azure Media Services. It uses the Media Service v3 API.
+In some scenarios or use-cases, Azure Media Services should process or analyze videos the moment these videos land on a data store. An example use-case could be that a security team needs to analyze videos from an on-site location to check if people follow security instructions (e.g. wearing helmets, distance). To comply to privacy rules, the faces of people captured on the videos should be redacted. To reduce the amount of videos to be analyzed, cameras on an Edge device only capture videos when motion is detected. These videos are uploaded to Azure and should be processed by Azure Media Services (e.g. to redact faces) as soon as the videos land. This quickstart shows how to use Azure Media Services in such an event-based solution on Azure. Videos uploaded to a storage account will be transformed using a Job in Azure Media Services. It uses the Media Service v3 API.
 
-The specific transformation that will be used is called [Face Redactor](./analyze-face-redaction-concept.md). This is an Azure Media Analytics media processor, that allows you to modify your video by blurring faces of selected individuals.
+The specific transformation that will be used is called [Face Redactor](./analyze-face-redaction-concept.md). This is an Azure Media Analytics preset, that allows you to modify your video by blurring faces of selected individuals.
 
 By the end of the quickstart you will be able to redact faces in a video:
 
@@ -31,7 +31,7 @@ By the end of the quickstart you will be able to redact faces in a video:
 ![Architecture overview of solution](./media/faceredaction-eventbased-python-quickstart/architecture.png)
 
 
-This quickstart shows how to deploy the solution that can be found in the solution overview above. It starts with a storage account (Azure Data Lake Storage Gen2), with an Event Listener connected to it (Event Grid), that triggers an Azure Function when new .mp4 files are uploaded to the storage account. The Azure Function will submit a job to a pre-configured Transformation in Azure Media Services. The resulting Redacted video will be stored on a Blob Storage account.
+This quickstart shows how to deploy the solution that can be found in the solution overview above. It starts with a storage account (Azure Data Lake Storage Gen2), with an Event Listener connected to it (Event Grid), that triggers an Azure Function when new .mp4 files are uploaded to the storage account. The Azure Function will submit a job to a pre-configured Transform in Azure Media Services. The resulting redacted video will be stored on a Blob Storage account.
 
 ## Prerequisites
 
