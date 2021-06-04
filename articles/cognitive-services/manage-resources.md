@@ -86,7 +86,7 @@ To purge a deleted cognitive service resource, use the following commands. Where
 Use the following `DELETE` command:
 
 ```rest-api
-https://management.azure.com/subscriptions/{subscirptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}?Api-Version=2021-04-30`
+https://management.azure.com/subscriptions/{subscriptionID}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}?Api-Version=2021-04-30`
 ```
 
 ### Using PowerShell
@@ -98,7 +98,7 @@ Remove-AzResource -ResourceId /subscriptions/{subscriptionID}/providers/Microsof
 ### Using the Azure CLI
 
 ```azurecli-interactive
-az resource delete /subscriptions/{subscirptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
+az resource delete /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
 ```
 
 ## See also
