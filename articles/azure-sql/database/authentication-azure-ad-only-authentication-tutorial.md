@@ -17,7 +17,7 @@ ms.date: 06/01/2021
 > [!NOTE]
 > The **Azure AD-only authentication** feature discussed in this article is in **public preview**. 
 
-This article guides you through enabling the [Azure AD-only authentication](authentication-azure-ad-only-authetication.md) feature within Azure SQL Database and Azure SQL Managed Instance.
+This article guides you through enabling the [Azure AD-only authentication](authentication-azure-ad-only-authentication.md) feature within Azure SQL Database and Azure SQL Managed Instance.
 
 In this tutorial, you learn how to:
 
@@ -40,16 +40,16 @@ In order to enable or disable Azure AD-only authentication, selected built-in ro
 
 For more information on how to assign a role to an Azure AD account, see [Assign administrator and non-administrator roles to users with Azure Active Directory](../../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
-For more information on the required permission to enable or disable Azure AD-only authentication, see the [Permissions section of Azure AD-only authentication](authentication-azure-ad-only-authetication.md#permissions) article.
+For more information on the required permission to enable or disable Azure AD-only authentication, see the [Permissions section of Azure AD-only authentication](authentication-azure-ad-only-authentication.md#permissions) article.
 
 1. In our example, we'll assign the **SQL Security Manager** role to the user `UserSqlSecurityManager@contoso.onmicrosoft.com`. Using privileged user that can assign Azure AD roles, sign into the [Azure portal](https://portal.zure.com).
 1. Go to your SQL server resource, and select **Access control (IAM)** in the menu. Select the **Add** button and then **Add role assignment** in the drop-down menu.
 
-   :::image type="content" source="media/authentication-azure-ad-only-authetication/azure-ad-only-authetication-access-control.png" alt-text="Access control pane in the Azure portal":::
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-authentication-access-control.png" alt-text="Access control pane in the Azure portal":::
 
 1. In the **Add role assignment** pane, select the Role **SQL Security Manager**, and select the user that you want to have the ability to enable or disable Azure AD-only authentication.
 
-   :::image type="content" source="media/authentication-azure-ad-only-authetication/azure-ad-only-authetication-access-control-add-role.png" alt-text="Add role assignment pane in the Azure portal":::
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-authentication-access-control-add-role.png" alt-text="Add role assignment pane in the Azure portal":::
 
 1. Click **Save**.
 
@@ -64,7 +64,7 @@ To enable Azure AD-only authentication auth in the Azure portal, see the steps b
 1. Using the user with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role, go to the [Azure portal](https://portal.zure.com).
 1. Go to your SQL server resource, and select **Azure Active Directory** under the **Settings** menu.
 
-   :::image type="content" source="media/authentication-azure-ad-only-authetication/azure-ad-only-authetication-portal.png" alt-text="Enable Azure AD only auth menu":::
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-authentication-portal.png" alt-text="Enable Azure AD only auth menu":::
 
 1. If you haven't added an **Azure Active Directory admin**, you'll need to set this before you can enable Azure AD-only authentication.
 1. Select the **Support only Azure Active Directory authentication for this server** checkbox.
@@ -80,12 +80,12 @@ Managing Azure AD-only authentication for SQL Managed Instance in the portal is 
 
 To enable Azure AD-only authentication in Azure SQL Database using Azure CLI, see the commands below. [Install the latest version of Azure CLI](/cli/azure/install-azure-cli-windows). You must have Azure CLI version **2.14.2** or higher. For more information on these commands, see [az sql server ad-only-auth](/cli/azure/sql/server/ad-only-auth).
 
-For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authetication.md#managing-azure-ad-only-authentication-using-apis).
+For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis).
 
 > [!NOTE]
 > The Azure AD admin must be set for the server before enabling Azure AD-only authentication. Otherwise, the Azure CLI command will fail.
 >
-> For permissions and actions required of the user performing these commands to enable Azure AD-only authentication, see the [Azure AD-only authentication](authentication-azure-ad-only-authetication.md#permissions) article.
+> For permissions and actions required of the user performing these commands to enable Azure AD-only authentication, see the [Azure AD-only authentication](authentication-azure-ad-only-authentication.md#permissions) article.
 
 1. [Sign into Azure](/cli/azure/authenticate-azure-cli) using the account with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role.
 
@@ -121,12 +121,12 @@ To enable Azure AD-only authentication in Azure SQL Managed Instance using Azure
 
 To enable Azure AD-only authentication in Azure SQL Database using PowerShell, see the commands below. [Az.Sql 2.10.0](https://www.powershellgallery.com/packages/Az.Sql/2.10.0) module or higher is required to execute these commands. For more information on these commands, see [Enable-AzSqlInstanceActiveDirectoryOnlyAuthentication](/powershell/module/az.sql/enable-azsqlinstanceactivedirectoryonlyauthentication).
 
-For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authetication.md#managing-azure-ad-only-authentication-using-apis)
+For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis)
 
 > [!NOTE]
 > The Azure AD admin must be set for the server before enabling Azure AD-only authentication. Otherwise, the PowerShell command will fail.
 >
-> For permissions and actions required of the user performing these commands to enable Azure AD-only authentication, see the [Azure AD-only authentication](authentication-azure-ad-only-authetication.md#permissions) article. If the user has insufficient permissions, you will get the following error:
+> For permissions and actions required of the user performing these commands to enable Azure AD-only authentication, see the [Azure AD-only authentication](authentication-azure-ad-only-authentication.md#permissions) article. If the user has insufficient permissions, you will get the following error:
 >
 > ```output
 > Enable-AzSqlServerActiveDirectoryOnlyAuthentication : The client
@@ -152,7 +152,7 @@ For more information on managing Azure AD-only authentication using APIs, see [M
 
 To enable Azure AD-only authentication in Azure SQL Managed Instance using PowerShell, see the commands below. [Az.Sql 2.10.0](https://www.powershellgallery.com/packages/Az.Sql/2.10.0) module or higher is required to execute these commands. 
 
-For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authetication.md#managing-azure-ad-only-authentication-using-apis).
+For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis).
 
 
 1. [Sign into Azure](/powershell/azure/authenticate-azureps) using the account with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role.
@@ -183,7 +183,7 @@ These commands can be used to check whether Azure AD-only authentication is enab
 
 ## Check status in SQL Database
 
-1. [Sign into Azure](/cli/azure/authenticate-azure-cli) using the account with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role. For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authetication.md#managing-azure-ad-only-authentication-using-apis)
+1. [Sign into Azure](/cli/azure/authenticate-azure-cli) using the account with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role. For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis)
 
    ```azurecli
    az login
@@ -241,7 +241,7 @@ The status will return **True** if the feature is enabled, and **False** if disa
 
 ## Check status in SQL Database
 
-1. [Sign into Azure](/powershell/azure/authenticate-azureps) using the account with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role. For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authetication.md#managing-azure-ad-only-authentication-using-apis)
+1. [Sign into Azure](/powershell/azure/authenticate-azureps) using the account with the [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role. For more information on managing Azure AD-only authentication using APIs, see [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis)
 
    ```powershell
    Connect-AzAccount
@@ -394,7 +394,7 @@ After disabling Azure AD-only authentication, test connecting using a SQL authen
 
 ## Next steps
 
-[Azure AD-only authentication with Azure SQL](authentication-azure-ad-only-authetication.md)
+[Azure AD-only authentication with Azure SQL](authentication-azure-ad-only-authentication.md)
 
 
 
