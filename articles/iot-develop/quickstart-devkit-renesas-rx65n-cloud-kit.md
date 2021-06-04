@@ -16,7 +16,7 @@ ms.date: 06/01/2021
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RX65N_Cloud_Kit)
 
-In this tutorial, you use Azure RTOS to connect the Renesas RX65N Cloud Kit (hereafter, the Renesas RX65N) to Azure IoT. The article is part of the series [Get started with Azure IoT embedded device development](quickstart-device-development.md). The series introduces device developers to Azure RTOS, and shows how to connect several device evaluation kits to Azure IoT.
+In this quickstart, you use Azure RTOS to connect the Renesas RX65N Cloud Kit (hereafter, the Renesas RX65N) to Azure IoT.
 
 You will complete the following tasks:
 
@@ -36,11 +36,11 @@ You will complete the following tasks:
 
 ## Prepare the development environment
 
-To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the tutorial. Then you install a set of programming tools.
+To set up your development environment, first you clone a GitHub repo that contains all the assets you need for the quickstart. Then you install a set of programming tools.
 
-### Clone the repo for the tutorial
+### Clone the repo for the quickstart
 
-Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another tutorial, you don't need to do it again.
+Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation. If you previously cloned this repo in another quickstart, you don't need to do it again.
 
 To clone the repo, run the following command:
 
@@ -50,7 +50,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### Install the tools
 
-The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another tutorial in the getting started guide, you don't need to do it again.
+The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another embedded device quickstart, you don't need to do it again.
 
 > [!NOTE]
 > The setup script installs the following tools:
@@ -68,7 +68,7 @@ To install the tools:
 
    > *%USERPROFILE%\AppData\Roaming\GCC for Renesas RX 8.3.0.202004-GNURX-ELF\rx-elf\rx-elf\bin*
 
-1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the tutorial. You can use Windows CMD, PowerShell, or Git Bash for Windows.
+1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following commands to confirm that CMake version 3.14 or later is installed and the RX compiler path is set up correctly.
 
     ```shell
@@ -265,9 +265,13 @@ Select **About** tab from the device page.
 
 :::image type="content" source="media/quickstart-devkit-renesas-rx65n-cloud-kit/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
 
+## Troubleshoot
+
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+
 ## Clean up resources
 
-If you no longer need the Azure resources created in this tutorial, you can delete them from the IoT Central portal.
+If you no longer need the Azure resources created in this quickstart, you can delete them from the IoT Central portal.
 
 To remove the entire Azure IoT Central sample application and all its devices and resources:
 1. Select **Administration** > **Your application**.
@@ -275,12 +279,15 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next steps
 
-In this tutorial, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Renesas RX65N device. You also used the IoT Central portal to create Azure resources, connect the Renesas RX65N securely to Azure, view telemetry, and send messages.
+In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Renesas RX65N device. You also used the IoT Central portal to create Azure resources, connect the Renesas RX65N securely to Azure, view telemetry, and send messages.
 
-* For device developers, the suggested next step is to see the other tutorials in the series [Getting started with Azure IoT embedded device development](quickstart-device-development.md).
-* If you have issues getting your device to initialize or connect after following the steps in this guide, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
-* To learn more about how Azure RTOS components are used in the sample code for this tutorial, see [Using Azure RTOS in the Getting Started guide](https://github.com/azure-rtos/getting-started/blob/master/docs/using-azure-rtos.md).
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
-    > [!IMPORTANT]
-    > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
+> [!div class="nextstepaction"]
+> [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
+> [!div class="nextstepaction"]
+> [Connect a simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+
+> [!IMPORTANT]
+> Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
 
