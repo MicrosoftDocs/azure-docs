@@ -47,7 +47,8 @@ This T-SQL snippet stores the XEvent session in the ring buffer, but it's also p
 
 ## Monitor backup progress 
 
-After the XEvent session is created, you can use Transact-SQL to query ring buffer results and monitor the progress of the backup.
+After the XEvent session is created, you can use Transact-SQL (T-SQL) to query ring buffer results and monitor the progress of the backup. Once the XEvent starts, it collects all backup events so entries are added to the session roughly every 5-10 minutes.  
+
 
 The following Transact-SQL (T-SQL) query returns the name of the database, the total number of bytes processed, and the time the backup completed: 
 
@@ -70,7 +71,10 @@ SELECT * FROM b
 ```
 
 The following screenshot shows an example of the output of the above query: 
+
 ![Screenshot of the xEvent output](./media/monitor-backup-activity/present-xevents-output.png)
+
+In this demo, five databases were automatically backed up over the course of 2 hours and 30 minutes, and there are 130 entries in the XEvent session. 
 
 
 ## Next steps
