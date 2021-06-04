@@ -25,7 +25,7 @@ The following client operating systems are supported:
 * Windows Server 2016 (64-bit only)
 * Windows Server 2019 (64-bit only)
 * Windows 10
-* Mac OS X version 10.11 or above
+* macOS version 10.11 or above
 * Linux (StrongSwan)
 * iOS
 
@@ -59,7 +59,7 @@ Depending on the VPN Client software used, you may be able to connect to multipl
 
 ### Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 
-Yes, Point-to-Site connections to a Virtual Network Gateway deployed in a VNet that is peered with other VNets may have access to other peered VNets.  Provided the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features, the Point-to-Site client will be able to connect to those peered VNets.  For more information please reference [this](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) article.
+Yes, Point-to-Site connections to a Virtual Network Gateway deployed in a VNet that is peered with other VNets may have access to other peered VNets.  Provided the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features, the Point-to-Site client will be able to connect to those peered VNets.  For more information, please reference [this](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) article.
 
 ### How much throughput can I expect through Site-to-Site or Point-to-Site connections?
 
@@ -69,9 +69,9 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of supported client operating systems.
 
-### Can I change the authentication type?
+### Can I change the authentication type for a Point-to-Site connection?
 
-You can change the authentication method for your Point-to-Site connections. In the portal, navigate to the **VPN gateway -> Point-to-site configuration** section and select the desired radio button. Please note that current clients may not be able to connect after the change until a new VPN client configuration profile has been generated, downloaded, and applied to the VPN client.
+Yes. In the portal, navigate to the **VPN gateway -> Point-to-site configuration** page. For **Authentication type**, select the authentication types that you want to use . Please note that after you make a change to an authentication type, current clients may not be able to connect until a new VPN client configuration profile has been generated, downloaded, and applied to each VPN client.
 
 ### Does Azure support IKEv2 VPN with Windows?
 
