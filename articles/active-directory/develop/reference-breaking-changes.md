@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 6/3/2021
+ms.date: 6/4/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -67,17 +67,15 @@ If the app then makes one last request for any of the three scopes (say, `scope=
 As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
 
 The prompt that appears looks like this:
-![Image of new prompt](/media/breaking-changes/dcf_prompt.png)
-
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
 
 ## May 2020
 
-
-### Bug fix: Azure AD will no longer URL encode the state parameter twice.
+### Bug fix: Azure AD will no longer URL encode the state parameter twice
 
 **Effective date**: May 2021
 
-**Endpoints impacted**: v1.0 and v2.0 
+**Endpoints impacted**: v1.0 and v2.0
 
 **Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
 
