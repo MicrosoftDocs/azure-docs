@@ -334,7 +334,7 @@ In this section, you create a Java console app that receives file upload notific
 
 2. At your command prompt, navigate to the new `my-app` folder.
 
-3. Using a text editor, replace the `pom.xml` file in the `my-app` folder with the following. Adding the dependency enables you to use the **iothub-java-service-client** package in your application to communicate with your IoT hub service:
+3. Using a text editor, replace the `pom.xml` file in the `my-app` folder with the following. Adding the service client dependency enables you to use the **iothub-java-service-client** package in your application to communicate with your IoT hub service:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
