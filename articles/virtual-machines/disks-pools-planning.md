@@ -22,8 +22,20 @@ If you're prioritizing low latency, use ultra disks inside your disk pool. Ultra
 If you're prioritizing throughput, begin by evaluating the number of disk pools required to deliver your throughput targets. Once you have the necessary targets, you can split it amongst each individual disk and their types. Currently, two disk types can be used in a disk pool, premium SSDs and ultra disks. Premium SSDs can deliver high IOPS and MBps that scales with their storage capacity, whereas ultra disks can scale their performance independent of their storage capacity. Select the type that is the best fit for your cost and performance balance. Also, confirm your network connectivity from your clients to the disk pool is not a bottleneck.
 
 
-## Disk pool scalability and performance targets
+## Use cases
 
+The following table lists some typical use cases for disk pools with Azure VMware Solution (AVS) and a recommended configuration.
+
+
+|AVS use cases  |Suggested disk type  |Suggested network configuration  |
+|---------|---------|---------|
+|Block storage for active working sets, an extension of AVS vSAN.     |Ultra disks         |Use Express Route virtual network gateway: Ultra Performance or ErGw3AZ (10Gbps) to connect the disk pool virtual network to the AVS cloud and enable FastPath to minimize network latency.         |
+|Tiering - tier infrequently accessed data from the AVS vSAN to the disk pool.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1Gbps) or High Performance (2Gpbs) to connect the disk pool virtual network to the AVS cloud.         |
+|Data storage for disaster recovery site on AVS - replicate data from on-premises or primary VMWare environment to the disk pool as a secondary site.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1Gbps) or High Performance (2Gpbs) to connect the disk pool virtual network to the AVS cloud.         |
+
+Refer to the [Networking planning checklist for Azure VMware Solution](../azure-vmware/tutorial-network-checklist.md) to plan for your networking setup, along with other AVS considerations.
+
+## Disk pool scalability and performance targets
 
 |Resource  |Limit  |
 |---------|---------|
