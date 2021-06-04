@@ -140,7 +140,7 @@ sections:
           
           
       - question: |
-          What if the Log Analytics agent was already installed as an extension on the VM?<a name="mmaextensioninstalled"></a>
+          What if the Log Analytics agent was already installed as an extension on the VM?
         answer: |
           When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Security Center does not override existing connections to user workspaces. Security Center will store security data from a VM in a workspace that is already connected, provided that the "Security" or "SecurityCenterFree" solution has been installed on it. Security Center may upgrade the extension version to the latest version in this process.
           
@@ -149,7 +149,7 @@ sections:
           
           
       - question: |
-          What if a Log Analytics agent is directly installed on the machine but not as an extension (Direct Agent)?<a name="directagentinstalled"></a>
+          What if a Log Analytics agent is directly installed on the machine but not as an extension (Direct Agent)?
         answer: |
           If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Security Center will install the Log Analytics agent extension, and may upgrade the Log Analytics agent to the latest version.
           
@@ -161,10 +161,10 @@ sections:
           
           For existing machines on subscriptions onboarded to Security Center before March 17 2019, when an existing agent will be detected, the Log Analytics agent extension will not be installed and the machine will not be affected. For these machines, see the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
           
-          For more information, see the next section [What happens if a System Center Operations Manager or OMS direct agent is already installed on my VM?](#scomomsinstalled)
+          For more information, see the next section [What happens if a System Center Operations Manager or OMS direct agent is already installed on my VM?](#what-if-a-system-center-operations-manager-agent-is-already-installed-on-my-vm--a-name--scomomsinstalled----a-)
           
       - question: |
-          What if a System Center Operations Manager agent is already installed on my VM?<a name="scomomsinstalled"></a>
+          What if a System Center Operations Manager agent is already installed on my VM?
         answer: |
           Security center will install the Log Analytics agent extension side by side to the existing System Center Operations Manager agent. The existing agent will continue to report to the System Center Operations Manager server normally. Note that the Operations Manager agent and Log Analytics agent share common run-time libraries, which will be updated to the latest version during this process. Note - If version 2012 of the Operations Manager agent is installed, do not turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).
           
@@ -197,7 +197,7 @@ sections:
           Should I opt out of the automatic agent installation and workspace creation?
         answer: |
           > [!NOTE]
-          > Be sure to review sections [What are the implications of opting out?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) and [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) if you choose to opt out of automatic provisioning.
+          > Be sure to review sections [What are the implications of opting out?](#what-are-the-implications-of-opting-out-of-automatic-provisioning-) and [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning-) if you choose to opt out of automatic provisioning.
           
           You may want to opt out of automatic provisioning if the following applies to you:
           
@@ -206,15 +206,15 @@ sections:
           - If you have a custom workspace external to the subscription (a centralized workspace), then you should opt out of automatic provisioning. You can manually install the Log Analytics agent extension and connect it your workspace without Security Center overriding the connection.
           - If you want to avoid creation of multiple workspaces per subscription and you have your own custom workspace within the subscription, then you have two options:
           
-             1. You can opt out of automatic provisioning. After migration, set the default workspace settings as described in [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace)
+             1. You can opt out of automatic provisioning. After migration, set the default workspace settings as described in [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace-)
           
-             1. Or, you can allow the migration to complete, the Log Analytics agent to be installed on the VMs, and the VMs connected to the created workspace. Then, select your own custom workspace by setting the default workspace setting with opting in to reconfiguring the already installed agents. For more information, see [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace)
+             1. Or, you can allow the migration to complete, the Log Analytics agent to be installed on the VMs, and the VMs connected to the created workspace. Then, select your own custom workspace by setting the default workspace setting with opting in to reconfiguring the already installed agents. For more information, see [How can I use my existing Log Analytics workspace?](#how-can-i-use-my-existing-log-analytics-workspace-)
           
           
       - question: |
           What are the implications of opting out of automatic provisioning?
         answer: |
-          When migration is complete, Security Center can't collect security data from the VM and some security recommendations and alerts are unavailable. If you opt out, install the Log Analytics agent manually. See [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+          When migration is complete, Security Center can't collect security data from the VM and some security recommendations and alerts are unavailable. If you opt out, install the Log Analytics agent manually. See [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning-).
           
           
       - question: |
@@ -230,7 +230,7 @@ sections:
           
           
       - question: |
-          How do I remove OMS extensions installed by Security Center?<a name="remove-oms"></a>
+          How do I remove OMS extensions installed by Security Center?
         answer: |
           You can manually remove the Log Analytics agent. This is not recommended as it limits Security Center recommendations and alerts.
           
@@ -245,7 +245,7 @@ sections:
           
           1.    Select the VMs that you don't want to monitor and select **Disconnect**.
           
-             ![Remove the agent][3]
+             ![Remove the agent][./media/security-center-platform-migration-faq/remove-the-agent.png]
           
           > [!NOTE]
           > If a Linux VM already has a non-extension OMS agent, removing the extension removes the agent as well and you'll have to reinstall it.
