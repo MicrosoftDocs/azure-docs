@@ -40,31 +40,19 @@ az network vnet subnet update \
   --disable-private-endpoint-network-policies true
 ```
 ## Using a template
-This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
+This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template for the subnet *default* in the virtual network *myVirtualNetwork*:
 ```json
 { 
-          "name": "myVirtualNetwork", 
-          "type": "Microsoft.Network/virtualNetworks", 
-          "apiVersion": "2019-04-01", 
+          "name": "myVirtualNetwork/default", 
+          "type": "Microsoft.Network/virtualNetworks/subnets", 
+          "apiVersion": "2020-07-01", 
           "location": "WestUS", 
           "properties": { 
-                "addressSpace": { 
-                     "addressPrefixes": [ 
-                          "10.0.0.0/16" 
-                        ] 
-                  }, 
-                  "subnets": [ 
-                         { 
-                                "name": "default", 
-                                "properties": { 
-                                    "addressPrefix": "10.0.0.0/24", 
-                                    "privateEndpointNetworkPolicies": "Disabled" 
-                                 } 
-                         } 
-                  ] 
+                "addressPrefix": "10.0.0.0/16",
+                "privateEndpointNetworkPolicies": "Enabled",
+                "privateLinkServiceNetworkPolicies": "Disabled"
           } 
 } 
 ```
 ## Next steps
 - Learn more about [Azure private endpoint](private-endpoint-overview.md)
- 
