@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 05/24/2021
+ms.date: 06/24/2021
 ms.author: alkohli
 ---
 # Kubernetes networking on Azure Stack Edge Pro GPU device
@@ -26,7 +26,7 @@ Here is an example of a typical 2-tier app that is deployed to the Kubernetes cl
 - Every pod is assigned an IP but these IPs can change on restart and failover of the pod. 
 - Each app is made up of multiple pods and there should be load balancing of the traffic across all the pod replicas. 
 
-![Kubernetes networking requirements](./media/azure-stack-edge-gpu-kubernetes-networking/kubernetes-networking-1.png)
+![Kubernetes networking requirements](./media/azure-stack-edge-gpu-kubernetes-networking/kubernetes-networking-1m.png)
 
 The above scenario results in the following networking requirements:
 
