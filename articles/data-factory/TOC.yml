@@ -909,7 +909,7 @@
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ
-    href: frequently-asked-questions.md
+    href: frequently-asked-questions.yml
     displayName: timeout
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
