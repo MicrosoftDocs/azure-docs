@@ -51,11 +51,11 @@ Example SQL syntax to create user and grant permission:
 CREATE USER [PurviewManagedIdentity] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [PurviewManagedIdentity]
+EXEC sp_addrolemember 'db_datareader', [PurviewManagedIdentity]
 GO
 ```
 
-The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_owner` permission to the identity.
+The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_datareader` permission to the identity.
 
 ### Service Principal
 
@@ -91,7 +91,7 @@ In addition, you must also create an Azure AD user in Azure Synapse Analytics by
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
+ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalName]
 GO
 ```
 

@@ -6,7 +6,8 @@ ms.service: data-factory
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
-ms.author: jingwang
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure data factory and pipeline by using the REST API

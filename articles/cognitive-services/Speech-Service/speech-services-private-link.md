@@ -9,7 +9,8 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.author: alexeyo
+ms.author: alexeyo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use Speech service through a private endpoint
