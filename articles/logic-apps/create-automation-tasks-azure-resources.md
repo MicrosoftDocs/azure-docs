@@ -3,9 +3,9 @@ title: Create automation tasks to manage and monitor Azure resources
 description: Set up automated tasks that help you manage Azure resources and monitor costs by creating workflows that run on Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 05/01/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
@@ -17,8 +17,6 @@ ms.date: 04/05/2021
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
-
-Behind the scenes, an automation task is actually a workflow that runs on the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service and is billed using the same [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps/) and [pricing model](../logic-apps/logic-apps-pricing.md). After you create the task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
 Here are the currently available task templates in this preview:
 
@@ -43,9 +41,15 @@ This article shows you how to complete the following tasks:
 
 ## How do automation tasks differ from Azure Automation?
 
-Currently, you can create an automation task only at the resource level, view the task's runs history, and edit the task's underlying logic app workflow, which is powered by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md).
+Behind the scenes, an automation task is actually a multi-tenant based logic app resource that runs a workflow in the [multi-tenant Azure Logic Apps service](../logic-apps/logic-apps-overview.md). Currently, you can create an automation task only at the resource level, view the task's runs history, and edit the task's underlying logic app workflow, which is powered by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md).
 
 By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking/overview.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
+
+<a name="pricing"></a>
+
+## Pricing
+
+The underlying logic app resource uses the [*consumption-based* metering model](logic-apps-pricing.md] where usage is metered. Plus, the same [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps/) and [pricing model](../logic-apps/logic-apps-pricing.md) applies. After you create the task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
 ## Prerequisites
 
