@@ -140,7 +140,7 @@ Once you have the dual-write proxy up and running, then you will need to change 
 
 ## Run the historic data load.
 
-Create a Scala Notebook in Databricks. Replace your source and target Cassandra configurations with the corresponding credentials, and source and target keyspaces and tables. Add more variables for each table as required to the below sample, then run. After your application has started sending requests to the dual-write proxy, you are ready to migrate historic data. 
+To load the data, create a Scala notebook in your Databricks account. Replace your source and target Cassandra configurations with the corresponding credentials, and source and target keyspaces and tables. Add more variables for each table as required to the below sample, then run. After your application has started sending requests to the dual-write proxy, you are ready to migrate historic data. 
 
 ```scala
 import com.datastax.spark.connector._
