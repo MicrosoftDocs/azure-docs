@@ -74,7 +74,7 @@ For large ledger tables, database verification can be a resource-intensive proce
 
 The verification process can be executed hourly or daily for cases where the integrity of the database needs to be frequently monitored. Or it can be executed only when the organization that's hosting the data goes through an audit and needs to provide cryptographic evidence about the integrity of the data. To reduce the cost of verification, ledger exposes options to verify individual ledger tables or only a subset of the ledger tables. 
 
-You accomplish database verification through two stored procedures, depending on whether you [use automatic digest storage](#database-verification-using-automatic-digest-storage) or you [manually manage digests](#database-verification-using-manual-digest-storage).
+You accomplish database verification through two stored procedures, depending on whether you [use automatic digest storage](#database-verification-that-uses-automatic-digest-storage) or you [manually manage digests](#database-verification-that-uses-manual-digest-storage).
 
 > [!IMPORTANT]
 > Database verification requires the *View Ledger Content* permission. For details on permissions related to ledger tables, see [Permissions](/sql/relational-databases/security/permissions-database-engine#asdbpermissions). 
