@@ -7,7 +7,7 @@ author: amitbapat
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 06/01/2021
 ms.author: ambapat
 
 ---

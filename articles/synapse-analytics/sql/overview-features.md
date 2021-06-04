@@ -130,7 +130,7 @@ Data that is analyzed can be stored on various storage types. The following tabl
 | **Azure Blob Storage** | Yes | Yes |
 | **Azure SQL (remote)** | No | No |
 | **Azure CosmosDB transactional storage** | No | No |
-| **Azure CosmosDB analytical storage** | No | Yes, using [Synapse Link(preview)](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) ([public preview](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json#limitations)) |
+| **Azure CosmosDB analytical storage** | No | Yes, using [Synapse Link](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) |
 | **Apache Spark tables (in workspace)** | No | PARQUET tables only using [metadata synchronization](develop-storage-files-spark-tables.md) |
 | **Apache Spark tables (remote)** | No | No |
 | **Databricks tables (remote)** | No | No |

@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/16/2021
+ms.date: 06/03/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -28,7 +28,7 @@ There are certain sets of claims that define how and when they're used in tokens
 | Claim set | Description |
 |---|---|
 | Core claim set | Are present in every token regardless of the policy. These claims are also considered restricted, and can't be modified. |
-| Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can omit or modify basic claims by using the claims mapping policies. |
+| Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can [omit or modify basic claims](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens) by using the claims mapping policies. |
 | Restricted claim set | Can't be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. |
 
 ### Table 1: JSON Web Token (JWT) restricted claim set

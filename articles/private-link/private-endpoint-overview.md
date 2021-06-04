@@ -106,20 +106,6 @@ The private link resource owner can perform the following actions over a private
 > [!NOTE]
 > Only a private endpoint in an approved state can send traffic to a given private link resource. 
 
-### RBAC permissions
-
-The following are specific RBAC permissions the user needs to be able to create a Private Endpoint. To find more information on custom roles, please review [Steps to create a custom role](/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role).
-
-Microsoft.Resources/deployments/*
-Microsoft.Resources/subscriptions/resourcegroups/resources/read
-Microsoft.Network/virtualNetworks/read
-Microsoft.Network/virtualNetworks/subnets/read
-Microsoft.Network/virtualNetworks/subnets/write
-Microsoft.Network/virtualNetworks/subnets/join/action
-Microsoft.Network/privateEndpoints/read
-Microsoft.Network/privateEndpoints/write
-Microsoft.Network/locations/availablePrivateEndpointTypes/read
-
 ### Connecting using Alias
 Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owner can share this Alias with their consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) for details. 
 
