@@ -14,7 +14,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/23/2018
+ms.date: 05/30/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ---
@@ -53,7 +53,7 @@ After you've [registered your SQL Server VM with the SQL IaaS extension](sql-age
 
 Additionally, after you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) you can view Security Center alerts directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal. This includes both SQL vulnerability assessments and Advanced Threat Protection notifications. 
 
-See [manage SQL VM in the portal](manage-sql-vm-portal.md) to learn more. 
+See [manage SQL Server VM in the portal](manage-sql-vm-portal.md) to learn more. 
 
 ## Azure Key Vault integration 
 
@@ -91,7 +91,7 @@ Finally, consider enabling encrypted connections for the instance of the SQL Ser
 
 ## Encryption
 
-Managed disks offer Server-Side Encryption, and Azure Disk Encryption. [Server-Side Encryption](../../../virtual-machines/disk-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) uses either Bitlocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
+Managed disks offer Server-Side Encryption, and Azure Disk Encryption. [Server-Side Encryption](../../../virtual-machines/disk-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) uses either BitLocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
 
 ## Non-default port
 

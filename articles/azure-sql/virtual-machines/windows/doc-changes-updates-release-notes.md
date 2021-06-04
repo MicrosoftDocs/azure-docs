@@ -17,7 +17,7 @@ ms.date: 05/30/2021
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
-## May 2021
+## June 2021
 
 | Changes | Details |
 | --- | --- |

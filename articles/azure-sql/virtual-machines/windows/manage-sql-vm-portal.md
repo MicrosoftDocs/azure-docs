@@ -11,7 +11,7 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/13/2019
+ms.date: 05/30/2021
 ms.author: mathoma
 ms.reviewer: jroth
 
@@ -82,17 +82,17 @@ Use the **Patching** page of the SQL virtual machines resource to enable auto pa
 ![Configure automated patching and schedule in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-automated-patching.png)
 
 
-To learn more see, [Automated patching](automated-patching.md). 
+To learn more, see, [Automated patching](automated-patching.md). 
 
 
 
 ## Backups
 
-Use the **Backups** page of the SQL virtual machines resource to configure your automated backup settings, such as the retention period, which storage account to use, encryption, whether or not to back up system databases, and a back up schedule. 
+Use the **Backups** page of the SQL virtual machines resource to configure your automated backup settings, such as the retention period, which storage account to use, encryption, whether or not to back up system databases, and a backup schedule. 
 
 ![Configure automated backup and schedule in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-automated-backup.png)
 
-To learn more see, [Automated patching](automated-backup.md). 
+To learn more, see, [Automated patching](automated-backup.md). 
 
 
 ## High availability (Preview)
