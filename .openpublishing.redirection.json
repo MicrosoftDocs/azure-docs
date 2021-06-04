@@ -41676,6 +41676,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cloud-services-extended-support/cses-support-help.md",
+      "redirect_url": "/azure/cloud-services-extended-support/support-help",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks.md",
       "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-use-disks-cli",
       "redirect_document_id": false
