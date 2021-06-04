@@ -21,7 +21,7 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
 
 1. Search for **Maintenance Configurations**.
     
-    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-search-2.png" alt-text="Screenshot showing how to open Maintenance Configurations":::
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-search-bar.png" alt-text="Screenshot showing how to open Maintenance Configurations":::
 
 1. Click **Add**.
 
@@ -29,20 +29,20 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
 
 1. In the Basics tab, choose a subscription and resource group, provide a name for the configuration, choose a region, and select *Host* for the scope. Click **Next**.
     
-    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-2.png" alt-text="Screenshot showing Maintenance Configuration basics":::
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics-tab.png" alt-text="Screenshot showing Maintenance Configuration basics":::
 
 1. In the Schedule tab, declare a scheduled window when Azure will apply the updates on your resources. Set a start date, maintenance window, and recurrence. Once you create a scheduled window you no longer have to apply the updates manually. Click **Next**. 
 
     > [!IMPORTANT]
     > Maintenance window **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to repeat at least once in 35-days. 
 
-    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-schedule-2.png" alt-text="Screenshot showing Maintenance Configuration schedule":::
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-schedule-tab.png" alt-text="Screenshot showing Maintenance Configuration schedule":::
 
 1. In the Assignment tab, assign resources now or skip this step and assign resources later after maintenance configuration deployment. Click **Next**.
 
 1. Add tags and values. Click **Next**.
     
-    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags-2.png" alt-text="Screenshot showing how to add tags to a maintenance configuration":::
+    :::image type="content" source="media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags-tab.png" alt-text="Screenshot showing how to add tags to a maintenance configuration":::
 
 1. Review the summary. Click **Create**.
 
