@@ -32,6 +32,8 @@
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
+  - name: Major version upgrades
+    href: how-to-upgrade-using-dump-and-restore.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -408,8 +410,6 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
-    - name: Major version upgrades
-      href: how-to-upgrade-using-dump-and-restore.md
 - name: Flexible Server (Preview)
   expanded: true
   items:

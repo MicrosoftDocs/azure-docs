@@ -68,11 +68,11 @@ You can also drive Azure Digital Twins from other data sources, using REST APIs 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for additional analytics or storage. This is provided through **event routes**, which use [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to drive your desired data flows.
 
 Some things you can do with event routes include:
+* [Connecting Azure Digital Twins to Time Series Insights](how-to-integrate-time-series-insights.md) to track time series history of each twin
+* Aligning a Time Series Model in Time Series Insights with a source in Azure Digital Twins
 * Storing Azure Digital Twins data in [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
 * Analyzing Azure Digital Twins data with [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), or other Microsoft data analytics tools
 * Integrating larger workflows with Logic Apps​
-* Connecting Azure Digital Twins to Time Series Insights to track time series history of each twin
-* Aligning a Time Series Model in Time Series Insights with a source in Azure Digital Twins
 
 This is another way that Azure Digital Twins can connect into a larger solution, and support your custom needs for continued work with these insights.
 
