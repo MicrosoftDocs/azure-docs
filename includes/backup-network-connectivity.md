@@ -43,19 +43,19 @@ If you are a US Government customer, ensure that you have access to the followin
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
-When backing up files and folders from Azure VMs using the MARS Agent, you also need to configure the Azure virtual network to allow access. If you use Network Security Groups (NSG), use the AzureBackup service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (AzureActiveDirectory) and Azure Storage (Storage).
+When backing up files and folders from Azure VMs using the MARS Agent, you also need to configure the Azure virtual network to allow access. If you use Network Security Groups (NSG), use the AzureBackup service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](./articles/virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (AzureActiveDirectory) and Azure Storage (Storage).
 
 To create a rule for the Azure Backup tag, follow these steps:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 1. Select **Outbound security rules** under **Settings**.
 1. Select **Add**.
-1. Provide all required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings).<br>Ensure the option are set as below:
+1. Provide all required details for creating a new rule as described in [security rule settings](./articles/virtual-network/manage-network-security-group.md#security-rule-settings).<br>Ensure the options are set as below:
    - **Destination** is set to _Service Tag_.
    - **Destination service tag** is set to _AzureBackup_.
 1. Select **Add** to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD. To learn more about service tags, see [Virtual network service tags](../virtual-network/service-tags-overview.md).
+You can similarly create NSG outbound security rules for Azure Storage and Azure AD. To learn more about service tags, see [Virtual network service tags](./articles/virtual-network/service-tags-overview.md).
 
 ### Use Azure ExpressRoute
 
@@ -75,11 +75,11 @@ To use public peering, ensure that the following domains and addresses have HTTP
 - 40.126.0.0/18
 
 To use Microsoft peering, select the following services, regions, and relevant community values:
-•	Azure Active Directory (12076:5060)
-•	Azure region, according to the location of your Recovery Services vault
-•	Azure Storage, according to the location of your Recovery Services vault
+- Azure Active Directory (12076:5060)
+- Azure region, according to the location of your Recovery Services vault
+- Azure Storage, according to the location of your Recovery Services vault
 
-Learn more about [ExpressRoute routing requirements](../expressroute/expressroute-routing.md#bgp).
+Learn more about [ExpressRoute routing requirements](./articles/expressroute/expressroute-routing.md#bgp).
 
 >[!NOTE]
 >Public peering is deprecated for new circuits.
@@ -92,7 +92,7 @@ You can now use Private Endpoints to back up your data securely from servers to 
 When you use the MARS agent to back up your on-premises resources, ensure that your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault. You can then continue to install the MARS agent and configure backup. However, you must ensure all communication for backup happens through the peered network only.
 
 If you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
-Read more about [private endpoints for Azure Backup](private-endpoints.md).
+Read more about [private endpoints for Azure Backup](./articles/backup/private-endpoints.md).
 
 ### Throttling support
 
