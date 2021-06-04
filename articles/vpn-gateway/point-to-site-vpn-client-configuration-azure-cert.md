@@ -12,9 +12,9 @@ ms.author: cherylmc
 
 # Generate and install VPN client configuration files for P2S certificate authentication
 
-When you connect to an Azure VNet using Point-to-Site and certificate authentication, you use the VPN client that is natively installed on the operating system from which you are connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the native VPN clients for Windows, Mac IKEv2 VPN, or Linux.
+When you connect to an Azure VNet using Point-to-Site and certificate authentication, you use the VPN client that is natively installed on the operating system from which you are connecting. All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients for Windows, Mac IKEv2 VPN, or Linux.
 
-The VPN client configuration files that you generate are specific to the VPN gateway configuration for the virtual network. If there are any changes to the Point-to-Site VPN configuration after you generate the files, such as the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect.
+The VPN client configuration files that you generate are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the Point-to-Site VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
 * For more information about Point-to-Site connections, see [About Point-to-Site VPN](point-to-site-about.md).
 * For OpenVPN instructions, see [Configure OpenVPN for P2S](vpn-gateway-howto-openvpn.md) and [Configure OpenVPN clients](vpn-gateway-howto-openvpn-clients.md).
