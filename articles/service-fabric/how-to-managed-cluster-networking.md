@@ -225,7 +225,7 @@ Service Fabric managed clusters creates an NSG rule in default priority range fo
 
 ## Load balancer probes
 
-Service Fabric managed clusters automatically create load balancer probes for fabric gateway ports as well as all ports configured under the "loadBalancingRules" section of managed cluster properties.
+Service Fabric managed clusters automatically creates load balancer probes for fabric gateway ports as well as all ports configured under the "loadBalancingRules" section of managed cluster properties.
 
 ```json
 { 
