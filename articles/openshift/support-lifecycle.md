@@ -110,7 +110,7 @@ Reverting your cluster to a previous version, or a rollback, isn't supported. On
 
 **What does "Outside of Support" mean?**
 
-If your ARO cluster is running an OpenShift version that is not on the supported versions list or is using an [unsupported cluster configuration](https://docs.microsoft.com/azure/openshift/support-policies-v4), your cluster is "outside of support". As a result:
+If your ARO cluster is running an OpenShift version that is not on the supported versions list or is using an [unsupported cluster configuration](./support-policies-v4.md), your cluster is "outside of support". As a result:
 - When opening a support ticket for your cluster, you will be asked to upgrade the cluster to a supported version. before receiving support, unless you are within the 30-day grace period after version support ends. 
 - Any runtime or SLA guarantees for clusters outside of the support are voided.
 - Clusters outside of support will be patched only on a best effort basis.

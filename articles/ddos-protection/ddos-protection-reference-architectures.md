@@ -69,7 +69,7 @@ The backend resources in the on-premises environment will not be exposed to the 
 
 When DDoS Protection Standard is enabled on the virtual network which contains the AppGW/WAF, DDoS Protection Standard will defend your application by mitigating bad traffic and routing the supposed clean traffic to your application. 
 
-This [article](https://docs.microsoft.com/azure/azure-vmware/protect-azure-vmware-solution-with-application-gateway) shows you how you can use DDoS Protection Standard alongside Application Gateway to protect a web app running on Azure VMware Solution.
+This [article](../azure-vmware/protect-azure-vmware-solution-with-application-gateway.md) shows you how you can use DDoS Protection Standard alongside Application Gateway to protect a web app running on Azure VMware Solution.
 
 ## Mitigation for non-web PaaS services
 

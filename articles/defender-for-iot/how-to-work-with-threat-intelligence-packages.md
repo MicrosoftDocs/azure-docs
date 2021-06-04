@@ -26,7 +26,9 @@ This intelligence provides contextual information to enrich Microsoft platform a
 
 ## When are packages delivered ##
 
-Threat intelligence packages are provided approximately once a month, or if needed more frequently. Announcements about new packages are available from: https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT. 
+Threat intelligence packages are provided approximately once a month, or if needed more frequently. Announcements about new packages are available from: https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT.
+
+You can also see the most current package delivered from the **Threat intelligence update** section of the **Updates** page on the Defender for IoT portal.  
 
 ## Update threat intelligence packages to your sensors ##
 

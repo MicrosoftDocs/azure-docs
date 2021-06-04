@@ -4,7 +4,6 @@ description: Common questions and answers about Azure and Azure Active Directory
 services: active-directory
 author: ajburnle
 manager: daveba
-
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -115,7 +114,8 @@ For more information, see [Getting started with password management](../authenti
 
 **A:** Yes, if you have password write-back enabled, the password operations performed by an admin are written back to your on-premises environment.  
 
-For more answers to password-related questions, see [Password management frequently asked questions](../authentication/active-directory-passwords-faq.md).
+For more answers to password-related questions, see [Password management frequently asked questions](../authentication/active-directory-passwords-faq.yml).
+
 ---
 **Q:  What can I do if I can't remember my existing Microsoft 365/Azure AD password while trying to change my password?**
 
@@ -128,8 +128,8 @@ For Azure AD accounts, admins can reset passwords by using one of the following:
 - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
 - [Using PowerShell](/powershell/module/msonline/set-msoluserpassword)
 
-
 ---
+
 ## Security
 **Q: Are accounts locked after a specific number of failed attempts or is there a more sophisticated strategy used?**
 

@@ -4,13 +4,13 @@ description: How to use Node.js to create a program that connects to a database 
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.devlang: nodejs
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: v-masebo
-ms.date: 05/29/2020
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma, v-masebo
+ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
 ---
 # Quickstart: Use Node.js to query a database in Azure SQL Database or Azure SQL Managed Instance
@@ -147,6 +147,8 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
         queryDatabase();
       }
     });
+    
+    connection.connect();
 
     function queryDatabase() {
       console.log("Reading rows from the Table...");

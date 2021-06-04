@@ -1,6 +1,6 @@
 ---
 title: SKUs for SAP HANA on Azure (Large Instances) | Microsoft Docs
-description: SKUs for SAP HANA on Azure (Large Instances).
+description: Learn about the SKUs available for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: msjuergent
@@ -8,15 +8,18 @@ manager: juergent
 editor: ''
 keywords: 'HLI, HANA, SKUs, S896, S224, S448, S672, Optane, SAP'
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 4/16/2021
-ms.author: juergent
+ms.date: 5/13/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017, references_regions
 
 ---
 # Available SKUs for HANA Large Instances
+
+## BareMetal Infrastructure availability by region
 
 BareMetal Infrastructure (certified for SAP HANA workloads) service based on Rev 4.2* is available in the following regions:
 - West Europe
@@ -27,19 +30,19 @@ BareMetal Infrastructure (certified for SAP HANA workloads) service based on Rev
 - South Central US
 - West US 2 with Zones support
 
-BareMetal Infrastructure (certified for SAP HANA workloads) service based on Rev 3* has limited availability in following regions:
+BareMetal Infrastructure (certified for SAP HANA workloads) service based on Rev 3* has limited availability in the following regions:
 - West US
 - East US 
 - Australia East 
 - Australia Southeast
 - Japan East
 
+## List of available Azure Large Instances
 
-The following is a list of available Azure Large instances.
+The following is a list of available Azure Large Instances (also known as BareMetal Infrastructure instances).
 
 > [!IMPORTANT]
 > Be aware of the first column that represents the status of HANA certification for each of the Large Instance types in the list. The column should correlate with the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) for the Azure SKUs that start with the letter **S**.
-
 
 
 | SAP HANA certified | Model | Total Memory | Memory DRAM | Memory Optane | Storage | Availability |
@@ -81,22 +84,23 @@ The following is a list of available Azure Large instances.
 
 - CPU cores = sum of non-hyper-threaded CPU cores of the sum of the processors of the server unit.
 - CPU threads = sum of compute threads provided by hyper-threaded CPU cores of the sum of the processors of the server unit. Most units are configured by default to use Hyper-Threading Technology.
-- Based on supplier recommendations S768m, S768xm, and S960m are not configured to use Hyper-Threading for running SAP HANA.
+- Based on supplier recommendations, S768m, S768xm, and S960m aren't configured to use Hyper-Threading for running SAP HANA.
 
 
 > [!IMPORTANT]
-> The following SKUs, though still supported can't be purchased anymore: S72, S72m, S144, S144m, S192, and S192m 
+> The following SKUs, though still supported, can't be purchased anymore: S72, S72m, S144, S144m, S192, and S192m.
 
-The specific configurations chosen are dependent on workload, CPU resources, and desired memory. It's possible for the OLTP workload to use the SKUs that are optimized for the OLAP workload. 
+Specific configurations chosen are dependent on workload, CPU resources, and desired memory. It's possible for the OLTP workload to use the SKUs that are optimized for the OLAP workload. 
 
 Two different classes of hardware divide the SKUs into:
 
 - S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, and S224m, S224oo, S224om, S224ooo, S224oom are referred to as the "Type I class" of SKUs.
 - All other SKUs are referred to as the "Type II class" of SKUs.
-- If you are interested in SKUs that are not yet listed in the SAP hardware directory, contact your Microsoft account team to get more information. 
+- If you're interested in SKUs that aren't yet listed in the SAP hardware directory, contact your Microsoft account team to get more information. 
 
+## Tenant considerations
 
-A complete HANA Large Instance stamp isn't exclusively allocated for a single customer&#39;s use. This fact applies to the racks of compute and storage resources connected through a network fabric deployed in Azure as well. HANA Large Instance infrastructure, like Azure, deploys different customer &quot;tenants&quot; that are isolated from one another in the following three levels:
+A complete HANA Large Instance stamp isn't exclusively allocated for a single customer's use. This applies to the racks of compute and storage resources connected through a network fabric deployed in Azure as well. HANA Large Instance infrastructure, like Azure, deploys different customer "tenants" that are isolated from one another in the following three levels:
 
 - **Network**: Isolation through virtual networks within the HANA Large Instance stamp.
 - **Storage**: Isolation through storage virtual machines that have storage volumes assigned and isolate storage volumes between tenants.
@@ -106,11 +110,16 @@ The deployments of HANA Large Instance units between different tenants aren't vi
 
 A deployed tenant in the Large Instance stamp is assigned to one Azure subscription for billing purposes. For a network, it can be accessed from virtual networks of other Azure subscriptions within the same Azure enrollment. If you deploy with another Azure subscription in the same Azure region, you also can choose to ask for a separated HANA Large Instance tenant.
 
-There are significant differences between running SAP HANA on HANA Large Instance and SAP HANA running on VMs deployed in Azure:
+## SAP HANA on HANA Large Instances vs. on VMs
+
+There are significant differences between running SAP HANA on HANA Large Instances and SAP HANA running on VMs deployed in Azure:
 
 - There is no virtualization layer for SAP HANA on Azure (Large Instances). You get the performance of the underlying bare-metal hardware.
 - Unlike Azure, the SAP HANA on Azure (Large Instances) server is dedicated to a specific customer. There is no possibility that a server unit or host is hard or soft partitioned. As a result, a HANA Large Instance unit is used as assigned as a whole to a tenant and with that to you. A reboot or shutdown of the server doesn't lead automatically to the operating system and SAP HANA being deployed on another server. (For Type I class SKUs, the only exception is if a server encounters issues and redeployment needs to be performed on another server.)
 - Unlike Azure, where host processor types are selected for the best price/performance ratio, the processor types chosen for SAP HANA on Azure (Large Instances) are the highest performing of the Intel E7v3 and E7v4 processor line.
 
 ## Next steps
-- Refer to [HLI Sizing](hana-sizing.md).
+Learn about sizing for HANA Large Instances.
+
+> [!div class="nextstepaction"]
+> [HLI Sizing](hana-sizing.md)

@@ -40,8 +40,6 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598144-video-indexer
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap

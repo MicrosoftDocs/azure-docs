@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 04/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -127,8 +127,15 @@ In the following example, a Conditional Access administrator has configured a lo
 1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator
 1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**.
 1. Choose **Enable preview**.
+1. Select **Save**.
 
 From this page, you can optionally limit the users and groups that will be subject to the preview.
+
+> [!WARNING]
+> To disable continuous access evaluation please select **Enable preview** then **Disable preview** and select **Save**.
+
+> [!NOTE]
+>You can query the Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&tabs=http#request-body) to verify the configuration of CAE in your tenant. An HTTP 200 response and associated response body indicate whether CAE is enabled or disabled in your tenant. CAE is not configured if Microsoft Graph returns an HTTP 404 response.
 
 ![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
 
@@ -184,4 +191,6 @@ Sign-in Frequency will be honored with or without CAE.
 
 ## Next steps
 
-[Announcing continuous access evaluation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+- [Announcing continuous access evaluation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
+- [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
+- [Claims challenges, claims requests, and client capabilities](../develop/claims-challenge.md)

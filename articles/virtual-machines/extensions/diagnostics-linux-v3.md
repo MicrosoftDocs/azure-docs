@@ -7,7 +7,8 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: linux
-ms.date: 12/13/2018 
+ms.date: 12/13/2018  
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use Linux diagnostic extension 3.0 to monitor metrics and logs
@@ -15,7 +16,7 @@ ms.date: 12/13/2018
 This document describes version 3.0 and newer of the Linux diagnostic extension (LAD).
 
 > [!IMPORTANT]
-> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> For information about version 2.3 and earlier, see [Monitor the performance and diagnostic data of a Linux VM](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
 

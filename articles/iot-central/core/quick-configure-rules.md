@@ -26,13 +26,13 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
 1. Enter **Environmental humidity** as the rule name.
 
-1. In the **Target devices** section, select **Sensor Controller** as the device template. This option filters the devices the rule applies to by device template type. You can add more filter criteria by selecting **+ Filter**.
+1. In the **Target devices** section, select **Sensor Controller** as the **Device template**. This option filters the devices the rule applies to by device template type. You can add more filter criteria by selecting **+ Filter**.
 
 1. In the **Conditions** section, you define what triggers your rule. Use the following information to define a condition based on temperature telemetry:
 
     | Field        | Value            |
     | ------------ | ---------------- |
-    | Measurement  | SensorHumid      |
+    | Telemetry    | SensorHumid      |
     | Operator     | is greater than  |
     | Value        | 55               |
 
@@ -40,7 +40,7 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
     :::image type="content" source="media/quick-configure-rules/condition.png" alt-text="Screenshot showing the rule condition":::
 
-1. To add an email action to run when the rule triggers, select **+ Email**.
+1. To add an email action to run when the rule triggers, in the **Action** section, select **+ Email**.
 
 1. Use the information in the following table to define your action and then select **Done**:
 
@@ -55,14 +55,14 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
     :::image type="content" source="media/quick-configure-rules/action.png" alt-text="Screenshot that shows an email action added to the rule":::
 
-1. Select **Save**. Your rule is listed on the **Rules** page.
+1. Select **Save**. Your rule is now listed on the **Rules** page.
 
 ## Test the rule
 
 Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, your application sends an email to the address you specified in the action.
 
 > [!NOTE]
-> After your testing is complete, turn off the rule to stop receiving alerts in your inbox.
+> After your testing is complete, disable the rule to stop receiving alerts in your inbox.
 
 ## Next steps
 

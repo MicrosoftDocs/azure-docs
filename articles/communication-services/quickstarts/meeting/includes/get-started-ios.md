@@ -81,7 +81,7 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 ### Add the Teams Embed framework
 
-1. Download the [`MicrosoftTeamsSDK` iOS package.](https://github.com/Azure/communication-teams-embed/releases)
+1. Download the `MicrosoftTeamsSDK` iOS package.
 2. Create a `Frameworks` folder in the project root. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
 3. Copy the downloaded `TeamsAppSDK.framework` and `MeetingUIClient.framework` and other frameworks provided in the release bundle to this folder.
 4. Add the frameworks to the project target under the general tab. Use the `Add Other` -> `Add Files...` to navigate to the framework files and add them.

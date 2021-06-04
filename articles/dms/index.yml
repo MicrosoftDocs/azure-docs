@@ -131,15 +131,7 @@ landingContent:
 # Card 5
   - title: Migrate Oracle to Azure
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Migrate to Azure Database for PostgreSQL - Single server - online
-            url: tutorial-oracle-azure-postgresql-online.md
-      - linkListType: reference
-        links:
-          - text: Known issues - Online migration to Azure Database for PostgreSQL - Single server
-            url: known-issues-oracle-azure-postgresql-online.md
       - linkListType: video
         links:
           - text: Migrate to SQL Database single database
-            url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
+            url: /azure/postgresql/howto-migrate-from-oracle

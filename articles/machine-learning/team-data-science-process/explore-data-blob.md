@@ -8,7 +8,7 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 04/30/2021
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -30,11 +30,10 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
 1. Download the data from Azure blob with the following Python code sample using Blob service. Replace the variable in the following code with your specific values:
 
     ```python
-    from azure.storage.blob import BlockBlobService
+    from azure.storage.blob import BlobServiceClient
     import pandas as pd
-    import tables
 
-    STORAGEACCOUNTNAME= <storage_account_name>
+    STORAGEACCOUNTURL= <storage_account_url>
     STORAGEACCOUNTKEY= <storage_account_key>
     LOCALFILENAME= <local_file_name>
     CONTAINERNAME= <container_name>
@@ -42,8 +41,11 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
 
     #download from blob
     t1=time.time()
-    blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-    blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
+    blob_service_client_instance = BlobServiceClient(account_url=STORAGEACCOUNTURL, credential=STORAGEACCOUNTKEY)
+    blob_client_instance = blob_service_client.get_blob_client(CONTAINERNAME, BLOBNAME, snapshot=None)
+    with open(LOCALFILENAME, "wb") as my_blob:
+        blob_data = blob_client_instance.download_blob()
+        blob_data.readinto(my_blob)
     t2=time.time()
     print(("It takes %s seconds to download "+BLOBNAME) % (t2 - t1))
     ```
@@ -55,7 +57,9 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
     dataframe_blobdata = pd.read_csv(LOCALFILENAME)
     ```
 
-Now you are ready to explore the data and generate features on this dataset.
+If you need more general information on reading from an Azure Storage Blob, look at our documentation [Azure Storage Blobs client library for Python](/python/api/overview/azure/storage-blob-readme).  
+
+Now you are ready to explore the data and generate features on this dataset.  
 
 ## <a name="blob-dataexploration"></a>Examples of data exploration using pandas
 Here are a few examples of ways to explore data using pandas:

@@ -133,6 +133,11 @@ Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now co
 
 ### Modify ASP.NET Core
 
+> [!NOTE]
+> **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Azure SDK. 
+> It is replaced with new **Azure Identity client library** available for .NET, Java, TypeScript and Python and should be used for all new development. 
+> Information about how to migrate to `Azure Identity`can be found here: [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
+
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
@@ -177,6 +182,9 @@ To enable a managed identity for your Azure app, use the [az webapp identity ass
 az webapp identity assign --resource-group myResourceGroup --name <app-name>
 ```
 
+> [!NOTE]
+> To enable managed identity for a [deployment slot](deploy-staging-slots.md), add `--slot <slot-name>` and use the name of the slot in *\<slot-name>*.
+
 Here's an example of the output:
 
 <pre>
@@ -217,7 +225,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* is the name of the managed identity in Azure AD. If the identity is system-assigned, the name always the same as the name of your App Service app. To grant permissions for an Azure AD group, use the group's display name instead (for example, *myAzureSQLDBAccessGroup*).
+*\<identity-name>* is the name of the managed identity in Azure AD. If the identity is system-assigned, the name is always the same as the name of your App Service app. For a [deployment slot](deploy-staging-slots.md), the name of its system-assigned identity is *\<app-name>/slots/\<slot-name>*. To grant permissions for an Azure AD group, use the group's display name instead (for example, *myAzureSQLDBAccessGroup*).
 
 Type `EXIT` to return to the Cloud Shell prompt.
 
@@ -244,6 +252,9 @@ All that's left now is to publish your changes to Azure.
 ![Publish from Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 In the publish page, click **Publish**. 
+
+> [!IMPORTANT]
+> Ensure that your app service name doesn't match with any existing [App Registrations](../active-directory/manage-apps/add-application-portal.md). This will lead to Principal ID conflicts.
 
 **If you came from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, publish your changes using Git, with the following commands:
 

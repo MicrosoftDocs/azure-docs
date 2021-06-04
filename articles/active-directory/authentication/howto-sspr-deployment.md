@@ -84,7 +84,7 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 |Tutorials |[Complete an Azure AD self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
 | |[Enabling password writeback](./tutorial-enable-sspr-writeback.md) |
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
-| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.md) |
+| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
 
 
 ### Solution architecture
@@ -325,7 +325,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 * Refer to [Troubleshoot self-service password reset](./troubleshoot-sspr.md) 
 
-* Follow [Password management frequently asked questions](./active-directory-passwords-faq.md) 
+* Follow [Password management frequently asked questions](./active-directory-passwords-faq.yml) 
 
 ### Helpful documentation
 

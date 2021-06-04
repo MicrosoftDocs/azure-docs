@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure File Sync proxy and firewall settings
@@ -92,7 +93,7 @@ To configure machine-wide proxy settings, follow the steps below:
 2. Set the WinHTTP proxy settings 
 
    > [!Note]  
-   > There are several methods (WPAD, PAC file, netsh, etc.) to configure a Windows Server to use a proxy server. The steps below cover how to configure the proxy settings using netsh but any method listed in the [Configure proxy server settings in Windows](https://docs.microsoft.com/troubleshoot/windows-server/networking/configure-proxy-server-settings) documentation is supported.
+   > There are several methods (WPAD, PAC file, netsh, etc.) to configure a Windows Server to use a proxy server. The steps below cover how to configure the proxy settings using netsh but any method listed in the [Configure proxy server settings in Windows](/troubleshoot/windows-server/networking/configure-proxy-server-settings) documentation is supported.
 
 
    - Run the following command from an elevated command prompt or PowerShell to see the existing proxy setting:   

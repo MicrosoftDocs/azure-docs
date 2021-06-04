@@ -2,7 +2,7 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 05/23/2021
 ms.custom: references_regions
 
 ---
@@ -195,7 +195,7 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 
 ## Can I use custom VM extensions?
 
-The Log Analytics agent is supported because it's an extension managed by Microsoft. Otherwise no, AKS is a managed service, and manipulation of the IaaS resources isn't supported. To install custom components, use the Kubernetes APIs and mechanisms. For example, use DaemonSets to install required components.
+No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. To install custom components, use the Kubernetes APIs and mechanisms. For example, use DaemonSets to install required components.
 
 ## Does AKS store any customer data outside of the cluster's region?
 
@@ -273,6 +273,9 @@ spec:
 
 The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granular Control of Volume Permission Changes](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/) for more details.
 
+## Can I use FIPS cryptographic libraries with deployments on AKS?
+
+FIPS-enabled nodes are currently available in preview on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool (preview)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
 
 <!-- LINKS - internal -->
 
@@ -281,7 +284,7 @@ The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granula
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
 [node-updates-kured]: node-updates-kured.md
-[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[aks-preview-cli]: /cli/azure/aks
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md

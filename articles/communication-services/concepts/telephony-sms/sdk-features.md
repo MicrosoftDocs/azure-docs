@@ -12,8 +12,6 @@ ms.service: azure-communication-services
 ---
 # SMS SDK overview
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
-
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services SMS SDKs can be used to add SMS messaging to your applications.

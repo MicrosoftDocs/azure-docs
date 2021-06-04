@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 05/20/2021
 ms.author: b-juche
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
@@ -81,6 +81,8 @@ This article explains the considerations and steps for enabling LDAP with extend
     You can manage POSIX attributes by using the Active Directory Users and Computers MMC snap-in. The following example shows the Active Directory Attribute Editor:  
 
     ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
+
+    See [Access Active Directory Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) for details.  
 
 5. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 

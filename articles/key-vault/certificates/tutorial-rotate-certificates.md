@@ -79,7 +79,7 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
       |-----------|------|
       |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
       
-      You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+      You can learn about [setting up Email contact here](./overview-renew-certificate.md#get-notified-about-certificate-expiration)
 
 1. Select **Create**.
 

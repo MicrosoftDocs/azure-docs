@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 05/06/2021
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -21,7 +21,7 @@ You can access some of these logs through the portal. Logs can be sent to [Azure
 
 ## Prerequisites
 
-Before starting you should read [Azure Firewall logs and metrics](logs-and-metrics.md) for an overview of the diagnostics logs and metrics available for Azure Firewall.
+Before starting, you should read [Azure Firewall logs and metrics](logs-and-metrics.md) for an overview of the diagnostics logs and metrics available for Azure Firewall.
 
 ## Enable diagnostic logging through the Azure portal
 
@@ -54,19 +54,19 @@ To enable diagnostic logging with PowerShell, use the following steps:
 
    You can use any workspace in your subscription. You can use the Azure portal to find this information. The information is located in the resource **Properties** page.
 
-2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+2. Note the resource ID for the firewall. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
 
    You can use the portal to find this information.
 
 3. Enable diagnostic logging for all logs and metrics by using the following PowerShell cmdlet:
 
-   ```powershell
-   $diagSettings = @{
+   ```azurepowershell
+      $diagSettings = @{
       Name = 'toLogAnalytics'
       ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
       Enabled = $true
-   }
+      }
    Set-AzDiagnosticSetting  @diagSettings 
    ```
 
@@ -80,14 +80,14 @@ To enable diagnostic logging with Azure CLI, use the following steps:
 
    You can use any workspace in your subscription. You can use the Azure portal to find this information. The information is located in the resource **Properties** page.
 
-2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+2. Note the resource ID for the firewall. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
 
    You can use the portal to find this information.
 
 3. Enable diagnostic logging for all logs and metrics by using the following Azure CLI command:
 
-   ```azurecli-interactive
-   az monitor diagnostic-settings create -n 'toLogAnalytics'
+   ```azurecli
+      az monitor diagnostic-settings create -n 'toLogAnalytics'
       --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
       --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
@@ -116,12 +116,12 @@ You can also connect to your storage account and retrieve the JSON log entries f
 > If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
 
 ## View metrics
-Browse to an Azure Firewall, under **Monitoring** select **Metrics**. To view the available values, select the **METRIC** drop-down list.
+Browse to an Azure Firewall. Under **Monitoring**, select **Metrics**. To view the available values, select the **METRIC** drop-down list.
 
 ## Next steps
 
 Now that you've configured your firewall to collect logs, you can explore Azure Monitor logs to view your data.
 
-[Monitor logs using Azure Firewall Workbook](firewall-workbook.md)
+- [Monitor logs using Azure Firewall Workbook](firewall-workbook.md)
 
-[Networking monitoring solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)
+- [Networking monitoring solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)

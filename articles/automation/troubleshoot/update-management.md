@@ -3,8 +3,8 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 04/16/2021
-ms.topic: troubleshooting 
+ms.date: 04/18/2021
+ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -389,10 +389,10 @@ Review the registry keys listed under [Configuring Automatic Updates by editing 
 
 ### Issue
 
-A machine shows a `Failed to start` status. When you view the specific details for the machine, you see the following error:
+A machine shows a `Failed to start` or `Failed` status. When you view the specific details for the machine, you see the following error:
 
 ```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+For one or more machines in schedule, UM job run resulted in either Failed or Failed to start state. Guide available at https://aka.ms/UMSucrFailed.
 ```
 
 ### Cause
@@ -406,6 +406,8 @@ This error can occur for one of the following reasons:
 * Your update run was throttled if you hit the limit of 200 concurrent jobs in an Automation account. Each deployment is considered a job, and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts toward the concurrent job limit.
 
 ### Resolution
+
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 When applicable, use [dynamic groups](../update-management/configure-groups.md) for your update deployments. In addition, you can take the following steps.
 
@@ -501,11 +503,13 @@ Verify that the system account has read access to the **C:\ProgramData\Microsoft
 
 ### Issue
 
-The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes.
+The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes. You might receive the error message `For one or more machines in schedule, UM job run resulted in Maintenance Window Exceeded state. Guide available at https://aka.ms/UMSucrMwExceeded.`
 
 ### Resolution
 
 To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
+
+You can retrieve more details programmatically by using the REST API. See [Software Update Configuration Machine Runs](https://docs.microsoft.com/rest/api/automation/softwareupdateconfigurationmachineruns) for information on retrieving either a list of update configuration machine runs, or a single software update configuration machine run by ID.
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 

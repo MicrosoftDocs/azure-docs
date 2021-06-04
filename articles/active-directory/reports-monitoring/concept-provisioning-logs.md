@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 4/26/2021
+ms.date: 4/25/2021
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -34,23 +34,9 @@ To support you with this goal, the Azure Active Directory portal gives you acces
 This article gives you an overview of the provisioning logs. 
 
 
-## Prerequisites
+## What can you do with it?
 
-These users can access the data in provisioning logs:
-
-* Application owners (logs for their own applications)
-* Users in the Security Administrator, Security Reader, Report Reader, Security Operator, Application Administrator, and Cloud Application Administrator roles
-* Users in a custom role with the [provisioningLogs permission](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
-* Global administrators
-
-
-To view the provisioning activity report, your tenant must have an Azure AD Premium license associated with it. To upgrade your Azure AD edition, see [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
-
-
-
-## Provisioning logs
-
-The logs provide answers to questions such as: 
+You can use the the provisioning logs to find answers to questions like:
 
 -  What groups were successfully created in ServiceNow?
 
@@ -59,8 +45,24 @@ The logs provide answers to questions such as:
 -  What users from Workday were successfully created in Active Directory? 
 
 
+## Who can access it?
 
-## Accessing the log data 
+These users can access the data in provisioning logs:
+
+- Application owners (logs for their own applications)
+
+- Users in the Security Administrator, Security Reader, Report Reader, Security Operator, Application Administrator, and Cloud Application Administrator roles
+
+- Users in a custom role with the [provisioningLogs permission](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
+
+- Global administrators
+
+## What Azure AD license do you need?
+
+To view the provisioning activity report, your tenant must have an Azure AD Premium license associated with it. To upgrade your Azure AD edition, see [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
+
+
+## How can you access it? 
 
 To access the log data, you have the following options:
 
@@ -74,11 +76,32 @@ To access the log data, you have the following options:
 
 
 
-## Access the logs from the Azure portal
+## Where can you find it in the Azure portal?
+
+The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
+
+![Open provisioning logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
+
+Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
+
+
+
+
+
+
+
+
+
+
+
+
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** pane in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to appear in the portal.
 
 ![Screenshot that shows selections for accessing provisioning logs.](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisioning logs")
 
+
+
+## What is the default view?
 
 A provisioning log has a default list view that shows:
 

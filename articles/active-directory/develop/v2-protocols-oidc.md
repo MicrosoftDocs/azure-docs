@@ -184,7 +184,7 @@ Just receiving an id_token isn't always sufficient to authenticate the user; you
 
 Not all apps benefit from verifying the ID token - native apps and single page apps, for instance, rarely benefit from validating the ID token.  Someone with physical access to the device (or browser) can bypass the validation in many ways - from editing the web traffic to the device to provide fake tokens and keys to simply debugging the application to skip the validation logic.  On the other hand, web apps and APIs using an ID token to authorization must validate the ID token carefully since they are gating access to data.
 
-Once you've validated the signature of the id_token, there are a few claims you'll be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [Validating Tokens](id-tokens.md#validating-an-id_token) and [Important Information About Signing Key Rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
+Once you've validated the signature of the id_token, there are a few claims you'll be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [Validating Tokens](id-tokens.md#validating-an-id-token) and [Important Information About Signing Key Rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
 
 You may also wish to validate additional claims depending on your scenario. Some common validations include:
 
@@ -271,7 +271,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 For a description of possible error codes and recommended client responses, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](id-tokens.md#validating-an-id_token). To get access tokens, follow the steps described in [OAuth code flow documentation](v2-oauth2-auth-code-flow.md#request-an-access-token).
+When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](id-tokens.md#validating-an-id-token). To get access tokens, follow the steps described in [OAuth code flow documentation](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token).
 
 ### Calling the UserInfo endpoint
 

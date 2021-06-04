@@ -3,22 +3,22 @@ title: Maintenance Window
 description: Understand how the Azure SQL Database and managed instance maintenance window can be configured.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/23/2021
+ms.date: 05/02/2021
 ---
 
 # Maintenance window (Preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-The maintenance window feature allows you to configure maintenance schedule for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md) resources making impactful maintenance events predictable and less disruptive for your workload. 
+The maintenance window feature allows you to configure maintenance schedule for [Azure SQL Database](sql-database-paas-overview.md) and [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) resources making impactful maintenance events predictable and less disruptive for your workload. 
 
 > [!Note]
-> Maintenance window feature does not protect from unplanned events, like hardware failures, that may cause short connection interruptions.
+> The maintenance window feature only protects from planned impact from upgrades or scheduled maintenance. It does not protect from all failover causes; exceptions that may cause short connection interruptions outside of a maintenance window include hardware failures, cluster load balancing, and database reconfigurations due to events like a change in database Service Level Objective. 
 
 ## Overview
 
@@ -40,7 +40,7 @@ You can further adjust the maintenance updates to a time suitable to your Azure 
 * Weekday window, 10PM to 6AM local time Monday - Thursday
 * Weekend window, 10PM to 6AM local time Friday - Sunday
 
-Once the maintenance window selection is made and service configuration completed, planned maintenance will occur only during the window of your choice.   
+Once the maintenance window selection is made and service configuration completed, planned maintenance will occur only during the window of your choice. While maintenance events typically complete within a single window, some of them may span two or more adjacent windows.   
 
 > [!Important]
 > In very rare circumstances where any postponement of action could cause serious impact, like applying critical security patch, configured maintenance window may be temporarily overriden. 
@@ -79,6 +79,7 @@ Choosing a maintenance window other than the default is currently available in t
 - East US
 - East US2
 - East Asia
+- Germany West Central
 - Japan East
 - NorthCentral US
 - North Europe
@@ -95,15 +96,15 @@ To get the maximum benefit from maintenance windows, make sure your client appli
 
 * In Azure SQL Database, any connections using the proxy connection policy could be affected by both the chosen maintenance window and a gateway node maintenance window. However, client connections using the recommended redirect connection policy are unaffected by a gateway node maintenance reconfiguration. 
 
-* In Azure SQL managed instance, the gateway nodes are hosted [within the virtual cluster](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, but using the redirect connection policy is still recommended to minimize number of disruptions during the maintenance event.
+* In Azure SQL Managed Instance, the gateway nodes are hosted [within the virtual cluster](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) and have the same maintenance window as the managed instance, but using the redirect connection policy is still recommended to minimize number of disruptions during the maintenance event.
 
 For more on the client connection policy in Azure SQL Database, see [Azure SQL Database Connection policy](../database/connectivity-architecture.md#connection-policy). 
 
-For more on the client connection policy in Azure SQL managed instance see [Azure SQL managed instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
+For more on the client connection policy in Azure SQL Managed Instance see [Azure SQL Managed Instance connection types](../../azure-sql/managed-instance/connection-types-overview.md).
 
-## Considerations for Azure SQL managed instance
+## Considerations for Azure SQL Managed Instance
 
-Azure SQL managed instance consists of service components hosted on a dedicated set of isolated virtual machines that run inside the customer's virtual network subnet. These virtual machines form [virtual cluster(s)](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) that can host multiple managed instances. Maintenance window configured on instances of one subnet can influence the number of virtual clusters within the subnet and distribution of instances among virtual clusters. This may require a consideration of few effects.
+Azure SQL Managed Instance consists of service components hosted on a dedicated set of isolated virtual machines that run inside the customer's virtual network subnet. These virtual machines form [virtual cluster(s)](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) that can host multiple managed instances. Maintenance window configured on instances of one subnet can influence the number of virtual clusters within the subnet, distribution of instances among virtual clusters, and virtual cluster management operations. This may require a consideration of few effects.
 
 ### Maintenance window configuration is long running operation 
 All instances hosted in a virtual cluster share the maintenance window. By default, all managed instances are hosted in the virtual cluster with the default maintenance window. Specifying another maintenance window for managed instance during its creation or afterwards means that it must be placed in virtual cluster with corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance. Accommodating additional instance in the existing virtual cluster may require cluster resize. Both operations contribute to the duration of configuring maintenance window for a managed instance.
@@ -121,6 +122,10 @@ Configuring and changing maintenance window causes change of the IP address of t
 > [!Important]
 >  Make sure that NSG and firewall rules won't block data traffic after IP address change. 
 
+### Serialization of virtual cluster management operations
+Operations affecting the virtual cluster, like service upgrades and virtual cluster resize (adding new or removing unneeded compute nodes) are serialized. In other words, a new virtual cluster management operation cannot start until the previous one is completed. In case that maintenance window closes before the ongoing service upgrade or maintenance operation is completed, any other virtual cluster management operations submitted in the meantime will be put on hold until next maintenance window opens and service upgrade or maintenance operation completes. It is not common for a maintenance operation to take longer than a single window per virtual cluster, but it can happen in case of very complex maintenance operations.
+The serialization of virtual cluster management operations is general behavior that applies to the default maintenance policy as well. With a maintenance window schedule configured, the period between two adjacent windows can be few days long. Submitted operations can also be on hold for few days if the maintenance operation spans two windows. That is very rare case, but creation of new instances or resize of the existing instances (if additional compute nodes are needed) may be blocked during this period.
+
 ## Next steps
 
 * [Advance notifications](advance-notifications.md)
@@ -131,4 +136,4 @@ Configuring and changing maintenance window causes change of the IP address of t
 * [Maintenance window FAQ](maintenance-window-faq.yml)
 * [Azure SQL Database](sql-database-paas-overview.md) 
 * [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md)
-* [Plan for Azure maintenance events in Azure SQL Database and Azure SQL managed instance](planned-maintenance.md)
+* [Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance](planned-maintenance.md)

@@ -17,7 +17,7 @@ ms.custom: fasttrack-edit
 
 In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-ml.md), using the Azure portal or the [SDK for Python](/python/api/overview/azure/ml/)
 
-As your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](tutorial-setup-vscode-extension.md).
+As your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](how-to-setup-vs-code.md).
 
 ## Prerequisites
 
@@ -248,7 +248,7 @@ from azureml.core import Workspace
 
 ### Download a configuration file
 
-If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.  The compute instance has already created a copy of this file for you.
+If you will be creating a [compute instance](quickstart-create-resources.md), skip this step.  The compute instance has already created a copy of this file for you.
 
 # [Python](#tab/python)
 
@@ -387,8 +387,7 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 ## Examples
 
 Examples of creating a workspace:
-* Use Azure portal to [create a workspace and compute instance](tutorial-1st-experiment-sdk-setup.md)
-* Use Python SDK to [create a workspace in your own environment](tutorial-1st-experiment-sdk-setup-local.md)
+* Use Azure portal to [create a workspace and compute instance](quickstart-create-resources.md)
 
 ## Next steps
 

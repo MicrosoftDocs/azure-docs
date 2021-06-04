@@ -64,7 +64,7 @@ sections:
           We don't test containers with OpenShift, but generally, Cognitive Services containers should run on any platform that support Docker images. If you're using OpenShift, we recommend running the containers as `root-user`.
       - question: How do I provide product feedback and feature recommendations?
         answer: |    
-          Customers are encouraged to [voice their concerns](https://cognitive.uservoice.com/) publicly, and up-vote others who have done the same where potential issues overlap. The user voice tool can be used for both product feedback and feature recommendations.
+          Customers are encouraged to [voice their concerns](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737) publicly, and up-vote others who have done the same where potential issues overlap. The feedback tool can be used for both product feedback and feature recommendations.
       - question: What status messages and errors are returned by Cognitive Services containers?
         answer: |    
           See the following table for a list of status messages and errors.
@@ -161,4 +161,3 @@ sections:
 
 additionalContent: |
           [!INCLUDE [Containers next steps](includes/containers-next-steps.md)]
-

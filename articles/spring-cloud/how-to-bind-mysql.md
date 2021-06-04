@@ -21,7 +21,7 @@ With Azure Spring Cloud, you can bind select Azure services to your applications
 * An Azure Database for MySQL account
 * Azure CLI
 
-If you don't have a deployed Azure Spring Cloud instance, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](spring-cloud-quickstart.md) to deploy your first Spring Cloud app.
+If you don't have a deployed Azure Spring Cloud instance, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](./quickstart.md) to deploy your first Spring Cloud app.
 
 ## Bind your app to your Azure Database for MySQL instance
 
@@ -59,4 +59,4 @@ If you don't have a deployed Azure Spring Cloud instance, follow the instruction
 
 ## Next steps
 
-In this article, you learned how to bind an Azure Spring Cloud application to an Azure Database for MySQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](spring-cloud-howto-bind-cosmos.md).
+In this article, you learned how to bind an Azure Spring Cloud application to an Azure Database for MySQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](./how-to-bind-cosmos.md).

@@ -13,7 +13,7 @@ To meet these challenges, you can automate deployments and use the practice of i
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources.
 
-We've introduced a new language for developing ARM templates. The language is named Bicep, and is currently in preview. Bicep and JSON templates offer the same capabilities. You can convert template between the two languages. Bicep provides a syntax that is easier to use for creating templates. For more information, see [What is Bicep (Preview)?](bicep-overview.md).
+We've introduced a new language named Bicep that's used to develop ARM template JSON. Bicep files and JSON templates offer the same capabilities. You can convert templates between the two languages. Bicep provides a syntax that's easier to use for creating templates. For more information, see [What is Bicep?](../bicep/overview.md).
 
 To learn about how you can get started with ARM templates, see the following video.
 
@@ -23,7 +23,7 @@ To learn about how you can get started with ARM templates, see the following vid
 
 If you're trying to decide between using ARM templates and one of the other infrastructure as code services, consider the following advantages of using templates:
 
-* **Declarative syntax**: ARM templates allow you to create and deploy an entire Azure infrastructure declaratively. For example, you can deploy not only virtual machines, but also the network infrastructure, storage systems and any other resources you may need.
+* **Declarative syntax**: ARM templates allow you to create and deploy an entire Azure infrastructure declaratively. For example, you can deploy not only virtual machines, but also the network infrastructure, storage systems, and any other resources you may need.
 
 * **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Templates are idempotent, which means you can deploy the same template many times and get the same resource types in the same state. You can develop one template that represents the desired state, rather than developing lots of separate templates to represent updates.
 

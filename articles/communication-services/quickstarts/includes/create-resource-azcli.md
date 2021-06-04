@@ -9,7 +9,7 @@ ms.author: mikben
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
+- Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
 
 ## Create Azure Communication Resource
 

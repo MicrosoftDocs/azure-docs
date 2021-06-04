@@ -104,7 +104,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Launch the App Containerization tool
 
-1. Open a browser on any machine that can connect to the Windows machine running the App Containerization tool, and open the tool URL: **https://*machine name or IP address*: 44368**.
+1. Open a browser on any machine that can connect to the Windows machine running the App Containerization tool, and open the tool URL: **https://*machine name or IP address*: 44369**.
 
    Alternately, you can open the app from the desktop by selecting the app shortcut.
 

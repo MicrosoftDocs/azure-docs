@@ -28,7 +28,7 @@ For registry troubleshooting guidance, see:
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) that you can use to create a registry.
+Yes. Here is [a template](https://azure.microsoft.com/resources/templates/101-container-registry/) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 

@@ -26,7 +26,7 @@ We are excited to announce that 8.0 release of the Service Fabric runtime has st
 ### Key announcements
 
 - **General Availability** of support for .NET 5 for Windows
-- **General Availability** of [Stateless NodeTypes](https://docs.microsoft.com/azure/service-fabric/service-fabric-stateless-node-types)
+- **General Availability** of [Stateless NodeTypes](./service-fabric-stateless-node-types.md)
 - Ability to move stateless service instances
 - Ability to add parameterized DefaultLoad in the application manifest
 - For singleton replica upgrades - ability to have some of the cluster level settings to be defined at an application level

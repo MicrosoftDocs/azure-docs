@@ -7,7 +7,7 @@ ms.author: baanders
 ---
 
 1. **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
-1. **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout the tutorial).
+1. **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you want. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout the tutorial).
 1. **Add a property**. Underneath the `HumidityLevel` property that ends on line 15, paste the following code to add a `RoomName` property to the room:
 
     :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="16-20":::

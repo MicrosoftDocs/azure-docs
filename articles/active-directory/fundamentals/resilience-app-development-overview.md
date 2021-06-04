@@ -25,4 +25,4 @@ These articles provide guidance on increasing resiliency in apps using the Micro
 - [Build resilience into applications without users](resilience-daemon-app.md)
 - [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
 - [Build resilience in your CIAM systems](resilience-b2c.md)
-- [Build services that are resilent to metadata refresh](../develop/howto-build-services-resilent-to-metadata-refresh.md)
+- [Build services that are resilient to metadata refresh](../develop/howto-build-services-resilient-to-metadata-refresh.md)

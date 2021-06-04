@@ -2,7 +2,8 @@
 title: SKU not available errors
 description: Describes how to troubleshoot the SKU not available error when deploying resources with Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 04/14/2021
+ms.date: 04/14/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Resolve errors for SKU not available
 

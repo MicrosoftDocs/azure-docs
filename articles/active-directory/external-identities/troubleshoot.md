@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 04/12/2021
+ms.date: 05/27/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -21,8 +21,8 @@ ms.collection: M365-identity-device-management
 Here are some remedies for common problems with Azure Active Directory (Azure AD) B2B collaboration.
 
    > [!IMPORTANT]
-   > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
-   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+   > - **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
 
 ## I’ve added an external user but do not see them in my Global Address Book or in the people picker
 
@@ -34,6 +34,9 @@ The ability to search for existing guest users in the SharePoint Online (SPO) pe
 
 You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. You can set the feature using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.
 
+## My guest invite settings and domain restrictions aren't being respected by SharePoint Online/OneDrive
+
+By default, SharePoint Online and OneDrive have their own set of external user options and do not use the settings from Azure AD.  You need to enable [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview) to ensure the options are consistent among those applications.
 ## Invitations have been disabled for directory
 
 If you are notified that you do not have permissions to invite users, verify that your user account is authorized to invite external users under Azure Active Directory > User settings > External users > Manage external collaboration settings:
@@ -57,6 +60,14 @@ When inviting users whose organization is using Azure Active Directory, but wher
 If you are using federation authentication and the user does not already exist in Azure Active Directory, the user cannot be invited.
 
 To resolve this issue, the external user’s admin must synchronize the user’s account to Azure Active Directory.
+
+## I can't invite an email address because of a conflict in proxyAddresses
+
+This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) object, and also delete the associated [contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) object before trying to invite this email again.
+
+## The guest user object doesn't have a proxyAddress
+
+When inviting an external guest user, sometimes this will conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true). When this occurs, the guest user is created without a proxyAddress. This means that the user will not be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
 
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 

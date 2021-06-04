@@ -14,7 +14,7 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: "seo-lt-2019, devx-track-azurecli"
+ms.custom: "seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell"
 
 ---
 # Use PowerShell or Az CLI to configure an availability group for SQL Server on Azure VM 
@@ -25,6 +25,9 @@ This article describes how to use [PowerShell](/powershell/scripting/install/ins
 Deployment of the availability group is still done manually through SQL Server Management Studio (SSMS) or Transact-SQL (T-SQL). 
 
 While this article uses PowerShell and the Az CLI to configure the availability group environment, it is also possible to do so from the [Azure portal](availability-group-azure-portal-configure.md), using [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+
+> [!NOTE]
+> It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
 
 ## Prerequisites
 

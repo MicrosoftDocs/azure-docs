@@ -66,7 +66,7 @@ You can use the Azure Storage client libraries to restore a soft-deleted blob or
 
 ### Restore soft-deleted objects when versioning is disabled
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 To restore deleted blobs when versioning is not enabled, call the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation on those blobs. The **Undelete Blob** operation restores soft-deleted blobs and any deleted snapshots associated with those blobs.
 
@@ -78,7 +78,7 @@ To restore a specific version, first call the **Undelete Blob** operation on the
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 To restore deleted blobs when versioning is not enabled, call the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation on those blobs. The **Undelete Blob** operation restores soft-deleted blobs and any deleted snapshots associated with those blobs.
 
@@ -114,11 +114,11 @@ blockBlob.StartCopy(copySource);
 
 To restore a soft-deleted blob when versioning is enabled, copy a previous version over the base blob with a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operation.  
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RestorePreviousVersion":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 Not applicable. Blob versioning is supported only in the Azure Storage client libraries version 12.x and higher.
 

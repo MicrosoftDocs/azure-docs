@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Add tags to digital twins 
 
-You can use the concept of tags to further identify and categorize your digital twins. In particular, users may want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/TagModel), within their Azure Digital Twins instances. 
+You can use the concept of tags to further identify and categorize your digital twins. In particular, users may want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/appendix/tags), within their Azure Digital Twins instances. 
 
 This document describes patterns that can be used to implement tags on digital twins.
 
@@ -43,7 +43,7 @@ Here is an example that populates the marker `tags` for three twins:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
-Here is a code example on how to set the marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client):
+Here is a code example on how to set the marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 
@@ -96,7 +96,7 @@ Here is a query to get all entities that are small (value tag), and not red:
 ## Next steps
 
 Read more about designing and managing digital twin models:
-* [*How-to: Manage DTDL models*](how-to-manage-model.md)
+* [How-to: Manage DTDL models](how-to-manage-model.md)
 
 Read more about querying the twin graph:
-* [*How-to: Query the twin graph*](how-to-query-graph.md)
+* [How-to: Query the twin graph](how-to-query-graph.md)

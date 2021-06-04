@@ -2,7 +2,8 @@
 title: Enable partitioning in Azure Service Bus queues and topics
 description: This article explains how to enable partitioning in Azure Service Bus queues and topics by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/19/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable partitioning for an Azure Service Bus queue or a topic
@@ -11,6 +12,9 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > [!IMPORTANT]
 > - Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It isn't available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected.
 > - It's not possible to change the partitioning option on any existing queue or topic. You can only set the option when you create a queue or a topic. 
+> - In a **Standard** tier namespace, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5-GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. 
+> - In a **Premium** tier namespace, partitioning entities are not supported. However, you can still create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the maximum size of your partitioned queue or topic on the **Overview** page in the [Azure portal](https://portal.azure.com).
+
 
 ## Using Azure portal
 When creating a **queue** in the Azure portal, select **Enable partitioning** as shown in the following image. 
@@ -172,6 +176,7 @@ To **create a topic with duplicate detection enabled**, set `enablePartitioning`
   ]
 }
 ```
+
 
 
 ## Next steps
