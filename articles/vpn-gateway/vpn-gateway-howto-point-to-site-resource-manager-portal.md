@@ -112,7 +112,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/base-64.png" alt-text="Screenshot showing export as Base-64 encoded X.509." :::
 1. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You may need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png" alt-text="Screenshot showing root certificaate information in Notepad." border="false":::
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png" alt-text="Screenshot showing root certificate information in Notepad." border="false":::
 1. In the **Root certificate** section, you can add up to 20 trusted root certificates.
 
    * Paste the certificate data into the **Public certificate data** field. 
