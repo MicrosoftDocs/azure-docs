@@ -25,7 +25,7 @@ In part three of the series, you learn how to:
 > * Turn on server-side encryption
 > * Enable HTTPS-only transport
 
-[Azure blob storage](../common/storage-introduction.md#blob-storage) provides a robust service to store files for applications. This tutorial extends [the previous topic][previous-tutorial] to show how to secure access to your storage account from a web application. When you're finished the images are encrypted and the web app uses secure SAS tokens to access the thumbnail images.
+[Azure Blob Storage](../common/storage-introduction.md#blob-storage) provides a robust service to store files for applications. This tutorial extends [the previous topic][previous-tutorial] to show how to secure access to your storage account from a web application. When you're finished the images are encrypted and the web app uses secure SAS tokens to access the thumbnail images.
 
 ## Prerequisites
 
