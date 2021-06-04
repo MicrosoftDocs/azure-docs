@@ -116,8 +116,53 @@ See [Supported operating systems](agents-overview.md#supported-operating-systems
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before deploying the agent.
 
 ## Networking
-The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes or direct proxies.
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes. If the machine connects through a proxy server to communicate over the Internet, review requirements below to understand the network configuration required.
 
+### Proxy configuration
+
+The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol (for Azure virtual machines, Azure virtual machine scalesets and Azure Arc for servers). This is configured using extensions settings as described below, and supports both anonymous and basic authentication (username/password) are supported.  
+
+1. Use this simple flowchart to determine the values of *setting* and *protectedSetting* parameters first:
+![Flowchart to determine the values of setting and protectedSetting parameters when enabling the extension](media/azure-monitor-agent/proxyflowchart.png)
+
+2. Once the values *setting* and *protectedSetting* parameters are determined, update the values during the deployment of the the Azure Monitor agent on Azure virtual machines using the PowerShell command for adding a virtual machine extension:
+# [Windows](#tab/PowerShellWindows)
+```powershell
+$resourceGroupName = '[resourceGroupName]'
+$resourceGroupLocation = '[resourceGroupLocation]'
+$vmName = '[vmName]'
+$setting = 'from flowchart if applicable; otherwise skip argument'
+$protectedSetting = 'from flowchart if applicable; otherwise skip argument '
+Set-AzVMExtension `
+        -ResourceGroupName $resourceGroupName `
+        -Location $resourceGroupLocation `
+        -VMName $vmName `
+        -ExtensionName "AzureMonitorWindowsAgent" `
+        -Publisher "Microsoft.Azure.Monitor" `
+        -ExtensionType "AzureMonitorWindowsAgent" `
+        -TypeHandlerVersion 1.0 `
+        -SettingString $setting `
+        -ProtectedSettingString $protectedSetting
+```
+
+# [Linux](#tab/PowerShellLinux)
+```powershell
+$resourceGroupName = '[resourceGroupName]'
+$resourceGroupLocation = '[resourceGroupLocation]'
+$vmName = '[vmName]'
+$setting = 'from flowchart if applicable; otherwise skip argument'
+$protectedSetting = 'from flowchart if applicable; otherwise skip argument '
+Set-AzVMExtension `
+        -ResourceGroupName $resourceGroupName `
+        -Location $resourceGroupLocation `
+        -VMName $vmName `
+        -ExtensionName "AzureMonitorLinuxAgent" `
+        -Publisher "Microsoft.Azure.Monitor" `
+        -ExtensionType "AzureMonitorLinuxAgent" `
+        -TypeHandlerVersion 1.0 `
+        -SettingString $setting `
+        -ProtectedSettingString $protectedSetting
+```
 
 ## Next steps
 
