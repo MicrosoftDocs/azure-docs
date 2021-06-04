@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 06/04/2021
+ms.date: 06/03/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
