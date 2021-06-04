@@ -17,6 +17,7 @@ ms.date: 06/04/2021
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RSK_RX65N_2MB)
 
 In this quickstart, you use Azure RTOS to connect the Renesas Starter Kit+ for RX65N-2MB (hereafter, the Renesas RX65N) to Azure IoT.
+
 You will complete the following tasks:
 
 * Install a set of embedded development tools for programming a Renesas RX65N in C
