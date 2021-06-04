@@ -112,7 +112,7 @@ To add a Conditional Access policy, disable security defaults:
 
    ![Set the Enable security defaults toggle to No](media/conditional-access-user-flow/enable-security-defaults-toggle.png)
 
-## Add a template based Conditional Access policy
+## Add a Conditional Access policy
 
 A Conditional Access policy is an if-then statement of assignments and access controls. A Conditional Access policy brings signals together to make decisions and enforce organizational policies. The logical operator between the assignments is *And*. The operator in each assignment is *Or*.
 
@@ -169,6 +169,7 @@ If risk is detected, users can perform multi-factor authentication to self-remed
 Configure Conditional Access through the Azure portal or Microsoft Graph APIs to enable a sign-in risk-based Conditional Access policy requiring MFA when the sign-in risk is *medium* or *high*.
 
 To configure your conditional access:
+
 1. Sign in to the **Azure portal**.
 2. Browse to **Azure AD B2C** > **Security** > **Conditional Access**.
 3. Select **New policy**.
@@ -226,7 +227,7 @@ The following template can be used to create a Conditional Access policy with di
 
 Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk is a calculation of probability that an identity has been compromised. B2C tenants with P2 licenses can create Conditional Access policies incorporating user risk. When a user is detected as at risk, you can require that they securely change their password to remediate the risk and gain access to their account. We highly recommend setting up a user risk policy to require a secure password change so users can self-remediate.
 
-Learn more about [user risk in Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks#user-risk), taking into account the [limitations on Identity Protection detections for B2C](https://docs.microsoft.com/azure/active-directory-b2c/identity-protection-investigate-risk?pivots=b2c-user-flow#service-limitations-and-considerations).
+Learn more about [user risk in Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#user-risk), taking into account the [limitations on Identity Protection detections for B2C](identity-protection-investigate-risk.md#service-limitations-and-considerations).
 
 Configure Conditional Access through Azure Portal or Microsoft Graph APIs to enable a user risk-based Conditional Access policy requiring multi-factor authentication (MFA) and password change when user risk is medium OR high.
 
@@ -248,9 +249,9 @@ To configure your user based conditional access:
 9. Confirm your settings and set **Enable policy** to **On**.
 10. Select **Create** to create to enable your policy.
 
-### Enable with Conditional Access APIs
+### Enable with Conditional Access APIs (optional)
 
-To create a user risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](//docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api).
+To create a user risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
 
 The following template can be used to create a Conditional Access policy with display name "Template 2: Require secure password change for medium+ user risk" in report-only mode.
 
@@ -285,10 +286,11 @@ The following template can be used to create a Conditional Access policy with di
     }
 }
 ```
+
 ### Template 3: Block locations with Conditional Access
 
-With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. More information about the location condition in Conditional Access can be found in the article, 
-[Using the location condition in a Conditional Access policy] (https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. More information about the location condition in Conditional Access can be found in the article,
+[Using the location condition in a Conditional Access policy](../active-directory/conditional-access/location-condition.md
 
 Configure Conditional Access through Azure Portal or Microsoft Graph APIs to enable a Conditional Access policy blocking access to specific locations.
 
@@ -302,6 +304,7 @@ Configure Conditional Access through Azure Portal or Microsoft Graph APIs to ena
 6. Choose **Save**.
 
 To enable with condition access policy:
+
 1. Sign in to the **Azure portal**.
 2. Browse to **Azure AD B2C** > **Security** > **Conditional Access**.
 3. Select **New policy**.
@@ -320,9 +323,9 @@ To enable with condition access policy:
 9. Confirm your settings and set **Enable policy** to **On**.
 10. Select **Create** to create to enable your policy.
 
-### Enable with Conditional Access APIs
+### Enable with Conditional Access APIs (optional)
 
-To create a location-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](//docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-apis#graph-api). To set up Named Locations, please refer to the documentations for [Named Locations](//docs.microsoft.com/graph/api/resources/namedlocation?view=graph-rest-1.0).
+To create a location-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api). To set up Named Locations, please refer to the documentations for [Named Locations](/graph/api/resources/namedlocation).
 
 The following template can be used to create a Conditional Access policy with display name "Template 3: Block unallowed locations" in report-only mode.
 
