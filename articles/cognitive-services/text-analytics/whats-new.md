@@ -21,7 +21,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ### General API updates
 
-* New model-version `2021-06-01` for key phrase extraction, with expanded [language support](language-support.md). 
+* New model-version `2021-06-01` for key phrase extraction, which adds support for simplified Chinese.
 
 ### Text Analytics for health updates
 
