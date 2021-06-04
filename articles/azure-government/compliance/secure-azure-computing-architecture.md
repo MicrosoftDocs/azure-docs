@@ -162,16 +162,16 @@ We recommend this architecture because it meets SCCA requirements. It’s highly
 - Network security groups
     - They're used to control which types of traffic can traverse to certain endpoints.
 
-### Azure Deployment
+### Azure SACA Deployment
 
-Azure Discription here. 
+The Mission Landing Zone deployment template allows you to deploy into one, or multiple subscriptions depending on the requirements of your environment. It utilizes built in Azure serices with no dependencies on 3rd party licenses. It utilizes Azure Firewall along with other security services in order to deploy an architecture that is SCCA compliant. 
 
-![MLZ SACA diagram](media/MLZ.png)
+![MLZ SACA diagram](media/missionlandingzone.png)
 
 For the Azure documentation and deployment scripts, see [this GitHub link](https://github.com/Azure/missionlz).
 
 
-### Palo Alto Networks deployment
+### Palo Alto Networks SACA deployment
 
 The Palo Alto Networks deployment template deploys one to many VM-Series appliances, as well as the VDMS staging and routing to enable a one-tier, VDSS-compliant architecture. This architecture meets the requirements of SCCA. 
 
@@ -181,7 +181,7 @@ The Palo Alto Networks deployment template deploys one to many VM-Series applian
 For the Palo Alto Networks documentation and deployment script, see [this GitHub link](https://github.com/PaloAltoNetworks/Palo-Azure-SACA).
 
 
- ### F5 Networks deployment
+ ### F5 Networks SACA deployment
 
 Two separate F5 deployment templates cover two different architectures. The first template has only one layer of F5 appliances in an active-active highly available configuration. This architecture meets the requirements of SCCA. The second template adds a second layer of active-active highly available F5s. This second layer allows customers to add their own IPS separate from F5 in between the F5 layers. Not all DoD components have specific IPS prescribed for use. If that's the case, the single layer of F5 appliances works for most because that architecture includes IPS on the F5 devices.
 
@@ -190,7 +190,7 @@ Two separate F5 deployment templates cover two different architectures. The firs
 For the F5 documentation and deployment script, see [this GitHub link](https://github.com/f5devcentral/f5-azure-saca).
 
 
-### Citrix deployment
+### Citrix SACA deployment
 
 A Citrix deployment template deploys two layers of highly available Citrix ADC appliances. This architecture meets the requirements of VDSS. 
 
