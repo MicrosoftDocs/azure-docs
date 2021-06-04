@@ -114,7 +114,12 @@ To add a Conditional Access policy, disable security defaults:
 
 ## Add a Conditional Access policy
 
-A Conditional Access policy is an if-then statement of assignments and access controls. A Conditional Access policy brings signals together to make decisions and enforce organizational policies. The logical operator between the assignments is *And*. The operator in each assignment is *Or*.
+A Conditional Access policy is an if-then statement of assignments and access controls. A Conditional Access policy brings signals together to make decisions and enforce organizational policies. 
+
+> [!TIP]
+> In this step you configure the conditional access policy. We recommend you to use one of the following templates: [Template 1: Sign-in risk-based Conditional Access](#template-1-sign-in-risk-based-conditional-access), [Template 2: User risk-based Conditional Access](#template-2-user-risk-based-conditional-access), or [Template 3: Block locations with Conditional Access](#template-3-block-locations-with-conditional-access). You can configure the conditional access policy through Azure portal, or MS Graph API.
+
+The logical operator between the assignments is *And*. The operator in each assignment is *Or*.
 
 ![Conditional access assignments](media/conditional-access-user-flow/conditional-access-assignments.png)
 
@@ -158,7 +163,7 @@ To add a Conditional Access policy:
 
 1. Enable your test Conditional Access policy by selecting **Create**.
 
-### Template 1: Sign-in risk-based Conditional Access
+## Template 1: Sign-in risk-based Conditional Access
 
 Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform multi-factor authentication to prove that they are really who they say they are.
 
@@ -176,7 +181,7 @@ To configure your conditional access:
 4. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 5. Under **Assignments**, select **Users and groups**.
    1. Under **Include**, select **All users**.
-   2. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
+   2. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
    3. Select **Done**.
 6. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
 7. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
@@ -186,7 +191,7 @@ To configure your conditional access:
 9. Confirm your settings and set **Enable policy** to **On**.
 10. Select **Create** to create to enable your policy.
 
-### Enable with Conditional Access APIs (optional)
+### Enable template 1 with Conditional Access APIs (optional)
 
 Create a sign-in risk-based Conditional Access policy with MS Graph APIs. For more information, see [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
 
@@ -223,7 +228,7 @@ The following template can be used to create a Conditional Access policy with di
 }
 ```
 
-### Template 2: User risk-based Conditional Access
+## Template 2: User risk-based Conditional Access
 
 Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk is a calculation of probability that an identity has been compromised. B2C tenants with P2 licenses can create Conditional Access policies incorporating user risk. When a user is detected as at risk, you can require that they securely change their password to remediate the risk and gain access to their account. We highly recommend setting up a user risk policy to require a secure password change so users can self-remediate.
 
@@ -249,7 +254,7 @@ To configure your user based conditional access:
 9. Confirm your settings and set **Enable policy** to **On**.
 10. Select **Create** to create to enable your policy.
 
-### Enable with Conditional Access APIs (optional)
+### Enable template 2 with Conditional Access APIs (optional)
 
 To create a user risk-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
 
@@ -287,7 +292,7 @@ The following template can be used to create a Conditional Access policy with di
 }
 ```
 
-### Template 3: Block locations with Conditional Access
+## Template 3: Block locations with Conditional Access
 
 With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. More information about the location condition in Conditional Access can be found in the article,
 [Using the location condition in a Conditional Access policy](../active-directory/conditional-access/location-condition.md
@@ -323,7 +328,7 @@ To enable with condition access policy:
 9. Confirm your settings and set **Enable policy** to **On**.
 10. Select **Create** to create to enable your policy.
 
-### Enable with Conditional Access APIs (optional)
+### Enable template 3 with Conditional Access APIs (optional)
 
 To create a location-based Conditional Access policy with Conditional Access APIs, please refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api). To set up Named Locations, please refer to the documentations for [Named Locations](/graph/api/resources/namedlocation).
 
