@@ -140,11 +140,11 @@ The next piece in the skillset is an array of skills. You can think of each skil
 
 ## Add built-in skills
 
-Let's look at the first skill, which is the built-in [entity recognition skill](cognitive-search-skill-entity-recognition.md):
+Let's look at the first skill, which is the built-in [entity recognition skill](cognitive-search-skill-entity-recognition-v3.md):
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",

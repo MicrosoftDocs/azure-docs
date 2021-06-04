@@ -53,7 +53,7 @@ This release introduces the following features or capabilities:
    To add the extension:
   
    ```azurecli
-   az extension add --name arcdata
+   az extension add --source https://azurearcdatacli.blob.core.windows.net/cli-extensions/arcdata-0.0.1-py2.py3-none-any.whl -y
    az sql mi-arc --help
    ```
 
