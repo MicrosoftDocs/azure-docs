@@ -51,6 +51,9 @@ az maintenance configuration list --query "[].{Name:name, ID:id}" -o table
 ### Create a maintenance configuration with scheduled window
 You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
 
+> [!IMPORTANT]
+> Maintenance **duration** must be *5 hours* or longer. Maintenance **recurrence** must be set to *Day*.
+
 ```azurecli-interactive
 az maintenance configuration create \
    -g myMaintenanceRG \
@@ -58,19 +61,10 @@ az maintenance configuration create \
    --maintenance-scope osimage \
    --location eastus \
    --maintenance-window-duration "05:00" \
-   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-recur-every "Day" \
    --maintenance-window-start-date-time "2020-12-30 08:00" \
    --maintenance-window-time-zone "Pacific Standard Time"
 ```
-
-> [!IMPORTANT]
-> Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
-
-Maintenance recurrence can be expressed as daily, weekly or monthly. Some examples are:
-- **daily**- maintenance-window-recur-every: "Day" **or** "3Days"
-- **weekly**- maintenance-window-recur-every: "3Weeks" **or** "Week Saturday,Sunday"
-- **monthly**- maintenance-window-recur-every: "Month day23,day24" **or** "Month Last Sunday" **or** "Month Fourth Monday"
-
 
 ## Assign the configuration
 
