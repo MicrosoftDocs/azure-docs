@@ -114,7 +114,7 @@ When authentication method selected is **SQL Authentication**, you need to get y
 
 ## Register a SQL dedicated pool (formerly SQL DW)
 
-To register a new Azure Synapse Analytics server in your Data Catalog, do the following:
+To register a new SQL dedicated pool in Purview, do the following:
 
 1. Navigate to your Purview account.
 1. Select **Sources** on the left navigation.
@@ -138,7 +138,7 @@ To create and run a new scan, do the following:
 
 1. Select the **Data Map** tab on the left pane in the Purview Studio.
 
-1. Select the Azure Data Explorer source that you registered.
+1. Select the SQL dedicated pool source that you registered.
 
 1. Select **New scan**
 
@@ -146,7 +146,7 @@ To create and run a new scan, do the following:
 
    :::image type="content" source="media/register-scan-azure-synapse-analytics/sql-dedicated-pool-set-up-scan.png" alt-text="Set up scan":::
 
-1. You can scope your scan to specific databases by choosing the appropriate items in the list.
+1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 
    :::image type="content" source="media/register-scan-azure-synapse-analytics/scope-scan.png" alt-text="Scope your scan":::
 
