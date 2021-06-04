@@ -17,6 +17,12 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD Password Protection agent version history
 
+## 1.2.176.0
+
+Release date: June 4th 2021
+
+* Minor bugfixes to issues which prevent the proxy and DC agents from running successfully in certain environments.
+
 ## 1.2.172.0
 
 Release date: February 22nd 2021
