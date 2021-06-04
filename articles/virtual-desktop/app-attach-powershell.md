@@ -4,7 +4,8 @@ description: How to set up MSIX app attach for Azure Virtual Desktop using Power
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 # Set up MSIX app attach using PowerShell

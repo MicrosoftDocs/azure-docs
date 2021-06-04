@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 05/01/2021
 ms.author: banders
 ---
 
@@ -92,7 +92,7 @@ Later in this article, you'll give permission to the Azure AD app to act by usin
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | It is the value of Object ID. See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` |
 
@@ -142,7 +142,7 @@ For the EA purchaser role, use the same steps for the enrollment reader. Specify
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | It is the value of Object ID. See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/db609904-a47f-4794-9be8-9bd86fbffd8a` |
 
@@ -186,7 +186,7 @@ Now you can use the SPN to automatically access EA APIs. The SPN has the Departm
 
       | Parameter | Where to find it |
       | --- | --- |
-      | `properties.principalId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
+      | `properties.principalId` | It is the value of Object ID. See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.principalTenantId` | See [Find your SPN and tenant ID](#find-your-spn-and-tenant-id). |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 

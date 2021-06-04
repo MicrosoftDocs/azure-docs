@@ -24,6 +24,8 @@
       items:
         - name: Create a private ARO cluster
           href: howto-create-private-cluster-4x.md
+        - name: Configure custom DNS 
+          href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
         - name: Restrict egress traffic

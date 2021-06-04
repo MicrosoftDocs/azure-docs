@@ -11,7 +11,7 @@ ms.custom: support-help-page
 
 We have created a number of support request options to serve the needs of managing your Service Fabric clusters and application workloads, depending on the urgency of support needed and the severity of the issue.
 
-## Self help troubleshooting content
+## Self help troubleshooting
 <div class='icon is-large'>
     <img alt='Self help content' src='./media/logos/i-article.svg'>
 </div>
@@ -89,6 +89,19 @@ The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place
 > **Service Fabric preview versions are not supported for production use.** Occasionally we make special preview releases containing significant feature changes for which we would like to survey early feedback. You should only use preview versions in isolated test environments that do not serve production workloads. Your production cluster should always be running a supported, stable, Service Fabric version. We don't offer a paid support option for these preview releases.
 >
 > A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, this version is in preview and is only intended to be used in test clusters. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included. Please use one of the options listed above to provide feedback.
+
+
+## Stay informed of updates and new releases
+
+<div class='icon is-large'>
+    <img alt='Stay informed' src='./media/logos/i-blog.svg'>
+</div>
+
+Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?product=service-fabric).
+
+For the latest releases and updates to the Service Fabric runtime and SDKs, see [Service Fabric releases](release-notes.md)
+
+
 
 ## Next steps
 

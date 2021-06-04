@@ -4,7 +4,8 @@ description: How to create a host pool in Azure Virtual Desktop with PowerShell 
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 # Create a Azure Virtual Desktop host pool with PowerShell

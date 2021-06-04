@@ -4,7 +4,8 @@ description: Frequently asked questions and best practices for Azure Virtual Des
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 # Azure Virtual Desktop FAQ

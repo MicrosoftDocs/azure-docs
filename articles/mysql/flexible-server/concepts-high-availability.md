@@ -55,6 +55,9 @@ Applications are connected to the primary server using the database server name.
 ## Failover process 
 For business continuity, you need to have a failover process for planned and unplanned events. 
 
+>[!NOTE]
+> Always use fully qualified domain name (FQDN) to connect to your primary server and avoid using IP address to connect. In case of failover, once primary and standby server role are switched, DNS A-record might change too which would prevent the application from connecting to the new primary server if IP address is used in the connection string. 
+
 ### Planned events
 
 Planned downtime events include activities scheduled by Azure such as periodic software updates, minor version upgrades or that are initiated by customers such as scale compute and scale storage operations. All these changes are first applied to the standby replica. During that time, the applications continue to access primary server. Once the standby replica is updated, primary server connections are drained, a failover is triggered which activates the standby replica to be the primary with the same database server name by updating the DNS record. Client connections are disconnected and they have to reconnect and can resume their operations. A new standby server is established in the same zone as the old primary. The overall failover time is expected to be 60-120 s. 

@@ -129,7 +129,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where { $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult] AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
     $asTaskAsyncOperation = $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult], [Windows.Management.Deployment.DeploymentProgress])
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName 
     $path = ([System.Uri]$path).AbsoluteUri
     $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
     $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))

@@ -87,6 +87,22 @@ Cache metrics are reported using several reporting intervals, including **Past h
 Each metric includes two versions. One metric measures performance for the entire cache, and for caches that use [clustering](cache-how-to-premium-clustering.md), a second version of the metric that includes `(Shard 0-9)` in the name measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` is just the hits for that shard of the cache.
 
 > [!NOTE]
+> When you're seeing the aggregation type : 
+>
+> - Count” show 2, it indicates the metric received 2 data points for your time granularity (1 minute). 
+> - “Max” shows the maximum value of a data point in the time granularity, 
+> - “Min” shows the minimum value of a data point in the time granularity, 
+> - “Average” shows the average value of all data points in the time granularity. 
+> - “Sum” shows the sum of all data points in the time granularity and may be misleading depending on the specific metric. 
+> Under normal conditions, “Average” and “Max” will be very similar because only one node emits these metrics (the master node). In a scenario where the number of connected clients changes rapidly, “Max,” “Average,” and “Min” would show very different values and this is also expected behavior.
+> 
+> Generally, “Average” will show you a smooth chart of your desired metric and reacts well to changes in time granularity. “Max” and “Min” may hide large changes in the metric if the time granularity is large but can be used with a small time granularity to help pinpoint exact times when large changes occur in the metric.
+>
+> “Count” and “Sum” may be misleading for certain metrics (connected clients included). 
+>
+> Hence, we suggested you to have a look at the Average metrics and not the Sum metrics.
+
+> [!NOTE]
 > Even when the cache is idle with no connected active client applications, you may see some cache activity, such as connected clients, memory usage, and operations being performed. This activity is normal during the operation of an Azure Cache for Redis instance.
 > 
 > 
