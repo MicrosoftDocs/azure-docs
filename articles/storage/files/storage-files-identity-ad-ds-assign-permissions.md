@@ -21,9 +21,9 @@ Share-level permissions must be assigned to the Azure AD identity representing t
 
 ## Share-level permissions
 
-You have two options for assigning RBAC permissions. You can either assign them to individual users/user groups or, you can assign them to the storage account itself.
+There are two ways you can assign RBAC permissions. You can either assign them to specific individual users/user groups and you can assign them to the storage account itself. If you assign them to the storage account, they'll act as default share-level permissions.
 
-## Individual or group-level permissions
+If you prefer, you can assign permissions to both your storage accounts and your specific individual users/groups. With this configuration the user/group will have the superset of permissions allowed from the default share-level permission and RBAC assignment. For example, user A is granted Storage File Data SMB Reader role on the target file share. The file share has a default share-level permission configured as Storage File Data SMB Share Elevated Contributor. Because of this, User A will have the Storage File Data SMB Share Elevated Contributor access to the file share. The higher level permission will always take precedence.
 
 The following table depicts the type of default share-level permissions and how they align with the built-in RBAC roles:
 
@@ -35,8 +35,7 @@ The following table depicts the type of default share-level permissions and how 
 |Storage File Data SMB Share Contributor     |Allows for read, write, and delete access on files and directories in Azure file shares. Learn more.         |
 |Storage File Data SMB Share Elevated Contributor     |Allows for read, write, delete, and modify ACLs on files and directories in Azure file shares. This role is analogous to a file share ACL of change on Windows file servers. Learn more.         |
 
-You can configure share-level permissions through the RBAC workflow on individual Azure AD users or groups. The user/group will have the superset of permissions allowed from the default share-level permission and RBAC assignment. For example, user A is granted Storage File Data SMB Reader role on the target file share. The file share has a default share-level permission configured as Storage File Data SMB Share Elevated Contributor. Because of this, User A will have the Storage File Data SMB Share Elevated Contributor access to the file share. The higher level permission will always take precedence.
-
+## Individual or group-level permissions
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to take ownership of a file, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
