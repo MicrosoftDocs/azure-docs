@@ -135,7 +135,7 @@ The proxy has some functionality to force protocols which may be necessary if th
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-server --protocol-version 4 --cql-version 3.11
 ```
 
-Once you have the dual-write proxy up and running, then you will need to change port on your application client and restart (or change Cassandra port and restart cluster if you have chosen this approach). The proxy will then start forwarding writes to the target endpoint. You can learn about monitoring and metrics available in the proxy tool [here](https://github.com/Azure-Samples/cassandra-proxy#monitoring).
+Once you have the dual-write proxy up and running, then you will need to change port on your application client and restart (or change Cassandra port and restart cluster if you have chosen this approach). The proxy will then start forwarding writes to the target endpoint. You can learn about [monitoring and metrics](https://github.com/Azure-Samples/cassandra-proxy#monitoring) available in the proxy tool. 
 
 
 ## Run the historic data load.
