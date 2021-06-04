@@ -87,7 +87,7 @@ The fields of the model are:
 
 This section contains an example of a basic model, written as a DTDL interface. 
 
-This model describes a Home, with one **property** for an ID. The home model also defines a **relationship** to a Floor model, which can be used to indicate that a Home twin is connected to certain Floor twins.
+This model describes a Home, with one **property** for an ID. The Home model also defines a **relationship** to a Floor model, which can be used to indicate that a Home twin is connected to certain Floor twins.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json":::
 
@@ -125,11 +125,11 @@ They can also be [semantic types](#semantic-type-example), which allow you to an
 
 ### Basic property and telemetry examples
 
-Here is a basic example of a **property** on a DTDL model. This example shows the ID property of a home.
+Here is a basic example of a **property** on a DTDL model. This example shows the ID property of a Home.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="7-11":::
 
-Here is a basic example of a **telemetry** field on a DTDL model. This example shows Temperature telemetry on a sensor.
+Here is a basic example of a **telemetry** field on a DTDL model. This example shows Temperature telemetry on a Sensor.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/ISensor.json" highlight="7-11":::
 
@@ -161,7 +161,7 @@ Here is a basic example of a relationship on a DTDL model. This example shows a 
 
 ### Targeted and non-targeted relationships
 
-Relationships can be defined with or without a **target**. A target specifies which types of twin the relationship can reach. For example, you might include a target to specify that a Home model can only have a rel_has_floors relationship with Floor twins. 
+Relationships can be defined with or without a **target**. A target specifies which types of twin the relationship can reach. For example, you might include a target to specify that a Home model can only have a *rel_has_floors* relationship with twins that are Floor twins. 
 
 Sometimes, you might want to define a relationship without a specific target, so that the relationship can connect to many different types of twins.
 
@@ -173,7 +173,7 @@ Here is an example of a relationship on a DTDL model that does not have a target
 
 DTDL also allows for **relationships** to have properties of their own. When defining a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
 
-The following example shows another version of the Home model, where the `rel_has_floors` relationship has a property representing when the related room was last occupied.
+The following example shows another version of the Home model, where the `rel_has_floors` relationship has a property representing when the related Floor was last occupied.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="39-45":::
 
@@ -192,17 +192,17 @@ Here is a basic example of a component on a DTDL model. This example shows a Roo
 
 ## Model inheritance
 
-Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**: interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
+Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**. Interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
 
 The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired). A single parent can serve as the base model for multiple extending interfaces.
 
-The following example re-imagines the home model from the earlier DTDL example as a subtype of a larger "core" model. The parent model (ICore) is defined first, and then the child model (IHome) builds on it by using `extends`.
+The following example re-imagines the Home model from the earlier DTDL example as a subtype of a larger "core" model. The parent model (Core) is defined first, and then the child model (Home) builds on it by using `extends`.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ICore.json":::
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" range="1-8" highlight="6":::
 
-In this case, ICore contributes an ID and name to IHome. Other models can also extend the ICore model to get these properties as well. Here is an IRoom model extending the same parent interface:
+In this case, Core contributes an ID and name to Home. Other models can also extend the Core model to get these properties as well. Here is a Room model extending the same parent interface:
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-9" highlight="6":::
 
