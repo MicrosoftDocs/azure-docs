@@ -120,7 +120,7 @@ Manage data ingestion and retention:
 Understand, monitor, and alert for data ingestion and cost changes:
 
 - [Run queries to understand your data ingestion](#run-queries-to-understand-your-data-ingestion).
-- [Deploy a workbook to visualize data ingestion](#deploy-a-workbook-to-visualize-data-ingestion)
+- [Deploy a workbook to visualize data ingestion](#deploy-a-workbook-to-visualize-data-ingestion).
 - [Use a cost management playbook](#use-a-playbook-for-cost-management-alerts) that can send an alert when ingestion exceeds a predefined threshold.
 - [Understand Common Event Format (CEF) data ingestion](#understand-cef-ingestion-volume).
 
@@ -267,7 +267,10 @@ Many devices and data sources allow for logging fields beyond the standard CEF s
 
 It's important to understand and track your Azure Sentinel costs. The [Azure Cost Management + Billing](/azure/cost-management-billing/costs/quick-acm-cost-analysis) hub provides useful functionality. After you open **Cost Management + Billing** in the Azure portal, select **Cost Management** in the left navigation and then select the [scope](/azure//cost-management-billing/costs/understand-work-scopes) or set of resources to investigate, such as an Azure subscription or resource group.
 
-To see your Azure bill, select **Cost Analysis** in the left navigation of **Cost Management + Billing**. On the **Cost analysis** screen, select the drop-down carat in the **View** field, and select **Invoice details**.
+To see your Azure bill, select **Cost Analysis** in the left navigation of **Cost Management + Billing**. On the **Cost analysis** screen, select the drop-down caret in the **View** field, and select **Invoice details**.
+
+> [!NOTE]
+> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
 
 ![Screenshot showing the Azure Sentinel section of a sample Azure bill.](media/billing/sample-bill.png)
 
@@ -287,9 +290,12 @@ For more information on viewing and downloading your Azure bill, see [Azure cost
 The **Cost Analysis** screen also shows detailed views of your Azure usage and costs, with the option to apply a variety of controls and filters.
 
 For example, to see charts of your daily costs for a certain time frame:
-1. Select the drop-down carat in the **View** field and select **Accumulated costs** or **Daily costs**.
-1. Select the drop-down carat in the date field and select a date range.
-1. Select the drop-down carat next to **Granularity** and select **Daily**.
+1. Select the drop-down caret in the **View** field and select **Accumulated costs** or **Daily costs**.
+1. Select the drop-down caret in the date field and select a date range.
+1. Select the drop-down caret next to **Granularity** and select **Daily**.
+
+> [!NOTE]
+> The costs shown in this image are for example purposes only. They're not intended to reflect actual costs.
 
 ![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing/cost-management.png)
 
