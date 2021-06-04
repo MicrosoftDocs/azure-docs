@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Carin Implementation Guide for Blue Button&#174;  
-description: This tutorial walks through the steps of setting up the Azure API for FHIR to pass the Touchstone tests for the Carin Implementation Guide for Blue Button (C4BB IG). 
+title: Tutorial - CARIN Implementation Guide for Blue Button&#174;  
+description: This tutorial walks through the steps of setting up the Azure API for FHIR to pass the Touchstone tests for the CARIN Implementation Guide for Blue Button (C4BB IG). 
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -11,9 +11,9 @@ author: caitlinv39
 ms.date: 05/27/2021
 ---
 
-# Carin Implementation Guide for Blue Button&#174;
+# CARIN Implementation Guide for Blue Button&#174;
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Carin Implementation Guide for Blue Button ](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
+In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button ](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
 
 ## Touchstone capability statement
 
@@ -80,8 +80,8 @@ The final test we'll walk through is testing [error handling](https://touchstone
 
 ## Next steps
 
-In this tutorial, we walked through how to pass the Carin IG for Blue Button tests in Touchstone. Next, you can review how to test the Da Vinci formulary tests.
+In this tutorial, we walked through how to pass the CARIN IG for Blue Button tests in Touchstone. Next, you can review how to test the Da Vinci formulary tests.
 
 >[!div class="nextstepaction"]
->[DaVinci PDex](davinci-pdex-tutorial.md)       
+>[DaVinci Drug Formulary](davinci-drug-formulary-tutorial.md)       
  
