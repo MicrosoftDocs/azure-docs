@@ -209,10 +209,14 @@ sections:
           - Application setting `WEBSITES_WEB_CONTAINER_NAME` set to the container name
           - The first container to define port 80 or 8080
           - If neither of the above is true, the first container defined in the file will be accessible (exposed)
-          
-          
-  - name: Web Sockets
-    questions:
+
+          ## Web Sockets
+
+          Web Sockets are supported on Linux apps.
+
+          > [!IMPORTANT]
+          > Web Sockets are not currently supported for Linux apps on Free App Service Plans. We are working on removing this limitation and plan to support up to 5 web socket connections on Free App Service plans.
+
   - name: Pricing and SLA
     questions:
       - question: |
