@@ -178,4 +178,4 @@ sections:
       - question: |
           My question isn’t answered here. Where can I go for answers?
         answer: |
-          Go to the [Azure Data Catalog Q&A forum](/answers/topics/azure-data-catalog.html). Questions asked there will find their way here.
+          Go to the [Azure Data Catalog Q&A forum](/answers/topics/azure-data-catalog.html).
