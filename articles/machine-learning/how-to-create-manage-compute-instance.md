@@ -214,6 +214,8 @@ In a Resource Manager [template](https://github.com/Azure/azure-quickstart-templ
     }
 }
 ```
+*scriptData* above specifies the location of the creation script in the notebooks file share such as *Users/admin/testscript.sh*.
+*scriptArguments* is optional above and specifies the arguments for the creation script.
 
 You could instead provide the script inline for a Resource Manager template.  The shell command can refer to any dependencies uploaded into the notebooks file share.  When you use an inline string, the working directory for the script is */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users*.
 

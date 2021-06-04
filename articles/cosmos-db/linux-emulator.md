@@ -94,7 +94,7 @@ The emulator is using a self-signed certificate to secure the connectivity to it
 
 1. After the *emulatorcert.crt* is loaded into KeyChain, double-click on the **localhost** name and change the trust settings to **Always Trust**.
 
-1. You can now browse to `https://localhost:8081/_explorer/index.html` or `https://{your_local_ip}:8081/_explorer/index.html` and retrieve the connection string to of the emulator.
+1. You can now browse to `https://localhost:8081/_explorer/index.html` or `https://{your_local_ip}:8081/_explorer/index.html` and retrieve the connection string to the emulator.
 
 ## <a id="run-on-linux"></a>Run the Linux Emulator on Linux OS
 
@@ -187,6 +187,18 @@ This section provides tips to troubleshoot errors when using the Linux emulator.
 - Ensure that the emulator self-signed certificate has been properly imported into the expected location:
   - .NET: See the [certificates section](#run-on-linux)
   - Java: See the [Java Certificates Store section](#run-on-linux)
+
+#### My Node.js app is reporting a self-signed certificate error
+
+If you attempt to connect to the emulator via an address other than `localhost`, such as the containers IP address, Node.js will raise an error about the certificate being self-signed, even if the certificate has been installed.
+
+TLS verification can be disabled by setting the environment variable `NODE_TLS_REJECT_UNAUTHORIZED` to `0`:
+
+```bash
+NODE_TLS_REJECT_UNAUTHORIZED=0
+```
+
+This flag is only recommended for local development as it disables TLS for Node.js. More information can be found on in [Node.js documentation](https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value) and the [Cosmos DB Emulator Certificates documentation](local-emulator-export-ssl-certificates.md#how-to-use-the-certificate-in-nodejs).
 
 #### The Docker container failed to start
 

@@ -24,6 +24,14 @@ If Synapse Studio can't establish connection to serverless SQL pool, you'll noti
 1) Your network prevents communication to Azure Synapse backend. Most frequent case is that port 1443 is blocked. To get the serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool to work as well, [visit full troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md).
 2) You don't have permissions to log into serverless SQL pool. To gain access, one of the Azure Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [Visit full guide on access control for more information](../security/synapse-workspace-access-control-overview.md).
 
+### Query fails with error: Websocket connection was closed unexpectedly.
+
+If your query fails with the error message: 'Websocket connection was closed unexpectedly', it means that your browser connection to Synapse Studio was interrupted, for example because of a network issue. 
+
+To resolve this issue, rerun this query. If this message occurs often in your environment, advise help from your network administrator, check firewall settings, and [visit this troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md). 
+
+If the issue still continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal and try [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
+
 ## Query execution
 
 ### Query fails because file cannot be opened
@@ -32,9 +40,9 @@ If your query fails with the error 'File cannot be opened because it does not ex
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
-#### Alternative to Storage Blog Data Contributer 
+#### Alternative to Storage Blob Data Contributor role
 
-Instead of granting Storage Blob Data Contributer, you can also grant more granular permissions on a subset of files. 
+Instead of granting Storage Blob Data Contributor, you can also grant more granular permissions on a subset of files. 
 
 * All users that need access to some data in this container also needs to have the EXECUTE permission on all parent folders up to the root (the container). 
 Learn more about [how to set ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-explorer-acl.md). 
@@ -65,8 +73,6 @@ If you would like to query data2.csv in this example, the following permissions 
 > [!NOTE]
 > For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Synapse. 
 
-
-
 ### Query fails because it cannot be executed due to current resource constraints 
 
 If your query fails with the error message 'This query can't be executed due to current resource constraints', it means that serverless SQL pool isn't able to execute it at this moment due to resource constraints: 
@@ -76,36 +82,6 @@ If your query fails with the error message 'This query can't be executed due to 
 - If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
 - Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
-
-### CREATE STATEMENT is not supported in master database
-
-If your query fails with the error message:
-
-> 'Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' 
-
-it means that master database in serverless SQL pool does not support creation of:
-  - External tables
-  - External data sources
-  - Database scoped credentials
-  - External file formats
-
-Solution:
-
-  1. Create a user database:
-
-```sql
-CREATE DATABASE <DATABASE_NAME>
-```
-
-  2. Execute create statement in the context of <DATABASE_NAME>, which failed earlier for master database. 
-  
-  Example for creation of External file format:
-    
-```sql
-USE <DATABASE_NAME>
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
-WITH ( FORMAT_TYPE = PARQUET)
-```
 
 ### Query fails with error while handling an external file. 
 
@@ -178,14 +154,6 @@ FROM
 
     AS [result]
 ```
-
-### Query fails with error: Websocket connection was closed unexpectedly.
-
-If your query fails with the error message: 'Websocket connection was closed unexpectedly', it means that your browser connection to Synapse Studio was interrupted, for example because of a network issue. 
-
-To resolve this issue, rerun this query. If this message occurs often in your environment, advise help from your network administrator, check firewall settings, and [visit this troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md). 
-
-If the issue still continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal and try [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 
 ### Query fails with conversion error
 If your query fails with the error message 
@@ -450,6 +418,42 @@ CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
 
 > [!NOTE]
 > Replace 'password' with a different secret here. 
+
+### CREATE STATEMENT is not supported in master database
+
+If your query fails with the error message:
+
+> 'Failed to execute query. Error: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT is not supported in master database.' 
+
+it means that master database in serverless SQL pool does not support creation of:
+  - External tables
+  - External data sources
+  - Database scoped credentials
+  - External file formats
+
+Solution:
+
+  1. Create a user database:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Execute create statement in the context of <DATABASE_NAME>, which failed earlier for master database. 
+  
+  Example for creation of External file format:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
+
+### Operation [[operation name]] is not allowed for a replicated database.
+   
+If you are trying to create some SQL objects, users, or change permissions in a database, you might get the errors like 'Operation CREATE USER is not allowed for a replicated database'. This error is returned when you try to create some objects in a database that is [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read-only. You cannot create new objects into replicated database using T-SQL.
+
+Create a separate database and reference the synchronized [tables](../metadata/table.md) using 3-part names and cross-database queries.
 
 ## Delta Lake
 

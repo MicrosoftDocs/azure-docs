@@ -17,6 +17,8 @@ This connector lets you stream your Azure Key Vault diagnostics logs into Azure 
 
 Learn more about [monitoring Azure Key Vault](../azure-monitor/insights/key-vault-insights-overview.md) and about [Azure Key Vault diagnostics telemetry](../key-vault/general/logging.md).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Prerequisites
 
 To ingest Azure Key Vault logs into Azure Sentinel:

@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
-ms.date: 05/20/2021
+ms.date: 06/01/2021
 ms.topic: how-to
 ---
 
@@ -637,7 +637,7 @@ To configure the BIOS:
 
 1. Select your language.
 
-1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8GB RAM, 100GB STORAGE**.
+1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8 GB RAM, 100 GB STORAGE**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-select-screen.png" alt-text="Select the sensor version as shown.":::
 
@@ -853,11 +853,13 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 ### Add a secondary NIC
 
-You can enhance security to your on-premises management console by adding a secondary NIC. By adding a secondary NIC you will have one dedicated for your users, and the other will support the configuration of a gateway for routed networks. The second NIC is dedicated to all attached sensors within an IP address range.
+You can enhance security to your on-premises management console by adding a secondary NIC. This could be used for high availability. By adding a secondary NIC, you may also have one dedicated for your users while using the other to support the configuration of a gateway for routed networks. The second NIC is then dedicated to all attached sensors within an IP address range.
 
-Both NICs have the user interface (UI) enabled. When routing is not necessary, all of the features that are supported by the UI, will be available on the secondary NIC. High Availability will run on the secondary NIC.
+:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
 
-If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC. 
+Both NICs will support the user interface (UI). 
+
+If you choose not to deploy a secondary NIC, all of the above features will be available through the primary NIC. 
 
 If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
 
@@ -1231,7 +1233,7 @@ Post-installation validation must include the following tests:
 
   - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-### Checking system health by using the GUI
+### Check system health by using the GUI
 
 :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
@@ -1283,7 +1285,7 @@ To access the tool:
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
-### Checking system health by using the CLI
+### Check system health by using the CLI
 
 **Test 1: Sanity**
 

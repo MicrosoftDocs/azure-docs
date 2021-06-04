@@ -23,7 +23,7 @@ Follow these steps to run the sample code:
 1. On the **pipelineTopologySet** node, make sure you see the following value:
 
    ```
-   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main//pipelines/live/topologies/motion-detection/topology.json"
+   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
    ```
 
 1. On the `livePipelineSet` and `livePipelineDelete` nodes, ensure that the value of **topologyName** matches the value of the **name** property in the pipeline topology:
