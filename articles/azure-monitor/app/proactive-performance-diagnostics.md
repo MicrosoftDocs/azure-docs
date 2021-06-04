@@ -74,7 +74,7 @@ Emails about smart detection performance anomalies are limited to one email per 
 * *How often is the analysis done?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
-* *Do this replace [metric alerts](../alerts/alerts-log.md)?*
+* *Does this replace [metric alerts](../alerts/alerts-log.md)?*
   * No. We don't commit to detecting every behavior that you might consider abnormal.
 
 
@@ -121,14 +121,14 @@ The response time degradation notification tells you:
 * Count of this operation requests on the day of the detection and seven days before.
 * Correlation between degradation in this operation and degradations in related dependencies. 
 * Links to help you diagnose the problem.
-  * Profiler traces can help you view where operation time is spent. Tthe link is available if Profiler trace examples exist for this operation. 
+  * Profiler traces can help you view where operation time is spent. The link is available if Profiler trace examples exist for this operation. 
   * Performance reports in Metric Explorer, where you can slice and dice time range/filters for this operation.
   * Search for this call to view specific call properties.
   * Failure reports - If count > 1, it means that there were failures in this operation that might have contributed to performance degradation.
 
 ## Dependency Duration Degradation
 
-Modern applications often adopt a micro services design approach, which in many cases rely heavily on external services. For example, if your application relies on some data platform, or on a critical services provider such as cognitifce services.   
+Modern applications often adopt a micro services design approach, which in many cases rely heavily on external services. For example, if your application relies on some data platform, or on a critical services provider such as cognitive services.   
 
 Example of dependency degradation notification:
 
