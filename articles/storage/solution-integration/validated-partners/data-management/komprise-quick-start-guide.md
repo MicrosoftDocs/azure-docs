@@ -31,7 +31,7 @@ The following diagram provides a reference architecture for on-premises to Azure
 
 Komprise is a software solution that is easily deployed in a virtual environment. The solutions consist of:
 - **Director** - The administration console for the Komprise Grid. It is used to configure the environment, monitor activities, view reports and graphs, and set policies.
-- **Observers** - Manage and analyze shares, summarize reports, communicate with the Director and handle NFS data traffic.
+- **Observers** - Manage and analyze shares, summarize reports, communicate with the Director, and handle NFS data traffic.
 - **Proxies** - Simplify and accelerate SMB/CIFS data flow, easily scale to meet performance requirements of a growing environment.
 
 ## Before you begin
@@ -133,7 +133,7 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
    :::image type="content" source="./media/komprise-quick-start-guide/azure-access-key.png" alt-text="Shows access key settings in the portal.":::
 
-7. Navigate to the properties of the Azure File share and take the URL address, it will be required to add the Azure connection into the Komprise target file share:
+7. Navigate to the **Properties** of the Azure File share. Write down the URL address, it will be required to add the Azure connection into the Komprise target file share:
 
    :::image type="content" source="./media/komprise-quick-start-guide/azure-files-endpoint.png" alt-text="Find Azure files endpoint.":::
 
@@ -173,7 +173,7 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
   
         :::image type="content" source="./media/komprise-quick-start-guide/komprise-setup-3.png" alt-text="Specify NAS solutions to discover":::
 
-    This step must be repeated to add additional source and destination shares. To add Azure Files as a destination, you need to provide the Azure storage account and file share details:
+    This step must be repeated to add other source and destination shares. To add Azure Files as a destination, you need to provide the Azure storage account and file share details:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-azure-files-1.png" alt-text="Select Azure Files as a target service":::
 
@@ -190,17 +190,17 @@ To configure and run a migration, follow these steps:
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-new-migrate.png" alt-text="Add new migration job":::
 
-1. Add migration task by selecting desired source and destination share. Provide a migration name. Once configured, click on **Start Migration**. 
+1. Add migration task by selecting proper source and destination share. Provide a migration name. Once configured, click on **Start Migration**. 
    
    :::image type="content" source="./media/komprise-quick-start-guide/komprise-add-migration.png" alt-text="Specify details for the migration job":::
 
-   (_Optional_) Define if you want to preserve access time and SMB ACLs on the destination (this option depends on the selected source and destination file service and protocol).
+   (_Optional_) Define if you want to preserve access time and SMB ACLs on the destination. This option depends on the selected source and destination file service and protocol.
 
 2. Once the migration started, you can go to **Migrate** to monitor the progress.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-monitor-migrations.png" alt-text="Monitor all migration jobs":::
 
-3. Once all changes have been migrated, perform one final migration by clicking on **Actions** and selecting **Start final iteration**. Before final migration, we recommend either stopping access to source file shares or moving them to read-only mode (for users and applications) to make sure no changes happen that will not get migrated.
+3. Once all changes have been migrated, run one final migration by clicking on **Actions** and selecting **Start final iteration**. Before final migration, we recommend stopping access to source file shares or moving them to read-only mode (for users and applications). This step will make sure no changes happen on the source.
 
     :::image type="content" source="./media/komprise-quick-start-guide/komprise-final-migration.png" alt-text="Do one last migration before switching over":::
 
