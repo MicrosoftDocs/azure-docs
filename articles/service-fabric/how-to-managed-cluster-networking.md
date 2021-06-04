@@ -85,7 +85,7 @@ Use the [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedc
 
 ## RDP Ports
 
-Service Fabric managed clusters do not allow access to the RDP ports by default. You can open RDP ports to the internet by setting the following property on a Service Fabric managed cluster resource.
+Service Fabric managed clusters do not enable access to the RDP ports by default. You can open RDP ports to the internet by setting the following property on a Service Fabric managed cluster resource.
 
 ```json
 "allowRDPAccess": true 
@@ -115,13 +115,13 @@ When the allowRDPAccess property is set to true, the following NSG rule will be 
 Service Fabric managed clusters automatically creates inbound NAT rules for each instance in a node type. 
 To find the port mappings to reach specific instances (cluster nodes) follow the steps below:
 
-Locate the managed cluster created inbound NAT rules for Remote Desktop Protocol (RDP).
+Using Azure Portal, locate the managed cluster created inbound NAT rules for Remote Desktop Protocol (RDP).
 
 1. Navigate to the managed cluster resource group within your subscription named with the following format: SFC_{cluster-id}
 
 2. Select the load balancer for the cluster with the following format: LB-{cluster-name}
 
-3. On the page for your load balancer in Azure portal, select Inbound NAT rules:
+3. On the page for your load balancer, select Inbound NAT rules:
 
 Review the inbound NAT rules to confirm the inbound Frontend port to target port mapping for a node. The following screenshot shows the inbound NAT rules for three different node types:
 
@@ -168,7 +168,7 @@ A default NSG rule is added to allow the Service Fabric resource provider to acc
 
 ### NSG rule: SFMC_AllowServiceFabricGatewayPorts
 
-This is an optional NSG rule to allow access to the clientConnectionPort, and httpGatewayPort from the internet. This rule allows customers to access SFX, connect to the cluster using PowerShell, and use Service Fabric cluster API endpoints from outside of the. 
+This optional rule enables customers to access SFX, connect to the cluster using PowerShell, and use Service Fabric cluster API endpoints from the internet by opening LB ports for clientConnectionPort and httpGatewayPort.
 
 >[!NOTE]
 >This rule will not be added if there is a custom rule with the same access, direction, and protocol values for the same port. You can override this rule with custom NSG rules. 
@@ -197,7 +197,7 @@ This is an optional NSG rule to allow access to the clientConnectionPort, and ht
 
 ## Load balancer ports
 
-Service Fabric managed clusters create an NSG rule in default priority range for all the load balancer (LB) ports configured under "loadBalancingRules" section under *ManagedCluster* properties. This rule opens LB ports for inbound traffic from the internet.  
+Service Fabric managed clusters creates an NSG rule in default priority range for all the load balancer (LB) ports configured under "loadBalancingRules" section under *ManagedCluster* properties. This rule opens LB ports for inbound traffic from the internet.  
 
 >[!NOTE]
 >This rule is added in the optional priority range and can be overridden by adding custom NSG rules.
