@@ -25,7 +25,7 @@ zone_pivot_groups: b2c-policy-type
 ::: zone pivot="b2c-custom-policy"
 
 > [!IMPORTANT]
-> Starting May 2021, GitHub has announced a change that impacts your Azure AD B2C custom policy federation. Due to the change, add `<Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>` metadata to your GitHub technical profile. For more information, see [Deprecating API authentication through query parameters](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/).
+> Starting May 2021, GitHub announced a change that impacts your Azure AD B2C custom policy federation. Due to the change, add `<Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>` metadata to your GitHub technical profile. For more information, see [Deprecating API authentication through query parameters](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/).
 
 ::: zone-end
 
