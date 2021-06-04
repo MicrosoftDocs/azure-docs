@@ -44,11 +44,7 @@ Azure Virtual Desktop supports [hybrid identities](../active-directory/hybrid/wh
 
 ## Single sign-on (SSO)
 
-<<<<<<< HEAD
-Azure Virtual Desktop currently doesn't support Active Directory Federation Services (ADFS) for SSO.
-=======
-Windows Virtual Desktop supports [SSO using Active Directory Federation Services (ADFS)](configure-adfs-sso.md) for the Windows and web clients.
->>>>>>> 629bb322f3dd5e26a7b6174f9ac03fb38f22f994
+Azure Virtual Desktop supports [SSO using Active Directory Federation Services (ADFS)](configure-adfs-sso.md) for the Windows and web clients.
 
 Otherwise, the only way to avoid being prompted for your credentials for the session host is to save them in the client. We recommend you only do this with secure devices to prevent other users from accessing your resources.
 
