@@ -27,6 +27,8 @@
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Concepts
   items:
+  - name: Understand and manage costs and billing
+    href: azure-sentinel-billing.md
   - name: Classify data using entities
     href: entities-in-azure-sentinel.md
   - name: Manage access
