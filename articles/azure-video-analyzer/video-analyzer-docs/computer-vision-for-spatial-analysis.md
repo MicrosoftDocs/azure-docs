@@ -290,7 +290,7 @@ In operations.json:
   {
       "opName": "pipelineTopologySet",
       "opParams": {
-          "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
+          "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
       }
   },
   ```
@@ -376,7 +376,7 @@ In operations.json:
       ],
   ```
 
-Run a debug session and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
+Run a debug session by selecting F5 and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
 
 ## Interpret results
 
@@ -720,12 +720,26 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 </details>
 
-## Video Player
+## Playing back the recording
 
-You can use a video player to view the generated video including the inferences (bounding boxes) as shown below:
+You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="Bounding boxes":::
+1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
+1. Select **Videos** in the **Video Analyzers** list.
+1. You'll find a video listed with the name `personcount`. This is the name chosen in your pipeline topology file.
+1. Select the video.
+1. On the video details page, click the **Play** icon
+
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Screenshot of video playback":::
+   
+1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Bounding box icon":::
+
+> [!NOTE]
+> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
 
 ## Troubleshooting
 
