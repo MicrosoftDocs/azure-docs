@@ -190,7 +190,7 @@ Two separate F5 deployment templates cover two different architectures. The firs
 For the F5 documentation and deployment script, see [this GitHub link](https://github.com/f5devcentral/f5-azure-saca).
 
 
-### Citrix SACA deployment
+### Citrix deployment
 
 A Citrix deployment template deploys two layers of highly available Citrix ADC appliances. This architecture meets the requirements of VDSS. 
 
